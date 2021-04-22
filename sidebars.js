@@ -13,6 +13,15 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Integrations',
+      items: [
+        'integrations/sdk',
+        'integrations/subgraph',
+        'integrations/current-integrations',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Contracts',
       items: [
         'contracts/lido',
