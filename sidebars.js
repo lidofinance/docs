@@ -26,6 +26,8 @@ module.exports = {
       items: [
         'contracts/lido',
         'contracts/lido-oracle',
+        'contracts/stable-swap-state-oracle',
+        'contracts/steth-price-feed',
         'contracts/node-operators-registry',
         'contracts/csteth',
       ],

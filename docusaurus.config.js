@@ -10,6 +10,9 @@ module.exports = {
   organizationName: 'lidofinance', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
+    prism: {
+      additionalLanguages: ['solidity'],
+    },
     navbar: {
       title: 'Lido Docs',
       logo: {
