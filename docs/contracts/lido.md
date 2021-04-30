@@ -19,15 +19,15 @@ Balance of account calculated next way:
 balanceOf(account) = shares[account] * totalPooledEther / totalShares
 ```
 
-- `shares` - map of user account balances
+- `shares` - map of user account shares. Every time user deposit ether, it converted to shares and added to current user shares.
+
+- `totalShares` sum of shares of all account in `shares` map
 
 - `totalPooledEther` is a sum of three types of ether owned by protocol:
 
-  - bufferedBalance - deposit which stored on contract and not deposited to official Deposit contract
-  - beaconBalance - total amount of ether on validator accounts
-  - transientBalance - submitted to the official Deposit contract but not yet visible in the beacon state.
-
-- `totalShares` sum of all shares in `shares` map
+  - buffered balance - ether stored on contract and haven't deposited to official Deposit contract yet.
+  - transient balance - ether submitted to the official Deposit contract but not yet visible in the beacon state.
+  - beacon balance - total amount of ether on validator accounts. This value reported by oracles and makes strongest impact to stETH total supply change.
 
 For example, assume that we have:
 
@@ -45,13 +45,16 @@ balanceOf(Alice) -> 2 tokens which corresponds 2 ETH
 balanceOf(Bob) -> 8 tokens which corresponds 8 ETH
 ```
 
-## Oracles Reporting
+## Beacon Stats Reporting
 
-Report happens once at a frame. Frame duration can be set by DAO, current value is 24 hours.
-To push report to Lido contract Oracle demands quorum (necessary amount of reports with equal stats from oracle demons wasn't collected) to be reached.
+One of the most important parts of protocol, it's precise and steady reported data about current balances of validators. Such reports happen once at defined period of time, called frame. Frame duration set by DAO, current value is 24 hours.
+
+To update stats on main Lido contract oracle demands quorum to be reached.
+Quorum - is a necessary amount of reports with equal stats from offchain oracle daemons run by protocol participants.
+Quorum size and members controlled by DAO.
 If quorum wasn't reached next report can happen only at the first epoch of next frame (after 24 hours).
 
-Report consists of count of validators participated in protocol - beacon validators and total amount of ether on validator accounts - beacon balance. Typically beacon balance growth from report to report, but in exceptional cases it also can go down, because of slashing.
+Report consists of count of validators participated in protocol - beacon validators and total amount of ether on validator accounts - beacon balance. Typically beacon balance growth from report to report, but in exceptional cases it also can drops, because of slashing.
 
-- When beacon balance grown between reports, protocol register profit and distribute reward between stETH holders, node operators, insurance fund and treasury.
+- When beacon balance grown between reports, protocol register profit and distribute reward of fresh minting stETH tokens between stETH holders, node operators, insurance fund and treasury. Fee distribution for node operators, insurance fund and treasury can be set by DAO.
 - When frame was ended with slashing and new beacon balance less than previous one total supply of stETH becomes less than in previous report and no rewards distributed.
