@@ -46,39 +46,41 @@ Price feed can give incorrect data in, as far as we can tell, three situations:
 
 ### safe_price()
 
+Returns the cached safe price and its timestamp.
+
 ```
 safe_price() -> (price: uint256, timestamp: uint256)
 ```
 
-Returns the cached safe price and its timestamp.
-
 ### current_price()
+
+Returns the current pool price and whether the price is safe.
 
 ```
 current_price() -> (price: uint256, is_safe: bool)
 ```
 
-Returns the current pool price and whether the price is safe.
-
 ## Methods
 
 ### update_safe_price()
+
+Sets the cached safe price to the `max(current pool price, 1)` given that the latter is safe.
 
 ```
 update_safe_price() -> uint256
 ```
 
-Sets the cached safe price to the `max(current pool price, 1)` given that the latter is safe.
-
 ### fetch_safe_price()
+
+Returns the cached safe price and its timestamp. Calls `update_safe_price()` prior to that if
+the cached safe price is older than `max_age` seconds.
 
 ```
 fetch_safe_price(max_age: uint256) -> (price: uint256, timestamp: uint256)
 ```
 
-Returns the cached safe price and its timestamp. Calls `update_safe_price()` prior to that if
-the cached safe price is older than `max_age` seconds.
+#### Parameters:
 
-| ParameterName | Type      | Description                                                       |
-| ------------- | --------- | ----------------------------------------------------------------- |
-| `max_age`     | `uint256` | Amount of seconds last value of safe price considered to be valid |
+| Name      | Type      | Description                                                       |
+| --------- | --------- | ----------------------------------------------------------------- |
+| `max_age` | `uint256` | Amount of seconds last value of safe price considered to be valid |
