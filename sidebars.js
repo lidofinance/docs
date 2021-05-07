@@ -30,6 +30,7 @@ module.exports = {
         'contracts/steth-price-feed',
         'contracts/node-operators-registry',
         'contracts/csteth',
+        'contracts/wsteth',
       ],
     },
     'deployed-contracts',
