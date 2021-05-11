@@ -14,11 +14,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Integrations',
-      items: [
-        'integrations/sdk',
-        'integrations/subgraph',
-        'integrations/current-integrations',
-      ],
+      items: ['integrations/sdk', 'integrations/subgraph'],
     },
     {
       type: 'category',
