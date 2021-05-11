@@ -8,3 +8,7 @@ The Lido DAO is an [Aragon organization](https://aragon.org/dao). Since Aragon p
 
 - [Lido DAO Mainnet](https://mainnet.lido.fi/#/lido-dao/)
 - [Lido DAO Prater Testnet](https://testnet.lido.fi/#/lido-testnet-prater/)
+
+## LDO Token
+
+LDO is a [MiniMeToken](https://github.com/Giveth/minime) granting governance rights in the Lido DAO. By holding the LDO token, one is granted voting rights within the Lido DAO. The more LDO locked in a user’s voting contract, the greater the decision-making power the voter gets.
