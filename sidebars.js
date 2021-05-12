@@ -25,7 +25,6 @@ module.exports = {
         'contracts/stable-swap-state-oracle',
         'contracts/steth-price-feed',
         'contracts/node-operators-registry',
-        'contracts/csteth',
         'contracts/wsteth',
       ],
     },
