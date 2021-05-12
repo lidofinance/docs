@@ -9,6 +9,7 @@ module.exports = {
         'guides/node-operator-manual',
         'guides/oracle-operator-manual',
         'guides/multisig-deployment',
+        'guides/protocol-levers',
       ],
     },
     {
