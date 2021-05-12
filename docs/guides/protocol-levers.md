@@ -11,9 +11,9 @@ All existing levers are listed below, grouped by the contract.
 
 The following contracts are upgradeable by the DAO voting:
 
-- [`contracts/0.4.24/Lido.sol`](/contracts/lido)
-- [`contracts/0.4.24/NodeOperatorsRegistry.sol`](/contracts/node-operators-registry)
-- [`contracts/0.4.24/LidoOracle.sol`](/contracts/lido-oracle)
+- [`Lido`](/contracts/lido)
+- [`NodeOperatorsRegistry`](/contracts/node-operators-registry)
+- [`LidoOracle`](/contracts/lido-oracle)
 
 Upgradeability is implemented by the Aragon kernel and base contracts. To upgrade an app, one needs
 the `dao.APP_MANAGER_ROLE` permission provided by Aragon. All upgradeable contracts use the
@@ -21,11 +21,7 @@ the `dao.APP_MANAGER_ROLE` permission provided by Aragon. All upgradeable contra
 
 [unstructured storage pattern]: https://blog.openzeppelin.com/upgradeability-using-unstructured-storage
 
-The following contracts are not upgradeable and don't depend on the Aragon code:
-
-- [`contracts/0.6.12/WstETH.sol`](/contracts/wsteth)
-
-## [Lido.sol](/contracts/lido)
+## [Lido](/contracts/lido)
 
 ### Burning stETH tokens
 
@@ -121,7 +117,7 @@ allowances) are allowed. The following transactions revert:
 - Insurance fund (`getInsuranceFund() returns (address)`; mutator?)
 - Transfer to vault (`transferToVault()`)
 
-## [NodeOperatorsRegistry.sol](/contracts/node-operators-registry)
+## [NodeOperatorsRegistry](/contracts/node-operators-registry)
 
 ### Node Operators list
 
@@ -168,7 +164,7 @@ Allow to manage signing keys for the given node operator.
 
 Allows to report that `_stoppedIncrement` more validators of a node operator have become stopped.
 
-## [LidoOracle.sol](/contracts/lido-oracle)
+## [LidoOracle](/contracts/lido-oracle)
 
 ### Lido
 
