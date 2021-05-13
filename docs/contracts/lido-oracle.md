@@ -13,7 +13,6 @@ number of the same reports reaches the ['quorum'](#getquorum) value, the report 
 
 The following mechanisms are also worth mentioning.
 
-
 ## Store the collected reports as an array
 
 The report variant is a report with a counter - how many times this report was pushed by
@@ -27,17 +26,16 @@ mapping between members and their reports, we just clean all existing reports an
 remaining oracles to push the same epoch again.
 :::
 
-
 ## Add calculation of staker rewards [APR][1]
 
 To calculate the percentage of rewards for stakers, we store and provide the following data:
 
-* `preTotalPooledEther` - total pooled ether mount, queried right before every report push to the
+- `preTotalPooledEther` - total pooled ether mount, queried right before every report push to the
   [Lido contract][6],
-* `postTotalPooledEther` - the same, but queried right after the push,
-* `lastCompletedEpochId` - the last epoch that we pushed the report to the Lido,
-* `timeElapsed` - the time in seconds between the current epoch of push and the
-  `lastCompletedEpochId`. Usually, it should be a frame long: 32 * 12 * 225 = 86400, but maybe
+- `postTotalPooledEther` - the same, but queried right after the push,
+- `lastCompletedEpochId` - the last epoch that we pushed the report to the Lido,
+- `timeElapsed` - the time in seconds between the current epoch of push and the
+  `lastCompletedEpochId`. Usually, it should be a frame long: 32 _ 12 _ 225 = 86400, but maybe
   multiples more in case that the previous frame didn't reach the quorum.
 
 :::note
@@ -48,7 +46,6 @@ the influence of new staking during the epoch.
 To calculate the APR, use the following formula:
 
     APR = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
-
 
 ## Sanity checks the oracles reports by configurable values
 
@@ -64,18 +61,17 @@ on the individual report.
 And the logic of reporting to the [Lido contract][6] got a call to `_reportSanityChecks` that does
 the following. It compares the `preTotalPooledEther` and `postTotalPooledEther` (see above) and
 
-* if there is a profit or same, calculates the [APR][1], compares it with the upper bound. If was
+- if there is a profit or same, calculates the [APR][1], compares it with the upper bound. If was
   above, reverts the transaction with `ALLOWED_BEACON_BALANCE_INCREASE` code.
-* if there is a loss, calculates relative decrease and compares it with the lower bound. If was
+- if there is a loss, calculates relative decrease and compares it with the lower bound. If was
   below, reverts the transaction with `ALLOWED_BEACON_BALANCE_DECREASE` code.
-
 
 ## Receiver function to be invoked on report pushes
 
 To provide the external contract with updates on report pushes (every time the quorum is reached
 among oracle daemons data), we provide the following setter and getter functions. It might be
 needed to implement some updates to the external contracts that should happen at the same tx the
-[rebase](/docs/contracts/lido#rebasing) happens (e.g. adjusting uniswap v2 pools to reflect the
+[rebase](/contracts/lido#rebasing) happens (e.g. adjusting uniswap v2 pools to reflect the
 rebase).
 
 And when the callback is set, the following function will be invoked on every report push.
@@ -87,7 +83,6 @@ And when the callback is set, the following function will be invoked on every re
     }
 
 The arguments provided are the same as described in section [above][3].
-
 
 ## View Methods
 
@@ -243,7 +238,6 @@ function getLastCompletedReportDelta()
     )
 ```
 
-
 ## Methods
 
 ### setAllowedBeaconBalanceAnnualRelativeIncrease()
@@ -318,7 +312,7 @@ function addOracleMember(address _member) auth(MANAGE_MEMBERS)
 
 ### removeOracleMember()
 
-Remove '_member` from the oracle member committee list.
+Remove '\_member` from the oracle member committee list.
 
 ```sol
 function removeOracleMember(address _member) auth(MANAGE_MEMBERS)
@@ -336,18 +330,17 @@ function setQuorum(uint256 _quorum) auth(MANAGE_QUORUM)
 
 Accept oracle committee member reports from the ETH 2.0 side. Parameters:
 
-* `_epochId` - beacon chain epoch
-* `_beaconBalance` - balance in gwei on the ETH 2.0 side (9-digit denomination)
-* `_beaconValidators` - number of validators visible in this epoch
+- `_epochId` - beacon chain epoch
+- `_beaconBalance` - balance in gwei on the ETH 2.0 side (9-digit denomination)
+- `_beaconValidators` - number of validators visible in this epoch
 
 ```sol
 function reportBeacon(uint256 _epochId, uint64 _beaconBalance, uint32 _beaconValidators)
 ```
-
 
 [1]: https://en.wikipedia.org/wiki/Annual_percentage_rate
 [2]: #store-the-collected-reports-as-an-array
 [3]: #add-calculation-of-staker-rewards-apr
 [4]: #sanity-checks-the-oracles-reports-by-configurable-values
 [5]: #receiver-function-to-be-invoked-on-report-pushes
-[6]: /docs/contracts/lido
+[6]: /contracts/lido
