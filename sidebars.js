@@ -29,6 +29,13 @@ module.exports = {
         'contracts/wsteth',
       ],
     },
+    {
+      type: 'category',
+      label: 'Security',
+      items: [
+        'security/bugbounty',
+      ],
+    },
     'deployed-contracts',
   ],
 }
