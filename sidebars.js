@@ -19,6 +19,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Token guides',
+      items: ['token-guides/steth-superuser-functions'],
+    },
+    {
+      type: 'category',
       label: 'Contracts',
       items: [
         'contracts/lido',
