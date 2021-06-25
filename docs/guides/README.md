@@ -2,9 +2,6 @@
 
 [![Supported by LEGO](https://img.shields.io/badge/Supported%20by-LEGO-%2300A3FF)](https://www.notion.so/LEGO-Lido-Ecosystem-Grants-Organisation-d7f0bf0182d44348b6173639d2e8363d)  
 
-#### Navigation 
-
-
 
 ### What stETH is
 
@@ -14,7 +11,7 @@ When a user sends ether into the Lido liquid staking smart contract, the user re
 
 #
 
-![stETH infrastructure](./02.png)
+<img width="1125" src="https://github.com/OffcierCia/stETH-wstETH-Integration-paper/blob/main/01.png?raw=true" />
 
 
 Lido makes the stETH token balance track a balance of corresponding balance of beacon chain ether. A user’s balance of stETH tokens corresponds 1 to 1 to an amount of ether a user could receive if withdrawals were enabled and instant.
@@ -23,7 +20,7 @@ The DAO selects node operators, which also validate transactions on the beacon c
 
 #
 
-![stETH infrastructure](./01.png)
+<img width="1125" src="https://github.com/OffcierCia/stETH-wstETH-Integration-paper/blob/main/02.png?raw=true" />
 
 
 # Use cases in DeFi
@@ -34,8 +31,9 @@ The DAO selects node operators, which also validate transactions on the beacon c
 Liquidity pools are collections of liquidity which consist of tokens which can be seamlessly exchanged with one another through the use of AMMs (automated market makers). Popular examples of platforms that use liquidity pool AMMs are Uniswap, Curve, and SushiSwap.
  
 stETH can be pooled together with vanilla ETH in a liquidity pool. This in turn allows users to indirectly unstake their ETH and receive their initial ETH deposit back via pool swaps, bypassing the time required to wait for transactions on Eth2 to be enabled if a user decides that they would like to unstake.
+
+<img width="1125" src="https://github.com/OffcierCia/stETH-wstETH-Integration-paper/blob/main/03.png?raw=true" />
  
-![stETH ETH pool on Curve Finance](./03.png)
  
 Due to stETH’s relationship with vanilla ETH (users will be able to redeem an equivalent amount of ETH for stETH once transactions are enabled), we hope this will result in less impermanent loss for liquidity providers compared to other conventional liquidity pools - allowing for liquidity providers to gain trading fees without engaging in too much risk - as well as to help hold the peg between the two assets.
  
@@ -81,8 +79,7 @@ Aggregators can use stETH in their yield farming strategies as an additional yie
  
 These strategies can utilize a variety of other protocols/initiatives to generate this high yield, such as: farming through liquidity mining incentives, earning yield through lending protocols (as discussed prior), earning yield through native protocol staking, and so on.
 
-![stETH on Harvest Finance](./04.png)
-
+<img width="1125" src="https://github.com/OffcierCia/stETH-wstETH-Integration-paper/blob/main/04.png?raw=true" />
 
 An example of an existing strategy is the st. Ether-ETH pool, which uses the liquidity mining rewards earned from providing liquidity in the Curve stETH-ETH pool to automatically compound into stETH/ETH which is used to stake back into the pool.
  
