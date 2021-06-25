@@ -362,6 +362,3 @@ The token contract inherits from the OpenZeppelin's `ERC20Permit`.
 
 wstETH implements [EIP-2612 Permit](https://eips.ethereum.org/EIPS/eip-2612) standard for `secp256k1`-signed approvals.
 
-#
-
-See resources and more info in License. 
