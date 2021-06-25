@@ -16,8 +16,6 @@ When a user sends ether into the Lido liquid staking smart contract, the user re
 
 Lido makes the stETH token balance track a balance of corresponding balance of beacon chain ether. A user’s balance of stETH tokens corresponds 1 to 1 to an amount of ether a user could receive if withdrawals were enabled and instant.
 
-The DAO selects node operators, which also validate transactions on the beacon chain and adds their addresses to the `NodeOperatorsRegistry` contract. Authorized node operators have to generate a set of keys for the validation and also provide them with the smart contract. As ether is received from users, it is distributed in chunks of 32 Ether between all active node operators. The staking pool contract contains a list of node operators, their keys, and the logic for distributing rewards between them.
-
 #
 
 <img width="1125" src="https://github.com/OffcierCia/stETH-wstETH-Integration-paper/blob/main/02.png?raw=true" />
@@ -363,33 +361,6 @@ The token contract inherits from the OpenZeppelin's `ERC20Permit`.
 ## Other
 
 wstETH implements [EIP-2612 Permit](https://eips.ethereum.org/EIPS/eip-2612) standard for `secp256k1`-signed approvals.
-
-
-## Contracts Description Table
-
-
-|  Contract  |         Type        |       Bases      |                  |                 |
-|:----------:|:-------------------:|:----------------:|:----------------:|:---------------:|
-|     └      |  **Function Name**  |  **Visibility**  |  **Mutability**  |  **Modifiers**  |
-||||||
-| **WstETH** | Implementation | ERC20Permit |||
-| └ | <Constructor> | Public ❗️ | 🛑  | ERC20Permit ERC20 |
-| └ | wrap | External ❗️ | 🛑  |NO❗️ |
-| └ | unwrap | External ❗️ | 🛑  |NO❗️ |
-| └ | <Receive Ether> | External ❗️ |  💵 |NO❗️ |
-| └ | getWstETHByStETH | External ❗️ |   |NO❗️ |
-| └ | getStETHByWstETH | External ❗️ |   |NO❗️ |
-| └ | stEthPerToken | External ❗️ |   |NO❗️ |
-| └ | tokensPerStEth | External ❗️ |   |NO❗️ |
-
-
-## Legend
-
-
-|  Symbol  |  Meaning  |
-|:--------:|-----------|
-|    🛑    | Function can modify state |
-|    💵    | Function is payable |
 
 #
 
