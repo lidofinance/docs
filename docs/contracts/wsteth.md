@@ -49,7 +49,7 @@ function getStETHByWstETH(uint256 _wstETHAmount) returns (uint256)
 
 ### stEthPerToken()
 
-Returns amount of wstETH for a one stETH
+Returns the amount of stETH tokens corresponding to one wstETH
 
 ```sol
 function stEthPerToken() returns (uint256)
@@ -57,7 +57,7 @@ function stEthPerToken() returns (uint256)
 
 ### tokensPerStEth()
 
-Returns amount of stETH for a one wstETH
+Returns the amount of wstETH tokens corresponding to one stETH
 
 ```sol
 function tokensPerStEth() returns (uint256)
