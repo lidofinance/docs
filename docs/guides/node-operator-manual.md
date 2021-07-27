@@ -344,8 +344,6 @@ This operation checks every Lido key for validity and thus is very CPU-intensive
 
 You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura).
 
-If the new keys are present and valid, Node Operators can vote for increasing the key limit for the Node Operator.
-
 #### Lido Node Operator Dashboard
 
 You can also check the uploaded keys on [Mainnet Lido Node Operator Dashboard] or [Testnet Lido Node Operator Dashboard].
@@ -357,4 +355,12 @@ It is updated every 30 minutes via cron, but update period may change in the fut
 [mainnet lido node operator dashboard]: https://stake.lido.fi/key-checker/existing
 [testnet lido node operator dashboard]: https://stake.testnet.lido.fi/key-checker/existing
 
+#### Results
+
+##### You don't see invalid keys
+
 If the new keys are present and valid, Node Operators can vote for increasing the key limit for the Node Operator.
+
+##### You spot invalid keys
+
+It is urgent to notify Lido team and other Node Operators as soon as possible. For example, in the group chat.
