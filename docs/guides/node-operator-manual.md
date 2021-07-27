@@ -228,7 +228,7 @@ Etherscan pages for the Mainnet contracts:
 
 Lido has specialised key submitters: [Mainnet web interface for submitting the keys] and a [Testnet web interface for submitting the keys].
 
-It will require that all keys are validated first - click the check button. Please be patient as validation can take a long time. Also, please don't update the page - UI has a built-in request failure retries integrated and will display an error if all request fail.
+It will require that all keys are validated first - click the check button. Please be patient as validation can take a long time. Also, please don't update the page manually - UI will automatically repeat failing requests and will show an error if retries fail.
 
 This tool will automatically split the keys into chunks and submit the transactions to Metamask for approval.
 
