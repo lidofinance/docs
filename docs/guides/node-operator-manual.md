@@ -228,7 +228,7 @@ Etherscan pages for the Mainnet contracts:
 
 Lido has specialised key submitters: [Mainnet web interface for submitting the keys] and a [Testnet web interface for submitting the keys].
 
-It will require that all keys are validated first - click the check button. Please be patient as validation can take a long time. Also, please don't update the page manually - UI will automatically repeat failing requests and will show an error if retries fail.
+It will require that all keys are validated first - click the check button. Please be patient - we aim to process 1k keys under a minute, but several users can be checking keys simultaneously, so the process can take longer. Also, please don't update the page manually - UI will automatically repeat failing requests and will show an error if retries fail.
 
 This tool will automatically split the keys into chunks and submit the transactions to Metamask for approval.
 
@@ -340,7 +340,7 @@ pip install lido-cli
 lido-cli --rpc http://1.2.3.4:8545 validate_network_keys
 ```
 
-This operation checks every Lido key for validity and thus is very CPU-intensive and takes a long time to process the keys.
+This operation checks all Lido keys for validity. This is a CPU-intensive process, for example, a modern desktop with 6 cores, 12 threads and great cooling processes 1k keys in ~1 minute.
 
 You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura).
 
