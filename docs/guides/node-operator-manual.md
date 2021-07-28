@@ -329,7 +329,9 @@ docker run --rm -it \
 
 ### Checking the keys of all Lido Node Operators
 
-After keys are submitted, it's encouraged to wait for the transactions to be mined and to check how they appear on the chain.
+After keys are submitted, it's critical to first wait for the key submission transactions to be mined and after that check all Lido keys for validity.
+
+Never vote for increasing the key limits of Node Operators before verifying new keys are present and valid.
 
 #### Lido CLI
 
