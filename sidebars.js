@@ -31,6 +31,7 @@ module.exports = {
         'contracts/stable-swap-state-oracle',
         'contracts/steth-price-feed',
         'contracts/node-operators-registry',
+        'contracts/withdrawals-manager-stub',
         'contracts/wsteth',
       ],
     },
