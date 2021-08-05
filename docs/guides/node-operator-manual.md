@@ -269,51 +269,6 @@ Click `Check` button, and then the interface would run required checks connect t
 [mainnet web interface for submitting the keys]: https://operators.lido.fi/submit
 [testnet web interface for submitting the keys]: https://operators.testnet.lido.fi/submit
 
-#### Using the Aragon UI
-
-WARNING: At this moment please use other methods. Aragon UI submitting is being adjusted.
-
-Alternatively, you can use the Node Operators Registry app UI for submitting the keys.
-
-Mainnet: https://mainnet.lido.fi/#/lido-dao/
-Testnet: https://testnet.lido.fi/#/lido-testnet-prater/0x9d4af1ee19dad8857db3a45b0374c81c8a1c6320/
-
-Make sure you’re using a browser that exposes a Web3 provider allowing to sign transactions on
-behalf of the Node Operator’s reward address. Press the Connect account button in the top-right and
-allow the access to the account associated with the reward address. Then, find yourself in the
-list of Node Operators — the corresponding item will be suffixed by `(you)`:
-
-<img width="1124" alt="add-signing-keys-1" src="https://user-images.githubusercontent.com/1699593/100355848-7f143d00-3003-11eb-9d63-94630e059eb8.png" />
-
-Then, press the `...` button on the right of the item and select `add my signing keys`:
-
-<img width="1123" alt="add-signing-keys-2" src="https://user-images.githubusercontent.com/1699593/100355837-7d4a7980-3003-11eb-84ae-02a71f9ed2ec.png" />
-
-If you’ve used the forked `eth2.0-deposit-cli`, you can paste the content of the generated
-`deposit-data-*.json` file as-is.
-
-Else, prepare a JSON data of the following structure and paste it to the `JSON` field in the side panel
-that will appear on the right:
-
-```json
-[
-  {
-    "pubkey": "PUBLIC_KEY_1",
-    "signature": "SIGNATURE_1"
-  },
-  {
-    "pubkey": "PUBLIC_KEY_2",
-    "signature": "SIGNATURE_2"
-  }
-]
-```
-
-Then, press `Add signing keys` and sign the transaction. Wait for it to be included in a block,
-refresh the page and make sure that the number in the `Total` field corresponds to the number
-of the keys you’ve just submitted:
-
-<img width="1125" alt="add-signing-keys-3" src="https://user-images.githubusercontent.com/1699593/100355828-7ae81f80-3003-11eb-9d04-d29ae57c0904.png" />
-
 ### Importing the keys to a Lighthouse validator client
 
 If you’ve used the forked `eth2.0-deposit-cli` to generate the keys, you can import them to a
