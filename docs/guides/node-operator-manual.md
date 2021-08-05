@@ -240,23 +240,29 @@ After keys are approved in Metamask, never submit more keys unless previous tran
 
 <img width="1280" alt="image" src="https://user-images.githubusercontent.com/4445523/113226738-8b522480-9299-11eb-84eb-186bb6f198dc.png" />
 
-Prepare a JSON data of the following structure and paste it to the textarea that will appear in the center of the screen:
+If you’ve used the forked `eth2.0-deposit-cli`, you can paste the content of the generated
+`deposit-data-*.json` file as-is.
+
+Else, prepare a JSON data of the following structure and paste it to the textarea that will appear in the center of the screen:
 
 ```json
 [
   {
     "pubkey": "PUBLIC_KEY_1",
-    "signature": "SIGNATURE_1"
+    "withdrawal_credentials": "WITHDRAWAL_CREDENTIALS_1",
+    "signature": "SIGNATURE_1",
+    "fork_version": "FORK_VERSION_1",
+    "eth2_network_name": "ETH2_NETWORK_NAME_1"
   },
   {
     "pubkey": "PUBLIC_KEY_2",
-    "signature": "SIGNATURE_2"
+    "withdrawal_credentials": "WITHDRAWAL_CREDENTIALS_2",
+    "signature": "SIGNATURE_2",
+    "fork_version": "FORK_VERSION_2",
+    "eth2_network_name": "ETH2_NETWORK_NAME_2"
   }
 ]
 ```
-
-If you’ve used the forked `eth2.0-deposit-cli`, you can paste the content of the generated
-`deposit-data-*.json` file as-is.
 
 Click `Check` button, and then the interface would run required checks connect the MetaMask and click `Submit` button.
 
@@ -289,17 +295,16 @@ If you’ve used the forked `eth2.0-deposit-cli`, you can paste the content of t
 Else, prepare a JSON data of the following structure and paste it to the `JSON` field in the side panel
 that will appear on the right:
 
-```js
-;[
+```json
+[
   {
-    pubkey: 'PUBLIC_KEY_1',
-    signature: 'SIGNATURE_1',
+    "pubkey": "PUBLIC_KEY_1",
+    "signature": "SIGNATURE_1"
   },
   {
-    pubkey: 'PUBLIC_KEY_2',
-    signature: 'SIGNATURE_2',
-  },
-  // ... etc.
+    "pubkey": "PUBLIC_KEY_2",
+    "signature": "SIGNATURE_2"
+  }
 ]
 ```
 
