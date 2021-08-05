@@ -107,7 +107,7 @@ chain the instance of Lido protocol is targeted to.
 
 #### Mainnet
 
-Make sure to obtain a correct withdrawal address by finding it inside active withdrawal credentials either on Aragon UI or calling the contract via [`Lido.getWithdrawalCredentials()`]. You can quickly find on the [Etherscan page for the Mainnet-deployed Lido].
+Make sure to obtain a correct withdrawal address by finding it inside the active withdrawal credentials either on Aragon UI or by calling the contract via [`Lido.getWithdrawalCredentials()`]. You can find the method on the [Etherscan page for the Mainnet-deployed Lido].
 
 For example withdrawal credentials `0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f` mean that the withdrawal address is `0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`. Always verify the address is correct using an [explorer] - you will see it's deployed from the Lido deployer.
 
