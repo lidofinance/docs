@@ -266,8 +266,8 @@ Else, prepare a JSON data of the following structure and paste it to the textare
 
 Click `Check` button, and then the interface would run required checks connect the MetaMask and click `Submit` button.
 
-[mainnet web interface for submitting the keys]: https://stake.lido.fi/key-checker/submit
-[testnet web interface for submitting the keys]: https://stake.testnet.lido.fi/key-checker/submit
+[mainnet web interface for submitting the keys]: https://operators.lido.fi/submit
+[testnet web interface for submitting the keys]: https://operators.testnet.lido.fi/submit
 
 #### Using the Aragon UI
 
@@ -359,8 +359,8 @@ It will display key summary for each node operator, including checks for number 
 
 It is updated every 30 minutes via cron, but update period may change in the future.
 
-[mainnet lido node operator dashboard]: https://stake.lido.fi/key-checker/existing
-[testnet lido node operator dashboard]: https://stake.testnet.lido.fi/key-checker/existing
+[mainnet lido node operator dashboard]: https://operators.lido.fi
+[testnet lido node operator dashboard]: https://operators.testnet.lido.fi
 
 #### Results
 
