@@ -175,11 +175,11 @@ and DAO holders.
 
 ### Validating the keys
 
-It's vital to check the correctness of the keys before submitting them.
+Please, make sure to check the keys validity before submitting them on-chain.
 
-If you will be submitting keys using Lido's submitter, they will be checked before submitting - the "submit" button won't be active unless keys are validated and they are valid.
+Lido submitter has validation functionality built-in, keys will be checked before submitting.
 
-If you will be submitting keys manually via Lido contract, you can use Lido CLI, it's as simple as having Python with pip installed and running:
+If you will be submitting keys manually via Lido contract, you can use Lido CLI. It's a Python package which you can install with pip:
 
 ```sh
 pip install lido-cli
@@ -226,9 +226,9 @@ Etherscan pages for the Mainnet contracts:
 
 #### Using the batch key submitter UI
 
-Lido has specialised key submitters: [Mainnet web interface for submitting the keys] and a [Testnet web interface for submitting the keys].
+Lido provides UIs for key submission: [Mainnet web interface for submitting the keys] and a [Testnet web interface for submitting the keys].
 
-It will require that all keys are validated first - click the check button. Please be patient - we aim to process 1k keys under a minute, but several users can be checking keys simultaneously, so the process can take longer. Also, please don't update the page manually - UI will automatically repeat failing requests and will show an error if retries fail.
+Please, validate the keys before submission by clicking the check button. We're aiming to check 1k keys / minute, so this could take some time. Please, don't refresh the page during the checks — this would just start the process over from the very beginning.
 
 This tool will automatically split the keys into chunks and submit the transactions to Metamask for approval.
 
@@ -334,7 +334,7 @@ docker run --rm -it \
 
 ### Checking the keys of all Lido Node Operators
 
-After keys are submitted, it's critical to first wait for the key submission transactions to be mined and after that check all Lido keys for validity.
+Key checking works with on-chain data. Make sure key submission transactions are confirmed before checking the keys.
 
 Never vote for increasing the key limits of Node Operators before verifying new keys are present and valid.
 
@@ -355,7 +355,7 @@ You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura)
 
 You can also check the uploaded keys on [Mainnet Lido Node Operator Dashboard] or [Testnet Lido Node Operator Dashboard].
 
-It will display key summary for each node operator, including checks for number of keys over staking limit and invalid keys if found.
+This UI shows a number of submitted, approved and valid keys for each Node Operator, along with all invalid keys in case there are any.
 
 It is updated every 30 minutes via cron, but update period may change in the future.
 
