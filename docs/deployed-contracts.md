@@ -37,6 +37,14 @@
   - Manager Contract: [`0x6140182B2536AE7B6Cfcfb2d2bAB0f6Fe0D7b58E`](https://etherscan.io/address/0x6140182B2536AE7B6Cfcfb2d2bAB0f6Fe0D7b58E)
   - Reward Contract: [`0x8F1155447Ee97b5Ae147a01a5c420B0FDDF0370D`](https://etherscan.io/address/0x8F1155447Ee97b5Ae147a01a5c420B0FDDF0370D)
 
+### Anchor Integration (stETH as a collateral on Anchor protocol)
+
+- AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
+- AnchorVault: [`0x0627054d17eae63ec23c6d8b07d8db7a66ffd45a`](https://etherscan.io/address/0x0627054d17eae63ec23c6d8b07d8db7a66ffd45a) (impl)
+- BridgeConnectorShuttle: [`0x513251faB2542532753972B8FE9A7b60621affaD`](https://etherscan.io/address/0x513251faB2542532753972B8FE9A7b60621affaD)
+- RewardsLiquidator: [`0xdb99Fdb42FEc8Ba414ea60b3a189208bBdbfa321`](https://etherscan.io/address/0xdb99Fdb42FEc8Ba414ea60b3a189208bBdbfa321)
+- InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
+
 ## Görli+Prater testnet
 
 ### Core Protocol
