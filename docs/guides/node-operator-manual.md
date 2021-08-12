@@ -238,7 +238,7 @@ Right now, the chunk size is 20 keys, but may change in the future.
 
 After keys are approved in Metamask, never submit more keys unless previous transaction have been mined.
 
-<img width="1280" alt="image" src="https://user-images.githubusercontent.com/4445523/128553092-29de6dc7-aa32-43ba-a911-00acffd3abea.png">
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/4445523/128553092-29de6dc7-aa32-43ba-a911-00acffd3abea.png" />
 
 If you’ve used the `eth2.0-deposit-cli`, you can paste the content of the generated
 `deposit-data-*.json` file as-is.
