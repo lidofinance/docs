@@ -44,7 +44,7 @@
 
 - Balancer LP rewards:
   
-  - Manager Contract: [`0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449`](https://etherscan.io/address/0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449)
+  - Manager Contract: [`0x1dD909cDdF3dbe61aC08112dC0Fdf2Ab949f79D8`](https://etherscan.io/address/0x1dD909cDdF3dbe61aC08112dC0Fdf2Ab949f79D8)
 
 ### Anchor Integration (stETH as a collateral on Anchor protocol)
 
