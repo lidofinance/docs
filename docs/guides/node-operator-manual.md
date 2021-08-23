@@ -127,21 +127,13 @@ On the [Etherscan page for the Prater-deployed Lido], it’s the field number 19
 
 #### Using eth2.0-deposit-cli
 
-##### Mainnet
-
-For a mainnet deployment, use the latest release of [`eth2.0-deposit-cli`].
+Use the latest release of [`eth2.0-deposit-cli`].
 
 Example command usage:
 
 ```sh
 ./deposit new-mnemonic --folder . --num_validators 123 --mnemonic_language english --chain mainnet --eth1_withdrawal_address 0x123
 ```
-
-##### Testnet
-
-In a testnet environment, you can use [a fork of `eth2.0-deposit-cli`] which is also published to the
-Docker Hub as [`lidofinance/deposit-cli`]. It is modified to support passing a pre-defined withdrawal
-public key instead of generating new one.
 
 To generate the keys and signatures, run the following:
 
@@ -170,7 +162,6 @@ Never share the generated mnemonic and your private keys with anyone, including 
 and DAO holders.
 
 [`eth2.0-deposit-cli`]: https://github.com/ethereum/eth2.0-deposit-cli/releases
-[a fork of `eth2.0-deposit-cli`]: https://github.com/lidofinance/eth2.0-deposit-cli
 [`lidofinance/deposit-cli`]: https://hub.docker.com/repository/docker/lidofinance/deposit-cli
 
 ### Validating the keys
