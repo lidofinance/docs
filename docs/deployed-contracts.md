@@ -102,7 +102,7 @@
 
 ### Rinkeby
 
-- Lido: [`0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD`](https://rinkeby.etherscan.io/address/0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD)
-- WstETH: [`0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7`](https://rinkeby.etherscan.io/address/0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7)
+- Lido and stETH token: [`0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD`](https://rinkeby.etherscan.io/address/0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD)
+- wstETH token: [`0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7`](https://rinkeby.etherscan.io/address/0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7)
+- Node Operators registry: [`0x776dFe7Ec5D74526Aa65898B7d77FCfdf15ffBe6`](https://rinkeby.etherscan.io/address/0x776dfe7ec5d74526aa65898b7d77fcfdf15ffbe6)
 - DepositContractMock: [`0xd1aC373a6fCAB20476957B14a18178615594Debe`](https://rinkeby.etherscan.io/address/0xd1ac373a6fcab20476957b14a18178615594debe)
-- NodeOperatorsRegistry: [`0x776dFe7Ec5D74526Aa65898B7d77FCfdf15ffBe6`](https://rinkeby.etherscan.io/address/0x776dfe7ec5d74526aa65898b7d77fcfdf15ffbe6)
