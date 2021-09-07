@@ -183,6 +183,8 @@ You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura)
 
 > Please note, that the withdrawal address should be added to the Lido Node Operators Registry before it can submit the signing keys. Adding an address to the Node Operators Registry happens via DAO voting. When providing withdrawal address to be added to the Node Operators Registry, keep in mind the following:
 > - it is the address that will receive rewards;
+> - it is the address you will be using for key management;
+> - you should be able to access it at any time in case of emergency;
 > - you can use multi-sig for it if you wish to;
 > - you will not be able to replace it by another address/multi-sig later.
 
