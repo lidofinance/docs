@@ -12,13 +12,26 @@
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - Node Operators registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
 - Oracle: [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
-- Stable Swap Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
-- stETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
 - Aragon Voting: [`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e) (proxy)
 - Aragon Token Manager: [`0xf73a1260d222f447210581DDf212D915c09a3249`](https://etherscan.io/address/0xf73a1260d222f447210581DDf212D915c09a3249) (proxy)
 - Aragon Finance: [`0xB9E5CBB9CA5b0d659238807E84D0176930753d86`](https://etherscan.io/address/0xB9E5CBB9CA5b0d659238807E84D0176930753d86) (proxy)
 - Aragon Agent: [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) (proxy)
 - Withdrawals Manager Stub: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
+
+### Liquidity pools
+
+- Curve stETH/ETH pool: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
+- Balancer wstETH/WETH pool: [`0x32296969Ef14EB0c6d29669C550D4a0449130230`](https://etherscan.io/address/0x32296969Ef14EB0c6d29669C550D4a0449130230) (pool id: `0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080`)
+- 1inch stETH/DAI pool: [`0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431`](https://etherscan.io/address/0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431)
+- Sushi wstETH/DAI pool: [`0xc5578194D457dcce3f272538D1ad52c68d1CE849`](https://etherscan.io/address/0xc5578194D457dcce3f272538D1ad52c68d1CE849)
+
+### Price feeds
+
+- Chainlink stETH/USD Price Feed: [`0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8`](https://etherscan.io/address/0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8) ([steth-usd.data.eth](https://app.ens.domains/name/steth-usd.data.eth))
+- Chainlink stETH/ETH Price Feed: [`0x86392dC19c0b719886221c78AB11eb8Cf5c52812`](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
+- stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
+- stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
+
 
 ### Reward Programs
 
