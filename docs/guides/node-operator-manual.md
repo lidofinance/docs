@@ -258,7 +258,7 @@ Else, prepare a JSON data of the following structure and paste it to the textare
 Click `Check` button, and then the interface would run required checks connect the MetaMask and click `Submit` button.
 
 [mainnet web interface for submitting the keys]: https://operators.lido.fi/submit
-[testnet web interface for submitting the keys]: https://operators.testnet.lido.fi/submit
+[testnet web interface for submitting the keys]: https://operators.testnet.fi/submit
 
 ### Importing the keys to a Lighthouse validator client
 
@@ -306,7 +306,7 @@ This UI shows a number of submitted, approved and valid keys for each Node Opera
 It is updated every 30 minutes via cron, but update period may change in the future.
 
 [mainnet lido node operator dashboard]: https://operators.lido.fi
-[testnet lido node operator dashboard]: https://operators.testnet.lido.fi
+[testnet lido node operator dashboard]: https://operators.testnet.fi
 
 #### Results
 
