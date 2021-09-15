@@ -59,6 +59,10 @@
   
   - Manager Contract: [`0x1dD909cDdF3dbe61aC08112dC0Fdf2Ab949f79D8`](https://etherscan.io/address/0x1dD909cDdF3dbe61aC08112dC0Fdf2Ab949f79D8)
 
+- 1inch LP rewards manager:
+  
+  - Manager Contract: [`0xf5436129cf9d8fa2a1cb6e591347155276550635`](https://etherscan.io/address/0xf5436129cf9d8fa2a1cb6e591347155276550635)
+
 ### Anchor Integration (stETH as a collateral on Anchor protocol)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
