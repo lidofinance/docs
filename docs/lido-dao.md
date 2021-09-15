@@ -10,7 +10,7 @@ Validators before that deployment have withdrawal credentials pointing to mulsig
 The Lido DAO is an [Aragon organization](https://aragon.org/dao). Since Aragon provides a full end-to-end framework to build DAOs, we use its standard tools. The protocol smart contracts extend AragonApp base contract and can be managed by the DAO.
 
 - [Lido DAO Mainnet](https://mainnet.lido.fi/#/lido-dao/)
-- [Lido DAO Prater Testnet](https://testnet.lido.fi/#/lido-testnet-prater/)
+- [Lido DAO Prater Testnet](https://testnet.testnet.fi/#/lido-testnet-prater/)
 
 ## LDO Token
 
