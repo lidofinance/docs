@@ -11,3 +11,9 @@ Users can deposit Ether to the Lido smart contract and receive stETH tokens in r
 Unlike staked ether, the stETH token is free from the limitations associated with a lack of liquidity and can be transferred at any time. The stETH token balance corresponds to the amount of Beacon chain Ether that the holder could withdraw if state transitions were enabled right now in the Ethereum 2.0 network.
 
 - [A Primer](https://lido.fi/static/Lido:Ethereum-Liquid-Staking.pdf)
+
+## Other Lido Liquid Staking Protocols
+
+The docs provided on this site are focused on Lido Ethereum Liquid Staking Protocol & stETH token. Developer documentation on other Lido's Liquid Staking Protocols can be found:
+- Terra Liquid Staking & bLuna token [docs](https://docs.anchorprotocol.com/protocol/bonded-assets-bassets/bonded-luna-bluna)
+- Solana Liquid Staking & stSol token [docs](https://docs.solana.lido.fi/)
