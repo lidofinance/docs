@@ -1,6 +1,6 @@
 # wstETH
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.6.12/WstETH.sol)
+- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.6.12/WstETH.sol)
 - [Deployed Contract](https://etherscan.io/token/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 
 It's an ERC20 token that represents the account's share of the total
