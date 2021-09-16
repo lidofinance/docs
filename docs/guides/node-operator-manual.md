@@ -293,7 +293,7 @@ pip install lido-cli
 lido-cli --rpc http://1.2.3.4:8545 validate_network_keys
 ```
 
-This operation checks all Lido keys for validity. This is a CPU-intensive process, for example, a modern desktop with 6 cores, 12 threads and great cooling processes 1k keys in ~1 minute.
+This operation checks all Lido keys for validity. This is a CPU-intensive process, for example, a modern desktop with 6 cores, 12 threads and great cooling processes 1k keys in 1—2 seconds.
 
 You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura).
 

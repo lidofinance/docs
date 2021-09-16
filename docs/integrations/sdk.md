@@ -13,5 +13,5 @@ React components for Lido Finance projects.
 
 Library to efficiently load network data for Lido, validate node operator keys and find key duplicates.
 
-- Pypi: [https://pypi.org/project/lido/](https://pypi.org/project/lido/)
-- GitHub: [https://github.com/lidofinance/lido-python](https://github.com/lidofinance/lido-python)
+- Pypi: [https://pypi.org/project/lido-sdk/](https://pypi.org/project/lido-sdk/)
+- GitHub: [https://github.com/lidofinance/lido-python-sdk](https://github.com/lidofinance/lido-python-sdk)
