@@ -8,8 +8,16 @@ React components for Lido Finance projects.
 
 - Storybook: [https://ui.lido.fi](https://ui.lido.fi/)
 - GitHub: [https://github.com/lidofinance/ui](https://github.com/lidofinance/ui)
+- NPM: [https://www.npmjs.com/search?q=%40lidofinance/](https://www.npmjs.com/search?q=%40lidofinance/)
 
-### Lido Python Library
+### Lido JS SDK
+
+Library for interaction with Lido contracts.
+
+- GitHub: [https://github.com/lidofinance/ui](https://github.com/lidofinance/ui)
+- NPM: [https://www.npmjs.com/search?q=%40lido-sdk/](https://www.npmjs.com/search?q=%40lido-sdk/)
+
+### Lido Python SDK
 
 Library to efficiently load network data for Lido, validate node operator keys and find key duplicates.
 
