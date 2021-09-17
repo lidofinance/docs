@@ -8,9 +8,7 @@ This how to vote on Lido DAO Aragon with Etherscan UI
    <iframe style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} src="https://www.youtube.com/embed/5YTJgudYHs8" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 </div>
 
-## Text guide
-
-### Preparation
+## Preparation
 
 Get the address of the Lido DAO `Aragon Voting` contract from [Deployed Contracts](/deployed-contracts/#:~:text=Aragon%20Voting) page. It should be: [0x2e59A20f205bB85a89C53f1936454680651E618e].
 
@@ -19,6 +17,8 @@ Get the vote id, either from [Aragon UI]:
 ![](/img/etherscan-voting/aragon.png)
 
 or from [Etherscan]:
+
+![](/img/etherscan-voting/etherscan_vote_address.png)
 
 1. Open "[Contract/Read as Proxy]" tab
 2. Get the total number of the votes from `votesLength` method (number 21 on [Etherscan page])
@@ -36,7 +36,7 @@ or from [Etherscan]:
 [contract/read as proxy]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
 [etherscan page]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
 
-### Voting
+## Voting
 
 1. Open "[Contract / Write as Proxy](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#writeProxyContract)" tab on Etherscan
 2. Connect Etherscan UI to Web3 with either MetaMask or WalletConnect
