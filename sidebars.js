@@ -10,6 +10,7 @@ module.exports = {
         'guides/oracle-operator-manual',
         'guides/multisig-deployment',
         'guides/protocol-levers',
+        'guides/etherscan-voting',
       ],
     },
     {
@@ -38,9 +39,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Security',
-      items: [
-        'security/bugbounty',
-      ],
+      items: ['security/bugbounty'],
     },
     'deployed-contracts',
   ],
