@@ -1,6 +1,6 @@
 # Node Operator Manual
 
-This document is intended for those who wish to participate in the Lido protocol as Node Operators—entities
+This document is intended for those who wish to participate in the Lido protocol as Node Operators — entities
 who run Beacon validator nodes on behalf of the protocol and receive fee in return. It consists of
 two sections: [General overview](#general-overview) and [Operations HOWTO](#operations-howto).
 If you’re here for the technical details of interacting with the protocol, feel free to skip to
@@ -28,7 +28,7 @@ The general flow is the following:
 
 5. The protocol distributes the pooled Ether evenly between all active Node Operators in `32 Ether`
    chunks. When it assigns the next deposit to a Node Operator, it takes the first non-used signing
-   key, as well as the accociated signature, from the Node Operator’s usable set and performs
+   key, as well as the associated signature, from the Node Operator’s usable set and performs
    a deposit to the official `DepositContract`, submitting the pooled funds. At that time, the Node
    Operator should have the validator already running and configured with the public key being used.
 
@@ -43,7 +43,7 @@ The general flow is the following:
 ### The fee
 
 The fee is taken as a percentage from Beacon chain rewards at the moment the Oracles report
-those rewards. Oracles do that once in a while—the exact period is decided by the DAO members
+those rewards. Oracles do that once in a while — the exact period is decided by the DAO members
 via the voting process.
 
 The total fee percentage, as well as the percentage that goes to all Node Operators, is also decided
@@ -219,17 +219,7 @@ Etherscan pages for the Mainnet contracts:
 
 Lido provides UIs for key submission: [Mainnet web interface for submitting the keys] and a [Testnet web interface for submitting the keys].
 
-Please, validate the keys before submission by clicking the check button. We're aiming to check 1k keys / minute, so this could take some time. Please, don't refresh the page during the checks — this would just start the process over from the very beginning.
-
-This tool will automatically split the keys into chunks and submit the transactions to Metamask for approval.
-
-As a precaution, always check that the number of transactions in Metamask is `n of keys / chunk size`.
-
-Right now, the chunk size is 20 keys, but may change in the future.
-
-After keys are approved in Metamask, never submit more keys unless previous transaction have been mined.
-
-<img width="1280" alt="image" src="https://user-images.githubusercontent.com/4445523/128553092-29de6dc7-aa32-43ba-a911-00acffd3abea.png" />
+![Submitter](/img/node-operators-manual/submitter.png)
 
 If you’ve used the `eth2.0-deposit-cli`, you can paste the content of the generated
 `deposit-data-*.json` file as-is.
@@ -241,24 +231,48 @@ Else, prepare a JSON data of the following structure and paste it to the textare
   {
     "pubkey": "PUBLIC_KEY_1",
     "withdrawal_credentials": "WITHDRAWAL_CREDENTIALS_1",
+    "amount": 32000000000,
     "signature": "SIGNATURE_1",
     "fork_version": "FORK_VERSION_1",
-    "eth2_network_name": "ETH2_NETWORK_NAME_1"
+    "eth2_network_name": "ETH2_NETWORK_NAME_1",
+    "deposit_message_root": "DEPOSIT_MESSAGE_ROOT_1",
+    "deposit_data_root": "DEPOSIT_DATA_ROOT_1"
   },
   {
     "pubkey": "PUBLIC_KEY_2",
     "withdrawal_credentials": "WITHDRAWAL_CREDENTIALS_2",
+    "amount": 32000000000,
     "signature": "SIGNATURE_2",
     "fork_version": "FORK_VERSION_2",
-    "eth2_network_name": "ETH2_NETWORK_NAME_2"
+    "eth2_network_name": "ETH2_NETWORK_NAME_2",
+    "deposit_message_root": "DEPOSIT_MESSAGE_ROOT_2",
+    "deposit_data_root": "DEPOSIT_DATA_ROOT_2"
   }
 ]
 ```
 
-Click `Check` button, and then the interface would run required checks connect the MetaMask and click `Submit` button.
+This tool will automatically split the keys into chunks and submit the transactions to your wallet for approval. Transactions will come one by one for signing. Unfortunately, we cannot send a large number of keys in a single transaction. Right now, the chunk size is 50 keys, it's close to the limit of gas per block.
 
-[mainnet web interface for submitting the keys]: https://operators.lido.fi/submit
-[testnet web interface for submitting the keys]: https://operators.testnet.fi/submit
+Connect your wallet, click `Validate` button, the interface would run required checks. And than click `Submit keys` button.
+
+We now support the following connectors:
+
+- MetaMask and similar injected wallets
+- Wallet Connect
+- Gnosis Safe
+- Ledger HQ
+
+If you want to use Gnosis, there are two ways to connect:
+
+- Add this app as a [custom app] in your safe.
+- [Use WalletConnect] to connect to your safe.
+
+When you submit a form, the keys are saved in your browser. This tool checks the new key submits against the previously saved list to avoid duplication. Therefore it is important to use one browser for submitting.
+
+[mainnet web interface for submitting the keys]: https://operators.lido.fi/submitter
+[testnet web interface for submitting the keys]: https://operators.testnet.fi/submitter
+[custom app]: https://help.gnosis-safe.io/en/articles/4022030-add-a-custom-safe-app
+[use walletconnect]: https://help.gnosis-safe.io/en/articles/4356253-walletconnect-safe-app
 
 ### Importing the keys to a Lighthouse validator client
 
@@ -290,7 +304,7 @@ Make sure Python with pip is installed and then run:
 
 ```sh
 pip install lido-cli
-lido-cli --rpc http://1.2.3.4:8545 validate_network_keys
+lido-cli --rpc http://1.2.3.4:8545 validate_network_keys --details
 ```
 
 This operation checks all Lido keys for validity. This is a CPU-intensive process, for example, a modern desktop with 6 cores, 12 threads and great cooling processes 1k keys in 1—2 seconds.
