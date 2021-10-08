@@ -71,6 +71,10 @@
 - RewardsLiquidator: [`0xdb99Fdb42FEc8Ba414ea60b3a189208bBdbfa321`](https://etherscan.io/address/0xdb99Fdb42FEc8Ba414ea60b3a189208bBdbfa321)
 - InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
 
+### DAO-ops contracts
+
+- Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
+
 ## Görli+Prater testnet
 
 ### Core Protocol
