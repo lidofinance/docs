@@ -127,3 +127,10 @@
 - wstETH token: [`0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7`](https://rinkeby.etherscan.io/address/0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7)
 - Node Operators registry: [`0x776dFe7Ec5D74526Aa65898B7d77FCfdf15ffBe6`](https://rinkeby.etherscan.io/address/0x776dfe7ec5d74526aa65898b7d77fcfdf15ffbe6)
 - DepositContractMock: [`0xd1aC373a6fCAB20476957B14a18178615594Debe`](https://rinkeby.etherscan.io/address/0xd1ac373a6fcab20476957b14a18178615594debe)
+
+### Goerli
+
+- Lido and stETH token: [0x2DD6530F136D2B56330792D46aF959D9EA62E276](https://goerli.etherscan.io/address/0x2DD6530F136D2B56330792D46aF959D9EA62E276)
+- wstETH token: [0x4942BBAf745f235e525BAff49D31450810EDed5b](https://goerli.etherscan.io/address/0x4942BBAf745f235e525BAff49D31450810EDed5b)
+- Node Operators registry: [0x993a1A1745ea09fAbf8dA7EFCD57CD46c889f8B9](https://goerli.etherscan.io/address/0x993a1A1745ea09fAbf8dA7EFCD57CD46c889f8B9)
+- DepositContractMock: [0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F](https://goerli.etherscan.io/address/0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F)
