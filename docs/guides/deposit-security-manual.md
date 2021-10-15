@@ -44,15 +44,15 @@ It might be any EOA account under the member control. Address of this account wi
 
 ### Run DSC daemon
 
-For perform deposits validation each member should run the `DSC daemon` from `lido-council-daemon` [repository](https://github.com/lidofinance/lido-council-demon).
+For perform deposits validation each member should run the `DSC daemon` from `lido-council-daemon` [repository](https://github.com/lidofinance/lido-council-daemon).
 
 The daemon monitors the keys in the deposit contract and compares them with Lido's unused keys. The result of the comparison is signed with the private key and sent to the message broker. If the daemon finds a match, it tries to stop the deposits by sending a transaction calling the `pauseDeposits` method on the `Deposit Security Module` contract.
 
 1. Clone the repository:
 
 ```shell
-git clone git@github.com:lidofinance/lido-council-demon.git
-cd lido-council-demon
+git clone git@github.com:lidofinance/lido-council-daemon.git
+cd lido-council-daemon
 ```
 
 2. Install dependencies:
@@ -63,7 +63,7 @@ yarn typechain
 ```
 
 3. Configure through environment variables, i.e.
-   with `.env` [file](https://github.com/lidofinance/lido-council-demon/blob/main/sample.env):
+   with `.env` [file](https://github.com/lidofinance/lido-council-daemon/blob/main/sample.env):
     - Private key:
     ```
     # Pirvate key
@@ -91,5 +91,6 @@ yarn typechain
 4. Run:
 
 ```shell
+yarn build
 yarn start:prod
 ```
