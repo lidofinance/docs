@@ -52,6 +52,16 @@ For perform deposits validation each member should run the `lido-council-daemon`
 
 The daemon monitors the keys in the deposit contract and compares them with Lido's unused keys. The result of the comparison is signed with the private key and sent to the message broker. If the daemon finds a match, it tries to stop the deposits by sending a transaction calling the `pauseDeposits` method on the `Deposit Security Module` contract.
 
+#### Run with docker
+
+The easiest way to run a daemon is using the docker hub:
+
+```shell
+
+```
+
+#### Run from source code
+
 1. Clone the repository:
 
 ```shell
