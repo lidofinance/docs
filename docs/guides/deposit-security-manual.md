@@ -1,12 +1,14 @@
 # Deposit Security Committee manual
 
-This instruction has been prepared for the participants of the Deposit Security Committee and describes the general points, the preparation steps to act as a guardian, and the details of the protection mechanism. The Deposit Security Committee is necessary to prevent the substitution of withdrawal credentials with frontrunning by node operators. Each member of the committee must perform several actions to ensure the security of deposits made by Lido. To participate in the validation, you will need to deploy a `DSC daemon` and prepare a private key for signing messages about the correctness of data or the need to stop deposits in case of attack.
+This instruction has been prepared for the participants of the Deposit Security Committee and describes the general points, the preparation steps to act as a guardian, and the details of the protection mechanism. The Deposit Security Committee is necessary to prevent the substitution of withdrawal credentials with frontrunning by node operators. Each member of the committee must perform several actions to ensure the security of deposits made by Lido. To participate in the validation, you will need to deploy a `lido-council-daemon` and prepare a private key for signing messages about the correctness of data or the need to stop deposits in case of attack.
 
 ## TL;DR
 
-1. Prepare an EOA account for signing data.
-2. Submit its address to the smart contract.
-3. Deploy and run `DSC daemon` with generated private key.
+Before running in the mainnet all steps should be done in the testnet.
+
+1. Prepare an EOA account for signing data. 
+2. Send the account address to Lido for submitting it to the smart contract.
+3. Deploy and run `lido-council-daemon` with the generated private key. It would work in a dry-run mode until your address would be included in the smart contract.  
 
 ## Detailed description
 
@@ -38,13 +40,15 @@ The daemon constantly watches all updates in `DepositContract` and `NodeOperator
 
 ## Preparation steps
 
+Before running in the mainnet, all steps should be completed in the testnet.
+
 ### EOA account
 
-It might be any EOA account under the member control. Address of this account will be submitted to the smart contract. Make sure, that account has enough balance to make stopping transactions.
+It might be any EOA account under the member's control. Send the address of its account to Lido for submitting it to the smart contract. Make sure, that account has enough balance (1 Eth or more) to make stopping transactions. Note, all actions, except sending the stop message, would be done off-chain.
 
-### Run DSC daemon
+### Run lido-council-daemon
 
-For perform deposits validation each member should run the `DSC daemon` from `lido-council-daemon` [repository](https://github.com/lidofinance/lido-council-daemon).
+For perform deposits validation each member should run the `lido-council-daemon` from [repository](https://github.com/lidofinance/lido-council-daemon).
 
 The daemon monitors the keys in the deposit contract and compares them with Lido's unused keys. The result of the comparison is signed with the private key and sent to the message broker. If the daemon finds a match, it tries to stop the deposits by sending a transaction calling the `pauseDeposits` method on the `Deposit Security Module` contract.
 
