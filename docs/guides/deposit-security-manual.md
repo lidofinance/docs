@@ -57,7 +57,21 @@ The daemon monitors the keys in the deposit contract and compares them with Lido
 The easiest way to run a daemon is using the docker hub:
 
 ```shell
+docker pull lidofinance/lido-council-daemon:1.0.0
 
+docker run  \
+  -p 3000:3000/tcp \
+  -e PORT='3000' \
+  -e LOG_LEVEL='debug' \
+  -e LOG_FORMAT='simple' \
+  -e RPC_URL='<rpc url>' \
+  -e KAFKA_SSL='true' \
+  -e KAFKA_SASL_MECHANISM='plain' \
+  -e KAFKA_USERNAME='<kafka user>' \
+  -e KAFKA_PASSWORD='<kafka password>' \
+  -e KAFKA_BROKER_ADDRESS_1='<kafka address>' \
+  -e WALLET_PRIVATE_KEY='<wallet private key>' \
+  lidofinance/lido-council-daemon:1.0.0
 ```
 
 #### Run from source code
