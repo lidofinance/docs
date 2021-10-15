@@ -66,35 +66,58 @@ yarn install
 yarn typechain
 ```
 
-3. Configure through environment variables, i.e.
+3. Configure daemon through environment variables, i.e.
    with `.env` [file](https://github.com/lidofinance/lido-council-daemon/blob/main/sample.env):
-    - Private key:
-    ```
-    # Pirvate key
-    # Used to sign transactions and stop the protocol. 
-    # Make sure there are enough ETH on the balance to send a transaction to stop the protocol
-    WALLET_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000000000000000
-    ```
     - Messages broker, i.e. Kafka:
     ```
-    # Pubsub
-    PUBSUB_SERVICE=kafka
-
-    # Kafka credentials
-    KAFKA_SASL_MECHANISM=plain
-    KAFKA_SSL=true
-    KAFKA_USERNAME=test
-    KAFKA_PASSWORD=test
-
-    # Kafka broker address+port
-    KAFKA_BROKER_ADDRESS_1=localhost:9092
+    ...
+    KAFKA_USERNAME=<kafka username>
+    KAFKA_PASSWORD=<kafka password>
+    KAFKA_BROKER_ADDRESS_1=<kafka broker address with port>
+    ...
     ```
-   A message broker is needed for data exchange between consuls and a depositor
-   bot.
-
-4. Run:
+    A message broker is needed for data exchange between consuls and a depositor
+    bot.
+4. Set private through environment variable:
+```
+export WALLET_PRIVATE_KEY=<your-private-key>
+```
+5. Run:
 
 ```shell
 yarn build
 yarn start:prod
+```
+
+### Possible startup messages
+
+All goes well:
+
+```
+info: Account balance is sufficient {"context":{"balance":"1.0 ETH"}}
+info: You address is in the Guardian List {"context":{"address":"0x0000000000000000000000000000000000000000"}}
+```
+
+At the first startup the daemon will collect historical data:
+
+```
+info: Historical events are fetched {"context":{"endBlock":4487322,"events":3,"startBlock":4467323}}
+```
+
+Private key is not provided:
+
+```
+warn: Private key is not provided, a random address will be generated for the test run
+```
+
+Not enough ether on a user balance:
+
+```
+warn: Account balance is too low
+```
+
+Dry-run case, your address is not in the smart contract:
+
+```
+warn: You address is not in the Guardian List
 ```
