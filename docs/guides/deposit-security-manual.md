@@ -4,7 +4,7 @@ This instruction has been prepared for the participants of the Deposit Security 
 
 ## TL;DR
 
-Before running in the mainnet all steps should be done in the testnet.
+Before running in the mainnet all steps should be done in the Goerli testnet.
 
 1. Prepare an EOA account for signing data with a private key on hand (not in hardware wallet). It will be a moderately sensitive hot private key. Use different accounts for testnet and mainnet.
 2. Send the account address to Lido for submitting it to the smart contract. 
@@ -23,7 +23,7 @@ We propose to establish the Deposit Security Committee dedicated to ensuring the
 - monitoring the history of deposits and the set of Lido keys available for the deposit, signing and disseminating messages allowing deposits;
 - signing the special message allowing anyone to pause deposits once the malicious Node Operator pre-deposits are detected.
 
-To make a deposit, we propose to collect a quorum of 2/3 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option[<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
+To make a deposit, we propose to collect a quorum of 2/3 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option [<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
 
 ### Committee membership
 
@@ -40,7 +40,7 @@ The daemon constantly watches all updates in `DepositContract` and `NodeOperator
 
 ## Preparation steps
 
-Before running in the mainnet, all steps should be completed in the testnet.
+Before running in the mainnet, all steps should be completed in the Goerli testnet.
 
 ### EOA account
 
