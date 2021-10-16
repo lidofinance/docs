@@ -8,6 +8,7 @@ module.exports = {
       items: [
         'guides/node-operator-manual',
         'guides/oracle-operator-manual',
+        'guides/deposit-security-manual',
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',
