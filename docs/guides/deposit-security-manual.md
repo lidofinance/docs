@@ -98,7 +98,13 @@ yarn install
 yarn typechain
 ```
 
-3. Configure daemon through environment variables, i.e. with `.env` [file](https://github.com/lidofinance/lido-council-daemon/blob/main/sample.env):
+3. Copy the contents of `sample.env` to `.env` file
+
+```bash
+cp sample.env .env
+```
+
+4. Configure daemon through environment variables in the previously created `.env` file:
 
 Messages broker, i.e. Kafka:
 ```
@@ -117,11 +123,13 @@ The URI to web3 RPC you want to use (Goerli for testnet):
 RPC_URL=<rpc url>
 ```
 
-4. Set private through environment variable (in the `0xabcd...` format):
+5. Set private through environment variable (in the `0xabcd...` format):
 ```
 export WALLET_PRIVATE_KEY=<your-private-key>
 ```
-5. Run:
+It is better not to store your private key in the `.env` file.
+
+6. Run:
 
 ```shell
 yarn build
