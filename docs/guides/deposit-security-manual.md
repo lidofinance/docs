@@ -111,6 +111,12 @@ KAFKA_BROKER_ADDRESS_1=<kafka broker address with port>
 A message broker is needed for data exchange between consuls and a depositor
 bot.
 
+The URI to web3 RPC you want to use (Goerli for testnet):
+
+```
+RPC_URL=<rpc url>
+```
+
 4. Set private through environment variable (in the `0xabcd...` format):
 ```
 export WALLET_PRIVATE_KEY=<your-private-key>
