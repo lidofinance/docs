@@ -8,7 +8,7 @@ Before running in the mainnet all steps should be done in the testnet.
 
 1. Prepare an EOA account for signing data with a private key on hand (not in hardware wallet). It will be a moderately sensitive hot private key. Use different accounts for testnet and mainnet.
 2. Send the account address to Lido for submitting it to the smart contract. 
-3. Deploy and run `lido-council-daemon` with the private key from the EOA account . It would work in a dry-run mode until your address would be included in the smart contract.  
+3. Deploy and run `lido-council-daemon` with the private key from the EOA account. It would work in a dry-run mode until your address would be included in the smart contract.  
 
 ## Detailed description
 
@@ -74,7 +74,7 @@ docker run  \
   lidofinance/lido-council-daemon:1.0.0
 ```
 
-`RPC_URL` is the URI to web3 RPC you want to use. WALLET_PRIVATE_KEY environment variable should be managed as a sensitive secret.
+`RPC_URL` is the URI to web3 RPC you want to use. `WALLET_PRIVATE_KEY` environment variable should be managed as a sensitive secret.
 
 Note: every time the container restarts it warms up local cache of historical data, which takes a lot of RPC queries and about 30m of time. In the next versions we'll implement a volume to store the cache so that the warmup timeout only happens on the first run ever. That cache is fully deterministic, fairly easily repopulated and you shouldn't be afraid to lose it.
 
@@ -106,7 +106,7 @@ yarn typechain
     ```
     A message broker is needed for data exchange between consuls and a depositor
     bot.
-4. Set private through environment variable:
+4. Set private through environment variable (in the `0xabcd...` format):
 ```
 export WALLET_PRIVATE_KEY=<your-private-key>
 ```
