@@ -54,12 +54,13 @@ The daemon monitors the keys in the deposit contract and compares them with Lido
 
 #### Run with docker
 
-The easiest way to run a daemon is using the docker hub:
+You can pull image from the the docker hub and run it manually or via docker-compose (`docker-compose.yml` can be found in repository root). Volumes can be omitted if needed.
 
 ```shell
-docker pull lidofinance/lido-council-daemon:1.0.0
+docker pull lidofinance/lido-council-daemon@sha256:9b8de41aea016736a4ee417e604f4d0329993d45f07796bde3a0e741284db16b
 
-docker run  \
+docker run -i -t \
+  -v ${PWD}/.volumes/council/cache:/council/cache/ \
   -p 3000:3000/tcp \
   -e PORT='3000' \
   -e LOG_LEVEL='debug' \
@@ -70,11 +71,14 @@ docker run  \
   -e KAFKA_USERNAME='<kafka user>' \
   -e KAFKA_PASSWORD='<kafka password>' \
   -e KAFKA_BROKER_ADDRESS_1='<kafka address>' \
+  -e KAFKA_TOPIC=defender \
   -e WALLET_PRIVATE_KEY \
-  lidofinance/lido-council-daemon:1.0.0
+  lidofinance/lido-council-daemon@sha256:9b8de41aea016736a4ee417e604f4d0329993d45f07796bde3a0e741284db16b
 ```
 
-`RPC_URL` is the URI to web3 RPC you want to use. `WALLET_PRIVATE_KEY` environment variable should be managed as a sensitive secret.
+Port 3000 is used for prometheus metrics.
+
+`RPC_URL` is the URI to web3 RPC you want to use. `WALLET_PRIVATE_KEY` environment variable should be managed as a sensitive secret. The key should be in the `0xabcd...` format.
 
 Note: every time the container restarts it warms up local cache of historical data, which takes a lot of RPC queries and about 30m of time. In the next versions we'll implement a volume to store the cache so that the warmup timeout only happens on the first run ever. That cache is fully deterministic, fairly easily repopulated and you shouldn't be afraid to lose it.
 
