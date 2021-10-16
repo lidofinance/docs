@@ -98,18 +98,19 @@ yarn install
 yarn typechain
 ```
 
-3. Configure daemon through environment variables, i.e.
-   with `.env` [file](https://github.com/lidofinance/lido-council-daemon/blob/main/sample.env):
-    - Messages broker, i.e. Kafka:
-    ```
-    ...
-    KAFKA_USERNAME=<kafka username>
-    KAFKA_PASSWORD=<kafka password>
-    KAFKA_BROKER_ADDRESS_1=<kafka broker address with port>
-    ...
-    ```
-    A message broker is needed for data exchange between consuls and a depositor
-    bot.
+3. Configure daemon through environment variables, i.e. with `.env` [file](https://github.com/lidofinance/lido-council-daemon/blob/main/sample.env):
+
+Messages broker, i.e. Kafka:
+```
+...
+KAFKA_USERNAME=<kafka username>
+KAFKA_PASSWORD=<kafka password>
+KAFKA_BROKER_ADDRESS_1=<kafka broker address with port>
+...
+```
+A message broker is needed for data exchange between consuls and a depositor
+bot.
+
 4. Set private through environment variable (in the `0xabcd...` format):
 ```
 export WALLET_PRIVATE_KEY=<your-private-key>
