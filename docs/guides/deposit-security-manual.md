@@ -76,11 +76,11 @@ docker run -i -t \
   lidofinance/lido-council-daemon@sha256:9b8de41aea016736a4ee417e604f4d0329993d45f07796bde3a0e741284db16b
 ```
 
-Port 3000 is used for prometheus metrics.
+Port 3000 is used for prometheus metrics. You don't have to expose it if you don't collect metrics.
 
-`RPC_URL` is the URI to web3 RPC you want to use. `WALLET_PRIVATE_KEY` environment variable should be managed as a sensitive secret. The key should be in the `0xabcd...` format.
+`RPC_URL` is the URI to web3 RPC you want to use (Goerli for testnet). `WALLET_PRIVATE_KEY` environment variable should be managed as a sensitive secret. The key should be in the `0xabcd...` format.
 
-Note: every time the container restarts it warms up local cache of historical data, which takes a lot of RPC queries and about 30m of time. In the next versions we'll implement a volume to store the cache so that the warmup timeout only happens on the first run ever. That cache is fully deterministic, fairly easily repopulated and you shouldn't be afraid to lose it.
+Note: every time the container starts fresh it warms up cache of historical data, stored in the volume you provide. Cache warming takes a lot of RPC queries and up to 30m of time. That cache is fully deterministic, fairly easily repopulated and you shouldn't be afraid to lose it.
 
 #### Run from source code
 
