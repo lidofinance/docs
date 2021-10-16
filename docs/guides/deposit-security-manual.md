@@ -6,9 +6,9 @@ This instruction has been prepared for the participants of the Deposit Security 
 
 Before running in the mainnet all steps should be done in the testnet.
 
-1. Prepare an EOA account for signing data. 
-2. Send the account address to Lido for submitting it to the smart contract.
-3. Deploy and run `lido-council-daemon` with the generated private key. It would work in a dry-run mode until your address would be included in the smart contract.  
+1. Prepare an EOA account for signing data with a private key on hand (not in hardware wallet). It will be a moderately sensitive hot private key. Use different accounts for testnet and mainnet.
+2. Send the account address to Lido for submitting it to the smart contract. 
+3. Deploy and run `lido-council-daemon` with the private key from the EOA account . It would work in a dry-run mode until your address would be included in the smart contract.  
 
 ## Detailed description
 
@@ -27,7 +27,7 @@ To make a deposit, we propose to collect a quorum of 2/3 of the signatures of th
 
 ### Committee membership
 
-The first set of guardians is six node operators (Stakefish, Skillz, Chorus one, Blockscape, Staking facilities, P2p) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet. 
+The first set of guardians is six node operators (Stakefish, Skillz, Chorus one, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet. 
 
 ### Members responsibilities
 
@@ -44,7 +44,7 @@ Before running in the mainnet, all steps should be completed in the testnet.
 
 ### EOA account
 
-It might be any EOA account under the member's control. Send the address of its account to Lido for submitting it to the smart contract. Make sure, that account has enough balance (1 Eth or more) to make stopping transactions. Note, all actions, except sending the stop message, would be done off-chain.
+It might be any EOA account under the member's control. Send the address of its account to Lido for submitting it to the smart contract. Lido will provide some ETH to make stopping transactions if needed (shouldn't ever be the case). Note, all actions, except sending the stop message, would be done off-chain.
 
 ### Run lido-council-daemon
 
@@ -70,9 +70,13 @@ docker run  \
   -e KAFKA_USERNAME='<kafka user>' \
   -e KAFKA_PASSWORD='<kafka password>' \
   -e KAFKA_BROKER_ADDRESS_1='<kafka address>' \
-  -e WALLET_PRIVATE_KEY='<wallet private key>' \
+  -e WALLET_PRIVATE_KEY \
   lidofinance/lido-council-daemon:1.0.0
 ```
+
+`RPC_URL` is the URI to web3 RPC you want to use. WALLET_PRIVATE_KEY environment variable should be managed as a sensitive secret.
+
+Note: every time the container restarts it warms up local cache of historical data, which takes a lot of RPC queries and about 30m of time. In the next versions we'll implement a volume to store the cache so that the warmup timeout only happens on the first run ever. That cache is fully deterministic, fairly easily repopulated and you shouldn't be afraid to lose it.
 
 #### Run from source code
 
@@ -113,6 +117,9 @@ yarn build
 yarn start:prod
 ```
 
+Note: every time the the daemons starts for the first time it warms up local cache of historical data, which takes a lot of RPC queries and about 30m of time. That cache is fully deterministic, fairly easily repopulated and you shouldn't be afraid to lose it.
+
+
 ### Possible startup messages
 
 All goes well:
@@ -122,7 +129,7 @@ info: Account balance is sufficient {"context":{"balance":"1.0 ETH"}}
 info: You address is in the Guardian List {"context":{"address":"0x0000000000000000000000000000000000000000"}}
 ```
 
-At the first startup the daemon will collect historical data:
+At the first startup the daemon will collect historical data for quite some time:
 
 ```
 info: Historical events are fetched {"context":{"endBlock":4487322,"events":3,"startBlock":4467323}}
