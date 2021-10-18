@@ -118,6 +118,16 @@ Returns total number of node operators
 function getNodeOperatorsCount() returns (uint256)
 ```
 
+### getKeysOpIndex()
+Returns a monotonically increasing counter that gets incremented when any of the following happens:
+1. a node operator's key(s) is added;
+2. a node operator's key(s) is removed;
+3. a node operator's approved keys limit is changed.
+
+```sol
+function getKeysOpIndex() public view returns (uint256)
+```
+
 ## Methods
 
 ### addNodeOperator()
