@@ -35,6 +35,7 @@ module.exports = {
         'contracts/node-operators-registry',
         'contracts/withdrawals-manager-stub',
         'contracts/wsteth',
+        'contracts/deposit-security-module',
       ],
     },
     {
