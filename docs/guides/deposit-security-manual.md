@@ -57,7 +57,7 @@ The daemon monitors the keys in the deposit contract and compares them with Lido
 You can pull image from the the docker hub and run it manually or via docker-compose (`docker-compose.yml` can be found in repository root). Volumes can be omitted if needed.
 
 ```shell
-docker pull lidofinance/lido-council-daemon@sha256:9b8de41aea016736a4ee417e604f4d0329993d45f07796bde3a0e741284db16b
+docker pull lidofinance/lido-council-daemon@sha256:9713df85e6e59c1825ec4a6b3fe59f3c50fbd3f7bb43fd518abcf6395cc61ef7
 
 docker run -i -t \
   -v ${PWD}/.volumes/council/cache:/council/cache/ \
