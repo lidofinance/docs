@@ -57,7 +57,7 @@ The daemon monitors the keys in the deposit contract and compares them with Lido
 You can pull image from the the docker hub and run it manually or via docker-compose (`docker-compose.yml` can be found in repository root). Volumes can be omitted if needed.
 
 ```shell
-docker pull lidofinance/lido-council-daemon@sha256:9713df85e6e59c1825ec4a6b3fe59f3c50fbd3f7bb43fd518abcf6395cc61ef7
+docker pull lidofinance/lido-council-daemon@sha256:9599a04ea2487af76f95fa19380d545a077883761a3ad7d36aca6f16a32eee90
 
 docker run -i -t \
   -v ${PWD}/.volumes/council/cache:/council/cache/ \
@@ -73,7 +73,7 @@ docker run -i -t \
   -e KAFKA_BROKER_ADDRESS_1='<kafka address>' \
   -e KAFKA_TOPIC=defender \
   -e WALLET_PRIVATE_KEY \
-  lidofinance/lido-council-daemon@sha256:9b8de41aea016736a4ee417e604f4d0329993d45f07796bde3a0e741284db16b
+  lidofinance/lido-council-daemon@sha256:9599a04ea2487af76f95fa19380d545a077883761a3ad7d36aca6f16a32eee90
 ```
 
 Port 3000 is used for prometheus metrics. You don't have to expose it if you don't collect metrics.
