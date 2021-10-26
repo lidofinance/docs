@@ -118,17 +118,27 @@ Returns total number of node operators
 function getNodeOperatorsCount() returns (uint256)
 ```
 
+### getKeysOpIndex()
+Returns a monotonically increasing counter that gets incremented when any of the following happens:
+1. a Node Operator's key(s) is added
+2. a Node Operator's key(s) is removed
+3. a Node Operator's approved keys limit is changed
+4. a Node Operator was activated/deactivated
+
+```sol
+function getKeysOpIndex() public view returns (uint256)
+```
+
 ## Methods
 
 ### addNodeOperator()
 
-Add node operator named `_name` with reward address `_rewardAddress` and staking limit `_stakingLimit`
+Add node operator named `_name` with reward address `_rewardAddress` and staking limit = 0
 
 ```sol
 function addNodeOperator(
   string _name,
-  address _rewardAddress,
-  uint64 _stakingLimit
+  address _rewardAddress
 ) returns (uint256 id)
 ```
 
@@ -138,7 +148,6 @@ function addNodeOperator(
 | ---------------- | --------- | ----------------------------------------------------------------- |
 | `_name`          | `string`  | Human-readable name                                               |
 | `_rewardAddress` | `address` | Ethereum 1 address which receives stETH rewards for this operator |
-| `_stakingLimit`  | `uint64`  | The maximum number of validators to stake for this operator       |
 
 #### Returns:
 
@@ -149,6 +158,10 @@ function addNodeOperator(
 ### setNodeOperatorActive()
 
 Activate or disable node operator with given id
+
+:::note
+Increases the keysOpIndex
+:::
 
 ```sol
 function setNodeOperatorActive(uint256 _id, bool _active)
@@ -199,6 +212,10 @@ Set the maximum number of validators to stake for the node operator `_id` to `_s
 function setNodeOperatorStakingLimit(uint256 _id, uint64 _stakingLimit)
 ```
 
+:::note
+Increases the keysOpIndex
+:::
+
 #### Parameters:
 
 | Name            | Type      | Description                       |
@@ -238,6 +255,10 @@ Function is used by the Lido contract
 Add `_quantity` validator signing keys of operator `_id` to the set of usable keys.
 Concatenated keys are: `_pubkeys`.
 Can be done by the DAO in question by using the designated rewards address.
+
+:::note
+Increases the keysOpIndex
+:::
 
 ```sol
 function addSigningKeys(
@@ -301,6 +322,10 @@ Given that information, the contract'll be able to call
 
 Removes a validator signing key #`_index` of operator #`_id` from the set of usable keys. Executed on behalf of DAO.
 
+:::note
+Increases the keysOpIndex
+:::
+
 ```sol
 function removeSigningKey(uint256 _operator_id, uint256 _index)
 ```
@@ -311,6 +336,27 @@ function removeSigningKey(uint256 _operator_id, uint256 _index)
 | -------------- | --------- | --------------------------------- |
 | `_operator_id` | `uint256` | Node Operator id                  |
 | `_index`       | `uint256` | Index of the key, starting with 0 |
+
+### removeSigningKeys()
+Removes an #`_amount` of validator signing keys starting from #`_index` of operator #`_id` usable keys. Executed on behalf of DAO.
+
+Keys removing from the last index to the highest one, so we won't get outside the array
+
+:::note
+Increases the keysOpIndex
+:::
+
+```sol 
+function removeSigningKeys(uint256 _operator_id, uint256 _index, uint256 _amount)
+```
+
+#### Parameters:
+
+| Name           | Type      | Description                       |
+| -------------- | --------- | --------------------------------- |
+| `_operator_id` | `uint256` | Node Operator id                  |
+| `_index`       | `uint256` | Index of the key, starting with 0 |
+| `_amount`      | `uint256` | Amount of keys                    |
 
 ### removeSigningKeyOperatorBH()
 
@@ -326,6 +372,24 @@ function removeSigningKeyOperatorBH(uint256 _operator_id, uint256 _index)
 | -------------- | --------- | --------------------------------- |
 | `_operator_id` | `uint256` | Node Operator id                  |
 | `_index`       | `uint256` | Index of the key, starting with 0 |
+
+### removeSigningKeysOperatorBH()
+
+Removes an #`_amount` of validator signing keys starting from #`_index` of operator #`_id` usable keys. Executed on behalf of Node Operator.
+
+Keys removing from the last index to the highest one, so we won't get outside the array
+
+```sol
+function removeSigningKeysOperatorBH(uint256 _operator_id, uint256 _index, uint256 _amount)
+```
+
+#### Parameters:
+
+| Name           | Type      | Description                       |
+| -------------- | --------- | --------------------------------- |
+| `_operator_id` | `uint256` | Node Operator id                  |
+| `_index`       | `uint256` | Index of the key, starting with 0 |
+| `_amount`      | `uint256` | Amount of keys                    |
 
 ### assignNextSigningKeys()
 
