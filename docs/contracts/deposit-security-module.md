@@ -3,13 +3,18 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/DepositSecurityModule.sol)
 - [Deployed Contract](https://etherscan.io/address/0xDb149235B6F40dC08810AA69869783Be101790e7)
 
-DepositSecurityModule - non-upgradable contract.
+Due to front-running vulnerability, we [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
-This contract allows  to a single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 25 blocks in between them), to provide the single honest participant an ability to stop further deposits even if the supermajority colludes.
+- monitoring the history of deposits and the set of Lido keys available for the deposit, signing and disseminating messages allowing deposits;
+- signing the special message allowing anyone to pause deposits once the malicious Node Operator pre-deposits are detected.
 
-After deploying and setting up the contract, the ownership will be transferred to the [DAO Agent](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c).
+Each member must generate an EOA address to sign messages with their private key. The addresses of the committee members will be added to the smart contract.
 
-See [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) that describes long-term mitigation for the front-running vulnerability.
+To make a deposit, we propose to collect a quorum of 2/3 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow a single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide the single honest participant an ability to stop further deposits even if the supermajority colludes.
+
+The guardian himself, or anyone else who has a signed pause message, can call `pauseDeposits` that pauses `DepositSecurityModule`.
+
+To prevent a replay attack, the guardians sign the block number at the time of which malicious pre-deposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
 ## View Methods
 
