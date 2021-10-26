@@ -1,6 +1,6 @@
 # DepositSecurityModule
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/feature/deposit-frontrun-protection-upgrade/contracts/0.8.9/DepositSecurityModule.sol)
+- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/DepositSecurityModule.sol)
 - [Deployed Contract](https://etherscan.io/address/0xDb149235B6F40dC08810AA69869783Be101790e7)
 
 DepositSecurityModule - non-upgradable contract.
