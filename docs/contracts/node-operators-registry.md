@@ -340,6 +340,8 @@ function removeSigningKey(uint256 _operator_id, uint256 _index)
 ### removeSigningKeys()
 Removes an #`_amount` of validator signing keys starting from #`_index` of operator #`_id` usable keys. Executed on behalf of DAO.
 
+Keys removing from the last index to the highest one, so we won't get outside the array
+
 :::note
 Increases the keysOpIndex
 :::
@@ -374,6 +376,8 @@ function removeSigningKeyOperatorBH(uint256 _operator_id, uint256 _index)
 ### removeSigningKeysOperatorBH()
 
 Removes an #`_amount` of validator signing keys starting from #`_index` of operator #`_id` usable keys. Executed on behalf of Node Operator.
+
+Keys removing from the last index to the highest one, so we won't get outside the array
 
 ```sol
 function removeSigningKeysOperatorBH(uint256 _operator_id, uint256 _index, uint256 _amount)

@@ -3,6 +3,12 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/feature/deposit-frontrun-protection-upgrade/contracts/0.8.9/DepositSecurityModule.sol)
 - [Deployed Contract](https://etherscan.io)
 
+DepositSecurityModule - non-upgradable contract.
+
+This contract allows  to a single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 25 blocks in between them), to provide the single honest participant an ability to stop further deposits even if the supermajority colludes.
+
+After deploying and setting up the contract, the ownership will be transferred to the [DAO Agent](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c).
+
 See [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) that describes long-term mitigation for the front-running vulnerability.
 
 ## View Methods
@@ -251,7 +257,7 @@ function unpauseDeposits()
 ```
 
 ### depositBufferedEther()
-Calls Lido.depositBufferedEther(maxDepositsPerBlock), which is not callable in any other way.
+Calls Lido.depositBufferedEther(maxDepositsPerBlock).
 
 :::note
 Reverts if any of the following is true:
