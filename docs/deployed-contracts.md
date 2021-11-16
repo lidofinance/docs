@@ -57,11 +57,11 @@
   - Reward Contract: [`0x75ff3dd673Ef9fC459A52E1054db5dF2A1101212`](https://etherscan.io/address/0x75ff3dd673ef9fc459a52e1054db5df2a1101212)
 
 - Balancer LP rewards:
-  
+
   - Manager Contract: [`0x1dD909cDdF3dbe61aC08112dC0Fdf2Ab949f79D8`](https://etherscan.io/address/0x1dD909cDdF3dbe61aC08112dC0Fdf2Ab949f79D8)
 
 - 1inch LP rewards manager:
-  
+
   - Manager Contract: [`0xf5436129cf9d8fa2a1cb6e591347155276550635`](https://etherscan.io/address/0xf5436129cf9d8fa2a1cb6e591347155276550635)
 
 ### Anchor Integration (stETH as a collateral on Anchor protocol)
@@ -69,7 +69,7 @@
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
 - AnchorVault: [`0x0627054d17eae63ec23c6d8b07d8db7a66ffd45a`](https://etherscan.io/address/0x0627054d17eae63ec23c6d8b07d8db7a66ffd45a) (impl)
 - BridgeConnectorShuttle: [`0x513251faB2542532753972B8FE9A7b60621affaD`](https://etherscan.io/address/0x513251faB2542532753972B8FE9A7b60621affaD)
-- RewardsLiquidator: [`0xdb99Fdb42FEc8Ba414ea60b3a189208bBdbfa321`](https://etherscan.io/address/0xdb99Fdb42FEc8Ba414ea60b3a189208bBdbfa321)
+- RewardsLiquidator: [`0x082a5956D63b44685a7CCA89379D565C439fdf3C`](https://etherscan.io/address/0x082a5956D63b44685a7CCA89379D565C439fdf3C)
 - InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
 
 ### DAO-ops contracts
