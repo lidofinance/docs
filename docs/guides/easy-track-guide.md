@@ -22,9 +22,9 @@ There are three types of votings run periodically by the Lido DAO wrapped into t
 You can read more about Easy Track functionality in the [LIP-3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-3.md).  
 For more in-depth technical description, please read through the full project [specification](https://github.com/lidofinance/easy-track/blob/master/specification.md).
 ## Operations HOWTO
-- [Node Operators guide to Easy Track](#Node-Operators-guide-to-Easy-Track)
-- [LEGO guide to Easy Track](#LEGO-guide-to-Easy-Track)
-- [Reward Committee guide to Easy Track](#Reward-Committee-guide-to-Easy-Track)
+- [Node Operators guide to Easy Track](#node-operators-guide-to-easy-track)
+- [LEGO guide to Easy Track](#lego-guide-to-easy-track)
+- [Rewards Committee guide to Easy Track](#rewards-committee-guide-to-easy-track)
 ## Node Operators guide to Easy Track
 There are several features of staking limit related Easy Track motions to keep in mind before starting one:
 1. **A node operator can only increase staking limits for themselves.** Before starting a motion, please make sure you have access to the address associated with the right node operator in the Lido Node Operators Registry. The correct address can be looked up in the Aragon UI ([goerli-prater testnet](https://testnet.testnet.fi/#/lido-testnet-prater/0x9d4af1ee19dad8857db3a45b0374c81c8a1c6320/), [mainnet](https://mainnet.lido.fi/#/lido-dao/0x55032650b14df07b85bf18a3a3ec8e0af2e028d5/)). 
@@ -77,7 +77,7 @@ In case the minimum objections threshold of 0.5% of total LDO supply hasn't been
 In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
 3. **Motion canceled.**
 In case you find out you have made a mistake when starting the motion (e.g. you don't want to top-up LEGO program just yet or you've misclicked when specifying the amount of tokens to transfer etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction in the Gnosis safe to complete it (gas costs apply).
-## Reward Committee guide to Easy Track
+## Rewards Committee guide to Easy Track
 There are several features of Rewards Committee Easy Track motions to keep in mind before starting one:
 1. **Only a Lido Rewards Committee member can start a motion to allocate funds to reward programs.** Before starting a motion, please make sure you have access to [the Rewards Committee Gnosis safe multi-sig](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/balances). 
 2. **Rewards Committee Easy Track motions support fund allocation in LDO only.**
