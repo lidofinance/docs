@@ -94,7 +94,7 @@ Paste the code into the field on the left. Now the Rewards Committee Gnosis mult
 
 In the header menu of Easy Track UI click 'Start motion' button. You will see the motion creation interface. The motion type you are looking for is 'Add reward program'
 Fill in the form (all fields are required).
-Title should be a human-readable description of the reward program (e.g. 'Curve ETH<>stETH LP incentives').
+Title should be a human-readable description of the reward program (e.g. 'Curve ETH<\>stETH LP incentives').
 Fill the Ethereum address of the reward program (it could be reward contract or reward manager contract depending on the specific program) in the 'Address' field.
 > When creating a motion to remove a reward program from the list or to top up a previously added program, you will be able to pick a program by the program title, rather than pasting Ethereum address.
 

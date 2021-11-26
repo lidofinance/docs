@@ -12,6 +12,7 @@ module.exports = {
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',
+        'guides/easy-track-guide',
       ],
     },
     {
