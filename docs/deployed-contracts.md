@@ -33,7 +33,6 @@
 - stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
 - stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
 
-
 ### Reward Programs
 
 - Early Stakers Airdrop: [`0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B`](https://etherscan.io/address/0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B)
@@ -75,6 +74,17 @@
 ### DAO-ops contracts
 
 - Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
+
+### Easy Track
+
+- EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
+- EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
+- RewardProgramsRegistry: [`0x3129c041b372ee93a5a8756dc4ec6f154d85bc9a`](https://etherscan.io/address/0x3129c041b372ee93a5a8756dc4ec6f154d85bc9a)
+- IncreaseNodeOperatorStakingLimit: [`0xFeBd8FAC16De88206d4b18764e826AF38546AfE0`](https://etherscan.io/address/0xFeBd8FAC16De88206d4b18764e826AF38546AfE0)
+- TopUpLegoProgram: [`0x648C8Be548F43eca4e482C0801Ebccccfb944931`](https://etherscan.io/address/0x648C8Be548F43eca4e482C0801Ebccccfb944931)
+- AddRewardProgram: [`0x9D15032b91d01d5c1D940eb919461426AB0dD4e3`](https://etherscan.io/address/0x9D15032b91d01d5c1D940eb919461426AB0dD4e3)
+- RemoveRewardProgram: [`0xc21e5e72Ffc223f02fC410aAedE3084a63963932`](https://etherscan.io/address/0xc21e5e72Ffc223f02fC410aAedE3084a63963932)
+- TopUpRewardPrograms: [`0x77781A93C4824d2299a38AC8bBB11eb3cd6Bc3B7`](https://etherscan.io/address/0x77781A93C4824d2299a38AC8bBB11eb3cd6Bc3B7)
 
 ## Görli+Prater testnet
 
