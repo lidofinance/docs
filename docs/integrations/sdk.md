@@ -14,7 +14,7 @@ React components for Lido Finance projects.
 
 Library for interaction with Lido contracts.
 
-- GitHub: [https://github.com/lidofinance/ui](https://github.com/lidofinance/ui)
+- GitHub: [https://github.com/lidofinance/lido-js-sdk](https://github.com/lidofinance/lido-js-sdk)
 - NPM: [https://www.npmjs.com/search?q=%40lido-sdk/](https://www.npmjs.com/search?q=%40lido-sdk/)
 
 ### Lido Python SDK
