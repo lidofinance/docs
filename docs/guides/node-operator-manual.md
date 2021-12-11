@@ -90,6 +90,18 @@ is defined by an address that is used for two purposes:
 2. The Node Operator uses this address for submitting signing keys to be used by the protocol.
 
 Pass this address to the DAO holders along with the other relevant information.
+TODO: To do so write in [Lido Discord](https://discord.gg/vgdPfhZ) or ...?
+
+### TL;DR
+1. Download the latest version of [eth2.0-deposit-cli](https://github.com/ethereum/eth2.0-deposit-cli/releases) and run as follows:
+```./deposit new-mnemonic --folder .
+             --num_validators <NUM KEYS>
+             --mnemonic_language english
+             --chain <[mainnet|prater]>
+             --eth1_withdrawal_address <LIDO WITHDRAWAL ADDRESS>
+```
+2. Submit the content of generated file `deposit_data-*.json` to the web3 Lido Key Submitter: [Goerli testnet](https://operators.testnet.fi/submitter) or [Mainnet](https://operators.lido.fi/submitter)
+TODO: what's about Robsten?
 
 ### Generating signing keys
 
@@ -155,8 +167,7 @@ stores named `keystore-*.json`, the latter encrypted with the password you were 
 the command.
 
 If you chose to use the UI for submitting the keys, you’ll need to pass the JSON data found in the
-deposit data file to the protocol (see the next section). If you wish, you can remove any other
-fields except `pubkey` and `signature` from the array items.
+deposit data file to the protocol (see the next section).
 
 Never share the generated mnemonic and your private keys with anyone, including the protocol members
 and DAO holders.
