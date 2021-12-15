@@ -31,7 +31,7 @@ There are several features of staking limit related Easy Track motions to keep i
 3. **Single motion can only address staking limit of a single node operator.** Increasing limits for several node operators in one motion isn't supported.
 3. **Total amount of node operator's signing keys must be greater than or equal to the new staking limit.** Make sure you have submitted enough valid signing keys before starting a motion.
 ### Conducting an Easy Track motion
-To start a staking limit Easy Track motion, proceed to Easy Track UI ([goerli-prater testnet](https://easytrack.testnet.lido.fi/), [mainnet](https://easytrack.lido.fi/)).  
+To start a staking limit Easy Track motion, proceed to Easy Track UI ([goerli-prater testnet](https://easytrack.testnet.fi/), [mainnet](https://easytrack.lido.fi/)).  
 Connect your wallet using the 'Connect wallet' button top right. Please use the address specified as your reward address in the Node Operators Registry.
 In the header menu click 'Start motion' button. You will see the motion creation interface. Motion type you are looking for is 'Increase node operator staking limit'.  
 Fill in the form (all fields are required).  
