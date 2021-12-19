@@ -97,6 +97,7 @@ Fill in the form (all fields are required).
 Title should be a human-readable description of the reward program (e.g. 'Curve ETH<\>stETH LP incentives').  
 Fill the Ethereum address of the reward program (it could be reward contract or reward manager contract depending on the specific program) in the 'Address' field.
 > When creating a motion to remove a reward program from the list or to top up a previously added program, you will be able to pick a program by the program title, rather than pasting Ethereum address.
+> UI for topping up the rewards program takes full tokens as an input (so, the amounts are in X LDOs, not X*1e18 LDO Weis).
 
 Press 'Submit' button below the form and sign the transaction on the Wallet Connect safe app page (gas costs apply).  
 Next, you will need another Rewards Committee Gnosis multi-sig owner to confirm the transaction in the Gnosis Safe.  
@@ -109,3 +110,9 @@ In case the minimum objections threshold of 0.5% of total LDO supply hasn't been
 In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
 3. **Motion canceled.**
 In case you find out you have made a mistake when starting the motion (e.g. you have added the wrong address for the new reward program or you've misclicked when specifying the amount of tokens to be allocated etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction via WalletConnect Safe app, as well as a confirmation from another Finance Team multi-sig owner to complete it (gas costs apply).
+### Checking the motion details from Gnosis Multisig UI
+The motion start txs are created by one of the multisig signers, and the others should check the addresses & data of the tx they are asked to sign.
+1. Check the address the tx is being sent to — it should be `Easy Track` contract listed on the [Deployed Contracts page](https://docs.lido.fi/deployed-contracts#easy-track).
+2. The params of the `createMotion` call are `_evmScriptFactory` address & `_evmScriptCallData` bytes string.
+   1. `_evmScriptFactory` address should be listed on the [Deployed Contracts page](https://docs.lido.fi/deployed-contracts#easy-track) & match the type of motion is about to be started.
+   2. To check `_evmScriptCallData` open the `_evmScriptFactory` contract on the etherscan & call the `decodeEVMScriptCallData` with the string from the Gnosis Safe UI to see the motion params.
