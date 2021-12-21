@@ -15,5 +15,5 @@ Unlike staked ether, the stETH token is free from the limitations associated wit
 ## Other Lido Liquid Staking Protocols
 
 The docs provided on this site are focused on Lido Ethereum Liquid Staking Protocol & stETH token. Developer documentation on other Lido's Liquid Staking Protocols can be found:
-- Terra Liquid Staking & bLuna token [docs](https://docs.anchorprotocol.com/protocol/bonded-assets-bassets/bonded-luna-bluna)
+- Terra Liquid Staking: bLuna and stLuna tokens [docs](https://docs.terra.lido.fi/)
 - Solana Liquid Staking & stSol token [docs](https://docs.solana.lido.fi/)
