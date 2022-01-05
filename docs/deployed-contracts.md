@@ -109,6 +109,7 @@
 - Aragon Finance: [`0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179`](https://goerli.etherscan.io/address/0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179) (proxy)
 - Aragon Agent: [`0x4333218072D5d7008546737786663c38B4D561A4`](https://goerli.etherscan.io/address/0x4333218072D5d7008546737786663c38B4D561A4) (proxy)
 - Deposit Security module: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
+- MEV Transaction Fee Vault: [`0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC`](https://goerli.etherscan.io/address/0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC)
 
 ### Reward Programs
 
