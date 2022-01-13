@@ -13,6 +13,7 @@ module.exports = {
         'guides/protocol-levers',
         'guides/etherscan-voting',
         'guides/easy-track-guide',
+        'guides/checking-aragon-vote'
       ],
     },
     {
