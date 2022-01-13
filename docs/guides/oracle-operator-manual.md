@@ -97,7 +97,7 @@ docker run -d --name lido-oracle \
   lidofinance/oracle:2.0.0
 ```
 
-2.0.0-pre1 for Görli Testnet
+2.0.0 for Görli Testnet
 
 ```sh
 docker run -d --name lido-oracle \
@@ -108,7 +108,7 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
   --env "STETH_CURVE_POOL_CONTRACT=0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.0.0-pre1
+  lidofinance/oracle:2.0.0
 ```
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.

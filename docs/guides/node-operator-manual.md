@@ -21,7 +21,7 @@ The general flow is the following:
 
 3. The Node Operator generates and submits a set of signing public keys and associated signatures
    for future validators that will be managed by the Operator. When generating the signatures, the
-   Operator must use the withdrawal credentials supplied by the DAO.
+   Operator must use withdrawal credentials derived from the withdrawal address supplied by the DAO.
 
 4. The DAO members check the submitted keys for correctness and, if everything’s good, vote for
    approving them. After successful approval, the keys become usable by the protocol.
@@ -105,17 +105,11 @@ a Node Operator submits a set of the corresponding signatures [as defined in the
 The fork version used for generating the signature must correspond to the fork version of the Beacon
 chain the instance of Lido protocol is targeted to.
 
-#### Mainnet
+#### Withdrawal Credentials
 
-Make sure to obtain a correct withdrawal address by finding it inside the active withdrawal credentials either on Aragon UI or by calling the contract via [`Lido.getWithdrawalCredentials()`]. You can find the method on the [Etherscan page for the Mainnet-deployed Lido].
+Make sure to obtain correct withdrawal address by finding it inside the active withdrawal credentials either on Aragon UI or by calling the contract via [`Lido.getWithdrawalCredentials()`]. You can find the method on the [Etherscan page for the Mainnet-deployed Lido] and [Etherscan page for the Prater-deployed Lido].
 
-For example withdrawal credentials `0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f` mean that the withdrawal address is `0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`. Always verify the address is correct using an [explorer] - you will see it's deployed from the Lido deployer.
-
-#### Testnet
-
-You can obtain the protocol withdrawal credentials by calling [`Lido.getWithdrawalCredentials()`].
-On the [Etherscan page for the Prater-deployed Lido], it’s the field number 19. The ABI of the
-`Lido` contract can be found in [`lib/abi/Lido.json`].
+For example withdrawal credentials `0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f` mean that the withdrawal address is `0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`. For Mainnet, always verify the address is correct using an [explorer] - you will see that it was deployed from the Lido deployer.
 
 [bls12-381]: https://ethresear.ch/t/pragmatic-signature-aggregation-with-bls/2105
 [as defined in the spec]: https://github.com/ethereum/annotated-spec/blob/master/phase0/beacon-chain.md#depositmessage
@@ -135,19 +129,8 @@ Example command usage:
 ./deposit new-mnemonic --folder . --num_validators 123 --mnemonic_language english --chain mainnet --eth1_withdrawal_address 0x123
 ```
 
-To generate the keys and signatures, run the following:
-
-```sh
-docker run -it --rm -v "$(pwd):/data" lidofinance/deposit-cli \
-  new-mnemonic \
-  --folder /data \
-  --chain="$CHAIN_NAME" \
-  --withdrawal_credentials="$WITHDRAWAL_CREDENTIALS"
-```
-
-Here, `CHAIN_NAME` is one of the public Beacon chain names (run the container with the `--help` flag
-to see the possible values) and `WITHDRAWAL_CREDENTIALS` is the withdrawal credentials
-from the protocol documentation.
+Here, `chain` is one of the public Beacon chain names (run the command with the `--help` flag
+to see the possible values: `./deposit new-mnemonic --help`) and `eth1_withdrawal_address` is the withdrawal address from the protocol documentation.
 
 As a result of running this, the `validator_keys` directory will be created in the current working
 directory. It will contain a deposit data file named `deposit-data-*.json` and a number of private key
@@ -162,7 +145,6 @@ Never share the generated mnemonic and your private keys with anyone, including 
 and DAO holders.
 
 [`eth2.0-deposit-cli`]: https://github.com/ethereum/eth2.0-deposit-cli/releases
-[`lidofinance/deposit-cli`]: https://hub.docker.com/repository/docker/lidofinance/deposit-cli
 
 ### Validating the keys
 
