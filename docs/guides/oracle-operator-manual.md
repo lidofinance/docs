@@ -9,7 +9,7 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 1. Generate an Ethereum address and propose it as an oracle address via the "Add Member" button in the app UI: [Mainnet] / [Görli].
 2. Facilitate the DAO members to approve your oracle address.
 3. Launch and sync an Ethereum 1.0 node with JSON-RPC endpoint enabled.
-4. Launch and sync a Lighthouse node with RPC endpoint enabled (Prysm is not yet supported).
+4. Launch and sync a Lighthouse node with RPC endpoint enabled.
 5. Launch the oracle daemon as a docker container.
 
 [mainnet]: https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/
@@ -83,7 +83,7 @@ Before running the daemon, check that you've set all required env variables.
 
 You can use the public Docker image to launch the daemon.
 
-2.0.0 for Mainnet:
+2.1.0 for Mainnet:
 
 ```sh
 docker run -d --name lido-oracle \
@@ -94,10 +94,10 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6" \
   --env "STETH_CURVE_POOL_CONTRACT=0xDC24316b9AE028F1497c275EB9192a3Ea0f67022" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.0.0
+  lidofinance/oracle:2.1.0
 ```
 
-2.0.0 for Görli Testnet
+2.1.0 for Görli Testnet
 
 ```sh
 docker run -d --name lido-oracle \
@@ -108,19 +108,19 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
   --env "STETH_CURVE_POOL_CONTRACT=0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.0.0
+  lidofinance/oracle:2.1.0
 ```
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
 
 ## Prometheus metrics
 
-Lido Oracle daemon 2.0.0 exposes metrics via Prometheus exporter. We encourage Oracle operators to use them to monitor daemon reports and process status.
-Prometheus exporter is running on port 8000 and provides 5 logical metrics groups.  
+Lido Oracle daemon exposes metrics via Prometheus exporter. We encourage Oracle operators to use them to monitor daemon reports and process status.
+Prometheus exporter is running on port 8000 and provides 5 logical metrics groups. Prefix for prometheus metrix by default is empty, but could be modified via `PROMETHEUS_PREFIX` environment variable ([full environment variables list](https://github.com/lidofinance/lido-oracle#full-list-of-configuration-options))  
 For the full list of available Prometheus metrics please check [the Lido oracle readme](https://github.com/lidofinance/lido-oracle#prometheus-metrics). We recommend to monitor at least the following ones:
 
 | name                                             | description                              | frequency                     | goal                                                                            |
-| ------------------------------------------------ | ---------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------- |
+|--------------------------------------------------|------------------------------------------|-------------------------------|---------------------------------------------------------------------------------|
 | **reportableFrame** <br /> _gauge_               | the report could be sent or is sending   |                               |                                                                                 |
 | **nowEthV1BlockNumber** <br /> _gauge_           | ETH1 latest block number                 | every COUNTDOWN_SLEEP seconds | should be increasing constantly and be aligned with https://etherscan.io/blocks |
 | **daemonCountDown** <br /> _gauge_               | time till the next oracle run in seconds | every COUNTDOWN_SLEEP seconds | should be decreasing down to 0                                                  |
@@ -133,7 +133,7 @@ For the full list of available Prometheus metrics please check [the Lido oracle 
 Exception counters for debugging any errors which may arise:
 
 | name                                          | description                                              |
-| --------------------------------------------- | -------------------------------------------------------- |
+|-----------------------------------------------|----------------------------------------------------------|
 | **underpricedExceptionsCount** <br /> _gauge_ | count of ValueError: replacement transaction underpriced |
 | **transactionTimeoutCount** <br /> _gauge_    | count of web3.exceptions.TimeExhausted                   |
 | **beaconNodeTimeoutCount** <br /> _gauge_     | count of beacon node connection timeouts                 |
