@@ -79,8 +79,8 @@
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
 - AnchorVault: [`0x0627054d17eae63ec23c6d8b07d8db7a66ffd45a`](https://etherscan.io/address/0x0627054d17eae63ec23c6d8b07d8db7a66ffd45a) (impl)
-- BridgeConnectorShuttle: [`0x513251faB2542532753972B8FE9A7b60621affaD`](https://etherscan.io/address/0x513251faB2542532753972B8FE9A7b60621affaD)
-- RewardsLiquidator: [`0x082a5956D63b44685a7CCA89379D565C439fdf3C`](https://etherscan.io/address/0x082a5956D63b44685a7CCA89379D565C439fdf3C)
+- BridgeConnectorWormhole: [`0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C`](https://etherscan.io/address/0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C)
+- RewardsLiquidator: [`0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7`](https://etherscan.io/address/0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7)
 - InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
 
 ### DAO-ops contracts & addresses
