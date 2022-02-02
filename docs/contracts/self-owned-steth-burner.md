@@ -34,7 +34,7 @@ To prevent too large rebasing events encouraging unfair coverage distribution vi
 the contract has a limit of shares to burn per single beacon report. Thus, burning requests
 could be executed in more than one pass.
 
-Full formal spec described in the
+The full formal spec provided with
 [LIP-6](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-6.md).
 
 ## Shares burnt counters
@@ -123,8 +123,8 @@ function requestBurnMyStETHForCover(uint256 _stETH2Burn) external
 
 :::note
 Reverts if any of the following is true:
-* message sender is not `Voting`.
-* no stETH provided (`_stETH2Burn == 0`).
+* `msg.sender` is not equal to the set upon construction `voting` address;
+* no stETH provided (`_stETH2Burn == 0`);
 * no stETH transferred (allowance exceeded).
 :::
 
@@ -136,12 +136,14 @@ Reverts if any of the following is true:
 
 ### Function: requestBurnMyStETH
 
-Transfers stETH tokens from the message sender and irreversibly locks these on the burner contract address. Internally converts tokens amount into underlying shares amount and marks the converted amount for non-cover-backed burning by increasing the internal `nonCoverSharesBurnRequested` counter.
+Transfers stETH tokens from the message sender and irreversibly locks these on the burner contract address.
+Internally converts tokens amount into underlying shares amount and marks the converted amount for
+non-cover-backed burning by increasing the internal `nonCoverSharesBurnRequested` counter.
 
 :::note
 Reverts if any of the following is true:
-* message sender is not `Voting`.
-* no stETH provided (`_stETH2Burn == 0`).
+* `msg.sender` is not equal to the set upon construction `voting` address;
+* no stETH provided (`_stETH2Burn == 0`);
 * no stETH transferred (allowance exceeded).
 :::
 
@@ -162,9 +164,9 @@ function setBurnAmountPerRunQuota(uint256 _maxBurnAmountPerRunBasisPoints) exter
 
 :::note
 Reverts if any of the following is true:
-* provided `_maxBurnAmountPerRunBasisPoints` is zero.
-* provided `_maxBurnAmountPerRunBasisPoints` exceeds `10000`
-* message sender is not `Voting`
+* `_maxBurnAmountPerRunBasisPoints` is zero;
+* `_maxBurnAmountPerRunBasisPoints` exceeds `10000`;
+* `msg.sender` is not equal to the set upon construction `voting` address;
 :::
 
 #### Parameters:
@@ -183,14 +185,14 @@ Does nothing if there are no pending burning requests.
 Could be called as part of an oracle quorum report only.
 
 ```sol
-function: processLidoOracleReport(uint256, uint256, uint256) external
+function: processLidoOracleReport(uint256, uint256, uint256) external override
 ```
 
 :::note
 The burning requests could be executed partially per single run due to the `maxBurnAmountPerRunBasisPoints` limit.
 The cover reasoned burning requests have a higher priority of execution.
 
-Reverts if there are pending burning requests and the message sender is not of one
+Reverts if there are pending burning requests and the `msg.sender` is not of one
 of the `LidoOracle` or `LidoOracle.getBeaconReportReceiver()`.
 
 Input parameters are needed only for the ABI compatibility, the values are always ignored.
@@ -219,12 +221,11 @@ to the burner contract address to the Lido treasury (the `DAO Agent` contract) a
 ```sol
 function recoverERC20(address _token, uint256 _amount) external
 ```
-
 :::note
 Reverts if any of the following is true:
-* the `_amount` value is 0 (zero).
-* the `_token` address is 0 (zero).
-* the `_token` address equals to the `stETH` address (use `recoverExcessStETH` instead).
+* `_amount` value is 0 (zero);
+* `_token` address is 0 (zero);
+* `_token` address equals to the `stETH` address (use `recoverExcessStETH` instead).
 
 #### Parameters:
 
