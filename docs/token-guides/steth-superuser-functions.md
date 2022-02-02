@@ -2,7 +2,7 @@
 
 <!--  -->
 
-## Superuser privileges, accounts, and roles
+## Superuser privileges and accounts
 
 StETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at [https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84). Lido DAO can change the implementation with the successful DAO vote.
 
@@ -14,7 +14,15 @@ StETH can be stopped by the DAO vote. No operations changing stETH balances can 
 5. No ETH buffered in Lido can be sent to the ETH2 deposit contract;
 6. Staking withdrawals (once available) can't be performed.
 
-StETH contract specifies PAUSE_ROLE (address can pause the protocol) and BURN_ROLE (address can burn stETH tokens on any address). The `PAUSE_ROLE` assigned only to the DAO Voting contract [https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e](https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e) while the `BURN_ROLE` assigned to the [`SelfOwnedStETHBurner`](contracts/self-owned-steth-burner) contract, and allowed to burn stETH tokens only from its own balance. Tokens could be requested to burn only by direct request from the DAO Voting. Note that there are other roles for DAO management, but they don't affect the token actions. These roles are MANAGE_FEE (set staking fee amount), MANAGE_WITHDRAWAL_KEY (set withdrawal credentials of the protocol), SET_ORACLE (set oracle contract address), SET_TREASURY (set DAO treasury address to send fee to), SET_INSURANCE_FUND (set DAO insurance address to send fee to). The roles and addresses can be checked in the Aragon UI [https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84](https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
+## Superuser roles
+
+StETH contract specifies PAUSE_ROLE (address can pause the protocol) and BURN_ROLE (address can burn stETH tokens):
+* The `PAUSE_ROLE` assigned only to the DAO Voting contract [https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e](https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e)
+* The `BURN_ROLE` assigned to the [`SelfOwnedStETHBurner`](/contracts/self-owned-steth-burner) contract with additional ACL parameters effectively allowing to burn stETH tokens only from the contract own balance. Tokens could be requested to burn only by direct request from the DAO Voting.
+
+Note that there are other roles for DAO management, but they don't affect the token actions. These roles are MANAGE_FEE (set staking fee amount), MANAGE_WITHDRAWAL_KEY (set withdrawal credentials of the protocol), SET_ORACLE (set oracle contract address), SET_TREASURY (set DAO treasury address to send fee to), SET_INSURANCE_FUND (set DAO insurance address to send fee to). The roles and addresses can be checked in the Aragon UI [https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84](https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
+
+## Oracle rebasing reports
 
 StETH is a rebasable token. It receives reports from the Oracle contract (`pushBeacon` method) with the state of the protocol's ETH2 validators balances, and updates all the balances of stETH holders distributing the protocol's total staking rewards and penalties. The protocol employs distributed Oracle reporting: there are five Oracle daemons running by the Lido Node operators, and the Oracle smart contract formats beacon report on the consensus of three of five daemon reports. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total ETH2 balance or rewards with higher-than-possible APY. Current Oracle contract is [https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb). Note that: 1) DAO can set another address for the Oracle contact via vote; 2) Oracle implementation can change via vote.
 

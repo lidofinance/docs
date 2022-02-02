@@ -6,7 +6,7 @@
 The contract provides a way for Lido governance to burn stETH token shares as a means to distributed cover
 for losses to staking.
 
-It relies on the [rebasing](contracts/lido#rebasing) nature of the stETH. The basic account balance calculation
+It relies on the [rebasing](/contracts/lido#rebasing) nature of the stETH. The basic account balance calculation
 defined by the `Lido` contract with the following formula:
 `balanceOf(account) = shares[account] * totalPooledEther / totalShares`.
 Therefore, burning someone's shares (e.g. decreasing the `totalShares` amount) leads to increasing
@@ -27,7 +27,7 @@ between the two consecutive oracle reports);
 * request to burn shares for any other cases (**non-cover**).
 
 The contract has two separate counters for the burnt shares: cover and non-cover ones. The contract have
-exclusive access to the stETH shares burning via constrained [`BURN_ROLE`](token-guides/seth-superuser-functions):
+exclusive access to the stETH shares burning via constrained [`BURN_ROLE`](/token-guides/steth-superuser-functions#superuser-roles):
 burning allowed only from the contract's own balance only.
 
 To prevent too large rebasing events encouraging unfair coverage distribution via front-running techniques,
@@ -198,7 +198,7 @@ of the `LidoOracle` or `LidoOracle.getBeaconReportReceiver()`.
 Input parameters are needed only for the ABI compatibility, the values are always ignored.
 
 See also:
-[`IBeaconReportReceiver.processLidoOracleReport`](contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes).
+[`IBeaconReportReceiver.processLidoOracleReport`](/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes).
 :::
 
 ### function recoverExcessStETH
@@ -225,7 +225,8 @@ function recoverERC20(address _token, uint256 _amount) external
 Reverts if any of the following is true:
 * `_amount` value is 0 (zero);
 * `_token` address is 0 (zero);
-* `_token` address equals to the `stETH` address (use `recoverExcessStETH` instead).
+* `_token` address is equal to the `stETH` address (use `recoverExcessStETH` instead).
+:::
 
 #### Parameters:
 

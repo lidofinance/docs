@@ -117,7 +117,7 @@
 - Aragon Agent: [`0x4333218072D5d7008546737786663c38B4D561A4`](https://goerli.etherscan.io/address/0x4333218072D5d7008546737786663c38B4D561A4) (proxy)
 - Deposit Security module: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
 - Composite post-rebase beacon receiver: [`0x1D2219E0A1e2F09309643fD8a69Ca0EF7093B739`](https://goerli.etherscan.io/address/0x1D2219E0A1e2F09309643fD8a69Ca0EF7093B739)
-- In-protocol coverage application executor: [`0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888`](https://etherscan.io/address/0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888)
+- In-protocol coverage application executor: [`0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888`](https://goerli.etherscan.io/address/0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888)
 - MEV Transaction Fee Vault: [`0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC`](https://goerli.etherscan.io/address/0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC)
 
 ### Reward Programs

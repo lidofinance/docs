@@ -40,7 +40,7 @@ for burning could be obtained only by a direct `Voting` request.
 
 As a result, to burn stETH token shares, DAO needs to explicitly approve `stETH` transfer from
 the `Voting` app contract to the `SelfOwnedStETHBurner` contract and request to burn
-the received token shares on the next quorum-reached oracle report.
+the received token shares on the next quorum-reaching oracle report.
 
 ### Oracle
 
@@ -230,9 +230,9 @@ interface.
 
 Note that setting zero address disables this functionality.
 
-The receiver's slot occupied with [`CompositePostRebaseBeaconReceiver`](contracts/composite-post-rebase-beacon-receiver)
+The receiver's slot occupied with [`CompositePostRebaseBeaconReceiver`](/contracts/composite-post-rebase-beacon-receiver)
 which supports adding multiple contracts to be notified about new reports.
-Up to now, the only one [`SelfOwnedStETHBurner`](contracts/self-owned-steth-burner) contract is set (or wrapped) with
+Up to now, the only one [`SelfOwnedStETHBurner`](/contracts/self-owned-steth-burner) contract is set (or wrapped) with
 beacon receiver through the composite adapter.
 
 ### Current reporting status

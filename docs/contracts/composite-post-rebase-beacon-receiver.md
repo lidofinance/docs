@@ -3,19 +3,21 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/CompositePostRebaseBeaconReceiver.sol)
 - [Deployed Contract](https://etherscan.io/address/TODO)
 
-The contract allows using multiple [`LidoOracle`](contracts/lido-oracle)
+The contract allows using multiple [`LidoOracle`](/contracts/lido-oracle)
 beacon report intercepting
-[callbacks](contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes)
+[callbacks](/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes)
 by implementing a composite design pattern. In other words, `CompositePostRebaseBeaconReceiver`
 follows the `IBeaconReceiver` interface and internally holds an array of nested `IBeaconReceiver`
 instances for iterative execution by calling `processLidoOracleReport` in a simple for-loop.
 
-The storage changing calls (add/insert/remove) only allowed from the `Voting` contract (having `require(msg.sender == Voting.address)` ), and `processLidoOracleReport` calls allowed only from the `LidoOracle` contract (having `require(msg.sender == LidoOracle.address)`).
+The storage changing calls (add/insert/remove) only allowed from the `Voting` contract, and `processLidoOracleReport`
+calls allowed only from the `LidoOracle` contract.
+
+For the architecture consistency the contract is derived from the two contracts: `OrderedCallbacksArray`
+(array housekeeping functions) and `IBeaconReportReceiver` (compatibility interface for `LidoOracle`).
 
 The full formal spec provided with
 [LIP-7](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-7.md).
-
-For the architecture consistency the contract is derived from the two contracts `OrderedCallbacksArray` (array housekeeping functions) and `IBeaconReportReceiver` (compatibility interface for `LidoOracle`).
 
 ## View methods
 
@@ -59,7 +61,7 @@ function addCallback(address _callback) external override onlyVoting;
 Reverts if any of the following is true:
 * `_callback` address is zero;
 * `msg.sender` is not equal to the set upon construction `voting` address;
-* current length of the callbacks array equals to `MAX_CALLBACKS_CNT`(=16) contract-wide constant.
+* current length of the callbacks array is equal to `MAX_CALLBACKS_CNT`(=16) contract-wide constant.
 :::
 
 #### Parameters:
@@ -83,7 +85,7 @@ Reverts if any of the following is true:
 * `_callback` address is zero;
 * `msg.sender` is not equal to the set upon construction `voting` address;
 * `_atIndex` is greater than the length of the callbacks array;
-* current length of the callbacks array equals to `MAX_CALLBACKS_CNT`(=16) contract-wide constant.
+* current length of the callbacks array is equal to `MAX_CALLBACKS_CNT`(=16) contract-wide constant.
 :::
 
 #### Parameters:
@@ -139,4 +141,4 @@ Reverts if any of the following is true:
 | `_preTotalPooledEther`     | `uint256` | total pooled ether mount, queried right **before** every report push                    |
 | `_timeElapsed`             | `uint256` | the time in seconds between the current epoch of push and the last quorum-reached epoch |
 
-See also LidoOracle [APR docs](contracts/lido-oracle#add-calculation-of-staker-rewards-apr) for the in-depth parameters explanation.
+See also the [LidoOracle APR docs](/contracts/lido-oracle#add-calculation-of-staker-rewards-apr) for the in-depth parameters explanation.
