@@ -32,6 +32,16 @@ DAO members can burn token shares via DAO voting to offset slashings using insur
 E.g. protocol was slashed by 5 Ether; by burning the amount of shares corresponding to 5 stETH
 the stakers can be made whole.
 
+Currently, the `BURN_ROLE` assigned only to the
+[`SelfOwnedStETHBurner`](/contracts/self-owned-steth-burner) contract and constrained by the
+[Aragon OS ACL parameter interpretation](https://hack.aragon.org/docs/aragonos-ref#parameter-interpretation)
+feature to allow burn stETH token shares only from the contract's own balance. Moreover, the shares
+for burning could be obtained only by a direct `Voting` request.
+
+As a result, to burn stETH token shares, DAO needs to explicitly approve `stETH` transfer from
+the `Voting` app contract to the `SelfOwnedStETHBurner` contract and request to burn
+the received token shares on the next quorum-reached oracle report.
+
 ### Oracle
 
 The address of the oracle contract.
@@ -211,13 +221,19 @@ circumstances.
 
 It is possible to register a contract to be notified of the report push to Lido (when the quorum is
 reached). The contract should provide
-[IBeaconReportReceiver](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.4.24/interfaces/IBeaconReportReceiver.sol) interface.
+[IBeaconReportReceiver](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.4.24/interfaces/IBeaconReportReceiver.sol)
+interface.
 
 - Mutator: `setBeaconReportReceiver(address)`
   - Permission required: `SET_BEACON_REPORT_RECEIVER`
 - Accessor: `getBeaconReportReceiver() returns (address)`
 
 Note that setting zero address disables this functionality.
+
+The receiver's slot occupied with [`CompositePostRebaseBeaconReceiver`](contracts/composite-post-rebase-beacon-receiver)
+which supports adding multiple contracts to be notified about new reports.
+Up to now, the only one [`SelfOwnedStETHBurner`](contracts/self-owned-steth-burner) contract is set (or wrapped) with
+beacon receiver through the composite adapter.
 
 ### Current reporting status
 
