@@ -84,6 +84,13 @@
 - RewardsLiquidator: [`0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7`](https://etherscan.io/address/0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7)
 - InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
 
+### AAVE Integration
+
+- AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
+- StableDebtStETH: [`0x8180949ac41EF18e844ff8dafE604a195d86Aea9`](https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9) (impl)
+- VariableDebtStETH: [`0xDe2c414b671d2DB93617D1592f0490c13674de24`](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24) (impl)
+- DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c) (impl)
+
 ### DAO-ops contracts & addresses
 
 - Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
@@ -168,4 +175,3 @@
 - WstETH: [0xa88751C0a08623E11ff38c6B70F2BbEe7865C17c](https://kovan.etherscan.io/address/0xa88751C0a08623E11ff38c6B70F2BbEe7865C17c)
 - DepositContractMock: [0x83D592bfd9FEF834ab2C49bDCfD60D2DB48b1CF7](https://kovan.etherscan.io/address/0x83D592bfd9FEF834ab2C49bDCfD60D2DB48b1CF7)
 - NodeOperatorsRegistry: [0x292E6CF3861fBf010054ae3Bf43959105BE90000](https://kovan.etherscan.io/address/0x292E6CF3861fBf010054ae3Bf43959105BE90000)
-
