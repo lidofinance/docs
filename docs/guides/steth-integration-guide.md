@@ -85,7 +85,8 @@ Although rebaseable tokens are becoming a common thing in DeFi recently, many dA
 
 ### What wstETH is
 
-wstETH is an ERC20 token that represents the account's share of the total supply of stETH tokens (stETH token wrapper with static balances). The 1 wei of wstETH token equals the [share](#What-share-is) balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase. To see actual ratio between stETH and wstETH, `stEthPerToken` function can be used [here](https://etherscan.io/token/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0#readContract).
+wstETH is an ERC20 token that represents the account's share of the total supply of stETH tokens (stETH token wrapper with static balances). The 1 wei of wstETH token equals the [share](#What-share-is) balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase.  
+At any given time, anyone holding wstETH can convert any amount of it to stETH at a fixed rate, and vice versa. The rate is the same for everyone at any given moment. The rate gets updated once a day, when stETH undergoes a rebase. The current rate can be obtained by calling `wstETH.stEthPerToken()`  
 
 To be more consistent with stETH, wstETH allows to wrap stETH and get wstETH and to unwrap wstETH to get stETH back.
 
