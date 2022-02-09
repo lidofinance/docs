@@ -13,7 +13,7 @@ module.exports = {
         'guides/protocol-levers',
         'guides/etherscan-voting',
         'guides/easy-track-guide',
-        'guides/checking-aragon-vote'
+        'guides/checking-aragon-vote',
       ],
     },
     {
@@ -46,5 +46,6 @@ module.exports = {
       items: ['security/bugbounty'],
     },
     'deployed-contracts',
+    'audits',
   ],
 }
