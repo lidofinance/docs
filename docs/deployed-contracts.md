@@ -78,7 +78,7 @@
 ### Anchor Integration (stETH as a collateral on Anchor protocol)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
-- AnchorVault: [`0x777cee2a757bd958939d3fbfd8af17aa5a34051d`](https://etherscan.io/address/0x777cee2a757bd958939d3fbfd8af17aa5a34051d) (impl)
+- AnchorVault: [`0x07BE9BB2B1789b8F5B2f9345F18378A8B036A171`](https://etherscan.io/address/0x07BE9BB2B1789b8F5B2f9345F18378A8B036A171) (impl)
 - bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 - BridgeConnectorWormhole: [`0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C`](https://etherscan.io/address/0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C)
 - RewardsLiquidator: [`0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7`](https://etherscan.io/address/0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7)
