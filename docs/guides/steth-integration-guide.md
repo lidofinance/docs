@@ -68,7 +68,7 @@ If using the rebaseable stETH token is not an option for your integration, it is
 
 ### Fees
 
-Lido collects a percentage of the reward as a fee. The exact fee is defined by the DAO. To collect the fee, the protocol mints new stETH token shares and assigns them to the fee recipients.
+Lido collects a percentage of the reward as a fee. The exact fee size is defined by the DAO and can be changed in the future via DAO voting. To collect the fee, the protocol mints new stETH token shares and assigns them to the fee recipients.
 
 Since total amount of Lido pooled ether tends to increase, the combined value of all holders' shares denominated in stETH increases respectively. Thus, the rewards effectively spread between each token holder proportionally to their share in the protocol TVL. So Lido mints new shares to the fee recipient, so that the total cost of the newly-minted shares exactly corresponds to the fee taken:
 
@@ -83,24 +83,24 @@ shares2mint = --------------------------------------------------------------
                 (newTotalPooledEther * 10000) - (feeBasis * _totalRewards)
 ```
 
-### Does stETH compound?
+### Do stETH rewards compound?
 
 stETH holders receive staking rewards, but those don't compound. Actual APR diminishes slightly over time for two main reasons:
 
 1. Beacon chain rewards don't compound. To get more rewards one should withdraw funds and re-deposit them, skimming rewards. Until withdrawals are enabled, that can't be done at all. So, while the Lido's beacon chain balance increases over time, the yield bearing asset amount remains equal to deposited ether amount.
-2. stETH holders receive rewards proportionally to their share in the total staked ETH. This share diminishes slightly with time because of the protocol fees on rewards (10% of rewards are distributed between Node Operators & the protocol Treasury).
+2. stETH holders receive rewards proportionally to their share in the stETH total supply. This share diminishes slightly over time because of the protocol fees on rewards (10% of rewards are distributed between Node Operators & the protocol Treasury eventually eating up from other holders' shares).
 
 ## wstETH
 
 Due to the rebasing nature of stETH, the stETH balance on holder's address is not constant, it changes daily as oracle report comes in.
-Although rebaseable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebaseable tokens. Listing stETH on these apps can result in holders losing a portion of their daily staking rewards effectively defeating the benefits of liquid staking.
+Although rebaseable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebaseable tokens. Listing stETH on these apps can result in holders losing a portion of their daily staking rewards which effectively defeats the benefits of liquid staking.
 
 ### What wstETH is
 
-wstETH is an ERC20 token that represents the account's share of the total supply of stETH tokens (stETH token wrapper with static balances). The 1 wei of wstETH token equals the [share](#What-share-is) balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase.  
+wstETH is an ERC20 token that represents the account's share of the total supply of stETH total supply (stETH token wrapper with static balances). The 1 wei of wstETH token equals the [share](#What-share-is) balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase.  
 At any given time, anyone holding wstETH can convert any amount of it to stETH at a fixed rate, and vice versa. The rate is the same for everyone at any given moment. The rate gets updated once a day, when stETH undergoes a rebase. The current rate can be obtained by calling `wstETH.stEthPerToken()`  
 
-To be more consistent with stETH, wstETH allows to wrap stETH and get wstETH and to unwrap wstETH to get stETH back.
+To be more consistent with stETH, wstETH allows to wrap stETH and get wstETH, and to unwrap wstETH to get stETH back.
 
 ### Rewards accounting
 
@@ -122,8 +122,30 @@ When unwrapping, wstETH gets burns and stETH is getting unlocked.
 Thus, amount of stETH unlocked when unwrapping is diferent from what has been initially wrapped (given a rebase happened between wrapping and unwrapping wstETH).
 Note, that WstETH contract includes a shortcut to convert ether to wstETH under the hood, which allows to effectively skip the wrapping step and stake ether for wstETH directly.
 
-## Risks
+## General integration examples
 
+### stETH/wstETH as collateral
+
+> Why is it a good collateral? Explain how liquidations would work. Explain Chainlink price feeds.
+> Add examples of stETH/wstETH listed as collateral - Maker, Compound. Add relevant code examples (AAVE).
+> Why is stETH/wstETH (not) great for borrowing?
+
+### Wallet integrations
+
+> Great UX of direct staking from the wallet.
+> Referral program (how it works, whitelisting).
+> How to handle rebases from the wallet (avoid caching balance for over 24hrs)
+
+### Liquidity mining
+
+> List the existing pools
+> What happens to staking rewards accrued by the pool (Curve LP vs. Balancer LP ())?
+
+### Cross chain bridging
+
+> Explain how wstETH is the only asset to be bridged, not stETH
+
+## Risks
 
 1. Smart contract security
     There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited and covered by an extensive bug bounty program to minimise this risk.
