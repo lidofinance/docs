@@ -13,13 +13,21 @@ module.exports = {
         'guides/protocol-levers',
         'guides/etherscan-voting',
         'guides/easy-track-guide',
-        'guides/checking-aragon-vote'
+        'guides/checking-aragon-vote',
       ],
     },
     {
       type: 'category',
       label: 'Integrations',
-      items: ['integrations/sdk', 'integrations/subgraph'],
+      items: [
+        'integrations/sdk',
+        'integrations/subgraph',
+        {
+          type: 'category',
+          label: 'AAVE',
+          items: ['integrations/aave/specification', 'integrations/aave/aip'],
+        },
+      ],
     },
     {
       type: 'category',
