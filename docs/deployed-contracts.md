@@ -177,7 +177,7 @@
 - wstETH token: [`0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7`](https://rinkeby.etherscan.io/address/0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7)
 - Node Operators registry: [`0x776dFe7Ec5D74526Aa65898B7d77FCfdf15ffBe6`](https://rinkeby.etherscan.io/address/0x776dfe7ec5d74526aa65898b7d77fcfdf15ffbe6)
 - DepositContractMock: [`0xd1aC373a6fCAB20476957B14a18178615594Debe`](https://rinkeby.etherscan.io/address/0xd1ac373a6fcab20476957b14a18178615594debe)
-- NodeOperatorsRegistry (Easy Track stub)[`0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c`](https://rinkeby.etherscan.io/address/0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c)|
+- NodeOperatorsRegistry (Easy Track stub)[`0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c`](https://rinkeby.etherscan.io/address/0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c)
 - Finance (Easy Track stub)|[`0x72cd2b30020fb28de0dfa64d930a183eb732cf46`](https://rinkeby.etherscan.io/address/0x72cd2b30020fb28de0dfa64d930a183eb732cf46)
 
 ### Easy Track
