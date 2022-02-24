@@ -12,6 +12,8 @@
 - Oracle: [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
 - Deposit Security module: [`0xDb149235B6F40dC08810AA69869783Be101790e7`](https://etherscan.io/address/0xDb149235B6F40dC08810AA69869783Be101790e7)
 - Withdrawals Manager Stub: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
+- Coverage application mechanism: [`0x1e0C8542A59c286e73c30c45612d9C3a674A6cbC`](https://etherscan.io/address/0x1e0C8542A59c286e73c30c45612d9C3a674A6cbC)
+- Composite beacon report receiver (post-rebase): [`0xEdd972c22870726F30253efa88a08608F9748907`](https://etherscan.io/address/0xEdd972c22870726F30253efa88a08608F9748907)
 
 ### DAO Contracts
 
@@ -82,7 +84,7 @@
 - bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 - BridgeConnectorWormhole: [`0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C`](https://etherscan.io/address/0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C)
 - RewardsLiquidator: [`0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7`](https://etherscan.io/address/0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7)
-- InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
+- InsuranceConnector: [`0x714E3BcddBdC2045Bd3BE35c8642885470b25b11`](https://etherscan.io/address/0x714E3BcddBdC2045Bd3BE35c8642885470b25b11)
 
 ### DAO-ops contracts & addresses
 
@@ -116,8 +118,8 @@
 - Aragon Finance: [`0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179`](https://goerli.etherscan.io/address/0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179) (proxy)
 - Aragon Agent: [`0x4333218072D5d7008546737786663c38B4D561A4`](https://goerli.etherscan.io/address/0x4333218072D5d7008546737786663c38B4D561A4) (proxy)
 - Deposit Security module: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
-- Composite post-rebase beacon receiver: [`0x1D2219E0A1e2F09309643fD8a69Ca0EF7093B739`](https://goerli.etherscan.io/address/0x1D2219E0A1e2F09309643fD8a69Ca0EF7093B739)
-- In-protocol coverage application executor: [`0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888`](https://goerli.etherscan.io/address/0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888)
+- Composite beacon report receiver (post-rebase): [`0x1D2219E0A1e2F09309643fD8a69Ca0EF7093B739`](https://goerli.etherscan.io/address/0x1D2219E0A1e2F09309643fD8a69Ca0EF7093B739)
+- Coverage application mechanism: [`0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888`](https://goerli.etherscan.io/address/0xf6a64DcB06Ef7eB1ee94aDfD7D10ACB44D9A9888)
 - MEV Transaction Fee Vault: [`0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC`](https://goerli.etherscan.io/address/0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC)
 
 ### Reward Programs
