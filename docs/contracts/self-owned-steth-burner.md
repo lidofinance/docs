@@ -37,6 +37,14 @@ could be executed in more than one pass.
 The full formal spec provided with
 [LIP-6](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-6.md).
 
+## Cover application workflow
+
+1. The contract accepts burning requests only from the `Aragon Voting` contract by transferring stETH.
+2. The transfer performed by `requestBurnMyStETHForCover` func call which requires explicit `approve` beforehand.
+3. Cover application performs as a part of the oracle reports and rate-limited to prevent sandwiching.
+
+NB: daily burn quota is set to 4BP of TVL, consider to tune it if needed (overall token rebase should stay less than 7.5BP).
+
 ## Shares burnt counters
 
 The contract stores the total amount of shares ever burnt, distinguishing cover and non-cover shares,
