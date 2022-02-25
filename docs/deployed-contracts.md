@@ -188,8 +188,8 @@
 - AddRewardProgram: [`0x3129C041B372eE93a5A8756dc4EC6f154D85Bc9a`](https://rinkeby.etherscan.io/address/0x3129C041B372eE93a5A8756dc4EC6f154D85Bc9a)
 - RemoveRewardProgram: [`0xc21e5e72Ffc223f02fC410aAedE3084a63963932`](https://rinkeby.etherscan.io/address/0xc21e5e72Ffc223f02fC410aAedE3084a63963932)
 - TopUpRewardPrograms: [`0xbb0f594143208eCd04DC7AAe48955902A716F9F7`](https://rinkeby.etherscan.io/address/0xbb0f594143208eCd04DC7AAe48955902A716F9F7)
-- NodeOperatorsRegistry (stub)[`0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c`](https://rinkeby.etherscan.io/address/0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c)
-- Finance (stub)|[`0x72cd2b30020fb28de0dfa64d930a183eb732cf46`](https://rinkeby.etherscan.io/address/0x72cd2b30020fb28de0dfa64d930a183eb732cf46)
+- NodeOperatorsRegistry (stub): [`0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c`](https://rinkeby.etherscan.io/address/0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c)
+- Finance (stub): [`0x72cd2b30020fb28de0dfa64d930a183eb732cf46`](https://rinkeby.etherscan.io/address/0x72cd2b30020fb28de0dfa64d930a183eb732cf46)
 
 ### Goerli
 
