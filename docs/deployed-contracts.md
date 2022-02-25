@@ -131,6 +131,22 @@
 
   - Pool Contract: [`0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA`](https://goerli.etherscan.io/address/0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA)
 
+### Easy Track
+
+- EasyTrack: [`0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af`](https://goerli.etherscan.io/address/0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af)
+- EVMScriptExecutor: [`0x3c9AcA237b838c59612d79198685e7f20C7fE783`](https://goerli.etherscan.io/address/0x3c9AcA237b838c59612d79198685e7f20C7fE783)
+- IncreaseNodeOperatorStakingLimit: [`0xE033673D83a8a60500BcE02aBd9007ffAB587714`](https://goerli.etherscan.io/address/0xE033673D83a8a60500BcE02aBd9007ffAB587714)
+- TopUpLegoProgram: [`0xb2bcf211F103d7F13789394DD475c2274e044C4C`](https://goerli.etherscan.io/address/0xb2bcf211F103d7F13789394DD475c2274e044C4C)
+- RewardProgramsRegistry: [`0x28a08f61AE129d0d8BD4380Ae5647e7Add0527ca`](https://goerli.etherscan.io/address/0x28a08f61AE129d0d8BD4380Ae5647e7Add0527ca)
+- AddRewardProgram: [`0x5560d40b00EA3a64E9431f97B3c79b04e0cdF6F2`](https://goerli.etherscan.io/address/0x5560d40b00EA3a64E9431f97B3c79b04e0cdF6F2)
+- RemoveRewardProgram: [`0x31B68d81125E52fE1aDfe4076F8945D1014753b5`](https://goerli.etherscan.io/address/0x31B68d81125E52fE1aDfe4076F8945D1014753b5)
+- TopUpRewardPrograms: [`0x8180949ac41EF18e844ff8dafE604a195d86Aea9`](https://goerli.etherscan.io/address/0x8180949ac41EF18e844ff8dafE604a195d86Aea9)
+- RewardProgramsRegistry (Referral partners): [`0x4CB0c9987fd670069e4b24c653981E86b261A2ca`](https://goerli.etherscan.io/address/0x4CB0c9987fd670069e4b24c653981E86b261A2ca)
+- AddRewardProgram (Referral partners): [`0xe54ca3e867C52a34d262E94606C7A9371AB820c9`](https://goerli.etherscan.io/address/0xe54ca3e867C52a34d262E94606C7A9371AB820c9)
+- RemoveRewardProgram (Referral partners): [`0x2A0c343087c6cFB721fFa20608A6eD0473C71275`](https://goerli.etherscan.io/address/0x2A0c343087c6cFB721fFa20608A6eD0473C71275)
+- TopUpRewardPrograms (Referral partners): [`0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee`](https://goerli.etherscan.io/address/0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee)
+
+
 ## Görli+Pyrmont testnet
 
 ### Core Protocol
@@ -161,6 +177,19 @@
 - wstETH token: [`0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7`](https://rinkeby.etherscan.io/address/0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7)
 - Node Operators registry: [`0x776dFe7Ec5D74526Aa65898B7d77FCfdf15ffBe6`](https://rinkeby.etherscan.io/address/0x776dfe7ec5d74526aa65898b7d77fcfdf15ffbe6)
 - DepositContractMock: [`0xd1aC373a6fCAB20476957B14a18178615594Debe`](https://rinkeby.etherscan.io/address/0xd1ac373a6fcab20476957b14a18178615594debe)
+
+### Easy Track
+
+- EasyTrack: [`0x661090cB830757B2D0Cd53C49Bf0d17a28992e5d`](https://rinkeby.etherscan.io/address/0x661090cB830757B2D0Cd53C49Bf0d17a28992e5d)
+- EVMScriptExecutor: [`0x2667c7e8731d7314E7c492700Ad440f7C3724184`](https://rinkeby.etherscan.io/address/0x2667c7e8731d7314E7c492700Ad440f7C3724184)
+- IncreaseNodeOperatorStakingLimit: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://rinkeby.etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
+- TopUpLegoProgram: [`0xdA53fF207966b3946facaC52dD22B130D507d276`](https://rinkeby.etherscan.io/address/0xdA53fF207966b3946facaC52dD22B130D507d276)
+- RewardProgramsRegistry: [`0x648C8Be548F43eca4e482C0801Ebccccfb944931`](https://rinkeby.etherscan.io/address/0x648C8Be548F43eca4e482C0801Ebccccfb944931)
+- AddRewardProgram: [`0x3129C041B372eE93a5A8756dc4EC6f154D85Bc9a`](https://rinkeby.etherscan.io/address/0x3129C041B372eE93a5A8756dc4EC6f154D85Bc9a)
+- RemoveRewardProgram: [`0xc21e5e72Ffc223f02fC410aAedE3084a63963932`](https://rinkeby.etherscan.io/address/0xc21e5e72Ffc223f02fC410aAedE3084a63963932)
+- TopUpRewardPrograms: [`0xbb0f594143208eCd04DC7AAe48955902A716F9F7`](https://rinkeby.etherscan.io/address/0xbb0f594143208eCd04DC7AAe48955902A716F9F7)
+- NodeOperatorsRegistry (stub)[`0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c`](https://rinkeby.etherscan.io/address/0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c)
+- Finance (stub)|[`0x72cd2b30020fb28de0dfa64d930a183eb732cf46`](https://rinkeby.etherscan.io/address/0x72cd2b30020fb28de0dfa64d930a183eb732cf46)
 
 ### Goerli
 
