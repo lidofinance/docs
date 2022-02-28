@@ -86,10 +86,13 @@
 
 ### AAVE Integration
 
+- AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
+- StableDebtStETH: [`0x66457616dd8489df5d0afd8678f4a260088aaf55`](https://etherscan.io/address/0x66457616dd8489df5d0afd8678f4a260088aaf55) (proxy)
 - StableDebtStETH: [`0x8180949ac41EF18e844ff8dafE604a195d86Aea9`](https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9) (impl)
+- VariableDebtStETH: [`0xa9deac9f00dc4310c35603fcd9d34d1a750f81db`](https://etherscan.io/address/0xa9deac9f00dc4310c35603fcd9d34d1a750f81db) (proxy)
 - VariableDebtStETH: [`0xDe2c414b671d2DB93617D1592f0490c13674de24`](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24) (impl)
-- DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c) (impl)
+- DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
 
 ### DAO-ops contracts & addresses
 
@@ -145,7 +148,6 @@
 - AddRewardProgram (Referral partners): [`0xe54ca3e867C52a34d262E94606C7A9371AB820c9`](https://goerli.etherscan.io/address/0xe54ca3e867C52a34d262E94606C7A9371AB820c9)
 - RemoveRewardProgram (Referral partners): [`0x2A0c343087c6cFB721fFa20608A6eD0473C71275`](https://goerli.etherscan.io/address/0x2A0c343087c6cFB721fFa20608A6eD0473C71275)
 - TopUpRewardPrograms (Referral partners): [`0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee`](https://goerli.etherscan.io/address/0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee)
-
 
 ## Görli+Pyrmont testnet
 
