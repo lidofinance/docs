@@ -38,7 +38,7 @@ The safe price is defined as the one that satisfies all of the following conditi
 
 Price feed can give incorrect data in, as far as we can tell, three situations:
 
-- stETH/ETH price moving suddenly and very quickly. There is at least 15 blocks delay between price drop and offchain oracle feed providers submitting a new historical price, and likely more bc tx are not mined instanteously. That should not happen normally: while stETH/ETH is volatile, it's not 5%-in-four-minutes volatile.
+- stETH/ETH price moving suddenly and very quickly. There is a 15 block or greater delay between a price drop and offchain oracle feed providers submitting a new historical price. It is usually longer than 15 blocks, because transactions are not mined instantaneously. Price movements this extreme should not happen normally; while stETH/ETH is volatile, it's not 5%-in-four-minutes volatile.
 - oracle feed going stale because feed providers go offline. This is mitigated by the fact it's operated by several very experienced professionals (all of which, e.g., are Chainlink operators too) - and we only need one operational provider to maintain the feed. The only realistic scenario where this feed goes offline is deprecating the oracle alltogether.
 - Multi-block flashloan attack. An block producer who is able to reliably get 2 blocks in a row can treat two blocks as an atomic transaction, leading to what is essentially a multiblock flashloan attack to manipulate price. That can lead to a short period of time (a few blocks) where stETH/ETH price feed is artificially manipulated. This attack is not mitigated, but in our opinion, not very realistic. It's very hard to pull off.
 
