@@ -98,6 +98,7 @@
 
 - Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
 - reWARDS committee multisig: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5).
+- Referral Program committee multisig: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C).
 
 ### Easy Track
 
@@ -109,6 +110,10 @@
 - AddRewardProgram: [`0x9D15032b91d01d5c1D940eb919461426AB0dD4e3`](https://etherscan.io/address/0x9D15032b91d01d5c1D940eb919461426AB0dD4e3)
 - RemoveRewardProgram: [`0xc21e5e72Ffc223f02fC410aAedE3084a63963932`](https://etherscan.io/address/0xc21e5e72Ffc223f02fC410aAedE3084a63963932)
 - TopUpRewardPrograms: [`0x77781A93C4824d2299a38AC8bBB11eb3cd6Bc3B7`](https://etherscan.io/address/0x77781A93C4824d2299a38AC8bBB11eb3cd6Bc3B7)
+- RewardProgramsRegistry (Referral Program): [`0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F`](https://etherscan.io/address/0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F) (*inactive*)
+- AddRewardProgram (Referral Program): [`0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51`](https://etherscan.io/address/0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51) (*inactive*)
+- RemoveRewardProgram (Referral Program): [`0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C`](https://etherscan.io/address/0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C) (*inactive*)
+- TopUpRewardPrograms (Referral Program): [`0x54058ee0E0c87Ad813C002262cD75B98A7F59218`](https://etherscan.io/address/0x54058ee0E0c87Ad813C002262cD75B98A7F59218) (*inactive*)
 
 ## Görli+Prater testnet
 
@@ -144,10 +149,10 @@
 - AddRewardProgram: [`0x5560d40b00EA3a64E9431f97B3c79b04e0cdF6F2`](https://goerli.etherscan.io/address/0x5560d40b00EA3a64E9431f97B3c79b04e0cdF6F2)
 - RemoveRewardProgram: [`0x31B68d81125E52fE1aDfe4076F8945D1014753b5`](https://goerli.etherscan.io/address/0x31B68d81125E52fE1aDfe4076F8945D1014753b5)
 - TopUpRewardPrograms: [`0x8180949ac41EF18e844ff8dafE604a195d86Aea9`](https://goerli.etherscan.io/address/0x8180949ac41EF18e844ff8dafE604a195d86Aea9)
-- RewardProgramsRegistry (Referral partners): [`0x4CB0c9987fd670069e4b24c653981E86b261A2ca`](https://goerli.etherscan.io/address/0x4CB0c9987fd670069e4b24c653981E86b261A2ca)
-- AddRewardProgram (Referral partners): [`0xe54ca3e867C52a34d262E94606C7A9371AB820c9`](https://goerli.etherscan.io/address/0xe54ca3e867C52a34d262E94606C7A9371AB820c9)
-- RemoveRewardProgram (Referral partners): [`0x2A0c343087c6cFB721fFa20608A6eD0473C71275`](https://goerli.etherscan.io/address/0x2A0c343087c6cFB721fFa20608A6eD0473C71275)
-- TopUpRewardPrograms (Referral partners): [`0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee`](https://goerli.etherscan.io/address/0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee)
+- RewardProgramsRegistry (Referral Program): [`0x4CB0c9987fd670069e4b24c653981E86b261A2ca`](https://goerli.etherscan.io/address/0x4CB0c9987fd670069e4b24c653981E86b261A2ca)
+- AddRewardProgram (Referral Program): [`0xe54ca3e867C52a34d262E94606C7A9371AB820c9`](https://goerli.etherscan.io/address/0xe54ca3e867C52a34d262E94606C7A9371AB820c9)
+- RemoveRewardProgram (Referral Program): [`0x2A0c343087c6cFB721fFa20608A6eD0473C71275`](https://goerli.etherscan.io/address/0x2A0c343087c6cFB721fFa20608A6eD0473C71275)
+- TopUpRewardPrograms (Referral Program): [`0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee`](https://goerli.etherscan.io/address/0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee)
 
 ## Görli+Pyrmont testnet
 
