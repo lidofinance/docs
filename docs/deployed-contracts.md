@@ -99,6 +99,7 @@
 - Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
 - reWARDS committee multisig: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5).
 - Referral Program committee multisig: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C).
+- Tokens recoverer for Manager contracts (Rewards Programs): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 
 ### Easy Track
 
