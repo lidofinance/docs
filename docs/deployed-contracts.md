@@ -111,10 +111,10 @@
 - AddRewardProgram: [`0x9D15032b91d01d5c1D940eb919461426AB0dD4e3`](https://etherscan.io/address/0x9D15032b91d01d5c1D940eb919461426AB0dD4e3)
 - RemoveRewardProgram: [`0xc21e5e72Ffc223f02fC410aAedE3084a63963932`](https://etherscan.io/address/0xc21e5e72Ffc223f02fC410aAedE3084a63963932)
 - TopUpRewardPrograms: [`0x77781A93C4824d2299a38AC8bBB11eb3cd6Bc3B7`](https://etherscan.io/address/0x77781A93C4824d2299a38AC8bBB11eb3cd6Bc3B7)
-- RewardProgramsRegistry (Referral Program): [`0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F`](https://etherscan.io/address/0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F) (*inactive*)
-- AddRewardProgram (Referral Program): [`0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51`](https://etherscan.io/address/0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51) (*inactive*)
-- RemoveRewardProgram (Referral Program): [`0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C`](https://etherscan.io/address/0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C) (*inactive*)
-- TopUpRewardPrograms (Referral Program): [`0x54058ee0E0c87Ad813C002262cD75B98A7F59218`](https://etherscan.io/address/0x54058ee0E0c87Ad813C002262cD75B98A7F59218) (*inactive*)
+- RewardProgramsRegistry (Referral Program): [`0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F`](https://etherscan.io/address/0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F)
+- AddRewardProgram (Referral Program): [`0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51`](https://etherscan.io/address/0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51)
+- RemoveRewardProgram (Referral Program): [`0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C`](https://etherscan.io/address/0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C)
+- TopUpRewardPrograms (Referral Program): [`0x54058ee0E0c87Ad813C002262cD75B98A7F59218`](https://etherscan.io/address/0x54058ee0E0c87Ad813C002262cD75B98A7F59218)
 
 ## Görli+Prater testnet
 
