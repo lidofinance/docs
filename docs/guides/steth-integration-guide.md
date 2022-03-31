@@ -4,8 +4,9 @@ This document is intended for developers looking to integrate Lido's stETH or ws
 
 ## Lido
 
-Lido is a liquid staking protocol.  
-Liquid refers to the ability for a user’s stake to become liquid. This is done by issuing a derivative that is closely pegged to the value of the staked asset. 
+Lido is a family of liquid staking protocols across multiple blockchains.  
+Liquid refers to the ability for a user’s stake to become liquid. This is done by issuing a derivative that is closely pegged to the value of the staked asset.  
+This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ETH derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrting it into any DeFi protocol.  
 > Add current status of Lido's staking derivatives, e.g.: liquidity venues, listings on money markets, L2 and sidechain presence, price data sources.
 
@@ -18,7 +19,7 @@ There are two versions of Lido's staking derivative, namely stETH and wstETH.
 
 ### What is stETH
 
-stETH is a rebaseable ERC20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio. 
+stETH is a rebasable ERC20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio. 
 
 The stETH token balances are being recalculated daily when the Lido oracle reports Beacon chain ether balance update. The balance update happens automatically on all the addresses holding stETH at the moment of rebase. The rebase mechanics have been implemented via shares (see [shares](#what-is-share)).
 
@@ -64,7 +65,7 @@ So the common case of using stETH should be:
 
 > Please note that 10% APR on shares balance and 10% APR on stETH token balance will ultimately result in different output values.
 
-If using the rebaseable stETH token is not an option for your integration, it is recommended to use wstETH instead of stETH. See how it works [here](#wstETH).
+If using the rebasable stETH token is not an option for your integration, it is recommended to use wstETH instead of stETH. See how it works [here](#wstETH).
 
 ### Fees
 
@@ -93,7 +94,7 @@ stETH holders receive staking rewards, but those don't compound. Actual APR dimi
 ## wstETH
 
 Due to the rebasing nature of stETH, the stETH balance on holder's address is not constant, it changes daily as oracle report comes in.
-Although rebaseable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebaseable tokens. Listing stETH on these apps can result in holders losing a portion of their daily staking rewards which effectively defeats the benefits of liquid staking.
+Although rebasable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebasable tokens. Listing stETH on these apps can result in holders losing a portion of their daily staking rewards which effectively defeats the benefits of liquid staking.
 
 ### What wstETH is
 
