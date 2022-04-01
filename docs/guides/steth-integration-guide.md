@@ -7,23 +7,32 @@ This document is intended for developers looking to integrate Lido's stETH or ws
 Lido is a family of liquid staking protocols across multiple blockchains.  
 Liquid refers to the ability for a user’s stake to become liquid. This is done by issuing a derivative that is closely pegged to the value of the staked asset.  
 This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
-For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ETH derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrting it into any DeFi protocol.  
-> Add current status of Lido's staking derivatives, e.g.: liquidity venues, listings on money markets, L2 and sidechain presence, price data sources.
+For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ETH derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrating it into any DeFi protocol.  
+
+Lido's staking dericatives are widely adopted across Ethereum ecosystem. 
+- The most important liquidity venues include [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH<>ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
+- stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
+- wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
+- There are live ChainLink price feeds for [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) pairs.
 
 ## stETH vs. wstETH
 
 There are two versions of Lido's staking derivative, namely stETH and wstETH. 
-> Explain the basic difference between the tokens: both are ERC20, but stETH is rebasing, while wstETH increases in value eventually. Both tokens share liquidity, stETH can be converted to wstETH via trustless wrapper and vice versa.
+Both tokens are ERC-20 tokens, but they reflect the accrued staking rewards in different ways. stETH implements rebasing mechanics which means the stETH balance increases periodically. In cintrary, wstETH balance is constant, while the token increases in value eventually (denominated in ether). Both tokens share liquidity, stETH can be converted to wstETH via trustless wrapper and vice versa.
 
 ## stETH
 
 ### What is stETH
 
-stETH is a rebasable ERC20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio. 
+stETH is a ERC20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio. 
 
-The stETH token balances are being recalculated daily when the Lido oracle reports Beacon chain ether balance update. The balance update happens automatically on all the addresses holding stETH at the moment of rebase. The rebase mechanics have been implemented via shares (see [shares](#what-is-share)).
+Although considered a full ERC-20 token, stETH is rebasable. The stETH token balances are being recalculated daily when the Lido oracle reports Beacon chain ether balance update. The balance update happens automatically on all the addresses holding stETH at the moment of rebase. The rebase mechanics have been implemented via shares (see [shares](#what-is-share)).
 
-> The Beacon chain oracle explained: rebases happen daily, can be positive or negative. The Beacon chain oracle has sanity checks on both max APR reported (no more than 10%) and total staked amount drop (no more than 5%). The oracle is run by established node operators selected by the DAO. Corner cases: skipped report, two reports. Corner case: on-chain cover applies.
+### The Beacon chain oracle  
+
+Normally, stETH balance rebases happen daily as soon as the Lido oeacle reports the Beacon chain ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed, the daily rewards decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.
+The Beacon chain oracle has sanity checks on both max APR reported (it cannot exceed 10%) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the Beacon chain oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as three out of five oracle daemons report matching Beacon chain data, the oracle reports it to the Lido smart contract and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current Beacon chain reports.
+> Corner cases: skipped report, double reports, no finality on the Beacon chain. Corner case: on-chain cover applies.
 
 ### What is share
 
@@ -96,7 +105,7 @@ stETH holders receive staking rewards, but those don't compound. Actual APR dimi
 Due to the rebasing nature of stETH, the stETH balance on holder's address is not constant, it changes daily as oracle report comes in.
 Although rebasable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebasable tokens. Listing stETH on these apps can result in holders losing a portion of their daily staking rewards which effectively defeats the benefits of liquid staking.
 
-### What wstETH is
+### What is wstETH
 
 wstETH is an ERC20 token that represents the account's share of the total supply of stETH total supply (stETH token wrapper with static balances). The 1 wei of wstETH token equals the [share](#What-share-is) balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase.  
 At any given time, anyone holding wstETH can convert any amount of it to stETH at a fixed rate, and vice versa. The rate is the same for everyone at any given moment. The rate gets updated once a day, when stETH undergoes a rebase. The current rate can be obtained by calling `wstETH.stEthPerToken()`  
