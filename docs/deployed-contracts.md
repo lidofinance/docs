@@ -25,6 +25,7 @@
 - Lido App Repo [`0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1`](https://etherscan.io/address/0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1) (proxy)
 - Lido Oracle Repo [`0xF9339DE629973c60c4d2b76749c81E6F40960E3A`](https://etherscan.io/address/0xF9339DE629973c60c4d2b76749c81E6F40960E3A) (proxy)
 - Node Operators registry Repo [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
+- Voting Repo [`0x4ee3118e3858e8d7164a634825bfe0f73d99c792`](https://etherscan.io/address/0x4ee3118e3858e8d7164a634825bfe0f73d99c792) (proxy)
 
 ### Liquidity pools
 
