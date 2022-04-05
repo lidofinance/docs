@@ -1,10 +1,8 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
 import PropTypes from 'prop-types'
-import useThemeContext from '@theme/hooks/useThemeContext'
 
 import './grid.css'
-import clsx from 'clsx'
 
 export default function GridLink({
   Icon,
@@ -13,13 +11,8 @@ export default function GridLink({
   className,
   ...props
 }) {
-  const { isDarkTheme } = useThemeContext()
-
   return (
-    <Link
-      {...props}
-      className={clsx('grid-link', isDarkTheme ? 'dark' : 'light')}
-    >
+    <Link {...props} className="grid-link">
       {Icon}
       <div>
         {title && <p className="title">{title}</p>}

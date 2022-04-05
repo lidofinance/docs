@@ -20,13 +20,6 @@
   align-items: center;
 }
 
-.grid-link.light {
-  border: 1px solid hsl(180, 2%, 88%);
-}
-
-.grid-link.dark {
-  border: 1px solid hsl(0, 0%, 28%);
-}
 
 .grid-link svg {
   margin-right: 16px;
@@ -40,23 +33,27 @@
   margin: 0;
 }
 
-.grid-link.light .title {
+html[data-theme='light'] .grid-link {
+  border: 1px solid hsl(180, 2%, 88%);
+}
+
+html[data-theme='light'] .grid-link .title {
   color: black;
 }
 
-.grid-link.dark .title {
-  color: white;
-}
-
-.grid-link .subtitle {
-  font-size: 12px;
-}
-
-.grid-link.light .subtitle {
+html[data-theme='light'] .grid-link .subtitle {
   color: rgb(70, 70, 70);
 }
 
-.grid-link.dark .subtitle {
+html[data-theme='dark'] .grid-link {
+  border: 1px solid hsl(0, 0%, 28%);
+}
+
+html[data-theme='dark'] .grid-link .title {
+  color: white;
+}
+
+html[data-theme='dark'] .grid-link .subtitle {
   color: rgb(185, 185, 185);
 }
 
