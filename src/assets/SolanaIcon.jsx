@@ -23,9 +23,9 @@ export default function SolanaIcon(props) {
           y2="10.7511"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9945FF" />
-          <stop offset="0.138458" stop-color="#7962E7" />
-          <stop offset="1" stop-color="#00D18C" />
+          <stop stopColor="#9945FF" />
+          <stop offset="0.138458" stopColor="#7962E7" />
+          <stop offset="1" stopColor="#00D18C" />
         </linearGradient>
       </defs>
     </svg>

@@ -15,10 +15,18 @@
   padding: 16px;
   cursor: pointer;
   border: 1px solid hsl(180, 2%, 88%);
-  background-color: hsl(204, 20%, 95%);
+  background-color: rgba(200, 200, 200, 0.1);
   border-radius: 10px;
   display: flex;
   align-items: center;
+}
+
+.grid-link.dark {
+  border: 1px solid hsl(0, 0%, 28%);
+}
+
+.grid-link svg {
+  margin-right: 16px;
 }
 
 .grid-link:hover {
@@ -33,9 +41,17 @@
   color: black;
 }
 
+.grid-link.dark .title {
+  color: white;
+}
+
 .grid-link .subtitle {
   color: rgb(70, 70, 70);
   font-size: 12px;
+}
+
+.grid-link.dark .subtitle {
+  color: rgb(185, 185, 185);
 }
 
 .grid-link > div > .title:hover {
