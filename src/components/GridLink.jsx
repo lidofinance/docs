@@ -16,7 +16,10 @@ export default function GridLink({
   const { isDarkTheme } = useThemeContext()
 
   return (
-    <Link {...props} className={clsx('grid-link', isDarkTheme && 'dark')}>
+    <Link
+      {...props}
+      className={clsx('grid-link', isDarkTheme ? 'dark' : 'light')}
+    >
       {Icon}
       <div>
         {title && <p className="title">{title}</p>}

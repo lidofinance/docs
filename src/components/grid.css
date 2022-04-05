@@ -14,11 +14,14 @@
 .grid-link {
   padding: 16px;
   cursor: pointer;
-  border: 1px solid hsl(180, 2%, 88%);
   background-color: rgba(200, 200, 200, 0.1);
   border-radius: 10px;
   display: flex;
   align-items: center;
+}
+
+.grid-link.light {
+  border: 1px solid hsl(180, 2%, 88%);
 }
 
 .grid-link.dark {
@@ -37,7 +40,7 @@
   margin: 0;
 }
 
-.grid-link .title {
+.grid-link.light .title {
   color: black;
 }
 
@@ -46,8 +49,11 @@
 }
 
 .grid-link .subtitle {
-  color: rgb(70, 70, 70);
   font-size: 12px;
+}
+
+.grid-link.light .subtitle {
+  color: rgb(70, 70, 70);
 }
 
 .grid-link.dark .subtitle {
