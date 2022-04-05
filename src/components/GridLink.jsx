@@ -1,0 +1,34 @@
+import React from 'react'
+import Link from '@docusaurus/Link'
+import PropTypes from 'prop-types'
+import useThemeContext from '@theme/hooks/useThemeContext'
+
+import './grid.css'
+import clsx from 'clsx'
+
+export default function GridLink({
+  Icon,
+  title,
+  subtitle,
+  className,
+  ...props
+}) {
+  const { isDarkTheme } = useThemeContext()
+
+  return (
+    <Link {...props} className={clsx('grid-link', isDarkTheme && 'dark')}>
+      {Icon}
+      <div>
+        {title && <p className="title">{title}</p>}
+        {subtitle && <p className="subtitle">{subtitle}</p>}
+      </div>
+    </Link>
+  )
+}
+
+GridLink.propTypes = {
+  Icon: PropTypes.element,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  className: PropTypes.string,
+}

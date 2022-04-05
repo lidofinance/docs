@@ -2,6 +2,11 @@
 slug: /
 ---
 
+import GridLink from '@site/src/components/GridLink'
+import Grid from '@site/src/components/Grid'
+import TerraIcon from '@site/src/assets/TerraIcon'
+import SolanaIcon from '@site/src/assets/SolanaIcon'
+
 # Introduction
 
 The Lido Ethereum Liquid Staking Protocol, built on Ethereum 2.0's Beacon chain, allows their users to earn staking rewards on the Beacon chain without locking Ether or maintaining staking infrastructure.
@@ -14,6 +19,22 @@ Unlike staked ether, the stETH token is free from the limitations associated wit
 
 ## Other Lido Liquid Staking Protocols
 
-The docs provided on this site are focused on Lido Ethereum Liquid Staking Protocol & stETH token. Developer documentation on other Lido's Liquid Staking Protocols can be found:
-- Terra Liquid Staking: bLuna and stLuna tokens [docs](https://docs.terra.lido.fi/)
-- Solana Liquid Staking & stSol token [docs](https://docs.solana.lido.fi/)
+The docs provided on this site are focused on Lido Ethereum Liquid Staking Protocol & stETH token. Developer documentation on other Lido's Liquid Staking Protocols can be found below.
+
+<Grid>
+
+<GridLink
+  to="https://docs.terra.lido.fi"
+  title="Terra"
+  subtitle="bLuna and stLuna"
+  Icon={<TerraIcon />}
+/>
+
+<GridLink
+  to="https://docs.solana.lido.fi"
+  title="Solana"
+  subtitle="stSOL"
+  Icon={<SolanaIcon />}
+/>
+
+</Grid>
