@@ -140,13 +140,28 @@ When unwrapping, wstETH gets burns and stETH is getting unlocked.
 
 Thus, amount of stETH unlocked when unwrapping is diferent from what has been initially wrapped (given a rebase happened between wrapping and unwrapping wstETH).
 
+### ERC20Permit
+
+wstETH token implements the ERC20 Permit extension allowing approvals to be made via signatures, as defined in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612).
+
+Adds the `permit` method, which can be used to change an account’s ERC20 allowance by presenting a message signed by the account. By not relying on `approve` method, the token holder account doesn’t need to send a transaction, and thus is not required to hold ether for gas fees at all.
+
 ## General integration examples
 
 ### stETH/wstETH as collateral
 
-> Why is it a good collateral? Explain how liquidations would work. Explain Chainlink price feeds.
-> Add examples of stETH/wstETH listed as collateral - Maker, Compound. Add relevant code examples (AAVE).
-> Why is stETH/wstETH (not) great for borrowing?
+stETH/wstETH as DeFi collateral is beneficial for a number of reasons:
+
+- stETH/wstETH is almost as safe as ether, price-wise: barring catastrophic scenarios, its value tends to hold the ETH peg well;
+- stETH/wstETH is a productive asset: earning rewards on collateral effectively lowers the cost of borrowing;
+- stETH/wstETH is a very liquid asset with billions of liquidity locked in liquidity pools ([Curve](https://curve.fi/steth), [Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080))
+
+At the same time, stETH may be of interest for borrowers because of taxation reasons.
+
+Lido's staked assets have been listed on major Ethereum liquidity protocols:
+
+- [wstETH on Maker](https://daistats.com/#/collateral)(scroll down to Dai from WSTETH-A section). See [Lido's blog](https://blog.lido.fi/makerdao-integrates-lidos-staked-eth-steth-as-collateral-asset/) post for more details.
+- [stETH on AAVE](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet).
 
 ### Wallet integrations
 
