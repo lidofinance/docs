@@ -32,7 +32,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Token guides',
-      items: ['token-guides/steth-superuser-functions'],
+      items: [
+        'token-guides/steth-superuser-functions',
+        'token-guides/steth-on-aave-caveats',
+      ],
     },
     {
       type: 'category',
