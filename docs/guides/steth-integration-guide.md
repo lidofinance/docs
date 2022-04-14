@@ -9,12 +9,16 @@ Liquid refers to the ability for a user’s stake to become liquid. This is done
 This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ether derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrating it into any DeFi protocol.  
 
-Lido's staking derivatives are widely adopted across Ethereum ecosystem. 
+Lido's staking derivatives are widely adopted across Ethereum ecosystem: 
 - The most important liquidity venues include [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH<>ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
 - stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
 - wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
 - ether stakers can collateralise their stETH (in the form of bETH) on the Terra blockchain using [Anchor protocol](https://app.anchorprotocol.com/).
+- there are multiple liquidity strategies built on top of Lido's staking derivatives, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
+
+Integration utilities:
 - There are live ChainLink price feeds for [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) pairs.
+- There's Lido's custom [price feed](https://docs.lido.fi/contracts/steth-price-feed) based on recent Curve pool price history.
 
 ## stETH vs. wstETH
 
@@ -129,17 +133,17 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 ### Wrap & Unwrap
 
-When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WStETH contract balance and the wstETH is being minted according to the [shares bokkeeping](#Bookkeeping-shares) formula.
+When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WstETH contract balance, and the wstETH is being minted according to the [shares bookeeping](#Bookkeeping-shares) formula.
 
-When unwrapping, wstETH gets burns and stETH is getting unlocked.
+When unwrapping, wstETH gets burnt and the corresponding amount of stETH gets unlocked.
 
-Thus, amount of stETH unlocked when unwrapping is diferent from what has been initially wrapped (given a rebase happened between wrapping and unwrapping wstETH).
+Thus, amount of stETH unlocked when unwrapping is different from what has been initially wrapped (given a rebase happened between wrapping and unwrapping stETH).
 
 ### ERC20Permit
 
 wstETH token implements the ERC20 Permit extension allowing approvals to be made via signatures, as defined in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612).
 
-Adds the `permit` method, which can be used to change an account’s ERC20 allowance by presenting a message signed by the account. By not relying on `approve` method, the token holder account doesn’t need to send a transaction, and thus is not required to hold ether for gas fees at all.
+The `permit` method allows users to modify the allowance using a signed message, instead of through `msg.sender`. By not relying on `approve` method, wrapping can be done in one transaction instead of two.
 
 ## General integration examples
 
@@ -151,37 +155,49 @@ stETH/wstETH as DeFi collateral is beneficial for a number of reasons:
 - stETH/wstETH is a productive asset: earning rewards on collateral effectively lowers the cost of borrowing;
 - stETH/wstETH is a very liquid asset with billions of liquidity locked in liquidity pools ([Curve](https://curve.fi/steth), [Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080))
 
-At the same time, stETH may be of interest for borrowers because of taxation reasons.
-
 Lido's staked assets have been listed on major Ethereum liquidity protocols:
 
-- [wstETH on Maker](https://daistats.com/#/collateral)(scroll down to Dai from WSTETH-A section). See [Lido's blog](https://blog.lido.fi/makerdao-integrates-lidos-staked-eth-steth-as-collateral-asset/) post for more details.
-- [stETH on AAVE](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet).
+- On Maker, [wstETH collateral (scroll down to Dai from WSTETH-A section)](https://daistats.com/#/collateral) can be used to mint DAI stablecoin. See [Lido's blog post](https://blog.lido.fi/makerdao-integrates-lidos-staked-eth-steth-as-collateral-asset/) for more details.
+- On AAVE, multiple assets can be [borrowed against stETH](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet). See [Lido's blog post](https://blog.lido.fi/aave-integrates-lidos-steth-as-collateral/) for more details. Please note: stETH is only supported on AAVE as lending collateral. Borrowing stETH on AAVE is not currently supported. However, any asset can be borrowed on AAVe via a flashloan. Due to a known [1 wei corner case](#1-wei-corner-case) there's a certain situation when a flashloan transaction can revert. Please visit [stETH on AAVE caveats](https://docs.lido.fi/token-guides/steth-on-aave-caveats) article for more details.  
+
+Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard. There're live ChainLink price feeds on Ethereum for [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) pairs.
 
 ### Wallet integrations
 
-> Great UX of direct staking from the wallet.
-> Referral program (how it works, whitelisting).
-> How to handle rebases from the wallet (avoid caching balance for over 24hrs)
+Lido's Ethereum staking services have been successfully integrated into most popular DeFi wallets, including MetaMask, Ledger, MyEtherWallet, ImToken and others.
+Having stETH integrated can provide wallet users with great user experience of direct staking from the wallet UI itself.
+
+Lido DAO runs a referral program rewarding wallets and other apps for driving liquidity to the Lido staking protocol. At the moment, the referral program is in [whitelist mode](https://research.lido.fi/t/switch-referral-program-to-whitelist-mode/1014). Please contact Lido bizdev team to find out if your wallet might be eligible for referral program participation.
+
+When adding stETH support to a DeFi wallet, it is important to preserve stETH's rebasing nature. Avoid storing cached stETH balance for extended periods of time (over 24 hours), and keep in mind it doesn't necessarily take a transaction to change stETH balance.
 
 ### Liquidity mining
 
-> List the existing pools
-> What happens to staking rewards accrued by the pool (Curve LP vs. Balancer LP ())?
+stETH liquidity is mostly concentrated in two biggest liquidity pools:
+- [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) 
+- [wstETH<>ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)
+
+Both pools are incentivised with Lido governance token (LDO) via direct incentives and bribes (veBAL bribes coming soon), and allow the liquidity providers to retain their exposure to earning Lido staking rewards.
+
+- Curve pool allows providing liquidity in the form of any of the pooled assets or in both of them. From that moment on, all the staking rewards accrued by stETH go to the pool and not to the liquidity provider's address. However, when withdrawing the liquidity, the liquidity provider will be able to get more than they have initially deposited. 
+Please note, when depositing stETH to Curve, the tokens are split between ether and stETH, with the precise balances fluctuating constantly due to price trading. Thus, the liquidity provider will only be eligible for about half of rewards accrued by the stETH deposited. To avoid that, provide stETH and ether liquidity in equal parts.
+- Unlike Curve, Balancer pool is wstETH-based. wstETH doesn't rebase, it accrues staking rewards by eventually increasing in price instead. Thus, when withdrawing liquidity form the Balancer pool, the liquidity providers get assets valued higher than what they have initially deposited.
 
 ### Cross chain bridging
 
-> Explain how wstETH is the only asset to be bridged, not stETH
+The Lido's liquid staking derivatives will eventually get bridged to various L2's and sidechains.  
+Most cross chain token bridges have no mechanics to handle rebases. This means bridging stETH to other chains will prevent stakers from collecting their staking rewards. In the most common case, the rewards will naturally go to the bridge smart contract and never make it to the stakers.  
+While working on full-blown bridging solutions, the Lido contributors encourage the users to only bridge the non-rebasable representation of staked ether, namely wstETH.
 
 ## Risks
 
-1. Smart contract security
-    There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited and covered by an extensive bug bounty program to minimise this risk.
-2. ETH 2.0 - Technical risk
-    Lido is built atop experimental technology under active development, and there is no guarantee that ETH 2.0 has been developed error-free. Any vulnerabilities inherent to ETH 2.0 brings with it slashing risk, as well as stETH fluctuation risk.
-3. ETH 2.0 - Adoption risk
-    The value of stETH is built around the staking rewards associated with the Ethereum beacon chain. If ETH 2.0 fails to reach required levels of adoption we could experience significant fluctuations in the value of ETH and stETH.
-4. Slashing risk
-    ETH 2.0 validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimise this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of insurance that is paid from Lido fees.
-5. stETH price risk
-    Users risk an exchange price of stETH which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate above risks and eliminate them entirely to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
+1. Smart contract security. 
+There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited and covered by an extensive bug bounty program to minimise this risk.
+3. Beacon chain - Technical risk. 
+Lido is built atop experimental technology under active development, and there is no guarantee that Beacon chain has been developed error-free. Any vulnerabilities inherent to Beacon chain brings with it slashing risk, as well as stETH fluctuation risk.
+3. Beacon chain - Adoption risk. 
+The value of stETH is built around the staking rewards associated with the Ethereum beacon chain. If Beacon chain fails to reach required levels of adoption we could experience significant fluctuations in the value of ether and stETH.
+4. Slashing risk. 
+Beacon chain validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimise this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of insurance that is paid from Lido fees.
+5. stETH price risk. 
+Users risk an exchange price of stETH which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate above risks and eliminate them entirely to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
