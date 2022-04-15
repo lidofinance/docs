@@ -11,9 +11,9 @@ Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens ar
 
 When a rebase occurs the supply of the token is increased or decreased algorithmically, based on the staking rewards(or slashing penalties) in the Eth2 chain. Rebase happens when oracles report beacon stats.
 
-Rebasing mechanism implemented via "shares". Instead of storing map with account balances, Lido stores which share owned by account in the total amount of Ether controlled by the protocol.
+The rebasing mechanism is implemented via "shares". Instead of storing map with account balances, Lido stores which share owned by account in the total amount of Ether controlled by the protocol.
 
-Balance of account calculated next way:
+The balance of an account is calculated as follows:
 
 ```
 balanceOf(account) = shares[account] * totalPooledEther / totalShares
