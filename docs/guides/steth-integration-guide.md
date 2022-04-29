@@ -71,11 +71,11 @@ Example:
 
 Although user friendly, stETH rebases add a whole level of complexity to integrating stETH into other dApps and protocols. When integrating stETH as an assets into any dApp, it's highly recommended to store and operate shares rather than stETH public balances directly, because stETH balances change both upon transfers, mints/burns, and rebases, while shares balances can only change upon transfers and mints/burns.
 
-To transform stETH to shares `getSharesByPooledEth(uint256)` function can be used. It returns the value not affected by future rebases and it can be converted back into stETH by calling `getPooledEthByShares` function.
+To figure out the shares balance, `getSharesByPooledEth(uint256)` function can be used. It returns the value not affected by future rebases and it can be converted back into stETH by calling `getPooledEthByShares` function.
 
 > See all available stETH methods [here](https://github.com/lidofinance/docs/blob/main/docs/contracts/lido.md#view-methods). 
 
-Any operations on the shares can be done with no difference between share and stETH.
+Any operation on stETH can be performed on shares directly, with no difference between share and stETH.
 
 The preferred way of operating stETH should be:
 1) get stETH token balance;
@@ -83,7 +83,7 @@ The preferred way of operating stETH should be:
 3) when any operation on the balance should be done, do it on shares balance;
 4) when users interact with stETH, convert shares balance back to stETH token balance.
 
-> Please note that 10% APR on shares balance and 10% APR on stETH token balance will ultimately result in different output values.
+Please note that 10% APR on shares balance and 10% APR on stETH token balance will ultimately result in different output values over time, because shares balance is stable, while stETH token balance changes eventually.
 
 If using the rebasable stETH token is not an option for your integration, it is recommended to use wstETH instead of stETH. See how it works [here](#wstETH).
 
@@ -109,7 +109,7 @@ shares2mint = --------------------------------------------------------------
 stETH holders receive staking rewards, but those don't compound. Actual APR diminishes slightly over time for two main reasons:
 
 1. Beacon chain rewards don't compound. To get more rewards one should withdraw funds and re-deposit them, skimming rewards. Until withdrawals are enabled, that isn't technically possible. So, while the Lido's beacon chain balance increases over time, the yield bearing asset amount remains equal to deposited ether amount.
-2. stETH holders receive rewards proportionally to their share in the stETH total supply. This share diminishes slightly over time because of the protocol fee on rewards because it eats up eventually from other holders' shares.
+2. stETH holders receive rewards proportionally to their share in the stETH total supply. This share diminishes slightly over time because of the protocol fee on rewards eating up from other holders' shares eventually.
 
 ## wstETH
 
@@ -129,9 +129,9 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 **Basic example**:
 
-1) User wraps 1 stETH and gets 1 wstETH (1 stETH = 1 wstETH)
+1) User wraps 1 stETH and gets 0.9803 wstETH (1 stETH = 0.9803 wstETH)
 2) A rebase happens, the wstETH price goes up by 5%
-3) User unwraps 1 wstETH and gets 1.05 stETH (1 stETH = 0.95 wstETH)
+3) User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
 
 
 ### Wrap & Unwrap
@@ -163,7 +163,7 @@ Lido's staked assets have been listed on major Ethereum liquidity protocols:
 - On Maker, [wstETH collateral (scroll down to Dai from WSTETH-A section)](https://daistats.com/#/collateral) can be used to mint DAI stablecoin. See [Lido's blog post](https://blog.lido.fi/makerdao-integrates-lidos-staked-eth-steth-as-collateral-asset/) for more details.
 - On AAVE, multiple assets can be [borrowed against stETH](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet). See [Lido's blog post](https://blog.lido.fi/aave-integrates-lidos-steth-as-collateral/) for more details. Please note: stETH is only supported on AAVE as lending collateral. Borrowing stETH on AAVE is not currently supported. However, any asset can be borrowed on AAVe via a flashloan. Due to a known [1 wei corner case](#1-wei-corner-case) there's a certain situation when a flashloan transaction can revert. Please visit [stETH on AAVE caveats](https://docs.lido.fi/token-guides/steth-on-aave-caveats) article for more details.  
 
-Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard. There're live ChainLink price feeds on Ethereum for [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) pairs.
+Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard. There're live ChainLink [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) price feeds on Ethereum.
 
 ### Wallet integrations
 
