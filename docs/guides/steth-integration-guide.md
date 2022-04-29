@@ -13,6 +13,7 @@ Lido's staking derivatives are widely adopted across Ethereum ecosystem:
 - The most important liquidity venues include [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH<>ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
 - stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
 - wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
+- steCRV (the Curve stETH<>ETH LP token) is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
 - ether stakers can collateralise their stETH (in the form of bETH) on the Terra blockchain using [Anchor protocol](https://app.anchorprotocol.com/).
 - there are multiple liquidity strategies built on top of Lido's staking derivatives, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
 
@@ -36,33 +37,35 @@ stETH is a rebasable ERC-20 token. Normally, the stETH token balances get recalc
 
 ### The Beacon chain oracle  
 
-Normally, stETH rebases happen daily when the Lido oracle reports the Beacon chain ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed, the stETH balances can decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.
-The Beacon chain oracle has sanity checks on both max APR reported (it cannot exceed 10%) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the Beacon chain oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as three out of five oracle daemons report matching Beacon chain data, the oracle reports it to the Lido smart contract, and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current Beacon chain reports.
+Normally, stETH rebases happen daily when the Lido oracle reports the Beacon chain ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed, the stETH balances can decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.  
+The Beacon chain oracle has sanity checks on both max APR reported (the APR cannot exceed 10%, which means a daily rebase is limited to `10/365%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the Beacon chain oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as three out of five oracle daemons report matching Beacon chain data, the oracle reports it to the Lido smart contract, and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current Beacon chain reports.
 
 #### Oracle corner cases
 
 - In case oracle daemons do not report Beacon chain balance update or do not reach quorum, the oracle does not submit the daily report, and the daily rebase doesn't occur until the quorum is reached. 
 - In case the quorum hasn't been reached, the oracle can skip the daily report. The report will happen as soon as the quorum for one of the next periods will be reached, and it will include the balance update for all the period since last oracle report. 
 - Oracle daemons only report the finalized epochs. In case of no finality on the Beacon chain, the daemons won't submit their reports, and the daily rebase won't occur. 
-- StETH smart contract includes [a method that allows burning stETH shares](https://github.com/lidofinance/lido-dao/blob/816bf1d0995ba5cfdfc264de4acda34a7fe93eba/contracts/0.4.24/StETH.sol#L391). The method is meant for [in-protocol cover](https://research.lido.fi/t/lip-6-in-protocol-coverage-proposal/1468). When sETH shares get burnt, it triggers an immediate oracle report and a rebase, while the underlying ether adds up to the daily rewards for all stETH holders. This extra oracle report doesn't interfere with normal rebase schedule in any way.
+- StETH smart contract includes [a method that allows burning stETH shares](https://github.com/lidofinance/lido-dao/blob/816bf1d0995ba5cfdfc264de4acda34a7fe93eba/contracts/0.4.24/StETH.sol#L391). The method is meant for [in-protocol cover](https://research.lido.fi/t/lip-6-in-protocol-coverage-proposal/1468). When sETH shares get burnt, it triggers an immediate rebase, while the underlying ether adds up to the daily rewards for all stETH holders. This extra rebase doesn't interfere with normal rebase schedule in any way.
 
 ### stETH internals: share mechanics
 
 Daily rebases result in stETH token balances changing. This mechanism is implemented via shares.
-The `share` is a basic unit representing the stETH holder's share in the total amount of ether controlled by the protocol. When a new deposit happens, the new shares get minted to reflect what share of the protocol controlled ether has been added to the pool. When the Beacon chain oracle report comes in, the price of 1 share in ether is being recalculated. Shares aren't normalized, so the contract also stores the sum of all shares to calculate each account's token balance.
+The `share` is a basic unit representing the stETH holder's share in the total amount of ether controlled by the protocol. When a new deposit happens, the new shares get minted to reflect what share of the protocol controlled ether has been added to the pool. When the Beacon chain oracle report comes in, the price of 1 share in stETH is being recalculated. Shares aren't normalized, so the contract also stores the sum of all shares to calculate each account's token balance.  
+Shares balance by stETH balance can be calculated by this formula:
+```
+shares[account] = balanceOf(account) * totalShares / totalPooledEther
+```
 
 ### 1 wei corner case
 
-stETH balance calculation includes integer division, and there is a common case when the whole stETH balance can't be transferred from the account, while leaving the last 1 wei on the sender's account. Shares balance by ether balance can be calculated by this formula:
-```
-shares = ethAmount * totalShares / totalPooledEther
-```
-Representative example:
-1) User stakes 1 wei and receives 1 share
-2) Some count of rebases happens, now 1 share equals 1.05 wei
-3) User tries to withdraw 1.05 wei, math rounds it down to 1 wei
-4) Protocol takes 1 wei and transforms it to 0.95 share, math rounds it down to 0 shares
-5) This number of shares can't be withdrawn
+stETH balance calculation includes integer division, and there is a common case when the whole stETH balance can't be transferred from the account, while leaving the last 1 wei on the sender's account. Same thing can actually happen at any transfer or deposit transaction.  
+
+Example:
+1. User A transfers 1 stETH to User B.
+2. Under the hood, stETH balance gets converted to shares, integer division happens and rounding down applies.
+3. Corresponding amount of shares gets transferred from User A to User B.
+4. Shares balance gets converted to stETH balance for User B.
+5. In many cases the actually transferred amount is 1 wei less than expected.
 
 ### Bookkeeping shares
 
@@ -193,11 +196,13 @@ While working on full-blown bridging solutions, the Lido contributors encourage 
 
 1. Smart contract security. 
 There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited and covered by an extensive bug bounty program to minimise this risk.
-3. Beacon chain - Technical risk. 
+2. Beacon chain - Technical risk.  
 Lido is built atop experimental technology under active development, and there is no guarantee that Beacon chain has been developed error-free. Any vulnerabilities inherent to Beacon chain brings with it slashing risk, as well as stETH fluctuation risk.
-3. Beacon chain - Adoption risk. 
+3. Beacon chain - Adoption risk.  
 The value of stETH is built around the staking rewards associated with the Ethereum beacon chain. If Beacon chain fails to reach required levels of adoption we could experience significant fluctuations in the value of ether and stETH.
-4. Slashing risk. 
+4. Slashing risk.  
 Beacon chain validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimise this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of insurance that is paid from Lido fees.
-5. stETH price risk. 
-Users risk an exchange price of stETH which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate above risks and eliminate them entirely to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
+5. stETH price risk.  
+Users risk an exchange price of stETH which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate above risks and eliminate them entirely to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.  
+6. DAO key management risk.  
+On early stages of Lido, slightly more than 600k ether became held across multiple accounts backed by a multi-signature threshold scheme to minimize custody risk. If signatories across a certain threshold lose their key shares, get hacked or go rogue, Lido risks these funds (<20% of total stake as of April 2022) becoming locked.
