@@ -72,6 +72,10 @@
   - Manager Contract: [`0x1220ccCDc9BBA5CF626a84586C74D6f940932342`](https://etherscan.io/address/0x1220ccCDc9BBA5CF626a84586C74D6f940932342)
   - Reward Contract: [`0x55c8De1Ac17C1A937293416C9BCe5789CbBf61d1`](https://etherscan.io/address/0x55c8De1Ac17C1A937293416C9BCe5789CbBf61d1)
 
+- Balancer LP rewards v3:
+
+  - Manager Contract: [`0x86F6c353A0965eB069cD7f4f91C1aFEf8C725551`](https://etherscan.io/address/0x86F6c353A0965eB069cD7f4f91C1aFEf8C725551)
+
 - 1inch LP rewards manager:
 
   - Manager Contract: [`0xf5436129cf9d8fa2a1cb6e591347155276550635`](https://etherscan.io/address/0xf5436129cf9d8fa2a1cb6e591347155276550635)
