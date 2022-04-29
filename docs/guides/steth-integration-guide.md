@@ -167,7 +167,7 @@ Robust price sources are required for listing on most money markets, with ChainL
 
 ### Wallet integrations
 
-Lido's Ethereum staking services have been successfully integrated into most popular DeFi wallets, including MetaMask, Ledger, MyEtherWallet, ImToken and others.
+Lido's Ethereum staking services have been successfully integrated into most popular DeFi wallets, including Ledger, MyEtherWallet, ImToken and others.
 Having stETH integrated can provide wallet users with great user experience of direct staking from the wallet UI itself.
 
 Lido DAO runs a referral program rewarding wallets and other apps for driving liquidity to the Lido staking protocol. At the moment, the referral program is in [whitelist mode](https://research.lido.fi/t/switch-referral-program-to-whitelist-mode/1014). Please contact Lido bizdev team to find out if your wallet might be eligible for referral program participation.
@@ -178,12 +178,12 @@ When adding stETH support to a DeFi wallet, it is important to preserve stETH's 
 
 stETH liquidity is mostly concentrated in two biggest liquidity pools:
 - [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) 
-- [wstETH<>ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)
+- [wstETH<>WETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)
 
 Both pools are incentivised with Lido governance token (LDO) via direct incentives and bribes (veBAL bribes coming soon), and allow the liquidity providers to retain their exposure to earning Lido staking rewards.
 
 - Curve pool allows providing liquidity in the form of any of the pooled assets or in both of them. From that moment on, all the staking rewards accrued by stETH go to the pool and not to the liquidity provider's address. However, when withdrawing the liquidity, the liquidity provider will be able to get more than they have initially deposited. 
-Please note, when depositing stETH to Curve, the tokens are split between ether and stETH, with the precise balances fluctuating constantly due to price trading. Thus, the liquidity provider will only be eligible for about half of rewards accrued by the stETH deposited. To avoid that, provide stETH and ether liquidity in equal parts.
+Please note, when depositing exclusively stETH to Curve, the tokens are split between ether and stETH, with the precise balances fluctuating constantly due to price trading. Thus, the liquidity provider will only be eligible for about a half of rewards accrued by the stETH deposited. To avoid that, provide stETH and ether liquidity in equal parts.
 - Unlike Curve, Balancer pool is wstETH-based. wstETH doesn't rebase, it accrues staking rewards by eventually increasing in price instead. Thus, when withdrawing liquidity form the Balancer pool, the liquidity providers get assets valued higher than what they have initially deposited.
 
 ### Cross chain bridging
@@ -195,13 +195,15 @@ While working on full-blown bridging solutions, the Lido contributors encourage 
 ## Risks
 
 1. Smart contract security. 
-There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited and covered by an extensive bug bounty program to minimise this risk.
+There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited and covered by an extensive bug bounty program to minimise this risk.  
+To mitigate smart contract risks, all of the core Lido contracts undergo multiple audits. Audit reports can be found [here](https://github.com/lidofinance/audits#lido-protocol-audits).  
+Besides, Lido is covered with a massive [Immunefi bugbounty program](https://immunefi.com/bounty/lido/).
 2. Beacon chain - Technical risk.  
-Lido is built atop experimental technology under active development, and there is no guarantee that Beacon chain has been developed error-free. Any vulnerabilities inherent to Beacon chain brings with it slashing risk, as well as stETH fluctuation risk.
+Lido is built atop experimental technology under active development, and there is no guarantee that Beacon chain has been developed error-free. Any vulnerabilities inherent to Beacon chain brings with it slashing risk, as well as stETH balance fluctuation risk.
 3. Beacon chain - Adoption risk.  
 The value of stETH is built around the staking rewards associated with the Ethereum beacon chain. If Beacon chain fails to reach required levels of adoption we could experience significant fluctuations in the value of ether and stETH.
 4. Slashing risk.  
-Beacon chain validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimise this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of insurance that is paid from Lido fees.
+Beacon chain validators risk staking penalties, with up to 40% of staked funds at risk if validators fail. To minimise this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of in-protocol cover that may be paid from Lido fees.
 5. stETH price risk.  
 Users risk an exchange price of stETH which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate above risks and eliminate them entirely to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.  
 6. DAO key management risk.  
