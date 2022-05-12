@@ -29,7 +29,12 @@
 
 ### Liquidity pools
 
-- Curve stETH/ETH pool: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
+- Curve [stETH/ETH](https://curve.fi/steth) pool: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
+- Curve concentrated [stETH/wETH](https://curve.fi/factory/117) pool:
+
+  - Pool contract: [`0x828b154032950C8ff7CF8085D841723Db2696056`](https://etherscan.io/address/0x828b154032950C8ff7CF8085D841723Db2696056)
+  - Gauge contract: [`0xF668E6D326945d499e5B35E7CD2E82aCFbcFE6f0`](https://etherscan.io/address/0xF668E6D326945d499e5B35E7CD2E82aCFbcFE6f0)
+
 - Balancer wstETH/WETH pool: [`0x32296969Ef14EB0c6d29669C550D4a0449130230`](https://etherscan.io/address/0x32296969Ef14EB0c6d29669C550D4a0449130230) (pool id: `0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080`)
 - 1inch stETH/DAI pool: [`0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431`](https://etherscan.io/address/0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431)
 - Sushi wstETH/DAI pool: [`0xc5578194D457dcce3f272538D1ad52c68d1CE849`](https://etherscan.io/address/0xc5578194D457dcce3f272538D1ad52c68d1CE849)
@@ -227,4 +232,3 @@
 - AnchorVaultProxy: [0xD7fE7881cD50fc155Bc310224352A812214e1E50](https://ropsten.etherscan.io/address/0xD7fE7881cD50fc155Bc310224352A812214e1E50)
 - InsuranceConnector: [0x070422e03e0070286cc80df71854b405f5dfd49f](https://ropsten.etherscan.io/address/0x070422e03e0070286cc80df71854b405f5dfd49f)
 - BridgeConnectorWormhole: [0x3e6586e144cD0DcE44C8FDc7d28CC8cf656f3b36](https://ropsten.etherscan.io/address/0x3e6586e144cD0DcE44C8FDc7d28CC8cf656f3b36)
-
