@@ -26,5 +26,5 @@ In fact, the actual amount of astETH minted may be less than or equal to X becau
 However, the actual rounding error is not expected to exceed a couple of wei at any time. Meanwhile, the event emitted will report the full initially deposited amount.
 
 #### Deposit example
-In this [deposit case](https://etherscan.io/tx/0xd599641193da40080f3effa175874624f49a8efd6f5b748abd8bc7950fc270f0) we can see 369 stETH being deposited to AAVE stETH lending pool. But in fact, 368.999999999999999999 stETH have been transferred from sender and 368.999999999999999999 astETH have been minted on sender's address. 
+In this [deposit case](https://etherscan.io/tx/0xd599641193da40080f3effa175874624f49a8efd6f5b748abd8bc7950fc270f0) we can see 369 stETH being deposited to AAVE stETH lending pool. But in fact, 368.999999999999999999 stETH have been transferred from sender and 368.999999999999999998 astETH have been minted on sender's address. 
 However, the events were emitted about exactly 369 stETH transferred and 369 astETH minted.
