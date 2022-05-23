@@ -22,10 +22,10 @@
 - Aragon Finance: [`0xB9E5CBB9CA5b0d659238807E84D0176930753d86`](https://etherscan.io/address/0xB9E5CBB9CA5b0d659238807E84D0176930753d86) (proxy)
 - Aragon Agent: [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) (proxy)
 - Aragon ACL: [`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb) (proxy)
-- Lido App Repo [`0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1`](https://etherscan.io/address/0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1) (proxy)
-- Lido Oracle Repo [`0xF9339DE629973c60c4d2b76749c81E6F40960E3A`](https://etherscan.io/address/0xF9339DE629973c60c4d2b76749c81E6F40960E3A) (proxy)
-- Node Operators registry Repo [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
-- Voting Repo [`0x4ee3118e3858e8d7164a634825bfe0f73d99c792`](https://etherscan.io/address/0x4ee3118e3858e8d7164a634825bfe0f73d99c792) (proxy)
+- Voting Repo: [`0x4ee3118e3858e8d7164a634825bfe0f73d99c792`](https://etherscan.io/address/0x4ee3118e3858e8d7164a634825bfe0f73d99c792) (proxy)
+- Lido App Repo: [`0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1`](https://etherscan.io/address/0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1) (proxy)
+- Lido Oracle Repo: [`0xF9339DE629973c60c4d2b76749c81E6F40960E3A`](https://etherscan.io/address/0xF9339DE629973c60c4d2b76749c81E6F40960E3A) (proxy)
+- Node Operators Registry Repo: [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
 
 ### Liquidity pools
 
@@ -130,19 +130,27 @@
 
 ### Core Protocol
 
-- Lido DAO: [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
-- LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
 - wstETH token: [`0x6320cd32aa674d2898a68ec82e869385fc5f7e2f`](https://goerli.etherscan.io/address/0x6320cd32aa674d2898a68ec82e869385fc5f7e2f)
 - Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
 - Oracle: [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
-- Stable Swap Oracle [`0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a`](https://goerli.etherscan.io/address/0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a)
+- Deposit Security module: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
+- Execution Layer Rewards Vault: [`0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
+- stETH/ETH Merkle Price Oracle (StableSwapOracle) [`0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a`](https://goerli.etherscan.io/address/0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a)
+
+### DAO contracts
+
+- Lido DAO: [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
+- LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
 - Aragon Voting: [`0xbc0B67b4553f4CF52a913DE9A6eD0057E2E758Db`](https://goerli.etherscan.io/address/0xbc0B67b4553f4CF52a913DE9A6eD0057E2E758Db) (proxy)
 - Aragon Token Manager: [`0xDfe76d11b365f5e0023343A367f0b311701B3bc1`](https://goerli.etherscan.io/address/0xDfe76d11b365f5e0023343A367f0b311701B3bc1) (proxy)
 - Aragon Finance: [`0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179`](https://goerli.etherscan.io/address/0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179) (proxy)
 - Aragon Agent: [`0x4333218072D5d7008546737786663c38B4D561A4`](https://goerli.etherscan.io/address/0x4333218072D5d7008546737786663c38B4D561A4) (proxy)
-- Deposit Security module: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
-- MEV Transaction Fee Vault: [`0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC`](https://goerli.etherscan.io/address/0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC)
+- Aragon ACL: [`0xb3CF58412a00282934D3C3E73F49347567516E98`](https://goerli.etherscan.io/address/0xb3CF58412a00282934D3C3E73F49347567516E98)
+- Voting Repo: [`0x14de4f901cE0B81F4EfcA594ad7b70935C276806`](https://goerli.etherscan.io/address/0x14de4f901cE0B81F4EfcA594ad7b70935C276806)
+- Lido App Repo: [`0xE9eDe497d2417fd980D8B5338232666641B9B9aC`](https://goerli.etherscan.io/address/0xE9eDe497d2417fd980D8B5338232666641B9B9aC)
+- Lido Oracle Repo: [`0x9234e37Adeb44022A078557D9943b72AB89bF36a`](https://goerli.etherscan.io/address/0x9234e37Adeb44022A078557D9943b72AB89bF36a)
+- Node Operators Registry Repo: [`0x5F867429616b380f1Ca7a7283Ff18C53a0033073`](https://goerli.etherscan.io/address/0x5F867429616b380f1Ca7a7283Ff18C53a0033073)
 
 ### Reward Programs
 
@@ -175,11 +183,11 @@
 - Lido and stETH token: [`0xA5d26F68130c989ef3e063c9bdE33BC50a86629D`](https://goerli.etherscan.io/address/0xA5d26F68130c989ef3e063c9bdE33BC50a86629D) (proxy)
 - Node Operators registry: [`0xB1e7Fb9E9A71063ab552dDEE87Ea8C6eEc7F5c7A`](https://goerli.etherscan.io/address/0xB1e7Fb9E9A71063ab552dDEE87Ea8C6eEc7F5c7A) (proxy)
 - Oracle: [`0x8aA931352fEdC2A5a5b3E20ed3A546414E40D86C`](https://goerli.etherscan.io/address/0x8aA931352fEdC2A5a5b3E20ed3A546414E40D86C) (proxy)
-- Stable Swap Oracle [`0x9A066bD669e2795fe2B936FA959FD414eBB004E9`](https://goerli.etherscan.io/address/0x9A066bD669e2795fe2B936FA959FD414eBB004E9)
 - Aragon Voting: [`0xA54DBf1B494113fBDA2E593419eE7241EfE8B766`](https://goerli.etherscan.io/address/0xA54DBf1B494113fBDA2E593419eE7241EfE8B766) (proxy)
-- Aragon token manager: [`0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244`](https://goerli.etherscan.io/address/0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244) (proxy)
-- Aragon finance: [`0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4`](https://goerli.etherscan.io/address/0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4) (proxy)
-- Aragon agent: [`0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9`](https://goerli.etherscan.io/address/0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9) (proxy)
+- Aragon Token Manager: [`0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244`](https://goerli.etherscan.io/address/0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244) (proxy)
+- Aragon Finance: [`0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4`](https://goerli.etherscan.io/address/0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4) (proxy)
+- Aragon Agent: [`0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9`](https://goerli.etherscan.io/address/0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9) (proxy)
+- stETH/ETH Merkle Price Oracle (StableSwapOracle) [`0x9A066bD669e2795fe2B936FA959FD414eBB004E9`](https://goerli.etherscan.io/address/0x9A066bD669e2795fe2B936FA959FD414eBB004E9)
 
 ### Reward Programs
 
