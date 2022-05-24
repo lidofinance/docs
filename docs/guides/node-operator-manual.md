@@ -38,7 +38,7 @@ The general flow is the following:
 7. The protocol includes Oracles that periodically report the combined Beacon balance of all
    validators launched by the protocol. When the balance increases as a result of Beacon chain
    rewards, a fee is taken from the amount of rewards (see below for the details on how the fee
-   is nominated) and distributed between active Node Operators.
+   is denominated) and distributed between active Node Operators.
 
 ### The fee
 
@@ -53,18 +53,18 @@ each Node Operator runs.
 
 > For example, if Oracles report that the protocol has received 10 Ether as a reward, the fee
 > percentage that goes to Operators is `10%`, and there are two active Node Operators, running
-> `2` and `8` validators, respectively, then the first operator will receive `0.2` StETH, the
-> second — `0.8` StETH.
+> `2` and `8` validators, respectively, then the first operator will receive `0.2` stETH, the
+> second — `0.8` stETH.
 
-The fee is nominated in StETH, a liquid version of ETH2 token introduced by the Lido protocol. The
-tokens correspond 1:1 to the Ether that the token holder would be able get by burning their StETH
-if transfers were already enabled in the Beacon chain. At any time point, the total amount of StETH
+The fee is nominated in stETH, a liquid version of ETH2 token introduced by the Lido protocol. The
+tokens correspond 1:1 to the Ether that the token holder would be able get by burning their stETH
+if transfers were already enabled in the Beacon chain. At any time point, the total amount of stETH
 tokens is equal to the total amount of Ether controlled by the protocol on both ETH1 and ETH2 sides.
 
-When a user submits Ether to the pool, they get the same amount of freshly-minted StETH tokens.
-When reward is received on the ETH2 side, each StETH holder’s balance increases by the same
+When a user submits Ether to the pool, they get the same amount of freshly-minted stETH tokens.
+When reward is received on the ETH2 side, each stETH holder’s balance increases by the same
 percentage that the total amount of protocol-controlled Ether has increased, corrected for the
-protocol fee which is taken by [minting new StETH tokens] to the fee recipients.
+protocol fee which is taken by [minting new stETH tokens] to the fee recipients.
 
 > For example, if the reward has increased the total amount of protocol-controlled Ether by `10%`,
 > and the total protocol fee percentage is `10%`, then each token holder’s balance will grow by
@@ -72,7 +72,7 @@ protocol fee which is taken by [minting new StETH tokens] to the fee recipients.
 > and Node Operators.
 
 One side effect of this is that you, as a Node Operator, will continue receiving the percentage
-of protocol rewards even after you stop actively validating, if you chose to hold StETH received
+of protocol rewards even after you stop actively validating, if you chose to hold stETH received
 as a fee.
 
 [minting new steth tokens]: https://github.com/lidofinance/lido-dao/blob/971ac8f/contracts/0.4.24/Lido.sol#L576
@@ -86,7 +86,7 @@ Becoming a Lido Node Operator involves several steps, all of which are detailed 
 To include a Node Operator to the protocol, DAO holders must perform a voting. A Node Operator
 is defined by an address that is used for two purposes:
 
-1. The protocol pays the fee by minting StETH tokens to this address.
+1. The protocol pays the fee by minting stETH tokens to this address.
 2. The Node Operator uses this address for submitting signing keys to be used by the protocol.
 
 Pass this address to the DAO holders along with the other relevant information.
