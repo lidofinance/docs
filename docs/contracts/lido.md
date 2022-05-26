@@ -5,11 +5,18 @@
 
 Lido is the core contract which acts as a liquid staking pool. The contract is responsible for Ether deposits and withdrawals, minting and burning liquid tokens, delegating funds to node operators, applying fees, and accepting updates from the oracle contract. Node Operators' logic is extracted to a separate contract, NodeOperatorsRegistry.
 
-Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. stETH tokens are pegged 1:1 to the Ethers that are held by Lido. stETH token’s balances are updated when the oracle reports change in total stake every day.
+Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. Despite stETH tokens are pegged 1:1 to the Ethers that are held by Lido, the market exchange rate between stETH and ETH may vary. stETH token’s balances are updated when the oracle reports change in total stake every day.
+
+:::note
+At the moment withdrawals are not possible in the beacon chain and there's no workaround.
+Lido will be upgraded to an actual implementation when withdrawals are enabled
+(Phase 1.5 or 2 of Eth2 launch, likely late 2022 or 2023).
+
+:::
 
 ## Rebasing
 
-When a rebase occurs the supply of the token is increased or decreased algorithmically, based on the staking rewards(or slashing penalties) in the Eth2 chain. Rebase happens when oracles report beacon stats.
+When a rebase occurs the supply of the token is increased or decreased algorithmically, based on the staking rewards(or slashing penalties) in the Eth2 chain, and execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade). Rebase happens when oracles report beacon stats.
 
 The rebasing mechanism is implemented via "shares". Instead of storing map with account balances, Lido stores which share owned by account in the total amount of Ether controlled by the protocol.
 
@@ -58,6 +65,20 @@ Report consists of count of validators participated in protocol - beacon validat
 
 - When beacon balance grown between reports, protocol register profit and distribute reward of fresh minting stETH tokens between stETH holders, node operators, insurance fund and treasury. Fee distribution for node operators, insurance fund and treasury can be set by DAO.
 - When frame was ended with slashing and new beacon balance less than previous one total supply of stETH becomes less than in previous report and no rewards distributed.
+
+## Execution layer rewards
+
+Lido implements the architecture design which was proposed in the Lido improvement proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part as the Lido Oracle report.
+
+These execution layer rewards initially accumulaed to the dedicated `LidoExecutionLayerRewardsVault` contract and consists of priority fees and MEV.
+
+## Staking rate limiting
+
+There is a safeguard mechanism in Lido to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
+
+New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
+
+For details, see the Lido improvement proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
 
 ## View Methods
 
@@ -281,6 +302,117 @@ function getBeaconStat() returns (
 | `depositedValidators` | `uint256` | Number of deposited validators                                                 |
 | `beaconValidators`    | `uint256` | Number of Lido's validators visible in the Beacon state, reported by oracles   |
 | `beaconBalance`       | `uint256` | Total amount of Beacon-side Ether (sum of all the balances of Lido validators) |
+
+### isStakingPaused()
+
+Returns staking state: whether it's paused or not
+
+```sol
+function isStakingPaused() external view returns (bool)
+```
+
+#### Returns:
+
+| Name              | Type   | Description         |
+| ----------------- | ------ | ------------------- |
+| `isStakingPaused` | `bool` | Staking pause state |
+
+### getCurrentStakeLimit()
+
+Returns how much Ether can be staked in the current block
+
+```sol
+function getCurrentStakeLimit() public view returns (uint256)
+```
+
+#### Returns:
+
+| Name         | Type      | Description                                                     |
+| ------------ | --------- | --------------------------------------------------------------- |
+| `stakeLimit` | `uint256` | Currently availble limit for stake request in the current block |
+
+:::note
+Special return values:
+- `2^256 - 1` if staking is unlimited;
+- `0` if staking is paused or if limit is exhausted.
+:::
+
+### getStakeLimitFullInfo()
+
+Returns full info about current stake limit params and state
+
+```sol
+function getStakeLimitFullInfo() external view returns (
+    bool isStakingPaused,
+    bool isStakingLimitSet,
+    uint256 currentStakeLimit,
+    uint256 maxStakeLimit,
+    uint256 maxStakeLimitGrowthBlocks,
+    uint256 prevStakeLimit,
+    uint256 prevStakeBlockNumber
+)
+```
+
+#### Returns:
+
+| Name                        | Type      | Description                                                             |
+| --------------------------- | --------- | ----------------------------------------------------------------------- |
+| `isStakingPaused`           | `bool`    | Staking pause state (equivalent to return of `isStakingPaused()`)       |
+| `isStakingLimitSet`         | `bool`    | Whether the stake limit is set or not                                   |
+| `currentStakeLimit`         | `uint256` | Current stake limit (equivalent to return of `getCurrentStakeLimit()`)  |
+| `maxStakeLimit`             | `uint256` | Max stake limit                                                         |
+| `maxStakeLimitGrowthBlocks` | `uint256` | Blocks needed to restore max stake limit from the fully exhausted state |
+| `prevStakeLimit`            | `uint256` | Previously reached stake limit                                          |
+| `prevStakeBlockNumber`      | `uint256` | Previously seen block number                                            |
+
+### getTotalELRewardsCollected()
+
+Get total amount of execution layer rewards collected to Lido contract
+
+:::note
+Ether got through `LidoExecutionLayerRewardsVault` is kept on this contract's balance the same way
+as other buffered Ether is kept (until it gets deposited).
+
+:::
+
+```sol
+function getTotalELRewardsCollected() external view returns (uint256)
+```
+
+#### Returns:
+
+| Name                      | Type      | Description                                                   |
+| ------------------------- | --------- | ------------------------------------------------------------- |
+| `totalELRewardsCollected` | `uint256` | Amount of funds received as execution layer rewards (in wei)  |
+
+
+### getELRewardsWithdrawalLimit()
+
+Get limit in basis points to amount of ETH to withdraw per `LidoOracle` report.
+
+```sol
+function getELRewardsWithdrawalLimit() external view returns (uint256)
+```
+
+#### Returns:
+
+| Name                       | Type      | Description                                                               |
+| -------------------------- | --------- | ------------------------------------------------------------------------- |
+| `elRewardsWithdrawalLimit` | `uint256` | Limit in basis points to amount of ETH to withdraw per LidoOracle report  |
+
+### getELRewardsVault()
+
+Returns address of the contract set as `LidoExecutionLayerRewardsVault`.
+
+```sol
+function getELRewardsVault() public view returns (address)
+```
+
+#### Returns:
+
+| Name             | Type      | Description     |
+| ---------------- | --------- | --------------- |
+| `elRewardsVault` | `address` | Vault's address |
 
 ## Methods
 
@@ -567,6 +699,113 @@ Resume pool routine operations
 function resume()
 ```
 
+### pauseStaking()
+
+Stops accepting new Ether to the protocol
+
+:::note
+While accepting new Ether is stopped, calls to the `submit` function,
+as well as to the default payable function, will revert.
+
+:::
+
+```sol
+function pauseStaking() external
+```
+
+### resumeStaking()
+
+Resumes accepting new Ether to the protocol (if `pauseStaking` was called previously)
+
+:::note
+Staking could be rate-limited by imposing a limit on the stake amount at each moment in time,
+see `setStakingLimit()` and `removeStakingLimit()`
+
+:::
+
+```sol
+function resumeStaking() external
+```
+
+### setStakingLimit()
+
+Sets the staking rate limit
+
+:::note
+Reverts if:
+- `_maxStakeLimit` == 0
+- `_maxStakeLimit` >= 2^96
+- `_maxStakeLimit` < `_stakeLimitIncreasePerBlock`
+- `_maxStakeLimit` / `_stakeLimitIncreasePerBlock` >= 2^32 (only if `_stakeLimitIncreasePerBlock` != 0)
+
+:::
+
+```sol
+function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerBlock) external
+```
+#### Parameters:
+
+| Name                          | Type      | Description                           |
+| ----------------------------- | --------- | ------------------------------------- |
+| `_maxStakeLimit`              | `uint256` | Max stake limit value                 |
+| `_stakeLimitIncreasePerBlock` | `uint256` | Stake limit increase per single block |
+
+Limit explanation scheme:
+```
+    * ▲ Stake limit
+    * │.....  .....   ........ ...            ....     ... Stake limit = max
+    * │      .       .        .   .   .      .    . . .
+    * │     .       .              . .  . . .      . .
+    * │            .                .  . . .
+    * │──────────────────────────────────────────────────> Time
+    * │     ^      ^          ^   ^^^  ^ ^ ^     ^^^ ^     Stake events
+```
+
+### removeStakingLimit()
+
+Removes the staking rate limit
+
+```sol
+function removeStakingLimit() external
+```
+
+### receiveELRewards()
+
+A payable function for execution layer rewards,
+can be called only by the `LidoExecutionLayerRewardsVault` contract
+
+```sol
+function receiveELRewards() external payable
+```
+
+### setELRewardsVault()
+
+Sets the address of `LidoExecutionLayerRewardsVault` contract
+
+```sol
+function setELRewardsVault(address _executionLayerRewardsVault) external
+```
+
+#### Parameters:
+
+| Name                          | Type      | Description                                    |
+| ----------------------------- | --------- | ---------------------------------------------- |
+| `_executionLayerRewardsVault` | `address` | Execution layer rewards vault contract address |
+
+### setELRewardsWithdrawalLimit()
+
+Sets limit on amount of ETH to withdraw from execution layer rewards vault per LidoOracle report
+
+```sol
+function setELRewardsWithdrawalLimit(uint16 _limitPoints) external
+```
+
+#### Parameters:
+
+| Name           | Type     | Description                                                              |
+| -------------- | -------- | ------------------------------------------------------------------------ |
+| `_limitPoints` | `uint16` | Limit in basis points to amount of ETH to withdraw per LidoOracle report |
+
 ### setFee()
 
 Set fee rate to `_feeBasisPoints` basis points. The fees are accrued when oracles report staking results
@@ -604,48 +843,26 @@ function setFeeDistribution(
 | `_insuranceFeeBasisPoints` | `uint16` | Fee for the insurance fund. Expressed in basis points, 10000 BP corresponding to 100%. |
 | `_operatorsFeeBasisPoints` | `uint16` | Fee for the node operators. Expressed in basis points, 10000 BP corresponding to 100%. |
 
-### setOracle()
+### setProtocolContracts()
 
-Set authorized oracle contract address to `_oracle`
+Set Lido protocol contracts (oracle, treasury, insurance fund).
+
+Oracle contract specified here is allowed to make periodical updates of beacon stats by calling `handleOracleReport`.
+Treasury contract specified here is used to accumulate the protocol treasury fee.
+Insurance fund contract specified here is used to accumulate the protocol insurance fee.
+
 
 ```sol
-function setOracle(address _oracle)
+function setProtocolContracts(address _oracle, address _treasury, address _insuranceFund) external
 ```
 
 #### Parameters
 
-| Name      | Type      | Description                |
-| --------- | --------- | -------------------------- |
-| `_oracle` | `address` | Address of oracle contract |
-
-### setTreasury()
-
-Set treasury contract address to `_treasury`. This contract is used to accumulate the protocol treasury fee
-
-```sol
-function setTreasury(address _treasury)
-```
-
-#### Parameters
-
-| Name        | Type      | Description                                        |
-| ----------- | --------- | -------------------------------------------------- |
-| `_treasury` | `address` | Address of contract which accumulates treasury fee |
-
-### setInsuranceFund()
-
-Set insuranceFund contract address to `_insuranceFund`.
-This contract is used to accumulate the protocol insurance fee
-
-```sol
-function setInsuranceFund(address _insuranceFund)
-```
-
-#### Parameters
-
-| Name             | Type      | Description                                         |
-| ---------------- | --------- | --------------------------------------------------- |
-| `_insuranceFund` | `address` | Address of contract which accumulates insurance fee |
+| Name             | Type      | Description                        |
+| ---------------- | --------- | ---------------------------------- |
+| `_oracle`        | `address` | Address of oracle contract         |
+| `_treasury`      | `address` | Address of trasury contract        |
+| `_insuranceFund` | `address` | Address of insurance fund contract |
 
 ### setWithdrawalCredentials()
 
@@ -665,31 +882,13 @@ Note that `setWithdrawalCredentials` discards all unused signing keys as the sig
 | ------------------------ | --------- | ------------------------------------------------------------------------------------------- |
 | `_withdrawalCredentials` | `bytes32` | Hash of withdrawal multisignature key as accepted by the deposit_contract.deposit functione |
 
-### withdraw()
-
-Issues withdrawal request. **Not implemented.**
-
-```sol
-function withdraw(uint256 _amount, bytes32 _pubkeyHash)
-```
-
-:::note
-Will be upgraded to an actual implementation when withdrawals are enabled (Phase 1.5 or 2 of Eth2 launch, likely late 2021 or 2022). At the moment withdrawals are not possible in the beacon chain and there's no workaround
-:::
-
-#### Parameters
-
-| Name          | Type      | Description                 |
-| ------------- | --------- | --------------------------- |
-| `_amount`     | `uint256` | Amount of StETH to withdraw |
-| `_pubkeyHash` | `bytes32` | Receiving address           |
-
-### pushBeacon()
+### handleOracleReport()
 
 Updates the number of Lido-controlled keys in the beacon validators set and their total balance.
+The method is called by the Lido oracle to handle its quorum-reached report.
 
 ```sol
-function pushBeacon(uint256 _beaconValidators, uint256 _beaconBalance)
+function handleOracleReport(uint256 _beaconValidators, uint256 _beaconBalance)
 ```
 
 #### Parameters
