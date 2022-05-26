@@ -8,7 +8,7 @@ See the Lido improvement proposal [#12](https://github.com/lidofinance/lido-impr
 
 Transactions priority fee collected by setting the the contract's address as a coinbase (`feeRecipient`). MEV rewards could be collected by the two ways simultenously: the first one require coinbase setup too but the second presumes that payload builders may include an explicit transaction which transfers MEV shares to the `feeRecipient` in the payload. Thus, the contract has the payable receive function which accepts incoming ether.
 
-Only the `Lido` contract could withdraw the accumulated rewards to distribute them between `stETH` holders as part of the Lido oracle report.
+Only the [`Lido`](lido) contract could withdraw the accumulated rewards to distribute them between `stETH` holders as part of the Lido oracle report.
 
 NB: Accidentally sent by someone outside the Lido Node Operatorss set ether is unecoverable, and will be distributed by the protocol as the collected rewards.
 

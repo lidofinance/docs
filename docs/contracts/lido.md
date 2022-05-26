@@ -70,7 +70,7 @@ Report consists of count of validators participated in protocol - beacon validat
 
 Lido implements the architecture design which was proposed in the Lido improvement proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part as the Lido Oracle report.
 
-These execution layer rewards initially accumulaed to the dedicated `LidoExecutionLayerRewardsVault` contract and consists of priority fees and MEV.
+These execution layer rewards initially accumulaed to the dedicated [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
 
 ## Staking rate limiting
 
@@ -370,7 +370,7 @@ function getStakeLimitFullInfo() external view returns (
 Get total amount of execution layer rewards collected to Lido contract
 
 :::note
-Ether got through `LidoExecutionLayerRewardsVault` is kept on this contract's balance the same way
+Ether got through [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) is kept on this contract's balance the same way
 as other buffered Ether is kept (until it gets deposited).
 
 :::
@@ -388,7 +388,7 @@ function getTotalELRewardsCollected() external view returns (uint256)
 
 ### getELRewardsWithdrawalLimit()
 
-Get limit in basis points to amount of ETH to withdraw per `LidoOracle` report.
+Get limit in basis points to amount of ETH to withdraw per [`LidoOracle`](lido-oracle) report.
 
 ```sol
 function getELRewardsWithdrawalLimit() external view returns (uint256)
@@ -402,7 +402,7 @@ function getELRewardsWithdrawalLimit() external view returns (uint256)
 
 ### getELRewardsVault()
 
-Returns address of the contract set as `LidoExecutionLayerRewardsVault`.
+Returns address of the contract set as [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault).
 
 ```sol
 function getELRewardsVault() public view returns (address)
@@ -772,7 +772,7 @@ function removeStakingLimit() external
 ### receiveELRewards()
 
 A payable function for execution layer rewards,
-can be called only by the `LidoExecutionLayerRewardsVault` contract
+can be called only by the [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract
 
 ```sol
 function receiveELRewards() external payable
@@ -780,7 +780,7 @@ function receiveELRewards() external payable
 
 ### setELRewardsVault()
 
-Sets the address of `LidoExecutionLayerRewardsVault` contract
+Sets the address of [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract
 
 ```sol
 function setELRewardsVault(address _executionLayerRewardsVault) external
@@ -794,7 +794,7 @@ function setELRewardsVault(address _executionLayerRewardsVault) external
 
 ### setELRewardsWithdrawalLimit()
 
-Sets limit on amount of ETH to withdraw from execution layer rewards vault per LidoOracle report
+Sets limit on amount of ETH to withdraw from execution layer rewards vault per [`LidoOracle`](lido-oracle) report
 
 ```sol
 function setELRewardsWithdrawalLimit(uint16 _limitPoints) external
