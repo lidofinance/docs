@@ -312,6 +312,34 @@ Requirements:
 
 A boolean value indicating whether the operation succeeded.
 
+### transferShares()
+
+Moves  token shares from the caller's account to the provided recipient account.
+
+```sol
+function transferShares(address _recipient, uint256 _sharesAmount) public returns (uint256)
+```
+
+:::note
+Requirements:
+
+- `_recipient` cannot be the zero address.
+- the caller must have at least `_sharesAmount` shares.
+- the contract must not be paused.
+
+:::
+
+#### Parameters:
+
+| Name            | Type      | Description                  |
+| --------------- | --------- | ---------------------------- |
+| `_recipient`    | `address` | Address of shares recipient  |
+| `_sharesAmount` | `uint256` | Amount of shares to transfer |
+
+#### Returns:
+
+Amount of transferred tokens.
+
 ### allowance()
 
 Returns the remaining number of tokens that `_spender` is allowed to spend
