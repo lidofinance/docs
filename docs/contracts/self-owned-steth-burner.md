@@ -1,7 +1,7 @@
 # SelfOwnedStETHBurner
 
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/SelfOwnedStETHBurner.sol)
-- [Deployed Contract](https://etherscan.io/address/0xbaadf00d)
+- [Deployed Contract](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26)
 
 The contract provides a way for Lido governance to burn stETH token shares as a means to distributed cover
 for losses to staking.

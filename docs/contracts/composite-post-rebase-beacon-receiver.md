@@ -1,7 +1,7 @@
 # CompositePostRebaseBeaconReceiver
 
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/CompositePostRebaseBeaconReceiver.sol)
-- [Deployed Contract](https://etherscan.io/address/TODO)
+- [Deployed Contract](https://etherscan.io/address/0x55a7E1cbD678d9EbD50c7d69Dc75203B0dBdD431)
 
 The contract allows using multiple [`LidoOracle`](/contracts/lido-oracle)
 beacon report intercepting
