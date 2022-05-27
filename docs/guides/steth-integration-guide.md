@@ -148,6 +148,31 @@ wstETH token implements the ERC20 Permit extension allowing approvals to be made
 
 The `permit` method allows users to modify the allowance using a signed message, instead of through `msg.sender`. By not relying on `approve` method, wrapping can be done in one transaction instead of two.
 
+### Staking rate limits
+
+As there’s a high probability of the staking surge post-Merge, the Lido protocol implemented staking rate limits aimed to reduce the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
+there is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much Ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
+
+You can picture this as a health globe from Diablo 2 with a maximum of `_maxStakingLimit` and regenerating with a constant speed  per block. 
+When you deposit ether to the protocol, the level of health is reduced by its amount and the current limit becomes smaller and smaller. 
+When it hits the ground, transaction gets reverted. 
+
+To avoid that, you should check if `getCurrentStakeLimit() >= amountToStake`, and if it's not you can go with an alternative route.
+
+#### Alternative routes:
+
+1. Wait for staking limits to regenerate to higher values and retry depositing ether to Lido later.
+2. Consider swapping ETH for stETH on DEXes like Curve or Balancer. At specific market conditions stETH may effectively be purchased from there with a discount due to stETH price fluctuations.
+
+### Transfer shares function for stETH
+
+The [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) introduced the `transferShares` function which allows to transfer stETH in a "rebase-agnostic" manner: transfer in terms of [shares](https://github.com/lidofinance/docs/blob/feat/integration-guide/docs/guides/steth-integration-guide.md#steth-internals-share-mechanics) amount.  
+
+Normally, we transfer stETH using ERC-20 `transfer` and `transferFrom` functions which accept as input amount of stETH, not the amount of the underlying shares.  
+Sometimes we'd better operate with shares directly to avoid possible rounding issues. Rounding issues usually could appear after a token rebase.
+This feature is aimed to provide an additional level of precision when operating with stETH.
+Read more abut the function in the [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md).
+
 ## General integration examples
 
 ### stETH/wstETH as collateral
