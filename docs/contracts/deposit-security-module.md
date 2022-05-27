@@ -263,9 +263,9 @@ function pauseDeposits(uint256 blockNumber, Signature memory sig)
 
 #### Parameters:
 
-| Name          | Type        | Description                                          |
-| ------------- | ----------- | ---------------- |
-| `blockNumber` | `uint256`   | Block number |
+| Name          | Type        | Description                                                                          |
+| ------------- | ----------- | ------------------------------------------------------------------------------------ |
+| `blockNumber` | `uint256`   | Block number with malicious pre-deposits have been observed by the guardian          |
 | `sig`         | `Signature` | Short ECDSA guardian signature as defined in https://eips.ethereum.org/EIPS/eip-2098 |
 
 ### unpauseDeposits()
