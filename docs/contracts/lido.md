@@ -5,10 +5,10 @@
 
 Lido is the core contract which acts as a liquid staking pool. The contract is responsible for Ether deposits and withdrawals, minting and burning liquid tokens, delegating funds to node operators, applying fees, and accepting updates from the oracle contract. Node Operators' logic is extracted to a separate contract, NodeOperatorsRegistry.
 
-Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. Despite stETH tokens are pegged 1:1 to the Ethers that are held by Lido, the market exchange rate between stETH and ETH may vary. stETH token’s balances are updated when the oracle reports change in total stake every day.
+Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. Despite stETH tokens being pegged 1:1 to the ether that is held by Lido, the market exchange rate between stETH and ETH may vary. stETH holder balances are updated daily with oracle reports.
 
 :::note
-At the moment withdrawals are not possible in the beacon chain and there's no workaround.
+At the moment withdrawals are not possible on the beacon chain and there's no workaround.
 Lido will be upgraded to an actual implementation when withdrawals are enabled
 (Phase 1.5 or 2 of Eth2 launch, likely late 2022 or 2023).
 
@@ -16,7 +16,7 @@ Lido will be upgraded to an actual implementation when withdrawals are enabled
 
 ## Rebasing
 
-When a rebase occurs the supply of the token is increased or decreased algorithmically, based on the staking rewards(or slashing penalties) in the Eth2 chain, and execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade). Rebase happens when oracles report beacon stats.
+When a rebase occurs, the supply of the token is increased or decreased algorithmically, based on staking rewards (or slashing penalties) on the Beacon chain, and execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade). A rebase happens when oracles report beacon stats.
 
 The rebasing mechanism is implemented via "shares". Instead of storing map with account balances, Lido stores which share owned by account in the total amount of Ether controlled by the protocol.
 
@@ -68,17 +68,17 @@ Report consists of count of validators participated in protocol - beacon validat
 
 ## Execution layer rewards
 
-Lido implements the architecture design which was proposed in the Lido improvement proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part as the Lido Oracle report.
+Lido implements an architecture design which was proposed in the Lido Improvement Proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part of the Lido Oracle report.
 
-These execution layer rewards initially accumulaed to the dedicated [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
+These execution layer rewards are initially accumulaed on the dedicated [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract and include priority fees and MEV.
 
 ## Staking rate limiting
 
-There is a safeguard mechanism in Lido to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
+Lido features a safeguard mechanism to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
 
-New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
+New staking requests can be rate-limited with a moving soft cap for the stake amount per desired period.
 
-For details, see the Lido improvement proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
+For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
 
 ## View Methods
 

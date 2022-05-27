@@ -6,11 +6,11 @@
 A vault for temporary storage of execution layer (EL) rewards (MEV and tx priority fee).
 See the Lido improvement proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md).
 
-Transactions priority fee collected by setting the the contract's address as a coinbase (`feeRecipient`). MEV rewards could be collected by the two ways simultenously: the first one require coinbase setup too but the second presumes that payload builders may include an explicit transaction which transfers MEV shares to the `feeRecipient` in the payload. Thus, the contract has the payable receive function which accepts incoming ether.
+Both the transaction priority fee and MEV rewards are collected by specifying the contract's address as the coinbase (`feeRecipient`). Additionally, MEV rewards are also extracted whenever payload builders include an explicit transaction that transfers MEV shares to the `feeRecipient` in the payload. Thereby, the contract features a payable receive function that accepts incoming ether.
 
-Only the [`Lido`](lido) contract could withdraw the accumulated rewards to distribute them between `stETH` holders as part of the Lido oracle report.
+Only the [`Lido`](lido) contract can withdraw the accumulated rewards to distribute them between `stETH` holders as part of the Lido oracle report.
 
-NB: Accidentally sent by someone outside the Lido Node Operatorss set ether is unecoverable, and will be distributed by the protocol as the collected rewards.
+NB: Any ether sent to the contract by accident is unrecoverable and will be distributed by the protocol as accrued rewards.
 
 ## Methods
 
@@ -26,8 +26,8 @@ receive() external payable;
 
 ### withdrawRewards()
 
-Withdraw all accumulated EL rewards to Lido contract. Can be called only by the Lido contract.
-Returns withdrawn ether amount.
+Move all accumulated EL rewards to the Lido contract. Can only be called by the Lido contract.
+Returns the ether amount withdrawn.
 
 ```sol
 function withdrawRewards(uint256 _maxAmount) external returns (uint256 amount)
@@ -41,7 +41,7 @@ function withdrawRewards(uint256 _maxAmount) external returns (uint256 amount)
 
 ### recoverERC20()
 
-Transfers a given amount of an ERC20-token (defined by the provided token contract address)
+Transfers the given amount of the ERC20-token (defined by the provided token contract address)
 currently belonging to the vault contract address to the Lido treasury address.
 
 Emits the `ERC20Recovered` event.
@@ -60,7 +60,7 @@ function recoverERC20(address _token, uint256 _amount) external
 
 ### recoverERC721()
 
-Transfers a given tokenId of an ERC721-compatible NFT (defined by the provided token contract address)
+Transfers the given tokenId of the ERC721-compatible NFT (defined by the provided token contract address)
 currently belonging to the vault contract address to the Lido treasury address.
 
 Emits the `ERC721Recovered` event.

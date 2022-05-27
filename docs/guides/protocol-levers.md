@@ -122,9 +122,9 @@ allowances) are allowed. The following transactions revert:
 
 ### Execution layer rewards
 
-Lido implements the architecture design which was proposed in the Lido improvement proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part as the Lido Oracle report.
+Lido implements an architecture design which was proposed in the Lido Improvement Proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part of the Lido Oracle report.
 
-These execution layer rewards initially accumulaed to the dedicated [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
+These execution layer rewards are initially accumulated on the dedicated [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
 
 There is an additional limit to prevent drastical token rebase events.
 See the following issue: [`#405`](https://github.com/lidofinance/lido-dao/issues/405)
@@ -141,7 +141,7 @@ See the following issue: [`#405`](https://github.com/lidofinance/lido-dao/issues
 
 ### Staking rate limiting
 
-There is a safeguard mechanism in Lido to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
+Lido features a safeguard mechanism to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
 
 New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
 
@@ -167,12 +167,12 @@ Limit explanation scheme:
   - `getCurrentStakeLimit()`
   - `getStakeLimitFullInfo()`
 
-When staking paused, `Lido` doesn't accept user submissions. The following transactions revert:
+When staking is paused, `Lido` doesn't accept user submissions. The following transactions revert:
 
 - Plain Ether transfers;
 - calls to `submit(address)`.
 
-For details, see the Lido improvement proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
+For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
 
 ### TODO
 
