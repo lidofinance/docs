@@ -149,8 +149,14 @@
 - Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
 - Oracle: [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
 - Deposit Security module: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
-- Execution Layer Rewards Vault: [`0xece7301B3aeEC2b2B6C41a55dE831D47c205AaCC`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
+  - Current implementation: [`0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c`](https://goerli.etherscan.io/address/0xed23ad3ea5fb9d10e7371caef1b141ad1c23a80c)
+  - Proposed implementation: [`0x7DC1C1ff64078f73C98338e2f17D1996ffBb2eDe`](https://goerli.etherscan.io/address/0x7DC1C1ff64078f73C98338e2f17D1996ffBb2eDe)
+- Execution Layer Rewards Vault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
 - stETH/ETH Merkle Price Oracle (StableSwapOracle) [`0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a`](https://goerli.etherscan.io/address/0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a)
+- CompositePostRebaseReportReceiver
+  - Proposed implementation: [`0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f`](https://goerli.etherscan.io/address/0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f)
+- SelfOwnedStETHBurner
+  - Proposed implementation: [`0x6432756feF0fb527C06eFd4689A7CE0E195bD327`](https://goerli.etherscan.io/address/0x6432756feF0fb527C06eFd4689A7CE0E195bD327)
 
 ### DAO contracts
 
