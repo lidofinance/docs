@@ -34,7 +34,7 @@ Oracles are: 1) limited in impact 2) distributed - there are five of them, all t
 
 ## Superuser actions thresholds
 
-The "superuser actions" with the StETH token are performed via DAO votes. The votes are managed by the Aragon voting. Voting power is proportional to the addresses' LDO token balance ([https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32](https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32)). For the voting to pass successfully, it should: 1) get at least 5% of the total LDOs to be cast "for" the vote; 2) get at least 50% of votes cast "for" the vote. The voting duration is 24 hours.
+The "superuser actions" with the StETH token are performed via DAO votes. The votes are managed by the Aragon voting. Voting power is proportional to the addresses' LDO token balance ([https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32](https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32)). For the voting to pass successfully, it should: 1) get at least 5% of the total LDOs to be cast "for" the vote; 2) get at least 50% of votes cast "for" the vote. The voting duration is 72 hours.
 
 There are five Oracle daemons running by the Lido Node operators, with 3 of 5 needed to agree on the data they provide. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total ETH2 balance or rewards with higher-than-possible APY.
 

@@ -1,0 +1,64 @@
+---
+slug: /
+---
+
+import GridLink from '@site/src/components/GridLink'
+import Grid from '@site/src/components/Grid'
+import TerraIcon from '@site/src/assets/TerraIcon'
+import SolanaIcon from '@site/src/assets/SolanaIcon'
+import PolygonIcon from '@site/src/assets/PolygonIcon'
+import CosmosIcon from '@site/src/assets/CosmosIcon'
+import KusamaIcon from '@site/src/assets/KusamaIcon'
+
+# Introduction
+
+The Lido Ethereum Liquid Staking Protocol, built on Ethereum 2.0's Beacon chain, allows their users to earn staking rewards on the Beacon chain without locking Ether or maintaining staking infrastructure.
+
+Users can deposit Ether to the Lido smart contract and receive stETH tokens in return. The smart contract then stakes tokens with the DAO-picked node operators. Users' deposited funds are pooled by the DAO, node operators never have direct access to the users' assets.
+
+Unlike staked ether, the stETH token is free from the limitations associated with a lack of liquidity and can be transferred at any time. The stETH token balance corresponds to the amount of Beacon chain Ether that the holder could withdraw if state transitions were enabled right now in the Ethereum 2.0 network.
+
+- [A Primer](https://lido.fi/static/Lido:Ethereum-Liquid-Staking.pdf)
+
+## Other Lido Liquid Staking Protocols
+
+The docs provided on this site are focused on Lido Ethereum Liquid Staking Protocol & stETH token. Developer documentation on other Lido's Liquid Staking Protocols can be found below.
+
+<Grid>
+
+<GridLink
+  to="https://docs.terra.lido.fi"
+  title="Terra"
+  subtitle="bLuna and stLuna"
+  Icon={<TerraIcon />}
+/>
+
+<GridLink
+  to="https://docs.solana.lido.fi"
+  title="Solana"
+  subtitle="stSOL"
+  Icon={<SolanaIcon />}
+/>
+
+<GridLink
+  to="https://docs.polygon.lido.fi"
+  title="Polygon"
+  subtitle="stMATIC"
+  Icon={<PolygonIcon />}
+/>
+
+<GridLink
+  to="https://docs.cosmos.lido.fi"
+  title="Cosmos"
+  subtitle="stAtom"
+  Icon={<CosmosIcon />}
+/>
+
+<GridLink
+  to="https://docs.kusama.lido.fi"
+  title="Kusama"
+  subtitle="stKSM"
+  Icon={<KusamaIcon />}
+/>
+
+</Grid>
