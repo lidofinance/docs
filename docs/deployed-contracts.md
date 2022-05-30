@@ -146,10 +146,8 @@
   - Proposed implementation: [`0x7DC1C1ff64078f73C98338e2f17D1996ffBb2eDe`](https://goerli.etherscan.io/address/0x7DC1C1ff64078f73C98338e2f17D1996ffBb2eDe)
 - Execution Layer Rewards Vault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
 - stETH/ETH Merkle Price Oracle (StableSwapOracle) [`0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a`](https://goerli.etherscan.io/address/0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a)
-- CompositePostRebaseReportReceiver
-  - Proposed implementation: [`0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f`](https://goerli.etherscan.io/address/0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f)
-- SelfOwnedStETHBurner
-  - Proposed implementation: [`0x6432756feF0fb527C06eFd4689A7CE0E195bD327`](https://goerli.etherscan.io/address/0x6432756feF0fb527C06eFd4689A7CE0E195bD327)
+- CompositePostRebaseReportReceiver: [`0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f`](https://goerli.etherscan.io/address/0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f)
+- SelfOwnedStETHBurner: [`0x6432756feF0fb527C06eFd4689A7CE0E195bD327`](https://goerli.etherscan.io/address/0x6432756feF0fb527C06eFd4689A7CE0E195bD327)
 
 ### DAO contracts
 
