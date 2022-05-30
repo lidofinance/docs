@@ -150,7 +150,7 @@ The `permit` method allows users to modify the allowance using a signed message,
 
 ### Staking rate limits
 
-As there’s a high probability of the staking surge post-Merge, the Lido protocol implemented staking rate limits aimed to reduce the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
+As there’s a high probability of the staking surge post-Merge, the Lido protocol implemented staking rate limits aimed at reducing the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
 there is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much Ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
 
 You can picture this as a health globe from Diablo 2 with a maximum of `_maxStakingLimit` and regenerating with a constant speed  per block. 
