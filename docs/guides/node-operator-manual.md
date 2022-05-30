@@ -119,9 +119,9 @@ For example withdrawal credentials `0x010000000000000000000000b9d7934878b5fb9610
 [etherscan page for the prater-deployed lido]: https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F#readProxyContract
 [`lib/abi/lido.json`]: https://github.com/lidofinance/lido-dao/blob/971ac8f/lib/abi/Lido.json
 
-#### Using eth2.0-deposit-cli
+#### Using staking-deposit-cli
 
-Use the latest release of [`eth2.0-deposit-cli`].
+Use the latest release of [`staking-deposit-cli`].
 
 Example command usage:
 
@@ -144,7 +144,7 @@ fields except `pubkey` and `signature` from the array items.
 Never share the generated mnemonic and your private keys with anyone, including the protocol members
 and DAO holders.
 
-[`eth2.0-deposit-cli`]: https://github.com/ethereum/eth2.0-deposit-cli/releases
+[`staking-deposit-cli`]: https://github.com/ethereum/staking-deposit-cli/releases
 
 ### Validating the keys
 
@@ -210,7 +210,7 @@ Lido provides UIs for key submission: [Mainnet web interface for submitting the 
 
 ![Submitter](/img/node-operators-manual/submitter.png)
 
-If you’ve used the `eth2.0-deposit-cli`, you can paste the content of the generated
+If you’ve used the `staking-deposit-cli`, you can paste the content of the generated
 `deposit-data-*.json` file as-is.
 
 Else, prepare a JSON data of the following structure and paste it to the textarea that will appear in the center of the screen:
@@ -265,7 +265,7 @@ When you submit a form, the keys are saved in your browser. This tool checks the
 
 ### Importing the keys to a Lighthouse validator client
 
-If you’ve used the forked `eth2.0-deposit-cli` to generate the keys, you can import them to a
+If you’ve used the forked `staking-deposit-cli` to generate the keys, you can import them to a
 Lighthouse validator client by running this command:
 
 ```sh

@@ -7,21 +7,14 @@
 ### Core Protocol
 
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
-  - Current implementation: [`0xC7B5aF82B05Eb3b64F12241B04B2cF14469E39F7`](https://etherscan.io/address/0xC7B5aF82B05Eb3b64F12241B04B2cF14469E39F7)
-  - Proposed implementation: [`0x47EbaB13B806773ec2A2d16873e2dF770D130b50`](https://etherscan.io/address/0x47EbaB13B806773ec2A2d16873e2dF770D130b50)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - Node Operators registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
-  - Current implementation: [`0xec3567ae258639a0FF5A02F7eAF4E4aE4416C5fe`](https://etherscan.io/address/0xec3567ae258639a0FF5A02F7eAF4E4aE4416C5fe)
-  - Proposed implementation: [`0x5d39ABaa161e622B99D45616afC8B837E9F19a25`](https://etherscan.io/address/0x5d39ABaa161e622B99D45616afC8B837E9F19a25)
 - Oracle: [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
-  - Current implementation: [`0xADa6E33aa65590934870bFD204Fe8efe9c6Aa4bC`](https://etherscan.io/address/0xADa6E33aa65590934870bFD204Fe8efe9c6Aa4bC)
-  - Proposed implementation: [`0x1430194905301504e8830ce4B0b0df7187E84AbD`](https://etherscan.io/address/0x1430194905301504e8830ce4B0b0df7187E84AbD)
 - Deposit Security module: [`0xDb149235B6F40dC08810AA69869783Be101790e7`](https://etherscan.io/address/0xDb149235B6F40dC08810AA69869783Be101790e7)
   - Current implementation: [`0xDb149235B6F40dC08810AA69869783Be101790e7`](https://etherscan.io/address/0xDb149235B6F40dC08810AA69869783Be101790e7)
   - Proposed implementation: [`0x710B3303fB508a84F10793c1106e32bE873C24cd`](https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd)
 - Withdrawals Manager Stub: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
-- LidoExecutionLayerRewardsVault
-  - Proposed implementation: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
+- LidoExecutionLayerRewardsVault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - CompositePostRebaseReportReceiver: [`0x55a7E1cbD678d9EbD50c7d69Dc75203B0dBdD431`](https://etherscan.io/address/0x55a7E1cbD678d9EbD50c7d69Dc75203B0dBdD431)
 - SelfOwnedStETHBurner: [`0xB280E33812c0B09353180e92e27b8AD399B07f26`](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26)
 

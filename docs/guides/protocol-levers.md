@@ -42,15 +42,22 @@ As a result, to burn stETH token shares, DAO needs to explicitly approve `stETH`
 the `Voting` app contract to the `SelfOwnedStETHBurner` contract and request to burn
 the received token shares on the next quorum-reaching oracle report.
 
-### Oracle
+### Protocol contracts
 
-The address of the oracle contract.
+The addresses of the oracle, treasury, and isurance fund contracts.
 
-- Mutator: `setOracle(address)`
-  - Permission required: `SET_ORACLE`
-- Accessor: `getOracle() returns (address)`
+Oracle contract is allowed to make periodical updates of beacon stats by calling `handleOracleReport`.
+Treasury contract is used to accumulate the protocol treasury fee.
+Insurance fund contract is used to accumulate the protocol insurance fee.
 
-This contract serves as a bridge between ETH 2.0 -> ETH oracle committee members and the rest of the protocol,
+- Mutator: `setProtocolContracts(address _oracle, address _treasury, address _insuranceFund)`
+  - Permission required: `SET_PROTOCOL_CONTRACTS`
+- Accessors:
+  - `getOracle() returns (address)`
+  - `getTreasury() returns (address)`
+  - `getInsuranceFund() returns (address)`
+
+The oracle contract serves as a bridge between ETH 2.0 -> ETH oracle committee members and the rest of the protocol,
 implementing quorum between the members. The oracle committee members report balances controlled by the DAO
 on the ETH 2.0 side, which can go up because of reward accumulation and can go down due to slashing.
 
@@ -101,8 +108,10 @@ if the amount of the buffered Ether becomes sufficiently large.
 
 ### Pausing
 
-- Mutators: `stop()`, `resume()`
+- Mutator: `stop()`
   - Permission required: `PAUSE_ROLE`
+- Mutator: `resume()`
+  - Permission required: `RESUME_ROLE`
 - Accessor: `isStopped() returns (bool)`
 
 When paused, `Lido` doesn't accept user submissions, doesn't allow user withdrawals and oracle
@@ -114,17 +123,69 @@ allowances) are allowed. The following transactions revert:
 - calls to `depositBufferedEther(uint256)`;
 - calls to `withdraw(uint256, bytes32)` (withdrawals are not implemented yet).
 - calls to `pushBeacon(uint256, uint256)`;
-- calls to `burnShares(address, uint256)`
-- calls to `transfer(address, uint256)`
-- calls to `transferFrom(address, address, uint256)`
-- calls to `approve(address, uint256)`
-- calls to `increaseAllowance(address, uint)`
-- calls to `decreaseAllowance(address, uint)`
+- calls to `burnShares(address, uint256)`;
+- calls to `transfer(address, uint256)`;
+- calls to `transferFrom(address, address, uint256)`;
+- calls to `approve(address, uint256)`;
+- calls to `increaseAllowance(address, uint)`;
+- calls to `decreaseAllowance(address, uint)`.
+
+### Execution layer rewards
+
+Lido implements an architecture design which was proposed in the Lido Improvement Proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part of the Lido Oracle report.
+
+These execution layer rewards are initially accumulated on the dedicated [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
+
+There is an additional limit to prevent drastical token rebase events.
+See the following issue: [`#405`](https://github.com/lidofinance/lido-dao/issues/405)
+
+- Mutator: `setELRewardsVault()`
+  - Permission required: `SET_EL_REWARDS_VAULT_ROLE`
+
+- Mutator: `setELRewardsWithdrawalLimit()`
+  - Permission required: `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE`
+
+- Accessors:
+  - `getELRewardsVault()`;
+  - `getELRewardsWithdrawalLimit()`.
+
+### Staking rate limiting
+
+Lido features a safeguard mechanism to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
+
+New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
+
+Limit explanation scheme:
+```
+    * ▲ Stake limit
+    * │.....  .....   ........ ...            ....     ... Stake limit = max
+    * │      .       .        .   .   .      .    . . .
+    * │     .       .              . .  . . .      . .
+    * │            .                .  . . .
+    * │──────────────────────────────────────────────────> Time
+    * │     ^      ^          ^   ^^^  ^ ^ ^     ^^^ ^     Stake events
+```
+
+- Mutators: `resumeStaking()`, `setStakingLimit(uint256, uint256)`, `removeStakingLimit()`
+  - Permission required: `STAKING_CONTROL_ROLE`
+
+- Mutator: `pauseStaking()`
+  - Permission required: `STAKING_PAUSE_ROLE`
+
+- Accessors:
+  - `isStakingPaused()`
+  - `getCurrentStakeLimit()`
+  - `getStakeLimitFullInfo()`
+
+When staking is paused, `Lido` doesn't accept user submissions. The following transactions revert:
+
+- Plain Ether transfers;
+- calls to `submit(address)`.
+
+For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
 
 ### TODO
 
-- Treasury (`getTreasury() returns (address)`; mutator?)
-- Insurance fund (`getInsuranceFund() returns (address)`; mutator?)
 - Transfer to vault (`transferToVault()`)
 
 ## [NodeOperatorsRegistry](/contracts/node-operators-registry)

@@ -267,6 +267,7 @@ Set the receiver contract address to `_addr` to be called when the report is pus
 
 :::note
 Specify 0 to disable this functionality.
+The receiver contract MUST implement [EIP-165](https://eips.ethereum.org/EIPS/eip-165).
 :::
 
 ```sol
@@ -283,26 +284,42 @@ function setBeaconSpec(
     uint64 _slotsPerEpoch,
     uint64 _secondsPerSlot,
     uint64 _genesisTime
-    )
-    auth(SET_BEACON_SPEC)
+) auth(SET_BEACON_SPEC)
 ```
 
-### initialize_v2()
+### initialize()
 
-Initialize the contract v2 data, with sanity check bounds
-(`_allowedBeaconBalanceAnnualRelativeIncrease`, `_allowedBeaconBalanceRelativeDecrease`).
+Initialize the contract to perform v0 → v3 transition.
 
 :::note
-Public function `initialize` was removed from v2 because it is not needed once the contract is
-initialized for the first time, that happened in v1. Instead we added `initialize_v2` function that
-initializes newly added variables, updates the contract version to 1.
+The function `initialize` could not be called twice and it needed once the contract is
+initialized for the first time (i.e. deploying from scratch).
+For more details see the Lido improvement proposal [#10](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-10.md).
 :::
 
 ```sol
-function initialize_v2(
+function initialize(
+    address _lido,
+    uint64 _epochsPerFrame,
+    uint64 _slotsPerEpoch,
+    uint64 _secondsPerSlot,
+    uint64 _genesisTime,
     uint256 _allowedBeaconBalanceAnnualRelativeIncrease,
     uint256 _allowedBeaconBalanceRelativeDecrease
-)
+) external
+```
+
+### finalizeUpgrade_v3()
+
+A function to finalize upgrade to v3 (from v1). Can be called only once.
+
+:::note
+v2 is skipped due to a change in numbering.
+For more details see the Lido improvement proposal [#10](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-10.md).
+:::
+
+```sol
+function finalizeUpgrade_v3() external
 ```
 
 ### addOracleMember()
