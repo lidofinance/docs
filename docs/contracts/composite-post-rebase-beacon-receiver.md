@@ -10,13 +10,13 @@ by implementing a composite design pattern. In other words, `CompositePostRebase
 follows the `IBeaconReceiver` interface and internally holds an array of nested `IBeaconReceiver`
 instances for iterative execution by calling `processLidoOracleReport` in a simple for-loop.
 
-The storage changing calls (add/insert/remove) only allowed from the `Voting` contract, and `processLidoOracleReport`
-calls allowed only from the `LidoOracle` contract.
+The storage-changing calls (add/insert/remove) are only allowed from the `Voting` contract, and `processLidoOracleReport`
+calls from the `LidoOracle` contract.
 
-For the architecture consistency the contract is derived from the two contracts: `OrderedCallbacksArray`
+For architecture consistency, the contract is derived from two contracts: `OrderedCallbacksArray`
 (array housekeeping functions) and `IBeaconReportReceiver` (compatibility interface for `LidoOracle`).
 
-The full formal spec provided with
+The full formal spec is provided with
 [LIP-7](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-7.md).
 
 ## View methods
@@ -72,8 +72,8 @@ Reverts if any of the following is true:
 
 ### Function: insertCallback
 
-Inserts the `_callback` element at the specified by the `_atIndex` param location in the callbacks array.
-Elements at and after the `_atIndex` position are shifted one position right to preserve the existing invocation order.
+Inserts `_callback` at the `_atIndex` location in the callbacks array.
+Elements at and following the `_atIndex` position are shifted one position to the right to preserve the existing invocation order.
 
 
 ```sol
@@ -97,8 +97,8 @@ Reverts if any of the following is true:
 
 ### Function: removeCallback
 
-Removes element with a given by the `_atIndex` param position from the callbacks array.
-Elements after the `_atIndex` position are shifted one position left to preserve the existing invocation order.
+Removes the element at the `_atIndex` position from the callbacks array.
+Elements following the `_atIndex` position are shifted one position to the left to preserve the existing invocation order.
 
 ```sol
 function removeCallback(uint256 _atIndex) external override onlyVoting
@@ -116,7 +116,7 @@ Reverts if any of the following is true:
 
 ### Function: processLidoOracleReport
 
-Implements the `IBeaconReceiver` interface, which is suitable for the `LidoOracle` contract.
+Implements the `IBeaconReceiver` interface supported by the `LidoOracle` contract.
 Iteratively calls `callback.processLidoOracleReport` for each stored `callback` in the callbacks array preserving the order.
 
 ```sol
