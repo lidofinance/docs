@@ -51,7 +51,7 @@ Treasury contract is used to accumulate the protocol treasury fee.
 Insurance fund contract is used to accumulate the protocol insurance fee.
 
 - Mutator: `setProtocolContracts(address _oracle, address _treasury, address _insuranceFund)`
-  - Permission required: `SET_PROTOCOL_CONTRACTS`
+  - Permission required: `MANAGE_PROTOCOL_CONTRACTS_ROLE`
 - Accessors:
   - `getOracle() returns (address)`
   - `getTreasury() returns (address)`
