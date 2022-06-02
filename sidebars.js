@@ -6,6 +6,7 @@ module.exports = {
       type: 'category',
       label: 'Guides',
       items: [
+        'guides/steth-integration-guide',
         'guides/node-operator-manual',
         'guides/oracle-operator-manual',
         'guides/deposit-security-manual',
