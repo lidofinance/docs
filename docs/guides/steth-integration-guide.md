@@ -10,7 +10,7 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ether derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrating it into any DeFi protocol.  
 
 Lido's staking derivatives are widely adopted across Ethereum ecosystem: 
-- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
+- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
 - stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
 - wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
 - steCRV (the Curve stETH/ETH LP token) is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
@@ -85,7 +85,7 @@ The preferred way of operating stETH should be:
 
 Please note that 10% APR on shares balance and 10% APR on stETH token balance will ultimately result in different output values over time, because shares balance is stable, while stETH token balance changes eventually.
 
-If using the rebasable stETH token is not an option for your integration, it is recommended to use wstETH instead of stETH. See how it works [here](#wstETH).
+If using the rebasable stETH token is not an option for your integration, it is recommended to use wstETH instead of stETH. See how it works [here](#wsteth).
 
 ### Fees
 
@@ -118,7 +118,7 @@ Although rebasable tokens are becoming a common thing in DeFi recently, many dAp
 
 ### What is wstETH
 
-wstETH is an ERC20 token that represents the account's share of the total supply of stETH total supply (stETH token wrapper with static balances). For wstETH, 1 wei in [shares](#What-share-is) equals to 1 wei in balance. The wstETH balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase, wstETH's price denominated in stETH changes instead.  
+wstETH is an ERC20 token that represents the account's share of the total supply of stETH total supply (stETH token wrapper with static balances). For wstETH, 1 wei in [shares](#steth-internals-share-mechanics) equals to 1 wei in balance. The wstETH balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase, wstETH's price denominated in stETH changes instead.  
 At any given time, anyone holding wstETH can convert any amount of it to stETH at a fixed rate, and vice versa. The rate is the same for everyone at any given moment. Normally, the rate gets updated once a day, when stETH undergoes a rebase. The current rate can be obtained by calling `wstETH.stEthPerToken()`  
 
 Note, that WstETH contract includes a shortcut to convert ether to wstETH under the hood, which allows to effectively skip the wrapping step and stake ether for wstETH directly.
@@ -136,7 +136,7 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 ### Wrap & Unwrap
 
-When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WstETH contract balance, and the wstETH is being minted according to the [shares bookeeping](#Bookkeeping-shares) formula.
+When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WstETH contract balance, and the wstETH is being minted according to the [shares bookeeping](#bookkeeping-shares) formula.
 
 When unwrapping, wstETH gets burnt and the corresponding amount of stETH gets unlocked.
 
@@ -166,7 +166,7 @@ To avoid that, you should check if `getCurrentStakeLimit() >= amountToStake`, an
 
 ### Transfer shares function for stETH
 
-The [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) introduced the `transferShares` function which allows to transfer stETH in a "rebase-agnostic" manner: transfer in terms of [shares](https://github.com/lidofinance/docs/blob/feat/integration-guide/docs/guides/steth-integration-guide.md#steth-internals-share-mechanics) amount.  
+The [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) introduced the `transferShares` function which allows to transfer stETH in a "rebase-agnostic" manner: transfer in terms of [shares](#steth-internals-share-mechanics) amount.  
 
 Normally, we transfer stETH using ERC-20 `transfer` and `transferFrom` functions which accept as input amount of stETH, not the amount of the underlying shares.  
 Sometimes we'd better operate with shares directly to avoid possible rounding issues. Rounding issues usually could appear after a token rebase.
@@ -181,7 +181,7 @@ stETH/wstETH as DeFi collateral is beneficial for a number of reasons:
 
 - stETH/wstETH is almost as safe as ether, price-wise: barring catastrophic scenarios, its value tends to hold the ETH peg well;
 - stETH/wstETH is a productive asset: earning rewards on collateral effectively lowers the cost of borrowing;
-- stETH/wstETH is a very liquid asset with billions of liquidity locked in liquidity pools ([Curve](https://curve.fi/steth), [Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080))
+- stETH/wstETH is a very liquid asset with billions of liquidity locked in liquidity pools ([Curve](https://curve.fi/steth), [Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080))
 
 Lido's staked assets have been listed on major liquidity protocols:
 
@@ -204,7 +204,7 @@ When adding stETH support to a DeFi wallet, it is important to preserve stETH's 
 
 stETH liquidity is mostly concentrated in two biggest liquidity pools:
 - [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) ([contract code](https://github.com/curvefi/curve-contract/blob/master/contracts/pools/steth/StableSwapSTETH.vy))
-- [wstETH/WETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080) ([read more](https://docs.balancer.fi/products/balancer-pools/metastable-pools#the-lido-wsteth-weth-liquidity-pool))
+- [wstETH/WETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080) ([read more](https://docs.balancer.fi/products/balancer-pools/metastable-pools#the-lido-wsteth-weth-liquidity-pool))
 
 Both pools are incentivised with Lido governance token (LDO) via direct incentives and bribes (veBAL bribes coming soon), and allow the liquidity providers to retain their exposure to earning Lido staking rewards.
 
