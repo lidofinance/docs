@@ -10,10 +10,10 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ether derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrating it into any DeFi protocol.  
 
 Lido's staking derivatives are widely adopted across Ethereum ecosystem: 
-- The most important liquidity venues include [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH<>ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
+- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
 - stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
 - wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
-- steCRV (the Curve stETH<>ETH LP token) is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
+- steCRV (the Curve stETH/ETH LP token) is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
 - ether stakers can collateralise their stETH (in the form of bETH) on the Terra blockchain using [Anchor protocol](https://app.anchorprotocol.com/).
 - there are multiple liquidity strategies built on top of Lido's staking derivatives, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
 
@@ -203,8 +203,8 @@ When adding stETH support to a DeFi wallet, it is important to preserve stETH's 
 ### Liquidity mining
 
 stETH liquidity is mostly concentrated in two biggest liquidity pools:
-- [stETH<>ETH liquidity pool on Curve](https://curve.fi/steth) ([contract code](https://github.com/curvefi/curve-contract/blob/master/contracts/pools/steth/StableSwapSTETH.vy))
-- [wstETH<>WETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080) ([read more](https://docs.balancer.fi/products/balancer-pools/metastable-pools#the-lido-wsteth-weth-liquidity-pool))
+- [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) ([contract code](https://github.com/curvefi/curve-contract/blob/master/contracts/pools/steth/StableSwapSTETH.vy))
+- [wstETH/WETH MetaStable pool on Balancer v2](https://app.balancer.fi/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080) ([read more](https://docs.balancer.fi/products/balancer-pools/metastable-pools#the-lido-wsteth-weth-liquidity-pool))
 
 Both pools are incentivised with Lido governance token (LDO) via direct incentives and bribes (veBAL bribes coming soon), and allow the liquidity providers to retain their exposure to earning Lido staking rewards.
 
