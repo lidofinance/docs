@@ -84,6 +84,9 @@ And when the callback is set, the following function will be invoked on every re
 
 The arguments provided are the same as described in section [above][3].
 
+See also the [`CompositePostRebaseBeaconReceiver`](/contracts/composite-post-rebase-beacon-receiver)
+adapter contract which allows to set multiple callbacks.
+
 ## View Methods
 
 ### getLido()

@@ -50,6 +50,8 @@ module.exports = {
         'contracts/withdrawals-manager-stub',
         'contracts/wsteth',
         'contracts/deposit-security-module',
+        'contracts/self-owned-steth-burner',
+        'contracts/composite-post-rebase-beacon-receiver',
         'contracts/lido-execution-layer-rewards-vault'
       ],
     },
