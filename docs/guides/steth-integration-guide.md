@@ -5,9 +5,10 @@ This document is intended for developers looking to integrate Lido's stETH or ws
 ## Lido
 
 Lido is a family of liquid staking protocols across multiple blockchains, with headquarters on Ethereum.  
-Liquid refers to the ability for a user’s stake to become liquid. This is done by issuing a derivative that is closely pegged to the value of the staked asset.  
-This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
-For ether staked in Lido, it gives users stETH that is equal to the amount staked. The main proposition of Lido is that stETH provides stakers with an ether derivative that can be used throughout DeFi while accruing staking yield passively, it is paramount to preserve this stETH property when integrating it into any DeFi protocol.  
+Liquid refers to the ability for a user’s stake to become liquid. Upon user's deposit Lido issues the derivative, which represents the deposited assets along with all the rewards & penalties accrued through deposit's staking. Unlike the staked funds, this derivative is liquid — it can be freely transferred between parties, making it usable across different DeFi applications while still accruing staking yield passively. It is paramount to preserve this property when integrating staking derivatives into any DeFi protocol.
+  
+This guide refers to Lido on Ethereum (hereinafter referred to as Lido).  
+For ether staked in Lido, it gives users stETH that is equal to the amount staked.
 
 Lido's staking derivatives are widely adopted across Ethereum ecosystem: 
 - The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
@@ -17,7 +18,7 @@ Lido's staking derivatives are widely adopted across Ethereum ecosystem:
 - ether stakers can collateralise their stETH (in the form of bETH) on the Terra blockchain using [Anchor protocol](https://app.anchorprotocol.com/).
 - there are multiple liquidity strategies built on top of Lido's staking derivatives, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
 
-Integration utilities:
+#### Integration utilities: ChainLink price feeds
 - There are live ChainLink [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) price feeds on Ethereum.
 - There are live ChainLink stETH/USD price feeds on [Arbitrum](https://docs.chain.link/docs/arbitrum-price-feeds/) and [Optimism](https://docs.chain.link/docs/optimism-price-feeds/). These also have ChainLink wstETH-stETH exchange rate data feeds.
 
@@ -32,6 +33,7 @@ For instance, undercollateralized wstETH positions on Maker can be liquidated by
 ### What is stETH
 
 stETH is a ERC20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio. 
+Please note, Lido has implemented staking rate limits aimed at reducing the post-Merge staking surge's impact on the staking queue & Lido’s socialized rewards distribution model. Read more about it [here](#staking-rate-limits). 
 
 stETH is a rebasable ERC-20 token. Normally, the stETH token balances get recalculated daily when the Lido oracle reports Beacon chain ether balance update. The stETH balance update happens automatically on all the addresses holding stETH at the moment of rebase. The rebase mechanics have been implemented via shares (see [shares](#steth-internals-share-mechanics)).
 
@@ -45,6 +47,7 @@ The Beacon chain oracle has sanity checks on both max APR reported (the APR cann
 - In case oracle daemons do not report Beacon chain balance update or do not reach quorum, the oracle does not submit the daily report, and the daily rebase doesn't occur until the quorum is reached. 
 - In case the quorum hasn't been reached, the oracle can skip the daily report. The report will happen as soon as the quorum for one of the next periods will be reached, and it will include the balance update for all the period since last oracle report. 
 - Oracle daemons only report the finalized epochs. In case of no finality on the Beacon chain, the daemons won't submit their reports, and the daily rebase won't occur. 
+- In case sanity checks on max APR or total staked amount drop fail, the oracle report cannot be finalized, and the rebase cannot happen. 
 - StETH smart contract includes [a method that allows burning stETH shares](https://github.com/lidofinance/lido-dao/blob/816bf1d0995ba5cfdfc264de4acda34a7fe93eba/contracts/0.4.24/StETH.sol#L391). The method is meant for [in-protocol cover](https://research.lido.fi/t/lip-6-in-protocol-coverage-proposal/1468). When sETH shares get burnt, it triggers an immediate rebase, while the underlying ether adds up to the daily rewards for all stETH holders. This extra rebase doesn't interfere with normal rebase schedule in any way.
 
 ### stETH internals: share mechanics
@@ -121,7 +124,9 @@ Although rebasable tokens are becoming a common thing in DeFi recently, many dAp
 wstETH is an ERC20 token that represents the account's share of the total supply of stETH total supply (stETH token wrapper with static balances). For wstETH, 1 wei in [shares](#steth-internals-share-mechanics) equals to 1 wei in balance. The wstETH balance and can only be changed upon transfers, minting, and burning. wstETH balance does not rebase, wstETH's price denominated in stETH changes instead.  
 At any given time, anyone holding wstETH can convert any amount of it to stETH at a fixed rate, and vice versa. The rate is the same for everyone at any given moment. Normally, the rate gets updated once a day, when stETH undergoes a rebase. The current rate can be obtained by calling `wstETH.stEthPerToken()`  
 
-Note, that WstETH contract includes a shortcut to convert ether to wstETH under the hood, which allows to effectively skip the wrapping step and stake ether for wstETH directly.
+#### wstETH shortcut
+
+Note, that WstETH contract includes a shortcut to convert ether to wstETH under the hood, which allows to effectively skip the wrapping step and stake ether for wstETH directly. Keep in mind that when using the shortcut, [the staking rate limits](#staking-rate-limits) still apply.
 
 ### Rewards accounting
 
@@ -142,29 +147,30 @@ When unwrapping, wstETH gets burnt and the corresponding amount of stETH gets un
 
 Thus, amount of stETH unlocked when unwrapping is different from what has been initially wrapped (given a rebase happened between wrapping and unwrapping stETH).
 
-### ERC20Permit
+## ERC20Permit
 
 wstETH token implements the ERC20 Permit extension allowing approvals to be made via signatures, as defined in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612).
 
 The `permit` method allows users to modify the allowance using a signed message, instead of through `msg.sender`. By not relying on `approve` method, wrapping can be done in one transaction instead of two.
 
-### Staking rate limits
+## Staking rate limits
 
 As there’s a high probability of the staking surge post-Merge, the Lido protocol implemented staking rate limits aimed at reducing the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
-there is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much Ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
+there is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
 
 You can picture this as a health globe from Diablo 2 with a maximum of `_maxStakingLimit` and regenerating with a constant speed  per block. 
 When you deposit ether to the protocol, the level of health is reduced by its amount and the current limit becomes smaller and smaller. 
 When it hits the ground, transaction gets reverted. 
 
-To avoid that, you should check if `getCurrentStakeLimit() >= amountToStake`, and if it's not you can go with an alternative route.
+To avoid that, you should check if `getCurrentStakeLimit() >= amountToStake`, and if it's not you can go with an alternative route.  
+The staking rate limits are denominated in ether, thus, it makes no difference if the stake is being deposited for stETH or using [the wstETH shortcut](#wsteth-shortcut), the limits apply in both cases.
 
 #### Alternative routes:
 
 1. Wait for staking limits to regenerate to higher values and retry depositing ether to Lido later.
 2. Consider swapping ETH for stETH on DEXes like Curve or Balancer. At specific market conditions stETH may effectively be purchased from there with a discount due to stETH price fluctuations.
 
-### Transfer shares function for stETH
+## Transfer shares function for stETH
 
 The [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) introduced the `transferShares` function which allows to transfer stETH in a "rebase-agnostic" manner: transfer in terms of [shares](#steth-internals-share-mechanics) amount.  
 
