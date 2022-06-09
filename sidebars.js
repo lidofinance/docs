@@ -2,11 +2,11 @@ module.exports = {
   docs: [
     'introduction',
     'lido-dao',
+    'guides/steth-integration-guide',
     {
       type: 'category',
       label: 'Guides',
       items: [
-        'guides/steth-integration-guide',
         'guides/node-operator-manual',
         'guides/oracle-operator-manual',
         'guides/deposit-security-manual',
