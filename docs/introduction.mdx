@@ -33,7 +33,7 @@ This documentation is intended to introduce the general user to the project, as 
   
 ## What is Lido
 
-Lido is a family of liquid staking protocols. The following is a broad description of the components of the Lido staking protocol: 
+Lido is the leading liquid staking solution - providing a simple and secure way to earn interest on your digital assets. By staking with Lido your assets remain liquid and can be used across a range of DeFi applications, earning extra yield.
  
 1. **Staking pool**. Protocol to manage deposits, staking rewards, and withdrawals. A separate one for every supported network. 
 2. `st[token]`. Unlike staked assets, the Lido `st[token]` are freely transferable instead of locked as in the case of native staking. Lido lets users operate with staked assets to gain yield on top of yield by leveraging collateral, lending, yield farming, and other kinds of Defi protocols. 
@@ -45,7 +45,7 @@ Lido is a family of liquid staking protocols. The following is a broad descripti
  
 Ethereum is and remains a primary focus of Lido. That’s affected the organisational structure - the governance is implemented through ERC20 `LDO` token. Currently Lido supports several PoS networks - when staking native assets with Lido, users will receive a `st[token]`, which represents their `[token]` which represents their deposit and the rewards aggregated over time (penalties too). The following networks are supported: 
  
-> 📝 Protocols on different networks inherit the architecture of their respective networks. This means that the designs of Lido tokens can vary significantly. Also different protocols maintained by different dev teams. If you are interested in launching Lido on another network please submit your proposal on a research forum. 
+> 📝 Protocols on different networks inherit the architecture of their respective networks. This means that the designs of Lido tokens can vary significantly. Also different protocols are maintained by different dev teams. If you are interested in launching Lido on another network please submit your proposal on the research forum.
  
 <Grid> 
  
@@ -98,11 +98,11 @@ Ethereum is and remains a primary focus of Lido. That’s affected the organisat
 
 ### Problem statement
 
-Traditionally, staking in PoS protocol based projects has been about locking one’s assets in one project for a long time and expecting a fixed, predetermined staking reward in return. While it guarantees the return on staked assets much like a bond, it also limits the opportunities of generating higher returns on those assets from the DeFi ecosystem. If you’ve staked all of your crypto holdings, you can’t invest or trade-in more profitable crypto pairs on exchanges. 
+Traditionally, staking in Proof-of-Stake (PoS) protocol based projects has been about locking one’s assets in one project for a long time and expecting a fixed, predetermined staking reward in return. While it guarantees the return on staked assets much like a bond, it also limits the opportunities of generating higher returns on those assets from the DeFi ecosystem. If you’ve staked all of your crypto holdings, you can’t invest or trade in more profitable crypto pairs on exchanges. 
 
 ### Solution 
  
-Liquid staking allows using the staked crypto assets in other trading or investing opportunities to let the user get the best of both worlds - a reward on your staked assets, as well as the returns from new trading/investing opportunities that you spot. Liquid staking introduce various fundamental benefits by: 
+Liquid staking allows using the staked crypto assets in other trading or investing opportunities to let the user get the best of both worlds - a reward on your staked assets, as well as the returns from new trading/investing opportunities. Liquid staking introduce various fundamental benefits by: 
 - Allowing users to earn staking rewards without fully locking their `st[token]`;  
 - Making it possible to earn rewards on as small a deposit as users want (i.e, Ethereum requires minimum 32 `ETH` staked);  
 - Providing the `st[token]` a building block for other applications and protocols (e.g., as collateral in lending or other trading DeFi solutions);  
