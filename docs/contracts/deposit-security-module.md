@@ -1,7 +1,7 @@
 # DepositSecurityModule
 
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/DepositSecurityModule.sol)
-- [Deployed Contract](https://etherscan.io/address/0xDb149235B6F40dC08810AA69869783Be101790e7)
+- [Deployed Contract](https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd)
 
 Due to front-running vulnerability, we [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
@@ -18,6 +18,14 @@ To prevent a replay attack, the guardians sign the block number at the time of w
 
 ## View Methods
 
+### getOwner()
+
+Returns the contract's owner address.
+
+```sol
+function getOwner() external view returns (address);
+```
+
 ### getNodeOperatorsRegistry()
 
 Returns NodeOperatorsRegistry contract address.
@@ -30,7 +38,7 @@ function getNodeOperatorsRegistry() external view returns (address)
 
 Returns `PAUSE_INTENT_VALIDITY_PERIOD_BLOCKS` (see `pauseDeposits`).
 
-```sol 
+```sol
 function getPauseIntentValidityPeriodBlocks() external view returns (uint256)
 ```
 
@@ -38,7 +46,7 @@ function getPauseIntentValidityPeriodBlocks() external view returns (uint256)
 
 Returns `MAX_DEPOSITS` (see `depositBufferedEther`).
 
-```sol 
+```sol
 function getMaxDeposits() external view returns (uint256)
 ```
 
@@ -46,7 +54,7 @@ function getMaxDeposits() external view returns (uint256)
 
 Returns `MIN_DEPOSIT_BLOCK_DISTANCE`  (see `depositBufferedEther`).
 
-```sol 
+```sol
 function getMinDepositBlockDistance() external view returns (uint256)
 ```
 
@@ -54,7 +62,7 @@ function getMinDepositBlockDistance() external view returns (uint256)
 
 Returns number of valid guardian signatures required to vet (depositRoot, keysOpIndex) pair.
 
-```sol 
+```sol
 function getGuardianQuorum() external view returns (uint256)
 ```
 
@@ -62,15 +70,15 @@ function getGuardianQuorum() external view returns (uint256)
 
 Returns guardian committee member list.
 
-```sol 
+```sol
 function getGuardians() external view returns (address[] memory)
 ```
 
-### isGuardian() 
+### isGuardian()
 
 Checks whether the given address is a guardian.
 
-```sol 
+```sol
 function isGuardian(address addr) external view returns (bool)
 ```
 
@@ -84,7 +92,7 @@ function isGuardian(address addr) external view returns (bool)
 
 Returns index of the guardian, or -1 if the address is not a guardian.
 
-```sol 
+```sol
 function getGuardianIndex(address addr) external view returns (int256)
 ```
 
@@ -98,7 +106,7 @@ function getGuardianIndex(address addr) external view returns (int256)
 
 Returns whether deposits were paused.
 
-```sol 
+```sol
 function isPaused() external view returns (bool)
 ```
 
@@ -108,25 +116,39 @@ Returns whether depositBufferedEther can be called, given that the caller will p
 guardian attestations of non-stale deposit root and `keysOpIndex`, and the number of
 such attestations will be enough to reach quorum.
 
-```sol 
+```sol
 function canDeposit() external view returns (bool)
+```
+
+### getLastDepositBlock()
+
+Returns the last block that contains a deposit performed via this security module.
+
+```sol
+function getLastDepositBlock() external view returns (uint256)
 ```
 
 ## Methods
 
-### getNodeOperatorsRegistry()
+### setOwner()
 
-Returns NodeOperatorsRegistry contract address.
+Sets new owner. Only callable by the current owner.
 
-```sol 
-function getNodeOperatorsRegistry() external view returns (address)
+```sol
+function setOwner(address newValue) external;
 ```
+
+#### Parameters:
+
+| Name       | Type      | Description       |
+| ---------- | --------- | ----------------- |
+| `newValue` | `address` | New owner address |
 
 ### setNodeOperatorsRegistry()
 
 Sets NodeOperatorsRegistry contract address. Only callable by the owner.
 
-```sol 
+```sol
 function setNodeOperatorsRegistry(address newValue)
 ```
 
@@ -134,21 +156,13 @@ function setNodeOperatorsRegistry(address newValue)
 
 | Name       | Type      | Description                            |
 | ---------- | --------- | -------------------------------------- |
-| `newValue` | `address` | NodeOperatorsRegistry contract address |   
-
-### getPauseIntentValidityPeriodBlocks()
-
-Returns `pauseIntentValidityPeriodBlocks` (see `pauseDeposits`).
-
-```sol 
-function getPauseIntentValidityPeriodBlocks() external view returns (uint256)
-```
+| `newValue` | `address` | NodeOperatorsRegistry contract address |
 
 ### setPauseIntentValidityPeriodBlocks()
 
 Sets `pauseIntentValidityPeriodBlocks`. Only callable by the owner.
 
-```sol 
+```sol
 function setPauseIntentValidityPeriodBlocks(uint256 newValue)
 ```
 
@@ -156,19 +170,19 @@ function setPauseIntentValidityPeriodBlocks(uint256 newValue)
 
 | Name       | Type      | Description                                          |
 | ---------- | --------- | ---------------------------------------------------- |
-| `newValue` | `uint256` | Number of blocks after which message becomes invalid | 
+| `newValue` | `uint256` | Number of blocks after which message becomes invalid |
 
 ### setMaxDeposits()
 Sets `maxDepositsPerBlock`. Only callable by the owner.
 
-```sol 
+```sol
 function setMaxDeposits(uint256 newValue)
 ```
 
 ### setMinDepositBlockDistance()
 Sets `minDepositBlockDistance`. Only callable by the owner.
 
-```sol 
+```sol
 function setMinDepositBlockDistance(uint256 newValue)
 ```
 
@@ -176,7 +190,7 @@ function setMinDepositBlockDistance(uint256 newValue)
 
 Sets `quorum`. Only callable by the owner.
 
-```sol 
+```sol
 function setGuardianQuorum(uint256 newValue)
 ```
 
@@ -187,7 +201,7 @@ Reverts if the address is already a guardian.
 
 Only callable by the owner.
 
-```sol 
+```sol
 function addGuardian(address addr, uint256 newQuorum)
 ```
 
@@ -195,7 +209,7 @@ function addGuardian(address addr, uint256 newQuorum)
 
 | Name        | Type      | Description                                          |
 | ----------- | --------- | ---------------- |
-| `addr`      | `address` | Guardian address | 
+| `addr`      | `address` | Guardian address |
 | `newQuorum` | `uint256` | New Quorum value |
 
 ### addGuardians()
@@ -204,13 +218,13 @@ Reverts any of them is already a guardian.
 
 Only callable by the owner.
 
-```sol 
+```sol
 function addGuardians(address[] memory addresses, uint256 newQuorum)
 ```
 
 | Name        | Type        | Description                                          |
 | ----------- | ----------- | --------------------------- |
-| `addresses` | `address[]` | Array of Guardian addresses | 
+| `addresses` | `address[]` | Array of Guardian addresses |
 | `newQuorum` | `uint256`   | New Quorum value            |
 
 ### removeGuardian()
@@ -218,7 +232,7 @@ Removes a guardian with the given address and sets a new quorum value.
 
 Only callable by the owner.
 
-```sol 
+```sol
 function removeGuardian(address addr, uint256 newQuorum)
 ```
 
@@ -226,7 +240,7 @@ function removeGuardian(address addr, uint256 newQuorum)
 
 | Name        | Type      | Description                                          |
 | ----------- | --------- | ---------------- |
-| `addr`      | `address` | Guardian address | 
+| `addr`      | `address` | Guardian address |
 | `newQuorum` | `uint256` | New Quorum value |
 
 ### pauseDeposits()
@@ -249,17 +263,31 @@ function pauseDeposits(uint256 blockNumber, Signature memory sig)
 
 #### Parameters:
 
-| Name          | Type        | Description                                          |
-| ------------- | ----------- | ---------------- |
-| `blockNumber` | `uint256`   | Block number | 
+| Name          | Type        | Description                                                                          |
+| ------------- | ----------- | ------------------------------------------------------------------------------------ |
+| `blockNumber` | `uint256`   | Block number with malicious pre-deposits have been observed by the guardian          |
 | `sig`         | `Signature` | Short ECDSA guardian signature as defined in https://eips.ethereum.org/EIPS/eip-2098 |
 
 ### unpauseDeposits()
 Unpauses deposits. Only callable by the owner.
 
-```sol 
+```sol
 function unpauseDeposits()
 ```
+
+### setLastDepositBlock()
+Sets `lastDepositBlock`. Only callable by the owner.
+
+```sol
+function setLastDepositBlock(uint256 newLastDepositBlock) external;
+```
+
+#### Parameters:
+
+| Name                  | Type        | Description                              |
+| --------------------- | ----------- | ---------------------------------------- |
+| `newLastDepositBlock` | `uint256`   | Block number containing the last deposit |
+
 
 ### depositBufferedEther()
 Calls Lido.depositBufferedEther(maxDepositsPerBlock).
