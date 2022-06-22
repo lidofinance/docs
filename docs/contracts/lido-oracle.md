@@ -47,9 +47,9 @@ the influence of new staking during the epoch.
 
 To calculate the APR, use the following formula:
 
-    stethApr = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
+    protocolAPR = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
     lidoFeeAsFraction = lidoFee / basisPoint
-    APR = stethApr * (1 - lidoFeeAsFraction)
+    userAPR = protocolAPR * (1 - lidoFeeAsFraction)
 
 ## Sanity checks the oracles reports by configurable values
 
