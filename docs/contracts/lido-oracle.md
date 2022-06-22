@@ -36,8 +36,8 @@ To calculate the percentage of rewards for stakers, we store and provide the fol
 - `lastCompletedEpochId` - the last epoch that we pushed the report to the Lido,
 - `timeElapsed` - the time in seconds between the current epoch of push and the
   `lastCompletedEpochId`. Usually, it should be a frame long: 32 _ 12 _ 225 = 86400, but maybe
-  multiples more in case that the previous frame didn't reach the quorum.
-- `lidoFee` - Lido's fee in basis points. Might be retrieved in the [Lido contract][6]
+  multiples more in case that the previous frame didn't reach the quorum,
+- `lidoFee` - Lido's fee in basis points. Might be retrieved by calling `getFee()` in the [Lido contract][6],
 - `basisPoint` - basis point. 1% equals 100.
 
 :::note
