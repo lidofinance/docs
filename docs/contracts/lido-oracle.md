@@ -37,6 +37,8 @@ To calculate the percentage of rewards for stakers, we store and provide the fol
 - `timeElapsed` - the time in seconds between the current epoch of push and the
   `lastCompletedEpochId`. Usually, it should be a frame long: 32 _ 12 _ 225 = 86400, but maybe
   multiples more in case that the previous frame didn't reach the quorum.
+- `lidoFee` - Lido's fee in basis points. Might be retrieved in the [Lido contract][6]
+- `basisPoint` - basis point. 1% equals 100.
 
 :::note
 It is important to note here, that we collect post/pre pair (not current/last), to avoid
@@ -45,7 +47,9 @@ the influence of new staking during the epoch.
 
 To calculate the APR, use the following formula:
 
-    APR = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
+    stethApr = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
+    lidoFeeAsFraction = lidoFee / (100 * basisPoint)
+    APR = stethApr * (1 - lidoFeeAsFraction) * 0.1
 
 ## Sanity checks the oracles reports by configurable values
 
