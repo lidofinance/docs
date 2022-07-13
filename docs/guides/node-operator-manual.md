@@ -320,3 +320,32 @@ If the new keys are present and valid, Node Operators can vote for increasing th
 ##### You spot invalid keys
 
 It is urgent to notify Lido team and other Node Operators as soon as possible. For example, in the group chat.
+
+
+### MEV. Getting the fee recipient for beacon chain node/validator client
+
+For proper MEV extraction you need to set correct fee recipient address for beacon chain node or (and) validator client.
+This address differs from withdrawal credentials address.
+To get fee recipient address you should go to [Deployed contracts] and search for `Execution Layer Rewards Vault` contract for your network.
+The address of the contract is the fee recipient.
+
+[Deployed contracts]: /deployed-contracts
+
+#### Fee recipient options for various beacon chain clients
+
+Beacon chain clients have different CLI syntax for targeting fee recipient address. 
+For some clients fee recipient option should be applied with other options, see reference pages for specific client.
+
+| Consensus client         |  CLI option                                              | CLI reference page     |
+| ------------------------ |  ------------------------------------------------------- | ---------------------- |
+| Teku                     |  `--validators-proposer-default-fee-recipient=<ADDRESS>` | [Teku CLI options]     |
+| Lighthouse               |  `--suggested-fee-recipient=<ADDRESS>`                   | WIP                    |
+| Nimbus                   |  `--suggested-fee-recipient=<ADDRESS>`                   | [Nimbus CLI options]   |
+| Prysm                    |  `--suggested-fee-recipient=<ADDRESS>`                   | [Prysm CLI options]    |
+| Lodestar                 |  `--chain.defaultFeeRecipient=<ADDRESS>`                 | [Lodestar CLI options] |
+
+
+[Teku CLI options]: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient
+[Nimbus CLI options]: https://nimbus.guide/options.html
+[Lodestar CLI options]: https://chainsafe.github.io/lodestar/reference/cli/
+[Prysm CLI options]: https://docs.prylabs.network/docs/execution-node/fee-recipient
