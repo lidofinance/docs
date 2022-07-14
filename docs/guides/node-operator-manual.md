@@ -322,30 +322,32 @@ If the new keys are present and valid, Node Operators can vote for increasing th
 It is urgent to notify Lido team and other Node Operators as soon as possible. For example, in the group chat.
 
 
-### MEV. Getting the fee recipient for beacon chain node/validator client
+### Execution Layer fees/rewards configuration (Priority Fee and MEV rewards collection and distribution)
+Node Operators who run validators for Lido are required to set the fee recipient for the relevant validators to the protocol-managed [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) which manages [Execution Layer Rewards](https://docs.lido.fi/contracts/lido#execution-layer-rewards). This address differs depending on the network (Mainnet, testnet, etc.) and is *not* the same as the [Withdrawal Credentials](https://docs.lido.fi/contracts/lido#getwithdrawalcredentials) address.
 
-For proper MEV extraction you need to set correct fee recipient address for beacon chain node or (and) validator client.
-This address differs from withdrawal credentials address.
-To get fee recipient address you should go to [Deployed contracts] and search for `Execution Layer Rewards Vault` contract for your network.
-The address of the contract is the fee recipient.
+This smart contract address can also be retrieved by [querying the `getELRewardsVault()`](https://docs.lido.fi/contracts/lido#getelrewardsvault) method in the core stETH contract.
+
+The address is also available in the [Deployed Contracts] docs page, labeled as `Execution Layer Rewards Vault`. 
 
 [Deployed contracts]: /deployed-contracts
 
-#### Fee recipient options for various beacon chain clients
+#### Fee recipient options for various Beacon Chain clients
 
-Beacon chain clients have different CLI syntax for targeting fee recipient address. 
-For some clients fee recipient option should be applied with other options, see reference pages for specific client.
+
+Beacon chain clients offer a variety of methods for configuring the fee recipient. 
+For some clients the fee recipient option should be applied with other options, see reference pages for specific client. Please note that most clients also support setting the fee recipient on a per-validator key basis (e.g. for Teku this can be achieved via [the proposer config](https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-config). Consult the docs for each client for specific instructions. 
 
 | Consensus client         |  CLI option                                              | CLI reference page     |
 | ------------------------ |  ------------------------------------------------------- | ---------------------- |
 | Teku                     |  `--validators-proposer-default-fee-recipient=<ADDRESS>` | [Teku CLI options]     |
-| Lighthouse               |  `--suggested-fee-recipient=<ADDRESS>`                   | WIP                    |
-| Nimbus                   |  `--suggested-fee-recipient=<ADDRESS>`                   | [Nimbus CLI options]   |
+| Lighthouse               |  `--suggested-fee-recipient=<ADDRESS>`                   | [Lighthouse Fee Recipient Config] |
+| Nimbus                   |  `--suggested-fee-recipient=<ADDRESS>`                   | [Nimbus Fee Recipient Info]   |
 | Prysm                    |  `--suggested-fee-recipient=<ADDRESS>`                   | [Prysm CLI options]    |
 | Lodestar                 |  `--chain.defaultFeeRecipient=<ADDRESS>`                 | [Lodestar CLI options] |
 
 
 [Teku CLI options]: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient
-[Nimbus CLI options]: https://nimbus.guide/options.html
+[Nimbus Fee Recipient Info]: https://nimbus.guide/merge.html?highlight=recipient#prepare-a-suggested-fee-recipient
+[Lighthouse Fee Recipient Config]: https://lighthouse-book.sigmaprime.io/suggested-fee-recipient.html?highlight=fee%20recipient#suggested-fee-recipient
 [Lodestar CLI options]: https://chainsafe.github.io/lodestar/reference/cli/
 [Prysm CLI options]: https://docs.prylabs.network/docs/execution-node/fee-recipient
