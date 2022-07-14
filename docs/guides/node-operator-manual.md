@@ -242,7 +242,7 @@ Else, prepare a JSON data of the following structure and paste it to the textare
 
 This tool will automatically split the keys into chunks and submit the transactions to your wallet for approval. Transactions will come one by one for signing. Unfortunately, we cannot send a large number of keys in a single transaction. Right now, the chunk size is 50 keys, it's close to the limit of gas per block.
 
-Connect your wallet, click `Validate` button, the interface would run required checks. And than click `Submit keys` button.
+Connect your wallet, click `Validate` button, the interface would run required checks. And then click `Submit keys` button.
 
 We now support the following connectors:
 
