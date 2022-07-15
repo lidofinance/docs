@@ -323,9 +323,9 @@ It is urgent to notify Lido team and other Node Operators as soon as possible. F
 
 
 ### Execution Layer fees/rewards configuration (Priority Fee and MEV rewards collection and distribution)
-Node Operators who run validators for Lido are required to set the fee recipient for the relevant validators to the protocol-managed [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) which manages [Execution Layer Rewards](https://docs.lido.fi/contracts/lido#execution-layer-rewards). This address differs depending on the network (Mainnet, testnet, etc.) and is *not* the same as the [Withdrawal Credentials](https://docs.lido.fi/contracts/lido#getwithdrawalcredentials) address.
+Node Operators who run validators for Lido are required to set the fee recipient for the relevant validators to the protocol-managed [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) which manages [Execution Layer Rewards](/contracts/lido#execution-layer-rewards). This address differs depending on the network (Mainnet, testnet, etc.) and is *not* the same as the [Withdrawal Credentials](/contracts/lido#getwithdrawalcredentials) address.
 
-This smart contract address can also be retrieved by [querying the `getELRewardsVault()`](https://docs.lido.fi/contracts/lido#getelrewardsvault) method in the core stETH contract.
+This smart contract address can also be retrieved by [querying the `getELRewardsVault()`](/contracts/lido#getelrewardsvault) method in the core stETH contract.
 
 The address is also available in the [Deployed Contracts] docs page, labeled as `Execution Layer Rewards Vault`. 
 
