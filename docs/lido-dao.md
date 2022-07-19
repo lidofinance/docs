@@ -27,7 +27,7 @@ Lido is managed by the Lido DAO. The DAO members govern Lido to ensure its effic
 
 The `LDO` token governs all Lido DAO governance and network decisions to ensure its prolonged stability and decentralised decision-making to facilitate the growth of fair, and transparent liquid staking.  The `LDO` contract address - `0x5a98fcbea516cf06857215779fd812ca3bef1b32`.
 
-> 📝 For the more detailed information about governance, please, check out [governance](https://lido.fi/governance) page. 
+> 📝 For the more detailed information about governance, please, check out [governance](https://lido.fi/governance-process) page. 
 
 To have a vote in the Lido DAO, and to contribute to the determination of any of the topics outlined above, one must hold the `LDO` governance token. Holding `LDO` gives DAO members a vote in the future of Lido, allowing each DAO member to have a personal say in the community. `LDO` voting weight is proportional to the amount of `LDO` a voter stakes in the voting contract. The more LDO in a user’s voting contract, the greater the decision-making power the voter gets. The exact mechanism of `LDO` voting can be upgraded just like the other DAO applications.
 
