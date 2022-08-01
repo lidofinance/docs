@@ -9,7 +9,7 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 1. Generate an Ethereum address and propose it as an oracle address via the "Add Member" button in the app UI: [Mainnet] / [Görli].
 2. Facilitate the DAO members to approve your oracle address.
 3. Launch and sync an Ethereum 1.0 node with JSON-RPC endpoint enabled.
-4. Launch and sync a Beacon Chain node with RPC endpoint enabled.
+4. Launch and sync a Beacon Chain node with RPC endpoint enabled. (one of Lighthouse, Prysm, Teku)
 5. Launch the oracle daemon as a docker container.
 
 [mainnet]: https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/
