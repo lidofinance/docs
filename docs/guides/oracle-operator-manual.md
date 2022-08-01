@@ -69,7 +69,7 @@ This transaction can also fail in the case when another Lido oracle submits the 
 The oracle daemon requires the following environment variables:
 
 - `WEB3_PROVIDER_URI` the ETH1 JSON-RPC endpoint. Or several endpoints separted with comma.
-- `BEACON_NODE` the Beacon Chain client with RPC endpoint.
+- `BEACON_NODE` the Beacon Chain client with API endpoint.
 - `POOL_CONTRACT` the address of the Lido contract (`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84` in Mainnet and `0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F` in Görli Testnet).
 - `STETH_PRICE_ORACLE_CONTRACT` the address of `StableSwapOracle` contract (`0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6` in Mainnet and `0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a` in Görli Testnet).
 - `STETH_CURVE_POOL_CONTRACT` the address of Curve ETH/StETH Pool (`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022` in Mainnet and `0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA` in Görli Testnet)
