@@ -9,7 +9,7 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 1. Generate an Ethereum address and propose it as an oracle address via the "Add Member" button in the app UI: [Mainnet] / [Görli].
 2. Facilitate the DAO members to approve your oracle address.
 3. Launch and sync an Ethereum 1.0 node with JSON-RPC endpoint enabled.
-4. Launch and sync a Lighthouse node with RPC endpoint enabled.
+4. Launch and sync a Beacon Chain node with RPC endpoint enabled.
 5. Launch the oracle daemon as a docker container.
 
 [mainnet]: https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/
@@ -30,7 +30,7 @@ To protect stETH token price from attacks with borrowed money or flash loans, `S
 In order to launch oracle daemon on your machine, you need to have several things:
 
 1. A synced Ethereum 1.0 client with JSON-RPC endpoint enabled.
-2. A synced Lighthouse client with RPC endpoint enabled (Prysm client not yet supported).
+2. A synced Beacon Chain client with RPC endpoint enabled. (supported: Lighthouse, Prysm, Teku)
 
 3) An address that’s added to the approved oracles list here: [Mainnet] / [Görli]. You have to initiate the DAO voting on adding your address there by pressing the "Add Member" button.
 
@@ -68,8 +68,8 @@ This transaction can also fail in the case when another Lido oracle submits the 
 
 The oracle daemon requires the following environment variables:
 
-- `WEB3_PROVIDER_URI` the ETH1 JSON-RPC endpoint.
-- `BEACON_NODE` the Lighthouse RPC endpoint.
+- `WEB3_PROVIDER_URI` the ETH1 JSON-RPC endpoint. Or several endpoints separted with comma.
+- `BEACON_NODE` the Beacon Chain client with RPC endpoint.
 - `POOL_CONTRACT` the address of the Lido contract (`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84` in Mainnet and `0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F` in Görli Testnet).
 - `STETH_PRICE_ORACLE_CONTRACT` the address of `StableSwapOracle` contract (`0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6` in Mainnet and `0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a` in Görli Testnet).
 - `STETH_CURVE_POOL_CONTRACT` the address of Curve ETH/StETH Pool (`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022` in Mainnet and `0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA` in Görli Testnet)
@@ -83,7 +83,7 @@ Before running the daemon, check that you've set all required env variables.
 
 You can use the public Docker image to launch the daemon.
 
-2.1.0 for Mainnet:
+2.3.0 for Mainnet:
 
 ```sh
 docker run -d --name lido-oracle \
@@ -94,10 +94,10 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6" \
   --env "STETH_CURVE_POOL_CONTRACT=0xDC24316b9AE028F1497c275EB9192a3Ea0f67022" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.1.0
+  lidofinance/oracle:2.3.0
 ```
 
-2.1.0 for Görli Testnet
+2.3.0 for Görli Testnet
 
 ```sh
 docker run -d --name lido-oracle \
@@ -108,7 +108,7 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
   --env "STETH_CURVE_POOL_CONTRACT=0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.1.0
+  lidofinance/oracle:2.3.0
 ```
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
