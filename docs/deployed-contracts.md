@@ -144,13 +144,33 @@
 
 ### Lido on L2
 
-#### Arbitrum
+#### Arbitrum One
 
 - Arbitrum Governance Bridge Executor: [`0x1dcA41859Cd23b526CBe74dA8F48aC96e14B1A29`](https://arbiscan.io/address/0x1dca41859cd23b526cbe74da8f48ac96e14b1a29)
 
-#### Optimism
+#### Optimism Mainnet
 
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
+
+#### Arbitrum Rinkeby (Deprecated)
+
+- Arbitrum Governance Bridge Executor: [`0xa2a8F940752aDc4A3278B63B96d56D72D2b075B1`](https://testnet.arbiscan.io/address/0xa2a8F940752aDc4A3278B63B96d56D72D2b075B1#code)
+- L1 ERC20 Gateway for mock wstETH on Rinkeby: [`0xB167cCFf4870Dcf4a2BC472cE60795fc435D80Ac`](https://rinkeby.etherscan.io/address/0xB167cCFf4870Dcf4a2BC472cE60795fc435D80Ac) (proxy)
+- L1 ERC20 Gateway for mock wstETH on Rinkeby: [`0x75d0f34c2d87cc891ac91776e23bdae3a21f917b`](https://rinkeby.etherscan.io/address/0x75d0f34c2d87cc891ac91776e23bdae3a21f917b) (impl)
+- L2 ERC20 Gateway for mock wstETH on Rinkeby: [`0x65321bf24210b81500230dCEce14Faa70a9f50a7`](https://testnet.arbiscan.io/address/0x65321bf24210b81500230dCEce14Faa70a9f50a7) (proxy)
+- L2 ERC20 Gateway for mock wstETH on Rinkeby: [`0x7AEE39c46f20135114e85A03C02aB4FE73fB8127`](https://testnet.arbiscan.io/address/0x7AEE39c46f20135114e85A03C02aB4FE73fB8127) (impl)
+- L2 instance for mock wstETH on Rinkeby: [`0x15dc8e583df045b44d7bE8005142a54B946F12b6`](https://testnet.arbiscan.io/address/0x15dc8e583df045b44d7bE8005142a54B946F12b6) (proxy)
+- L2 instance for mock wstETH on Rinkeby: [`0x13bb6A1bFC9ac667223550Ac8b00A1126C4db232`](https://testnet.arbiscan.io/address/0x13bb6A1bFC9ac667223550Ac8b00A1126C4db232) (impl)
+
+#### Optimism Kovan (Deprecated)
+
+- Optimism Governance Bridge Executor: [`0xdad2E5FDBCbd2a7e65C669dA4138211eE8A530dD`](https://kovan-optimistic.etherscan.io/address/0xdad2E5FDBCbd2a7e65C669dA4138211eE8A530dD)
+- L1 ERC20 Bridge for mock wstETH on Kovan: [`0x65321bf24210b81500230dCEce14Faa70a9f50a7`](https://kovan.etherscan.io/address/0x65321bf24210b81500230dCEce14Faa70a9f50a7) (proxy)
+- L1 ERC20 Bridge for mock wstETH on Kovan: [`0x7AEE39c46f20135114e85A03C02aB4FE73fB8127`](https://kovan.etherscan.io/address/0x7AEE39c46f20135114e85A03C02aB4FE73fB8127) (impl)
+- L2 ERC20 Bridge for mock wstETH on Kovan: [`0x2e34e7d705afac3c4665b6fef31aa394a1c81c92`](https://kovan-optimistic.etherscan.io/address/0x2e34e7d705afac3c4665b6fef31aa394a1c81c92) (proxy)
+- L2 ERC20 Bridge for mock wstETH on Kovan: [`0x8aEC5681B7185f544EA0cc526A43C41074AaCb09`](https://kovan-optimistic.etherscan.io/address/0x8aEC5681B7185f544EA0cc526A43C41074AaCb09) (impl)
+- L2 instance for mock wstETH on Kovan: [`0xF9C842dE4381a70eB265d10CF8D43DceFF5bA935`](https://kovan-optimistic.etherscan.io/address/0xF9C842dE4381a70eB265d10CF8D43DceFF5bA935) (proxy)
+- L2 instance for mock wstETH on Kovan: [`0x10182A72A377A8BA8D7f830b64720c64ff517F02`](https://kovan-optimistic.etherscan.io/address/0x10182A72A377A8BA8D7f830b64720c64ff517F02) (impl)
 
 ## Görli+Prater testnet
 
