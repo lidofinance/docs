@@ -1,6 +1,6 @@
 # Oracle Operator Manual
 
-This document is intended for those who wish to participate in the Lido protocol as Oracle—an entity who runs a daemon synchronizing state from ETH2 to ETH1 part of the protocol. To be precise, the daemon fetches the number of validators participating in the protocol, as well as their combined balance, from the Beacon chain and submits this data to the `LidoOracle` ETH1 smart contract.
+This document is intended for those who wish to participate in the Lido protocol as Oracle—an entity who runs a daemon synchronizing state from Beacon Chain to ETH1 part of the protocol. To be precise, the daemon fetches the number of validators participating in the protocol, as well as their combined balance, from the Beacon chain and submits this data to the `LidoOracle` ETH1 smart contract.
 
 The daemon also fetches historical stETH token price (shifted by fifteen blocks) from Curve ETH/stETH pool and reports any significant changes to the `StableSwapOracle` contract. Using price data from this oracle as a safeguard helps to keep stETH token price resistant to flash-loan and sandwich attacks by removing the ability to significantly change the price in a single block.
 
@@ -78,7 +78,7 @@ The oracle daemon requires the following environment variables:
 
 #### Running the daemon
 
-To run script you have to export three required env variables: `ETH1_NODE_RPC_ADDRESS`, `ETH2_NODE_RPC_ADDRESS`, `ORACLE_PRIVATE_KEY_0X_PREFIXED`
+To run script you have to export three required env variables: `ETH1_NODE_RPC_ADDRESS`, `BEACON_CHAIN_NODE_RPC_ADDRESS`, `ORACLE_PRIVATE_KEY_0X_PREFIXED`
 Before running the daemon, check that you've set all required env variables.
 
 You can use the public Docker image to launch the daemon.
@@ -88,7 +88,7 @@ You can use the public Docker image to launch the daemon.
 ```sh
 docker run -d --name lido-oracle \
   --env "WEB3_PROVIDER_URI=$ETH1_NODE_RPC_ADDRESS" \
-  --env "BEACON_NODE=$ETH2_NODE_RPC_ADDRESS" \
+  --env "BEACON_NODE=$BEACON_CHAIN_NODE_RPC_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$ORACLE_PRIVATE_KEY_0X_PREFIXED" \
   --env "POOL_CONTRACT=0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84" \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6" \
@@ -102,7 +102,7 @@ docker run -d --name lido-oracle \
 ```sh
 docker run -d --name lido-oracle \
   --env "WEB3_PROVIDER_URI=$ETH1_NODE_RPC_ADDRESS" \
-  --env "BEACON_NODE=$ETH2_NODE_RPC_ADDRESS" \
+  --env "BEACON_NODE=$BEACON_CHAIN_NODE_RPC_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$ORACLE_PRIVATE_KEY_0X_PREFIXED" \
   --env "POOL_CONTRACT=0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F" \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
@@ -124,7 +124,7 @@ For the full list of available Prometheus metrics please check [the Lido oracle 
 | **reportableFrame** <br /> _gauge_               | the report could be sent or is sending   |                               |                                                                                 |
 | **nowEthV1BlockNumber** <br /> _gauge_           | ETH1 latest block number                 | every COUNTDOWN_SLEEP seconds | should be increasing constantly and be aligned with https://etherscan.io/blocks |
 | **daemonCountDown** <br /> _gauge_               | time till the next oracle run in seconds | every COUNTDOWN_SLEEP seconds | should be decreasing down to 0                                                  |
-| **finalizedEpoch** <br /> _gauge_                | last finalized ETH2 epoch                | every COUNTDOWN_SLEEP seconds | should go up at a rate of 1 per six munites                                     |
+| **finalizedEpoch** <br /> _gauge_                | last finalized Beacon Chain epoch        | every COUNTDOWN_SLEEP seconds | should go up at a rate of 1 per six munites                                     |
 | **txSuccess** <br /> _histogram_                 | number of successful transactions        | every SLEEP seconds           |                                                                                 |
 | **txRevert** <br /> _histogram_                  | number of failed transactions            | every SLEEP seconds           |                                                                                 |
 | **process_virtual_memory_bytes** <br /> _gauge_  | Virtual memory size in bytes.            | every call                    | normal RAM consumption is ~200Mb                                                |
