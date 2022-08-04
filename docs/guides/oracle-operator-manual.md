@@ -1,6 +1,6 @@
 # Oracle Operator Manual
 
-This document is intended for those who wish to participate in the Lido protocol as Oracle—an entity who runs a daemon synchronizing state from Beacon Chain to execution layer of the protocol. To be precise, the daemon fetches the number of validators participating in the protocol, as well as their combined balance, from the Beacon Сhain and submits this data to the `LidoOracle` smart contract at the Execution Layer.
+This document is intended for those who wish to participate in the Lido protocol as Oracle—an entity who runs a daemon synchronizing state from Beacon Chain to Execution Layer of the protocol. To be precise, the daemon fetches the number of validators participating in the protocol, as well as their combined balance, from the Beacon Сhain and submits this data to the `LidoOracle` smart contract at the Execution Layer.
 
 The daemon also fetches historical stETH token price (shifted by fifteen blocks) from Curve ETH/stETH pool and reports any significant changes to the `StableSwapOracle` contract. Using price data from this oracle as a safeguard helps to keep stETH token price resistant to flash-loan and sandwich attacks by removing the ability to significantly change the price in a single block.
 
