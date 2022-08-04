@@ -9,7 +9,7 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 1. Generate an Ethereum address and propose it as an oracle address via the "Add Member" button in the app UI: [Mainnet] / [Görli].
 2. Facilitate the DAO members to approve your oracle address.
 3. Launch and sync an Ethereum 1.0 node with JSON-RPC endpoint enabled.
-4. Launch and sync a Beacon Chain node with RPC endpoint enabled. (one of Lighthouse, Prysm, Teku)
+4. Launch and sync a Beacon Chain node with API endpoint enabled. (one of Lighthouse, Prysm, Teku)
 5. Launch the oracle daemon as a docker container.
 
 [mainnet]: https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/
@@ -30,7 +30,7 @@ To protect stETH token price from attacks with borrowed money or flash loans, `S
 In order to launch oracle daemon on your machine, you need to have several things:
 
 1. A synced Execution client with JSON-RPC endpoint enabled.
-2. A synced Beacon Chain client with RPC endpoint enabled. (supported: Lighthouse, Prysm, Teku)
+2. A synced Beacon Chain client with API endpoint enabled. (supported: Lighthouse, Prysm, Teku)
 
 3) An address that’s added to the approved oracles list here: [Mainnet] / [Görli]. You have to initiate the DAO voting on adding your address there by pressing the "Add Member" button.
 
@@ -78,7 +78,7 @@ The oracle daemon requires the following environment variables:
 
 #### Running the daemon
 
-To run script you have to export three required env variables: `EXECUTION_NODE_RPC_ADDRESS`, `BEACON_CHAIN_NODE_RPC_ADDRESS`, `ORACLE_PRIVATE_KEY_0X_PREFIXED`
+To run script you have to export three required env variables: `EXECUTION_NODE_API_ADDRESS`, `BEACON_CHAIN_NODE_API_ADDRESS`, `ORACLE_PRIVATE_KEY_0X_PREFIXED`
 Before running the daemon, check that you've set all required env variables.
 
 You can use the public Docker image to launch the daemon.
@@ -87,8 +87,8 @@ You can use the public Docker image to launch the daemon.
 
 ```sh
 docker run -d --name lido-oracle \
-  --env "WEB3_PROVIDER_URI=$EXECUTION_NODE_RPC_ADDRESS" \
-  --env "BEACON_NODE=$BEACON_CHAIN_NODE_RPC_ADDRESS" \
+  --env "WEB3_PROVIDER_URI=$EXECUTION_NODE_API_ADDRESS" \
+  --env "BEACON_NODE=$BEACON_CHAIN_NODE_API_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$ORACLE_PRIVATE_KEY_0X_PREFIXED" \
   --env "POOL_CONTRACT=0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84" \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6" \
@@ -101,8 +101,8 @@ docker run -d --name lido-oracle \
 
 ```sh
 docker run -d --name lido-oracle \
-  --env "WEB3_PROVIDER_URI=$EXECUTION_NODE_RPC_ADDRESS" \
-  --env "BEACON_NODE=$BEACON_CHAIN_NODE_RPC_ADDRESS" \
+  --env "WEB3_PROVIDER_URI=$EXECUTION_NODE_API_ADDRESS" \
+  --env "BEACON_NODE=$BEACON_CHAIN_NODE_API_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$ORACLE_PRIVATE_KEY_0X_PREFIXED" \
   --env "POOL_CONTRACT=0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F" \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
