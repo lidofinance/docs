@@ -131,14 +131,24 @@
 
 ### Lido DAO Multisigs
 
+#### Committees
+
 - reWARDS Committee: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Referral Program Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 - RCC Committee: [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
-- Depositor bot gas funding: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
-- Easy Track Emergency Stop: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://etherscan.io/address/0x73b047fe6337183A454c5217241D780a932777bD)
+
+#### Dev Team Multisigs
 - Lido Dev team: [`0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0`](https://etherscan.io/address/0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0)
+- Depositor bot gas funding: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
+
+#### Emergency Brakes multisigs
+- Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
+- Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088) 
+- Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
+
+#### Legacy addresses
 - Finance Ops (legacy): [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops (legacy): [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 
