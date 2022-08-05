@@ -1,6 +1,6 @@
 # Oracle Operator Manual
 
-This document is intended for those who wish to participate in the Lido protocol as Oracle—an entity who runs a daemon synchronizing state from ETH2 to ETH1 part of the protocol. To be precise, the daemon fetches the number of validators participating in the protocol, as well as their combined balance, from the Beacon chain and submits this data to the `LidoOracle` ETH1 smart contract.
+This document is intended for those who wish to participate in the Lido protocol as Oracle—an entity who runs a daemon synchronizing state from Beacon Chain to Execution Layer of the protocol. To be precise, the daemon fetches the number of validators participating in the protocol, as well as their combined balance, from the Beacon Сhain and submits this data to the `LidoOracle` smart contract at the Execution Layer.
 
 The daemon also fetches historical stETH token price (shifted by fifteen blocks) from Curve ETH/stETH pool and reports any significant changes to the `StableSwapOracle` contract. Using price data from this oracle as a safeguard helps to keep stETH token price resistant to flash-loan and sandwich attacks by removing the ability to significantly change the price in a single block.
 
@@ -9,7 +9,7 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 1. Generate an Ethereum address and propose it as an oracle address via the "Add Member" button in the app UI: [Mainnet] / [Görli].
 2. Facilitate the DAO members to approve your oracle address.
 3. Launch and sync an Ethereum 1.0 node with JSON-RPC endpoint enabled.
-4. Launch and sync a Beacon Chain node with RPC endpoint enabled. (one of Lighthouse, Prysm, Teku)
+4. Launch and sync a Beacon Chain node with API endpoint enabled. (one of Lighthouse, Prysm, Teku)
 5. Launch the oracle daemon as a docker container.
 
 [mainnet]: https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/
@@ -17,9 +17,9 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 
 ## Intro
 
-Total supply of the StETH token always corresponds to the amount of Ether in control of the protocol. It increases on user deposits and Beacon chain staking rewards, and decreases on Beacon chain penalties and slashings. Since the Beacon chain is a separate chain, Lido ETH1 smart contracts can’t get direct access to its data.
+Total supply of the StETH token always corresponds to the amount of Ether in control of the protocol. It increases on user deposits and Beacon chain staking rewards, and decreases on Beacon chain penalties and slashings. Since the Beacon chain is a separate chain, Lido smart contracts at the Execution Layer can’t get direct access to its data.
 
-Communication between Ethereum 1.0 part of the system and the Beacon network is performed by the DAO-assigned oracles. They monitor staking providers’ Beacon chain accounts and submit corresponding data to the `LidoOracle` contract. The latter takes care of making sure that quorum about the data being pushed is reached within the oracles and enforcing data submission order (so that oracle contract never pushes data that is older than the already pushed one).
+Communication between Execution Layer and Consensus Layer is performed by the DAO-assigned oracles. They monitor staking providers’ Beacon chain accounts and submit corresponding data to the `LidoOracle` contract. The latter takes care of making sure that quorum about the data being pushed is reached within the oracles and enforcing data submission order (so that oracle contract never pushes data that is older than the already pushed one).
 
 Upon every update submitted by the `LidoOracle` contract, the system recalculates the total stETH token balance. If the overall staking rewards are bigger than the slashing penalties, the system registers profit, and fee is taken from the profit and distributed between the insurance fund, the treasury, and node operators.
 
@@ -29,8 +29,8 @@ To protect stETH token price from attacks with borrowed money or flash loans, `S
 
 In order to launch oracle daemon on your machine, you need to have several things:
 
-1. A synced Ethereum 1.0 client with JSON-RPC endpoint enabled.
-2. A synced Beacon Chain client with RPC endpoint enabled. (supported: Lighthouse, Prysm, Teku)
+1. A synced Execution client with JSON-RPC endpoint enabled.
+2. A synced Beacon Chain client with API endpoint enabled. (supported: Lighthouse, Prysm, Teku)
 
 3) An address that’s added to the approved oracles list here: [Mainnet] / [Görli]. You have to initiate the DAO voting on adding your address there by pressing the "Add Member" button.
 
@@ -68,7 +68,7 @@ This transaction can also fail in the case when another Lido oracle submits the 
 
 The oracle daemon requires the following environment variables:
 
-- `WEB3_PROVIDER_URI` the ETH1 JSON-RPC endpoint. Or several endpoints separted with comma.
+- `WEB3_PROVIDER_URI` the Execution Client JSON-RPC endpoint. Or several endpoints separted with comma.
 - `BEACON_NODE` the Beacon Chain client with API endpoint.
 - `POOL_CONTRACT` the address of the Lido contract (`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84` in Mainnet and `0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F` in Görli Testnet).
 - `STETH_PRICE_ORACLE_CONTRACT` the address of `StableSwapOracle` contract (`0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6` in Mainnet and `0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a` in Görli Testnet).
@@ -78,7 +78,7 @@ The oracle daemon requires the following environment variables:
 
 #### Running the daemon
 
-To run script you have to export three required env variables: `ETH1_NODE_RPC_ADDRESS`, `ETH2_NODE_RPC_ADDRESS`, `ORACLE_PRIVATE_KEY_0X_PREFIXED`
+To run script you have to export three required env variables: `EXECUTION_NODE_API_ADDRESS`, `BEACON_CHAIN_NODE_API_ADDRESS`, `ORACLE_PRIVATE_KEY_0X_PREFIXED`
 Before running the daemon, check that you've set all required env variables.
 
 You can use the public Docker image to launch the daemon.
@@ -87,8 +87,8 @@ You can use the public Docker image to launch the daemon.
 
 ```sh
 docker run -d --name lido-oracle \
-  --env "WEB3_PROVIDER_URI=$ETH1_NODE_RPC_ADDRESS" \
-  --env "BEACON_NODE=$ETH2_NODE_RPC_ADDRESS" \
+  --env "WEB3_PROVIDER_URI=$EXECUTION_NODE_API_ADDRESS" \
+  --env "BEACON_NODE=$BEACON_CHAIN_NODE_API_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$ORACLE_PRIVATE_KEY_0X_PREFIXED" \
   --env "POOL_CONTRACT=0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84" \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6" \
@@ -101,8 +101,8 @@ docker run -d --name lido-oracle \
 
 ```sh
 docker run -d --name lido-oracle \
-  --env "WEB3_PROVIDER_URI=$ETH1_NODE_RPC_ADDRESS" \
-  --env "BEACON_NODE=$ETH2_NODE_RPC_ADDRESS" \
+  --env "WEB3_PROVIDER_URI=$EXECUTION_NODE_API_ADDRESS" \
+  --env "BEACON_NODE=$BEACON_CHAIN_NODE_API_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$ORACLE_PRIVATE_KEY_0X_PREFIXED" \
   --env "POOL_CONTRACT=0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F" \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
@@ -119,16 +119,16 @@ Lido Oracle daemon exposes metrics via Prometheus exporter. We encourage Oracle 
 Prometheus exporter is running on port 8000 and provides 5 logical metrics groups. Prefix for prometheus metrix by default is empty, but could be modified via `PROMETHEUS_PREFIX` environment variable ([full environment variables list](https://github.com/lidofinance/lido-oracle#full-list-of-configuration-options))  
 For the full list of available Prometheus metrics please check [the Lido oracle readme](https://github.com/lidofinance/lido-oracle#prometheus-metrics). We recommend to monitor at least the following ones:
 
-| name                                             | description                              | frequency                     | goal                                                                            |
-|--------------------------------------------------|------------------------------------------|-------------------------------|---------------------------------------------------------------------------------|
-| **reportableFrame** <br /> _gauge_               | the report could be sent or is sending   |                               |                                                                                 |
-| **nowEthV1BlockNumber** <br /> _gauge_           | ETH1 latest block number                 | every COUNTDOWN_SLEEP seconds | should be increasing constantly and be aligned with https://etherscan.io/blocks |
-| **daemonCountDown** <br /> _gauge_               | time till the next oracle run in seconds | every COUNTDOWN_SLEEP seconds | should be decreasing down to 0                                                  |
-| **finalizedEpoch** <br /> _gauge_                | last finalized ETH2 epoch                | every COUNTDOWN_SLEEP seconds | should go up at a rate of 1 per six munites                                     |
-| **txSuccess** <br /> _histogram_                 | number of successful transactions        | every SLEEP seconds           |                                                                                 |
-| **txRevert** <br /> _histogram_                  | number of failed transactions            | every SLEEP seconds           |                                                                                 |
-| **process_virtual_memory_bytes** <br /> _gauge_  | Virtual memory size in bytes.            | every call                    | normal RAM consumption is ~200Mb                                                |
-| **process_resident_memory_bytes** <br /> _gauge_ | Resident memory size in bytes.           | every call                    | normal RAM consumption is ~200Mb                                                |
+| name                                             | description                                | frequency                     | goal                                                                            |
+|--------------------------------------------------|--------------------------------------------|-------------------------------|---------------------------------------------------------------------------------|
+| **reportableFrame** <br /> _gauge_               | the report could be sent or is sending     |                               |                                                                                 |
+| **nowEthV1BlockNumber** <br /> _gauge_           | latest block number at the Execution Layer | every COUNTDOWN_SLEEP seconds | should be increasing constantly and be aligned with https://etherscan.io/blocks |
+| **daemonCountDown** <br /> _gauge_               | time till the next oracle run in seconds   | every COUNTDOWN_SLEEP seconds | should be decreasing down to 0                                                  |
+| **finalizedEpoch** <br /> _gauge_                | last finalized Beacon Chain epoch          | every COUNTDOWN_SLEEP seconds | should go up at a rate of 1 per six munites                                     |
+| **txSuccess** <br /> _histogram_                 | number of successful transactions          | every SLEEP seconds           |                                                                                 |
+| **txRevert** <br /> _histogram_                  | number of failed transactions              | every SLEEP seconds           |                                                                                 |
+| **process_virtual_memory_bytes** <br /> _gauge_  | Virtual memory size in bytes.              | every call                    | normal RAM consumption is ~200Mb                                                |
+| **process_resident_memory_bytes** <br /> _gauge_ | Resident memory size in bytes.             | every call                    | normal RAM consumption is ~200Mb                                                |
 
 Exception counters for debugging any errors which may arise:
 
