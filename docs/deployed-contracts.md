@@ -131,25 +131,57 @@
 
 ### Lido DAO Multisigs
 
+#### Committees
+
 - reWARDS Committee: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Referral Program Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 - RCC Committee: [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
-- Depositor bot gas funding: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
-- Easy Track Emergency Stop: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://etherscan.io/address/0x73b047fe6337183A454c5217241D780a932777bD)
+
+#### Dev Team Multisigs
 - Lido Dev team: [`0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0`](https://etherscan.io/address/0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0)
+- Depositor bot gas funding: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
+
+#### Emergency Brakes multisigs
+- Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
+- Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088) 
+- Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
+
+#### Legacy addresses
 - Finance Ops (legacy): [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops (legacy): [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 
 ### Lido on L2
 
-#### Arbitrum
+#### Arbitrum (proposed)
 
+###### Ethereum part
+
+- L1ERC20TokenGateway: [`0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a`](https://etherscan.io/address/0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a) (proxy)
+- L1ERC20TokenGateway: [`0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C`](https://etherscan.io/address/0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C) (impl)
+
+###### Arbitrum part
+
+- WstETH ERC20Bridged: [`0x5979D7b546E38E414F7E9822514be443A4800529`](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529) (proxy)
+- WstETH ERC20Bridged: [`0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921`](https://arbiscan.io/address/0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921) (impl)
+- L2ERC20TokenGateway: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](https://arbiscan.io/address/0x07D4692291B9E30E326fd31706f686f83f331B82) (proxy)
+- L2ERC20TokenGateway: [`0xe75886DE20dF66827e321EfdB88726e6Baa4b0A7`](https://arbiscan.io/address/0xe75886DE20dF66827e321EfdB88726e6Baa4b0A7) (impl)
 - Arbitrum Governance Bridge Executor: [`0x1dcA41859Cd23b526CBe74dA8F48aC96e14B1A29`](https://arbiscan.io/address/0x1dca41859cd23b526cbe74da8f48ac96e14b1a29)
 
-#### Optimism
+#### Optimism (proposed)
 
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
+- L1ERC20TokenBridge: [`0x29C5c51A031165CE62F964966A6399b81165EFA4`](https://etherscan.io/address/0x29C5c51A031165CE62F964966A6399b81165EFA4) (impl)
+
+##### Optimism part
+
+- WstETH ERC20Bridged: [`0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb`](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb) (proxy)
+- WstETH ERC20Bridged: [`0x92834c37dF982A13bb0f8C3F6608E26F0546538e`](https://optimistic.etherscan.io/address/0x92834c37dF982A13bb0f8C3F6608E26F0546538e) (impl)
+- L2ERC20TokenBridge: [`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957) (proxy)
+- L2ERC20TokenBridge: [`0x23B96aDD54c479C6784Dd504670B5376B808f4C7`](https://optimistic.etherscan.io/address/0x23B96aDD54c479C6784Dd504670B5376B808f4C7) (impl)
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 
 ## Görli+Prater testnet
