@@ -135,7 +135,7 @@
 
 - reWARDS Committee: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
 - reWARDS Committee: [`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://optimistic.etherscan.io/address/0x5033823F27c5f977707B58F0351adcD732C955Dd) (Optimism)
-- - reWARDS Committee: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://arbiscan.io/address/0x8C2b8595eA1b627427EFE4f29A64b145DF439d16) (Arbitrum)
+- reWARDS Committee: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://arbiscan.io/address/0x8C2b8595eA1b627427EFE4f29A64b145DF439d16) (Arbitrum)
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Referral Program Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 - RCC Committee: [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
