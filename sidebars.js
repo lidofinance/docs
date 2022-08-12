@@ -17,6 +17,7 @@ module.exports = {
         'guides/checking-aragon-vote',
         'guides/checking-gnosis-safe',
         'guides/1inch-reward',
+        'guides/ldo-airdrop',
       ],
     },
     {

@@ -21,7 +21,7 @@ If there is no your address [here](https://github.com/lidofinance/airdrop-data/b
 2.4 Make sure that the method result is `false`
 
 :::note
-if you get true as a result of this step, it means that this reward was claimed earlier, and you can’t claim it once again
+if you get `true` as a result of this step, it means that this reward was claimed earlier, and you can’t claim it once again
 
 :::
 
