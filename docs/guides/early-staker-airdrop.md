@@ -20,7 +20,7 @@ Find your address [here](https://github.com/lidofinance/airdrop-data/blob/main/e
 If there is no your address [here](https://github.com/lidofinance/airdrop-data/blob/main/early_stakers_airdrop.csv) you are not eligible to claim airdrop.
 
 ### 2. Check if you haven’t already claimed your airdrop
-2.1 Go to [Etherscan](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b#readContract) (contract address  - [0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b#readContract))
+2.1 Go to [Etherscan](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b) (contract address  - [0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b))
 
 2.2 Paste your index on `isClaimed` method (1 row on [“Contract/Read contract”](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b#readContract) tab)
 
