@@ -16,6 +16,8 @@ module.exports = {
         'guides/easy-track-guide',
         'guides/checking-aragon-vote',
         'guides/checking-gnosis-safe',
+        'guides/1inch-pool-rewards',
+        'guides/early-staker-airdrop',
       ],
     },
     {
