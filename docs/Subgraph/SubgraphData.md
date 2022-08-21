@@ -19,7 +19,7 @@ Subgraph information is serviced by a decentralized group of server operators ca
 
 [Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
 
-- [Explorer Page](https://thegraph.com/explorer/subgraph?id=FVmuv3TndQDNd2BWARV8Y27yuKKukryKXPzvAS5E7htC&view=Overview)
+- [Explorer Page](https://thegraph.com/explorer/subgraph?id=HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf&view=Overview)
 - Graphql Endpoint: https://gateway.thegraph.com/api/[api-key]/subgraphs/id/HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf
 - [Code Repo](https://github.com/lidofinance/ui)
 
