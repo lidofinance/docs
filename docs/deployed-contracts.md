@@ -113,6 +113,7 @@
 - Treasury Diversification Part 2: [2022 Aug round](https://research.lido.fi/t/treasury-diversification-2-part-2/2657) [`0xA9b2F5ce3aAE7374a62313473a74C98baa7fa70E`](https://etherscan.io/address/0xA9b2F5ce3aAE7374a62313473a74C98baa7fa70E)
 - reWARDS committee multisig: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5).
 - Referral Program committee multisig: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C).
+- Jumpgate for [Solana Reward Program](https://solscan.io/address/H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2): [`0xe3224542066d3bbc02bc3d70b641be4bc6f40e36`](https://etherscan.io/address/0xe3224542066d3bbc02bc3d70b641be4bc6f40e36#code).
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 
 ### Easy Track
