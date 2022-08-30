@@ -1,42 +1,28 @@
+# Subgraph
 
+## Introduction
 
-# Lido Subgraph Introduction
-
-Lido has a GraphQL API Endpoint hosted by [The Graph](https://thegraph.com/docs/about/introduction#what-the-graph-is) called a subgraph for indexing and organizing data from the Lido smart contracts.
-
-This subgraph is can be used to query Lido data.
+Lido has a Subgraph deployed on [The Graph Decentralized Network](https://thegraph.com/docs/about/introduction#what-the-graph-is) which indexes and organises data from the Lido smart contracts events, exposing a GraphQL endpoint for queries. Subgraph data is indexed and served by independent Indexers on the network.
 
 ## GraphQL Schema
 
-The schema of GraphQL elements available is defined in [`/schema.graphql` ](https://github.com/lidofinance/lido-subgraph/blob/master/schema.graphql)
+The schema of GraphQL entities available is defined in [`/schema.graphql` ](https://github.com/lidofinance/lido-subgraph/blob/master/schema.graphql).
 
-Subgraph information is serviced by a decentralized group of server operators called Indexers.
-
-## Ethereum Mainnet
-
-[Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
+## Links
 
 - [Explorer Page](https://thegraph.com/explorer/subgraph?id=HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf&view=Overview)
-- GraphQL Endpoint: https://gateway.thegraph.com/api/[api-key]/subgraphs/id/HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf
+- GraphQL Endpoint: `https://gateway.thegraph.com/api/[api-key]/subgraphs/id/HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf`
 - [Code Repo](https://github.com/lidofinance/lido-subgraph/)
 
-## Helpful Links
-
-[Querying from an Application](https://thegraph.com/docs/en/developer/querying-from-your-app/)
-
-[Managing your API Key & Setting your indexer preferences](https://thegraph.com/docs/en/studio/managing-api-keys/)
-
-
-
-# Query Examples
+## Query Examples
 
 Below are some sample queries you can use to gather information from the Lido contracts.
 
-You can build your own queries using a [GraphQL Explorer](https://graphiql-online.com) and enter your endpoint to limit the data to exactly what you need.
+You can build your own queries using [GraphQL Explorer](https://graphiql-online.com) to test it out and query exactly what you need.
 
-## Rewards Distribution
+### Rewards Distribution
 
-Query description: Daily staking rewards data with calculated APR and fees distribution
+Daily staking rewards data with calculated APR and fees distribution.
 
 ```graphql
 {
@@ -77,9 +63,25 @@ Query description: Daily staking rewards data with calculated APR and fees distr
 }
 ```
 
-## Transfers
+### Oracle Reports
 
-Query description: stETH transfers between addresses
+Daily completed oracle reports.
+
+```graphql
+{
+  oracleCompleteds(first: 500, orderBy: blockTime, orderDirection: desc) {
+    epochId
+    beaconBalance
+    beaconValidators
+    block
+    blockTime
+  }
+}
+```
+
+### Transfers
+
+stETH transfers between addresses.
 
 ```graphql
 {
@@ -94,25 +96,9 @@ Query description: stETH transfers between addresses
 }
 ```
 
-## Oracle Reports
+### Submissions
 
-Query description: obtain oracle reports
-
-```graphql
-{
-  oracleCompleteds(first: 500, orderBy: blockTime, orderDirection: desc) {
-    epochId
-    beaconBalance
-    beaconValidators
-    block
-    blockTime
-  }
-}
-```
-
-## Submissions
-
-Query description: obtain submission of the first 50
+stETH staking events.
 
 ```graphql
 {
@@ -126,9 +112,9 @@ Query description: obtain submission of the first 50
 }
 ```
 
-## Node Operator Keys
+### Node Operator Keys
 
-Query description: Fetch validator keys of a node operator
+Fetch validator keys of a node operator.
 
 ```graphql
 {
@@ -137,3 +123,11 @@ Query description: Fetch validator keys of a node operator
   }
 }
 ```
+
+## Helpful Links
+
+[Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
+
+[Managing your API Key & Setting your indexer preferences](https://thegraph.com/docs/en/studio/managing-api-keys/)
+
+[Querying from an Application](https://thegraph.com/docs/en/developer/querying-from-your-app/)
