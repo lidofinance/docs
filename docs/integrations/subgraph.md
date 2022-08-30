@@ -1,7 +1,4 @@
----
-sidebar_position: 1
-title: Subgraph Data Introduction
----
+
 
 # Lido Subgraph Introduction
 
@@ -19,8 +16,8 @@ Subgraph information is serviced by a decentralized group of server operators ca
 
 [Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
 
-- [Explorer Page](https://thegraph.com/hosted-service/subgraph/lidofinance/lido)
-- Graphql Endpoint: https://gateway.thegraph.com/api/[api-key]/subgraphs/id/HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf
+- [Explorer Page](https://thegraph.com/explorer/subgraph?id=HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf&view=Overview)
+- GraphQL Endpoint: https://gateway.thegraph.com/api/[api-key]/subgraphs/id/HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf
 - [Code Repo](https://github.com/lidofinance/lido-subgraph/)
 
 ## Helpful Links
@@ -29,18 +26,17 @@ Subgraph information is serviced by a decentralized group of server operators ca
 
 [Managing your API Key & Setting your indexer preferences](https://thegraph.com/docs/en/studio/managing-api-keys/)
 
-<br />
-<br />
+
 
 # Query Examples
 
 Below are some sample queries you can use to gather information from the Lido contracts.
 
-You can build your own queries using a [GraphQL Explorer](https://graphiql-online.com/graphiql) and enter your endpoint to limit the data to exactly what you need.
+You can build your own queries using a [GraphQL Explorer](https://graphiql-online.com) and enter your endpoint to limit the data to exactly what you need.
 
 ## Rewards Distribution
 
-Query description: gather the total rewards.
+Query description: Daily staking rewards data with calculated APR and fees distribution
 
 ```graphql
 {
@@ -83,7 +79,7 @@ Query description: gather the total rewards.
 
 ## Transfers
 
-Query description: gather the transfer information
+Query description: stETH transfers between addresses
 
 ```graphql
 {
@@ -130,9 +126,9 @@ Query description: obtain submission of the first 50
 }
 ```
 
-## Obtain keys of node operator
+## Node Operator Keys
 
-Query description: obtain keys of node operator
+Query description: Fetch validator keys of a node operator
 
 ```graphql
 {
