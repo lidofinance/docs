@@ -98,45 +98,46 @@ Query description: gather the transfer information
 }
 ```
 
-## Rewards Distribution
+## Oracle Reports
 
-Query description: gather the total rewards information
+Query description: obtain oracle reports
 
 ```graphql
 {
-  totalRewards(first: 100, orderBy: block, orderDirection: desc) {
-    id
-    totalRewards
-    totalRewardsWithFees
-    insuranceFee
-    treasuryFee
-    totalFee
-    dust
-    nodeOperatorFees {
-      address
-      fee
-    }
-    nodeOperatorsShares {
-      address
-      shares
-    }
-    shares2mint
-    sharesToInsuranceFund
-    sharesToOperators
-    sharesToTreasury
-    totalPooledEtherBefore
-    totalPooledEtherAfter
-    totalSharesBefore
-    totalSharesAfter
-    apr
-    aprBeforeFees
-    aprRaw
-    preTotalPooledEther
-    postTotalPooledEther
-    timeElapsed
+  oracleCompleteds(first: 500, orderBy: blockTime, orderDirection: desc) {
+    epochId
+    beaconBalance
+    beaconValidators
     block
     blockTime
-    transactionIndex
+  }
+}
+```
+
+## Submissions
+
+Query description: obtain submission of the first 50
+
+```graphql
+{
+  lidoSubmissions(first: 50) {
+    sender
+    amount
+    block
+    blockTime
+    transactionHash
+  }
+}
+```
+
+## Obtain keys of node operator
+
+Query description: obtain keys of node operator
+
+```graphql
+{
+  nodeOperatorSigningKeys(where: { operatorId: 0 }) {
+    pubkey
   }
 }
 ```
