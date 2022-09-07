@@ -50,7 +50,7 @@ The Lido Protocol, built on Ethereum’s beacon chain to start, allows users to 
 
 Lido was [announced](https://blog.lido.fi/how-lido-works/) in November 2020. The testnet was released in late November.
 
-Lido today has 3 products (stETH, stSOL, bLuna) managed by 4 teams in separate organizations. Across these products is a multi billion dollar TVL and has pushed Lido to #6 on [DeFi Llama rankings](https://defillama.com/protocol/lido). stETH has also been accepted as part of Nexus Mutual’s treasury as part of their [risk management strategy](https://forum.nexusmutual.io/t/proposal-increase-the-allocation-of-the-capital-pool-to-steth/641).
+Lido today has 2 products (stETH, stSOL) managed by teams in separate organizations. Across these products is a multi billion dollar TVL and has pushed Lido to #6 on [DeFi Llama rankings](https://defillama.com/protocol/lido). stETH has also been accepted as part of Nexus Mutual’s treasury as part of their [risk management strategy](https://forum.nexusmutual.io/t/proposal-increase-the-allocation-of-the-capital-pool-to-steth/641).
 
 Lido has begun the process to move over to a fully non-custodial solution. Details can be found here: [Withdrawal Credentials in Lido](https://blog.lido.fi/withdrawal-credentials-in-lido/).
 
