@@ -80,13 +80,13 @@ stETH as DeFi collateral is beneficial for a number of reasons.
 
 Lido protocol background is listed in Question #2.
 
-There is a DAO and it is live. The Lido DAO consists of, amongst others, Semantic VC, ParaFi Capital, Libertus Capital, Terra, Bitscale Capital, StakeFish, StakingFacilities, Chorus, P2P Capital and KR1, Stani Kulechov of Aave, Banteg of Yearn, Will Harborne of Deversifi, Julien Bouteloup of Stake Capital and Kain Warwick of Synthetix.
+There is a DAO and it is live. The Lido DAO consists of, amongst others, Semantic VC, ParaFi Capital, Libertus Capital, Bitscale Capital, StakeFish, StakingFacilities, Chorus, P2P Capital and KR1, Stani Kulechov of Aave, Banteg of Yearn, Will Harborne of Deversifi, Julien Bouteloup of Stake Capital and Kain Warwick of Synthetix.
 
 The Lido treasury has been diversified and DAO members now include Paradigm, Three Arrows Capital, DeFiance Capital, Jump Trading, Alameda Research, iFinex, Dragonfly Capital, Delphi Digital, Robot Ventures, Coinbase Ventures, Digital Currency Group, The LAO and [angels](https://research.lido.fi/t/proposal-ldo-treasury-diversification-part-2/506).
 
 The Lido suite of products consist of st-assets which represent the underlying staked collateral on various protocols. Currently this is stETH, bLuna, stLuna and stSOL and is managed by 4 teams in separate organizations to further mitigate centralization risk.
 
-There are further wrapped versions to address platform limitations around rebasing assets or bridging to other ecosystem. These wrapped assets are minted/burned based on locking of the st-asset. Currently there is wstETH (non-rebasing) and bETH (Terra representation of stETH).
+There are further wrapped versions to address platform limitations around rebasing assets or bridging to other ecosystem. These wrapped assets are minted/burned based on locking of the st-asset. Currently there is wstETH.
 
 Early challenges were overcome with DAO member support, speed of execution and utility of st-assets. The last one is particularly critical in the success of any liquid product.
 
@@ -96,7 +96,7 @@ stETH is used in a number of ways.
 
 - a productive asset (e.g. in Nexus Mutual Treasury risk management strategy);
 - compounding yield strategies in DeFI (AMMs, autofarms) (e.g. Convex, Yearn, Harvest);
-- multichain collateral (e.g. wstETH on Ethereum on Maker and bETH on Terra in Anchor).
+- multichain collateral (e.g. wstETH on Ethereum on Maker).
 
 5. **Emission schedule**
 

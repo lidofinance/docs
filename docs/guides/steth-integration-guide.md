@@ -15,7 +15,6 @@ Lido's staking derivatives are widely adopted across Ethereum ecosystem:
 - stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
 - wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
 - steCRV (the Curve stETH/ETH LP token) is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
-- ether stakers can collateralise their stETH (in the form of bETH) on the Terra blockchain using [Anchor protocol](https://app.anchorprotocol.com/).
 - there are multiple liquidity strategies built on top of Lido's staking derivatives, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
 
 #### Integration utilities: ChainLink price feeds
@@ -197,7 +196,6 @@ Lido's staked assets have been listed on major liquidity protocols:
 
 - On Maker, [wstETH collateral (scroll down to Dai from WSTETH-A section)](https://daistats.com/#/collateral) can be used to mint DAI stablecoin. See [Lido's blog post](https://blog.lido.fi/makerdao-integrates-lidos-staked-eth-steth-as-collateral-asset/) for more details.
 - On AAVE, multiple assets can be [borrowed against stETH](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet). See [Lido's blog post](https://blog.lido.fi/aave-integrates-lidos-steth-as-collateral/) for more details. Please note: stETH is only supported on AAVE as lending collateral. Borrowing stETH on AAVE is not currently supported. However, any asset can be borrowed on AAVe via a flashloan. Due to a known [1 wei corner case](#1-wei-corner-case) there's a certain situation when a flashloan transaction can revert. Please visit [stETH on AAVE caveats](https://docs.lido.fi/token-guides/steth-on-aave-caveats) article for more details.
-- On [Anchor](https://app.anchorprotocol.com/), ether stakers can collateralise their stETH (in the form of bETH) on the Terra blockchain using Anchor protocol. This integration is covered in great detail in [the spec](https://github.com/lidofinance/anchor-collateral-steth/blob/main/docs/spec.md).
 
 Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard. There're live ChainLink [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) price feeds on Ethereum.
 
