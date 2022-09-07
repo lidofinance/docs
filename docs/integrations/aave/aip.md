@@ -84,7 +84,7 @@ There is a DAO and it is live. The Lido DAO consists of, amongst others, Semanti
 
 The Lido treasury has been diversified and DAO members now include Paradigm, Three Arrows Capital, DeFiance Capital, Jump Trading, Alameda Research, iFinex, Dragonfly Capital, Delphi Digital, Robot Ventures, Coinbase Ventures, Digital Currency Group, The LAO and [angels](https://research.lido.fi/t/proposal-ldo-treasury-diversification-part-2/506).
 
-The Lido suite of products consist of st-assets which represent the underlying staked collateral on various protocols. Currently this is stETH and stSOL and is managed by teams in separate organizations to further mitigate centralization risk.
+The Lido suite of products consist of st-assets which represent the underlying staked collateral on various protocols. These are currently stETH and stSOL and are managed by teams in separate organizations to further mitigate centralization risk.
 
 There are further wrapped versions to address platform limitations around rebasing assets or bridging to other ecosystem. These wrapped assets are minted/burned based on locking of the st-asset. Currently there is wstETH.
 
