@@ -164,7 +164,7 @@
 
 ### Lido on L2
 
-#### Arbitrum (proposed)
+#### Arbitrum
 
 ###### Ethereum part
 
@@ -179,7 +179,7 @@
 - L2ERC20TokenGateway: [`0xe75886DE20dF66827e321EfdB88726e6Baa4b0A7`](https://arbiscan.io/address/0xe75886DE20dF66827e321EfdB88726e6Baa4b0A7) (impl)
 - Arbitrum Governance Bridge Executor: [`0x1dcA41859Cd23b526CBe74dA8F48aC96e14B1A29`](https://arbiscan.io/address/0x1dca41859cd23b526cbe74da8f48ac96e14b1a29)
 
-#### Optimism (proposed)
+#### Optimism
 
 ##### Ethereum part
 
