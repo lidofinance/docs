@@ -15,6 +15,7 @@
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - CompositePostRebaseReportReceiver: [`0x55a7E1cbD678d9EbD50c7d69Dc75203B0dBdD431`](https://etherscan.io/address/0x55a7E1cbD678d9EbD50c7d69Dc75203B0dBdD431)
 - SelfOwnedStETHBurner: [`0xB280E33812c0B09353180e92e27b8AD399B07f26`](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26)
+- MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 
 ### DAO Contracts
 
@@ -207,6 +208,7 @@
 - stETH/ETH Merkle Price Oracle (StableSwapOracle): [`0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a`](https://goerli.etherscan.io/address/0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a)
 - CompositePostRebaseReportReceiver: [`0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f`](https://goerli.etherscan.io/address/0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f)
 - SelfOwnedStETHBurner: [`0x6432756feF0fb527C06eFd4689A7CE0E195bD327`](https://goerli.etherscan.io/address/0x6432756feF0fb527C06eFd4689A7CE0E195bD327)
+- MEV Boost Relay Allowed List: [`0xeabE95AC5f3D64aE16AcBB668Ed0efcd81B721Bc`](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 
 ### DAO contracts
 
