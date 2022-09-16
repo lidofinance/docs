@@ -1,6 +1,6 @@
 # MevBoostRelayAllowedList
 
-- [Source Code](contracts/MEVBoostRelayAllowedList.vy)
+- [Source Code](https://github.com/lidofinance/mev-boost-relay-allowed-list/blob/main/contracts/MEVBoostRelayAllowedList.vy)
 - [Deployed Contract (mainnet)](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 - [Deployed Contract (goerli+prater)](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 
