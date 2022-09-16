@@ -1,7 +1,8 @@
 # MevBoostRelayAllowedList
 
 - [Source Code](contracts/MEVBoostRelayAllowedList.vy)
-- [Deployed Contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
+- [Deployed Contract (mainnet)](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
+- [Deployed Contract (goerli+prater)](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 
 MEV-Boost relay allowed list is a simple contract storing a list of relays that have been approved by DAO for use in [MEV-Boost](https://github.com/flashbots/mev-boost). The data from the contract are used to generate a configuration file that contains a list of relays that should be connected to.
 
