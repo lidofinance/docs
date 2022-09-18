@@ -4,7 +4,7 @@
 - [Deployed Contract (mainnet)](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 - [Deployed Contract (goerli+prater)](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 
-MEV-Boost relay allowed list is a simple contract storing a list of relays that have been approved by DAO for use in [MEV-Boost](https://github.com/flashbots/mev-boost). The data from the contract are used to generate a configuration file that contains a list of relays that should be connected to.
+MEV-Boost relay allowed list is a simple contract storing a list of relays that have been approved by DAO for use in [MEV-Boost](https://github.com/flashbots/mev-boost) setups. The data from the contract is used to generate a configuration file that contains a list of relays that should be connected to by the Node Operators participating in Lido.
 
 
 ## View methods
@@ -64,7 +64,9 @@ def get_relay_by_uri(relay_uri: String[MAX_STRING_LENGTH]) -> bool
 |-------------|-----------------------------|------------------|
 | `relay_uri` | `String[MAX_STRING_LENGTH]` | URI of the relay |
 
-:::note Reverts if no relay found. :::
+:::note
+Reverts if no relay found.
+:::
 
 ### get_allowed_list_version()
 
@@ -80,7 +82,8 @@ def get_allowed_list_version() -> uint256:
 
 ### add_relay()
 
-Appends relay to the allowed list. Bumps the allowed list version.
+Appends relay to the allowed list.
+Bumps the allowed list version.
 
 ```vyper
 @external
@@ -101,14 +104,17 @@ def add_relay(
 | `is_mandatory` | `bool`                      | If the relay is mandatory for usage for Lido Node Operator |
 | `description`  | `String[MAX_STRING_LENGTH]` | Description of the relay in free format                    |
 
-::: note Reverts if any of the following is true:
+:::note
+Reverts if any of the following is true:
 - called by anyone except the owner or manager
 - relay with provided `uri` already allowed
-- `uri` is empty :::
+- `uri` is empty
+:::
 
 ### remove_relay()
 
-Removes the previously allowed relay from the set. Bumps the allowed list version.
+Removes the previously allowed relay from the set.
+Bumps the allowed list version.
 
 ```vyper
 @external
@@ -121,10 +127,12 @@ def remove_relay(uri: String[MAX_STRING_LENGTH]):
 |--------|-----------------------------|------------------|
 | `uri`  | `String[MAX_STRING_LENGTH]` | URI of the relay |
 
-::: note Reverts if any of the following is true:
+:::note
+Reverts if any of the following is true:
 - called by anyone except the owner or manager
 - if relay with provided `uri` is not allowed
-- `uri` is empty :::
+- `uri` is empty
+:::
 
 
 ### change_owner()
@@ -142,10 +150,12 @@ def change_owner(owner: address)
 |---------|-----------|--------------------------|
 | `owner` | `address` | Address of the new owner |
 
-::: note Reverts if any of the following is true:
+:::note
+Reverts if any of the following is true:
 - called by anyone except the current owner
 - `owner` is the current owner
-- `owner` is zero address :::
+- `owner` is zero address
+:::
 
 ### set_manager()
 
@@ -162,10 +172,12 @@ def set_manager(manager: address)
 |---------|---------|----------------------------|
 | manager | address | Address of the new manager |
 
-::: note Reverts if any of the following is true:
+:::note
+Reverts if any of the following is true:
 - called by anyone except the current owner
 - `manager` is equal to the previously set value
-- `manager` is zero address :::
+- `manager` is zero address
+:::
 
 ### dismiss_manager()
 
@@ -176,9 +188,11 @@ Dismisses the current management entity.
 def dismiss_manager()
 ```
 
-::: note Reverts if any of the following is true:
+:::note
+Reverts if any of the following is true:
 - called by anyone except the current owner
-- no `manager` was set previously :::
+- no `manager` was set previously
+:::
 
 
 ### recover_erc20()
@@ -190,7 +204,9 @@ Transfers ERC20 tokens from the contract's balance to the `recipient`.
 def recover_erc20(token: address, amount: uint256, recipient: address)
 ```
 
-::: note Reverts if any of the following is true:
+:::note
+Reverts if any of the following is true:
 - called by anyone except the owner
-- ERC20 transfer reverted.
-- `recipient` is zero address :::
+- ERC20 transfer reverted
+- `recipient` is zero address
+:::
