@@ -113,8 +113,9 @@
 
 - Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
 - Treasury Diversification Part 2: [2022 Aug round](https://research.lido.fi/t/treasury-diversification-2-part-2/2657) [`0xA9b2F5ce3aAE7374a62313473a74C98baa7fa70E`](https://etherscan.io/address/0xA9b2F5ce3aAE7374a62313473a74C98baa7fa70E).
-- Jumpgate for [Solana Reward Program](https://solscan.io/address/H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2): [`0xe3224542066d3bbc02bc3d70b641be4bc6f40e36`](https://etherscan.io/address/0xe3224542066d3bbc02bc3d70b641be4bc6f40e36#code).
+- Jumpgate for [Solana Reward Program](https://solscan.io/address/H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2): [`0xe3224542066d3bbc02bc3d70b641be4bc6f40e36`](https://etherscan.io/address/0xe3224542066d3bbc02bc3d70b641be4bc6f40e36).
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
+- Jumpgate for [Solana Referral Program](https://solscan.io/address/7KN9sjxsStxsTTPXZBZk6z1cdXfVkyvq1ihAVh94gXcP): [`0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8`](https://etherscan.io/address/0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8).
 
 ### Easy Track
 
