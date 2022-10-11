@@ -351,3 +351,18 @@ For some clients the fee recipient option should be applied with other options, 
 [Lighthouse Fee Recipient Config]: https://lighthouse-book.sigmaprime.io/suggested-fee-recipient.html?highlight=fee%20recipient#suggested-fee-recipient
 [Lodestar CLI options]: https://chainsafe.github.io/lodestar/reference/cli/
 [Prysm CLI options]: https://docs.prylabs.network/docs/execution-node/fee-recipient
+
+#### MEV-Boost related options for various Beacon Chain clients
+| Consensus client         |  CLI option                                              | CLI reference page     |
+| ------------------------ |  ------------------------------------------------------- | ---------------------- |
+| Teku                     |  `--builder-endpoint=<URL>`                              | [Teku MEV integration]           |
+| Lighthouse               |  BN: `--builder=<URL>` VC: `--builder-proposals`         | [Lighthouse MEV integration] |
+| Nimbus                   |  `--payload-builder=true --payload-builder-url=<URL>`    | [Nimbus MEV integration]     |
+| Prysm                    |  `--http-mev-relay=<URL>`                                | [Prysm MEV integration]      |
+| Lodestar                 |  BN: `--builder --builder.urls=<URL>` VC: `--builder`    | [Lodestar MEV integration]   |
+
+[Teku MEV integration]: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#builder-endpoint
+[Nimbus MEV integration]: https://nimbus.guide/external-block-builder.html
+[Lighthouse MEV integration]: https://lighthouse-book.sigmaprime.io/builders.html
+[Lodestar MEV integration]: https://chainsafe.github.io/lodestar/usage/mev-integration/
+[Prysm MEV integration]: https://docs.prylabs.network/docs/prysm-usage/parameters
