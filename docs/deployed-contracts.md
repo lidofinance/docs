@@ -198,6 +198,25 @@
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - LDO token: [`0xFdb794692724153d1488CcdBE0C56c252596735F`](https://optimistic.etherscan.io/address/0xFdb794692724153d1488CcdBE0C56c252596735F)
 
+#### L2 Liquidity pools
+
+##### Balancer
+
+- [wstETH/WETH]([url](https://arbitrum.balancer.fi/#/pool/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c000000000000000000000159)) on Arbitrum: `[0xFB5e6d0c1DfeD2BA000fBC040Ab8DF3615AC329c]([url](https://arbiscan.io/address/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c))`
+- [wstETH/USDC]([url](https://arbitrum.balancer.fi/#/pool/0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158)) on Arbitrum: `[0x178E029173417b1F9C8bC16DCeC6f697bC323746]([url](https://arbiscan.io/address/0x178e029173417b1f9c8bc16dcec6f697bc323746))`
+
+##### Beethoven
+
+- [wstETH/bb-rf-aWETH]([url](https://op.beets.fi/pool/0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f)) on Optimism: `[0xde45f101250f2ca1c0f8adfc172576d10c12072d]([url](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d))`
+- [wstETH/bb-rf-aUSD/bb-rf-aWBTC]([url](https://op.beets.fi/pool/0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b)) on Optimism: `[0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF]([url](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef))`
+
+##### Kyber Network
+
+- [wstETH/ETH]([url](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/ETH/40)) on Arbitrum: `[0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a]([url](https://arbiscan.io/address/0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a))`
+- [wstETH/USDC]([url](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40)) on Arbitrum: `0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`
+- [wstETH/ETH]([url](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10)) on Optimism: `[0xda74db17023750d02b83be2559a4eaa013b65c54]([url](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54))`
+- [wstETH/USDC](0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7) on Optimism: `[0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7]([url](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7))`
+
 ## Görli+Prater testnet
 
 ### Core Protocol
