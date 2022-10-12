@@ -210,12 +210,12 @@ Beethoven
 - [wstETH/bb-rf-aWETH](https://op.beets.fi/pool/0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f) on Optimism: [`0xde45f101250f2ca1c0f8adfc172576d10c12072d`](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d)
 - [wstETH/bb-rf-aUSD/bb-rf-aWBTC](https://op.beets.fi/pool/0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b) on Optimism: [`0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF`](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef)
 
-##### Kyber Network
+Kyber Network
 
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/ETH/40) on Arbitrum: [`0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a`](https://arbiscan.io/address/0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40) on Arbitrum: [`0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`](https://arbiscan.io/address/0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494)
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
-- [wstETH/USDC](0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
+- [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
 
 ## Görli+Prater testnet
 
