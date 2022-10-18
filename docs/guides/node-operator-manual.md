@@ -385,4 +385,4 @@ List of possible relays that have been approved by DAO can be fetched by [queryi
 
 Full list of MEV-boost CLI options can be found here [MEV-Boost CLI Options]
 
-[MEV-Boost CLI Options]: https://github.com/flashbots/mev-boost
+[MEV-Boost CLI Options]: https://github.com/flashbots/mev-boost#mev-boost-cli-arguments
