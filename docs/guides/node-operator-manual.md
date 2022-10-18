@@ -366,3 +366,23 @@ For some clients the fee recipient option should be applied with other options, 
 [Lighthouse MEV integration]: https://lighthouse-book.sigmaprime.io/builders.html
 [Lodestar MEV integration]: https://chainsafe.github.io/lodestar/usage/mev-integration/
 [Prysm MEV integration]: https://docs.prylabs.network/docs/prysm-usage/parameters
+
+#### Relays and MEV-Boost options
+
+List of possible relays that have been approved by DAO can be fetched by [querying the `get_relays()`](/contracts/mev-boost-relays-allowed-list#get_relays) method in `MevBoostRelayAllowedList` contract.
+
+##### Mainnet
+
+```shell
+./mev-boost -mainnet -relay-check -relay <comma-separated relay urls>
+```
+
+##### Goerli
+
+```shell
+./mev-boost -goerli -relay-check -relay <comma-separated relay urls>
+```
+
+Full list of MEV-boost CLI options can be found here [MEV-Boost CLI Options]
+
+[MEV-Boost CLI Options]: https://github.com/flashbots/mev-boost
