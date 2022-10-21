@@ -18,6 +18,7 @@ module.exports = {
         'guides/checking-gnosis-safe',
         'guides/1inch-pool-rewards',
         'guides/early-staker-airdrop',
+        'guides/jumpgates',
       ],
     },
     {
