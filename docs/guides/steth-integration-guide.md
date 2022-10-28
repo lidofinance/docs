@@ -5,17 +5,17 @@ This document is intended for developers looking to integrate Lido's stETH or ws
 ## Lido
 
 Lido is a family of liquid staking protocols across multiple blockchains, with headquarters on Ethereum.
-Liquid refers to the ability for a user’s stake to become liquid. Upon user's deposit Lido issues the derivative, which represents the deposited assets along with all the rewards & penalties accrued through deposit's staking. Unlike the staked funds, this derivative is liquid — it can be freely transferred between parties, making it usable across different DeFi applications while still accruing staking yield passively. It is paramount to preserve this property when integrating staking derivatives into any DeFi protocol.
+Liquid refers to the ability for a user’s stake to become liquid. Upon user's deposit Lido issues stToken, which represents the deposited assets along with all the rewards & penalties accrued through deposit's staking. Unlike the staked funds, this stToken is liquid — it can be freely transferred between parties, making it usable across different DeFi applications while still receiving daily staked rewards. It is paramount to preserve this property when integrating stTokens into any DeFi protocol.
 
 This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 For ether staked in Lido, it gives users stETH that is equal to the amount staked.
 
-Lido's staking derivatives are widely adopted across Ethereum ecosystem:
+Lido's stTokens are widely adopted across Ethereum ecosystem:
 - The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
 - stETH is [listed as collateral asset on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
 - wstETH is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
 - steCRV (the Curve stETH/ETH LP token) is [listed as collateral asset on Maker](https://daistats.com/#/collateral).
-- there are multiple liquidity strategies built on top of Lido's staking derivatives, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
+- there are multiple liquidity strategies built on top of Lido's stTokens, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
 
 #### Integration utilities: ChainLink price feeds
 - There are live ChainLink [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) price feeds on Ethereum.
@@ -23,7 +23,7 @@ Lido's staking derivatives are widely adopted across Ethereum ecosystem:
 
 ## stETH vs. wstETH
 
-There are two versions of Lido's staking derivative, namely stETH and wstETH.
+There are two versions of Lido's stTokens, namely stETH and wstETH.
 Both tokens are ERC-20 tokens, but they reflect the accrued staking rewards in different ways. stETH implements rebasing mechanics which means the stETH balance increases periodically. In contrary, wstETH balance is constant, while the token increases in value eventually (denominated in stETH). At any moment, any amount of stETH can be converted to wstETH via trustless wrapper and vice versa, thus tokens effectively share liquidity.
 For instance, undercollateralized wstETH positions on Maker can be liquidated by unwrapping wstETH and swapping it for ether on Curve.
 
@@ -117,7 +117,7 @@ stETH holders receive staking rewards, but those don't compound. Actual APR dimi
 ## wstETH
 
 Due to the rebasing nature of stETH, the stETH balance on holder's address is not constant, it changes daily as oracle report comes in.
-Although rebasable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebasable tokens. Listing stETH on these apps can result in holders not receiving their daily staking rewards which effectively defeats the benefits of liquid staking. To integrate with such dApps, there's another form of Lido staking derivative called wstETH (wrapped staked ether).
+Although rebasable tokens are becoming a common thing in DeFi recently, many dApps do not support rebasing. For example, Maker, UniSwap, and SushiSwap are not designed for rebasable tokens. Listing stETH on these apps can result in holders not receiving their daily staking rewards which effectively defeats the benefits of liquid staking. To integrate with such dApps, there's another form of Lido stTokens called wstETH (wrapped staked ether).
 
 ### What is wstETH
 
@@ -222,7 +222,7 @@ Please note, when depositing exclusively stETH to Curve, the tokens are split be
 
 ### Cross chain bridging
 
-The Lido's liquid staking derivatives will eventually get bridged to various L2's and sidechains.
+The Lido's stTokens will eventually get bridged to various L2's and sidechains.
 Most cross chain token bridges have no mechanics to handle rebases. This means bridging stETH to other chains will prevent stakers from collecting their staking rewards. In the most common case, the rewards will naturally go to the bridge smart contract and never make it to the stakers.
 While working on full-blown bridging solutions, the Lido contributors encourage the users to only bridge the non-rebasable representation of staked ether, namely wstETH.
 
