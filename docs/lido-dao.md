@@ -6,7 +6,7 @@ The Lido DAO is a Decentralised Autonomous Organisation that manages the liquid 
 
 The DAO is the logical compromise between full centralization and decentralisation, which allows the deployment of competitive products without full centralization and custody on the exchanges. We do not believe that it is possible to make a liquid staking protocol that is completely trustless. A DAO is an optimal structure for launching Lido as:
 
-- DAO is essentially a decentralised entity, which is enabling a focus on community, rather than just profit, and might offer a more socially-conscious structure and consequent decision-making; 
+- DAO is essentially a decentralised entity, which is enabling a focus on community and might offer a more socially-conscious structure and consequent decision-making; 
 - DAO will be able to cover the costs of developing and upgrading the protocol from the DAO token treasury. 
 - And other management activities as well if there is a technical ability
 
