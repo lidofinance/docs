@@ -14,6 +14,8 @@ module.exports = {
         'guides/protocol-levers',
         'guides/etherscan-voting',
         'guides/easy-track-guide',
+        'guides/address-ownership-guide',
+        'guides/multisig-signer-manual',
         'guides/checking-aragon-vote',
         'guides/checking-gnosis-safe',
         'guides/1inch-pool-rewards',
