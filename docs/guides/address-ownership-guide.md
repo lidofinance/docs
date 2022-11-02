@@ -38,3 +38,9 @@ To verify the shared signature one can use Etherscan or MyEtherWallet UIs.
   ```
   Note that "msg" is hex text starting with `0x` (add `0x` before the hex encoded string if necessary).
 4. See whether the signature provided is valid.
+
+### Publishing the signature on Etherscan
+
+1. Go to https://etherscan.io/verifiedSignatures and click "Verify Signature".
+2. Enter address, plain text message (not hex version MyEtherWallet will give!) & the signature (with `0x` prefix), choose "Verify & publish" option & click "Continue".
+3. After the signature is verified you'll get the link for sharing.
