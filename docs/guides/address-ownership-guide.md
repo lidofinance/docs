@@ -15,19 +15,19 @@ Using EOA across Lido DAO ops or protocol contracts requires providing a public 
 
 ## Ethereum signature verification
 
-To verify the shared signature one can use Etherscan or MyEtherWallet UIs
+To verify the shared signature one can use Etherscan or MyEtherWallet UIs.
 
 ### Etherscan UI
 
-1. Go to https://etherscan.io/verifiedSignatures
-2. Click `Verify Signature` button
-3. Input address, message & signature hash data & click `Continue`
-4. See whether the signature provided is valid
+1. Go to https://etherscan.io/verifiedSignatures.
+2. Click `Verify Signature` button.
+3. Input address, message & signature hash data & click `Continue`.
+4. See whether the signature provided is valid.
 
 ### MyEtherWallet
 
-1. Go to https://www.myetherwallet.com/tools?tool=verify
-2. Encode the message text as hex string (use the tool like https://appdevtools.com/text-hex-converter)
+1. Go to https://www.myetherwallet.com/tools?tool=verify.
+2. Encode the message text as hex string (use the tool like https://appdevtools.com/text-hex-converter).
 3. Enter json & click `Verify`:
   ```
   {
@@ -36,5 +36,11 @@ To verify the shared signature one can use Etherscan or MyEtherWallet UIs
     "sig": "signature_hash"
   }
   ```
-  Note that "msg" is hex text starting with `0x` (add `0x` before the hex encoded string if necessary)
-4. See whether the signature provided is valid
+  Note that "msg" is hex text starting with `0x` (add `0x` before the hex encoded string if necessary).
+4. See whether the signature provided is valid.
+
+### Publishing the signature on Etherscan
+
+1. Go to https://etherscan.io/verifiedSignatures and click "Verify Signature".
+2. Enter address, plain text message (not hex version MyEtherWallet will give!) & the signature (with `0x` prefix), choose "Verify & publish" option & click "Continue".
+3. After the signature is verified you'll get the link for sharing.
