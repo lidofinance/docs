@@ -27,6 +27,7 @@ module.exports = {
       type: 'category',
       label: 'Integrations',
       items: [
+        'integrations/wallets',
         'integrations/sdk',
         'integrations/subgraph',
         {
