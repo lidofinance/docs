@@ -17,7 +17,7 @@ There are multiple ways of integrating Lido staking into your app or website.
 
 ### Adding a banner
 
-You can add a banner to your website that redirects the user to Lido Staking Widget using your referral link. We have [several SVG banners](https://github.com/lidofinance/referral-program-integration-examples/tree/main/banners) for you choose from.
+You can add a banner to your website that redirects the user to Lido Staking Widget using your referral link. We have [several SVG banners](https://github.com/lidofinance/referral-program-integration-examples/tree/main/banners) for you to choose from.
 
 Example code,
 ```html
