@@ -111,7 +111,7 @@ shares2mint = --------------------------------------------------------------
 
 stETH holders receive staking rewards, but those don't compound. Actual APR diminishes slightly over time for two main reasons:
 
-1. Beacon chain rewards don't compound. To get more rewards one should withdraw funds and re-deposit them, skimming rewards. Until withdrawals are enabled, that isn't technically possible. So, while the Lido's beacon chain balance increases over time, the yield bearing asset amount remains equal to deposited ether amount.
+1. Beacon chain rewards don't compound. To get more rewards one should withdraw funds and re-deposit them, skimming rewards. Until withdrawals are enabled, that isn't technically possible. So, while the Lido's beacon chain balance increases over time, rewards bearing asset amount remains equal to deposited ether amount.
 2. stETH holders receive rewards proportionally to their share in the stETH total supply. This share diminishes slightly over time because of the protocol fee on rewards eating up from other holders' shares eventually.
 
 ## wstETH

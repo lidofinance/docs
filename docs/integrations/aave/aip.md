@@ -12,7 +12,6 @@ We propose listing stETH to AAVE v2 market. This would allow users to borrow aga
 ### References
 
 - Website: [lido.fi](https://lido.fi/)
-- [Primer](https://lido.fi/static/Lido:Ethereum-Liquid-Staking.pdf)
 - [Document portal](https://docs.lido.fi/)
 - [Source code for the system(s) that interact with the proposed asset](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
 - [Ethereum addresses contracts](https://docs.lido.fi/deployed-contracts)
@@ -95,7 +94,7 @@ Early challenges were overcome with DAO member support, speed of execution and u
 stETH is used in a number of ways.
 
 - a productive asset (e.g. in Nexus Mutual Treasury risk management strategy);
-- compounding yield strategies in DeFI (AMMs, autofarms) (e.g. Convex, Yearn, Harvest);
+- compounding rewards strategies in DeFI (AMMs, autofarms) (e.g. Convex, Yearn, Harvest);
 - multichain collateral (e.g. wstETH on Ethereum on Maker).
 
 5. **Emission schedule**

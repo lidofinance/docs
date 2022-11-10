@@ -1,11 +1,11 @@
 # Bug Bounties with Immunefi
 
-## Overview
+## Program overview
 
-This bug bounty document verifies that Lido hosts a bug bounty on Immunefi at the address [https://immunefi.com/bounty/lido/](https://immunefi.com/bounty/lido/).
+Lido Bug Bounty programs allow you to report a vulnerability and get up to $2,000,000.
 
-If you have found a vulnerability in our project, it must be submitted through [Immunefi's platform](https://immunefi.com/). Immunefi will handle bug bounty communications.
+We’re using the [Immunefi platform](https://immunefi.com) — the leading bug bounty platform for DeFi with the world's largest bounties.
 
-See the bounty page at Immunefi for more details on accepted vulnerabilities, payout amounts, and rules of participation.
+[Lido Bug Bounty programs](https://lido.fi/bug-bounty) focused on the prevention of loss of user funds, denial of service, governance hijacks, data breaches, and data leaks. We care about it and have already paid $250,000 for 7 Bug Bounties.
 
-Users who violate the rules of participation will not receive bug bounty payouts and may be temporarily suspended or banned from the bug bounty program.
+We have separate active programs for [Ethereum](https://immunefi.com/bounty/lido/), [Solana](https://immunefi.com/bounty/lidoforsolana/), [Polygon](https://immunefi.com/bounty/lidoonpolygon/), [Polkadot](https://immunefi.com/bounty/lidoonpolkadot/) and [Kusama](https://immunefi.com/bounty/lidoonkusama/).
