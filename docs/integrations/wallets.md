@@ -61,7 +61,7 @@ For a full example, click [here](https://github.com/lidofinance/referral-program
 
 If none of the options above suits you, you may choose to interact with Lido directly.
 
-The [Lido contract](https://etherscan.io/token/0xae7ab96520de3a18e5e111b5eaab095312d7fe84) provides an easy interface for staking. All you need to do you is call the `submit(_referral)` function, pass your rewards address as the argument and send ether value as the stake.
+The [Lido contract](https://etherscan.io/token/0xae7ab96520de3a18e5e111b5eaab095312d7fe84) provides an easy interface for staking. All you need to do is call the `submit(_referral)` function, pass your rewards address as the argument and send ether value as the stake.
 
 `web3.js` example,
 
