@@ -6,12 +6,13 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 
 ## TL;DR
 
-1. Generate an Ethereum address and propose it as an oracle address on [Research forum](https://research.lido.fi/).
+1. Generate an Ethereum address.
 2. Facilitate the DAO members to approve your oracle address.
 3. Launch and sync an Execution Layer node with JSON-RPC endpoint enabled.
 4. Launch and sync a Beacon Сhain (aka Consensus Layer) node with API endpoint enabled. (one of Lighthouse, Prysm, Teku)
 5. Launch the oracle daemon as a docker container.
 6. **Optional** Add alerts to Oralce's prometheus metrics. ([https://github.com/lidofinance/lido-oracle#alert-examples](Alert examples))
+7. Propose your oracle's ethereum address to Lido Team to vote on your address being added to the Oracle Members.
 
 ## Intro
 
