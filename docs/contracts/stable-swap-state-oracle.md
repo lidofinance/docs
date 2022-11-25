@@ -2,7 +2,7 @@
 
 ---
 ### Warning
-`StableSwapStateOracle` is not intended to be used as a part of external integrations.
+`StableSwapStateOracle` is deprecated and not intended to be used as a part of external integrations.
 
 ---
 

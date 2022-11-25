@@ -3,7 +3,7 @@
 ---
 
 ### Warning
-`StEthPriceFeed` is not intended to be used as a part of external integrations.
+`StEthPriceFeed` is depracated and not intended to be used as a part of external integrations.
 
 ---
 
