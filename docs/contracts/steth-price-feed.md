@@ -1,5 +1,12 @@
 # StEthPriceFeed
 
+---
+
+### Warning
+`StEthPriceFeed` is depracated and not intended to be used as a part of external integrations.
+
+---
+
 - [Source Code](https://github.com/lidofinance/steth-price-feed/blob/main/contracts/StEthPriceFeed.vy)
 - [Deployed Contract](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6)
 

@@ -1,5 +1,11 @@
 # StableSwapStateOracle
 
+---
+### Warning
+`StableSwapStateOracle` is deprecated and not intended to be used as a part of external integrations.
+
+---
+
 - [Source Code](https://github.com/lidofinance/curve-merkle-oracle/blob/main/contracts/StableSwapStateOracle.sol)
 - [Deployed Contract](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
 
