@@ -7,13 +7,12 @@ The daemon also fetches historical stETH token price (shifted by fifteen blocks)
 ## TL;DR
 
 1. Generate an Ethereum address.
-2. Share your address with public in case of mainnet it should be twitter and the research forum, in case of testnet it may be telegram or discord.
-3. Ask DAO members to prepare a vote to add addresses to the oracle set.
-4. Launch and sync an Execution Layer node with JSON-RPC endpoint enabled.
-5. Launch and sync a Beacon Сhain (aka Consensus Layer) node with API endpoint enabled. (one of Lighthouse, Prysm, Teku)
-6. Launch the oracle daemon as a docker container.
-7. **Optional** Add alerts to Oralce's prometheus metrics. ([https://github.com/lidofinance/lido-oracle#alert-examples](Alerts examples))
-8. Propose your oracle's ethereum address to Lido Team to vote on your address being added to the Oracle Members.
+2. Launch and sync an Execution Layer node with JSON-RPC endpoint enabled.
+3. Launch and sync a Beacon Сhain (aka Consensus Layer) node with API endpoint enabled. (one of Lighthouse, Prysm, Teku)
+4. Launch the oracle daemon as a docker container.
+5. [**Optional**] Add alerts to Oralce's prometheus metrics. ([https://github.com/lidofinance/lido-oracle#alert-examples](Alerts examples))
+6. In case of mainnet share your address and intention to join the Oracle set with public. You need to publish it on Twitter and also write a message with a twitter link under Onboarding post on [the Research forum](https://research.lido.fi/).
+7. Propose your oracle's ethereum address to Lido Team to vote on your address being added to the Oracle Members.
 
 ## Intro
 
