@@ -134,6 +134,26 @@
 - AddRewardProgram (Referral Program): [`0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51`](https://etherscan.io/address/0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51)
 - RemoveRewardProgram (Referral Program): [`0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C`](https://etherscan.io/address/0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C)
 - TopUpRewardPrograms (Referral Program): [`0x54058ee0E0c87Ad813C002262cD75B98A7F59218`](https://etherscan.io/address/0x54058ee0E0c87Ad813C002262cD75B98A7F59218)
+- *Proposed* AllowedRecipientsRegistry (reWARDS): [`0xAa47c268e6b2D4ac7d7f7Ffb28A39484f5212c2A`](https://etherscan.io/address/0xAa47c268e6b2D4ac7d7f7Ffb28A39484f5212c2A)
+- *Proposed* TopUpAllowedRecipients (reWARDS): [`0x85d703B2A4BaD713b596c647badac9A1e95bB03d`](https://etherscan.io/address/0x85d703B2A4BaD713b596c647badac9A1e95bB03d)
+- *Proposed* AddAllowedRecipient (reWARDS): [`0x1dCFc37719A99d73a0ce25CeEcbeFbF39938cF2C`](https://etherscan.io/address/0x1dCFc37719A99d73a0ce25CeEcbeFbF39938cF2C)
+- *Proposed* RemoveAllowedRecipient (reWARDS): [`0x00BB68a12180a8f7E20D8422ba9F81c07A19A79E`](https://etherscan.io/address/0x00BB68a12180a8f7E20D8422ba9F81c07A19A79E)
+- *Proposed* AllowedRecipientsRegistry (LEGO LDO): [`0x97615f72c3428A393d65A84A3ea6BBD9ad6C0D74`](https://etherscan.io/address/0x97615f72c3428A393d65A84A3ea6BBD9ad6C0D74)
+- *Proposed* TopUpAllowedRecipients (LEGO LDO): [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)
+- *Proposed* AllowedRecipientsRegistry (LEGO DAI): [`0xb0FE4D300334461523D9d61AaD90D0494e1Abb43`](https://etherscan.io/address/0xb0FE4D300334461523D9d61AaD90D0494e1Abb43)
+- *Proposed* TopUpAllowedRecipients (LEGO DAI): [`0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC`](https://etherscan.io/address/0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC)
+- *Proposed* AllowedRecipientsRegistry (RCC DAI): [`0xDc1A0C7849150f466F07d48b38eAA6cE99079f80`](https://etherscan.io/address/0xDc1A0C7849150f466F07d48b38eAA6cE99079f80)
+- *Proposed* TopUpAllowedRecipients (RCC DAI): [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](https://etherscan.io/address/0x84f74733ede9bFD53c1B3Ea96338867C94EC313e)
+- *Proposed* AllowedRecipientsRegistry (PML DAI): [`0xDFfCD3BF14796a62a804c1B16F877Cf7120379dB`](https://etherscan.io/address/0xDFfCD3BF14796a62a804c1B16F877Cf7120379dB)
+- *Proposed* TopUpAllowedRecipients (PML DAI): [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](https://etherscan.io/address/0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD)
+- *Proposed* AllowedRecipientsRegistry (ATC DAI): [`0xe07305F43B11F230EaA951002F6a55a16419B707`](https://etherscan.io/address/0xe07305F43B11F230EaA951002F6a55a16419B707)
+- *Proposed* TopUpAllowedRecipients (ATC DAI): [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
+- *Proposed* AllowedRecipientsRegistry (Gas Funder ETH): [`0xCf46c4c7f936dF6aE12091ADB9897E3F2363f16F`](https://etherscan.io/address/0xCf46c4c7f936dF6aE12091ADB9897E3F2363f16F)
+- *Proposed* TopUpAllowedRecipients (Gas Funder ETH): [`0x41F9daC5F89092dD6061E59578A2611849317dc8`](https://etherscan.io/address/0x41F9daC5F89092dD6061E59578A2611849317dc8)
+- *Proposed* tooling contracts:
+  - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
+  - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
+  - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
 ### Lido DAO Multisigs
 
