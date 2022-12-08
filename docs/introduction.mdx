@@ -112,6 +112,8 @@ Solo staking is similar to other option **SaaS staking** in that you are having 
 Alternatively, it may be possible to produce staking through **centralised exchanges**. Needless to say, crypto assets and CeFi are not suited well together from the fundamental standpoint. It is also worth mentioning the economic aspect - by staking within some centralised entities, the user does not receive a corresponding token in return and, thus, loses the opportunity to perform any subsequent activity within DeFi or the same centralised entity, where assets were staked. Yes, APR, when staking on centralised exchanges might be higher, but with a significant amount aggregated within the centralised entity comes a huge potential influence to the ecosystem that was fundamentally designed decentralised.
 
 Through the use of a **liquid staking** solution such as Lido, users can eliminate these inconveniences and benefit from secure, non-custodial staking backed by industry leaders. Liquid staking is unlocking the potential of PoS by giving users the ability to not only stake their assets, but have the liquidity to use those assets in DeFi projects that way not only increasing yields for the individual, but growing the staking participation in general.
+
+## Lido on Ethereum APR
 :::note
  APR provides only the current estimation of the rewards without any upfront forecasts.
 :::
@@ -119,7 +121,7 @@ Through the use of a **liquid staking** solution such as Lido, users can elimina
 > User's APR (Lido staking APR) = Protocol APR * (1 - Protocol fee)
 
 
-## Protocol APR
+### Protocol APR
 
 By Protocol APR we mean gross annual percentage rate — the overall Consensus Layer (CL) and Execution Layer (EL) rewards received by Lido validators to total pooled ETH estimated as moving average of the last 7 days.
 
@@ -147,22 +149,19 @@ The better the underlying operator sets are, the more robust, resilient, and per
 Learn more about rewards and penalties - [ethereum.org](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/)
 
 ### Execution Layer
-
-Validators began to receive EL rewards after the Merge. EL rewards consist of three parts:
+Validators began to receive EL rewards after the Merge. EL rewards consist of four parts:
 
 - **Priority fee**
-Priority fee refers to optional additional fees (for example it may refer to [EIP-1559](https://ethereum.org/en/developers/docs/gas/#eip-1559)) paid directly to validators in order to incentivize them to include the given transaction in a block. Also it depends on network demand: as higher network demand, as higher could be priority fee.
+Priority fee refers to optional additional fees (for example it may refer to EIP-1559) paid directly to validators in order to incentivize them to include the given transaction in a block. Also it depends on network demand: as higher network demand, as higher could be priority fee.
+
 - **Maximal Extractable Value (MEV) rewards**
 MEV refers to the maximum value that can be extracted by the validator from block production in excess of the standard block reward and gas fees by including, excluding, and changing the order of transactions in a block.
 
-> **[Lido encourage Node Operators](https://research.lido.fi/t/discussion-draft-lido-on-ethereum-block-proposer-rewards-policy-2-0) to collect MEV by using [MEV-Boost](https://www.alchemy.com/overviews/mev-boost) with a curated set of relays.**
-
-> **Compounding**
+- **Compounding**
 The collected EL rewards (Priority fee + MEV) are available directly on the Execution layer, and thus, can be re-staked with Lido on the daily basis. Earning further staking rewards on the re-staked EL rewards creates the compounding effect.
 
-> **Rewards socialization model**
-With Lido, you receive staking rewards within 24 hours of your deposit being made, without waiting for validator activation
-
+- **Rewards socialization model**
+With Lido, you receive staking rewards within 24 hours of your deposit being made, without waiting for validator activation.
 
 ### Protocol fee
 
