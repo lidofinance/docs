@@ -66,6 +66,16 @@ module.exports = {
       label: 'Security',
       items: ['security/bugbounty'],
     },
-    'deployed-contracts',
+    {
+      type: 'category',
+      label: 'Deployed contracts',
+      items: [
+        'deployed-contracts/mainnet',
+        'deployed-contracts/goerli',
+        'deployed-contracts/rinkeby',
+        'deployed-contracts/ropsten',
+        'deployed-contracts/kovan',
+      ],
+    },
   ],
 }
