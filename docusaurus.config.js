@@ -46,5 +46,16 @@ module.exports = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: "/deployed-contracts",
+            to: "/deployed-contracts/mainnet"
+          }
+        ]
+      }
+    ]
   ],
 }
