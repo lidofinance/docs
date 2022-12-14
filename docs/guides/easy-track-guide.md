@@ -112,7 +112,7 @@ In case the minimum objections threshold of 0.5% of total LDO supply has been re
 In case you find out you have made a mistake when starting the motion (e.g. you have added the wrong address for the new reward program or you've misclicked when specifying the amount of tokens to be allocated etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction via WalletConnect Safe app, as well as a confirmation from another Finance Team multi-sig owner to complete it (gas costs apply).
 ### Checking the motion details from Gnosis Multisig UI
 The motion start txs are created by one of the multisig signers, and the others should check the addresses & data of the tx they are asked to sign.
-1. Check the address the tx is being sent to — it should be `Easy Track` contract listed on the [Deployed Contracts page](https://docs.lido.fi/deployed-contracts#easy-track).
+1. Check the address the tx is being sent to — it should be `Easy Track` contract listed on the [Deployed Contracts page](/deployed-contracts/mainnet#easy-track).
 2. The params of the `createMotion` call are `_evmScriptFactory` address & `_evmScriptCallData` bytes string.
-   1. `_evmScriptFactory` address should be listed on the [Deployed Contracts page](https://docs.lido.fi/deployed-contracts#easy-track) & match the type of motion is about to be started.
+   1. `_evmScriptFactory` address should be listed on the [Deployed Contracts page](/deployed-contracts/mainnet#easy-track) & match the type of motion is about to be started.
    2. To check `_evmScriptCallData` open the `_evmScriptFactory` contract on the etherscan & call the `decodeEVMScriptCallData` with the string from the Gnosis Safe UI to see the motion params.

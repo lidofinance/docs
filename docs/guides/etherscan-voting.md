@@ -10,7 +10,7 @@ This how to vote on Lido DAO Aragon with Etherscan UI
 
 ## Preparation
 
-Get the address of the Lido DAO `Aragon Voting` contract from [Deployed Contracts](/deployed-contracts/#:~:text=Aragon%20Voting) page. It should be: [0x2e59A20f205bB85a89C53f1936454680651E618e].
+Get the address of the Lido DAO `Aragon Voting` contract from [Deployed Contracts](/deployed-contracts/mainnet/#:~:text=Aragon%20Voting) page. It should be: [0x2e59A20f205bB85a89C53f1936454680651E618e].
 
 Get the vote id, either from [Aragon UI]:
 
