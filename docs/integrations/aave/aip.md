@@ -14,7 +14,7 @@ We propose listing stETH to AAVE v2 market. This would allow users to borrow aga
 - Website: [lido.fi](https://lido.fi/)
 - [Document portal](https://docs.lido.fi/)
 - [Source code for the system(s) that interact with the proposed asset](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
-- [Ethereum addresses contracts](/deployed-contracts/mainnet)
+- [Ethereum addresses contracts](/deployed-contracts)
 - [ChainLink Oracle](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
 - [Audits](https://github.com/lidofinance/audits)
 - Community

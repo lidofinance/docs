@@ -69,8 +69,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Deployed contracts',
+      link: {type: 'doc', id: 'deployed-contracts/index'},
       items: [
-        'deployed-contracts/mainnet',
+        {type: 'doc', id:'deployed-contracts/index', label: 'Mainnet'},
         'deployed-contracts/goerli',
         'deployed-contracts/rinkeby',
         'deployed-contracts/ropsten',

@@ -329,7 +329,7 @@ This smart contract address can also be retrieved by [querying the `getELRewards
 
 The address is also available in the [Deployed Contracts] docs page, labeled as `Execution Layer Rewards Vault`. 
 
-[Deployed contracts]: /deployed-contracts/mainnet
+[Deployed contracts]: /deployed-contracts
 
 #### Fee recipient options for various Beacon Chain clients
 
