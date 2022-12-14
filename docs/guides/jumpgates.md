@@ -15,7 +15,7 @@ Go to [Etherscan](https://etherscan.io/)  and open the Jumpgate page. Click the 
 - `recipient` is the recipient address in hexadecimal form. For Solana, this will an encoded LDO token account. Use [Base 58 decoder](https://appdevtools.com/base58-encoder-decoder) to decode this hexadecimal sequence to the Solana address format. 
 - `recipientChain` is the target chain identifier. If the Jumpgate is using Wormhole bridge, you can check the id against the [Wormhole docs](https://book.wormhole.com/reference/contracts.html), Solana id is 1; 
 - `renounceOwnership` should yield an error;
-- `token` is the address of the token being transfered, e.g. LDO at [0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32). Check the LDO address against [Deployed contracts](/deployed-contracts/mainnet#dao-contracts).
+- `token` is the address of the token being transfered, e.g. LDO at [0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32). Check the LDO address against [Deployed contracts](/deployed-contracts#dao-contracts).
 
 ![](/img/jumpgates/read-contract.png)
 
