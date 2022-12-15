@@ -51,28 +51,6 @@
 - RemoveRewardProgram (Referral Program): [`0x2A0c343087c6cFB721fFa20608A6eD0473C71275`](https://goerli.etherscan.io/address/0x2A0c343087c6cFB721fFa20608A6eD0473C71275)
 - TopUpRewardPrograms (Referral Program): [`0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee`](https://goerli.etherscan.io/address/0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee)
 
-## Görli+Pyrmont testnet
-
-### Core Protocol
-
-- Lido DAO: [`0xE9c991d2c9Ac29b041C8D05484C2104bD00CFF4b`](https://goerli.etherscan.io/address/0xE9c991d2c9Ac29b041C8D05484C2104bD00CFF4b) (proxy)
-- LDO token: [`0xF837FBd803Ad6EdA0a89c5acF8785034F5aB33f2`](https://goerli.etherscan.io/address/0xF837FBd803Ad6EdA0a89c5acF8785034F5aB33f2)
-- stETH token: [`0xA0cA1c13721BAB3371E0609FFBdB6A6B8e155CC0`](https://goerli.etherscan.io/address/0xA0cA1c13721BAB3371E0609FFBdB6A6B8e155CC0) (proxy)
-- Lido and stETH token: [`0xA5d26F68130c989ef3e063c9bdE33BC50a86629D`](https://goerli.etherscan.io/address/0xA5d26F68130c989ef3e063c9bdE33BC50a86629D) (proxy)
-- Node Operators registry: [`0xB1e7Fb9E9A71063ab552dDEE87Ea8C6eEc7F5c7A`](https://goerli.etherscan.io/address/0xB1e7Fb9E9A71063ab552dDEE87Ea8C6eEc7F5c7A) (proxy)
-- Oracle: [`0x8aA931352fEdC2A5a5b3E20ed3A546414E40D86C`](https://goerli.etherscan.io/address/0x8aA931352fEdC2A5a5b3E20ed3A546414E40D86C) (proxy)
-- Aragon Voting: [`0xA54DBf1B494113fBDA2E593419eE7241EfE8B766`](https://goerli.etherscan.io/address/0xA54DBf1B494113fBDA2E593419eE7241EfE8B766) (proxy)
-- Aragon Token Manager: [`0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244`](https://goerli.etherscan.io/address/0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244) (proxy)
-- Aragon Finance: [`0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4`](https://goerli.etherscan.io/address/0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4) (proxy)
-- Aragon Agent: [`0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9`](https://goerli.etherscan.io/address/0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9) (proxy)
-- stETH/ETH Merkle Price Oracle (StableSwapOracle) [`0x9A066bD669e2795fe2B936FA959FD414eBB004E9`](https://goerli.etherscan.io/address/0x9A066bD669e2795fe2B936FA959FD414eBB004E9)
-
-### Reward Programs
-
-- Curve Liquidity Farming:
-
-  - Pool Contract: [`0x12edd9e2073E480cc546e1E0aD7F1c9D60c0cA1E`](https://goerli.etherscan.io/address/0x12edd9e2073E480cc546e1E0aD7F1c9D60c0cA1E)
-
 ## Protocol mocks
 
 - Lido and stETH token: [0x2DD6530F136D2B56330792D46aF959D9EA62E276](https://goerli.etherscan.io/address/0x2DD6530F136D2B56330792D46aF959D9EA62E276)
