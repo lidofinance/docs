@@ -10,7 +10,7 @@ We've published a short replit from the script parts we're using for preparing t
     3. The script will start installing dependencies — this takes couple minutes.
 2. Get the evm script from the vote.![](https://user-images.githubusercontent.com/4445523/149335811-1332324b-b1ba-4e4a-af2e-9c79c347ff43.jpeg)
 
-    1. Open voting contract on etherscan https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract (can check the voting contract address at https://docs.lido.fi/deployed-contracts#dao-contracts).
+    1. Open voting contract on etherscan https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract (can check the voting contract address in [Deployed contracts](/deployed-contracts#dao-contracts).
     2. Check the `getVote` method (sixth in the list): enter the vote in question, push `query`.
     3. Copy the `script` text (long string starting with 0x).
 3. Check the script

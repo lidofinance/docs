@@ -1,10 +1,7 @@
-# Deployed Contracts
 
-<!-- Necessary comment to make work below header tag -->
+# Mainnet
 
-## Mainnet
-
-### Core Protocol
+## Core Protocol
 
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
@@ -17,7 +14,7 @@
 - SelfOwnedStETHBurner: [`0xB280E33812c0B09353180e92e27b8AD399B07f26`](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 
-### DAO Contracts
+## DAO Contracts
 
 - Lido DAO: [`0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc`](https://etherscan.io/address/0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc) (proxy)
 - LDO token: [`0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32)
@@ -32,7 +29,7 @@
 - Node Operators Registry Repo: [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 
-### Liquidity pools
+## Liquidity pools
 
 - Curve [stETH/ETH](https://curve.fi/steth) pool: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
 - Curve concentrated [stETH/wETH](https://curve.fi/factory/117) pool:
@@ -44,7 +41,7 @@
 - 1inch stETH/DAI pool: [`0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431`](https://etherscan.io/address/0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431)
 - Sushi wstETH/DAI pool: [`0xc5578194D457dcce3f272538D1ad52c68d1CE849`](https://etherscan.io/address/0xc5578194D457dcce3f272538D1ad52c68d1CE849)
 
-### Price feeds
+## Price feeds
 
 - Primary price feeds
   - Chainlink stETH/USD Price Feed: [`0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8`](https://etherscan.io/address/0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8) ([steth-usd.data.eth](https://app.ens.domains/name/steth-usd.data.eth))
@@ -54,7 +51,7 @@
   - stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
   - stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
 
-### Reward Programs
+## Reward Programs
 
 - Early Stakers Airdrop: [`0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B`](https://etherscan.io/address/0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B)
 
@@ -93,7 +90,7 @@
 
   - Manager Contract: [`0xf5436129cf9d8fa2a1cb6e591347155276550635`](https://etherscan.io/address/0xf5436129cf9d8fa2a1cb6e591347155276550635)
 
-### Anchor Integration (stETH as a collateral on Anchor protocol)
+## Anchor Integration (stETH as a collateral on Anchor protocol)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
 - AnchorVault: [`0x07BE9BB2B1789b8F5B2f9345F18378A8B036A171`](https://etherscan.io/address/0x07BE9BB2B1789b8F5B2f9345F18378A8B036A171) (impl)
@@ -102,7 +99,7 @@
 - RewardsLiquidator: [`0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7`](https://etherscan.io/address/0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7)
 - InsuranceConnector: [`0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701`](https://etherscan.io/address/0x2BDfD3De0fF23373B621CDAD0aD3dF1580efE701)
 
-### AAVE Integration
+## AAVE Integration
 
 - AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
@@ -112,7 +109,7 @@
 - VariableDebtStETH: [`0xDe2c414b671d2DB93617D1592f0490c13674de24`](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24) (impl)
 - DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
 
-### DAO-ops contracts & addresses
+## DAO-ops contracts & addresses
 
 - Treasury Diversification: [2021 May round](https://research.lido.fi/t/proposal-ldo-treasury-diversification/458) [`0x489F04EEff0ba8441D42736549A1f1d6ccA74775`](https://etherscan.io/address/0x489F04EEff0ba8441D42736549A1f1d6ccA74775) & [2021 October run](https://research.lido.fi/t/lido-treasury-diversification-part-3/1059/1) [`0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33`](https://etherscan.io/address/0x689E03565e36B034EcCf12d182c3DC38b2Bb7D33).
 - Treasury Diversification Part 2: [2022 Aug round](https://research.lido.fi/t/treasury-diversification-2-part-2/2657) [`0xA9b2F5ce3aAE7374a62313473a74C98baa7fa70E`](https://etherscan.io/address/0xA9b2F5ce3aAE7374a62313473a74C98baa7fa70E).
@@ -120,7 +117,7 @@
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 - Jumpgate for [Solana Referral Program](https://solscan.io/address/7KN9sjxsStxsTTPXZBZk6z1cdXfVkyvq1ihAVh94gXcP): [`0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8`](https://etherscan.io/address/0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8).
 
-### Easy Track
+## Easy Track
 
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
@@ -154,30 +151,30 @@
   - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
-### Lido DAO Multisigs
+## Lido DAO Multisigs
 
-#### Lido Contributors Group Multisigs
+### Lido Contributors Group Multisigs
 - Pool Maintenance Labs Ltd. (PML): [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://etherscan.io/address/0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
 - Argo Technology Consulting Ltd. (ATC): [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://etherscan.io/address/0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
 - Resourcing and Compensation Committee (RCC): [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
 
-#### Committees
+### Committees
 
 - reWARDS Committee: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Referral Program Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 
-#### Dev Team Multisigs
+### Dev Team Multisigs
 - Lido Dev team: [`0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0`](https://etherscan.io/address/0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0)
 - Depositor bot gas funding: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
-#### Emergency Brakes Multisigs
+### Emergency Brakes Multisigs
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 
-#### reWARDS Multisigs
+### reWARDS Multisigs
 - reWARDS Committee: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Ethereum)
 - reWARDS Committee: [`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://gnosis-safe.io/app/oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd/home) (Optimism)
 - reWARDS Committee: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://gnosis-safe.io/app/arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16/home) (Arbitrum)
@@ -186,20 +183,20 @@
 - reWARDS Committee: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
 - Solana DAO [`H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2`](https://app.realms.today/dao/3WZ9nP9KT7KSdfjL9acovwdmTMFmW5of946Sxt2LwnaY) (Solana)
 
-#### Legacy addresses
+### Legacy addresses
 - Finance Ops (legacy): [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops (legacy): [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 
-### Lido on L2
+## Lido on L2
 
-#### Arbitrum
+### Arbitrum
 
-###### Ethereum part
+##### Ethereum part
 
 - L1ERC20TokenGateway: [`0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a`](https://etherscan.io/address/0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a) (proxy)
 - L1ERC20TokenGateway: [`0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C`](https://etherscan.io/address/0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C) (impl)
 
-###### Arbitrum part
+##### Arbitrum part
 
 - WstETH ERC20Bridged: [`0x5979D7b546E38E414F7E9822514be443A4800529`](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529) (proxy)
 - WstETH ERC20Bridged: [`0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921`](https://arbiscan.io/address/0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921) (impl)
@@ -208,14 +205,14 @@
 - Arbitrum Governance Bridge Executor: [`0x1dcA41859Cd23b526CBe74dA8F48aC96e14B1A29`](https://arbiscan.io/address/0x1dca41859cd23b526cbe74da8f48ac96e14b1a29)
 - LDO token: [`0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60`](https://arbiscan.io/address/0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60) (proxy)
 
-#### Optimism
+### Optimism
 
-##### Ethereum part
+#### Ethereum part
 
 - L1ERC20TokenBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1ERC20TokenBridge: [`0x29C5c51A031165CE62F964966A6399b81165EFA4`](https://etherscan.io/address/0x29C5c51A031165CE62F964966A6399b81165EFA4) (impl)
 
-##### Optimism part
+#### Optimism part
 
 - WstETH ERC20Bridged: [`0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb`](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb) (proxy)
 - WstETH ERC20Bridged: [`0x92834c37dF982A13bb0f8C3F6608E26F0546538e`](https://optimistic.etherscan.io/address/0x92834c37dF982A13bb0f8C3F6608E26F0546538e) (impl)
@@ -224,7 +221,7 @@
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - LDO token: [`0xFdb794692724153d1488CcdBE0C56c252596735F`](https://optimistic.etherscan.io/address/0xFdb794692724153d1488CcdBE0C56c252596735F)
 
-#### L2 Liquidity pools
+### L2 Liquidity pools
 
 Balancer
 
@@ -242,122 +239,3 @@ Kyber Network
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40) on Arbitrum: [`0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`](https://arbiscan.io/address/0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494)
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
-
-## Görli+Prater testnet
-
-### Core Protocol
-
-- Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
-- wstETH token: [`0x6320cd32aa674d2898a68ec82e869385fc5f7e2f`](https://goerli.etherscan.io/address/0x6320cd32aa674d2898a68ec82e869385fc5f7e2f)
-- Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
-- Oracle: [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
-- Deposit Security module: [`0x7DC1C1ff64078f73C98338e2f17D1996ffBb2eDe`](https://goerli.etherscan.io/address/0x7DC1C1ff64078f73C98338e2f17D1996ffBb2eDe)
-- Execution Layer Rewards Vault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
-- stETH/ETH Merkle Price Oracle (StableSwapOracle): [`0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a`](https://goerli.etherscan.io/address/0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a)
-- CompositePostRebaseReportReceiver: [`0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f`](https://goerli.etherscan.io/address/0x5d2113f7691ac6Df5E3f41Fb938429ACEAD2C94f)
-- SelfOwnedStETHBurner: [`0x6432756feF0fb527C06eFd4689A7CE0E195bD327`](https://goerli.etherscan.io/address/0x6432756feF0fb527C06eFd4689A7CE0E195bD327)
-- MEV Boost Relay Allowed List: [`0xeabE95AC5f3D64aE16AcBB668Ed0efcd81B721Bc`](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
-
-### DAO contracts
-
-- Lido DAO: [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
-- LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
-- Aragon Voting: [`0xbc0B67b4553f4CF52a913DE9A6eD0057E2E758Db`](https://goerli.etherscan.io/address/0xbc0B67b4553f4CF52a913DE9A6eD0057E2E758Db) (proxy)
-- Aragon Token Manager: [`0xDfe76d11b365f5e0023343A367f0b311701B3bc1`](https://goerli.etherscan.io/address/0xDfe76d11b365f5e0023343A367f0b311701B3bc1) (proxy)
-- Aragon Finance: [`0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179`](https://goerli.etherscan.io/address/0x75c7b1D23f1cad7Fb4D60281d7069E46440BC179) (proxy)
-- Aragon Agent: [`0x4333218072D5d7008546737786663c38B4D561A4`](https://goerli.etherscan.io/address/0x4333218072D5d7008546737786663c38B4D561A4) (proxy)
-- Aragon ACL: [`0xb3CF58412a00282934D3C3E73F49347567516E98`](https://goerli.etherscan.io/address/0xb3CF58412a00282934D3C3E73F49347567516E98)
-- Voting Repo: [`0x14de4f901cE0B81F4EfcA594ad7b70935C276806`](https://goerli.etherscan.io/address/0x14de4f901cE0B81F4EfcA594ad7b70935C276806)
-- Lido App Repo: [`0xE9eDe497d2417fd980D8B5338232666641B9B9aC`](https://goerli.etherscan.io/address/0xE9eDe497d2417fd980D8B5338232666641B9B9aC)
-- Lido Oracle Repo: [`0x9234e37Adeb44022A078557D9943b72AB89bF36a`](https://goerli.etherscan.io/address/0x9234e37Adeb44022A078557D9943b72AB89bF36a)
-- Node Operators Registry Repo: [`0x5F867429616b380f1Ca7a7283Ff18C53a0033073`](https://goerli.etherscan.io/address/0x5F867429616b380f1Ca7a7283Ff18C53a0033073)
-- Insurance Fund: [`0x2FAe4D2D86Efb17249F24C9fb70855d4c58585A5`](https://goerli.etherscan.io/address/0x2FAe4D2D86Efb17249F24C9fb70855d4c58585A5)
-
-### Reward Programs
-
-- Curve Liquidity Farming:
-
-  - Pool Contract: [`0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA`](https://goerli.etherscan.io/address/0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA)
-
-### Easy Track
-
-- EasyTrack: [`0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af`](https://goerli.etherscan.io/address/0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af)
-- EVMScriptExecutor: [`0x3c9AcA237b838c59612d79198685e7f20C7fE783`](https://goerli.etherscan.io/address/0x3c9AcA237b838c59612d79198685e7f20C7fE783)
-- IncreaseNodeOperatorStakingLimit: [`0xE033673D83a8a60500BcE02aBd9007ffAB587714`](https://goerli.etherscan.io/address/0xE033673D83a8a60500BcE02aBd9007ffAB587714)
-- TopUpLegoProgram: [`0xb2bcf211F103d7F13789394DD475c2274e044C4C`](https://goerli.etherscan.io/address/0xb2bcf211F103d7F13789394DD475c2274e044C4C)
-- RewardProgramsRegistry: [`0x28a08f61AE129d0d8BD4380Ae5647e7Add0527ca`](https://goerli.etherscan.io/address/0x28a08f61AE129d0d8BD4380Ae5647e7Add0527ca)
-- AddRewardProgram: [`0x5560d40b00EA3a64E9431f97B3c79b04e0cdF6F2`](https://goerli.etherscan.io/address/0x5560d40b00EA3a64E9431f97B3c79b04e0cdF6F2)
-- RemoveRewardProgram: [`0x31B68d81125E52fE1aDfe4076F8945D1014753b5`](https://goerli.etherscan.io/address/0x31B68d81125E52fE1aDfe4076F8945D1014753b5)
-- TopUpRewardPrograms: [`0x8180949ac41EF18e844ff8dafE604a195d86Aea9`](https://goerli.etherscan.io/address/0x8180949ac41EF18e844ff8dafE604a195d86Aea9)
-- RewardProgramsRegistry (Referral Program): [`0x4CB0c9987fd670069e4b24c653981E86b261A2ca`](https://goerli.etherscan.io/address/0x4CB0c9987fd670069e4b24c653981E86b261A2ca)
-- AddRewardProgram (Referral Program): [`0xe54ca3e867C52a34d262E94606C7A9371AB820c9`](https://goerli.etherscan.io/address/0xe54ca3e867C52a34d262E94606C7A9371AB820c9)
-- RemoveRewardProgram (Referral Program): [`0x2A0c343087c6cFB721fFa20608A6eD0473C71275`](https://goerli.etherscan.io/address/0x2A0c343087c6cFB721fFa20608A6eD0473C71275)
-- TopUpRewardPrograms (Referral Program): [`0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee`](https://goerli.etherscan.io/address/0xB1E898faC74c377bEF16712Ba1CD4738606c19Ee)
-
-## Görli+Pyrmont testnet
-
-### Core Protocol
-
-- Lido DAO: [`0xE9c991d2c9Ac29b041C8D05484C2104bD00CFF4b`](https://goerli.etherscan.io/address/0xE9c991d2c9Ac29b041C8D05484C2104bD00CFF4b) (proxy)
-- LDO token: [`0xF837FBd803Ad6EdA0a89c5acF8785034F5aB33f2`](https://goerli.etherscan.io/address/0xF837FBd803Ad6EdA0a89c5acF8785034F5aB33f2)
-- stETH token: [`0xA0cA1c13721BAB3371E0609FFBdB6A6B8e155CC0`](https://goerli.etherscan.io/address/0xA0cA1c13721BAB3371E0609FFBdB6A6B8e155CC0) (proxy)
-- Lido and stETH token: [`0xA5d26F68130c989ef3e063c9bdE33BC50a86629D`](https://goerli.etherscan.io/address/0xA5d26F68130c989ef3e063c9bdE33BC50a86629D) (proxy)
-- Node Operators registry: [`0xB1e7Fb9E9A71063ab552dDEE87Ea8C6eEc7F5c7A`](https://goerli.etherscan.io/address/0xB1e7Fb9E9A71063ab552dDEE87Ea8C6eEc7F5c7A) (proxy)
-- Oracle: [`0x8aA931352fEdC2A5a5b3E20ed3A546414E40D86C`](https://goerli.etherscan.io/address/0x8aA931352fEdC2A5a5b3E20ed3A546414E40D86C) (proxy)
-- Aragon Voting: [`0xA54DBf1B494113fBDA2E593419eE7241EfE8B766`](https://goerli.etherscan.io/address/0xA54DBf1B494113fBDA2E593419eE7241EfE8B766) (proxy)
-- Aragon Token Manager: [`0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244`](https://goerli.etherscan.io/address/0xB90D5df4aBDf5F69a00088d43E4A0Fa8A8b44244) (proxy)
-- Aragon Finance: [`0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4`](https://goerli.etherscan.io/address/0xfBfa38921d745FD7bE9fa657FFbcDFecC4Ab7Cd4) (proxy)
-- Aragon Agent: [`0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9`](https://goerli.etherscan.io/address/0xd616af91a0C3fE5AEeA0c1FaEfC2d73AcA82F0c9) (proxy)
-- stETH/ETH Merkle Price Oracle (StableSwapOracle) [`0x9A066bD669e2795fe2B936FA959FD414eBB004E9`](https://goerli.etherscan.io/address/0x9A066bD669e2795fe2B936FA959FD414eBB004E9)
-
-### Reward Programs
-
-- Curve Liquidity Farming:
-
-  - Pool Contract: [`0x12edd9e2073E480cc546e1E0aD7F1c9D60c0cA1E`](https://goerli.etherscan.io/address/0x12edd9e2073E480cc546e1E0aD7F1c9D60c0cA1E)
-
-## Protocol Mocks
-
-### Rinkeby
-
-- Lido and stETH token: [`0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD`](https://rinkeby.etherscan.io/address/0xF4242f9d78DB7218Ad72Ee3aE14469DBDE8731eD)
-- wstETH token: [`0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7`](https://rinkeby.etherscan.io/address/0xb770Ea0F1762D73c8719B52eF981f7F1D824d9a7)
-- Node Operators registry: [`0x776dFe7Ec5D74526Aa65898B7d77FCfdf15ffBe6`](https://rinkeby.etherscan.io/address/0x776dfe7ec5d74526aa65898b7d77fcfdf15ffbe6)
-- DepositContractMock: [`0xd1aC373a6fCAB20476957B14a18178615594Debe`](https://rinkeby.etherscan.io/address/0xd1ac373a6fcab20476957b14a18178615594debe)
-
-### Easy Track
-
-- EasyTrack: [`0x661090cB830757B2D0Cd53C49Bf0d17a28992e5d`](https://rinkeby.etherscan.io/address/0x661090cB830757B2D0Cd53C49Bf0d17a28992e5d)
-- EVMScriptExecutor: [`0x2667c7e8731d7314E7c492700Ad440f7C3724184`](https://rinkeby.etherscan.io/address/0x2667c7e8731d7314E7c492700Ad440f7C3724184)
-- IncreaseNodeOperatorStakingLimit: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://rinkeby.etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
-- TopUpLegoProgram: [`0xdA53fF207966b3946facaC52dD22B130D507d276`](https://rinkeby.etherscan.io/address/0xdA53fF207966b3946facaC52dD22B130D507d276)
-- RewardProgramsRegistry: [`0x648C8Be548F43eca4e482C0801Ebccccfb944931`](https://rinkeby.etherscan.io/address/0x648C8Be548F43eca4e482C0801Ebccccfb944931)
-- AddRewardProgram: [`0x3129C041B372eE93a5A8756dc4EC6f154D85Bc9a`](https://rinkeby.etherscan.io/address/0x3129C041B372eE93a5A8756dc4EC6f154D85Bc9a)
-- RemoveRewardProgram: [`0xc21e5e72Ffc223f02fC410aAedE3084a63963932`](https://rinkeby.etherscan.io/address/0xc21e5e72Ffc223f02fC410aAedE3084a63963932)
-- TopUpRewardPrograms: [`0xbb0f594143208eCd04DC7AAe48955902A716F9F7`](https://rinkeby.etherscan.io/address/0xbb0f594143208eCd04DC7AAe48955902A716F9F7)
-- NodeOperatorsRegistry (stub): [`0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c`](https://rinkeby.etherscan.io/address/0x7899ef901ed9b331baf7759c15d2e8728e8c2a2c)
-- Finance (stub): [`0x72cd2b30020fb28de0dfa64d930a183eb732cf46`](https://rinkeby.etherscan.io/address/0x72cd2b30020fb28de0dfa64d930a183eb732cf46)
-
-### Goerli
-
-- Lido and stETH token: [0x2DD6530F136D2B56330792D46aF959D9EA62E276](https://goerli.etherscan.io/address/0x2DD6530F136D2B56330792D46aF959D9EA62E276)
-- wstETH token: [0x4942BBAf745f235e525BAff49D31450810EDed5b](https://goerli.etherscan.io/address/0x4942BBAf745f235e525BAff49D31450810EDed5b)
-- Node Operators registry: [0x993a1A1745ea09fAbf8dA7EFCD57CD46c889f8B9](https://goerli.etherscan.io/address/0x993a1A1745ea09fAbf8dA7EFCD57CD46c889f8B9)
-- DepositContractMock: [0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F](https://goerli.etherscan.io/address/0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F)
-
-### Kovan
-
-- Lido: [0x4b7FCBC11BB45075b9A1F953128C09bC97D6a0D7](https://kovan.etherscan.io/address/0x4b7FCBC11BB45075b9A1F953128C09bC97D6a0D7)
-- WstETH: [0xa88751C0a08623E11ff38c6B70F2BbEe7865C17c](https://kovan.etherscan.io/address/0xa88751C0a08623E11ff38c6B70F2BbEe7865C17c)
-- DepositContractMock: [0x83D592bfd9FEF834ab2C49bDCfD60D2DB48b1CF7](https://kovan.etherscan.io/address/0x83D592bfd9FEF834ab2C49bDCfD60D2DB48b1CF7)
-- NodeOperatorsRegistry: [0x292E6CF3861fBf010054ae3Bf43959105BE90000](https://kovan.etherscan.io/address/0x292E6CF3861fBf010054ae3Bf43959105BE90000)
-
-### Ropsten
-
-- Lido: [0xd40EefCFaB888C9159a61221def03bF77773FC19](https://ropsten.etherscan.io/address/0xd40EefCFaB888C9159a61221def03bF77773FC19)
-- bETH: [0xA60100d5e12E9F83c1B04997314cf11685A618fF](https://ropsten.etherscan.io/address/0xA60100d5e12E9F83c1B04997314cf11685A618fF)
-- RopstenRewardsLiquidator: [0x81c73492380eC87B464b2E53f7e7f9dD30c7ded9](https://ropsten.etherscan.io/address/0x81c73492380eC87B464b2E53f7e7f9dD30c7ded9)
-- AnchorVault: [0x382B995932683452C4103d4CB284aDDA38d9903d](https://ropsten.etherscan.io/address/0x382B995932683452C4103d4CB284aDDA38d9903d)
-- AnchorVaultProxy: [0xD7fE7881cD50fc155Bc310224352A812214e1E50](https://ropsten.etherscan.io/address/0xD7fE7881cD50fc155Bc310224352A812214e1E50)
-- InsuranceConnector: [0x070422e03e0070286cc80df71854b405f5dfd49f](https://ropsten.etherscan.io/address/0x070422e03e0070286cc80df71854b405f5dfd49f)
-- BridgeConnectorWormhole: [0x3e6586e144cD0DcE44C8FDc7d28CC8cf656f3b36](https://ropsten.etherscan.io/address/0x3e6586e144cD0DcE44C8FDc7d28CC8cf656f3b36)

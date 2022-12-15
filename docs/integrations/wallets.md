@@ -115,6 +115,6 @@ In case you wish to track on-chain submits, you need to subscribe to the followi
 
 
 
-See [Deployed Contracts](/deployed-contracts) for Lido addresses on Mainnet and testnets.
+See [Deployed Contracts](/deployed-contracts) for Lido addresses on Mainnet.
 
 For token integrations, see [stETH/wstETH integration guide](/guides/steth-integration-guide).
