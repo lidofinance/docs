@@ -90,6 +90,14 @@
 
   - Manager Contract: [`0xf5436129cf9d8fa2a1cb6e591347155276550635`](https://etherscan.io/address/0xf5436129cf9d8fa2a1cb6e591347155276550635)
 
+- Optimism Curve rewards manager:
+
+  - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
+
+- Arbitrum Curve rewards manager:
+
+  - Manager Contract: [`0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC`](https://arbiscan.io/address/0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC)
+
 ## Anchor Integration (stETH as a collateral on Anchor protocol)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
