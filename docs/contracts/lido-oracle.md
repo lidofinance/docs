@@ -11,7 +11,9 @@ Oracle daemons push their reports every frame (225 epochs currently, equal to on
 number of the same reports reaches the ['quorum'](#getquorum) value, the report is pushed to the
 [Lido contract][6].
 
-> However, daily oracle reports shouldn't be taken for granted. Oracle daemons could stop pushing their reports for extended periods of time in case of no finality on the Consensus Layer. This would ultimately result in no oracle reports and no stETH rebases for this whole period.
+:::note
+However, daily oracle reports shouldn't be taken for granted. Oracle daemons could stop pushing their reports for extended periods of time in case of no [finality](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#finality) on Beacon Chain. This would ultimately result in no oracle reports and no stETH rebases for this whole period.
+:::
 
 The following mechanisms are also worth mentioning.
 
