@@ -171,6 +171,7 @@
 - reWARDS Committee: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Referral Program Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
+- Relay Maintenance Committee: [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://etherscan.io/address/0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
 
 ### Dev Team Multisigs
 - Lido Dev team: [`0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0`](https://etherscan.io/address/0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0)
