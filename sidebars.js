@@ -58,7 +58,8 @@ module.exports = {
         'contracts/self-owned-steth-burner',
         'contracts/composite-post-rebase-beacon-receiver',
         'contracts/lido-execution-layer-rewards-vault',
-        'contracts/mev-boost-relays-allowed-list'
+        'contracts/mev-boost-relays-allowed-list',
+        'contracts/trp-vesting-escrow'
       ],
     },
     {
