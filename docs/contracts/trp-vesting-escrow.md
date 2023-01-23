@@ -15,6 +15,35 @@
 
 ## VestingEscrowFactory
 
+### Public variables
+
+- `voting_adapter: address` - address of the VotingAdapter used in the vestings
+- `owner: address` - factory and vestings owner
+- `manager: address` - vestings manager
+
+### View methods
+
+#### target()
+
+Returns immutable `TARGET`
+
+```vyper
+@external
+@view
+def target() -> uint256
+```
+
+#### token()
+
+Returns immutable `TOKEN`
+
+```vyper
+@external
+@view
+def token() -> uint256
+```
+
+
 ### Methods
 
 #### deploy_vesting_contract()
@@ -163,6 +192,21 @@ Reverts if:
 :::
 
 ## VestingEscrow
+
+### Public variables
+
+- `recipient: address` - address that can claim tokens from escrow
+- `token: ERC20` - address of the vested token
+- `start_time: uint256` - vesting start time (UTC time in UNIX seconds)
+- `end_time: uint256` - vesting end time (UTC time in UNIX seconds)
+- `cliff_length: uint256` - cliff length in seconds
+- `factory: IVestingEscrowFactory` - address of the parent factory
+- `total_locked: uint256` - total amount of the tokens to be vested (does not change after claims)
+- `is_fully_revokable: bool` - flag showing if the escrow is fully revocable or not
+- `total_claimed: uint256` - total amount of the claimed tokens
+- `disabled_at: uint256` - effective vesting end time (UTC time in UNIX seconds). Can differ from end_time in case of the revoke_xxx methods call
+- `initialized: bool` - flag indicating that escrow was initialized
+- `is_fully_revoked: bool` - flag indicating that escrow was fully revoked and there are no more tokens
 
 ### View methods
 
@@ -356,6 +400,10 @@ Reverts if:
 :::
 
 ## VotingAdapter
+
+### Public variables
+
+- `owner: address` - votingAdapter owner
 
 ### View methods
 
