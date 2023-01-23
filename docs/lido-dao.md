@@ -29,7 +29,7 @@ The `LDO` token governs all Lido DAO governance and network decisions to ensure 
 
 > 📝 For more detailed information about governance, please, check out [governance](https://lido.fi/governance) page. 
 
-To have a vote in the Lido DAO, and to contribute to the determination of any of the topics outlined above, one must hold the `LDO` governance token. Holding `LDO` gives DAO members a vote in the future of Lido, allowing each DAO member to have a personal say in the community. `LDO` voting weight is proportional to the amount of `LDO` a voter stakes in the voting contract. The more LDO in a user’s voting contract, the greater the decision-making power the voter gets. The exact mechanism of `LDO` voting can be upgraded just like the other DAO applications.
+To have a vote in the Lido DAO, and to contribute to the determination of any of the topics outlined above, one must hold the `LDO` governance token. Holding `LDO` gives DAO members a vote in the future of Lido, allowing each DAO member to have a personal say in the community. `LDO` voting weight is proportional to the amount of `LDO` a voter holds. The more LDO on a user’s address, the greater the decision-making power the voter gets. The exact mechanism of `LDO` voting can be upgraded just like the other DAO applications.
 
 > 📝 If you have any initiatives you think will benefit the Lido protocol, share your thoughts in our [governance forum](https://research.lido.fi).
 
