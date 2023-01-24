@@ -2,13 +2,13 @@
 
 - [Source Code](https://github.com/lidofinance/lido-vesting-escrow/tree/main/contracts)
 - Deployed Contracts (mainnet)
-    - [VestingEscrowFactory](1)
-    - [VestingEscrowProto](1)
-    - [VotingAdapter](1)
+    - [VestingEscrowFactory](https://tbd)
+    - [VestingEscrowProto](https://tbd)
+    - [VotingAdapter](https://tbd)
 - Deployed Contracts (goerli+prater)
-    - [VestingEscrowFactory](1)
-    - [VestingEscrowProto](1)
-    - [VotingAdapter](1)
+    - [VestingEscrowFactory](https://goerli.etherscan.io/address/0xea79bb777c8d64cce30e04e00656c0212b787555)
+    - [VestingEscrowProto](https://goerli.etherscan.io/address/0x9111973d6399d8287d9f00b09b5dc63371c0a7ce)
+    - [VotingAdapter](https://goerli.etherscan.io/address/0x1598744cceae470039b7488ad07e08a0046e7594)
 - [Detailed contracts spec](https://hackmd.io/FZEW9MM7QwmUehFtKDmqnw)
 
 [Token Reward Program (TRP)](https://research.lido.fi/t/lidodao-token-rewards-plan-trp/3364) escrow contracts allow transparent on-chain distribution and vesting of the token rewards for the Lido DAO contributors.
