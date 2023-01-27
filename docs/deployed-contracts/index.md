@@ -51,6 +51,10 @@
   - stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
   - stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
 
+- L2 wstETH/stETH rate feeds
+  - Chainlink wstETH/stETH exchange rate on Arbitrum: [`0xB1552C5e96B312d0Bf8b554186F846C40614a540`](https://arbiscan.io/address/0xb1552c5e96b312d0bf8b554186f846c40614a540) (proxy)
+  - Chainlink wstETH/stETH exchange rate on Optimism: [`0xe59EBa0D492cA53C6f46015EEa00517F2707dc77`](https://optimistic.etherscan.io/address/0xe59eba0d492ca53c6f46015eea00517f2707dc77) (proxy)
+
 ## Reward Programs
 
 - Early Stakers Airdrop: [`0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B`](https://etherscan.io/address/0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B)
@@ -90,13 +94,13 @@
 
   - Manager Contract: [`0xf5436129cf9d8fa2a1cb6e591347155276550635`](https://etherscan.io/address/0xf5436129cf9d8fa2a1cb6e591347155276550635)
 
-- Optimism Curve rewards manager:
-
-  - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
-
 - Arbitrum Curve rewards manager:
 
   - Manager Contract: [`0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC`](https://arbiscan.io/address/0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC)
+
+- Optimism Curve rewards manager:
+
+  - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
 
 ## Anchor Integration (stETH as a collateral on Anchor protocol)
 
