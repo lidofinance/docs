@@ -147,6 +147,14 @@ When unwrapping, wstETH gets burnt and the corresponding amount of stETH gets un
 
 Thus, amount of stETH unlocked when unwrapping is different from what has been initially wrapped (given a rebase happened between wrapping and unwrapping stETH).
 
+### Goerli wstETH for testing
+
+The most recent testnet version of the Lido protocol lives on Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account.
+
+### wstETH on L2s
+
+Currently, wstETH token is present on Arbitrum and Optimism with bridging implemented via the canonical bridges. Unlike on Ethereum mainnet, wstETH on L2s is a plain ERC20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network. The token does not implement shares bookkeeping, which means it is not possible to calculate the wstETH/stETH rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose. 
+
 ## ERC20Permit
 
 wstETH token implements the ERC20 Permit extension allowing approvals to be made via signatures, as defined in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612).
@@ -157,9 +165,8 @@ By not relying on `approve` method, you can build interfaces that will approve a
 NB: stETH token itself does not support the ERC20 Permit extension and it's not possible to approve and wrap stETH in one tx at this time.
 
 ## Staking rate limits
-
-As there’s a high probability of the staking surge post-Merge, the Lido protocol implemented staking rate limits aimed at reducing the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
-there is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
+In order to handle the staking surge in case of some unforeseen market conditions, the Lido protocol implemented staking rate limits aimed at reducing the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
+There is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
 
 You can picture this as a health globe from Diablo 2 with a maximum of `_maxStakingLimit` and regenerating with a constant speed  per block.
 When you deposit ether to the protocol, the level of health is reduced by its amount and the current limit becomes smaller and smaller.
