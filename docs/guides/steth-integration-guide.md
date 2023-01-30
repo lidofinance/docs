@@ -149,7 +149,7 @@ Thus, amount of stETH unlocked when unwrapping is different from what has been i
 
 ### Goerli wstETH for testing
 
-The most recent testnet version of the Lido protocol lives on Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account.
+The most recent testnet version of the Lido protocol lives on Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Goerli Ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Goerli Ether to WstETH contract on Goerli, and the corresponding amount of wstETH will be minted to your account.
 
 ### wstETH on L2s
 
