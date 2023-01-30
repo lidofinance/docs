@@ -158,6 +158,10 @@
 - TopUpAllowedRecipients (ATC DAI): [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
 - *Proposed* AllowedRecipientsRegistry (Gas Funder ETH): [`0xCf46c4c7f936dF6aE12091ADB9897E3F2363f16F`](https://etherscan.io/address/0xCf46c4c7f936dF6aE12091ADB9897E3F2363f16F)
 - *Proposed* TopUpAllowedRecipients (Gas Funder ETH): [`0x41F9daC5F89092dD6061E59578A2611849317dc8`](https://etherscan.io/address/0x41F9daC5F89092dD6061E59578A2611849317dc8)
+- *Proposed* AllowedRecipientsRegistry (Referral Program DAI): [`0xa295C212B44a48D07746d70d32Aa6Ca9b09Fb846`](https://etherscan.io/address/0xa295C212B44a48D07746d70d32Aa6Ca9b09Fb846)
+- *Proposed* AddAllowedRecipient (Referral Program DAI): [`0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151`](https://etherscan.io/address/0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151)
+- *Proposed* RemoveAllowedRecipient (Referral Program DAI): [`0xd8f9B72Cd97388f23814ECF429cd18815F6352c1`](https://etherscan.io/address/0xd8f9B72Cd97388f23814ECF429cd18815F6352c1)
+- *Proposed* TopUpAllowedRecipients (Referral Program DAI): [`0x009ffa22ce4388d2F5De128Ca8E6fD229A312450`](https://etherscan.io/address/0x009ffa22ce4388d2F5De128Ca8E6fD229A312450)
 - Tooling contracts:
   - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
   - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
