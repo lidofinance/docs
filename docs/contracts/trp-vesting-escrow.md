@@ -2,9 +2,9 @@
 
 - [Source Code](https://github.com/lidofinance/lido-vesting-escrow/tree/main/contracts)
 - Deployed Contracts (mainnet)
-    - [VestingEscrowFactory](https://tbd)
-    - [VestingEscrowProto](https://tbd)
-    - [VotingAdapter](https://tbd)
+    - [VestingEscrowFactory](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
+    - [VestingEscrowProto](https://etherscan.io/address/0x484FD04c598A095360DF89bF85AB34c37127AA39)
+    - [VotingAdapter](https://etherscan.io/address/0xCFda8aB0AE5F4Fa33506F9C51650B890E4871Cc1)
 - Deployed Contracts (goerli+prater)
     - [VestingEscrowFactory](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
     - [VestingEscrowProto](https://goerli.etherscan.io/address/0x7915be0b4BF48b46E594988AcE5553bc0eF7F2E3)
