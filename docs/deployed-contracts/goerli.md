@@ -57,3 +57,6 @@
 - wstETH token: [0x4942BBAf745f235e525BAff49D31450810EDed5b](https://goerli.etherscan.io/address/0x4942BBAf745f235e525BAff49D31450810EDed5b)
 - Node Operators registry: [0x993a1A1745ea09fAbf8dA7EFCD57CD46c889f8B9](https://goerli.etherscan.io/address/0x993a1A1745ea09fAbf8dA7EFCD57CD46c889f8B9)
 - DepositContractMock: [0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F](https://goerli.etherscan.io/address/0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F)
+
+## DAO-ops contracts & addresses
+- TRP VestingEscrowFactory: [`0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7`](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
