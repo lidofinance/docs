@@ -59,4 +59,4 @@
 - DepositContractMock: [0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F](https://goerli.etherscan.io/address/0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F)
 
 ## DAO-ops contracts & addresses
-- TRP [VestingEscrowFactory](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
+- TRP VestingEscrowFactory: [`0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7`](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
