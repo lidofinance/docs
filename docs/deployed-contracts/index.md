@@ -159,6 +159,8 @@
 - AddAllowedRecipient (Referral Program DAI): [`0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151`](https://etherscan.io/address/0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151)
 - RemoveAllowedRecipient (Referral Program DAI): [`0xd8f9B72Cd97388f23814ECF429cd18815F6352c1`](https://etherscan.io/address/0xd8f9B72Cd97388f23814ECF429cd18815F6352c1)
 - TopUpAllowedRecipients (Referral Program DAI): [`0x009ffa22ce4388d2F5De128Ca8E6fD229A312450`](https://etherscan.io/address/0x009ffa22ce4388d2F5De128Ca8E6fD229A312450)
+- *Proposed* AllowedRecipientsRegistry (TRP): [`0x231Ac69A1A37649C6B06a71Ab32DdD92158C80b8`](https://etherscan.io/address/0x231Ac69A1A37649C6B06a71Ab32DdD92158C80b8)
+- *Proposed* TopUpAllowedRecipients (TRP): [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C)
 - Tooling contracts:
   - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
   - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
