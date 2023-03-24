@@ -8,7 +8,7 @@
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
 - wstETH token: [`0x6320cd32aa674d2898a68ec82e869385fc5f7e2f`](https://goerli.etherscan.io/address/0x6320cd32aa674d2898a68ec82e869385fc5f7e2f)
 - EIP-712 helper for stETH: [`0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e`](https://goerli.etherscan.io/address/0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e)
-- StakingRouter: [`0x2fa2Cdd94C11B0e8B50205E1F304e97D9797ae09`](https://goerli.etherscan.io/address/0x2fa2Cdd94C11B0e8B50205E1F304e97D9797ae09) (proxy)
+- StakingRouter: [`0xa3Dbd317E53D363176359E10948BA0b1c0A4c820`](https://goerli.etherscan.io/address/0xa3Dbd317E53D363176359E10948BA0b1c0A4c820) (proxy)
 - Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
 - Deposit Security module: [`0xC8a75E7196b11aE2DEbC39a2F8583f852E5BB7c3`](https://goerli.etherscan.io/address/0xC8a75E7196b11aE2DEbC39a2F8583f852E5BB7c3)
 - LidoExecutionLayerRewardsVault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
