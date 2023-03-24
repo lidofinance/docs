@@ -10,7 +10,7 @@
 - EIP-712 helper for stETH: [`0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e`](https://goerli.etherscan.io/address/0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e)
 - StakingRouter: [`0x2fa2Cdd94C11B0e8B50205E1F304e97D9797ae09`](https://goerli.etherscan.io/address/0x2fa2Cdd94C11B0e8B50205E1F304e97D9797ae09) (proxy)
 - Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
-- Deposit Security module: [`0x07c1e7eDC8a19c9A9b936DecDd531a6365D2a434`](https://goerli.etherscan.io/address/0x07c1e7eDC8a19c9A9b936DecDd531a6365D2a434)
+- Deposit Security module: [`0xC8a75E7196b11aE2DEbC39a2F8583f852E5BB7c3`](https://goerli.etherscan.io/address/0xC8a75E7196b11aE2DEbC39a2F8583f852E5BB7c3)
 - LidoExecutionLayerRewardsVault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
 - WithdrawalQueueERC721: [`0xCF117961421cA9e546cD7f50bC73abCdB3039533`](https://goerli.etherscan.io/address/0xCF117961421cA9e546cD7f50bC73abCdB3039533) (proxy)
 - WithdrawalVault: [`0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762`](https://goerli.etherscan.io/address/0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762) (proxy)
@@ -22,13 +22,13 @@
 ### Lido V2 Oracle Contracts
 
 - Accounting Oracle:
-    - LidoAccountingOracle: [`0x5864490e56B6f013Bc702Cf137Ed32Dc2C86F818`](https://goerli.etherscan.io/address/0x5864490e56B6f013Bc702Cf137Ed32Dc2C86F818) (proxy)
-    - HashConsensus: [`0x821688406B8000FE3bAa8B074F8e1CbCD72c0035`](https://goerli.etherscan.io/address/0x821688406B8000FE3bAa8B074F8e1CbCD72c0035)
+    - LidoAccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
+    - HashConsensus: [`0x8d87A8BCF8d4e542fd396D1c50223301c164417b`](https://goerli.etherscan.io/address/0x8d87A8BCF8d4e542fd396D1c50223301c164417b)
 - Validators Exit Bus Oracle:
     - LidoValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
-    - HashConsensus: [`0xe47EA5f0406C1A976cE43f97cEdcB8f3dee5484A`](https://goerli.etherscan.io/address/0xe47EA5f0406C1A976cE43f97cEdcB8f3dee5484A)
-- OracleReportSanityChecker: [`0x43c7FA62b3FD800d02edb1d38fd5b079d3ff84c6`](https://goerli.etherscan.io/address/0x43c7FA62b3FD800d02edb1d38fd5b079d3ff84c6)
-- OracleDaemonConfig: [`TBA`](https://goerli.etherscan.io/address/TBA)
+    - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
+- OracleReportSanityChecker: [`0x0F3475f755FA356f1356ABC80B4aE4a786d8aae5`](https://goerli.etherscan.io/address/0x0F3475f755FA356f1356ABC80B4aE4a786d8aae5)
+- OracleDaemonConfig: [`0xad55833Dec7ab353B47691e58779Bd979d459388`](https://goerli.etherscan.io/address/0xad55833Dec7ab353B47691e58779Bd979d459388)
 
 ### DAO contracts
 
