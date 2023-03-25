@@ -2,7 +2,7 @@
 
 ## Görli+Prater testnet
 
-### Core Protocol
+### Lido V2 Core Protocol
 
 - LidoLocator: [`0x1eDf09b5023DC86737b59dE68a8130De878984f5`](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5) (proxy)
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
@@ -22,10 +22,10 @@
 ### Lido V2 Oracle Contracts
 
 - Accounting Oracle:
-    - LidoAccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
+    - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
     - HashConsensus: [`0x8d87A8BCF8d4e542fd396D1c50223301c164417b`](https://goerli.etherscan.io/address/0x8d87A8BCF8d4e542fd396D1c50223301c164417b)
 - Validators Exit Bus Oracle:
-    - LidoValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
+    - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
     - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
 - OracleReportSanityChecker: [`0x0F3475f755FA356f1356ABC80B4aE4a786d8aae5`](https://goerli.etherscan.io/address/0x0F3475f755FA356f1356ABC80B4aE4a786d8aae5)
 - OracleDaemonConfig: [`0xad55833Dec7ab353B47691e58779Bd979d459388`](https://goerli.etherscan.io/address/0xad55833Dec7ab353B47691e58779Bd979d459388)
