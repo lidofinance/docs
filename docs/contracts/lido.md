@@ -622,7 +622,7 @@ Returns a boolean value indicating whether the operation succeeded
 Send funds to the pool with optional \_referral parameter
 
 ```sol
-function submit(address _referral) returns (uint256)
+function submit(address _referral) payable returns (uint256)
 ```
 
 #### Parameters:
