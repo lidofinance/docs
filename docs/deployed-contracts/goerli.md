@@ -10,7 +10,7 @@
 - EIP-712 helper for stETH: [`0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e`](https://goerli.etherscan.io/address/0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e)
 - StakingRouter: [`0xa3Dbd317E53D363176359E10948BA0b1c0A4c820`](https://goerli.etherscan.io/address/0xa3Dbd317E53D363176359E10948BA0b1c0A4c820) (proxy)
 - Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
-- Deposit Security module: [`0xC8a75E7196b11aE2DEbC39a2F8583f852E5BB7c3`](https://goerli.etherscan.io/address/0xC8a75E7196b11aE2DEbC39a2F8583f852E5BB7c3)
+- Deposit Security module: [`0xe57025E250275cA56f92d76660DEcfc490C7E79A`](https://goerli.etherscan.io/address/0xe57025E250275cA56f92d76660DEcfc490C7E79A)
 - LidoExecutionLayerRewardsVault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
 - WithdrawalQueueERC721: [`0xCF117961421cA9e546cD7f50bC73abCdB3039533`](https://goerli.etherscan.io/address/0xCF117961421cA9e546cD7f50bC73abCdB3039533) (proxy)
 - WithdrawalVault: [`0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762`](https://goerli.etherscan.io/address/0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762) (proxy)
@@ -27,8 +27,8 @@
 - Validators Exit Bus Oracle:
     - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
     - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
-- OracleReportSanityChecker: [`0x0F3475f755FA356f1356ABC80B4aE4a786d8aae5`](https://goerli.etherscan.io/address/0x0F3475f755FA356f1356ABC80B4aE4a786d8aae5)
-- OracleDaemonConfig: [`0xad55833Dec7ab353B47691e58779Bd979d459388`](https://goerli.etherscan.io/address/0xad55833Dec7ab353B47691e58779Bd979d459388)
+- OracleReportSanityChecker: [`0x230bd3de99f9bBAC84bcafA05f5CA24320d66C7F`](https://goerli.etherscan.io/address/0x230bd3de99f9bBAC84bcafA05f5CA24320d66C7F)
+- OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 
 ### DAO contracts
 
