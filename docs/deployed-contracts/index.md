@@ -1,3 +1,6 @@
+---
+pagination_next: deployed-contracts/goerli
+---
 
 # Mainnet
 
