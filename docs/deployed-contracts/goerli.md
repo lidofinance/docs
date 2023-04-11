@@ -27,7 +27,7 @@
 - Validators Exit Bus Oracle:
     - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
     - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
-- OracleReportSanityChecker: [`0x230bd3de99f9bBAC84bcafA05f5CA24320d66C7F`](https://goerli.etherscan.io/address/0x230bd3de99f9bBAC84bcafA05f5CA24320d66C7F)
+- OracleReportSanityChecker: [`0x0950C6cbe9D8D11432a4e2d99232690E8254f35f`](https://goerli.etherscan.io/address/0x0950C6cbe9D8D11432a4e2d99232690E8254f35f)
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 
 ### DAO contracts
