@@ -36,17 +36,17 @@ This documentation is intended to introduce the general user to the project, as 
 
 ## What is Lido
 
-Lido is the leading liquid staking solution - providing a simple and secure way to earn interest on your digital assets. By staking with Lido your assets remain liquid and can be used across a range of DeFi applications, earning extra yield.
+Lido is the leading liquid staking solution - providing a simple and secure way to get rewards on your digital tokens. By staking with Lido your tokens remain liquid and can be used across a range of DeFi applications, getting extra rewards.
 
 1. **Staking pool**. Protocol to manage deposits, staking rewards, and withdrawals. A separate one for every supported network.
-2. `st[token]`. Unlike staked assets, the Lido `st[token]` are freely transferable instead of locked as in the case of native staking. Lido lets users operate with staked assets to gain yield on top of yield by leveraging collateral, lending, yield farming, and other kinds of Defi protocols.
+2. `st[token]`. Unlike staked tokens, the Lido `st[token]` are freely transferable instead of locked as in the case of native staking. Lido lets users operate with staked tokens by leveraging collateral, lending, farming, and other kinds of Defi protocols.
 3. **DAO**. Lido liquid protocols management entity, responsible for picking node operators, configuring the protocol parameters and much more.
 
 > 📝 To dive into the details of governance design and implementation, proceed to [DAO](lido-dao.md)
 
 4. **Node Operators**. entities that manage a secure and stable infrastructure for running validator clients for the benefit of the protocols. They’re professional staking providers who can ensure the safety of funds belonging to the protocol users and correctness of validator operations.
 
-Ethereum is and remains a primary focus of Lido. That’s affected the organisational structure - the governance is implemented through ERC20 `LDO` token. Currently Lido supports several PoS networks - when staking native assets with Lido, users will receive a `st[token]`, which represents their `[token]` which represents their deposit and the rewards aggregated over time (penalties too). The following networks are supported:
+Ethereum is and remains a primary focus of Lido. That’s affected the organisational structure - the governance is implemented through ERC20 `LDO` token. Currently Lido supports several PoS networks - when staking native tokens with Lido, users will receive a `st[token]`, which represents their `[token]` which represents their deposit and the rewards aggregated over time (penalties too). The following networks are supported:
 
 > 📝 Protocols on different networks inherit the architecture of their respective networks. This means that the designs of Lido tokens can vary significantly. Also different protocols are maintained by different dev teams. If you are interested in launching Lido on another network please submit your proposal on the research forum.
 
@@ -93,14 +93,14 @@ Ethereum is and remains a primary focus of Lido. That’s affected the organisat
 
 ### Problem statement
 
-Traditionally, staking in Proof-of-Stake (PoS) protocol based projects has been about locking one’s assets in one project for a long time and expecting a fixed, predetermined staking reward in return. While it guarantees the return on staked assets much like a bond, it also limits the opportunities of generating higher returns on those assets from the DeFi ecosystem. If you’ve staked all of your crypto holdings, you can’t invest or trade in more profitable crypto pairs on exchanges.
+Traditionally, staking in Proof-of-Stake (PoS) protocol based projects has been about locking one’s tokens in one project for a long time and expecting a fixed, predetermined staking reward in return. While it guarantees the return on staked tokens much like a bond, it also limits the opportunities of generating higher returns on those tokens from the DeFi ecosystem. If you’ve staked all of your crypto holdings, you can’t invest or trade in more profitable crypto pairs on exchanges.
 
 ### Solution
 
-Liquid staking allows using the `st[token]` in other trading or investing opportunities to let the user get the best of both worlds - a reward on your staked assets, as well as the returns from new trading/investing opportunities. Liquid staking introduces various fundamental benefits by:
+Liquid staking allows using the `st[token]` in other trading opportunities to let the user get the best of both worlds - a reward on your staked tokens, as well as the returns from new trading opportunities. Liquid staking introduces various fundamental benefits by:
 - Making staking process simple - no need to worry about hardware setup and maintenance;
-- Making it possible to earn rewards on as small a deposit as users want (i.e, Ethereum requires minimum 32 `ETH` staked);
-- Providing the `st[token]` a building block for other applications and protocols (e.g., as collateral in lending or other trading DeFi solutions). Liquid staking gives an opportunity to maximize the earning potential while having the best of both worlds;
+- Making it possible to get rewards on as small a deposit as users want (i.e, Ethereum requires minimum 32 `ETH` staked);
+- Providing the `st[token]` a building block for other applications and protocols (e.g., as collateral in lending or other trading DeFi solutions). Liquid staking gives an opportunity to maximize the potential while having the best of both worlds;
 - Providing an alternative to exchange staking, solo staking, and other semi-custodial and decentralised protocols.
 
 ### Comparison with other staking options
@@ -109,9 +109,9 @@ Liquid staking allows using the `st[token]` in other trading or investing opport
 
 Solo staking is similar to other option **SaaS staking** in that you are having your own validator keys. Nevertheless, with SaaS you must trust a third-party (usually centralised), which may act maliciously, attacked or simply regulated. Going back to the Ethereum example, there remains a requirement for a minimum amount of 32 `ETH` staked.
 
-Alternatively, it may be possible to produce staking through **centralised exchanges**. Needless to say, crypto assets and CeFi are not suited well together from the fundamental standpoint. It is also worth mentioning the economic aspect - by staking within some centralised entities, the user does not receive a corresponding token in return and, thus, loses the opportunity to perform any subsequent activity within DeFi or the same centralised entity, where assets were staked. Yes, APR, when staking on centralised exchanges might be higher, but with a significant amount aggregated within the centralised entity comes a huge potential influence to the ecosystem that was fundamentally designed decentralised.
+Alternatively, it may be possible to produce staking through **centralised exchanges**. Needless to say, crypto tokens and CeFi are not suited well together from the fundamental standpoint. It is also worth mentioning the economic aspect - by staking within some centralised entities, the user does not receive a corresponding token in return and, thus, loses the opportunity to perform any subsequent activity within DeFi or the same centralised entity, where tokens were staked. Yes, APR, when staking on centralised exchanges might be higher, but with a significant amount aggregated within the centralised entity comes a huge potential influence to the ecosystem that was fundamentally designed decentralised.
 
-Through the use of a **liquid staking** solution such as Lido, users can eliminate these inconveniences and benefit from secure, non-custodial staking backed by industry leaders. Liquid staking is unlocking the potential of PoS by giving users the ability to not only stake their assets, but have the liquidity to use those assets in DeFi projects that way not only increasing yields for the individual, but growing the staking participation in general.
+Through the use of a **liquid staking** solution such as Lido, users can eliminate these inconveniences and benefit from non-custodial staking backed by industry leaders. Liquid staking is unlocking the potential of PoS by giving users the ability to not only stake their tokens, but have the liquidity to use those tokens in DeFi projects that way not only increasing rewards for the individual, but growing the staking participation in general.
 
 ## Lido on Ethereum APR
 :::note
@@ -158,7 +158,7 @@ Priority fee refers to optional additional fees (for example it may refer to EIP
 MEV refers to the maximum value that can be extracted by the validator from block production in excess of the standard block reward and gas fees by including, excluding, and changing the order of transactions in a block.
 
 - **Compounding**
-The collected EL rewards (Priority fee + MEV) are available directly on the Execution layer, and thus, can be re-staked with Lido on the daily basis. Earning further staking rewards on the re-staked EL rewards creates the compounding effect.
+The collected EL rewards (Priority fee + MEV) are available directly on the Execution layer, and thus, can be re-staked with Lido on the daily basis. Getting further staking rewards on the re-staked EL rewards creates the compounding effect.
 
 - **Rewards socialization model**
 With Lido, you receive staking rewards within 24 hours of your deposit being made, without waiting for validator activation.
