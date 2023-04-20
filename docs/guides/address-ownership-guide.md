@@ -15,6 +15,8 @@ Using EOA across Lido DAO ops or protocol contracts requires providing a public 
 
 ## Ethereum signature verification
 
+### In case of using EOA
+
 To verify the shared signature one can use Etherscan or MyEtherWallet UIs.
 
 ### Etherscan UI
@@ -44,3 +46,10 @@ To verify the shared signature one can use Etherscan or MyEtherWallet UIs.
 1. Go to https://etherscan.io/verifiedSignatures and click "Verify Signature".
 2. Enter address, plain text message (not hex version MyEtherWallet will give!) & the signature (with `0x` prefix), choose "Verify & publish" option & click "Continue".
 3. After the signature is verified you'll get the link for sharing.
+
+### In case of using Safe multisig
+
+1. Go to the signed transaction at the [Etherscan](https://etherscan.io/).
+2. Click to show more details and find "input Data" field, click on "Decode input data".
+3. Copy a hex code in the "data" row and take it to any hex decoder (like [duplichecker](https://www.duplichecker.com/hex-to-text.php)).
+4. Decode and verify the message (please note, that you may need to delete leading `0x` from the hex code acquired in the previous step).
