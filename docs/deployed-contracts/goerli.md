@@ -14,7 +14,7 @@
 - LidoExecutionLayerRewardsVault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
 - WithdrawalQueueERC721: [`0xCF117961421cA9e546cD7f50bC73abCdB3039533`](https://goerli.etherscan.io/address/0xCF117961421cA9e546cD7f50bC73abCdB3039533) (proxy)
 - WithdrawalVault: [`0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762`](https://goerli.etherscan.io/address/0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762) (proxy)
-- Burner of stETH: [`0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1`](https://goerli.etherscan.io/address/0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1)
+- Burner of stETH: [`0xC1Bc16782BE0ce7A81421874A4d3E9B2B32391f2`](https://goerli.etherscan.io/address/0xC1Bc16782BE0ce7A81421874A4d3E9B2B32391f2)
 - GateSeal: [`0x75A77AE52d88999D0b12C6e5fABB1C1ef7E92638`](https://goerli.etherscan.io/address/0x75A77AE52d88999D0b12C6e5fABB1C1ef7E92638)
 - MEV Boost Relay Allowed List: [`0xeabE95AC5f3D64aE16AcBB668Ed0efcd81B721Bc`](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 - Legacy Oracle (obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
@@ -27,7 +27,7 @@
 - Validators Exit Bus Oracle:
     - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
     - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
-- OracleReportSanityChecker: [`0x0950C6cbe9D8D11432a4e2d99232690E8254f35f`](https://goerli.etherscan.io/address/0x0950C6cbe9D8D11432a4e2d99232690E8254f35f)
+- OracleReportSanityChecker: [`0xbf74600040F91D3560d5757280727FB00c64Fd2E`](https://goerli.etherscan.io/address/0xbf74600040F91D3560d5757280727FB00c64Fd2E)
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 
 ### DAO contracts
