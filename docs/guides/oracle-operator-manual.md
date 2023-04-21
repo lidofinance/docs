@@ -82,7 +82,7 @@ Before running the daemon, check that you've set all required env variables.
 
 You can use the public Docker image to launch the daemon.
 
-2.4.1 for Mainnet:
+2.6.1 for Mainnet:
 
 ```sh
 docker run -d --name lido-oracle \
@@ -93,10 +93,14 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x3A6Bd15abf19581e411621D669B6a2bbe741ffD6" \
   --env "STETH_CURVE_POOL_CONTRACT=0xDC24316b9AE028F1497c275EB9192a3Ea0f67022" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.4.1
+  lidofinance/oracle:2.6.1
 ```
 
-2.4.1 for Görli Testnet
+2.6.1 for Görli Testnet
+
+:::note
+Testing Oracle V3 in process on Görli. Oracle version and envs below are outdated. 
+:::
 
 ```sh
 docker run -d --name lido-oracle \
@@ -107,7 +111,7 @@ docker run -d --name lido-oracle \
   --env "STETH_PRICE_ORACLE_CONTRACT=0x4522dB9A6f804cb837E5fC9F547D320Da3edD49a" \
   --env "STETH_CURVE_POOL_CONTRACT=0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA" \
   --env "DAEMON=1" \
-  lidofinance/oracle:2.4.1
+  lidofinance/oracle:2.6.1
 ```
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
