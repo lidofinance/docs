@@ -13,7 +13,7 @@ function getSharesByPooledEth(uint256 _ethAmount) public view returns (uint256);
 
 ```
 
-The aSTETH, similarly to regular aTokens, is a yield-generating token that is minted and burned upon deposits and withdraws in the LendingPool. The aSTETH value is pegged to the value of the corresponding deposited asset at a 1:1 ratio and can be safely stored, transferred, or traded. All interest collected by the aSTETH reserve (from rebasing and AAVE income) is distributed to aTokens holders directly by continuously increasing their wallet balance (in case of negative rebases of stETH it might decrease).
+The aSTETH, similarly to regular aTokens, is a rewards-generating token that is minted and burned upon deposits and withdraws in the LendingPool. The aSTETH value is pegged to the value of the corresponding deposited token at a 1:1 ratio and can be safely stored, transferred, or traded. All interest collected by the aSTETH reserve (from rebasing and AAVE rewards) is distributed to aTokens holders directly by continuously increasing their wallet balance (in case of negative rebases of stETH it might decrease).
 
 The aSTETH implementation guarantees the following always ensured:
 
@@ -31,7 +31,7 @@ The aSTETH implementation guarantees the following always ensured:
 - **When stETH rebases, aSTETH rebases as well.**
   Say there are 1000 stETH locked in the reserve. Consider the below situations: 1. Common case: happens positive rebase, and stETH total supply increases by 1%: - totalSupply of aSTETH token becomes equal to 1010 aSTETH. - balance of each aSTETH holder increases by 1% also. 2. Rare case: happens negative rebase, and stETH total supply decreases by 1%: - totalSupply of aSTETH token becomes equal to 990 aSTETH. - balance of each aSTETH holder decreases by 1% also.
 
-**\*** Actual amount of asset will be less or equal to X because of integer operations rounding of underlying token rebase rate and AAVE interest rate. However, the actual rounding error will not exceed a couple of WEI at any time.
+**\*** Actual amount of token will be less or equal to X because of integer operations rounding of underlying token rebase rate and AAVE interest rate. However, the actual rounding error will not exceed a couple of WEI at any time.
 
 ## AStETH Token
 
@@ -39,7 +39,7 @@ To implement the above logic `AStETH` contract modifies the implementation of de
 
 Default aToken implements the ERC20 interface but has two specific methods:
 
-- `scaledBalanceOf(user)` - Returns the **scaled balance** of user as a `uint256`. The scaled balance is the balance of the underlying asset of the user (amount deposited), divided by the current liquidity index at the moment of the update. $scaledBalance = amountDeposited/currentLiquidityIndex$
+- `scaledBalanceOf(user)` - Returns the **scaled balance** of user as a `uint256`. The scaled balance is the balance of the underlying token of the user (amount deposited), divided by the current liquidity index at the moment of the update. $scaledBalance = amountDeposited/currentLiquidityIndex$
   This essentially 'marks' when a user has deposited in the reserve pool and can be used to calculate the user's current compounded aToken balance.
   Example: - User A deposits 1000 DAI at the liquidity index of 1.1 - User B deposits another amount into the same pool - The liquidity index is now 1.2 - Therefore to calculate User A's current compounded aToken balance, the reverse operation should be performed: $aTokenBalance = scaledBalance*currentLiquidityIndex$
 
@@ -49,7 +49,7 @@ But above approach can't be used with the stETH token without modifications beca
 
 If apply above equations to stETH as is, the staking profit will not be distributed across the aSTETH holders but will be accumulated on the balance of the aSTETH token.
 
-To make rebases profit accountable, `AStETH` introduces an additional index - **stETH rebasing index**. The stETH rebasing index - express the income from rebases of stETH token in time. StETH rebasing index might be calculated as follows:
+To make rebases profit accountable, `AStETH` introduces an additional index - **stETH rebasing index**. The stETH rebasing index - express the rewards from rebases of stETH token in time. StETH rebasing index might be calculated as follows:
 
 ```solidity
 function _stEthRebasingIndex() returns (uint256) {
@@ -103,7 +103,7 @@ function scaledBalanceOf(address user) returns (uint256) {
 
 Additionally, `AStETH` contract introduces the following methods:
 
-- `internalBalanceOf(user)` - returns **internal balance** of the user. The internal balance is the balance of the underlying asset of the user (sum of deposits of the user), divided by the current liquidity index at the moment of the update and by the current stETH rebasing index.
+- `internalBalanceOf(user)` - returns **internal balance** of the user. The internal balance is the balance of the underlying token of the user (sum of deposits of the user), divided by the current liquidity index at the moment of the update and by the current stETH rebasing index.
 - `internalTotalSupply()` - Returns the internal total supply of the aSTETH.
 
 ```solidity

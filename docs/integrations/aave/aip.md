@@ -2,18 +2,18 @@
 
 | title                | status   | author              | shortDescription                                         | discussion                                                        | created    |
 | -------------------- | -------- | ------------------- | -------------------------------------------------------- | ----------------------------------------------------------------- | ---------- |
-| Add stETH to AAVE v2 | Proposed | @jbeezy @grstepanov | AAVE governance proposal to enable stETH as a base asset | https://governance.aave.com/t/arc-add-support-for-steth-lido/5793 | 2022-04-02 |
+| Add stETH to AAVE v2 | Proposed | @jbeezy @grstepanov | AAVE governance proposal to enable stETH as a base token | https://governance.aave.com/t/arc-add-support-for-steth-lido/5793 | 2022-04-02 |
 
 ### Simple Summary
 
-Lido allows users to earn staking rewards on the Ethereum beacon chain without locking Ether or maintaining staking infrastructure. This is done through the stETH token. stETH tokens represent a tokenized staking deposit with staking rewards and slashing penalties applied. stETH can be held, traded, or sold.  
+Lido allows users to get staking rewards on the Ethereum beacon chain without locking Ether or maintaining staking infrastructure. This is done through the stETH token. stETH tokens represent a tokenized staking deposit with staking rewards and slashing penalties applied. stETH can be held, traded, or sold.  
 We propose listing stETH to AAVE v2 market. This would allow users to borrow against stETH.
 
 ### References
 
 - Website: [lido.fi](https://lido.fi/)
 - [Document portal](https://docs.lido.fi/)
-- [Source code for the system(s) that interact with the proposed asset](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
+- [Source code for the system(s) that interact with the proposed token](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
 - [Ethereum addresses contracts](/deployed-contracts)
 - [ChainLink Oracle](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
 - [Audits](https://github.com/lidofinance/audits)
@@ -36,16 +36,16 @@ stETH makes a perfect DeFi collateral and is beneficial for a number of reasons 
 
 ### Specification
 
-1. **What is the link between the author of the AIP and the Asset?**
+1. **What is the link between the author of the AIP and the token?**
 
-- Jacob (jbeezy) is a full time member of the DAO working to facilitate integrations for st-Assets across DeFi in protocols such as Aave among others.
+- Jacob (jbeezy) is a full time member of the DAO working to facilitate integrations for st-tokens across DeFi in protocols such as Aave among others.
 - Gregory (GrStepanov) is a full time protocol contributor working on technical integrations.
 
 2. **Provide a brief high-level overview of the project and the token.**
 
 #### Lido Background
 
-The Lido Protocol, built on Ethereum’s beacon chain to start, allows users to earn staking rewards on the beacon chain without rendering their assets illiquid or maintaining staking infrastructure.
+The Lido Protocol, built on Ethereum’s beacon chain to start, allows users to get staking rewards on the beacon chain without rendering their tokens illiquid or maintaining staking infrastructure.
 
 Lido was [announced](https://blog.lido.fi/how-lido-works/) in November 2020. The testnet was released in late November.
 
@@ -66,14 +66,14 @@ Unlike beacon chain ETH, stETH can be freely transferred and traded. Onboarding 
 The balance of stETH is based on the total amount of staked ETH plus total staking rewards minus slashing applied on validators. stETH rebases daily.
 The stETH supply stands at 1,697,460 - worth $5.4BN using current stETH prices.
 
-3. **Explain positioning of token in the AAVE ecosystem. Why would it be a good borrow or collateral asset?**
+3. **Explain positioning of token in the AAVE ecosystem. Why would it be a good borrow or collateral token?**
 
 stETH as DeFi collateral is beneficial for a number of reasons.
 
 - stETH is almost as safe as ETH, price-wise: barring catastrophic scenarios, its value tends to hold the ETH peg well;
-- stETH is a productive asset. Earning rewards on collateral effectively lowers the cost of borrowing. This could make borrowing more attractive on Aave and help to increase market utilization (and therefore Aave’s protocol revenue from
+- stETH is a productive token. Getting rewards on collateral effectively lowers the cost of borrowing. This could make borrowing more attractive on Aave and help to increase market utilization (and therefore Aave’s protocol revenue from
   coin reserve factors).
-- stETH is a very liquid asset with $5+ billion in liquidity used across [multiple DeFi projects](https://dune.xyz/LidoAnalytical/Integration-monitor-dashboard). stETH<\>ETH liquidity pool on Curve is the deepest LP in DeFi with $3.8 billion TVL.
+- stETH is a very liquid token with $5+ billion in liquidity used across [multiple DeFi projects](https://dune.xyz/LidoAnalytical/Integration-monitor-dashboard). stETH<\>ETH liquidity pool on Curve is the deepest LP in DeFi with $3.8 billion TVL.
 
 4. **Provide a brief history of the project and the different components: DAO (is it live?), products (are they live?). How did it overcome some of the challenges it faced?**
 
@@ -83,17 +83,17 @@ There is a DAO and it is live. The Lido DAO consists of, amongst others, Semanti
 
 The Lido treasury has been diversified and DAO members now include Paradigm, Three Arrows Capital, DeFiance Capital, Jump Trading, Alameda Research, iFinex, Dragonfly Capital, Delphi Digital, Robot Ventures, Coinbase Ventures, Digital Currency Group, The LAO and [angels](https://research.lido.fi/t/proposal-ldo-treasury-diversification-part-2/506).
 
-The Lido suite of products consist of st-assets which represent the underlying staked collateral on various protocols. These are currently stETH and stSOL and are managed by teams in separate organizations to further mitigate centralization risk.
+The Lido suite of products consist of st-tokens which represent the underlying staked collateral on various protocols. These are currently stETH and stSOL and are managed by teams in separate organizations to further mitigate centralization risk.
 
-There are further wrapped versions to address platform limitations around rebasing assets or bridging to other ecosystem. These wrapped assets are minted/burned based on locking of the st-asset. Currently there is wstETH.
+There are further wrapped versions to address platform limitations around rebasing tokens or bridging to other ecosystem. These wrapped tokens are minted/burned based on locking of the st-token. Currently there is wstETH.
 
-Early challenges were overcome with DAO member support, speed of execution and utility of st-assets. The last one is particularly critical in the success of any liquid product.
+Early challenges were overcome with DAO member support, speed of execution and utility of st-tokens. The last one is particularly critical in the success of any liquid product.
 
-5. **How is the asset currently used?**
+5. **How is the token currently used?**
 
 stETH is used in a number of ways.
 
-- a productive asset (e.g. in Nexus Mutual Treasury risk management strategy);
+- a productive token (e.g. in Nexus Mutual Treasury risk management strategy);
 - compounding rewards strategies in DeFI (AMMs, autofarms) (e.g. Convex, Yearn, Harvest);
 - multichain collateral (e.g. wstETH on Ethereum on Maker).
 
@@ -171,7 +171,7 @@ AStETH https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a
 variableDebtSTETH https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24  
 stableDebtSTETH https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9  
 DefaultReserveInterestRateStrategy https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c  
-Steps the proposal will execute: start a vote to add stETH as a new asset.
+Steps the proposal will execute: start a vote to add stETH as a new token.
 
 #### Security Considerations
 
@@ -191,7 +191,7 @@ Base: 0%
 Slope 1: 8%  
 Slope 2: 200%
 
-As stETH is more suited as collateral instead of a borrowing asset, we propose listing stETH on AAVE v2 market with borrowing disabled.
+As stETH is more suited as collateral instead of a borrowing token, we propose listing stETH on AAVE v2 market with borrowing disabled.
 
 ### Risk Assessment (as of time of ARC)
 
