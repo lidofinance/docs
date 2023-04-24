@@ -1,7 +1,7 @@
 # stETH on AAVE caveats
 
 ### Flashloans
-AAVE protocol allows borrowing any asset via flashloans, whether borrowing is enabled or not for the specific asset. Any user can borrow stETH on AAVE via a flashloan.  
+AAVE protocol allows borrowing any token via flashloans, whether borrowing is enabled or not for the specific token. Any user can borrow stETH on AAVE via a flashloan.  
 Due to internal stETH mechanics required for rebasing support, in most cases stETH transfers are performed for the value of 1 wei less than passed to `transfer` method. That could break returning a flashloan, with transaction reverting with `SafeERC20: low-level call failed` error.
 
 ### Workarounds

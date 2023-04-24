@@ -19,7 +19,7 @@ Lido is managed by the Lido DAO. The DAO members govern Lido to ensure its effic
 - Node operators management. Assign initial DAO-vetted node operators, scout and qualify new node operators and penalise the existing ones slashed by chains rules
 - Approve LEGO grants to support different research and so initiatives protocol guilds
 - Payments to full-time contributors and other operational duties
-- Security, bug bounty program, respond to emergency
+- Bug bounty program, respond to emergency
 - Accumulation of service fees from Lido, which can be funnelled into the insurance and development funds, distributed by the DAO.
 
 
@@ -39,6 +39,6 @@ The Lido DAO is an [Aragon](https://aragon.org/dao) organization. Since Aragon p
 
 > 📝 The governance process only takes place within the Ethereum network. For other networks, this process is implemented through committee and multisig (we need a multisig list).
 
-While the Aragon application is a powerful tool for DAO governance due to the fact that it is both transparent and reliable, it is ill-suited to manage routine operations that either have strong token-holder support and/or are only relevant to a subsection of the DAO (e.g. the financial operations team). For that reason, [Easy Track](https://easytrack.lido.fi/) is developed as an efficient mechanism to assist with routine and uncontentious governance proposals for the Lido DAO. Importantly, security, flexibility, and scalability is all paramount concerns throughout the development of Easy Track, with extensive measures taken to ensure that safety has not been compromised for convenience.
+While the Aragon application is a powerful tool for DAO governance due to the fact that it is both transparent and reliable, it is ill-suited to manage routine operations that either have strong token-holder support and/or are only relevant to a subsection of the DAO (e.g. the financial operations team). For that reason, [Easy Track](https://easytrack.lido.fi/) is developed as an efficient mechanism to assist with routine and uncontentious governance proposals for the Lido DAO. Importantly, flexibility, and scalability is all paramount concerns throughout the development of Easy Track, with extensive measures taken to ensure that safety has not been compromised for convenience.
 
 The novel Easy Track motions is not only reducing voter fatigue and on-chain gas costs for token-holders, but is also facilitating the growth of the DAO by providing greater autonomy to the sub-committees and node operators within the organisation.

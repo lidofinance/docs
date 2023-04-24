@@ -356,10 +356,10 @@ function setQuorum(uint256 _quorum) auth(MANAGE_QUORUM)
 
 ### reportBeacon()
 
-Accept oracle committee member reports from the ETH 2.0 side. Parameters:
+Accept oracle committee member reports from the Ethereum side. Parameters:
 
 - `_epochId` - beacon chain epoch
-- `_beaconBalance` - balance in gwei on the ETH 2.0 side (9-digit denomination)
+- `_beaconBalance` - balance in gwei on the Ethereum side (9-digit denomination)
 - `_beaconValidators` - number of validators visible in this epoch
 
 ```sol

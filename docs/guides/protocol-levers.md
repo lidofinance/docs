@@ -57,9 +57,9 @@ Insurance fund contract is used to accumulate the protocol insurance fee.
   - `getTreasury() returns (address)`
   - `getInsuranceFund() returns (address)`
 
-The oracle contract serves as a bridge between ETH 2.0 -> ETH oracle committee members and the rest of the protocol,
+The oracle contract serves as a bridge between Ethereum -> ETH oracle committee members and the rest of the protocol,
 implementing quorum between the members. The oracle committee members report balances controlled by the DAO
-on the ETH 2.0 side, which can go up because of reward accumulation and can go down due to slashing.
+on the Ethereum side, which can go up because of reward accumulation and can go down due to slashing.
 
 ### Fee
 
@@ -81,25 +81,25 @@ Each fee component is in basis points; the sum of all components must add up to 
   - Permission required: `MANAGE_FEE`
 - Accessor: `getFeeDistribution() returns (uint16 treasury, uint16 insurance, uint16 operators)`
 
-### ETH 2.0 withdrawal Credentials
+### Ethereum withdrawal Credentials
 
-Credentials to withdraw ETH on ETH 2.0 side after phase 2 is launched.
+Credentials to withdraw ETH on Ethereum side after phase 2 is launched.
 
 - Mutator: `setWithdrawalCredentials(bytes)`
   - Permission required: `MANAGE_WITHDRAWAL_KEY`
 - Accessor: `getWithdrawalCredentials() returns (bytes)`
 
-The protocol uses these credentials to register new ETH 2.0 validators.
+The protocol uses these credentials to register new Ethereum validators.
 
 ### Deposit loop iteration limit
 
-Controls how many ETH 2.0 deposits can be made in a single transaction.
+Controls how many Ethereum deposits can be made in a single transaction.
 
 - A parameter of the `depositBufferedEther(uint256)` function
 - Default value: `16`
 - [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.js)
 
-When someone calls `depositBufferedEther`, `Lido` tries to register as many ETH 2.0 validators
+When someone calls `depositBufferedEther`, `Lido` tries to register as many Ethereum validators
 as it can given the buffered Ether amount. The limit is passed as an argument to this function and
 is needed to prevent the transaction from [failing due to the block gas limit], which is possible
 if the amount of the buffered Ether becomes sufficiently large.
@@ -203,8 +203,8 @@ For details, see the Lido Improvement Proposal [#14](https://github.com/lidofina
 
 Node Operators act as validators on the Beacon chain for the benefit of the protocol. Each
 node operator submits no more than `_stakingLimit` signing keys that will be used later
-by the protocol for registering the corresponding ETH 2.0 validators. As oracle committee
-reports rewards on the ETH 2.0 side, the fee is taken on these rewards, and part of that fee
+by the protocol for registering the corresponding Ethereum validators. As oracle committee
+reports rewards on the Ethereum side, the fee is taken on these rewards, and part of that fee
 is sent to node operators’ reward addresses (`_rewardAddress`).
 
 ### Deactivating a node operator
