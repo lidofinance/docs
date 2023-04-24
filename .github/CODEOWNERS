@@ -1,2 +1,3 @@
 .github @lidofinance/review-gh-workflows
-
+docs/deployed-contracts @lidofinance/lido-eth-protocol
+docs/contracts @lidofinance/lido-eth-protocol
