@@ -43,7 +43,9 @@
 - Lido App Repo: [`0xE9eDe497d2417fd980D8B5338232666641B9B9aC`](https://goerli.etherscan.io/address/0xE9eDe497d2417fd980D8B5338232666641B9B9aC)
 - Lido Oracle Repo: [`0x9234e37Adeb44022A078557D9943b72AB89bF36a`](https://goerli.etherscan.io/address/0x9234e37Adeb44022A078557D9943b72AB89bF36a)
 - Node Operators Registry Repo: [`0x5F867429616b380f1Ca7a7283Ff18C53a0033073`](https://goerli.etherscan.io/address/0x5F867429616b380f1Ca7a7283Ff18C53a0033073)
-- Insurance Fund: [`0x2FAe4D2D86Efb17249F24C9fb70855d4c58585A5`](https://goerli.etherscan.io/address/0x2FAe4D2D86Efb17249F24C9fb70855d4c58585A5)
+- GateSeal Blueprint: [`0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf`](https://goerli.etherscan.io/address/0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf)
+- GateSealFactory: [`0x248C4a34645921C70a591CCc200cb75D6a4C5091`](https://goerli.etherscan.io/address/0x248C4a34645921C70a591CCc200cb75D6a4C5091)
+- GateSeal: [`0xEE656d0C8e9f0646B505a13295C188164a3D8EaC`](https://goerli.etherscan.io/address/0xEE656d0C8e9f0646B505a13295C188164a3D8EaC)
 
 ### Reward Programs
 

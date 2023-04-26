@@ -31,6 +31,8 @@ pagination_next: deployed-contracts/goerli
 - Lido Oracle Repo: [`0xF9339DE629973c60c4d2b76749c81E6F40960E3A`](https://etherscan.io/address/0xF9339DE629973c60c4d2b76749c81E6F40960E3A) (proxy)
 - Node Operators Registry Repo: [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
+- (proposed) GateSeal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
+- (proposed) GateSealFactory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 
 ## Liquidity pools
 

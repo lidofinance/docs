@@ -59,7 +59,8 @@ module.exports = {
         'contracts/composite-post-rebase-beacon-receiver',
         'contracts/lido-execution-layer-rewards-vault',
         'contracts/mev-boost-relays-allowed-list',
-        'contracts/trp-vesting-escrow'
+        'contracts/trp-vesting-escrow',
+        'contracts/gate-seal'
       ],
     },
     {
@@ -70,9 +71,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Deployed contracts',
-      link: {type: 'doc', id: 'deployed-contracts/index'},
+      link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
-        {type: 'doc', id:'deployed-contracts/index', label: 'Mainnet'},
+        { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/goerli',
         'deployed-contracts/rinkeby',
         'deployed-contracts/ropsten',
