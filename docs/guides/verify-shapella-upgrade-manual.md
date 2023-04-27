@@ -49,6 +49,17 @@ maxPositiveTokenRebase = 750000
 totalNonCoverSharesBurnt = 32145684728326685744
 ```
 
+## DepositSecurityModule
+
+```python
+# Same as at present https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F10
+maxDepositsPerBlock = 150
+# Same as at present https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F11
+minDepositBlockDistance = 25
+# Same as at present https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F14
+pauseIntentValidityPeriodBlocks = 6646
+```
+
 ## AccountingOracle
 
 ```python
