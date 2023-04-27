@@ -26,7 +26,7 @@ FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days
 NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP=100 # 1% network penetration for a single NO
 ```
 
-## NodeOperatorsRegistry
+## OracleReportSanityChecker
 
 ```python
 churnValidatorsPerDayLimit = 40000
