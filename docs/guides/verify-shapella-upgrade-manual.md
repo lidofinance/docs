@@ -4,6 +4,8 @@
 
 ```python
 lidoLocator = "0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb"
+withdrawalsVault = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+# withdrawalsCredentials = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f
 ```
 
 ## NodeOperatorsRegistry
@@ -18,7 +20,7 @@ stuckPenaltyDelay = 432000  # 5 days as seconds
 NORMALIZED_CL_REWARD_PER_EPOCH=64
 NORMALIZED_CL_REWARD_MISTAKE_RATE_BP=1000
 REBASE_CHECK_NEAREST_EPOCH_DISTANCE=1
-REBASE_CHECK_DISTANT_EPOCH_DISTANCE=23  # 10% of AO 255 epochs frame
+REBASE_CHECK_DISTANT_EPOCH_DISTANCE=23  # 10% of AO 225 epochs frame
 VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS=7200 # 1 day
 VALIDATOR_DELINQUENT_TIMEOUT_IN_SLOTS=28800 # 4 days
 PREDICTION_DURATION_IN_SLOTS=50400
@@ -47,6 +49,11 @@ maxPositiveTokenRebase = 750000
 # - https://vote.lido.fi/vote/106
 # - https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26#readContract#F7
 totalNonCoverSharesBurnt = 32145684728326685744
+
+totalCoverSharesBurnt = 0  
+_admin = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  
+_treasury = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  
+_stETH = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
 ```
 
 ## DepositSecurityModule
@@ -61,15 +68,20 @@ pauseIntentValidityPeriodBlocks = 6646
 ```
 
 ## AccountingOracle
+And its corresponding `HashConsensus`.
 
 ```python
 epochsPerFrame = 225  # once per day
 # So, the AccountingOracle expected report time would be 12:00 UTC
 
 fastLaneLengthSlots = 10
+lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
+lido = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
+legacyOracle = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb
 ```
 
 ## ValidatorsExitBusOracle
+And its corresponding `HashConsensus`.
 
 ```python
 epochsPerFrame = 75  # thrice per day
@@ -77,6 +89,42 @@ epochsPerFrame = 75  # thrice per day
 # 4:00 UTC, 12:00 UTC, 20:00 UTC
 
 fastLaneLengthSlots = 10
+lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
+```
+
+## AccountingOracle and ValidatorsExitBusOracle
+
+```python
+secondsPerSlot = 12
+genesisTime = 1606824023
+```
+
+## WithdrawalQueueERC712
+
+```python
+_wstETH = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0
+_name = "stETH Withdrawal NFT"
+_symbol = "unstETH"
+_tokenURI = "https://wq-api.lido.fi/v1/nft"
+```
+
+## WithdrawalsVault
+
+```python
+_lido = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 
+_treasury = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c
+```
+
+## EIP712StETH
+
+```python
+_stETH = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
+```
+
+## StakingRouter
+
+```python
+_depositContract = 0x00000000219ab540356cBB839Cbe05303d7705Fa
 ```
 
 ## GateSeal
@@ -125,7 +173,10 @@ expiry_timestamp = 1714521600  # 2024-05-01 00:00 UTC
 
 **Kept**
 - `MANAGE_SIGNING_KEYS`
+	- NodeOperatorsRegistry
 - `SET_NODE_OPERATOR_LIMIT_ROLE`
+	- Voting
+	- Easytrack EVMScriptExecutor
 
 **Obsolete**
 - `ADD_NODE_OPERATOR_ROLE` `[MN, GL]`
@@ -229,7 +280,7 @@ None
 - owner
     - Agent
 - guardians
-    - ?
+    - Current DSM guardians committee
 
 ### **HashConsensus for ValidatorExitBusOracle (OZ)**
 *OZ, No Proxy*
@@ -263,7 +314,7 @@ None
 - `DEFAULT_ADMIN_ROLE` (set in constructor)
     - Agent
 - `ALL_LIMITS_MANAGER_ROLE`
-- `CHURN_VALIDATORS_PER_DAY_LIMIT_MANGER_ROLE`
+- `CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE`
 - `ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE`
 - `ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE`
 - `SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE`
@@ -286,7 +337,7 @@ None
 - `RESUME_ROLE` (in initialize)
     - None
 - `SUBMIT_DATA_ROLE`
-    - Current LidoOracle Committee (migrated in UpgradeTemplate)
+    - None
 - `MANAGE_CONSENSUS_CONTRACT_ROLE`
     - None
 - `MANAGE_CONSENSUS_VERSION_ROLE`
