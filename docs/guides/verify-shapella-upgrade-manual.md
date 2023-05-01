@@ -169,7 +169,7 @@ expiry_timestamp = 1714521600  # 2024-05-01 00:00 UTC
 - `STAKING_ROUTER_ROLE`
     - StakingRouter (set in voting script)
 - `MANAGE_NODE_OPERATOR_ROLE`
-    - None (maybe Voting once upgrade applied?)
+    - None
 
 **Kept**
 - `MANAGE_SIGNING_KEYS`
