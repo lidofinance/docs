@@ -7,6 +7,7 @@ lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
 legacyOracle = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` before
 
 # See https://docs.lido.fi/deployed-contracts/
+# Old implementation was `Withdrawals Manager Stub`
 withdrawalsVault = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 
 # Same as withdrawalsVault with 0x01 type prefix
@@ -56,10 +57,10 @@ oneOffCLBalanceDecreaseBPLimit = 500  # 5%
 # See https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
 annualBalanceIncreaseBPLimit = 1000  # 10%
 
-# See https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
+# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
 simulatedShareRateDeviationBPLimit = 50
 
-# Same as churn limit TODO
+# Same as churn limit
 maxValidatorExitRequestsPerReport = 600
 
 # Number of currently possigle extra data list items types
@@ -183,10 +184,12 @@ expiry_timestamp = 1714521600  # 2024-05-01 00:00 UTC
 ```
 
 ## Roles setup
+
 Contracts ACL denotion:
 - mark "*Aragon app*" means the contract is Aragon app which uses [Aragon ACL model](https://hack.aragon.org/developers/tools/aragonos/reference-documentation)
 - mark "*OZ*" means the contract uses [OpenZeppelin ACL model](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 - mark "*Proxy*" means the contract is deployed behind a proxy so has an additional [ACL model related to the proxy](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/proxy/OssifiableProxy.sol)
+
 ### **Lido**
 *Aragon app*
 
@@ -260,9 +263,15 @@ None
 *OZ, Proxy*
 
 - PROXY ADMIN
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+	    - None
+    - After enactment:
+	    - Agent
 - `SUBMIT_DATA_ROLE`
     - None
 - `MANAGE_CONSENSUS_CONTRACT_ROLE`
@@ -274,10 +283,16 @@ None
 *OZ, No Proxy*
 
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+        - Template
+    - After enactment:
+        - Agent
 - `REQUEST_BURN_SHARES_ROLE`
-    - Lido (set in Burner constructor)
-    - NodeOperatorsRegistry
+    - Before vote start:
+        - Lido (set in Burner constructor)
+    - After enactment:
+        - Lido (set in Burner constructor)
+        - NodeOperatorsRegistry
 - `REQUEST_BURN_MY_STETH_ROLE`
     - None
 - `RECOVER_ASSETS_ROLE`
@@ -287,15 +302,24 @@ None
 *OZ, Proxy*
 
 - PROXY ADMIN
-    - Agent (zero address before the vote start)
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 
 ### **StakingRouter**
 *OZ, Proxy*
 
 - PROXY ADMIN
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+	    - None
+    - After enactment:
+	    - Agent
 - `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE`
     - None
 - `STAKING_MODULE_PAUSE_ROLE`
@@ -315,7 +339,10 @@ None
 *OZ, No Proxy*
 
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - `MANAGE_MEMBERS_AND_QUORUM_ROLE`
     - None
 - `DISABLE_CONSENSUS_ROLE`
@@ -327,23 +354,35 @@ None
 - `MANAGE_REPORT_PROCESSOR_ROLE`
     - None
 - `address[] _memberAddresses`
-    - Current LidoOracle Committee (migrated in UpgradeTemplate)
-      See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
+	- Before vote start:
+	    - None
+	- After enactment:
+	    - Current LidoOracle Committee
+	       See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
 
 ### **DepositSecurityModule**
 *Plain Owner, No Proxy*
 
 - owner
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - guardians
-    - Current DSM guardians committee
-      See https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8
+	- Before vote start:
+	    - None
+	- After enactment:
+	    - Current DSM guardians committee
+	       See https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8
 
 ### **HashConsensus for ValidatorExitBusOracle**
 *OZ, No Proxy*
 
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - `MANAGE_MEMBERS_AND_QUORUM_ROLE`
     - None
 - `DISABLE_CONSENSUS_ROLE`
@@ -355,7 +394,11 @@ None
 - `MANAGE_REPORT_PROCESSOR_ROLE`
     - None
 - `address[] _memberAddresses`
-    - Current LidoOracle Committee (migrated in UpgradeTemplate)
+	- Before vote start:
+		- None
+	- After enactment:
+		- Current LidoOracle Committee
+		  See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
 
 ### **OracleDaemonConfig**
 *OZ, No Proxy*
@@ -386,11 +429,20 @@ None
 *OZ, Proxy*
 
 - PROXY ADMIN
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+	    - None
+    - After enactment:
+	    - Agent
 - `PAUSE_ROLE` (in initializer)
-    - Gate Seal
+	- Before vote start:
+	    - None
+	- After enactment:
+	    - Gate Seal
 - `RESUME_ROLE` (in initialize)
     - None
 - `SUBMIT_DATA_ROLE`
@@ -404,17 +456,32 @@ None
 *OZ, Proxy*
 
 - PROXY ADMIN
-    - Agent
+    - Before vote start:
+	    - Template
+    - After enactment:
+	    - Agent
 - `DEFAULT_ADMIN_ROLE`
-    - Agent
+    - Before vote start:
+	    - None
+    - After enactment:
+	    - Agent
 - `PAUSE_ROLE`
-    - Gate Seal
+	- Before vote start:
+		- None
+	- After enactment:
+	    - Gate Seal
 - `RESUME_ROLE`
     - None
 - `FINALIZE_ROLE`
-    - Lido
+    - Before vote start:
+	    - None
+    - After enactment:
+	    - Lido
 - `ORACLE_ROLE`
-    - AccountingOracle
+    - Before vote start:
+	    - None
+     - After enactment
+	    - AccountingOracle
 - `MANAGE_TOKEN_URI_ROLE`
     - None
 
