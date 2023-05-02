@@ -229,7 +229,7 @@ Contracts ACL denotion:
 
 **Kept**
 - `MANAGE_SIGNING_KEYS`
-	- NodeOperatorsRegistry
+	- Voting
 - `SET_NODE_OPERATOR_LIMIT_ROLE`
 	- Voting
 	- Easytrack EVMScriptExecutor
