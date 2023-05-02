@@ -26,7 +26,8 @@ stuckPenaltyDelay = 432000  # 5 days as seconds
 
 ```python
 # See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890
-NORMALIZED_CL_REWARD_PER_EPOCH=64  # factor
+# BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
+NORMALIZED_CL_REWARD_PER_EPOCH=64
 NORMALIZED_CL_REWARD_MISTAKE_RATE_BP=1000  # 10%
 REBASE_CHECK_NEAREST_EPOCH_DISTANCE=1
 REBASE_CHECK_DISTANT_EPOCH_DISTANCE=23  # 10% of AO 225 epochs frame
@@ -39,14 +40,14 @@ NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP=100  # 1% network penetration for
 # Time period of historical observations used for prediction of the rewards amount 
 PREDICTION_DURATION_IN_SLOTS=50400  # 7 days
 
-# Max time upon a withdrawal request won't be finalized in case of negative rebase
+# Max period of delay for requests finalization in case of bunker due to negative rebase
 FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days (twice min governance response time - 3 days voting duration)
 ```
 
 ## OracleReportSanityChecker
 
 ```python
-# Sanity limit on the amount of deposits: not more than approximately deposit every 2nd block
+# # Sanity limit on the number of deposits: not more than ~half of the current DSM deposits capacity (43200 it is)
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L221-L232
 churnValidatorsPerDayLimit = 20000
 
@@ -60,10 +61,10 @@ annualBalanceIncreaseBPLimit = 1000  # 10%
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
 simulatedShareRateDeviationBPLimit = 50
 
-# Same as churn limit
+# Same as the current churn limit in Ethereum (8 validators per epoch)
 maxValidatorExitRequestsPerReport = 600
 
-# Number of currently possigle extra data list items types
+# Number of currently possible extra data list items types
 maxAccountingExtraDataListItemsCount = 2
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L69-L71
@@ -73,7 +74,7 @@ maxNodeOperatorsPerExtraDataItemCount = 100
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L73-L75
 requestTimestampMargin = 7680  # 2 hours rounded to epoch length
 
-# 27% yearly, in 1e9 so that it multipied on 365 (link to code)
+# 27% yearly, in 1e9 so that it multiplied on 365 (link to code)
 # see https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
 # and https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L77-L79
 maxPositiveTokenRebase = 750000
@@ -215,7 +216,7 @@ Contracts ACL denotion:
 - `BURN_ROLE`
 - `DEPOSIT_ROLE`
 - `SET_EL_REWARDS_VAULT_ROLE`
-- `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE` `[MN,GL]`
+- `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE`
 
 ### **NodeOperatorsRegistry**
 *Aragon app*
