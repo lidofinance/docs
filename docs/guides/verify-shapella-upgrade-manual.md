@@ -113,9 +113,9 @@ And its corresponding `HashConsensus`.
 epochsPerFrame = 225  # once per day
 # So, the AccountingOracle expected report time would be ~12:00 UTC
 
-# Number of slots dedicated for delay during oracles rotation
+# Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
-fastLaneLengthSlots = 30
+fastLaneLengthSlots = 100
 
 # See https://docs.lido.fi/deployed-contracts/
 lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
