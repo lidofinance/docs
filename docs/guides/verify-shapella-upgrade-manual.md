@@ -131,9 +131,9 @@ epochsPerFrame = 75  # thrice per day
 # So, the ValidatorsExitBusOracle expected report time would be 
 # ~4:00 UTC, ~12:00 UTC, ~20:00 UTC
 
-# Number of slots dedicated for delay during oracles rotation
+# Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
-fastLaneLengthSlots = 30
+fastLaneLengthSlots = 100
 
 lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
 ```
