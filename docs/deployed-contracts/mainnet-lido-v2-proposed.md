@@ -8,7 +8,7 @@
   - proposed implementation: [`0x17144556fd3424EDC8Fc8A4C940B2D04936d17eb`](https://etherscan.io/address/0x17144556fd3424EDC8Fc8A4C940B2D04936d17eb)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - (proposed) EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
-- (proposed) StakingRouter: [`0xA89Ea51FddE660f67d1850e03C9c9862d33Bc42c`](https://etherscan.io/address/0xA89Ea51FddE660f67d1850e03C9c9862d33Bc42c) (proxy)
+- (proposed) StakingRouter: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
   - proposed implementation: [`0xD8784e748f59Ba711fB5643191Ec3fAdD50Fb6df`](https://etherscan.io/address/0xD8784e748f59Ba711fB5643191Ec3fAdD50Fb6df)
 - Node Operators registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
   - proposed implementation: [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed)
