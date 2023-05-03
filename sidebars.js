@@ -27,9 +27,10 @@ module.exports = {
       type: 'category',
       label: 'Integrations',
       items: [
-        'integrations/wallets',
-        'integrations/sdk',
-        'integrations/subgraph',
+          'integrations/api',
+          'integrations/wallets',
+          'integrations/sdk',
+          'integrations/subgraph',
         {
           type: 'category',
           label: 'AAVE',
