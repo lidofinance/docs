@@ -54,3 +54,4 @@
 - *proposed* Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - *proposed* Gate Seal: [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
 - *proposed* Shapella Upgrade Template [`0xa818fF9EC93122Bf9401ab4340C42De638CD600a`](https://etherscan.io/address/0xa818ff9ec93122bf9401ab4340c42de638cd600a)
+- *proposed* Empty Dummy Implementation: [`0x6F6541C2203196fEeDd14CD2C09550dA1CbEDa31`](https://etherscan.io/address/0x6F6541C2203196fEeDd14CD2C09550dA1CbEDa31)
