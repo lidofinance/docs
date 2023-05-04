@@ -173,12 +173,12 @@ services:
       - POSTGRES_USER=${KEYS_API_DB_USER}
       - POSTGRES_PASSWORD=${KEYS_API_DB_PASSWORD}
     ports:
-      - '127.0.0.1:${KEYS_API_DB_PORT}:5432'
+       - '127.0.0.1:${KEYS_API_DB_PORT}:5432'
     volumes:
       - ./.volumes/pgdata-${CHAIN_ID}/:/var/lib/postgresql/data
 
   keys_api_service_api:
-    image: lidofinance/lido-keys-api@sha256:563506329ebec7148cf80cabf5facdf1c09cc59ead9a8dfece2a38a441408ee0
+    image: lidofinance/lido-keys-api@sha256:76f5a48f0baab46ada3bf4b09bdb115a74803a7ba53e783e505436d8177383dc
     container_name: keys_api_service_api
     ports:
       - '127.0.0.1:${KEYS_API_PORT}:3001'
@@ -198,7 +198,7 @@ services:
       - keys_api_service_db
 
   council_daemon:
-    image: lidofinance/lido-council-daemon@sha256:4fa0c4ebf56bf3382266debfc3d7e860530d7439129f0cc0f5fbdc8f3e1779eb
+    image: lidofinance/lido-council-daemon@sha256:42ece4c9484aac0ee192a72407f149cb062305596c0c6b5bb0a91a7b8f4bb3db
     ports:
       - "127.0.0.1:${PORT}:3000" # port is used for prometheus metrics
     environment:
@@ -207,8 +207,8 @@ services:
       - LOG_FORMAT=${LOG_FORMAT}
       - RPC_URL=${RPC_URL}
       - WALLET_PRIVATE_KEY=${WALLET_PRIVATE_KEY}
-      - KEYS_API_HOST=${KEYS_API_HOST}
-      - KEYS_API_PORT=${KEYS_API_PORT}
+      - KEYS_API_HOST=http://keys_api_service_api
+      - KEYS_API_PORT=3001
       - PUBSUB_SERVICE=rabbitmq
       - RABBITMQ_URL=${RABBITMQ_URL}
       - RABBITMQ_LOGIN=${RABBITMQ_LOGIN}
