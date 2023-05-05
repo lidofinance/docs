@@ -16,15 +16,29 @@ withdrawalsCredentials = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441
 ```
 
 ## NodeOperatorsRegistry
+Single staking module added to StakingRouter.
 
 ```python
-# See https://research.lido.fi/t/lido-validator-exits-policy-draft-for-discussion/3864/5
+# See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 stuckPenaltyDelay = 432000  # 5 days as seconds
+
+# Share of this staking module among all staking modules (in basis points, 100% = 10000). This is a single module so all 100% goes to it
+# https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+targetShareBp = 10000  # 100%
+
+# Share of the rewards which goes to the staking module (in basis points, 100% = 10000)
+# # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+stakingModuleFee = 500  # 5%
+
+# Share of the rewards which goes to the treasury (in basis points, 100% = 10000)
+# # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+treasuryFee = 500  # 5%
 ```
 
 ## OracleDaemonConfig
 
 ```python
+# Parameters realted to "bunker mode"
 # See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890
 # BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
 NORMALIZED_CL_REWARD_PER_EPOCH=64
@@ -32,7 +46,7 @@ NORMALIZED_CL_REWARD_MISTAKE_RATE_BP=1000  # 10%
 REBASE_CHECK_NEAREST_EPOCH_DISTANCE=1
 REBASE_CHECK_DISTANT_EPOCH_DISTANCE=23  # 10% of AO 225 epochs frame
 
-# See https://research.lido.fi/t/lido-validator-exits-policy-draft-for-discussion/3864/6
+# See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS=7200  # 1 day
 VALIDATOR_DELINQUENT_TIMEOUT_IN_SLOTS=28800  # 4 days
 NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP=100  # 1% network penetration for a single NO
@@ -47,7 +61,7 @@ FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days (twice min governanc
 ## OracleReportSanityChecker
 
 ```python
-# # Sanity limit on the number of deposits: not more than ~half of the current DSM deposits capacity (43200 it is)
+# Sanity limit on the number of deposits: not more than ~half of the current DSM deposits capacity (43200 it is)
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L221-L232
 churnValidatorsPerDayLimit = 20000
 
@@ -56,15 +70,17 @@ churnValidatorsPerDayLimit = 20000
 oneOffCLBalanceDecreaseBPLimit = 500  # 5%
 
 # See https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
+# Related to Consensus Layer rewards only
 annualBalanceIncreaseBPLimit = 1000  # 10%
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
-simulatedShareRateDeviationBPLimit = 50
+simulatedShareRateDeviationBPLimit = 50  # 0.5%
 
 # Same as the current churn limit in Ethereum (8 validators per epoch)
+# used in ValidatorsExitBusOracle, which has reporting period 8 hours
 maxValidatorExitRequestsPerReport = 600
 
-# Number of currently possible extra data list items types
+# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L65-L67
 maxAccountingExtraDataListItemsCount = 2
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L69-L71
@@ -72,6 +88,7 @@ maxAccountingExtraDataListItemsCount = 2
 maxNodeOperatorsPerExtraDataItemCount = 100
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L73-L75
+# and https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890
 requestTimestampMargin = 7680  # 2 hours rounded to epoch length
 
 # 27% yearly, in 1e9 so that it multiplied on 365 (link to code)
@@ -109,13 +126,18 @@ pauseIntentValidityPeriodBlocks = 6646
 And its corresponding `HashConsensus`.
 
 ```python
+# Once per day
 # Same as for current Oracle see https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F30
-epochsPerFrame = 225  # once per day
+epochsPerFrame = 225  # 
 # So, the AccountingOracle expected report time would be ~12:00 UTC
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
+# NB: min value is 64 as two epochs are required for finalization
 fastLaneLengthSlots = 100
+
+# Technical value indicating consensus version of the contract. Can basically be any because there were no consensus versions before https://github.com/lidofinance/lido-dao/blob/e35435ad9b9473cb0f9b7b0e1e17f6bf9b96e000/contracts/0.8.9/oracle/BaseOracle.sol#L121-L126
+consensusVersion = 1
 
 # See https://docs.lido.fi/deployed-contracts/
 lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
@@ -127,13 +149,18 @@ legacyOracle = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb
 And its corresponding `HashConsensus`.
 
 ```python
-epochsPerFrame = 75  # thrice per day
+# Thrice per day
 # So, the ValidatorsExitBusOracle expected report time would be 
 # ~4:00 UTC, ~12:00 UTC, ~20:00 UTC
+epochsPerFrame = 75
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
+# NB: min value is 64 as two epochs are required for finalization
 fastLaneLengthSlots = 100
+
+# Technical value indicating consensus version of the contract. Can basically be any because there were no consensus versions before https://github.com/lidofinance/lido-dao/blob/e35435ad9b9473cb0f9b7b0e1e17f6bf9b96e000/contracts/0.8.9/oracle/BaseOracle.sol#L121-L126
+consensusVersion = 1
 
 lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
 ```
@@ -141,9 +168,10 @@ lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
 ## AccountingOracle and ValidatorsExitBusOracle
 
 ```python
+# See https://ethereum.org/en/developers/docs/blocks/
 secondsPerSlot = 12
 
-# See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21 and  https://github.com/ethereum/consensus-specs/blob/dev/configs/mainnet.yaml#L28 
+# See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
 # Also its as it is in the current oracle https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F30
 genesisTime = 1606824023
 ```
@@ -154,7 +182,10 @@ genesisTime = 1606824023
 _wstETH = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0
 _name = "Lido: stETH Withdrawal NFT"
 _symbol = "unstETH"
-_tokenURI = "https://wq-api.lido.fi/v1/nft"
+
+# Lido-maintained NFT-generator server 
+# see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueERC721.sol#L126-L129
+_tokenBaseURI = "https://wq-api.lido.fi/v1/nft"
 ```
 
 ## WithdrawalsVault
@@ -180,7 +211,8 @@ _depositContract = 0x00000000219ab540356cBB839Cbe05303d7705Fa
 ## GateSeal
 
 ```python
-seal_duration = 518400  # 6 days as seconds (2 x governance response time - vote duration is 3 days)
+# 2 x governance response time - vote duration is 3 days
+seal_duration = 518400  # 6 days as seconds
 expiry_timestamp = 1714521600  # 2024-05-01 00:00 UTC
 ```
 
