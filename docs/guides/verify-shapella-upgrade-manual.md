@@ -16,7 +16,7 @@ withdrawalsCredentials = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441
 ```
 
 ## NodeOperatorsRegistry
-Single staking module added to StakingRouter.
+Single staking module named "Curated" added to StakingRouter.
 
 ```python
 # See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
@@ -33,6 +33,10 @@ stakingModuleFee = 500  # 5%
 # Share of the rewards which goes to the treasury (in basis points, 100% = 10000)
 # # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
 treasuryFee = 500  # 5%
+
+stakingModuleId = 1
+stakingModuleName = "curated-onchain-v1"
+stakingModuleType = 0x637572617465642d6f6e636861696e2d76310000000000000000000000000000  # bytes32("curated-onchain-v1")
 ```
 
 ## OracleDaemonConfig
@@ -55,7 +59,8 @@ NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP=100  # 1% network penetration for
 PREDICTION_DURATION_IN_SLOTS=50400  # 7 days
 
 # Max period of delay for requests finalization in case of bunker due to negative rebase
-FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days (twice min governance response time - 3 days voting duration)
+# twice min governance response time - 3 days voting duration
+FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days
 ```
 
 ## OracleReportSanityChecker
