@@ -3,16 +3,16 @@
 ## Mainnet addresses
 
 ```python
-lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
-legacyOracle = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` before
+LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
+LIDO_LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` before
 
 # See https://docs.lido.fi/deployed-contracts/
 # Old implementation was `Withdrawals Manager Stub`
-withdrawalsVault = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+LIDO_WITHDRAWAL_VAULT = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 
 # Same as withdrawalsVault with 0x01 type prefix
 # also see https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F23
-withdrawalsCredentials = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f
+LIDO_WITHDRAWAL_CREDENTIALS = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f
 ```
 
 ## NodeOperatorsRegistry
@@ -20,23 +20,23 @@ Single staking module named "Curated" added to StakingRouter.
 
 ```python
 # See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
-stuckPenaltyDelay = 432000  # 5 days as seconds
+CURATED_STAKING_MODULE_STUCK_PENALTY_DELAY = 432000  # 5 days as seconds
 
 # Share of this staking module among all staking modules (in basis points, 100% = 10000). This is a single module so all 100% goes to it
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
-targetShareBp = 10000  # 100%
+CURATED_STAKING_MODULE_TARGET_SHARE_BP = 10000  # 100%
 
 # Share of the rewards which goes to the staking module (in basis points, 100% = 10000)
 # # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
-stakingModuleFee = 500  # 5%
+CURATED_STAKING_MODULE_MODULE_BP = 500  # 5%
 
 # Share of the rewards which goes to the treasury (in basis points, 100% = 10000)
 # # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
-treasuryFee = 500  # 5%
+CURATED_STAKING_MODULE_TREASURY_FEE_BP = 500  # 5%
 
-stakingModuleId = 1
-stakingModuleName = "curated-onchain-v1"
-stakingModuleType = 0x637572617465642d6f6e636861696e2d76310000000000000000000000000000  # bytes32("curated-onchain-v1")
+CURATED_STAKING_MODULE_ID = 1
+CURATED_STAKING_MODULE_NAME = "curated-onchain-v1"
+CURATED_STAKING_MODULE_TYPE = 0x637572617465642d6f6e636861696e2d76310000000000000000000000000000  # bytes32("curated-onchain-v1")
 ```
 
 ## OracleDaemonConfig
@@ -68,38 +68,38 @@ FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days
 ```python
 # Sanity limit on the number of deposits: not more than ~half of the current DSM deposits capacity (43200 it is)
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L221-L232
-churnValidatorsPerDayLimit = 20000
+CHURN_VALIDATORS_PER_DAY_LIMIT = 20000
 
 # Taken from current oracle limit https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F8
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L47-L50
-oneOffCLBalanceDecreaseBPLimit = 500  # 5%
+ONE_OFF_CL_BALANCE_DECREASE_BP_LIMIT = 500  # 5%
 
 # See https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
 # Related to Consensus Layer rewards only
-annualBalanceIncreaseBPLimit = 1000  # 10%
+ANNUAL_BALANCE_INCREASE_BP_LIMIT = 1000  # 10%
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
-simulatedShareRateDeviationBPLimit = 50  # 0.5%
+SIMULATED_SHARE_RATE_DEVIATION_BP_LIMIT = 50  # 0.5%
 
 # Same as the current churn limit in Ethereum (8 validators per epoch)
 # used in ValidatorsExitBusOracle, which has reporting period 8 hours
-maxValidatorExitRequestsPerReport = 600
+MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT = 600
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L65-L67
-maxAccountingExtraDataListItemsCount = 2
+MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT = 2
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L69-L71
 # and https://github.com/lidofinance/lido-dao/blob/e45c4d6fb8120fd29426b8d969c19d8a798ca974/contracts/0.8.9/oracle/AccountingOracle.sol#L302-L306
-maxNodeOperatorsPerExtraDataItemCount = 100
+MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT = 100
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L73-L75
 # and https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890
-requestTimestampMargin = 7680  # 2 hours rounded to epoch length
+REQUEST_TIMESTAMP_MARGIN = 7680  # 2 hours rounded to epoch length
 
 # 27% yearly, in 1e9 so that it multiplied on 365 (link to code)
 # see https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
 # and https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L77-L79
-maxPositiveTokenRebase = 750000
+MAX_POSITIVE_TOKEN_REBASE = 750000
 ```
 
 ## Burner
@@ -107,24 +107,24 @@ maxPositiveTokenRebase = 750000
 ```python
 # See https://vote.lido.fi/vote/106
 # and https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26#readContract#F7
-totalNonCoverSharesBurnt = 32145684728326685744
-totalCoverSharesBurnt = 0
+TOTAL_NON_COVER_SHARES_BURNT = 32145684728326685744
+TOTAL_COVER_SHARES_BURNT = 0
 
 # See https://docs.lido.fi/deployed-contracts/
-_admin = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # Agent
-_treasury = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # Agent
-_stETH = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
+LIDO_AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _admin
+LIDO_AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _treasury
+LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _stETH
 ```
 
 ## DepositSecurityModule
 
 ```python
 # Same as at present https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F10
-maxDepositsPerBlock = 150
+DSM_MAX_DEPOSITS_PER_BLOCK = 150
 # Same as at present https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F11
-minDepositBlockDistance = 25
+DSM_MIN_DEPOSIT_BLOCK_DISTANCE = 25
 # Same as at present https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F14
-pauseIntentValidityPeriodBlocks = 6646
+DSM_PAUSE_INTENT_VALIDITY_PERIOD_BLOCKS = 6646
 ```
 
 ## AccountingOracle
@@ -133,21 +133,21 @@ And its corresponding `HashConsensus`.
 ```python
 # Once per day
 # Same as for current Oracle see https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F30
-epochsPerFrame = 225  # 
+AO_EPOCHS_PER_FRAME = 225  # 
 # So, the AccountingOracle expected report time would be ~12:00 UTC
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
 # NB: min value is 64 as two epochs are required for finalization
-fastLaneLengthSlots = 100
+AO_FAST_LANE_LENGTH_SLOTS = 100
 
 # Technical value indicating consensus version of the contract. Can basically be any because there were no consensus versions before https://github.com/lidofinance/lido-dao/blob/e35435ad9b9473cb0f9b7b0e1e17f6bf9b96e000/contracts/0.8.9/oracle/BaseOracle.sol#L121-L126
-consensusVersion = 1
+AO_CONSENSUS_VERSION = 1
 
 # See https://docs.lido.fi/deployed-contracts/
-lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
-lido = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
-legacyOracle = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb
+LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
+LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
+LIDO_LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb
 ```
 
 ## ValidatorsExitBusOracle
@@ -157,68 +157,70 @@ And its corresponding `HashConsensus`.
 # Thrice per day
 # So, the ValidatorsExitBusOracle expected report time would be 
 # ~4:00 UTC, ~12:00 UTC, ~20:00 UTC
-epochsPerFrame = 75
+VEBO_EPOCHS_PER_FRAME = 75
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
 # NB: min value is 64 as two epochs are required for finalization
-fastLaneLengthSlots = 100
+VEBO_FAST_LANE_LENGTH_SLOTS = 100
 
 # Technical value indicating consensus version of the contract. Can basically be any because there were no consensus versions before https://github.com/lidofinance/lido-dao/blob/e35435ad9b9473cb0f9b7b0e1e17f6bf9b96e000/contracts/0.8.9/oracle/BaseOracle.sol#L121-L126
-consensusVersion = 1
+VEBO_CONSENSUS_VERSION = 1
 
-lidoLocator = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
+LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
 ```
 
 ## AccountingOracle and ValidatorsExitBusOracle
 
 ```python
 # See https://ethereum.org/en/developers/docs/blocks/
-secondsPerSlot = 12
+CHAIN_SECONDS_PER_SLOT = 12
 
 # See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
 # Also its as it is in the current oracle https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F30
-genesisTime = 1606824023
+CHAIN_GENESIS_TIME = 1606824023
 ```
 
-## WithdrawalQueueERC712
+## WithdrawalQueueERC721
 
 ```python
-_wstETH = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0
-_name = "Lido: stETH Withdrawal NFT"
-_symbol = "unstETH"
+LIDO_WSTETH_TOKEN = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0  # _wstETH
+WQ_ERC721_TOKEN_NAME = "Lido: stETH Withdrawal NFT"
+WQ_ERC721_TOKEN_SYMBOL = "unstETH"
 
 # Lido-maintained NFT-generator server 
 # see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueERC721.sol#L126-L129
-_tokenBaseURI = "https://wq-api.lido.fi/v1/nft"
+WQ_ERC721_TOKEN_BASE_URI = "https://wq-api.lido.fi/v1/nft"
 ```
 
 ## WithdrawalsVault
 
 ```python
-_lido = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 
-_treasury = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # Agent
+# See https://docs.lido.fi/deployed-contracts/
+LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _lido_
+LIDO_AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _treasury
 ```
 
 ## EIP712StETH
 
 ```python
-_stETH = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
+# See https://docs.lido.fi/deployed-contracts/
+LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _stETH
 ```
 
 ## StakingRouter
 
 ```python
 # See https://ethereum.org/en/staking/deposit-contract/
-_depositContract = 0x00000000219ab540356cBB839Cbe05303d7705Fa
+CHAIN_DEPOSIT_CONTRACT = 0x00000000219ab540356cBB839Cbe05303d7705Fa
 ```
 
 ## GateSeal
 
 ```python
 # 2 x governance response time - vote duration is 3 days
-seal_duration = 518400  # 6 days as seconds
-expiry_timestamp = 1714521600  # 2024-05-01 00:00 UTC
+GATE_SEAL_PAUSE_DURATION = 518400  # 6 days as seconds
+GATE_SEAL_EXPIRY_TIMESTAMP = 1714521600  # 2024-05-01 00:00 UTC
 ```
 
 ## Roles setup
