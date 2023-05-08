@@ -7,6 +7,7 @@ module.exports = {
       type: 'category',
       label: 'Guides',
       items: [
+        'guides/node-operator-v2-changes',
         'guides/node-operator-manual',
         'guides/oracle-operator-manual',
         'guides/deposit-security-manual',
