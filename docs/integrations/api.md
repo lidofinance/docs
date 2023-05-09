@@ -8,7 +8,7 @@ API provides Ethereum and Lido staking APR, which include:
 
 ### **Last Lido APR for stETH**
 
-The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](https://docs.lido.fi/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e9509d77f010fec76899e25ccde785c8de47bd42/contracts/0.4.24/Lido.sol#L232).
+The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](https://docs.lido.fi/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
 
 
 V2 APR calculation:
