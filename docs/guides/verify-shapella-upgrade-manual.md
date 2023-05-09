@@ -1,18 +1,19 @@
-# Shapella mainnet parameters
+# Lido V2 mainnet parameters
 
 ## Mainnet addresses
+Some of the proposed addresses are listed here, but the full list is [here](docs/deployed-contracts/mainnet-lido-v2-proposed.md). 
 
 ```python
-LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
-LIDO_LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` before
+LIDO_LOCATOR = 0xC1d0b3DE6792Bf6. 4b37EccdcC24e45978Cfd2Eb
+LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` before
 
 # See https://docs.lido.fi/deployed-contracts/
 # Old implementation was `Withdrawals Manager Stub`
-LIDO_WITHDRAWAL_VAULT = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+WITHDRAWAL_VAULT = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 
 # Same as withdrawalsVault with 0x01 type prefix
 # also see https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F23
-LIDO_WITHDRAWAL_CREDENTIALS = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f
+WITHDRAWAL_CREDENTIALS = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f
 ```
 
 ## NodeOperatorsRegistry
@@ -111,9 +112,8 @@ TOTAL_NON_COVER_SHARES_BURNT = 32145684728326685744
 TOTAL_COVER_SHARES_BURNT = 0
 
 # See https://docs.lido.fi/deployed-contracts/
-LIDO_AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _admin
-LIDO_AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _treasury
-LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _stETH
+AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _admin and _treasury
+LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _stETH
 ```
 
 ## DepositSecurityModule
@@ -146,8 +146,8 @@ AO_CONSENSUS_VERSION = 1
 
 # See https://docs.lido.fi/deployed-contracts/
 LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
-LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
-LIDO_LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb
+LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84
+LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb
 ```
 
 ## ValidatorsExitBusOracle
@@ -184,7 +184,7 @@ CHAIN_GENESIS_TIME = 1606824023
 ## WithdrawalQueueERC721
 
 ```python
-LIDO_WSTETH_TOKEN = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0  # _wstETH
+WSTETH_TOKEN = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0  # _wstETH
 WQ_ERC721_TOKEN_NAME = "Lido: stETH Withdrawal NFT"
 WQ_ERC721_TOKEN_SYMBOL = "unstETH"
 
@@ -197,15 +197,15 @@ WQ_ERC721_TOKEN_BASE_URI = "https://wq-api.lido.fi/v1/nft"
 
 ```python
 # See https://docs.lido.fi/deployed-contracts/
-LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _lido_
-LIDO_AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _treasury
+LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _lido_
+AGENT = 0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c  # _treasury
 ```
 
 ## EIP712StETH
 
 ```python
 # See https://docs.lido.fi/deployed-contracts/
-LIDO_LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _stETH
+LIDO = 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84  # _stETH
 ```
 
 ## StakingRouter
