@@ -1,0 +1,3 @@
+# Keys API
+
+The Keys API is a new service that stores and provides up-to-date information about Lido keys and validators. This service serves a vital function by providing endpoints that allow Lido Node Operators to retrieve keys and Node Operator information. Additionally, it offers two endpoints that allow a Node Operator to understand which validators to generate and sign exit messages for in advance.
