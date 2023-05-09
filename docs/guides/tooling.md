@@ -33,6 +33,7 @@ The Lido Council Daemon monitors deposit contract keys.
 - Commit hash: [lidofinance/lido-council-daemon@e10a1dc](https://github.com/lidofinance/lido-council-daemon/commit/e10a1dcce34b118e0e830efafa44198f4e865414)
 - **Last update date**: 27 April, 2023
 - [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/1.8.2)
+- [**Documentation**](/guides/deposit-security-manual)
 
 ## Keys API
 
