@@ -11,7 +11,7 @@ Oracle daemon for Lido decentralized staking service.
 - **Commit hash**: [lidofinance/lido-oracle@e50088b](https://github.com/lidofinance/lido-oracle/commit/e50088b0cc51d3ae8954f5651348fb1405bdf61f)
 - **Last update date**: 2 May, 2023
 - [**Repository**](https://github.com/lidofinance/lido-oracle/tree/3.0.0-rc.2#readme)
-- [**Documentation**](https://docs.lido.fi/guides/node-operator-manual)
+- [**Documentation**](/guides/oracle-operator-manual)
 
 ## Validator Ejector
 
