@@ -22,7 +22,7 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 - **Commit hash**: [lidofinance/validator-ejector@c2d05cb](https://github.com/lidofinance/validator-ejector/commit/c2d05cbfff039a8332f4ae5994fc1148b8cbf154)
 - **Last update date**: 26 April, 2023
 - [**Repository**](https://github.com/lidofinance/validator-ejector/tree/1.2.0#readme)
-- [**Documentation**](https://docs.lido.fi/guides/validator-ejector-guide)
+- [**Documentation**](/guides/validator-ejector-guide)
 
 ## Council daemon
 
