@@ -43,4 +43,4 @@ Lido keys HTTP API.
 - **Commit hash**: [lidofinance/lido-keys-api@d0e4080](https://github.com/lidofinance/lido-keys-api/commit/d0e4080a8982dca4aed97aa8f7f76ab7411a665d)
 - **Last update date**: 3 May, 2023
 - [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/0.8.1#readme)
-- [**Documentation**](https://docs.lido.fi/guides/kapi-guide)
+- [**Documentation**](/guides/kapi-guide)
