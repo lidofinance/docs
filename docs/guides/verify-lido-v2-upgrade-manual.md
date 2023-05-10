@@ -4,7 +4,7 @@
 Tests setup based upon parameters specified in [this config file](https://github.com/lidofinance/scripts/blob/shapella-upgrade/configs/config_mainnet.py) . This document can be used to validate the values.
 
 ## Mainnet addresses
-Some of the proposed addresses are listed in this section, but for the full list see [this document](docs/deployed-contracts/mainnet-lido-v2-proposed.md).
+Some of the proposed addresses are listed in this section, but for the full list see [this document](/docs/deployed-contracts/mainnet-lido-v2-proposed.md).
 
 ```python
 LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
