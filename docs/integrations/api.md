@@ -6,6 +6,22 @@ Here you can find various Lido APIs which you can integrate in your app or websi
 
 API provides Ethereum and Lido staking APR, which include:
 
+### **Simple Moving Average Lido APR for 7 last days:**
+
+This APR value is based on Simple Moving Average of APR values over a period of 7 days.
+
+```
+https://eth-api.lido.fi/v1/protocol/steth/apr/sma
+```
+
+Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
+
+#### Goerli
+
+```
+https://eth-api.testnet.fi/v1/protocol/steth/apr/sma
+```
+
 ### **Last Lido APR for stETH**
 
 The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](https://docs.lido.fi/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
@@ -46,22 +62,6 @@ Response schema and examples are available in the [Swagger API documentation](ht
 https://eth-api.testnet.fi/v1/protocol/steth/apr/last
 ```
 
-### **Simple Moving Average Lido APR for 7 last days:**
-
-This APR value is based on Simple Moving Average of APR values over a period of 7 days.
-
-```
-https://eth-api.lido.fi/v1/protocol/steth/apr/sma
-```
-
-Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
-
-#### Goerli
-
-```
-https://eth-api.testnet.fi/v1/protocol/steth/apr/sma
-```
-
 
 ## Lido Reward History
 
@@ -81,7 +81,7 @@ The only required query parameter is `address`.
 
 Optional Parameters:
 
-- `currency`: USD/EUR/GBP - Fiat currency displays the value in fiat of stETH.
+- `currency`: USD/EUR/GBP - Fiat currency in which to display rewards in addition to stETH. **USD** by default.
 - `archiveRate`: true/false - Use an exchange rate close to the transaction time when calculating currency values instead of the current one. **true** by default.
 - `onlyRewards`: true/false - Include only rewards without transfers or stakings. **false** by default.
 - `sort`: asc/desc - Sort of transactions by blockTime. **desc** by default.
@@ -95,15 +95,6 @@ skip: 0, limit: 100 = 1 page
 skip: 100, limit: 100 = 2 page
 skip: 200, limit: 100 = 3 page
 ```
-
-
-### Status Codes
-
-- 200 - Success.
-- 400 - Invalid request parameters eg invalid address provided.
-- 500 - Internal error, for example Subgraph limits were hit while loading data.
-- 503 - Service temporarily unavailable - Subgraph ran into a fatal error.
-
 
 
 ### Goerli
