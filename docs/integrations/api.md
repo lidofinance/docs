@@ -1,4 +1,4 @@
-# **API**
+# API
 
 Here you can find various Lido APIs which you can integrate in your app or website:
 
@@ -44,7 +44,7 @@ event TokenRebased(
 preShareRate = preTotalEther * 1e27 / preTotalShares
 postShareRate = postTotalEther * 1e27 / postTotalShares
 
-userAPR = 
+userAPR =
     secondsInYear * (
         (postShareRate - preShareRate) / preShareRate
     ) / timeElapsed
