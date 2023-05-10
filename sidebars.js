@@ -10,9 +10,15 @@ module.exports = {
         'guides/node-operator-manual',
         'guides/oracle-operator-manual',
         'guides/deposit-security-manual',
-        'guides/tooling',
-        'guides/validator-ejector-guide',
-        'guides/kapi-guide',
+        {
+          type: 'category',
+          label: 'Tooling',
+          items: [
+            'guides/tooling',
+            'guides/validator-ejector-guide',
+            'guides/kapi-guide',
+          ],
+        },
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',
