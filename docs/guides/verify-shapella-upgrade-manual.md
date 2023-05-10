@@ -31,21 +31,24 @@ LIDO_MAX_STAKE_LIMIT_ETH = 150_000
 Single staking module named "Curated" added to StakingRouter. For the details see [LIP-20: Staking Router forum post](https://research.lido.fi/t/lip-20-staking-router/3790) 
 
 ```python
-# See https://snapshot.org/#/lido. snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
+# See https://snapshot.org/#/lido. snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330 for "Their status shall revert to “In good standing” after **5 days** (i.e. provided any newly received validator exit requests are processed timely"
 CURATED_STAKING_MODULE_STUCK_PENALTY_DELAY = 432000  # 5 days as seconds
 
 # Share of this staking module among all staking modules (in basis points, 100% = 10000). This is a single module so all 100% goes to it
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+# Currently have single Staking Module, so 100%
 CURATED_STAKING_MODULE_TARGET_SHARE_BP = 10000  # 100%
 
-# Share of the rewards which goes to the curated set staking module (in basis points, 100% = 10000)
-# # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+# Shares of the rewards which goes to the curated set staking module and to the treasury (in basis points, 100% = 10000)
+# see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+# same as it set currently, see https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F29
+# https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F46
+# NB: that getFeeDistribution returns percent relative to the 10% returned by getFee
+# for for curated staking module the value is set as percent relative to the entire rewards, so it 500 but 5000
 CURATED_STAKING_MODULE_MODULE_FEE_BP = 500  # 5%
-
-# Share of the curated set staking module rewards which goes to the treasury (in basis points, 100% = 10000)
-# # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
 CURATED_STAKING_MODULE_TREASURY_FEE_BP = 500  # 5%
 
+# Just a technically and semantically reasonable values of the first module introduced
 CURATED_STAKING_MODULE_ID = 1
 CURATED_STAKING_MODULE_NAME = "curated-onchain-v1"
 CURATED_STAKING_MODULE_TYPE = 0x637572617465642d6f6e636861696e2d76310000000000000000000000000000  # bytes32("curated-onchain-v1")
@@ -57,7 +60,7 @@ CURATED_STAKING_MODULE_TYPE = 0x637572617465642d6f6e636861696e2d7631000000000000
 # Parameters realted to "bunker mode"
 # See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
 # and https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
-# BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
+# NB: BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
 NORMALIZED_CL_REWARD_PER_EPOCH=64
 NORMALIZED_CL_REWARD_MISTAKE_RATE_BP=1000  # 10%
 REBASE_CHECK_NEAREST_EPOCH_DISTANCE=1
