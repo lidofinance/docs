@@ -254,8 +254,9 @@ GATE_SEAL_EXPIRY_TIMESTAMP = 1714521600  # 2024-05-01 00:00 UTC
 ```
 
 ## Roles setup
+For the roles setup in tests see [the permissions test](https://github.com/lidofinance/scripts/blob/shapella-upgrade/tests/regression/test_permissions.py).
 
-Contracts ACL denotion:
+Contracts ACL denotation:
 - mark "*Aragon app*" means the contract is Aragon app which uses [Aragon ACL model](https://hack.aragon.org/developers/tools/aragonos/reference-documentation)
 - mark "*OZ*" means the contract uses [OpenZeppelin ACL model](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 - mark "*Proxy*" means the contract is deployed behind a proxy so has an additional [ACL model related to the proxy](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/proxy/OssifiableProxy.sol)
