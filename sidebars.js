@@ -30,6 +30,7 @@ module.exports = {
         'guides/1inch-pool-rewards',
         'guides/early-staker-airdrop',
         'guides/jumpgates',
+        'guides/verify-lido-v2-upgrade-manual'
       ],
     },
     {
@@ -83,6 +84,7 @@ module.exports = {
       link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
+        'deployed-contracts/mainnet-lido-v2-proposed',
         'deployed-contracts/goerli',
         'deployed-contracts/rinkeby',
         'deployed-contracts/ropsten',
