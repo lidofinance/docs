@@ -20,6 +20,13 @@ WITHDRAWAL_VAULT = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 WITHDRAWAL_CREDENTIALS = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f
 ```
 
+## Lido
+```python
+# Good-old value, see https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract
+# used in calculation of SIMULATED_SHARE_RATE_DEVIATION_BP_LIMIT
+LIDO_MAX_STAKE_LIMIT_ETH = 150_000
+```
+
 ## NodeOperatorsRegistry
 Single staking module named "Curated" added to StakingRouter. For the details see [LIP-20: Staking Router forum post](https://research.lido.fi/t/lip-20-staking-router/3790) 
 
@@ -49,19 +56,22 @@ CURATED_STAKING_MODULE_TYPE = 0x637572617465642d6f6e636861696e2d7631000000000000
 ```python
 # Parameters realted to "bunker mode"
 # See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
-
+# and https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 # BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
 NORMALIZED_CL_REWARD_PER_EPOCH=64
 NORMALIZED_CL_REWARD_MISTAKE_RATE_BP=1000  # 10%
 REBASE_CHECK_NEAREST_EPOCH_DISTANCE=1
 REBASE_CHECK_DISTANT_EPOCH_DISTANCE=23  # 10% of AO 225 epochs frame
-
-# See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS=7200  # 1 day
+
+# See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330 for "Requirement not be considered Delinquent"
 VALIDATOR_DELINQUENT_TIMEOUT_IN_SLOTS=28800  # 4 days
+
+# See "B.3.I" of https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP=100  # 1% network penetration for a single NO
 
-# Time period of historical observations used for prediction of the rewards amount 
+# Time period of historical observations used for prediction of the rewards amount
+# see https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
 PREDICTION_DURATION_IN_SLOTS=50400  # 7 days
 
 # Max period of delay for requests finalization in case of bunker due to negative rebase
@@ -84,27 +94,39 @@ ONE_OFF_CL_BALANCE_DECREASE_BP_LIMIT = 500  # 5%
 # Related to Consensus Layer rewards only
 ANNUAL_BALANCE_INCREASE_BP_LIMIT = 1000  # 10%
 
-# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
+# According to https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
+# and assuming Staking rate limit = 150 000, TVL = 3 000 000
+# SRL = 0.1
+# L = (2 * SRL) * max(ONE_OFF_CL_BALANCE_DECREASE_BP_LIMIT, MAX_POSITIVE_TOKEN_REBASE)
+# L = 50
 SIMULATED_SHARE_RATE_DEVIATION_BP_LIMIT = 50  # 0.5%
 
 # Same as the current churn limit in Ethereum (8 validators per epoch)
 # used in ValidatorsExitBusOracle, which has reporting period 8 hours
+# Formula for validator churn limit is https://github.com/ethereum/consensus-specs/blob/master/specs/phase0/beacon-chain.md#get_validator_churn_limit
+# currently we have ~562000 active validators, which gives 8 validators per epoch unless active validators grew up to `589824`
 MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT = 600
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L65-L67
+# Depends on the amount of staking modules and amount of data types. Have only one staking module at launch
+# and two data types exited and stuck validators ( see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/AccountingOracle.sol##L282-L319 )
+# So need to deliver exited/delinquent sets of data: 1 x 2 = 2
 MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT = 2
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L69-L71
 # and https://github.com/lidofinance/lido-dao/blob/e45c4d6fb8120fd29426b8d969c19d8a798ca974/contracts/0.8.9/oracle/AccountingOracle.sol#L302-L306
+# could have been 200, since NOR allows up to 200 node operators
+# decided to halve it down since Lido has 29 node operators onboarded while have the margin for more node operators
 MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT = 100
 
 # See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L73-L75
-# and https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890
+# and https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
 REQUEST_TIMESTAMP_MARGIN = 7680  # 2 hours rounded to epoch length
 
 # 27% yearly, in 1e9 so that it multiplied on 365 (link to code)
 # see https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
 # and https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L77-L79
+# the value might be re-considered once the stETH liquidity sources landscape changed
 MAX_POSITIVE_TOKEN_REBASE = 750000
 ```
 
@@ -143,7 +165,7 @@ AO_EPOCHS_PER_FRAME = 225  #
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
-# NB: min value is 64 as two epochs are required for finalization
+# NB: min value is 64 as two epochs are required for the chain finality
 AO_FAST_LANE_LENGTH_SLOTS = 100
 
 # Technical value indicating consensus version of the contract. Can basically be any because there were no consensus versions before https://github.com/lidofinance/lido-dao/blob/e35435ad9b9473cb0f9b7b0e1e17f6bf9b96e000/contracts/0.8.9/oracle/BaseOracle.sol#L121-L126
