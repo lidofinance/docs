@@ -81,7 +81,7 @@ The only required query parameter is `address`.
 
 Optional Parameters:
 
-- `currency`: USD/EUR/GBP - Fiat currency in which to display rewards in addition to stETH. **USD** by default.
+- `currency`: USD/EUR/GBP - Fiat currency in which to display stETH denominated in fiat. **USD** by default.
 - `archiveRate`: true/false - Use an exchange rate close to the transaction time when calculating currency values instead of the current one. **true** by default.
 - `onlyRewards`: true/false - Include only rewards without transfers or stakings. **false** by default.
 - `sort`: asc/desc - Sort of transactions by blockTime. **desc** by default.
