@@ -4,7 +4,7 @@
 Tests setup based upon parameters specified in [this config file](https://github.com/lidofinance/scripts/blob/shapella-upgrade/configs/config_mainnet.py) . This document can be used to validate the values.
 
 ## Mainnet addresses
-Some of the proposed addresses are listed in this section, but for the full list see [this document](docs/deployed-contracts/mainnet-lido-v2-proposed.md). 
+Some of the proposed addresses are listed in this section, but for the full list see [this document](docs/deployed-contracts/mainnet-lido-v2-proposed.md).
 
 ```python
 LIDO_LOCATOR = 0xC1d0b3DE6792Bf6. 4b37EccdcC24e45978Cfd2Eb
@@ -28,7 +28,7 @@ LIDO_MAX_STAKE_LIMIT_ETH = 150_000
 ```
 
 ## NodeOperatorsRegistry
-Single staking module named "Curated" added to StakingRouter. For the details see [LIP-20: Staking Router forum post](https://research.lido.fi/t/lip-20-staking-router/3790) 
+Single staking module named "Curated" added to StakingRouter. For the details see [LIP-20: Staking Router forum post](https://research.lido.fi/t/lip-20-staking-router/3790)
 
 ```python
 # See https://snapshot.org/#/lido. snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330 for "Their status shall revert to “In good standing” after **5 days** (i.e. provided any newly received validator exit requests are processed timely"
@@ -163,7 +163,7 @@ And its corresponding `HashConsensus`.
 ```python
 # Once per day
 # Same as for current Oracle see https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F30
-AO_EPOCHS_PER_FRAME = 225  # 
+AO_EPOCHS_PER_FRAME = 225  #
 # So, the AccountingOracle expected report time would be ~12:00 UTC
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
@@ -185,7 +185,7 @@ And its corresponding `HashConsensus`.
 
 ```python
 # Thrice per day
-# So, the ValidatorsExitBusOracle expected report time would be 
+# So, the ValidatorsExitBusOracle expected report time would be
 # ~4:00 UTC, ~12:00 UTC, ~20:00 UTC
 VEBO_EPOCHS_PER_FRAME = 75
 
@@ -218,7 +218,7 @@ WSTETH_TOKEN = 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0  # _wstETH
 WQ_ERC721_TOKEN_NAME = "Lido: stETH Withdrawal NFT"
 WQ_ERC721_TOKEN_SYMBOL = "unstETH"
 
-# Lido-maintained NFT-generator server 
+# Lido-maintained NFT-generator server
 # see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueERC721.sol#L126-L129
 WQ_ERC721_TOKEN_BASE_URI = "https://wq-api.lido.fi/v1/nft"
 ```
@@ -282,19 +282,19 @@ Contracts ACL denotion:
 **Obsolete**
 *To be revoked at voting.*
 - `MANAGE_FEE`
-	- revoke from Voting
+    - revoke from Voting
 - `MANAGE_WITHDRAWAL_KEY`
-	- revoke from Voting
+    - revoke from Voting
 - `MANAGE_PROTOCOL_CONTRACTS_ROLE`
-	- revoke from Voting
+    - revoke from Voting
 - `SET_EL_REWARDS_VAULT_ROLE`
-	- revoke from Voting
+    - revoke from Voting
 - `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE`
-	- revoke from Voting
+    - revoke from Voting
 - `DEPOSIT_ROLE`
-	- revoke from [SelfOwnedStETHBurner](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26) (obsolete contract)
+    - revoke from [SelfOwnedStETHBurner](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26) (obsolete contract)
 - `BURN_ROLE`
-	- revoke from [old DepositSecurityModule](https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd) (obsolete contract)
+    - revoke from [old DepositSecurityModule](https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd) (obsolete contract)
 
 ### **NodeOperatorsRegistry**
 *Aragon app*
@@ -308,10 +308,10 @@ Contracts ACL denotion:
 
 **Kept**
 - `MANAGE_SIGNING_KEYS`
-	- Voting
+    - Voting
 - `SET_NODE_OPERATOR_LIMIT_ROLE`
-	- Voting
-	- Easytrack EVMScriptExecutor
+    - Voting
+    - Easytrack EVMScriptExecutor
 
 **Obsolete**
 *To be revoked at voting.*
@@ -343,14 +343,14 @@ None
 
 - PROXY ADMIN
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - `DEFAULT_ADMIN_ROLE`
     - Before vote start:
-	    - None
+        - None
     - After enactment:
-	    - Agent
+        - Agent
 - `SUBMIT_DATA_ROLE`
     - None
 - `MANAGE_CONSENSUS_CONTRACT_ROLE`
@@ -380,23 +380,23 @@ None
 
 - PROXY ADMIN
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 
 ### **StakingRouter**
 *OZ, Proxy*
 
 - PROXY ADMIN
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - `DEFAULT_ADMIN_ROLE`
     - Before vote start:
-	    - None
+        - None
     - After enactment:
-	    - Agent
+        - Agent
 - `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE`
     - None
 - `STAKING_MODULE_PAUSE_ROLE`
@@ -417,9 +417,9 @@ None
 
 - `DEFAULT_ADMIN_ROLE`
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - `MANAGE_MEMBERS_AND_QUORUM_ROLE`
     - None
 - `DISABLE_CONSENSUS_ROLE`
@@ -431,35 +431,35 @@ None
 - `MANAGE_REPORT_PROCESSOR_ROLE`
     - None
 - `address[] _memberAddresses`
-	- Before vote start:
-	    - None
-	- After enactment:
-	    - Current LidoOracle Committee
-	       See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
+    - Before vote start:
+        - None
+    - After enactment:
+        - Current LidoOracle Committee
+           See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
 
 ### **DepositSecurityModule**
 *Plain Owner, No Proxy*
 
 - owner
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - guardians
-	- Before vote start:
-	    - None
-	- After enactment:
-	    - Current DSM guardians committee
-	       See https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8
+    - Before vote start:
+        - None
+    - After enactment:
+        - Current DSM guardians committee
+           See https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8
 
 ### **HashConsensus for ValidatorExitBusOracle**
 *OZ, No Proxy*
 
 - `DEFAULT_ADMIN_ROLE`
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - `MANAGE_MEMBERS_AND_QUORUM_ROLE`
     - None
 - `DISABLE_CONSENSUS_ROLE`
@@ -471,11 +471,11 @@ None
 - `MANAGE_REPORT_PROCESSOR_ROLE`
     - None
 - `address[] _memberAddresses`
-	- Before vote start:
-		- None
-	- After enactment:
-		- Current LidoOracle Committee
-		  See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
+    - Before vote start:
+        - None
+    - After enactment:
+        - Current LidoOracle Committee
+          See https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28
 
 ### **OracleDaemonConfig**
 *OZ, No Proxy*
@@ -507,19 +507,19 @@ None
 
 - PROXY ADMIN
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - `DEFAULT_ADMIN_ROLE`
     - Before vote start:
-	    - None
+        - None
     - After enactment:
-	    - Agent
+        - Agent
 - `PAUSE_ROLE`
-	- Before vote start:
-	    - None
-	- After enactment:
-	    - Gate Seal
+    - Before vote start:
+        - None
+    - After enactment:
+        - Gate Seal
 - `RESUME_ROLE`
     - None
 - `SUBMIT_DATA_ROLE`
@@ -534,31 +534,31 @@ None
 
 - PROXY ADMIN
     - Before vote start:
-	    - Template
+        - Template
     - After enactment:
-	    - Agent
+        - Agent
 - `DEFAULT_ADMIN_ROLE`
     - Before vote start:
-	    - None
+        - None
     - After enactment:
-	    - Agent
+        - Agent
 - `PAUSE_ROLE`
-	- Before vote start:
-		- None
-	- After enactment:
-	    - Gate Seal
+    - Before vote start:
+        - None
+    - After enactment:
+        - Gate Seal
 - `RESUME_ROLE`
     - None
 - `FINALIZE_ROLE`
     - Before vote start:
-	    - None
+        - None
     - After enactment:
-	    - Lido
+        - Lido
 - `ORACLE_ROLE`
     - Before vote start:
-	    - None
+        - None
      - After enactment
-	    - AccountingOracle
+        - AccountingOracle
 - `MANAGE_TOKEN_URI_ROLE`
     - None
 
@@ -567,4 +567,3 @@ None
 
 - PROXY ADMIN
     - Voting
-
