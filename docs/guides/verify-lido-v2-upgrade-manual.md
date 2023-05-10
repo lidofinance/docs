@@ -7,7 +7,7 @@ Tests setup based upon parameters specified in [this config file](https://github
 Some of the proposed addresses are listed in this section, but for the full list see [this document](docs/deployed-contracts/mainnet-lido-v2-proposed.md).
 
 ```python
-LIDO_LOCATOR = 0xC1d0b3DE6792Bf6. 4b37EccdcC24e45978Cfd2Eb
+LIDO_LOCATOR = 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb
 LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` before
 
 # See https://docs.lido.fi/deployed-contracts/
