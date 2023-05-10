@@ -1,7 +1,10 @@
 # Lido V2 mainnet parameters
 
+## Tests setup configuration
+Tests setup based upon parameters specified in [this config file](https://github.com/lidofinance/scripts/blob/shapella-upgrade/configs/config_mainnet.py) . This document can be used to validate the values.
+
 ## Mainnet addresses
-Some of the proposed addresses are listed here, but the full list is [here](docs/deployed-contracts/mainnet-lido-v2-proposed.md). 
+Some of the proposed addresses are listed in this section, but for the full list see [this document](docs/deployed-contracts/mainnet-lido-v2-proposed.md). 
 
 ```python
 LIDO_LOCATOR = 0xC1d0b3DE6792Bf6. 4b37EccdcC24e45978Cfd2Eb
@@ -9,6 +12,7 @@ LEGACY_ORACLE = 0x442af784A788A5bd6F42A01Ebe9F287a871243fb  # was `LidoOracle` b
 
 # See https://docs.lido.fi/deployed-contracts/
 # Old implementation was `Withdrawals Manager Stub`
+# Represents an address on Execution Layer corresponding to the Lido 0x01-type withdrawal credentials (see below)
 WITHDRAWAL_VAULT = 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 
 # Same as withdrawalsVault with 0x01 type prefix
@@ -17,21 +21,21 @@ WITHDRAWAL_CREDENTIALS = 0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441
 ```
 
 ## NodeOperatorsRegistry
-Single staking module named "Curated" added to StakingRouter.
+Single staking module named "Curated" added to StakingRouter. For the details see [LIP-20: Staking Router forum post](https://research.lido.fi/t/lip-20-staking-router/3790) 
 
 ```python
-# See https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
+# See https://snapshot.org/#/lido. snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 CURATED_STAKING_MODULE_STUCK_PENALTY_DELAY = 432000  # 5 days as seconds
 
 # Share of this staking module among all staking modules (in basis points, 100% = 10000). This is a single module so all 100% goes to it
 # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
 CURATED_STAKING_MODULE_TARGET_SHARE_BP = 10000  # 100%
 
-# Share of the rewards which goes to the staking module (in basis points, 100% = 10000)
+# Share of the rewards which goes to the curated set staking module (in basis points, 100% = 10000)
 # # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
-CURATED_STAKING_MODULE_MODULE_BP = 500  # 5%
+CURATED_STAKING_MODULE_MODULE_FEE_BP = 500  # 5%
 
-# Share of the rewards which goes to the treasury (in basis points, 100% = 10000)
+# Share of the curated set staking module rewards which goes to the treasury (in basis points, 100% = 10000)
 # # https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
 CURATED_STAKING_MODULE_TREASURY_FEE_BP = 500  # 5%
 
@@ -44,7 +48,8 @@ CURATED_STAKING_MODULE_TYPE = 0x637572617465642d6f6e636861696e2d7631000000000000
 
 ```python
 # Parameters realted to "bunker mode"
-# See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890
+# See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
+
 # BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
 NORMALIZED_CL_REWARD_PER_EPOCH=64
 NORMALIZED_CL_REWARD_MISTAKE_RATE_BP=1000  # 10%
@@ -229,6 +234,8 @@ Contracts ACL denotion:
 - mark "*Aragon app*" means the contract is Aragon app which uses [Aragon ACL model](https://hack.aragon.org/developers/tools/aragonos/reference-documentation)
 - mark "*OZ*" means the contract uses [OpenZeppelin ACL model](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 - mark "*Proxy*" means the contract is deployed behind a proxy so has an additional [ACL model related to the proxy](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/proxy/OssifiableProxy.sol)
+- mark "*Plain owner*" means has custom simple ACL model with single owner and setter for it
+- mark "*No access control*" means there is no any ACL
 
 ### **Lido**
 *Aragon app*
@@ -250,12 +257,19 @@ Contracts ACL denotion:
 **Obsolete**
 *To be revoked at voting.*
 - `MANAGE_FEE`
+	- revoke from Voting
 - `MANAGE_WITHDRAWAL_KEY`
+	- revoke from Voting
 - `MANAGE_PROTOCOL_CONTRACTS_ROLE`
-- `BURN_ROLE`
-- `DEPOSIT_ROLE`
+	- revoke from Voting
 - `SET_EL_REWARDS_VAULT_ROLE`
+	- revoke from Voting
 - `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE`
+	- revoke from Voting
+- `DEPOSIT_ROLE`
+	- revoke from [SelfOwnedStETHBurner](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26) (obsolete contract)
+- `BURN_ROLE`
+	- revoke from [old DepositSecurityModule](https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd) (obsolete contract)
 
 ### **NodeOperatorsRegistry**
 *Aragon app*
@@ -334,8 +348,6 @@ None
         - Lido (set in Burner constructor)
         - NodeOperatorsRegistry
 - `REQUEST_BURN_MY_STETH_ROLE`
-    - None
-- `RECOVER_ASSETS_ROLE`
     - None
 
 ### **LidoLocator**
@@ -478,12 +490,12 @@ None
 	    - None
     - After enactment:
 	    - Agent
-- `PAUSE_ROLE` (in initializer)
+- `PAUSE_ROLE`
 	- Before vote start:
 	    - None
 	- After enactment:
 	    - Gate Seal
-- `RESUME_ROLE` (in initialize)
+- `RESUME_ROLE`
     - None
 - `SUBMIT_DATA_ROLE`
     - None
@@ -529,4 +541,5 @@ None
 *No access control, Proxy*
 
 - PROXY ADMIN
-    - Agent
+    - Voting
+
