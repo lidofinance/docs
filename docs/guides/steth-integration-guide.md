@@ -11,13 +11,15 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 For ether staked in Lido, it gives users stETH that is equal to the amount staked.
 
 Lido's stTokens are widely adopted across Ethereum ecosystem:
-- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080).
-- stETH is [listed as collateral token on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet.
-- wstETH is [listed as collateral token on Maker](https://daistats.com/#/collateral).
-- steCRV (the Curve stETH/ETH LP token) is [listed as collateral token on Maker](https://daistats.com/#/collateral).
-- there are multiple liquidity strategies built on top of Lido's stTokens, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6).
+
+- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)
+- stETH is [listed as collateral token on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet
+- wstETH is [listed as collateral token on Maker](https://daistats.com/#/collateral)
+- steCRV (the Curve stETH/ETH LP token) is [listed as collateral token on Maker](https://daistats.com/#/collateral)
+- there are multiple liquidity strategies built on top of Lido's stTokens, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325), [Harvest Finance](https://harvest.finance/), and [Babylon Finance](https://www.babylon.finance/garden/0xB5bD20248cfe9480487CC0de0d72D0e19eE0AcB6)
 
 #### Integration utilities: ChainLink price feeds
+
 - There are live ChainLink [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) price feeds on Ethereum.
 - There are live ChainLink stETH/USD price feeds on [Arbitrum](https://docs.chain.link/docs/arbitrum-price-feeds/) and [Optimism](https://docs.chain.link/docs/optimism-price-feeds/). These also have ChainLink wstETH-stETH exchange rate data feeds.
 
@@ -55,7 +57,8 @@ The Beacon chain oracle has sanity checks on both max APR reported (the APR cann
 Daily rebases result in stETH token balances changing. This mechanism is implemented via shares.
 The `share` is a basic unit representing the stETH holder's share in the total amount of ether controlled by the protocol. When a new deposit happens, the new shares get minted to reflect what share of the protocol controlled ether has been added to the pool. When the Beacon chain oracle report comes in, the price of 1 share in stETH is being recalculated. Shares aren't normalized, so the contract also stores the sum of all shares to calculate each account's token balance.
 Shares balance by stETH balance can be calculated by this formula:
-```
+
+```js
 shares[account] = balanceOf(account) * totalShares / totalPooledEther
 ```
 
@@ -64,6 +67,7 @@ shares[account] = balanceOf(account) * totalShares / totalPooledEther
 stETH balance calculation includes integer division, and there is a common case when the whole stETH balance can't be transferred from the account, while leaving the last 1 wei on the sender's account. Same thing can actually happen at any transfer or deposit transaction.
 
 Example:
+
 1. User A transfers 1 stETH to User B.
 2. Under the hood, stETH balance gets converted to shares, integer division happens and rounding down applies.
 3. Corresponding amount of shares gets transferred from User A to User B.
@@ -81,6 +85,7 @@ To figure out the shares balance, `getSharesByPooledEth(uint256)` function can b
 Any operation on stETH can be performed on shares directly, with no difference between share and stETH.
 
 The preferred way of operating stETH should be:
+
 1) get stETH token balance;
 2) convert stETH balance into shares balance and use it as primary balance unit in your dapp;
 3) when any operation on the balance should be done, do it on shares balance;
@@ -100,7 +105,9 @@ Since total amount of Lido pooled ether tends to increase, the combined value of
 shares2mint * newShareCost = (_totalRewards * feeBasis) / 10000
 newShareCost = newTotalPooledEther / (prevTotalShares + shares2mint)
 ```
+
 which follows to:
+
 ```
                         _totalRewards * feeBasis * prevTotalShares
 shares2mint = --------------------------------------------------------------
@@ -138,7 +145,6 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 2) A rebase happens, the wstETH price goes up by 5%
 3) User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
 
-
 ### Wrap & Unwrap
 
 When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WstETH contract balance, and the wstETH is being minted according to the [shares bookeeping](#bookkeeping-shares) formula.
@@ -153,7 +159,7 @@ The most recent testnet version of the Lido protocol lives on Goerli testnet ([s
 
 ### wstETH on L2s
 
-Currently, wstETH token is present on Arbitrum and Optimism with bridging implemented via the canonical bridges. Unlike on Ethereum mainnet, wstETH on L2s is a plain ERC20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network. The token does not implement shares bookkeeping, which means it is not possible to calculate the wstETH/stETH rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose. 
+Currently, wstETH token is present on Arbitrum and Optimism with bridging implemented via the canonical bridges. Unlike on Ethereum mainnet, wstETH on L2s is a plain ERC20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network. The token does not implement shares bookkeeping, which means it is not possible to calculate the wstETH/stETH rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose.
 
 ## ERC20Permit
 
@@ -165,6 +171,7 @@ By not relying on `approve` method, you can build interfaces that will approve a
 NB: stETH token itself does not support the ERC20 Permit extension and it's not possible to approve and wrap stETH in one tx at this time.
 
 ## Staking rate limits
+
 In order to handle the staking surge in case of some unforeseen market conditions, the Lido protocol implemented staking rate limits aimed at reducing the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
 There is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much ether to the Lido staking contracts within a 24 hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
 
@@ -175,7 +182,7 @@ When it hits the ground, transaction gets reverted.
 To avoid that, you should check if `getCurrentStakeLimit() >= amountToStake`, and if it's not you can go with an alternative route.
 The staking rate limits are denominated in ether, thus, it makes no difference if the stake is being deposited for stETH or using [the wstETH shortcut](#wsteth-shortcut), the limits apply in both cases.
 
-#### Alternative routes:
+#### Alternative routes
 
 1. Wait for staking limits to regenerate to higher values and retry depositing ether to Lido later.
 2. Consider swapping ETH for stETH on DEXes like Curve or Balancer. At specific market conditions stETH may effectively be purchased from there with a discount due to stETH price fluctuations.
@@ -218,6 +225,7 @@ When adding stETH support to a DeFi wallet, it is important to preserve stETH's 
 ### Liquidity mining
 
 stETH liquidity is mostly concentrated in two biggest liquidity pools:
+
 - [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) ([contract code](https://github.com/curvefi/curve-contract/blob/master/contracts/pools/steth/StableSwapSTETH.vy))
 - [wstETH/WETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080) ([read more](https://docs.balancer.fi/products/balancer-pools/metastable-pools#the-lido-wsteth-weth-liquidity-pool))
 
