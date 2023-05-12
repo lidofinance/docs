@@ -196,6 +196,102 @@ The staking rate limits are denominated in ether, thus, it makes no difference i
 1. Wait for staking limits to regenerate to higher values and retry depositing ether to Lido later.
 2. Consider swapping ETH for stETH on DEXes like Curve or Balancer. At specific market conditions stETH may effectively be purchased from there with a discount due to stETH price fluctuations.
 
+## Withdrawals
+
+V2 introduced a posibility to withdraw ETH from Lido. A high-level upgrade overview can be found in [the blog post](https://blog.lido.fi/introducing-lido-v2/). Withdrawals flow are organized as FIFO queue that accepts the requests with stETH attached and these requests are finalized with oracle reports as soon as ether to fulfill the request are available.
+
+So to obtain ether from the protocol, you'll need to proceed with the following steps:
+
+- request the withdrawal, locking your steth in the queue and receiving an NFT, that represents your position in the queue
+- wait, until the request is finalized by the oracle report and becomes claimable
+- claim your ether, burning the NFT
+
+Request size should be at least **100 wei** (in stETH) and at most **1000 stETH**. Larger amounts should be withdrawn in multiple requests, which can be batched via in-protocol API. Once requested, withdrawal cannot be canceled. The withdrawal NFT can be transferred to a different address, and the new owner will be able to claim the requested withdrawal once finalized.
+
+The amount of claimable ETH is determined once the withdrawal request is finalized. The rate stETH/ETH of the request finalization can't get higher than it's been at the moment of request creation. The user will be able to claim:
+
+- normally – ETH amount corresponding to the stETH amount at the moment of the request's placement
+
+**OR**
+
+- discounted - lowered ETH amount corresponding to the oracle-reported share rate in case the protocol had undergone significant losses (slashings and penalties)
+
+The second option is unlikely, and we haven't ever seen the conditions for it on mainnet so far.
+
+The end-user contract to deal with the withdrawals is `WithdrawalQueueERC721.sol`, which implements the ERC721 standard. NFT represents the position in the withdrawal queue and may be claimed after finalization of the request.
+
+Let's follow these steps in details:
+
+### Request and receive NFT
+
+You have several options for requesting for withdrawals, they requires you own stETH or wstETH on your address:
+
+- stETH
+    - Call `requestWithdrawalsWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided.
+    - Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards.
+
+- wstETH
+    - Call `requestWithdrawalsWstETHWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from, and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided.
+    - Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards.
+
+`PermitInput` structure defined as follows:
+
+```solidity
+struct PermitInput {
+    uint256 value;
+    uint256 deadline;
+    uint8 v;
+    bytes32 r;
+    bytes32 s;
+}
+```
+
+After request ERC721 NFT are minted to `_owner` address and can be transferred to the other owner which will have all the rights to claim the withdrawal.
+
+Additionally, this NFT implements [ERC4906] standard and it's recommended to rely on
+
+```solidity
+event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId);
+```
+
+to update the nft metadata if you're integrating it somewhere where it should be displayed correctly.
+
+### Checking the state of withdrawal
+
+- You can check all the withdrawal request's for the owner by calling `getWithdrawalRequests(address _owner)` that return an array of NFT ids.
+- To check the state of the particular NFTs you can call `getWithdrawalStatus(uint256[] _requestIds)` that returns an array of [`WithdrawalRequestStatus`](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueBase.sol#L67-L81) struct.
+
+```solidity
+    /// @notice output format struct for `_getWithdrawalStatus()` method
+    struct WithdrawalRequestStatus {
+        /// @notice stETH token amount that was locked on withdrawal queue for this request
+        uint256 amountOfStETH;
+        /// @notice amount of stETH shares locked on withdrawal queue for this request
+        uint256 amountOfShares;
+        /// @notice address that can claim or transfer this request
+        address owner;
+        /// @notice timestamp of when the request was created, in seconds
+        uint256 timestamp;
+        /// @notice true, if request is finalized
+        bool isFinalized;
+        /// @notice true, if request is claimed. Request is claimable if (isFinalized && !isClaimed)
+        bool isClaimed;
+    }
+```
+
+>NOTE: Since stETH is an essential token if the user requests a withdrawal using wstETH directly, the amount will be nominated in stETH on request creation.
+
+If status returns `isFinalized` equal true, than you can call `getClaimableEther(uint256[] _requestIds, uint256[] _hints)` to get the exact amount of eth that is reserved for the requests. You can find a hint for each request by calling `findCheckpointHints(__requestIds, 1, getLastCheckpointIndex())`
+
+### Claiming
+
+To claim ether you need to call:
+
+- `claimWithdrawal(uint256 _requestId)` with the NFT Id on behalf of the NFT owner
+- `claimWithdrawals(uint256[] _requestIDs, uint256[] _hints)` if you want to claim multiple withdrawals in batches or optimize on hint search
+    - hints = `findCheckpointHints(uint256[] calldata _requestIDs, 1, lastCheckpoint)`
+    - lastCheckpoint = `getLastCheckpointIndex()`
+
 ## General integration examples
 
 ### stETH/wstETH as collateral
