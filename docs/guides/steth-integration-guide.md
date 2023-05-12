@@ -26,23 +26,25 @@ Lido's stTokens are widely adopted across Ethereum ecosystem:
 ## stETH vs. wstETH
 
 There are two versions of Lido's stTokens, namely stETH and wstETH.
-Both tokens are ERC-20 tokens, but they reflect the accrued staking rewards in different ways. stETH implements rebasing mechanics which means the stETH balance increases periodically. In contrary, wstETH balance is constant, while the token increases in value eventually (denominated in stETH). At any moment, any amount of stETH can be converted to wstETH via trustless wrapper and vice versa, thus tokens effectively share liquidity.
+Both are fungible tokens, but they reflect the accrued staking rewards in different ways. stETH implements rebasing mechanics which means the stETH balance increases periodically. In contrary, wstETH balance is constant, while the token increases in value eventually (denominated in stETH). At any moment, any amount of stETH can be converted to wstETH via trustless wrapper and vice versa, thus tokens effectively share liquidity.
 For instance, undercollateralized wstETH positions on Maker can be liquidated by unwrapping wstETH and swapping it for ether on Curve.
 
 ## stETH
 
 ### What is stETH
 
-stETH is a ERC20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio.
+stETH is a rebaseable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. When withdrawals from the Beacon chain will be introduced, it will also be possible to redeem ether by burning stETH at the same 1:1 ratio.
+
+stETH does not strictly comply with ERC-20. Only exception is that it does not emit `Trasfer()` on rebase as [ERC-20](https://eips.ethereum.org/EIPS/eip-20#events) standard recommends.
 
 Please note, Lido has implemented staking rate limits aimed at reducing the post-Merge staking surge's impact on the staking queue & Lido’s socialized rewards distribution model. Read more about it [here](#staking-rate-limits).
 
 stETH is a rebasable ERC-20 token. Normally, the stETH token balances get recalculated daily when the Lido oracle reports Beacon chain ether balance update. The stETH balance update happens automatically on all the addresses holding stETH at the moment of rebase. The rebase mechanics have been implemented via shares (see [shares](#steth-internals-share-mechanics)).
 
-### The Beacon chain oracle
+### Accounting oracle
 
 Normally, stETH rebases happen daily when the Lido oracle reports the Beacon chain ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed, the stETH balances can decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.
-The Beacon chain oracle has sanity checks on both max APR reported (the APR cannot exceed 10%, which means a daily rebase is limited to `10/365%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the Beacon chain oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as three out of five oracle daemons report matching Beacon chain data, the oracle reports it to the Lido smart contract, and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current Beacon chain reports.
+The accounting oracle has sanity checks on both max APR reported (the APR cannot exceed 27%, which means a daily rebase is limited to `27/365%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as three out of five oracle daemons report the same data, reaching the consensus, the report goes to the Lido smart contract, and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current accounting reports.
 
 #### Oracle corner cases
 
@@ -50,7 +52,6 @@ The Beacon chain oracle has sanity checks on both max APR reported (the APR cann
 - In case the quorum hasn't been reached, the oracle can skip the daily report. The report will happen as soon as the quorum for one of the next periods will be reached, and it will include the balance update for all the period since last oracle report.
 - Oracle daemons only report the finalized epochs. In case of no finality on the Beacon chain, the daemons won't submit their reports, and the daily rebase won't occur.
 - In case sanity checks on max APR or total staked amount drop fail, the oracle report cannot be finalized, and the rebase cannot happen.
-- StETH smart contract includes [a method that allows burning stETH shares](https://github.com/lidofinance/lido-dao/blob/816bf1d0995ba5cfdfc264de4acda34a7fe93eba/contracts/0.4.24/StETH.sol#L391). The method is meant for [in-protocol cover](https://research.lido.fi/t/lip-6-in-protocol-coverage-proposal/1468). When stETH shares get burnt, it triggers an immediate rebase, while the underlying ether adds up to the daily rewards for all stETH holders. This extra rebase doesn't interfere with normal rebase schedule in any way.
 
 ### stETH internals: share mechanics
 
@@ -62,7 +63,7 @@ Shares balance by stETH balance can be calculated by this formula:
 shares[account] = balanceOf(account) * totalShares / totalPooledEther
 ```
 
-### 1 wei corner case
+#### 1 wei corner case
 
 stETH balance calculation includes integer division, and there is a common case when the whole stETH balance can't be transferred from the account, while leaving the last 1 wei on the sender's account. Same thing can actually happen at any transfer or deposit transaction.
 
@@ -95,6 +96,17 @@ Please note that 10% APR on shares balance and 10% APR on stETH token balance wi
 
 If using the rebasable stETH token is not an option for your integration, it is recommended to use wstETH instead of stETH. See how it works [here](#wsteth).
 
+### Transfer shares function for stETH
+
+The [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) introduced the `transferShares` function which allows to transfer stETH in a "rebase-agnostic" manner: transfer in terms of [shares](#steth-internals-share-mechanics) amount.
+
+Normally, we transfer stETH using ERC-20 `transfer` and `transferFrom` functions which accept as input amount of stETH, not the amount of the underlying shares.
+Sometimes we'd better operate with shares directly to avoid possible rounding issues. Rounding issues usually could appear after a token rebase.
+This feature is aimed to provide an additional level of precision when operating with stETH.
+Read more abut the function in the [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md).
+
+Also, V2 upgrade introduced a `transferSharesFrom` to completely match ERC-20 set of transfer methods.
+
 ### Fees
 
 Lido collects a percentage of the staking rewards as a protocol fee. The exact fee size is defined by the DAO and can be changed in the future via DAO voting. To collect the fee, the protocol mints new stETH token shares and assigns them to the fee recipients. Currenty, the fee collected by Lido protocol is 10% of staking rewards with half of it going to the node operators and the other half going to the protocol treasury.
@@ -116,10 +128,9 @@ shares2mint = --------------------------------------------------------------
 
 ### Do stETH rewards compound?
 
-stETH holders receive staking rewards, but those don't compound. Actual APR diminishes slightly over time for two main reasons:
+Yes, stETH rewards do compound.
 
-1. Beacon chain rewards don't compound. To get more rewards one should withdraw funds and re-deposit them, skimming rewards. Until withdrawals are enabled, that isn't technically possible. So, while the Lido's beacon chain balance increases over time, rewards bearing token amount remains equal to deposited ether amount.
-2. stETH holders receive rewards proportionally to their share in the stETH total supply. This share diminishes slightly over time because of the protocol fee on rewards eating up from other holders' shares eventually.
+All rewards that are withdrawn from the Beacon chain or received as MEV or EL priority fees are finally restaked to set up new validators and receive more rewards at the end. So, we can say that stETH beccomes fully auto-compounding after V2 release.
 
 ## wstETH
 
@@ -130,6 +141,14 @@ Although rebasable tokens are becoming a common thing in DeFi recently, many dAp
 
 wstETH is an ERC20 token that represents the account's share of the stETH total supply (stETH token wrapper with static balances). For wstETH, 1 wei in [shares](#steth-internals-share-mechanics) equals to 1 wei in balance. The wstETH balance can only be changed upon transfers, minting, and burning. wstETH balance does not rebase, wstETH's price denominated in stETH changes instead.
 At any given time, anyone holding wstETH can convert any amount of it to stETH at a fixed rate, and vice versa. The rate is the same for everyone at any given moment. Normally, the rate gets updated once a day, when stETH undergoes a rebase. The current rate can be obtained by calling `wstETH.stEthPerToken()`
+
+### Wrap & Unwrap
+
+When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WstETH contract balance, and the wstETH is being minted according to the [shares bookeeping](#bookkeeping-shares) formula.
+
+When unwrapping, wstETH gets burnt and the corresponding amount of stETH gets unlocked.
+
+Thus, amount of stETH unlocked when unwrapping is different from what has been initially wrapped (given a rebase happened between wrapping and unwrapping stETH).
 
 #### wstETH shortcut
 
@@ -145,14 +164,6 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 2) A rebase happens, the wstETH price goes up by 5%
 3) User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
 
-### Wrap & Unwrap
-
-When wrapping stETH to wstETH, the desired amount of stETH is being locked on the WstETH contract balance, and the wstETH is being minted according to the [shares bookeeping](#bookkeeping-shares) formula.
-
-When unwrapping, wstETH gets burnt and the corresponding amount of stETH gets unlocked.
-
-Thus, amount of stETH unlocked when unwrapping is different from what has been initially wrapped (given a rebase happened between wrapping and unwrapping stETH).
-
 ### Goerli wstETH for testing
 
 The most recent testnet version of the Lido protocol lives on Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Goerli Ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Goerli Ether to WstETH contract on Goerli, and the corresponding amount of wstETH will be minted to your account.
@@ -163,12 +174,10 @@ Currently, wstETH token is present on Arbitrum and Optimism with bridging implem
 
 ## ERC20Permit
 
-wstETH token implements the ERC20 Permit extension allowing approvals to be made via signatures, as defined in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612).
+wstETH and stETH tokens implement the ERC20 Permit extension allowing approvals to be made via signatures, as defined in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612).
 
 The `permit` method allows users to modify the allowance using a signed message, instead of through `msg.sender`.
 By not relying on `approve` method, you can build interfaces that will approve and use wstETH in one tx.
-
-NB: stETH token itself does not support the ERC20 Permit extension and it's not possible to approve and wrap stETH in one tx at this time.
 
 ## Staking rate limits
 
@@ -182,19 +191,10 @@ When it hits the ground, transaction gets reverted.
 To avoid that, you should check if `getCurrentStakeLimit() >= amountToStake`, and if it's not you can go with an alternative route.
 The staking rate limits are denominated in ether, thus, it makes no difference if the stake is being deposited for stETH or using [the wstETH shortcut](#wsteth-shortcut), the limits apply in both cases.
 
-#### Alternative routes
+### Alternative routes
 
 1. Wait for staking limits to regenerate to higher values and retry depositing ether to Lido later.
 2. Consider swapping ETH for stETH on DEXes like Curve or Balancer. At specific market conditions stETH may effectively be purchased from there with a discount due to stETH price fluctuations.
-
-## Transfer shares function for stETH
-
-The [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) introduced the `transferShares` function which allows to transfer stETH in a "rebase-agnostic" manner: transfer in terms of [shares](#steth-internals-share-mechanics) amount.
-
-Normally, we transfer stETH using ERC-20 `transfer` and `transferFrom` functions which accept as input amount of stETH, not the amount of the underlying shares.
-Sometimes we'd better operate with shares directly to avoid possible rounding issues. Rounding issues usually could appear after a token rebase.
-This feature is aimed to provide an additional level of precision when operating with stETH.
-Read more abut the function in the [LIP-11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md).
 
 ## General integration examples
 
