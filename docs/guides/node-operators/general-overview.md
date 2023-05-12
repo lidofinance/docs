@@ -80,3 +80,15 @@ is defined by an address that is used for two purposes:
 2. The Node Operator uses this address for submitting signing keys to be used by the protocol.
 
 Pass this address to the DAO holders along with the other relevant information.
+
+## Validator Exits Policy, Penalties, and Recovering
+
+According to the [Lido on Ethereum Validator Exits Policy](https://github.com/lidofinance/documents-and-policies/blob/7595317b8fd2ee60ab25f5cac8eac2cc2cafa149/Lido%20on%20Ethereum%20-%20Validator%20Exits%20Policy.md) document, a Node Operator participating in the Lido on Ethereum protocol are responsible for correctly exiting validators within a specified timeframe determined by the protocol's requirements and rules set by the DAO.
+
+In essence, if a node operator is unable to withdraw a validator within the time specified by the `VALIDATOR_DELINQUENT_TIMEOUT_IN_SLOTS` parameter in the `OracleDaemonConfig` contract, the accounting oracle report for that Node Operator increases the `STUCKED` field by the number of delayed validators.
+
+Therefore, a node operator is penalized if they have more `STUCKED` validators than `REFUNDED` validators. While this condition is met, the Node Operator receives only half of the rewards and no new stake allocations. 
+
+Once the Node Operator manages to either withdraw the required number of validators or compensate for the lost validators and increases the `REFUNDED` count through DAO voting, the Node Operator is considered under penalty for the duration of the `STUCK_PENALTY_DELAY` period and then returns to the normal state. Rewards are automatically restored to normal, but to start receiving new stake, the Node Operator (or anyone else) must call the permissionless method `clearNodeOperatorPenalty`.
+
+To clear penalty please send a transaction with desired `_nodeOperatorId`: [https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5#writeProxyContract#F2](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5#writeProxyContract%23F2)
