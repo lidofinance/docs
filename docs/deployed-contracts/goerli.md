@@ -4,19 +4,18 @@
 
 ### Lido V2 Core Protocol
 
-- LidoLocator: [`0x1eDf09b5023DC86737b59dE68a8130De878984f5`](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5) (proxy)
+- Lido Locator: [`0x1eDf09b5023DC86737b59dE68a8130De878984f5`](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5) (proxy)
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
 - wstETH token: [`0x6320cd32aa674d2898a68ec82e869385fc5f7e2f`](https://goerli.etherscan.io/address/0x6320cd32aa674d2898a68ec82e869385fc5f7e2f)
 - EIP-712 helper for stETH: [`0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e`](https://goerli.etherscan.io/address/0xB4300103FfD326f77FfB3CA54248099Fb29C3b9e)
 - StakingRouter: [`0xa3Dbd317E53D363176359E10948BA0b1c0A4c820`](https://goerli.etherscan.io/address/0xa3Dbd317E53D363176359E10948BA0b1c0A4c820) (proxy)
 - Node Operators registry: [`0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320) (proxy)
 - Deposit Security module: [`0xe57025E250275cA56f92d76660DEcfc490C7E79A`](https://goerli.etherscan.io/address/0xe57025E250275cA56f92d76660DEcfc490C7E79A)
-- LidoExecutionLayerRewardsVault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
-- WithdrawalQueueERC721: [`0xCF117961421cA9e546cD7f50bC73abCdB3039533`](https://goerli.etherscan.io/address/0xCF117961421cA9e546cD7f50bC73abCdB3039533) (proxy)
-- WithdrawalVault: [`0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762`](https://goerli.etherscan.io/address/0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762) (proxy)
-- Burner of stETH: [`0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1`](https://goerli.etherscan.io/address/0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1)
+- Execution Layer Rewards Vault: [`0x94750381bE1AbA0504C666ee1DB118F68f0780D4`](https://goerli.etherscan.io/address/0x94750381bE1AbA0504C666ee1DB118F68f0780D4)
+- Withdrawal Queue ERC721: [`0xCF117961421cA9e546cD7f50bC73abCdB3039533`](https://goerli.etherscan.io/address/0xCF117961421cA9e546cD7f50bC73abCdB3039533) (proxy)
+- Withdrawal Vault: [`0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762`](https://goerli.etherscan.io/address/0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762) (proxy)
+- Burner: [`0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1`](https://goerli.etherscan.io/address/0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1)
 - MEV Boost Relay Allowed List: [`0xeabE95AC5f3D64aE16AcBB668Ed0efcd81B721Bc`](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
-- Legacy Oracle (obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
 
 ### Lido V2 Oracle Contracts
 
@@ -28,8 +27,9 @@
     - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
 - OracleReportSanityChecker: [`0xbf74600040F91D3560d5757280727FB00c64Fd2E`](https://goerli.etherscan.io/address/0xbf74600040F91D3560d5757280727FB00c64Fd2E)
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
+- Legacy Oracle (Lido Oracle before V2, obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
 
-### DAO contracts
+### Lido V2 DAO contracts
 
 - Lido DAO: [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
 - LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
@@ -42,9 +42,9 @@
 - Lido App Repo: [`0xE9eDe497d2417fd980D8B5338232666641B9B9aC`](https://goerli.etherscan.io/address/0xE9eDe497d2417fd980D8B5338232666641B9B9aC)
 - Lido Oracle Repo: [`0x9234e37Adeb44022A078557D9943b72AB89bF36a`](https://goerli.etherscan.io/address/0x9234e37Adeb44022A078557D9943b72AB89bF36a)
 - Node Operators Registry Repo: [`0x5F867429616b380f1Ca7a7283Ff18C53a0033073`](https://goerli.etherscan.io/address/0x5F867429616b380f1Ca7a7283Ff18C53a0033073)
-- GateSeal Blueprint: [`0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf`](https://goerli.etherscan.io/address/0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf)
-- GateSealFactory: [`0x248C4a34645921C70a591CCc200cb75D6a4C5091`](https://goerli.etherscan.io/address/0x248C4a34645921C70a591CCc200cb75D6a4C5091)
-- GateSeal: [`0xEE656d0C8e9f0646B505a13295C188164a3D8EaC`](https://goerli.etherscan.io/address/0xEE656d0C8e9f0646B505a13295C188164a3D8EaC)
+- Gate Seal Blueprint: [`0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf`](https://goerli.etherscan.io/address/0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf)
+- Gate Seal Factory: [`0x248C4a34645921C70a591CCc200cb75D6a4C5091`](https://goerli.etherscan.io/address/0x248C4a34645921C70a591CCc200cb75D6a4C5091)
+- Gate Seal: [`0xEE656d0C8e9f0646B505a13295C188164a3D8EaC`](https://goerli.etherscan.io/address/0xEE656d0C8e9f0646B505a13295C188164a3D8EaC)
 
 ### Reward Programs
 
