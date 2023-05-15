@@ -224,7 +224,7 @@ The end-user contract to deal with the withdrawals is `WithdrawalQueueERC721.sol
 
 Let's follow these steps in details:
 
-### Request and receive NFT
+### Request withdrawal and mint NFT
 
 You have several options for requesting for withdrawals, they requires you own stETH or wstETH on your address:
 
@@ -249,7 +249,7 @@ struct PermitInput {
 }
 ```
 
-After request ERC721 NFT are minted to `_owner` address and can be transferred to the other owner which will have all the rights to claim the withdrawal.
+After request [ERC721](https://eips.ethereum.org/EIPS/eip-721) NFT are minted to `_owner` address and can be transferred to the other owner which will have all the rights to claim the withdrawal.
 
 Additionally, this NFT implements [ERC4906](https://eips.ethereum.org/EIPS/eip-4906) standard and it's recommended to rely on
 
