@@ -262,7 +262,6 @@ to update the nft metadata if you're integrating it somewhere where it should be
 - To check the state of the particular NFTs you can call `getWithdrawalStatus(uint256[] _requestIds)` that returns an array of [`WithdrawalRequestStatus`](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueBase.sol#L67-L81) struct.
 
 ```solidity
-    /// @notice output format struct for `_getWithdrawalStatus()` method
     struct WithdrawalRequestStatus {
         /// @notice stETH token amount that was locked on withdrawal queue for this request
         uint256 amountOfStETH;
@@ -281,7 +280,7 @@ to update the nft metadata if you're integrating it somewhere where it should be
 
 >NOTE: Since stETH is an essential token if the user requests a withdrawal using wstETH directly, the amount will be nominated in stETH on request creation.
 
-If status returns `isFinalized` equal true, than you can call `getClaimableEther(uint256[] _requestIds, uint256[] _hints)` to get the exact amount of eth that is reserved for the requests. You can find a hint for each request by calling `findCheckpointHints(__requestIds, 1, getLastCheckpointIndex())`
+You can call `getClaimableEther(uint256[] _requestIds, uint256[] _hints)` to get the exact amount of eth that is reserved for the requests, where `_hints` can be found by calling `findCheckpointHints(__requestIds, 1, getLastCheckpointIndex())`. It will return non-zero value only if request is claimable (isFinalized && !isClaimed)
 
 ### Claiming
 
@@ -349,5 +348,3 @@ Lido is built atop experimental technology under active development, and there i
 Beacon chain validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimise this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
 4. stETH price risk.
 Users risk an exchange price of stETH which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate above risks and eliminate them entirely to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
-5. DAO key management risk.
-On early stages of Lido, slightly more than 600k ether became held across multiple accounts backed by a multi-signature threshold scheme to minimize custody risk. If signatories across a certain threshold lose their key shares, get hacked or go rogue, Lido risks these funds (<13% of total stake as of October 2022) becoming locked.
