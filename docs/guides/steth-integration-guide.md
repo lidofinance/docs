@@ -33,7 +33,7 @@ For instance, undercollateralized wstETH positions on Maker can be liquidated by
 
 ### What is stETH
 
-stETH is a rebaseable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. Since withdrawals from the Beacon chain have been introduced, it is also possible to redeem ether by burning stETH at the same 1:1 ratio.
+stETH is a rebaseable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. Since withdrawals from the Beacon chain have been introduced, it is also possible to redeem ether by burning stETH at the same 1:1 ratio (in rare cases it won't preserve 1:1 ratio though).
 
 stETH does not strictly comply with ERC-20. Only exception is that it does not emit `Trasfer()` on rebase as [ERC-20](https://eips.ethereum.org/EIPS/eip-20#events) standard recommends.
 
@@ -43,8 +43,8 @@ stETH is a rebasable ERC-20 token. Normally, the stETH token balances get recalc
 
 ### Accounting oracle
 
-Normally, stETH rebases happen daily when the Lido oracle reports the Beacon chain ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed, the stETH balances can decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.
-The accounting oracle has sanity checks on both max APR reported (the APR cannot exceed 27%, which means a daily rebase is limited to `27/365%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as three out of five oracle daemons report the same data, reaching the consensus, the report goes to the Lido smart contract, and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current accounting reports.
+Normally, stETH rebases happen daily when the Lido oracle reports the Beacon chain ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed or penalized, the stETH balances can decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.
+The accounting oracle has sanity checks on both max APR reported (the APR cannot exceed 27%, which means a daily rebase is limited to `27/365%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%). Currently, the oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as five out of nine oracle daemons report the same data, reaching the consensus, the report goes to the Lido smart contract, and the rebase occurs. There is a [dedicated oracle dashboard](https://mainnet.lido.fi/#/lido-dao/0x442af784a788a5bd6f42a01ebe9f287a871243fb/) to monitor current accounting reports.
 
 #### Oracle corner cases
 
@@ -63,9 +63,9 @@ Shares balance by stETH balance can be calculated by this formula:
 shares[account] = balanceOf(account) * totalShares / totalPooledEther
 ```
 
-#### 1 wei corner case
+#### 1-2 wei corner case
 
-stETH balance calculation includes integer division, and there is a common case when the whole stETH balance can't be transferred from the account, while leaving the last 1 wei on the sender's account. Same thing can actually happen at any transfer or deposit transaction.
+stETH balance calculation includes integer division, and there is a common case when the whole stETH balance can't be transferred from the account, while leaving the last 1-2 wei on the sender's account. Same thing can actually happen at any transfer or deposit transaction. In the future, when the stETH/share rate will be greater, the error can become a bit bigger. To avoid it, one can use `transferShares` to be precise.
 
 Example:
 
@@ -73,7 +73,9 @@ Example:
 2. Under the hood, stETH balance gets converted to shares, integer division happens and rounding down applies.
 3. Corresponding amount of shares gets transferred from User A to User B.
 4. Shares balance gets converted to stETH balance for User B.
-5. In many cases the actually transferred amount is 1 wei less than expected.
+5. In many cases the actually transferred amount is 1-2 wei less than expected.
+
+The issue is documented here: https://github.com/lidofinance/lido-dao/issues/442
 
 ### Bookkeeping shares
 
@@ -130,7 +132,7 @@ shares2mint = --------------------------------------------------------------
 
 Yes, stETH rewards do compound.
 
-All rewards that are withdrawn from the Beacon chain or received as MEV or EL priority fees are finally restaked to set up new validators and receive more rewards at the end. So, we can say that stETH beccomes fully auto-compounding after V2 release.
+All rewards that are withdrawn from the Beacon chain or received as MEV or EL priority fees (that aren't used to fulfil withdrawal requests) are finally restaked to set up new validators and receive more rewards at the end. So, we can say that stETH beccomes fully auto-compounding after V2 release.
 
 ## wstETH
 
@@ -226,13 +228,14 @@ Let's follow these steps in details:
 
 You have several options for requesting for withdrawals, they requires you own stETH or wstETH on your address:
 
-- stETH
-    - Call `requestWithdrawalsWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided.
-    - Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards.
+#### stETH
 
-- wstETH
-    - Call `requestWithdrawalsWstETHWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from, and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided.
-    - Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards.
+- Call `requestWithdrawalsWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided
+- Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards
+
+#### wstETH
+- Call `requestWithdrawalsWstETHWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from, and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provide)
+- Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards
 
 `PermitInput` structure defined as follows:
 
@@ -248,7 +251,7 @@ struct PermitInput {
 
 After request ERC721 NFT are minted to `_owner` address and can be transferred to the other owner which will have all the rights to claim the withdrawal.
 
-Additionally, this NFT implements [ERC4906] standard and it's recommended to rely on
+Additionally, this NFT implements [ERC4906](https://eips.ethereum.org/EIPS/eip-4906) standard and it's recommended to rely on
 
 ```solidity
 event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId);
