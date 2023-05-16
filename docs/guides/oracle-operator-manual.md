@@ -35,25 +35,25 @@ The two core contracts in the Lido Oracle suite are called AccountingOracle and 
 
 To prepare the report, Oracle fetches up to 10 days old events, makes historical requests for balance data and makes simulated reports on historical blocks. This requires an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) execution node.
 Oracle needs two weeks of archived data.
-    
-| Client                                          | Tested | Notes                                                                                                                                                                           |
-|-------------------------------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Geth](https://geth.ethereum.org/)              |        | `--gcmode=archive` <br> `--syncmode=snap` <br><br>OR<br><br>`--gcmode=archive`<br>`--syncmode=full`                                                                             |
-| [Nethermind](https://nethermind.io/)            |        | Not tested yet                                                                                                                                                                  |
-| [Besu](https://besu.hyperledger.org/en/stable/) |        | Use <br>`--rpc-max-logs-range=100000` <br> `--sync-mode=FULL` <br> `--data-storage-format="FOREST"` <br> `--pruning-enabled` <br>`--pruning-blocks-retained=100000` <br> params |
-| [Erigon](https://github.com/ledgerwatch/erigon) |        | Use <br> `--prune=htc` <br> `--prune.h.before=100000` <br> `--prune.t.before=100000` <br> `--prune.c.before=100000` <br> params                                                 |
+
+| Client                                          | Tested | Notes                                                                                                                                                                                 |
+|-------------------------------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Geth](https://geth.ethereum.org/)              |        | `--gcmode=archive` <br/> `--syncmode=snap` <br/><br/>OR<br/><br/>`--gcmode=archive`<br/>`--syncmode=full`                                                                             |
+| [Nethermind](https://nethermind.io/)            |        | Not tested yet                                                                                                                                                                        |
+| [Besu](https://besu.hyperledger.org/en/stable/) |        | Use <br/>`--rpc-max-logs-range=100000` <br/> `--sync-mode=FULL` <br/> `--data-storage-format="FOREST"` <br/> `--pruning-enabled` <br/>`--pruning-blocks-retained=100000` <br/> params |
+| [Erigon](https://github.com/ledgerwatch/erigon) |        | Use <br/> `--prune=htc` <br/> `--prune.h.before=100000` <br/> `--prune.t.before=100000` <br/> `--prune.c.before=100000` <br/> params                                                  |
 
 ### Consensus Client Node
 
 To calculate some metrics for bunker mode Oracle needs [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) consensus node.
 
-| Client                                            | Tested | Notes                                                                                                                                           |
-|---------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Lighthouse](https://lighthouse.sigmaprime.io/)   |        | Use `--reconstruct-historic-states` param                                                                                                       |
-| [Lodestar](https://nethermind.io/)                |        | Not tested yet                                                                                                                                  |
-| [Nimbus](https://besu.hyperledger.org/en/stable/) |        | Not tested yet                                                                                                                                  |
-| [Prysm](https://github.com/ledgerwatch/erigon)    |        | Use <br> `--grpc-max-msg-size=104857600` <br> `--enable-historical-state-representation=true` <br> `--slots-per-archive-point=1024` <br> params |
-| [Teku](https://docs.teku.consensys.net)           |        | Use <br> `--data-storage-mode=archive` <br>`--data-storage-archive-frequency=1024`<br> `--reconstruct-historic-states=true`<br> params          |
+| Client                                            | Tested | Notes                                                                                                                                               |
+|---------------------------------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Lighthouse](https://lighthouse.sigmaprime.io/)   |        | Use `--reconstruct-historic-states` param                                                                                                           |
+| [Lodestar](https://nethermind.io/)                |        | Not tested yet                                                                                                                                      |
+| [Nimbus](https://besu.hyperledger.org/en/stable/) |        | Not tested yet                                                                                                                                      |
+| [Prysm](https://github.com/ledgerwatch/erigon)    |        | Use <br/> `--grpc-max-msg-size=104857600` <br/> `--enable-historical-state-representation=true` <br/> `--slots-per-archive-point=1024` <br/> params |
+| [Teku](https://docs.teku.consensys.net)           |        | Use <br/> `--data-storage-mode=archive` <br/>`--data-storage-archive-frequency=1024`<br/> `--reconstruct-historic-states=true`<br/> params          |
 
 ### Keys API Service
 
@@ -123,10 +123,8 @@ docker run -d --name lido-oracle-ejector \
   lidofinance/oracle@<image-hash> ejector
 ```
 
-**Latest image hash:**  
-`sha256:85b6f33784df5c1fd76b987f2dac5422539e5ec81a921f0e33f7c167f6e3501b`  
-**Command example:**  
-`docker run -d --name lido-oracle-ejector lidofinance/oracle@sha256:85b6f33784df5c1fd76b987f2dac5422539e5ec81a921f0e33f7c167f6e3501b accountign`
+**Latest image hash**  
+https://docs.lido.fi/guides/tooling/#oracle
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
 
