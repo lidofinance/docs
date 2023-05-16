@@ -6,7 +6,7 @@ Due to the lack of native communication between these two networks, Lido employs
 ## TL;DR
 
 1. Generate an Ethereum address.
-2. Launch and sync an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) Execution Layer node with JSON-RPC endpoint enabled.
+2. Launch and sync an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) (archive data for at least 2 weeks) Execution Layer node with JSON-RPC endpoint enabled.
 3. Launch and sync an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) Consensus Layer node with API endpoint enabled.
 4. Launch and sync a [Keys API Service](https://github.com/lidofinance/lido-keys-api).
 5. Launch the accounting and ejector modules of Oracle.
@@ -25,7 +25,7 @@ The two core contracts in the Lido Oracle suite are called AccountingOracle and 
 - rebasing user balances,
 - distributing node operator rewards,
 - processing withdrawal requests,
-- decides which validators should initiate volunteer exit,
+- making decision which validators should initiate voluntary exit,
 - distributing stake,
 - putting the protocol into the bunker mode.
 
@@ -92,10 +92,10 @@ Full list could be found [here](https://github.com/lidofinance/lido-oracle#env-v
 ### Lido Locator address
 
 **Mainnet**  
-**0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb**
+**[0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb)**
 
 **Goerli**  
-**0x1eDf09b5023DC86737b59dE68a8130De878984f5**
+**[0x1eDf09b5023DC86737b59dE68a8130De878984f5](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5)**
 
 ### Running the daemon
 
