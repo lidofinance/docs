@@ -130,11 +130,11 @@ shares2mint = --------------------------------------------------------------
 
 ### How to get APR?
 
-With withdrawals enabled, the APR calculation method for Lido has changed significantly.
+Please refer to [this page](https://docs.lido.fi/integrations/api/#last-lido-apr-for-steth) for correct Lido V2 APR calculation. 
+
+It is worth noting that with withdrawals enabled, the APR calculation method for Lido has changed significantly.
 When Lido V2 protocol finalizes withdrawal requests, the Lido contract excludes funds from TVL and assigns to burn underlying locked requests’ stETH shares in return. In other words, withdrawal finalization decreases both TVL and total shares.
 Old V1 formula isn’t suitable anymore because it catches TVL changes, but skips total shares changes.
-
-Please refer to [this page](https://docs.lido.fi/integrations/api/#last-lido-apr-for-steth) for V2 APR calculation. 
 
 ### Do stETH rewards compound?
 
