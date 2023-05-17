@@ -35,7 +35,7 @@ For instance, undercollateralized wstETH positions on Maker can be liquidated by
 
 stETH is a rebaseable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. Total supply of stETH reflects amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. Since withdrawals from the Beacon chain have been introduced, it is also possible to redeem ether by burning stETH at the same 1:1 ratio (in rare cases it won't preserve 1:1 ratio though).
 
-stETH does not strictly comply with ERC-20. Only exception is that it does not emit `Trasfer()` on rebase as [ERC-20](https://eips.ethereum.org/EIPS/eip-20#events) standard recommends.
+stETH does not strictly comply with ERC-20. Only exception is that it does not emit `Transfer()` on rebase as [ERC-20](https://eips.ethereum.org/EIPS/eip-20#events) standard recommends.
 
 Please note, Lido has implemented staking rate limits aimed at reducing the post-Merge staking surge's impact on the staking queue & Lido’s socialized rewards distribution model. Read more about it [here](#staking-rate-limits).
 
@@ -127,6 +127,14 @@ which follows to:
 shares2mint = --------------------------------------------------------------
                 (newTotalPooledEther * 10000) - (feeBasis * _totalRewards)
 ```
+
+### How to get APR?
+
+Please refer to [this page](https://docs.lido.fi/integrations/api/#last-lido-apr-for-steth) for correct Lido V2 APR calculation. 
+
+It is worth noting that with withdrawals enabled, the APR calculation method for Lido has changed significantly.
+When Lido V2 protocol finalizes withdrawal requests, the Lido contract excludes funds from TVL and assigns to burn underlying locked requests’ stETH shares in return. In other words, withdrawal finalization decreases both TVL and total shares.
+Old V1 formula isn’t suitable anymore because it catches TVL changes, but skips total shares changes.
 
 ### Do stETH rewards compound?
 
