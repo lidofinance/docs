@@ -1,62 +1,55 @@
-# SelfOwnedStETHBurner
+# Burner
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/SelfOwnedStETHBurner.sol)
-- [Deployed Contract](https://etherscan.io/address/0xB280E33812c0B09353180e92e27b8AD399B07f26)
+- [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/Burner.sol)
+- [Deployed Contract](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
 
-The contract provides a way for Lido governance to burn stETH token shares as a means to cover losses in staking.
+The contract provides a way for Lido protocol to burn stETH token shares as a means to finalize withdrawals,
+penalize untimely exiting node operators, and, possibly, cover losses in staking.
 
-It relies on the [rebasing](/contracts/lido#rebasing) nature of stETH. The `Lido` contract calculates user balance using the following equation,
+It relies on the [rebasing](/contracts/lido#rebasing) nature of stETH. The `Lido` contract calculates
+user balance using the following equation:
 `balanceOf(account) = shares[account] * totalPooledEther / totalShares`.
 Therefore, burning shares (e.g. decreasing the `totalShares` amount) increases stETH holders' balances.
 
-The contract doesn’t implement any auto-cover mechanism. There are no presumptions and prerequisites for
-when and how exactly loss compensation happens. `SelfOwnedStETHBurner` provides a safe and deterministic way
-to incur a positive stETH token rebase by gradually decreasing `totalShares` that can be correctly handled
-by 3rd party protocols (e.g. Anchor Protocol) integrated with stETH.
+It's presumed that actual shares burning happens inside the `Lido` contract as a part of the `AccountingOracleReport`.
+`Burner` provides a safe and deterministic way to incur a positive stETH token rebase by gradually
+decreasing `totalShares` that can be correctly handled by 3rd party protocols integrated with stETH.
 
-`SelfOwnedStETHBurner` accepts burning requests by locking caller-provided stETH tokens. Those burn requests
-are initially set by the contract to a pending state. Actual burning happens as part of an oracle (LidoOracle)
-beacon report to prevent additional fluctuations of the existing stETH token rebase period (~24h).
+`Burner` accepts burning requests by the following two ways:
+
+- Locking pre-approved stETH tokens by the caller with an assigned role.
+- Locking caller-provided stETH tokens.
+
+Those burn requests are initially set by the contract to a pending state.
+Actual burning happens as part of an oracle (`AccountinOracle`) report handling by `Lido` to prevent
+additional fluctuations of the existing stETH token rebase period (~24h).
 
 We also distinguish two types of shares burn requests:
 * request to **cover** a slashing event (e.g. decreasing of the total pooled ETH amount
 between the two consecutive oracle reports);
 * request to burn shares for any other cases (**non-cover**).
 
-The contract has two separate counters for the burnt shares: cover and non-cover ones. The contract has
-exclusive access to the stETH shares burning via constrained [`BURN_ROLE`](/token-guides/steth-superuser-functions#superuser-roles):
-burning allowed only from the contract's own balance only.
-
-To prevent overly large rebasing events entailing unfair coverage distribution via front-running techniques,
-the contract has a limit on burnable shares per single beacon report. Thus, burning requests
-can be executed in more than one pass.
-
-The full formal spec is provided with
-[LIP-6](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-6.md).
-
-## Cover application workflow
-
-1. The contract accepts burn requests only from the `Aragon Voting` contract by transferring stETH.
-2. The transfer is performed by `requestBurnMyStETHForCover` func call which requires explicit `approve` beforehand.
-3. Cover application is performed as a part of oracle reports and rate-limited to prevent sandwiching.
-
-NB: daily burn quota is set to 4BP of TVL, consider to tune it if needed (overall token rebase should stay less than 7.5BP).
+The contract has two separate counters for the burnt shares: cover and non-cover ones. The contract is
+exclusive responsible for the stETH shares burning via by `Lido` and burning allowed only from the contract's
+own balance only.
 
 ## Shares burnt counters
 
-The contract keeps count of all shares ever burned by way of maintaining two internal counters: `totalCoverSharesBurnt` and `totalNonCoverSharesBurnt` for cover and non-cover burns respectively. These counters are increased when actual stETH burn is performed as part of the Lido Oracle report.
+The contract keeps count of all shares ever burned by way of maintaining two internal counters:
+`totalCoverSharesBurnt` and `totalNonCoverSharesBurnt` for cover and non-cover burns respectively.
+These counters are increased when actual stETH burn is performed as part of the Lido Oracle report.
 
 This makes it possible to split any stETH rebase into two sub-components: the rewards-induced rebase
 and cover application-induced rebase, which can be done as follows:
 
 1. Before the rebase, store the previous values of both counters, as well as the value of stETH share price:
    ```sol
-   prevCoverSharesBurnt = SelfOwnedStETHBurner.totalCoverSharesBurnt()
+   prevCoverSharesBurnt = Burner.totalCoverSharesBurnt()
    prevSharePrice = stETH.totalSupply() / stETH.getTotalShares()
    ```
 2. After the rebase, perform the following calculations:
    ```sol
-   sharesBurntFromOldToNew = SelfOwnedStETHBurner.totalCoverSharesBurnt() - prevCoverSharesBurnt;
+   sharesBurntFromOldToNew = Burner.totalCoverSharesBurnt() - prevCoverSharesBurnt;
    newSharePriceAfterCov = stETH.totalSupply() / (stETH.getTotalShares() + sharesBurntFromOldToNew);
    newSharePrice = stETH.totalSupply() / stETH.getTotalShares();
 
@@ -66,12 +59,6 @@ and cover application-induced rebase, which can be done as follows:
    // cover-induced share price increase
    nonRewardSharePriceIncrease = newSharePrice - prevSharePrice - rewardPerShare;
    ```
-
-The Anchor Protocol integration (bETH token) already has the calculations proposed above implemented using a plug-in
-adapter [`InsuranceConnector`](https://github.com/lidofinance/anchor-collateral-steth/blob/feature/lip-6/contracts/InsuranceConnector.vy)
-for retrieving the total number of shares burnt for cover purposes.
-See [`AnchorVault.collect_rewards#442`](https://github.com/lidofinance/anchor-collateral-steth/blob/e0e23e63ad24d44c2ffc0799cc701dbe71a578ed/contracts/AnchorVault.vy#L442)
-for the possible sketch of usage with similar integrations.
 
 ## View methods
 
@@ -89,19 +76,6 @@ Returns the total non-cover shares ever burnt.
 
 ```sol
 function getNonCoverSharesBurnt() external view returns (uint256)
-```
-
-### Function: getBurnAmountPerRunQuota
-
-Returns the maximum amount of shares allowed to burn per single run.
-Expressed in basis points as ratio of shares to burn to the total shares in existence.
-
-:::note
-10000 basis points (BP) corresponds to 100%.
-:::
-
-```sol
-function getBurnAmountPerRunQuota() external view returns (uint256)
 ```
 
 ### function getExcessStETH
@@ -155,54 +129,6 @@ Reverts if any of the following is true:
 | Name          | Type      | Description                                     |
 | ------------- | --------- | ----------------------------------------------- |
 | `_stETH2Burn` | `uint256` | stETH tokens amount (not shares amount) to burn |
-
-### Function: setBurnAmountPerRunQuota
-
-Sets the amount of shares allowed to burn per single run.
-Expressed in basis points as ratio of shares to burn to the total shares in existence.
-
-```sol
-function setBurnAmountPerRunQuota(uint256 _maxBurnAmountPerRunBasisPoints) external
-```
-
-:::note
-Reverts if any of the following is true:
-* `_maxBurnAmountPerRunBasisPoints` is zero;
-* `_maxBurnAmountPerRunBasisPoints` exceeds `10000`;
-* `msg.sender` is not equal to the set upon construction `voting` address;
-:::
-
-#### Parameters:
-
-| Name                              | Type      | Description           |
-| --------------------------------- | --------- | --------------------- |
-| `_maxBurnAmountPerRunBasisPoints` | `uint256` | new quota value, BP   |
-
-### Function: processLidoOracleReport
-
-Enacts cover/non-cover burning requests and logs cover/non-cover shares amount just burnt.
-Increments public `totalCoverSharesBurnt` and `totalNonCoverSharesBurnt` counters.
-Decrements internal `coverSharesBurnRequested` and `nonCoverSharesBurnRequested` counters.
-
-Does nothing if there are no pending burning requests.
-Could be called as part of an oracle quorum report only.
-
-```sol
-function: processLidoOracleReport(uint256, uint256, uint256) external override
-```
-
-:::note
-The burning requests could be executed partially per single run due to the `maxBurnAmountPerRunBasisPoints` limit.
-The cover reasoned burning requests have a higher priority of execution.
-
-Reverts if there are pending burning requests and the `msg.sender` is not of one
-of the `LidoOracle` or `LidoOracle.getBeaconReportReceiver()`.
-
-Input parameters are needed only for the ABI compatibility, the values are always ignored.
-
-See also:
-[`IBeaconReportReceiver.processLidoOracleReport`](/contracts/legacy-oracle#receiver-function-to-be-invoked-on-report-pushes).
-:::
 
 ### function recoverExcessStETH
 
