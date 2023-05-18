@@ -16,9 +16,11 @@ StETH can be stopped by the DAO vote. No operations changing stETH balances can 
 
 ## Superuser roles
 
+TODO: Outdated `BURN_ROLE`
+
 StETH contract specifies PAUSE_ROLE (address can pause the protocol) and BURN_ROLE (address can burn stETH tokens):
 * The `PAUSE_ROLE` assigned only to the DAO Voting contract [https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e](https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e)
-* The `BURN_ROLE` assigned to the [`SelfOwnedStETHBurner`](/contracts/self-owned-steth-burner) contract with additional ACL parameters effectively allowing to burn stETH tokens only from the contract own balance. Tokens could be requested to burn only by direct request from the DAO Voting.
+* The `BURN_ROLE` assigned to the [`Burner`](/contracts/burner) contract with additional ACL parameters effectively allowing to burn stETH tokens only from the contract own balance. Tokens could be requested to burn only by direct request from the DAO Voting.
 
 Note that there are other roles for DAO management, but they don't affect the token actions. These roles are MANAGE_FEE (set staking fee amount), MANAGE_WITHDRAWAL_KEY (set withdrawal credentials of the protocol), MANAGE_PROTOCOL_CONTRACTS_ROLE (set oracle contract address, set DAO treasury address to send fee to, set DAO insurance address to send fee to). The roles and addresses can be checked in the Aragon UI [https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84](https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 

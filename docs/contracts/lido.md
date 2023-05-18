@@ -1,6 +1,6 @@
 # Lido
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
+- [Source code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 Lido is the core contract which acts as a liquid staking pool. The contract is responsible for Ether deposits and withdrawals, minting and burning liquid tokens, delegating funds to node operators, applying fees, and accepting updates from the oracle contract. Node Operators' logic is extracted to a separate contract, NodeOperatorsRegistry.
@@ -385,20 +385,6 @@ function getTotalELRewardsCollected() external view returns (uint256)
 | ------------------------- | --------- | ------------------------------------------------------------- |
 | `totalELRewardsCollected` | `uint256` | Amount of funds received as execution layer rewards (in wei)  |
 
-
-### getELRewardsWithdrawalLimit()
-
-Get limit in basis points to amount of ETH to withdraw per [`LidoOracle`](lido-oracle) report.
-
-```sol
-function getELRewardsWithdrawalLimit() external view returns (uint256)
-```
-
-#### Returns:
-
-| Name                       | Type      | Description                                                               |
-| -------------------------- | --------- | ------------------------------------------------------------------------- |
-| `elRewardsWithdrawalLimit` | `uint256` | Limit in basis points to amount of ETH to withdraw per LidoOracle report  |
 
 ### getELRewardsVault()
 
@@ -792,19 +778,6 @@ function setELRewardsVault(address _executionLayerRewardsVault) external
 | ----------------------------- | --------- | ---------------------------------------------- |
 | `_executionLayerRewardsVault` | `address` | Execution layer rewards vault contract address |
 
-### setELRewardsWithdrawalLimit()
-
-Sets limit on amount of ETH to withdraw from execution layer rewards vault per [`LidoOracle`](lido-oracle) report
-
-```sol
-function setELRewardsWithdrawalLimit(uint16 _limitPoints) external
-```
-
-#### Parameters:
-
-| Name           | Type     | Description                                                              |
-| -------------- | -------- | ------------------------------------------------------------------------ |
-| `_limitPoints` | `uint16` | Limit in basis points to amount of ETH to withdraw per LidoOracle report |
 
 ### setFee()
 

@@ -201,7 +201,7 @@ of the `LidoOracle` or `LidoOracle.getBeaconReportReceiver()`.
 Input parameters are needed only for the ABI compatibility, the values are always ignored.
 
 See also:
-[`IBeaconReportReceiver.processLidoOracleReport`](/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes).
+[`IBeaconReportReceiver.processLidoOracleReport`](/contracts/legacy-oracle#receiver-function-to-be-invoked-on-report-pushes).
 :::
 
 ### function recoverExcessStETH

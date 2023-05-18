@@ -1,9 +1,9 @@
-# LidoOracle
+# LegacyOracle
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/oracle/LidoOracle.sol)
+- [Source code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.4.24/oracle/LegacyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb)
 
-LidoOracle is a contract where oracles send addresses' balances controlled by the DAO on the ETH
+LegacyOracle is a contract where oracles send addresses' balances controlled by the DAO on the ETH
 2.0 side. The balances can go up because of reward accumulation and can go down due to slashing and
 staking penalties. Oracles are assigned by the DAO.
 
@@ -91,9 +91,6 @@ And when the callback is set, the following function will be invoked on every re
     }
 
 The arguments provided are the same as described in section [above][3].
-
-See also the [`CompositePostRebaseBeaconReceiver`](/contracts/composite-post-rebase-beacon-receiver)
-adapter contract which allows to set multiple callbacks.
 
 ## View Methods
 
