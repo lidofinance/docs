@@ -99,8 +99,10 @@ skip: 200, limit: 100 = 3 page
 
 ### Goerli
 
-Reward History Backend is also available on Goerli, however it's currently unable to handle requests until a limits issue is fixed.
+Reward History Backend is also available on Goerli:
 
 ```
 http://reward-history-backend.testnet.fi/?address=0x12345
 ```
+
+Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend.testnet.fi/api)
