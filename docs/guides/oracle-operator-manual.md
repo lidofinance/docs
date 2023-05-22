@@ -1,6 +1,6 @@
 # Oracle Operator Manual
 
-This document is intended for those who wish to participate in the Lido protocol as Oracle - an entity who runs a daemons synchronizing state from Beacon Layer to Execution Layer of the protocol.
+This document is intended for those who wish to participate in the Lido protocol as entity that runs - an entity who runs a daemons synchronizing state from Beacon Layer to Execution Layer of the protocol.
 Due to the lack of native communication between these two networks, Lido employs a network of oracles to synchronize the system at regular intervals.
 
 ## TL;DR
@@ -10,9 +10,9 @@ Due to the lack of native communication between these two networks, Lido employs
 3. Launch and sync an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) Consensus Layer node with API endpoint enabled.
 4. Launch and sync a [Keys API Service](https://github.com/lidofinance/lido-keys-api).
 5. Launch the accounting and ejector modules of Oracle.
-6. [**Optional**] Add alerts to Oracle's prometheus metrics.
+6. [**Optional**] Add alerts to Oracle's Prometheus metrics.
 7. In case of mainnet share your address and intention to join the Oracle set with public. You need to publish it on Twitter and also write a message with a twitter link under Onboarding post on [the Research forum](https://research.lido.fi/).
-8. Propose your oracle's ethereum address to Lido Team to vote on your address being added to the Oracle Members.
+8. Propose your Oracle's ethereum address to Lido Team to vote on your address being added to the Oracle Members.
 
 ## Intro
 
