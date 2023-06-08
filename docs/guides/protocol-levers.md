@@ -1,8 +1,8 @@
 # Protocol levers
 
 The protocol provides a number of settings controllable by the DAO. Modifying each of them requires
-the caller to have a specific permission. After deploying the DAO, all permissions belong to the DAO
-`Voting` app, which can also manage them. This means that, initially, levers can only be changed by
+the caller to have a specific permission. After deploying the DAO, all permissions belong to either DAO `Voting` or `Agent` apps,
+which can also manage them. This means that, initially, levers can only be changed by
 the DAO voting, and other entities can be allowed to do the same only as a result of the voting.
 
 All existing levers are listed below, grouped by the contract.
@@ -11,6 +11,7 @@ All existing levers are listed below, grouped by the contract.
 
 The following contracts are upgradeable by the DAO voting:
 
+- [`LidoLocator`](/contracts/lido-locator)
 - [`Lido`](/contracts/lido)
 - [`StakingRouter`](/contracts/staking-router)
 - [`NodeOperatorsRegistry`](/contracts/node-operators-registry)
@@ -20,9 +21,13 @@ The following contracts are upgradeable by the DAO voting:
 - [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
 - [`LegacyOracle`](/contracts/legacy-oracle)
 
-Upgradeability is implemented by the Aragon kernel and base contracts. To upgrade an app, one needs
-the `dao.APP_MANAGER_ROLE` permission provided by Aragon. All upgradeable contracts use the
+Upgradeability is implemented either by the Aragon kernel and base contracts OR by the [OssifiableProxy](/contracts/ossifiable-proxy) instances.
+To upgrade an Aragon app, one needs the `dao.APP_MANAGER_ROLE` permission provided by Aragon.
+To upgrade an OssifiableProxy implementation, one needs to be an owner of the proxy.
+
+All upgradeable contracts use the
 [Unstructured Storage pattern] in order to provide stable storage structure across upgrades.
+However, some of the contracts still contain structured storage, hence the order of inheritance always matters.
 
 [unstructured storage pattern]: https://blog.openzeppelin.com/upgradeability-using-unstructured-storage
 
@@ -30,11 +35,20 @@ the `dao.APP_MANAGER_ROLE` permission provided by Aragon. All upgradeable contra
 
 ### Burning stETH tokens
 
-TODO
+There is a dedicated contract responsible for `stETH` tokens burning.
+The burning itself is a part of the core protocol functionality by the following means:
+
+- deduct underlying finalized withdrawal request `stETH` (TODO)
+- penalize delinquent node operators by halving their rewards (TODO)
+These responsibilities are controlled by the `REQUEST_BURN_SHARES_ROLE` which is assigned to both
+[`Lido`](/contracts/lido) and [`NodeOperatorsRegistry`](/contracts/node-operators-registry)
+
+Moreover, `stETH` token burning can be applied to compensate for penalties/slashing losses by the DAO decision.
+It's possible via more limited role `REQUEST_BURN_MY_STETH_ROLE` which is currently unassigned.
 
 ### Protocol contracts
 
-The addresses of the oracle, treasury, and isurance fund contracts.
+The addresses of the oracle, treasury, and insurance fund contracts.
 
 Oracle contract is allowed to make periodical updates of beacon stats by calling `handleOracleReport`.
 Treasury contract is used to accumulate the protocol treasury fee.
