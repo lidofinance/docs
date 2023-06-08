@@ -1,6 +1,6 @@
 # AccountingOracle
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/oracle/AccountingOracle.sol)
+- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
 
 LegacyOracle is a contract where oracles send addresses' balances controlled by the DAO on the Consensus Layer side.
