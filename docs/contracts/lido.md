@@ -7,13 +7,6 @@ Lido is the core contract which acts as a liquid staking pool. The contract is r
 
 Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. Despite stETH tokens being pegged 1:1 to the ether that is held by Lido, the market exchange rate between stETH and ETH may vary. stETH holder balances are updated daily with oracle reports.
 
-:::note
-At the moment withdrawals are not possible on the beacon chain and there's no workaround.
-Lido will be upgraded to an actual implementation when withdrawals are enabled
-(Phase 1.5 or 2 of Eth2 launch, likely late 2022 or 2023).
-
-:::
-
 ## Rebasing
 
 When a rebase occurs, the supply of the token is increased or decreased algorithmically, based on staking rewards (or slashing penalties) on the Beacon chain, and execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade). A rebase happens when oracles report beacon stats.

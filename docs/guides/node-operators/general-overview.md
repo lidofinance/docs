@@ -50,13 +50,13 @@ each Node Operator runs.
 > `2` and `8` validators, respectively, then the first operator will receive `0.2` stETH, the
 > second — `0.8` stETH.
 
-The fee is nominated in stETH, a liquid version of ETH2 token introduced by the Lido protocol. The
+The fee is nominated in stETH, a liquid version of staked ETH introduced by the Lido protocol. The
 tokens correspond 1:1 to the Ether that the token holder would be able get by burning their stETH
 if transfers were already enabled in the Beacon chain. At any time point, the total amount of stETH
-tokens is equal to the total amount of Ether controlled by the protocol on both ETH1 and ETH2 sides.
+tokens is equal to the total amount of Ether controlled by the protocol on both Execution Layer and Consensus Layer sides.
 
 When a user submits Ether to the pool, they get the same amount of freshly-minted stETH tokens.
-When reward is received on the ETH2 side, each stETH holder’s balance increases by the same
+When reward is received on the Consensus Layer side, each stETH holder’s balance increases by the same
 percentage that the total amount of protocol-controlled Ether has increased, corrected for the
 protocol fee which is taken by [minting new stETH tokens] to the fee recipients.
 
@@ -87,7 +87,7 @@ According to the [Lido on Ethereum Validator Exits Policy](https://github.com/li
 
 In essence, if a Node Operator is unable to withdraw a validator within the time specified by the `VALIDATOR_DELINQUENT_TIMEOUT_IN_SLOTS` parameter in the `OracleDaemonConfig` contract, the accounting oracle report for that Node Operator increases the `STUCKED` field by the number of delayed validators.
 
-Therefore, a Node Operator is penalized if they have more `STUCKED` validators than `REFUNDED` validators. While this condition is met, the Node Operator receives only half of the rewards and no new stake allocations. 
+Therefore, a Node Operator is penalized if they have more `STUCKED` validators than `REFUNDED` validators. While this condition is met, the Node Operator receives only half of the rewards and no new stake allocations.
 
 Once the Node Operator manages to either withdraw the required number of validators or compensate for the lost validators and increases the `REFUNDED` count through DAO voting, the Node Operator is considered under penalty for the duration of the `STUCK_PENALTY_DELAY` period and then returns to the normal state. Rewards are automatically restored to normal, but to start receiving new stake, the Node Operator (or anyone else) must call the permissionless method `clearNodeOperatorPenalty`.
 
