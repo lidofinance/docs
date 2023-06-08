@@ -113,9 +113,6 @@ module.exports = {
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/goerli',
-        'deployed-contracts/rinkeby',
-        'deployed-contracts/ropsten',
-        'deployed-contracts/kovan',
       ],
     },
   ],
