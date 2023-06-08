@@ -73,7 +73,7 @@ Each fee component is in basis points; the sum of all components must add up to 
 
 ### Ethereum withdrawal Credentials
 
-Credentials to withdraw ETH on Ethereum side after phase 2 is launched.
+Credentials to withdraw ETH on the Execution Layer side
 
 - Mutator: `setWithdrawalCredentials(bytes)`
   - Permission required: `MANAGE_WITHDRAWAL_KEY`

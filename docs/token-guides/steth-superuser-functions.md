@@ -12,7 +12,7 @@ StETH can be stopped by the DAO vote. No operations changing stETH balances can 
 3. Users can't submit their ETH to the Lido;
 4. Oracle can't push updates on the Consensus Layer staking state;
 5. No ETH buffered in Lido can be sent to the Ethereum deposit contract;
-6. Staking withdrawals (once available) can't be performed.
+6. Staking withdrawals can't be performed.
 
 ## Superuser roles
 

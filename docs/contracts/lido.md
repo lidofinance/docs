@@ -203,7 +203,7 @@ function getFeeDistribution() returns (
 
 ### getWithdrawalCredentials()
 
-Returns current credentials to withdraw ETH on Ethereum side after the phase 2 is launched
+Returns current credentials to withdraw ETH on the Execution Layer side
 
 ```sol
 function getWithdrawalCredentials() returns (bytes32)
@@ -832,7 +832,7 @@ function setProtocolContracts(address _oracle, address _treasury, address _insur
 
 ### setWithdrawalCredentials()
 
-Set credentials to withdraw ETH on Ethereum side after the phase 2 is launched to `_withdrawalCredentials`
+Set credentials to withdraw ETH on the Execution Layer side to `_withdrawalCredentials`
 
 ```sol
 function setWithdrawalCredentials(bytes32 _withdrawalCredentials)
