@@ -157,10 +157,10 @@ pagination_next: deployed-contracts/goerli
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
 - IncreaseNodeOperatorStakingLimit: [`0xFeBd8FAC16De88206d4b18764e826AF38546AfE0`](https://etherscan.io/address/0xFeBd8FAC16De88206d4b18764e826AF38546AfE0)
 - **Referral Program LDO** (committee ms [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C/home))
-  - RewardProgramsRegistry: [`0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F`](https://etherscan.io/address/0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F)
-  - AddRewardProgram: [`0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51`](https://etherscan.io/address/0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51)
-  - RemoveRewardProgram: [`0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C`](https://etherscan.io/address/0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C)
-  - TopUpRewardPrograms: [`0x54058ee0E0c87Ad813C002262cD75B98A7F59218`](https://etherscan.io/address/0x54058ee0E0c87Ad813C002262cD75B98A7F59218)
+  - [proposed to retire] RewardProgramsRegistry: [`0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F`](https://etherscan.io/address/0xfCaD241D9D2A2766979A2de208E8210eDf7b7D4F)
+  - [proposed to retire] AddRewardProgram: [`0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51`](https://etherscan.io/address/0x929547490Ceb6AeEdD7d72F1Ab8957c0210b6E51)
+  - [proposed to retire] RemoveRewardProgram: [`0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C`](https://etherscan.io/address/0xE9eb838fb3A288bF59E9275Ccd7e124fDff88a9C)
+  - [proposed to retire] TopUpRewardPrograms: [`0x54058ee0E0c87Ad813C002262cD75B98A7F59218`](https://etherscan.io/address/0x54058ee0E0c87Ad813C002262cD75B98A7F59218)
 - **reWARDS LDO** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home))
   - [proposed to retire] AllowedRecipientsRegistry: [`0xAa47c268e6b2D4ac7d7f7Ffb28A39484f5212c2A`](https://etherscan.io/address/0xAa47c268e6b2D4ac7d7f7Ffb28A39484f5212c2A)
   - [proposed to retire] AddAllowedRecipient: [`0x1dCFc37719A99d73a0ce25CeEcbeFbF39938cF2C`](https://etherscan.io/address/0x1dCFc37719A99d73a0ce25CeEcbeFbF39938cF2C)
@@ -186,18 +186,19 @@ pagination_next: deployed-contracts/goerli
 - **ATC DAI** (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
   - AllowedRecipientsRegistry: [`0xe07305F43B11F230EaA951002F6a55a16419B707`](https://etherscan.io/address/0xe07305F43B11F230EaA951002F6a55a16419B707)
   - TopUpAllowedRecipients: [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
-- **Gas Funder ETH** (committee ms [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://app.safe.global/eth:0x5181d5D56Af4f823b96FE05f062D7a09761a5a53/home))
-  - *Proposed* AllowedRecipientsRegistry: [`0xCf46c4c7f936dF6aE12091ADB9897E3F2363f16F`](https://etherscan.io/address/0xCf46c4c7f936dF6aE12091ADB9897E3F2363f16F)
-  - *Proposed* TopUpAllowedRecipients: [`0x41F9daC5F89092dD6061E59578A2611849317dc8`](https://etherscan.io/address/0x41F9daC5F89092dD6061E59578A2611849317dc8)
 - **Referral Program DAI** (committee ms [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C/home))
-  - AllowedRecipientsRegistry: [`0xa295C212B44a48D07746d70d32Aa6Ca9b09Fb846`](https://etherscan.io/address/0xa295C212B44a48D07746d70d32Aa6Ca9b09Fb846)
-  - AddAllowedRecipient: [`0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151`](https://etherscan.io/address/0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151)
-  - RemoveAllowedRecipient: [`0xd8f9B72Cd97388f23814ECF429cd18815F6352c1`](https://etherscan.io/address/0xd8f9B72Cd97388f23814ECF429cd18815F6352c1)
-  - TopUpAllowedRecipients: [`0x009ffa22ce4388d2F5De128Ca8E6fD229A312450`](https://etherscan.io/address/0x009ffa22ce4388d2F5De128Ca8E6fD229A312450)
+  - [proposed to retire] AllowedRecipientsRegistry: [`0xa295C212B44a48D07746d70d32Aa6Ca9b09Fb846`](https://etherscan.io/address/0xa295C212B44a48D07746d70d32Aa6Ca9b09Fb846)
+  - [proposed to retire] AddAllowedRecipient: [`0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151`](https://etherscan.io/address/0x8F06a7f244F6Bb4B68Cd6dB05213042bFc0d7151)
+  - [proposed to retire] RemoveAllowedRecipient: [`0xd8f9B72Cd97388f23814ECF429cd18815F6352c1`](https://etherscan.io/address/0xd8f9B72Cd97388f23814ECF429cd18815F6352c1)
+  - [proposed to retire] TopUpAllowedRecipients: [`0x009ffa22ce4388d2F5De128Ca8E6fD229A312450`](https://etherscan.io/address/0x009ffa22ce4388d2F5De128Ca8E6fD229A312450)
 - **TRP LDO** (committee ms [`0x834560F580764Bc2e0B16925F8bF229bb00cB759`](https://app.safe.global/eth:0x834560F580764Bc2e0B16925F8bF229bb00cB759/home))
   - AllowedRecipientsRegistry: [`0x231Ac69A1A37649C6B06a71Ab32DdD92158C80b8`](https://etherscan.io/address/0x231Ac69A1A37649C6B06a71Ab32DdD92158C80b8)
   - TopUpAllowedRecipients: [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C)
-
+- **Gas Supply stETH** (committee ms [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://app.safe.global/eth:0x5181d5D56Af4f823b96FE05f062D7a09761a5a53/home))
+  - [proposed] AllowedRecipientsRegistry: [`0x49d1363016aA899bba09ae972a1BF200dDf8C55F`](https://etherscan.io/address/0x49d1363016aA899bba09ae972a1BF200dDf8C55F)
+  - [proposed] AddAllowedRecipient: [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252)
+  - [proposed] RemoveAllowedRecipient: [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7)
+  - [proposed] TopUpAllowedRecipients: [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1)
 
 
 - **Tooling contracts:**
@@ -223,7 +224,7 @@ pagination_next: deployed-contracts/goerli
 
 ### Dev Team Multisigs
 - Lido Dev team: [`0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0`](https://etherscan.io/address/0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0)
-- Depositor bot gas funding: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
+- Gas Supply Committee: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
 ### Emergency Brakes Multisigs
