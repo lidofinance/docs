@@ -102,10 +102,10 @@
   - AllowedRecipientsRegistry: [`0x8C96a6522aEc036C4a384f8B7e05D93d6f3Dae39`](https://goerli.etherscan.io/address/0x8C96a6522aEc036C4a384f8B7e05D93d6f3Dae39)
   - TopUpAllowedRecipients: [`0x43f33C52156d1Fb2eA24d82aBfD342E69835E79f`](https://goerli.etherscan.io/address/0x43f33C52156d1Fb2eA24d82aBfD342E69835E79f)
 - **Gas Supply stETH** (committee ms [`0xc4094c015666CBC093FffDC9BB3CF077a864ddB3`](https://app.safe.global/gor:0xc4094c015666CBC093FffDC9BB3CF077a864ddB3/home))
-  - [proposed] AllowedRecipientsRegistry: [`0x48c4929630099b217136b64089E8543dB0E5163a`](https://goerli.etherscan.io/address/0x48c4929630099b217136b64089E8543dB0E5163a)
-  - [proposed] AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://goerli.etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
-  - [proposed] RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://goerli.etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
-  - [proposed] TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://goerli.etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
+  - [proposed] AllowedRecipientsRegistry: [`0xF08a5f00824D4554a1FBebaE726609418dc819fb`](https://goerli.etherscan.io/address/0xF08a5f00824D4554a1FBebaE726609418dc819fb)
+  - [proposed] AddAllowedRecipient: [`0xa2286d37Af8F8e84428151bF72922c5Fe5c1EeED`](https://goerli.etherscan.io/address/0xa2286d37Af8F8e84428151bF72922c5Fe5c1EeED)
+  - [proposed] RemoveAllowedRecipient: [`0x48D01979eD9e6CE70a6496B111F5728f9a547C96`](https://goerli.etherscan.io/address/0x48D01979eD9e6CE70a6496B111F5728f9a547C96)
+  - [proposed] TopUpAllowedRecipients: [`0x960CcA0BE6419e9684796Ce3ABE980E8a2d0cd80`](https://goerli.etherscan.io/address/0x960CcA0BE6419e9684796Ce3ABE980E8a2d0cd80)
 
 ## Protocol mocks (obsolete)
 
