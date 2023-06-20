@@ -8,7 +8,7 @@ StETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at [ht
 
 StETH can be stopped by the DAO vote. No operations changing stETH balances can be performed on the stopped contract:
 
-1. `approve` and `transfer` calls revert;
+1. `transfer` call reverts;
 2. No mints or burns can be performed. Note that StETH contract can mint stETH only in two cases: user deposits (tokens are minted to the depositor's address) or fee distribution (where tokens are minted in accordance to fee calculations to the addresses set in the contract — namely the DAO treasury, the insurance fund and the Node Operator's reward addresses);
 3. Users can't submit their ETH to the Lido;
 4. Oracle can't push updates on the Consensus Layer staking state;
