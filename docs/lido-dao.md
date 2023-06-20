@@ -1,13 +1,13 @@
 # Lido DAO
 
-The Lido DAO is a Decentralised Autonomous Organisation that manages the liquid staking protocols by deciding on key parameters (e.g., setting fees, assigning node operators and oracles, etc.) through the voting power of governance token (`LDO`) holders. Also, the DAO will accumulate service fees and spend them on research, development, liquidity mining incentives and protocol upgrades. 
+The Lido DAO is a Decentralised Autonomous Organisation that manages the liquid staking protocols by deciding on key parameters (e.g., setting fees, assigning node operators and oracles, etc.) through the voting power of governance token (`LDO`) holders. Also, the DAO will accumulate service fees and spend them on research, development, liquidity mining incentives and protocol upgrades.
 
 ## Why DAO?
 
-The DAO is the logical compromise between full centralization and decentralisation, which allows the deployment of competitive products without full centralization and custody on the exchanges. We do not believe that it is possible to make a liquid staking protocol that is completely trustless. A DAO is an optimal structure for launching Lido as:
+The DAO is the logical compromise between full centralization and decentralisation, which allows the deployment of competitive products without full centralization and custody on the exchanges. We do not believe that it is possible to make a liquid staking protocol that is completely trustless in the foreseeable future. A DAO is an optimal structure for launching Lido as:
 
-- DAO is essentially a decentralised entity, which is enabling a focus on community and might offer a more socially-conscious structure and consequent decision-making; 
-- DAO will be able to cover the costs of developing and upgrading the protocol from the DAO token treasury. 
+- DAO is essentially a decentralised entity, which is enabling a focus on community and might offer a more socially-conscious structure and consequent decision-making;
+- DAO will be able to cover the costs of developing and upgrading the protocol from the DAO token treasury.
 - And other management activities as well if there is a technical ability
 
 The DAO will accumulate service fees from Lido, which is funnelled into the insurance and development funds, distributed by the DAO.
@@ -25,9 +25,9 @@ Lido is managed by the Lido DAO. The DAO members govern Lido to ensure its effic
 
 ## Governance
 
-The `LDO` token governs all Lido DAO governance and network decisions to ensure its prolonged stability and decentralised decision-making to facilitate the growth of fair, and transparent liquid staking.  The `LDO` contract address - `0x5a98fcbea516cf06857215779fd812ca3bef1b32`.
+The `LDO` token governs all Lido DAO governance and network decisions to ensure its prolonged stability and decentralised decision-making to facilitate the growth of fair, and transparent liquid staking.  The `LDO` contract address - [`0x5a98fcbea516cf06857215779fd812ca3bef1b32`](https://etherscan.io/address/0x5a98fcbea516cf06857215779fd812ca3bef1b32).
 
-> 📝 For more detailed information about governance, please, check out [governance](https://lido.fi/governance) page. 
+> 📝 For more detailed information about governance, please, check out the [Governance](https://lido.fi/governance) page.
 
 To have a vote in the Lido DAO, and to contribute to the determination of any of the topics outlined above, one must hold the `LDO` governance token. Holding `LDO` gives DAO members a vote in the future of Lido, allowing each DAO member to have a personal say in the community. `LDO` voting weight is proportional to the amount of `LDO` a voter holds. The more LDO on a user’s address, the greater the decision-making power the voter gets. The exact mechanism of `LDO` voting can be upgraded just like the other DAO applications.
 

@@ -346,7 +346,7 @@ Keys removing from the last index to the highest one, so we won't get outside th
 Increases the keysOpIndex
 :::
 
-```sol 
+```sol
 function removeSigningKeys(uint256 _operator_id, uint256 _index, uint256 _amount)
 ```
 

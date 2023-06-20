@@ -1,6 +1,6 @@
 # LidoExecutionLayerRewardsVault
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.8.9/LidoExecutionLayerRewardsVault.sol)
+- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/LidoExecutionLayerRewardsVault.sol)
 - [Deployed Contract](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 
 A vault for temporary storage of execution layer (EL) rewards (MEV and tx priority fee).
@@ -8,7 +8,7 @@ See the Lido improvement proposal [#12](https://github.com/lidofinance/lido-impr
 
 Both the transaction priority fee and MEV rewards are collected by specifying the contract's address as the coinbase (`feeRecipient`). Additionally, MEV rewards are also extracted whenever payload builders include an explicit transaction that transfers MEV shares to the `feeRecipient` in the payload. Thereby, the contract features a payable receive function that accepts incoming ether.
 
-Only the [`Lido`](lido) contract can withdraw the accumulated rewards to distribute them between `stETH` holders as part of the Lido oracle report.
+Only the [`Lido`](lido) contract can withdraw the accumulated rewards to distribute them between `stETH` holders as part of the [`Accounting Oracle`](accounting-oracle) report.
 
 NB: Any ether sent to the contract by accident is unrecoverable and will be distributed by the protocol as accrued rewards.
 

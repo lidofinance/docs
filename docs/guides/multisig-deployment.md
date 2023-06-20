@@ -1,5 +1,9 @@
 # Multisig deployment
 
+:::warning
+This page is massively outdated with the latest [Lido V2 release](https://github.com/lidofinance/lido-dao/releases/tag/v2.0.0).
+:::
+
 This HOWTO describes deployment of the DAO using a multisig/airgapped signer, step-by-step.
 
 ## Preparation

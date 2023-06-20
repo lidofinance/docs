@@ -7,13 +7,6 @@ Lido is the core contract which acts as a liquid staking pool. The contract is r
 
 Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. Despite stETH tokens being pegged 1:1 to the ether that is held by Lido, the market exchange rate between stETH and ETH may vary. stETH holder balances are updated daily with oracle reports.
 
-:::note
-At the moment withdrawals are not possible on the beacon chain and there's no workaround.
-Lido will be upgraded to an actual implementation when withdrawals are enabled
-(Phase 1.5 or 2 of Eth2 launch, likely late 2022 or 2023).
-
-:::
-
 ## Rebasing
 
 When a rebase occurs, the supply of the token is increased or decreased algorithmically, based on staking rewards (or slashing penalties) on the Beacon chain, and execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade). A rebase happens when oracles report beacon stats.
@@ -210,7 +203,7 @@ function getFeeDistribution() returns (
 
 ### getWithdrawalCredentials()
 
-Returns current credentials to withdraw ETH on Ethereum side after the phase 2 is launched
+Returns current credentials to withdraw ETH on the Execution Layer side
 
 ```sol
 function getWithdrawalCredentials() returns (bytes32)
@@ -385,20 +378,6 @@ function getTotalELRewardsCollected() external view returns (uint256)
 | ------------------------- | --------- | ------------------------------------------------------------- |
 | `totalELRewardsCollected` | `uint256` | Amount of funds received as execution layer rewards (in wei)  |
 
-
-### getELRewardsWithdrawalLimit()
-
-Get limit in basis points to amount of ETH to withdraw per [`LidoOracle`](lido-oracle) report.
-
-```sol
-function getELRewardsWithdrawalLimit() external view returns (uint256)
-```
-
-#### Returns:
-
-| Name                       | Type      | Description                                                               |
-| -------------------------- | --------- | ------------------------------------------------------------------------- |
-| `elRewardsWithdrawalLimit` | `uint256` | Limit in basis points to amount of ETH to withdraw per LidoOracle report  |
 
 ### getELRewardsVault()
 
@@ -792,19 +771,6 @@ function setELRewardsVault(address _executionLayerRewardsVault) external
 | ----------------------------- | --------- | ---------------------------------------------- |
 | `_executionLayerRewardsVault` | `address` | Execution layer rewards vault contract address |
 
-### setELRewardsWithdrawalLimit()
-
-Sets limit on amount of ETH to withdraw from execution layer rewards vault per [`LidoOracle`](lido-oracle) report
-
-```sol
-function setELRewardsWithdrawalLimit(uint16 _limitPoints) external
-```
-
-#### Parameters:
-
-| Name           | Type     | Description                                                              |
-| -------------- | -------- | ------------------------------------------------------------------------ |
-| `_limitPoints` | `uint16` | Limit in basis points to amount of ETH to withdraw per LidoOracle report |
 
 ### setFee()
 
@@ -866,7 +832,7 @@ function setProtocolContracts(address _oracle, address _treasury, address _insur
 
 ### setWithdrawalCredentials()
 
-Set credentials to withdraw ETH on Ethereum side after the phase 2 is launched to `_withdrawalCredentials`
+Set credentials to withdraw ETH on the Execution Layer side to `_withdrawalCredentials`
 
 ```sol
 function setWithdrawalCredentials(bytes32 _withdrawalCredentials)

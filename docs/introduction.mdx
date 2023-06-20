@@ -4,7 +4,6 @@ slug: /
 
 import GridLink from '@site/src/components/GridLink'
 import Grid from '@site/src/components/Grid'
-import TerraIcon from '@site/src/assets/TerraIcon'
 import SolanaIcon from '@site/src/assets/SolanaIcon'
 import PolygonIcon from '@site/src/assets/PolygonIcon'
 import KusamaIcon from '@site/src/assets/KusamaIcon'
@@ -39,16 +38,19 @@ This documentation is intended to introduce the general user to the project, as 
 Lido is the leading liquid staking solution - providing a simple way to get rewards on your digital tokens. By staking with Lido your tokens remain liquid and can be used across a range of DeFi applications, getting extra rewards.
 
 1. **Staking pool**. Protocol to manage deposits, staking rewards, and withdrawals. A separate one for every supported network.
-2. `st[token]`. Unlike staked tokens, the Lido `st[token]` are freely transferable instead of locked as in the case of native staking. Lido lets users operate with staked tokens by leveraging collateral, lending, farming, and other kinds of Defi protocols.
+2. `st[token]`. Unlike staked tokens, the Lido `st[token]` are freely transferable instead of locked as in the case of native staking. Lido lets users operate with staked tokens by leveraging collateral, lending, farming, and other kinds of DeFi protocols.
 3. **DAO**. Lido liquid protocols management entity, responsible for picking node operators, configuring the protocol parameters and much more.
 
 > 📝 To dive into the details of governance design and implementation, proceed to [DAO](lido-dao.md)
 
-4. **Node Operators**. entities that manage a secure and stable infrastructure for running validator clients for the benefit of the protocols. They’re professional staking providers who can ensure the safety of funds belonging to the protocol users and correctness of validator operations.
+4. **Node Operators**. entities that manage a secure and stable infrastructure for running validator clients for the benefit of the protocols. They’re dedicated staking providers who can ensure the safety of funds belonging to the protocol users and correctness of validator operations.
 
 Ethereum is and remains a primary focus of Lido. That’s affected the organisational structure - the governance is implemented through ERC20 `LDO` token. Currently Lido supports several PoS networks - when staking native tokens with Lido, users will receive a `st[token]`, which represents their `[token]` which represents their deposit and the rewards aggregated over time (penalties too). The following networks are supported:
 
-> 📝 Protocols on different networks inherit the architecture of their respective networks. This means that the designs of Lido tokens can vary significantly. Also different protocols are maintained by different dev teams. If you are interested in launching Lido on another network please submit your proposal on the research forum.
+> 📝 Protocols on different networks inherit the architecture of their respective networks.
+> This means that the designs of Lido tokens can vary significantly.
+> Also different protocols are maintained by different dev teams.
+> If you are interested in launching Lido on another network please submit your proposal on the research forum.
 
 <Grid>
 
@@ -68,26 +70,22 @@ Ethereum is and remains a primary focus of Lido. That’s affected the organisat
 
 <GridLink
   to="https://docs.polkadot.lido.fi"
-  title="Polkadot"
+  title="Polkadot (sunsetting)"
   subtitle="stDOT"
   Icon={<PolkadotIcon />}
 />
 
 <GridLink
   to="https://docs.kusama.lido.fi"
-  title="Kusama"
+  title="Kusama (sunsetting)"
   subtitle="stKSM"
   Icon={<KusamaIcon />}
 />
 
-<GridLink
-  to="https://docs.terra.lido.fi"
-  title="Terra"
-  subtitle="bLuna and stLuna"
-  Icon={<TerraIcon />}
-/>
-
 </Grid>
+
+> ✂️ Both Lido on Kusama and Polkadot are [undergoing sunsetting stage](https://mixbytes.io/blog/mixbytes-sunsets-lido-on-polkadot-and-kusama).
+> New stake deposits are disabled. Official termination is [scheduled](https://mixbytes.io/blog/mixbytes-sunsets-lido-on-polkadot-and-kusama#rec563434649) on 2023-08-01.
 
 ## Liquid staking
 
@@ -101,7 +99,7 @@ Liquid staking allows using the `st[token]` in other trading opportunities to le
 - Making staking process simple - no need to worry about hardware setup and maintenance;
 - Making it possible to get rewards on as small a deposit as users want (i.e, Ethereum requires minimum 32 `ETH` staked);
 - Providing the `st[token]` a building block for other applications and protocols (e.g., as collateral in lending or other trading DeFi solutions). Liquid staking gives an opportunity to maximize the potential while having the best of both worlds;
-- Providing an alternative to exchange staking, solo staking, and other semi-custodial and decentralised protocols.
+- Providing an alternative to or even encompassing exchange staking, solo staking, and other semi-custodial and decentralised protocols.
 
 ### Comparison with other staking options
 
@@ -111,7 +109,7 @@ Solo staking is similar to other option **SaaS staking** in that you are having 
 
 Alternatively, it may be possible to produce staking through **centralised exchanges**. Needless to say, crypto tokens and CeFi are not suited well together from the fundamental standpoint. It is also worth mentioning the economic aspect - by staking within some centralised entities, the user does not receive a corresponding token in return and, thus, loses the opportunity to perform any subsequent activity within DeFi or the same centralised entity, where tokens were staked. Yes, APR, when staking on centralised exchanges might be higher, but with a significant amount aggregated within the centralised entity comes a huge potential influence to the ecosystem that was fundamentally designed decentralised.
 
-Through the use of a **liquid staking** solution such as Lido, users can eliminate these inconveniences and benefit from non-custodial staking backed by industry leaders. Liquid staking is unlocking the potential of PoS by giving users the ability to not only stake their tokens, but have the liquidity to use those tokens in DeFi projects that way not only increasing rewards for the individual, but growing the staking participation in general.
+Through the use of a **liquid staking** solution such as Lido, users can eliminate these inconveniences and benefit from non-custodial staking backed by the actively maintained validators set. Liquid staking is unlocking the potential of PoS by giving users the ability to not only stake their tokens, but have the liquidity to use those tokens in DeFi projects that way not only increasing rewards for the individual, but growing the staking participation in general.
 
 ## Lido on Ethereum APR
 :::note
@@ -124,8 +122,6 @@ Through the use of a **liquid staking** solution such as Lido, users can elimina
 ### Protocol APR
 
 By Protocol APR we mean gross annual percentage rate — the overall Consensus Layer (CL) and Execution Layer (EL) rewards received by Lido validators to total pooled ETH estimated as moving average of the last 7 days.
-
-[More about Protocol APR calculation](https://docs.lido.fi/contracts/lido-oracle/#add-calculation-of-staker-rewards-apr)
 
 ### Consensus Layer
 
@@ -149,7 +145,7 @@ The better the underlying operator sets are, the more robust, resilient, and per
 Learn more about rewards and penalties - [ethereum.org](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/)
 
 ### Execution Layer
-Validators began to receive EL rewards after the Merge. EL rewards consist of four parts:
+Validators began to receive EL rewards after [the Merge](https://ethereum.org/en/roadmap/merge/). EL rewards consist of four parts:
 
 - **Priority fee**
 Priority fee refers to optional additional fees (for example it may refer to EIP-1559) paid directly to validators in order to incentivize them to include the given transaction in a block. Also it depends on network demand: as higher network demand, as higher could be priority fee.
@@ -157,15 +153,17 @@ Priority fee refers to optional additional fees (for example it may refer to EIP
 - **Maximal Extractable Value (MEV) rewards**
 MEV refers to the maximum value that can be extracted by the validator from block production in excess of the standard block reward and gas fees by including, excluding, and changing the order of transactions in a block.
 
-- **Compounding**
-The collected EL rewards (Priority fee + MEV) are available directly on the Execution layer, and thus, can be re-staked with Lido on the daily basis. Getting further staking rewards on the re-staked EL rewards creates the compounding effect.
+### Rewards socialization model
 
-- **Rewards socialization model**
 With Lido, you receive staking rewards within 24 hours of your deposit being made, without waiting for validator activation.
 
 ### Protocol fee
 
 > Lido applies a 10% fee on staking rewards that are split between node operators and the DAO Treasury. The fee can be changed by the DAO pending a successful vote.
+
+### More about APR calculation
+
+Please refer to the [API doc page](/integrations/api#simple-moving-average-lido-apr-for-7-last-day) for further details.
 
 ## Security
 
@@ -179,4 +177,4 @@ The security of Lido is highest priority beginning at the time of its initial de
 
 In the [scorecard](https://scorecard.lido.fi/) you may find an  outlined set of attributes that we think are important for the decentralisation of the protocol, and how Lido is faring against these targets.
 
-> 📝 As for now, scorecard has only Ethereum related content. More chains to be added soon
+> 📝 As for now, scorecard has only Ethereum related content.

@@ -1,8 +1,8 @@
 # Protocol levers
 
 The protocol provides a number of settings controllable by the DAO. Modifying each of them requires
-the caller to have a specific permission. After deploying the DAO, all permissions belong to the DAO
-`Voting` app, which can also manage them. This means that, initially, levers can only be changed by
+the caller to have a specific permission. After deploying the DAO, all permissions belong to either DAO `Voting` or `Agent` apps,
+which can also manage them. This means that, initially, levers can only be changed by
 the DAO voting, and other entities can be allowed to do the same only as a result of the voting.
 
 All existing levers are listed below, grouped by the contract.
@@ -11,13 +11,26 @@ All existing levers are listed below, grouped by the contract.
 
 The following contracts are upgradeable by the DAO voting:
 
+- [`LidoLocator`](/contracts/lido-locator)
 - [`Lido`](/contracts/lido)
+- [`StakingRouter`](/contracts/staking-router)
 - [`NodeOperatorsRegistry`](/contracts/node-operators-registry)
-- [`LidoOracle`](/contracts/lido-oracle)
+- [`AccountingOracle`](/contracts/accounting-oracle)
+- [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle)
+- [`WithdrawalVault`](/contracts/withdrawal-vault)
+- [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
+- [`LegacyOracle`](/contracts/legacy-oracle)
 
-Upgradeability is implemented by the Aragon kernel and base contracts. To upgrade an app, one needs
-the `dao.APP_MANAGER_ROLE` permission provided by Aragon. All upgradeable contracts use the
-[Unstructured Storage pattern] in order to provide stable storage structure across upgrades.
+Upgradeability is implemented either by the Aragon kernel and base contracts OR by the [OssifiableProxy](/contracts/ossifiable-proxy) instances.
+To upgrade an Aragon app, one needs the `dao.APP_MANAGER_ROLE` permission provided by Aragon.
+To upgrade an `OssifiableProxy` implementation, one needs to be an owner of the proxy.
+As it was said previously, both belong either to the DAO `Voting` or `Agent` apps.
+
+All upgradeable contracts use the [Unstructured Storage pattern] in order to provide stable storage structure across upgrades.
+
+:::note
+Some of the contracts still contain structured storage data, hence the order of inheritance always matters.
+:::
 
 [unstructured storage pattern]: https://blog.openzeppelin.com/upgradeability-using-unstructured-storage
 
@@ -25,86 +38,21 @@ the `dao.APP_MANAGER_ROLE` permission provided by Aragon. All upgradeable contra
 
 ### Burning stETH tokens
 
-- Mutator: `burnShares(address _account, uint256 _sharesAmount)`
-  - Permission required: `BURN_ROLE`
+There is a dedicated contract responsible for `stETH` tokens burning.
+The burning itself is a part of the core protocol procedures:
 
-DAO members can burn token shares via DAO voting to offset slashings using insurance funds.
-E.g. protocol was slashed by 5 Ether; by burning the amount of shares corresponding to 5 stETH
-the stakers can be made whole.
+- deduct underlying finalized withdrawal request `stETH`, see [`Lido.handleOracleReport`](/contracts/lido#handleOracleReport)
+- penalize delinquent node operators by halving their rewards, see [`NodeOperatorsRegistry._distributeRewards](/contracts/node-operators-registry#_distributeRewards)
 
-Currently, the `BURN_ROLE` assigned only to the
-[`SelfOwnedStETHBurner`](/contracts/self-owned-steth-burner) contract and constrained by the
-[Aragon OS ACL parameter interpretation](https://hack.aragon.org/docs/aragonos-ref#parameter-interpretation)
-feature to allow burn stETH token shares only from the contract's own balance. Moreover, the shares
-for burning could be obtained only by a direct `Voting` request.
+These responsibilities are controlled by the `REQUEST_BURN_SHARES_ROLE` role which is assigned to both
+[`Lido`](/contracts/lido) and [`NodeOperatorsRegistry`](/contracts/node-operators-registry) contracts.
+This role should not be ever permanently assigned to another entities.
 
-As a result, to burn stETH token shares, DAO needs to explicitly approve `stETH` transfer from
-the `Voting` app contract to the `SelfOwnedStETHBurner` contract and request to burn
-the received token shares on the next quorum-reaching oracle report.
+Apart from this, `stETH` token burning can be applied to compensate for penalties/slashing losses by the DAO decision.
+It's possible via more restrictive role `REQUEST_BURN_MY_STETH_ROLE` which is currently unassigned.
 
-### Protocol contracts
-
-The addresses of the oracle, treasury, and isurance fund contracts.
-
-Oracle contract is allowed to make periodical updates of beacon stats by calling `handleOracleReport`.
-Treasury contract is used to accumulate the protocol treasury fee.
-Insurance fund contract is used to accumulate the protocol insurance fee.
-
-- Mutator: `setProtocolContracts(address _oracle, address _treasury, address _insuranceFund)`
-  - Permission required: `MANAGE_PROTOCOL_CONTRACTS_ROLE`
-- Accessors:
-  - `getOracle() returns (address)`
-  - `getTreasury() returns (address)`
-  - `getInsuranceFund() returns (address)`
-
-The oracle contract serves as a bridge between Ethereum -> ETH oracle committee members and the rest of the protocol,
-implementing quorum between the members. The oracle committee members report balances controlled by the DAO
-on the Ethereum side, which can go up because of reward accumulation and can go down due to slashing.
-
-### Fee
-
-The total fee, in basis points (`10000` corresponding to `100%`).
-
-- Mutator: `setFee(uint16)`
-  - Permission required: `MANAGE_FEE`
-- Accessor: `getFee() returns (uint16)`
-
-The fee is taken on staking rewards and distributed between the treasury, the insurance fund, and
-node operators.
-
-### Fee distribution
-
-Controls how the fee is distributed between the treasury, the insurance fund, and node operators.
-Each fee component is in basis points; the sum of all components must add up to 1 (`10000` basis points).
-
-- Mutator: `setFeeDistribution(uint16 treasury, uint16 insurance, uint16 operators)`
-  - Permission required: `MANAGE_FEE`
-- Accessor: `getFeeDistribution() returns (uint16 treasury, uint16 insurance, uint16 operators)`
-
-### Ethereum withdrawal Credentials
-
-Credentials to withdraw ETH on Ethereum side after phase 2 is launched.
-
-- Mutator: `setWithdrawalCredentials(bytes)`
-  - Permission required: `MANAGE_WITHDRAWAL_KEY`
-- Accessor: `getWithdrawalCredentials() returns (bytes)`
-
-The protocol uses these credentials to register new Ethereum validators.
-
-### Deposit loop iteration limit
-
-Controls how many Ethereum deposits can be made in a single transaction.
-
-- A parameter of the `depositBufferedEther(uint256)` function
-- Default value: `16`
-- [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.js)
-
-When someone calls `depositBufferedEther`, `Lido` tries to register as many Ethereum validators
-as it can given the buffered Ether amount. The limit is passed as an argument to this function and
-is needed to prevent the transaction from [failing due to the block gas limit], which is possible
-if the amount of the buffered Ether becomes sufficiently large.
-
-[failing due to the block gas limit]: https://github.com/ConsenSys/smart-contract-best-practices/blob/8f99aef/docs/known_attacks.md#gas-limit-dos-on-a-contract-via-unbounded-operations
+The key difference that despite of both roles rely on the `stETH` allowance provided to the `Burner` contract,
+the latter allows token burning only from the request originator balance.
 
 ### Pausing
 
@@ -118,17 +66,65 @@ When paused, `Lido` doesn't accept user submissions, doesn't allow user withdraw
 report submissions. No token actions (burning, transferring, approving transfers and changing
 allowances) are allowed. The following transactions revert:
 
-- Plain Ether transfers;
+- plain Ether transfers to `Lido`;
 - calls to `submit(address)`;
-- calls to `depositBufferedEther(uint256)`;
-- calls to `withdraw(uint256, bytes32)` (withdrawals are not implemented yet).
-- calls to `pushBeacon(uint256, uint256)`;
-- calls to `burnShares(address, uint256)`;
+- calls to `deposit(uint256, uint256, bytes)`;
+- calls to `handleOracleReport(...)`;
 - calls to `transfer(address, uint256)`;
 - calls to `transferFrom(address, address, uint256)`;
+- calls to `transferShares(address, uint256)`;
+- calls to `transferSharesFrom(address, uint256)`;
 - calls to `approve(address, uint256)`;
-- calls to `increaseAllowance(address, uint)`;
-- calls to `decreaseAllowance(address, uint)`.
+- calls to `increaseAllowance(address, uint256)`;
+- calls to `decreaseAllowance(address, uint256)`.
+
+As a consequence of the list above:
+
+- calls to `WithdrawalQueueERC721.requestWithdrawals(uint256[] calldata, address)`, and its variants;
+- calls to `wstETH.wrap(uint256)` and `wstETH.unwrap(uint256)`;
+- calls to `Burner.requestBurnShares`, `Burner.requestBurnMyStETH`, and its variants;
+
+:::note
+External stETH/wstETH DeFi integrations are directly affected as well.
+:::
+
+### Override deposited validators counter
+
+- Mutator: `unsafeChangeDepositedValidators(uint256)`
+  - Permission required: `UNSAFE_CHANGE_DEPOSITED_VALIDATORS_ROLE`
+
+The method unsafely changes deposited validator counter.
+Can be required when onboarding external validators to Lido (i.e., had deposited before and rotated their type-0x00 withdrawal credentials to Lido).
+
+The incorrect values might disrupt protocol operation.
+
+### Oracle report
+
+TODO: oracle reports are committee-driven
+
+### Deposit access control
+
+The `Lido.deposit` method performs an actual deposit (stake) of buffered ether to Consensus Layer
+undergoing through `StakingRouter`, its selected module, and the official Ethereum deposit contract in the end.
+
+The method can be called only by `DepositSecurityModule` since access control is a part of the deposits frontrunning vulnerability mitigation.
+
+Please see [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) for more details.
+
+### Deposit loop iteration limit
+
+Controls how many Ethereum deposits can be made in a single transaction.
+
+- The `_maxDepositsCount` parameter of the `deposit(uint256 _maxDepositsCount, uint256 _stakingModuleId, bytes _depositCalldata)` function
+- Default value: `16`
+- [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.js)
+
+When DSM calls `depositBufferedEther`, `Lido` tries to register as many Ethereum validators
+as it can given the buffered Ether amount. The limit is passed as an argument to this function and
+is needed to prevent the transaction from [failing due to the block gas limit], which is possible
+if the amount of the buffered Ether becomes sufficiently large.
+
+[failing due to the block gas limit]: https://github.com/ConsenSys/smart-contract-best-practices/blob/8f99aef/docs/known_attacks.md#gas-limit-dos-on-a-contract-via-unbounded-operations
 
 ### Execution layer rewards
 
@@ -184,9 +180,38 @@ When staking is paused, `Lido` doesn't accept user submissions. The following tr
 
 For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
 
-### TODO
+## [StakingRouter](/contracts/staking-router)
 
-- Transfer to vault (`transferToVault()`)
+### Fee
+
+The total fee, in basis points (`10000` corresponding to `100%`).
+
+- Mutator: `setFee(uint16)`
+  - Permission required: `MANAGE_FEE`
+- Accessor: `getFee() returns (uint16)`
+
+The fee is taken on staking rewards and distributed between the treasury, the insurance fund, and
+node operators.
+
+### Fee distribution
+
+Controls how the fee is distributed between the treasury, the insurance fund, and node operators.
+Each fee component is in basis points; the sum of all components must add up to 1 (`10000` basis points).
+
+- Mutator: `setFeeDistribution(uint16 treasury, uint16 insurance, uint16 operators)`
+  - Permission required: `MANAGE_FEE`
+- Accessor: `getFeeDistribution() returns (uint16 treasury, uint16 insurance, uint16 operators)`
+
+### Ethereum withdrawal Credentials
+
+Credentials to withdraw ETH on the Execution Layer side
+
+- Mutator: `setWithdrawalCredentials(bytes)`
+  - Permission required: `MANAGE_WITHDRAWAL_KEY`
+- Accessor: `getWithdrawalCredentials() returns (bytes)`
+
+The protocol uses these credentials to register new Ethereum validators.
+
 
 ## [NodeOperatorsRegistry](/contracts/node-operators-registry)
 
@@ -235,7 +260,7 @@ Allow to manage signing keys for the given node operator.
 
 Allows to report that `_stoppedIncrement` more validators of a node operator have become stopped.
 
-## [LidoOracle](/contracts/lido-oracle)
+## [LegacyOracle](/contracts/legacy-oracle)
 
 ### Lido
 
@@ -277,24 +302,6 @@ circumstances.
   - Permission required: `SET_REPORT_BOUNDARIES`
 - Accessors: `getAllowedBeaconBalanceAnnualRelativeIncrease() returns (uint256)` and
   `getAllowedBeaconBalanceRelativeDecrease() returns (uint256)`
-
-### Beacon report receiver
-
-It is possible to register a contract to be notified of the report push to Lido (when the quorum is
-reached). The contract should provide
-[IBeaconReportReceiver](https://github.com/lidofinance/lido-dao/blob/develop/contracts/0.4.24/interfaces/IBeaconReportReceiver.sol)
-interface.
-
-- Mutator: `setBeaconReportReceiver(address)`
-  - Permission required: `SET_BEACON_REPORT_RECEIVER`
-- Accessor: `getBeaconReportReceiver() returns (address)`
-
-Note that setting zero address disables this functionality.
-
-The receiver's slot occupied with [`CompositePostRebaseBeaconReceiver`](/contracts/composite-post-rebase-beacon-receiver)
-which supports adding multiple contracts to be notified about new reports.
-Up to now, the only one [`SelfOwnedStETHBurner`](/contracts/self-owned-steth-burner) contract is set (or wrapped) with
-beacon receiver through the composite adapter.
 
 ### Current reporting status
 
