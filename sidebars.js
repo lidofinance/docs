@@ -56,10 +56,10 @@ module.exports = {
       type: 'category',
       label: 'Integrations',
       items: [
-          'integrations/api',
-          'integrations/wallets',
-          'integrations/sdk',
-          'integrations/subgraph',
+        'integrations/api',
+        'integrations/wallets',
+        'integrations/sdk',
+        'integrations/subgraph',
         {
           type: 'category',
           label: 'AAVE',
@@ -99,6 +99,7 @@ module.exports = {
         'contracts/mev-boost-relays-allowed-list',
         'contracts/trp-vesting-escrow',
         'contracts/gate-seal',
+        'contracts/ossifiable-proxy'
       ],
     },
     {

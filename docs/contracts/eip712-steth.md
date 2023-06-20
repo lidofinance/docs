@@ -6,4 +6,4 @@
 EIP712StETH is a special helper contract for `stETH` that enables support
 for [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
 
-The contract is responsible for permit signatures checking and enforcing.
+The contract is responsible for the permit signatures preparation.

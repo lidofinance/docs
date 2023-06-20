@@ -3,9 +3,11 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
 
-LegacyOracle is a contract where oracles send addresses' balances controlled by the DAO on the Consensus Layer side.
+AccountingOracle is a contract where oracles send addresses' balances controlled by the DAO on the Consensus Layer side.
 The balances can go up because of reward accumulation and can go down due to slashing and staking penalties.
 Oracles are assigned by the DAO.
+
+Other major responsibilities of AccountingOracle: updating exited and stuck validators, finalizing withdrawal requests.
 
 Oracle daemons push their reports every frame (225 epochs currently, equal to one day) and when the
 number of the same reports reaches the ['quorum'](#getquorum) value, the report is pushed to the
