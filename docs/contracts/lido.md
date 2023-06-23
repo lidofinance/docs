@@ -15,7 +15,7 @@ Lido is a liquid staking pool and the core contract that is responsible for:
 - applying fees and distributing rewards
 - passing buffered ether further to StakingRouter or WithdrawalQueue
 
-Also, Lido is an ERC-20 rebasing token which represents staked ether, `stETH`. Tokens are minted upon deposit and burned when redeemed. stETH holder balances are updated daily with oracle reports.
+Also, Lido is an ERC-20 rebasing token which represents staked ether, `stETH`. Tokens are minted upon deposit and burned when redeemed. stETH holder balances are updated daily with oracle reports. It also implements ERC-2612 permit and ERC-1271 signature validation extensions.
 
 Other contracts are bound to the core and have the following responsibilities:
 
@@ -29,6 +29,7 @@ Other contracts are bound to the core and have the following responsibilities:
 - [`DepositSecurityModule`](./deposit-security-module.md): protection from deposit frontrunning vulnerability
 - [`AccountingOracle`](./accounting-oracle.md): oracle committee, that gathers an accounting report for the protocol
 - [`LidoLocator`](./lido-locator.md): protocol-wide address book which contains references to all meaningful parts of the Lido protocol on-chain
+- [`EIP712StETH`](./eip712-steth.md): ad-hoc helper to implement ERC-2612 permit for Solidity 0.4.24 Lido contract
 
 ## Submit
 
