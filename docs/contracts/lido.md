@@ -3,81 +3,150 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
-Lido is the core contract which acts as a liquid staking pool. The contract is responsible for Ether deposits and withdrawals, minting and burning liquid tokens, delegating funds to node operators, applying fees, and accepting updates from the oracle contract. Node Operators' logic is extracted to a separate contract, NodeOperatorsRegistry.
+Liquid staking pool and a related ERC-20 rebasing token (stETH)
 
-Lido also acts as an ERC20 token which represents staked ether, stETH. Tokens are minted upon deposit and burned when redeemed. Despite stETH tokens being pegged 1:1 to the ether that is held by Lido, the market exchange rate between stETH and ETH may vary. stETH holder balances are updated daily with oracle reports.
+## What is Lido?
+
+Lido is a liquid staking pool and the core contract that is responsible for:
+
+- accepting users' stake, buffering it and minting respective amount of liquid token
+- do a proper accounting based on received oracle reports and the current state of the protocol
+- collecting withdrawals, priority fees and MEV from respective vaults into the buffer
+- applying fees and distributing rewards
+- passing buffered ether further to StakingRouter or WithdrawalQueue
+
+Also, Lido is an ERC-20 rebasing token which represents staked ether, `stETH`. Tokens are minted upon deposit and burned when redeemed. stETH holder balances are updated daily with oracle reports.
+
+Other contracts are bound to the core and have the following responsibilities:
+
+- [`WithdrawalQueue`](./withdrawal-queue-erc721.md): withdrawal requests FIFO queue and respective NFT
+- [`StakingRouter`](./staking-router.md): hub that manages staking modules and distributes the stake among them
+- [`NodeOperatorsRegistry`](./node-operators-registry.md): original module responsible for managing the curated set of node operators
+- [`OracleReportSanityChecker`](./oracle-report-sanity-checker.md): helper for validation of oracle report parameters and smoothening token rebases
+- [`Burner`](./burner.md): vault to contain stETH that ought to be burned on oracle report
+- [`WithdrawalVault`](./withdrawal-vault.md): vault to collect partial and full withdrawals coming from Beacon chain
+- [`LidoExecutionLayerRewardsVault`](./lido-execution-layer-rewards-vault.md): vault to collect priority fees and MEV rewards coming from validators of the pool
+- [`DepositSecurityModule`](./deposit-security-module.md): protection from deposit frontrunning vulnerability
+- [`AccountingOracle`](./accounting-oracle.md): oracle committee, that gathers an accounting report for the protocol
+- [`LidoLocator`](./lido-locator.md): protocol-wide address book which contains references to all meaningful parts of the Lido protocol on-chain
+
+## Submit
+
+Lido contract is a main entry point for stakers. To take part in the pool, a user can send some ETH to contract address and the same amount of stETH tokens will be minted to the sender address. Submitted ether are accumulated in the buffer and can be passed further to [`WithdrawalQueue`](./withdrawal-queue-erc721.md) to fulfill withdrawal requests or to [`StakingRouter`](./staking-router.md) to deposit as a new validator stake.
+
+To withdraw the underlying ETH back, user may use [`WithdrawalQueue`](./withdrawal-queue-erc721.md) contract or swap the token on the secondary market (it may be a cheaper and faster alternative).
+
+## Deposit
+
+User submitted ether is stored in the buffer and can be later used for withdrawals or passed further to [`StakingRouter`](./staking-router.md) to be used as validator's deposits. It happens asyncronously and uses [`DepositSecurityModule`](./deposit-security-module.md) as a guard to prevent deposit frontrunning vulnerability.
+
+```mermaid
+graph LR;
+  A[/  \]--depositBufferedEther-->DepositSecurityModule-->Lido-->StakingRouter-->NodeOperatorsRegistry;
+```
 
 ## Rebasing
 
-When a rebase occurs, the supply of the token is increased or decreased algorithmically, based on staking rewards (or slashing penalties) on the Beacon chain, and execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade). A rebase happens when oracles report beacon stats.
+When an oracle report occurs, the supply of the token is increased or decreased algorithmically, based on staking rewards (or slashing penalties) on the Beacon chain, execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade) or fulfilled withdrawal requests (starting from [Lido V2](https://blog.lido.fi/introducing-lido-v2/)). A rebase happens when oracle reports beacon stats.
 
-The rebasing mechanism is implemented via "shares". Instead of storing map with account balances, Lido stores which share owned by account in the total amount of Ether controlled by the protocol.
+The rebasing mechanism is implemented via "shares" concept. Instead of storing map with account balances, Lido stores which share of the total pool is owned by account. The balance of an account is calculated as follows:
 
-The balance of an account is calculated as follows:
-
-```
+```js
 balanceOf(account) = shares[account] * totalPooledEther / totalShares
 ```
 
-- `shares` - map of user account shares. Every time user deposit ether, it converted to shares and added to current user shares.
+- `shares` - map of user account shares. Every time a user deposits ether, it is converted to shares and added to current user shares amount.
 
-- `totalShares` sum of shares of all account in `shares` map
+- `totalShares` - sum of shares of all account in `shares` map
 
-- `totalPooledEther` is a sum of three types of ether owned by protocol:
+- `totalPooledEther` - a sum of three types of ether owned by protocol:
 
-  - buffered balance - ether stored on contract and haven't deposited to official Deposit contract yet.
-  - transient balance - ether submitted to the official Deposit contract but not yet visible in the beacon state.
-  - beacon balance - total amount of ether on validator accounts. This value reported by oracles and makes strongest impact to stETH total supply change.
+  - buffered balance - ether stored on contract and haven't deposited or locked for withdrawals yet
+  - transient balance - ether submitted to the official Deposit contract but not yet visible in the beacon state
+  - beacon balance - total amount of ether on validator accounts. This value reported by oracles and makes strongest impact to stETH total supply change
 
 For example, assume that we have:
 
-```
-totalShares = 500
+```js
+totalShares = 5
 totalPooledEther = 10 ETH
-sharesOf(Alice) -> 100
-sharesOf(Bob) -> 400
+sharesOf(Alice) -> 1
+sharesOf(Bob) -> 4
 ```
 
 Therefore:
 
+```js
+balanceOf(Alice) -> 2 tokens which corresponds to 2 ETH
+balanceOf(Bob) -> 8 tokens which corresponds to 8 ETH
 ```
-balanceOf(Alice) -> 2 tokens which corresponds 2 ETH
-balanceOf(Bob) -> 8 tokens which corresponds 8 ETH
+
+On each rebase `totalPooledEther` normally increases, indicating that there were some rewards earned by validators, that ought to be distributed, so user balance gets increased as well automatically, in spite their shares remaining as they were.
+
+```js
+totalPooledEther = 15 ETH
+// user balance increased
+balanceOf(Alice) -> 3 tokens which corresponds to 3 ETH now
+balanceOf(Bob) -> 12 tokens which corresponds to 12 ETH now
+// shares remain still
+sharesOf(Alice) -> 1
+sharesOf(Bob) -> 4
 ```
 
-## Beacon Stats Reporting
+:::note
+Since the balances of all token holders change when the amount of total pooled Ether changes, this token cannot fully implement ERC-20 standard: it only emits `Transfer` events upon explicit transfer between holders. In contrast, when the total amount of pooled ether increases, no `Transfer` events are generated: doing so would require emitting an event for each token holder and thus running an unbounded loop.
+:::
 
-One of the most important parts of protocol, it's precise and steady reported data about current balances of validators. Such reports happen once at defined period of time, called frame. Frame duration set by DAO, current value is 24 hours.
+## Oracle report
 
-To update stats on main Lido contract oracle demands quorum to be reached.
-Quorum - is a necessary amount of reports with equal stats from offchain oracle daemons run by protocol participants.
-Quorum size and members controlled by DAO.
-If quorum wasn't reached next report can happen only at the first epoch of next frame (after 24 hours).
+One of the cornerstones of the Lido protocol is the oracle report, that usually (but not guaranteed) once a day provides the protocol with the data that can't be easily accessed on-chain, but required for precise accounting. It includes some Beacon chain stats as well as corresponding EL-side values that are valid on the reporting block and the decision data required to fulfill pending withdrawal requests.
 
-Report consists of count of validators participated in protocol - beacon validators and total amount of ether on validator accounts - beacon balance. Typically beacon balance growth from report to report, but in exceptional cases it also can drops, because of slashing.
+- Beacon chain stats:
+  - the total number of validators managed by the pool
+  - the total balance of validators managed by the pool
+- Historical EL values:
+  - withdrawal vault balance
+  - execution layer rewards vault balance
+  - burner stETH shares balance
+- Withdrawal-related data
+  - requests in the queue to be finalized
+  - share rate to be used for finalization
 
-- When beacon balance grown between reports, protocol register profit and distribute reward of fresh minting stETH tokens between stETH holders, node operators, insurance fund and treasury. Fee distribution for node operators, insurance fund and treasury can be set by DAO.
-- When frame was ended with slashing and new beacon balance less than previous one total supply of stETH becomes less than in previous report and no rewards distributed.
+Oracle report is processed in 9 simple steps:
 
-## Execution layer rewards
+1. Memorize the pre-state that will be required for incremental updates of the protocol balance
+2. Validate the report data using [`OracleReportSanityChecker`](./oracle-report-sanity-checker.md)
+3. Calculate the amount of ether to be locked on [`WithdrawalQueue`](./withdrawal-queue-erc721.md) and move the respective amount of shares to be burnt to [`Burner`](./burner.md)
+4. Using [`OracleReportSanityChecker`](./oracle-report-sanity-checker.md) calculate the amounts of ether that can be withdrawn from [`LidoExecutionLayerRewardsVault`](./lido-execution-layer-rewards-vault.md) and [`WithdrawalVault`](./withdrawal-vault.md) as well as the amount of shares that can be burnt from [`Burner`](./burner.md) to avoid the rebase that can be easily frontrun.
+5. Collect the calculated amounts of ether from vaults and proceed with withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](./withdrawal-queue-erc721.md)
+6. Burn the previously requested shares from [`Burner`](./burner.md) for withdrawals or coverage application
+7. Distribute rewards and protocol fee minting new stETH for the respective parties
+8. Complete token rebase by informing observers (emit an event and call the external receivers if any)
+9. Post-report sanity check for share rate provided with report
 
-Lido implements an architecture design which was proposed in the Lido Improvement Proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part of the Lido Oracle report.
+```mermaid
+graph LR;
+  S[/Users' stake/]:::orange-.->B[Lido Buffer];
+  W[WithdrawalsVault]-->B;
+  E[LidoExecutionLayerRewardsVault]-->B;
+  B-->D[StakingRouter];
+  B-->WQ[WithdrawalQueue];
+  classDef orange fill:#f96;
 
-These execution layer rewards are initially accumulaed on the dedicated [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract and include priority fees and MEV.
+```
 
-## Staking rate limiting
+So, the observable outcome of the report for the protocol is the following:
 
-Lido features a safeguard mechanism to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
-
-New staking requests can be rate-limited with a moving soft cap for the stake amount per desired period.
-
-For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
+- withdrawal requests in the queue are fulfilled
+- ether is collected from withdrawal and EL rewards vaults to the buffer
+- CL balance is updated according to the report
+- rewards are distributed among stakers, staking modules and protocol treasury
 
 ## View Methods
 
 ### name()
 
-Returns the name of the token
+Returns the name of the token. Lido contract always returns `Liquid staked Ether 2.0`
 
 ```sol
 function name() returns (string)
@@ -85,7 +154,7 @@ function name() returns (string)
 
 ### symbol()
 
-Returns the symbol of the token, usually a shorter version of the name
+Returns the symbol of the token. Always returns `stETH` for Lido
 
 ```sol
 function symbol() returns (string)
@@ -93,7 +162,7 @@ function symbol() returns (string)
 
 ### decimals()
 
-Returns the number of decimals for getting user representation of a token amount.
+Returns the number of decimals for getting user representation of a token amount. Returns `18` for Lido
 
 ```sol
 function decimals() returns (uint8)
@@ -109,12 +178,12 @@ function totalSupply() returns (uint256)
 
 :::note
 Always equals to `getTotalPooledEther()` since token amount
-is pegged to the total amount of Ether controlled by the protocol.
+is pegged to the total amount of ether controlled by the protocol.
 :::
 
 ### getTotalPooledEther()
 
-Returns the entire amount of Ether controlled by the protocol
+Returns the entire amount of ether controlled by the protocol
 
 ```sol
 function getTotalPooledEther() returns (uint256)
@@ -155,7 +224,7 @@ function sharesOf(address _account) returns (uint256)
 
 ### getSharesByPooledEth()
 
-Returns the amount of shares that corresponds to `_ethAmount` protocol-controlled Ether
+Returns the amount of shares that corresponds to `_ethAmount` of protocol-controlled ether
 
 ```sol
 function getSharesByPooledEth(uint256 _ethAmount) returns (uint256)
@@ -163,61 +232,19 @@ function getSharesByPooledEth(uint256 _ethAmount) returns (uint256)
 
 ### getPooledEthByShares()
 
-Returns the amount of Ether that corresponds to `_sharesAmount` token shares
+Returns the amount of ether that corresponds to `_sharesAmount` token shares
 
 ```sol
 function getPooledEthByShares(uint256 _sharesAmount) returns (uint256)
 ```
 
-### getFee()
-
-Returns staking rewards fee rate
-
-```sol
-function getFee() returns (uint16)
-```
-
-#### Returns:
-
-Fee in basis points. 10000 BP corresponding to 100%.
-
-### getFeeDistribution()
-
-Returns fee distribution proportion
-
-```sol
-function getFeeDistribution() returns (
-  uint16 treasuryFeeBasisPoints,
-  uint16 insuranceFeeBasisPoints,
-  uint16 operatorsFeeBasisPoints
-)
-```
-
-#### Returns:
-
-| Name                      | Type     | Description                                                                            |
-| ------------------------- | -------- | -------------------------------------------------------------------------------------- |
-| `treasuryFeeBasisPoints`  | `uint16` | Fee for the treasury. Expressed in basis points, 10000 BP corresponding to 100%.       |
-| `insuranceFeeBasisPoints` | `uint16` | Fee for the insurance fund. Expressed in basis points, 10000 BP corresponding to 100%. |
-| `operatorsFeeBasisPoints` | `uint16` | Fee for the node operators. Expressed in basis points, 10000 BP corresponding to 100%. |
-
-### getWithdrawalCredentials()
-
-Returns current credentials to withdraw ETH on the Execution Layer side
-
-```sol
-function getWithdrawalCredentials() returns (bytes32)
-```
-
 ### getBufferedEther()
 
-Get the amount of Ether temporary buffered on this contract balance
+Get the amount of ether temporary buffered on this contract balance
 
 :::note
-
 Buffered balance is kept on the contract from the moment the funds are received from user
-until the moment they are actually sent to the official Deposit contract.
-
+until the moment they are actually sent to the official Deposit contract or to WithdrawalsQueue
 :::
 
 ```sol
@@ -228,57 +255,9 @@ function getBufferedEther()  returns (uint256)
 
 Amount of buffered funds in wei
 
-### getDepositContract()
-
-Gets deposit contract handle
-
-```sol
-function getDepositContract() public view returns (IDepositContract)
-```
-
-#### Returns:
-
-Address of deposit contract
-
-### getOracle()
-
-Returns authorized oracle address
-
-```sol
-function getOracle() returns (address)
-```
-
-### getOperators()
-
-Gets node operators registry interface handle
-
-```sol
-function getOperators() returns (INodeOperatorsRegistry)
-```
-
-#### Returns:
-
-Address of NodeOperatorsRegistry contract
-
-### getTreasury()
-
-Returns the treasury address
-
-```sol
-function getTreasury() returns (address)
-```
-
-### getInsuranceFund()
-
-Returns the insurance fund address
-
-```sol
-function getInsuranceFund() returns (address)
-```
-
 ### getBeaconStat()
 
-Returns the key values related to Beacon-side
+Returns the key values related to Beacon chain
 
 ```sol
 function getBeaconStat() returns (
@@ -294,7 +273,7 @@ function getBeaconStat() returns (
 | --------------------- | --------- | ------------------------------------------------------------------------------ |
 | `depositedValidators` | `uint256` | Number of deposited validators                                                 |
 | `beaconValidators`    | `uint256` | Number of Lido's validators visible in the Beacon state, reported by oracles   |
-| `beaconBalance`       | `uint256` | Total amount of Beacon-side Ether (sum of all the balances of Lido validators) |
+| `beaconBalance`       | `uint256` | Total amount of Beacon-side ether (sum of all the balances of Lido validators) |
 
 ### isStakingPaused()
 
@@ -312,7 +291,7 @@ function isStakingPaused() external view returns (bool)
 
 ### getCurrentStakeLimit()
 
-Returns how much Ether can be staked in the current block
+Returns how much ether can be staked in the current block
 
 ```sol
 function getCurrentStakeLimit() public view returns (uint256)
@@ -326,6 +305,7 @@ function getCurrentStakeLimit() public view returns (uint256)
 
 :::note
 Special return values:
+
 - `2^256 - 1` if staking is unlimited;
 - `0` if staking is paused or if limit is exhausted.
 :::
@@ -364,7 +344,7 @@ Get total amount of execution layer rewards collected to Lido contract
 
 :::note
 Ether got through [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) is kept on this contract's balance the same way
-as other buffered Ether is kept (until it gets deposited).
+as other buffered ether is kept (until it gets deposited).
 
 :::
 
@@ -377,7 +357,6 @@ function getTotalELRewardsCollected() external view returns (uint256)
 | Name                      | Type      | Description                                                   |
 | ------------------------- | --------- | ------------------------------------------------------------- |
 | `totalELRewardsCollected` | `uint256` | Amount of funds received as execution layer rewards (in wei)  |
-
 
 ### getELRewardsVault()
 
@@ -614,12 +593,11 @@ function submit(address _referral) payable returns (uint256)
 
 Amount of StETH shares generated
 
-### depositBufferedEther()
+### deposit()
 
 Deposits buffered ethers to the official DepositContract. If `_maxDeposits` provided makes no more than `_maxDeposits` deposit calls
 
 ```sol
-function depositBufferedEther()
 function depositBufferedEther(uint256 _maxDeposits)
 ```
 
@@ -628,39 +606,6 @@ function depositBufferedEther(uint256 _maxDeposits)
 | Name           | Type      | Description                 |
 | -------------- | --------- | --------------------------- |
 | `_maxDeposits` | `uint256` | Number of max deposit calls |
-
-### burnShares()
-
-Destroys `_sharesAmount` shares from `_account`'s holdings, decreasing the total amount of shares.
-
-```sol
-function burnShares(
-  address _account,
-  uint256 _sharesAmount
-) returns (uint256 newTotalShares)
-```
-
-:::note
-This doesn't decrease the token total supply.
-
-Requirements:
-
-- `_account` cannot be the zero address.
-- `_account` must hold at least `_sharesAmount` shares.
-- the contract must not be paused.
-
-:::
-
-#### Parameters
-
-| Name            | Type      | Description                         |
-| --------------- | --------- | ----------------------------------- |
-| `_account`      | `address` | Address where shares will be burned |
-| `_sharesAmount` | `uint256` | Amount of shares to burn            |
-
-#### Returns
-
-Amount of totalShares after tokens burning
 
 ### stop()
 
@@ -680,10 +625,10 @@ function resume()
 
 ### pauseStaking()
 
-Stops accepting new Ether to the protocol
+Stops accepting new ether to the protocol
 
 :::note
-While accepting new Ether is stopped, calls to the `submit` function,
+While accepting new ether is stopped, calls to the `submit` function,
 as well as to the default payable function, will revert.
 
 :::
@@ -694,7 +639,7 @@ function pauseStaking() external
 
 ### resumeStaking()
 
-Resumes accepting new Ether to the protocol (if `pauseStaking` was called previously)
+Resumes accepting new ether to the protocol (if `pauseStaking` was called previously)
 
 :::note
 Staking could be rate-limited by imposing a limit on the stake amount at each moment in time,
@@ -712,6 +657,7 @@ Sets the staking rate limit
 
 :::note
 Reverts if:
+
 - `_maxStakeLimit` == 0
 - `_maxStakeLimit` >= 2^96
 - `_maxStakeLimit` < `_stakeLimitIncreasePerBlock`
@@ -722,6 +668,7 @@ Reverts if:
 ```sol
 function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerBlock) external
 ```
+
 #### Parameters:
 
 | Name                          | Type      | Description                           |
@@ -730,6 +677,7 @@ function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerB
 | `_stakeLimitIncreasePerBlock` | `uint256` | Stake limit increase per single block |
 
 Limit explanation scheme:
+
 ```
     * ▲ Stake limit
     * │.....  .....   ........ ...            ....     ... Stake limit = max
@@ -757,97 +705,6 @@ can be called only by the [`LidoExecutionLayerRewardsVault`](lido-execution-laye
 function receiveELRewards() external payable
 ```
 
-### setELRewardsVault()
-
-Sets the address of [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract
-
-```sol
-function setELRewardsVault(address _executionLayerRewardsVault) external
-```
-
-#### Parameters:
-
-| Name                          | Type      | Description                                    |
-| ----------------------------- | --------- | ---------------------------------------------- |
-| `_executionLayerRewardsVault` | `address` | Execution layer rewards vault contract address |
-
-
-### setFee()
-
-Set fee rate to `_feeBasisPoints` basis points. The fees are accrued when oracles report staking results
-
-```sol
-function setFee(uint16 _feeBasisPoints)
-```
-
-#### Parameters
-
-| Name              | Type     | Description                                                    |
-| ----------------- | -------- | -------------------------------------------------------------- |
-| `_feeBasisPoints` | `uint16` | Fee expressed in basis points, 10000 BP corresponding to 100%. |
-
-### setFeeDistribution()
-
-Set fee distribution: `_treasuryFeeBasisPoints` basis points go to the treasury,
-`_insuranceFeeBasisPoints` basis points go to the insurance fund,
-`_operatorsFeeBasisPoints` basis points go to node operators.
-The sum has to be 10 000.
-
-```sol
-function setFeeDistribution(
-  uint16 _treasuryFeeBasisPoints,
-  uint16 _insuranceFeeBasisPoints,
-  uint16 _operatorsFeeBasisPoints
-)
-```
-
-#### Parameters
-
-| Name                       | Type     | Description                                                                            |
-| -------------------------- | -------- | -------------------------------------------------------------------------------------- |
-| `_treasuryFeeBasisPoints`  | `uint16` | Fee for the treasury. Expressed in basis points, 10000 BP corresponding to 100%.       |
-| `_insuranceFeeBasisPoints` | `uint16` | Fee for the insurance fund. Expressed in basis points, 10000 BP corresponding to 100%. |
-| `_operatorsFeeBasisPoints` | `uint16` | Fee for the node operators. Expressed in basis points, 10000 BP corresponding to 100%. |
-
-### setProtocolContracts()
-
-Set Lido protocol contracts (oracle, treasury, insurance fund).
-
-Oracle contract specified here is allowed to make periodical updates of beacon stats by calling `handleOracleReport`.
-Treasury contract specified here is used to accumulate the protocol treasury fee.
-Insurance fund contract specified here is used to accumulate the protocol insurance fee.
-
-
-```sol
-function setProtocolContracts(address _oracle, address _treasury, address _insuranceFund) external
-```
-
-#### Parameters
-
-| Name             | Type      | Description                        |
-| ---------------- | --------- | ---------------------------------- |
-| `_oracle`        | `address` | Address of oracle contract         |
-| `_treasury`      | `address` | Address of trasury contract        |
-| `_insuranceFund` | `address` | Address of insurance fund contract |
-
-### setWithdrawalCredentials()
-
-Set credentials to withdraw ETH on the Execution Layer side to `_withdrawalCredentials`
-
-```sol
-function setWithdrawalCredentials(bytes32 _withdrawalCredentials)
-```
-
-:::note
-Note that `setWithdrawalCredentials` discards all unused signing keys as the signatures are invalidated.
-:::
-
-#### Parameters
-
-| Name                     | Type      | Description                                                                                 |
-| ------------------------ | --------- | ------------------------------------------------------------------------------------------- |
-| `_withdrawalCredentials` | `bytes32` | Hash of withdrawal multisignature key as accepted by the deposit_contract.deposit functione |
-
 ### handleOracleReport()
 
 Updates the number of Lido-controlled keys in the beacon validators set and their total balance.
@@ -857,7 +714,7 @@ The method is called by the Lido oracle to handle its quorum-reached report.
 function handleOracleReport(uint256 _beaconValidators, uint256 _beaconBalance)
 ```
 
-#### Parameters
+#### Parameters:
 
 | Name                | Type      | Description                                       |
 | ------------------- | --------- | ------------------------------------------------- |
@@ -866,13 +723,13 @@ function handleOracleReport(uint256 _beaconValidators, uint256 _beaconBalance)
 
 ### transferToVault()
 
-Send funds to recovery Vault. Overrides default AragonApp behaviour.
+Overrides default AragonApp behaviour to disallow recovery. Always reverts with `NOT_SUPPORTED`
 
 ```sol
 function transferToVault(address _token)
 ```
 
-#### Parameters
+#### Parameters:
 
 | Name     | Type      | Description                        |
 | -------- | --------- | ---------------------------------- |
