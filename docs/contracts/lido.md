@@ -46,7 +46,7 @@ graph LR;
   A[/  \]--depositBufferedEther-->DepositSecurityModule-->Lido-->StakingRouter-->NodeOperatorsRegistry;
 ```
 
-## Rebasing
+## Rebase
 
 When an oracle report occurs, the supply of the token is increased or decreased algorithmically, based on staking rewards (or slashing penalties) on the Beacon chain, execution layer rewards (starting from [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade) or fulfilled withdrawal requests (starting from [Lido V2](https://blog.lido.fi/introducing-lido-v2/)). A rebase happens when oracle reports beacon stats.
 
@@ -223,214 +223,6 @@ Returns the amount of shares owned by `_account`
 function sharesOf(address _account) returns (uint256)
 ```
 
-### getSharesByPooledEth()
-
-Returns the amount of shares that corresponds to `_ethAmount` of protocol-controlled ether
-
-```sol
-function getSharesByPooledEth(uint256 _ethAmount) returns (uint256)
-```
-
-### getPooledEthByShares()
-
-Returns the amount of ether that corresponds to `_sharesAmount` token shares
-
-```sol
-function getPooledEthByShares(uint256 _sharesAmount) returns (uint256)
-```
-
-### getBufferedEther()
-
-Get the amount of ether temporary buffered on this contract balance
-
-:::note
-Buffered balance is kept on the contract from the moment the funds are received from user
-until the moment they are actually sent to the official Deposit contract or to WithdrawalsQueue
-:::
-
-```sol
-function getBufferedEther()  returns (uint256)
-```
-
-#### Returns:
-
-Amount of buffered funds in wei
-
-### getBeaconStat()
-
-Returns the key values related to Beacon chain
-
-```sol
-function getBeaconStat() returns (
-  uint256 depositedValidators,
-  uint256 beaconValidators,
-  uint256 beaconBalance
-)
-```
-
-#### Returns:
-
-| Name                  | Type      | Description                                                                    |
-| --------------------- | --------- | ------------------------------------------------------------------------------ |
-| `depositedValidators` | `uint256` | Number of deposited validators                                                 |
-| `beaconValidators`    | `uint256` | Number of Lido's validators visible in the Beacon state, reported by oracles   |
-| `beaconBalance`       | `uint256` | Total amount of Beacon-side ether (sum of all the balances of Lido validators) |
-
-### isStakingPaused()
-
-Returns staking state: whether it's paused or not
-
-```sol
-function isStakingPaused() external view returns (bool)
-```
-
-#### Returns:
-
-| Name              | Type   | Description         |
-| ----------------- | ------ | ------------------- |
-| `isStakingPaused` | `bool` | Staking pause state |
-
-### getCurrentStakeLimit()
-
-Returns how much ether can be staked in the current block
-
-```sol
-function getCurrentStakeLimit() public view returns (uint256)
-```
-
-#### Returns:
-
-| Name         | Type      | Description                                                     |
-| ------------ | --------- | --------------------------------------------------------------- |
-| `stakeLimit` | `uint256` | Currently availble limit for stake request in the current block |
-
-:::note
-Special return values:
-
-- `2^256 - 1` if staking is unlimited;
-- `0` if staking is paused or if limit is exhausted.
-:::
-
-### getStakeLimitFullInfo()
-
-Returns full info about current stake limit params and state
-
-```sol
-function getStakeLimitFullInfo() external view returns (
-    bool isStakingPaused,
-    bool isStakingLimitSet,
-    uint256 currentStakeLimit,
-    uint256 maxStakeLimit,
-    uint256 maxStakeLimitGrowthBlocks,
-    uint256 prevStakeLimit,
-    uint256 prevStakeBlockNumber
-)
-```
-
-#### Returns:
-
-| Name                        | Type      | Description                                                             |
-| --------------------------- | --------- | ----------------------------------------------------------------------- |
-| `isStakingPaused`           | `bool`    | Staking pause state (equivalent to return of `isStakingPaused()`)       |
-| `isStakingLimitSet`         | `bool`    | Whether the stake limit is set or not                                   |
-| `currentStakeLimit`         | `uint256` | Current stake limit (equivalent to return of `getCurrentStakeLimit()`)  |
-| `maxStakeLimit`             | `uint256` | Max stake limit                                                         |
-| `maxStakeLimitGrowthBlocks` | `uint256` | Blocks needed to restore max stake limit from the fully exhausted state |
-| `prevStakeLimit`            | `uint256` | Previously reached stake limit                                          |
-| `prevStakeBlockNumber`      | `uint256` | Previously seen block number                                            |
-
-### getTotalELRewardsCollected()
-
-Get total amount of execution layer rewards collected to Lido contract
-
-:::note
-Ether got through [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) is kept on this contract's balance the same way
-as other buffered ether is kept (until it gets deposited).
-
-:::
-
-```sol
-function getTotalELRewardsCollected() external view returns (uint256)
-```
-
-#### Returns:
-
-| Name                      | Type      | Description                                                   |
-| ------------------------- | --------- | ------------------------------------------------------------- |
-| `totalELRewardsCollected` | `uint256` | Amount of funds received as execution layer rewards (in wei)  |
-
-### getELRewardsVault()
-
-Returns address of the contract set as [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault).
-
-```sol
-function getELRewardsVault() public view returns (address)
-```
-
-#### Returns:
-
-| Name             | Type      | Description     |
-| ---------------- | --------- | --------------- |
-| `elRewardsVault` | `address` | Vault's address |
-
-## Methods
-
-### transfer()
-
-Moves `_amount` tokens from the caller's account to the `_recipient` account.
-
-```sol
-function transfer(address _recipient, uint256 _amount) returns (bool)
-```
-
-:::note
-Requirements:
-
-- `_recipient` cannot be the zero address.
-- the caller must have a balance of at least `_amount`.
-- the contract must not be paused.
-
-:::
-
-#### Parameters:
-
-| Name         | Type      | Description                  |
-| ------------ | --------- | ---------------------------- |
-| `_recipient` | `address` | Address of tokens recipient  |
-| `_amount`    | `uint256` | Amount of tokens to transfer |
-
-#### Returns:
-
-A boolean value indicating whether the operation succeeded.
-
-### transferShares()
-
-Moves  token shares from the caller's account to the provided recipient account.
-
-```sol
-function transferShares(address _recipient, uint256 _sharesAmount) public returns (uint256)
-```
-
-:::note
-Requirements:
-
-- `_recipient` cannot be the zero address.
-- the caller must have at least `_sharesAmount` shares.
-- the contract must not be paused.
-
-:::
-
-#### Parameters:
-
-| Name            | Type      | Description                  |
-| --------------- | --------- | ---------------------------- |
-| `_recipient`    | `address` | Address of shares recipient  |
-| `_sharesAmount` | `uint256` | Amount of shares to transfer |
-
-#### Returns:
-
-Amount of transferred tokens.
-
 ### allowance()
 
 Returns the remaining number of tokens that `_spender` is allowed to spend
@@ -450,6 +242,228 @@ This value changes when `approve` or `transferFrom` is called.
 | ---------- | --------- | ------------------ |
 | `_owner`   | `address` | Address of owner   |
 | `_spender` | `address` | Address of spender |
+
+### nonces()
+
+Returns the current nonce for `owner`. This value must be included whenever a signature is generated for ERC-2612 permit.
+
+```sol
+function nonces(address owner) returns (uint256)
+```
+
+### DOMAIN_SEPARATOR()
+
+Returns the domain separator used in the encoding of the signature for ERC-2612 permit, as defined by EIP-712.
+
+```sol
+function DOMAIN_SEPARATOR() returns (bytes32)
+```
+
+### eip712Domain()
+
+Returns the fields and values that describe the domain separator used by this contract for EIP-712
+
+```sol
+function eip712Domain() returns (
+        string name,
+        string version,
+        uint256 chainId,
+        address verifyingContract
+    )
+```
+
+### getSharesByPooledEth()
+
+Returns the amount of shares that corresponds to `_ethAmount` of protocol-controlled ether
+
+```sol
+function getSharesByPooledEth(uint256 _ethAmount) returns (uint256)
+```
+
+### getPooledEthByShares()
+
+Returns the amount of ether that corresponds to `_sharesAmount` token shares
+
+```sol
+function getPooledEthByShares(uint256 _sharesAmount) returns (uint256)
+```
+
+### getBufferedEther()
+
+Returns the amount of ether temporary buffered on this contract balance
+
+:::note
+Buffered balance is kept on the contract from the moment the funds are received from user
+until the moment they are actually sent to the official Deposit contract or to WithdrawalsQueue
+:::
+
+```sol
+function getBufferedEther()  returns (uint256)
+```
+
+### getBeaconStat()
+
+Returns the key values related to Beacon chain
+
+```sol
+function getBeaconStat() returns (
+  uint256 depositedValidators,
+  uint256 beaconValidators,
+  uint256 beaconBalance
+)
+```
+
+| Name                  | Type      | Description                                                                    |
+| --------------------- | --------- | ------------------------------------------------------------------------------ |
+| `depositedValidators` | `uint256` | Number of deposited validators                                                 |
+| `beaconValidators`    | `uint256` | Number of Lido's validators visible in the Beacon state, reported by oracles   |
+| `beaconBalance`       | `uint256` | Total amount of Beacon-side ether (sum of all the balances of Lido validators) |
+
+### isStakingPaused()
+
+Returns staking state: whether it's paused or not
+
+```sol
+function isStakingPaused() returns (bool)
+```
+
+### getCurrentStakeLimit()
+
+Returns how much ether can be staked in the current block
+
+```sol
+function getCurrentStakeLimit() returns (uint256)
+```
+
+:::note
+Special return values:
+
+- `2^256 - 1` if staking is unlimited;
+- `0` if staking is paused or if limit is exhausted.
+:::
+
+### getStakeLimitFullInfo()
+
+Returns full info about current stake limit params and state
+
+```sol
+function getStakeLimitFullInfo() returns (
+    bool isStakingPaused,
+    bool isStakingLimitSet,
+    uint256 currentStakeLimit,
+    uint256 maxStakeLimit,
+    uint256 maxStakeLimitGrowthBlocks,
+    uint256 prevStakeLimit,
+    uint256 prevStakeBlockNumber
+)
+```
+
+| Name                        | Type      | Description                                                             |
+| --------------------------- | --------- | ----------------------------------------------------------------------- |
+| `isStakingPaused`           | `bool`    | Staking pause state (equivalent to return of `isStakingPaused()`)       |
+| `isStakingLimitSet`         | `bool`    | Whether the stake limit is set or not                                   |
+| `currentStakeLimit`         | `uint256` | Current stake limit (equivalent to return of `getCurrentStakeLimit()`)  |
+| `maxStakeLimit`             | `uint256` | Max stake limit                                                         |
+| `maxStakeLimitGrowthBlocks` | `uint256` | Blocks needed to restore max stake limit from the fully exhausted state |
+| `prevStakeLimit`            | `uint256` | Previously reached stake limit                                          |
+| `prevStakeBlockNumber`      | `uint256` | Previously seen block number                                            |
+
+### getTotalELRewardsCollected()
+
+Returns the total amount of execution layer rewards collected to Lido contract buffer
+
+```sol
+function getTotalELRewardsCollected() returns (uint256)
+```
+
+### getDepositableEther()
+
+Returns amount of ether available to deposit
+
+```sol
+function getDepositableEther() returns (uint256)
+```
+
+### canDeposit()
+
+Returns `true` if  depositing buffered ether to the consensus layer is allowed
+
+```sol
+function canDeposit() returns (bool)
+```
+
+### getLidoLocator()
+
+Returns the address of [LidoLocator](./lido-locator.md)
+
+```sol
+function getLidoLocator() returns (address)
+```
+
+### getContractVersion()
+
+Returns the current contract version.
+
+```sol
+function getContractVersion() returns (uint256)
+```
+
+## Methods
+
+### transfer()
+
+Moves `_amount` tokens from the caller's account to the `_recipient` account.
+
+```sol
+function transfer(address _recipient, uint256 _amount) returns (bool)
+```
+
+:::note
+Requirements:
+
+- `_recipient` cannot be the zero address or stETH contract itself.
+- the caller must have a balance of at least `_amount`.
+- the contract must not be paused.
+:::
+
+#### Parameters:
+
+| Name         | Type      | Description                  |
+| ------------ | --------- | ---------------------------- |
+| `_recipient` | `address` | Address of tokens recipient  |
+| `_amount`    | `uint256` | Amount of tokens to transfer |
+
+#### Returns:
+
+A boolean value indicating whether the operation succeeded.
+
+### transferShares()
+
+Moves  token shares from the caller's account to the provided recipient account.
+
+```sol
+function transferShares(address _recipient, uint256 _sharesAmount) returns (uint256)
+```
+
+:::note
+Requirements:
+
+- `_recipient` cannot be the zero address or stETH contract itself.
+- the caller must have at least `_sharesAmount` shares.
+- the contract must not be paused.
+
+:::
+
+#### Parameters:
+
+| Name            | Type      | Description                  |
+| --------------- | --------- | ---------------------------- |
+| `_recipient`    | `address` | Address of shares recipient  |
+| `_sharesAmount` | `uint256` | Amount of shares to transfer |
+
+#### Returns:
+
+Amount of transferred tokens.
 
 ### approve()
 
@@ -478,6 +492,28 @@ Requirements:
 
 A boolean value indicating whether the operation succeeded
 
+### permit()
+
+Sets `value` as the allowance of `spender` over `owner`'s tokens, given `owner`'s signed approval.
+
+Emits an Approval event.
+
+```sol
+function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
+```
+
+:::note
+
+Requirements:
+
+- `spender` cannot be the zero address.
+- `deadline` must be a timestamp in the future.
+- `v`, `r` and `s` must be a valid `secp256k1` signature from `owner`
+over the EIP712-formatted function arguments.
+- the signature must use `owner`'s current nonce (see {nonces}).
+
+:::
+
 ### transferFrom()
 
 Moves `_amount` tokens from `_sender` to `_recipient` using the
@@ -496,7 +532,8 @@ function transferFrom(
 
 Requirements:
 
-- `_sender` and `_recipient` cannot be the zero addresses.
+- `_sender` cannot be the zero addresses.
+- `_recipient` cannot be the zero address or stETH contract itself.
 - `_sender` must have a balance of at least `_amount`.
 - the caller must have allowance for `_sender`'s tokens of at least `_amount`.
 - the contract must not be paused.
@@ -514,6 +551,42 @@ Requirements:
 #### Returns:
 
 A boolean value indicating whether the operation succeeded
+
+### transferSharesFrom()
+
+Moves `_sharesAmount` token shares from the `_sender` account to the `_recipient` using the allowance mechanism. The amount of tokens equivalent to `_sharesAmount` is then deducted from the caller's allowance.
+
+```sol
+function transferSharesFrom(
+  address _sender,
+  address _recipient,
+  uint256 _sharesAmount
+) returns (uint256)
+```
+
+:::note
+
+Requirements:
+
+- `_sender` cannot be the zero address.
+- `_recipient` cannot be the zero address or stETH contract itself.
+- `_sender` must have at least `_sharesAmount` shares.
+- the caller must have allowance for `_sender`'s tokens of at least `getPooledEthByShares(_sharesAmount)`.
+- the contract must not be paused.
+
+:::
+
+#### Parameters:
+
+| Name           | Type      | Description          |
+| -------------- | --------- | -------------------- |
+| `_sender`      | `address` | Address of spender   |
+| `_recipient`   | `address` | Address of recipient |
+| `_sharesAmount`| `uint256` | Amount of shares     |
+
+#### Returns:
+
+Amount of transferred tokens.
 
 ### increaseAllowance()
 
@@ -578,7 +651,7 @@ Returns a boolean value indicating whether the operation succeeded
 
 ### submit()
 
-Send funds to the pool with optional \_referral parameter
+Send funds to the pool with optional `_referral` parameter
 
 ```sol
 function submit(address _referral) payable returns (uint256)
@@ -596,21 +669,23 @@ Amount of StETH shares generated
 
 ### deposit()
 
-Deposits buffered ethers to the official DepositContract. If `_maxDeposits` provided makes no more than `_maxDeposits` deposit calls
+Deposit buffered ether to StakingRouter's module with id of `_stakingModuleId`
 
 ```sol
-function depositBufferedEther(uint256 _maxDeposits)
+function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositCalldata)
 ```
 
 #### Parameters:
 
-| Name           | Type      | Description                 |
-| -------------- | --------- | --------------------------- |
-| `_maxDeposits` | `uint256` | Number of max deposit calls |
+| Name              | Type      | Description                              |
+| ----------------- | --------- | ---------------------------------------- |
+| `_maxDeposits`    | `uint256` | Number of max deposit calls              |
+| `_stakingModuleId`| `uint256` | Id of the staking module to be deposited |
+| `_depositCalldata`| `bytes`   | module calldata                          |
 
 ### stop()
 
-Stop pool routine operations
+Stop pool routine operations.
 
 ```sol
 function stop()
@@ -635,7 +710,7 @@ as well as to the default payable function, will revert.
 :::
 
 ```sol
-function pauseStaking() external
+function pauseStaking()
 ```
 
 ### resumeStaking()
@@ -649,7 +724,7 @@ see `setStakingLimit()` and `removeStakingLimit()`
 :::
 
 ```sol
-function resumeStaking() external
+function resumeStaking()
 ```
 
 ### setStakingLimit()
@@ -667,7 +742,7 @@ Reverts if:
 :::
 
 ```sol
-function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerBlock) external
+function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerBlock)
 ```
 
 #### Parameters:
@@ -679,7 +754,7 @@ function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerB
 
 Limit explanation scheme:
 
-```
+```txt
     * ▲ Stake limit
     * │.....  .....   ........ ...            ....     ... Stake limit = max
     * │      .       .        .   .   .      .    . . .
@@ -694,33 +769,80 @@ Limit explanation scheme:
 Removes the staking rate limit
 
 ```sol
-function removeStakingLimit() external
+function removeStakingLimit()
 ```
 
 ### receiveELRewards()
 
 A payable function for execution layer rewards,
-can be called only by the [`LidoExecutionLayerRewardsVault`](lido-execution-layer-rewards-vault) contract
+can be called only by the [`LidoExecutionLayerRewardsVault`](./lido-execution-layer-rewards-vault.md) contract
 
 ```sol
-function receiveELRewards() external payable
+function receiveELRewards() payable
+```
+
+### receiveWithdrawals()
+
+A payable function for withdrawals acquisition. Can be called only by [`WithdrawalVault`](./withdrawal-vault.md)
+
+```sol
+function receiveWithdrawals() payable
 ```
 
 ### handleOracleReport()
 
-Updates the number of Lido-controlled keys in the beacon validators set and their total balance.
-The method is called by the Lido oracle to handle its quorum-reached report.
+Updates accounting stats, collects EL rewards and distributes collected rewards if beacon balance increased,
+performs withdrawal requests finalization.
 
 ```sol
-function handleOracleReport(uint256 _beaconValidators, uint256 _beaconBalance)
+function handleOracleReport(
+        uint256 _reportTimestamp,
+        uint256 _timeElapsed,
+        uint256 _clValidators,
+        uint256 _clBalance,
+        uint256 _withdrawalVaultBalance,
+        uint256 _elRewardsVaultBalance,
+        uint256 _sharesRequestedToBurn,
+        uint256[] _withdrawalFinalizationBatches,
+        uint256 _simulatedShareRate) returns (uint256[4] postRebaseAmounts)
 ```
 
 #### Parameters:
 
-| Name                | Type      | Description                                       |
-| ------------------- | --------- | ------------------------------------------------- |
-| `_beaconValidators` | `uint256` | Number of Lido's keys in the beacon state         |
-| `_beaconBalance`    | `uint256` | Summarized balance of Lido-controlled keys in wei |
+| Name                             | Type       | Description                                                       |
+| -------------------------------- | ---------- | ----------------------------------------------------------------- |
+| `_reportTimestamp`               | `uint256`  | The moment of the oracle report calculation                       |
+| `_timeElapsed`                   | `uint256`  | Seconds elapsed since the previous report calculation             |
+| `_clValidators`                  | `uint256`  | Number of Lido validators on Consensus Layer                      |
+| `_clBalance`                     | `uint256`  | Sum of all Lido validators' balances on Consensus Layer           |
+| `_withdrawalVaultBalance`        | `uint256`  | Withdrawal vault balance on Execution Layer                       |
+| `_elRewardsVaultBalance`         | `uint256`  | elRewards vault balance on Execution Layer                        |
+| `_sharesRequestedToBurn`         | `uint256`  | shares requested to burn through Burner                           |
+| `_withdrawalFinalizationBatches` | `uint256[]`| the ascendingly-sorted array of withdrawal request IDs to finalize|
+| `_simulatedShareRate`            | `uint256`  | share rate simulated by oracle when (1e27 precision)              |
+
+#### Returns:
+
+| Name                  | Type      | Description                                                 |
+| --------------------- | --------- | ----------------------------------------------------------- |
+| `postRebaseAmounts[0]`| `uint256` | `postTotalPooledEther` amount of ether in the protocol      |
+| `postRebaseAmounts[1]`| `uint256` | `postTotalShares` amount of shares in the protocol          |
+| `postRebaseAmounts[2]`| `uint256` | `withdrawals` withdrawn from the withdrawals vault          |
+| `postRebaseAmounts[3]`| `uint256` | `elRewards` withdrawn from the execution layer rewards vault|
+
+### unsafeChangeDepositedValidators()
+
+Unsafely change deposited validators counter¬
+
+The method unsafely changes deposited validator counter.
+Can be required when onboarding external validators to Lido (i.e., had deposited before and rotated their type-0x00 withdrawal credentials to Lido)
+Can only be called by the bearer of `UNSAFE_CHANGE_DEPOSITED_VALIDATORS_ROLE`
+
+#### Parameters:
+
+| Name                      | Type      | Description                                   |
+| ------------------------- | --------- | ----------------------------------------------|
+| `_newDepositedValidators` | `uint256` | New value for the deposited validators counter|
 
 ### transferToVault()
 
