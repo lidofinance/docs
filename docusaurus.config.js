@@ -9,6 +9,10 @@ module.exports = {
   favicon: 'img/favicon-32x32.png',
   organizationName: 'lidofinance', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     prism: {
       additionalLanguages: ['solidity'],
