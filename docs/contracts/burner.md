@@ -62,7 +62,7 @@ and cover application-induced rebase, which can be done as follows:
 
 ## View methods
 
-### Function: getCoverSharesBurnt
+### getCoverSharesBurnt()
 
 Returns the total cover shares ever burnt.
 
@@ -70,7 +70,7 @@ Returns the total cover shares ever burnt.
 function getCoverSharesBurnt() external view returns (uint256)
 ```
 
-### Function: getNonCoverSharesBurnt
+### getNonCoverSharesBurnt()
 
 Returns the total non-cover shares ever burnt.
 
@@ -78,7 +78,7 @@ Returns the total non-cover shares ever burnt.
 function getNonCoverSharesBurnt() external view returns (uint256)
 ```
 
-### Function: getExcessStETH
+### getExcessStETH()
 
 Returns the stETH amount belonging to the burner contract address but not marked for burning.
 
@@ -86,7 +86,7 @@ Returns the stETH amount belonging to the burner contract address but not marked
 function getExcessStETH() external view returns (uint256)
 ```
 
-### Function: getSharesRequestedToBurn
+### getSharesRequestedToBurn()
 
 Returns numbers of cover and non-cover shares requested to burn.
 
@@ -96,7 +96,7 @@ function getSharesRequestedToBurn() external view returns (uint256 coverShares, 
 
 ## Methods
 
-### Function: requestBurnMyStETHForCover
+### requestBurnMyStETHForCover()
 
 Transfers stETH tokens from the message sender and irreversibly locks these on the burner contract address.
 Internally converts tokens amount into underlying shares amount and marks the converted shares amount
@@ -119,7 +119,7 @@ Reverts if any of the following is true:
 | -------------------- | --------- | ----------------------------------------------- |
 | `_stETHAmountToBurn` | `uint256` | stETH tokens amount (not shares amount) to burn |
 
-### Function: requestBurnSharesForCover
+### requestBurnSharesForCover()
 
 Transfers stETH shares from `_from` and irreversibly locks these on the burner contract address.
 Internally marks the shares amount for cover-backed burning by increasing the internal `coverSharesBurnRequested` counter.
@@ -144,7 +144,7 @@ Reverts if any of the following is true:
 |        `_from`        | `address` |         address to transfer shares from         |
 | `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
 
-### Function: requestBurnMyStETH
+### requestBurnMyStETH()
 
 Transfers stETH tokens from the message sender and irreversibly locks these on the burner contract address.
 Internally converts tokens amount into underlying shares amount and marks the converted amount for
@@ -167,7 +167,7 @@ Reverts if any of the following is true:
 | -------------------- | --------- | ----------------------------------------------- |
 | `_stETHAmountToBurn` | `uint256` | stETH tokens amount (not shares amount) to burn |
 
-### Function: requestBurnShares
+### requestBurnShares()
 
 Transfers stETH shares from `_from` and irreversibly locks these on the burner contract address.
 Internally marks the shares amount for non-cover backed burning by increasing the internal `nonCoverSharesBurnRequested` counter.
@@ -195,7 +195,7 @@ Reverts if any of the following is true:
 |        `_from`        | `address` |         address to transfer shares from         |
 | `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
 
-### Function: recoverExcessStETH
+### recoverExcessStETH()
 
 Transfers the excess stETH amount (e.g. belonging to the burner contract address but not marked for burning)
 to the Lido treasury address (the `DAO Agent` contract) set upon the contract construction.
@@ -207,7 +207,7 @@ on the contract's balance.
 function recoverExcessStETH() external
 ```
 
-### Function: recoverERC20
+### recoverERC20()
 
 Transfers a given amount of an ERC20-token (defined by the provided contract address) belonging
 to the burner contract address to the Lido treasury (the `DAO Agent` contract) address.
@@ -229,7 +229,7 @@ Reverts if any of the following is true:
 | `_token`  | `address` | ERC20-compatible token address to recover   |
 | `_amount` | `uint256` | Amount to recover                           |
 
-### Function: recoverERC721
+### recoverERC721()
 
 Transfers a given ERC721-compatible NFT (defined by the contract address) belonging
 to the burner contract address to the Lido treasury (the `DAO Agent`) address.
@@ -252,7 +252,7 @@ Reverts if any of the following is true:
 | `_tokenId` | `uint256` | Token id to recover                         |
 
 
-### Function: commitSharesToBurn
+### commitSharesToBurn()
 
 Marks previously requested to burn cover and non-cover share as burnt.
 Emits `StETHBurnt` event for the cover and non-cover shares marked as burnt.
