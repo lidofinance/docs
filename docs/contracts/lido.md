@@ -345,7 +345,9 @@ Returns staking state: whether it's paused or not.
 function isStakingPaused() returns (bool)
 ```
 
-:::note 'staking' here means the ability to accept new [submit](/contracts/lido#submit) requests :::
+:::note
+'staking' here means the ability to accept new [submit](/contracts/lido#submit) requests
+:::
 
 ### getCurrentStakeLimit()
 
@@ -428,7 +430,9 @@ Returns the current contract version.
 function getContractVersion() returns (uint256)
 ```
 
-:::note Always returns `2`. :::
+:::note
+Always returns `2`.
+:::
 
 ## Methods
 
