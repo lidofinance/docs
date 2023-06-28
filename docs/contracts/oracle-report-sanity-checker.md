@@ -259,8 +259,7 @@ See the [`setMaxPositiveTokenRebase()`](#setmaxpositivetokenrebase) method.
 - **`LimitsList _limitsList`** - new limits list values
 
 Sets the new values for the limits list. Requires `ALL_LIMITS_MANAGER_ROLE` to be granted to the caller.
-
-Reverts with **`IncorrectLimitValue(uint256 value, uint256 minAllowedValue, uint256 maxAllowedValue)`** error when some
+Reverts with `IncorrectLimitValue(uint256 value, uint256 minAllowedValue, uint256 maxAllowedValue)` error when some
 value in the passed data out of the allowed range.
 See details of allowed value boundaries in the [Limits List](#limits-list) section.
 
@@ -271,16 +270,9 @@ See details of allowed value boundaries in the [Limits List](#limits-list) secti
 - **`uint256 _churnValidatorsPerDayLimit`** - new `LimitsList.churnValidatorsPerDayLimit` value
 
 Sets the new value for the `LimitsList.churnValidatorsPerDayLimit`.
-The limit is applicable for `appeared` and `exited` validators.
+The limit is applicable for _**appeared**_ and _**exited**_ validators.
 Requires `CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE` to be granted to the caller.
-
-AccountingOracle reports validators as `appeared` once them become `pending`
-(might be not `activated` yet). Thus, this limit should be high enough for such cases
-because Consensus Layer has no intrinsic churn limit for the amount of `pending` validators
-(only for `activated` instead). For Lido it's limited by the max daily deposits via `DepositSecurityModule`
-In contrast, `exited` are reported according to the Consensus Layer churn limit.
-
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setOneOffCLBalanceDecreaseBPLimit()`
@@ -291,7 +283,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.oneOffCLBalanceDecreaseBPLimit` variable.
 Requires `ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setAnnualBalanceIncreaseBPLimit()`
@@ -302,7 +294,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.annualBalanceIncreaseBPLimit` variable.
 Requires `ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setSimulatedShareRateDeviationBPLimit()`
@@ -313,7 +305,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.simulatedShareRateDeviationBPLimit` variable.
 Requires `SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setMaxExitRequestsPerOracleReport()`
@@ -324,7 +316,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.maxValidatorExitRequestsPerReport`.
 Requires `MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setRequestTimestampMargin()`
@@ -335,7 +327,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.requestTimestampMargin` variable.
 Requires `REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setMaxPositiveTokenRebase()`
@@ -346,7 +338,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.maxPositiveTokenRebase` variable.
 Requires `MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ### `setMaxAccountingExtraDataListItemsCount()`
@@ -368,7 +360,7 @@ See [Limits List](#limits-list) section for details.
 
 Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` variable.
 Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
+Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
 
 ## Events
