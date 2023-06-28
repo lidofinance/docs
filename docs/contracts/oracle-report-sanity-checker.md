@@ -370,3 +370,77 @@ Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` va
 Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
 Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
+
+## Events
+
+### `ChurnValidatorsPerDayLimitSet()`
+
+#### Arguments
+
+- **`uint256 churnValidatorsPerDayLimit`** - new value of the `LimitsList.churnValidatorsPerDayLimit`
+
+Emits whenever the value of the `LimitsList.churnValidatorsPerDayLimit` value is changed.
+
+### `OneOffCLBalanceDecreaseBPLimitSet()`
+
+#### Arguments
+
+- **`uint256 oneOffCLBalanceDecreaseBPLimit`** - new value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit`
+
+Emits whenever the value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit` value is changed.
+
+### `AnnualBalanceIncreaseBPLimitSet()`
+
+#### Arguments
+
+- **`uint256 annualBalanceIncreaseBPLimit`** - new value of the `LimitsList.annualBalanceIncreaseBPLimit`
+
+Emits whenever the value of the `LimitsList.annualBalanceIncreaseBPLimit` value is changed.
+
+### `SimulatedShareRateDeviationBPLimitSet()`
+
+#### Arguments
+
+- **`uint256 annualBalanceIncreaseBPLimit`** - new value of the `LimitsList.simulatedShareRateDeviationBPLimit`
+
+Emits whenever the value of the `LimitsList.simulatedShareRateDeviationBPLimit` value is changed.
+
+### `MaxPositiveTokenRebaseSet()`
+
+#### Arguments
+
+- **`uint256 annualBalanceIncreaseBPLimit`** - new value of the `LimitsList.maxPositiveTokenRebase`
+
+Emits whenever the value of the `LimitsList.maxPositiveTokenRebase` value is changed.
+
+### `MaxValidatorExitRequestsPerReportSet()`
+
+#### Arguments
+
+- **`uint256 maxValidatorExitRequestsPerReport`** - new value of the `LimitsList.maxValidatorExitRequestsPerReport`
+
+Emits whenever the value of the `LimitsList.maxValidatorExitRequestsPerReport` value is changed.
+
+### `MaxAccountingExtraDataListItemsCountSet()`
+
+#### Arguments
+
+- **`uint256 maxAccountingExtraDataListItemsCount`** - new value of the `LimitsList.maxAccountingExtraDataListItemsCount`
+
+Emits whenever the value of the `LimitsList.maxAccountingExtraDataListItemsCount` value is changed.
+
+### `MaxNodeOperatorsPerExtraDataItemCountSet()`
+
+#### Arguments
+
+- **`uint256 maxNodeOperatorsPerExtraDataItemCount`** - new value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount`
+
+Emits whenever the value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` value is changed.
+
+### `RequestTimestampMarginSet()`
+
+#### Arguments
+
+- **`uint256 requestTimestampMargin`** - new value of the `LimitsList.requestTimestampMargin`
+
+Emits whenever the value of the `LimitsList.requestTimestampMargin` value is changed.
