@@ -61,6 +61,26 @@ struct LimitsList {
 
 ### checkAccountingOracleReport()
 
+Applies sanity checks to the accounting parameters of Lido's Oracle report.
+
+:::note
+Below is the list of restrictions checked by the method execution:
+
+- Revert with `IncorrectWithdrawalsVaultBalance(uint256 actualWithdrawalVaultBalance)` error when the reported withdrawals
+  vault balance **is greater than** the actual balance of the withdrawal vault.
+- Revert with `IncorrectELRewardsVaultBalance(uint256 actualELRewardsVaultBalance)` error when reported EL rewards vault
+  balance **is greater than** the actual balance of EL rewards vault.
+- Revert with `IncorrectSharesRequestedToBurn(uint256 actualSharesToBurn)` error when the amount of stETH shares requested
+  to burn **exceeds** the number of shares marked to be burned in the Burner contract.
+- Revert with `IncorrectCLBalanceDecrease(uint256 oneOffCLBalanceDecreaseBP)` error when Consensus Layer one-off balance
+  decrease in basis points **exceeds** the allowed `LimitsList.oneOffCLBalanceDecreaseBPLimit`.
+- Revert with `IncorrectCLBalanceIncrease(uint256 annualBalanceDiff)` error when Consensus Layer annual balance increase
+  expressed in basis points **exceeds** allowed `LimitsList.annualBalanceIncreaseBPLimit`.
+- Revert with `IncorrectAppearedValidators(uint256 churnLimit)` error when the number of appeared validators **exceeds**
+  the limit set by `LimitsList.churnValidatorsPerDayLimit`.
+
+:::
+
 ```solidity
 function checkAccountingOracleReport(
     uint256 _timeElapsed,
@@ -86,27 +106,13 @@ function checkAccountingOracleReport(
 - **`_preCLValidators`** — Lido-participating validators on the CL side before the current oracle report
 - **`_postCLValidators`** — Lido-participating validators on the CL side after the current oracle report
 
-Applies sanity checks to the accounting parameters of Lido's Oracle report.
+### checkExitBusOracleReport()
+
+Validates that number of exit requests does not exceed the limit set by `LimitsList.maxValidatorExitRequestsPerReport`.
 
 :::note
-Below is the list of restrictions checked by the method execution:
-
-- Revert with `IncorrectWithdrawalsVaultBalance(uint256 actualWithdrawalVaultBalance)` error when the reported withdrawals
-  vault balance **is greater than** the actual balance of the withdrawal vault.
-- Revert with `IncorrectELRewardsVaultBalance(uint256 actualELRewardsVaultBalance)` error when reported EL rewards vault
-  balance **is greater than** the actual balance of EL rewards vault.
-- Revert with `IncorrectSharesRequestedToBurn(uint256 actualSharesToBurn)` error when the amount of stETH shares requested
-  to burn **exceeds** the number of shares marked to be burned in the Burner contract.
-- Revert with `IncorrectCLBalanceDecrease(uint256 oneOffCLBalanceDecreaseBP)` error when Consensus Layer one-off balance
-  decrease in basis points **exceeds** the allowed `LimitsList.oneOffCLBalanceDecreaseBPLimit`.
-- Revert with `IncorrectCLBalanceIncrease(uint256 annualBalanceDiff)` error when Consensus Layer annual balance increase
-  expressed in basis points **exceeds** allowed `LimitsList.annualBalanceIncreaseBPLimit`.
-- Revert with `IncorrectAppearedValidators(uint256 churnLimit)` error when the number of appeared validators **exceeds**
-  the limit set by `LimitsList.churnValidatorsPerDayLimit`.
-
+Reverts with `IncorrectNumberOfExitRequestsPerReport(uint256 maxRequestsCount)` error when check is failed.
 :::
-
-### checkExitBusOracleReport()
 
 ```solidity
 function checkExitBusOracleReport(uint256 _exitRequestsCount)
@@ -116,13 +122,13 @@ function checkExitBusOracleReport(uint256 _exitRequestsCount)
 
 - **`_exitRequestsCount`** — number of validator exit requests supplied per oracle report
 
-Validates that number of exit requests does not exceed the limit set by `LimitsList.maxValidatorExitRequestsPerReport`.
+### checkExitedValidatorsRatePerDay()
+
+Validates that number of exited validators does not exceed the limit set by `LimitsList.churnValidatorsPerDayLimit`.
 
 :::note
-Reverts with `IncorrectNumberOfExitRequestsPerReport(uint256 maxRequestsCount)` error when check is failed.
+Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` error when check is failed.
 :::
-
-### checkExitedValidatorsRatePerDay()
 
 ```solidity
 function checkExitedValidatorsRatePerDay(uint256 _exitedValidatorsCount)
@@ -132,13 +138,14 @@ function checkExitedValidatorsRatePerDay(uint256 _exitedValidatorsCount)
 
 - **`_exitedValidatorsCount`** — number of validator exit requests supplied per oracle report
 
-Validates that number of exited validators does not exceed the limit set by `LimitsList.churnValidatorsPerDayLimit`.
+### checkNodeOperatorsPerExtraDataItemCount()
+
+Validates that number of node operators reported per extra data item does not exceed the limit
+set by `LimitsList.maxNodeOperatorsPerExtraDataItemCount`.
 
 :::note
-Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` error when check is failed.
+Reverts with `TooManyNodeOpsPerExtraDataItem(uint256 itemIndex, uint256 nodeOpsCount)` error when check is failed.
 :::
-
-### checkNodeOperatorsPerExtraDataItemCount()
 
 ```solidity
 function checkNodeOperatorsPerExtraDataItemCount(
@@ -152,14 +159,14 @@ function checkNodeOperatorsPerExtraDataItemCount(
 - **`_itemIndex`** — index of item in extra data
 - **`_nodeOperatorsCount`** — number of validator exit requests supplied per oracle report
 
-Validates that number of node operators reported per extra data item does not exceed the limit
-set by `LimitsList.maxNodeOperatorsPerExtraDataItemCount`.
+### checkAccountingExtraDataListItemsCount()
+
+Validates that number of extra data items in the report does not exceed the limit
+set by `LimitsList.maxAccountingExtraDataListItemsCount`.
 
 :::note
-Reverts with `TooManyNodeOpsPerExtraDataItem(uint256 itemIndex, uint256 nodeOpsCount)` error when check is failed.
+Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed.
 :::
-
-### checkAccountingExtraDataListItemsCount()
 
 ```solidity
 function checkAccountingExtraDataListItemsCount(uint256 _extraDataListItemsCount)
@@ -169,14 +176,14 @@ function checkAccountingExtraDataListItemsCount(uint256 _extraDataListItemsCount
 
 - **`_extraDataListItemsCount`** — number of validator exit requests supplied per oracle report
 
-Validates that number of extra data items in the report does not exceed the limit
-set by `LimitsList.maxAccountingExtraDataListItemsCount`.
+### checkWithdrawalQueueOracleReport()
+
+Validates that withdrawal request with the passed `_lastFinalizableRequestId` was created more
+than `LimitsList.requestTimestampMargin` seconds ago.
 
 :::note
-Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed.
+Reverts with `IncorrectRequestFinalization(uint256 requestCreationBlock)` error when check is failed.
 :::
-
-### checkWithdrawalQueueOracleReport()
 
 ```solidity
 function checkWithdrawalQueueOracleReport(
@@ -190,14 +197,14 @@ function checkWithdrawalQueueOracleReport(
 - **`_lastFinalizableRequestId`** — last finalizable withdrawal request id
 - **`_reportTimestamp`** — timestamp when the originated oracle report was submitted
 
-Validates that withdrawal request with the passed `_lastFinalizableRequestId` was created more
-than `LimitsList.requestTimestampMargin` seconds ago.
+### checkSimulatedShareRate()
+
+Applies sanity checks to the simulated share rate for withdrawal requests finalization.
 
 :::note
-Reverts with `IncorrectRequestFinalization(uint256 requestCreationBlock)` error when check is failed.
+Reverts with `IncorrectSimulatedShareRate(uint256 simulatedShareRate, uint256 actualShareRate)` error
+when simulated share rate deviation exceeds the limit set by `LimitsList.simulatedShareRateDeviationBPLimit`
 :::
-
-### checkSimulatedShareRate()
 
 ```solidity
 function checkSimulatedShareRate(
@@ -217,36 +224,25 @@ function checkSimulatedShareRate(
 - **`_sharesBurntDueToWithdrawals`** — shares burnt due to withdrawals finalization
 - **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via off-chain "eth_call")
 
-Applies sanity checks to the simulated share rate for withdrawal requests finalization.
-
-:::note
-Reverts with `IncorrectSimulatedShareRate(uint256 simulatedShareRate, uint256 actualShareRate)` error
-when simulated share rate deviation exceeds the limit set by `LimitsList.simulatedShareRateDeviationBPLimit`
-:::
-
 ## View Methods
 
 ### getLidoLocator()
+
+Returns the address of the protocol-wide [LidoLocator](./lido-locator.md) instance.
 
 ```solidity
 function getLidoLocator() returns (address)
 ```
 
-Returns the address of the protocol-wide [LidoLocator](./lido-locator.md) instance.
-
 ### getOracleReportLimits()
+
+Returns the limits list used for the sanity checks as the [`LimitsList`](#limits-list) type.
 
 ```solidity
 function getOracleReportLimits() returns (LimitsList memory)
 ```
 
-Returns the limits list used for the sanity checks as the [`LimitsList`](#limits-list) type.
-
 ### getMaxPositiveTokenRebase()
-
-```solidity
-function getMaxPositiveTokenRebase() returns (uint256)
-```
 
 Returns max positive token rebase value with 1e9 precision (e.g.: `1e6` — 0.1%; `1e9` — 100%):
 
@@ -282,7 +278,16 @@ which means that token rebase happens:
 
 here `R > 0` corresponds to the relative positive rebase value (i.e., instant APR).
 
+```solidity
+function getMaxPositiveTokenRebase() returns (uint256)
+```
+
 ### smoothenTokenRebase()
+
+Evaluates the following amounts during Lido's oracle report processing:
+
+- the allowed ETH amount that might be taken from the withdrawal vault and EL rewards vault
+- the allowed amount of stETH shares to be burnt
 
 ```solidity
 function smoothenTokenRebase(
@@ -322,22 +327,9 @@ function smoothenTokenRebase(
 - **`simulatedSharesToBurn`** — simulated amount of shares to be burnt (if no ether locked on withdrawals)
 - **`sharesToBurn`** — amount of shares to be burnt (accounting for withdrawals finalization)
 
-Evaluates the following amounts during Lido's oracle report processing:
-
-- the allowed ETH amount that might be taken from the withdrawal vault and EL rewards vault
-- the allowed amount of stETH shares to be burnt
-
 ## Lever Methods
 
 ### setOracleReportLimits()
-
-```solidity
-function setOracleReportLimits(LimitsList memory _limitsList)
-```
-
-#### Arguments
-
-- **`_limitsList`** — new limits list values
 
 Sets the new values for the limits list.
 :::note
@@ -349,15 +341,15 @@ Sets the new values for the limits list.
 
 :::
 
-### setChurnValidatorsPerDayLimit()
-
 ```solidity
-function setChurnValidatorsPerDayLimit(uint256 _churnValidatorsPerDayLimit)
+function setOracleReportLimits(LimitsList memory _limitsList)
 ```
 
 #### Arguments
 
-- **`_churnValidatorsPerDayLimit`** — new `LimitsList.churnValidatorsPerDayLimit` value
+- **`_limitsList`** — new limits list values
+
+### setChurnValidatorsPerDayLimit()
 
 Sets the new value for the `LimitsList.churnValidatorsPerDayLimit`.
 The limit is applicable for _**appeared**_ and _**exited**_ validators.
@@ -370,15 +362,15 @@ The limit is applicable for _**appeared**_ and _**exited**_ validators.
 
 :::
 
-### setOneOffCLBalanceDecreaseBPLimit()
-
 ```solidity
-function setOneOffCLBalanceDecreaseBPLimit(uint256 _oneOffCLBalanceDecreaseBPLimit)
+function setChurnValidatorsPerDayLimit(uint256 _churnValidatorsPerDayLimit)
 ```
 
 #### Arguments
 
-- **`_oneOffCLBalanceDecreaseBPLimit`** — new value for `LimitsList.oneOffCLBalanceDecreaseBPLimit`
+- **`_churnValidatorsPerDayLimit`** — new `LimitsList.churnValidatorsPerDayLimit` value
+
+### setOneOffCLBalanceDecreaseBPLimit()
 
 Sets the new value for the `LimitsList.oneOffCLBalanceDecreaseBPLimit` variable.
 
@@ -390,15 +382,15 @@ Sets the new value for the `LimitsList.oneOffCLBalanceDecreaseBPLimit` variable.
 
 :::
 
-### setAnnualBalanceIncreaseBPLimit()
-
 ```solidity
-function setAnnualBalanceIncreaseBPLimit(uint256 _annualBalanceIncreaseBPLimit)
+function setOneOffCLBalanceDecreaseBPLimit(uint256 _oneOffCLBalanceDecreaseBPLimit)
 ```
 
 #### Arguments
 
-- **`_annualBalanceIncreaseBPLimit`** — new value for `LimitsList.annualBalanceIncreaseBPLimit`
+- **`_oneOffCLBalanceDecreaseBPLimit`** — new value for `LimitsList.oneOffCLBalanceDecreaseBPLimit`
+
+### setAnnualBalanceIncreaseBPLimit()
 
 Sets the new value for the `LimitsList.annualBalanceIncreaseBPLimit` variable.
 
@@ -410,15 +402,15 @@ Sets the new value for the `LimitsList.annualBalanceIncreaseBPLimit` variable.
 
 :::
 
-### setSimulatedShareRateDeviationBPLimit()
-
 ```solidity
-function setSimulatedShareRateDeviationBPLimit(uint256 _simulatedShareRateDeviationBPLimit)
+function setAnnualBalanceIncreaseBPLimit(uint256 _annualBalanceIncreaseBPLimit)
 ```
 
 #### Arguments
 
-- **`_simulatedShareRateDeviationBPLimit`** — new value for `LimitsList.simulatedShareRateDeviationBPLimit`
+- **`_annualBalanceIncreaseBPLimit`** — new value for `LimitsList.annualBalanceIncreaseBPLimit`
+
+### setSimulatedShareRateDeviationBPLimit()
 
 Sets the new value for the `LimitsList.simulatedShareRateDeviationBPLimit` variable.
 
@@ -430,15 +422,15 @@ Sets the new value for the `LimitsList.simulatedShareRateDeviationBPLimit` varia
 
 :::
 
-### setMaxExitRequestsPerOracleReport()
-
 ```solidity
-function setMaxExitRequestsPerOracleReport(uint256 _maxValidatorExitRequestsPerReport)
+function setSimulatedShareRateDeviationBPLimit(uint256 _simulatedShareRateDeviationBPLimit)
 ```
 
 #### Arguments
 
-- **`_maxValidatorExitRequestsPerReport`** — new value for `LimitsList.maxValidatorExitRequestsPerReport`
+- **`_simulatedShareRateDeviationBPLimit`** — new value for `LimitsList.simulatedShareRateDeviationBPLimit`
+
+### setMaxExitRequestsPerOracleReport()
 
 Sets the new value for the `LimitsList.maxValidatorExitRequestsPerReport`.
 
@@ -450,15 +442,15 @@ Sets the new value for the `LimitsList.maxValidatorExitRequestsPerReport`.
 
 :::
 
-### setRequestTimestampMargin()
-
 ```solidity
-function setRequestTimestampMargin(uint256 _requestTimestampMargin)
+function setMaxExitRequestsPerOracleReport(uint256 _maxValidatorExitRequestsPerReport)
 ```
 
 #### Arguments
 
-- **`_requestTimestampMargin`** — new new value for `LimitsList.requestTimestampMargin`
+- **`_maxValidatorExitRequestsPerReport`** — new value for `LimitsList.maxValidatorExitRequestsPerReport`
+
+### setRequestTimestampMargin()
 
 Sets the new value for the `LimitsList.requestTimestampMargin` variable.
 
@@ -470,15 +462,15 @@ Sets the new value for the `LimitsList.requestTimestampMargin` variable.
 
 :::
 
-### setMaxPositiveTokenRebase()
-
 ```solidity
-function setMaxPositiveTokenRebase(uint256 _maxPositiveTokenRebase)
+function setRequestTimestampMargin(uint256 _requestTimestampMargin)
 ```
 
 #### Arguments
 
-- **`_maxPositiveTokenRebase`** — new value for `LimitsList.maxPositiveTokenRebase`
+- **`_requestTimestampMargin`** — new new value for `LimitsList.requestTimestampMargin`
+
+### setMaxPositiveTokenRebase()
 
 Sets the new value for the `LimitsList.maxPositiveTokenRebase` variable.
 
@@ -490,15 +482,15 @@ Sets the new value for the `LimitsList.maxPositiveTokenRebase` variable.
 
 :::
 
-### setMaxAccountingExtraDataListItemsCount()
-
 ```solidity
-function setMaxAccountingExtraDataListItemsCount(uint256 _maxAccountingExtraDataListItemsCount)
+function setMaxPositiveTokenRebase(uint256 _maxPositiveTokenRebase)
 ```
 
 #### Arguments
 
-- **`_maxAccountingExtraDataListItemsCount`** — new value for `LimitsList.maxAccountingExtraDataListItemsCount`
+- **`_maxPositiveTokenRebase`** — new value for `LimitsList.maxPositiveTokenRebase`
+
+### setMaxAccountingExtraDataListItemsCount()
 
 Sets the new value for the `LimitsList.maxAccountingExtraDataListItemsCount` variable.
 
@@ -510,7 +502,25 @@ Sets the new value for the `LimitsList.maxAccountingExtraDataListItemsCount` var
 
 :::
 
+```solidity
+function setMaxAccountingExtraDataListItemsCount(uint256 _maxAccountingExtraDataListItemsCount)
+```
+
+#### Arguments
+
+- **`_maxAccountingExtraDataListItemsCount`** — new value for `LimitsList.maxAccountingExtraDataListItemsCount`
+
 ### setMaxNodeOperatorsPerExtraDataItemCount()
+
+Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` variable.
+
+:::note
+
+- Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ```solidity
 function setMaxNodeOperatorsPerExtraDataItemCount(uint256 _maxNodeOperatorsPerExtraDataItemCount)
@@ -519,16 +529,6 @@ function setMaxNodeOperatorsPerExtraDataItemCount(uint256 _maxNodeOperatorsPerEx
 #### Arguments
 
 - **`_maxNodeOperatorsPerExtraDataItemCount`** — new value for `LimitsList.maxNodeOperatorsPerExtraDataItemCount`
-
-Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` variable.
-
-:::note
-
-- Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
-- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
-
-:::
 
 ## Permissions
 
@@ -545,97 +545,99 @@ See [`setOracleReportLimits()`](#setoraclereportlimits) method.
 
 ### CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
 
+Granting this role allows updating the `churnValidatorsPerDayLimit` value of the [Limits List](#limits-list).
+See the [`setChurnValidatorsPerDayLimit()`](#setchurnvalidatorsperdaylimit) method.
+
 ```solidity
 bytes32 public constant CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
     keccak256("CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE")
 ```
 
-Granting this role allows updating the `churnValidatorsPerDayLimit` value of the [Limits List](#limits-list).
-See the [`setChurnValidatorsPerDayLimit()`](#setchurnvalidatorsperdaylimit) method.
-
 ### ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE()
+
+Granting this role allows updating the `annualBalanceIncreaseBPLimit` value of the [Limits List](#limits-list).
+See the [`setOneOffCLBalanceDecreaseBPLimit()`](#setoneoffclbalancedecreasebplimit) method.
 
 ```solidity
 bytes32 public constant ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE =
     keccak256("ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE")
 ```
 
-Granting this role allows updating the `annualBalanceIncreaseBPLimit` value of the [Limits List](#limits-list).
-See the [`setOneOffCLBalanceDecreaseBPLimit()`](#setoneoffclbalancedecreasebplimit) method.
-
 ### ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE()
+
+Granting this role allows updating the `oneOffCLBalanceDecreaseBPLimit` value of the [Limits List](#limits-list).
+See the [`setAnnualBalanceIncreaseBPLimit()`](#setannualbalanceincreasebplimit) method.
 
 ```solidity
 bytes32 public constant ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE =
     keccak256("ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE")
 ```
 
-Granting this role allows updating the `oneOffCLBalanceDecreaseBPLimit` value of the [Limits List](#limits-list).
-See the [`setAnnualBalanceIncreaseBPLimit()`](#setannualbalanceincreasebplimit) method.
-
 ### SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE()
+
+Granting this role allows updating the `simulatedShareRateDeviationBPLimit` value of the [Limits List](#limits-list).
+See the [`setSimulatedShareRateDeviationBPLimit()`](#setsimulatedshareratedeviationbplimit) method.
 
 ```solidity
 bytes32 public constant SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE =
     keccak256("SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE")
 ```
 
-Granting this role allows updating the `simulatedShareRateDeviationBPLimit` value of the [Limits List](#limits-list).
-See the [`setSimulatedShareRateDeviationBPLimit()`](#setsimulatedshareratedeviationbplimit) method.
-
 ### MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE()
+
+Granting this role allows updating the `maxValidatorExitRequestsPerReport` value of the [Limits List](#limits-list).
+See the [`setMaxExitRequestsPerOracleReport()`](#setmaxexitrequestsperoraclereport) method.
 
 ```solidity
 bytes32 public constant MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE =
     keccak256("MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE")
 ```
 
-Granting this role allows updating the `maxValidatorExitRequestsPerReport` value of the [Limits List](#limits-list).
-See the [`setMaxExitRequestsPerOracleReport()`](#setmaxexitrequestsperoraclereport) method.
-
 ### MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE()
+
+Granting this role allows updating the `maxAccountingExtraDataListItemsCount` value of the [Limits List](#limits-list).
+See the [`setMaxAccountingExtraDataListItemsCount()`](#setmaxaccountingextradatalistitemscount) method.
 
 ```solidity
 bytes32 public constant MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE =
     keccak256("MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE")
 ```
 
-Granting this role allows updating the `maxAccountingExtraDataListItemsCount` value of the [Limits List](#limits-list).
-See the [`setMaxAccountingExtraDataListItemsCount()`](#setmaxaccountingextradatalistitemscount) method.
-
 ### MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE()
+
+Granting this role allows updating the `maxNodeOperatorsPerExtraDataItemCount` value of the [Limits List](#limits-list).
+See the [`setMaxNodeOperatorsPerExtraDataItemCount()`](#setmaxnodeoperatorsperextradataitemcount) method.
 
 ```solidity
 bytes32 public constant MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE =
     keccak256("MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE")
 ```
 
-Granting this role allows updating the `maxNodeOperatorsPerExtraDataItemCount` value of the [Limits List](#limits-list).
-See the [`setMaxNodeOperatorsPerExtraDataItemCount()`](#setmaxnodeoperatorsperextradataitemcount) method.
-
 ### REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE()
+
+Granting this role allows updating the `requestTimestampMargin` value of the [Limits List](#limits-list).
+See the [`setRequestTimestampMargin()`](#setrequesttimestampmargin) method.
 
 ```solidity
 bytes32 public constant REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE
     = keccak256("REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE")
 ```
 
-Granting this role allows updating the `requestTimestampMargin` value of the [Limits List](#limits-list).
-See the [`setRequestTimestampMargin()`](#setrequesttimestampmargin) method.
-
 ### MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE()
+
+Granting this role allows updating the `maxPositiveTokenRebase` value of the [Limits List](#limits-list).
+See the [`setMaxPositiveTokenRebase()`](#setmaxpositivetokenrebase) method.
 
 ```solidity
 bytes32 public constant MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE =
     keccak256("MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE")
 ```
 
-Granting this role allows updating the `maxPositiveTokenRebase` value of the [Limits List](#limits-list).
-See the [`setMaxPositiveTokenRebase()`](#setmaxpositivetokenrebase) method.
-
 ## Events
 
 ### ChurnValidatorsPerDayLimitSet()
+
+Emits whenever the value of the `LimitsList.churnValidatorsPerDayLimit` value is changed.
 
 ```solidity
 event ChurnValidatorsPerDayLimitSet(uint256 churnValidatorsPerDayLimit);
@@ -645,9 +647,9 @@ event ChurnValidatorsPerDayLimitSet(uint256 churnValidatorsPerDayLimit);
 
 - **`churnValidatorsPerDayLimit`** — new value of the `LimitsList.churnValidatorsPerDayLimit`
 
-Emits whenever the value of the `LimitsList.churnValidatorsPerDayLimit` value is changed.
-
 ### OneOffCLBalanceDecreaseBPLimitSet()
+
+Emits whenever the value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit` value is changed.
 
 ```solidity
 event OneOffCLBalanceDecreaseBPLimitSet(uint256 oneOffCLBalanceDecreaseBPLimit);
@@ -657,9 +659,9 @@ event OneOffCLBalanceDecreaseBPLimitSet(uint256 oneOffCLBalanceDecreaseBPLimit);
 
 - **`oneOffCLBalanceDecreaseBPLimit`** — new value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit`
 
-Emits whenever the value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit` value is changed.
-
 ### AnnualBalanceIncreaseBPLimitSet()
+
+Emits whenever the value of the `LimitsList.annualBalanceIncreaseBPLimit` value is changed.
 
 ```solidity
 event AnnualBalanceIncreaseBPLimitSet(uint256 annualBalanceIncreaseBPLimit);
@@ -669,9 +671,9 @@ event AnnualBalanceIncreaseBPLimitSet(uint256 annualBalanceIncreaseBPLimit);
 
 - **`annualBalanceIncreaseBPLimit`** — new value of the `LimitsList.annualBalanceIncreaseBPLimit`
 
-Emits whenever the value of the `LimitsList.annualBalanceIncreaseBPLimit` value is changed.
-
 ### SimulatedShareRateDeviationBPLimitSet()
+
+Emits whenever the value of the `LimitsList.simulatedShareRateDeviationBPLimit` value is changed.
 
 ```solidity
 event SimulatedShareRateDeviationBPLimitSet(uint256 simulatedShareRateDeviationBPLimit);
@@ -681,9 +683,9 @@ event SimulatedShareRateDeviationBPLimitSet(uint256 simulatedShareRateDeviationB
 
 - **`annualBalanceIncreaseBPLimit`** — new value of the `LimitsList.simulatedShareRateDeviationBPLimit`
 
-Emits whenever the value of the `LimitsList.simulatedShareRateDeviationBPLimit` value is changed.
-
 ### MaxPositiveTokenRebaseSet()
+
+Emits whenever the value of the `LimitsList.maxPositiveTokenRebase` value is changed.
 
 ```solidity
 event MaxPositiveTokenRebaseSet(uint256 maxPositiveTokenRebase);
@@ -693,9 +695,9 @@ event MaxPositiveTokenRebaseSet(uint256 maxPositiveTokenRebase);
 
 - **`annualBalanceIncreaseBPLimit`** — new value of the `LimitsList.maxPositiveTokenRebase`
 
-Emits whenever the value of the `LimitsList.maxPositiveTokenRebase` value is changed.
-
 ### MaxValidatorExitRequestsPerReportSet()
+
+Emits whenever the value of the `LimitsList.maxValidatorExitRequestsPerReport` value is changed.
 
 ```solidity
 event MaxValidatorExitRequestsPerReportSet(uint256 maxValidatorExitRequestsPerReport);
@@ -705,9 +707,9 @@ event MaxValidatorExitRequestsPerReportSet(uint256 maxValidatorExitRequestsPerRe
 
 - **`maxValidatorExitRequestsPerReport`** — new value of the `LimitsList.maxValidatorExitRequestsPerReport`
 
-Emits whenever the value of the `LimitsList.maxValidatorExitRequestsPerReport` value is changed.
-
 ### MaxAccountingExtraDataListItemsCountSet()
+
+Emits whenever the value of the `LimitsList.maxAccountingExtraDataListItemsCount` value is changed.
 
 ```solidity
 event MaxAccountingExtraDataListItemsCountSet(uint256 maxAccountingExtraDataListItemsCount);
@@ -717,9 +719,9 @@ event MaxAccountingExtraDataListItemsCountSet(uint256 maxAccountingExtraDataList
 
 - **`maxAccountingExtraDataListItemsCount`** — new value of the `LimitsList.maxAccountingExtraDataListItemsCount`
 
-Emits whenever the value of the `LimitsList.maxAccountingExtraDataListItemsCount` value is changed.
-
 ### MaxNodeOperatorsPerExtraDataItemCountSet()
+
+Emits whenever the value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` value is changed.
 
 ```solidity
 event MaxNodeOperatorsPerExtraDataItemCountSet(uint256 maxNodeOperatorsPerExtraDataItemCount);
@@ -729,9 +731,9 @@ event MaxNodeOperatorsPerExtraDataItemCountSet(uint256 maxNodeOperatorsPerExtraD
 
 - **`maxNodeOperatorsPerExtraDataItemCount`** — new value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount`
 
-Emits whenever the value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` value is changed.
-
 ### RequestTimestampMarginSet()
+
+Emits whenever the value of the `LimitsList.requestTimestampMargin` value is changed.
 
 ```solidity
 event RequestTimestampMarginSet(uint256 requestTimestampMargin);
@@ -740,5 +742,3 @@ event RequestTimestampMarginSet(uint256 requestTimestampMargin);
 #### Arguments
 
 - **`requestTimestampMargin`** — new value of the `LimitsList.requestTimestampMargin`
-
-Emits whenever the value of the `LimitsList.requestTimestampMargin` value is changed.
