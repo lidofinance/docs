@@ -86,8 +86,10 @@ function checkAccountingOracleReport(
 - **`_preCLValidators`** — Lido-participating validators on the CL side before the current oracle report
 - **`_postCLValidators`** — Lido-participating validators on the CL side after the current oracle report
 
-Applies sanity checks to the accounting parameters of Lido's Oracle report. Below is the list of restrictions
-checked by the method execution:
+Applies sanity checks to the accounting parameters of Lido's Oracle report.
+
+:::note
+Below is the list of restrictions checked by the method execution:
 
 - Revert with `IncorrectWithdrawalsVaultBalance(uint256 actualWithdrawalVaultBalance)` error when the reported withdrawals
   vault balance **is greater than** the actual balance of the withdrawal vault.
@@ -102,6 +104,8 @@ checked by the method execution:
 - Revert with `IncorrectAppearedValidators(uint256 churnLimit)` error when the number of appeared validators **exceeds**
   the limit set by `LimitsList.churnValidatorsPerDayLimit`.
 
+:::
+
 ### checkExitBusOracleReport()
 
 ```solidity
@@ -113,7 +117,10 @@ function checkExitBusOracleReport(uint256 _exitRequestsCount)
 - **`_exitRequestsCount`** — number of validator exit requests supplied per oracle report
 
 Validates that number of exit requests does not exceed the limit set by `LimitsList.maxValidatorExitRequestsPerReport`.
-Reverts with `IncorrectNumberOfExitRequestsPerReport(uint256 maxRequestsCount)` error in other cases.
+
+:::note
+Reverts with `IncorrectNumberOfExitRequestsPerReport(uint256 maxRequestsCount)` error when check is failed.
+:::
 
 ### checkExitedValidatorsRatePerDay()
 
@@ -126,7 +133,10 @@ function checkExitedValidatorsRatePerDay(uint256 _exitedValidatorsCount)
 - **`_exitedValidatorsCount`** — number of validator exit requests supplied per oracle report
 
 Validates that number of exited validators does not exceed the limit set by `LimitsList.churnValidatorsPerDayLimit`.
-Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` error in other cases.
+
+:::note
+Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` error when check is failed.
+:::
 
 ### checkNodeOperatorsPerExtraDataItemCount()
 
@@ -144,7 +154,10 @@ function checkNodeOperatorsPerExtraDataItemCount(
 
 Validates that number of node operators reported per extra data item does not exceed the limit
 set by `LimitsList.maxNodeOperatorsPerExtraDataItemCount`.
-Reverts with `TooManyNodeOpsPerExtraDataItem(uint256 itemIndex, uint256 nodeOpsCount)` error in other cases.
+
+:::note
+Reverts with `TooManyNodeOpsPerExtraDataItem(uint256 itemIndex, uint256 nodeOpsCount)` error when check is failed.
+:::
 
 ### checkAccountingExtraDataListItemsCount()
 
@@ -158,7 +171,10 @@ function checkAccountingExtraDataListItemsCount(uint256 _extraDataListItemsCount
 
 Validates that number of extra data items in the report does not exceed the limit
 set by `LimitsList.maxAccountingExtraDataListItemsCount`.
-Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error in other cases.
+
+:::note
+Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed.
+:::
 
 ### checkWithdrawalQueueOracleReport()
 
@@ -176,7 +192,10 @@ function checkWithdrawalQueueOracleReport(
 
 Validates that withdrawal request with the passed `_lastFinalizableRequestId` was created more
 than `LimitsList.requestTimestampMargin` seconds ago.
-Reverts with `IncorrectRequestFinalization(uint256 requestCreationBlock)` error in other cases.
+
+:::note
+Reverts with `IncorrectRequestFinalization(uint256 requestCreationBlock)` error when check is failed.
+:::
 
 ### checkSimulatedShareRate()
 
@@ -199,8 +218,11 @@ function checkSimulatedShareRate(
 - **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via off-chain "eth_call")
 
 Applies sanity checks to the simulated share rate for withdrawal requests finalization.
+
+:::note
 Reverts with `IncorrectSimulatedShareRate(uint256 simulatedShareRate, uint256 actualShareRate)` error
 when simulated share rate deviation exceeds the limit set by `LimitsList.simulatedShareRateDeviationBPLimit`
+:::
 
 ## View Methods
 
@@ -233,6 +255,7 @@ Special values:
 
 - `0` (zero value) means uninitialized
 - `type(uint64).max` means unlimited, e.g. not enforced
+
 :::
 
 Get max positive rebase allowed per single oracle report. Token rebase happens on total supply and/or total
@@ -316,10 +339,15 @@ function setOracleReportLimits(LimitsList memory _limitsList)
 
 - **`_limitsList`** — new limits list values
 
-Sets the new values for the limits list. Requires `ALL_LIMITS_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue(uint256 value, uint256 minAllowedValue, uint256 maxAllowedValue)` error when some
-value in the passed data out of the allowed range.
-See details of allowed value boundaries in the [Limits List](#limits-list) section.
+Sets the new values for the limits list.
+:::note
+
+- Requires `ALL_LIMITS_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue(uint256 value, uint256 minAllowedValue, uint256 maxAllowedValue)` error when some
+  value in the passed data out of the allowed range.
+  See details of allowed value boundaries in the [Limits List](#limits-list) section.
+
+:::
 
 ### setChurnValidatorsPerDayLimit()
 
@@ -333,9 +361,14 @@ function setChurnValidatorsPerDayLimit(uint256 _churnValidatorsPerDayLimit)
 
 Sets the new value for the `LimitsList.churnValidatorsPerDayLimit`.
 The limit is applicable for _**appeared**_ and _**exited**_ validators.
-Requires `CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setOneOffCLBalanceDecreaseBPLimit()
 
@@ -348,9 +381,14 @@ function setOneOffCLBalanceDecreaseBPLimit(uint256 _oneOffCLBalanceDecreaseBPLim
 - **`_oneOffCLBalanceDecreaseBPLimit`** — new value for `LimitsList.oneOffCLBalanceDecreaseBPLimit`
 
 Sets the new value for the `LimitsList.oneOffCLBalanceDecreaseBPLimit` variable.
-Requires `ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setAnnualBalanceIncreaseBPLimit()
 
@@ -363,9 +401,14 @@ function setAnnualBalanceIncreaseBPLimit(uint256 _annualBalanceIncreaseBPLimit)
 - **`_annualBalanceIncreaseBPLimit`** — new value for `LimitsList.annualBalanceIncreaseBPLimit`
 
 Sets the new value for the `LimitsList.annualBalanceIncreaseBPLimit` variable.
-Requires `ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setSimulatedShareRateDeviationBPLimit()
 
@@ -378,9 +421,14 @@ function setSimulatedShareRateDeviationBPLimit(uint256 _simulatedShareRateDeviat
 - **`_simulatedShareRateDeviationBPLimit`** — new value for `LimitsList.simulatedShareRateDeviationBPLimit`
 
 Sets the new value for the `LimitsList.simulatedShareRateDeviationBPLimit` variable.
-Requires `SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setMaxExitRequestsPerOracleReport()
 
@@ -393,9 +441,14 @@ function setMaxExitRequestsPerOracleReport(uint256 _maxValidatorExitRequestsPerR
 - **`_maxValidatorExitRequestsPerReport`** — new value for `LimitsList.maxValidatorExitRequestsPerReport`
 
 Sets the new value for the `LimitsList.maxValidatorExitRequestsPerReport`.
-Requires `MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setRequestTimestampMargin()
 
@@ -408,9 +461,14 @@ function setRequestTimestampMargin(uint256 _requestTimestampMargin)
 - **`_requestTimestampMargin`** — new new value for `LimitsList.requestTimestampMargin`
 
 Sets the new value for the `LimitsList.requestTimestampMargin` variable.
-Requires `REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setMaxPositiveTokenRebase()
 
@@ -423,9 +481,14 @@ function setMaxPositiveTokenRebase(uint256 _maxPositiveTokenRebase)
 - **`_maxPositiveTokenRebase`** — new value for `LimitsList.maxPositiveTokenRebase`
 
 Sets the new value for the `LimitsList.maxPositiveTokenRebase` variable.
-Requires `MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setMaxAccountingExtraDataListItemsCount()
 
@@ -438,9 +501,14 @@ function setMaxAccountingExtraDataListItemsCount(uint256 _maxAccountingExtraData
 - **`_maxAccountingExtraDataListItemsCount`** — new value for `LimitsList.maxAccountingExtraDataListItemsCount`
 
 Sets the new value for the `LimitsList.maxAccountingExtraDataListItemsCount` variable.
-Requires `MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE` to be granted to the caller.
-Reverts with **`IncorrectLimitValue()`** error when the passed value is out of the allowed range.
-See [Limits List](#limits-list) section for details.
+
+:::note
+
+- Requires `MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
 
 ### setMaxNodeOperatorsPerExtraDataItemCount()
 
@@ -453,9 +521,14 @@ function setMaxNodeOperatorsPerExtraDataItemCount(uint256 _maxNodeOperatorsPerEx
 - **`_maxNodeOperatorsPerExtraDataItemCount`** — new value for `LimitsList.maxNodeOperatorsPerExtraDataItemCount`
 
 Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` variable.
-Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
-Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+
+:::note
+
+- Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
 See [Limits List](#limits-list) section for details.
+
+:::
 
 ## Permissions
 
