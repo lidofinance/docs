@@ -170,9 +170,9 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 **Basic example**:
 
-1) User wraps 1 stETH and gets 0.9803 wstETH (1 stETH = 0.9803 wstETH)
-2) A rebase happens, the wstETH price goes up by 5%
-3) User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
+1. User wraps 1 stETH and gets 0.9803 wstETH (1 stETH = 0.9803 wstETH)
+2. A rebase happens, the wstETH price goes up by 5%
+3. User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
 
 ### Goerli wstETH for testing
 
