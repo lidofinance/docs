@@ -4,7 +4,7 @@
 - [Deployed contract](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)
 
 StakingRouter acts primarily as a registry for staking modules, each encapsulating a certain validator subset,
-e.g. Lido DAO-curated staking module [previously known as node operators registry](/contracts/node-operators/registry).
+e.g. Lido DAO-curated staking module [previously known as a node operators registry](/contracts/node-operators-registry).
 The contract manages stake allocations and fee distribution and track important statistics about the modules.
 
 ## What Was It Necessary?
