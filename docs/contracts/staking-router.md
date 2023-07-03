@@ -3,14 +3,15 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/StakingRouter.sol)
 - [Deployed contract](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)
 
-
-StakingRouter acts primarily as a registry for staking modules, each encapsulating a certain validator subset, e.g. Lido DAO-curated staking module. The contract manages stake allocations and fee distribution and track important statistics about the modules.
+StakingRouter acts primarily as a registry for staking modules, each encapsulating a certain validator subset,
+e.g. Lido DAO-curated staking module [previously known as node operators registry](/contracts/node-operators/registry).
+The contract manages stake allocations and fee distribution and track important statistics about the modules.
 
 ## What Was It Necessary?
 
 Lido's overarching aim is to maintain a robust and diverse validator set. The previous monolithic architecture made it challenging to incorporate new mechanisms and test different validator approaches. To enhance flexibility and accelerate the protocol's evolution, StakingRouter was introduced.
 
-StakingRouter simplified the Lido protocol by replacing the monolithic registry with modular components. Each of these modules is responsible for managing their specific validator subsets, i.e. staking modules.
+StakingRouter simplified the Lido protocol validator set scalability by replacing the monolithic registry with modular components. Each of these modules is responsible for managing their specific validator subsets, i.e. staking modules.
 
 ## What Does It Do?
 
@@ -31,6 +32,7 @@ As the name suggests, the contract routes incoming stake to staking modules base
 ### Fee Distribution
 
 StakingRouter also keeps track the protocol rewards based on the module and treasury shares. On each Oracle report, the Lido contract distributes rewards by minting shares to staking modules and treasury based on the data provided by StakingRouter.
+
 See also:
 
 - [LIP-20. Staking Router](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-20.md)
