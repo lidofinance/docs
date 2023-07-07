@@ -3,24 +3,37 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/EIP712StETH.sol)
 - [Deployed contract](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 
-EIP712StETH is a special helper contract for `stETH` that enables support
-for [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
+`EIP712StETH` is a special helper contract for `stETH` that is required to fully support
+ [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
 
-The contract is responsible for the permit signatures preparation.
+## Why helper
+
+The original [`Lido/StETH`](/contracts/lido) contract is implemented in Solidity `0.4.24` while this helper is
+implemented in Solidity `0.8.9`. A newer compiler version allows accessing the current network's chain id
+(via the [`block.chainid`](https://docs.soliditylang.org/en/v0.8.9/units-and-global-variables.html#block-and-transaction-properties)
+globally available variable). The latter is required by [EIP-155](https://eips.ethereum.org/EIPS/eip-155) to
+prevent replay attacks (i.e., an attacker captures a valid network transmission and then retransmits it on another network fork,
+for example, using a valid testnet signature on mainnet later). Finally, the `EIP-155` compliance is required to secure the `ERC-2612` signed approvals.
 
 ## View methods
 
 ### domainSeparatorV4()
 
-Returns the domain separator to build a EIP712-compatible signature for the stETH token.
+Returns the EIP712-compatible hashed [domain separator](https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator)
+which is valid for the `stETH` token permit signatures. The domain separator helps to prevent a signature meant for one dApp
+from working in another (i.e., prevents a signature collision in a broad sense).
 
 ```sol
 function domainSeparatorV4(address _stETH) returns (bytes32)
 ```
 
+See also the [`eip712Domain()`](/contracts/eip712-steth#eip712domain) method that can be used to construct a domain separator
+from the `StETH`-specific fields on the client's side (e.g., inside a dApp or a wallet).
+
 ### hashTypedDataV4()
 
 Returns the hash of a fully encoded EIP712-compatible message for this domain.
+The method can be used to validate the input data against the provided `v, r, s` secp256k1 components.
 
 ```sol
 function hashTypedDataV4(address _stETH, bytes32 _structHash) returns (bytes32)
@@ -32,6 +45,9 @@ function hashTypedDataV4(address _stETH, bytes32 _structHash) returns (bytes32)
 | --------------- | --------- | -------------------------------------- |
 | `_stETH`        | `address` | Address of the deployed `stETH` token  |
 | `_structHash`   | `bytes32` | Address of the deployed `stETH` token  |
+
+See the [StETHPermit.permit()](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/StETHPermit.sol#L99-L112)
+implementation for a particular use case.
 
 ### eip712Domain()
 
@@ -88,3 +104,8 @@ function makeDomainSeparator(name, version, chainId, verifyingContract) {
   )
 }
 ```
+
+## Useful external links
+
+- [The Magic of Digital Signatures on Ethereum](https://medium.com/mycrypto/the-magic-of-digital-signatures-on-ethereum-98fe184dc9c7)
+- [ERC-2612: The Ultimate Guide to Gasless ERC-20 Approvals](https://medium.com/frak-defi/erc-2612-the-ultimate-guide-to-gasless-erc-20-approvals-2cd32ddee534)
