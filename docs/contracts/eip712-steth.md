@@ -96,3 +96,4 @@ function makeDomainSeparator(name, version, chainId, verifyingContract) {
 
 - [The Magic of Digital Signatures on Ethereum](https://medium.com/mycrypto/the-magic-of-digital-signatures-on-ethereum-98fe184dc9c7)
 - [ERC-2612: The Ultimate Guide to Gasless ERC-20 Approvals](https://medium.com/frak-defi/erc-2612-the-ultimate-guide-to-gasless-erc-20-approvals-2cd32ddee534)
+- [Metamask sign-data](https://docs.metamask.io/wallet/how-to/sign-data/#use-eth_signtypeddata_v4)
