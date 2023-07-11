@@ -23,9 +23,18 @@ The `LidoOracle` contract functionality was superseded with [AccountingOracle](/
 
 ## What is left in LegacyOracle
 
+The `AccountingOracle` lives at a different address, and the `LegacyOracle` contract is kept for the compatibility, supporting only a limited subset of view functions and events.
+
 ### How it is invoked (flow)
 
-TODO
+The `LegacyOracle` contract receives the data changes on each `AccountingOracle` report using two stages
+(still within the same transaction)
+
+```mermaid
+graph LR;
+  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
+  AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
+```
 
 ### Rebase and APR
 
@@ -239,7 +248,8 @@ The caller must be `AccountingOracle`.
 
 Emits whenever the `AccountingOracle` report landed.
 
-This event is still emitted after oracle committee reaches consensus on a report, but only for compatibility purposes. The values in this event are not enough to calculate APR or TVL anymore due to withdrawals, Execution Layer rewards, and Consensus Layer rewards skimming.
+This event is still emitted after oracle committee reaches consensus on a report, but only for compatibility purposes.
+The values in this event are not enough to calculate APR or TVL anymore due to withdrawals, Execution Layer rewards, and Consensus Layer rewards skimming.
 
 ```solidity
 event Completed(
@@ -250,7 +260,7 @@ event Completed(
 ```
 
 :::note
-TODO
+Emits inside the [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleConsensusLayerReport) methods.
 :::
 
 #### Parameters
