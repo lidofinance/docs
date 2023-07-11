@@ -4,31 +4,31 @@
 - [Deployed contract](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb)
 
 :::warning
-LegacyOracle is used to be a previous oracle contract for Lido.
-It's left currently for compatibility reasons only and might be deprecated completely in the future releases.
+`LegacyOracle` will be maintained till the end of 2023.
+Afterwards, it will be discontinued and external integrations should rely on [`AccountingOracle`](/contracts/accounting-oracle).
 :::
 
 ## What is LegacyOracle?
 
-`LegacyOracle` is an Aragon app previously known (before Lido V2 to be precise) as `LidoOracle`.
+`LegacyOracle` is an Aragon app previously known as `LidoOracle`, used to track changes on the Beacon Chain.
+Following the Lido V2 upgrade, this was replaced by the [`AccountingOracle`](/contracts/accounting-oracle)
+and the oracle workflow was redesigned to deliver synchronized historical data chunks for the same reference slot
+both for the Consensus and Execution Layer parts.
 
-The original purpose of the `LidoOracle` contract was to accept the learnt changes of the Beacon Chain
-(nowadays referred mostly as the Ethereum Consensus Layer) to account for the Lido-participating validators major state changes
-(e.g., when a new validator appears or when the validator's balance changes).
+## Key changes
 
-With the latest Lido V2 protocol upgrade, the oracle workflow was redesigned to deliver more synchronized
-historical data chunks for the same reference slot of the already finalized epoch (having both the Consensus and Execution Layer parts).
+In Lido V2, `LegacyOracle` only supports a subset of view functions and events.
+`AccountingOracle` interacts with it to push data changes on each report.
 
-The `LidoOracle` contract functionality was superseded with [AccountingOracle](/contracts/accounting-oracle).
-
-## What is left in LegacyOracle
-
-The `AccountingOracle` lives at a different address, and the `LegacyOracle` contract is kept for the compatibility, supporting only a limited subset of view functions and events.
-
-### How it is invoked (flow)
+### How does LegacyOracle receive the AccountingOracle reports anyway (flow)
 
 The `LegacyOracle` contract receives the data changes on each `AccountingOracle` report using two stages
-(still within the same transaction)
+(still within the same transaction):
+
+1. Invoke [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleConsensusLayerReport)
+providing the reference slot and validators data from `AccountingOracle` itself.
+1. Invoke [`handlePostTokenRebase`](/contracts/legacy-oracle#handlePostTokenRebase)
+from [`Lido`](/contracts/lido).
 
 ```mermaid
 graph LR;
@@ -38,14 +38,88 @@ graph LR;
 
 ### Rebase and APR
 
-TODO
+To calculate the protocol's daily rebase and APR projections one would use the old `LidoOracle` APIs for a while.
+Although the old way of calculating the APR would still result in relevant numbers, the math might be off in case of significant withdrawals.
 
-## Future plans
+#### How it was with LidoOracle
 
-The `LegacyOracle` contract will be maintained till the end of 2023.
-Then it will be eventually discontinued and unmaintained with a notice of a couple of months.
+:::note
+The formula is outdated and inaccurate since the [Lido V2 upgrade](https://blog.lido.fi/lido-v2-launch/) happened.
+:::
 
-Any of the external integrations should rely on the `AccountingOracle` methods and events instead.
+```javascript
+protocolAPR = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
+lidoFeeAsFraction = lidoFee / basisPoint
+userAPR = protocolAPR * (1 - lidoFeeAsFraction)
+```
+
+#### What's new from Lido V2
+
+See the new Lido API docs with regards to [APR](/integrations/api#LidoAPR).
+
+```js
+// Emits when token rebased (total supply and/or total shares were changed)
+event TokenRebased(
+    uint256 indexed reportTimestamp,
+    uint256 timeElapsed,
+    uint256 preTotalShares,
+    uint256 preTotalEther, /* preTotalPooledEther */
+    uint256 postTotalShares,
+    uint256 postTotalEther, /* postTotalPooledEther */
+    uint256 sharesMintedAsFees /* fee part included in `postTotalShares` */
+);
+
+preShareRate = preTotalEther * 1e27 / preTotalShares
+postShareRate = postTotalEther * 1e27 / postTotalShares
+
+userAPR =
+    secondsInYear * (
+        (postShareRate - preShareRate) / preShareRate
+    ) / timeElapsed
+```
+
+In short, the new formula takes into account both `preTotalShares` and `postTotalShares` values, while,
+in contrast, the old formula didn't use them. The new formula also doesn't require to calculate `lidoFee`
+at all (because the fee distribution works by changing the total shares amount under the hood).
+
+#### Why does it matter
+
+When Lido V2 protocol finalizes withdrawal requests, the `Lido` contract sends ether to `WithdrawalQueue` (excluding these funds from `totalPooledEther`, i.e., decreasing TVL) and assigns to burn underlying locked requests' `stETH` shares in return.
+
+In other words, withdrawal finalization decreases both TVL and total shares.
+
+Old formula isn't suitable anymore because it catches TVL changes, but skips total shares changes.
+
+Illustrative example (using smallish numbers far from the real ones for simplicity):
+
+```javascript
+preTotalEther = 1000 ETH
+preTotalShares = 1000 * 10^18 // 1 share : 1 wei
+
+postTotalEther = 999 ETH
+postTotalShares = 990 * 10^18
+
+timeElapsed = 24 * 60 * 60 // 1 day, or 86400 seconds
+
+//!!! using the old (imprecise) method
+
+// protocolAPR = (postTotalPooledEther - preTotalPooledEther) * secondsInYear / (preTotalPooledEther * timeElapsed)
+protocolAPR = (999ETH - 1000ETH) * 31557600 / (1000ETH * 86400) = -0.36525
+//lidoFeeAsFraction = lidoFee / basisPoint = 0.1
+//userAPR = protocolAPR * (1 - lidoFeeAsFraction) = protocolAPR * (1 - 0.1)
+
+userAPR = -0.36525 * (1 - 0.1) = -0.328725
+
+//!!! i.e, userAPR now is ~minus 32.9%
+
+//!!! using the updated (proper) method
+
+preShareRate = 1000 ETH * 1e27 / 1000 * 10^18 = 1e27
+postShareRate = 999 ETH * 1e27 / 990 * 10^18 = 1.009090909090909e+27
+userAPR = 31557600 * ((postShareRate - preShareRate) / preShareRate) / 86400 = 3.320454545454529
+
+//!!! i.e., userAPR now is ~plus 332%
+```
 
 ## View Methods
 
