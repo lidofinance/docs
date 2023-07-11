@@ -42,13 +42,78 @@ Any of the external integrations should rely on the `AccountingOracle` methods a
 
 ### getLido()
 
+Returns the `Lido` contract address.
+
+```sol
+function getLido() returns (address)
+```
+
+:::note
+Always returns the `Lido` address stated in the [deployed addresses](/deployed-contracts) list.
+:::
+
 ### getAccountingOracle()
 
-### getVersion()
+Returns the `AccountingOracle` contract address.
+
+```sol
+function getAccountingOracle() returns (address)
+```
+
+:::note
+Always returns the `AccountingOracle` address stated in the [deployed addresses](/deployed-contracts) list.
+:::
 
 ### getContractVersion()
 
+Returns the current contract version.
+
+```sol
+function getContractVersion() returns (uint256)
+```
+
+:::note
+Always returns `4`.
+:::
+
+### getVersion()
+
+Returns the current contract version (compatibility method).
+
+```sol
+function getVersion() returns (uint256)
+```
+
+:::note
+Always returns `4`, calls `getContractVersion()` internally.
+:::
+
 ### getBeaconSpec()
+
+Returns the `AccountingOracle` frame period together with Ethereum Beacon Chain specification constants.
+
+```sol
+function getBeaconSpec() returns (
+    uint64 epochsPerFrame,
+    uint64 slotsPerEpoch,
+    uint64 secondsPerSlot,
+    uint64 genesisTime
+)
+```
+
+:::note
+Always returns (225, 32, 12, 1606824023) for Mainnet.
+Always returns (225, 32, 12, 1616508000) for Görli.
+:::
+
+#### Returns
+
+| Name             | Type     | Description                                                    |
+| ---------------- | -------- | -------------------------------------------------------------- |
+| `epochsPerFrame` | `uint64` | Beacon Chain epochs per single `AccountingOracle` report frame |
+| `slotsPerEpoch`  | `uint64` | Beacon Chain slots per single Beacon Chain epoch               |
+| `secondsPerSlot` | `uint64` | Seconds per single Beacon Chain slot                           |
+| `genesisTime`    | `uint64` | Beacon Chain genesis timestamp                                 |
 
 ### getCurrentEpochId()
 
