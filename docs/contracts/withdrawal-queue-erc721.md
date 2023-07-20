@@ -18,7 +18,7 @@ This contract is a main entry point to exchange `stETH` for underlying ether dir
 - storing `stETH` before and ether after the finalization
 - transfer reserved ether to the user upon the claim
 
-Also, the contract is [ERC-721](https://eips.ethereum.org/EIPS/eip-721) NFT with metadata extension representing the right to claim underlying ether once the request is finalized. This NFT is minted upon request and burned on the claim. The [ERC-4906](https://eips.ethereum.org/EIPS/eip-4906) is used to update the metadata as soon as the finalization status of the request is changed.
+Also, the contract is [ERC-721](https://eips.ethereum.org/EIPS/eip-721) `unstETH` NFT with metadata extension representing the right to claim underlying ether once the request is finalized. This NFT is minted upon request and burned on the claim. The [ERC-4906](https://eips.ethereum.org/EIPS/eip-4906) is used to update the metadata as soon as the finalization status of the request is changed.
 
 ## Request
 
@@ -69,7 +69,28 @@ So, to put it simply. Token holders don't receive rewards but still take risks d
 
 :::
 
-So, the finalization sets the final value of the request, locks ether on the balance of this contract, and burns the underlying `stETH`.
+So, the finalization sets the final value of the request, locks ether on the balance of this contract, and burns the underlying `stETH` and the queue may look like this in arbitrary moment:
+
+```mermaid
+graph LR
+    subgraph queue
+    direction LR
+    B---D
+    subgraph unfinalized;
+        A[1 stETH]---B[1.1 stETH]
+    end
+    subgraph finalized;
+        D(0.3 ETH)---E(1000 ETH)
+    end
+    end
+
+    classDef gr fill:#d0f0c0,stroke:#333,stroke-width:3px;;
+    classDef r fill:#fa8072,stroke:#333,stroke-width:3px;;
+
+    class A,B r;
+    class D,E gr;
+
+```
 
 ## Claim
 
@@ -207,7 +228,7 @@ Requirements:
 - `_from` cannot be the zero address.
 - `_to` cannot be the zero address.
 - `_requestId` token must exist and be owned by `_from`.
-- If the caller is not `_from`, it must be have been allowed to move this token by either `approve()` or `setApprovalForAll()`.
+- If the caller is not `_from`, it must have been allowed to move this token by either `approve()` or `setApprovalForAll()`.
 - If `_to` refers to a smart contract, it must implement `IERC721Receiver-onERC721Received()`, which is called upon a safe transfer.
 
 :::
@@ -269,45 +290,423 @@ This contract returns `true` for `IERC721`, `IERC721Metadata`, `IERC4906`, `IAcc
 
 ### requestWithdrawals()
 
+Batch request the `_amounts` of `stETH` for withdrawal to the `_owner` address. For each request, the respective amount of `stETH` is transferred to this contract address, and an `unstETH` NFT is minted to the `_owner` address.
+
+```sol
+function requestWithdrawals(uint256[] _amounts, address _owner) returns (uint256[] requestIds)
+```
+
+Returns the array of ids for each created request. Emits a `WithdrawalRequested` and `Transfer` events.
+
+:::note
+
+Requirements:
+
+- `stETH` balance of `msg.sender` should be greater than the sum of all `_amounts`
+- there should be approval from the `msg.sender` to this contract address for the overall amount of `stETH` token transfer
+- each amount in `_amounts` should be greater than `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+
+:::
+
 ### requestWithdrawalsWstETH()
+
+Batch request the `_amounts` of `wstETH` for withdrawal to the `_owner` address. For each request, the respective amount of `wstETH` is transferred to this contract address, unwrapped to `stETH`, and an `unstETH` NFT is minted to the `_owner` address.
+
+```sol
+function requestWithdrawalsWstETH(uint256[] _amounts, address _owner) returns (uint256[] requestIds)
+```
+
+Returns the array of ids for each created request. Emits a `WithdrawalRequested` and `Transfer` events.
+
+:::note
+
+Requirements:
+
+- `wstETH` balance of `msg.sender` should be greater than the sum of all `_amounts`
+- there should be approval from the `msg.sender` to this contract address for the overall amount of `wstETH` token transfer
+- each amount in `_amounts` should have `getPooledEthByShares(amount)` being greater than  `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+
+:::
 
 ### requestWithdrawalsWithPermit()
 
+Batch request the `_amounts` of `wstETH` for withdrawal to the `_owner` address. For each request, the respective amount of `wstETH` is transferred to this contract address, and an `unstETH` NFT is minted to the `_owner` address. `ERC-2612` permit is used to approve the token transfer.
+
+```sol
+function requestWithdrawalsWithPermit(
+  uint256[] _amounts,
+  address _owner,
+  PermitInput _permit
+) returns (uint256[] requestIds)
+```
+
+where `_permit` is [ERC-2612](https://eips.ethereum.org/EIPS/eip-2612) signed permit structure defined as:
+
+```sol
+struct PermitInput {
+    uint256 value;
+    uint256 deadline;
+    uint8 v;
+    bytes32 r;
+    bytes32 s;
+}
+```
+
+Returns the array of ids for each created request. Emits a `WithdrawalRequested` and `Transfer` events.
+
+:::note
+
+Requirements:
+
+- `stETH` balance of `msg.sender` should be greater than the sum of all `_amounts`
+- permit should have a valid signature, `value` greater than the sum of all `_amounts`, and the `deadline` not expired
+- each amount in `_amounts` should be greater than `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+
+:::
+
 ### requestWithdrawalsWstETHWithPermit()
+
+Batch request the `_amounts` of `wstETH` for withdrawal to the `_owner` address. For each request, the respective amount of `wstETH` is transferred to this contract address, unwrapped to `stETH`, and an `unstETH` NFT is minted to the `_owner` address.`ERC-2612` permit is used to approve the token transfer.
+
+```sol
+function requestWithdrawalsWstETHWithPermit(
+  uint256[] _amounts,
+  address _owner,
+  PermitInput _permit
+) returns (uint256[] requestIds)
+```
+
+where `_permit` is [ERC-2612](https://eips.ethereum.org/EIPS/eip-2612) signed permit structure defined as:
+
+```sol
+    struct PermitInput {
+        uint256 value;
+        uint256 deadline;
+        uint8 v;
+        bytes32 r;
+        bytes32 s;
+    }
+```
+
+Returns the array of ids for each created request. Emits a `WithdrawalRequested` and `Transfer` events.
+
+:::note
+
+Requirements:
+
+- `wstETH` balance of `msg.sender` should be greater than the sum of all `_amounts`
+- permit should have a valid signature, `value` greater than the sum of all `_amounts`, and the `deadline` not expired
+- each amount in `_amounts` should have `getPooledEthByShares(amount)` being greater than  `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+
+:::
 
 ### getWithdrawalRequests()
 
-### getClaimableEther()
+Returns all withdrawal requests that belong to the `_owner` address
+
+```sol
+function getWithdrawalRequests(address _owner) view returns (uint256[] requestsIds)
+```
+
+:::warning
+
+This operation will copy the entire storage to memory, which can be quite expensive. This method is designed to mostly be used by view accessors that are queried without gas fees. Developers should keep in mind that this function has an unbounded cost, and using it as part of a state-changing function may render the function uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.
+
+:::
 
 ### getWithdrawalStatus()
 
+Returns `statuses` for requests with ids in `_requestIds`
+
+```sol
+function getWithdrawalStatus(uint256[] _requestIds)
+        view
+        returns (WithdrawalRequestStatus[] statuses)
+```
+
+Returns an array of `WithdrawalRequestStatus` structures, defined as:
+
+```sol
+struct WithdrawalRequestStatus {
+    uint256 amountOfStETH;
+    uint256 amountOfShares;
+    address owner;
+    uint256 timestamp;
+    bool isFinalized;
+    bool isClaimed;
+}
+```
+
+where
+
+- **`amountOfStETH`** — the number of `stETH` tokens transferred to the contract upon request
+- **`amountOfShares`** — the number of underlying shares corresponding to transferred `stETH` tokens. See [Lido rebasing chapter](lido.md#rebase) to learn about the shares mechanic
+- **`owner`** — the owner's address for this request. The owner is also a holder of the `unstETH` NFT and can transfer the ownership and claim the underlying ether once finalized
+- **`timestamp`** — the creation time of the request
+- **`isFinalized`** — finalization status of the request; finalized requests are available to claim
+- **`isClaimed`** — the claim status of the request. Once claimed, NFT is burned, and the request is not available to claim again
+
+### getClaimableEther()
+
+Returns amounts of ether available for claiming for each provided request id.
+
+```sol
+function getClaimableEther(uint256[] _requestIds, uint256[] _hints)
+        view
+        returns (uint256[] claimableEthValues)
+```
+
+where
+
+- **`_requestIds`** — the array of request id to check the claimable ether for
+- **`_hints`** — checkpoint hint for each request id. Can be obtained by calling [`findCheckpointHints()`](#findcheckpointhints)
+
+Returns the array of ether amounts available for claiming for each request id. The amount is equal to 0 if the request is not finalized or already claimed.
+
 ### claimWithdrawalsTo()
+
+Claim a batch of withdrawal requests if they are finalized, sending ether to `_recipient` address
+
+```sol
+function claimWithdrawalsTo(uint256[] _requestIds, uint256[] _hints, address _recipient)
+```
+
+where
+
+- **`_requestIds`** — the array of request id to check the claimable ether for
+- **`_hints`** — checkpoint hint for each request id. Can be obtained by calling [`findCheckpointHints()`](#findcheckpointhints)
+- **`_recipient`** — the address of the recipient for claimed ether
+
+Emits a batch of `Transfer` to zero address and `WithdrawalClaimed` events
+
+:::note
+
+Requirements:
+
+- all `_requestIds` must exist, be finalized and not claimed
+- all `_hints` must be valid for respective requests
+- `msg.sender` must be the owner of all the requests
+- `_recipient` must not be zero
+
+:::
 
 ### claimWithdrawals()
 
+Claim a batch of withdrawal requests if they are finalized, sending ether to `msg.sender` address
+
+```sol
+function claimWithdrawals(uint256[] _requestIds, uint256[] _hints)
+```
+
+where
+
+- **`_requestIds`** — the array of request id to check the claimable ether for
+- **`_hints`** — checkpoint hint for each request id. Can be obtained by calling [`findCheckpointHints()`](#findcheckpointhints)
+
+Emits a batch of `Transfer` to zero address and `WithdrawalClaimed` events
+
+:::note
+
+Requirements:
+
+- all `_requestIds` must exist, be finalized and not claimed
+- all `_hints` must be valid for respective requests
+- `msg.sender` must be the owner of all the requests
+
+:::
+
 ### claimWithdrawal()
+
+Claims the `_requestId` withdrawal request, sending ether to `msg.sender` address
+
+```sol
+function claimWithdrawal(uint256 _requestId)
+```
+
+Emits a `Transfer` to zero address and `WithdrawalClaimed` event
+
+:::note
+
+Requirements:
+
+- `msg.sender` must be the owner of all the requests
+
+:::
 
 ### findCheckpointHints()
 
+Returns an array of hints for the given `_requestIds` searching among the checkpoints with indices in the range  `[_firstIndex, _lastIndex]`.
+
+```sol
+function findCheckpointHints(uint256[] _requestIds, uint256 _firstIndex, uint256 _lastIndex)
+        view
+        returns (uint256[] hintIds)
+```
+
+:::note
+
+Requirements:
+
+- Array of request ids must be sorted
+- `_firstIndex` must be greater than 0, because checkpoint list is 1-based array
+- `_lastIndex` must be less than or equal to [`getLastCheckpointIndex()`](#getlastcheckpointindex)
+:::
+
 ### isBunkerModeActive()
+
+Returns `true` if bunker mode is active
+
+```sol
+function isBunkerModeActive() view returns (bool)
+```
 
 ### bunkerModeSinceTimestamp()
 
+Returns the timestamp of the last bunker mode activation, if it's active now and `BUNKER_MODE_DISABLED_TIMESTAMP` if bunker mode is disabled (i.e., protocol in turbo mode)
+
+```sol
+function bunkerModeSinceTimestamp() view returns (uint256)
+```
+
 ### getLastRequestId()
+
+Returns the id of the last request in the queue
+
+```sol
+function getLastRequestId() view returns (uint256)
+```
+
+:::note
+
+Requests are indexed from `1`, so it returns `0` if there are no requests in the queue
+
+:::
 
 ### getLastFinalizedRequestId()
 
+Returns the id of the last finalized request in the queue
+
+```sol
+function getLastFinalizedRequestId() view returns (uint256)
+```
+
+:::note
+
+Requests are indexed from `1`, so it returns `0` if there are no finalized requests in the queue
+
+:::
+
 ### getLockedEtherAmount()
+
+Returns the amount of ether on the balance locked for withdrawal and available to claim
+
+```sol
+function getLockedEtherAmount() view returns (uint256)
+```
 
 ### getLastCheckpointIndex()
 
+Returns the length of the checkpoint array. Last possible value for the hint.
+
+```sol
+function getLastCheckpointIndex() view returns (uint256)
+```
+
+:::note
+
+Checkpoints are indexed from `1`, so it returns `0` if there are no checkpoints yet.
+
+:::
+
 ### unfinalizedRequestNumber()
+
+Returns the number of unfinalized requests in the queue
+
+```sol
+function unfinalizedRequestNumber() view returns (uint256)
+```
 
 ### unfinalizedStETH()
 
+Returns the amount of `stETH` in the queue yet to be finalized
+
+```sol
+function unfinalizedRequestNumber() view returns (uint256)
+```
+
 ### calculateFinalizationBatches()
 
+Offchain view for the oracle daemon that calculates how many requests can be finalized within the given budget, time period, and share rate limits. Returned requests are split into batches. All requests belonging to one batch must have their share rate above or below (or equal) to the `_maxShareRate`. Below you can see an example of how 14 requests with different share rates will be split into five batches by this method:
+
+```txt
+ ^ share rate
+ |
+ |         • •
+ |       •    •   • • •
+ |----------------------•------   _maxShareRate
+ |   •          •        • • •
+ | •
+ +-------------------------------> requestId
+  | 1 |    2   |3|  4  |   5   |    batch number
+```
+
+```sol
+function calculateFinalizationBatches(
+        uint256 _maxShareRate,
+        uint256 _maxTimestamp,
+        uint256 _maxRequestsPerCall,
+        BatchesCalculationState _state
+    ) external view returns (BatchesCalculationState)
+```
+
+where
+
+- **`_maxShareRate`** — the max share rate (ETH per share) that will be used for the finalization (1e27 precision)
+- **`_maxTimestamp`** — the max timestamp of the request that can be finalized
+- **`_maxRequestsPerCall`** — the max request number that can be processed per iteration
+- **`_state`** — the current state of the calculation, represented with a `BatchesCalculationState` structure:
+
+  ```sol
+  struct BatchesCalculationState {
+      uint256 remainingEthBudget;
+      bool finished;
+      uint256[MAX_BATCHES_LENGTH] batches;
+      uint256 batchesLength;
+  }
+  ```
+
+  - **`remainingEthBudget`** — the currently remaining amount of ether. It must be set into the whole budget of the finalization at the first call
+  - **`finished`** — the flag that is set to `true` if all request are iterated on
+  - **`batches`** — the resulting array of batches, each represented by the id of the last request in the batch
+  - **`batchesLength`** — the length of the filled part of the `batches` array
+
+Returns the current state of the finalization batch calculation.
+
+:::note
+This method is designed for iterative usage under gas limits. So, in the case of the number of withdrawals are too large to iterate over in one call, one can use this method repeatedly, passing the return value as an argument for the next call as long as it returns `finished` equal to `false`
+:::
+
 ### prefinalize()
+
+Checks finalization batches and calculates the required amount of ether to lock and the number of shares to burn.
+
+Designed to use during the oracle report to find the amount of ether to send along the `finalize()` call.
+
+```sol
+function prefinalize(uint256[] _batches, uint256 _maxShareRate)
+        view
+        returns (uint256 ethToLock, uint256 sharesToBurn)
+```
+
+where
+
+- **`_batches`** — finalization batches calculated off-chain using `calculateFinalizationBatches()`
+- **`_maxShareRate`** — max share rate (ETH per share) for request finalization (1e27 precision)
+
+Returns
+
+- **`ethToLock`** — the amount of ether to be sent with `finalize()` method
+- **`sharesToBurn`** — the number of shares to be burnt to match this finalization call
 
 ## Lever methods
 
@@ -316,10 +715,8 @@ This contract returns `true` for `IERC721`, `IERC721Metadata`, `IERC4906`, `IAcc
 - **FINALIZE_ROLE** — role to finalize withdrawal requests in the queue
 - **PAUSE_ROLE** — role to pause the withdrawal on the protocol
 - **RESUME_ROLE** — role to resume the withdrawal after being paused
-- **ORACLE_ROLE** — role to provide required oracle-related data as the last reprot timestamp adn if the protocol is in the bunker mode
+- **ORACLE_ROLE** — role to provide required oracle-related data as the last report timestamp and if the protocol is in the bunker mode
 - **MANAGE_TOKEN_URI_ROLE** — role to set the parameters for constructing the token URI: the base URI or `NFTDescriptor` address
-
-
 
 ### finalize()
 
@@ -330,6 +727,11 @@ Emits a `BatchMetadataUpdate` and a `WithdrawalsFinalized` events
 ```sol
 function finalize(uint256 _lastRequestIdToBeFinalized, uint256 _maxShareRate) payable
 ```
+
+where
+
+- **`_lastRequestIdToBeFinalized`** — the last request id to finalize
+- **`_maxShareRate`** — the max share rate (ETH per share) for the request finalization (1e27 precision)
 
 :::note
 
@@ -352,6 +754,10 @@ Emits a `Paused` event.
 function pauseFor(uint256 _duration) onlyRole(PAUSE_ROLE)
 ```
 
+where
+
+- **`_duration`** — is bunker mode reported by the oracle
+
 :::note
 
 Requirements:
@@ -371,6 +777,10 @@ Emits a `Paused` event.
 ```sol
 function pauseUntil(uint256 _pauseUntilInclusive) onlyRole(PAUSE_ROLE)
 ```
+
+where
+
+- **`_pauseUntilInclusive`** — is bunker mode reported by the oracle
 
 :::note
 
@@ -415,26 +825,36 @@ function onOracleReport(
 )
 ```
 
+where
+
+- **`_isBunkerModeNow`** — is bunker mode reported by the oracle
+- **`_bunkerStartTimestamp`** — timestamp of the bunker mode activation
+- **`_currentReportTimestamp`** — timestamp of the current report ref slot
+
 :::note
 
 Requirements:
 
-- `msg.sender` must have a `ORACLE_ROLE` assigned
+- `msg.sender` must have an `ORACLE_ROLE` assigned
 - all timestamps must be in the past
 
 :::
 
 ### setBaseUri()
 
-Sets the Base URI for computing token URI. It does not expect the ending slash in provided string.
+Sets the Base URI for computing token URI.
 
 If the `NFTDescriptor` address isn't set, the `baseURI` would be used for generating the `ERC-721` token URI. Otherwise, the `NFTDescriptor` address would be used as a first-priority method.
 
 Emits a `BaseURISet` event
 
 ```sol
-function setBaseURI(string calldata _baseURI) external onlyRole(MANAGE_TOKEN_URI_ROLE)
+function setBaseURI(string _baseURI) external onlyRole(MANAGE_TOKEN_URI_ROLE)
 ```
+
+where
+
+- **`_baseURI`** — the base URI to derive the token URI from. Should not end on `/`
 
 :::note
 
@@ -454,7 +874,9 @@ Emits a `NftDescriptorAddressSet` event.
 function setNFTDescriptorAddress(address _nftDescriptorAddress) onlyRole(MANAGE_TOKEN_URI_ROLE)
 ```
 
-The `NFTDescriptor` contract must support an `INFTDescriptor` interface, which is defined as follows:
+where
+
+- **`_nftDescriptorAddress`** — is the address of `NFTDescriptor` contract, which must support the `INFTDescriptor` interface:
 
 ```sol
 interface INFTDescriptor {
