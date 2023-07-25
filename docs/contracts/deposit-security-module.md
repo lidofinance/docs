@@ -10,11 +10,13 @@ Due to front-running vulnerability, we [proposed](https://github.com/lidofinance
 
 Each member must generate an EOA address to sign messages with their private key. The addresses of the committee members will be added to the smart contract.
 
-To make a deposit, we propose to collect a quorum of 2/3 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this, we propose allowing a single committee member to stop deposits and also enforce space deposits in time (e.g., no more than 150 deposits with 150 blocks in between them) to provide the single honest participant the ability to stop further deposits even if the supermajority colludes.
+To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this, we propose allowing a single committee member to stop deposits and also enforce space deposits in time (e.g., no more than 150 deposits with 25 blocks in between them) to provide the single honest participant the ability to stop further deposits even if the supermajority colludes.
 
 The guardian himself, or anyone else who has a signed pause message, can call `pauseDeposits` that pauses `DepositSecurityModule`.
 
 To prevent a replay attack, the guardians sign the block number when  malicious pre-deposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
+
+Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `churnValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker).
 
 ## View Methods
 
@@ -358,10 +360,10 @@ function depositBufferedEther(
 
 | Name                       | Type          | Description                                                                            |
 | -------------------------- | ------------- | -------------------------------------------------------------------------------------- |
-| `blockNumber`              | `uint256`     | Block number of the current deposit block                                              |
-| `blockHash`                | `uint256`     | Block hash of the current deposit block                                                |
-| `depositRoot`              | `uint256`     | Deposit root of the Ethereum DepositContract                                           |
+| `blockNumber`              | `uint256`     | Number of the current deposit block                                                    |
+| `blockHash`                | `bytes32`     | Hash of the current deposit block                                                      |
+| `depositRoot`              | `bytes32`     | Deposit root of the Ethereum DepositContract                                           |
 | `stakingModuleId`          | `uint256`     | Id of the staking module to deposit with                                               |
 | `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                          |
-| `depositCalldata`          | `uint256`     | Staking module deposit calldata                                                        |
+| `depositCalldata`          | `bytes`       | Staking module deposit calldata                                                        |
 | `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in https://eips.ethereum.org/EIPS/eip-2098 |
