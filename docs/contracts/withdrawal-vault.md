@@ -5,12 +5,13 @@
 
 ## What is WithdrawalVault
 
-A simple contract that accumulates partial and full withdrawals that comes from Beacon chain. Its address corresponds to the type-0x01 Lido withdrawal credentials.
-During the accounting oracle report the vault is emptied by Lido to to the internal buffer, see [here](lido.md#oracle-report) for details.
+A simple contract that accumulates partial and full withdrawals that comes from
+the Beacon Chain. Its address corresponds to the type-0x01 Lido withdrawal credentials.
+During the accounting oracle report, the vault is emptied by Lido to the internal buffer; see [Lido contract docs](lido.md#oracle-report) for details.
 
-Vault is recoverable, so any tokens or ether can be trasferred to the treasury by DAO.
+The vault is recoverable, so any ERC-20 and ERC-721 tokens can be transferred to the treasury by DAO.
 
-The currently deployed version is upgradable because of anticipated changes in Ethereum withdrawals mechanics.
+The currently deployed version is upgradable because of anticipated Ethereum withdrawal mechanics changes.
 
 :::note
 The contract is meant to be ossified somewhere after withdrawal credentials triggerable exits are implemented.
@@ -30,12 +31,10 @@ function getContractVersion() returns (uint256)
 
 ### withdrawWithdrawals()
 
-Transfer `_amount` of accumulated withdrawals to the Lido contract.
+Transfer the `_amount` of accumulated withdrawals to the Lido contract.
 
 :::note
-
-Can be called only by the [Lido](lido.md) contract
-
+It can be called only by the [Lido](lido.md) contract.
 :::
 
 ```sol
@@ -47,7 +46,7 @@ function withdrawWithdrawals(uint256 _amount)
 Transfers the given amount of the ERC20-token (defined by the provided token contract address)
 currently belonging to the vault contract address to the Lido treasury address.
 
-Emits the `ERC20Recovered` event.
+Emits a `ERC20Recovered` event.
 
 
 ```sol
