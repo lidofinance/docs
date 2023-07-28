@@ -3,25 +3,45 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.6.12/WstETH.sol)
 - [Deployed Contract](https://etherscan.io/token/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 
-It's an ERC20 token that represents the account's share of the total
-supply of stETH tokens. WstETH token's balance only changes on transfers,
-unlike StETH that is also changed when oracles report staking rewards and
-penalties. It's a "power user" token for DeFi protocols which don't
-support rebasable tokens.
+## What is wrapped stETH (wstETH)?
 
-The contract is also a trustless wrapper that accepts stETH tokens and mints
-wstETH in return. Then the user unwraps, the contract burns user's wstETH
-and sends user locked stETH in return.
+It's an [ERC-20](https://eips.ethereum.org/EIPS/eip-20) value-accruing token
+wrapper for `stETH`. Its balance does not change with each oracle report, but its
+value in `stETH` does. Internally, it represents the user's share of the total
+supply of `stETH` tokens.
 
-The contract provides the staking shortcut: user can send ETH with regular
-transfer and get wstETH in return. The contract will send ETH to Lido submit
-method, staking it and wrapping the received stETH.
+## Why use wstETH?
+
+`wstETH` is mainly used as a layer of compatibility to integrate `stETH` into other
+DeFi protocols, that do not support rebasable tokens. Also, it may be used by
+users for tax optimization, because `stETH` [rebase](lido.md#rebase) may be
+a taxable event in some jurisdictions.
+
+## How to use wstETH?
+
+The contract can be used as a trustless wrapper that accepts stETH tokens and mints
+wstETH in return. When the user unwraps, the contract burns the user's `wstETH`,
+and sends the user locked `stETH` in return.
+
+### Staking shortcut
+
+The user can send ETH with regular transfer to the address of the contract and
+get wstETH in return. The contract will send ETH to Lido submit method,
+staking it and wrapping the received stETH seamlessly under the hood.
+
+## Standards
+
+Contract implements the following Ethereum standards:
+
+- [ERC-20: Token Standard](https://eips.ethereum.org/EIPS/eip-20)
+- [ERC-2612: Permit Extension for ERC-20 Signed Approvals](https://eips.ethereum.org/EIPS/eip-2612)
+- [EIP-712: Typed structured data hashing and signing](https://eips.ethereum.org/EIPS/eip-712)
 
 ## View Methods
 
 ### getWstETHByStETH()
 
-Returns amount of wstETH for a given amount of stETH
+Returns amount of `wstETH` for a given amount of `stETH`
 
 ```sol
 function getWstETHByStETH(uint256 _stETHAmount) returns (uint256)
@@ -35,7 +55,7 @@ function getWstETHByStETH(uint256 _stETHAmount) returns (uint256)
 
 ### getStETHByWstETH()
 
-Returns amount of stETH for a given amount of wstETH
+Returns amount of `stETH` for a given amount of `wstETH`
 
 ```sol
 function getStETHByWstETH(uint256 _wstETHAmount) returns (uint256)
@@ -49,7 +69,7 @@ function getStETHByWstETH(uint256 _wstETHAmount) returns (uint256)
 
 ### stEthPerToken()
 
-Returns the amount of stETH tokens corresponding to one wstETH
+Returns the amount of stETH tokens corresponding to one `wstETH`
 
 ```sol
 function stEthPerToken() returns (uint256)
@@ -57,7 +77,7 @@ function stEthPerToken() returns (uint256)
 
 ### tokensPerStEth()
 
-Returns the amount of wstETH tokens corresponding to one stETH
+Returns the number of `wstETH` tokens corresponding to one `stETH`
 
 ```sol
 function tokensPerStEth() returns (uint256)
@@ -67,7 +87,7 @@ function tokensPerStEth() returns (uint256)
 
 ### wrap()
 
-Exchanges stETH to wstETH
+Exchanges `stETH` to `wstETH`
 
 ```sol
 function wrap(uint256 _stETHAmount) returns (uint256)
@@ -94,7 +114,7 @@ Amount of wstETH user receives after wrap
 
 ### unwrap()
 
-Exchanges wstETH to stETH
+Exchanges wstETH to `stETH`
 
 ```sol
 function unwrap(uint256 _wstETHAmount) returns (uint256)
@@ -116,11 +136,11 @@ Requirements:
 
 #### Returns:
 
-Amount of stETH user receives after unwrap
+Amount of stETH user receives after unwrapping
 
 ### receive()
 
-Shortcut to stake ETH and auto-wrap returned stETH
+Shortcut to stake ETH and auto-wrap returned `stETH`
 
 ```sol
 receive() payable
