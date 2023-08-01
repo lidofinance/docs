@@ -177,6 +177,7 @@ Reverts if any of the following is true:
 | `newValue` | `uint256` | New value of the maxDepositsPerBlock parameter |
 
 ### setMinDepositBlockDistance()
+
 Sets `minDepositBlockDistance`.
 
 The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
@@ -184,6 +185,11 @@ The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of 
 ```sol
 function setMinDepositBlockDistance(uint256 newValue)
 ```
+
+:::note
+Reverts if any of the following is true:
+- `msg.sender` is not the owner.
+:::
 
 #### Parameters
 
@@ -327,7 +333,7 @@ Reverts if any of the following is true:
 
 ### depositBufferedEther()
 
-Calls LIDO.deposit(maxDepositsPerBlock, stakingModuleId, depositCalldata).
+Verifies the deposit security conditions are met and calls `LIDO.deposit(maxDepositsPerBlock, stakingModuleId, depositCalldata)`. Otherwise reverts.
 
 :::note
 Reverts if any of the following is true:
