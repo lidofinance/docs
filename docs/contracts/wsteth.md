@@ -7,15 +7,14 @@
 
 It's an [ERC-20](https://eips.ethereum.org/EIPS/eip-20) value-accruing token
 wrapper for `stETH`. Its balance does not change with each oracle report, but its
-value in `stETH` does. Internally, it represents the user's share of the total
+value in `stETH` does. Internally, it represents the user's [share](../guides/steth-integration-guide#steth-internals-share-mechanics) of the total
 supply of `stETH` tokens.
 
 ## Why use wstETH?
 
 `wstETH` is mainly used as a layer of compatibility to integrate `stETH` into other
-DeFi protocols, that do not support rebasable tokens. Also, it may be used by
-users for tax optimization, because `stETH` [rebase](lido.md#rebase) may be
-a taxable event in some jurisdictions.
+DeFi protocols, that do not support rebasable tokens, especially bridges to L2s and
+other chains, as rebases don't work for bridged assets by default.
 
 ## How to use wstETH?
 
