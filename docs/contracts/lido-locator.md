@@ -9,8 +9,9 @@ It follows the well-known [service locator](https://en.wikipedia.org/wiki/Servic
 ## Upgradability
 
 The contract uses [OssifiableProxy](./ossifiable-proxy.md) for upgradability and
-does not use storage for addresses. Instead, all addresses are embedded into the bytecode as
-immutables and changed by updating the proxy's implementation.
+does not use storage for the address book. Instead, all addresses are embedded into
+the implementation's bytecode as immutables for gas efficiency, allowing one to
+update them along with a proxy implementation.
 
 ## Methods
 
@@ -112,7 +113,8 @@ function withdrawalVault() view returns(address)
 
 ### postTokenRebaseReceiver()
 
-Returns an address of the [Lido contract](./lido.md)
+Returns an address of the contract following the [`IPostTokenRebaseReceiver`](https://github.com/lidofinance/lido-dao/blob/cadffa46a2b8ed6cfa1127fca2468bae1a82d6bf/contracts/0.4.24/Lido.sol#L20-L30) interface described inside `Lido`.
+Right now it returns the [LegacyOracle](./legacy-oracle.md) address
 
 ```sol
 function postTokenRebaseReceiver() view returns(address);
@@ -128,7 +130,9 @@ function oracleDaemonConfig() view returns(address)
 
 ### coreComponents()
 
-Returns a batch of core components addresses
+Returns a batch of core components addresses at once.
+
+It's just a more gas-efficient way of colling several public getters at once.
 
 ```sol
 function coreComponents() view returns(
@@ -141,9 +145,13 @@ function coreComponents() view returns(
 )
 ```
 
+
 ### oracleReportComponentsForLido()
 
-Returns a batch of addresses that is used specifically during oracle report handling in the Lido contract
+Returns a batch of addresses that is used specifically during oracle report
+handling in the Lido contract
+
+It's just a more gas-efficient way of colling several public getters at once.
 
 ```sol
 function oracleReportComponentsForLido() view returns(
