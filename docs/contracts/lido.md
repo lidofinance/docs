@@ -143,6 +143,15 @@ So, the observable outcome of the report for the protocol is the following:
 - CL balance is updated according to the report
 - rewards are distributed among stakers, staking modules and protocol treasury
 
+## Standards
+
+Contract implements the following Ethereum standards:
+
+- [ERC-20: Token Standard](https://eips.ethereum.org/EIPS/eip-20)
+- [ERC-2612: Permit Extension for ERC-20 Signed Approvals](https://eips.ethereum.org/EIPS/eip-2612)
+- [EIP-712: Typed structured data hashing and signing](https://eips.ethereum.org/EIPS/eip-712)
+- [ERC-1271: Standard Signature Validation Method for Contracts](https://eips.ethereum.org/EIPS/eip-1271)
+
 ## View Methods
 
 ### name()

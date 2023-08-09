@@ -121,6 +121,14 @@ To see if the request is claimable, one can get its status using `getWithdrawalS
 the event `WithdrawalsFinalized(uint256 from, uint256 to, ...)`, which is emitted once the batch of requests
 with ids in the range `(from, to]` is finalized.
 
+## Standards
+
+Contract implements the following Ethereum standards:
+
+- [ERC-721: Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
+- [ERC-165: Standard Interface Detection](https://eips.ethereum.org/EIPS/eip-165)
+- [ERC-4906: EIP-721 Metadata Update Extension](https://eips.ethereum.org/EIPS/eip-4906)
+
 ## `ERC-721`-related Methods
 
 ### name()
