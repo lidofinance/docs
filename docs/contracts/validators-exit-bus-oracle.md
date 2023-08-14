@@ -39,13 +39,13 @@ uint256 public constant DATA_FORMAT_LIST = 1
 ```
 
 ### SECONDS_PER_SLOT()
-See https://ethereum.org/en/developers/docs/blocks/
+See https://ethereum.org/en/developers/docs/blocks/#block-time
 ```solidity
 uint256 public immutable SECONDS_PER_SLOT
 ```
 ### GENESIS_TIME()
  See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
- Also its as it is in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
+ Also its presents in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
 ```solidity
 uint256 public immutable GENESIS_TIME
 ```

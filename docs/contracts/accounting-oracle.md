@@ -56,23 +56,27 @@ address public immutable LEGACY_ORACLE
 ```
 
 ### SECONDS_PER_SLOT()
-See https://ethereum.org/en/developers/docs/blocks/
+See https://ethereum.org/en/developers/docs/blocks/#block-time
 ```solidity
 uint256 public immutable SECONDS_PER_SLOT
 ```
 ### GENESIS_TIME()
  See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
- Also its as it is in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
+
+ Also its presents in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
 ```solidity
 uint256 public immutable GENESIS_TIME
 ```
 
 ### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
+This type carries the details of stuck validator(s).
+
 ```solidity
 uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1
 ```
 
 ### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
+This type contains the details of exited validator(s).
 ```solidity
 uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
 ```
@@ -322,25 +326,7 @@ function submitReportData(ReportData calldata data, uint256 contractVersion)
 
 #### Reverts
 
-- Reverts with `SenderNotAllowed()` if caller doesn't have a `SUBMIT_DATA_ROLE` role and is not a member of the oracle committee.
-- Reverts with `UnexpectedContractVersion(expectedVersion, version)` if provided contract version is different from the current one.
-- Reverts with `UnexpectedConsensusVersion(expectedConsensusVersion, consensusVersion)` if provided consensus version is different from the expected one.
-- Reverts with `UnexpectedRefSlot(report.refSlot, refSlot)` if provided reference slot differs from the current consensus frame's one.
-- Reverts with `UnexpectedDataHash(report.hash, hash)` if keccak256 hash of the ABI-encoded data is different from the last hash.
-- Reverts with `NoConsensusReportToProcess()` if report hash data is 0.
-- Reverts with `RefSlotAlreadyProcessing()` if report reference slot is equal to previous processing reference slot.
-- Reverts with `UnexpectedExtraDataHash(bytes32(0), data.extraDataHash)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataHash` is 0
-- Reverts with `UnexpectedExtraDataItemsCount(0, data.extraDataItemsCount)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataItemsCount` is not 0
-- Reverts with `UnsupportedExtraDataFormat(data.extraDataFormat)` if `data.extraDataFormat` is not `EXTRA_DATA_FORMAT_EMPTY` and not `EXTRA_DATA_FORMAT_LIST`
-- Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
-- Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if  `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
-- Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkaccountingextradatalistitemscount)
-- Reverts with `InvalidExitedValidatorsData()` if provided exited validators data doesn't meet safety checks.
-- Reverts with `ArraysLengthMismatch(_stakingModuleIds.length, _exitedValidatorsCounts.length)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
-- Reverts with `ExitedValidatorsCountCannotDecrease()` if provided exited validators data doesn't meet safety checks. (StakingRouter)
-- Reverts with `ReportedExitedValidatorsExceedDeposited(uint256 reportedExitedValidatorsCount,uint256 depositedValidatorsCount)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
-- Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
-- other reverts on `Lido.handleOracleReport()`
+For more information about reverts, see a separate section [here](#reverts-3)
 
 ### submitReportExtraDataEmpty()
 
@@ -504,3 +490,46 @@ Emits on [submitConsensusReport](#submitconsensusreport) when `refSlot != prevSu
 ```solidity
 event WarnProcessingMissed(uint256 indexed refSlot)
 ```
+
+## Reverts
+
+### submitReportData()
+
+To ensure that the reported data is within possible values, the handler function performs a number of sanity checks. When checking, reverts may occur in different contracts. The diagram shows the interaction with other contracts, and below is a description of where, what and why the reversal occurs.
+
+
+```mermaid
+graph LR;
+  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
+  AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
+  AccountingOracle--checkAccountingExtraDataListItemsCount-->OracleReportSanityChecker;
+  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
+  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
+```
+
+#### AccountingOracle and BaseOracle contracts
+
+- Reverts with `SenderNotAllowed()` if caller doesn't have a `SUBMIT_DATA_ROLE` role and is not a member of the oracle committee.
+- Reverts with `UnexpectedContractVersion(expectedVersion, version)` if provided contract version is different from the current one.
+- Reverts with `UnexpectedConsensusVersion(expectedConsensusVersion, consensusVersion)` if provided consensus version is different from the expected one.
+- Reverts with `UnexpectedRefSlot(report.refSlot, refSlot)` if provided reference slot differs from the current consensus frame's one.
+- Reverts with `UnexpectedDataHash(report.hash, hash)` if keccak256 hash of the ABI-encoded data is different from the last hash.
+- Reverts with `NoConsensusReportToProcess()` if report hash data is 0.
+- Reverts with `RefSlotAlreadyProcessing()` if report reference slot is equal to previous processing reference slot.
+- Reverts with `UnexpectedExtraDataHash(bytes32(0), data.extraDataHash)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataHash` is 0
+- Reverts with `UnexpectedExtraDataItemsCount(0, data.extraDataItemsCount)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataItemsCount` is not 0
+- Reverts with `UnsupportedExtraDataFormat(data.extraDataFormat)` if `data.extraDataFormat` is not `EXTRA_DATA_FORMAT_EMPTY` and not `EXTRA_DATA_FORMAT_LIST`
+- Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
+- Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if  `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
+- Reverts with `InvalidExitedValidatorsData()` if provided exited validators data doesn't meet safety checks.
+
+#### OracleReportSanityChecker
+- Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkaccountingextradatalistitemscount)
+- Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
+
+#### StakingRouter
+- Reverts with `ArraysLengthMismatch(_stakingModuleIds.length, _exitedValidatorsCounts.length)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
+- Reverts with `ExitedValidatorsCountCannotDecrease()` if provided exited validators data doesn't meet safety checks. (StakingRouter)
+- Reverts with `ReportedExitedValidatorsExceedDeposited(uint256 reportedExitedValidatorsCount,uint256 depositedValidatorsCount)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
+
+Other reverts on `Lido.handleOracleReport()`
