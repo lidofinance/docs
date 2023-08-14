@@ -133,13 +133,6 @@ Returns the address of the core `Lido` contract.
 function getLido() public view returns (address)
 ```
 
-**Returns:**
-
-| Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
-| | `address` | Lido contract address |
-
-
 ### `getStakingModules`
 
 Returns the list of structs of all registered staking modules. Each staking module has an associated data structure,
