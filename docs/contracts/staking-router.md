@@ -10,7 +10,7 @@ StakingRouter is a registry of staking modules, each encapsulating a certain val
 StakingRouter is a top-level controller contract for staking modules. Each staking module is a contract that, in turn, manages its own subset of validators, e.g. the [Curated](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) staking module is a set of Lido DAO-vetted node operators. Such modular design opens the opportunity for anyone to build a staking module and join the Lido staking platform, including permissionless community stakers, DVT-enabled validators or any other validator subset, technology or mechanics.
 
 StakingRouter performs a number of functions, including:
-- a registry of staking modules,
+- maintaining a registry of staking modules,
 - allocating stake to modules, and
 - distributing protocol fees.
 
@@ -44,8 +44,8 @@ enum StakingModuleStatus {
 
 ### Exited and stuck validators
 
-When the withdrawal requests exceed the Lido reserved buffer, the protocol signals to node operators to start exiting validators to cover the withdrawals. In this connection, StakingRouter distinguishes two types of validator states:
-- exited validators,
+When the withdrawal requests demand exceed buffered ether sitting in Lido together with projected rewards, the protocol signals to node operators to start exiting validators to cover the withdrawals. In this connection, StakingRouter distinguishes two types of validator states:
+- [exited](https://hackmd.io/zHYFZr4eRGm3Ju9_vkcSgQ?view) validators,
 - and stuck validators, meaning those validators that failed to comply with the exit signal.
 
 StakingRouter keeps track of both of these types of validators in order to correctly allocate stake and penalize stuck validators. These stats are kept up to date via the oracles submitting the data to the contract.
@@ -56,9 +56,9 @@ StakingRouter carries out a vital task of distributing depositable ether to stak
 
 ### Deposit
 
-The deposit workflow involves submitting batches of 32 ether deposits, along with associated validator keys, to DepositContract in one transaction. Given that each staking module handles its own deposits, every batch deposit is restricted to keys originating from a single module.
+The deposit workflow involves submitting batches of 32 ether deposits, along with associated validator keys, to [`DepositContract`](https://ethereum.org/en/staking/deposit-contract/) in one transaction. Given that each staking module handles its own deposits, every batch deposit is restricted to keys originating from a single module.
 
-The deposit operation is, at its core, a sequence of contract calls sparked by an off-chain software, the depositor bot. This bot gathers guardian messages to confirm that there are no pre-existing keys in the registry that could take advantage of the [frontrunning vulnerability](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). Once the necessary quorum of guardians is reached, the bot forwards these messages along with the module identifier to the DepositSecurityModule (not to be confused with a staking module). This contract first verifies the messages, then initiates the deposit function on Lido, passing along the maximum number of deposits that the current block size can accommodate. Subsequently, Lido calculates the maximum number of deposits that can be included in the batch based on the existing deposit buffer, and triggers StakingRouter's deposit function. The StakingRouter then determines the distribution of buffered ether to the module that will use its keys in the deposit, and finally executes the batch deposit.
+The deposit operation is, at its core, a sequence of contract calls sparked by an off-chain software, the [depositor bot](https://github.com/lidofinance/depositor-bot). This bot gathers guardian messages to confirm that there are no pre-existing keys in the registry that could take advantage of the [frontrunning vulnerability](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). Once the necessary quorum of guardians is reached, the bot forwards these messages along with the module identifier to the DepositSecurityModule (not to be confused with a staking module). Tdhis contract first verifies the messages, then initiates the deposit function on Lido, passing along the maximum number of deposits that the current block size can accommodate. Subsequently, Lido calculates the maximum number of deposits that can be included in the batch based on the existing deposit buffer, and triggers StakingRouter's deposit function. The StakingRouter then determines the distribution of buffered ether to the module that will use its keys in the deposit, and finally executes the batch deposit.
 
 The `deposit` function begins by verifying the sender's identity and checking the withdrawal credentials and the status of the staking module. After these checks, it updates the contract's local state by recording the current timestamp and block number as the last deposit time and block for the staking module. It then emits an event to log the deposit transaction, and checks if the deposit value matches with the required total deposit size. If there are deposits to be made, it gets deposit data (public keys and signatures) from the staking module contract. It then makes deposits to `DepositContract` using the obtained data. Finally, it confirms that all deposited ETH has been correctly transferred to the contract by comparing the contract's ether balance before and after the deposit transaction.
 
@@ -66,7 +66,7 @@ The `deposit` function begins by verifying the sender's identity and checking th
 
 The algorithm used for the allocation process is designed to consider various factors, including the limit of deposits per transaction, the quantity of ether ready for deposit, the active and available keys within each module, and each module's target share. It then estimates the maximum deposit based on these parameters. The algorithm also identifies the key limits for all modules, and initiates the allocation of keys, starting with the module that has the least active keys. This continues until there is no more ether to allocate or when all the modules have reached their capacity. At the end of the process, any remaining ether is returned.
 
-The allocation function uses the `MinFirstAllocationStrategy` algorithm to allocate new deposits among different staking modules.
+The allocation function uses the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/lido-dao/blob/master/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm to allocate new deposits among different staking modules.
 
 Here is a breakdown of the process:
 
@@ -92,9 +92,9 @@ To sum up, this function is using the `MinFirstAllocationStrategy` algorithm to 
 
 ## Fee distribution
 
-The fee structure is set independently in each module. There are two components to the fee structure: the module fee and the treasury fee, both specified as percentages (basis points). For example, a 5% (500 basis points) module fee split between node operators in the module and a 5% (500 basis points) treasury fee sent to the treasury. Additionally, `StakingRouter` utilizes a precision factor of 100 * 1018 for fees that prevents arithmetic operations from truncating the fees of small modules.
+The fee structure is set independently in each module. There are two components to the fee structure: the module fee and the treasury fee, both specified as percentages (basis points). For example, a 5% (500 basis points) module fee split between node operators in the module and a 5% (500 basis points) treasury fee sent to the treasury. Additionally, `StakingRouter` utilizes a precision factor of 100 * 10^18 for fees that prevents arithmetic operations from truncating the fees of small modules.
 
-Because Lido does not account for validator performance, the protocol fee is distributed between modules proportionally to active validators and the specified module fee. For example, a module with 75% of all validators in the protocol and a 5% module fee will receive 3.75% of the total rewards across the protocol. This means that if the modules' fee and treasury fee do not exceed 10%, the total protocol fee will not either, no matter how many modules there are. There is also an edge case where the module is stopped for emergency while its validators are still active. In this case the module fee will be transferred to the treasury and once the module is back online, the rewards will be returned back to the module from the treasury.
+Because the protocol does not currently account for per-validator performance, the protocol fee is distributed between modules proportionally to active validators and the specified module fee. For example, a module with 75% of all validators in the protocol and a 5% module fee will receive 3.75% of the total rewards across the protocol. This means that if the modules' fee and treasury fee do not exceed 10%, the total protocol fee will not either, no matter how many modules there are. There is also an edge case where the module is stopped for emergency while its validators are still active. In this case the module fee will be transferred to the treasury and once the module is back online, the rewards will be returned back to the module from the treasury.
 
 The distribution function itself works as follows:
 
@@ -115,6 +115,13 @@ The distribution function itself works as follows:
 6. If there are staking modules with no active validators, it shrinks the `stakingModuleIds`, `recipients`, and `stakingModuleFees` arrays to exclude those modules.
     
 Finally, the function returns five arrays/values: `recipients`, `stakingModuleIds`, `stakingModuleFees`, `totalFee`, and `precisionPoints`. These give the caller an overview of how rewards are distributed amongst the staking modules.
+
+## Helpful links
+
+- [Staking Router ADR](https://hackmd.io/f1wvHzpjTIq41-GCrdaMjw?view)
+- [Staking Router LIP](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-20.md)
+- [Lido on Ethereum Validator Exits Policy](https://hackmd.io/zHYFZr4eRGm3Ju9_vkcSgQ?)
+
 
 ## View methods
 
