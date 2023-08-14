@@ -1,5 +1,13 @@
 # Validator Keys
 
+Validator keys are added in several sequential steps. These steps are similar for each time new keys are added.
+1. [Generating signing keys](#generating-signing-keys)
+2. [Validating these keys](#validating-the-keys)
+3. [Submitting the keys to the Node Operator Registry](#submitting-the-keys)
+4. [Importing the keys to a validator client](#importing-the-keys-to-a-lighthouse-validator-client)
+5. [Checking the keys](#checking-the-keys-of-all-lido-node-operators)
+6. [Submitting a motion to increase the staking limit](#increasing-the-staking-limits-with-an-easy-track-motion)
+
 ## Generating signing keys
 
 Upon inclusion into the protocol, a Node Operator should generate and submit a set of [BLS12-381]
@@ -230,3 +238,11 @@ If the new keys are present and valid, Node Operators can vote for increasing th
 #### You spot invalid keys
 
 It is urgent to notify Lido team and other Node Operators as soon as possible. For example, in the group chat.
+
+## Increasing the Staking Limits with an Easy Track motion
+
+Once new keys are present and valid, a motion can be proposed to increase the staking limit for the Node Operator.
+
+[Node Operators Guide to Easy Track](https://docs.lido.fi/guides/easy-track-guide#node-operators-guide-to-easy-track)
+
+

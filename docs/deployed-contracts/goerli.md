@@ -63,6 +63,11 @@
   - AddAllowedRecipient: [`0x785A8B1CDC03Bb191670Ed4696e9ED5B11Af910A`](https://goerli.etherscan.io/address/0x785A8B1CDC03Bb191670Ed4696e9ED5B11Af910A)
   - RemoveAllowedRecipient: [`0xEFEa524D1739800fF6F7d2532ED4C8508220239a`](https://goerli.etherscan.io/address/0xEFEa524D1739800fF6F7d2532ED4C8508220239a)
   - TopUpAllowedRecipients: [`0xF2f7FC1E8879c10D4579Bc82D5FEa923A5a228dE`](https://goerli.etherscan.io/address/0xF2f7FC1E8879c10D4579Bc82D5FEa923A5a228dE)
+- **Rewards Share stETH** (committee ms [`0xc4094c015666CBC093FffDC9BB3CF077a864ddB3`](https://app.safe.global/gor:0xc4094c015666CBC093FffDC9BB3CF077a864ddB3/home))
+  - AllowedRecipientsRegistry: [`0x8b59609f4bEa230E565Ae0C3C7b6913746Df1cF2`](https://goerli.etherscan.io/address/0x8b59609f4bEa230E565Ae0C3C7b6913746Df1cF2)
+  - AddAllowedRecipient: [`0x51916FC3D24CbE19c5e981ae8650668A1F5cF19B`](https://goerli.etherscan.io/address/0x51916FC3D24CbE19c5e981ae8650668A1F5cF19B)
+  - RemoveAllowedRecipient: [`0x932aab3D6057ed2Beef95471414831C4535600E9`](https://goerli.etherscan.io/address/0x932aab3D6057ed2Beef95471414831C4535600E9)
+  - TopUpAllowedRecipients: [`0x5Bb391170899A7b8455A442cca65078ff3E1639C`](https://goerli.etherscan.io/address/0x5Bb391170899A7b8455A442cca65078ff3E1639C)
 - **LEGO DAI** (committee ms [`0xc4094c015666CBC093FffDC9BB3CF077a864ddB3`](https://app.safe.global/gor:0xc4094c015666CBC093FffDC9BB3CF077a864ddB3/home))
   - AllowedRecipientsRegistry: [`0x5884f5849414D4317d175fEc144e2F87f699B082`](https://goerli.etherscan.io/address/0x5884f5849414D4317d175fEc144e2F87f699B082)
   - TopUpAllowedRecipients: [`0xbf44eC2b23cA105F8a62e0587900a09A473288c6`](https://goerli.etherscan.io/address/0xbf44eC2b23cA105F8a62e0587900a09A473288c6)
@@ -96,3 +101,38 @@
 
 ## DAO-ops contracts & addresses
 - TRP VestingEscrowFactory: [`0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7`](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
+
+## Lido on L2
+
+### Arbitrum
+
+##### Ethereum part
+
+- L1ERC20TokenGateway: [`0x0ecCFbBEe34f04187361818832385EB4cC11b678`](https://goerli.etherscan.io/address/0x0ecCFbBEe34f04187361818832385EB4cC11b678) (proxy)
+- L1ERC20TokenGateway: [`0xd16d006Afbdf4bFbab994685878618B0a9ebF4b2`](https://goerli.etherscan.io/address/0xd16d006Afbdf4bFbab994685878618B0a9ebF4b2) (impl)
+
+##### Arbitrum part
+
+- WstETH ERC20Bridged: [`0xbED18985eC648Ce4b0C5Fc3061d1323116702BC4`](https://goerli.arbiscan.io/address/0xbED18985eC648Ce4b0C5Fc3061d1323116702BC4) (proxy)
+- WstETH ERC20Bridged: [`0x944eda38422a1E3A1F36899109330683260D5bB7`](https://goerli.arbiscan.io/address/0x944eda38422a1E3A1F36899109330683260D5bB7) (impl)
+- L2ERC20TokenGateway: [`0x12dD5832Fd7e02e49d97D1CBBd14579794945c1E`](https://goerli.arbiscan.io/address/0x12dD5832Fd7e02e49d97D1CBBd14579794945c1E) (proxy)
+- L2ERC20TokenGateway: [`0x3B6DFc77Bc3fB6f893D1c356b9e81E3d44E73DFE`](https://goerli.arbiscan.io/address/0x3B6DFc77Bc3fB6f893D1c356b9e81E3d44E73DFE) (impl)
+- Arbitrum Governance Bridge Executor: [`0x43De3B7115baA4EbAbd7c5Eaf4cB2856238C6A50`](https://goerli.arbiscan.io/address/0x43De3B7115baA4EbAbd7c5Eaf4cB2856238C6A50)
+- LDO token: [`0xe04554C3d1a172581597505D7061C418226EdC23`](https://goerli.arbiscan.io/address/0xe04554C3d1a172581597505D7061C418226EdC23) (proxy)
+
+
+### Optimism
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0xDdC89Bd27F9A1C47A5c20dF0783dE52f55513598`](https://goerli.etherscan.io/address/0xDdC89Bd27F9A1C47A5c20dF0783dE52f55513598) (proxy)
+- L1ERC20TokenBridge: [`0xb291a7f092D5cCE0A3C93eA21Bda3431129dB202`](https://goerli.etherscan.io/address/0xb291a7f092D5cCE0A3C93eA21Bda3431129dB202) (impl)
+
+##### Optimism part
+
+- WstETH ERC20Bridged: [`0xe8964a99d5DE7cEE2743B20113a52C953b0916E9`](https://goerli-optimism.etherscan.io/address/0xe8964a99d5DE7cEE2743B20113a52C953b0916E9) (proxy)
+- WstETH ERC20Bridged: [`0x2770f1E47f6cFC88189320d5760f958269b23CC3`](https://goerli-optimism.etherscan.io/address/0x2770f1E47f6cFC88189320d5760f958269b23CC3) (impl)
+- L2ERC20TokenBridge: [`0x423702bC3Fb92f59Be440354456f0481934bF1f5`](https://goerli-optimism.etherscan.io/address/0x423702bC3Fb92f59Be440354456f0481934bF1f5) (proxy)
+- L2ERC20TokenBridge: [`0x04A1Ac7C5c08eD244f1d69EbB682984Ba7dBf93C`](https://goerli-optimism.etherscan.io/address/0x04A1Ac7C5c08eD244f1d69EbB682984Ba7dBf93C) (impl)
+- Optimism Governance Bridge Executor: [`0x55C39356C714Cde16F8a80302c1Ce9DfAC6f5a35`](https://goerli-optimism.etherscan.io/address/0x55C39356C714Cde16F8a80302c1Ce9DfAC6f5a35)
+- LDO token: [`0xE265FC71d45fd791c9ebf3EE0a53FBB220Eb8f75`](https://goerli-optimism.etherscan.io/address/0xE265FC71d45fd791c9ebf3EE0a53FBB220Eb8f75)
