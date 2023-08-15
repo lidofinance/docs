@@ -221,7 +221,7 @@ Contract implements the following Ethereum standards:
 
 ### fallback
 
-Send funds to the pool and mints `StETH` tokens to `msg.sender` address
+Sends funds to the pool and mints `StETH` tokens to the `msg.sender` address
 
 ```sol
 function() payable
@@ -233,8 +233,8 @@ Allows users to submit their funds by sending it to the contract address
 
 ### submit()
 
-Send funds to the pool with the optional `_referral` parameter and mints `StETH`
-tokens to `msg.sender` address
+Sends funds to the pool with the optional `_referral` parameter and mints `StETH`
+tokens to the `msg.sender` address
 
 ```sol
 function submit(address _referral) payable returns (uint256)
