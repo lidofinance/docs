@@ -234,7 +234,9 @@ Allows users to submit their funds by sending it to the contract address
 ### submit()
 
 Sends funds to the pool with the optional `_referral` parameter and mints `StETH`
-tokens to the `msg.sender` address
+tokens to the `msg.sender` address.
+
+See https://lido.fi/referral for referral program details.
 
 ```sol
 function submit(address _referral) payable returns (uint256)
