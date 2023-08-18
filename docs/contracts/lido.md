@@ -17,7 +17,7 @@ Lido is a liquid staking pool and the core contract that is responsible for:
 - passing buffered ether further to [StakingRouter](/contracts/staking-router) or [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721)
 
 Also, Lido is an [ERC-20](https://eips.ethereum.org/EIPS/eip-20) rebasing token,
-which represents staked ether, `stETH`. Tokens are minted upon deposit and
+which represents staked ether, `stETH`. Tokens are minted upon ether submission and
 burned when redeemed. `stETH` holder balances are updated daily with oracle
 reports.
 It also implements the [ERC-2612](https://eips.ethereum.org/EIPS/eip-2612)
@@ -73,6 +73,12 @@ deposit frontrunning vulnerability.
 graph LR;
   A[/  \]--depositBufferedEther-->DepositSecurityModule-->Lido-->StakingRouter-->NodeOperatorsRegistry;
 ```
+
+## Redeem
+
+The token might be redeemed for ether through the protocol using
+the [`WithdrawalQueueERC721`](./withdrawal-queue-erc721.md) contract leveraging [staking withdrawals](https://ethereum.org/en/staking/withdrawals/)
+enabled with the Shanghai/Capella (aka "Shapella") Ethereum hardfork.
 
 ## Rebase
 
@@ -236,7 +242,7 @@ Allows users to submit their funds by sending it to the contract address
 Sends funds to the pool with the optional `_referral` parameter and mints `StETH`
 tokens to the `msg.sender` address.
 
-See https://lido.fi/referral for referral program details.
+See <https://lido.fi/referral> for referral program details.
 
 ```sol
 function submit(address _referral) payable returns (uint256)
