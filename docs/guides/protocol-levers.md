@@ -132,7 +132,7 @@ Lido implements an architecture design which was proposed in the Lido Improvemen
 
 These execution layer rewards are initially accumulated on the dedicated [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
 
-There is an additional limit to prevent drastical token rebase events.
+There is an additional limit to prevent drastic token rebase events.
 See the following issue: [`#405`](https://github.com/lidofinance/lido-dao/issues/405)
 
 - Mutator: `setELRewardsVault()`

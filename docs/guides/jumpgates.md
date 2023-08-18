@@ -9,13 +9,13 @@ In this step we will be making sure that the jumpgate is correctly configured. Y
 
 Go to [Etherscan](https://etherscan.io/)  and open the Jumpgate page. Click the "Contract" tab, the green check mark confirms that the source code is verified. Check the parameters:
 - `arbiterFee` is always 0;
-- `bridge` is the address of the bridge. Currenty, all jumpgates use only Wormhole Token bridge at [`0x3ee18B2214AFF97000D974cf647E7C347E8fa585`](https://etherscan.io/address/0x3ee18B2214AFF97000D974cf647E7C347E8fa585), and you can check the address against the [Wormhole docs](https://book.wormhole.com/reference/contracts.html);
+- `bridge` is the address of the bridge. Currently, all jumpgates use only Wormhole Token bridge at [`0x3ee18B2214AFF97000D974cf647E7C347E8fa585`](https://etherscan.io/address/0x3ee18B2214AFF97000D974cf647E7C347E8fa585), and you can check the address against the [Wormhole docs](https://book.wormhole.com/reference/contracts.html);
 - `nonce` is always 0;
 - `owner` is the Aragon Agent at [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) verifiable against [Deployed contracts](/deployed-contracts#dao-contracts);
-- `recipient` is the recipient address in hexadecimal form. For Solana, this will an encoded LDO token account. Use [Base 58 decoder](https://appdevtools.com/base58-encoder-decoder) to decode this hexadecimal sequence to the Solana address format. 
-- `recipientChain` is the target chain identifier. If the Jumpgate is using Wormhole bridge, you can check the id against the [Wormhole docs](https://book.wormhole.com/reference/contracts.html), Solana id is 1; 
+- `recipient` is the recipient address in hexadecimal form. For Solana, this will an encoded LDO token account. Use [Base 58 decoder](https://appdevtools.com/base58-encoder-decoder) to decode this hexadecimal sequence to the Solana address format.
+- `recipientChain` is the target chain identifier. If the Jumpgate is using Wormhole bridge, you can check the id against the [Wormhole docs](https://book.wormhole.com/reference/contracts.html), Solana id is 1;
 - `renounceOwnership` should yield an error;
-- `token` is the address of the token being transfered, e.g. LDO at [0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32). Check the LDO address against [Deployed contracts](/deployed-contracts#dao-contracts).
+- `token` is the address of the token being transferred, e.g. LDO at [0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32). Check the LDO address against [Deployed contracts](/deployed-contracts#dao-contracts).
 
 ![](/img/jumpgates/read-contract.png)
 
