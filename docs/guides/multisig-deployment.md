@@ -200,7 +200,7 @@ Run the following:
 $ yarn hardhat --network mainnet run ./scripts/multisig/02-obtain-deployed-instances.js
 ```
 
-This step will verify the deployed contracts and add the following fields to the netwotk state file:
+This step will verify the deployed contracts and add the following fields to the network state file:
 
 - `daoTemplateAddress` address of the `LidoTemplate` contract
 - `app:lido.baseAddress` address of the `Lido` implementation contract
@@ -232,7 +232,7 @@ first one is included in a block, but no more than 86400 seconds after that.
 ```
 
 The step will generate two transaction files. You'll need to send these transactions one after
-another, waiting no less than one minite between them:
+another, waiting no less than one minute between them:
 
 ```text
 $ yarn hardhat --network mainnet tx --from $DEPLOYER --file tx-02-1-commit-ens-registration.json
@@ -378,7 +378,7 @@ be added to the network state file:
 
 - `daoAddress` the address of the DAO instance;
 - `daoTokenAddress` the address of the DAO governance token;
-- `proxyAddress` keys under `app:*` keys: adresses of the app instances.
+- `proxyAddress` keys under `app:*` keys: addresses of the app instances.
 
 ## 10. Issue DAO governance tokens
 
@@ -389,7 +389,7 @@ Add the `vestingParams` key to the network state file containing the following:
   "vestingParams": {
     // unvested tokens will be held on the DAO Agent app
     "unvestedTokensAmount": "10000000000000000000000",
-    // token holder assresses and their respective amounts
+    // token holder addresses and their respective amounts
     "holders": {
       "0xaabbcc0000000000000000000000000000000000": "100000000000000000000",
       // ...

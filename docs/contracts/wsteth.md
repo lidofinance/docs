@@ -131,7 +131,7 @@ Requirements:
 
 | Parameter Name  | Type      | Description                                     |
 | --------------- | --------- | ----------------------------------------------- |
-| `_wstETHAmount` | `uint256` | amount of wstETH to uwrap in exchange for stETH |
+| `_wstETHAmount` | `uint256` | amount of wstETH to unwrap in exchange for stETH |
 
 #### Returns:
 

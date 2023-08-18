@@ -75,9 +75,9 @@ choosing the `_maxShareRate` and the size of the batch taking in account followi
 from the new users' stake, Beacon chain partial and full withdrawals, protocol tips, and MEV rewards.
 Withdrawals are prioritized over deposits, so ether can't be deposited to the Beacon chain if some withdrawal requests
 can be fulfilled.
-- if enough time has passed since the witdrawal request was placed in the queue (timelock)
+- if enough time has passed since the withdrawal request was placed in the queue (timelock)
 - If there was some massive loss for the protocol on the Beacon Chain side since the withdrawal request was filed.
-It can lead to finalization by the rate lower than 1:1 if the loss will be hign enough to be not covered
+It can lead to finalization by the rate lower than 1:1 if the loss will be high enough to be not covered
 with daily rewards (never happened before)
 
 :::note

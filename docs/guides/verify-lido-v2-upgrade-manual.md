@@ -57,7 +57,7 @@ CURATED_STAKING_MODULE_TYPE = 0x637572617465642d6f6e636861696e2d7631000000000000
 ## OracleDaemonConfig
 
 ```python
-# Parameters realted to "bunker mode"
+# Parameters related to "bunker mode"
 # See https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
 # and https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330
 # NB: BASE_REWARD_FACTOR: https://ethereum.github.io/consensus-specs/specs/phase0/beacon-chain/#rewards-and-penalties
