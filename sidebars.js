@@ -71,7 +71,6 @@ module.exports = {
       type: 'category',
       label: 'Token guides',
       items: [
-        'token-guides/steth-superuser-functions',
         'token-guides/steth-on-aave-caveats',
       ],
     },
@@ -105,7 +104,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Security',
-      items: ['security/bugbounty'],
+      items: [
+        'security/bugbounty',
+        'security/roles-roster'
+      ],
     },
     {
       type: 'category',

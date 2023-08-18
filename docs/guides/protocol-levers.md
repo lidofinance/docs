@@ -7,7 +7,7 @@ the DAO voting, and other entities can be allowed to do the same only as a resul
 
 All existing levers are listed below, grouped by the contract.
 
-### A note on upgradeability
+## A note on upgradeability
 
 The following contracts are upgradeable by the DAO voting:
 
@@ -22,9 +22,10 @@ The following contracts are upgradeable by the DAO voting:
 - [`LegacyOracle`](/contracts/legacy-oracle)
 
 Upgradeability is implemented either by the Aragon kernel and base contracts OR by the [OssifiableProxy](/contracts/ossifiable-proxy) instances.
-To upgrade an Aragon app, one needs the `dao.APP_MANAGER_ROLE` permission provided by Aragon.
-To upgrade an `OssifiableProxy` implementation, one needs to be an owner of the proxy.
-As it was said previously, both belong either to the DAO `Voting` or `Agent` apps.
+
+- To upgrade an Aragon app, one needs the `dao.APP_MANAGER_ROLE` permission provided by Aragon.
+- To upgrade an `OssifiableProxy` implementation, one needs to be an owner of the proxy.
+- As it was said previously, both belong either to the DAO [`Voting`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e) or [`Agent`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) apps.
 
 All upgradeable contracts use the [Unstructured Storage pattern] in order to provide stable storage structure across upgrades.
 
@@ -32,39 +33,42 @@ All upgradeable contracts use the [Unstructured Storage pattern] in order to pro
 Some of the contracts still contain structured storage data, hence the order of inheritance always matters.
 :::
 
-[unstructured storage pattern]: https://blog.openzeppelin.com/upgradeability-using-unstructured-storage
+[Unstructured Storage pattern]: https://blog.openzeppelin.com/upgradeability-using-unstructured-storage
 
 ## [Lido](/contracts/lido)
 
 ### Burning stETH tokens
 
-There is a dedicated contract responsible for `stETH` tokens burning.
-The burning itself is a part of the core protocol procedures:
+The `stETH` token burning itself is a part of the core protocol regular procedures:
 
 - deduct underlying finalized withdrawal request `stETH`, see [`Lido.handleOracleReport`](/contracts/lido#handleOracleReport)
 - penalize delinquent node operators by halving their rewards, see [`NodeOperatorsRegistry._distributeRewards](/contracts/node-operators-registry#_distributeRewards)
 
-These responsibilities are controlled by the `REQUEST_BURN_SHARES_ROLE` role which is assigned to both
+These responsibilities are controlled by the [`REQUEST_BURN_SHARES_ROLE`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3#readContract#F3) role which is assigned to both
 [`Lido`](/contracts/lido) and [`NodeOperatorsRegistry`](/contracts/node-operators-registry) contracts.
-This role should not be ever permanently assigned to another entities.
 
-Apart from this, `stETH` token burning can be applied to compensate for penalties/slashing losses by the DAO decision.
-It's possible via more restrictive role `REQUEST_BURN_MY_STETH_ROLE` which is currently unassigned.
+:::note
+The `REQUEST_BURN_SHARES_ROLE` role should not be ever permanently assigned to another entities.
+:::
+
+Apart from this, the `stETH` token burning can be applied to compensate for penalties/slashing losses by the DAO decision.
+It's possible via the more restrictive role [`REQUEST_BURN_MY_STETH_ROLE`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3#readContract#F2) which is currently unassigned.
 
 The key difference that despite of both roles rely on the `stETH` allowance provided to the `Burner` contract,
-the latter allows token burning only from the request originator balance.
+the latter allows token burning only from the request originator balance not relying on general allowance.
 
 ### Pausing
 
 - Mutator: `stop()`
-  - Permission required: `PAUSE_ROLE`
+  - Permission required: [`PAUSE_ROLE`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F13)
 - Mutator: `resume()`
-  - Permission required: `RESUME_ROLE`
+  - Permission required: [`RESUME_ROLE`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F8)
 - Accessor: `isStopped() returns (bool)`
 
 When paused, `Lido` doesn't accept user submissions, doesn't allow user withdrawals and oracle
-report submissions. No token actions (burning, transferring, approving transfers and changing
-allowances) are allowed. The following transactions revert:
+report submissions. No token ownership-changing actions (burning, transferring) are allowed.
+
+The following transactions revert if Lido is paused:
 
 - plain Ether transfers to `Lido`;
 - calls to `submit(address)`;
@@ -73,10 +77,7 @@ allowances) are allowed. The following transactions revert:
 - calls to `transfer(address, uint256)`;
 - calls to `transferFrom(address, address, uint256)`;
 - calls to `transferShares(address, uint256)`;
-- calls to `transferSharesFrom(address, uint256)`;
-- calls to `approve(address, uint256)`;
-- calls to `increaseAllowance(address, uint256)`;
-- calls to `decreaseAllowance(address, uint256)`.
+- calls to `transferSharesFrom(address, uint256)`.
 
 As a consequence of the list above:
 
@@ -96,18 +97,70 @@ External stETH/wstETH DeFi integrations are directly affected as well.
 The method unsafely changes deposited validator counter.
 Can be required when onboarding external validators to Lido (i.e., had deposited before and rotated their type-0x00 withdrawal credentials to Lido).
 
+:::note
 The incorrect values might disrupt protocol operation.
+:::
 
 ### Oracle report
 
-TODO: oracle reports are committee-driven
+StETH is a rebasable token.
+
+It receives reports from the `AccoutingOracle` contract (via the `Lido.handleOracleReport` method) with the state of the protocol's Consensus Layer validators balances, and updates all the balances of stETH holders distributing the protocol's total staking rewards and penalties. This result in a change of the balances of all `stETH` holders.
+
+The protocol employs distributed Oracle reporting: there are **nine** Oracle daemons running by the Lido Node operators, and the Oracle smart contract formats beacon report on the consensus of **five** of **nine** daemon reports. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total Consensus Layer balance or rewards with higher-than-possible APY and other security measurements.
+
+The oracle committee is responsible for delivering two types of reports:
+
+- Protocol's accounting data to [`AccountingOracle`](/contracts/accounting-oracle): Consensus Layer validators state,
+balances of the execution layer and withdrawal vaults, `stETH` amount already requested to burn, and withdrawal request ranges to be finalized.
+- Validator exits requests to [`ValidatorsExitBus`](/contracts/validators-exit-bus-oracle): validator indexes to request a voluntary exit propagation from the side of a node operator
+
+Note that:
+
+- The Lido DAO can set another addresses for the oracle contracts (it was case with the Lido V2 upgrade)
+- The implementation of the contract can be changed as well
+
+#### Oracle committee members
+
+The following addresses form the Lido oracle members set and only they are allowed to push the new oracle data.
+
+| Name                | Mainnet address                                | Görli address                                  |
+| ------------------- | --------------------------------------------   | ---------------------------------------------- |
+| Chorus One          | [`0x140bd8fbdc884f48da7cb1c09be8a2fadfea776e`] | [`0xA8aF49FB44AAA8EECa9Ae918bb7c05e2E71c9DE9`] |
+| Jumpcrypto          | [`0x1d0813bf088be3047d827d98524fbf779bc25f00`] | [`0x1a13648EE85386cC101d2D7762e2848372068Bc3`] |
+| Staking Facilities  | [`0x404335bce530400a5814375e7ec1fb55faff3ea2`] | [`0xb29dD2f6672C0DFF2d2f173087739A42877A5172`] |
+| P2P                 | [`0x007de4a5f7bc37e2f26c0cb2e8a95006ee9b89b5`] | [`0xfdA7E01B2718C511bF016030010572e833C7aE6A`] |
+| Stakefish           | [`0x946d3b081ed19173dc83cd974fc69e1e760b7d78`] | [`0xD3b1e36A372Ca250eefF61f90E833Ca070559970`] |
+| Rated               | [`0xec4bfbaf681eb505b94e4a7849877dc6c600ca3a`] | [`0x3799bDA7B884D33F79CEC926af21160dc47fbe05`] |
+| bloXroute           | [`0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8`] | [`0x4c75FA734a39f3a21C57e583c1c29942F021C6B7`] |
+| Instadapp           | [`0x1ca0fec59b86f549e1f1184d97cb47794c8af58d`] | [`0x81E411f1BFDa43493D7994F82fb61A415F6b8Fd4`] |
+| Kyber Network       | [`0xA7410857ABbf75043d61ea54e07D57A6EB6EF186`] | [`0x3fF28f2EDE8358E288798afC23Ee299a503aD5C9`] |
+
+[`0x140bd8fbdc884f48da7cb1c09be8a2fadfea776e`]: https://etherscan.io/address/0x140bd8fbdc884f48da7cb1c09be8a2fadfea776e
+[`0x1d0813bf088be3047d827d98524fbf779bc25f00`]: https://etherscan.io/address/0x1d0813bf088be3047d827d98524fbf779bc25f00
+[`0x404335bce530400a5814375e7ec1fb55faff3ea2`]: https://etherscan.io/address/0x404335bce530400a5814375e7ec1fb55faff3ea2
+[`0x007de4a5f7bc37e2f26c0cb2e8a95006ee9b89b5`]: https://etherscan.io/address/0x007de4a5f7bc37e2f26c0cb2e8a95006ee9b89b5
+[`0x946d3b081ed19173dc83cd974fc69e1e760b7d78`]: https://etherscan.io/address/0x946d3b081ed19173dc83cd974fc69e1e760b7d78
+[`0xec4bfbaf681eb505b94e4a7849877dc6c600ca3a`]: https://etherscan.io/address/0xec4bfbaf681eb505b94e4a7849877dc6c600ca3a
+[`0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8`]: https://etherscan.io/address/0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8
+[`0x1ca0fec59b86f549e1f1184d97cb47794c8af58d`]: https://etherscan.io/address/0x1ca0fec59b86f549e1f1184d97cb47794c8af58d
+[`0xA7410857ABbf75043d61ea54e07D57A6EB6EF186`]: https://etherscan.io/address/0xA7410857ABbf75043d61ea54e07D57A6EB6EF186
+[`0xA8aF49FB44AAA8EECa9Ae918bb7c05e2E71c9DE9`]: https://goerli.etherscan.io/address/0xA8aF49FB44AAA8EECa9Ae918bb7c05e2E71c9DE9
+[`0x1a13648EE85386cC101d2D7762e2848372068Bc3`]: https://goerli.etherscan.io/address/0x1a13648EE85386cC101d2D7762e2848372068Bc3
+[`0xb29dD2f6672C0DFF2d2f173087739A42877A5172`]: https://goerli.etherscan.io/address/0xb29dD2f6672C0DFF2d2f173087739A42877A5172
+[`0xfdA7E01B2718C511bF016030010572e833C7aE6A`]: https://goerli.etherscan.io/address/0xfdA7E01B2718C511bF016030010572e833C7aE6A
+[`0xD3b1e36A372Ca250eefF61f90E833Ca070559970`]: https://goerli.etherscan.io/address/0xD3b1e36A372Ca250eefF61f90E833Ca070559970
+[`0x3799bDA7B884D33F79CEC926af21160dc47fbe05`]: https://goerli.etherscan.io/address/0x3799bDA7B884D33F79CEC926af21160dc47fbe05
+[`0x4c75FA734a39f3a21C57e583c1c29942F021C6B7`]: https://goerli.etherscan.io/address/0x4c75FA734a39f3a21C57e583c1c29942F021C6B7
+[`0x81E411f1BFDa43493D7994F82fb61A415F6b8Fd4`]: https://goerli.etherscan.io/address/0x81E411f1BFDa43493D7994F82fb61A415F6b8Fd4
+[`0x3fF28f2EDE8358E288798afC23Ee299a503aD5C9`]: https://goerli.etherscan.io/address/0x3fF28f2EDE8358E288798afC23Ee299a503aD5C9
 
 ### Deposit access control
 
 The `Lido.deposit` method performs an actual deposit (stake) of buffered ether to Consensus Layer
-undergoing through `StakingRouter`, its selected module, and the official Ethereum deposit contract in the end.
+undergoing through `StakingRouter`, its selected module, and the official [Ethereum deposit contract](https://ethereum.org/en/staking/deposit-contract/) in the end.
 
-The method can be called only by `DepositSecurityModule` since access control is a part of the deposits frontrunning vulnerability mitigation.
+The method can be called only by [`DepositSecurityModule`](/contracts/deposit-security-module) since access control is a part of the deposits frontrunning vulnerability mitigation.
 
 Please see [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) for more details.
 
@@ -128,22 +181,7 @@ if the amount of the buffered Ether becomes sufficiently large.
 
 ### Execution layer rewards
 
-Lido implements an architecture design which was proposed in the Lido Improvement Proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part of the Lido Oracle report.
-
-These execution layer rewards are initially accumulated on the dedicated [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
-
-There is an additional limit to prevent drastical token rebase events.
-See the following issue: [`#405`](https://github.com/lidofinance/lido-dao/issues/405)
-
-- Mutator: `setELRewardsVault()`
-  - Permission required: `SET_EL_REWARDS_VAULT_ROLE`
-
-- Mutator: `setELRewardsWithdrawalLimit()`
-  - Permission required: `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE`
-
-- Accessors:
-  - `getELRewardsVault()`;
-  - `getELRewardsWithdrawalLimit()`.
+TODO
 
 ### Staking rate limiting
 
@@ -152,6 +190,7 @@ Lido features a safeguard mechanism to prevent huge APR losses facing the [post-
 New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
 
 Limit explanation scheme:
+
 ```
     * ▲ Stake limit
     * │.....  .....   ........ ...            ....     ... Stake limit = max
@@ -212,7 +251,6 @@ Credentials to withdraw ETH on the Execution Layer side
 
 The protocol uses these credentials to register new Ethereum validators.
 
-
 ## [NodeOperatorsRegistry](/contracts/node-operators-registry)
 
 ### Node Operators list
@@ -260,13 +298,7 @@ Allow to manage signing keys for the given node operator.
 
 Allows to report that `_stoppedIncrement` more validators of a node operator have become stopped.
 
-## [LegacyOracle](/contracts/legacy-oracle)
-
-### Lido
-
-Address of the Lido contract.
-
-- Accessor: `getLido() returns (address)`
+## [AccountingOracle](/contracts/accounting-oracle) and [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle)
 
 ### Members list
 
