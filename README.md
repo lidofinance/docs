@@ -1,6 +1,6 @@
 # Lido Docs
 
-Lido documentation is built using [Docusaurus 2](https://docusaurus.io/). The resulting version of documentation hosted via Github Pages from branch `gh-pages` of this repository.
+Lido documentation is built using (https://docusaurus.io/). The resulting version of documentation hosted via Github Pages from branch `gh-pages` of this repository.
 
 ## Installation
 
@@ -49,7 +49,8 @@ slug: part1.html
 Lorem ipsum
 ```
 
-More information about document metadata fields available [there](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-frontmatter)
+More information about document metadata fields available there
+(https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-frontmatter)
 
 ### Documentation Sidebar
 
@@ -71,7 +72,7 @@ module.exports = {
 }
 ```
 
-Additional information about sidebar and ways to modify it can be found [here](https://docusaurus.io/docs/sidebar)
+Additional information about sidebar and ways to modify it can be found (https://docusaurus.io/docs/sidebar)
 
 ## Build
 
