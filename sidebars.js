@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     'introduction',
     'lido-dao',
-    'guides/steth-integration-guide',
+    'guides/lido-tokens-integration-guide',
     {
       type: 'category',
       label: 'Guides',
