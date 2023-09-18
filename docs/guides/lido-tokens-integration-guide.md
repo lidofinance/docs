@@ -277,12 +277,12 @@ You have several options for requesting withdrawals, they require you to have st
 #### stETH
 
 - Call `requestWithdrawalsWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided
-- Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards
+- Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC721.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards
 
 #### wstETH
 
 - Call `requestWithdrawalsWstETHWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from, and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provide)
-- Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards
+- Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC721.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards
 
 `PermitInput` structure is defined as follows:
 
