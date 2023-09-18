@@ -216,8 +216,8 @@ Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate
 
 ### What is LDO
 
-LDO is a governance token used both for the voting of the Lido DAO ([both off-chain and on-chain](https://lido.fi/governance#regular-process)).
-The token is widely available both in DeFi and CeFi ecosystems.
+LDO is a governance token used for the voting of the Lido DAO ([both off-chain and on-chain](https://lido.fi/governance#regular-process)).
+The token is widely available in DeFi and CeFi ecosystems.
 
 LDO has internal mechanics of the balance snapshots ([`balanceOfAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F5) and [`totalSupplyAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F10)) to allow voting power not being manipulated within the time of the ongoing vote.
 
