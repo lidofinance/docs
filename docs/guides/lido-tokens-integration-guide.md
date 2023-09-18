@@ -13,7 +13,9 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 
 ### stTokens: stETH and wstETH
 
-For ether staked in Lido, it gives users [stETH](#steth) that is equal to the amount staked. Since the `stETH` token is rebasable, there is also its value-accruing wrapped version [wstETH](#wsteth) to ease DeFi integrations.
+For ether staked in Lido, the Lido protocol gives users [stETH](#steth) that is equal to the amount staked.
+For easier DeFi integrations, `stETH` has a non-rebasable value-accruing counterpart called ['wrapped stETH'](#wsteth)
+(or just `wstETH`).
 
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
 
@@ -31,14 +33,16 @@ Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosyst
 ### LDO
 
 [LDO](#ldo-1) is a Lido governance ERC-20 compliant token derived from the [MiniMe Token](https://github.com/Giveth/minime).
-The latter allows the LDO balance to be tracked and retrieved for the arbitrary block number, which is an essential part of the
-Lido voting mechanics.
+Thus, LDO holder balances are queryable for an arbitrary block number, an essential security feature for the Lido voting mechanics.
 
 ### unstETH
 
-A non-fungible token (NFT) is used to represent a withdrawal request position [inside the in-protocol withdrawals queue](/contracts/withdrawal-queue-erc721) when a stToken holder decides to redeem it for Ether via the protocol.
+A non-fungible token (NFT) is used to represent a withdrawal request position [in the protocol-level withdrawals queue](/contracts/withdrawal-queue-erc721) when a stToken holder decides to redeem it for ether via the protocol.
 
-Lido's [unstETH](#withdrawals-unsteth) is non-fungible and implements the ERC-721 token standard in contrast to the abovementioned tokens.
+:::note
+Unlike the other Lido's tokens (`stETH`, `wstETH`, and `LDO`), [unstETH](#withdrawals-unsteth) is non-fungible,
+and implements the ERC-721 token standard.
+:::
 
 ## stETH vs. wstETH
 
@@ -196,29 +200,37 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 ### Goerli wstETH for testing
 
-The most recent testnet version of the Lido protocol lives on the Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Goerli Ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Goerli Ether to WstETH contract on Goerli, and the corresponding amount of wstETH will be minted to your account.
+The most recent testnet version of the Lido protocol lives on the Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Goerli ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Goerli ether to WstETH contract on Goerli, and the corresponding amount of wstETH will be minted to your account.
 
 ### wstETH on L2s
 
-Currently, wstETH token is present on Arbitrum, Optimism, and Polygon PoS with bridging implemented via the canonical bridges. Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network. The token does not implement shares bookkeeping, which means it is not possible to calculate the wstETH/stETH rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose.
+Currently, wstETH token is present on Arbitrum, Optimism, and Polygon PoS with bridging implemented via the canonical bridges.
+
+:::note
+Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network.
+:::
+
+Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose.
 
 ## LDO
 
 ### What is LDO
 
-LDO is a governance token of the Lido DAO used both for the off-chain Snapshot and the on-chain Aragon votings.
-LDO is widely available both in DeFi and CeFi ecosystems.
+LDO is a governance token used both for the voting of the Lido DAO ([both off-chain and on-chain](https://lido.fi/governance#regular-process)).
+The token is widely available both in DeFi and CeFi ecosystems.
 
-The token has internal mechanics of the balance snapshots ([`balanceOfAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F5) and [`totalSupplyAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F10)) to allow voting power not being manipulated within the time of the ongoing vote.
+LDO has internal mechanics of the balance snapshots ([`balanceOfAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F5) and [`totalSupplyAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F10)) to allow voting power not being manipulated within the time of the ongoing vote.
 
 ### Note on ERC-20 compliance
 
 Although the LDO is fully compliant with ERC-20, it is worth noting that the token doesn't revert a transaction on all of the
 failure paths inside both `transfer` and `transferFrom` methods returning the `false` status instead.
 
-It's essentially important to check the return status for external integrations as the ERC-20 token standard [requires](https://eips.ethereum.org/EIPS/eip-20#methods) to prevent various attack vectors (e.g. token deposits in vaults):
+:::note
+It's critical to check the return status for external integrations as the ERC-20 token standard [requires](https://eips.ethereum.org/EIPS/eip-20#methods) to prevent various attack vectors (e.g. token deposits in vaults):
 
 > Callers MUST handle `false` from `returns (bool success)`. Callers MUST NOT assume that `false` is never returned!
+:::
 
 ## ERC20Permit
 
