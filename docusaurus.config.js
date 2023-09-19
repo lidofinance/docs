@@ -50,5 +50,17 @@ module.exports = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // /guides/steth-integration-guide -> /guides/lido-tokens-integration-guide
+          {
+            to: '/guides/lido-tokens-integration-guide',
+            from: '/guides/steth-integration-guide',
+          }
+        ],
+      },
+    ],
   ],
 }
