@@ -1,5 +1,15 @@
 # Holešky
 
+:::note
+🚀 Ongoing Deployment: Lido on Holešky
+
+We're excited to announce that the deployment campaign for Lido on Holešky is currently underway!
+
+🚨 Attention Developers: Proceed with Caution!
+
+Please be aware that you might encounter unexpected behavior during this period. We're working diligently to ensure a smooth deployment, but unforeseen issues can arise.
+:::
+
 ## Holešky testnet
 
 ### Lido V2 Core Protocol
