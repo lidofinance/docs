@@ -58,4 +58,6 @@ Please be aware that you might encounter unexpected behavior during this period.
 
 ### Easy Track
 
-- `TBA`
+- EasyTrack: [`0x1763b9ED3586B08AE796c7787811a2E1bc16163a`](https://holesky.etherscan.io/address/0x1763b9ED3586B08AE796c7787811a2E1bc16163a)
+- EVMScriptExecutor: [`0x2819B65021E13CEEB9AC33E77DB32c7e64e7520D`](https://holesky.etherscan.io/address/0x2819B65021E13CEEB9AC33E77DB32c7e64e7520D)
+- IncreaseNodeOperatorStakingLimit: [`0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449`](https://holesky.etherscan.io/address/0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449)
