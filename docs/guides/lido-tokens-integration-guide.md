@@ -19,11 +19,19 @@ For easier DeFi integrations, `stETH` has a non-rebasable value-accruing counter
 
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
 
-- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)
-- stETH is [listed as a collateral token on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet
+- The most important on-chain liquidity venues include:
+  - [stETH/ETH liquidity pool on Curve](https://curve.fi/steth)
+  - [wstETH/ETH Composable stable pool on Balancer v2](https://app.balancer.fi/#/ethereum/pool/0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd0000000000000000000005c2)
+  - [wstETH/ETH pool on Uniswap V3](https://info.uniswap.org/#/pools/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa)
+- wstETH is listed as a collateral token on the following AAVE v3 markets:
+  - [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0&marketName=proto_mainnet_v3)
+  - [Arbitrum](https://app.aave.com/reserve-overview/?underlyingAsset=0x5979d7b546e38e414f7e9822514be443a4800529&marketName=proto_arbitrum_v3)
+  - [Optimism](https://app.aave.com/reserve-overview/?underlyingAsset=0x1f32b1c2345538c0c6f582fcb022739c4a194ebb&marketName=proto_optimism_v3)
+  - [Polygon](https://app.aave.com/reserve-overview/?underlyingAsset=0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd&marketName=proto_polygon_v3)
+- stETH is listed as a collateral token on the AAVE v2 [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) market
 - wstETH is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
 - steCRV (the Curve stETH/ETH LP token) is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
-- there are multiple liquidity strategies built on top of Lido's stTokens, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
+- there are multiple liquidity strategies built on top of Lido's stTokens, including [Yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
 
 #### Integration utilities: ChainLink price feeds
 
