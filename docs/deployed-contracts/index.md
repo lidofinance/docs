@@ -98,7 +98,7 @@ pagination_next: deployed-contracts/goerli
 
   - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
 
-## Anchor Integration (stETH as a collateral on Anchor protocol)
+## Anchor Integration (stETH as collateral on Anchor protocol), [discontinued](https://research.lido.fi/t/anchor-vault-upgrade-on-chain-voting-announcement/5538)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
 - AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (impl)
