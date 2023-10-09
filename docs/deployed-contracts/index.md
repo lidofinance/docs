@@ -101,8 +101,7 @@ pagination_next: deployed-contracts/goerli
 ## Anchor Integration (stETH as a collateral on Anchor protocol)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
-- AnchorVault: [`0x07BE9BB2B1789b8F5B2f9345F18378A8B036A171`](https://etherscan.io/address/0x07BE9BB2B1789b8F5B2f9345F18378A8B036A171) (impl)
-- AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (*proposed* implementation)
+- AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (impl)
 - bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 - BridgeConnectorWormhole: [`0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C`](https://etherscan.io/address/0x2618e94a7F6118acED2E51e0a05da43D2e2eD40C)
 - RewardsLiquidator: [`0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7`](https://etherscan.io/address/0xE3c8A4De3b8A484ff890a38d6D7B5D278d697Fb7)
@@ -188,7 +187,6 @@ pagination_next: deployed-contracts/goerli
 - Treasury Committee: [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://etherscan.io/address/0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
 
 ### Dev Team Multisigs
-- Lido Dev team: [`0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0`](https://etherscan.io/address/0x3cd9F71F80AB08ea5a7Dca348B5e94BC595f26A0)
 - Gas Supply Committee: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
