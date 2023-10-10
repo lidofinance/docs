@@ -57,7 +57,7 @@ Please be aware that you might encounter unexpected behavior during this period.
 - Node Operators Registry Repo: [`0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF`](https://holesky.etherscan.io/address/0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF) (proxy)
 - EVMScriptRegistry: [`0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0`](https://holesky.etherscan.io/address/0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0) (proxy)
 - CallsScript: [`0xAa8B4F258a4817bfb0058b861447878168ddf7B0`](https://holesky.etherscan.io/address/0xAa8B4F258a4817bfb0058b861447878168ddf7B0)
-- APMRegistry: [`0x3EcF7190312F50043DB0494bA0389135Fc3833F3`](https://holesky.etherscan.io/address/0x3EcF7190312F50043DB0494bA0389135Fc3833F3)
+- APMRegistry: [`0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A`](https://holesky.etherscan.io/address/0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A) (proxy)
 - Gate Seal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
 - Gate Seal: [`0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60`](https://holesky.etherscan.io/address/0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60)
