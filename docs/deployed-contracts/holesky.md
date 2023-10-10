@@ -20,7 +20,7 @@ Please be aware that you might encounter unexpected behavior during this period.
 - EIP-712 helper for stETH: [`0xE154732c5Eab277fd88a9fF6Bdff7805eD97BCB1`](https://holesky.etherscan.io/address/0xE154732c5Eab277fd88a9fF6Bdff7805eD97BCB1)
 - StakingRouter: [`0xd6EbF043D30A7fe46D1Db32BA90a0A51207FE229`](https://holesky.etherscan.io/address/0xd6EbF043D30A7fe46D1Db32BA90a0A51207FE229) (proxy)
 - Node Operators registry: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC) (proxy)
-- Deposit Security module: [`0x045dd46212A178428c088573A7d102B9d89a022A`](https://holesky.etherscan.io/address/0x045dd46212A178428c088573A7d102B9d89a022A)
+- Deposit Security Module: [`0x045dd46212A178428c088573A7d102B9d89a022A`](https://holesky.etherscan.io/address/0x045dd46212A178428c088573A7d102B9d89a022A)
 - Execution Layer Rewards Vault: [`0xE73a3602b99f1f913e72F8bdcBC235e206794Ac8`](https://holesky.etherscan.io/address/0xE73a3602b99f1f913e72F8bdcBC235e206794Ac8)
 - Withdrawal Queue ERC721: [`0xc7cc160b58F8Bb0baC94b80847E2CF2800565C50`](https://holesky.etherscan.io/address/0xc7cc160b58F8Bb0baC94b80847E2CF2800565C50) (proxy)
 - Withdrawal Vault: [`0xF0179dEC45a37423EAD4FaD5fCb136197872EAd9`](https://holesky.etherscan.io/address/0xF0179dEC45a37423EAD4FaD5fCb136197872EAd9) (proxy)
@@ -41,17 +41,23 @@ Please be aware that you might encounter unexpected behavior during this period.
 
 ### Lido V2 DAO contracts
 
-- Lido DAO: `TBA`
+- Lido DAO (Kernel): [`0x3b03f75Ec541Ca11a223bB58621A3146246E1644`](https://holesky.etherscan.io/address/0x3b03f75Ec541Ca11a223bB58621A3146246E1644) (proxy)
 - LDO token: [`0x14ae7daeecdf57034f3E9db8564e46Dba8D97344`](https://holesky.etherscan.io/address/0x14ae7daeecdf57034f3E9db8564e46Dba8D97344)
 - Aragon Voting: [`0xdA7d2573Df555002503F29aA4003e398d28cc00f`](https://holesky.etherscan.io/address/0xdA7d2573Df555002503F29aA4003e398d28cc00f) (proxy)
 - Aragon Token Manager: [`0xFaa1692c6eea8eeF534e7819749aD93a1420379A`](https://holesky.etherscan.io/address/0xFaa1692c6eea8eeF534e7819749aD93a1420379A) (proxy)
 - Aragon Finance: [`0xf0F281E5d7FBc54EAFcE0dA225CDbde04173AB16`](https://holesky.etherscan.io/address/0xf0F281E5d7FBc54EAFcE0dA225CDbde04173AB16) (proxy)
 - Aragon Agent: [`0xE92329EC7ddB11D25e25b3c21eeBf11f15eB325d`](https://holesky.etherscan.io/address/0xE92329EC7ddB11D25e25b3c21eeBf11f15eB325d) (proxy)
-- Aragon ACL: [`0xfd1E42595CeC3E83239bf8dFc535250e7F48E0bC`](https://holesky.etherscan.io/address/0xfd1E42595CeC3E83239bf8dFc535250e7F48E0bC)
-- Voting Repo: `TBA`
-- Lido App Repo: `TBA`
-- Lido Oracle Repo: `TBA`
-- Node Operators Registry Repo: `TBA`
+- Aragon ACL: [`0xfd1E42595CeC3E83239bf8dFc535250e7F48E0bC`](https://holesky.etherscan.io/address/0xfd1E42595CeC3E83239bf8dFc535250e7F48E0bC) (proxy)
+- Voting Repo: [`0x2997EA0D07D79038D83Cb04b3BB9A2Bc512E3fDA`](https://holesky.etherscan.io/address/0x2997EA0D07D79038D83Cb04b3BB9A2Bc512E3fDA) (proxy)
+- Token Manager Repo: [`0xD327b4Fb87fa01599DaD491Aa63B333c44C74472`](https://holesky.etherscan.io/address/0xD327b4Fb87fa01599DaD491Aa63B333c44C74472) (proxy)
+- Finance Repo: [`0x0df65b7c78Dc42a872010d031D3601C284D8fE71`](https://holesky.etherscan.io/address/0x0df65b7c78Dc42a872010d031D3601C284D8fE71) (proxy)
+- Agent Repo: [`0xe7b4567913AaF2bD54A26E742cec22727D8109eA`](https://holesky.etherscan.io/address/0xe7b4567913AaF2bD54A26E742cec22727D8109eA) (proxy)
+- Lido App Repo: [`0xA37fb4C41e7D30af5172618a863BBB0f9042c604`](https://holesky.etherscan.io/address/0xA37fb4C41e7D30af5172618a863BBB0f9042c604) (proxy)
+- Lido Oracle (Legacy Oracle) Repo: [`0xB3d74c319C0C792522705fFD3097f873eEc71764`](https://holesky.etherscan.io/address/0xB3d74c319C0C792522705fFD3097f873eEc71764) (proxy)
+- Node Operators Registry Repo: [`0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF`](https://holesky.etherscan.io/address/0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF) (proxy)
+- EVMScriptRegistry: [`0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0`](https://holesky.etherscan.io/address/0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0) (proxy)
+- CallsScript: [`0xAa8B4F258a4817bfb0058b861447878168ddf7B0`](https://holesky.etherscan.io/address/0xAa8B4F258a4817bfb0058b861447878168ddf7B0)
+- APMRegistry: [`0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A`](https://holesky.etherscan.io/address/0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A) (proxy)
 - Gate Seal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
 - Gate Seal: [`0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60`](https://holesky.etherscan.io/address/0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60)
