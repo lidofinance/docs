@@ -31,7 +31,7 @@
 
 ### Lido V2 DAO contracts
 
-- Lido DAO: [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
+- Lido DAO (Kernel): [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
 - LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
 - Aragon Voting: [`0xbc0B67b4553f4CF52a913DE9A6eD0057E2E758Db`](https://goerli.etherscan.io/address/0xbc0B67b4553f4CF52a913DE9A6eD0057E2E758Db) (proxy)
 - Aragon Token Manager: [`0xDfe76d11b365f5e0023343A367f0b311701B3bc1`](https://goerli.etherscan.io/address/0xDfe76d11b365f5e0023343A367f0b311701B3bc1) (proxy)
@@ -40,7 +40,7 @@
 - Aragon ACL: [`0xb3CF58412a00282934D3C3E73F49347567516E98`](https://goerli.etherscan.io/address/0xb3CF58412a00282934D3C3E73F49347567516E98)
 - Voting Repo: [`0x14de4f901cE0B81F4EfcA594ad7b70935C276806`](https://goerli.etherscan.io/address/0x14de4f901cE0B81F4EfcA594ad7b70935C276806)
 - Lido App Repo: [`0xE9eDe497d2417fd980D8B5338232666641B9B9aC`](https://goerli.etherscan.io/address/0xE9eDe497d2417fd980D8B5338232666641B9B9aC)
-- Lido Oracle Repo: [`0x9234e37Adeb44022A078557D9943b72AB89bF36a`](https://goerli.etherscan.io/address/0x9234e37Adeb44022A078557D9943b72AB89bF36a)
+- Lido Oracle (Legacy Oracle) Repo: [`0x9234e37Adeb44022A078557D9943b72AB89bF36a`](https://goerli.etherscan.io/address/0x9234e37Adeb44022A078557D9943b72AB89bF36a)
 - Node Operators Registry Repo: [`0x5F867429616b380f1Ca7a7283Ff18C53a0033073`](https://goerli.etherscan.io/address/0x5F867429616b380f1Ca7a7283Ff18C53a0033073)
 - Gate Seal Blueprint: [`0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf`](https://goerli.etherscan.io/address/0x302F385Ebfc1A8a68105C9f840cDD27E67EE75Bf)
 - Gate Seal Factory: [`0x248C4a34645921C70a591CCc200cb75D6a4C5091`](https://goerli.etherscan.io/address/0x248C4a34645921C70a591CCc200cb75D6a4C5091)
