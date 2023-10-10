@@ -793,7 +793,7 @@ or `NFTDescriptor` address
 ### finalize()
 
 Finalize requests from the last finalized one up to `_lastRequestIdToBeFinalized` using `_maxShareRate`
-as a base share rate for `stETH`and passing along some ether as `msg.value`.
+as a base share rate for `stETH` and passing along some ether as `msg.value`.
 The amount of ether to send should be precalculated by the `prefinalize()` method.
 
 Emits a `BatchMetadataUpdate` and a `WithdrawalsFinalized` events.

@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     'introduction',
     'lido-dao',
-    'guides/steth-integration-guide',
+    'guides/lido-tokens-integration-guide',
     {
       type: 'category',
       label: 'Guides',
@@ -114,6 +114,7 @@ module.exports = {
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/goerli',
+        'deployed-contracts/holesky',
       ],
     },
   ],

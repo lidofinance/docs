@@ -2,7 +2,7 @@
 This document is intended for: 
 - the Lido Node Operators who wish to increase their staking limits within the Lido protocol;
 - the Lido Ecosystem Grants Organisation members who wish to allocate funds into LEGO program;
-- the Lido Rewards Committee members who wish to allocate funds into ongoing reward programs, or add a new reward program into the list of active reward programs, or remove a reward program from the list of active reward programs.
+- the Lido Liquidity Observation Lab members who wish to allocate funds into ongoing reward programs, or add a new reward program into the list of active reward programs, or remove a reward program from the list of active reward programs.
 
 The guide consists of two sections: [General overview](#general-overview) and [Operations HOWTO](#operations-howto). If you’re here for the technical details of interacting with Easy Track, feel free to skip to the latter.
 ## General overview
@@ -25,7 +25,7 @@ For more in-depth technical description, please read through the full project [s
 ## Operations HOWTO
 - [Node Operators guide to Easy Track](#node-operators-guide-to-easy-track)
 - [LEGO guide to Easy Track](#lego-guide-to-easy-track)
-- [Rewards Committee guide to Easy Track](#rewards-committee-guide-to-easy-track)
+- [Liquidity Observation Lab guide to Easy Track](#liquidity-observation-lab-guide-to-easy-track)
 ## Node Operators guide to Easy Track
 
 Before starting an Easy Track motion to increase staking limits, there are several key features to keep in mind:
@@ -83,19 +83,19 @@ In case the minimum objections threshold of 0.5% of total LDO supply hasn't been
 In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
 3. **Motion canceled.**
 In case you find out you have made a mistake when starting the motion (e.g. you don't want to top-up LEGO program just yet or you've misclicked when specifying the amount of tokens to transfer etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction in the Gnosis safe to complete it (gas costs apply).
-## Rewards Committee guide to Easy Track
-There are several features of Rewards Committee Easy Track motions to keep in mind before starting one:
-1. **Only a Lido Rewards Committee member can start a motion to allocate funds to reward programs.** Before starting a motion, please make sure you have access to [the Rewards Committee Gnosis safe multi-sig](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/balances). 
-2. **Rewards Committee Easy Track motions support fund allocation in LDO only.**
+## Liquidity Observation Lab guide to Easy Track
+There are several features of Liquidity Observation Lab Easy Track motions to keep in mind before starting one:
+1. **Only a Lido Liquidity Observation Lab member can start a motion to allocate funds to reward programs.** Before starting a motion, please make sure you have access to [the Liquidity Observation Lab Gnosis safe multi-sig](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/balances). 
+2. **Liquidity Observation Lab Easy Track motions support fund allocation in stETH and LDO only.**
 3. **Finance Team Easy Track supports topping up multiple reward programs in a single motion.** Though be careful, lack of consensus on one reward program will prevent the whole motion from passing.
 4. **To top up a reward program via Easy Track motion, it should first be added into the list of active reward programs.** This action requires a separate Easy Track motion to complete.
 5. **When no longer active, reward program should be removed from the list of active reward programs.** This action requires a separate Easy Track motion to complete.
 ### Conducting an Easy Track motion
 To start a LEGO Easy Track motion, proceed to the [Easy Track UI](https://easytrack.lido.fi/) and click 'Connect' button top right.  
 Pick 'Wallet Connect' option, you will see the QR code. Copy it by clicking 'Copy to clipboard' button under the code.  
-Next, proceed to [the Rewards Committee Gnosis safe multi-sig](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/balances) and connect your wallet by clicking 'Connect your wallet' button top right.  
+Next, proceed to [the Liquidity Observation Lab Gnosis safe multi-sig](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/balances) and connect your wallet by clicking 'Connect your wallet' button top right.  
 Open the APPS section in the drawer menu on the left and find Wallet Connect Safe app in the list.  
-Paste the code into the field on the left. Now the Rewards Committee Gnosis multi-sig is connected to Easy Track app.  
+Paste the code into the field on the left. Now the Liquidity Observation Lab Gnosis multi-sig is connected to Easy Track app.  
 > You need to keep the Wallet Connect Safe app tab open in your browser for transactions to pop up. You will not receive transaction requests if you don't have it open.
 
 In the header menu of Easy Track UI click 'Start motion' button. You will see the motion creation interface. The motion type you are looking for is 'Add reward program'.  
@@ -106,7 +106,7 @@ Fill the Ethereum address of the reward program (it could be reward contract or 
 > UI for topping up the rewards program takes full tokens as an input (so, the amounts are in X LDOs, not X*1e18 LDO Weis).
 
 Press 'Submit' button below the form and sign the transaction on the Wallet Connect safe app page (gas costs apply).  
-Next, you will need another Rewards Committee Gnosis multi-sig owner to confirm the transaction in the Gnosis Safe.  
+Next, you will need another Liquidity Observation Lab Gnosis multi-sig owner to confirm the transaction in the Gnosis Safe.  
 As soon as transaction is confirmed, the motion has been started and you can see it on the 'Active motions' page of Easy Track UI. Notifications will be sent out to let the DAO know about the motion. From this moment on, the LDO token holders will have 72 hours to submit their objections if they have any.
 ### Possible motion outcomes
 A motion can have three possible outcomes:
