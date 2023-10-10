@@ -113,7 +113,7 @@ Reverts if:
 
 #### recover_ether()
 
-Collect all Ether from the contract to the `owner`.
+Collect all ether from the contract to the `owner`.
 
 ```vyper
 @external
@@ -325,7 +325,7 @@ Reverts if:
 
 #### recover_ether()
 
-Collect all Ether from the contract to the `recipient`.
+Collect all ether from the contract to the `recipient`.
 
 ```vyper
 @external
@@ -575,7 +575,7 @@ Reverts if:
 
 #### recover_ether()
 
-Collect all Ether from the contract to the `owner`.
+Collect all ether from the contract to the `owner`.
 
 ```vyper
 @external

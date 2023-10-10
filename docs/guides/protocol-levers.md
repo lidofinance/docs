@@ -66,7 +66,7 @@ When paused, `Lido` doesn't accept user submissions, doesn't allow user withdraw
 report submissions. No token actions (burning, transferring, approving transfers and changing
 allowances) are allowed. The following transactions revert:
 
-- plain Ether transfers to `Lido`;
+- plain ether transfers to `Lido`;
 - calls to `submit(address)`;
 - calls to `deposit(uint256, uint256, bytes)`;
 - calls to `handleOracleReport(...)`;
@@ -120,9 +120,9 @@ Controls how many Ethereum deposits can be made in a single transaction.
 - [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.js)
 
 When DSM calls `depositBufferedEther`, `Lido` tries to register as many Ethereum validators
-as it can given the buffered Ether amount. The limit is passed as an argument to this function and
+as it can given the buffered ether amount. The limit is passed as an argument to this function and
 is needed to prevent the transaction from [failing due to the block gas limit], which is possible
-if the amount of the buffered Ether becomes sufficiently large.
+if the amount of the buffered ether becomes sufficiently large.
 
 [failing due to the block gas limit]: https://github.com/ConsenSys/smart-contract-best-practices/blob/8f99aef/docs/known_attacks.md#gas-limit-dos-on-a-contract-via-unbounded-operations
 
@@ -175,7 +175,7 @@ Limit explanation scheme:
 
 When staking is paused, `Lido` doesn't accept user submissions. The following transactions revert:
 
-- Plain Ether transfers;
+- Plain ether transfers;
 - calls to `submit(address)`.
 
 For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).

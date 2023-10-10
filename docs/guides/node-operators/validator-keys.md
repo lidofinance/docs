@@ -1,12 +1,21 @@
 # Validator Keys
 
 Validator keys are added in several sequential steps. These steps are similar for each time new keys are added.
-1. [Generating signing keys](#generating-signing-keys)
-2. [Validating these keys](#validating-the-keys)
-3. [Submitting the keys to the Node Operator Registry](#submitting-the-keys)
-4. [Importing the keys to a validator client](#importing-the-keys-to-a-lighthouse-validator-client)
-5. [Checking the keys](#checking-the-keys-of-all-lido-node-operators)
-6. [Submitting a motion to increase the staking limit](#increasing-the-staking-limits-with-an-easy-track-motion)
+- [Validator Keys](#validator-keys)
+  - [Generating signing keys](#generating-signing-keys)
+    - [Withdrawal Credentials](#withdrawal-credentials)
+    - [Using staking-deposit-cli](#using-staking-deposit-cli)
+  - [Validating the keys](#validating-the-keys)
+  - [Submitting the keys](#submitting-the-keys)
+    - [Using the batch key submitter UI](#using-the-batch-key-submitter-ui)
+  - [Importing the keys to a Lighthouse validator client](#importing-the-keys-to-a-lighthouse-validator-client)
+  - [Checking the keys of all Lido Node Operators](#checking-the-keys-of-all-lido-node-operators)
+    - [Lido CLI](#lido-cli)
+    - [Lido Node Operator Dashboard](#lido-node-operator-dashboard)
+    - [Results](#results)
+      - [You don't see invalid keys](#you-dont-see-invalid-keys)
+      - [You spot invalid keys](#you-spot-invalid-keys)
+  - [Increasing the Staking Limits with an Easy Track motion](#increasing-the-staking-limits-with-an-easy-track-motion)
 
 ## Generating signing keys
 
@@ -16,7 +25,7 @@ a Node Operator submits a set of the corresponding signatures [as defined in the
 `DepositMessage` used for generating the signature must be the following:
 
 - `pubkey` must be derived from the private key used for signing the message;
-- `amount` must equal to 32 Ether;
+- `amount` must equal to 32 ether;
 - `withdrawal_credentials` must equal to the protocol credentials set by the DAO.
 
 The fork version used for generating the signature must correspond to the fork version of the Beacon

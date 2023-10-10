@@ -6,7 +6,7 @@
 
 ### Simple Summary
 
-Lido allows users to get staking rewards on the Ethereum beacon chain without locking Ether or maintaining staking infrastructure. This is done through the stETH token. stETH tokens represent a tokenized staking deposit with staking rewards and slashing penalties applied. stETH can be held, traded, or sold.  
+Lido allows users to get staking rewards on the Ethereum beacon chain without locking ether or maintaining staking infrastructure. This is done through the stETH token. stETH tokens represent a tokenized staking deposit with staking rewards and slashing penalties applied. stETH can be held, traded, or sold.
 We propose listing stETH to AAVE v2 market. This would allow users to borrow against stETH.
 
 ### References
@@ -118,31 +118,31 @@ Lido has already migrated to a non-custodial solution and >60% of all stETH alre
 
 **Volumes and DEXes**
 
-**[Balancer (wstETH/WETH)](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)**  
-Liquidity: $409.3M  
-Volume (24h): $509,3  
+**[Balancer (wstETH/WETH)](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)**
+Liquidity: $409.3M
+Volume (24h): $509,3
 https://dune.xyz/embeds/153863/304423/684fdf22-161c-4352-a41d-81ce8a705c01
 
-**[SushiSwap (wstETH/DAI)](https://analytics.sushi.com/pairs/0xc5578194d457dcce3f272538d1ad52c68d1ce849)**  
-Liquidity: $32.2M  
-Volume (24h): $756,211  
+**[SushiSwap (wstETH/DAI)](https://analytics.sushi.com/pairs/0xc5578194d457dcce3f272538d1ad52c68d1ce849)**
+Liquidity: $32.2M
+Volume (24h): $756,211
 https://dune.xyz/embeds/153729/304165/5c53e046-47ef-485d-9767-6ec188a5629e
 
-**[Curve (stETH/ETH)](https://curve.fi/steth)**  
-Liquidity: $3,75B  
-Volume (24h): $5,7M  
+**[Curve (stETH/ETH)](https://curve.fi/steth)**
+Liquidity: $3,75B
+Volume (24h): $5,7M
 https://dune.xyz/embeds/153374/303383/9c8cb193-4538-497e-a774-c33e78bcd34d
 
 9. **Social channels data**
 
-[Discord](https://discord.gg/vgdPfhZ) - 7400 members  
-[Twitter](https://twitter.com/LidoFinance) - 60K followers  
+[Discord](https://discord.gg/vgdPfhZ) - 7400 members
+[Twitter](https://twitter.com/LidoFinance) - 60K followers
 [GitHub](https://github.com/lidofinance) - Active and managed
 
 10. **Contracts date of deployments, number of transactions, number of holders for tokens**
 
-Date of Deployment: December 18th, 2020  
-Number of Transactions (stETH): [146,000+](https://etherscan.io/token/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)  
+Date of Deployment: December 18th, 2020
+Number of Transactions (stETH): [146,000+](https://etherscan.io/token/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 Unique holders: [42,000+](https://etherscan.io/token/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 11. **Unique Depositors**
@@ -151,7 +151,7 @@ Unique depositors: [36,000+](https://dune.xyz/queries/20029/41160)
 
 ### Technical specification
 
-stETH represents the user’s staked ETH balance of the beacon chain along with staking rewards accrued or penalties inflicted on validators in the beacon chain.  
+stETH represents the user’s staked ETH balance of the beacon chain along with staking rewards accrued or penalties inflicted on validators in the beacon chain.
 This is implemented via rebasing mechanism.
 
 Due to the rebasing nature of stETH, the proposed listing implementation involves few changes to AAVE's generic aToken.
@@ -167,10 +167,10 @@ The current implementation doesn't support borrowing, neither with variable nor 
 
 #### Code
 
-AStETH https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a  
-variableDebtSTETH https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24  
-stableDebtSTETH https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9  
-DefaultReserveInterestRateStrategy https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c  
+AStETH https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a
+variableDebtSTETH https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24
+stableDebtSTETH https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9
+DefaultReserveInterestRateStrategy https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c
 Steps the proposal will execute: start a vote to add stETH as a new token.
 
 #### Security Considerations
@@ -180,15 +180,15 @@ The implementation has been audited by MixBytes() and considered safe. Read the 
 
 ### Proposed Risk Parameters
 
-LTV: 70%  
-Liquidation Threshold: 75%  
-Liquidation Bonus: 7.5%  
+LTV: 70%
+Liquidation Threshold: 75%
+Liquidation Bonus: 7.5%
 Reserve Factor: 10%
 
-**Interest Rate Model:**  
-UOptimal: 60%  
-Base: 0%  
-Slope 1: 8%  
+**Interest Rate Model:**
+UOptimal: 60%
+Base: 0%
+Slope 1: 8%
 Slope 2: 200%
 
 As stETH is more suited as collateral instead of a borrowing token, we propose listing stETH on AAVE v2 market with borrowing disabled.

@@ -3,25 +3,27 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)
 - [Deployed Contract](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5)
 
-The `NodeOperatorsRegistry` contract acts as a registry of Node Operators selected by Lido DAO.
+The `NodeOperatorsRegistry` contract acts as a registry of Node Operators selected by the Lido DAO.
 After [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](./staking-router.md). The new name for `NodeOperatorsRegistry` contract as part of the entire Lido staking platform is **Curated staking module**. As a staking module, `NodeOperatorsRegistry` supports [StakingModule interface](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/interfaces/IStakingModule.sol).
 
-As Ether is received from [`StakingRouter`](./staking-router.md) on oracle report, it is distributed in chunks of 32 Ether between all active, not penalized Node Operators.
+As a staking module `NodeOperatorsRegistry` is responsible for distribution of its rewards between Node Operators.
 
- If NO does not exit its validators on a request from [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) in proper time, it might get penalized. In this case, the NO do not get new ether for deposits and also receives half of its rewards till the penalty is cleared. To clear the penalty, the NO must exit the stuck validators or refund the corresponding Ether amount and wait `getStuckPenaltyDelay()` seconds after that.
+~~~As ether is received from [`StakingRouter`](./staking-router.md) on oracle report, it is distributed in chunks of 32 ether between all active, not penalized Node Operators.~~~
+
+ If NO does not exit its validators on a request from [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) in proper time, it might get penalized. In this case, the NO do not get new ether for deposits and also receives half of its rewards till the penalty is cleared. To clear the penalty, the NO must exit the stuck validators or refund the corresponding ether amount and wait `getStuckPenaltyDelay()` seconds after that.
 
  The Lido DAO can also deactivate misbehaving operators by `deactivateNodeOperator()`.
 
 For each NO the contract keeps a record of at least these values:
 - `active: bool` if the NO is active
 - `name: string` human-readable name of the NO
-- `rewardAddress: address` where to send stETH rewards
-- `totalVettedValidators: uint64` Max number of validator keys approved for deposit by the DAO
+- `rewardAddress: address` where to send stETH rewards (part of the protocol fee)
+- `totalVettedValidators: uint64` Max number of validator keys approved for deposit by the DAO so far
 - `totalExitedValidators: uint64` incremental counter of all exited validators for the NO so far
 - `totalAddedValidators: uint64` incremental counter of all added to the NO validators so far
 - `totalDepositedValidators: uint64` incremental counter of all deposited validators for the NO so far
-- `targetValidatorsCount: uint256` hard limit for the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be exited. Allocation of deposits above the hard limit is prohibited. The hard limit works only if `isTargetLimitActive` is true.
-- `isTargetLimitActive: bool` flag whether NO validators number is hard-limited (see `targetValidatorsCount`)
+- `targetValidatorsCount: uint256` target value for the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be exited. Allocation of deposits above the target value is prohibited. The exiting works only if `isTargetLimitActive` is true.
+- `isTargetLimitActive: bool` flag whether NO validators number is target-limited (see `targetValidatorsCount`)
 - `stuckValidatorsCount: uint256` number of stuck keys delivered by the oracle report
 - `refundedValidatorsCount: uint256` number of validators refunded
 - `depositableValidatorsCount: uint256` number of depositable validators
@@ -659,6 +661,6 @@ function setStuckPenaltyDelay(uint256 _delay)
 
 #### Parameters
 
-| Name     | Type      | Description         |
-| -------- | --------- | ------------------- |
-| `_delay` | `uint256` | Stuck penalty delay |
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `_delay` | `uint256` | Stuck penalty delay in seconds |
