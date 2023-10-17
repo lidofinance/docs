@@ -20,29 +20,24 @@ Validator keys are added in several sequential steps. These steps are similar fo
 ## Generating signing keys
 
 Upon inclusion into the protocol, a Node Operator should generate and submit a set of [BLS12-381]
-public keys that will be used by the protocol for making Beacon deposits. Along with the keys,
-a Node Operator submits a set of the corresponding signatures [as defined in the spec]. The
-`DepositMessage` used for generating the signature must be the following:
+public keys that will be used by the protocol for making ether deposits to the Ethereum
+[DepositContract](https://etherscan.io/address/0x00000000219ab540356cBB839Cbe05303d7705Fa).
+Along with the keys, a Node Operator submits a set of the corresponding signatures [as defined in the spec].
+The `DepositMessage` used for generating the signature must be the following:
 
 - `pubkey` must be derived from the private key used for signing the message;
 - `amount` must equal to 32 ether;
 - `withdrawal_credentials` must equal to the protocol credentials set by the DAO.
 
-The fork version used for generating the signature must correspond to the fork version of the Beacon
-chain the instance of Lido protocol is targeted to.
-
 ### Withdrawal Credentials
 
-Make sure to obtain correct withdrawal address by finding it inside the active withdrawal credentials either on Aragon UI or by calling the contract via [`Lido.getWithdrawalCredentials()`]. You can find the method on the [Etherscan page for the Mainnet-deployed Lido] and [Etherscan page for the Prater-deployed Lido].
+Make sure to obtain correct withdrawal address by finding it inside the active withdrawal credentials by calling the contract via [`StakingRouter.getWithdrawalCredentials()`](/contracts/staking-router.md#getwithdrawalcredentials).
 
 For example withdrawal credentials `0x010000000000000000000000b9d7934878b5fb9610b3fe8a5e441e8fad7e293f` mean that the withdrawal address is `0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`. For Mainnet, always verify the address is correct using an [explorer] - you will see that it was deployed from the Lido deployer.
 
 [bls12-381]: https://ethresear.ch/t/pragmatic-signature-aggregation-with-bls/2105
 [as defined in the spec]: https://github.com/ethereum/annotated-spec/blob/master/phase0/beacon-chain.md#depositmessage
 [explorer]: https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f
-[`lido.getwithdrawalcredentials()`]: https://github.com/lidofinance/lido-dao/blob/971ac8f/contracts/0.4.24/Lido.sol#L312
-[etherscan page for the mainnet-deployed lido]: https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84#readProxyContract
-[etherscan page for the prater-deployed lido]: https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F#readProxyContract
 [`lib/abi/lido.json`]: https://github.com/lidofinance/lido-dao/blob/971ac8f/lib/abi/Lido.json
 
 ### Using staking-deposit-cli
@@ -55,7 +50,7 @@ Example command usage:
 ./deposit new-mnemonic --folder . --num_validators 123 --mnemonic_language english --chain mainnet --eth1_withdrawal_address 0x123
 ```
 
-Here, `chain` is one of the public Beacon chain names (run the command with the `--help` flag
+Here, `chain` is one of the available chain names (run the command with the `--help` flag
 to see the possible values: `./deposit new-mnemonic --help`) and `eth1_withdrawal_address` is the withdrawal address from the protocol documentation.
 
 As a result of running this, the `validator_keys` directory will be created in the current working
@@ -99,20 +94,20 @@ You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura)
 
 After generating the keys, a Node Operator submits them to the protocol. To do this, they send a
 transaction from the Node Operator’s withdrawal address to the `NodeOperatorsRegistry` contract
-instance, calling [`addSigningKeysOperatorBH` function] and with the following arguments:
+instance, calling [`addSigningKeys` function] and with the following arguments:
 
 ```
-* `uint256 _operator_id` the zero-based sequence number of the operator in the list.
-* `uint256 _quantity` the number of keys being submitted.
-* `bytes _pubkeys` the concatenated keys.
+* `uint256 _nodeOperatorId` the zero-based sequence number of the operator in the list;
+* `uint256 _keysCount` the number of keys being submitted;
+* `bytes _publicKeys` the concatenated keys;
 * `bytes _signatures` the concatenated signatures.
 ```
 
 The address of the `NodeOperatorsRegistry` contract instance can be obtained by calling the
 [`getOperators()` function] on the `Lido` contract instance. The ABI of the `NodeOperatorsRegistry`
-contract can be found in [`lib/abi/NodeOperatorsRegistry.json`].
+contract can be found on the corresponding contract page on Etherscan or in `***-abi.zip` of the latest release on the [lido-dao releases github page](https://github.com/lidofinance/lido-dao/releases).
 
-Operator ID for a given reward address can be obtained by successively calling
+Operator id for a given reward address can be obtained by successively calling
 [`NodeOperatorsRegistry.getNodeOperator`] with the increasing `_id` argument until you get the
 operator with the matching `rewardAddress`.
 
@@ -126,9 +121,7 @@ Etherscan pages for the Mainnet contracts:
 - [`Lido`](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84#readProxyContract)
 - [`NodeOperatorsRegistry`](https://etherscan.io/address/0x55032650b14df07b85bf18a3a3ec8e0af2e028d5#readProxyContract)
 
-[`addsigningkeysoperatorbh` function]: https://github.com/lidofinance/lido-dao/blob/971ac8f/contracts/0.4.24/nos/NodeOperatorsRegistry.sol#L250
 [`getoperators()` function]: https://github.com/lidofinance/lido-dao/blob/971ac8f/contracts/0.4.24/Lido.sol#L361
-[`lib/abi/nodeoperatorsregistry.json`]: https://github.com/lidofinance/lido-dao/blob/971ac8f/lib/abi/NodeOperatorsRegistry.json
 [`nodeoperatorsregistry.getnodeoperator`]: https://github.com/lidofinance/lido-dao/blob/971ac8f/contracts/0.4.24/nos/NodeOperatorsRegistry.sol#L335
 
 ### Using the batch key submitter UI
