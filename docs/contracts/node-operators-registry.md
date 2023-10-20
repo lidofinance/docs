@@ -3,7 +3,66 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)
 - [Deployed Contract](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5)
 
-Node Operators act as validators on the Beacon chain for the benefit of the protocol. The DAO selects node operators and adds their addresses to the NodeOperatorsRegistry contract. Authorized operators have to generate a set of keys for the validation and also provide them with the smart contract. As Ether is received from users, it is distributed in chunks of 32 Ether between all active Node Operators. The contract contains a list of operators, their keys, and the logic for distributing rewards between them. The DAO can deactivate misbehaving operators.
+The `NodeOperatorsRegistry` contract acts as a registry of Node Operators selected by the Lido DAO.
+Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](./staking-router.md) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/interfaces/IStakingModule.sol).
+
+`NodeOperatorsRegistry` keeps track of various Node Operators data, in particular limits of the allowed stake, reward addresses, penalty information, public keys of the Node Operators' validators. It defines order in which the Node Operators get the ether deposited and reward distribution between the node operators.
+
+A curated node operator is obliged by the Lido DAO to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by means of [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) contract. If a NO doesn't fulfil the request timely, it might get penalized. The penalized status is assigned automatically by the Lido protocol. The penalized NO do not get new ether for new deposits and also receives half of its rewards till the penalty is cleared. The other half of the NO rewards gets distributed between all stETH holders (technically, it gets burned). To get the penalty cleared, the NO must exit the stuck validators or refund the corresponding ether amount and wait `getStuckPenaltyDelay()` seconds after that.
+
+The Lido DAO can also:
+
+- set target limit count as the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](../contracts/withdrawal-queue-erc721#finalization). Allocation of deposits above the target value is prohibited.
+- deactivate misbehaving operators by `deactivateNodeOperator()`. A deactivated node operator do not get rewards and new deposits.
+
+## Glossary
+
+:::note
+In the context of these terms "signing key", "key", "validator key", "validator" might be used interchangeably.
+:::
+
+**signing key**. BLS12-381 public key that will be used by the protocol for making Beacon deposits to [run a validator](../guides/node-operators/validator-keys#generating-signing-keys)
+
+**vetted** (signing key). Approved by the Lido DAO for receiving ether for deposit.
+
+**submitted** (signing key). Added to the node operators registry.
+
+**depositable** (signing key). Suitable for new deposits.
+
+**deposited** (signing key). Ever received deposit.
+
+**unused** (signing key). Submitted but not deposited yet.
+
+**exited** (signing key). A validator that got into "Exited" state: either by [voluntary exit](https://lighthouse-book.sigmaprime.io/voluntary-exit.html) or as a result of slashing. [This doc](https://www.attestant.io/posts/understanding-the-validator-lifecycle/) might be useful regarding the validators lifecycle.
+
+**used (active)** (signing key). Deposited but not yet exited.
+
+**stuck** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) by Lido protocol.
+
+**refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see [Lido on Ethereum Block Proposer Rewards Policy v1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0x3b1e5f9960e682abdc25c86624ad13acb88ee1cea18db9be99379b44750c7b36).
+
+## Node operator parameters
+
+For each NO the contract keeps a record of at least these values:
+
+- `active: bool` active/inactive status of the NO. An active NO gets rewards and new deposits according to its staking limit. New node operators are added in active state.
+- `name: string` human-readable name of the NO
+- `rewardAddress: address` where to send stETH rewards (part of the protocol fee)
+- `totalVettedValidators: uint64` Max number of validator keys approved for deposit by the DAO so far
+- `totalExitedValidators: uint64` incremental counter of all exited validators for the NO so far
+- `totalAddedValidators: uint64` incremental counter of all added to the NO validators so far
+- `totalDepositedValidators: uint64` incremental counter of all deposited validators for the NO so far
+- `targetValidatorsCount: uint256` target value for the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit. Allocation of deposits above the target value is prohibited. The exiting works only if `isTargetLimitActive` is true. The `0` value will cause exit requests issued for all deposited validators of the NO.
+- `isTargetLimitActive: bool` flag whether NO validators number is target-limited (see `targetValidatorsCount`)
+- `stuckValidatorsCount: uint256` number of stuck keys  delivered by the oracle report
+- `refundedValidatorsCount: uint256` number of refunded validators
+- `depositableValidatorsCount: uint256` number of depositable validators
+
+The values can be viewed by means of `getNodeOperator()` and `getNodeOperatorSummary()`.
+
+Except for the function listed below, the contract has methods accessible only by [`StakingRouter`](./staking-router.md)
+(holder of `STAKING_ROUTER_ROLE`). These functions are called internally in the course of
+[`AccountingOracle`](./accounting-oracle.md) report.
 
 ## View Methods
 
@@ -14,11 +73,10 @@ Returns the rewards distribution proportional to the effective stake for each no
 ```sol
 function getRewardsDistribution(uint256 _totalRewardShares) returns (
   address[] recipients,
-  uint256[] shares
+  uint256[] shares,
+  bool[] penalized
 )
 ```
-
-#### Parameters:
 
 | Name                 | Type      | Description                                 |
 | -------------------- | --------- | ------------------------------------------- |
@@ -26,7 +84,7 @@ function getRewardsDistribution(uint256 _totalRewardShares) returns (
 
 ### getActiveNodeOperatorsCount()
 
-Returns number of active node operators
+Returns the number of active node operators.
 
 ```sol
 function getActiveNodeOperatorsCount() returns (uint256)
@@ -34,75 +92,67 @@ function getActiveNodeOperatorsCount() returns (uint256)
 
 ### getNodeOperator()
 
-Returns the n-th node operator
+Returns the node operator by id.
 
 ```sol
-function getNodeOperator(uint256 _id, bool _fullInfo) returns (
+function getNodeOperator(uint256 _nodeOperatorId, bool _fullInfo) returns (
     bool active,
     string name,
     address rewardAddress,
-    uint64 stakingLimit,
-    uint64 stoppedValidators,
-    uint64 totalSigningKeys,
-    uint64 usedSigningKeys
+    uint64 totalVettedValidators,
+    uint64 totalExitedValidators,
+    uint64 totalAddedValidators,
+    uint64 totalDepositedValidators
 )
 ```
 
-#### Parameters:
-
-| Name        | Type      | Description                            |
-| ----------- | --------- | -------------------------------------- |
-| `_id`       | `uint256` | Node Operator id                       |
-| `_fullInfo` | `bool`    | If true, name will be returned as well |
+| Name              | Type      | Description                            |
+| ----------------- | --------- | -------------------------------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id                       |
+| `_fullInfo`       | `bool`    | If true, name will be returned as well |
 
 ### getTotalSigningKeyCount()
 
-Returns total number of signing keys of the node operator
+Returns the total number of signing keys of the node operator.
 
 ```sol
-function getTotalSigningKeyCount(uint256 _operator_id) returns (uint256)
+function getTotalSigningKeyCount(uint256 _nodeOperatorId) returns (uint256)
 ```
 
-#### Parameters:
-
-| Name           | Type      | Description      |
-| -------------- | --------- | ---------------- |
-| `_operator_id` | `uint256` | Node Operator id |
+| Name              | Type      | Description      |
+| ----------------- | --------- | ---------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### getUnusedSigningKeyCount()
 
-Returns number of usable signing keys of the node operator
+Returns the number of usable signing keys of the node operator.
 
 ```sol
-function getUnusedSigningKeyCount(uint256 _operator_id) returns (uint256)
+function getUnusedSigningKeyCount(uint256 _nodeOperatorId) returns (uint256)
 ```
 
-#### Parameters:
-
-| Name           | Type      | Description      |
-| -------------- | --------- | ---------------- |
-| `_operator_id` | `uint256` | Node Operator id |
+| Name              | Type      | Description      |
+| ----------------- | --------- | ---------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### getSigningKey()
 
-Returns n-th signing key of the node operator
+Returns n-th signing key of the node operator.
 
 ```sol
-function getSigningKey(uint256 _operator_id, uint256 _index) returns (
-  bytes key,
-  bytes depositSignature,
-  bool used
+function getSigningKey(uint256 _nodeOperatorId, uint256 _index) returns (
+    bytes key,
+    bytes depositSignature,
+    bool used
 )
 ```
 
-#### Parameters:
+| Name              | Type      | Description                       |
+| ----------------- | --------- | --------------------------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id                  |
+| `_index`          | `uint256` | Index of the key, starting with 0 |
 
-| Name           | Type      | Description                        |
-| -------------- | --------- | ---------------------------------- |
-| `_operator_id` | `uint256` | Node Operator id                   |
-| `_index`       | `uint256` | Index of the key, starting with 0d |
-
-#### Returns:
+Returns:
 
 | Name               | Type    | Description                                           |
 | ------------------ | ------- | ----------------------------------------------------- |
@@ -110,30 +160,178 @@ function getSigningKey(uint256 _operator_id, uint256 _index) returns (
 | `depositSignature` | `bytes` | Signature needed for a `depositContract.deposit` call |
 | `used`             | `bool`  | Flag indication if the key was used in the staking    |
 
+### getSigningKeys()
+
+Returns subset of the signing keys of the node operator corresponding to the specified range `[_offset, _offset + _limit)`.
+If the range is out of bound of range `[0, <total keys number>)` reverts with `OUT_OF_RANGE` error.
+
+```sol
+function getSigningKeys(uint256 _nodeOperatorId, uint256 _offset, uint256 _limit) returns (
+    bytes memory pubkeys,
+    bytes memory signatures,
+    bool[] memory used
+)
+```
+
+| Name              | Type      | Description                                                                                 |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id                                                                            |
+| `_offset`         | `uint256` | Offset of the key in the array of all NO keys (`0` means the first key, `1` the second, etc |
+| `_limit`          | `uint256` | Number of keys to return                                                                    |
+
+Returns:
+
+| Name         | Type     | Description                                                                                                |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `pubkeys`    | `bytes`  | Keys concatenated into the bytes batch: `[ 48 bytes key \| 48 bytes key \| ... ]`                          |
+| `signatures` | `bytes`  | Signatures needed for a `deposit_contract.deposit` call, concatenated as `[ 96 bytes \| 96 bytes \| ... ]` |
+| `used`       | `bool[]` | Array of flags indicated if the key was used in the staking                                                |
+
 ### getNodeOperatorsCount()
 
-Returns total number of node operators
+Returns the total number of node operators.
 
 ```sol
 function getNodeOperatorsCount() returns (uint256)
 ```
 
-### getKeysOpIndex()
-Returns a monotonically increasing counter that gets incremented when any of the following happens:
-1. a Node Operator's key(s) is added
-2. a Node Operator's key(s) is removed
-3. a Node Operator's approved keys limit is changed
-4. a Node Operator was activated/deactivated
+### getNonce()
+
+Returns a counter that increments whenever the deposit data set changes. Namely, it increments every time when for a node operator:
+
+- staking limit changed;
+- target validators limit changed;
+- stuck validators count changed;
+- exited validators count changed;
+- validator signing keys added/removed;
+- penalty is cleared;
+- ready to deposit keys invalidated (due to withdrawal credentials change or due to manual invalidation by call of `invalidateReadyToDepositKeysRange`);
+- ether deposited.
 
 ```sol
-function getKeysOpIndex() public view returns (uint256)
+function getNonce() view returns (uint256)
+```
+
+### getType()
+
+Returns the type of the staking module.
+
+```sol
+function getType() view returns (bytes32)
+```
+
+### getStakingModuleSummary()
+
+Returns some statistics of the staking module.
+
+```sol
+function getStakingModuleSummary() view returns (
+    uint256 totalExitedValidators,
+    uint256 totalDepositedValidators,
+    uint256 depositableValidatorsCount
+)
+```
+
+| Name                         | Type      | Description                                 |
+| ---------------------------- | --------- | ------------------------------------------- |
+| `totalExitedValidators`      | `uint256` | Total number of exited validators           |
+| `totalDepositedValidators`   | `uint256` | Total number of deposited validators        |
+| `depositableValidatorsCount` | `uint256` | Number of validators which can be deposited |
+
+### getNodeOperatorIsActive()
+
+Returns if the node operator with given id is active.
+
+```sol
+function getNodeOperatorIsActive(uint256 _nodeOperatorId) view returns (bool)
+```
+
+| Name              | Type      | Description      |
+| ----------------- | --------- | ---------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id |
+
+### getNodeOperatorIds()
+
+Returns up to `_limit` node operator ids starting from the `_offset`.
+
+```sol
+function getNodeOperatorIds(uint256 _offset, uint256 _limit) view
+    returns (uint256[] memory nodeOperatorIds)
+```
+
+| Name      | Type      | Description                              |
+| --------- | --------- | ---------------------------------------- |
+| `_offset` | `uint256` | Offset of the first element of the range |
+| `_limit`  | `uint256` | Max number of NO ids to return           |
+
+### getNodeOperatorSummary()
+
+Returns some statistics of the node operator.
+
+```sol
+function getNodeOperatorSummary(uint256 _nodeOperatorId) view returns (
+    bool isTargetLimitActive,
+    uint256 targetValidatorsCount,
+    uint256 stuckValidatorsCount,
+    uint256 refundedValidatorsCount,
+    uint256 stuckPenaltyEndTimestamp,
+    uint256 totalExitedValidators,
+    uint256 totalDepositedValidators,
+    uint256 depositableValidatorsCount
+)
+```
+
+| Name                         | Type      | Description                                                                                      |
+| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------ |
+| `isTargetLimitActive`        | `bool`    | Is limiting target active validators count for NO enabled                                        |
+| `targetValidatorsCount`      | `uint256` | Target validators count for full description see [parameters section](#node-operator-parameters) |
+| `stuckValidatorsCount`       | `uint256` | Number of stuck keys from oracle report                                                          |
+| `refundedValidatorsCount`    | `uint256` | Number of refunded keys                                                                          |
+| `stuckPenaltyEndTimestamp`   | `uint256` | Extra penalty time after stuck keys refunded                                                     |
+| `totalExitedValidators`      | `uint256` | Number of keys in the EXITED state of the NO for all time                                        |
+| `totalDepositedValidators`   | `uint256` | Number of keys of the NO which were in DEPOSITED state for all time                              |
+| `depositableValidatorsCount` | `uint256` | Number of validators which can be deposited                                                      |
+
+### getStuckPenaltyDelay()
+
+Returns value of the stuck penalty delay (in seconds).
+This parameter defines how long a penalized NO stays in penalty state after the stuck keys were refunded.
+
+```sol
+function getStuckPenaltyDelay() view returns (uint256)
+```
+
+### isOperatorPenalized()
+
+Returns flag whether the NO is penalized.
+
+```sol
+function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
+```
+
+### isOperatorPenaltyCleared()
+
+Returns flag whether the NO penalty is cleared.
+
+```sol
+function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
+```
+
+### getLocator()
+
+Returns the address of [`LidoLocator`](./lido-locator.md).
+
+```sol
+function getLocator() view returns (ILidoLocator)
 ```
 
 ## Methods
 
 ### addNodeOperator()
 
-Add node operator named `_name` with reward address `_rewardAddress` and staking limit = 0
+Add node operator named `_name` with reward address `_rewardAddress` and staking limit = 0.
+
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
 ```sol
 function addNodeOperator(
@@ -142,277 +340,206 @@ function addNodeOperator(
 ) returns (uint256 id)
 ```
 
-#### Parameters:
+| Name             | Type      | Description                                            |
+| ---------------- | --------- | ------------------------------------------------------ |
+| `_name`          | `string`  | Human-readable name                                    |
+| `_rewardAddress` | `address` | Address which receives stETH rewards for this operator |
 
-| Name             | Type      | Description                                                       |
-| ---------------- | --------- | ----------------------------------------------------------------- |
-| `_name`          | `string`  | Human-readable name                                               |
-| `_rewardAddress` | `address` | Ethereum 1 address which receives stETH rewards for this operator |
-
-#### Returns:
+Returns:
 
 | Name | Type      | Description                        |
 | ---- | --------- | ---------------------------------- |
 | `id` | `uint256` | A unique key of the added operator |
 
-### setNodeOperatorActive()
+### activateNodeOperator()
 
-Activate or disable node operator with given id
+Activates deactivated node operator with given id.
+
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
 :::note
-Increases the keysOpIndex
+Increases the validators keys nonce
 :::
 
 ```sol
-function setNodeOperatorActive(uint256 _id, bool _active)
+function activateNodeOperator(uint256 _nodeOperatorId)
 ```
 
-#### Parameters:
+| Name              | Type      | Description      |
+| ----------------- | --------- | ---------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id |
 
-| Name      | Type      | Description                       |
-| --------- | --------- | --------------------------------- |
-| `_id`     | `uint256` | Node Operator id                  |
-| `_active` | `bool`    | Activate or disable node operator |
+### deactivateNodeOperator()
+
+Deactivates active node operator with given id.
+
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role
+
+:::note
+Increases the validators keys nonce
+:::
+
+```sol
+function deactivateNodeOperator(uint256 _nodeOperatorId)
+```
+
+| Name              | Type      | Description      |
+| ----------------- | --------- | ---------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### setNodeOperatorName()
 
-Change human-readable name of the node operator `_id` to `_name`
+Change human-readable name of the node operator with given id.
+
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
 ```sol
-function setNodeOperatorName(uint256 _id, string _name)
+function setNodeOperatorName(uint256 _nodeOperatorId, string _name)
 ```
 
-#### Parameters:
-
-| Name    | Type      | Description         |
-| ------- | --------- | ------------------- |
-| `_id`   | `uint256` | Node Operator id    |
-| `_name` | `string`  | Human-readable name |
+| Name              | Type      | Description         |
+| ----------------- | --------- | ------------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id    |
+| `_name`           | `string`  | Human-readable name |
 
 ### setNodeOperatorRewardAddress()
 
-Change reward address of the node operator `_id` to `_rewardAddress`
+Change reward address of the node operator with given id.
+
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
 ```sol
-function setNodeOperatorRewardAddress(uint256 _id, address _rewardAddress)
+function setNodeOperatorRewardAddress(uint256 _nodeOperatorId, address _rewardAddress)
 ```
 
-#### Parameters:
-
-| Name             | Type      | Description        |
-| ---------------- | --------- | ------------------ |
-| `_id`            | `uint256` | Node Operator id   |
-| `_rewardAddress` | `address` | New reward address |
+| Name              | Type      | Description        |
+| ----------------- | --------- | ------------------ |
+| `_nodeOperatorId` | `uint256` | Node operator id   |
+| `_rewardAddress`  | `address` | New reward address |
 
 ### setNodeOperatorStakingLimit()
 
-Set the maximum number of validators to stake for the node operator `_id` to `_stakingLimit`
+Set the maximum number of validators to stake for the node operator with given id.
 
-```sol
-function setNodeOperatorStakingLimit(uint256 _id, uint64 _stakingLimit)
-```
+Executed on behalf of holder of `SET_NODE_OPERATOR_LIMIT_ROLE` role.
 
 :::note
-Increases the keysOpIndex
+Current implementation preserves invariant:
+`depositedSigningKeysCount <= vettedSigningKeysCount <= totalSigningKeysCount`.
+If `_vettedSigningKeysCount` out of range `[depositedSigningKeysCount, totalSigningKeysCount]`,
+the new vettedSigningKeysCount value will be set to the nearest range border.
 :::
-
-#### Parameters:
-
-| Name            | Type      | Description                       |
-| --------------- | --------- | --------------------------------- |
-| `_id`           | `uint256` | Node Operator id                  |
-| `_stakingLimit` | `address` | Max number of validators to stake |
-
-### reportStoppedValidators()
-
-Report `_stoppedIncrement` more stopped validators of the node operator `_id`
-
-```sol
-function reportStoppedValidators(uint256 _id, uint64 _stoppedIncrement)
-```
-
-#### Parameters:
-
-| Name                | Type      | Description                              |
-| ------------------- | --------- | ---------------------------------------- |
-| `_id`               | `uint256` | Node Operator id                         |
-| `_stoppedIncrement` | `uint64`  | Count of stopped validators to increment |
-
-### trimUnusedKeys()
-
-Remove unused signing keys
-
-```sol
-function trimUnusedKeys()
-```
 
 :::note
-Function is used by the Lido contract
+Increases the validators keys nonce
 :::
+
+```sol
+function setNodeOperatorStakingLimit(uint256 _nodeOperatorId, uint64 _vettedSigningKeysCount)
+```
+
+| Name                      | Type      | Description                               |
+| ------------------------- | --------- | ----------------------------------------- |
+| `_nodeOperatorId`         | `uint256` | Node operator id to set staking limit for |
+| `_vettedSigningKeysCount` | `address` | New staking limit of the node operator    |
 
 ### addSigningKeys()
 
-Add `_quantity` validator signing keys of operator `_id` to the set of usable keys.
-Concatenated keys are: `_pubkeys`.
-Can be done by the DAO in question by using the designated rewards address.
+Add `_keysCount` validator signing keys to the keys of the node operator `_nodeOperatorId`.
+
+Can be executed for the given NO if called from the NO's reward address or by the holder of `MANAGE_SIGNING_KEYS` role.
 
 :::note
-Increases the keysOpIndex
+Along with each key `pubkey` a signatures must be provided for the
+`(pubkey, withdrawal_credentials, 32000000000)` message. For the details see the [keys section in NO guide].
+
+Given that information, the contract'll be able to call deposit_contract.deposit on-chain.
+:::
+
+:::note
+Increases the validators keys nonce
 :::
 
 ```sol
 function addSigningKeys(
-  uint256 _operator_id,
-  uint256 _quantity,
-  bytes _pubkeys,
+  uint256 _nodeOperatorId,
+  uint256 _keysCount,
+  bytes _publicKeys,
   bytes _signatures
 )
 ```
 
-:::note
-Along with each key the DAO has to provide a signatures for the
-(pubkey, withdrawal_credentials, 32000000000) message.
+| Name              | Type      | Description                                                                                                                                    |
+| ----------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id                                                                                                                               |
+| `_keysCount`      | `uint256` | Number of signing keys provided                                                                                                                |
+| `_publicKeys`     | `bytes`   | Several concatenated validator signing public keys                                                                                             |
+| `_signatures`     | `bytes`   | Several concatenated signatures for the DepositContract messages see the [keys section in NO guide] |
 
-Given that information, the contract'll be able to call
-`depositContract.deposit` on-chain.
-:::
-
-#### Parameters:
-
-| Name           | Type      | Description                                                                                |
-| -------------- | --------- | ------------------------------------------------------------------------------------------ |
-| `_operator_id` | `uint256` | Node Operator id                                                                           |
-| `_quantity`    | `uint64`  | Number of signing keys provided                                                            |
-| `_pubkeys`     | `bytes`   | Several concatenated validator signing keys                                                |
-| `_signatures`  | `bytes`   | Several concatenated signatures for (pubkey, withdrawal_credentials, 32000000000) messages |
-
-### addSigningKeysOperatorBH()
-
-Add `_quantity` validator signing keys of operator `_id` to the set of usable keys.
-Concatenated keys are: `_pubkeys`.
-Can be done by node operator in question by using the designated rewards address.
-
-```sol
-function addSigningKeysOperatorBH(
-  uint256 _operator_id,
-  uint256 _quantity,
-  bytes _pubkeys,
-  bytes _signatures
-)
-```
-
-:::note
-Along with each key the DAO has to provide a signatures for the
-(pubkey, withdrawal_credentials, 32000000000) message.
-
-Given that information, the contract'll be able to call
-`depositContract.deposit` on-chain.
-:::
-
-#### Parameters:
-
-| Name           | Type      | Description                                                                                |
-| -------------- | --------- | ------------------------------------------------------------------------------------------ |
-| `_operator_id` | `uint256` | Node Operator id                                                                           |
-| `_quantity`    | `uint64`  | Number of signing keys provided                                                            |
-| `_pubkeys`     | `bytes`   | Several concatenated validator signing keys                                                |
-| `_signatures`  | `bytes`   | Several concatenated signatures for (pubkey, withdrawal_credentials, 32000000000) messages |
-
-### removeSigningKey()
-
-Removes a validator signing key #`_index` of operator #`_id` from the set of usable keys. Executed on behalf of DAO.
-
-:::note
-Increases the keysOpIndex
-:::
-
-```sol
-function removeSigningKey(uint256 _operator_id, uint256 _index)
-```
-
-#### Parameters:
-
-| Name           | Type      | Description                       |
-| -------------- | --------- | --------------------------------- |
-| `_operator_id` | `uint256` | Node Operator id                  |
-| `_index`       | `uint256` | Index of the key, starting with 0 |
+[keys section in NO guide]: /guides/node-operators/validator-keys.md#generating-signing-keys
 
 ### removeSigningKeys()
-Removes an #`_amount` of validator signing keys starting from #`_index` of operator #`_id` usable keys. Executed on behalf of DAO.
 
-Keys removing from the last index to the highest one, so we won't get outside the array
+Removes an `_keysCount` of validator signing keys starting from `_fromIndex` of operator `_nodeOperatorId` usable keys.
+
+Can be executed for the given NO if called from the NO's reward address or by the holder of `MANAGE_SIGNING_KEYS` role.
+
+Keys removing from the last index to the highest one, so we won't get outside the array.
 
 :::note
-Increases the keysOpIndex
+Increases the validators keys nonce
 :::
 
 ```sol
-function removeSigningKeys(uint256 _operator_id, uint256 _index, uint256 _amount)
+function removeSigningKeys(uint256 _nodeOperatorId, uint256 _fromIndex, uint256 _keysCount)
 ```
 
-#### Parameters:
+| Name              | Type      | Description                       |
+| ----------------- | --------- | --------------------------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id                  |
+| `_fromIndex`      | `uint256` | Index of the key, starting with 0 |
+| `_keysCount`      | `uint256` | Number of keys to remove          |
 
-| Name           | Type      | Description                       |
-| -------------- | --------- | --------------------------------- |
-| `_operator_id` | `uint256` | Node Operator id                  |
-| `_index`       | `uint256` | Index of the key, starting with 0 |
-| `_amount`      | `uint256` | Amount of keys                    |
+### invalidateReadyToDepositKeysRange()
 
-### removeSigningKeyOperatorBH()
-
-Removes a validator signing key `_index` of operator `_id` from the set of usable keys. Executed on behalf of Node Operator.
+Invalidates all unused validators keys for node operators in the given range.
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
 ```sol
-function removeSigningKeyOperatorBH(uint256 _operator_id, uint256 _index)
+function invalidateReadyToDepositKeysRange(uint256 _indexFrom, uint256 _indexTo)
 ```
 
-#### Parameters:
+| Name         | Type      | Description                                                  |
+| ------------ | --------- | ------------------------------------------------------------ |
+| `_indexFrom` | `uint256` | the first index (inclusive) of the NO to invalidate keys for |
+| `_indexTo`   | `uint256` | The last index (inclusive) of the NO to invalidate keys for  |
 
-| Name           | Type      | Description                       |
-| -------------- | --------- | --------------------------------- |
-| `_operator_id` | `uint256` | Node Operator id                  |
-| `_index`       | `uint256` | Index of the key, starting with 0 |
+### clearNodeOperatorPenalty()
 
-### removeSigningKeysOperatorBH()
-
-Removes an #`_amount` of validator signing keys starting from #`_index` of operator #`_id` usable keys. Executed on behalf of Node Operator.
-
-Keys removing from the last index to the highest one, so we won't get outside the array
+Clears penalty state for the NO if it is suitable for clearing.
+The penalty state is switched automatically upon oracle report if the conditions are met
+(e.g., if penalty delay expired), but this function allows it to happen quicker.
+Can be called by anyone.
 
 ```sol
-function removeSigningKeysOperatorBH(uint256 _operator_id, uint256 _index, uint256 _amount)
+function clearNodeOperatorPenalty(uint256 _nodeOperatorId) external returns (bool)
 ```
 
-#### Parameters:
+| Name              | Type      | Description  |
+| ----------------- | --------- | ------------ |
+| `_nodeOperatorId` | `uint256` | Id of the NO |
 
-| Name           | Type      | Description                       |
-| -------------- | --------- | --------------------------------- |
-| `_operator_id` | `uint256` | Node Operator id                  |
-| `_index`       | `uint256` | Index of the key, starting with 0 |
-| `_amount`      | `uint256` | Amount of keys                    |
+### setStuckPenaltyDelay()
 
-### assignNextSigningKeys()
+Sets the stuck penalty delay parameter.
 
-Selects and returns at most `_numKeys` signing keys (as well as the corresponding
-signatures) from the set of active keys and marks the selected keys as used.
-May only be called by the Lido contract.
+Add node operator named `_name` with reward address `_rewardAddress` and staking limit = 0.
+Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
 ```sol
-function assignNextSigningKeys(uint256 _numKeys) returns (
-  bytes memory pubkeys,
-  bytes memory signatures
-)
+function setStuckPenaltyDelay(uint256 _delay)
 ```
 
-#### Parameters:
-
-| Name       | Type    | Description                                                                                                  |
-| ---------- | ------- | ------------------------------------------------------------------------------------------------------------ |
-| `_pubkeys` | `bytes` | The number of keys to select. The actual number of selected keys may be less due to the lack of active keys. |
-
-#### Returns:
-
-| Name          | Type    | Description                                                                                |
-| ------------- | ------- | ------------------------------------------------------------------------------------------ |
-| `_pubkeys`    | `bytes` | Several concatenated validator signing keys                                                |
-| `_signatures` | `bytes` | Several concatenated signatures for (pubkey, withdrawal_credentials, 32000000000) messages |
+| Name     | Type      | Description                    |
+| -------- | --------- | ------------------------------ |
+| `_delay` | `uint256` | Stuck penalty delay in seconds |

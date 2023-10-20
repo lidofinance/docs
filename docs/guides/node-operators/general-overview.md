@@ -18,7 +18,7 @@ The general flow is the following:
 4. The DAO members check the submitted keys for correctness and, if everything’s good, vote for
    approving them. After successful approval, the keys become usable by the protocol.
 
-5. The protocol distributes the pooled Ether evenly between all active Node Operators in `32 Ether`
+5. The protocol distributes the pooled ether evenly between all active Node Operators in `32 ether`
    chunks. When it assigns the next deposit to a Node Operator, it takes the first non-used signing
    key, as well as the associated signature, from the Node Operator’s usable set and performs
    a deposit to the official `DepositContract`, submitting the pooled funds. At that time, the Node
@@ -45,22 +45,22 @@ by the DAO voting and can be changed during the lifetime of the DAO. The Node Op
 fee is distributed between the active Node Operators proportionally to the number of validators that
 each Node Operator runs.
 
-> For example, if Oracles report that the protocol has received 10 Ether as a reward, the fee
+> For example, if Oracles report that the protocol has received 10 ether as a reward, the fee
 > percentage that goes to Operators is `10%`, and there are two active Node Operators, running
 > `2` and `8` validators, respectively, then the first operator will receive `0.2` stETH, the
 > second — `0.8` stETH.
 
 The fee is nominated in stETH, a liquid version of staked ETH introduced by the Lido protocol. The
-tokens correspond 1:1 to the Ether that the token holder would be able get by burning their stETH
+tokens correspond 1:1 to the ether that the token holder would be able get by burning their stETH
 if transfers were already enabled in the Beacon chain. At any time point, the total amount of stETH
-tokens is equal to the total amount of Ether controlled by the protocol on both Execution Layer and Consensus Layer sides.
+tokens is equal to the total amount of ether controlled by the protocol on both Execution Layer and Consensus Layer sides.
 
-When a user submits Ether to the pool, they get the same amount of freshly-minted stETH tokens.
+When a user submits ether to the pool, they get the same amount of freshly-minted stETH tokens.
 When reward is received on the Consensus Layer side, each stETH holder’s balance increases by the same
-percentage that the total amount of protocol-controlled Ether has increased, corrected for the
+percentage that the total amount of protocol-controlled ether has increased, corrected for the
 protocol fee which is taken by [minting new stETH tokens] to the fee recipients.
 
-> For example, if the reward has increased the total amount of protocol-controlled Ether by `10%`,
+> For example, if the reward has increased the total amount of protocol-controlled ether by `10%`,
 > and the total protocol fee percentage is `10%`, then each token holder’s balance will grow by
 > approximately `9.09%`, and `10%` of the reward will be forwarded to the treasury, insurance fund
 > and Node Operators.
