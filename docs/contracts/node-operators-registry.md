@@ -10,11 +10,41 @@ Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperator
 
 A curated node operator is obliged by the Lido DAO to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by means of [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) contract. If a NO doesn't fulfil the request timely, it might get penalized. The penalized status is assigned automatically by the Lido protocol. The penalized NO do not get new ether for new deposits and also receives half of its rewards till the penalty is cleared. The other half of the NO rewards gets distributed between all stETH holders (technically, it gets burned). To get the penalty cleared, the NO must exit the stuck validators or refund the corresponding ether amount and wait `getStuckPenaltyDelay()` seconds after that.
 
-The Lido DAO can also deactivate misbehaving operators by `deactivateNodeOperator()`. A deactivated node operator do not get rewards and new deposits.
+The Lido DAO can also:
+
+- set target limit count as the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](../contracts/withdrawal-queue-erc721#finalization). Allocation of deposits above the target value is prohibited.
+- deactivate misbehaving operators by `deactivateNodeOperator()`. A deactivated node operator do not get rewards and new deposits.
+
+## Glossary
+
+:::note
+In the context of these terms "signing key", "key", "validator key", "validator" might be used interchangeably.
+:::
+
+**signing key**. BLS12-381 public key that will be used by the protocol for making Beacon deposits to [run a validator](../guides/node-operators/validator-keys#generating-signing-keys)
+
+**vetted** (signing key). Approved by the Lido DAO for receiving ether for deposit.
+
+**submitted** (signing key). Added to the node operators registry.
+
+**depositable** (signing key). Suitable for new deposits.
+
+**deposited** (signing key). Ever received deposit.
+
+**unused** (signing key). Submitted but not deposited yet.
+
+**exited** (signing key). A validator that got into "Exited" state: either by [voluntary exit](https://lighthouse-book.sigmaprime.io/voluntary-exit.html) or as a result of slashing. [This doc](https://www.attestant.io/posts/understanding-the-validator-lifecycle/) might be useful regarding the validators lifecycle.
+
+**used (active)** (signing key). Deposited but not yet exited.
+
+**stuck** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) by Lido protocol.
+
+**refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see [Lido on Ethereum Block Proposer Rewards Policy v1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0x3b1e5f9960e682abdc25c86624ad13acb88ee1cea18db9be99379b44750c7b36).
 
 ## Node operator parameters
 
 For each NO the contract keeps a record of at least these values:
+
 - `active: bool` active/inactive status of the NO. An active NO gets rewards and new deposits according to its staking limit. New node operators are added in active state.
 - `name: string` human-readable name of the NO
 - `rewardAddress: address` where to send stETH rewards (part of the protocol fee)
@@ -33,28 +63,6 @@ The values can be viewed by means of `getNodeOperator()` and `getNodeOperatorSum
 Except for the function listed below, the contract has methods accessible only by [`StakingRouter`](./staking-router.md)
 (holder of `STAKING_ROUTER_ROLE`). These functions are called internally in the course of
 [`AccountingOracle`](./accounting-oracle.md) report.
-
-### Glossary
-
-NB: in the context of these terms "signing key", "key", "validator key", "validator" might be used interchangeably.
-
-**vetted** (signing key). Approved by the Lido DAO for receiving ether for deposit.
-
-**submitted** (signing key). Added to the node operators registry.
-
-**depositable** (signing key). Suitable for new deposits.
-
-**deposited** (signing). Ever received deposit.
-
-**unused** (signing key). Submitted but not deposited yet.
-
-**exited** (signing key). A validator that got into "Exited" state: either by [voluntary exit](https://lighthouse-book.sigmaprime.io/voluntary-exit.html) or as a result of slashing. [This doc](https://www.attestant.io/posts/understanding-the-validator-lifecycle/) might be useful regarding the validators lifecycle.
-
-**used (active)** (signing key). Deposited but not yet exited.
-
-**stuck** (signing key). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) by Lido protocol.
-
-**refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see [Lido on Ethereum Block Proposer Rewards Policy v1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0x3b1e5f9960e682abdc25c86624ad13acb88ee1cea18db9be99379b44750c7b36).
 
 ## View Methods
 
@@ -190,6 +198,7 @@ function getNodeOperatorsCount() returns (uint256)
 ### getNonce()
 
 Returns a counter that increments whenever the deposit data set changes. Namely, it increments every time when for a node operator:
+
 - staking limit changed;
 - target validators limit changed;
 - stuck validators count changed;
@@ -505,12 +514,11 @@ function invalidateReadyToDepositKeysRange(uint256 _indexFrom, uint256 _indexTo)
 | `_indexFrom` | `uint256` | the first index (inclusive) of the NO to invalidate keys for |
 | `_indexTo`   | `uint256` | The last index (inclusive) of the NO to invalidate keys for  |
 
-
 ### clearNodeOperatorPenalty()
 
 Clears penalty state for the NO if it is suitable for clearing.
 The penalty state is switched automatically upon oracle report if the conditions are met
-(e. g. if penalty delay expired), but this function allows it to happen quicker.
+(e.g., if penalty delay expired), but this function allows it to happen quicker.
 Can be called by anyone.
 
 ```sol
