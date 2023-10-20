@@ -25,7 +25,7 @@ Please be aware that you might encounter unexpected behavior during this period.
 - Withdrawal Queue ERC721: [`0xc7cc160b58F8Bb0baC94b80847E2CF2800565C50`](https://holesky.etherscan.io/address/0xc7cc160b58F8Bb0baC94b80847E2CF2800565C50) (proxy)
 - Withdrawal Vault: [`0xF0179dEC45a37423EAD4FaD5fCb136197872EAd9`](https://holesky.etherscan.io/address/0xF0179dEC45a37423EAD4FaD5fCb136197872EAd9) (proxy)
 - Burner: [`0x4E46BD7147ccf666E1d73A3A456fC7a68de82eCA`](https://holesky.etherscan.io/address/0x4E46BD7147ccf666E1d73A3A456fC7a68de82eCA)
-- MEV Boost Relay Allowed List: `TBA`
+- MEV Boost Relay Allowed List: [`0x2d86C5855581194a386941806E38cA119E50aEA3`](https://holesky.etherscan.io/address/0x2d86C5855581194a386941806E38cA119E50aEA3)
 
 ### Lido V2 Oracle Contracts
 
