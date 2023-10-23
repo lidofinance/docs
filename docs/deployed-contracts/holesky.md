@@ -72,7 +72,7 @@ Please be aware that you might encounter unexpected behavior during this period.
 - IncreaseNodeOperatorStakingLimit: [`0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449`](https://holesky.etherscan.io/address/0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449)
 - **Simple DVT** (committee ms [`0xD76001b33b23452243E2FDa833B6e7B8E3D43198`](https://holesky.etherscan.io/address/0xD76001b33b23452243E2FDa833B6e7B8E3D43198))
   - AddNodeOperators: [`0xeF5233A5bbF243149E35B353A73FFa8931FDA02b`](https://holesky.etherscan.io/address/0xeF5233A5bbF243149E35B353A73FFa8931FDA02b)
-  - ActivateNodeOperators: [`0x51916FC3D24CbE19c5e981ae8650668A1F5cF19B`](https://holesky.etherscan.io/address/0x5b4A9048176D5bA182ceec8e673D8aA6927A40D6)
+  - ActivateNodeOperators: [`0x5b4A9048176D5bA182ceec8e673D8aA6927A40D6`](https://holesky.etherscan.io/address/0x5b4A9048176D5bA182ceec8e673D8aA6927A40D6)
   - DeactivateNodeOperators: [`0x88d247cdf4ff4A4AAA8B3DD9dd22D1b89219FB3B`](https://holesky.etherscan.io/address/0x88d247cdf4ff4A4AAA8B3DD9dd22D1b89219FB3B)
   - SetVettedValidatorsLimits: [`0x30Cb36DBb0596aD9Cf5159BD2c4B1456c18e47E8`](https://holesky.etherscan.io/address/0x30Cb36DBb0596aD9Cf5159BD2c4B1456c18e47E8)
   - SetNodeOperatorNames: [`0x4792BaC0a262200fA7d3b68e7622bFc1c2c3a72d`](https://holesky.etherscan.io/address/0x4792BaC0a262200fA7d3b68e7622bFc1c2c3a72d)
