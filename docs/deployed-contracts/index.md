@@ -242,6 +242,21 @@ pagination_next: deployed-contracts/goerli
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - LDO token: [`0xFdb794692724153d1488CcdBE0C56c252596735F`](https://optimistic.etherscan.io/address/0xFdb794692724153d1488CcdBE0C56c252596735F)
 
+### Base
+
+#### Ethereum part
+
+- **proposed** L1ERC20TokenBridge: [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72) (proxy)
+- **proposed** L1ERC20TokenBridge: [`0x313819736457910ac1dd21a712a37f3d7595645a`](https://etherscan.io/address/0x313819736457910ac1dd21a712a37f3d7595645a) (impl)
+
+#### Base part
+
+- **proposed** WstETH ERC20Bridged: [`0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452`](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452) (proxy)
+- **proposed** WstETH ERC20Bridged: [`0x69ce2505ce515c0203160450157366f927243309`](https://basescan.org/address/0x69ce2505ce515c0203160450157366f927243309) (impl)
+- **proposed** L2ERC20TokenBridge: [`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB) (proxy)
+- **proposed** L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
+- **proposed** Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
+
 ### L2 Liquidity pools
 
 Balancer
