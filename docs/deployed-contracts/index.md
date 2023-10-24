@@ -19,7 +19,6 @@ pagination_next: deployed-contracts/goerli
 - Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 
-
 ## Lido V2 Oracle Contracts
 
 - Accounting Oracle:
@@ -116,7 +115,6 @@ pagination_next: deployed-contracts/goerli
 
 ## DAO-ops contracts & addresses
 
-
 - Jumpgate for [Solana Reward Program](https://solscan.io/address/H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2): [`0xe3224542066d3bbc02bc3d70b641be4bc6f40e36`](https://etherscan.io/address/0xe3224542066d3bbc02bc3d70b641be4bc6f40e36).
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 - Jumpgate for [Solana Referral Program](https://solscan.io/address/7KN9sjxsStxsTTPXZBZk6z1cdXfVkyvq1ihAVh94gXcP): [`0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8`](https://etherscan.io/address/0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8).
@@ -161,7 +159,6 @@ pagination_next: deployed-contracts/goerli
   - RemoveAllowedRecipient: [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7)
   - TopUpAllowedRecipients: [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1)
 
-
 - **Tooling contracts:**
   - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
   - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
@@ -170,6 +167,7 @@ pagination_next: deployed-contracts/goerli
 ## Lido DAO Multisigs
 
 ### Lido Contributors Group Multisigs
+
 - Pool Maintenance Labs Ltd. (PML): [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://etherscan.io/address/0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
 - Argo Technology Consulting Ltd. (ATC): [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://etherscan.io/address/0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
 - Resourcing and Compensation Committee (RCC): [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
@@ -184,15 +182,18 @@ pagination_next: deployed-contracts/goerli
 - Treasury Committee: [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://etherscan.io/address/0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
 
 ### Dev Team Multisigs
+
 - Gas Supply Committee: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
 ### Emergency Brakes Multisigs
+
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
+
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Ethereum)
 - Liquidity Observation Lab: [`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://gnosis-safe.io/app/oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd/home) (Optimism)
 - Liquidity Observation Lab OP Token Multisig: [`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/home?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A) (Optimism)
@@ -206,7 +207,6 @@ pagination_next: deployed-contracts/goerli
 - Liquidity Observation Lab: [`0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4`](https://multisig.moonbeam.network/mriver:0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4/home) (Moonriver)
 - Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
 - Solana DAO [`H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2`](https://app.realms.today/dao/3WZ9nP9KT7KSdfjL9acovwdmTMFmW5of946Sxt2LwnaY) (Solana)
-
 
 ## Lido on L2
 
@@ -257,6 +257,27 @@ pagination_next: deployed-contracts/goerli
 - **proposed** L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
 - **proposed** Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
 
+### ZkSync Era
+
+#### Ethereum part
+
+- **proposed** L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
+- **proposed** L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
+- **proposed** L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
+- **proposed** L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
+
+#### ZkSync Era part
+
+- **proposed** ZkSyncBridgeExecutor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
+- **proposed** ZkSyncBridgeExecutor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
+- **proposed** L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
+- **proposed** L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
+- **proposed** ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
+- **proposed** ERC20BridgedUpgradeable: [`0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c`](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c) (impl)
+- **proposed** ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
+  - ZkSyncBridgeExecutor
+  - ERC20BridgedUpgradeable
+
 ### L2 Liquidity pools
 
 Balancer
@@ -275,7 +296,6 @@ Kyber Network
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40) on Arbitrum: [`0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`](https://arbiscan.io/address/0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494)
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
-
 
 ## Legacy contracts
 
