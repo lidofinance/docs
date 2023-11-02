@@ -117,5 +117,15 @@ module.exports = {
         'deployed-contracts/holesky',
       ],
     },
+    {
+      type: 'category',
+      label: 'Multisigs',
+      items: [
+        'multisigs/emergency-brakes',
+        'multisigs/committees',
+        'multisigs/lido-on-x',
+        'multisigs/lido-contributors-group',
+      ],
+    },
   ],
 }
