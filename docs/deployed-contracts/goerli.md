@@ -20,11 +20,11 @@
 ### Lido V2 Oracle Contracts
 
 - Accounting Oracle:
-    - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
-    - HashConsensus: [`0x8d87A8BCF8d4e542fd396D1c50223301c164417b`](https://goerli.etherscan.io/address/0x8d87A8BCF8d4e542fd396D1c50223301c164417b)
+  - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
+  - HashConsensus: [`0x8d87A8BCF8d4e542fd396D1c50223301c164417b`](https://goerli.etherscan.io/address/0x8d87A8BCF8d4e542fd396D1c50223301c164417b)
 - Validators Exit Bus Oracle:
-    - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
-    - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
+  - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
+  - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
 - OracleReportSanityChecker: [`0xbf74600040F91D3560d5757280727FB00c64Fd2E`](https://goerli.etherscan.io/address/0xbf74600040F91D3560d5757280727FB00c64Fd2E)
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
@@ -100,6 +100,7 @@
 - DepositContractMock: [0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F](https://goerli.etherscan.io/address/0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F)
 
 ## DAO-ops contracts & addresses
+
 - TRP VestingEscrowFactory: [`0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7`](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
 
 ## Lido on L2
@@ -120,7 +121,6 @@
 - Arbitrum Governance Bridge Executor: [`0x43De3B7115baA4EbAbd7c5Eaf4cB2856238C6A50`](https://goerli.arbiscan.io/address/0x43De3B7115baA4EbAbd7c5Eaf4cB2856238C6A50)
 - LDO token: [`0xe04554C3d1a172581597505D7061C418226EdC23`](https://goerli.arbiscan.io/address/0xe04554C3d1a172581597505D7061C418226EdC23) (proxy)
 
-
 ### Optimism
 
 ##### Ethereum part
@@ -136,3 +136,18 @@
 - L2ERC20TokenBridge: [`0x04A1Ac7C5c08eD244f1d69EbB682984Ba7dBf93C`](https://goerli-optimism.etherscan.io/address/0x04A1Ac7C5c08eD244f1d69EbB682984Ba7dBf93C) (impl)
 - Optimism Governance Bridge Executor: [`0x55C39356C714Cde16F8a80302c1Ce9DfAC6f5a35`](https://goerli-optimism.etherscan.io/address/0x55C39356C714Cde16F8a80302c1Ce9DfAC6f5a35)
 - LDO token: [`0xE265FC71d45fd791c9ebf3EE0a53FBB220Eb8f75`](https://goerli-optimism.etherscan.io/address/0xE265FC71d45fd791c9ebf3EE0a53FBB220Eb8f75)
+
+### Base
+
+#### Ethereum part
+
+- L1ERC20TokenBridge: [`0x4522be59f3C5cebDB798832ee34033Ea9345B452`](https://goerli.etherscan.io/address/0x4522be59f3C5cebDB798832ee34033Ea9345B452) (proxy)
+- L1ERC20TokenBridge: [`0x7F6437Cec90f2b87663cc3c4360E9d4A06AE1B36`](https://goerli.etherscan.io/address/0x7F6437Cec90f2b87663cc3c4360E9d4A06AE1B36) (impl)
+
+#### Base part
+
+- WstETH ERC20Bridged: [`0x20727785a5e1b2874349948bD50caB5597B51F66`](https://goerli.basescan.org/address/0x20727785a5e1b2874349948bD50caB5597B51F66) (proxy)
+- WstETH ERC20Bridged: [`0x589577FB4c1236820d90Cd4DE37eB3d66eA8a264`](https://goerli.basescan.org/address/0x589577FB4c1236820d90Cd4DE37eB3d66eA8a264) (impl)
+- L2ERC20TokenBridge: [`0x21f3e20f8347f6a78745D12B5454e54Bb78B5B62`](https://goerli.basescan.org/address/0x21f3e20f8347f6a78745D12B5454e54Bb78B5B62) (proxy)
+- L2ERC20TokenBridge: [`0xec5d1485eC5fbC0F1b56692D2966236bD33B0535`](https://goerli.basescan.org/address/0xec5d1485eC5fbC0F1b56692D2966236bD33B0535) (impl)
+- Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0xaBeA917846b36Ef193e5532AF0534EB12E1EEc01`](https://goerli.basescan.org/address/0xaBeA917846b36Ef193e5532AF0534EB12E1EEc01)
