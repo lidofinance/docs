@@ -65,12 +65,22 @@ Please be aware that you might encounter unexpected behavior during this period.
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
 - Gate Seal: [`0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60`](https://holesky.etherscan.io/address/0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60)
 
+### Staking modules
+
+- Curated Node Operators: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
+- Sandbox: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC)
+- Simple DVT: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6)
+
 ### Easy Track
 
 - EasyTrack: [`0x1763b9ED3586B08AE796c7787811a2E1bc16163a`](https://holesky.etherscan.io/address/0x1763b9ED3586B08AE796c7787811a2E1bc16163a)
 - EVMScriptExecutor: [`0x2819B65021E13CEEB9AC33E77DB32c7e64e7520D`](https://holesky.etherscan.io/address/0x2819B65021E13CEEB9AC33E77DB32c7e64e7520D)
-- IncreaseNodeOperatorStakingLimit: [`0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449`](https://holesky.etherscan.io/address/0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449)
-- **Simple DVT** (committee ms [`0xD76001b33b23452243E2FDa833B6e7B8E3D43198`](https://holesky.etherscan.io/address/0xD76001b33b23452243E2FDa833B6e7B8E3D43198))
+- **Curated Node Operators staking module** (registry: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC))
+  - IncreaseNodeOperatorStakingLimit: [`0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449`](https://holesky.etherscan.io/address/0x18Ff3bD97739bf910cDCDb8d138976c6afDB4449)
+- **Sandbox staking module**: (registry: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC))
+  - IncreaseNodeOperatorStakingLimit: [`0xbD37e55748c6f4Ece637AeD3e278e7575346B587`](https://holesky.etherscan.io/address/0xbD37e55748c6f4Ece637AeD3e278e7575346B587)
+- **Simple DVT staking module**
+  (registry: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6), committee ms [`0xD76001b33b23452243E2FDa833B6e7B8E3D43198`](https://holesky.etherscan.io/address/0xD76001b33b23452243E2FDa833B6e7B8E3D43198))
   - AddNodeOperators: [`0xeF5233A5bbF243149E35B353A73FFa8931FDA02b`](https://holesky.etherscan.io/address/0xeF5233A5bbF243149E35B353A73FFa8931FDA02b)
   - ActivateNodeOperators: [`0x5b4A9048176D5bA182ceec8e673D8aA6927A40D6`](https://holesky.etherscan.io/address/0x5b4A9048176D5bA182ceec8e673D8aA6927A40D6)
   - DeactivateNodeOperators: [`0x88d247cdf4ff4A4AAA8B3DD9dd22D1b89219FB3B`](https://holesky.etherscan.io/address/0x88d247cdf4ff4A4AAA8B3DD9dd22D1b89219FB3B)
