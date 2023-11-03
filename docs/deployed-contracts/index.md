@@ -191,6 +191,7 @@ pagination_next: deployed-contracts/goerli
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
+- Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -246,16 +247,16 @@ pagination_next: deployed-contracts/goerli
 
 #### Ethereum part
 
-- **proposed** L1ERC20TokenBridge: [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72) (proxy)
-- **proposed** L1ERC20TokenBridge: [`0x313819736457910ac1dd21a712a37f3d7595645a`](https://etherscan.io/address/0x313819736457910ac1dd21a712a37f3d7595645a) (impl)
+- L1ERC20TokenBridge: [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72) (proxy)
+- L1ERC20TokenBridge: [`0x313819736457910ac1dd21a712a37f3d7595645a`](https://etherscan.io/address/0x313819736457910ac1dd21a712a37f3d7595645a) (impl)
 
 #### Base part
 
-- **proposed** WstETH ERC20Bridged: [`0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452`](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452) (proxy)
-- **proposed** WstETH ERC20Bridged: [`0x69ce2505ce515c0203160450157366f927243309`](https://basescan.org/address/0x69ce2505ce515c0203160450157366f927243309) (impl)
-- **proposed** L2ERC20TokenBridge: [`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB) (proxy)
-- **proposed** L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
-- **proposed** Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
+- WstETH ERC20Bridged: [`0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452`](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452) (proxy)
+- WstETH ERC20Bridged: [`0x69ce2505ce515c0203160450157366f927243309`](https://basescan.org/address/0x69ce2505ce515c0203160450157366f927243309) (impl)
+- L2ERC20TokenBridge: [`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB) (proxy)
+- L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
+- Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
 
 ### ZkSync Era
 
