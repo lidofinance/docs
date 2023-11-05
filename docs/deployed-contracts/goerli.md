@@ -151,3 +151,24 @@
 - L2ERC20TokenBridge: [`0x21f3e20f8347f6a78745D12B5454e54Bb78B5B62`](https://goerli.basescan.org/address/0x21f3e20f8347f6a78745D12B5454e54Bb78B5B62) (proxy)
 - L2ERC20TokenBridge: [`0xec5d1485eC5fbC0F1b56692D2966236bD33B0535`](https://goerli.basescan.org/address/0xec5d1485eC5fbC0F1b56692D2966236bD33B0535) (impl)
 - Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0xaBeA917846b36Ef193e5532AF0534EB12E1EEc01`](https://goerli.basescan.org/address/0xaBeA917846b36Ef193e5532AF0534EB12E1EEc01)
+
+### ZkSync Era
+
+#### Ethereum part
+
+- **proposed** L1Executor: [`0xfDF0c6812f10e803757e4A392df019cAdf2Ae0AA`](https://goerli.etherscan.io/address/0xfDF0c6812f10e803757e4A392df019cAdf2Ae0AA) (proxy)
+- **proposed** L1Executor: [`0xBe98f3ac3e9304C50F29c940D5f59673a1Ae4C14`](https://goerli.etherscan.io/address/0xBe98f3ac3e9304C50F29c940D5f59673a1Ae4C14) (impl)
+- **proposed** L1ERC20Bridge: [`0x075b90554C6cE93636B2E63C99EE704f8CC1C2f3`](https://goerli.etherscan.io/address/0x075b90554C6cE93636B2E63C99EE704f8CC1C2f3) (proxy)
+- **proposed** L1ERC20Bridge: [`0xc3f1A4C13532cc9DDeA36B54d83A427B8D4AaeEe`](https://goerli.etherscan.io/address/0xc3f1A4C13532cc9DDeA36B54d83A427B8D4AaeEe) (impl)
+
+#### ZkSync Era part
+
+- **proposed** ZkSyncBridgeExecutor: [`0x4097BC99a9B5fB253B938d105111FFcb862Be668`](https://goerli.explorer.zksync.io/address/0x4097BC99a9B5fB253B938d105111FFcb862Be668) (proxy)
+- **proposed** ZkSyncBridgeExecutor: [`0x213ec81bB9740c75d2BC186378cf734F9306e7e5`](https://goerli.explorer.zksync.io/address/0x213ec81bB9740c75d2BC186378cf734F9306e7e5) (impl)
+- **proposed** L2ERC20Bridge: [`0x0E1E4af13Bb95C84275b52b6edE1cb5F8c11Abe7`](https://goerli.explorer.zksync.io/address/0x0E1E4af13Bb95C84275b52b6edE1cb5F8c11Abe7) (proxy)
+- **proposed** L2ERC20Bridge: [`0xfD744ba1867B6e6da437bce3ba44f5898A72B9c3`](https://goerli.explorer.zksync.io/address/0xfD744ba1867B6e6da437bce3ba44f5898A72B9c3) (impl)
+- **proposed** ERC20BridgedUpgradeable: [`0x6750967d6e4712Ae6cF9401a87dc34642339E0Ef`](https://goerli.explorer.zksync.io/address/0x6750967d6e4712Ae6cF9401a87dc34642339E0Ef) (proxy)
+- **proposed** ERC20BridgedUpgradeable: [`0x75e79BCe0F5a81b6D0097CCB473D867940A4C2Ca`](https://goerli.explorer.zksync.io/address/0x75e79BCe0F5a81b6D0097CCB473D867940A4C2Ca) (impl)
+- **proposed** ProxyAdmin: [`0xe7e7befca267e5967e20d135941535a2396ccdf4`](https://goerli.explorer.zksync.io/address/0xe7e7befca267e5967e20d135941535a2396ccdf4) for
+  - ZkSyncBridgeExecutor
+  - ERC20BridgedUpgradeable

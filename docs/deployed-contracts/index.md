@@ -192,6 +192,7 @@ pagination_next: deployed-contracts/goerli
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
+- **proposed** zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -257,6 +258,27 @@ pagination_next: deployed-contracts/goerli
 - L2ERC20TokenBridge: [`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB) (proxy)
 - L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
 - Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
+
+### ZkSync Era
+
+#### Ethereum part
+
+- **proposed** L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
+- **proposed** L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
+- **proposed** L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
+- **proposed** L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
+
+#### ZkSync Era part
+
+- **proposed** ZkSyncBridgeExecutor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
+- **proposed** ZkSyncBridgeExecutor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
+- **proposed** L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
+- **proposed** L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
+- **proposed** ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
+- **proposed** ERC20BridgedUpgradeable: [`0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c`](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c) (impl)
+- **proposed** ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
+  - ZkSyncBridgeExecutor
+  - ERC20BridgedUpgradeable
 
 ### L2 Liquidity pools
 
