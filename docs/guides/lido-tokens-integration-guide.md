@@ -326,6 +326,15 @@ event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId);
 
 to update the NFT metadata if you're integrating it somewhere where it should be displayed correctly.
 
+#### ⚠️ Permitted requests griefing issue
+
+Withdrawal transactions made with `requestWithdrawalsWithPermit` or `requestWithdrawalsWstETHWithPermit` might fail due to being front-run by stealing the user-provided signature to execute `token.permit` method. It does not impose any fund loss risks nor blocks the capability to withdraw, but it affects the UX. For the details, see [this issue](https://github.com/lidofinance/lido-dao/issues/803).
+
+It's recommended to mitigate the issue, e.g. by utilizing the approach used in [Lido staking widget](https://github.com/lidofinance/ethereum-staking-widget). Shortly, the idea is as follows. If the initial `...WithPermit` transaction fails, immediately resent the request but via `requestWithdrawals/requestWithdrawalsWstETH` method this time, seamlessly relying on the allowance already provided as a result of the griefing transaction.
+For the specific example, see [the following code](https://github.com/lidofinance/ethereum-staking-widget/blob/ba65f2180ad0ab43b5f3bdcfeee118e6ceeabe7f/features/withdrawals/hooks/contract/useRequest.ts#L319C6-L319C6).
+
+Any other viable approach for mitigation might be used as well. As one more example, deploy a wrapper smart contract that tries `requestWithdrawalsWithPermit/requestWithdrawalsWithPermitWstETH` and if [catches](https://docs.soliditylang.org/en/latest/control-structures.html#try-catch) the revert error, continues with `requestWithdrawals/requestWithdrawalsWstETH`, checking the allowance is enough.
+
 ### Checking the state of withdrawal
 
 - You can check all the withdrawal requests for the owner by calling `getWithdrawalRequests(address _owner)` which returns an array of NFT ids.
