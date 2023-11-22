@@ -1,5 +1,18 @@
 # Görli
 
+:::info
+🫡 Görli Testnet: Scheduled End of Life in Q4 2023
+
+The Goerli testnet is set to receive support until the end of 2023.
+Please refer to the Ethereum testnets roadmap for a visual representation of the testnet lifecycle:
+![Ethereum testnets roadmap](../../static/img/deployed-contracts/testnets-roadmap.png)
+
+Approaching this timeline, it's recommended to transition to the [Lido on Holešky](./holesky.md) testnet deployments for future projects.
+
+Note that there will be no comprehensive Lido testnet environments available for Sepolia, due to the network's restricted and permission-based validator set configuration.
+
+:::
+
 ## Görli+Prater testnet
 
 ### Lido V2 Core Protocol
