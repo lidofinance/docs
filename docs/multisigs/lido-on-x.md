@@ -33,7 +33,7 @@ Lido on Polygon NO Registry [`0x216B8b78e0632138dc38907dd089aAB601ED6EDC`](https
 | Hamzah | 0xF20825cab04cc430Fe941eaa9C2Ae6b9DA9bc3B5 |  |  |
 | Aishwary | 0xc156C57231a9302D9f5C7b5eF22871cC25F40736 |  |  |
 
-## 3.1 Lido on Solana
+## 3.2 Lido on Solana
 
 **Blockchain:** Ethereum
 
