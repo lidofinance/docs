@@ -2,20 +2,32 @@
 
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
+- [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
 
-:::note
-Some methods, events and exceptions are inherited from the [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol) contract
+:::info
+Read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
 :::
+
+## What is AccountingOracle
 
 AccountingOracle is a contract where oracles send addresses' balances controlled by the DAO on the Consensus Layer side.
 The balances can go up because of reward accumulation and can go down due to slashing and staking penalties.
 Oracles are assigned by the DAO.
 
-Other major responsibilities of AccountingOracle: updating exited and stuck validators, finalizing withdrawal requests.
+Other major responsibilities of AccountingOracle: updating exited and stuck validators, distributes node-operator rewards, updates updating exited and stuck validators and processes user withdrawal requests.
 
-Oracle daemons push their reports every frame (225 epochs currently, equal to one day) and when the
-number of the same reports reaches the [quorum](#getquorum) value, the report is pushed to the
-[Lido contract][1].
+## Report cycle
+
+The oracle work is delineated by time periods called frames. In normal operation, oracles finalize a report in each frame (225 epochs currently, equal to one day). The frame includes these stages:
+
+- **Waiting:** oracle starts as [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot (ref slot)
+- **Data collection:** oracles monitor the state of both the execution and consensus layers and collect the data;
+- **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the HashConsensus smart contract;
+- **Core update report:** once the quorum of hashes is reached, meaning more than half of the oracles submitted the same hash, one of the oracles chosen in turn submits the actual report to the AccountingOracle contract, which triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and deciding whether to go in the bunker mode, and
+- **Extra data report:** an additional report carrying additional information that is not vital for the core update is submitted to the AccountingOracle, can be submitted in chunks.
+
+Oracle daemons push their reports every frame and when the number of the same reports reaches the [quorum](/contracts/hash-consensus#getquorum) value, the report is pushed to the
+[Lido contract](/contracts/lido#oracle-report).
 
 :::note
 However, daily oracle reports shouldn't be taken for granted.
@@ -24,83 +36,31 @@ Oracle daemons could stop pushing their reports for extended periods of time in 
 This would ultimately result in no oracle reports and no stETH rebases for this whole period.
 :::
 
-[1]: /contracts/lido
-[2]: /contracts/lido-locator
-[3]: /contracts/legacy-oracle
-[4]: /contracts/burner
-[5]: /contracts/hash-consensus
+## Report processing
 
-Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
-contract and a bunch of [granular roles](#permissions).
+The submission of the main report to `AccountingOracle` triggers the next processes in order:
+
+1. Update exited validators counts for each StakingModule in StakingRouter;
+2. Update bunker mode status for WithdrawalQueue;
+3. Handle function on the Lido contract which performs the main protocol state change.
+4. Store information about ExtraData
+
+The diagram shows the interaction with contracts.
 
 
-## Constants
-
-### LIDO()
-Returns address of [Lido][1] contract
-```solidity
-address public immutable LIDO
+```mermaid
+graph LR;
+  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
+  AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
+  AccountingOracle--checkAccountingExtraDataListItemsCount-->OracleReportSanityChecker;
+  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
+  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
+  AccountingOracle--'onOracleReport'-->WithdrawalQueue;
 ```
 
-### LOCATOR()
-Returns address of [Lido locator][2] contract
-```solidity
-ILidoLocator public immutable LOCATOR
-```
+## Report data
 
-### LEGACY_ORACLE()
-Returns address of [Legacy oracle][3] contract
-```solidity
-address public immutable LEGACY_ORACLE
-```
-
-### SECONDS_PER_SLOT()
-See https://ethereum.org/en/developers/docs/blocks/#block-time
-```solidity
-uint256 public immutable SECONDS_PER_SLOT
-```
-### GENESIS_TIME()
- See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
-
- Also its presents in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
-```solidity
-uint256 public immutable GENESIS_TIME
-```
-
-### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
-This type carries the details of stuck validator(s).
-
-```solidity
-uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1
-```
-
-### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
-This type contains the details of exited validator(s).
-```solidity
-uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
-```
-
-### EXTRA_DATA_FORMAT_EMPTY()
-The extra data format used to signify that the oracle report contains no extra data.
-```solidity
-uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0
-```
-
-### EXTRA_DATA_FORMAT_LIST()
-The list format for the extra data array. Used when all extra data processing
- fits into a single transaction.
-
-Extra data is passed within a single transaction as a bytearray containing all data items
-packed tightly.
-
-Hash is a keccak256 hash calculated over the bytearray items. The Solidity equivalent of
-the hash calculation code would be `keccak256(array)`, where `array` has the `bytes` type.
-```solidity
-uint256 public constant EXTRA_DATA_FORMAT_LIST = 1
-```
-
-## ReportData
+The function `submitReportData()` accepts the following `ReportData` structure.
 
 ```solidity
 struct ReportData {
@@ -127,20 +87,20 @@ struct ReportData {
 
 **CL values**
 - `numValidators` — The number of validators on consensus layer that were ever deposited via Lido as observed at the reference slot.
-- `clBalanceGwei` — Cumulative balance of all Lido validators on the consensus layer as observed at the reference slot.
+- `clBalanceGwei` — Cumulative balance nominated in gwei of all Lido validators on the consensus layer as observed at the reference slot.
 - `stakingModuleIdsWithNewlyExitedValidators` — Ids of staking modules that have more exited validators than the number stored in the respective staking module contract as observed at the reference slot.
 - `numExitedValidatorsByStakingModule` — Number of ever exited validators for each of the staking modules from the stakingModuleIdsWithNewlyExitedValidators array as observed at the reference slot.
 
 **EL values**
 - `withdrawalVaultBalance` — The ETH balance of the Lido withdrawal vault as observed at the reference slot.
 - `elRewardsVaultBalance` — The ETH balance of the Lido execution layer rewards vault as observed at the reference slot.
-- `sharesRequestedToBurn` — The shares amount requested to burn through [Burner][4] as observed at the reference slot. The value can be obtained in the following way:
+- `sharesRequestedToBurn` — The shares amount requested to burn through [Burner](/contracts/burner) as observed at the reference slot. The value can be obtained in the following way:
 ```solidity
 (coverSharesToBurn, nonCoverSharesToBurn) = IBurner(burner).getSharesRequestedToBurn()
 sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 ```
 
-**Decision**
+**Withdrawals finalization decision**
 - `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by calling WithdrawalQueue.calculateFinalizationBatches. Empty array means that no withdrawal requests should be finalized.
 - `simulatedShareRate` — The share/ETH rate with the 10^27 precision (i.e. the price of one stETH share in ETH where one ETH is denominated as 10^27) that would be effective as the result of applying this oracle report at the reference slot, with withdrawalFinalizationBatches set to empty array and simulatedShareRate set to 0.
 - `isBunkerMode` — Whether, based on the state observed at the reference slot, the protocol should be in the bunker mode.
@@ -222,6 +182,86 @@ Extra data array can be passed in different formats, see below.
 - `extraDataHash` - Hash of the extra data. See the constant defining a specific extra data format for the info on how to calculate the hash. Must be set to a zero hash if the oracle report contains no extra data.
 - `extraDataItemsCount` - Number of the extra data items. Must be set to zero if the oracle report contains no extra data.
 
+
+
+## Access and permissioms
+
+Access to lever methods is restricted using the functionality of the
+[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+contract and a bunch of [granular roles](#permissions).
+
+
+## Constants
+
+### LIDO()
+Returns address of the [Lido](/contracts/lido) contract
+```solidity
+address public immutable LIDO
+```
+
+### LOCATOR()
+Returns address of the [LidoLocator](/contracts/lido-locator) contract
+```solidity
+ILidoLocator public immutable LOCATOR
+```
+
+### LEGACY_ORACLE()
+Returns address of the [LegacyOracle](/contracts/legacy-oracle) contract
+```solidity
+address public immutable LEGACY_ORACLE
+```
+
+### SECONDS_PER_SLOT()
+See https://ethereum.org/en/developers/docs/blocks/#block-time
+
+:::note
+always returns 12 since the Merge
+:::
+
+```solidity
+uint256 public immutable SECONDS_PER_SLOT
+```
+### GENESIS_TIME()
+ See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
+
+ Also its presents in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
+```solidity
+uint256 public immutable GENESIS_TIME
+```
+
+### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
+This type carries the details of [stuck](/contracts/staking-router#exited-and-stuck-validators) validator(s).
+
+```solidity
+uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1
+```
+
+### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
+This type contains the details of [exited](/contracts/staking-router#exited-and-stuck-validators) validator(s).
+```solidity
+uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
+```
+
+### EXTRA_DATA_FORMAT_EMPTY()
+The extra data format used to signify that the oracle report contains no extra data.
+```solidity
+uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0
+```
+
+### EXTRA_DATA_FORMAT_LIST()
+The list format for the extra data array. Used when all extra data processing
+ fits into a single transaction.
+
+Extra data is passed within a single transaction as a bytearray containing all data items
+packed tightly.
+
+Hash is a keccak256 hash calculated over the bytearray items. The Solidity equivalent of
+the hash calculation code would be `keccak256(array)`, where `array` has the `bytes` type.
+```solidity
+uint256 public constant EXTRA_DATA_FORMAT_LIST = 1
+```
+
+
 ## ProcessingState
 
 ```solidity
@@ -251,7 +291,7 @@ struct ProcessingState {
 
 ### getConsensusContract()
 
-Returns the address of the [AccountingOracle HashConsensus][5] contract.
+Returns the address of the [AccountingOracle HashConsensus](/contracts/hash-consensus) contract.
 ```solidity
 function getConsensusContract() external view returns (address)
 ```
@@ -361,7 +401,7 @@ function submitReportExtraDataList(bytes calldata items)
 
 
 ### submitConsensusReport()
-Called by [AccountingOracle HashConsensus][5] contract to push a consensus report for processing.
+Called by [AccountingOracle HashConsensus](/contracts/hash-consensus) contract to push a consensus report for processing.
 
 :::note
 Note that submitting the report doesn't require the processor to start processing it right
@@ -495,17 +535,7 @@ event WarnProcessingMissed(uint256 indexed refSlot)
 
 ### submitReportData()
 
-To ensure that the reported data is within possible values, the handler function performs a number of sanity checks. When checking, reverts may occur in different contracts. The diagram shows the interaction with other contracts, and below is a description of where, what and why the reversal occurs.
-
-
-```mermaid
-graph LR;
-  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
-  AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
-  AccountingOracle--checkAccountingExtraDataListItemsCount-->OracleReportSanityChecker;
-  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
-  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
-```
+To ensure that the reported data is within possible values, the handler function performs a number of sanity checks. When checking, reverts may occur in different contracts.
 
 #### AccountingOracle and BaseOracle contracts
 

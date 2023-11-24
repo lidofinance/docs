@@ -4,7 +4,25 @@
 - [Deployed instance for AccountingOracle](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - [Deployed instance for ValidatorsExitBusOracle](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 
-HashConsensus is a contract that gets consensus reports (i.e. hashes) pushed to and processes them asynchronously.
+## What is HashConsensus
+HashConsensus is a contract managing oracle members committee and allowing the members to reach consensus on a hash for each reporting frame.
+
+Time is divided in frames of equal length, each having reference slot and processing deadline. Report data must be gathered by looking at the world state at the moment of the frame’s reference slot (including any state changes made in that slot), and must be processed before the frame’s processing deadline.
+
+Frame length is defined in Ethereum consensus layer epochs. Reference slot for each frame is set to the last slot of the epoch preceding the frame’s first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
+
+This means that all state changes a report processing could entail are guaranteed to be observed while gathering data for the next frame’s report. This is an important property given that oracle reports sometimes have to contain diffs instead of the full state which might be impractical or even impossible to transmit and process.
+
+Oracles members committee rotate within one time into two subsets:
+
+- Non-fast-lane members
+- [Fast-lane members](/contracts/hash-consensus#getisfastlanemember)
+
+The calculation of the Fast-lane members subset depends on frameIndex, totalMembers and quorum.
+
+Fast lane members can, and expected to, submit a report during the first part of the frame defined via setFastLaneConfig. Non-fast-lane members are only allowed to submit a report after the “fast-lane” part of the frame passes.
+
+This is done to encourage each oracle from the full set to participate in reporting on a regular basis, and identify any malfunctioning members.
 
 HashConsensus doesn't expect any specific behavior from a report processor, and guarantees the following:
 

@@ -28,6 +28,15 @@ module.exports = {
           ],
         },
         'guides/oracle-operator-manual',
+        {
+          type: 'category',
+          label: 'Oracle specification',
+          items: [
+            'guides/oracle-spec/accounting-oracle',
+            'guides/oracle-spec/validator-exit-bus',
+            'guides/oracle-spec/penalties',
+          ],
+        },
         'guides/deposit-security-manual',
         {
           type: 'category',

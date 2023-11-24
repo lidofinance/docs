@@ -3,8 +3,26 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
 
+:::note
+Some methods, events and exceptions are inherited from the [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol) contract
+:::
+
+:::info
+Read [What is Lido Oracle mechanism](guides/oracle-operator-manual#intro) before
+:::
+
+## What is ValidatorsExitBusOracle
+
 A contract implementing an on-chain message bus between the protocol off-chain oracle and off-chain observers,
 with the main goal of delivering validator exit requests to the Lido-participating node operators.
+
+It consists of 4 key steps:
+
+1. Calculate withdrawals amount to cover with ETH.
+2. Calculate ETH rewards prediction per epoch.
+3. Calculate withdraw epoch for next validator
+4. Prepare validators exit order queue
+5. It goes through this queue until the validators’ balances cover all withdrawal requests.
 
 The requests should be processed timely according to the ratified [Lido on Ethereum Validator Exits Policy V1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330).
 
@@ -12,7 +30,35 @@ Access to lever methods is restricted using the functionality of the
 [AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
-[1]: /contracts/hash-consensus
+## Report cycle
+
+Oracle tries to find the previous non-missed slot before the reference slot, and builds a report for that slot.
+
+- **Waiting** - oracle starts as daemon and wakes up every 12 seconds (by default) in order to find the last finalized slot (ref slot)
+- **Data collection**: collect data for report,
+- **Hash consensus**: oracles analyze the report data, compile the report and submit its hash to the [HashConsensus](/contracts/hash-consensus) smart contract;
+- **Core update report**: if the consensus is reached at the previous step, an oracle reports the details about the next validators to be ejected (to initiate exit from CL).
+
+## Report data
+
+```solidity
+struct ReportData {
+    uint256 consensusVersion;
+    uint256 refSlot;
+    uint256 requestsCount;
+    uint256 dataFormat;
+    bytes data;
+}
+```
+**Oracle consensus info**
+- `consensusVersion` — Version of the oracle consensus rules. Current version expected by the oracle can be obtained by calling getConsensusVersion().
+- `refSlot` — Reference slot for which the report was calculated. If the slot contains a block, the state being reported should include all state changes resulting from that block. The epoch containing the slot should be finalized prior to calculating the report.
+
+**Requests data**
+- `requestsCount` — Total number of validator exit requests in this report. Must not be greater
+         than limit checked in OracleReportSanityChecker.checkExitBusOracleReport.
+- `dataFormat` — Format of the validator exit requests data. Currently, only the `DATA_FORMAT_LIST=1` is supported.
+- `data` — Validator exit requests data. Can differ based on the data format, see the constant defining a specific data format [here](#data_format_list) for more info.
 
 ## Constants
 
@@ -77,27 +123,6 @@ struct ProcessingState {
 - `requestsCount` — Total number of validator exit requests for the current reporting frame.
 - `requestsSubmitted` — How many validator exit requests are already submitted for the current reporting frame.
 
-## ReportData
-
-```solidity
-struct ReportData {
-    uint256 consensusVersion;
-    uint256 refSlot;
-    uint256 requestsCount;
-    uint256 dataFormat;
-    bytes data;
-}
-```
-**Oracle consensus info**
-- `consensusVersion` — Version of the oracle consensus rules. Current version expected by the oracle can be obtained by calling getConsensusVersion().
-- `refSlot` — Reference slot for which the report was calculated. If the slot contains a block, the state being reported should include all state changes resulting from that block. The epoch containing the slot should be finalized prior to calculating the report.
-
-**Requests data**
-- `requestsCount` — Total number of validator exit requests in this report. Must not be greater
-         than limit checked in OracleReportSanityChecker.checkExitBusOracleReport.
-- `dataFormat` — Format of the validator exit requests data. Currently, only the `DATA_FORMAT_LIST=1` is supported.
-- `data` — Validator exit requests data. Can differ based on the data format, see the constant defining a specific data format [here](#data_format_list) for more info.
-
 ## View methods
 
 ### getTotalRequestsProcessed()
@@ -134,7 +159,7 @@ function getProcessingState() external view returns (ProcessingState memory resu
 
 ### getConsensusContract()
 
-Returns the address of the [ValidatorsExitBusOracle HashConsensus][1] contract.
+Returns the address of the [ValidatorsExitBusOracle HashConsensus](/contracts/hash-consensus) contract.
 ```solidity
 function getConsensusContract() external view returns (address)
 ```
