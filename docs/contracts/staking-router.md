@@ -58,7 +58,7 @@ StakingRouter carries out a vital task of distributing depositable ether to stak
 
 The deposit workflow involves submitting batches of 32 ether deposits, along with associated validator keys, to [`DepositContract`](https://ethereum.org/en/staking/deposit-contract/) in one transaction. Given that each staking module handles its own deposits, every batch deposit is restricted to keys originating from a single module.
 
-The deposit operation is, at its core, a sequence of contract calls sparked by an off-chain software, the [depositor bot](https://github.com/lidofinance/depositor-bot). This bot gathers guardian messages to confirm that there are no pre-existing keys in the registry that could take advantage of the [frontrunning vulnerability](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). Once the necessary quorum of guardians is reached, the bot forwards these messages along with the module identifier to the DepositSecurityModule (not to be confused with a staking module). Tdhis contract first verifies the messages, then initiates the deposit function on Lido, passing along the maximum number of deposits that the current block size can accommodate. Subsequently, Lido calculates the maximum number of deposits that can be included in the batch based on the existing deposit buffer, and triggers StakingRouter's deposit function. The StakingRouter then determines the distribution of buffered ether to the module that will use its keys in the deposit, and finally executes the batch deposit.
+The deposit operation is, at its core, a sequence of contract calls sparked by an off-chain software, the [depositor bot](https://github.com/lidofinance/depositor-bot). This bot gathers guardian messages to confirm that there are no pre-existing keys in the registry that could take advantage of the [frontrunning vulnerability](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). Once the necessary quorum of guardians is reached, the bot forwards these messages along with the module identifier to the DepositSecurityModule (not to be confused with a staking module). This contract first verifies the messages, then initiates the deposit function on Lido, passing along the maximum number of deposits that the current block size can accommodate. Subsequently, Lido calculates the maximum number of deposits that can be included in the batch based on the existing deposit buffer, and triggers StakingRouter's deposit function. The StakingRouter then determines the distribution of buffered ether to the module that will use its keys in the deposit, and finally executes the batch deposit.
 
 The `deposit` function begins by verifying the sender's identity and checking the withdrawal credentials and the status of the staking module. After these checks, it updates the contract's local state by recording the current timestamp and block number as the last deposit time and block for the staking module. It then emits an event to log the deposit transaction, and checks if the deposit value matches with the required total deposit size. If there are deposits to be made, it gets deposit data (public keys and signatures) from the staking module contract. It then makes deposits to `DepositContract` using the obtained data. Finally, it confirms that all deposited ETH has been correctly transferred to the contract by comparing the contract's ether balance before and after the deposit transaction.
 
@@ -71,22 +71,22 @@ The allocation function uses the [`MinFirstAllocationStrategy`](https://github.c
 Here is a breakdown of the process:
 
 1. The function takes as input `_depositsToAllocate`, which represents the amount of new deposits that need to be allocated among the staking modules.
-    
+
 2. It starts by calculating the total active validators in the system (`totalActiveValidators`) and loading the current state of staking modules into a cache (`stakingModulesCache`).
-    
+
 3. It then creates an `allocations` array of the same size as the number of staking modules, with each index in this array representing a staking module's current allocation (i.e., the current number of active validators in that module).
-    
+
 4. If there are staking modules available (`stakingModulesCount > 0`), the function goes into the allocation process:
-    
+
     a. It calculates a new estimated total of active validators, adding the new deposits to the total active validators (`totalActiveValidators += _depositsToAllocate`).
-    
+
     b. It creates a `capacities` array of the same size as the number of staking modules. Each entry in this array represents the maximum capacity of a particular staking module, i.e., the maximum number of validators that module can have. This is calculated as the minimum of either:
-    
+
     - The target number of validators for a module, which is based on a desired target share (`stakingModulesCache[i].targetShare * totalActiveValidators / TOTAL_BASIS_POINTS`), or
     - The sum of the current active validators and the available validators in the module (`stakingModulesCache[i].activeValidatorsCount + stakingModulesCache[i].availableValidatorsCount`).
-    
+
     c. Finally, it calls the `allocate` function from `MinFirstAllocationStrategy`, passing in the `allocations`, `capacities`, and `_depositsToAllocate`. The amount successfully allocated is stored in `allocated`.
-    
+
 
 To sum up, this function is using the `MinFirstAllocationStrategy` algorithm to distribute new deposits (validators) across different staking modules in a way that prioritizes filling the least populated modules, while taking into account each module's target share and capacity. The resulting allocations and total allocated amount are then returned for further use.
 
@@ -99,21 +99,21 @@ Because the protocol does not currently account for per-validator performance, t
 The distribution function itself works as follows:
 
 1. The function first loads the current state of the staking modules into a cache (`_loadStakingModulesCache`) and calculates the number of these modules (`stakingModulesCount`).
-    
+
 2. If there are no staking modules or no active validators in the system, it returns an empty response.
-    
+
 3. Otherwise, it initializes arrays to store the module IDs (`stakingModuleIds`), the addresses of reward recipients (`recipients`), and the fees of each recipient (`stakingModuleFees`). It also sets the `precisionPoints` to a constant `FEE_PRECISION_POINTS`, which represents the base precision number that constitutes 100% fee.
-    
+
 4. Then it loops through each staking module. For each module that has at least one active validator, it:
-    
+
     - Stores the module ID and recipient address in the respective arrays.
     - Calculates the `stakingModuleValidatorsShare`, which is the proportion of total active validators that are part of this staking module.
     - Calculates the `stakingModuleFee` as the product of `stakingModuleValidatorsShare` and the fee of the staking module divided by `TOTAL_BASIS_POINTS` (i.e., the proportion of the staking module's fee to the total possible fees). If the module is not stopped, this fee is stored in the `stakingModuleFees` array.
     - Adds to `totalFee` the sum of the staking module's fee and a fee going to the treasury (calculated similarly to `stakingModuleFee`), where the treasury is a central pool of funds.
 5. After looping through all modules, it makes an assertion that `totalFee` doesn't exceed 100% (represented by `precisionPoints`).
-    
+
 6. If there are staking modules with no active validators, it shrinks the `stakingModuleIds`, `recipients`, and `stakingModuleFees` arrays to exclude those modules.
-    
+
 Finally, the function returns five arrays/values: `recipients`, `stakingModuleIds`, `stakingModuleFees`, `totalFee`, and `precisionPoints`. These give the caller an overview of how rewards are distributed amongst the staking modules.
 
 ## Helpful links
@@ -534,7 +534,7 @@ function getStakingModuleMaxDepositsCount(
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
 | `_stakingModuleId`| `uint256` | staking module id |
-| `_maxDepositsValue`| `uint256` | maximum amount of deposites based on the available ether |
+| `_maxDepositsValue`| `uint256` | maximum amount of deposits based on the available ether |
 
 **Returns:**
 
@@ -580,7 +580,7 @@ function getStakingRewardsDistribution() public view returns (
 
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
-| `recipients` | `address[]` | totalstaking module addresses |
+| `recipients` | `address[]` | total staking module addresses |
 | `stakingModuleIds` | `uint256[]` | staking module ids |
 | `stakingModuleFees` | `uint96[]` | staking module fees |
 | `totalFee` | `uint96[]` | total fee |
@@ -606,7 +606,7 @@ function getDepositsAllocation(uint256 _depositsCount) external view returns (
 
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
-| `allocated` | `uint256` | totalstaking module addresses |
+| `allocated` | `uint256` | total staking module addresses |
 | `allocations` | `uint256[]` | array of new total deposits between staking modules |
 
 ### `getWithdrawalCredentials`

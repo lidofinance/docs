@@ -1,4 +1,4 @@
-# stETH/wstETH integration guide
+# Lido tokens integration guide
 
 This document is intended for developers looking to integrate Lido's stETH or wstETH as a token into their dApp, with a focus on money markets, DEXes and blockchain bridges.
 
@@ -8,20 +8,49 @@ Lido is a family of liquid staking protocols across multiple blockchains, with h
 Liquid refers to the ability of a user’s stake to become liquid. Upon the user's deposit Lido issues stToken, which represents the deposited tokens along with all the rewards & penalties accrued through the deposit's staking. Unlike the staked funds, this stToken is liquid — it can be freely transferred between parties, making it usable across different DeFi applications while still receiving daily staked rewards. It is paramount to preserve this property when integrating stTokens into any DeFi protocol.
 
 This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
-For ether staked in Lido, it gives users stETH that is equal to the amount staked.
 
-Lido's stTokens are widely adopted across the Ethereum ecosystem:
+## Lido tokens
 
-- The most important liquidity venues include [stETH/ETH liquidity pool on Curve](https://curve.fi/steth) and [wstETH/ETH MetaStable pool on Balancer v2](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)
-- stETH is [listed as a collateral token on AAVE v2 market](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) on Ethereum mainnet
+### stTokens: stETH and wstETH
+
+For ether staked in Lido, the Lido protocol gives users [stETH](#steth) that is equal to the amount staked.
+For easier DeFi integrations, `stETH` has a non-rebasable value-accruing counterpart called ['wrapped stETH'](#wsteth)
+(or just `wstETH`).
+
+Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
+
+- The most important on-chain liquidity venues include:
+  - [stETH/ETH liquidity pool on Curve](https://curve.fi/steth)
+  - [wstETH/ETH Composable stable pool on Balancer v2](https://app.balancer.fi/#/ethereum/pool/0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd0000000000000000000005c2)
+  - [wstETH/ETH pool on Uniswap V3](https://info.uniswap.org/#/pools/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa)
+- wstETH is listed as a collateral token on the following AAVE v3 markets:
+  - [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0&marketName=proto_mainnet_v3)
+  - [Arbitrum](https://app.aave.com/reserve-overview/?underlyingAsset=0x5979d7b546e38e414f7e9822514be443a4800529&marketName=proto_arbitrum_v3)
+  - [Optimism](https://app.aave.com/reserve-overview/?underlyingAsset=0x1f32b1c2345538c0c6f582fcb022739c4a194ebb&marketName=proto_optimism_v3)
+  - [Polygon](https://app.aave.com/reserve-overview/?underlyingAsset=0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd&marketName=proto_polygon_v3)
+- stETH is listed as a collateral token on the AAVE v2 [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) market
 - wstETH is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
 - steCRV (the Curve stETH/ETH LP token) is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
-- there are multiple liquidity strategies built on top of Lido's stTokens, including [yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
+- there are multiple liquidity strategies built on top of Lido's stTokens, including [Yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
 
 #### Integration utilities: ChainLink price feeds
 
 - There are live ChainLink [stETH/USD](https://app.ens.domains/name/steth-usd.data.eth) and [stETH/ETH](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812) price feeds on Ethereum.
 - There are live ChainLink stETH/USD price feeds on [Arbitrum](https://docs.chain.link/docs/arbitrum-price-feeds/) and [Optimism](https://docs.chain.link/docs/optimism-price-feeds/). These also have ChainLink wstETH-stETH exchange rate data feeds.
+
+### LDO
+
+[LDO](#ldo-1) is a Lido governance ERC-20 compliant token derived from the [MiniMe Token](https://github.com/Giveth/minime).
+Thus, LDO holder balances are queryable for an arbitrary block number, an essential security feature for the Lido voting mechanics.
+
+### unstETH
+
+A non-fungible token (NFT) is used to represent a withdrawal request position [in the protocol-level withdrawals queue](/contracts/withdrawal-queue-erc721) when a stToken holder decides to redeem it for ether via the protocol.
+
+:::note
+Unlike the other Lido's tokens (`stETH`, `wstETH`, and `LDO`), [unstETH](#withdrawals-unsteth) is non-fungible,
+and implements the ERC-721 token standard.
+:::
 
 ## stETH vs. wstETH
 
@@ -35,11 +64,13 @@ For instance, undercollateralized wstETH positions on Maker can be liquidated by
 
 stETH is a rebaseable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. The total supply of stETH reflects the amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. Since withdrawals from the Beacon chain have been introduced, it is also possible to redeem ether by burning stETH at the same 1:1 ratio (in rare cases it won't preserve 1:1 ratio though).
 
-stETH does not strictly comply with ERC-20. The only exception is that it does not emit `Transfer()` on rebase as [ERC-20](https://eips.ethereum.org/EIPS/eip-20#events) standard recommends.
-
 Please note, Lido has implemented staking rate limits aimed at reducing the post-Merge staking surge's impact on the staking queue & Lido’s socialized rewards distribution model. Read more about it [here](#staking-rate-limits).
 
 stETH is a rebasable ERC-20 token. Normally, the stETH token balances get recalculated daily when the Lido oracle reports the Beacon Chain ether balance update. The stETH balance update happens automatically on all the addresses holding stETH at the moment of rebase. The rebase mechanics have been implemented via shares (see [shares](#steth-internals-share-mechanics)).
+
+### Note on ERC-20 compliance
+
+stETH does not strictly comply with ERC-20. The only exception is that it does not emit `Transfer()` on rebase as [ERC-20](https://eips.ethereum.org/EIPS/eip-20#events) standard requires.
 
 ### Accounting oracle
 
@@ -76,7 +107,7 @@ Example:
 4. Shares balance gets converted to stETH balance for User B.
 5. In many cases, the actually transferred amount is 1-2 wei less than expected.
 
-The issue is documented here: https://github.com/lidofinance/lido-dao/issues/442
+The issue is documented here: <https://github.com/lidofinance/lido-dao/issues/442>
 
 ### Bookkeeping shares
 
@@ -177,11 +208,37 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 ### Goerli wstETH for testing
 
-The most recent testnet version of the Lido protocol lives on the Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Goerli Ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Goerli Ether to WstETH contract on Goerli, and the corresponding amount of wstETH will be minted to your account.
+The most recent testnet version of the Lido protocol lives on the Goerli testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/goerli)). Just like on mainnet, Goerli wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Goerli, and then calling `wrap` method on it. The corresponding amount of Goerli stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Goerli ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Goerli ether to WstETH contract on Goerli, and the corresponding amount of wstETH will be minted to your account.
 
 ### wstETH on L2s
 
-Currently, wstETH token is present on Arbitrum and Optimism with bridging implemented via the canonical bridges. Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network. The token does not implement shares bookkeeping, which means it is not possible to calculate the wstETH/stETH rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose.
+Currently, wstETH token is present on Arbitrum, Optimism, and Polygon PoS with bridging implemented via the canonical bridges.
+
+:::note
+Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network.
+:::
+
+Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain. However, there're live Chainlink wstETH/stETH rate feeds for [Arbitrum](https://data.chain.link/arbitrum/mainnet/crypto-eth/wsteth-steth%20exchangerate) and [Optimism](https://data.chain.link/optimism/mainnet/crypto-eth/wsteth-steth%20exchangerate) that can and should be used for this purpose.
+
+## LDO
+
+### What is LDO
+
+LDO is a governance token used for the Lido DAO's voting process ([both off-chain and on-chain](https://lido.fi/governance#regular-process)).
+The token is widely available in DeFi and CeFi ecosystems.
+
+LDO has internal mechanics of the balance snapshots ([`balanceOfAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F5) and [`totalSupplyAt`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32#readContract#F10)) to allow voting power not being manipulated within the time of the ongoing vote.
+
+### Note on ERC-20 compliance
+
+Although the LDO is fully compliant with ERC-20, it is worth noting that the token doesn't revert a transaction on all of the
+failure paths inside both `transfer` and `transferFrom` methods returning the `false` status instead.
+
+:::note
+It's critical to check the return status for external integrations as the ERC-20 token standard [requires](https://eips.ethereum.org/EIPS/eip-20#methods) to prevent various attack vectors (e.g. token deposits in vaults):
+
+> Callers MUST handle `false` from `returns (bool success)`. Callers MUST NOT assume that `false` is never returned!
+:::
 
 ## ERC20Permit
 
@@ -207,7 +264,7 @@ The staking rate limits are denominated in ether, thus, it makes no difference i
 1. Wait for staking limits to regenerate to higher values and retry depositing ether to Lido later.
 2. Consider swapping ETH for stETH on DEXes like Curve or Balancer. At specific market conditions, stETH may effectively be purchased from there with a discount due to stETH price fluctuations.
 
-## Withdrawals
+## Withdrawals (unstETH)
 
 V2 introduced the possibility to withdraw ETH from Lido. A high-level upgrade overview can be found in [the blog post](https://blog.lido.fi/introducing-lido-v2/). Withdrawals flow is organized as a FIFO queue that accepts the requests with stETH attached and these requests are finalized with oracle reports as soon as ether to fulfill the request is available.
 
@@ -239,12 +296,13 @@ You have several options for requesting withdrawals, they require you to have st
 
 #### stETH
 
-- Call `requestWithdrawalsWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided
-- Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards
+- Call `requestWithdrawalsWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provided)
+- Alternatively, sending stETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`stETH.approve(withdrawalQueueERC721.address, allowance)`), and the `requestWithdrawals(uint256[] _amounts, address _owner)` method called afterwards
 
 #### wstETH
+
 - Call `requestWithdrawalsWstETHWithPermit(uint256[] _amounts, address _owner, PermitInput _permit)` and get the ids of created positions, where `msg.sender` will be used to transfer tokens from, and the `_owner` will be the address that can claim or transfer NFT (defaults to `msg.sender` if it’s not provide)
-- Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC712.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards
+- Alternatively, sending wstETH on behalf of `WithdrawalQueueERC721.sol` contract can be approved in a separate upfront transaction (`wstETH.approve(withdrawalQueueERC721.address, allowance)`), and the `requestWithdrawalsWstETH(uint256[] _amounts, address _owner)` method called afterwards
 
 `PermitInput` structure is defined as follows:
 

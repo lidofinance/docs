@@ -7,7 +7,7 @@
 
 It's an [ERC-20](https://eips.ethereum.org/EIPS/eip-20) value-accruing token
 wrapper for `stETH`. Its balance does not change with each oracle report, but its
-value in `stETH` does. Internally, it represents the user's [share](../guides/steth-integration-guide#steth-internals-share-mechanics) of the total
+value in `stETH` does. Internally, it represents the user's [share](../guides/lido-tokens-integration-guide#steth-internals-share-mechanics) of the total
 supply of `stETH` tokens.
 
 ## Why use wstETH?
@@ -46,7 +46,7 @@ Returns amount of `wstETH` for a given amount of `stETH`
 function getWstETHByStETH(uint256 _stETHAmount) returns (uint256)
 ```
 
-#### Parameters:
+#### Parameters
 
 | Name           | Type      | Description     |
 | -------------- | --------- | --------------- |
@@ -60,7 +60,7 @@ Returns amount of `stETH` for a given amount of `wstETH`
 function getStETHByWstETH(uint256 _wstETHAmount) returns (uint256)
 ```
 
-#### Parameters:
+#### Parameters
 
 | Parameter Name  | Type      | Description      |
 | --------------- | --------- | ---------------- |
@@ -101,13 +101,13 @@ Requirements:
 
 :::
 
-#### Parameters:
+#### Parameters
 
 | Parameter Name | Type      | Description                                    |
 | -------------- | --------- | ---------------------------------------------- |
 | `_stETHAmount` | `uint256` | amount of stETH to wrap in exchange for wstETH |
 
-#### Returns:
+#### Returns
 
 Amount of wstETH user receives after wrap
 
@@ -127,13 +127,13 @@ Requirements:
 
 :::
 
-#### Parameters:
+#### Parameters
 
 | Parameter Name  | Type      | Description                                     |
 | --------------- | --------- | ----------------------------------------------- |
-| `_wstETHAmount` | `uint256` | amount of wstETH to uwrap in exchange for stETH |
+| `_wstETHAmount` | `uint256` | amount of wstETH to unwrap in exchange for stETH |
 
-#### Returns:
+#### Returns
 
 Amount of stETH user receives after unwrapping
 
