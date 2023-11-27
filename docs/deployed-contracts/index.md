@@ -167,46 +167,6 @@ pagination_next: deployed-contracts/goerli
   - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
-## Lido DAO Multisigs
-
-### Lido Contributors Group Multisigs
-- Pool Maintenance Labs Ltd. (PML): [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://etherscan.io/address/0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
-- Argo Technology Consulting Ltd. (ATC): [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://etherscan.io/address/0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
-- Resourcing and Compensation Committee (RCC): [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
-
-### Committees
-
-- Liquidity Observation Lab (formerly known as reWARDS Committee): [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
-- LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
-- Rewards Share Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
-- Relay Maintenance Committee: [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://etherscan.io/address/0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
-- Token Reward Program (TRP) Committee: [`0x834560F580764Bc2e0B16925F8bF229bb00cB759`](https://etherscan.io/address/0x834560F580764Bc2e0B16925F8bF229bb00cB759)
-- Treasury Committee: [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://etherscan.io/address/0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
-
-### Dev Team Multisigs
-- Gas Supply Committee: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
-- Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
-
-### Emergency Brakes Multisigs
-- Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
-- Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
-- Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
-
-### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
-- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Ethereum)
-- Liquidity Observation Lab: [`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://gnosis-safe.io/app/oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd/home) (Optimism)
-- Liquidity Observation Lab OP Token Multisig: [`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/home?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A) (Optimism)
-- Liquidity Observation Lab AAVE rewards: [`0x75483CE83100890c6bf1718c26052cE44e0F2839`](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839) (Optimism)
-- Liquidity Observation Lab: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://gnosis-safe.io/app/arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16/home) (Arbitrum)
-- Liquidity Observation Lab ARB Token Multisig: [`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/home?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56) (Arbitrum)
-- Liquidity Observation Lab: [`0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D`](https://app.safe.global/home?safe=base:0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D) (Base)
-- Liquidity Observation Lab AAVE rewards: [`0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935`](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935) (Base)
-- Liquidity Observation Lab: [`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) (zkSync Era)
-- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Polygon)
-- Liquidity Observation Lab: [`0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4`](https://multisig.moonbeam.network/mriver:0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4/home) (Moonriver)
-- Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
-- Solana DAO [`H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2`](https://app.realms.today/dao/3WZ9nP9KT7KSdfjL9acovwdmTMFmW5of946Sxt2LwnaY) (Solana)
-
 
 ## Lido on L2
 

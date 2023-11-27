@@ -83,7 +83,7 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 **Address:** [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/settings/setup?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
 
-**Purpose of the multisig:** Multisig signs off the  [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
+**Purpose of the multisig:** The multisig signs off the  [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
 
 **Quorum:** 5/7
 
@@ -150,7 +150,7 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 
 **Address:** [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://app.safe.global/settings/setup?safe=eth:0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
 
-**Purpose of the multisig:** Multisig is intended for treasury management committee operations. Multisig will strictly never take custody of Aragon funds and will use a suitable technical solution for executing any swaps permissionlessly.
+**Purpose of the multisig:** The multisig is intended for treasury management committee operations. Multisig will strictly never take custody of Aragon funds and will use a suitable technical solution for executing any swaps permissionlessly.
 
 **Quorum:** 4/7
 
@@ -214,7 +214,7 @@ Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB2
 
 **Address:** [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
-**Purpose of the multisig:** Used by the Liquidity Observation Lab (LOL) Committee for signing off. Used to perform LOL operations of allocating grants across DeFI & is funded through Easy Track motions.
+**Purpose of the multisig:** The multisig used by the Liquidity Observation Lab (LOL) Committee for signing off, and perform LOL operations of allocating grants across DeFI & is funded through Easy Track motions.
 
 This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-january-22-upgrade-proposal/1532) for operations (sending grants) wherever they deem useful on Ethereum, L2s, and other blockchains.
 
@@ -257,7 +257,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** oeth:[`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://app.safe.global/settings/setup?safe=oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd)
 
-**Purpose of the multisig:** the multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -294,7 +294,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** arb1:[`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://app.safe.global/settings/setup?safe=arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16)
 
-**Purpose of the multisig:** the multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes its assets between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes its assets between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -336,7 +336,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
 
-**Purpose of the multisig:** the multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes its assets between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes its assets between other approved recipients.
 
 **Quorum:** 2/3
 
@@ -352,7 +352,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** base:[`0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D`](https://app.safe.global/home?safe=base:0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D)
 
-**Purpose of the multisig:** the multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -369,7 +369,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02)
 
-**Purpose of the multisig:** the multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -386,7 +386,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** base:[`0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935`](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935)
 
-**Purpose of the multisig:** the multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 

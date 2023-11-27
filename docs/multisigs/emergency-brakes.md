@@ -12,7 +12,7 @@
 
 **Snapshot:** [Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d)
 
-**Aragon:** [Omnibus Vote #156](https://vote.lido.fi/vote/156)
+**Aragon:** [Vote #156](https://vote.lido.fi/vote/156)
 
 **Contracts and Roles:**
 
@@ -35,7 +35,7 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Address:** [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/transactions/queue?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
 
-**Purpose of the multisig:** Multisig is used to disable deposits & withdrawals for wstETH bridging to Optimism and Arbitrum in case of an emergency on Ethereum mainnet or L2, and can pause Easy Track pipeline.
+**Purpose of the multisig:** The multisig is used to disable deposits & withdrawals for wstETH bridging to Optimism and Arbitrum in case of an emergency on Ethereum mainnet or L2, and can pause Easy Track pipeline.
 
 **Quorum:** 3/5
 
@@ -71,7 +71,7 @@ Optimism L1 ERC20 Token Bridge[`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](htt
 
 **Address:** oeth:[`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://app.safe.global/settings/setup?safe=oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 
-**Purpose of the multisig:** to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Optimism side in case of emergency.
+**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Optimism side in case of emergency.
 
 **Quorum:** 3/5
 
@@ -100,7 +100,7 @@ L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https:
 
 **Address:** arb1: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://app.safe.global/settings/setup?safe=arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 
-**Purpose of the multisig:** to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Arbitrum side in case of an emergency.
+**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Arbitrum side in case of an emergency.
 
 **Quorum:** 3/5
 
@@ -129,7 +129,7 @@ L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](http
 
 **Address:** base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 
-**Purpose of the multisig:** to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Base side in case of emergency.
+**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Base side in case of emergency.
 
 **Quorum:** 3/5
 
