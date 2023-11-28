@@ -69,3 +69,7 @@
   - SetNodeOperatorRewardAddresses: [`0x6Bfc576018C7f3D2a9180974E5c8e6CFa021f617`](https://holesky.etherscan.io/address/0x6Bfc576018C7f3D2a9180974E5c8e6CFa021f617)
   - UpdateTargetValidatorLimits: [`0xC91a676A69Eb49be9ECa1954fE6fc861AE07A9A2`](https://holesky.etherscan.io/address/0xC91a676A69Eb49be9ECa1954fE6fc861AE07A9A2)
   - ChangeNodeOperatorManager: [`0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E`](https://holesky.etherscan.io/address/0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E)
+- **Tooling contracts:**
+  - AllowedRecipientsBuilder: [`0xD3f84dEbdcC270a5714955a358BF8abE8fBb0fe6`](https://holesky.etherscan.io/address/0xD3f84dEbdcC270a5714955a358BF8abE8fBb0fe6)
+  - AllowedRecipientsFactory: [`0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9`](https://holesky.etherscan.io/address/0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9)
+  - BokkyPooBah's DateTime Library: [`0x2f91afeFFd61596D6673370504Dce080D2f8B305`](https://holesky.etherscan.io/address/0x2f91afeFFd61596D6673370504Dce080D2f8B305)
