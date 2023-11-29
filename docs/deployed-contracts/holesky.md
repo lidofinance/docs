@@ -72,4 +72,6 @@
 - **Tooling contracts:**
   - AllowedRecipientsBuilder: [`0xeC3785b13b21c226D66B5bC2E82BB2f4226f715e`](https://holesky.etherscan.io/address/0xeC3785b13b21c226D66B5bC2E82BB2f4226f715e)
   - AllowedRecipientsFactory: [`0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9`](https://holesky.etherscan.io/address/0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9)
+  - AllowedRecipientsBuilder (with limits): [`0x983dF2EA3A7Dce9D60bD06f5C5dCc44a138eBA89`](https://holesky.etherscan.io/address/0x983dF2EA3A7Dce9D60bD06f5C5dCc44a138eBA89)
+  - AllowedRecipientsFactory (with limits): [`0x9d156F7F5ed1fEbDc4996CAA835CD964A10bd650`](https://holesky.etherscan.io/address/0x9d156F7F5ed1fEbDc4996CAA835CD964A10bd650)
   - BokkyPooBah's DateTime Library: [`0xd6237FecDF9C1D9b023A5205C17549E3037EeEec`](https://holesky.etherscan.io/address/0xd6237FecDF9C1D9b023A5205C17549E3037EeEec)
