@@ -280,7 +280,7 @@ pagination_next: deployed-contracts/goerli
   - ZkSyncBridgeExecutor
   - ERC20BridgedUpgradeable
 
-#### Mantle
+### Mantle
 
 #### Ethereum part
 
