@@ -193,6 +193,7 @@ pagination_next: deployed-contracts/goerli
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 - **proposed** zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
+- **proposed** Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
