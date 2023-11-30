@@ -32,6 +32,6 @@ the daily rewards sent to the Node Operator will halve (with the remaining half 
 In the case that a Node Operator cannot, for any reason, exit a validator (e.g. loss of the private key associated with that validator), they are expected to reimburse stakers by supplying the maximum irretrievable balance of the validator (i.e. 32 ETH, since anything over that can be obtained via partial rewards). Doing so renders the validator in question “unrecoverable and reimbursed” and does not count against the Node Operator in terms of assessing its validator exit request status.
 
 #### Helpful links
-- [Lido Validator Exits Policy](https://hackmd.io/zHYFZr4eRGm3Ju9_vkcSgQ?view)
+- [Lido Validator Exits Policy](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20-%20Validator%20Exits%20Policy.md)
 - [Lido Validator Exits Policy: Forum discussion](https://research.lido.fi/t/lido-validator-exits-policy-draft-for-discussion/3864)
 - [Withdrawals: on Validator Exiting Order](https://research.lido.fi/t/withdrawals-on-validator-exiting-order/3048/1)
