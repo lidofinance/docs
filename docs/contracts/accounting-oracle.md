@@ -2,7 +2,7 @@
 
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
-- [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
+- Inherited [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
 Read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
@@ -10,15 +10,14 @@ Read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) befor
 
 ## What is AccountingOracle
 
-AccountingOracle is a contract where oracles send addresses' balances controlled by the DAO on the Consensus Layer side.
-The balances can go up because of reward accumulation and can go down due to slashing and staking penalties.
-Oracles are assigned by the DAO.
-
-Other major responsibilities of AccountingOracle: updating exited and stuck validators, distributes node-operator rewards, updates updating exited and stuck validators and processes user withdrawal requests.
+AccountingOracle is a contract which collect information submitted by the oracles about state of validators and their balances, the
+amount of funds accumulated on protocol vaults, the number exited and stuck validators, the number of withdrawal requests the protocol is able to process and distributes node-operator rewards.
 
 ## Report cycle
 
-The oracle work is delineated by time periods called frames. In normal operation, oracles finalize a report in each frame (225 epochs currently, equal to one day). The frame includes these stages:
+The oracle work is delineated by time periods called frames. In normal operation, oracles finalize a report in each frame (225 epochs currently, ~12:00 noon UTC). t's worth noting that frame length [can be changed](contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+
+The frame includes these stages:
 
 - **Waiting:** oracle starts as [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot (ref slot)
 - **Data collection:** oracles monitor the state of both the execution and consensus layers and collect the data;
@@ -92,8 +91,8 @@ struct ReportData {
 - `numExitedValidatorsByStakingModule` — Number of ever exited validators for each of the staking modules from the stakingModuleIdsWithNewlyExitedValidators array as observed at the reference slot.
 
 **EL values**
-- `withdrawalVaultBalance` — The ETH balance of the Lido withdrawal vault as observed at the reference slot.
-- `elRewardsVaultBalance` — The ETH balance of the Lido execution layer rewards vault as observed at the reference slot.
+- `withdrawalVaultBalance` — The ETH balance of the Lido [withdrawal vault](/contracts/withdrawal-vault) as observed at the reference slot.
+- `elRewardsVaultBalance` — The ETH balance of the Lido [execution layer rewards vault](/contracts/lido-execution-layer-rewards-vault) as observed at the reference slot.
 - `sharesRequestedToBurn` — The shares amount requested to burn through [Burner](/contracts/burner) as observed at the reference slot. The value can be obtained in the following way:
 ```solidity
 (coverSharesToBurn, nonCoverSharesToBurn) = IBurner(burner).getSharesRequestedToBurn()
@@ -101,11 +100,15 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 ```
 
 **Withdrawals finalization decision**
-- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by calling WithdrawalQueue.calculateFinalizationBatches. Empty array means that no withdrawal requests should be finalized.
-- `simulatedShareRate` — The share/ETH rate with the 10^27 precision (i.e. the price of one stETH share in ETH where one ETH is denominated as 10^27) that would be effective as the result of applying this oracle report at the reference slot, with withdrawalFinalizationBatches set to empty array and simulatedShareRate set to 0.
+- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling WithdrawalQueue.calculateFinalizationBatches. Empty array means that no withdrawal requests should be finalized.
+- `simulatedShareRate` — The share/ETH rate with the 10^27 precision (i.e. the price of one stETH share in ETH where one ETH is denominated as 10^27) that would be effective as the result of applying this oracle report at the reference slot, with withdrawalFinalizationBatches set to empty array and simulatedShareRate set to 0. To estimate `simulatedShareRate` one should call [Lido.handleOracleReport](/contracts/lido#handleoraclereport) directly and calculate as follows:
+
+      _simulatedShareRate = (postTotalPooledEther * 1e27) / postTotalShares
+
 - `isBunkerMode` — Whether, based on the state observed at the reference slot, the protocol should be in the bunker mode.
 
 :::note
+##### Extra data
 Extra data — the oracle information that allows asynchronous processing, potentially in
     chunks, after the main data is processed. The oracle doesn't enforce that extra data
     attached to some data report is processed in full before the processing deadline expires
@@ -224,6 +227,10 @@ uint256 public immutable SECONDS_PER_SLOT
 ### GENESIS_TIME()
  See https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21
 
+:::note
+always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on Mainnet
+:::
+
  Also its presents in the [LegacyOracle](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F19)
 ```solidity
 uint256 public immutable GENESIS_TIME
@@ -243,7 +250,12 @@ uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
 ```
 
 ### EXTRA_DATA_FORMAT_EMPTY()
-The extra data format used to signify that the oracle report contains no extra data.
+The extra data format used to signify that the oracle report contains no [extra data](/contracts/accounting-oracle#extra-data).
+
+Sends on Oracle [Phase 3](/guides/oracle-operator-manual#phase-3-submitting-a-report-extra-data).
+
+This format uses when there are no new [stuck](/contracts/staking-router#exited-and-stuck-validators) or [exited](/contracts/staking-router#exited-and-stuck-validators) validators on report period.
+
 ```solidity
 uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0
 ```

@@ -16,7 +16,7 @@ This means that all state changes a report processing could entail are guarantee
 Oracles members committee rotate within one time into two subsets:
 
 - Non-fast-lane members
-- [Fast-lane members](/contracts/hash-consensus#getisfastlanemember)
+- [Fast-lane members](/contracts/hash-consensus#fast-lane-members)
 
 The calculation of the Fast-lane members subset depends on frameIndex, totalMembers and quorum.
 
@@ -34,6 +34,18 @@ the slot returned from `IReportAsyncProcessor.getLastProcessingRefSlot`.
 that have `consensusVersion` argument of the `HashConsensus.submitReport` call holding a diff.
 value than the one returned from `IReportAsyncProcessor.getConsensusVersion()`
 at the moment of the `HashConsensus.submitReport` call.
+
+## Fast-lane members
+
+Fast lane members is a subset of all members that changes each reporting frame. These members can, and are expected to, submit a report during the first part of the frame called the "fast lane interval" and defined via [setFrameConfig](#setframeconfig) or [setFastLaneLengthSlots](#setfastlanelengthslots). Under regular circumstances, all other members are only allowed to submit a report after the fast lane interval passes.
+
+The fast lane subset consists of quorum members; selection is implemented as a sliding window of the quorum width over member indices (mod total members). The window advances by one index each reporting frame.
+
+This is done to encourage each member from the full set to participate in reporting on a regular basis, and identify any malfunctioning members.
+
+With the fast lane mechanism active, it's sufficient for the monitoring to check that consensus is consistently reached during the fast lane part of each frame to conclude that all members are active and share the same consensus rules.
+
+However, there is no guarantee that, at any given time, it holds true that only the current fast lane members can or were able to report during the currently-configured fast lane interval of the current frame. In particular, this assumption can be violated in any frame during which the members set, initial epoch, or the quorum number was changed, or the fast lane interval length was increased. Thus, the fast lane mechanism should not be used for any purpose other than monitoring of the members liveness, and monitoring tools should take into consideration the potential irregularities within frames with any configuration changes.
 
 ## View methods
 
@@ -111,32 +123,6 @@ function getIsMember(address addr) external view returns (bool)
 ### getIsFastLaneMember()
 
 Returns whether the given address is a fast lane member for the current reporting frame.
-
-Fast lane members is a subset of all members that changes each reporting frame. These
-members can, and are expected to, submit a report during the first part of the frame called
-the "fast l
-ane interval" and defined via `setFrameConfig` or `setFastLaneLengthSlots`. Under
-regular circumstances, all other members are only allowed to submit a report after the fast
-lane interval passes.
-
-The fast lane subset consists of `quorum` members; selection is implemented as a sliding
-window of the `quorum` width over member indices (mod total members). The window advances
-by one index each reporting frame.
-
-This is done to encourage each member from the full set to participate in reporting on a
-regular basis, and identify any malfunctioning members.
-
-With the fast lane mechanism active, it's sufficient for the monitoring to check that
-consensus is consistently reached during the fast lane part of each frame to conclude that
-all members are active and share the same consensus rules.
-
-However, there is no guarantee that, at any given time, it holds true that only the current
-fast lane members can or were able to report during the currently-configured fast lane
-interval of the current frame. In particular, this assumption can be violated in any frame
-during which the members set, initial epoch, or the quorum number was changed, or the fast
-lane interval length was increased. Thus, the fast lane mechanism should not be used for any
-purpose other than monitoring of the members liveness, and monitoring tools should take into
-consideration the potential irregularities within frames with any configuration changes.
 
 ```solidity
 function getIsFastLaneMember(address addr) external view returns (bool)
