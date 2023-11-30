@@ -193,6 +193,7 @@ pagination_next: deployed-contracts/goerli
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 - **proposed** zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
+- **proposed** Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -279,6 +280,21 @@ pagination_next: deployed-contracts/goerli
 - **proposed** ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
   - ZkSyncBridgeExecutor
   - ERC20BridgedUpgradeable
+
+### Mantle
+
+#### Ethereum part
+
+- **proposed** L1ERC20TokenBridge: [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B) (proxy)
+- **proposed** L1ERC20TokenBridge: [`0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23`](https://etherscan.io/address/0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23) (impl)
+
+#### Mantle part
+
+- **proposed** WstETH ERC20BridgedPermit: [`0x458ed78EB972a369799fb278c0243b25e5242A83`](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83) (proxy)
+- **proposed** WstETH ERC20BridgedPermit: [`0x1FaBaAec88198291A4efCc85Cabb33a3785165ba`](https://explorer.mantle.xyz/address/0x1FaBaAec88198291A4efCc85Cabb33a3785165ba) (impl)
+- **proposed** L2ERC20TokenBridge: [`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d) (proxy)
+- **proposed** L2ERC20TokenBridge: [`0xf10A7ffC613a9b23Abc36167925A375bf5986181`](https://explorer.mantle.xyz/address/0xf10A7ffC613a9b23Abc36167925A375bf5986181) (impl)
+- **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd`](https://explorer.mantle.xyz/address/0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd)
 
 ### L2 Liquidity pools
 
