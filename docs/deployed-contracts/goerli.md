@@ -1,5 +1,18 @@
 # Görli
 
+:::info
+🫡 Görli Testnet: Scheduled End of Life in Q4 2023
+
+The Goerli testnet is set to receive support until the end of 2023.
+Please refer to the Ethereum testnets roadmap for a visual representation of the testnet lifecycle:
+![Ethereum testnets roadmap](../../static/img/deployed-contracts/testnets-roadmap.png)
+
+Approaching this timeline, it's recommended to transition to the [Lido on Holešky](./holesky.md) testnet deployments for future projects.
+
+Note that there will be no comprehensive Lido testnet environments available for Sepolia, due to the network's restricted and permission-based validator set configuration.
+
+:::
+
 ## Görli+Prater testnet
 
 ### Lido V2 Core Protocol
@@ -20,11 +33,11 @@
 ### Lido V2 Oracle Contracts
 
 - Accounting Oracle:
-    - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
-    - HashConsensus: [`0x8d87A8BCF8d4e542fd396D1c50223301c164417b`](https://goerli.etherscan.io/address/0x8d87A8BCF8d4e542fd396D1c50223301c164417b)
+  - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
+  - HashConsensus: [`0x8d87A8BCF8d4e542fd396D1c50223301c164417b`](https://goerli.etherscan.io/address/0x8d87A8BCF8d4e542fd396D1c50223301c164417b)
 - Validators Exit Bus Oracle:
-    - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
-    - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
+  - ValidatorsExitBusOracle: [`0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b`](https://goerli.etherscan.io/address/0xb75A55EFab5A8f5224Ae93B34B25741EDd3da98b) (proxy)
+  - HashConsensus: [`0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51`](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51)
 - OracleReportSanityChecker: [`0xbf74600040F91D3560d5757280727FB00c64Fd2E`](https://goerli.etherscan.io/address/0xbf74600040F91D3560d5757280727FB00c64Fd2E)
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
@@ -100,6 +113,7 @@
 - DepositContractMock: [0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F](https://goerli.etherscan.io/address/0x924B2BB40AfEf29e908bbCaAaE0DBe957d076b4F)
 
 ## DAO-ops contracts & addresses
+
 - TRP VestingEscrowFactory: [`0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7`](https://goerli.etherscan.io/address/0x8D20FD1Ac547e035BF01089cFb92459054F82Ff7)
 
 ## Lido on L2
@@ -120,7 +134,6 @@
 - Arbitrum Governance Bridge Executor: [`0x43De3B7115baA4EbAbd7c5Eaf4cB2856238C6A50`](https://goerli.arbiscan.io/address/0x43De3B7115baA4EbAbd7c5Eaf4cB2856238C6A50)
 - LDO token: [`0xe04554C3d1a172581597505D7061C418226EdC23`](https://goerli.arbiscan.io/address/0xe04554C3d1a172581597505D7061C418226EdC23) (proxy)
 
-
 ### Optimism
 
 ##### Ethereum part
@@ -136,3 +149,54 @@
 - L2ERC20TokenBridge: [`0x04A1Ac7C5c08eD244f1d69EbB682984Ba7dBf93C`](https://goerli-optimism.etherscan.io/address/0x04A1Ac7C5c08eD244f1d69EbB682984Ba7dBf93C) (impl)
 - Optimism Governance Bridge Executor: [`0x55C39356C714Cde16F8a80302c1Ce9DfAC6f5a35`](https://goerli-optimism.etherscan.io/address/0x55C39356C714Cde16F8a80302c1Ce9DfAC6f5a35)
 - LDO token: [`0xE265FC71d45fd791c9ebf3EE0a53FBB220Eb8f75`](https://goerli-optimism.etherscan.io/address/0xE265FC71d45fd791c9ebf3EE0a53FBB220Eb8f75)
+
+### Base
+
+#### Ethereum part
+
+- L1ERC20TokenBridge: [`0x4522be59f3C5cebDB798832ee34033Ea9345B452`](https://goerli.etherscan.io/address/0x4522be59f3C5cebDB798832ee34033Ea9345B452) (proxy)
+- L1ERC20TokenBridge: [`0x7F6437Cec90f2b87663cc3c4360E9d4A06AE1B36`](https://goerli.etherscan.io/address/0x7F6437Cec90f2b87663cc3c4360E9d4A06AE1B36) (impl)
+
+#### Base part
+
+- WstETH ERC20Bridged: [`0x20727785a5e1b2874349948bD50caB5597B51F66`](https://goerli.basescan.org/address/0x20727785a5e1b2874349948bD50caB5597B51F66) (proxy)
+- WstETH ERC20Bridged: [`0x589577FB4c1236820d90Cd4DE37eB3d66eA8a264`](https://goerli.basescan.org/address/0x589577FB4c1236820d90Cd4DE37eB3d66eA8a264) (impl)
+- L2ERC20TokenBridge: [`0x21f3e20f8347f6a78745D12B5454e54Bb78B5B62`](https://goerli.basescan.org/address/0x21f3e20f8347f6a78745D12B5454e54Bb78B5B62) (proxy)
+- L2ERC20TokenBridge: [`0xec5d1485eC5fbC0F1b56692D2966236bD33B0535`](https://goerli.basescan.org/address/0xec5d1485eC5fbC0F1b56692D2966236bD33B0535) (impl)
+- Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0xaBeA917846b36Ef193e5532AF0534EB12E1EEc01`](https://goerli.basescan.org/address/0xaBeA917846b36Ef193e5532AF0534EB12E1EEc01)
+
+### ZkSync Era
+
+#### Ethereum part
+
+- **proposed** L1Executor: [`0xfDF0c6812f10e803757e4A392df019cAdf2Ae0AA`](https://goerli.etherscan.io/address/0xfDF0c6812f10e803757e4A392df019cAdf2Ae0AA) (proxy)
+- **proposed** L1Executor: [`0xBe98f3ac3e9304C50F29c940D5f59673a1Ae4C14`](https://goerli.etherscan.io/address/0xBe98f3ac3e9304C50F29c940D5f59673a1Ae4C14) (impl)
+- **proposed** L1ERC20Bridge: [`0x075b90554C6cE93636B2E63C99EE704f8CC1C2f3`](https://goerli.etherscan.io/address/0x075b90554C6cE93636B2E63C99EE704f8CC1C2f3) (proxy)
+- **proposed** L1ERC20Bridge: [`0xc3f1A4C13532cc9DDeA36B54d83A427B8D4AaeEe`](https://goerli.etherscan.io/address/0xc3f1A4C13532cc9DDeA36B54d83A427B8D4AaeEe) (impl)
+
+#### ZkSync Era part
+
+- **proposed** ZkSyncBridgeExecutor: [`0x4097BC99a9B5fB253B938d105111FFcb862Be668`](https://goerli.explorer.zksync.io/address/0x4097BC99a9B5fB253B938d105111FFcb862Be668) (proxy)
+- **proposed** ZkSyncBridgeExecutor: [`0x213ec81bB9740c75d2BC186378cf734F9306e7e5`](https://goerli.explorer.zksync.io/address/0x213ec81bB9740c75d2BC186378cf734F9306e7e5) (impl)
+- **proposed** L2ERC20Bridge: [`0x0E1E4af13Bb95C84275b52b6edE1cb5F8c11Abe7`](https://goerli.explorer.zksync.io/address/0x0E1E4af13Bb95C84275b52b6edE1cb5F8c11Abe7) (proxy)
+- **proposed** L2ERC20Bridge: [`0xfD744ba1867B6e6da437bce3ba44f5898A72B9c3`](https://goerli.explorer.zksync.io/address/0xfD744ba1867B6e6da437bce3ba44f5898A72B9c3) (impl)
+- **proposed** ERC20BridgedUpgradeable: [`0x6750967d6e4712Ae6cF9401a87dc34642339E0Ef`](https://goerli.explorer.zksync.io/address/0x6750967d6e4712Ae6cF9401a87dc34642339E0Ef) (proxy)
+- **proposed** ERC20BridgedUpgradeable: [`0x75e79BCe0F5a81b6D0097CCB473D867940A4C2Ca`](https://goerli.explorer.zksync.io/address/0x75e79BCe0F5a81b6D0097CCB473D867940A4C2Ca) (impl)
+- **proposed** ProxyAdmin: [`0xe7e7befca267e5967e20d135941535a2396ccdf4`](https://goerli.explorer.zksync.io/address/0xe7e7befca267e5967e20d135941535a2396ccdf4) for
+  - ZkSyncBridgeExecutor
+  - ERC20BridgedUpgradeable
+
+### Mantle
+
+#### Ethereum part
+
+- **proposed** L1ERC20TokenBridge: [`0xBc6bbb98E73D15cc6a280e96b32Cc73b4f9068E1`](https://goerli.etherscan.io/address/0xBc6bbb98E73D15cc6a280e96b32Cc73b4f9068E1) (proxy)
+- **proposed** L1ERC20TokenBridge: [`0x8bed2E40522E21119B8A78A4842767c9bCceC47b`](https://goerli.etherscan.io/address/0x8bed2E40522E21119B8A78A4842767c9bCceC47b) (impl)
+
+#### Mantle part
+
+- **proposed** WstETH ERC20BridgedPermit: [`0x2C402BE58E5849c5413a79aa3b8aF3136e6C017F`](https://explorer.testnet.mantle.xyz/address/0x2C402BE58E5849c5413a79aa3b8aF3136e6C017F) (proxy)
+- **proposed** WstETH ERC20BridgedPermit: [`0x1008C85f796314c0985639b1a03083Be53eEf5aA`](https://explorer.testnet.mantle.xyz/address/0x1008C85f796314c0985639b1a03083Be53eEf5aA) (impl)
+- **proposed** L2ERC20TokenBridge: [`0xFCCC4297be972bb2861Da6D78a6fad588dF03ab1`](https://explorer.testnet.mantle.xyz/address/0xFCCC4297be972bb2861Da6D78a6fad588dF03ab1) (proxy)
+- **proposed** L2ERC20TokenBridge: [`0x7Aa9EEEcECD56Bd43Bb66ee1B42dBEB754792C84`](https://explorer.testnet.mantle.xyz/address/0x7Aa9EEEcECD56Bd43Bb66ee1B42dBEB754792C84) (impl)
+- **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0xa09BA6f7660C616D2B45218b3169c855A695328f`](https://explorer.testnet.mantle.xyz/address/0xa09BA6f7660C616D2B45218b3169c855A695328f)
