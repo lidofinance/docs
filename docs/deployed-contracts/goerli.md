@@ -200,3 +200,19 @@ Note that there will be no comprehensive Lido testnet environments available for
 - **proposed** L2ERC20TokenBridge: [`0xFCCC4297be972bb2861Da6D78a6fad588dF03ab1`](https://explorer.testnet.mantle.xyz/address/0xFCCC4297be972bb2861Da6D78a6fad588dF03ab1) (proxy)
 - **proposed** L2ERC20TokenBridge: [`0x7Aa9EEEcECD56Bd43Bb66ee1B42dBEB754792C84`](https://explorer.testnet.mantle.xyz/address/0x7Aa9EEEcECD56Bd43Bb66ee1B42dBEB754792C84) (impl)
 - **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0xa09BA6f7660C616D2B45218b3169c855A695328f`](https://explorer.testnet.mantle.xyz/address/0xa09BA6f7660C616D2B45218b3169c855A695328f)
+
+### Linea
+
+#### Ethereum part
+
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0xaa012d038e6440535ec66edf2da592f4f8398133`](https://goerli.etherscan.io/address/0xaa012d038e6440535ec66edf2da592f4f8398133) (proxy)
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0x6E4437828B4A7E7730e3D7efC676E22Ce905B705`](https://goerli.etherscan.io/address/0x6e4437828b4a7e7730e3d7efc676e22ce905b705) (impl)
+
+#### Linea part
+
+- **proposed** wstETH CustomBridgedToken: [`0x9ceed01e39279a529f44deb9d35e09a04b1e67c8`](https://goerli.lineascan.build/address/0x9ceed01e39279a529f44deb9d35e09a04b1e67c8) (proxy)
+- **proposed** wstETH CustomBridgedToken: [`0x2bb4036e0cdd52c2134a95b6249eb89e5f6bc7f1`](https://goerli.lineascan.build/address/0x2bb4036e0cdd52c2134a95b6249eb89e5f6bc7f1) (impl)
+- **proposed** ProxyAdmin for wstETH CustomBridgedToken: [`0x71062fbc3da2d792285c3d5dabba12a42339e85c`](https://goerli.lineascan.build/address/0x71062fbc3da2d792285c3d5dabba12a42339e85c)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0xb191e3d98074f92584e5205b99c3f17fb2068927`](https://goerli.lineascan.build/address/0xb191e3d98074f92584e5205b99c3f17fb2068927) (proxy)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0x6081c1392793e22da39871d4362c1e7045a5bace`](https://goerli.lineascan.build/address/0x6081c1392793e22da39871d4362c1e7045a5bace) (impl)
+- **proposed** LineaBridgeExecutor: [`0x4b38d24e70079f2dd1d79b86e2b52f4b13872a3b`](https://goerli.lineascan.build/address/0x4b38d24e70079f2dd1d79b86e2b52f4b13872a3b)
