@@ -296,6 +296,22 @@ pagination_next: deployed-contracts/goerli
 - **proposed** L2ERC20TokenBridge: [`0xf10A7ffC613a9b23Abc36167925A375bf5986181`](https://explorer.mantle.xyz/address/0xf10A7ffC613a9b23Abc36167925A375bf5986181) (impl)
 - **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd`](https://explorer.mantle.xyz/address/0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd)
 
+### Linea
+
+#### Ethereum part
+
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0x6ccfd65b0b14f67259c77ca6267104e058ddb292`](https://etherscan.io/address/0x6ccfd65b0b14f67259c77ca6267104e058ddb292) (impl)
+
+#### Linea part
+
+- **proposed** wstETH CustomBridgedToken: [`0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F`](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F) (proxy)
+- **proposed** wstETH CustomBridgedToken: [`0xc0583e2F5930EDE5Fab9D57bAC4169878730B010`](https://lineascan.build/address/0xc0583e2f5930ede5fab9d57bac4169878730b010) (impl)
+- **proposed** ProxyAdmin for wstETH CustomBridgedToken: [`0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927`](https://lineascan.build/address/0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0x2bfdf4a0d54C93a4bAF74F8DcEA8a275D8EE97a9`](https://lineascan.build/address/0x2bfdf4a0d54c93a4baf74f8dcea8a275d8ee97a9) (impl)
+- **proposed** LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
+
 ### L2 Liquidity pools
 
 Balancer
