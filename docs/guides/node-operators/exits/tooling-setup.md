@@ -38,6 +38,14 @@ ID of the [StakingRouter](https://github.com/lidofinance/lido-dao/blob/feature/s
 
 Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)), it's id is `1`.
 
+### Oracle Allowlist
+The oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle ) contract on-chain, using the Aragon App or directly from the contract using etherscan.
+| network | Aragon App | Contract Call |
+| -------- | -------- | -------- |
+| Mainnet | [Aragon](https://mainnet.lido.fi/#/lido-dao/0xae7ab96520de3a18e5e111b5eaab095312d7fe84/) | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
+| Goerli | [Aragon](https://testnet.testnet.fi/#/lido-testnet-prater/0x24d8451bc07e7af4ba94f69acdd9ad3c6579d9fb/) | [getMembers()](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51#readContract#F16) |
+| Holesky | n/a | [getMembers()](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f#readContract#F16) |
+
 ## Example Infra Setup
 
 Lido DevOps team prepared an easy way to get the recommended tooling and its dependencies up and running using [Ansible](https://github.com/ansible/ansible). This is a great way to get familiar with the new tooling. This is an example implementation, and still requires security and hardening by the NO; it can be found on [GitHub](https://github.com/lidofinance/node-operators-setup).
