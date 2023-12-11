@@ -31,7 +31,7 @@ The two core contracts in the Lido Oracle suite are called [AccountingOracle](/c
 
 ## Oracle phases
 
-In order to send the report data by the oracle operator to both `AccountingOracle` and `ValidatorExitBusOracle`, it is necessary that:
+In order to send the report data by the oracle operator to both `AccountingOracle` and `ValidatorsExitBusOracle`, it is necessary that:
 
 - this operator participates in the oracle committee, and
 - a consensus for the corresponding report must be reached
@@ -43,7 +43,7 @@ A process of sending the report data can be divided into 3 major stages:
 At the first stage, the oracles operators collect a report for a certain `refSlot` and send the hash to the `HashConsensus` contract.
 
 The diagram below shows:
-`ReportProcessor` - `AccountingOracle` or `ValidatorExitBusOracle` contract.
+`ReportProcessor` - `AccountingOracle` or `ValidatorsExitBusOracle` contract.
 `HashConsensus` -  a contract which manages oracle members committee and allows the members to reach consensus on the particular data hash for each reporting frame.
 
 You can read more about HashConsensus [here](/contracts/hash-consensus).
