@@ -143,17 +143,17 @@ pagination_next: deployed-contracts/goerli
 - **LEGO DAI** (committee ms [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030/home))
   - AllowedRecipientsRegistry: [`0xb0FE4D300334461523D9d61AaD90D0494e1Abb43`](https://etherscan.io/address/0xb0FE4D300334461523D9d61AaD90D0494e1Abb43)
   - TopUpAllowedRecipients: [`0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC`](https://etherscan.io/address/0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC)
-- **RCC DAI** (committee ms [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://app.safe.global/eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437/home))
+- **RCC stablecoins** (committee ms [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://app.safe.global/eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437/home))
   - AllowedRecipientsRegistry: [`0xDc1A0C7849150f466F07d48b38eAA6cE99079f80`](https://etherscan.io/address/0xDc1A0C7849150f466F07d48b38eAA6cE99079f80)
   - TopUpAllowedRecipients (Proposed to remove): [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](https://etherscan.io/address/0x84f74733ede9bFD53c1B3Ea96338867C94EC313e)
   - AllowedTokensRegistry (Proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca#code)
   - TopUpAllowedRecipients (Proposed): [`0x75bDecbb6453a901EBBB945215416561547dfDD4`](https://etherscan.io/address/0x75bDecbb6453a901EBBB945215416561547dfDD4)
-- **PML DAI** (committee ms [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D/home))
+- **PML stablecoins** (committee ms [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D/home))
   - AllowedRecipientsRegistry: [`0xDFfCD3BF14796a62a804c1B16F877Cf7120379dB`](https://etherscan.io/address/0xDFfCD3BF14796a62a804c1B16F877Cf7120379dB)
   - TopUpAllowedRecipients (Proposed to remove): [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](https://etherscan.io/address/0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD)
   - AllowedTokensRegistry (Proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca#code)
   - TopUpAllowedRecipients (Proposed): [`0x92a27C4e5e35cFEa112ACaB53851Ec70e2D99a8D`](https://etherscan.io/address/0x92a27C4e5e35cFEa112ACaB53851Ec70e2D99a8D)
-- **ATC DAI** (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
+- **ATC stablecoins** (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
   - AllowedRecipientsRegistry: [`0xe07305F43B11F230EaA951002F6a55a16419B707`](https://etherscan.io/address/0xe07305F43B11F230EaA951002F6a55a16419B707)
   - TopUpAllowedRecipients (Proposed to remove): [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
   - AllowedTokensRegistry (Proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca#code)
@@ -169,9 +169,9 @@ pagination_next: deployed-contracts/goerli
 
 
 - **Tooling contracts:**
-  - AllowedRecipientsBuilder (Proposed to remove): [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
+  - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
+  - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
   - AllowedRecipientsBuilder (Proposed): [`0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF`](https://etherscan.io/address/0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF)
-  - AllowedRecipientsFactory (Proposed to remove): [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
   - AllowedRecipientsFactory (Proposed): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
