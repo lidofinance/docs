@@ -20,7 +20,7 @@ The Lido Oracle mechanism comprises three main components. The first component i
 
 Based on the update reports received from the oracles, the Lido smart contract performs state transitions such as updating user balances, processing withdrawal requests, and distributing rewards to node operators. Thus, the Lido Oracle mechanism acts as a synchronization device that bridges the protocol across the execution and consensus layers. It ensures that the protocol is updated in a timely and accurate manner and allows for smooth and efficient operation of the entire Lido system.
 
-The two core contracts in the Lido Oracle suite are called [AccountingOracle](/contracts/accounting-oracle) and [ValidatorsExitBus](/contracts/validators-exit-bus-oracle). Together, these contracts collect information submitted by oracles about the state of validators and their balances, the amount of funds accumulated on protocol vaults, and the number of withdrawal requests the protocol is able to process. This information is then used for these crucial processes:
+The two core contracts in the Lido Oracle suite are called [AccountingOracle](/contracts/accounting-oracle) and [ValidatorsExitBus](/contracts/validators-exit-bus-oracle). Together, these contracts collect information submitted by oracles about the state of validators and their balances, the amount of funds accumulated on protocol vaults, the number of withdrawal requests the protocol is able to process, and the validators are expected to be voluntary exited to finalize more withdrawal requests. This information is then used for these crucial processes:
 
 - rebasing user balances,
 - distributing node operator rewards,
@@ -31,20 +31,20 @@ The two core contracts in the Lido Oracle suite are called [AccountingOracle](/c
 
 ## Oracle phases
 
-In order to be sent the report data by the oracle operator to `AccountingOracle` or `ValidatorExitBusOracle`, it is necessary that:
+In order to send the report data by the oracle operator to both `AccountingOracle` and `ValidatorExitBusOracle`, it is necessary that:
 
-- this operator be a part of the committee, and
-- a consensus must be reached
+- this operator participates in the oracle committee, and
+- a consensus for the corresponding report must be reached
 
-The sending of the report itself can be divided into 3 stages:
+A process of sending the report data can be divided into 3 major stages:
 
-### Phase 1. Submitting a report hash
+### Phase 1. Submitting a report hash and reaching consensus
 
 At the first stage, the oracles operators collect a report for a certain `refSlot` and send the hash to the `HashConsensus` contract.
 
 The diagram below shows:
-`ReportProcessor` - it's a `AccountingOracle` or `ValidatorExitBusOracle` contract.
-`HashConsensus` -  it's a contract which managing oracle members committee and allowing the members to reach consensus on a hash for each reporting frame.
+`ReportProcessor` - `AccountingOracle` or `ValidatorExitBusOracle` contract.
+`HashConsensus` -  a contract which manages oracle members committee and allows the members to reach consensus on the particular data hash for each reporting frame.
 
 You can read more about HashConsensus [here](/contracts/hash-consensus).
 
@@ -66,7 +66,7 @@ graph LR;
 
 ### Phase 2. Submitting a report data
 
-When the consensus is reached, one of the oracles operators submits report data and triggers the core protocol state update (including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and deciding whether to go in the bunker mode) or emits `ValidatorExitRequest` events.
+When the consensus is reached, one of the oracles operators submits report data and triggers the core protocol state update (including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and deciding whether to go in the bunker mode) or emits `ValidatorExitRequest` events to inform node operators about new voluntary exit requests needed to perform.
 
 ```mermaid
 graph LR;
@@ -79,7 +79,7 @@ graph LR;
 
 ### Phase 3. Submitting a report extra data
 
-This step is required for `AccountingOracle`, because all rewards for modules are distributed in this phase.
+This step is required for `AccountingOracle`, involving reward distribution for staking modules on this phase.
 
 ```mermaid
 graph LR;
@@ -103,6 +103,7 @@ graph LR;
 ## Committee membership
 
 The current Oracle set consists of 9 participants:
+
 - Chorus One `0x140bd8fbdc884f48da7cb1c09be8a2fadfea776e`
 - Staking Facilities `0x404335bce530400a5814375e7ec1fb55faff3ea2`
 - stakefish `0x946d3b081ed19173dc83cd974fc69e1e760b7d78`
@@ -113,9 +114,9 @@ The current Oracle set consists of 9 participants:
 - Kyber Network [0xA7410857ABbf75043d61ea54e07D57A6EB6EF186](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/52)
 - ChainLayer [0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/69)
 
-Quorum is 5/9. This means that the report finalization with rebase only occurs when there are 5 identical reports from oracles.
+The quorum is 5/9. This means that the report finalization can only occur when there are 5 identical reports from the 5 different oracle members.
 
-See [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post
+See [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post for more details.
 
 ## Prerequisites
 
@@ -152,10 +153,11 @@ This is a separate service that uses Execution Client to fetch all lido keys. It
 ## The oracle daemon
 
 The Oracle daemon is a Python application that contains two modules:
+
 - Accounting module
 - Ejector module
 
-The oracle source code is available at https://github.com/lidofinance/lido-oracle.
+The oracle source code is available at <https://github.com/lidofinance/lido-oracle>.
 
 Modules fetch the reportable slot, and if this slot is finalized, calculate and send the report to AccountingOracle and ExitBusOracle smart contracts.
 
@@ -164,6 +166,7 @@ Modules fetch the reportable slot, and if this slot is finalized, calculate and 
 The oracle daemon requires the following environment variables:
 
 **Required**
+
 - `EXECUTION_CLIENT_URI` - list of Execution Client uris separated with comma. The second and next uris will be used as fallback.
 - `CONSENSUS_CLIENT_URI` - list of Consensus Client uris separated with comma. The second and next uris will be used as fallback.
 - `KEYS_API_URI` - list of Key API client uris separated with comma. The second and next uris will be used as fallback.
@@ -172,6 +175,7 @@ The oracle daemon requires the following environment variables:
 **Optional**
 
 **One of:**
+
 - `MEMBER_PRIV_KEY` - Private key of the Oracle member account.
 - `MEMBER_PRIV_KEY_FILE` - A path to the file contained the private key of the Oracle member account.
 
@@ -212,7 +216,7 @@ docker run -d --name lido-oracle-ejector \
 ```
 
 **Latest image hash**
-https://docs.lido.fi/guides/tooling/#oracle
+<https://docs.lido.fi/guides/tooling/#oracle>
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
 
