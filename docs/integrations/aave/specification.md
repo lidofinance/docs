@@ -2,13 +2,13 @@
 
 The main goal of integration is to provide the ability to deposit stETH into AAVE and allow to use it as collateral. Borrowing of the stETH (both stable and variable) is not supposed. The motivation behind this design is to encourage using stETH as collateral rather than borrowing it. stETH is pegged steadily to ETH, so using it as collateral involves low liquidation risks.
 
-The stETH is implemented as a rebasing token. In normal conditions balances of users update one per day with Oracle report. Under the hood stETH stores balances of users as holder's shares in the total amount of Ether controlled by the Lido protocol. stETH has pair of methods to convert inner shares into the balances and vice versa:
+The stETH is implemented as a rebasing token. In normal conditions balances of users update one per day with Oracle report. Under the hood stETH stores balances of users as holder's shares in the total amount of ether controlled by the Lido protocol. stETH has pair of methods to convert inner shares into the balances and vice versa:
 
 ```solidity
-/// @return the amount of Ether that corresponds to `_sharesAmount` token shares.
+/// @return the amount of ether that corresponds to `_sharesAmount` token shares.
 function getPooledEthByShares(uint256 _sharesAmount) public view returns (uint256);
 
-/// @return the amount of shares that corresponds to `_ethAmount` protocol-controlled Ether.
+/// @return the amount of shares that corresponds to `_ethAmount` protocol-controlled ether.
 function getSharesByPooledEth(uint256 _ethAmount) public view returns (uint256);
 
 ```
@@ -53,7 +53,7 @@ To make rebases profit accountable, `AStETH` introduces an additional index - **
 
 ```solidity
 function _stEthRebasingIndex() returns (uint256) {
-  // Below expression returns how much Ether corresponds
+  // Below expression returns how much ether corresponds
   // to 10 ** 27 shares. 10 ** 27 was taken  to provide
   // same precision as AAVE's liquidity index, which
   // counted in RAY's (decimals with 27 digits).

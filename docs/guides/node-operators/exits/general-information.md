@@ -42,7 +42,7 @@ If it's not enough, you'll have to fork the Ejector or monitor `ValidatorExitReq
 
 Node Operators should pre-sign an amount or a percentage of validators which they are comfortable with managing. Smaller amounts means more frequent refills and vice versa.
 
-For Withdrawals preparations, for example, exits for 10% of the validators pre-signed is suggested. After that, it wilsl depend on the Withdrawals demand and Node Operator preferences.
+For Withdrawals preparations, for example, exits for 10% of the validators pre-signed is suggested. After that, it will depend on the Withdrawals demand and Node Operator preferences.
 
 ## How to Understand Which Keys to Pre-sign
 
