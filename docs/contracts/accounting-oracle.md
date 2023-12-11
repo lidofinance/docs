@@ -10,7 +10,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 
 ## What is AccountingOracle
 
-AccountingOracle is a contract which collect information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the
+AccountingOracle is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the
 amount of funds accumulated on the protocol vaults (i.e., [withdrawal](./withdrawal-vault) and [execution layer rewards](./lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](./staking-router/#exited-and-stuck-validators) validators, the number of [withdrawal requests](./withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
 
 ## Report cycle
