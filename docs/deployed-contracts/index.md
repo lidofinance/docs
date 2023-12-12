@@ -169,10 +169,10 @@ pagination_next: deployed-contracts/goerli
 
 
 - **Tooling contracts:**
-  - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
-  - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
-  - AllowedRecipientsBuilder (Proposed): [`0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF`](https://etherscan.io/address/0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF)
-  - AllowedRecipientsFactory (Proposed): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
+  - AllowedRecipientsBuilder (single token): [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
+  - AllowedRecipientsFactory (single token): [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
+  - AllowedRecipientsBuilder (multi token) (Proposed): [`0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF`](https://etherscan.io/address/0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF)
+  - AllowedRecipientsFactory (multi token) (Proposed): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
 ## Lido DAO Multisigs
