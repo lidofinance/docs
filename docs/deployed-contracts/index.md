@@ -219,6 +219,7 @@ pagination_next: deployed-contracts/goerli
 - Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
 - Solana DAO [`H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2`](https://app.realms.today/dao/3WZ9nP9KT7KSdfjL9acovwdmTMFmW5of946Sxt2LwnaY) (Solana)
 
+
 ## Lido on L2
 
 ### Arbitrum
