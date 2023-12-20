@@ -13,6 +13,8 @@ Note that there will be no comprehensive Lido testnet environments available for
 
 :::
 
+## Core protocol
+
 - Lido Locator: [`0x1eDf09b5023DC86737b59dE68a8130De878984f5`](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5) (proxy)
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
 - wstETH token: [`0x6320cd32aa674d2898a68ec82e869385fc5f7e2f`](https://goerli.etherscan.io/address/0x6320cd32aa674d2898a68ec82e869385fc5f7e2f)
