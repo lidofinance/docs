@@ -4,7 +4,7 @@ pagination_next: deployed-contracts/goerli
 
 # Mainnet
 
-## Lido V2 Core Protocol
+## Core protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
@@ -19,7 +19,7 @@ pagination_next: deployed-contracts/goerli
 - Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 
-## Lido V2 Oracle Contracts
+## Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
@@ -31,7 +31,7 @@ pagination_next: deployed-contracts/goerli
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
 
-## Lido V2 DAO Contracts
+## DAO Contracts
 
 - Lido DAO (Kernel): [`0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc`](https://etherscan.io/address/0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc) (proxy)
 - LDO token: [`0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32)
@@ -141,15 +141,21 @@ pagination_next: deployed-contracts/goerli
 - **LEGO DAI** (committee ms [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030/home))
   - AllowedRecipientsRegistry: [`0xb0FE4D300334461523D9d61AaD90D0494e1Abb43`](https://etherscan.io/address/0xb0FE4D300334461523D9d61AaD90D0494e1Abb43)
   - TopUpAllowedRecipients: [`0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC`](https://etherscan.io/address/0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC)
-- **RCC DAI** (committee ms [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://app.safe.global/eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437/home))
+- **RCC stablecoins** (committee ms [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://app.safe.global/eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437/home))
   - AllowedRecipientsRegistry: [`0xDc1A0C7849150f466F07d48b38eAA6cE99079f80`](https://etherscan.io/address/0xDc1A0C7849150f466F07d48b38eAA6cE99079f80)
-  - TopUpAllowedRecipients: [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](https://etherscan.io/address/0x84f74733ede9bFD53c1B3Ea96338867C94EC313e)
-- **PML DAI** (committee ms [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D/home))
+  - TopUpAllowedRecipients (Proposed to remove): [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](https://etherscan.io/address/0x84f74733ede9bFD53c1B3Ea96338867C94EC313e)
+  - AllowedTokensRegistry (Proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca#code)
+  - TopUpAllowedRecipients (Proposed): [`0x75bDecbb6453a901EBBB945215416561547dfDD4`](https://etherscan.io/address/0x75bDecbb6453a901EBBB945215416561547dfDD4)
+- **PML stablecoins** (committee ms [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D/home))
   - AllowedRecipientsRegistry: [`0xDFfCD3BF14796a62a804c1B16F877Cf7120379dB`](https://etherscan.io/address/0xDFfCD3BF14796a62a804c1B16F877Cf7120379dB)
-  - TopUpAllowedRecipients: [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](https://etherscan.io/address/0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD)
-- **ATC DAI** (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
+  - TopUpAllowedRecipients (Proposed to remove): [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](https://etherscan.io/address/0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD)
+  - AllowedTokensRegistry (Proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca#code)
+  - TopUpAllowedRecipients (Proposed): [`0x92a27C4e5e35cFEa112ACaB53851Ec70e2D99a8D`](https://etherscan.io/address/0x92a27C4e5e35cFEa112ACaB53851Ec70e2D99a8D)
+- **ATC stablecoins** (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
   - AllowedRecipientsRegistry: [`0xe07305F43B11F230EaA951002F6a55a16419B707`](https://etherscan.io/address/0xe07305F43B11F230EaA951002F6a55a16419B707)
-  - TopUpAllowedRecipients: [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
+  - TopUpAllowedRecipients (Proposed to remove): [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
+  - AllowedTokensRegistry (Proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca#code)
+  - TopUpAllowedRecipients (Proposed): [`0x1843Bc35d1fD15AbE1913b9f72852a79457C42Ab`](https://etherscan.io/address/0x1843Bc35d1fD15AbE1913b9f72852a79457C42Ab)
 - **TRP LDO** (committee ms [`0x834560F580764Bc2e0B16925F8bF229bb00cB759`](https://app.safe.global/eth:0x834560F580764Bc2e0B16925F8bF229bb00cB759/home))
   - AllowedRecipientsRegistry: [`0x231Ac69A1A37649C6B06a71Ab32DdD92158C80b8`](https://etherscan.io/address/0x231Ac69A1A37649C6B06a71Ab32DdD92158C80b8)
   - TopUpAllowedRecipients: [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C)
@@ -160,8 +166,10 @@ pagination_next: deployed-contracts/goerli
   - TopUpAllowedRecipients: [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1)
 
 - **Tooling contracts:**
-  - AllowedRecipientsBuilder: [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
-  - AllowedRecipientsFactory: [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
+  - AllowedRecipientsBuilder (single token): [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
+  - AllowedRecipientsFactory (single token): [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
+  - AllowedRecipientsBuilder (multi token) (Proposed): [`0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF`](https://etherscan.io/address/0x334D6eDc13F63728b39e6A6D04A7Bbd5D6A9B9FF)
+  - AllowedRecipientsFactory (multi token) (Proposed): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
 ## Lido DAO Multisigs
@@ -193,6 +201,7 @@ pagination_next: deployed-contracts/goerli
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 - **proposed** zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
+- **proposed** Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -279,6 +288,37 @@ pagination_next: deployed-contracts/goerli
 - **proposed** ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
   - ZkSyncBridgeExecutor
   - ERC20BridgedUpgradeable
+
+### Mantle
+
+#### Ethereum part
+
+- **proposed** L1ERC20TokenBridge: [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B) (proxy)
+- **proposed** L1ERC20TokenBridge: [`0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23`](https://etherscan.io/address/0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23) (impl)
+
+#### Mantle part
+
+- **proposed** WstETH ERC20BridgedPermit: [`0x458ed78EB972a369799fb278c0243b25e5242A83`](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83) (proxy)
+- **proposed** WstETH ERC20BridgedPermit: [`0x1FaBaAec88198291A4efCc85Cabb33a3785165ba`](https://explorer.mantle.xyz/address/0x1FaBaAec88198291A4efCc85Cabb33a3785165ba) (impl)
+- **proposed** L2ERC20TokenBridge: [`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d) (proxy)
+- **proposed** L2ERC20TokenBridge: [`0xf10A7ffC613a9b23Abc36167925A375bf5986181`](https://explorer.mantle.xyz/address/0xf10A7ffC613a9b23Abc36167925A375bf5986181) (impl)
+- **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd`](https://explorer.mantle.xyz/address/0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd)
+
+### Linea
+
+#### Ethereum part
+
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0x6ccfd65b0b14f67259c77ca6267104e058ddb292`](https://etherscan.io/address/0x6ccfd65b0b14f67259c77ca6267104e058ddb292) (impl)
+
+#### Linea part
+
+- **proposed** wstETH CustomBridgedToken: [`0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F`](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F) (proxy)
+- **proposed** wstETH CustomBridgedToken: [`0xc0583e2F5930EDE5Fab9D57bAC4169878730B010`](https://lineascan.build/address/0xc0583e2f5930ede5fab9d57bac4169878730b010) (impl)
+- **proposed** ProxyAdmin for wstETH CustomBridgedToken: [`0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927`](https://lineascan.build/address/0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0x2bfdf4a0d54C93a4bAF74F8DcEA8a275D8EE97a9`](https://lineascan.build/address/0x2bfdf4a0d54c93a4baf74f8dcea8a275d8ee97a9) (impl)
+- **proposed** LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
 ### L2 Liquidity pools
 

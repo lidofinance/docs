@@ -22,7 +22,7 @@ For some clients the fee recipient option should be applied with other options, 
 | Lodestar         | `--chain.defaultFeeRecipient=<ADDRESS>`                 | [Lodestar CLI options]            |
 
 [teku cli options]: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#validators-proposer-default-fee-recipient
-[nimbus fee recipient info]: https://nimbus.guide/merge.html?highlight=recipient#prepare-a-suggested-fee-recipient
+[nimbus fee recipient info]: https://nimbus.guide/suggested-fee-recipient.html
 [lighthouse fee recipient config]: https://lighthouse-book.sigmaprime.io/suggested-fee-recipient.html?highlight=fee%20recipient#suggested-fee-recipient
 [lodestar cli options]: https://chainsafe.github.io/lodestar/reference/cli/
 [prysm cli options]: https://docs.prylabs.network/docs/execution-node/fee-recipient

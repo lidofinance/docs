@@ -13,9 +13,7 @@ Note that there will be no comprehensive Lido testnet environments available for
 
 :::
 
-## Görli+Prater testnet
-
-### Lido V2 Core Protocol
+## Core protocol
 
 - Lido Locator: [`0x1eDf09b5023DC86737b59dE68a8130De878984f5`](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5) (proxy)
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
@@ -30,7 +28,7 @@ Note that there will be no comprehensive Lido testnet environments available for
 - Burner: [`0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1`](https://goerli.etherscan.io/address/0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1)
 - MEV Boost Relay Allowed List: [`0xeabE95AC5f3D64aE16AcBB668Ed0efcd81B721Bc`](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 
-### Lido V2 Oracle Contracts
+## Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
@@ -42,7 +40,7 @@ Note that there will be no comprehensive Lido testnet environments available for
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
 
-### Lido V2 DAO contracts
+## DAO contracts
 
 - Lido DAO (Kernel): [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
 - LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
@@ -59,13 +57,13 @@ Note that there will be no comprehensive Lido testnet environments available for
 - Gate Seal Factory: [`0x248C4a34645921C70a591CCc200cb75D6a4C5091`](https://goerli.etherscan.io/address/0x248C4a34645921C70a591CCc200cb75D6a4C5091)
 - Gate Seal: [`0xEE656d0C8e9f0646B505a13295C188164a3D8EaC`](https://goerli.etherscan.io/address/0xEE656d0C8e9f0646B505a13295C188164a3D8EaC)
 
-### Reward Programs
+## Reward Programs
 
 - Curve Liquidity Farming:
 
   - Pool Contract: [`0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA`](https://goerli.etherscan.io/address/0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA)
 
-### Easy Track
+## Easy Track
 
 - EasyTrack: [`0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af`](https://goerli.etherscan.io/address/0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af)
 - EVMScriptExecutor: [`0x3c9AcA237b838c59612d79198685e7f20C7fE783`](https://goerli.etherscan.io/address/0x3c9AcA237b838c59612d79198685e7f20C7fE783)
@@ -185,3 +183,34 @@ Note that there will be no comprehensive Lido testnet environments available for
 - **proposed** ProxyAdmin: [`0xe7e7befca267e5967e20d135941535a2396ccdf4`](https://goerli.explorer.zksync.io/address/0xe7e7befca267e5967e20d135941535a2396ccdf4) for
   - ZkSyncBridgeExecutor
   - ERC20BridgedUpgradeable
+
+### Mantle
+
+#### Ethereum part
+
+- **proposed** L1ERC20TokenBridge: [`0xBc6bbb98E73D15cc6a280e96b32Cc73b4f9068E1`](https://goerli.etherscan.io/address/0xBc6bbb98E73D15cc6a280e96b32Cc73b4f9068E1) (proxy)
+- **proposed** L1ERC20TokenBridge: [`0x8bed2E40522E21119B8A78A4842767c9bCceC47b`](https://goerli.etherscan.io/address/0x8bed2E40522E21119B8A78A4842767c9bCceC47b) (impl)
+
+#### Mantle part
+
+- **proposed** WstETH ERC20BridgedPermit: [`0x2C402BE58E5849c5413a79aa3b8aF3136e6C017F`](https://explorer.testnet.mantle.xyz/address/0x2C402BE58E5849c5413a79aa3b8aF3136e6C017F) (proxy)
+- **proposed** WstETH ERC20BridgedPermit: [`0x1008C85f796314c0985639b1a03083Be53eEf5aA`](https://explorer.testnet.mantle.xyz/address/0x1008C85f796314c0985639b1a03083Be53eEf5aA) (impl)
+- **proposed** L2ERC20TokenBridge: [`0xFCCC4297be972bb2861Da6D78a6fad588dF03ab1`](https://explorer.testnet.mantle.xyz/address/0xFCCC4297be972bb2861Da6D78a6fad588dF03ab1) (proxy)
+- **proposed** L2ERC20TokenBridge: [`0x7Aa9EEEcECD56Bd43Bb66ee1B42dBEB754792C84`](https://explorer.testnet.mantle.xyz/address/0x7Aa9EEEcECD56Bd43Bb66ee1B42dBEB754792C84) (impl)
+- **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0xa09BA6f7660C616D2B45218b3169c855A695328f`](https://explorer.testnet.mantle.xyz/address/0xa09BA6f7660C616D2B45218b3169c855A695328f)
+
+### Linea
+
+#### Ethereum part
+
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0xaa012d038e6440535ec66edf2da592f4f8398133`](https://goerli.etherscan.io/address/0xaa012d038e6440535ec66edf2da592f4f8398133) (proxy)
+- **proposed** L1 TokenBridge (Canonical Bridge): [`0x6E4437828B4A7E7730e3D7efC676E22Ce905B705`](https://goerli.etherscan.io/address/0x6e4437828b4a7e7730e3d7efc676e22ce905b705) (impl)
+
+#### Linea part
+
+- **proposed** wstETH CustomBridgedToken: [`0x9ceed01e39279a529f44deb9d35e09a04b1e67c8`](https://goerli.lineascan.build/address/0x9ceed01e39279a529f44deb9d35e09a04b1e67c8) (proxy)
+- **proposed** wstETH CustomBridgedToken: [`0x2bb4036e0cdd52c2134a95b6249eb89e5f6bc7f1`](https://goerli.lineascan.build/address/0x2bb4036e0cdd52c2134a95b6249eb89e5f6bc7f1) (impl)
+- **proposed** ProxyAdmin for wstETH CustomBridgedToken: [`0x71062fbc3da2d792285c3d5dabba12a42339e85c`](https://goerli.lineascan.build/address/0x71062fbc3da2d792285c3d5dabba12a42339e85c)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0xb191e3d98074f92584e5205b99c3f17fb2068927`](https://goerli.lineascan.build/address/0xb191e3d98074f92584e5205b99c3f17fb2068927) (proxy)
+- **proposed** L2 TokenBridge (Canonical Bridge): [`0x6081c1392793e22da39871d4362c1e7045a5bace`](https://goerli.lineascan.build/address/0x6081c1392793e22da39871d4362c1e7045a5bace) (impl)
+- **proposed** LineaBridgeExecutor: [`0x4b38d24e70079f2dd1d79b86e2b52f4b13872a3b`](https://goerli.lineascan.build/address/0x4b38d24e70079f2dd1d79b86e2b52f4b13872a3b)

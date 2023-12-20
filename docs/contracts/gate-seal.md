@@ -8,16 +8,16 @@
 
 A one-time panic button for pausable contracts.
 
-
 ## What is a GateSeal?
 
 A GateSeal is a contract that allows the designated account to instantly put a set of contracts on pause (i.e. seal) for a limited duration. GateSeals are meant to be used as a panic button for crucial contracts in case of an emergency. Each GateSeal is one-time use only and immediately becomes unusable once activated. If the seal is never triggered, the GateSeal will still eventually expire after a set period.
 
 ## Why use a GateSeal?
 
-To put such crucial components of the Lido protocol as `WithdrawalQueue` and `ValidatorExitBus` on hold, the DAO must hold a vote which may take up to several days to pass. GateSeals provide a way to temporarily pause these contracts immediately if the emergency calls for a swifter response. This will give the Lido DAO the time to come up with a solution, hold a vote, implement changes, etc.
+To put such crucial components of the Lido protocol as `WithdrawalQueue` and `ValidatorsExitBusOracle` on hold, the DAO must hold a vote which may take up to several days to pass. GateSeals provide a way to temporarily pause these contracts immediately if the emergency calls for a swifter response. This will give the Lido DAO the time to come up with a solution, hold a vote, implement changes, etc.
 
 Each GateSeal is operated by a committee, essentially a multisig account responsible for pulling the break in case things go awry. However, authorizing a committee to pause/resume the protocol withdrawals would be utterly reckless which is why GateSeals have a number of safeguards in place:
+
 - each GateSeal can only be activated only once and becomes unusable immediately after,
 - each GateSeal can only be activated within its expiry period of 1 year maximum and becomes unusable past its expiry timestamp even if it was never triggered,
 - the pause duration set at construction time is limited to 14 days.
@@ -28,9 +28,10 @@ With all that said, it still is undesirable for a decentralized protocol to rely
 
 ## How does it work?
 
-The idea of GateSeals is heavily based around `PausableUntil` contracts which both `WithdrawalQueue` and `ValidatorExitBus` implement. These `PausableUntil` contracts are similar to [`Pausable`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.4/contracts/security/Pausable.sol) contracts with one important difference: the paused state is not merely a boolean value, but a timestamp from which the contract is resumed (or unpaused). This allows the user to pause the contract for a certain period, and after this period the contract will resume itself without an explicit call. Thus, the PausableUntil pattern in conjunction with a GateSeal provide a way to pull the break on the protocol in a critical situation.
+The idea of GateSeals is heavily based around `PausableUntil` contracts which both `WithdrawalQueue` and `ValidatorsExitBusOracle` implement. These `PausableUntil` contracts are similar to [`Pausable`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.4/contracts/security/Pausable.sol) contracts with one important difference: the paused state is not merely a boolean value, but a timestamp from which the contract is resumed (or unpaused). This allows the user to pause the contract for a certain period, and after this period the contract will resume itself without an explicit call. Thus, the PausableUntil pattern in conjunction with a GateSeal provide a way to pull the break on the protocol in a critical situation.
 
 A GateSeal is set up with an immutable configuration at the time of construction:
+
 - the sealing committee, an account responsible for triggering the seal,
 - the seal duration, a period for which the contracts will be sealed,
 - the sealables, a list of contracts to be sealed,

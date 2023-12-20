@@ -28,6 +28,15 @@ module.exports = {
           ],
         },
         'guides/oracle-operator-manual',
+        {
+          type: 'category',
+          label: 'Oracle specification',
+          items: [
+            'guides/oracle-spec/accounting-oracle',
+            'guides/oracle-spec/validator-exit-bus',
+            'guides/oracle-spec/penalties',
+          ],
+        },
         'guides/deposit-security-manual',
         {
           type: 'category',
@@ -115,6 +124,17 @@ module.exports = {
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/goerli',
         'deployed-contracts/holesky',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Multisigs',
+      items: [
+        'multisigs/emergency-brakes',
+        'multisigs/committees',
+        'multisigs/lido-on-x',
+        'multisigs/lido-contributors-group',
+        'multisigs/other',
       ],
     },
   ],
