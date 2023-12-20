@@ -13,10 +13,6 @@ Note that there will be no comprehensive Lido testnet environments available for
 
 :::
 
-## Görli+Prater testnet
-
-### Lido V2 Core Protocol
-
 - Lido Locator: [`0x1eDf09b5023DC86737b59dE68a8130De878984f5`](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5) (proxy)
 - Lido and stETH token: [`0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) (proxy)
 - wstETH token: [`0x6320cd32aa674d2898a68ec82e869385fc5f7e2f`](https://goerli.etherscan.io/address/0x6320cd32aa674d2898a68ec82e869385fc5f7e2f)
@@ -30,7 +26,7 @@ Note that there will be no comprehensive Lido testnet environments available for
 - Burner: [`0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1`](https://goerli.etherscan.io/address/0x20c61C07C2E2FAb04BF5b4E12ce45a459a18f3B1)
 - MEV Boost Relay Allowed List: [`0xeabE95AC5f3D64aE16AcBB668Ed0efcd81B721Bc`](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
 
-### Lido V2 Oracle Contracts
+## Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0x76f358A842defa0E179a8970767CFf668Fc134d6`](https://goerli.etherscan.io/address/0x76f358A842defa0E179a8970767CFf668Fc134d6) (proxy)
@@ -42,7 +38,7 @@ Note that there will be no comprehensive Lido testnet environments available for
 - OracleDaemonConfig: [`0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d`](https://goerli.etherscan.io/address/0xE9CC5bD91543cdc9788454EE5063E2CD76B5206d)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB`](https://goerli.etherscan.io/address/0x24d8451BC07e7aF4Ba94F69aCDD9ad3c6579D9FB) (proxy)
 
-### Lido V2 DAO contracts
+## DAO contracts
 
 - Lido DAO (Kernel): [`0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A`](https://goerli.etherscan.io/address/0x1dD91b354Ebd706aB3Ac7c727455C7BAA164945A) (proxy)
 - LDO token: [`0x56340274fB5a72af1A3C6609061c451De7961Bd4`](https://goerli.etherscan.io/address/0x56340274fB5a72af1A3C6609061c451De7961Bd4)
@@ -59,13 +55,13 @@ Note that there will be no comprehensive Lido testnet environments available for
 - Gate Seal Factory: [`0x248C4a34645921C70a591CCc200cb75D6a4C5091`](https://goerli.etherscan.io/address/0x248C4a34645921C70a591CCc200cb75D6a4C5091)
 - Gate Seal: [`0xEE656d0C8e9f0646B505a13295C188164a3D8EaC`](https://goerli.etherscan.io/address/0xEE656d0C8e9f0646B505a13295C188164a3D8EaC)
 
-### Reward Programs
+## Reward Programs
 
 - Curve Liquidity Farming:
 
   - Pool Contract: [`0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA`](https://goerli.etherscan.io/address/0xCEB67769c63cfFc6C8a6c68e85aBE1Df396B7aDA)
 
-### Easy Track
+## Easy Track
 
 - EasyTrack: [`0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af`](https://goerli.etherscan.io/address/0xAf072C8D368E4DD4A9d4fF6A76693887d6ae92Af)
 - EVMScriptExecutor: [`0x3c9AcA237b838c59612d79198685e7f20C7fE783`](https://goerli.etherscan.io/address/0x3c9AcA237b838c59612d79198685e7f20C7fE783)

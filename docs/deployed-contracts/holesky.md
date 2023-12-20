@@ -14,7 +14,7 @@
 - Burner: [`0x4E46BD7147ccf666E1d73A3A456fC7a68de82eCA`](https://holesky.etherscan.io/address/0x4E46BD7147ccf666E1d73A3A456fC7a68de82eCA)
 - MEV Boost Relay Allowed List: [`0x2d86C5855581194a386941806E38cA119E50aEA3`](https://holesky.etherscan.io/address/0x2d86C5855581194a386941806E38cA119E50aEA3)
 
-## Lido V2 Oracle Contracts
+## Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0x4E97A3972ce8511D87F334dA17a2C332542a5246`](https://holesky.etherscan.io/address/0x4E97A3972ce8511D87F334dA17a2C332542a5246) (proxy)
@@ -26,7 +26,7 @@
 - OracleDaemonConfig: [`0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7`](https://holesky.etherscan.io/address/0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019`](https://holesky.etherscan.io/address/0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019) (proxy)
 
-## Lido V2 DAO contracts
+## DAO contracts
 
 - Lido DAO (Kernel): [`0x3b03f75Ec541Ca11a223bB58621A3146246E1644`](https://holesky.etherscan.io/address/0x3b03f75Ec541Ca11a223bB58621A3146246E1644) (proxy)
 - LDO token: [`0x14ae7daeecdf57034f3E9db8564e46Dba8D97344`](https://holesky.etherscan.io/address/0x14ae7daeecdf57034f3E9db8564e46Dba8D97344)
@@ -77,5 +77,7 @@
   - ChangeNodeOperatorManager: [`0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E`](https://holesky.etherscan.io/address/0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E)
 - **Sandbox staking module** (registry: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC))
   - IncreaseNodeOperatorStakingLimit: [`0xbD37e55748c6f4Ece637AeD3e278e7575346B587`](https://holesky.etherscan.io/address/0xbD37e55748c6f4Ece637AeD3e278e7575346B587)
+
 ### Easy Track factories for token transfers
-  - TBA
+
+- TBA
