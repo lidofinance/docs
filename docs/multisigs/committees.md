@@ -398,3 +398,37 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | - | https://twitter.com/grstepanov/status/1468933222923116550 |
+
+### 2.7.10 Liquidity Observation Lab Committee (BNB)
+
+**Address:** bnb:[`0x0b420D02ba56Ae734733864f57e78c8808650b91`](https://app.safe.global/home?safe=bnb:0x0b420D02ba56Ae734733864f57e78c8808650b91)
+
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+
+**Quorum:** 2/4
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+|: --- |: --- |: --- |: --- |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | - | https://twitter.com/grstepanov/status/1468933222923116550 |
+
+### 2.7.11 Liquidity Observation Lab Committee (Linea)
+
+**Address:** linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6)
+
+**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+
+**Quorum:** 2/4
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+|: --- |: --- |: --- |: --- |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | - | https://twitter.com/grstepanov/status/1468933222923116550 |
