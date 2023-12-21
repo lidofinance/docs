@@ -1,4 +1,4 @@
-# StETH superuser functions
+# stETH superuser functions
 
 <!--  -->
 
