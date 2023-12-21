@@ -130,7 +130,7 @@
   - AllowedRecipientsFactory (multi token): [`0x9d156F7F5ed1fEbDc4996CAA835CD964A10bd650`](https://holesky.etherscan.io/address/0x9d156F7F5ed1fEbDc4996CAA835CD964A10bd650)
   - BokkyPooBah's DateTime Library: [`0xd6237FecDF9C1D9b023A5205C17549E3037EeEec`](https://holesky.etherscan.io/address/0xd6237FecDF9C1D9b023A5205C17549E3037EeEec)
 
-## Lido DAO Multisigs
+## Testnet DAO Multisigs
   - QA & DAO-ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
     - QA testnet EOA: [`0x1580881349e214Bab9f1E533bF97351271DB95a9`](https://holesky.etherscan.io/address/0x1580881349e214Bab9f1E533bF97351271DB95a9)
     - DAO-ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
