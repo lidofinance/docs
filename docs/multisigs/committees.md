@@ -257,7 +257,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** oeth:[`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://app.safe.global/settings/setup?safe=oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -294,7 +294,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** arb1:[`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://app.safe.global/settings/setup?safe=arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes its assets between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -336,7 +336,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes its assets between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/3
 
@@ -352,7 +352,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** base:[`0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D`](https://app.safe.global/home?safe=base:0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -369,7 +369,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -403,7 +403,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** bnb:[`0x0b420D02ba56Ae734733864f57e78c8808650b91`](https://app.safe.global/home?safe=bnb:0x0b420D02ba56Ae734733864f57e78c8808650b91)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 
@@ -420,7 +420,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Address:** linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6)
 
-**Purpose of the multisig:** The multisig is set up to receive assets from Liquidity Observation Lab Committee multisig on Ethereum and distributes it between other approved recipients.
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
 **Quorum:** 2/4
 
