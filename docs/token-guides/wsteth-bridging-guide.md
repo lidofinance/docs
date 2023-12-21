@@ -69,7 +69,7 @@ graph TD;
 
 This section describes an approximate path to bridging wstETH to an L2 network. The order of the steps is not strict but follows the general flow.
 
-🐾 Study the bridging guide and fill in [the questionary](#Questionary) about your solution and send it to the NEW.
+🐾 Study the bridging guide and fill in [the questionnaire](#questionnaire) about your solution and send it to the NEW.
 
 🐾 Coordinate on priority lane, timings, and reviews with the NEW.
 
@@ -83,10 +83,10 @@ This section describes an approximate path to bridging wstETH to an L2 network. 
 - The deployment addresses are not required at once but must be proposed at least a week before the snapshot voting starts.
 - If the proposed solution does not satisfy some of the recommendations (**R5...**), consider including the roadmap and committing to deliver it.
 - Examples:
-    - [wstETH to Base](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668);
-    - [wstETH to zkSync Era](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701);
-    - [wstETH to Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991);
-    - [wstETH to Linea](https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961).
+    - [wstETH to Base](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
+    - [wstETH to zkSync Era](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
+    - [wstETH to Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
+    - [wstETH to Linea](https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961)
 
 🐾 Deploy the contracts to mainnet. Get the mainnet deployment verified by the Lido protocol contributors and external security group if applicable (coordinating through NEW).
 
