@@ -200,8 +200,8 @@ pagination_next: deployed-contracts/goerli
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
-- **proposed** zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
-- **proposed** Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
+- zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
+- Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -274,20 +274,20 @@ pagination_next: deployed-contracts/goerli
 
 #### Ethereum part
 
-- **proposed** L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
-- **proposed** L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
-- **proposed** L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
-- **proposed** L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
+- L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
+- L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
+- L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
+- L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
 
 #### ZkSync Era part
 
-- **proposed** ZkSyncBridgeExecutor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
-- **proposed** ZkSyncBridgeExecutor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
-- **proposed** L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
-- **proposed** L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
-- **proposed** ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
-- **proposed** ERC20BridgedUpgradeable: [`0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c`](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c) (impl)
-- **proposed** ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
+- ZkSyncBridgeExecutor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
+- ZkSyncBridgeExecutor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
+- L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
+- L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
+- ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
+- ERC20BridgedUpgradeable: [`0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c`](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c) (impl)
+- ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
   - ZkSyncBridgeExecutor
   - ERC20BridgedUpgradeable
 
@@ -295,32 +295,32 @@ pagination_next: deployed-contracts/goerli
 
 #### Ethereum part
 
-- **proposed** L1ERC20TokenBridge: [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B) (proxy)
-- **proposed** L1ERC20TokenBridge: [`0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23`](https://etherscan.io/address/0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23) (impl)
+- L1ERC20TokenBridge: [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B) (proxy)
+- L1ERC20TokenBridge: [`0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23`](https://etherscan.io/address/0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23) (impl)
 
 #### Mantle part
 
-- **proposed** WstETH ERC20BridgedPermit: [`0x458ed78EB972a369799fb278c0243b25e5242A83`](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83) (proxy)
-- **proposed** WstETH ERC20BridgedPermit: [`0x1FaBaAec88198291A4efCc85Cabb33a3785165ba`](https://explorer.mantle.xyz/address/0x1FaBaAec88198291A4efCc85Cabb33a3785165ba) (impl)
-- **proposed** L2ERC20TokenBridge: [`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d) (proxy)
-- **proposed** L2ERC20TokenBridge: [`0xf10A7ffC613a9b23Abc36167925A375bf5986181`](https://explorer.mantle.xyz/address/0xf10A7ffC613a9b23Abc36167925A375bf5986181) (impl)
-- **proposed** Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd`](https://explorer.mantle.xyz/address/0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd)
+- WstETH ERC20BridgedPermit: [`0x458ed78EB972a369799fb278c0243b25e5242A83`](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83) (proxy)
+- WstETH ERC20BridgedPermit: [`0x1FaBaAec88198291A4efCc85Cabb33a3785165ba`](https://explorer.mantle.xyz/address/0x1FaBaAec88198291A4efCc85Cabb33a3785165ba) (impl)
+- L2ERC20TokenBridge: [`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d) (proxy)
+- L2ERC20TokenBridge: [`0xf10A7ffC613a9b23Abc36167925A375bf5986181`](https://explorer.mantle.xyz/address/0xf10A7ffC613a9b23Abc36167925A375bf5986181) (impl)
+- Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd`](https://explorer.mantle.xyz/address/0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd)
 
 ### Linea
 
 #### Ethereum part
 
-- **proposed** L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
-- **proposed** L1 TokenBridge (Canonical Bridge): [`0x6ccfd65b0b14f67259c77ca6267104e058ddb292`](https://etherscan.io/address/0x6ccfd65b0b14f67259c77ca6267104e058ddb292) (impl)
+- L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
+- L1 TokenBridge (Canonical Bridge): [`0x6ccfd65b0b14f67259c77ca6267104e058ddb292`](https://etherscan.io/address/0x6ccfd65b0b14f67259c77ca6267104e058ddb292) (impl)
 
 #### Linea part
 
-- **proposed** wstETH CustomBridgedToken: [`0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F`](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F) (proxy)
-- **proposed** wstETH CustomBridgedToken: [`0xc0583e2F5930EDE5Fab9D57bAC4169878730B010`](https://lineascan.build/address/0xc0583e2f5930ede5fab9d57bac4169878730b010) (impl)
-- **proposed** ProxyAdmin for wstETH CustomBridgedToken: [`0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927`](https://lineascan.build/address/0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927)
-- **proposed** L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
-- **proposed** L2 TokenBridge (Canonical Bridge): [`0x2bfdf4a0d54C93a4bAF74F8DcEA8a275D8EE97a9`](https://lineascan.build/address/0x2bfdf4a0d54c93a4baf74f8dcea8a275d8ee97a9) (impl)
-- **proposed** LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
+- wstETH CustomBridgedToken: [`0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F`](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F) (proxy)
+- wstETH CustomBridgedToken: [`0xc0583e2F5930EDE5Fab9D57bAC4169878730B010`](https://lineascan.build/address/0xc0583e2f5930ede5fab9d57bac4169878730b010) (impl)
+- ProxyAdmin for wstETH CustomBridgedToken: [`0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927`](https://lineascan.build/address/0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927)
+- L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
+- L2 TokenBridge (Canonical Bridge): [`0x2bfdf4a0d54C93a4bAF74F8DcEA8a275D8EE97a9`](https://lineascan.build/address/0x2bfdf4a0d54c93a4baf74f8dcea8a275d8ee97a9) (impl)
+- LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
 ### L2 Liquidity pools
 
