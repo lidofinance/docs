@@ -288,7 +288,7 @@ pagination_next: deployed-contracts/goerli
 - ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
 - ERC20BridgedUpgradeable: [`0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c`](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c) (impl)
 - ProxyAdmin: [`0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a`](https://explorer.zksync.io/address/0xbd80e505ecc49bae2cc86094a78fa0e2db28b52a) for
-- ZkSyncBridgeExecutor
+  - ZkSyncBridgeExecutor
 - ERC20BridgedUpgradeable
 
 ### Mantle
