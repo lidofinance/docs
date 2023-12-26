@@ -81,11 +81,11 @@
   - IncreaseNodeOperatorStakingLimit: [`0xbD37e55748c6f4Ece637AeD3e278e7575346B587`](https://holesky.etherscan.io/address/0xbD37e55748c6f4Ece637AeD3e278e7575346B587)
 
 ### Easy Track factories for token transfers
-- **LOL (ex.reWARDS) stETH** (committee ms [``](https://app.safe.global/eth:/home))
-  - AllowedRecipientsRegistry: [``](https://holesky.etherscan.io/address/)
-  - AddAllowedRecipient: [``](https://holesky.etherscan.io/address/)
-  - RemoveAllowedRecipient: [``](https://holesky.etherscan.io/address/)
-  - TopUpAllowedRecipients: [``](https://holesky.etherscan.io/address/)
+- **LOL (ex.reWARDS) stETH** (committee ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915))
+  - AllowedRecipientsRegistry: [`0x55B304a585D540421F1fD3579Ef12Abab7304492`](https://holesky.etherscan.io/address/0x55B304a585D540421F1fD3579Ef12Abab7304492)
+  - AddAllowedRecipient: [`0xf0968B9bE18282dD23bbbC79a1c9C8996CE6984D`](https://holesky.etherscan.io/address/0xf0968B9bE18282dD23bbbC79a1c9C8996CE6984D)
+  - RemoveAllowedRecipient: [`0xF0F34b82241cD49BB3952149BD30A08Eb9D8B54E`](https://holesky.etherscan.io/address/0xF0F34b82241cD49BB3952149BD30A08Eb9D8B54E)
+  - TopUpAllowedRecipients: [`0xBB06DD9a3C7eE8cE093860094e769a1E3D6F97F6`](https://holesky.etherscan.io/address/0xBB06DD9a3C7eE8cE093860094e769a1E3D6F97F6)
 - **Rewards Share stETH** (committee ms [``](https://app.safe.global/eth:/home))
   - AllowedRecipientsRegistry: [``](https://holesky.etherscan.io/address/)
   - AddAllowedRecipient: [``](https://holesky.etherscan.io/address/)
