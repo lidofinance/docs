@@ -153,3 +153,61 @@ L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https:/
 | [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
 | [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://twitter.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
+
+## 1.6 Emergency Brakes: Mantle
+
+**Address:** mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
+
+**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Mantle side in case of emergency.
+
+**Quorum:** 3/5
+
+**Forum topics:** [wstETH Deployment on Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
+
+**Snapshot:** [wstETH Deployment on Mntle](https://snapshot.org/#/lido-snapshot.eth/proposal/0x349fa7409a99683405e71ddebaf5068f3dee7d4e6c9e4375198c4dc10c899bb9)
+
+**Contracts and Roles:**
+
+L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d)
+
+- WITHDRAWALS_DISABLER_ROLE
+- DEPOSITS_DISABLER_ROLE
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+|: --- |: --- |: --- |: --- |
+| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [TheDZon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
+| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://twitter.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
+
+## 1.7 Emergency Brakes: zkSync
+
+**Address:** zksync: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync:0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
+
+**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on zkSync side in case of emergency.
+
+**Quorum:** 3/5
+
+**Forum topics:** [wstETH Deployment on zkSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
+
+**Snapshot:** [wstETH Deployment on zkSync](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd6c4a71c36bef27c4b5997223bd8612fe19177b46b238e78802a4a27fd5cdc9e)
+
+**Contracts and Roles:**
+
+L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B)
+
+- WITHDRAWALS_DISABLER_ROLE
+- DEPOSITS_DISABLER_ROLE
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+|: --- |: --- |: --- |: --- |
+| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [TheDZon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
+| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://twitter.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
