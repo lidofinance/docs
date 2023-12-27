@@ -59,6 +59,10 @@
 - Simple DVT: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6)
 - Sandbox: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC)
 
+## DAO-ops contracts & addresses
+
+- Token Reward Program (TRP) VestingEscrowFactory: [`0x586f0b51d46ac8ac6058702d99cd066ae514e96b`](https://holesky.etherscan.io/address/0x586f0b51d46ac8ac6058702d99cd066ae514e96b)
+
 ## Easy Track
 
 - EasyTrack: [`0x1763b9ED3586B08AE796c7787811a2E1bc16163a`](https://holesky.etherscan.io/address/0x1763b9ED3586B08AE796c7787811a2E1bc16163a)
