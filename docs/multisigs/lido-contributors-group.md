@@ -100,3 +100,4 @@ RCC DAI TopUpAllowedRecipients [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](ht
 | zuzu_eeka | 0x004812da927b5dcd07e7329609edd75e25d2d295 | Sig hash: 0xf0aee0fd294af259ea0b1d8efc8abf0f43876cebd54572c9fd88a6befdf367c83a5e8f783989a21a4fd1676651acaaf651df2207ec7fc0133c7e2b54e9074e8801 | https://twitter.com/zuzu_eeka/status/1513482967137538050?t=hAVfMfLF_jesPQHH5fBDUQ&s=19 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/16616 | https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980/27 |
+| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/32101 | https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980/28 |
