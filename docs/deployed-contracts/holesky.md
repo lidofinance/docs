@@ -61,7 +61,7 @@
 
 ## DAO-ops contracts & addresses
 
-- TRP VestingEscrowFactory: [`0x586f0b51d46ac8ac6058702d99cd066ae514e96b`](https://holesky.etherscan.io/address/0x586f0b51d46ac8ac6058702d99cd066ae514e96b)
+- Token Reward Program (TRP) VestingEscrowFactory: [`0x586f0b51d46ac8ac6058702d99cd066ae514e96b`](https://holesky.etherscan.io/address/0x586f0b51d46ac8ac6058702d99cd066ae514e96b)
 
 ## Easy Track
 
