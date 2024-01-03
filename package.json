@@ -15,6 +15,7 @@
     "format": "prettier --write docs/"
   },
   "dependencies": {
+    "@bonadocs/widget": "^1.0.0",
     "@docusaurus/core": "^2.4.3",
     "@docusaurus/plugin-client-redirects": "^2.4.3",
     "@docusaurus/preset-classic": "^2.4.3",
