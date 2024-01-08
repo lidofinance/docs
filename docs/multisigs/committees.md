@@ -76,8 +76,7 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| jbeezy | 0x039bDD285d3eDb1D9B6001d3097067Aa2AF7d826 | Sig hash: 0xf4e1f1783d440668169b5d3e2bd168aba6f0199731167132e7729399aa923d877ed1a552cb2a815aeb485b73d212421e788717a4188062951844fb9eee736f691c | https://twitter.com/chaingenius/status/1673345134635765765?s=20 |
-| kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/9 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | - | https://twitter.com/apegenija/status/1738302153939128664?s=20 |
 
 ## 2.3 Relay Maintenance Committee
 
