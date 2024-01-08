@@ -244,9 +244,8 @@ tokens to the `msg.sender` address.
 
 See <https://lido.fi/referral> for referral program details.
 
-```sol
-function submit(address _referral) payable returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="submit(address)" />
 
 | Parameter   | Type      | Description               |
 | ----------- | --------- | ------------------------- |
@@ -258,9 +257,8 @@ Returns the number of `StETH` shares generated.
 
 Returns the amount of ether temporarily buffered on the contract's balance.
 
-```sol
-function getBufferedEther() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getBufferedEther()" />
 
 :::note
 The buffered balance is kept on the contract from the moment the funds are received from a user until the moment
@@ -272,9 +270,8 @@ or [`WithdrawalsQueueERC721`](/contracts/withdrawal-queue-erc721)
 
 Returns staking state: whether it's paused or not.
 
-```sol
-function isStakingPaused() view returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="isStakingPaused()" />
 
 :::note
 'staking' here means the ability to accept new [submit](/contracts/lido#submit) requests
@@ -284,9 +281,8 @@ function isStakingPaused() view returns (bool)
 
 Returns how much ether can be staked in the current block.
 
-```sol
-function getCurrentStakeLimit() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getCurrentStakeLimit()" />
 
 :::note
 Special return values:
@@ -299,17 +295,8 @@ Special return values:
 
 Returns full info about current stake limit parameters and state.
 
-```sol
-function getStakeLimitFullInfo() view returns (
-    bool isStakingPaused,
-    bool isStakingLimitSet,
-    uint256 currentStakeLimit,
-    uint256 maxStakeLimit,
-    uint256 maxStakeLimitGrowthBlocks,
-    uint256 prevStakeLimit,
-    uint256 prevStakeBlockNumber
-)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getStakeLimitFullInfo()" />
 
 | Name                        | Type      | Description                                                             |
 | --------------------------- | --------- | ----------------------------------------------------------------------- |
@@ -329,9 +316,8 @@ Deposit buffered ether to the StakingRouter's module with the id of `_stakingMod
 
 Can be called only by [DepositSecurityModule](./deposit-security-module.md) contract.
 
-```sol
-function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositCalldata)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="deposit(uint256,uint256,bytes)" />
 
 | Parameter         | Type      | Description                              |
 | ----------------- | --------- | ---------------------------------------- |
@@ -343,17 +329,15 @@ function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositC
 
 Returns the amount of ether available to deposit.
 
-```sol
-function getDepositableEther() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getDepositableEther()" />
 
 ### canDeposit()
 
 Returns `true` if depositing buffered ether to the consensus layer is allowed.
 
-```sol
-function canDeposit() view returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="canDeposit()" />
 
 ## Accounting-related methods
 
@@ -364,19 +348,8 @@ if beacon balance increased, performs withdrawal requests finalization.
 
 Can be called only by [AccountingOracle](./accounting-oracle.md) contract.
 
-```sol
-function handleOracleReport(
-    uint256 _reportTimestamp,
-    uint256 _timeElapsed,
-    uint256 _clValidators,
-    uint256 _clBalance,
-    uint256 _withdrawalVaultBalance,
-    uint256 _elRewardsVaultBalance,
-    uint256 _sharesRequestedToBurn,
-    uint256[] _withdrawalFinalizationBatches,
-    uint256 _simulatedShareRate
-) returns (uint256[4] postRebaseAmounts)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="handleOracleReport(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256[],uint256)" />
 
 | Parameter                        | Type       | Description                                                       |
 | -------------------------------- | ---------- | ----------------------------------------------------------------- |
@@ -403,9 +376,8 @@ Returns a fixed array of 4 values that represents changes made during the report
 
 Returns the entire amount of ether controlled by the protocol
 
-```sol
-function getTotalPooledEther() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getTotalPooledEther()" />
 
 :::note
 The sum of all ETH balances in the protocol, equals to the total supply of `stETH`.
@@ -415,21 +387,15 @@ The sum of all ETH balances in the protocol, equals to the total supply of `stET
 
 Returns the total amount of execution layer rewards collected to Lido contract buffer.
 
-```sol
-function getTotalELRewardsCollected() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getTotalELRewardsCollected()" />
 
 ### getBeaconStat()
 
 Returns the tuple of key statistics related to the Beacon Chain.
 
-```sol
-function getBeaconStat() view returns (
-    uint256 depositedValidators,
-    uint256 beaconValidators,
-    uint256 beaconBalance
-)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getBeaconStat()" />
 
 | Name                  | Type      | Description                                                                    |
 | --------------------- | --------- | ------------------------------------------------------------------------------ |
@@ -447,17 +413,15 @@ function getBeaconStat() view returns (
 A payable function for execution layer rewards.
 Can be called only by the [`LidoExecutionLayerRewardsVault`](./lido-execution-layer-rewards-vault.md) contract.
 
-```sol
-function receiveELRewards() payable
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="receiveELRewards()" />
 
 ### receiveWithdrawals()
 
 A payable function for withdrawals acquisition. Can be called only by [`WithdrawalVault`](./withdrawal-vault.md).
 
-```sol
-function receiveWithdrawals() payable
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="receiveWithdrawals()" />
 
 ## Protocol levers
 
@@ -467,9 +431,8 @@ Stop pool routine operations.
 
 Can be called only by the bearer of `PAUSE_ROLE`
 
-```sol
-function stop()
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="stop()" />
 
 ### resume()
 
@@ -477,9 +440,8 @@ Resume pool routine operations.
 
 Can be called only by the bearer of `RESUME_ROLE`
 
-```sol
-function resume()
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="resume()" />
 
 ### pauseStaking()
 
@@ -487,9 +449,8 @@ Stops accepting new ether to the protocol.
 
 Can be called only by the bearer of `STAKING_PAUSE_ROLE`
 
-```sol
-function pauseStaking()
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="pauseStaking()" />
 
 :::note
 While accepting new ether is stopped, calls to the `submit` function,
@@ -502,9 +463,8 @@ Resumes accepting new ether to the protocol (if `pauseStaking` was called previo
 
 Can be called only by the bearer of `STAKING_CONTROL_ROLE`
 
-```sol
-function resumeStaking()
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="resumeStaking()" />
 
 :::note
 Staking could be rate-limited by imposing a limit on the stake amount at each moment in time,
@@ -529,9 +489,8 @@ Limit explanation scheme:
     * │     ^      ^          ^   ^^^  ^ ^ ^     ^^^ ^     Stake events
 ```
 
-```sol
-function setStakingLimit(uint256 _maxStakeLimit, uint256 _stakeLimitIncreasePerBlock)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="setStakingLimit(uint256,uint256)" />
 
 | Parameter                     | Type      | Description                           |
 | ----------------------------- | --------- | ------------------------------------- |
@@ -553,9 +512,8 @@ Removes the staking rate limit.
 
 Can be called only by the bearer of `STAKING_CONTROL_ROLE`
 
-```sol
-function removeStakingLimit()
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="removeStakingLimit()" />
 
 ### unsafeChangeDepositedValidators()
 
@@ -580,9 +538,8 @@ The method might break the internal protocol state if applied incorrectly
 
 Returns the name of the token.
 
-```sol
-function name() view returns (string)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="name()" />
 
 :::note
 Always returns `Liquid staked Ether 2.0`.
@@ -592,9 +549,8 @@ Always returns `Liquid staked Ether 2.0`.
 
 Returns the symbol of the token.
 
-```sol
-function symbol() view returns (string)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="symbol()" />
 
 :::note
 Always returns `stETH`.
@@ -604,9 +560,8 @@ Always returns `stETH`.
 
 Returns the number of decimals for getting user representation of a token amount.
 
-```sol
-function decimals() view returns (uint8)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="decimals()" />
 
 :::note
 Always returns `18`.
@@ -616,9 +571,8 @@ Always returns `18`.
 
 Returns the number of tokens in existence.
 
-```sol
-function totalSupply() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="totalSupply()" />
 
 :::note
 Always equals to `getTotalPooledEther()` since the token amount
@@ -629,9 +583,8 @@ is pegged to the total amount of ether controlled by the protocol.
 
 Returns the number of tokens owned by the `_account`
 
-```sol
-function balanceOf(address _account) view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="balanceOf(address)" />
 
 :::note
 Balances are dynamic and equal the `_account`'s share in the amount of
@@ -643,9 +596,8 @@ total ether controlled by the protocol. See [`sharesOf`](/contracts/lido#shareso
 Returns the remaining number of tokens that `_spender` is allowed to spend
 on behalf of `_owner` through `transferFrom()`. This is zero by default.
 
-```sol
-function allowance(address _owner, address _spender) view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="allowance(address,address)" />
 
 | Parameter  | Type      | Description        |
 | ---------- | --------- | ------------------ |
@@ -660,9 +612,8 @@ This value changes when `approve()` or `transferFrom()` is called unless the all
 
 Sets `_amount` as the allowance of `_spender` over the caller's tokens
 
-```sol
-function approve(address _spender, uint256 _amount) returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="approve(address,uint256)" />
 
 | Parameter  | Type      | Description        |
 | ---------- | --------- | ------------------ |
@@ -684,9 +635,8 @@ Atomically increases the allowance granted to `_spender` by the caller by `_adde
 
 This is an alternative to `approve()` that can be used as a mitigation for problems described [here](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol#L42).
 
-```sol
-function increaseAllowance(address _spender, uint256 _addedValue) returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="increaseAllowance(address,uint256)" />
 
 | Parameter     | Type      | Description                            |
 | ------------- | --------- | -------------------------------------- |
@@ -709,9 +659,8 @@ Atomically decreases the allowance granted to `_spender` by the caller by `_subt
 This is an alternative to `approve()` that can be used as a mitigation for
 problems described [here](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol#L42).
 
-```sol
-function decreaseAllowance(address _spender, uint256 _subtractedValue) returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="decreaseAllowance(address,uint256)" />
 
 | Parameter          | Type      | Description                            |
 | ------------------ | --------- | -------------------------------------- |
@@ -732,9 +681,8 @@ Requirements:
 
 Moves `_amount` tokens from the caller's account to the `_recipient` account.
 
-```sol
-function transfer(address _recipient, uint256 _amount) returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="transfer(address,uint256)" />
 
 | Parameter    | Type      | Description                  |
 | ------------ | --------- | ---------------------------- |
@@ -757,13 +705,8 @@ Moves `_amount` tokens from `_sender` to `_recipient` using the
 allowance mechanism. `_amount` is then deducted from the caller's
 allowance.
 
-```sol
-function transferFrom(
-    address _sender,
-    address _recipient,
-    uint256 _amount
-) returns (bool)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="transferFrom(address,address,uint256)" />
 
 | Parameter    | Type      | Description          |
 | ------------ | --------- | -------------------- |
@@ -789,41 +732,36 @@ Requirements:
 
 Returns the total amount of shares in existence.
 
-```sol
-function getTotalShares() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getTotalShares()" />
 
 ### sharesOf()
 
 Returns the number of shares owned by `_account`
 
-```sol
-function sharesOf(address _account) view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="sharesOf(address)" />
 
 ### getSharesByPooledEth()
 
 Returns the number of shares that corresponds to `_ethAmount` of the protocol-controlled ether.
 
-```sol
-function getSharesByPooledEth(uint256 _ethAmount) view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getSharesByPooledEth(uint256)" />
 
 ### getPooledEthByShares()
 
 Returns the amount of ether that corresponds to `_sharesAmount` token shares.
 
-```sol
-function getPooledEthByShares(uint256 _sharesAmount) view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getPooledEthByShares(uint256)" />
 
 ### transferShares()
 
 Moves token shares from the caller's account to the provided recipient account.
 
-```sol
-function transferShares(address _recipient, uint256 _sharesAmount) returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="transferShares(address,uint256)" />
 
 | Parameter       | Type      | Description                  |
 | --------------- | --------- | ---------------------------- |
@@ -844,13 +782,8 @@ Requirements:
 
 Moves `_sharesAmount` token shares from the `_sender` account to the `_recipient` using the allowance mechanism. The amount of tokens equivalent to `_sharesAmount` is then deducted from the caller's allowance.
 
-```sol
-function transferSharesFrom(
-    address _sender,
-    address _recipient,
-    uint256 _sharesAmount
-) returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="transferSharesFrom(address,address,uint256)" />
 
 | Parameter      | Type      | Description          |
 | -------------- | --------- | -------------------- |
@@ -876,17 +809,15 @@ Requirements:
 
 Returns the current nonce for the `owner`. This value must be included whenever a signature is generated for an ERC-2612 permit.
 
-```sol
-function nonces(address owner) view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="nonces(address)" />
 
 ### DOMAIN_SEPARATOR()
 
 Returns the domain separator used in the encoding of the signature for the ERC-2612 permit, as defined by EIP-712.
 
-```sol
-function DOMAIN_SEPARATOR() view returns (bytes32)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="DOMAIN_SEPARATOR()" />
 
 ### permit()
 
@@ -894,9 +825,8 @@ Sets `value` as the allowance of `spender` over `owner`'s tokens, given `owner`'
 
 Emits an Approval event.
 
-```sol
-function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="permit(address,address,uint256,uint256,uint8,bytes32,bytes32)" />
 
 | Parameter  | Type      | Description                    |
 | ---------- | --------- | -------------------------------|
@@ -924,14 +854,8 @@ over the EIP712-formatted function arguments.
 
 Returns the fields and values that describe the domain separator used by this contract for EIP-712
 
-```sol
-function eip712Domain() view returns (
-    string name,
-    string version,
-    uint256 chainId,
-    address verifyingContract
-)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="eip712Domain()" />
 
 ## General Methods
 
@@ -939,17 +863,15 @@ function eip712Domain() view returns (
 
 Returns the address of [LidoLocator](./lido-locator.md).
 
-```sol
-function getLidoLocator() view returns (address)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getLidoLocator()" />
 
 ### getContractVersion()
 
 Returns the current contract version.
 
-```sol
-function getContractVersion() view returns (uint256)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="getContractVersion()" />
 
 :::note
 Always returns `2`.
@@ -959,9 +881,8 @@ Always returns `2`.
 
 Overrides default AragonApp behavior to disallow recovery.
 
-```sol
-function transferToVault(address _token)
-```
+
+<BonadocsWidget widgetConfigUri="ipfs://bafkreib3rg6fnaq3j33js7zkoc67wn6lwtyltkw2rz2xxjs4fjgo4bdgwu" contract="Lido" functionKey="transferToVault(address)" />
 
 | Parameter| Type      | Description                        |
 | -------- | --------- | ---------------------------------- |
