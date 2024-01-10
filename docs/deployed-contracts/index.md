@@ -312,6 +312,7 @@ pagination_next: deployed-contracts/goerli
 
 - L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
 - L1 TokenBridge (Canonical Bridge): [`0x6ccfd65b0b14f67259c77ca6267104e058ddb292`](https://etherscan.io/address/0x6ccfd65b0b14f67259c77ca6267104e058ddb292) (impl)
+- ProxyAdmin for L1 TokenBridge: [`0x5b0bb17755fba06028530682e2fd5bc373931768`](https://etherscan.io/address/0x5b0bb17755fba06028530682e2fd5bc373931768)
 
 #### Linea part
 
