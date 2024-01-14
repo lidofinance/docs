@@ -2184,22 +2184,13 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
-"@bonadocs/core@^1.0.0-alpha.1":
-  version "1.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@bonadocs/core/-/core-1.0.0-alpha.2.tgz#7c28fa603579c3644680857b03e9397204c9005d"
-  integrity sha512-JotBM+demJx0l2ZfkY5Yufzk/mEr1a+wlTjqWdiFZ+12ipShIYl66qxrYaTuF212rcOnzsg+IU7hqMnoI961Vw==
+"@bonadocs/widget@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@bonadocs/widget/-/widget-1.0.1.tgz#071e70df7c129c623af3908b80faa54c360a1d55"
+  integrity sha512-n8KPr07eXcU9NPKXLtpfSEttzwOKwvcV6x8+2xXto6BbM9+jS9ttzZsTWCAVfZsa9N/rOxZ2IG7c59Dnm6ucMw==
   dependencies:
-    axios "^1.6.2"
-    ethers "^6.9.0"
-
-"@bonadocs/widget@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@bonadocs/widget/-/widget-1.0.0.tgz#14c24b484fc85f5aff4a3415a73a0728d2eba208"
-  integrity sha512-9zon+HhM7FN8b1k9ed7kFABHPcBVBSCEhgXYh6n4Oq1aXJj1LribyzHhyuutdKh8GD3GSax52iG/VeAnzkcrWw==
-  dependencies:
-    "@bonadocs/core" "^1.0.0-alpha.1"
-    axios "^1.6.3"
-    ethers "^6.9.1"
+    axios "^1.6.5"
+    ethers "^6.10.0"
 
 "@braintree/sanitize-url@^6.0.0":
   version "6.0.2"
@@ -3727,7 +3718,7 @@ axios@^0.25.0:
   dependencies:
     follow-redirects "^1.14.7"
 
-axios@^1.6.2, axios@^1.6.3:
+axios@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.5.tgz#2c090da14aeeab3770ad30c3a1461bc970fb0cd8"
   integrity sha512-Ii012v05KEVuUoFWmMW/UQv9aRIc3ZwkWDcM+h5Il8izZCtRVpDUfwpoFf7eOtajT3QiGR4yDUx7lPqHJULgbg==
@@ -5256,10 +5247,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==
 
-ethers@^6.9.0, ethers@^6.9.1:
-  version "6.9.2"
-  resolved "https://registry.yarnpkg.com/ethers/-/ethers-6.9.2.tgz#6f4632f62e2350fa8354ff28624027a175ef85a4"
-  integrity sha512-YpkrtILnMQz5jSEsJQRTpduaGT/CXuLnUIuOYzHA0v/7c8IX91m2J48wSKjzGL5L9J/Us3tLoUdb+OwE3U+FFQ==
+ethers@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/ethers/-/ethers-6.10.0.tgz#20f3c63c60d59a993f8090ad423d8a3854b3b1cd"
+  integrity sha512-nMNwYHzs6V1FR3Y4cdfxSQmNgZsRj1RiTU25JwvnJLmyzw9z3SKxNc2XKDuiXXo/v9ds5Mp9m6HBabgYQQ26tA==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
