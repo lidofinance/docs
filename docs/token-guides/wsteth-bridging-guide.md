@@ -26,7 +26,7 @@ As said before, the default way to bridge an ERC-20 token is to deploy on L2 a n
 
 The solution involves deploying dedicated upgradable bridge contracts on L1 and L2 and an upgradable token on L2, all governed by the Lido DAO on L1 ([Aragon Agent contract](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) via a dedicated [governance executor](https://github.com/lidofinance/governance-crosschain-bridges/) contract on L2. This architecture is proposed to provide the following capabilities.
 
-1. Passing data, particularly the wstETH/stETH rate when bridging rebasable stETH.
+1. Passing arbitrary data. It allows to lay foundation for bridging rebasable stETH in the future (need to pass wstETH/stETH rate).
 2. Revamping the token logic, as stETH is not a general-purpose token but an asset built on top of a living liquid-staking protocol.
 3. Future-proofing the token, for example, to avoid high-cost liquidity migration as Ethereum continues evolving and new standards like [ERC-2612](https://eips.ethereum.org/EIPS/eip-2612)/[ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) are adopted.
 4. Pausing and resuming bridging in an emergency or during upgrades.
@@ -40,7 +40,7 @@ If Lido DAO recognizes the bridged wstETH endpoints, in general, it means:
 - when/if the dedicated bridging Lido UI is implemented, the network will be included;
 - the contracts are under the Lido's bug bounty program;
 - the contracts get monitored by means of [Lido alerting system](https://github.com/lidofinance/alerting-forta/);
-- unlocks the possibility of marketing campaign and/or liquidity support (the decisions are still up to ProRel and LOL).
+- possibility of marketing campaign and/or liquidity support (the decisions are still up to ProRel and LOL).
 
 Usually, the Lido DAO recognizes the bridged wstETH endpoints if the specific set of security and design recommendations are met. These recommendations are set out in [On-bridging-solution](#On-bridging-solution) section in paragraphs **R1-R8**. The rest of the recommendations (**R9-...**) are also important and foster the recognition's likelihood.
 
