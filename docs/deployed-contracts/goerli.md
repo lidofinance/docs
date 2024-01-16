@@ -205,6 +205,7 @@ Note that there will be no comprehensive Lido testnet environments available for
 
 - L1 TokenBridge (Canonical Bridge): [`0xaa012d038e6440535ec66edf2da592f4f8398133`](https://goerli.etherscan.io/address/0xaa012d038e6440535ec66edf2da592f4f8398133) (proxy)
 - L1 TokenBridge (Canonical Bridge): [`0x6E4437828B4A7E7730e3D7efC676E22Ce905B705`](https://goerli.etherscan.io/address/0x6e4437828b4a7e7730e3d7efc676e22ce905b705) (impl)
+- ProxyAdmin for L1 TokenBridge: [`0xE80528ac405ffd62cE439593cE74C20726048F62`](https://goerli.etherscan.io/address/0xE80528ac405ffd62cE439593cE74C20726048F62)
 
 #### Linea part
 
