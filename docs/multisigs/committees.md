@@ -258,7 +258,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
-**Quorum:** 2/6
+**Quorum:** 3/6
 
 **List of signers:**
 
@@ -298,7 +298,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
-**Quorum:** 2/6
+**Quorum:** 3/6
 
 **List of signers:**
 
