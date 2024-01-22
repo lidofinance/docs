@@ -289,7 +289,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| greg_s | 0xDCcbe0E74B47b89A8c2b6463c3B06dB533B4Fc98 | - |  |
+| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 
 ### 2.7.4 Liquidity Observation Lab Committee (Arbitrum)
@@ -333,7 +333,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/apegenija/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| greg_s | 0xDCcbe0E74B47b89A8c2b6463c3B06dB533B4Fc98 | - | - |
+| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 
 ### 2.7.6 Liquidity Observation Lab Committee (Polygon)
