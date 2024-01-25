@@ -219,7 +219,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Quorum:** 4/8
 
-**Forum topics:** [Proposal to form reWARDS Committee](https://research.lido.fi/t/proposal-to-form-rewards-committee/1447), [Proposal to move from LDO, DAI to stETH](https://research.lido.fi/t/lido-v2-may-1-2023-december-31-2023-lido-ongoing-grant-request/4476)
+**Forum topics:** [Proposal to form reWARDS Committee](https://research.lido.fi/t/proposal-to-form-rewards-committee/1447), [Proposal to relaunch the reWARDS Committee as the Liquidity Observation Lab (LOL)](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
 
 **Snapshots:**   [Proposal to form reWARDS Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe565ad27e1beaacbe0e68bec59bd3d86a80d669ca80022b76dc31be697f6e078), [Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
@@ -327,7 +327,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
-| adcv | 0x1B3fcFCeF0d61454eee4cd4E38159D2A43E28541 | Sig hash: 0x446baf78e91f8e79decf0626014ecb731795ed37a903cd674b9bbea4584b7c936876157d8dfee30030325cf3a3451ec2c154a4a421e16b06b5f0b4824a5d0bb400 | https://twitter.com/0xCarvas/status/1573340231746592770?s=20&t=dSOaGK924ZJFGnPHjsEQeg |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 
 ### 2.7.6 Liquidity Observation Lab Committee ARB Token Multisig
