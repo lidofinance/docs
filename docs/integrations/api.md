@@ -24,8 +24,7 @@ https://eth-api.testnet.fi/v1/protocol/steth/apr/sma
 
 ### **Last Lido APR for stETH**
 
-The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](https://docs.lido.fi/contracts/lido-oracle#receiver-function-to-be-invoked-on-report-pushes). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
-
+The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](../contracts/legacy-oracle#posttotalshares). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
 
 V2 APR calculation:
 
@@ -62,7 +61,6 @@ Response schema and examples are available in the [Swagger API documentation](ht
 https://eth-api.testnet.fi/v1/protocol/steth/apr/last
 ```
 
-
 ## Lido Reward History
 
 Reward History Backend provides an API which returns all stETH interactions by an address and calculates its daily stETH rewards.
@@ -95,7 +93,6 @@ skip: 0, limit: 100 = 1 page
 skip: 100, limit: 100 = 2 page
 skip: 200, limit: 100 = 3 page
 ```
-
 
 ### Goerli
 
