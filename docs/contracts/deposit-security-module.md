@@ -28,7 +28,6 @@ Returns the contract's owner address.
 function getOwner() external view returns (address);
 ```
 
-
 ### getPauseIntentValidityPeriodBlocks()
 
 Returns `PAUSE_INTENT_VALIDITY_PERIOD_BLOCKS` (see `pauseDeposits`).
@@ -125,6 +124,7 @@ function setOwner(address newValue) external;
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner;
 - `newValue` is zero address.
 :::
@@ -134,7 +134,6 @@ Reverts if any of the following is true:
 | Name       | Type      | Description       |
 | ---------- | --------- | ----------------- |
 | `newValue` | `address` | New owner address |
-
 
 ### setPauseIntentValidityPeriodBlocks()
 
@@ -146,6 +145,7 @@ function setPauseIntentValidityPeriodBlocks(uint256 newValue)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner;
 - `newValue` is 0 (zero).
 :::
@@ -157,6 +157,7 @@ Reverts if any of the following is true:
 | `newValue` | `uint256` | Number of blocks after which message becomes invalid |
 
 ### setMaxDeposits()
+
 Sets `maxDepositsPerBlock`.
 
 The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
@@ -167,6 +168,7 @@ function setMaxDeposits(uint256 newValue)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner.
 :::
 
@@ -188,6 +190,7 @@ function setMinDepositBlockDistance(uint256 newValue)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner.
 :::
 
@@ -207,6 +210,7 @@ function setGuardianQuorum(uint256 newValue)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner;
 :::
 
@@ -226,6 +230,7 @@ function addGuardian(address addr, uint256 newQuorum)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner;
 - `addr` is already a guardian.
 :::
@@ -247,6 +252,7 @@ function addGuardians(address[] memory addresses, uint256 newQuorum)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner;
 - any of the `addresses` is already a guardian.
 :::
@@ -268,6 +274,7 @@ function removeGuardian(address addr, uint256 newQuorum)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner;
 - `addr` is not a guardian.
 :::
@@ -287,7 +294,7 @@ Pauses deposits for staking module given that both conditions are satisfied (rev
       is a valid signature by the guardian with index guardianIndex of the data
       defined below.
 
-2. block.number - blockNumber <= pauseIntentValidityPeriodBlocks
+2. `block.number - blockNumber <= pauseIntentValidityPeriodBlocks`
 
  The signature, if present, must be produced for keccak256 hash of the following
  message (each component taking 32 bytes):
@@ -309,7 +316,7 @@ function pauseDeposits(uint256 blockNumber, uint256 stakingModuleId, Signature m
 | ----------------- | ----------- | ------------------------------------------------------------------------------------ |
 | `blockNumber`     | `uint256`   | Block number with malicious pre-deposits have been observed by the guardian          |
 | `stakingModuleId` | `uint256`   | Id of the staking module to pause deposits for                                       |
-| `sig`             | `Signature` | Short ECDSA guardian signature as defined in https://eips.ethereum.org/EIPS/eip-2098 |
+| `sig`             | `Signature` | Short ECDSA guardian signature as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unpauseDeposits()
 
@@ -322,6 +329,7 @@ function unpauseDeposits(uint256 stakingModuleId)
 
 :::note
 Reverts if any of the following is true:
+
 - `msg.sender` is not the owner.
 :::
 
@@ -337,6 +345,7 @@ Verifies the deposit security conditions are met and calls `LIDO.deposit(maxDepo
 
 :::note
 Reverts if any of the following is true:
+
 1. IDepositContract.get_deposit_root() != depositRoot;
 2. StakingModule.getNonce() != nonce;
 3. The number of guardian signatures is less than getGuardianQuorum();
@@ -372,4 +381,4 @@ function depositBufferedEther(
 | `stakingModuleId`          | `uint256`     | Id of the staking module to deposit with                                               |
 | `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                          |
 | `depositCalldata`          | `bytes`       | Staking module deposit calldata                                                        |
-| `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in https://eips.ethereum.org/EIPS/eip-2098 |
+| `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |

@@ -35,7 +35,7 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+It's worth noting that frame length [can be changed](./hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
 
 The frame includes these stages:
 
@@ -79,9 +79,11 @@ The list format of the validator exit requests data.
 :::note
 Each validator exit request is described by the following 64-byte array:
 
+```
     MSB <------------------------------------------------------- LSB
     |  3 bytes   |  5 bytes   |     8 bytes      |    48 bytes     |
     |  moduleId  |  nodeOpId  |  validatorIndex  | validatorPubkey |
+```
 
  All requests are tightly packed into a byte array where requests follow
  one another without any separator or padding, and passed to the `data`
@@ -97,7 +99,7 @@ uint256 public constant DATA_FORMAT_LIST = 1
 
 ### SECONDS_PER_SLOT()
 
-See <https://ethereum.org/en/developers/docs/blocks/#block-time>
+See [https://ethereum.org/en/developers/docs/blocks/#block-time](https://ethereum.org/en/developers/docs/blocks/#block-time)
 
 :::note
 always returns 12 seconds due to [the Merge](https://ethereum.org/en/roadmap/merge/)
@@ -109,7 +111,7 @@ uint256 public immutable SECONDS_PER_SLOT
 
 ### GENESIS_TIME()
 
-See <https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21>
+See [https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)
 
 :::note
 always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)

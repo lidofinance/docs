@@ -11,7 +11,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 ## What is AccountingOracle
 
 AccountingOracle is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the
-amount of funds accumulated on the protocol vaults (i.e., [withdrawal](./withdrawal-vault) and [execution layer rewards](./lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](./staking-router/#exited-and-stuck-validators) validators, the number of [withdrawal requests](./withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
+amount of funds accumulated on the protocol vaults (i.e., [withdrawal](./withdrawal-vault) and [execution layer rewards](./lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](./staking-router#exited-and-stuck-validators) validators, the number of [withdrawal requests](./withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
 
 ## Report cycle
 
@@ -19,7 +19,7 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+It's worth noting that frame length [can be changed](./hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
 
 The frame includes these stages:
 
@@ -233,7 +233,7 @@ address public immutable LEGACY_ORACLE
 
 ### SECONDS_PER_SLOT()
 
-See <https://ethereum.org/en/developers/docs/blocks/#block-time>
+See [https://ethereum.org/en/developers/docs/blocks/#block-time](https://ethereum.org/en/developers/docs/blocks/#block-time)
 
 :::note
 always returns 12 seconds due to [the Merge](https://ethereum.org/en/roadmap/merge/)
@@ -245,7 +245,7 @@ uint256 public immutable SECONDS_PER_SLOT
 
 ### GENESIS_TIME()
 
-See <https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21>
+See [https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)
 
 :::note
 always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)
@@ -406,7 +406,7 @@ function submitReportData(ReportData calldata data, uint256 contractVersion)
 
 | Name              | Type          | Description                                                  |
 | ------------------ | ------------ | ------------------------------------------------------------ |
-| `data`             | `ReportData` | The data. See the [ReportData](#reportdata) structure's docs for details. |
+| `data`             | `ReportData` | The data. See the [ReportData](./accounting-oracle#report-data) structure's docs for details. |
 | `contractVersion`  | `uint256`    | Expected version of the oracle contract.                     |
 
 #### Reverts

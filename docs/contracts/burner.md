@@ -6,7 +6,7 @@
 The contract provides a way for Lido protocol to burn stETH token shares as a means to finalize withdrawals,
 penalize untimely exiting node operators, and, possibly, cover losses in staking.
 
-It relies on the [rebasing](/contracts/lido#rebasing) nature of stETH. The `Lido` contract calculates
+It relies on the [rebasing](/contracts/lido#rebase) nature of stETH. The `Lido` contract calculates
 user balance using the following equation:
 `balanceOf(account) = shares[account] * totalPooledEther / totalShares`.
 Therefore, burning shares (e.g. decreasing the `totalShares` amount) increases stETH holders' balances.
@@ -116,6 +116,7 @@ Reverts if any of the following is true:
 - `msg.sender` is not a holder of the `REQUEST_BURN_MY_STETH_ROLE` role;
 - no stETH provided (`_stETHAmountToBurn == 0`);
 - no stETH transferred (allowance exceeded).
+
 :::
 
 #### Parameters
@@ -141,6 +142,7 @@ Reverts if any of the following is true:
 - `msg.sender` is not a holder of the `REQUEST_BURN_SHARES_ROLE` role;
 - no stETH shares provided (`_sharesAmountToBurn == 0`);
 - no stETH shares transferred (allowance exceeded).
+
 :::
 
 #### Parameters
@@ -166,6 +168,7 @@ Reverts if any of the following is true:
 - `msg.sender` is not a holder of the `REQUEST_BURN_MY_STETH_ROLE` role;
 - no stETH provided (`_stETHAmountToBurn == 0`);
 - no stETH transferred (allowance exceeded).
+
 :::
 
 #### Parameters
@@ -194,6 +197,7 @@ Reverts if any of the following is true:
 - `msg.sender` is not a holder of `REQUEST_BURN_SHARES_ROLE` role;
 - no stETH shares provided (`_sharesAmountToBurn == 0`);
 - no stETH shares transferred (allowance exceeded).
+
 :::
 
 #### Parameters
@@ -230,6 +234,7 @@ Reverts if any of the following is true:
 - `_amount` value is 0 (zero);
 - `_token` address is 0 (zero);
 - `_token` address equals to the `stETH` address (use `recoverExcessStETH` instead).
+
 :::
 
 #### Parameters
@@ -253,6 +258,7 @@ Reverts if any of the following is true:
 
 - `_token` address is 0 (zero);
 - `_token` address equals to the `stETH` address (use `recoverExcessStETH` instead).
+
 :::
 
 #### Parameters
@@ -280,6 +286,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` address is NOT equal to the `stETH` address;
 - `_sharesToBurn` is greater than the cover plus non-cover shares requested to burn.
+
 :::
 
 #### Parameters

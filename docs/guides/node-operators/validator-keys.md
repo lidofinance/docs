@@ -1,21 +1,22 @@
 # Validator Keys
 
 Validator keys are added in several sequential steps. These steps are similar for each time new keys are added.
-- [Validator Keys](#validator-keys)
-  - [Generating signing keys](#generating-signing-keys)
-    - [Withdrawal Credentials](#withdrawal-credentials)
-    - [Using staking-deposit-cli](#using-staking-deposit-cli)
-  - [Validating the keys](#validating-the-keys)
-  - [Submitting the keys](#submitting-the-keys)
-    - [Using the batch key submitter UI](#using-the-batch-key-submitter-ui)
-  - [Importing the keys to a Lighthouse validator client](#importing-the-keys-to-a-lighthouse-validator-client)
-  - [Checking the keys of all Lido Node Operators](#checking-the-keys-of-all-lido-node-operators)
-    - [Lido CLI](#lido-cli)
-    - [Lido Node Operator Dashboard](#lido-node-operator-dashboard)
-    - [Results](#results)
-      - [You don't see invalid keys](#you-dont-see-invalid-keys)
-      - [You spot invalid keys](#you-spot-invalid-keys)
-  - [Increasing the Staking Limits with an Easy Track motion](#increasing-the-staking-limits-with-an-easy-track-motion)
+
+- [Validator Keys](./validator-keys)
+  - [Generating signing keys](./validator-keys#generating-signing-keys)
+    - [Withdrawal Credentials](./validator-keys#withdrawal-credentials)
+    - [Using staking-deposit-cli](./validator-keys#using-staking-deposit-cli)
+  - [Validating the keys](./validator-keys#validating-the-keys)
+  - [Submitting the keys](./validator-keys#submitting-the-keys)
+    - [Using the batch key submitter UI](./validator-keys#using-the-batch-key-submitter-ui)
+  - [Importing the keys to a Lighthouse validator client](./validator-keys#importing-the-keys-to-a-lighthouse-validator-client)
+  - [Checking the keys of all Lido Node Operators](./validator-keys#checking-the-keys-of-all-lido-node-operators)
+    - [Lido CLI](./validator-keys#lido-cli)
+    - [Lido Node Operator Dashboard](./validator-keys#lido-node-operator-dashboard)
+    - [Results](./validator-keys#results)
+      - [You don't see invalid keys](./validator-keys#you-dont-see-invalid-keys)
+      - [You spot invalid keys](./validator-keys#you-spot-invalid-keys)
+  - [Increasing the Staking Limits with an Easy Track motion](./validator-keys#increasing-the-staking-limits-with-an-easy-track-motion)
 
 ## Generating signing keys
 
@@ -38,7 +39,6 @@ For example withdrawal credentials `0x010000000000000000000000b9d7934878b5fb9610
 [bls12-381]: https://ethresear.ch/t/pragmatic-signature-aggregation-with-bls/2105
 [as defined in the spec]: https://github.com/ethereum/annotated-spec/blob/master/phase0/beacon-chain.md#depositmessage
 [explorer]: https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f
-[`lib/abi/lido.json`]: https://github.com/lidofinance/lido-dao/blob/971ac8f/lib/abi/Lido.json
 
 ### Using staking-deposit-cli
 
@@ -190,15 +190,15 @@ Lighthouse validator client by running this command:
 
 ```sh
 docker run --rm -it \
-	--name validator_keys_import \
-	-v "$KEYS_DIR":/root/validator_keys \
-	-v "$DATA_DIR":/root/.lighthouse \
-	sigp/lighthouse \
-	lighthouse account validator import \
-	--reuse-password \
-	--network "$TESTNET_NAME" \
-	--datadir /root/.lighthouse/data \
-	--directory /root/validator_keys
+ --name validator_keys_import \
+ -v "$KEYS_DIR":/root/validator_keys \
+ -v "$DATA_DIR":/root/.lighthouse \
+ sigp/lighthouse \
+ lighthouse account validator import \
+ --reuse-password \
+ --network "$TESTNET_NAME" \
+ --datadir /root/.lighthouse/data \
+ --directory /root/validator_keys
 ```
 
 ## Checking the keys of all Lido Node Operators
@@ -246,5 +246,3 @@ It is urgent to notify Lido team and other Node Operators as soon as possible. F
 Once new keys are present and valid, a motion can be proposed to increase the staking limit for the Node Operator.
 
 [Node Operators Guide to Easy Track](https://docs.lido.fi/guides/easy-track-guide#node-operators-guide-to-easy-track)
-
-

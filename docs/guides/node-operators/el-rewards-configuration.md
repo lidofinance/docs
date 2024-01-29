@@ -1,8 +1,8 @@
 # Execution Layer Rewards Configuration
 
-Node Operators who run validators for Lido are required to set the fee recipient for the relevant validators to the protocol-managed [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) which manages [Execution Layer Rewards](/contracts/lido#execution-layer-rewards). This address differs depending on the network (Mainnet, testnet, etc.) and is _not_ the same as the [Withdrawal Credentials](/contracts/lido#getwithdrawalcredentials) address.
+Node Operators who run validators for Lido are required to set the fee recipient for the relevant validators to the protocol-managed [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) which manages [Execution Layer Rewards](/contracts/lido#gettotalelrewardscollected). This address differs depending on the network (Mainnet, testnet, etc.) and is _not_ the same as the [Withdrawal Credentials](/contracts/staking-router#getwithdrawalcredentials) address.
 
-This smart contract address can also be retrieved by [querying the `getELRewardsVault()`](/contracts/lido#getelrewardsvault) method in the core stETH contract.
+This smart contract address can also be retrieved by [querying the `elRewardsVault()`](/contracts/lido-locator#elrewardsvault) method in the `LidoLocator` contract.
 
 The address is also available in the [Deployed Contracts] docs page, labeled as `Execution Layer Rewards Vault`.
 

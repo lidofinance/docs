@@ -25,9 +25,9 @@ In Lido V2, `LegacyOracle` only supports a subset of view functions and events.
 The `LegacyOracle` contract receives the data changes on each `AccountingOracle` report using two stages
 (still within the same transaction):
 
-1. Invoke [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleConsensusLayerReport)
+1. Invoke [`handleConsensusLayerReport`](./legacy-oracle#handleconsensuslayerreport)
 providing the reference slot and validators data from `AccountingOracle` itself.
-1. Invoke [`handlePostTokenRebase`](/contracts/legacy-oracle#handlePostTokenRebase)
+1. Invoke [`handlePostTokenRebase`](./legacy-oracle#handleposttokenrebase)
 from [`Lido`](/contracts/lido).
 
 ```mermaid
@@ -55,7 +55,7 @@ userAPR = protocolAPR * (1 - lidoFeeAsFraction)
 
 #### What's new from Lido V2
 
-See the new Lido API docs with regards to [APR](/integrations/api#LidoAPR).
+See the new Lido API docs with regards to [APR](../integrations/api#lido-apr).
 
 ```js
 // Emits when token rebased (total supply and/or total shares were changed)
@@ -199,7 +199,7 @@ Always returns (225, 32, 12, 1606824023) for Mainnet and (225, 32, 12, 161650800
 
 ### getCurrentEpochId()
 
-Returns the Beacon Chain epoch id calculated from the current timestamp using the [beacon chain spec](/contracts/legacy-oracle#getBeaconSpec).
+Returns the Beacon Chain epoch id calculated from the current timestamp using the [beacon chain spec](./legacy-oracle#getbeaconspec).
 
 ```sol
 function getCurrentEpochId() returns (uint256)
@@ -260,7 +260,7 @@ function getLastCompletedReportDelta() returns (
 Handles a `stETH` token rebase incurred by the succeeded `AccountingOracle` report storing
 the total ether and time elapsed stats.
 
-Emits [`PostTotalShares`](/contracts/legacy-oracle#PostTotalShares)
+Emits [`PostTotalShares`](./legacy-oracle#posttotalshares)
 
 ```sol
 function handlePostTokenRebase(
@@ -294,7 +294,7 @@ The caller must be `Lido`.
 
 Handles a new completed `AccountingOracle` report storing the corresponding Beacon Chain epoch id.
 
-Emits [`Completed`](/contracts/legacy-oracle#Completed).
+Emits [`Completed`](./legacy-oracle#completed).
 
 ```sol
 function handleConsensusLayerReport(
@@ -334,7 +334,7 @@ event Completed(
 ```
 
 :::note
-Emits inside the [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleConsensusLayerReport) methods.
+Emits inside the [`handleConsensusLayerReport`](./legacy-oracle#handleconsensuslayerreport) methods.
 :::
 
 #### Parameters
@@ -361,7 +361,7 @@ event PostTotalShares(
 ```
 
 :::note
-The new [`TokenRebased`](/contracts/lido#TokenRebased) event emitted from the main Lido contract should be used instead because it provides the pre-report total shares amount as well which is essential to properly estimate a token rebase and its projected APR.
+The new [`TokenRebased`](../integrations/api#last-lido-apr-for-steth) event emitted from the main Lido contract should be used instead because it provides the pre-report total shares amount as well which is essential to properly estimate a token rebase and its projected APR.
 :::
 
 #### Parameters
