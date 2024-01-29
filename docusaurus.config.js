@@ -5,10 +5,11 @@ module.exports = {
   url: 'https://lidofinance.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
+  onBrokenAnchors: 'throw',
   favicon: 'img/favicon-32x32.png',
-  organizationName: 'lidofinance', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'lidofinance',
+  projectName: 'docs',
   markdown: {
     mermaid: true,
   },
@@ -39,7 +40,6 @@ module.exports = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl: 'https://github.com/lidofinance/docs/blob/main/',
         },
       },
