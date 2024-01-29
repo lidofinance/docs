@@ -242,7 +242,7 @@ Allows users to submit their funds by sending it to the contract address
 Sends funds to the pool with the optional `_referral` parameter and mints `StETH`
 tokens to the `msg.sender` address.
 
-See <https://lido.fi/referral> for referral program details.
+See [https://lido.fi/referral](https://lido.fi/referral) for referral program details.
 
 ```sol
 function submit(address _referral) payable returns (uint256)
@@ -293,6 +293,7 @@ Special return values:
 
 - `2^256 - 1` if staking is unlimited;
 - `0` if staking is paused or if the limit is exhausted.
+
 :::
 
 ### getStakeLimitFullInfo()
@@ -545,6 +546,7 @@ Reverts if:
 - `_maxStakeLimit` >= 2^96
 - `_maxStakeLimit` < `_stakeLimitIncreasePerBlock`
 - `_maxStakeLimit` / `_stakeLimitIncreasePerBlock` >= 2^32 (only if `_stakeLimitIncreasePerBlock` != 0)
+
 :::
 
 ### removeStakingLimit()
@@ -676,6 +678,7 @@ Requirements:
 
 - `_spender` cannot be the zero address.
 - the contract must not be paused.
+
 :::
 
 ### increaseAllowance()
@@ -700,6 +703,7 @@ Requirements:
 
 - `_spender` address cannot be zero.
 - the contract must not be paused.
+
 :::
 
 ### decreaseAllowance()
@@ -726,6 +730,7 @@ Requirements:
 - `_spender` cannot be the zero address.
 - `_spender` must have an allowance for the caller of at least `_subtractedValue`.
 - the contract must not be paused.
+
 :::
 
 ### transfer()
@@ -749,6 +754,7 @@ Requirements:
 - `_recipient` cannot be the zero address or stETH contract itself.
 - the caller must have a balance of at least `_amount`.
 - the contract must not be paused.
+
 :::
 
 ### transferFrom()
@@ -781,6 +787,7 @@ Requirements:
 - `_sender` must have a balance of at least `_amount`.
 - the caller must have an allowance for `_sender`'s tokens of at least `_amount`.
 - the contract must not be paused.
+
 :::
 
 ## Shares-related Methods
@@ -838,6 +845,7 @@ Requirements:
 - `_recipient` cannot be the zero address or stETH contract itself.
 - the caller must have at least `_sharesAmount` shares.
 - the contract must not be paused.
+
 :::
 
 ### transferSharesFrom()
@@ -868,6 +876,7 @@ Requirements:
 - `_sender` must have at least `_sharesAmount` shares.
 - the caller must have an allowance for `_sender`'s tokens of at least `getPooledEthByShares(_sharesAmount)`.
 - the contract must not be paused.
+
 :::
 
 ## `ERC-2612`-related methods
@@ -915,7 +924,8 @@ Requirements:
 - `deadline` must be a timestamp in the future.
 - `v`, `r` and `s` must be a valid `secp256k1` signature from `owner`
 over the EIP712-formatted function arguments.
-- the signature must use `owner`'s current nonce (see {nonces}).
+- the signature must use `owner`'s current nonce (see `nonces`).
+
 :::
 
 ## `ERC-712`-related methods

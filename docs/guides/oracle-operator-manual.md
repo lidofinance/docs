@@ -157,7 +157,7 @@ The Oracle daemon is a Python application that contains two modules:
 - Accounting module
 - Ejector module
 
-The oracle source code is available at <https://github.com/lidofinance/lido-oracle>.
+The oracle source code is available at [https://github.com/lidofinance/lido-oracle](https://github.com/lidofinance/lido-oracle).
 
 Modules fetch the reportable slot, and if this slot is finalized, calculate and send the report to AccountingOracle and ExitBusOracle smart contracts.
 
@@ -216,7 +216,7 @@ docker run -d --name lido-oracle-ejector \
 ```
 
 **Latest image hash**
-<https://docs.lido.fi/guides/tooling/#oracle>
+[https://docs.lido.fi/guides/tooling/#oracle](https://docs.lido.fi/guides/tooling/#oracle)
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
 

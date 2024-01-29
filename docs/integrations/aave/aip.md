@@ -2,7 +2,7 @@
 
 | title                | status   | author              | shortDescription                                         | discussion                                                        | created    |
 | -------------------- | -------- | ------------------- | -------------------------------------------------------- | ----------------------------------------------------------------- | ---------- |
-| Add stETH to AAVE v2 | Proposed | @jbeezy @grstepanov | AAVE governance proposal to enable stETH as a base token | https://governance.aave.com/t/arc-add-support-for-steth-lido/5793 | 2022-04-02 |
+| Add stETH to AAVE v2 | Proposed | @jbeezy @grstepanov | AAVE governance proposal to enable stETH as a base token | [arc-add-support-for-steth-lido/5793](https://governance.aave.com/t/arc-add-support-for-steth-lido/5793) | 2022-04-02 |
 
 ### Simple Summary
 
@@ -73,7 +73,7 @@ stETH as DeFi collateral is beneficial for a number of reasons.
 - stETH is almost as safe as ETH, price-wise: barring catastrophic scenarios, its value tends to hold the ETH peg well;
 - stETH is a productive token. Getting rewards on collateral effectively lowers the cost of borrowing. This could make borrowing more attractive on Aave and help to increase market utilization (and therefore Aave’s protocol revenue from
   coin reserve factors).
-- stETH is a very liquid token with $5+ billion in liquidity used across [multiple DeFi projects](https://dune.xyz/LidoAnalytical/Integration-monitor-dashboard). stETH<\>ETH liquidity pool on Curve is the deepest LP in DeFi with $3.8 billion TVL.
+- stETH is a very liquid token with $5+ billion in liquidity used across [multiple DeFi projects](https://dune.xyz/LidoAnalytical/Integration-monitor-dashboard). stETH:ETH liquidity pool on Curve is the deepest LP in DeFi with $3.8 billion TVL.
 
 4. **Provide a brief history of the project and the different components: DAO (is it live?), products (are they live?). How did it overcome some of the challenges it faced?**
 
@@ -103,9 +103,9 @@ There is no emission schedule. Similar to DAI, stETH is minted on demand when us
 
 6. **Token (& Protocol) permissions (minting) and upgradability. Is there a multisig? What can it do? Who are the signers?**
 
-stETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84. Lido DAO can change the implementation with the successful DAO vote.
+stETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at [`0xae7ab96520de3a18e5e111b5eaab095312d7fe84`](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84). Lido DAO can change the implementation with the successful DAO vote.
 
-The roles and addresses can be checked in the Aragon UI: https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84
+The roles and addresses can be checked in the Aragon UI: [Aragon Lido App](https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 To mitigate withdrawal risks, Lido staking went live on December 18th, 2020, through a [withdrawal key ceremony](https://blog.lido.fi/lido-withdrawal-key-ceremony/). Chorus One, Staking Facilities, Certus One, Argent, Banteg (yearn.finance), Alex Svanevik (Nansen), Anton Bukov (1inch), Michael Egorov (Curve/Nucypher), Rune Christensen (MakerDAO), Will Harborne (DeversiFi), and Mustafa Al-Bassam (LazyLedger) came together over a four-day event to generate threshold signatures for Lido’s withdrawal keys in a secure environment on air-gapped machines.
 Lido has already migrated to a non-custodial solution and >60% of all stETH already uses this. Details can be found here: [Withdrawal Credentials in Lido](https://blog.lido.fi/withdrawal-credentials-in-lido/).
@@ -114,24 +114,24 @@ Lido has already migrated to a non-custodial solution and >60% of all stETH alre
 
 **Market Cap** $5.5B
 
-**Volatility** - Over the past year, stETH proved to hold peg extremely well through various market conditions. [stETH<\>ETH balance data for the Curve pool can be found here](https://dune.xyz/queries/36557/72603).
+**Volatility** - Over the past year, stETH proved to hold peg extremely well through various market conditions. [stETH:ETH balance data for the Curve pool can be found here](https://dune.xyz/queries/36557/72603).
 
 **Volumes and DEXes**
 
 **[Balancer (wstETH/WETH)](https://app.balancer.fi/#/pool/0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080)**
 Liquidity: $409.3M
 Volume (24h): $509,3
-https://dune.xyz/embeds/153863/304423/684fdf22-161c-4352-a41d-81ce8a705c01
+[Dune query](https://dune.xyz/embeds/153863/304423/684fdf22-161c-4352-a41d-81ce8a705c01)
 
 **[SushiSwap (wstETH/DAI)](https://analytics.sushi.com/pairs/0xc5578194d457dcce3f272538d1ad52c68d1ce849)**
 Liquidity: $32.2M
 Volume (24h): $756,211
-https://dune.xyz/embeds/153729/304165/5c53e046-47ef-485d-9767-6ec188a5629e
+[Dune query](https://dune.xyz/embeds/153729/304165/5c53e046-47ef-485d-9767-6ec188a5629e)
 
 **[Curve (stETH/ETH)](https://curve.fi/steth)**
 Liquidity: $3,75B
 Volume (24h): $5,7M
-https://dune.xyz/embeds/153374/303383/9c8cb193-4538-497e-a774-c33e78bcd34d
+[Dune query](https://dune.xyz/embeds/153374/303383/9c8cb193-4538-497e-a774-c33e78bcd34d)
 
 9. **Social channels data**
 
@@ -167,10 +167,10 @@ The current implementation doesn't support borrowing, neither with variable nor 
 
 #### Code
 
-AStETH https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a
-variableDebtSTETH https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24
-stableDebtSTETH https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9
-DefaultReserveInterestRateStrategy https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c
+- [AStETH](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a)
+- [variableDebtSTETH](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24)
+- [stableDebtSTETH](https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9)
+- [DefaultReserveInterestRateStrategy](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
 Steps the proposal will execute: start a vote to add stETH as a new token.
 
 #### Security Considerations
@@ -208,7 +208,7 @@ Read further in Lido [documentation](https://docs.lido.fi/token-guides/steth-sup
 **Market risk**
 
 Over the past year, stETH proved to hold the ETH peg 1:1 steadily.
-Four liquidity pools across different DEXes are incentivized with significant LDO rewards. Curve stETH<\>ETH LP has grown into the deepest LP across DeFi, which makes it extremely resistant to any attempts of moving the peg.
+Four liquidity pools across different DEXes are incentivized with significant LDO rewards. Curve stETH:ETH LP has grown into the deepest LP across DeFi, which makes it extremely resistant to any attempts of moving the peg.
 
 **Staking risks**
 

@@ -41,8 +41,8 @@ Some of the contracts still contain structured storage data, hence the order of 
 There is a dedicated contract responsible for `stETH` tokens burning.
 The burning itself is a part of the core protocol procedures:
 
-- deduct underlying finalized withdrawal request `stETH`, see [`Lido.handleOracleReport`](/contracts/lido#handleOracleReport)
-- penalize delinquent node operators by halving their rewards, see [`NodeOperatorsRegistry._distributeRewards](/contracts/node-operators-registry#_distributeRewards)
+- deduct underlying finalized withdrawal request `stETH`, see [`Lido.handleOracleReport`](/contracts/lido#handleoraclereport)
+- penalize delinquent node operators by halving their rewards, see [Validator exits and penalties](/guides/oracle-spec/penalties)
 
 These responsibilities are controlled by the `REQUEST_BURN_SHARES_ROLE` role which is assigned to both
 [`Lido`](/contracts/lido) and [`NodeOperatorsRegistry`](/contracts/node-operators-registry) contracts.
@@ -152,6 +152,7 @@ Lido features a safeguard mechanism to prevent huge APR losses facing the [post-
 New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
 
 Limit explanation scheme:
+
 ```
     * ▲ Stake limit
     * │.....  .....   ........ ...            ....     ... Stake limit = max
@@ -211,7 +212,6 @@ Credentials to withdraw ETH on the Execution Layer side
 - Accessor: `getWithdrawalCredentials() returns (bytes)`
 
 The protocol uses these credentials to register new Ethereum validators.
-
 
 ## [NodeOperatorsRegistry](/contracts/node-operators-registry)
 
@@ -289,7 +289,6 @@ When the `quorum` number of the same reports is collected for the current epoch,
 - the epoch is finalized (no more reports are accepted for it),
 - the final report is pushed to the Lido,
 - statistics collected and the [sanity check][1] is evaluated,
-- [beacon report receiver][2] is called.
 
 ### Sanity check
 
@@ -369,5 +368,4 @@ Reports beacon balance and its change during the last frame.
 - Accessor: `getLastCompletedReportDelta() returns (uint256 postTotalPooledEther, uint256 preTotalPooledEther, uint256 timeElapsed)`.
 
 [1]: #sanity-check
-[2]: #beacon-report-receiver
 [3]: #expected-epoch

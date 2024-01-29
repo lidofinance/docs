@@ -333,7 +333,7 @@ function addMember(address addr, uint256 quorum) external
 
 - Reverts with `DuplicateMember()` if `addr` address is already the member of consensus.
 - Reverts with `AddressCannotBeZero()` if `addr` address is zero.
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (quorum <= total members / 2)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
 
 ### removeMember()
 
@@ -348,7 +348,7 @@ function removeMember(address addr, uint256 quorum) external
 ```
 
 - Reverts with `NonMember()` if `addr` address doesn't exists
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (quorum <= total members / 2)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
 
 ### setQuorum()
 
@@ -362,7 +362,7 @@ Can only be called by users with `MANAGE_MEMBERS_AND_QUORUM_ROLE` role if `quoru
 function setQuorum(uint256 quorum) external
 ```
 
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (quorum <= total members / 2)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
 
 ### disableConsensus()
 
@@ -374,7 +374,7 @@ Can only be called by users with `DISABLE_CONSENSUS_ROLE`
 function disableConsensus() external
 ```
 
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (quorum <= total members / 2)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
 
 ### setReportProcessor()
 

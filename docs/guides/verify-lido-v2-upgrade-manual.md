@@ -459,7 +459,7 @@ None
     - None
   - After enactment:
     - Current LidoOracle Committee
-           See <https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28>
+           See [0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28])
 
 ### **DepositSecurityModule**
 
@@ -475,7 +475,7 @@ None
     - None
   - After enactment:
     - Current DSM guardians committee
-           See <https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8>
+           See [0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8](https://etherscan.io/address/0x710B3303fB508a84F10793c1106e32bE873C24cd#readContract#F8)
 
 ### **HashConsensus for ValidatorsExitBusOracle**
 
@@ -501,7 +501,7 @@ None
     - None
   - After enactment:
     - Current LidoOracle Committee
-          See <https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28>
+          See [0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F28)
 
 ### **OracleDaemonConfig**
 
