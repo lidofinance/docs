@@ -7,7 +7,7 @@ There will be no comprehensive Lido testnet environment available for Sepolia du
 
 The goals for this deployment are:
 
-- Have end-to-end testnet deployments for Lido on L2
+- Have end-to-end testnet for Lido on L2
 - The initial running-in of new zk-based oracles (based on [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) availability)
 
 :::
