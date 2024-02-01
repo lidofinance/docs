@@ -29,7 +29,7 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 **List of signers:**
 
 | Name | Address | Verification | Public verification | Adding proposal |
-|: --- |: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- | --- |
 | Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
 | Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
 | Tim Beiko | 0x10F5d45854e038071485AC9e402308cF80D2d2fE | - | - | https://research.lido.fi/t/expand-lego-council-by-adding-tim-beiko/620 |
@@ -45,7 +45,7 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
-**Quorum:** 4/7
+**Quorum:** 4/8
 
 **Forum topics:** [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808), [Proposal to start Rewards Share program, form Rewards Share Committee and reuse Referral Program Committee multisig](https://research.lido.fi/t/tiered-rewards-share-program-a-sustainable-approach-to-steth-growth/4851)
 
@@ -70,10 +70,12 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
-| frontalpha | 0x22c05930160c6a74a6bA59436e8F7006176ed104 | Sig hash: 0xbc2c9e661a74229e9651ca675919ef5f6faab61755809ae016b5541565ec360b4e47b964134650d5642ee153a1d02a0b0565061f0a551143a472f0f7b274e9d51c | https://twitter.com/frontalpha_eth/status/1673353899762417667 |
+| --- | --- | --- | --- |
+| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/34976 | - |
+| robingop | 0xf2374BCb265505002055942D070459a4d2011012 | - | https://twitter.com/robingop/status/1750498068976291883|
+| Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | - |
+| Smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | - | https://twitter.com/sasha0smiles/status/1749368543517491598|
 | McNut | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xaf2711bf27a3e7b5c51c59df0864d8f656d164212900f1667eb85df9622100dc37c623b9ce808c5847230104bc76be726642436dffcbd16584e7bc16ec85dc431b | https://twitter.com/damcnuta/status/1673918423729053697?s=20 |
-| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | - | https://twitter.com/apegenija/status/1738302153939128664?s=20 |
@@ -101,7 +103,7 @@ MEVBoostRelayAllowedList [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 |
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1602229253696790528 |
 | eliasimos | 0x4981a4775983e947b12d0982021bea8697175f4a | Sig hash: 0x67291ff9224b8ebfd217ff00d5f1eefceacdd1fe2916b0b1a2157169d813ac9c099ce5d926c2b16252abc89fc7df21d1efa07e1e0b1d7497f454ff340920d23e01 | https://twitter.com/eliasimos/status/1602924642645282816?s=20&t=_dSkjtTQhkyjM2kVdpEZbA |
@@ -137,7 +139,7 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | kadmil | 0x4ce07bbcd6c8a6331e95d23b61cbedf0111db179 | https://etherscan.io/verifySig/14399 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/16 |
 | Alex_L | 0xF3d5Fdb50154B1b3047F311485780Baa1D770492 | https://etherscan.io/verifySig/14259 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/9 |
 | skozin | 0xD516fce5737388b126d550B5a5CAf53bcBF73895 | https://etherscan.io/verifySig/14303 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/14 |
@@ -160,7 +162,7 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | karpatkey | 0x7d4FDba7d1b22834eA75B5E45e4110Bf56E690f1 | https://etherscan.io/tx/0x675609e65d19fe0e18d340381e5203d2744607ff0646ef24a81653d1403eb9ab | https://twitter.com/karpatkey/status/1648722691862429699 |
 | marcbcs | 0x98308b6dA79B47D15e9438CB66831563649Dbd94 | https://etherscan.io/verifySig/17088 | https://twitter.com/silhcet/status/1648638734294994946?s=20 |
 | steakhouse | 0x9106CBf2C882340b23cC40985c05648173E359e7 | https://etherscan.io/tx/0x93acaa8744228ba640e748c584112b1029dd1541a0ee75a5ad20ac0564b2c6b2/advanced | https://twitter.com/SteakFi/status/1648780257040687105?s=20 |
@@ -200,7 +202,7 @@ Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB2
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/14255 | https://twitter.com/zuzu_eeka/status/1625030303453442049 |
 | Raman | 0x56aAaF3e07507C3f2554c4087b0f3ECC61F78a9e | Sig hash: 0x8555fbae4fee1b4adedc05d20525c097c29d75df13470a5f4cd0e2db98575b5e5a89d7b477e43d7ee5315448ab73861b4b87c61cd46e1e77e404bc8e105a5fa100 | https://twitter.com/RSiamionau/status/1623708249236156417?s=20&t=y-o2_ey7po8qeejNd2KmBQ |
 | skozin | 0x2CAE3a4D4c513026Ecc6af94A4BA89Df31c8cEA3 | https://etherscan.io/verifySig/17853 | https://twitter.com/_skozin/status/1655873413833998336 |
@@ -242,7 +244,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
@@ -263,7 +265,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
@@ -282,7 +284,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
@@ -303,7 +305,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
@@ -322,7 +324,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
@@ -345,7 +347,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
@@ -368,7 +370,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
@@ -384,7 +386,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
@@ -403,7 +405,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
@@ -422,7 +424,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
@@ -441,7 +443,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |

@@ -25,7 +25,7 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | folkyatina | 0x75E01e1B7a4Ac280fB744A8153beE668A7e83abd | https://etherscan.io/verifySig/11759 | https://twitter.com/folkyatina/status/1587738950453665792?s=20&t=-I_3fftZemHuesIMVrof3Q |
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
@@ -40,7 +40,7 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 
 **Purpose of the multisig:** The multisig is used for signing off by Argo Technology Consulting Ltd. It receives grants from the Lido DAO and allocates them in accordance with its own budget. It is able to create Easy Track motions for requesting grants from the DAO Treasury in DAI tokens.
 
-**Quorum:** 4/7
+**Quorum:** 4/6
 
 **Proposed on the forum:** [[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133)
 
@@ -57,9 +57,8 @@ ATC DAI TopUpAllowedRecipients [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](ht
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | dgusakov | 0x992Ce4eEc8288274f60880c7770DdA265fCCe610 | https://etherscan.io/verifySig/14263 | https://twitter.com/d_gusakov/status/1587741730920611845 |
-| carvas | 0x1B3fcFCeF0d61454eee4cd4E38159D2A43E28541 | https://etherscan.io/verifySig/11701 | https://twitter.com/0xCarvas/status/1587131644628156417 |
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/16454 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | ShardYaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/shardyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
@@ -93,7 +92,7 @@ RCC DAI TopUpAllowedRecipients [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](ht
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | alex_l | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/16458 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/25 |
 | UniteTheClans | 0x81ca68f085282434D15c09619360D6513710a979 | https://etherscan.io/verifySig/16487 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/28 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/16454 | https://twitter.com/tvrmarin/status/1619812143326720000 |
