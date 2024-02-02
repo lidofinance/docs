@@ -45,37 +45,16 @@ The goals for this deployment are:
 
 ## DAO contracts
 
-- Lido DAO (Kernel): [``](https://sepolia.etherscan.io/address/) (proxy)
-- LDO token: [``](https://sepolia.etherscan.io/address/)
-- Aragon Voting: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Aragon Token Manager: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Aragon Finance: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Aragon Agent: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Aragon ACL: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Voting Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Token Manager Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Finance Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Agent Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Lido App Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Lido Oracle (Legacy Oracle) Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Node Operators Registry Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Simple DVT Repo: [``](https://sepolia.etherscan.io/address/) (proxy)
-- EVMScriptRegistry: [``](https://sepolia.etherscan.io/address/) (proxy)
-- CallsScript: [``](https://sepolia.etherscan.io/address/)
-- Lido APMRegistry: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Aragon APMRegistry: [``](https://sepolia.etherscan.io/address/) (proxy)
-- Gate Seal Blueprint: [``](https://sepolia.etherscan.io/address/)
-- Gate Seal Factory: [``](https://sepolia.etherscan.io/address/)
-- Gate Seal: [``](https://sepolia.etherscan.io/address/)
+- Lido DAO (Kernel): [`0x6155bD199ECcc79Ff4e8B392f6cBD9c9874E8916`](https://sepolia.etherscan.io/address/0x6155bD199ECcc79Ff4e8B392f6cBD9c9874E8916) (proxy)
+- LDO token: [`0xd06dF83b8ad6D89C86a187fba4Eae918d497BdCB`](https://sepolia.etherscan.io/address/0xd06dF83b8ad6D89C86a187fba4Eae918d497BdCB)
+- Aragon Voting: [`0x39A0EbdEE54cB319f4F42141daaBDb6ba25D341A`](https://sepolia.etherscan.io/address/0x39A0EbdEE54cB319f4F42141daaBDb6ba25D341A) (proxy)
+- Aragon Token Manager: [`0xC73cd4B2A7c1CBC5BF046eB4A7019365558ABF66`](https://sepolia.etherscan.io/address/0xC73cd4B2A7c1CBC5BF046eB4A7019365558ABF66) (proxy)
+- Aragon Finance: [`0x52AD3004Bc993d63931142Dd4f3DD647414048a1`](https://sepolia.etherscan.io/address/0x52AD3004Bc993d63931142Dd4f3DD647414048a1) (proxy)
+- Aragon Agent: [`0x32A0E5828B62AAb932362a4816ae03b860b65e83`](https://sepolia.etherscan.io/address/0x32A0E5828B62AAb932362a4816ae03b860b65e83) (proxy)
+- Aragon ACL: [`0x8A1AA86d35b2EE8C9369618E7D7b40000cCD3295`](https://sepolia.etherscan.io/address/0x8A1AA86d35b2EE8C9369618E7D7b40000cCD3295) (proxy)
+- Lido APMRegistry: [`0x63C2b6310911a234A6A2c4E7dCd9218Ce79b9A9c`](https://sepolia.etherscan.io/address/0x63C2b6310911a234A6A2c4E7dCd9218Ce79b9A9c) (proxy)
+- Aragon APMRegistry: [`0xDC7F3C08AA574d39Fc97fDCE20f8fA68EA2A0f22`](https://sepolia.etherscan.io/address/0xDC7F3C08AA574d39Fc97fDCE20f8fA68EA2A0f22) (proxy)
 
-## Staking modules
+## Testnet ad-hoc addresses
 
-- Curated Node Operators: [``](https://sepolia.etherscan.io/address/)
-- Simple DVT: [``](https://sepolia.etherscan.io/address/)
-- Sandbox: [``](https://sepolia.etherscan.io/address/)
-
-## Testnet DAO Multisigs
-
-- QA & DAO-ops ms: [``](https://stg.sepolia-safe.protofire.io/home?safe=sepolia:)
-  - QA testnet EOA: [``](https://sepolia.etherscan.io/address/)
-  - DAO-ops testnet EOA: [``](https://sepolia.etherscan.io/address/)
+- Deployer: [`0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5`](https://sepolia.etherscan.io/address/0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5)
