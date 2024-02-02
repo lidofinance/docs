@@ -124,6 +124,7 @@ module.exports = {
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/goerli',
         'deployed-contracts/holesky',
+        'deployed-contracts/sepolia'
       ],
     },
     {
