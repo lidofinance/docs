@@ -26,7 +26,7 @@ Lido on Polygon NO Registry [`0x216B8b78e0632138dc38907dd089aAB601ED6EDC`](https
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-|: --- |: --- |: --- |: --- |
+| --- | --- | --- | --- |
 | Jakov | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | vsh | 0x6E83d6f57012D74e0F131753f8B5Ab557824507D |  |  |
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
