@@ -8,4 +8,4 @@ We’re using the [Immunefi platform](https://immunefi.com) — the leading bug 
 
 [Lido Bug Bounty programs](https://lido.fi/bug-bounty) focused on the prevention of loss of user funds, denial of service, governance hijacks, data breaches, and data leaks. We care about it and have already paid $250,000 for 7 Bug Bounties.
 
-We have separate active programs for [Ethereum](https://immunefi.com/bounty/lido/), [Solana](https://immunefi.com/bounty/lidoforsolana/), [Polygon](https://immunefi.com/bounty/lidoonpolygon/).
+We have separate active programs for [Ethereum](https://immunefi.com/bounty/lido/) and [Polygon](https://immunefi.com/bounty/lidoonpolygon/).
