@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 16px;
   row-gap: 16px;
 }
@@ -57,7 +57,7 @@ html[data-theme='dark'] .grid-link .subtitle {
   color: rgb(185, 185, 185);
 }
 
-.grid-link > div > .title:hover {
+.grid-link>div>.title:hover {
   text-decoration: none;
 }
 

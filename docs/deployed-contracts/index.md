@@ -116,9 +116,7 @@ pagination_next: deployed-contracts/goerli
 
 ## DAO-ops contracts & addresses
 
-- Jumpgate for [Solana Reward Program](https://solscan.io/address/H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2): [`0xe3224542066d3bbc02bc3d70b641be4bc6f40e36`](https://etherscan.io/address/0xe3224542066d3bbc02bc3d70b641be4bc6f40e36).
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
-- Jumpgate for [Solana Referral Program](https://solscan.io/address/7KN9sjxsStxsTTPXZBZk6z1cdXfVkyvq1ihAVh94gXcP): [`0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8`](https://etherscan.io/address/0x13C6eF8d45aFBCcF15ec0701567cC9fAD2b63CE8).
 - Token Reward Program (TRP) VestingEscrowFactory: [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
 
 ## Easy Track
@@ -141,6 +139,7 @@ pagination_next: deployed-contracts/goerli
   - ChangeNodeOperatorManager (proposed): [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 
 ### Easy Track factories for token transfers
+
 - **LOL (ex.reWARDS) stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home))
   - AllowedRecipientsRegistry: [`0x48c4929630099b217136b64089E8543dB0E5163a`](https://etherscan.io/address/0x48c4929630099b217136b64089E8543dB0E5163a)
   - AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
@@ -241,7 +240,6 @@ pagination_next: deployed-contracts/goerli
 - Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
 - Liquidity Observation Lab: [`0x0b420D02ba56Ae734733864f57e78c8808650b91`](https://app.safe.global/home?safe=bnb:0x0b420D02ba56Ae734733864f57e78c8808650b91) (BNB)
 - Liquidity Observation Lab: [`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) (Linea)
-- Solana DAO [`H6Q8UwkZ7G6qmBv4Nke7BtzbHrfZNvFhdQPCmUUHtTy2`](https://app.realms.today/dao/3WZ9nP9KT7KSdfjL9acovwdmTMFmW5of946Sxt2LwnaY) (Solana)
 
 ## Lido on L2
 
