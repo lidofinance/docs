@@ -240,6 +240,7 @@ pagination_next: deployed-contracts/goerli
 - Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
 - Liquidity Observation Lab: [`0x0b420D02ba56Ae734733864f57e78c8808650b91`](https://app.safe.global/home?safe=bnb:0x0b420D02ba56Ae734733864f57e78c8808650b91) (BNB)
 - Liquidity Observation Lab: [`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) (Linea)
+- Liquidity Observation Lab: [`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) (Mantle)
 
 ## Lido on L2
 
