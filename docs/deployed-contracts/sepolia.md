@@ -77,6 +77,6 @@ The goals for this deployment are:
 - L2LidoGateway (*proposed*): [`0x906CD1Bfa5C3f7B2FF9BFBB5950ada841ED99E72`](https://sepolia.scrollscan.com/address/0x906CD1Bfa5C3f7B2FF9BFBB5950ada841ED99E72) (impl)
 - L2WstETHToken (*proposed*): [`0x2DAf22Caf40404ad8ff0Ab1E77F9C08Fef3953e2`](https://sepolia.scrollscan.com/address/0x2DAf22Caf40404ad8ff0Ab1E77F9C08Fef3953e2) (proxy)
 - L2WstETHToken (*proposed*): [`0xaed405fc13d66e2f1055f6efe9a5ce736652fa55`](https://sepolia.scrollscan.com/address/0xaed405fc13d66e2f1055f6efe9a5ce736652fa55) (impl)
-- ProxyAdmin (*proposed*): [`0x0dB416f4387ED89c1C99955fe0Ecad458f07c467`](https://sepolia.etherscan.io/address/0x0dB416f4387ED89c1C99955fe0Ecad458f07c467) for:
+- ProxyAdmin (*proposed*): [`0xc6cdc2839378d50e03c9737723d96d117b09bda5`](https://sepolia.etherscan.io/address/0xc6cdc2839378d50e03c9737723d96d117b09bda5) for:
   - L2LidoGateway
   - L2WstETHToken
