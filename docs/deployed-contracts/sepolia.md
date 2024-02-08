@@ -58,3 +58,12 @@ The goals for this deployment are:
 ## Testnet ad-hoc addresses
 
 - Deployer: [`0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5`](https://sepolia.etherscan.io/address/0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5)
+
+## Lido on L2
+### Optimism
+
+##### Ethereum part
+
+##### Optimism part
+
+- Optimism Governance Bridge Executor: [`0xf695357C66bA514150Da95b189acb37b46DDe602`](https://sepolia-optimism.etherscan.io/address/0xf695357C66bA514150Da95b189acb37b46DDe602)
