@@ -28,7 +28,7 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 
 The Lido Council Daemon monitors deposit contract keys.
 
-- **Version**: 2.0.1
+- **Version**: 2.0.2
 - **Docker image**: sha256:9cf75a504affb18bb45a2c214a024d7dcde8fada242ea5e0c9f51e6faaafe032, [lidofinance/lido-council-daemon@sha256-9cf75a504affb18bb45a2c214a024d7dcde8fada242ea5e0c9f51e6faaafe032](https://hub.docker.com/layers/lidofinance/lido-council-daemon/2.0.2/images/sha256-9cf75a504affb18bb45a2c214a024d7dcde8fada242ea5e0c9f51e6faaafe032)
 - Commit hash: [lidofinance/lido-council-daemon@a1a3caf](https://github.com/lidofinance/lido-council-daemon/commit/a1a3caf33ba1d636ffd9a508a900fcdf6dd6157b)
 - **Last update date**: 9 February, 2024
@@ -39,7 +39,7 @@ The Lido Council Daemon monitors deposit contract keys.
 
 Lido keys HTTP API.
 
-- **Version**: 1.0.0
+- **Version**: 1.0.1
 - **Docker image**: sha256:1fa93bf79f68c624b144aa02f3af780f9a6236cbe2dc95a11208d3aa33ca11ad, [lidofinance/lido-keys-api@sha256-1fa93bf79f68c624b144aa02f3af780f9a6236cbe2dc95a11208d3aa33ca11ad](https://hub.docker.com/layers/lidofinance/lido-keys-api/1.0.1/images/sha256-1fa93bf79f68c624b144aa02f3af780f9a6236cbe2dc95a11208d3aa33ca11ad)
 - **Commit hash**: [lidofinance/lido-keys-api@495ab7d](https://github.com/lidofinance/lido-keys-api/commit/495ab7d8c63b770e98f06b80a7c7e3bd8eb13a0c)
 - **Last update date**: 5 February, 2024
