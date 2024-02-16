@@ -1,16 +1,12 @@
 # Görli
 
-:::info
-🫡 Görli Testnet: Scheduled End of Life in Q4 2023
+:::warning
 
-The Goerli testnet is set to receive support until the end of 2023.
-Please refer to the Ethereum testnets roadmap for a visual representation of the testnet lifecycle:
-![Ethereum testnets roadmap](../../static/img/deployed-contracts/testnets-roadmap.png)
+The Lido testnet on Goerli will no longer be supported after February 29th, 2024.
+If you have (w)stETH to withdraw, please do so before this date.
+Moving forward, all testnet activities will shift to [Holešky](./holesky.md), where a new full-fledged Lido testnet is already operational.
 
-Approaching this timeline, it's recommended to transition to the [Lido on Holešky](./holesky.md) testnet deployments for future projects.
-
-Note that there will be no comprehensive Lido testnet environments available for Sepolia, due to the network's restricted and permission-based validator set configuration.
-
+See the following announcement: https://x.com/LidoFinance/status/1758458433303351784
 :::
 
 ## Core protocol
