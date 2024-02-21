@@ -29,7 +29,7 @@ The goals for this deployment are:
 ## Sepolia deposit contract ad-hoc adapter
 
 - SepoliaDepositAdapter: [`0x80b5DC88C98E528bF9cb4B7F0f076aC41da24651`](https://sepolia.etherscan.io/address/0x80b5DC88C98E528bF9cb4B7F0f076aC41da24651) (proxy)
-- SepoliaDepositAdapter: [`0x899e45316FaA439200b36c7d7733192530e3DfC0`](https://sepolia.etherscan.io/address/0x899e45316FaA439200b36c7d7733192530e3DfC0) (impl)
+- SepoliaDepositAdapter: [`0x5c5C4556F0017FF57c331185E1C61d91acEf966e`](https://sepolia.etherscan.io/address/0x5c5C4556F0017FF57c331185E1C61d91acEf966e) (impl)
 
 ## Oracle Contracts
 
