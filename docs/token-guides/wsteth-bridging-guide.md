@@ -285,9 +285,7 @@ Notation used:
 ### Testnets
 
 :::info
-Please, deploy to Holesky if possible:
-- Holešky has better long-term exposure and is suitable for large protocols and big testnets;
-- Sepolia is not good for Lido (permissioned validator set, deposit contract with a token, <2000 validators there.
+Please, deploy to Holesky if possible because Holešky has better long-term exposure and more robust Lido protocol deployment.
 :::
 
 #### Holesky
