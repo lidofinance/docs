@@ -223,6 +223,7 @@ pagination_next: deployed-contracts/goerli
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 - zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 - Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
+- Scroll (*proposed*): [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -343,6 +344,25 @@ pagination_next: deployed-contracts/goerli
 - L2 TokenBridge (Canonical Bridge): [`0x2bfdf4a0d54C93a4bAF74F8DcEA8a275D8EE97a9`](https://lineascan.build/address/0x2bfdf4a0d54c93a4baf74f8dcea8a275d8ee97a9) (impl)
 - LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
+### Scroll
+
+##### Ethereum part
+
+- L1LidoGateway (*proposed*): [`0x6625c6332c9f91f2d27c304e729b86db87a3f504`](https://etherscan.io/address/0x6625c6332c9f91f2d27c304e729b86db87a3f504) (proxy)
+- L1LidoGateway (*proposed*): [`0xF4f2066EE72D62e3caF9678459149BA7FCf2262F`](https://etherscan.io/address/0xF4f2066EE72D62e3caF9678459149BA7FCf2262F) (impl)
+- ProxyAdmin (*proposed*): [`0xCC2C53556Bc75217cf698721b29071d6f12628A9`](https://etherscan.io/address/0xCC2C53556Bc75217cf698721b29071d6f12628A9) for L1LidoGateway
+
+##### Scroll part
+
+- ScrollBridgeExecutor (*proposed*): [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
+- L2LidoGateway (*proposed*): [`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9) (proxy)
+- L2LidoGateway (*proposed*): [`0x2B9beB2890DBeFC7cA25Af3164100d139B623C24`](https://scrollscan.com/address/0x2B9beB2890DBeFC7cA25Af3164100d139B623C24) (impl)
+- L2WstETHToken (*proposed*): [`0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32`](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32) (proxy)
+- L2WstETHToken (*proposed*): [`0x38224D52ecC979aEdfEb31b1EEa0cfCEbd55247e`](https://scrollscan.com/address/0x38224D52ecC979aEdfEb31b1EEa0cfCEbd55247e) (impl)
+- ProxyAdmin (*proposed*): [`0x8e34D07Eb348716a1f0a48A507A9de8a3A6DcE45`](https://scrollscan.com/address/0x8e34D07Eb348716a1f0a48A507A9de8a3A6DcE45) for:
+  - L2LidoGateway
+  - L2WstETHToken
+
 ### L2 Liquidity pools
 
 Balancer
@@ -364,7 +384,7 @@ Kyber Network
 
 ## Legacy contracts
 
-> **These contracts were previously used and are currently active, but they are no longer being supported by contributors from Lido DAO.**
+> **These contracts were previously used and are currently active, but they are no longer being supported by contributors from Lido DAO**
 
 - Finance Ops: [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops: [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
