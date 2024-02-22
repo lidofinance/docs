@@ -68,7 +68,7 @@ The goals for this deployment are:
 
 - L1ERC20TokenBridge: [`0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332`](https://sepolia.etherscan.io/address/0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332) (proxy)
 - L1ERC20TokenBridge: [`0x02825dbCaFbBfda57511dBD73d22c2787B653814`](https://sepolia.etherscan.io/address/0x02825dbCaFbBfda57511dBD73d22c2787B653814) (impl)
--
+
 ##### Optimism part
 
 - WstETH ERC20Bridged: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy)
