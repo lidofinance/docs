@@ -29,7 +29,7 @@ The goals for this deployment are:
 ## Sepolia deposit contract ad-hoc adapter
 
 - SepoliaDepositAdapter: [`0x80b5DC88C98E528bF9cb4B7F0f076aC41da24651`](https://sepolia.etherscan.io/address/0x80b5DC88C98E528bF9cb4B7F0f076aC41da24651) (proxy)
-- SepoliaDepositAdapter: [`0x899e45316FaA439200b36c7d7733192530e3DfC0`](https://sepolia.etherscan.io/address/0x899e45316FaA439200b36c7d7733192530e3DfC0) (impl)
+- SepoliaDepositAdapter: [`0x5c5C4556F0017FF57c331185E1C61d91acEf966e`](https://sepolia.etherscan.io/address/0x5c5C4556F0017FF57c331185E1C61d91acEf966e) (impl)
 
 ## Oracle Contracts
 
@@ -61,6 +61,21 @@ The goals for this deployment are:
 - Emergency breaks (EOA replacement): [`0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1`](https://sepolia.etherscan.io/address/0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1)
 
 ## Lido on L2
+
+### Optimism
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332`](https://sepolia.etherscan.io/address/0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332) (proxy)
+- L1ERC20TokenBridge: [`0x02825dbCaFbBfda57511dBD73d22c2787B653814`](https://sepolia.etherscan.io/address/0x02825dbCaFbBfda57511dBD73d22c2787B653814) (impl)
+-
+##### Optimism part
+
+- WstETH ERC20Bridged: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy)
+- WstETH ERC20Bridged: [`0xaB0c6F1015b644c252064155759Cdc90a6CBd50d`](https://sepolia-optimism.etherscan.io/address/0xaB0c6F1015b644c252064155759Cdc90a6CBd50d) (impl)
+- L2ERC20TokenBridge: [`0xdBA2760246f315203F8B716b3a7590F0FFdc704a`](https://sepolia-optimism.etherscan.io/address/0xdBA2760246f315203F8B716b3a7590F0FFdc704a) (proxy)
+- L2ERC20TokenBridge: [`0x2B4a7968C173ea52745C3740B13da9609D83Bd82`](https://sepolia-optimism.etherscan.io/address/0x2B4a7968C173ea52745C3740B13da9609D83Bd82) (impl)
+- Optimism Governance Bridge Executor: [`0xf695357C66bA514150Da95b189acb37b46DDe602`](https://sepolia-optimism.etherscan.io/address/0xf695357C66bA514150Da95b189acb37b46DDe602)
 
 ### Scroll
 
