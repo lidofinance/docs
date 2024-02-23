@@ -12,7 +12,7 @@ pagination_next: deployed-contracts/goerli
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
 - Node Operators registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
-- Simple DVT (proposed): [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
+- Simple DVT: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
 - Deposit Security Module: [`0xC77F8768774E1c9244BEed705C4354f2113CFc09`](https://etherscan.io/address/0xC77F8768774E1c9244BEed705C4354f2113CFc09)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
@@ -128,15 +128,15 @@ pagination_next: deployed-contracts/goerli
 
 - **Curated Node Operators staking module** (registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5))
   - IncreaseNodeOperatorStakingLimit: [`0xFeBd8FAC16De88206d4b18764e826AF38546AfE0`](https://etherscan.io/address/0xFeBd8FAC16De88206d4b18764e826AF38546AfE0)
-- **Simple DVT staking module (proposed)** (registry: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433), committee ms [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7))
-  - AddNodeOperators (proposed): [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639)
-  - ActivateNodeOperators (proposed): [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8)
-  - DeactivateNodeOperators (proposed): [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7)
-  - SetVettedValidatorsLimits (proposed): [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D)
-  - SetNodeOperatorNames (proposed): [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4)
-  - SetNodeOperatorRewardAddresses (proposed): [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
-  - UpdateTargetValidatorLimits (proposed): [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
-  - ChangeNodeOperatorManager (proposed): [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
+- **Simple DVT staking module** (registry: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433), committee ms [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7))
+  - AddNodeOperators: [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639)
+  - ActivateNodeOperators: [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8)
+  - DeactivateNodeOperators: [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7)
+  - SetVettedValidatorsLimits: [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D)
+  - SetNodeOperatorNames: [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4)
+  - SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
+  - UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
+  - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 
 ### Easy Track factories for token transfers
 
