@@ -71,7 +71,7 @@ ATC DAI TopUpAllowedRecipients [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](ht
 
 **Purpose of the multisig:** The multisig is used for signing off by the Resourcing and Compensation Committee. It receives funds from the Lido DAO and allocates them. It is able to create Easy Track motions for requesting grants from the DAO Treasury in DAI tokens.
 
-**Quorum:** 4/6
+**Quorum:** 4/7
 
 **Proposed on the forum:** [Proposal to form Resourcing and Compensation Committee (RCC)](https://research.lido.fi/t/proposal-to-form-resourcing-and-compensation-committee-rcc/1767), [[RCC-1] Apr 1, 2022 - June 30, 2022 Budget Request](https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980)
 
