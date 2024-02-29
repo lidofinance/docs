@@ -12,14 +12,16 @@ There is an option to use some Lido interfaces via IPFS, for example Lido Ethere
 
 ## Address
 ### What is a CID
-A content identifier, or CID, is a label used to point to material in IPFS. CIDs are based on the content’s cryptographic hash. Any difference in the content will produce a different CID.
+A content identifier, or CID, is a label used to point to material in IPFS. CIDs are based on the content’s cryptographic hash.
+Any difference in the content will produce a different CID.
 But CIDs won't match file hashes (checksums), because CID contains additional information that the hash does not.
 
 ### IPFS HTTP Gateways
-An IPFS gateway is a web-based service that gets content from an IPFS network, and makes it available via HTTP protocol that all web browsers understand.  
+An IPFS gateway is a web-based service that gets content from an IPFS network, and makes it available via HTTP protocol 
+that all web browsers understand.  
 A gateway address can look like this: `https://{CID}.ipfs.cf-ipfs.com`
 
-:::info
+:::note
 Some browsers support IPFS natively and can access IPFS content without gateways, using canonical addressing like  
 `ipfs://{CID}/{optional path to resource}`  
 
@@ -27,6 +29,15 @@ Also, there is the [IPFS Companion Browser Extension](https://docs.ipfs.tech/ins
 :::
 
 ### Where to get CID and gateway address
+
+:::info
+Each new set of changes to an application will produce a new CID, therefore each release will be available at its specific address.
+This means **there won't be a gateway address that always points to the most recent release**.
+A gateway you are using now may point to the most updated version, but until a new release happens.  
+So, you may want to look for a new CID or gateway address from time to time.
+However, you may continue to use this gateway until it stops working for a some reason.   
+:::
+
 #### Action page on GitHub
 You can take this information from the latest GitHub action in which IPFS pinning happened:
 1. Open the app's repo, follow the "Actions" tab.
@@ -35,6 +46,12 @@ You can take this information from the latest GitHub action in which IPFS pinnin
 
 #### IPFS.json
 We have a convention to store the latest CID for an app in the `ipfs.json` file in the project's root. 
+
+### Release frequency
+Not every new release of our applications will be deployed to IPFS, only major releases or critical fixes. So we don't expect it to be often.  
+This decision is made due to the numerous actions required to make an IPFS release,
+and also the fact that each new release will produce a new CID and will be available at the new address, 
+which is inconvenient for users willing to always use the latest version of an application.
 
 ## Hash verification
 You may want to verify the authenticity and integrity of the application, deployed on IPFS.
