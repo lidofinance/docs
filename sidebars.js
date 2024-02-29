@@ -58,8 +58,7 @@ module.exports = {
         'guides/1inch-pool-rewards',
         'guides/early-staker-airdrop',
         'guides/jumpgates',
-        'guides/verify-lido-v2-upgrade-manual',
-        'guides/ipfs'
+        'guides/verify-lido-v2-upgrade-manual'
       ],
     },
     {
@@ -138,6 +137,14 @@ module.exports = {
         'multisigs/lido-on-x',
         'multisigs/lido-contributors-group',
         'multisigs/other',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'IPFS',
+      items: [
+        'ipfs/ipfs-guide',
+        'ipfs/ipfs-apps-list'
       ],
     },
   ],
