@@ -21,22 +21,20 @@ An IPFS gateway is a web-based service that gets content from an IPFS network, a
 that all web browsers understand.  
 A gateway address can look like this: `https://{CID}.ipfs.cf-ipfs.com`
 
-:::note
-Some browsers support IPFS natively and can access IPFS content without gateways, using canonical addressing like  
-`ipfs://{CID}/{optional path to resource}`  
-
-Also, there is the [IPFS Companion Browser Extension](https://docs.ipfs.tech/install/ipfs-companion), which enables support for IPFS in your browser. 
-:::
-
 ### Where to get CID and gateway address
 
 :::info
-Each new set of changes to an application will produce a new CID, therefore each release will be available at its specific address.
-This means **there won't be a gateway address that always points to the most recent release**.
-A gateway you are using now may point to the most updated version, but until a new release happens.  
-So, you may want to look for a new CID or gateway address from time to time.
-However, you may continue to use this gateway until it stops working for a some reason.   
+Each new set of changes to a Lido app will produce a new CID, therefore each release will be available at its specific address.
+This means that for a Lido app, **there won't be a gateway address that always points to the most recent release**.
+The gateway you are currently using may point to the most updated version, but it will remain so until a new release to IPFS occurs.
+After opening a Lido app, it will automatically check if its version is the latest one. If not, the user will be notified and asked to check the latest version.
 :::
+
+#### Releases page on GitHub
+You can take this information from the Releases page.
+For Ethereum Staking Widget it is [here](https://github.com/lidofinance/ethereum-staking-widget/releases).  
+On this page, find the information about the latest release, where an IPFS pinning happened
+(note, that not every release is pinned to IPFS, see [Release frequency](#release-frequency)).
 
 #### Action page on GitHub
 You can take this information from the latest GitHub action in which IPFS pinning happened:
@@ -45,12 +43,12 @@ You can take this information from the latest GitHub action in which IPFS pinnin
 3. Open the latest successful workflow and look for the "ipfs-pinning" title. There you will find a root CID and a link to an IPFS HTTP gateway.
 
 #### IPFS.json
-We have a convention to store the latest CID for an app in the `ipfs.json` file in the project's root. 
+We have a convention to store the latest CID for an app in the `IPFS.json` file in the project's root.
 
 ### Release frequency
 Not every new release of our applications will be deployed to IPFS, only major releases or critical fixes. So we don't expect it to be often.  
 This decision is made due to the numerous actions required to make an IPFS release,
-and also the fact that each new release will produce a new CID and will be available at the new address, 
+and also the fact that each new release of a Lido app will produce a new CID and will be available at the new address, 
 which is inconvenient for users willing to always use the latest version of an application.
 
 ## Hash verification
@@ -68,13 +66,34 @@ Lido Ethereum Staking Widget is taken as example here.
 #### 1. Clone the repository
 The repo for Ethereum Staking Widget is here: https://github.com/lidofinance/ethereum-staking-widget
 
-#### 2. Set up the project as usual
+#### 2. Git checkout a commit, matching the IPFS version
+You need to `git checkout` the specific commit, matching the release of an app you want to verify.
+This way, you can be sure that the app will not include any other changes, which affect the CID.  
+There are several ways to do it.
+
+##### Method 1 – using git tags
+Each released version has its own git tag, we can use it for git checkout.
+1. Open the app in your browser and check the right side of its footer.
+There will be a version number, which is actually a link to a Releases page on GitHub.
+2. Run `git fetch --all --tags --prune` to fetch all tags.
+3. Run `git checkout tags/<version>`, where `<version>` is the version from step 1. 
+
+##### Method 2 – searching on the GitHub Release Page
+1. Open the Releases page of the project's repository on GitHub. For Ethereum Staking Widget it is [here](https://github.com/lidofinance/ethereum-staking-widget/releases).
+2. Search manually for the latest release, where IPFS pinning happened.
+3. Look for the commit hash near the release information
+4. Run `git checkout <hash>`, where `<hash>` is the commit hash from the previous step
+
+Or you can simply open the Releases page of the project's repository
+and manually find the latest release, where IPFS pinning happened. There will be information 
+
+#### 3. Set up the project as usual
 1. Add ENV variables.
 2. Remove `node_modules` directory if the project was set up earlier.
 3. Install node modules using `yarn install --frozen-lockfile`.
 4. Follow other instructions described in the project's README.
 
-#### 3. Configure build-info.json
+#### 4. Configure build-info.json
 The `build-info.json` file is located in the project's root, [here is the link](https://github.com/lidofinance/ethereum-staking-widget/blob/develop/build-info.json).  
 It must contain information about the version of the application, which is currently deployed to IPFS.  
 You can take this information from the latest GitHub action in which IPFS pinning happened:
@@ -86,18 +105,18 @@ You can take this information from the latest GitHub action in which IPFS pinnin
    ```
 4. Copy the data to your local `build-info.json`
 
-#### 4. Build the IPFS version
+#### 5. Build the IPFS version
 Run a suitable npm script to build the IPFS version.  
 In case of Ethereum Staking Widget, it is `yarn build-ipfs`.
 
-#### 5. Create a CAR file and get its CID (hash)
+#### 6. Create a CAR file and get its CID (hash)
 For Next.js applications the build files will be in the `out` directory.  
 The following command generates a CAR file from the `out` directory with build files, and it will display the IPFS hash in the console.
 ```
 npx ipfs-car pack ./out --output ./out.car
 ```
 
-#### 6. Get CID (hash) of the application deployed to IPFS 
+#### 7. Get CID (hash) of the application deployed to IPFS 
 You will need to get the hash of the latest released CAR file.  
 It can be found on the Releases page of the repository under the "Assets" collapsible block.
 Download the CAR file and run the following command:
