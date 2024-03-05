@@ -143,8 +143,11 @@ module.exports = {
       type: 'category',
       label: 'IPFS',
       items: [
-        'ipfs/ipfs-guide',
-        'ipfs/ipfs-apps-list'
+        'ipfs/about',
+        'ipfs/release-flow',
+        'ipfs/security',
+        'ipfs/hash-verification',
+        'ipfs/apps-list'
       ],
     },
   ],
