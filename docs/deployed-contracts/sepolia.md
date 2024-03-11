@@ -58,6 +58,7 @@ The goals for this deployment are:
 ## Testnet ad-hoc addresses
 
 - Deployer: [`0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5`](https://sepolia.etherscan.io/address/0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5)
+- Emergency breaks (EOA replacement): [`0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1`](https://sepolia.etherscan.io/address/0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1)
 
 ## Lido on L2
 
@@ -67,7 +68,7 @@ The goals for this deployment are:
 
 - L1ERC20TokenBridge: [`0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332`](https://sepolia.etherscan.io/address/0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332) (proxy)
 - L1ERC20TokenBridge: [`0x02825dbCaFbBfda57511dBD73d22c2787B653814`](https://sepolia.etherscan.io/address/0x02825dbCaFbBfda57511dBD73d22c2787B653814) (impl)
-- 
+
 ##### Optimism part
 
 - WstETH ERC20Bridged: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy)
@@ -75,3 +76,22 @@ The goals for this deployment are:
 - L2ERC20TokenBridge: [`0xdBA2760246f315203F8B716b3a7590F0FFdc704a`](https://sepolia-optimism.etherscan.io/address/0xdBA2760246f315203F8B716b3a7590F0FFdc704a) (proxy)
 - L2ERC20TokenBridge: [`0x2B4a7968C173ea52745C3740B13da9609D83Bd82`](https://sepolia-optimism.etherscan.io/address/0x2B4a7968C173ea52745C3740B13da9609D83Bd82) (impl)
 - Optimism Governance Bridge Executor: [`0xf695357C66bA514150Da95b189acb37b46DDe602`](https://sepolia-optimism.etherscan.io/address/0xf695357C66bA514150Da95b189acb37b46DDe602)
+
+### Scroll
+
+##### Ethereum part
+
+- L1LidoGateway (*proposed*): [`0xF22B24fa7c3168f30b17fd97b71bdd3162DDe029`](https://sepolia.etherscan.io/address/0xF22B24fa7c3168f30b17fd97b71bdd3162DDe029) (proxy)
+- L1LidoGateway (*proposed*): [`0x99845934FC8Ed44F3E6e66b3BAecf24d9e457F7f`](https://sepolia.etherscan.io/address/0x99845934FC8Ed44F3E6e66b3BAecf24d9e457F7f) (impl)
+- ProxyAdmin (*proposed*): [`0x0dB416f4387ED89c1C99955fe0Ecad458f07c467`](https://sepolia.etherscan.io/address/0x0dB416f4387ED89c1C99955fe0Ecad458f07c467) for L1LidoGateway
+
+##### Scroll part
+
+- ScrollBridgeExecutor (*proposed*): [`0x6b314986E3737Ce23c2a13036e77b3f5A846F8AF`](https://sepolia.scrollscan.com/address/0x6b314986E3737Ce23c2a13036e77b3f5A846F8AF)
+- L2LidoGateway (*proposed*): [`0x635B054A092F6aE61Ce0Fddc397A704F6626510D`](https://sepolia.scrollscan.com/address/0x635B054A092F6aE61Ce0Fddc397A704F6626510D) (proxy)
+- L2LidoGateway (*proposed*): [`0x906CD1Bfa5C3f7B2FF9BFBB5950ada841ED99E72`](https://sepolia.scrollscan.com/address/0x906CD1Bfa5C3f7B2FF9BFBB5950ada841ED99E72) (impl)
+- L2WstETHToken (*proposed*): [`0x2DAf22Caf40404ad8ff0Ab1E77F9C08Fef3953e2`](https://sepolia.scrollscan.com/address/0x2DAf22Caf40404ad8ff0Ab1E77F9C08Fef3953e2) (proxy)
+- L2WstETHToken (*proposed*): [`0xaed405fc13d66e2f1055f6efe9a5ce736652fa55`](https://sepolia.scrollscan.com/address/0xaed405fc13d66e2f1055f6efe9a5ce736652fa55) (impl)
+- ProxyAdmin (*proposed*): [`0xc6cdc2839378d50e03c9737723d96d117b09bda5`](https://sepolia.scrollscan.com/address/0xc6cdc2839378d50e03c9737723d96d117b09bda5) for:
+  - L2LidoGateway
+  - L2WstETHToken
