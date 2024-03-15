@@ -44,6 +44,11 @@ You can take this information from the latest GitHub action in which IPFS pinnin
 #### IPFS.json
 We have a convention to store the latest CID for an app in the `IPFS.json` file in the project's root.
 
+:::info
+This is a temporary solution for development purposes and is a subject to change in the future.
+It is going to be replaced by onchain configuration via governance voting.  
+:::
+
 ### Release frequency
 Not every new release of our applications will be deployed to IPFS, only major releases or critical fixes. So we don't expect it to be often.  
 This decision is made due to the numerous actions required to make an IPFS release,
