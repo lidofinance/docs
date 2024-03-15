@@ -17,5 +17,3 @@ see [instructions](about.md#where-to-get-cid-and-gateway-address). The offered g
 ### Routing
 Due to IPFS gateways not automatically serving `/index.html` as expected by many single-page applications,
 the Lido Interface uses a hash-based routing.
-
-
