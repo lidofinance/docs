@@ -1,15 +1,21 @@
 # Security
 
-## TODO: rewrite
+### RPC nodes
+The IPFS build utilizes non-secret environment variables since all IPFS content must be accessible to anyone.
+Therefore, the widget uses public RPC nodes to serve RPC requests. Users are explicitly notified about this fact in the UI,
+allowing them an option to specify necessary RPC nodes on the settings page. RPC nodes setup will be stored in a browser's localStorage and used for subsequent visits to the same IPFS gateway.
 
-The UI itself is built with non-secret environment variables. This is because IPFS content is accessible to anyone who downloads it from IPFS or takes artifacts from release descriptions. Therefore, public RPC nodes are used for RPC requests, explicitly communicated to the user in the UI, allowing them to specify necessary RPC nodes on the settings page. The data is stored in LocalStorage and used for subsequent visits to the same IPFS gateway.
+### Possible localStorage leak (important!)
+Lido widgets use your browser's localStorage to store some UI settings and RPC nodes urls.
+If you are using an IPFS gateway, which is referencing CID hash as a part of the URL path (e.g., `{GATEWAY_DOMAIN}/ipfs/{HASH}`),
+rather than the subdomain (e.g., `{HASH}.{GATEWAY}`), then other websites accessed from the same IPFS gateway
+can potentially view or edit your settings, because localStorage stays the same for the same domain.
 
-Important:
-Settings on the UI use LocalStorage, which is shared across users in some IPFS gateways.
+To avoid this possibility, we suggest using IPFS gateway URL, attached to the IPFS release description,
+see [instructions](about.md#where-to-get-cid-and-gateway-address). The offered gateway uses subdomain format.
 
-When using an IPFS gateway and referencing an IPFS hash or IPNS name by the path (e.g., `{GATEWAY}/ipfs/{HASH}`) rather than the subdomain (e.g., `{HASH}.{GATEWAY}`), other sites accessed from the same IPFS gateway can view and change your settings.
+### Routing
+Due to IPFS gateways not automatically serving `/index.html` as expected by many single-page applications,
+the Lido Interface uses a hash-based routing.
 
-To avoid this possibility, you can use the subdomain format of IPFS gateway URLs, which are contained in the release along with the path format.
 
-UI changes
-Because IPFS gateways will not default to serving /index.html as is expected by many single page applications, the Lido Interface uses a "hash" based router.
