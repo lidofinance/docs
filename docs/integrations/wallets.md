@@ -33,31 +33,6 @@ Preview,
 
 For more examples, click [here](https://github.com/lidofinance/referral-program-integration-examples/tree/main/examples/banners).
 
-### Embedding Staking Widget
-
-If you don't want users to leave your app to stake, you can embed Staking Widget via the `iframe` HTML tag and use your referral link as the source.
-
-Example code,
-
-```html
-<iframe
-    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS"
-    title="Lido Staking App"
-    height="500"
-    width="100%"
-/>
-```
-
-Preview,
-<iframe
-    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS"
-    title="Lido Staking App"
-    height="500"
-    width="100%"
-/>
-
-For a full example, click [here](https://github.com/lidofinance/referral-program-integration-examples/blob/main/examples/iframe/iframe.html).
-
 ### Interacting with Lido contract directly
 
 If none of the options above suits you, you may choose to interact with Lido directly.
