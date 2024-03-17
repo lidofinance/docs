@@ -1,5 +1,9 @@
 # API
 
+:::info
+Lido APIs are strictly for read-only access
+:::
+
 Here you can find various Lido APIs which you can integrate in your app or website:
 
 ## Lido APR
@@ -15,12 +19,6 @@ https://eth-api.lido.fi/v1/protocol/steth/apr/sma
 ```
 
 Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
-
-#### Goerli
-
-```
-https://eth-api.testnet.fi/v1/protocol/steth/apr/sma
-```
 
 #### Holesky
 
@@ -61,10 +59,10 @@ https://eth-api.lido.fi/v1/protocol/steth/apr/last
 
 Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findLastAPRforSTETH)
 
-#### Goerli
+#### Holesky
 
 ```
-https://eth-api.testnet.fi/v1/protocol/steth/apr/last
+https://eth-api-holesky.testnet.fi/v1/protocol/steth/apr/last
 ```
 
 ## Lido Reward History
@@ -99,16 +97,6 @@ skip: 0, limit: 100 = 1 page
 skip: 100, limit: 100 = 2 page
 skip: 200, limit: 100 = 3 page
 ```
-
-### Goerli
-
-Reward History Backend is also available on Goerli:
-
-```
-http://reward-history-backend.testnet.fi/?address=0x12345
-```
-
-Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend.testnet.fi/api)
 
 ### Holesky
 
