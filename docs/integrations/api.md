@@ -22,6 +22,12 @@ Response schema and examples are available in the [Swagger API documentation](ht
 https://eth-api.testnet.fi/v1/protocol/steth/apr/sma
 ```
 
+#### Holesky
+
+```
+https://eth-api-holesky.testnet.fi/v1/protocol/steth/apr/sma
+```
+
 ### **Last Lido APR for stETH**
 
 The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](../contracts/legacy-oracle#posttotalshares). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
@@ -103,3 +109,13 @@ http://reward-history-backend.testnet.fi/?address=0x12345
 ```
 
 Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend.testnet.fi/api)
+
+### Holesky
+
+Reward History Backend is also available on Goerli:
+
+```
+http://reward-history-backend-holesky.testnet.fi/?address=0x12345
+```
+
+Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend-holesky.testnet.fi/api)
