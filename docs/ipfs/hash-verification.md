@@ -6,7 +6,7 @@ See the detailed instructions below.
 ## Steps
 
 :::info
-Lido Ethereum Staking Widget is taken as example here.
+[Lido Ethereum Staking Widget](https://github.com/lidofinance/ethereum-staking-widget) is taken as example here.
 :::
 
 ### Prerequisites
