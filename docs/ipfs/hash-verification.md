@@ -25,7 +25,7 @@ This way, you can be sure that the app will not include any other changes, which
 There are several ways to do it.
 
 #### Method 1 – using git tags
-Each released version has its own git tag, we can use it for git checkout.
+Each released version has its own git tag, one can use it for git checkout.
 1. Open the app in your browser and check the right side of its footer.
 There will be a version number, which is actually a link to a Releases page on GitHub.
 2. Run `git fetch --all --tags --prune` to fetch all tags.
