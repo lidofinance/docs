@@ -5,14 +5,16 @@ See the detailed instructions below.
 
 ## Steps
 
+:::info
 Lido Ethereum Staking Widget is taken as example here.
+:::
 
 ### Prerequisites
 You will need these tools installed in your system:
 - Node.js 20+
 - Yarn package manager v1 (classic) 
 
-Or you can use Docker, read further for the instructions.
+Alternatively, you can use Docker to set up a building environment; read the sections below for the instructions.
 
 ### 1. Clone the repository
 The repo for Ethereum Staking Widget is here: https://github.com/lidofinance/ethereum-staking-widget

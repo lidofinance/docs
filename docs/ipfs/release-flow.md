@@ -16,8 +16,7 @@ To complete and automate these and other required steps, we leverage the power o
 
 ## GitHub Actions workflow
 
-We've already been using GitHub Actions to build and deploy our applications,
-so we decided to adapt them for IPFS releases.
+GitHub Actions has already been used to build and deploy Lido applications, so it was decided to adapt them for IPFS releases.
 
 IPFS release occurs as the next step after a regular application release.
 But only major or critical updates are released to IPFS due to the numerous
@@ -34,7 +33,7 @@ networks and environments.
 The IPFS pinning and preparing ENS transactions in the workflow are facilitated
 by the [Blumen](https://github.com/StauroDEV/blumen) package, developed in collaboration with Lido.
 
-On every IPFS release, the content verification is carried out by both development and QA teams
+On every IPFS release, the content verification is carried out by both development and QA Lido contributors
 to ensure that there is no unexpected content added to the code during CI process. 
 The verification relies on hash comparisons, and if you want, you can also
 perform it using the [provided instructions](hash-verification.md).
