@@ -139,5 +139,16 @@ module.exports = {
         'multisigs/other',
       ],
     },
+    {
+      type: 'category',
+      label: 'IPFS',
+      items: [
+        'ipfs/about',
+        'ipfs/release-flow',
+        'ipfs/security',
+        'ipfs/hash-verification',
+        'ipfs/apps-list'
+      ],
+    },
   ],
 }
