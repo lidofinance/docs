@@ -12,7 +12,7 @@ To ensure that content remains available on the IPFS network permanently,
 it must be pinned using its Content Identifier (CID).
 :::
 
-To complete and automate these and other required steps, we leverage the power of GitHub Actions.
+The power of GitHub Actions is used to complete and automate these and other required steps.
 
 ## GitHub Actions workflow
 
