@@ -2,7 +2,7 @@
 
 This page is a source of up-to-date hashes of Lido applications deployed to the IPFS.
 
-- Stake Widget:
+- Lido Ethereum Liquid Staking Widget:
   - Release: [0.35.0](https://github.com/lidofinance/ethereum-staking-widget/releases/tag/0.35.0)
   - CID: [`bafybeigg5s263n24agznr66g46ze4ifn5rocrclpj2oyodllpxfnvsjaaq`](https://bafybeigg5s263n24agznr66g46ze4ifn5rocrclpj2oyodllpxfnvsjaaq.ipfs.cf-ipfs.com)
 - Lido Anchor Widget:
