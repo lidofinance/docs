@@ -32,26 +32,27 @@ After opening a Lido app, it will automatically check if the app's version is th
 #### Releases page on GitHub
 The latest release information is available on GitHub under the Releases page of the app repository.
 For Ethereum Staking Widget it is [here](https://github.com/lidofinance/ethereum-staking-widget/releases).  
-On this page, find the information about the latest release, where an IPFS pinning happened
+Using the page, one can find the information about the latest release, including the IPFS pinning artifacts
 (note, that not every release is pinned to IPFS, see [Release frequency](#release-frequency)).
 
 #### Action page on GitHub
 You can take this information from the latest GitHub action in which IPFS pinning happened:
 1. Open the app's repo, follow the "Actions" tab.
-2. On the left, in the navigation, find the workflow for IPFS releasing, for the Ethereum Staking Widget it is called "[IPFS Release](https://github.com/lidofinance/ethereum-staking-widget/actions/workflows/ci-ipfs.yml)".
+2. On the left side, in the navigation bar, find the workflow for IPFS releases; for the Ethereum Staking Widget it is called "[IPFS Release](https://github.com/lidofinance/ethereum-staking-widget/actions/workflows/ci-ipfs.yml)".
 3. Open the latest successful workflow and look for the "ipfs-pinning" title. There you will find a root CID and a link to an IPFS HTTP gateway.
 
 #### IPFS.json
-We have a convention to store the latest CID for an app in the `IPFS.json` file in the project's root.
+There is a convention to store the latest CID for an app in the `IPFS.json` file in the project's root.
 
 :::info
-This is a temporary solution for development purposes and is a subject to change in the future.
-It is going to be replaced by onchain configuration via governance voting.  
+This solution might be not the final one, serves for development purposes, and is a subject to change in the future.
+The future plans are to replace the latest CID registry with the one living on-chain and be updated via the Lido DAO governance.  
 :::
 
 ### Release frequency
-Not every new release of Lido applications will be deployed to IPFS, only major releases or critical fixes.  
-This decision is made due to the numerous actions required to make an IPFS release,
+Not every new release of Lido applications will be deployed to IPFS; only major releases or critical fixes will be deployed.
+So the deployment cadence shouldn't be too frequent.  
+This approach is preferred due to the numerous actions required to make an IPFS release,
 and also the fact that each new release of a Lido app will produce a new CID and will be available at the new address, 
 which is inconvenient for users willing to always use the latest version of an application.
 
