@@ -23,7 +23,7 @@ Note that CIDs won't match file hashes (checksums), because CID contains additio
 
 An IPFS gateway is a web-based service that gets content from an IPFS network, and makes it available via HTTP protocol
 that all web browsers understand. A gateway address can look like this: `https://{CID}.ipfs.cf-ipfs.com`.
-You can use available gateway of [your choice](security.md#possible-localStorage-leak). Check gateway availability [here](https://ipfs.github.io/public-gateway-checker/)
+You can use available gateway of [your choice](security.md#possible-localstorage-leak). Check gateway availability [here](https://ipfs.github.io/public-gateway-checker/)
 
 ### Where to get CID and gateway address
 
