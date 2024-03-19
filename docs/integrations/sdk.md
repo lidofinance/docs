@@ -1,8 +1,10 @@
-# SDKs
+# SDKs and UI libraries
 
 <!--  -->
 
 ### Lido UI Library
+
+**Target clients**: those who want to use Lido UI components in their projects.
 
 React components for Lido Finance projects.
 
@@ -10,16 +12,20 @@ React components for Lido Finance projects.
 - GitHub: [https://github.com/lidofinance/ui](https://github.com/lidofinance/ui)
 - NPM: [https://www.npmjs.com/search?q=%40lidofinance/](https://www.npmjs.com/search?q=%40lidofinance/)
 
-### Lido JS SDK
+### Lido Ethereum SDK
 
-Library for interaction with Lido contracts.
+**Target clients**: those who want to interact/integrate with the Lido protocol in JavaScript/TypeScript projects.
 
-- GitHub: [https://github.com/lidofinance/lido-js-sdk](https://github.com/lidofinance/lido-js-sdk)
-- NPM: [https://www.npmjs.com/search?q=%40lido-sdk/](https://www.npmjs.com/search?q=%40lido-sdk/)
+Library for interaction with Lido protocol.
+
+- GitHub: [https://github.com/lidofinance/lido-ethereum-sdk](https://github.com/lidofinance/lido-ethereum-sdk)
+- NPM: [https://www.npmjs.com/package/@lidofinance/lido-ethereum-sdk](https://www.npmjs.com/package/@lidofinance/lido-ethereum-sdk)
 
 ### Lido Python SDK
 
+**Target clients**: Lido-participating Node Operators and [LNOSG](https://lido.fi/governance#lnosg) contributors.
+
 Library to efficiently load network data for Lido, validate node operator keys and find key duplicates.
 
-- Pypi: [https://pypi.org/project/lido-sdk/](https://pypi.org/project/lido-sdk/)
 - GitHub: [https://github.com/lidofinance/lido-python-sdk](https://github.com/lidofinance/lido-python-sdk)
+- Pypi: [https://pypi.org/project/lido-sdk/](https://pypi.org/project/lido-sdk/)

@@ -10,8 +10,8 @@ The schema of GraphQL entities available is defined in [`/schema.graphql` ](http
 
 ## Links
 
-- [Explorer Page](https://thegraph.com/explorer/subgraph?id=HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf&view=Overview)
-- GraphQL Endpoint: `https://gateway.thegraph.com/api/[api-key]/subgraphs/id/HXfMc1jPHfFQoccWd7VMv66km75FoxVHDMvsJj5vG5vf`
+- [Explorer Page](https://thegraph.com/explorer/subgraph?id=Sxx812XgeKyzQPaBpR5YZWmGV5fZuBaPdh7DFhzSwiQ&view=Overview)
+- GraphQL Endpoint: `https://gateway-arbitrum.network.thegraph.com/api/[api-key]/subgraphs/id/Sxx812XgeKyzQPaBpR5YZWmGV5fZuBaPdh7DFhzSwiQ`
 - [Code Repo](https://github.com/lidofinance/lido-subgraph/)
 
 ## Query Examples
