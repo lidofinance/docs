@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.1.1">
 <title data-rh="true">Hash verification | Lido Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://lidofinance.github.io/ipfs/hash-verification"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Hash verification | Lido Docs"><meta data-rh="true" name="description" content="You may want to verify the authenticity and integrity of the application, deployed on IPFS."><meta data-rh="true" property="og:description" content="You may want to verify the authenticity and integrity of the application, deployed on IPFS."><link data-rh="true" rel="icon" href="/img/favicon-32x32.png"><link data-rh="true" rel="canonical" href="https://lidofinance.github.io/ipfs/hash-verification"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/ipfs/hash-verification" hreflang="en"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/ipfs/hash-verification" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.8a66afc7.css">
-<script src="/assets/js/runtime~main.e6744590.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.9110f238.js" defer="defer"></script>
 <script src="/assets/js/main.9aea24a0.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -35,15 +35,13 @@ There will be a version number, which is actually a link to a Releases page on G
 <li>Run <code>git fetch --all --tags --prune</code> to fetch all tags.</li>
 <li>Run <code>git checkout tags/&lt;version&gt;</code>, where <code>&lt;version&gt;</code> is the version from step 1.</li>
 </ol>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="method-2--searching-on-the-github-release-page">Method 2 – searching on the GitHub Release Page<a href="#method-2--searching-on-the-github-release-page" class="hash-link" aria-label="Direct link to Method 2 – searching on the GitHub Release Page" title="Direct link to Method 2 – searching on the GitHub Release Page">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="method-2--searching-on-the-github-release-page">Method 2 – searching on the GitHub Release page<a href="#method-2--searching-on-the-github-release-page" class="hash-link" aria-label="Direct link to Method 2 – searching on the GitHub Release page" title="Direct link to Method 2 – searching on the GitHub Release page">​</a></h4>
 <ol>
 <li>Open the Releases page of the project&#x27;s repository on GitHub. For Ethereum Staking Widget it is <a href="https://github.com/lidofinance/ethereum-staking-widget/releases" target="_blank" rel="noopener noreferrer">here</a>.</li>
 <li>Search manually for the latest release, where IPFS pinning happened.</li>
-<li>Look for the commit hash near the release information</li>
-<li>Run <code>git checkout &lt;hash&gt;</code>, where <code>&lt;hash&gt;</code> is the commit hash from the previous step</li>
+<li>Look for the commit hash near the release information.</li>
+<li>Run <code>git checkout &lt;hash&gt;</code>, where <code>&lt;hash&gt;</code> is the commit hash from the previous step.</li>
 </ol>
-<p>Or you can simply open the Releases page of the project&#x27;s repository
-and manually find the latest release, where IPFS pinning happened. There will be information</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-set-up-the-project">3. Set up the project<a href="#3-set-up-the-project" class="hash-link" aria-label="Direct link to 3. Set up the project" title="Direct link to 3. Set up the project">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="without-docker">Without Docker<a href="#without-docker" class="hash-link" aria-label="Direct link to Without Docker" title="Direct link to Without Docker">​</a></h4>
 <ol>
@@ -81,7 +79,7 @@ you can use Docker to set up and build the project.</p>
 <!-- -->In case of Ethereum Staking Widget, it is <code>yarn build-ipfs</code>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="6-create-a-car-file-and-get-its-cid-hash">6. Create a CAR file and get its CID (hash)<a href="#6-create-a-car-file-and-get-its-cid-hash" class="hash-link" aria-label="Direct link to 6. Create a CAR file and get its CID (hash)" title="Direct link to 6. Create a CAR file and get its CID (hash)">​</a></h3>
 <p>For Next.js applications the build files will be in the <code>out</code> directory.<br>
-<!-- -->The following command generates a CAR file from the <code>out</code> directory with build files, and it will display the IPFS hash in the console.</p>
+<!-- -->The following command generates a CAR file from the <code>out</code> directory with build files, and it will display the IPFS hash in the console:</p>
 <div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">npx ipfs-car pack ./out --output ./out.car</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="7-get-cid-hash-of-the-application-deployed-to-ipfs">7. Get CID (hash) of the application deployed to IPFS<a href="#7-get-cid-hash-of-the-application-deployed-to-ipfs" class="hash-link" aria-label="Direct link to 7. Get CID (hash) of the application deployed to IPFS" title="Direct link to 7. Get CID (hash) of the application deployed to IPFS">​</a></h3>
 <p>You will need to get the hash of the latest released CAR file.<br>
