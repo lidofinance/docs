@@ -4,6 +4,8 @@
 
 ### Lido UI Library
 
+**Target audience**: contributors who want to use Lido UI components in their projects.
+
 React components for Lido Finance projects.
 
 - Storybook: [https://ui.lido.fi](https://ui.lido.fi/)
@@ -12,6 +14,8 @@ React components for Lido Finance projects.
 
 ### Lido Ethereum SDK
 
+**Target audience**: contributors who want to interact/integrate with Lido protocol in JS/TS projects.
+
 Library for interaction with Lido protocol.
 
 - GitHub: [https://github.com/lidofinance/lido-ethereum-sdk](https://github.com/lidofinance/lido-ethereum-sdk)
@@ -19,7 +23,9 @@ Library for interaction with Lido protocol.
 
 ### Lido Python SDK
 
+**Target audience**: Node Operators and NOM contributors.
+
 Library to efficiently load network data for Lido, validate node operator keys and find key duplicates.
 
-- Pypi: [https://pypi.org/project/lido-sdk/](https://pypi.org/project/lido-sdk/)
 - GitHub: [https://github.com/lidofinance/lido-python-sdk](https://github.com/lidofinance/lido-python-sdk)
+- Pypi: [https://pypi.org/project/lido-sdk/](https://pypi.org/project/lido-sdk/)
