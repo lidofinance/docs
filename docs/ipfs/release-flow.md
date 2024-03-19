@@ -1,6 +1,7 @@
 # Release Flow
 
 Releasing the widget to IPFS involves several steps, including:
+
 1. Creating a content-addressable archive (CAR file) containing the necessary files for the widget to function.
 2. Uploading the CAR file to the IPFS network using an IPFS provider.
 3. Pinning the uploaded CAR file to ensure its permanent availability on the IPFS network.
@@ -34,20 +35,22 @@ The IPFS pinning and preparing ENS transactions in the workflow are facilitated
 by the [Blumen](https://github.com/StauroDEV/blumen) package, developed in collaboration with Lido.
 
 On every IPFS release, the content verification is carried out by both development and QA Lido contributors
-to ensure that there is no unexpected content added to the code during CI process. 
+to ensure that there is no unexpected content added to the code during CI process.
 The verification relies on hash comparisons, and if you want, you can also
 perform it using the [provided instructions](hash-verification.md).
 
 After the verification, the IPFS release is initiated, which results in adding
 the obtained pinning information to the application [releases page](https://github.com/lidofinance/ethereum-staking-widget/releases).
-The details about IPFS pinning (CID, IPFS providers, https gateway, source code archives) is attached to the release description.   
+The details about IPFS pinning (CID, IPFS providers, https gateway, source code archives) is attached to the release description.
 
 ### Workflow steps
+
 You can find the source code of the workflow [on GitHub](https://github.com/lidofinance/actions/blob/main/.github/workflows/ci-ipfs.yml).
 The workflow performs further steps:
+
 - Retrieving necessary secrets, tags, and the application's build files.
 - Obtaining information about the date and the commit hash of the tag.
-- Executing the [Blumen](https://github.com/StauroDEV/blumen) script to perform IPFS pinning.  
+- Executing the [Blumen](https://github.com/StauroDEV/blumen) script to perform IPFS pinning.
 - Creating artifacts to be attached to the release.
 - Searching for an existing release on GitHub based on the provided tag for modifying the description.
 - Generating and modifying the existing description of the release.
