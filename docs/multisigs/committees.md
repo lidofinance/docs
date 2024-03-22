@@ -164,7 +164,7 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 
 **Easy Track for swap stETH to stablecoin**
 
-TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
+TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
 - trustedcaller
 
 **Easy Track for swap stablecoin to stablecoin (DAI / USDC / USDT)**
