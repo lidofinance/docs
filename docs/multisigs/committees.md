@@ -49,7 +49,7 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Forum topics:** [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808), [Proposal to start Rewards Share program, form Rewards Share Committee and reuse Referral Program Committee multisig](https://research.lido.fi/t/tiered-rewards-share-program-a-sustainable-approach-to-steth-growth/4851)
 
-**Snapshots:** [Proposal to form Referral Program committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x61ea645fbaf36cdab088421e22abc99b32c3438919b2b6500170a6665f804cd3), [Proposal to form Rewards Share committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)
+**Snapshots:** [Proposal to form Rewards Share committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)
 
 **On-chain:**   [Omnibus vote #162](https://mainnet.lido.fi/#/lido-dao/0x2e59a20f205bb85a89c53f1936454680651e618e/vote/162/)
 
@@ -155,9 +155,22 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 
 **Quorum:** 4/7
 
-**Forum topic:** [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40)
+**Forum topic:** [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40), [Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
 
 **Snapshot:** [Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
+
+**Aragon:** [Omnibus vote #173](https://vote.lido.fi/vote/173) 
+
+
+**Easy Track for swap stETH to stablecoin**
+
+TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
+- trustedcaller
+
+**Easy Track for swap stablecoin to stablecoin (DAI / USDC / USDT)**
+
+TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
+- trustedcaller
 
 **List of signers:**
 
@@ -246,7 +259,7 @@ SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](h
 UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
 - trustedcaller
 
-ChangeNodeOperatorManager: [`00xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
+ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 - trustedcaller
 
 
