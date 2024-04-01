@@ -122,15 +122,15 @@ pagination_next: deployed-contracts/goerli
 
 ## Lido Stonks contracts
 
-  - STETH→DAI (proposed) ([`0x3e2D251275A92a8169A3B17A2C49016e2de492a7`](https://etherscan.io/address/0x3e2D251275A92a8169A3B17A2C49016e2de492a7)))
-  - STETH→USDC (proposed) ([`0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5`](https://etherscan.io/address/0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5))
-  - STETH→USDT (proposed) ([`0x7C2a1E25cA6D778eCaEBC8549371062487846aAF`](https://etherscan.io/address/0x7C2a1E25cA6D778eCaEBC8549371062487846aAF))
-  - DAI→USDC (proposed) ([`0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D`](https://etherscan.io/address/0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D))
-  - DAI→USDT (proposed) ([`0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42`](https://etherscan.io/address/0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42))
-  - USDT→USDC (proposed) ([`0x281e6BB6F26A94250aCEb24396a8E4190726C97e`](https://etherscan.io/address/0x281e6BB6F26A94250aCEb24396a8E4190726C97e))
-  - USDT→DAI (proposed) ([`0x64B6aF9A108dCdF470E48e4c0147127F26221A7C`](https://etherscan.io/address/0x64B6aF9A108dCdF470E48e4c0147127F26221A7C))
-  - USDC→USDT (proposed) ([`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7))
-  - USDC→DAI (proposed) ([`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850))
+  - STETH→DAI [`0x3e2D251275A92a8169A3B17A2C49016e2de492a7`](https://etherscan.io/address/0x3e2D251275A92a8169A3B17A2C49016e2de492a7)
+  - STETH→USDC [`0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5`](https://etherscan.io/address/0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5)
+  - STETH→USDT [`0x7C2a1E25cA6D778eCaEBC8549371062487846aAF`](https://etherscan.io/address/0x7C2a1E25cA6D778eCaEBC8549371062487846aAF)
+  - DAI→USDC [`0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D`](https://etherscan.io/address/0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D)
+  - DAI→USDT [`0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42`](https://etherscan.io/address/0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42)
+  - USDT→USDC [`0x281e6BB6F26A94250aCEb24396a8E4190726C97e`](https://etherscan.io/address/0x281e6BB6F26A94250aCEb24396a8E4190726C97e)
+  - USDT→DAI [`0x64B6aF9A108dCdF470E48e4c0147127F26221A7C`](https://etherscan.io/address/0x64B6aF9A108dCdF470E48e4c0147127F26221A7C)
+  - USDC→USDT [`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7)
+  - USDC→DAI [`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850)
 
 
 ## Easy Track
@@ -201,12 +201,12 @@ pagination_next: deployed-contracts/goerli
   - RemoveAllowedRecipient: [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7)
   - TopUpAllowedRecipients: [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1)
 - **Stonks stETH** (committee ms [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://app.safe.global/eth:0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647/home))
-  - AllowedRecipientsRegistry (proposed): [`0x1a7cFA9EFB4D5BfFDE87B0FaEb1fC65d653868C0`](https://etherscan.io/address/0x1a7cFA9EFB4D5BfFDE87B0FaEb1fC65d653868C0)
-  - TopUpAllowedRecipients (proposed): [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
+  - AllowedRecipientsRegistry: [`0x1a7cFA9EFB4D5BfFDE87B0FaEb1fC65d653868C0`](https://etherscan.io/address/0x1a7cFA9EFB4D5BfFDE87B0FaEb1fC65d653868C0)
+  - TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
 - **Stonks stablecoins** (committee ms [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://app.safe.global/eth:0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647/home))
-  - AllowedRecipientsRegistry (proposed): [`0x3f0534CCcFb952470775C516DC2eff8396B8A368`](https://etherscan.io/address/0x3f0534CCcFb952470775C516DC2eff8396B8A368)
-  - AllowedTokensRegistry (proposed): [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
-  - TopUpAllowedRecipients (proposed): [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
+  - AllowedRecipientsRegistry: [`0x3f0534CCcFb952470775C516DC2eff8396B8A368`](https://etherscan.io/address/0x3f0534CCcFb952470775C516DC2eff8396B8A368)
+  - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
+  - TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
 - **Tooling contracts:**
   - AllowedRecipientsBuilder (single token): [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
   - AllowedRecipientsFactory (single token): [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
@@ -244,7 +244,7 @@ pagination_next: deployed-contracts/goerli
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 - zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 - Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
-- Scroll (*proposed*): [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
+- Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -261,6 +261,7 @@ pagination_next: deployed-contracts/goerli
 - Liquidity Observation Lab: [`0x0b420D02ba56Ae734733864f57e78c8808650b91`](https://app.safe.global/home?safe=bnb:0x0b420D02ba56Ae734733864f57e78c8808650b91) (BNB)
 - Liquidity Observation Lab: [`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) (Linea)
 - Liquidity Observation Lab: [`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) (Mantle)
+- Liquidity Observation Lab: [`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) (Scroll)
 - Liquidity Observation Lab AAVE rewards multisig family: `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
 
 ## Lido on L2
@@ -369,18 +370,18 @@ pagination_next: deployed-contracts/goerli
 
 ##### Ethereum part
 
-- L1LidoGateway (*proposed*): [`0x6625c6332c9f91f2d27c304e729b86db87a3f504`](https://etherscan.io/address/0x6625c6332c9f91f2d27c304e729b86db87a3f504) (proxy)
-- L1LidoGateway (*proposed*): [`0xF4f2066EE72D62e3caF9678459149BA7FCf2262F`](https://etherscan.io/address/0xF4f2066EE72D62e3caF9678459149BA7FCf2262F) (impl)
-- ProxyAdmin (*proposed*): [`0xCC2C53556Bc75217cf698721b29071d6f12628A9`](https://etherscan.io/address/0xCC2C53556Bc75217cf698721b29071d6f12628A9) for L1LidoGateway
+- L1LidoGateway: [`0x6625c6332c9f91f2d27c304e729b86db87a3f504`](https://etherscan.io/address/0x6625c6332c9f91f2d27c304e729b86db87a3f504) (proxy)
+- L1LidoGateway: [`0xF4f2066EE72D62e3caF9678459149BA7FCf2262F`](https://etherscan.io/address/0xF4f2066EE72D62e3caF9678459149BA7FCf2262F) (impl)
+- ProxyAdmin: [`0xCC2C53556Bc75217cf698721b29071d6f12628A9`](https://etherscan.io/address/0xCC2C53556Bc75217cf698721b29071d6f12628A9) for L1LidoGateway
 
 ##### Scroll part
 
-- ScrollBridgeExecutor (*proposed*): [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
-- L2LidoGateway (*proposed*): [`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9) (proxy)
-- L2LidoGateway (*proposed*): [`0x2B9beB2890DBeFC7cA25Af3164100d139B623C24`](https://scrollscan.com/address/0x2B9beB2890DBeFC7cA25Af3164100d139B623C24) (impl)
-- L2WstETHToken (*proposed*): [`0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32`](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32) (proxy)
-- L2WstETHToken (*proposed*): [`0x38224D52ecC979aEdfEb31b1EEa0cfCEbd55247e`](https://scrollscan.com/address/0x38224D52ecC979aEdfEb31b1EEa0cfCEbd55247e) (impl)
-- ProxyAdmin (*proposed*): [`0x8e34D07Eb348716a1f0a48A507A9de8a3A6DcE45`](https://scrollscan.com/address/0x8e34D07Eb348716a1f0a48A507A9de8a3A6DcE45) for:
+- ScrollBridgeExecutor: [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
+- L2LidoGateway: [`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9) (proxy)
+- L2LidoGateway: [`0x2B9beB2890DBeFC7cA25Af3164100d139B623C24`](https://scrollscan.com/address/0x2B9beB2890DBeFC7cA25Af3164100d139B623C24) (impl)
+- L2WstETHToken: [`0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32`](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32) (proxy)
+- L2WstETHToken: [`0x38224D52ecC979aEdfEb31b1EEa0cfCEbd55247e`](https://scrollscan.com/address/0x38224D52ecC979aEdfEb31b1EEa0cfCEbd55247e) (impl)
+- ProxyAdmin: [`0x8e34D07Eb348716a1f0a48A507A9de8a3A6DcE45`](https://scrollscan.com/address/0x8e34D07Eb348716a1f0a48A507A9de8a3A6DcE45) for:
   - L2LidoGateway
   - L2WstETHToken
 

@@ -49,7 +49,7 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Forum topics:** [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808), [Proposal to start Rewards Share program, form Rewards Share Committee and reuse Referral Program Committee multisig](https://research.lido.fi/t/tiered-rewards-share-program-a-sustainable-approach-to-steth-growth/4851)
 
-**Snapshots:** [Proposal to form Referral Program committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x61ea645fbaf36cdab088421e22abc99b32c3438919b2b6500170a6665f804cd3), [Proposal to form Rewards Share committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)
+**Snapshots:** [Proposal to form Rewards Share committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)
 
 **On-chain:**   [Omnibus vote #162](https://mainnet.lido.fi/#/lido-dao/0x2e59a20f205bb85a89c53f1936454680651e618e/vote/162/)
 
@@ -155,9 +155,22 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 
 **Quorum:** 4/7
 
-**Forum topic:** [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40)
+**Forum topic:** [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40), [Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
 
 **Snapshot:** [Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
+
+**Aragon:** [Omnibus vote #173](https://vote.lido.fi/vote/173) 
+
+
+**Easy Track for swap stETH to stablecoin**
+
+TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
+- trustedcaller
+
+**Easy Track for swap stablecoin to stablecoin (DAI / USDC / USDT)**
+
+TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
+- trustedcaller
 
 **List of signers:**
 
@@ -246,7 +259,7 @@ SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](h
 UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
 - trustedcaller
 
-ChangeNodeOperatorManager: [`00xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
+ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 - trustedcaller
 
 
@@ -490,6 +503,25 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 ### 2.8.11 Liquidity Observation Lab Committee (Mantle)
 
 **Address:** mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6)
+
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
+
+**Quorum:** 3/6
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+
+### 2.8.11 Liquidity Observation Lab Committee (Scroll)
+
+**Address:** scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD)
 
 **Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them between other approved recipients.
 
