@@ -15,10 +15,10 @@
     "format": "prettier --write docs/"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.1.1",
-    "@docusaurus/plugin-client-redirects": "^3.1.1",
-    "@docusaurus/preset-classic": "^3.1.1",
-    "@docusaurus/theme-mermaid": "^3.1.1",
+    "@docusaurus/core": "^3.2.1",
+    "@docusaurus/plugin-client-redirects": "^3.2.1",
+    "@docusaurus/preset-classic": "^3.2.1",
+    "@docusaurus/theme-mermaid": "^3.2.1",
     "@easyops-cn/docusaurus-search-local": "^0.40.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.0",
@@ -39,8 +39,8 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.1.1",
-    "@docusaurus/types": "3.1.1",
+    "@docusaurus/module-type-aliases": "3.2.1",
+    "@docusaurus/types": "3.2.1",
     "prettier": "^3.2.4"
   },
   "engines": {
