@@ -49,7 +49,8 @@ pagination_next: deployed-contracts/goerli
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - Gate Seal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- Gate Seal: [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
+- Gate Seal (proposed to remove): [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
+- Gate Seal (proposed): [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
 
 ## Liquidity pools
 
