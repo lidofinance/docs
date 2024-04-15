@@ -4,11 +4,11 @@ This instruction has been prepared for the participants of the Deposit Security 
 
 ## TL;DR
 
-Before running in the mainnet all steps should be done in the Goerli testnet.
+Before running in the mainnet all steps should be done in the Holešky testnet.
 
 1. Prepare an EOA account for signing data with a private key on hand (not in hardware wallet). It will be a moderately sensitive hot private key. Use different accounts for testnet and mainnet.
-2. Send the account address to Lido for submitting it to the smart contract. 
-3. Deploy and run `lido-council-daemon` with the private key from the EOA account. It would work in a dry-run mode until your address would be included in the smart contract.  
+2. Send the account address to Lido for submitting it to the smart contract.
+3. Deploy and run `lido-council-daemon` with the private key from the EOA account. It would work in a dry-run mode until your address would be included in the smart contract.
 
 ## Detailed description
 
@@ -27,7 +27,7 @@ To make a deposit, we propose to collect a quorum of 2/3 of the signatures of th
 
 ### Committee membership
 
-The first set of guardians is six node operators (Stakefish, Skillz, Chorus one, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet. 
+The first set of guardians is six node operators (Stakefish, Skillz, Chorus one, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
 
 ### Members responsibilities
 
@@ -40,7 +40,7 @@ The daemon constantly watches all updates in `DepositContract` and `NodeOperator
 
 ## Preparation steps
 
-Before running in the mainnet, all steps should be completed in the Goerli testnet.
+Before running in the mainnet, all steps should be completed in the Holešky testnet.
 
 ### EOA account
 

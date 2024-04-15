@@ -100,7 +100,7 @@ skip: 200, limit: 100 = 3 page
 
 ### Holesky
 
-Reward History Backend is also available on Goerli:
+Reward History Backend is also available on Holešky:
 
 ```
 http://reward-history-backend-holesky.testnet.fi/?address=0x12345

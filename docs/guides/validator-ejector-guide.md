@@ -148,7 +148,7 @@ Address of the Consensus Node.
 
 ### LOCATOR_ADDRESS
 
-Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Goerli](https://docs.lido.fi/deployed-contracts/goerli) / [Mainnet](https://docs.lido.fi/deployed-contracts/)
+Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Holešky](https://docs.lido.fi/deployed-contracts/holesky) / [Mainnet](https://docs.lido.fi/deployed-contracts/)
 
 ### STAKING_MODULE_ID
 
@@ -158,7 +158,7 @@ Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/li
 
 ### OPERATOR_ID
 
-You can find it on the Operators Dashboard (`#123` on the operator card): [Goerli](https://operators.testnet.fi) / [Mainnet](https://operators.lido.fi)
+You can find it on the Operators Dashboard (`#123` on the operator card): [Holešky](https://operators-holesky.testnet.fi) / [Mainnet](https://operators.lido.fi)
 
 ### MESSAGES_LOCATION
 
@@ -196,7 +196,7 @@ On the endpoint, JSON will be POSTed with the following structure:
 
 JSON array of Lido Oracle addresses, from which only report transactions will be accepted.
 
-You can get a list from the Aragon app: [Goerli](https://testnet.testnet.fi/#/lido-testnet-prater/0x24d8451bc07e7af4ba94f69acdd9ad3c6579d9fb/) / [Mainnet](https://mainnet.lido.fi/#/lido-dao/0xae7ab96520de3a18e5e111b5eaab095312d7fe84/)
+You can get a list from the Aragon app on [Mainnet](https://mainnet.lido.fi/#/lido-dao/0xae7ab96520de3a18e5e111b5eaab095312d7fe84/)
 
 Format:
 

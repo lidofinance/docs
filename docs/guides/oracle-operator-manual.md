@@ -186,8 +186,8 @@ Full list could be found [here](https://github.com/lidofinance/lido-oracle#env-v
 **Mainnet**
 **[0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb)**
 
-**Goerli**
-**[0x1eDf09b5023DC86737b59dE68a8130De878984f5](https://goerli.etherscan.io/address/0x1eDf09b5023DC86737b59dE68a8130De878984f5)**
+**Holešky**
+**[0x28FAB2059C713A7F9D8c86Db49f9bb0e96Af1ef8](https://holesky.etherscan.io/address/0x28FAB2059C713A7F9D8c86Db49f9bb0e96Af1ef8)**
 
 ### Running the daemon
 

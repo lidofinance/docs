@@ -30,7 +30,7 @@ It's also advised to have secure Ejector->Nodes and KAPI->Nodes communication, f
 
 ### Operator ID
 
-You can find it on the Operators Dashboard (`#123` on the operator card): [Goerli](https://operators.testnet.fi), [Mainnet](https://operators.lido.fi)
+You can find it on the Operators Dashboard (`#123` on the operator card): [Holešky](https://holesky-operators.testnet.fi), [Mainnet](https://operators.lido.fi)
 
 ### Staking Router Module ID:
 
@@ -43,7 +43,6 @@ The oracle members are retrievable from the HashConsensus (for the Validator Exi
 | network | Aragon App | Contract Call |
 | -------- | -------- | -------- |
 | Mainnet | [Aragon](https://mainnet.lido.fi/#/lido-dao/0xae7ab96520de3a18e5e111b5eaab095312d7fe84/) | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
-| Goerli | [Aragon](https://testnet.testnet.fi/#/lido-testnet-prater/0x24d8451bc07e7af4ba94f69acdd9ad3c6579d9fb/) | [getMembers()](https://goerli.etherscan.io/address/0x8374B4aC337D7e367Ea1eF54bB29880C3f036A51#readContract#F16) |
 | Holesky | n/a | [getMembers()](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f#readContract#F16) |
 
 ## Example Infra Setup

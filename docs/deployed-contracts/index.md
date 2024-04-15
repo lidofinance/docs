@@ -1,5 +1,5 @@
 ---
-pagination_next: deployed-contracts/goerli
+pagination_next: deployed-contracts/holesky
 ---
 
 # Mainnet
