@@ -39,11 +39,11 @@ ID of the [StakingRouter](https://github.com/lidofinance/lido-dao/blob/feature/s
 Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)), it's id is `1`.
 
 ### Oracle Allowlist
-The oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle ) contract on-chain, using the Aragon App or directly from the contract using etherscan.
-| network | Aragon App | Contract Call |
-| -------- | -------- | -------- |
-| Mainnet | [Aragon](https://mainnet.lido.fi/#/lido-dao/0xae7ab96520de3a18e5e111b5eaab095312d7fe84/) | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
-| Holesky | n/a | [getMembers()](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f#readContract#F16) |
+The oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle ) contract on-chain, directly from the contract using Etherscan.
+| network  | Contract Call |
+| -------- | ------------- |
+| Mainnet  | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
+| Holešky  | [getMembers()](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f#readContract#F16) |
 
 ## Example Infra Setup
 

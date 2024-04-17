@@ -2,22 +2,6 @@
 
 Validator keys are added in several sequential steps. These steps are similar for each time new keys are added.
 
-- [Validator Keys](./validator-keys)
-  - [Generating signing keys](./validator-keys#generating-signing-keys)
-    - [Withdrawal Credentials](./validator-keys#withdrawal-credentials)
-    - [Using staking-deposit-cli](./validator-keys#using-staking-deposit-cli)
-  - [Validating the keys](./validator-keys#validating-the-keys)
-  - [Submitting the keys](./validator-keys#submitting-the-keys)
-    - [Using the batch key submitter UI](./validator-keys#using-the-batch-key-submitter-ui)
-  - [Importing the keys to a Lighthouse validator client](./validator-keys#importing-the-keys-to-a-lighthouse-validator-client)
-  - [Checking the keys of all Lido Node Operators](./validator-keys#checking-the-keys-of-all-lido-node-operators)
-    - [Lido CLI](./validator-keys#lido-cli)
-    - [Lido Node Operator Dashboard](./validator-keys#lido-node-operator-dashboard)
-    - [Results](./validator-keys#results)
-      - [You don't see invalid keys](./validator-keys#you-dont-see-invalid-keys)
-      - [You spot invalid keys](./validator-keys#you-spot-invalid-keys)
-  - [Increasing the Staking Limits with an Easy Track motion](./validator-keys#increasing-the-staking-limits-with-an-easy-track-motion)
-
 ## Generating signing keys
 
 Upon inclusion into the protocol, a Node Operator should generate and submit a set of [BLS12-381]

@@ -51,7 +51,7 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Snapshots:** [Proposal to form Rewards Share committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)
 
-**On-chain:**   [Omnibus vote #162](https://mainnet.lido.fi/#/lido-dao/0x2e59a20f205bb85a89c53f1936454680651e618e/vote/162/)
+**On-chain:**   [Omnibus vote #162](https://vote.lido.fi/vote/162)
 
 **Easy Track contracts and roles:**
 
@@ -92,7 +92,7 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 **Snapshot:** [Lido on Ethereum Block Proposer Rewards Policy 2.0 and Relay Maintenance Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f)
 
-**Aragon:** [Omnibus vote #149 (item 6)](https://vote.lido.fi/vote/149) 
+**Aragon:** [Omnibus vote #149 (item 6)](https://vote.lido.fi/vote/149)
 
 **Contracts and Roles:**
 
@@ -159,7 +159,7 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 
 **Snapshot:** [Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
 
-**Aragon:** [Omnibus vote #173](https://vote.lido.fi/vote/173) 
+**Aragon:** [Omnibus vote #173](https://vote.lido.fi/vote/173)
 
 
 **Easy Track for swap stETH to stablecoin**
@@ -234,7 +234,7 @@ Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB2
 
 **Snapshot:** [Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
 
-**Aragon:** [Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172) 
+**Aragon:** [Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172)
 
 **Easy Track contracts and roles:**
 
@@ -556,4 +556,3 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-

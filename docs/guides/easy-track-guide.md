@@ -45,7 +45,7 @@ For more in-depth technical description, please read through the full project [s
 
 Before starting an Easy Track motion to increase staking limits, there are several key features to keep in mind:
 
-1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the Aragon UI on [mainnet](https://mainnet.lido.fi/#/lido-dao/0x55032650b14df07b85bf18a3a3ec8e0af2e028d5/)).
+1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the Node Operators Dashboard on [holešky](https://operators-holesky.testnet.fi/) or [mainnet](https://operators.lido.fi/)).
 2. **A single motion can only address the staking limit of a single node operator.** It is not possible to increase limits for multiple node operators in one motion.
 3. **The total amount of a node operator's signing keys must be greater than or equal to the new staking limit.** Make sure you have submitted enough valid signing keys before starting a motion.
 
@@ -56,7 +56,7 @@ To initiate a staking limit Easy Track motion, follow these steps:
 1. Proceed to the Easy Track UI ([Holešky testnet](https://easytrack-holesky.testnet.fi/), [mainnet](https://easytrack.lido.fi/))
 2. Connect your wallet using the 'Connect wallet' button in the top right corner. Please use the address specified as your reward address in the Node Operators Registry.
 3. In the header menu click 'Start motion' button. You will be directed to the motion creation interface. Look for the motion type 'Increase node operator staking limit'.
-4. Fill in all fields in the form. Your node operator ID can be found in the Aragon UI on [mainnet](https://mainnet.lido.fi/#/lido-dao/0x55032650b14df07b85bf18a3a3ec8e0af2e028d5/)) – It is the number displayed to the left of your node operator name.
+4. Fill in all fields in the form. Your node operator ID can be found in the Node Operators Dashboard on [holešky](https://operators-holesky.testnet.fi/) or [mainnet](https://operators.lido.fi/)) — it is the number displayed to the right of your node operator name with the `#` prefix.
 5. Enter the desired staking limit value in the 'New limit' field, press the 'Submit' button below the form and sign the transaction (gas costs apply).
 
 As soon as transaction is confirmed, the motion has been started and you can see it on the 'Active motions' page of Easy Track UI. Notifications will be sent out to let the DAO know about the motion. From this moment on, the LDO token holders will have 72 hours to submit their objections if they have any. Please note the motion duration may be different for testnet deployment.

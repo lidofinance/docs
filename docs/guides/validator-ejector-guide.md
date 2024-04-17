@@ -196,7 +196,7 @@ On the endpoint, JSON will be POSTed with the following structure:
 
 JSON array of Lido Oracle addresses, from which only report transactions will be accepted.
 
-You can get a list from the Aragon app on [Mainnet](https://mainnet.lido.fi/#/lido-dao/0xae7ab96520de3a18e5e111b5eaab095312d7fe84/)
+You can get a list from Etherscan on [Holešky](https://holesky.etherscan.io/address/0xa067FC95c22D51c3bC35fd4BE37414Ee8cc890d2#readContract#F16) or [Mainnet](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16)
 
 Format:
 
