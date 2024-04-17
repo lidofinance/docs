@@ -2,7 +2,7 @@
 
 - [Source Code](https://github.com/lidofinance/mev-boost-relay-allowed-list/blob/main/contracts/MEVBoostRelayAllowedList.vy)
 - [Deployed Contract (mainnet)](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
-- [Deployed Contract (goerli+prater)](https://goerli.etherscan.io/address/0xeabe95ac5f3d64ae16acbb668ed0efcd81b721bc)
+- [Deployed Contract (holešky)](https://holesky.etherscan.io/address/0x2d86C5855581194a386941806E38cA119E50aEA3)
 
 MEV-Boost relay allowed list is a simple contract storing a list of relays that have been approved by DAO for use in [MEV-Boost](https://github.com/flashbots/mev-boost) setups. The data from the contract is used to generate a configuration file that contains a list of relays that should be connected to by the Node Operators participating in Lido.
 

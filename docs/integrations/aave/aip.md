@@ -105,7 +105,7 @@ There is no emission schedule. Similar to DAI, stETH is minted on demand when us
 
 stETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at [`0xae7ab96520de3a18e5e111b5eaab095312d7fe84`](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84). Lido DAO can change the implementation with the successful DAO vote.
 
-The roles and addresses can be checked in the Aragon UI: [Aragon Lido App](https://mainnet.lido.fi/#/lido-dao/permissions/app/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
+The roles and addresses are listed in the following independent [report](https://github.com/lidofinance/audits/?tab=readme-ov-file#10-2023-statemind-lido-roles-analysis) as of end of 2023.
 
 To mitigate withdrawal risks, Lido staking went live on December 18th, 2020, through a [withdrawal key ceremony](https://blog.lido.fi/lido-withdrawal-key-ceremony/). Chorus One, Staking Facilities, Certus One, Argent, Banteg (yearn.finance), Alex Svanevik (Nansen), Anton Bukov (1inch), Michael Egorov (Curve/Nucypher), Rune Christensen (MakerDAO), Will Harborne (DeversiFi), and Mustafa Al-Bassam (LazyLedger) came together over a four-day event to generate threshold signatures for Lido’s withdrawal keys in a secure environment on air-gapped machines.
 Lido has already migrated to a non-custodial solution and >60% of all stETH already uses this. Details can be found here: [Withdrawal Credentials in Lido](https://blog.lido.fi/withdrawal-credentials-in-lido/).

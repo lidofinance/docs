@@ -12,9 +12,9 @@ This how to vote on Lido DAO Aragon with Etherscan UI
 
 Get the address of the Lido DAO `Aragon Voting` contract from [Deployed Contracts](/deployed-contracts/#dao-contracts) page. It should be: [0x2e59A20f205bB85a89C53f1936454680651E618e].
 
-Get the vote id, either from [Aragon UI]:
+Get the vote id, either from [voting ui]:
 
-![](/img/etherscan-voting/aragon.png)
+![](/img/etherscan-voting/voting_ui.png)
 
 or from [Etherscan]:
 
@@ -31,7 +31,7 @@ or from [Etherscan]:
 ![](/img/etherscan-voting/get-vote.png)
 
 [0x2e59a20f205bb85a89c53f1936454680651e618e]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e
-[aragon ui]: https://mainnet.lido.fi/#/lido-dao/0x2e59a20f205bb85a89c53f1936454680651e618e/
+[voting ui]: https://vote.lido.fi
 [etherscan]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
 [contract/read as proxy]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
 [etherscan page]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract

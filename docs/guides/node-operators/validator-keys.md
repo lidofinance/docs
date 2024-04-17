@@ -2,22 +2,6 @@
 
 Validator keys are added in several sequential steps. These steps are similar for each time new keys are added.
 
-- [Validator Keys](./validator-keys)
-  - [Generating signing keys](./validator-keys#generating-signing-keys)
-    - [Withdrawal Credentials](./validator-keys#withdrawal-credentials)
-    - [Using staking-deposit-cli](./validator-keys#using-staking-deposit-cli)
-  - [Validating the keys](./validator-keys#validating-the-keys)
-  - [Submitting the keys](./validator-keys#submitting-the-keys)
-    - [Using the batch key submitter UI](./validator-keys#using-the-batch-key-submitter-ui)
-  - [Importing the keys to a Lighthouse validator client](./validator-keys#importing-the-keys-to-a-lighthouse-validator-client)
-  - [Checking the keys of all Lido Node Operators](./validator-keys#checking-the-keys-of-all-lido-node-operators)
-    - [Lido CLI](./validator-keys#lido-cli)
-    - [Lido Node Operator Dashboard](./validator-keys#lido-node-operator-dashboard)
-    - [Results](./validator-keys#results)
-      - [You don't see invalid keys](./validator-keys#you-dont-see-invalid-keys)
-      - [You spot invalid keys](./validator-keys#you-spot-invalid-keys)
-  - [Increasing the Staking Limits with an Easy Track motion](./validator-keys#increasing-the-staking-limits-with-an-easy-track-motion)
-
 ## Generating signing keys
 
 Upon inclusion into the protocol, a Node Operator should generate and submit a set of [BLS12-381]
@@ -111,10 +95,10 @@ Operator id for a given reward address can be obtained by successively calling
 [`NodeOperatorsRegistry.getNodeOperator`] with the increasing `_id` argument until you get the
 operator with the matching `rewardAddress`.
 
-Etherscan pages for the Görli/Prater contracts:
+Etherscan pages for the Holešky contracts:
 
-- [`Lido`](https://goerli.etherscan.io/address/0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F#readProxyContract)
-- [`NodeOperatorsRegistry`](https://goerli.etherscan.io/address/0x9D4AF1Ee19Dad8857db3a45B0374c81c8A1C6320)
+- [`Lido`](https://holesky.etherscan.io/address/0x3F1c547b21f65e10480dE3ad8E19fAAC46C95034#readProxyContract)
+- [`NodeOperatorsRegistry`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
 
 Etherscan pages for the Mainnet contracts:
 

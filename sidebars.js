@@ -123,7 +123,6 @@ module.exports = {
       link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
-        'deployed-contracts/goerli',
         'deployed-contracts/holesky',
         'deployed-contracts/sepolia'
       ],
