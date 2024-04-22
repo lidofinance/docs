@@ -51,7 +51,7 @@
 - Aragon APMRegistry: [`0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A`](https://holesky.etherscan.io/address/0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A) (proxy)
 - Gate Seal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
-- Gate Seal: [`0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60`](https://holesky.etherscan.io/address/0x7f6FA688d4C12a2d51936680b241f3B0F0F9ca60)
+- Gate Seal: [`0xF4F7a0035F12F750f66BC39443D4870aB5A53947`](https://holesky.etherscan.io/address/0xF4F7a0035F12F750f66BC39443D4870aB5A53947)
 
 ## Staking modules
 
