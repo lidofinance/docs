@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.2.1">
 <title data-rh="true">Tooling Overview | Lido Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://lidofinance.github.io/guides/tooling"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Tooling Overview | Lido Docs"><meta data-rh="true" name="description" content="Summary of tooling used in Lido V2: Oracle, Validator Ejector, Council Daemon, and Keys API."><meta data-rh="true" property="og:description" content="Summary of tooling used in Lido V2: Oracle, Validator Ejector, Council Daemon, and Keys API."><link data-rh="true" rel="icon" href="/img/favicon-32x32.png"><link data-rh="true" rel="canonical" href="https://lidofinance.github.io/guides/tooling"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/guides/tooling" hreflang="en"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/guides/tooling" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.1ab54db2.css">
-<script src="/assets/js/runtime~main.36a30904.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fc3186dc.js" defer="defer"></script>
 <script src="/assets/js/main.e7a0bb07.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,31 +23,31 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="validator-ejector">Validator Ejector<a href="#validator-ejector" class="hash-link" aria-label="Direct link to Validator Ejector" title="Direct link to Validator Ejector">​</a></h2>
 <p>Daemon service which loads LidoOracle events for validator exits and sends out exit messages when necessary.</p>
 <ul>
-<li><strong>Version</strong>: 1.2.0</li>
-<li><strong>Docker image</strong>: sha256<!-- -->:e3acb5eb1bab5a871bf70e9bb736e1a1016567e1846a9b96c27232c84643597a<!-- -->, <a href="https://hub.docker.com/layers/lidofinance/validator-ejector/1.2.0/images/sha256-e3acb5eb1bab5a871bf70e9bb736e1a1016567e1846a9b96c27232c84643597a?context=explore" target="_blank" rel="noopener noreferrer">lidofinance/validator-ejector@sha256-e3acb5eb1bab5a871bf70e9bb736e1a1016567e1846a9b96c27232c84643597a</a></li>
-<li><strong>Commit hash</strong>: <a href="https://github.com/lidofinance/validator-ejector/commit/c2d05cbfff039a8332f4ae5994fc1148b8cbf154" target="_blank" rel="noopener noreferrer">lidofinance/validator-ejector@c2d05cb</a></li>
-<li><strong>Last update date</strong>: 26 April, 2023</li>
-<li><a href="https://github.com/lidofinance/validator-ejector/tree/1.2.0#readme" target="_blank" rel="noopener noreferrer"><strong>Repository</strong></a></li>
+<li><strong>Version</strong>: 1.6.0</li>
+<li><strong>Docker image</strong>: sha256:6d80a57895e0a4d577dc78b187d2bbc62742259ccc1efcadff16685bda7a817e, <a href="https://hub.docker.com/layers/lidofinance/validator-ejector/1.6.0/images/sha256-6d80a57895e0a4d577dc78b187d2bbc62742259ccc1efcadff16685bda7a817e" target="_blank" rel="noopener noreferrer">lidofinance/validator-ejector@sha256-6d80a57895e0a4d577dc78b187d2bbc62742259ccc1efcadff16685bda7a817e</a></li>
+<li><strong>Commit hash</strong>: <a href="https://github.com/lidofinance/validator-ejector/commit/cae145cde6e0c41726335dcbb761395fd54c26de" target="_blank" rel="noopener noreferrer">lidofinance/validator-ejector@cae145c</a></li>
+<li><strong>Last update date</strong>: 17 April, 2024</li>
+<li><a href="https://github.com/lidofinance/validator-ejector/tree/1.6.0#readme" target="_blank" rel="noopener noreferrer"><strong>Repository</strong></a></li>
 <li><a href="/guides/validator-ejector-guide"><strong>Documentation</strong></a></li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="council-daemon">Council daemon<a href="#council-daemon" class="hash-link" aria-label="Direct link to Council daemon" title="Direct link to Council daemon">​</a></h2>
 <p>The Lido Council Daemon monitors deposit contract keys.</p>
 <ul>
-<li><strong>Version</strong>: 2.1.0</li>
-<li><strong>Docker image</strong>: sha256:5011d052162c0944e3a2eeafc7ea59c7297cfc955b208f9d5db163d7a0d76c62, <a href="https://hub.docker.com/layers/lidofinance/lido-council-daemon/2.1.0/images/sha256-5011d052162c0944e3a2eeafc7ea59c7297cfc955b208f9d5db163d7a0d76c62" target="_blank" rel="noopener noreferrer">lidofinance/lido-council-daemon@sha256-5011d052162c0944e3a2eeafc7ea59c7297cfc955b208f9d5db163d7a0d76c62</a></li>
-<li>Commit hash: <a href="https://github.com/lidofinance/lido-council-daemon/commit/b94bd014615ec32ba5dac09f81665a629e47e243" target="_blank" rel="noopener noreferrer">lidofinance/lido-council-daemon@b94bd01</a></li>
-<li><strong>Last update date</strong>: 1 March, 2024</li>
-<li><a href="https://github.com/lidofinance/lido-council-daemon/tree/2.1.0" target="_blank" rel="noopener noreferrer"><strong>Repository</strong></a></li>
+<li><strong>Version</strong>: 2.1.2</li>
+<li><strong>Docker image</strong>: sha256<!-- -->:a8fe22fdb9d6c51422f12b99cdd920150d9039127758490294b6a60641aa5eeb<!-- -->, <a href="https://hub.docker.com/layers/lidofinance/lido-council-daemon/2.1.2/images/sha256-a8fe22fdb9d6c51422f12b99cdd920150d9039127758490294b6a60641aa5eeb" target="_blank" rel="noopener noreferrer">lidofinance/lido-council-daemon@sha256-a8fe22fdb9d6c51422f12b99cdd920150d9039127758490294b6a60641aa5eeb</a></li>
+<li>Commit hash: <a href="https://github.com/lidofinance/lido-council-daemon/commit/e675a4856502b9f67e606f0c5f07d712288d5945" target="_blank" rel="noopener noreferrer">lidofinance/lido-council-daemon@e675a48</a></li>
+<li><strong>Last update date</strong>: 30 March, 2024</li>
+<li><a href="https://github.com/lidofinance/lido-council-daemon/tree/2.1.2" target="_blank" rel="noopener noreferrer"><strong>Repository</strong></a></li>
 <li><a href="/guides/deposit-security-manual"><strong>Documentation</strong></a></li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="keys-api">Keys API<a href="#keys-api" class="hash-link" aria-label="Direct link to Keys API" title="Direct link to Keys API">​</a></h2>
 <p>Lido keys HTTP API.</p>
 <ul>
-<li><strong>Version</strong>: 1.0.1</li>
-<li><strong>Docker image</strong>: sha256:1fa93bf79f68c624b144aa02f3af780f9a6236cbe2dc95a11208d3aa33ca11ad, <a href="https://hub.docker.com/layers/lidofinance/lido-keys-api/1.0.1/images/sha256-1fa93bf79f68c624b144aa02f3af780f9a6236cbe2dc95a11208d3aa33ca11ad" target="_blank" rel="noopener noreferrer">lidofinance/lido-keys-api@sha256-1fa93bf79f68c624b144aa02f3af780f9a6236cbe2dc95a11208d3aa33ca11ad</a></li>
-<li><strong>Commit hash</strong>: <a href="https://github.com/lidofinance/lido-keys-api/commit/495ab7d8c63b770e98f06b80a7c7e3bd8eb13a0c" target="_blank" rel="noopener noreferrer">lidofinance/lido-keys-api@495ab7d</a></li>
-<li><strong>Last update date</strong>: 5 February, 2024</li>
-<li><a href="https://github.com/lidofinance/lido-keys-api/tree/1.0.1" target="_blank" rel="noopener noreferrer"><strong>Repository</strong></a></li>
+<li><strong>Version</strong>: 1.0.2</li>
+<li><strong>Docker image</strong>: sha256:1031ae9696c0cba41c32ca9496935be459a69ccbd18079631faa0413afd3ac4f, <a href="https://hub.docker.com/layers/lidofinance/lido-keys-api/1.0.2/images/sha256-1031ae9696c0cba41c32ca9496935be459a69ccbd18079631faa0413afd3ac4f" target="_blank" rel="noopener noreferrer">lidofinance/lido-keys-api@sha256-1031ae9696c0cba41c32ca9496935be459a69ccbd18079631faa0413afd3ac4f</a></li>
+<li><strong>Commit hash</strong>: <a href="https://github.com/lidofinance/lido-keys-api/commit/33141b195563769151f3d1054acdf785d92db381" target="_blank" rel="noopener noreferrer">lidofinance/lido-keys-api@33141b1</a></li>
+<li><strong>Last update date</strong>: 28 February, 2024</li>
+<li><a href="https://github.com/lidofinance/lido-keys-api/tree/1.0.2" target="_blank" rel="noopener noreferrer"><strong>Repository</strong></a></li>
 <li><a href="/guides/kapi-guide"><strong>Documentation</strong></a></li>
 </ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/lidofinance/docs/blob/main/docs/guides/tooling.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/guides/deposit-security-manual"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Deposit Security Committee manual</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/guides/validator-ejector-guide"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Validator Ejector</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#oracle" class="table-of-contents__link toc-highlight">Oracle</a></li><li><a href="#validator-ejector" class="table-of-contents__link toc-highlight">Validator Ejector</a></li><li><a href="#council-daemon" class="table-of-contents__link toc-highlight">Council daemon</a></li><li><a href="#keys-api" class="table-of-contents__link toc-highlight">Keys API</a></li></ul></div></div></div></div></main></div></div></div></div>
 </body>
