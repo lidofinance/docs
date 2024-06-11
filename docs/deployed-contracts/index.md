@@ -406,7 +406,7 @@ Kyber Network
 
 ## LRT Vaults on Mellow Protocol
 
-There's a joint bug bounty for the vaults deployed at addresses listed in [the deployment verification audit record](https://github.com/mellow-finance/mellow-lrt/blob/dev-symbiotic-deploy/audits/202406_Statemind/Mellow%20LRT%20report%20with%20deployment.pdf). Any findings regarding the code deployed on those addresses can be reported to [the Lido Immunefi Bug bounty](https://immunefi.com/bug-bounty/lido/) with thresholds of up to $500k on critical finding.
+There's a joint bug bounty for the vaults deployed at addresses listed in [the deployment verification audit record](https://github.com/mellow-finance/mellow-lrt/blob/85370ae372f95d057dc9806ec98fde24e5ed4d29/audits/202406_Statemind/Mellow%20LRT%20report%20with%20deployment.pdf). Any findings regarding the code deployed on those addresses can be reported to [the Lido Immunefi Bug bounty](https://immunefi.com/bug-bounty/lido/) with thresholds of up to $500k on critical finding.
 
 ## Legacy contracts
 
