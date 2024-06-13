@@ -16,15 +16,15 @@ Community Staking Module (CSM) is a permissionless staking module aimed at attra
 - The **Lido DAO** is a Decentralized Autonomous Organization that decides on the critical parameters of controlled liquid staking protocols through the voting power of governance token (LDO).
 - A **Node Operator** (NO) is a person or entity that runs validators;
 - `Lido` is a core contract of the Lido on Ethereum protocol that stores the protocol state, accepts user submissions, and includes the stETH token;
-- **stETH** is an ERC-20 token minted by `Lido` and representing a share of the [`totalPooledEther`](https://docs.lido.fi/contracts/lido/#rebase);
+- **stETH** is an ERC-20 token minted by [`Lido`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) smart contract and representing a share of the [`totalPooledEther`](https://docs.lido.fi/contracts/lido/#rebase);
 - **Deposit data** refers to a structure consisting of the validator’s public key and deposit signature submitted to `DepositContract`. This term can also be referred to as `keys` in the text. Validator private keys are created, stored, and managed by Node Operators exclusively;
 - `DepositContract` is the official contract for validator deposits;
 - `DepositSecurityModule` or [**DSM**](https://docs.lido.fi/contracts/deposit-security-module) is a set of smart contract and off-chain parts mitigating the [vulnerability](https://docs.lido.fi/guides/deposit-security-manual#the-vulnerability);
 - A validator is considered to be **“unbonded”** when the current Node Operator bond is not sufficient to cover this validator;
 - A validator is considered to be ["**stuck**"](https://docs.lido.fi/contracts/staking-router#exited-and-stuck-validators) if it has not been exited timely following an exit signal from the protocol;
 - The **Curated module** is the first Lido staking module previously referred to as [Node Operators Registry](https://docs.lido.fi/contracts/node-operators-registry);
-- **EasyTrack** is a suite of smart contracts and an alternative veto-based voting model that streamlines routine DAO operations;
-- **AccountingOracle** is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the amount of funds accumulated on the protocol vaults (i.e., withdrawal and execution layer rewards vaults), the number of exited and stuck validators, the number of withdrawal requests the protocol can process and distributes node-operator rewards;
+- **Easy Track** is a suite of smart contracts and an alternative veto-based voting model that streamlines routine DAO operations;
+- **Accounting Oracle** is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the amount of funds accumulated on the protocol vaults (i.e., withdrawal and execution layer rewards vaults), the number of exited and stuck validators, the number of withdrawal requests the protocol can process and distributes node-operator rewards;
 
 ## 🌎 General info
 CSM is a staking module offering permissionless entry with a bond. This module aims to become a clear pathway for independent [community stakers](https://research.lido.fi/t/lido-on-ethereum-community-validation-manifesto/3331#lido-on-ethereum-community-validation-manifesto-1) (solo stakers or home stakers) to enter the Lido on Ethereum protocol (LoE) node operator set. The bond requirement is an essential security and alignment tool that makes permissionless entry possible without compromising the security or reliability of the underlying staking protocol (LoE).
