@@ -31,7 +31,7 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | Azat | 0xA14BFfd91fb571bF1D9Bec70f273CAc13CA127Fa | https://etherscan.io/verifySig/11715 | https://twitter.com/mymphe/status/1587330426204569602 |
 | Krogla | 0x000000DfE832ccD7a4011a1Fca34602C9a598353 | https://etherscan.io/verifySig/11723 | https://twitter.com/_krogla/status/1587487599328985088 |
-| skozin | 0x181dbb1E8156518a58Cbb83AF4D3C41E731c6bdF | https://etherscan.io/verifySig/11732 | https://twitter.com/_skozin/status/1587450225576542208 |
+| alxmrn | 0x444C7182bD7cd40f323Ba7A9b84d6B7564ccf5EC | https://etherscan.io/verifySig/251892 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/31 |
 | rotorless | 0xF6E9a144D727C239cC2A7C64C48B8b9A0E39b3dc | https://etherscan.io/verifySig/11738 | https://twitter.com/Rotorless/status/1587495360523558913?s=20&t=odjKDY2pP7SfI9QNz6iGJg |
 
 ## 4.2 Argo Technology Consulting Ltd. (ATC):
@@ -40,7 +40,7 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 
 **Purpose of the multisig:** The multisig is used for signing off by Argo Technology Consulting Ltd. It receives grants from the Lido DAO and allocates them in accordance with its own budget. It is able to create Easy Track motions for requesting grants from the DAO Treasury in DAI tokens.
 
-**Quorum:** 4/6
+**Quorum:** 4/7
 
 **Proposed on the forum:** [[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133)
 
@@ -64,6 +64,7 @@ ATC DAI TopUpAllowedRecipients [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](ht
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | madlabman | 0xA8815bc0B541D0a28dA7b8f759EB7E157e8fF8b0 | https://etherscan.io/verifySig/16459 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/26 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/16458 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/25 |
+| Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/246897 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/29 |
 
 ## 4.3 Resourcing and Compensation Committee (RCC)
 
