@@ -95,3 +95,27 @@ The goals for this deployment are:
 - ProxyAdmin: [`0xc6cdc2839378d50e03c9737723d96d117b09bda5`](https://sepolia.scrollscan.com/address/0xc6cdc2839378d50e03c9737723d96d117b09bda5) for:
   - L2LidoGateway
   - L2WstETHToken
+
+## Lido on Binance 
+
+##### Ethereum part
+
+- CrossChainController: [`0x9d8548963Fa0a9BE7C434cA482dd5b79E8062d3A`](https://sepolia.etherscan.io/address/0x9d8548963Fa0a9BE7C434cA482dd5b79E8062d3A) (proxy)
+- CrossChainController: [`0x57B3C8DC50d1C881fCB384Da4d66f3d610671177`](https://sepolia.etherscan.io/address/0x57B3C8DC50d1C881fCB384Da4d66f3d610671177) (impl)
+- ProxyAdmin [`0x7BE89331452883D335C2556d1863CD2925E76afc`](https://sepolia.etherscan.io/address/0x7BE89331452883D335C2556d1863CD2925E76afc) for CrossChainController 
+- CCIPAdapterTestnet: [`0xA0362E6D6f399A3dca79a20cf6041807F7Bfd89e`](https://sepolia.etherscan.io/address/0xA0362E6D6f399A3dca79a20cf6041807F7Bfd89e) 
+- HyperLaneAdapter: [`0x9aa88aD35da12C89F5514d04e3BBd8CD95fDf428`](https://sepolia.etherscan.io/address/0x9aa88aD35da12C89F5514d04e3BBd8CD95fDf428)
+- LayerZeroAdapterTestnet: [`0xFA3199330C9F33e5bA2D559574033D9cf3FCb609`](https://sepolia.etherscan.io/address/0xFA3199330C9F33e5bA2D559574033D9cf3FCb609)
+- WormholeAdapterTestnet: [`0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d`](https://sepolia.etherscan.io/address/0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d)
+
+##### Binance part
+
+- CrossChainController: [`0x1FAa7AFD7851e7Cf931053e49CE26D4E262698b6`](https://testnet.bscscan.com/address/0x1FAa7AFD7851e7Cf931053e49CE26D4E262698b6) (proxy)
+- CrossChainController: [`0x5EC23B39E6E8eb5BA0c7064a0c08b5e678b02F37`](https://testnet.bscscan.com/address/0x5EC23B39E6E8eb5BA0c7064a0c08b5e678b02F37) (impl)
+- ProxyAdmin [`0x490E441352635aacA64224c8205636FD9d2e3362`](https://testnet.bscscan.com/address/0x490E441352635aacA64224c8205636FD9d2e3362) for CrossChainController
+- CrossChainExecutor: [`0x69EE990d0AADEfcbbA0F2de94E0F26521ae680ff`](https://testnet.bscscan.com/address/0x69EE990d0AADEfcbbA0F2de94E0F26521ae680ff)
+- CCIPAdapterTestnet: [`0x39B321FC78B96fB184191788dD87e8B7c498bcEa`](https://testnet.bscscan.com/address/0x39B321FC78B96fB184191788dD87e8B7c498bcEa)
+- HyperLaneAdapter: [`0xa75A4F7E70a983b7388CcAA1F6C88BebC4AFc0Ef`](https://testnet.bscscan.com/address/0xa75A4F7E70a983b7388CcAA1F6C88BebC4AFc0Ef)
+- LayerZeroAdapterTestnet: [`0xa950B68BDA44419683c788C5E5845abC8F1863C1`](https://testnet.bscscan.com/address/0xa950B68BDA44419683c788C5E5845abC8F1863C1)
+- WormholeAdapterTestnet: [`0x30dF46cF148Df5eB53eb8B81b0BD5Bc785001E12`](https://testnet.bscscan.com/address/0x30dF46cF148Df5eB53eb8B81b0BD5Bc785001E12)
+
