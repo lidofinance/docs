@@ -20,9 +20,9 @@ For easier DeFi integrations, `stETH` has a non-rebasable value-accruing counter
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
 
 - The most important on-chain liquidity venues include:
-  - [stETH/ETH liquidity pool on Curve](https://curve.fi/steth)
+  - [stETH/ETH liquidity pool on Curve](https://curve.fi/#/ethereum/pools/steth)
   - [wstETH/ETH Composable stable pool on Balancer v2](https://app.balancer.fi/#/ethereum/pool/0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd0000000000000000000005c2)
-  - [wstETH/ETH pool on Uniswap V3](https://info.uniswap.org/#/pools/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa)
+  - [wstETH/ETH pool on Uniswap V3](https://app.uniswap.org/explore/pools/ethereum/0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa)
 - wstETH is listed as a collateral token on the following AAVE v3 markets:
   - [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0&marketName=proto_mainnet_v3)
   - [Arbitrum](https://app.aave.com/reserve-overview/?underlyingAsset=0x5979d7b546e38e414f7e9822514be443a4800529&marketName=proto_arbitrum_v3)
