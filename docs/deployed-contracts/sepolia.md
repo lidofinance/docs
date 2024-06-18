@@ -96,7 +96,7 @@ The goals for this deployment are:
   - L2LidoGateway
   - L2WstETHToken
 
-## Lido on Binance 
+## Lido on BSC 
 
 ##### Ethereum part
 
