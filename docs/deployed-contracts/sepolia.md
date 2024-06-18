@@ -108,7 +108,7 @@ The goals for this deployment are:
 - LayerZeroAdapterTestnet: [`0xFA3199330C9F33e5bA2D559574033D9cf3FCb609`](https://sepolia.etherscan.io/address/0xFA3199330C9F33e5bA2D559574033D9cf3FCb609)
 - WormholeAdapterTestnet: [`0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d`](https://sepolia.etherscan.io/address/0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d)
 
-##### Binance part
+##### BSC part
 
 - CrossChainController: [`0x1FAa7AFD7851e7Cf931053e49CE26D4E262698b6`](https://testnet.bscscan.com/address/0x1FAa7AFD7851e7Cf931053e49CE26D4E262698b6) (proxy)
 - CrossChainController: [`0x5EC23B39E6E8eb5BA0c7064a0c08b5e678b02F37`](https://testnet.bscscan.com/address/0x5EC23B39E6E8eb5BA0c7064a0c08b5e678b02F37) (impl)
