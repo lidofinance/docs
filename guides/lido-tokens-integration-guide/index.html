@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.2.1">
 <title data-rh="true">Lido tokens integration guide | Lido Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://lidofinance.github.io/guides/lido-tokens-integration-guide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Lido tokens integration guide | Lido Docs"><meta data-rh="true" name="description" content="This document is intended for developers looking to integrate Lido&#x27;s stETH or wstETH as a token into their dApp, with a focus on money markets, DEXes and blockchain bridges."><meta data-rh="true" property="og:description" content="This document is intended for developers looking to integrate Lido&#x27;s stETH or wstETH as a token into their dApp, with a focus on money markets, DEXes and blockchain bridges."><link data-rh="true" rel="icon" href="/img/favicon-32x32.png"><link data-rh="true" rel="canonical" href="https://lidofinance.github.io/guides/lido-tokens-integration-guide"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/guides/lido-tokens-integration-guide" hreflang="en"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/guides/lido-tokens-integration-guide" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.1ab54db2.css">
-<script src="/assets/js/runtime~main.71fac361.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.65ed7659.js" defer="defer"></script>
 <script src="/assets/js/main.e7a0bb07.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,9 +23,9 @@ For easier DeFi integrations, <code>stETH</code> has a non-rebasable value-accru
 <ul>
 <li>The most important on-chain liquidity venues include:<!-- -->
 <ul>
-<li><a href="https://curve.fi/steth" target="_blank" rel="noopener noreferrer">stETH/ETH liquidity pool on Curve</a></li>
+<li><a href="https://curve.fi/#/ethereum/pools/steth" target="_blank" rel="noopener noreferrer">stETH/ETH liquidity pool on Curve</a></li>
 <li><a href="https://app.balancer.fi/#/ethereum/pool/0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd0000000000000000000005c2" target="_blank" rel="noopener noreferrer">wstETH/ETH Composable stable pool on Balancer v2</a></li>
-<li><a href="https://info.uniswap.org/#/pools/0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa" target="_blank" rel="noopener noreferrer">wstETH/ETH pool on Uniswap V3</a></li>
+<li><a href="https://app.uniswap.org/explore/pools/ethereum/0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa" target="_blank" rel="noopener noreferrer">wstETH/ETH pool on Uniswap V3</a></li>
 </ul>
 </li>
 <li>wstETH is listed as a collateral token on the following AAVE v3 markets:<!-- -->
@@ -39,7 +39,7 @@ For easier DeFi integrations, <code>stETH</code> has a non-rebasable value-accru
 <li>stETH is listed as a collateral token on the AAVE v2 <a href="https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&amp;marketName=proto_mainnet" target="_blank" rel="noopener noreferrer">Ethereum mainnet</a> market</li>
 <li>wstETH is <a href="https://daistats.com/#/collateral" target="_blank" rel="noopener noreferrer">listed as a collateral token on Maker</a></li>
 <li>steCRV (the Curve stETH/ETH LP token) is <a href="https://daistats.com/#/collateral" target="_blank" rel="noopener noreferrer">listed as a collateral token on Maker</a></li>
-<li>there are multiple liquidity strategies built on top of Lido&#x27;s stTokens, including <a href="https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325" target="_blank" rel="noopener noreferrer">Yearn</a> and <a href="https://harvest.finance/" target="_blank" rel="noopener noreferrer">Harvest Finance</a></li>
+<li>there are multiple liquidity strategies built on top of Lido&#x27;s stTokens, including <a href="https://yearn.fi/vaults/1/0xdCD90C7f6324cfa40d7169ef80b12031770B4325" target="_blank" rel="noopener noreferrer">Yearn</a> and <a href="https://harvest.finance/" target="_blank" rel="noopener noreferrer">Harvest Finance</a></li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="integration-utilities-chainlink-price-feeds">Integration utilities: ChainLink price feeds<a href="#integration-utilities-chainlink-price-feeds" class="hash-link" aria-label="Direct link to Integration utilities: ChainLink price feeds" title="Direct link to Integration utilities: ChainLink price feeds">​</a></h4>
 <ul>
