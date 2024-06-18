@@ -31,7 +31,7 @@ Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosyst
 - stETH is listed as a collateral token on the AAVE v2 [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) market
 - wstETH is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
 - steCRV (the Curve stETH/ETH LP token) is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
-- there are multiple liquidity strategies built on top of Lido's stTokens, including [Yearn](https://yearn.finance/#/vault/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
+- there are multiple liquidity strategies built on top of Lido's stTokens, including [Yearn](https://yearn.fi/vaults/1/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
 
 #### Integration utilities: ChainLink price feeds
 
