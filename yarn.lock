@@ -5664,6 +5664,7 @@ __metadata:
     clsx: "npm:^2.1.0"
     prettier: "npm:^3.3.2"
     prism-react-renderer: "npm:^2.3.1"
+    prop-types: "npm:^15.8.1"
     react: "npm:^18.3.0"
     react-dom: "npm:^18.3.0"
   languageName: unknown
@@ -10594,7 +10595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
