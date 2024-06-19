@@ -25,8 +25,6 @@ The second penalty has the form of a delayed penalty with a challenge period. A 
 
 The third penalty type is calculated using the validator withdrawal balance (actual reporting is described in the section below). This penalty is applied immediately within the reporting transaction. If the initial slashing penalty is applied (first penalty type), it will be accounted for to avoid double penalization.
 
-While permissionless bonded modules drastically reduce the price of creating validators, they also decrease the cost of a potential attack on the Ethereum network. To ensure that malicious module takeover at the early stages of its maturity can be mitigated by the Lido DAO, a method allowing arbitrary bond penalization based on the DAO decision is introduced. This method is supplied with an expiry timer to ensure that it can not be used in the later stages of the module life. Once expired, it can never be called.
-
 ## Mechanics
 There are two mechanics related to Node Operator bond penalization.
 
