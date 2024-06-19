@@ -18,8 +18,9 @@
     "@docusaurus/core": "^3.4.0",
     "@docusaurus/plugin-client-redirects": "^3.4.0",
     "@docusaurus/preset-classic": "^3.4.0",
+    "@docusaurus/theme-common": "^3.4.0",
     "@docusaurus/theme-mermaid": "^3.4.0",
-    "@easyops-cn/docusaurus-search-local": "^0.40.1",
+    "@easyops-cn/docusaurus-search-local": "^0.44.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.1.0",
     "prism-react-renderer": "^2.3.1",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/types": "3.4.0",
+    "@types/react": "^18.3.0",
     "prettier": "^3.3.2"
   },
   "packageManager": "yarn@4.3.0",

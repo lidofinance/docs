@@ -2140,7 +2140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-common@npm:3.4.0":
+"@docusaurus/theme-common@npm:3.4.0, @docusaurus/theme-common@npm:^3.4.0":
   version: 3.4.0
   resolution: "@docusaurus/theme-common@npm:3.4.0"
   dependencies:
@@ -2314,9 +2314,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@easyops-cn/docusaurus-search-local@npm:^0.40.1":
-  version: 0.40.1
-  resolution: "@easyops-cn/docusaurus-search-local@npm:0.40.1"
+"@easyops-cn/docusaurus-search-local@npm:^0.44.1":
+  version: 0.44.1
+  resolution: "@easyops-cn/docusaurus-search-local@npm:0.44.1"
   dependencies:
     "@docusaurus/plugin-content-docs": "npm:^2 || ^3"
     "@docusaurus/theme-translations": "npm:^2 || ^3"
@@ -2338,7 +2338,7 @@ __metadata:
     "@docusaurus/theme-common": ^2 || ^3
     react: ^16.14.0 || ^17 || ^18
     react-dom: ^16.14.0 || 17 || ^18
-  checksum: 10c0/7b0c14a8e5578e3da0f787534dc37211fc3ad1d02acf1357350462ff2147039449fabc3179a2c1d319f2476f8e4e4da19ce75c4bbb34ac7cb3d48842ff7f5a4c
+  checksum: 10c0/5e2a22b8fe9095fd3e2a47422675ada191fd40f1d455e3bc517cba12f4639af1efcae24b9e1a2af06a70ccc2b5ce6e531bb562208b8c76c9fe6296e19866db9a
   languageName: node
   linkType: hard
 
@@ -3368,7 +3368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:^18.3.0":
   version: 18.3.3
   resolution: "@types/react@npm:18.3.3"
   dependencies:
@@ -5655,10 +5655,12 @@ __metadata:
     "@docusaurus/module-type-aliases": "npm:3.4.0"
     "@docusaurus/plugin-client-redirects": "npm:^3.4.0"
     "@docusaurus/preset-classic": "npm:^3.4.0"
+    "@docusaurus/theme-common": "npm:^3.4.0"
     "@docusaurus/theme-mermaid": "npm:^3.4.0"
     "@docusaurus/types": "npm:3.4.0"
-    "@easyops-cn/docusaurus-search-local": "npm:^0.40.1"
+    "@easyops-cn/docusaurus-search-local": "npm:^0.44.1"
     "@mdx-js/react": "npm:^3.0.0"
+    "@types/react": "npm:^18.3.0"
     clsx: "npm:^2.1.0"
     prettier: "npm:^3.3.2"
     prism-react-renderer: "npm:^2.3.1"
