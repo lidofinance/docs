@@ -13,6 +13,11 @@ CSM accepts deposit data in the same [format](https://docs.lido.fi/contracts/nod
 - `32 ETH amount`;
 
 ## Bond
+
+> Here and after, the term 'bond' has the following meaning:
+> 
+> **Bond** - a security collateral that Node Operators must submit before uploading validator keys into CSM. This collateral covers possible losses caused by inappropriate actions on the Node Operator's side. Once the validator exits from the Beacon chain and all losses that occurred are covered, the collateral can be claimed or reused to upload new validator keys.
+
 A bond is a property of a Node Operator, not a validator. Bond is stored in the form of stETH. Node Operators can submit bond tokens in ETH, stETH, and wstETH. Provided ETH is staked, and wstETH is unwrapped during submission to ensure stETH is the only form of a bond.
 
 The total amount of the bond required depends on the total number of Node Operator's validators and has the form of a function [`getBondAmountByKeysCount(keysCount)`](https://github.com/lidofinance/community-staking-module/blob/main/src/abstract/CSBondCurve.sol#L92)
