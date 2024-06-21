@@ -12,7 +12,7 @@ Community Staking Module (CSM) is a permissionless staking module aimed at attra
     - is responsible for on/off-boarding operators,
     - maintains validator deposits, withdrawals, and exits,
     - maintains fee structure and distribution for the module and participants, etc;
-- A **bond** is ETH or stETH put out by a Node Operator as collateral for bad behavior or poor performance;
+- **Bond** - a security collateral that Node Operators must submit before uploading validator keys into CSM. This collateral covers possible losses caused by inappropriate actions on the Node Operator's side. Once the validator exits from the Beacon chain and all losses that occurred are covered, the collateral can be claimed or reused to upload new validator keys.
 - The **Lido DAO** is a Decentralized Autonomous Organization that decides on the critical parameters of controlled liquid staking protocols through the voting power of governance token (LDO).
 - A **Node Operator** (NO) is a person or entity that runs validators;
 - `Lido` is a core contract of the Lido on Ethereum protocol that stores the protocol state, accepts user submissions, and includes the stETH token;
