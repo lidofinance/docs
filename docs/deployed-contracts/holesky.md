@@ -1,5 +1,9 @@
 # Holešky
 
+:::info
+[Holešky testnet](./holesky.md) is the main operational and maintained protocol deployment.
+:::
+
 ## Core protocol
 
 - Lido Locator: [`0x28FAB2059C713A7F9D8c86Db49f9bb0e96Af1ef8`](https://holesky.etherscan.io/address/0x28FAB2059C713A7F9D8c86Db49f9bb0e96Af1ef8) (proxy)
