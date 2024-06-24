@@ -5,11 +5,11 @@
 To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one `validator pubkey`, corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding bond amount should be provided. 
 
 ## Deposit data preparation and upload
-CSM accepts deposit data in the same [format](https://docs.lido.fi/contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the Curated module, with the main difference being a requirement to submit the bond prior to or alongside deposit data upload.
+CSM accepts deposit data in the same [format](../../contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the Curated module, with the main difference being a requirement to submit the bond prior to or alongside deposit data upload.
 
 [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata) **must** sign the root of the `(deposit_message, domain)`. Where a `domain` is used to identify the chain, and `deposit_message` has the form of the following tuple:
 - `validator pubkey`;
-- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](https://docs.lido.fi/contracts/withdrawal-vault) address;
+- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](../../contracts/withdrawal-vault) address;
 - `32 ETH amount`;
 
 ## Bond
@@ -38,15 +38,16 @@ The term "unbonded" is introduced to refer to the validators for which the bond 
 ![join-csm-4](../../../static/img/csm/join-csm-4.png)
 
 ### Possible negative stETH rebase consequences
-With the bond being stored in stETH, there is a risk of a reduction in the bond amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual bond being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BkAP1ie86). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [fund](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35) at the Lido DAO's disposal for possible use as cover.
+With the bond being stored in stETH, there is a risk of a reduction in the bond amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual bond being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [fund](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35) at the Lido DAO's disposal for possible use as cover.
 
 ## Deposit data validation and invalidation (aka vetting and unvetting)
-Given the upcoming [DSM v1.5](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls `decreaseOperatorVettedKeys` to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
+Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls `decreaseOperatorVettedKeys` to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
 
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
 -   `targetLimit` is not set -> `vettedKeys - depositedKeys - unbondedKeys`
--   `targetLimit` is set -> `min(vettedKeys,targetLimit) - depositedKeys - unbondedKeys` or 0 if the Node Operator has `stuckKeys != 0`.
+-   `targetLimit` is set -> `min(vettedKeys,targetLimit) - depositedKeys - unbondedKeys` 
+-   Node Operator has `stuckKeys != 0` no matter the `targetLimit` -> `0`.
 
 ## Stake allocation queue
 
@@ -64,7 +65,7 @@ There are several pointers regarding deposit data storage in CSM. Among the othe
 - Once the deposit data is uploaded, if `totalKeys == vettedKeys`;
 - After the call of the `normalizeQueue` method, in case some keys were not placed into the queue upon upload (`totalKeys != vettedKeys` at the moment of upload) or were skipped during the queue iterations;
 
-There is a method to check the next `X`elements and remove those containing no depositable keys. These methods are required to ensure queue operation even in catastrophic scenarios resulting in significant queue "pollution" with the non-depositable keys.
+There is a method to check the next `X`elements and remove those containing no depositable keys. This methods is required to ensure queue operation even in catastrophic scenarios resulting in significant queue "pollution" with the non-depositable keys.
 
 A detailed description of the queue is provided in a separate [document](https://hackmd.io/@lido/ryw2Qo5ia).
 

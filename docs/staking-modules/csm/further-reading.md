@@ -1,6 +1,6 @@
 # Further reading
 
-- [Simple bond ADR](https://hackmd.io/@lido/BkAP1ie86)
+- [Simple bond ADR](https://hackmd.io/@lido/BJqWx7P0p)
 - [One performance threshold or more?](https://hackmd.io/@lido/BJclaWbi6)
 - [CSM Early Adoption](https://hackmd.io/@lido/HyKgaBMj6)
 - [Reset conditions for the CSM Node Operators' benefits](https://hackmd.io/@lido/SygBLW5ja)

@@ -21,14 +21,14 @@ There are three major reasons for CSM Node Operator's bond to be penalized:
 
 The first penalty is reported permissionlessly using [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) to prove the fact of slashing. This penalty is applied immediately within the reporting transaction.
 
-The second penalty has the form of a delayed penalty with a challenge period. A dedicated committee (reporter) detects MEV stealing and reports this fact on-chain, locking the bond funds. Settlement over EasyTrack motion (settler) ensures alignment between the DAO and detection committee. Once the penalty is settled (confirmed), all Node Operator's benefits are reset due to the violation of protocol rules. If the penalty is not settled for `retention_period` the locked bond is automatically unlocked.
+The second penalty has the form of a delayed penalty with a challenge period. A dedicated committee (reporter) detects MEV stealing (violation of the [Lido on Ethereum Block Proposer Rewards Policy](https://hackmd.io/No2SULzlSVytoWOJ2Wqa7g)) and reports this fact on-chain, locking the bond funds. Settlement over EasyTrack motion (settler) ensures alignment between the DAO and detection committee. Once the penalty is settled (confirmed), all Node Operator's benefits are reset due to the violation of protocol rules. If the penalty is not settled for `retention_period` the locked bond is automatically unlocked.
 
 The third penalty type is calculated using the validator withdrawal balance (actual reporting is described in the section below). This penalty is applied immediately within the reporting transaction. If the initial slashing penalty is applied (first penalty type), it will be accounted for to avoid double penalization.
 
 ## Mechanics
 There are two mechanics related to Node Operator bond penalization.
 
-The first one is burning stETH shares using the [Burner](https://docs.lido.fi/contracts/burner). Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
+The first one is burning stETH shares using the [Burner](../../contracts/burner). Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
 
 The second mechanic is transferring confiscated stETH to the [Lido DAO Treasury](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c). This approach is applied to penalties that are used to address protocol operational costs (e.g., `removalCharge`).
 
@@ -58,3 +58,4 @@ Detailed research on this topic is presented in a [separate document](https://ha
 ## Useful links
 
 - [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788)
+- [Lido on Ethereum Block Proposer Rewards Policy](https://hackmd.io/No2SULzlSVytoWOJ2Wqa7g)
