@@ -44,7 +44,7 @@ If the amount of the penalty exceeds the amount of the Node Operator bond availa
 A bond curve different from the default one can be treated as a benefit for the Node Operator. It is crucial to ensure a reset of the benefits in case of inappropriate performance or rule violations. There are 4 cases when benefits can be reset for the Node Operator in CSM:
 - EL rewards stealing is detected and confirmed;
 - Slashing is reported for one of the NO's validators;
-- One of the NO's validators is ejected due to insufficient CL balance (to be implemented after the Pectra hardfork);
+- One of the NO's validators is ejected due to insufficient CL balance (to be implemented after the Pectra hardfork bringing [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) to life);
 - Based on the DAO decision;
 
 If the Node Operator voluntarily exits all validators and claims all bond, benefits are not reset since there were no malicious or illegal actions from the Node Operator's side.
