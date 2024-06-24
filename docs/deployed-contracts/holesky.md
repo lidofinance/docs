@@ -61,10 +61,10 @@
 
 ### Community Staking Module
 
-- CSModule: [`0x4562c3e63c2e586cD1651B958C22F88135aCAd4f`](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f)
-- CSAccounting: [`0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1`](https://holesky.etherscan.io/address/0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1)
-- CSFeeDistributor: [`0xD7ba648C8F72669C6aE649648B516ec03D07c8ED`](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED)
-- CSFeeOracle: [`0xaF57326C7d513085051b50912D51809ECC5d98Ee`](https://holesky.etherscan.io/address/0xaF57326C7d513085051b50912D51809ECC5d98Ee)
+- CSModule: [`0x4562c3e63c2e586cD1651B958C22F88135aCAd4f`](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f) (proxy)
+- CSAccounting: [`0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1`](https://holesky.etherscan.io/address/0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1) (proxy)
+- CSFeeDistributor: [`0xD7ba648C8F72669C6aE649648B516ec03D07c8ED`](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED) (proxy)
+- CSFeeOracle: [`0xaF57326C7d513085051b50912D51809ECC5d98Ee`](https://holesky.etherscan.io/address/0xaF57326C7d513085051b50912D51809ECC5d98Ee) (proxy)
 - CSVerifier: [`0x6DcA479178E6Ae41CCEB72a88FfDaa3e10E83CB7`](https://holesky.etherscan.io/address/0x6DcA479178E6Ae41CCEB72a88FfDaa3e10E83CB7)
 - CSEarlyAdoption: [`0x71E92eA77C198a770d9f33A03277DbeB99989660`](https://holesky.etherscan.io/address/0x71E92eA77C198a770d9f33A03277DbeB99989660)
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
