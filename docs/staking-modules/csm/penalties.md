@@ -1,5 +1,18 @@
 # Penalties
 
+## Reasons
+There are three major reasons for CSM Node Operator's bond to be penalized:
+1. **The validator has been slashed.** In this case, the [initial (minimal) slashing penalty](https://github.com/ethereum/consensus-specs/blob/dev/specs/altair/beacon-chain.md#modified-slash_validator) is confiscated. Penalty amount = `EFFECTIVE_BALANCE / 32` = `1 ETH`;
+2. **The operator has stolen EL rewards (MEV).** Penalty amount = `amount stolen + fixed stealing fine` (can be applied across multiple NO validators);
+3. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH)**. Penalty amount = `DEPOSIT_AMOUNT - validator's withdrawal balance`;
+
+
+The first penalty is reported permissionlessly using [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) to prove the fact of slashing. This penalty is applied immediately within the reporting transaction.
+
+The second penalty has the form of a delayed penalty with a challenge period. A dedicated committee (reporter) detects MEV stealing (violation of the [Lido on Ethereum Block Proposer Rewards Policy](https://hackmd.io/No2SULzlSVytoWOJ2Wqa7g)) and reports this fact on-chain, locking the bond funds. Settlement over EasyTrack motion (settler) ensures alignment between the DAO and detection committee. Once the penalty is settled (confirmed), all Node Operator's benefits are reset due to the violation of protocol rules. If the penalty is not settled for `retention_period` the locked bond is automatically unlocked.
+
+The third penalty type is calculated using the validator withdrawal balance (actual reporting is described in the section below). This penalty is applied immediately within the reporting transaction. If the initial slashing penalty is applied (first penalty type), it will be accounted for to avoid double penalization.
+
 ## Immediate and delayed
 The following penalization schemes are introduced:
 1. **Immediate penalization** (for penalties that are unambiguous and can be assessed via trustless proofs);
@@ -12,18 +25,6 @@ The first role is the "reporter". Members of this role can initially report a fa
 The second role is called "settler". Members of this role can finalize (settle) previously reported penalties.
 
 Separating these two roles ensures that a penalty can only be applied when two independent actors agree. 
-
-## Reasons
-There are three major reasons for CSM Node Operator's bond to be penalized:
-1. **The validator has been slashed.** In this case, the [initial (minimal) slashing penalty](https://github.com/ethereum/consensus-specs/blob/dev/specs/altair/beacon-chain.md#modified-slash_validator) is confiscated. Penalty amount = `1 ETH` (`EFFECTIVE_BALANCE / 32`);
-2. **The operator has stolen EL rewards (MEV).** Penalty amount = `amount stolen + fixed stealing fine` (can be applied across multiple NO validators);
-3. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH)**. Penalty amount = `32 - validator's withdrawal balance`;
-
-The first penalty is reported permissionlessly using [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) to prove the fact of slashing. This penalty is applied immediately within the reporting transaction.
-
-The second penalty has the form of a delayed penalty with a challenge period. A dedicated committee (reporter) detects MEV stealing (violation of the [Lido on Ethereum Block Proposer Rewards Policy](https://hackmd.io/No2SULzlSVytoWOJ2Wqa7g)) and reports this fact on-chain, locking the bond funds. Settlement over EasyTrack motion (settler) ensures alignment between the DAO and detection committee. Once the penalty is settled (confirmed), all Node Operator's benefits are reset due to the violation of protocol rules. If the penalty is not settled for `retention_period` the locked bond is automatically unlocked.
-
-The third penalty type is calculated using the validator withdrawal balance (actual reporting is described in the section below). This penalty is applied immediately within the reporting transaction. If the initial slashing penalty is applied (first penalty type), it will be accounted for to avoid double penalization.
 
 ## Mechanics
 There are two mechanics related to Node Operator bond penalization.

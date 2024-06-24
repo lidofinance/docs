@@ -11,9 +11,9 @@ From the core protocol side, validator exit can be requested to cover withdrawal
 
 From CSM side, validator exits can be requested for unbonded validators. These exits are requested automatically using the `forcedTargetLimit`.
 
-> `forcedTargetLimit` is currently under development within the updated version of [Staking Router](https://hackmd.io/@lido/BJXRTxMRp#Forced-Exit-Requests1). In short, it is similar to the existing `targetLimit` but exits for the validators above forcedTargetLimit can be requested immediately, even without a need to fulfill withdrawal requests from stETH holders.
+> `forcedTargetLimit` is currently under development within the updated version of [Staking Router](https://hackmd.io/@lido/BJXRTxMRp#Forced-Exit-Requests1). In short, it is similar to the existing `targetLimit` but exits for the validators above `forcedTargetLimit` can be requested immediately, even without a need to fulfill withdrawal requests from stETH holders.
 
-Node Operators should follow VEBO events (for example, by using the [Ejector](https://github.com/lidofinance/validator-ejector)) to ensure they exit validators on time. The following penalties and limiting measures should be applied if the Node Operator refuses to exit validators after the protocol request:
+Node Operators should follow [VEBO](../../contracts/validators-exit-bus-oracle) events (for example, by using the [Ejector](https://github.com/lidofinance/validator-ejector)) to ensure they exit validators on time. The following penalties and limiting measures should be applied if the Node Operator refuses to exit validators after the protocol request:
 1. Exclude NO keys from the CSM deposit queue and do not put them back until `stuckKeysCount = 0`;
 2. Exclude Node Operator from the staking rewards allocation cycle within the the reporting period of the Performance Oracle if the Node Operator's `stuckKeysCount` was > 0 during it;
 
@@ -34,4 +34,5 @@ The withdrawal balance of the validator is required to release the bond and calc
 ## Useful links
 
 - [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788)
+- [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002)
 - [Pectra hardfork](https://eips.ethereum.org/EIPS/eip-7600)
