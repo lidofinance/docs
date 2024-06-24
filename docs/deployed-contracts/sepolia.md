@@ -1,16 +1,20 @@
 # Sepolia
 
-:::info
-Sepolia Testnet: The deployment is in progress :fire:
+:::warning
+Sepolia testnet has only a limited set of working parts of the protocol.
 
-There will be no comprehensive Lido testnet environment available for Sepolia due to the network's restricted and permission-based validator set configuration.
+For instance, the in-protocol [withdrawals](../contracts/withdrawal-queue-erc721.md) aren't available
+(paused indefinitely), please use the [Holešky testnet](./holesky.md) deployment if possible.
 
-The goals for this deployment are:
+The goals for this testnet deployment are:
 
 - Have end-to-end testnet for Lido on L2
-- The initial running-in of new zk-based oracles (based on [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) availability)
+- The running-in of new zk-based oracles (based on [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) availability)
 
+There will be no comprehensive Lido testnet environment available for Sepolia due to the network's restricted
+and permission-based [validator set](https://github.com/eth-clients/sepolia/issues/12) configuration.
 :::
+
 
 ## Core protocol
 
@@ -96,14 +100,14 @@ The goals for this deployment are:
   - L2LidoGateway
   - L2WstETHToken
 
-## Lido on BSC 
+## Lido on BSC
 
 ##### Ethereum part
 
 - CrossChainController: [`0x9d8548963Fa0a9BE7C434cA482dd5b79E8062d3A`](https://sepolia.etherscan.io/address/0x9d8548963Fa0a9BE7C434cA482dd5b79E8062d3A) (proxy)
 - CrossChainController: [`0x57B3C8DC50d1C881fCB384Da4d66f3d610671177`](https://sepolia.etherscan.io/address/0x57B3C8DC50d1C881fCB384Da4d66f3d610671177) (impl)
-- ProxyAdmin [`0x7BE89331452883D335C2556d1863CD2925E76afc`](https://sepolia.etherscan.io/address/0x7BE89331452883D335C2556d1863CD2925E76afc) for CrossChainController 
-- CCIPAdapterTestnet: [`0xA0362E6D6f399A3dca79a20cf6041807F7Bfd89e`](https://sepolia.etherscan.io/address/0xA0362E6D6f399A3dca79a20cf6041807F7Bfd89e) 
+- ProxyAdmin [`0x7BE89331452883D335C2556d1863CD2925E76afc`](https://sepolia.etherscan.io/address/0x7BE89331452883D335C2556d1863CD2925E76afc) for CrossChainController
+- CCIPAdapterTestnet: [`0xA0362E6D6f399A3dca79a20cf6041807F7Bfd89e`](https://sepolia.etherscan.io/address/0xA0362E6D6f399A3dca79a20cf6041807F7Bfd89e)
 - HyperLaneAdapter: [`0x9aa88aD35da12C89F5514d04e3BBd8CD95fDf428`](https://sepolia.etherscan.io/address/0x9aa88aD35da12C89F5514d04e3BBd8CD95fDf428)
 - LayerZeroAdapterTestnet: [`0xFA3199330C9F33e5bA2D559574033D9cf3FCb609`](https://sepolia.etherscan.io/address/0xFA3199330C9F33e5bA2D559574033D9cf3FCb609)
 - WormholeAdapterTestnet: [`0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d`](https://sepolia.etherscan.io/address/0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d)
@@ -118,4 +122,3 @@ The goals for this deployment are:
 - HyperLaneAdapter: [`0xa75A4F7E70a983b7388CcAA1F6C88BebC4AFc0Ef`](https://testnet.bscscan.com/address/0xa75A4F7E70a983b7388CcAA1F6C88BebC4AFc0Ef)
 - LayerZeroAdapterTestnet: [`0xa950B68BDA44419683c788C5E5845abC8F1863C1`](https://testnet.bscscan.com/address/0xa950B68BDA44419683c788C5E5845abC8F1863C1)
 - WormholeAdapterTestnet: [`0x30dF46cF148Df5eB53eb8B81b0BD5Bc785001E12`](https://testnet.bscscan.com/address/0x30dF46cF148Df5eB53eb8B81b0BD5Bc785001E12)
-
