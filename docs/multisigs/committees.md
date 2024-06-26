@@ -435,3 +435,29 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 
 
+### 2.8.13 Liquidity Observation Lab Committee ZK Token Multisig
+
+**Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
+
+**Forum topic:** [Lido DAO ZKSync ZK Token Airdrop Acceptance](https://research.lido.fi/t/lido-dao-zksync-zk-token-airdrop-acceptance)
+
+**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
+
+**Purpose of the multisig:** Accept ZK tokens provided to Lido DAO by airdrop or any other way on ZKSync.
+
+**Quorum:** 4/8
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
+| marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/apegenija/status/1619812143326720000 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+
+

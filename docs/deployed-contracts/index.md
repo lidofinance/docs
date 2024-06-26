@@ -255,6 +255,7 @@ pagination_next: deployed-contracts/holesky
 - Liquidity Observation Lab ARB Token Multisig: [`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/home?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56) (Arbitrum)
 - Liquidity Observation Lab: [`0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D`](https://app.safe.global/home?safe=base:0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D) (Base)
 - Liquidity Observation Lab: [`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) (zkSync Era)
+- Liquidity Observation Lab ZK Token Multisig: [`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/home?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913) (zkSync Era)
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Polygon)
 - Liquidity Observation Lab: [`0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4`](https://multisig.moonbeam.network/mriver:0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4/home) (Moonriver)
 - Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
