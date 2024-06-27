@@ -13,7 +13,7 @@
 - StakingRouter: [`0xd6EbF043D30A7fe46D1Db32BA90a0A51207FE229`](https://holesky.etherscan.io/address/0xd6EbF043D30A7fe46D1Db32BA90a0A51207FE229) (proxy)
 - Node Operators registry: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC) (proxy)
 - Simple DVT: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6) (proxy)
-- Deposit Security Module: [`0x045dd46212A178428c088573A7d102B9d89a022A`](https://holesky.etherscan.io/address/0x045dd46212A178428c088573A7d102B9d89a022A)
+- Deposit Security Module: [`0x808DE3b26Be9438F12E9B45528955EA94C17f217`](https://holesky.etherscan.io/address/0x808DE3b26Be9438F12E9B45528955EA94C17f217)
 - Execution Layer Rewards Vault: [`0xE73a3602b99f1f913e72F8bdcBC235e206794Ac8`](https://holesky.etherscan.io/address/0xE73a3602b99f1f913e72F8bdcBC235e206794Ac8)
 - Withdrawal Queue ERC721: [`0xc7cc160b58F8Bb0baC94b80847E2CF2800565C50`](https://holesky.etherscan.io/address/0xc7cc160b58F8Bb0baC94b80847E2CF2800565C50) (proxy)
 - Withdrawal Vault: [`0xF0179dEC45a37423EAD4FaD5fCb136197872EAd9`](https://holesky.etherscan.io/address/0xF0179dEC45a37423EAD4FaD5fCb136197872EAd9) (proxy)
@@ -28,7 +28,7 @@
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0xffDDF7025410412deaa05E3E1cE68FE53208afcb`](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb) (proxy)
   - HashConsensus: [`0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f`](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f)
-- OracleReportSanityChecker: [`0xF0d576c7d934bBeCc68FE15F1c5DAF98ea2B78bb`](https://holesky.etherscan.io/address/0xF0d576c7d934bBeCc68FE15F1c5DAF98ea2B78bb)
+- OracleReportSanityChecker: [`0xd7C870777e08325Ad0A3A85F41E66E7D84B63E4f`](https://holesky.etherscan.io/address/0xd7C870777e08325Ad0A3A85F41E66E7D84B63E4f)
 - OracleDaemonConfig: [`0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7`](https://holesky.etherscan.io/address/0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019`](https://holesky.etherscan.io/address/0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019) (proxy)
 
