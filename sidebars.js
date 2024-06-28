@@ -149,5 +149,23 @@ module.exports = {
         'ipfs/apps-list'
       ],
     },
+    {
+      type: 'category',
+      label: 'Staking Modules',
+      items: [
+        {
+          type: 'category',
+          label: 'CSM',
+          items: [
+            'staking-modules/csm/intro',
+            'staking-modules/csm/join-csm',
+            'staking-modules/csm/rewards',
+            'staking-modules/csm/penalties',
+            'staking-modules/csm/validator-exits',
+            'staking-modules/csm/further-reading',
+          ],
+        },
+      ],
+    },
   ],
 }
