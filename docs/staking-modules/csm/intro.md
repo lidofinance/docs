@@ -1,6 +1,8 @@
 # Intro
 
-> Terms "validator", "key", "validator key", and "deposit data" have the same meaning within the document.
+:::info
+Terms "validator", "key", "validator key", and "deposit data" have the same meaning within the document.
+:::
 
 ## ∑ TL;DR
 Community Staking Module (CSM) is a permissionless staking module aimed at attracting community stakers to participate in Lido on Ethereum protocol as Node Operators. The only requirement to join CSM as a Node Operator is to be able to run validators (according to the Lido on Ethereum policies) and supply a bond. The stake is allocated to the validator keys in the order in which the keys are provided, given the keys are valid. The bond is not directly associated with the actual validator's stake but instead treated as a security collateral. The bond is a characteristic of a Node Operator; hence, it is collateral for all Node Operator's validators. This allows for the bond reduction. The more validators the Node Operator has, the less the bond for one validator. Node Operators get their rewards from the bond rebase and from the Node Operator's portion of the staking rewards. Node Operator's portion of the staking rewards is socialized (averaged) if the validators perform above the threshold. Accumulated CL penalties resulting in a balance reduction below the deposit balance and stolen EL rewards are confiscated from the Node Operator's bond. Node Operators should perform validator exits upon protocol request or can exit voluntarily.
@@ -11,7 +13,8 @@ Community Staking Module (CSM) is a permissionless staking module aimed at attra
     - maintains the underlying operator and validator sets,
     - is responsible for on/off-boarding operators,
     - maintains validator deposits, withdrawals, and exits,
-    - maintains fee structure and distribution for the module and participants, etc;
+    - maintains fee structure and distribution for the module and participants, etc,
+    - conforms to the IStakingModule interface;
 - **Bond** - a security collateral that Node Operators must submit before uploading validator keys into CSM. This collateral covers possible losses caused by inappropriate actions on the Node Operator's side. Once the validator exits from the Beacon chain and all losses that occurred are covered, the collateral can be claimed or reused to upload new validator keys.
 - The **Lido DAO** is a Decentralized Autonomous Organization that decides on the critical parameters of controlled liquid staking protocols through the voting power of governance token (LDO).
 - A **Node Operator** (NO) is a person or entity that runs validators;
@@ -25,6 +28,7 @@ Community Staking Module (CSM) is a permissionless staking module aimed at attra
 - The **Curated module** is the first Lido staking module previously referred to as [Node Operators Registry](../../contracts/node-operators-registry);
 - **Easy Track** is a suite of smart contracts and an alternative veto-based voting model that streamlines routine DAO operations;
 - [**Accounting Oracle**](../../contracts/accounting-oracle.md) is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the amount of funds accumulated on the protocol vaults (i.e., withdrawal and execution layer rewards vaults), the number of exited and stuck validators, the number of withdrawal requests the protocol can process and distributes node-operator rewards and performs `stETH` token rebase;
+- [**VEBO**](../../contracts/validators-exit-bus-oracle.md) or Validators Exit Bus Oracle is a contract that implements an on-chain "source of truth" message bus between the protocol's off-chain oracle and off-chain observers, with the main goal of delivering validator exit requests to the Lido-participating Node Operators.
 
 ## 🌎 General info
 CSM is a staking module offering permissionless entry with a bond. This module aims to become a clear pathway for independent [community stakers](https://research.lido.fi/t/lido-on-ethereum-community-validation-manifesto/3331#lido-on-ethereum-community-validation-manifesto-1) (solo stakers or home stakers) to enter the Lido on Ethereum protocol (LoE) node operator set. The bond requirement is an essential security and alignment tool that makes permissionless entry possible without compromising the security or reliability of the underlying staking protocol (LoE).
@@ -39,7 +43,11 @@ The [Curated module](../../contracts/node-operators-registry.md) uses the "exite
 A Node Operator must supply a bond to upload a new validator key to CSM. It is reasonable to allocate a stake in an order similar to the bond submission order. For this purpose, a FIFO (first in, first out) [stake allocation queue](join-csm.md#stake-allocation-queue) is utilized. Once the Staking Router requests keys to make a deposit, the next `X` keys from the queue are returned, preserving the bond submit order.
 
 ### Alternative measures for "stuck" keys
-The presence of "stuck" keys for the Node Operator indicates the [Lido exit policy](../../guides/node-operators/general-overview#validator-exits-policy-penalties-and-recovering) violation. In this case, a module should apply measures for the policy-violating Node Operator. CSM uses measures that are different from those of the curated module. The measures are described in the corresponding [section](validator-exits.md#protocol-initiated-exits).
+The presence of "stuck" ("Delinquent" in the [original terms](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330)) keys for the Node Operator indicates the [Lido exit policy](../../guides/node-operators/general-overview#validator-exits-policy-penalties-and-recovering) violation. In this case, a module should apply measures for the policy-violating Node Operator. CSM uses measures that are different from those of the curated module. The measures are described in the corresponding [section](validator-exits.md#protocol-initiated-exits).
+
+:::info
+Note: CSM does not apply any measures to "Delayed" validators.
+:::
 
 ### Node Operator structure
 The Node Operator data structure in CSM is similar to that of the [Curated module](../../contracts/node-operators-registry.md), with several minor differences:
@@ -48,7 +56,7 @@ The Node Operator data structure in CSM is similar to that of the [Curated modul
 - A new property, `managerAddress`, is introduced. The Node Operator should perform method calls from this address;
 - A new property, `totalWithdrawnKeys`, is introduced to count the total count of the withdrawn keys per Node Operator;
 - A new property, `depositableValidatorsCount`, is introduced to count the current deposit data eligible for deposits;
-- A new property, `enqueuedCount`, is introduced to keep track of the unqueued depositable keys;
+- A new property, `enqueuedCount`, is introduced to keep track of the depositable keys that are in the queue. Also useful to determine depositable keys that are not in the queue at the moment;
 
 ## Further reading
 

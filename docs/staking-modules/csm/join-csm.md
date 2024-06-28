@@ -9,14 +9,16 @@ CSM accepts deposit data in the same [format](../../contracts/node-operators-reg
 
 [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata) **must** sign the root of the `(deposit_message, domain)`. Where a `domain` is used to identify the chain, and `deposit_message` has the form of the following tuple:
 - `validator pubkey`;
-- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](../../contracts/withdrawal-vault) address;
+- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](../../contracts/withdrawal-vault) address. Should be retrieved from [Staring Router](../../contracts/staking-router.md#getwithdrawalcredentials);
 - `32 ETH amount`;
 
 ## Bond
 
-> Here and after, the term 'bond' has the following meaning:
-> 
-> **Bond** - a security collateral that Node Operators must submit before uploading validator keys into CSM. This collateral covers possible losses caused by inappropriate actions on the Node Operator's side. Once the validator exits from the Beacon chain and all losses that occurred are covered, the collateral can be claimed or reused to upload new validator keys.
+:::info
+Here and after, the term 'bond' has the following meaning:
+
+**Bond** - a security collateral that Node Operators must submit before uploading validator keys into CSM. This collateral covers possible losses caused by inappropriate actions on the Node Operator's side. Once the validator exits from the Beacon chain and all losses that occurred are covered, the collateral can be claimed or reused to upload new validator keys.
+:::
 
 A bond is a property of a Node Operator, not a validator. Bond is stored in the form of stETH. Node Operators can submit bond tokens in ETH, stETH, and wstETH. Provided ETH is staked, and wstETH is unwrapped during submission to ensure stETH is the only form of a bond.
 
