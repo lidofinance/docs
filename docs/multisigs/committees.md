@@ -147,6 +147,7 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 | irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/14300 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/12 |
 | dgusakov | 0x806cAC2126F2a74ba04D712bA64Bd0792FE811d5 | https://etherscan.io/verifySig/14263 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/10 |
 | George | 0xAF0e81325a05a9F123907983F3F1a48864947127 | https://etherscan.io/verifySig/14296 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/11 |
+
 ## 2.5 Treasury Management Committee
 
 **Address:** [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://app.safe.global/settings/setup?safe=eth:0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
@@ -368,6 +369,7 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
+
 ### 2.8.11 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
 **Address:** `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
@@ -434,8 +436,29 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 
+### 2.8.14 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
-### 2.8.13 Liquidity Observation Lab Committee ZK Token Multisig
+**Address:** arb1:[`0xD97221065E826167A2cFE3307972c0D42200fDB4`](https://app.safe.global/home?safe=arb1:0xD97221065E826167A2cFE3307972c0D42200fDB4)
+
+**Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/15)
+
+**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
+
+**Purpose of the multisig:** Accept ARB tokens provided to Lido DAO under the Arbitrum LTIPP grant.
+
+**Quorum:** 3/5
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
+| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+
+### 2.8.15 Liquidity Observation Lab Committee ZK Token Multisig
 
 **Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
 
