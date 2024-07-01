@@ -253,6 +253,7 @@ pagination_next: deployed-contracts/holesky
 - Liquidity Observation Lab OP Token Multisig: [`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/home?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A) (Optimism)
 - Liquidity Observation Lab: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://gnosis-safe.io/app/arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16/home) (Arbitrum)
 - Liquidity Observation Lab ARB Token Multisig: [`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/home?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56) (Arbitrum)
+- Liquidity Observation Lab Arbitrum LTIPP Grant Token Multisig: [`0xD97221065E826167A2cFE3307972c0D42200fDB4`](https://app.safe.global/home?safe=arb1:0xD97221065E826167A2cFE3307972c0D42200fDB4) (Arbitrum)
 - Liquidity Observation Lab: [`0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D`](https://app.safe.global/home?safe=base:0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D) (Base)
 - Liquidity Observation Lab: [`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) (zkSync Era)
 - Liquidity Observation Lab ZK Token Multisig: [`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/home?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913) (zkSync Era)
