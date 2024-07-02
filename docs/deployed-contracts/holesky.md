@@ -95,7 +95,7 @@
   - SetVettedValidatorsLimits: [`0x30Cb36DBb0596aD9Cf5159BD2c4B1456c18e47E8`](https://holesky.etherscan.io/address/0x30Cb36DBb0596aD9Cf5159BD2c4B1456c18e47E8)
   - SetNodeOperatorNames: [`0x4792BaC0a262200fA7d3b68e7622bFc1c2c3a72d`](https://holesky.etherscan.io/address/0x4792BaC0a262200fA7d3b68e7622bFc1c2c3a72d)
   - SetNodeOperatorRewardAddresses: [`0x6Bfc576018C7f3D2a9180974E5c8e6CFa021f617`](https://holesky.etherscan.io/address/0x6Bfc576018C7f3D2a9180974E5c8e6CFa021f617)
-  - UpdateTargetValidatorLimits: [`0xC91a676A69Eb49be9ECa1954fE6fc861AE07A9A2`](https://holesky.etherscan.io/address/0xC91a676A69Eb49be9ECa1954fE6fc861AE07A9A2)
+  - UpdateTargetValidatorLimits: [`0x431a156BEba95803a95452441C1959c4479710e1`](https://holesky.etherscan.io/address/0x431a156BEba95803a95452441C1959c4479710e1)
   - ChangeNodeOperatorManager: [`0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E`](https://holesky.etherscan.io/address/0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E)
 - **Sandbox staking module** (registry: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC))
   - IncreaseNodeOperatorStakingLimit: [`0xbD37e55748c6f4Ece637AeD3e278e7575346B587`](https://holesky.etherscan.io/address/0xbD37e55748c6f4Ece637AeD3e278e7575346B587)
