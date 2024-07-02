@@ -18,7 +18,7 @@ This APR value is based on Simple Moving Average of APR values over a period of 
 https://eth-api.lido.fi/v1/protocol/steth/apr/sma
 ```
 
-Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
+Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
 
 ### Holesky
 
@@ -110,10 +110,10 @@ Response schema and examples are available in the [Swagger API documentation](ht
 
 ## Withdrawals API
 
-The Withdrawals API service offers an utility for estimating the waiting time for withdrawals within the Lido protocol on Ethereum.
+The Withdrawals API service offers an utility for estimating the waiting time for [withdrawals](https://docs.lido.fi/contracts/withdrawal-queue-erc721) within the Lido on Ethereum protocol.
 The service is helpful for stakers, providing insights from the moment of withdrawal request placement to its finalization when the request becomes claimable.
 
-See the [detailed explanation.](https://github.com/lidofinance/withdrawals-api/blob/develop/how-estimation-works.md)
+See the [detailed explanation](https://github.com/lidofinance/withdrawals-api/blob/develop/how-estimation-works.md).
 
 ### Use Cases
 - Estimation before request: users can estimate the waiting time before placing a withdrawal request.
