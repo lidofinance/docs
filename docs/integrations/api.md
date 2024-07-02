@@ -10,7 +10,7 @@ Here you can find various Lido APIs which you can integrate in your app or websi
 
 API provides Ethereum and Lido staking APR, which include:
 
-### **Simple Moving Average Lido APR for 7 last days:**
+### Simple Moving Average Lido APR for 7 last days:
 
 This APR value is based on Simple Moving Average of APR values over a period of 7 days.
 
@@ -18,15 +18,15 @@ This APR value is based on Simple Moving Average of APR values over a period of 
 https://eth-api.lido.fi/v1/protocol/steth/apr/sma
 ```
 
-Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
+Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
 
-#### Holesky
+### Holesky
 
 ```
 https://eth-api-holesky.testnet.fi/v1/protocol/steth/apr/sma
 ```
 
-### **Last Lido APR for stETH**
+### Last Lido APR for stETH
 
 The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](../contracts/legacy-oracle#posttotalshares). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
 
@@ -107,3 +107,40 @@ http://reward-history-backend-holesky.testnet.fi/?address=0x12345
 ```
 
 Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend-holesky.testnet.fi/api)
+
+## Withdrawals API
+
+The Withdrawals API service offers an utility for estimating the waiting time for [withdrawals](https://docs.lido.fi/contracts/withdrawal-queue-erc721) within the Lido on Ethereum protocol.
+The service is helpful for stakers, providing insights from the moment of withdrawal request placement to its finalization when the request becomes claimable.
+
+See the [detailed explanation](https://github.com/lidofinance/withdrawals-api/blob/develop/how-estimation-works.md).
+
+### Use Cases
+- Estimation before request: users can estimate the waiting time before placing a withdrawal request.
+- Tracking the existing request: users can track the estimated waiting time for the already placed request.
+
+### Calculates time to withdrawals requests:
+```
+https://wq-api.lido.fi/v2/request-time?ids=1&ids=2
+```
+
+Response schema and examples are available in the [Swagger API documentation](https://wq-api.lido.fi/api#/Request%20Time/RequestTimeController_requestsTime)
+
+### Calculate time to withdrawal current queue:
+```
+https://wq-api.lido.fi/v2/request-time/calculate
+```
+
+### Calculates time to withdrawal amount of stETH:
+```
+https://wq-api.lido.fi/v2/request-time/calculate?amount=32
+```
+
+Response schema and examples are available in the [Swagger API documentation](https://wq-api.lido.fi/api#/Request%20Time/RequestTimeController_calculateTime)
+
+### Holesky
+
+```
+https://wq-api-holesky.testnet.fi/v2/request-time?ids=1&ids=2
+```
+Response schema and examples are available in the [Swagger API documentation](https://wq-api-holesky.testnet.fi/api#/Request%20Time/RequestTimeController_requestsTime)
