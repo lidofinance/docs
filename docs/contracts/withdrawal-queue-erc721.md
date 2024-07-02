@@ -346,9 +346,9 @@ Returns the array of ids for each created request. Emits `WithdrawalRequested` a
 Requirements:
 
 - withdrawals must not be paused
-- `stETH` balance of `msg.sender` must be greater than the sum of all `_amounts`
+- `stETH` balance of `msg.sender` must be greater than or equal to the sum of all `_amounts`
 - there must be approval from the `msg.sender` to this contract address for the overall amount of `stETH` token transfer
-- each amount in `_amounts` must be greater than `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+- each amount in `_amounts` must be greater than or equal to `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than or equal to `MAX_STETH_WITHDRAWAL_AMOUNT`
 
 :::
 
@@ -369,7 +369,7 @@ Returns the array of ids for each created request. Emits `WithdrawalRequested` a
 Requirements:
 
 - withdrawals must not be paused
-- `wstETH` balance of `msg.sender` must be greater than the sum of all `_amounts`
+- `wstETH` balance of `msg.sender` must be greater than or equal to the sum of all `_amounts`
 - there must be approval from the `msg.sender` to this contract address for the overall amount of `wstETH` token transfer
 - each amount in `_amounts` must have `getPooledEthByShares(amount)` being greater than  `MIN_STETH_WITHDRAWAL_AMOUNT`
 and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
@@ -409,9 +409,9 @@ Returns the array of ids for each created request. Emits `WithdrawalRequested` a
 Requirements:
 
 - withdrawals must not be paused
-- `stETH` balance of `msg.sender` must be greater than the sum of all `_amounts`
+- `stETH` balance of `msg.sender` must be greater than or equal to the sum of all `_amounts`
 - permit must have a valid signature, `value` greater than the sum of all `_amounts`, and the `deadline` not expired
-- each amount in `_amounts` must be greater than `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+- each amount in `_amounts` must be greater than or equal to `MIN_STETH_WITHDRAWAL_AMOUNT` and lower than or equal to `MAX_STETH_WITHDRAWAL_AMOUNT`
 
 :::
 
@@ -448,7 +448,7 @@ Returns the array of ids for each created request. Emits `WithdrawalRequested` a
 Requirements:
 
 - withdrawals must not be paused
-- `wstETH` balance of `msg.sender` must be greater than the sum of all `_amounts`
+- `wstETH` balance of `msg.sender` must be greater than or equal to the sum of all `_amounts`
 - permit must have a valid signature, `value` greater than the sum of all `_amounts`, and the `deadline` not expired
 - each amount in `_amounts` must have `getPooledEthByShares(amount)` being greater than  `MIN_STETH_WITHDRAWAL_AMOUNT`
 and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
