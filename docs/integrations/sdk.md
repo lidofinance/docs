@@ -16,7 +16,7 @@ React components for Lido Finance projects.
 
 **Target clients**: those who want to interact/integrate with the Lido protocol in JavaScript/TypeScript projects.
 
-Library for interaction with the Lido on Ethereum protocol..
+Library for interaction with the Lido on Ethereum protocol.
 
 - Documentation: [https://lidofinance.github.io/lido-ethereum-sdk/](https://lidofinance.github.io/lido-ethereum-sdk/)
 - GitHub: [https://github.com/lidofinance/lido-ethereum-sdk](https://github.com/lidofinance/lido-ethereum-sdk)
