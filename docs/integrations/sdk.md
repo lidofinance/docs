@@ -18,6 +18,7 @@ React components for Lido Finance projects.
 
 Library for interaction with Lido protocol.
 
+- Documentation: [https://lidofinance.github.io/lido-ethereum-sdk/](https://lidofinance.github.io/lido-ethereum-sdk/)
 - GitHub: [https://github.com/lidofinance/lido-ethereum-sdk](https://github.com/lidofinance/lido-ethereum-sdk)
 - NPM: [https://www.npmjs.com/package/@lidofinance/lido-ethereum-sdk](https://www.npmjs.com/package/@lidofinance/lido-ethereum-sdk)
 
