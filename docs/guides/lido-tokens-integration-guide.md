@@ -482,7 +482,7 @@ The process of a new network adoption in a future-proof way is outlined as a par
 Most cross-chain token bridges have no mechanics to handle rebases.
 This means bridging stETH to other chains will prevent stakers from collecting their staking rewards.
 
-:::warn
+:::warning
 In the most common case, the rewards will naturally go to the bridge smart contract becoming locked there and never make it to the stakers.
 :::
 
