@@ -450,7 +450,7 @@ stETH/wstETH as DeFi collateral is beneficial for several reasons:
 
 - stETH/wstETH is almost as safe as ether, price-wise: barring catastrophic scenarios, its value tends to hold the ETH 1:1 well;
 - stETH/wstETH is a productive token: getting rewards on collateral effectively lowers the cost of borrowing;
-- stETH/wstETH is a very liquid token with billions of liquidity locked in liquidity pools (see [above](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth))
+- stETH/wstETH is a very liquid token with billions of liquidity locked in liquidity pools (see [above](#sttokens-steth-and-wsteth))
 
 Lido's staked tokens have been listed on major liquidity protocols:
 
