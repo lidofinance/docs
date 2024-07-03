@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.4.0">
 <title data-rh="true">WithdrawalQueueERC721 | Lido Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://lidofinance.github.io/contracts/withdrawal-queue-erc721"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="WithdrawalQueueERC721 | Lido Docs"><meta data-rh="true" name="description" content="- Source code"><meta data-rh="true" property="og:description" content="- Source code"><link data-rh="true" rel="icon" href="/img/favicon-32x32.png"><link data-rh="true" rel="canonical" href="https://lidofinance.github.io/contracts/withdrawal-queue-erc721"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/contracts/withdrawal-queue-erc721" hreflang="en"><link data-rh="true" rel="alternate" href="https://lidofinance.github.io/contracts/withdrawal-queue-erc721" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.521871e5.css">
-<script src="/assets/js/runtime~main.5a45cb08.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.63892d6d.js" defer="defer"></script>
 <script src="/assets/js/main.a9015fe8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -178,9 +178,9 @@ amount of <code>stETH</code> is transferred to this contract address, and an <co
 <p>Returns the array of ids for each created request. Emits <code>WithdrawalRequested</code> and <code>Transfer</code> events.</p>
 <div class="theme-admonition theme-admonition-note admonition_sWTX alert alert--secondary"><div class="admonitionHeading_ITDf"><span class="admonitionIcon_AiSm"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_UCDT"><p>Requirements:</p><ul>
 <li>withdrawals must not be paused</li>
-<li><code>stETH</code> balance of <code>msg.sender</code> must be greater than the sum of all <code>_amounts</code></li>
+<li><code>stETH</code> balance of <code>msg.sender</code> must be greater than or equal to the sum of all <code>_amounts</code></li>
 <li>there must be approval from the <code>msg.sender</code> to this contract address for the overall amount of <code>stETH</code> token transfer</li>
-<li>each amount in <code>_amounts</code> must be greater than <code>MIN_STETH_WITHDRAWAL_AMOUNT</code> and lower than <code>MAX_STETH_WITHDRAWAL_AMOUNT</code></li>
+<li>each amount in <code>_amounts</code> must be greater than or equal to <code>MIN_STETH_WITHDRAWAL_AMOUNT</code> and lower than or equal to <code>MAX_STETH_WITHDRAWAL_AMOUNT</code></li>
 </ul></div></div>
 <h3 class="anchor anchorWithStickyNavbar_DvGm" id="requestwithdrawalswsteth">requestWithdrawalsWstETH()<a class="hash-link" aria-label="Direct link to requestWithdrawalsWstETH()" title="Direct link to requestWithdrawalsWstETH()" href="/contracts/withdrawal-queue-erc721#requestwithdrawalswsteth">​</a></h3>
 <p>Batch request the <code>_amounts</code> of <code>wstETH</code> for withdrawal to the <code>_owner</code> address. For each request,
@@ -190,7 +190,7 @@ and an <code>unstETH</code> NFT is minted to the <code>_owner</code> address.</p
 <p>Returns the array of ids for each created request. Emits <code>WithdrawalRequested</code> and <code>Transfer</code> events.</p>
 <div class="theme-admonition theme-admonition-note admonition_sWTX alert alert--secondary"><div class="admonitionHeading_ITDf"><span class="admonitionIcon_AiSm"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_UCDT"><p>Requirements:</p><ul>
 <li>withdrawals must not be paused</li>
-<li><code>wstETH</code> balance of <code>msg.sender</code> must be greater than the sum of all <code>_amounts</code></li>
+<li><code>wstETH</code> balance of <code>msg.sender</code> must be greater than or equal to the sum of all <code>_amounts</code></li>
 <li>there must be approval from the <code>msg.sender</code> to this contract address for the overall amount of <code>wstETH</code> token transfer</li>
 <li>each amount in <code>_amounts</code> must have <code>getPooledEthByShares(amount)</code> being greater than  <code>MIN_STETH_WITHDRAWAL_AMOUNT</code>
 and lower than <code>MAX_STETH_WITHDRAWAL_AMOUNT</code></li>
@@ -205,9 +205,9 @@ and an <code>unstETH</code> NFT is minted to the <code>_owner</code> address. <c
 <p>Returns the array of ids for each created request. Emits <code>WithdrawalRequested</code> and <code>Transfer</code> events.</p>
 <div class="theme-admonition theme-admonition-note admonition_sWTX alert alert--secondary"><div class="admonitionHeading_ITDf"><span class="admonitionIcon_AiSm"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_UCDT"><p>Requirements:</p><ul>
 <li>withdrawals must not be paused</li>
-<li><code>stETH</code> balance of <code>msg.sender</code> must be greater than the sum of all <code>_amounts</code></li>
+<li><code>stETH</code> balance of <code>msg.sender</code> must be greater than or equal to the sum of all <code>_amounts</code></li>
 <li>permit must have a valid signature, <code>value</code> greater than the sum of all <code>_amounts</code>, and the <code>deadline</code> not expired</li>
-<li>each amount in <code>_amounts</code> must be greater than <code>MIN_STETH_WITHDRAWAL_AMOUNT</code> and lower than <code>MAX_STETH_WITHDRAWAL_AMOUNT</code></li>
+<li>each amount in <code>_amounts</code> must be greater than or equal to <code>MIN_STETH_WITHDRAWAL_AMOUNT</code> and lower than or equal to <code>MAX_STETH_WITHDRAWAL_AMOUNT</code></li>
 </ul></div></div>
 <h3 class="anchor anchorWithStickyNavbar_DvGm" id="requestwithdrawalswstethwithpermit">requestWithdrawalsWstETHWithPermit()<a class="hash-link" aria-label="Direct link to requestWithdrawalsWstETHWithPermit()" title="Direct link to requestWithdrawalsWstETHWithPermit()" href="/contracts/withdrawal-queue-erc721#requestwithdrawalswstethwithpermit">​</a></h3>
 <p>Batch request the <code>_amounts</code> of <code>wstETH</code> for withdrawal to the <code>_owner</code> address. For each request,
@@ -219,7 +219,7 @@ and an <code>unstETH</code> NFT is minted to the <code>_owner</code> address.<co
 <p>Returns the array of ids for each created request. Emits <code>WithdrawalRequested</code> and <code>Transfer</code> events.</p>
 <div class="theme-admonition theme-admonition-note admonition_sWTX alert alert--secondary"><div class="admonitionHeading_ITDf"><span class="admonitionIcon_AiSm"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_UCDT"><p>Requirements:</p><ul>
 <li>withdrawals must not be paused</li>
-<li><code>wstETH</code> balance of <code>msg.sender</code> must be greater than the sum of all <code>_amounts</code></li>
+<li><code>wstETH</code> balance of <code>msg.sender</code> must be greater than or equal to the sum of all <code>_amounts</code></li>
 <li>permit must have a valid signature, <code>value</code> greater than the sum of all <code>_amounts</code>, and the <code>deadline</code> not expired</li>
 <li>each amount in <code>_amounts</code> must have <code>getPooledEthByShares(amount)</code> being greater than  <code>MIN_STETH_WITHDRAWAL_AMOUNT</code>
 and lower than <code>MAX_STETH_WITHDRAWAL_AMOUNT</code></li>
