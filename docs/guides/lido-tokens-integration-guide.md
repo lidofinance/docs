@@ -482,7 +482,10 @@ The process of a new network adoption in a future-proof way is outlined as a par
 Most cross-chain token bridges have no mechanics to handle rebases.
 This means bridging stETH to other chains will prevent stakers from collecting their staking rewards.
 
-In the most common case, the rewards will naturally go to the bridge smart contract and never make it to the stakers.
+:::warn
+In the most common case, the rewards will naturally go to the bridge smart contract becoming locked there and never make it to the stakers.
+:::
+
 While working on full-blown bridging solutions, the Lido contributors encourage the users to only bridge the non-rebasable representation of staked ether, namely wstETH.
 
 ## Risks
