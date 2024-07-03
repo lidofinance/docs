@@ -3,7 +3,7 @@
 This document is intended for developers looking to integrate Lido's stETH or wstETH as a token into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.
 
 :::info
-The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](http://localhost:3000/integrations/sdk#lido-ethereum-sdk) (off-chain).
+The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](../integrations/sdk#lido-ethereum-sdk) (off-chain).
 :::
 
 ## Lido
