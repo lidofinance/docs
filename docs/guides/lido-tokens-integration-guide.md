@@ -3,7 +3,7 @@
 This document is intended for developers looking to integrate Lido's stETH or wstETH as a token into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.
 
 :::info
-The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](http://localhost:3000/integrations/sdk#lido-ethereum-sdk) (off-chain).
+The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](../integrations/sdk#lido-ethereum-sdk) (off-chain).
 :::
 
 ## Lido
@@ -18,9 +18,9 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 ### stTokens: stETH and wstETH
 
 For ether staked in Lido, the Lido protocol gives users [stETH](#steth) that is equal to the amount staked,
-moreover the stETH token balance represents the underlying Ether value expected to be redeemed 1:1 via the protocol upon a withdrawal request.
+moreover the stETH token balance represents the underlying ether value expected to be redeemed 1:1 via the protocol upon a withdrawal request.
 
-For easier DeFi integrations, `stETH` has a non-rebasable value-accruing (non-rebaseable) counterpart called ['wrapped stETH'](#wsteth)
+For easier DeFi integrations, `stETH` has a non-rebasable value-accruing (non-rebasable) counterpart called ['wrapped stETH'](#wsteth)
 (or just `wstETH`).
 
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
@@ -40,7 +40,7 @@ Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosyst
 - there are various [Mellow LRT](https://app.mellow.finance/restake) projects built on top of the (w)stETH
 - stETH is listed as a collateral token on the AAVE v2 [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) market
 - steCRV (the Curve stETH/ETH LP token) is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
-- Blast L2 integrated [stETH](https://docs.blastfutures.com/get-started/introduction/what-is-blast#how-blast-works) as a rebaseable ether (being staked implicitly as a part of the L1->L2 ether bridging flow)
+- Blast L2 integrated [stETH](https://docs.blastfutures.com/get-started/introduction/what-is-blast#how-blast-works) as a rebasable ether (being staked implicitly as a part of the L1->L2 ether bridging flow)
 - there are multiple liquidity strategies built on top of Lido's stTokens, including [Yearn](https://yearn.fi/vaults/1/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
 
 #### Integration utilities: Rate and price feeds
@@ -102,7 +102,7 @@ For instance, undercollateralized wstETH positions on Maker can be liquidated by
 
 ### What is stETH
 
-stETH is a rebaseable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. The total supply of stETH reflects the amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. Since withdrawals from the Consensus Layer have been introduced, it is also possible to redeem ether by burning stETH at the same 1:1 ratio (in rare cases it won't preserve 1:1 ratio though).
+stETH is a rebasable ERC-20 token that represents ether staked with Lido. Unlike staked ether, it is liquid and can be transferred, traded, or used in DeFi applications. The total supply of stETH reflects the amount of ether deposited into protocol combined with staking rewards, minus potential validator penalties. stETH tokens are minted upon ether deposit at 1:1 ratio. Since withdrawals from the Consensus Layer have been introduced, it is also possible to redeem ether by burning stETH at the same 1:1 ratio (in rare cases it won't preserve 1:1 ratio though).
 
 Please note, Lido has implemented staking rate limits aimed at reducing the post-Merge staking surge's impact on the staking queue & Lido’s socialized rewards distribution model. Read more about it [here](#staking-rate-limits).
 
@@ -450,15 +450,15 @@ stETH/wstETH as DeFi collateral is beneficial for several reasons:
 
 - stETH/wstETH is almost as safe as ether, price-wise: barring catastrophic scenarios, its value tends to hold the ETH 1:1 well;
 - stETH/wstETH is a productive token: getting rewards on collateral effectively lowers the cost of borrowing;
-- stETH/wstETH is a very liquid token with billions of liquidity locked in liquidity pools (see [above](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth))
+- stETH/wstETH is a very liquid token with billions of liquidity locked in liquidity pools (see [above](#sttokens-steth-and-wsteth))
 
 Lido's staked tokens have been listed on major liquidity protocols:
 
 - On Maker, [wstETH collateral (scroll down to Dai from WSTETH-A section)](https://daistats.com/#/collateral) can be used to mint DAI stablecoin. See [Lido's blog post](https://blog.lido.fi/makerdao-integrates-lidos-staked-eth-steth-as-collateral-asset/) for more details.
-- On AAVE v3, multiple tokens can be borrowed against wstETH on various chains (see the list of the [markets](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth))
+- On AAVE v3, multiple tokens can be borrowed against wstETH on various chains (see the list of the [markets](#sttokens-steth-and-wsteth))
 
 Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard.
-The default option to use is exchange [rate feeds](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an options to compose arbitrary feeds:
+The default option to use is exchange [rate feeds](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
 
 ```python
 'wstETH/X price feed' = 'wstETH/stETH rate feed' × 'ETH/X price feed'
