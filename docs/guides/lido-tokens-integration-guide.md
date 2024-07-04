@@ -116,9 +116,10 @@ stETH does not strictly comply with ERC-20. The only exception is that it does n
 
 Normally, stETH rebases happen daily when the Lido oracle reports the Consensus Layer ether balance update. The rebase can be positive or negative, depending on the validators' performance. In case Lido's validators get slashed or penalized, the stETH balances can decrease according to penalty sizes. However, daily rebases have never been negative by the time of writing.
 
-The accounting oracle has sanity checks on both max APR reported (the APR cannot exceed 27%, which means a daily rebase is limited to `27/365%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%).
+The accounting oracle has sanity checks on both max APR reported (the APR cannot exceed 27%, which means a daily rebase is limited to `(27/365)%`) and total staked amount drop (staked ether decrease reported cannot exceed 5%).
 
-Currently, the oracle report is based on five oracle daemons hosted by established node operators selected by the DAO. As soon as five out of nine oracle daemons report the same data, reaching the consensus, the report goes to the Lido smart contract, and the rebase occurs.
+Currently, Oracle network includes 9 independent oracles, oracle daemons hosted by established node operators selected by the DAO.
+As soon as five out of nine oracle daemons report the same data, reaching the consensus, the report goes to the Lido smart contract, and the rebase occurs.
 
 #### Oracle corner cases
 
@@ -470,7 +471,8 @@ Lido's Ethereum staking services have been successfully integrated into the most
 Having stETH integrated can provide wallet users with a great user experience of direct staking from the wallet UI itself.
 
 When adding stETH support to a DeFi wallet, it is important to preserve stETH's rebasing nature.
-Avoid storing cached stETH balance for extended periods of time (over 24 hours), and keep in mind it doesn't necessarily take a transaction to change stETH balance.
+Note that stETH balance changes on each rebase without any incoming or outgoing user transfers and does not emit ERC-20 'Transfer' events.
+As a consequence, avoid storing cached stETH balance for extended periods of time (over 24 hours).
 
 The integration might be implemented leveraging the [Lido on Ethereum SDK](../integrations/sdk#lido-ethereum-sdk)
 
@@ -494,7 +496,7 @@ There exist a number of potential risks when staking using liquid staking protoc
 
 ### Smart contract security
 
-  There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-sourced, audited, and covered by an extensive bug bounty program to minimize this risk. To mitigate smart contract risks, all of the core Lido contracts are audited. Audit reports can be found here. Besides, Lido is covered with a massive Immunefi bug bounty program.
+  There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-source, audited, and covered by an extensive bug bounty program to minimize this risk. To mitigate smart contract risks, all of the core Lido contracts are audited. Audit reports can be found here. Besides, Lido is covered with a massive Immunefi bug bounty program.
 
 ### Slashing risk
   Validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimize this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
