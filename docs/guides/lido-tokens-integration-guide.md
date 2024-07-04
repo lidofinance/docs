@@ -17,7 +17,7 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 
 ### stTokens: stETH and wstETH
 
-For ether staked in Lido, the Lido protocol gives users [stETH](#steth) that is equal to the amount staked,
+Staking ether with Lido gives an equivalent amount of [stETH](#steth).
 moreover the stETH token balance represents the underlying ether value expected to be redeemed 1:1 via the protocol upon a withdrawal request.
 
 For easier DeFi integrations, `stETH` has a non-rebasable value-accruing (non-rebasable) counterpart called ['wrapped stETH'](#wsteth)
