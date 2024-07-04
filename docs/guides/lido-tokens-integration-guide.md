@@ -90,7 +90,7 @@ and implements the ERC-721 token standard instead of ERC-20.
 ## stETH vs. wstETH
 
 There are two versions of Lido's stTokens, namely stETH and wstETH.
-Both are fungible tokens, but they reflect the accrued staking rewards in different ways. stETH implements rebasing mechanics which means the stETH balance increases periodically. On the contrary, wstETH balance is constant, while the token increases in value eventually (denominated in stETH).
+Both are fungible tokens but they reflect the accrued staking rewards differently. stETH implements rebasing mechanics which means the stETH balance updates regularly. On the contrary, the wstETH balance does not change on its own but rather increases in value against stETH.
 
 :::info
 At any moment, any amount of stETH can be converted to wstETH via a trustless wrapper and vice versa, thus tokens effectively share liquidity.
