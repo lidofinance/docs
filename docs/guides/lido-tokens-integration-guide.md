@@ -1,6 +1,6 @@
 # Lido tokens integration guide
 
-This document is intended for developers looking to integrate Lido's stETH or wstETH as a token into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.
+This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.
 
 :::info
 The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](../integrations/sdk#lido-ethereum-sdk) (off-chain).
@@ -17,8 +17,8 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 
 ### stTokens: stETH and wstETH
 
-For ether staked in Lido, the Lido protocol gives users [stETH](#steth) that is equal to the amount staked,
-moreover the stETH token balance represents the underlying ether value expected to be redeemed 1:1 via the protocol upon a withdrawal request.
+Staking ether with Lido gives an equivalent amount of [stETH](#steth).
+The user's stETH balance represents the amount of ether withdrawable directly from the Lido protocol.
 
 For easier DeFi integrations, `stETH` has a non-rebasable value-accruing (non-rebasable) counterpart called ['wrapped stETH'](#wsteth)
 (or just `wstETH`).
@@ -90,7 +90,7 @@ and implements the ERC-721 token standard instead of ERC-20.
 ## stETH vs. wstETH
 
 There are two versions of Lido's stTokens, namely stETH and wstETH.
-Both are fungible tokens, but they reflect the accrued staking rewards in different ways. stETH implements rebasing mechanics which means the stETH balance increases periodically. On the contrary, wstETH balance is constant, while the token increases in value eventually (denominated in stETH).
+Both are fungible tokens but they reflect the accrued staking rewards differently. stETH implements rebasing mechanics which means the stETH balance updates regularly. On the contrary, the wstETH balance does not change on its own but rather increases in value against stETH.
 
 :::info
 At any moment, any amount of stETH can be converted to wstETH via a trustless wrapper and vice versa, thus tokens effectively share liquidity.
