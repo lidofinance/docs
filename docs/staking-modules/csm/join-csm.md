@@ -2,7 +2,7 @@
 ![join-csm-1](../../../static/img/csm/join-csm-1.png)
 
 ## Node Operator creation
-To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one `validator pubkey`, corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding bond amount should be provided. 
+To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one `validator pubkey`, corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding bond amount should be provided.
 
 ## Deposit data preparation and upload
 CSM accepts deposit data in the same [format](../../contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the [Curated module](../../contracts/node-operators-registry.md), with the main difference being a requirement to submit the bond prior to or alongside deposit data upload.
@@ -40,7 +40,7 @@ The term "unbonded" is introduced to refer to the validators for which the bond 
 ![join-csm-4](../../../static/img/csm/join-csm-4.png)
 
 ### Possible negative stETH rebase consequences
-With the bond being stored in stETH, there is a risk of a reduction in the bond amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual bond being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [fund](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35) at the Lido DAO's disposal for possible use as cover.
+With the bond being stored in stETH, there is a risk of a reduction in the bond amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual bond being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [insurance fund](/contracts/insurance) at the Lido DAO's disposal for possible use as cover.
 
 ## Deposit data validation and invalidation (aka vetting and unvetting)
 Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls [`decreaseVettedSigningKeysCount`](https://github.com/lidofinance/community-staking-module/blob/main/src/CSModule.sol#L861) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
@@ -48,16 +48,16 @@ Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will ut
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
 -   `targetLimit` is not set -> `vettedKeys - depositedKeys - unbondedKeys`
--   `targetLimit` is set -> `min(vettedKeys,targetLimit) - depositedKeys - unbondedKeys` 
+-   `targetLimit` is set -> `min(vettedKeys,targetLimit) - depositedKeys - unbondedKeys`
 -   Node Operator has `stuckKeys != 0` no matter the `targetLimit` -> `0`.
 
 ## Stake allocation queue
 
-The stake allocation queue in CSM is a traditional [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) (first in, first out) queue. Node Operators occupy places in the queue with the `{noId, keysCount}` batches and wait for their turn. 
+The stake allocation queue in CSM is a traditional [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) (first in, first out) queue. Node Operators occupy places in the queue with the `{noId, keysCount}` batches and wait for their turn.
 
 ![join-csm-5](../../../static/img/csm/join-csm-5.png)
 
-Once the queue reaches the Node Operator's batch, CSM checks how many keys from the batch can be deposited using the formula: `min(depositableKeys, keysInBatch)`. 
+Once the queue reaches the Node Operator's batch, CSM checks how many keys from the batch can be deposited using the formula: `min(depositableKeys, keysInBatch)`.
 
 ![join-csm-6](../../../static/img/csm/join-csm-6.png)
 
