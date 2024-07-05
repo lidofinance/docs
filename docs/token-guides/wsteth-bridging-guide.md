@@ -37,14 +37,17 @@ Lido DAO can recognize the bridged wstETH endpoints by means of a signalling sna
 [Base](https://snapshot.org/#/lido-snapshot.eth/proposal/0x8b35f64fffe67f67d4aeb2de2f3351404c54cd75a08277c035fa77065b6792f4),
 [zkSync Era](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe35f56a6117599eeb9dbef982613c0545710d91403a828d1fba00ab21d5188f3),
 [Mantle](https://snapshot.org/#/lido-snapshot.eth/proposal/0x1d38c11b27590ab5c69ca21c5d2545d53b7f5150dada7e05f89d500ede5becad),
-[Linea](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9382624eeee68a175dd7d1438347dbad4899ba0d2bfcf7c3955f087cb9f5cfc4).
+[Linea](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9382624eeee68a175dd7d1438347dbad4899ba0d2bfcf7c3955f087cb9f5cfc4),
+[Scroll](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcdb7d84ea80d914a4abffd689ecf9bdc4bb05d47f1fdbdda8793d555381a0493)
 
 If Lido DAO recognizes the bridged wstETH endpoints, in general, it means:
-- the integration is highlighted on the frontend pages: landing, widget, and ecosystem pages;
+
+- the integration is highlighted on the frontend pages: [landing](https://lido.fi/lido-on-l2), [widget](https://stake.lido.fi/), and [ecosystem pages](https://lido.fi/lido-ecosystem);
 - when/if the dedicated bridging Lido UI is implemented, the network will be included;
-- the endpoint contracts are under the Lido's bug bounty program;
+- the newly appeared integration announcement is published in the Lido's [blog](https://blog.lido.fi/category/l2/) and [twitter](https://twitter.com/LidoFinance);
+- the endpoint contracts are under the Lido's [bug bounty program](https://immunefi.com/bug-bounty/lido/);
 - the endpoint contracts get monitored by means of [Lido alerting system](https://github.com/lidofinance/alerting-forta/);
-- the opportunity for obtaining extra support, potentially from LEGO or LOL, becomes available. For the details one should [reach out to ProRel](https://tally.so/r/waeRLX).
+- the opportunity for obtaining extra support, potentially from [LEGO](https://lido.fi/lego) or [Liquidity observation Labs](https://lido.fi/governance#liquidity-observation-labs), becomes available. For the details one should [reach out to ProRel](https://tally.so/r/waeRLX).
 
 Usually, the Lido DAO recognizes the bridged wstETH endpoints if the specific set of security and design recommendations are followed. These recommendations are set out in the [Recommendations](#recommendations) section in paragraphs **R-1..R-8**. The rest of the recommendations (**R-9...**) are also important and foster the recognition's likelihood.
 
@@ -65,17 +68,20 @@ This section describes an approximate path to bridging wstETH to an L2 network. 
 🐾 Deploy the contracts to testnet. Get the testnet deployment verified by coordinating through the NEW.
 
 🐾 Express intention to bridge wstETH on the forum, outlining the details and technical plan. Consider:
+
 - Target one network per proposal to make the discussion more focused.
 - The post should be published in advance, ideally at least two weeks before any potential snapshot vote, to allow time for discussion and verification of the proposal.
 - The deployment addresses are not required at once but must be proposed at least a week before the snapshot voting starts.
 - If the proposed solution does not include some of the recommendations (**R-5...**), consider including the roadmap and committing to deliver it.
 - Examples:
-    - [wstETH to Base](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
-    - [wstETH to zkSync Era](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
-    - [wstETH to Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
-    - [wstETH to Linea](https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961)
+  - [wstETH to Base](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
+  - [wstETH to zkSync Era](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
+  - [wstETH to Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
+  - [wstETH to Linea](https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961)
+  - [wstETH to Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
+  - [wstETH to Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
 
-🐾 Deploy the contracts to mainnet. Get the mainnet deployment verified by the Lido protocol contributors and external security group if applicable (coordinating through NEW).
+🐾 Deploy the contracts to mainnet. Get the mainnet deployment verified by the external security group (getting in touch with NEW).
 
 🐾 Pass snapshot voting on https://snapshot.org/#/lido-snapshot.eth/. It should contain the final mainnet addresses and audits according to **R-1**. Otherwise, one more snapshot voting with the addresses would have been required.
 
@@ -112,12 +118,24 @@ The baseline recommendations: the following of the recommendations are highly en
 The entire on-chain codebase (rollup, bridge, token) must be audited by a third party. Please, contact the NEW to check the temperature if the audit provider isn't familiar with the Lido protocol codebase (see the providers here: https://github.com/lidofinance/audits/)
 
 The deployment must be verifiable:
-- all code accessible and the commit corresponds to the audit report;
+
+- all code accessible and the final deployed smart contracts' commit **strictly** corresponds to the audit report;
 - source code verified on the explorer;
 - verifiable bytecode (e.g. via the explorer or RPC calls);
 - correct levers setup.
 
-For submitting sources for verification on explorer, please use standard JSON input - not flattened. It matters because it allows to verify the sources via automated tools (e.g., [diffyscan](https://github.com/lidofinance/diffyscan)).
+For submitting sources for verification on explorer, please use standard JSON input - not flattened.
+
+To speed up the process and make it more robust, please provide the artifacts (i.e., open Pull Requests) for the automated tools:
+
+- verify the sources via [diffyscan](https://github.com/lidofinance/diffyscan), examples:
+  - [wstETH on Scroll](https://github.com/lidofinance/diffyscan/pull/35)
+  - [wstETH on Linea](https://github.com/lidofinance/diffyscan/pull/29)
+  - [wstETH on Mode](https://github.com/lidofinance/diffyscan/pull/41)
+
+- verify the configuration and storage state via [state-mate](https://github.com/lidofinance/state-mate), examples:
+  - [wstETH on Mantle](https://github.com/lidofinance/state-mate/tree/main/configs/mantle)
+  - [a.DI on BNB](https://github.com/lidofinance/state-mate/tree/main/configs/binance)
 
 #### R-2: "Lock and mint" bridge mechanics
 
@@ -146,10 +164,12 @@ The recommendations starting from **R-9** are also encouraged and may significan
 A dedicated governance executor contract should be set as an admin the of the L2 endpoint contracts.
 
 Examples:
+
 - [`OptimismBridgeExecutor`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3);
 - [Bridge executor on Base](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF) - reused `OptimismBridgeExecutor` contract;
 - [`ZkSyncBridgeExecutor`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8#contract)
 - [`LineaBridgeExecutor`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
+- [`ScrollBridgeExecutor`]https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 
 For more examples, see Governance Bridge Executors at https://docs.lido.fi/deployed-contracts/#lido-on-l2. The contracts originate from [Aave Governance Cross-Chain Bridges](https://github.com/aave/governance-crosschain-bridges) and can be found at https://github.com/lidofinance/governance-crosschain-bridges and [PRs](https://github.com/lidofinance/governance-crosschain-bridges/pulls).
 
@@ -180,6 +200,7 @@ Please take into account that the [OpenZeppelin ERC20 with permit (EIP-2612) imp
 
 By the snapshot vote start, deposits and withdrawals should be unpaused unless there are any specific considerations to do otherwise.
 Going with unpaused states provides the following:
+
 - the bridge being in the final state during the snapshot vote — without any temporary permissions granted to the resumer or other actors;
 - less operational load for contributors and token holders (to re-vote on additional changes).
 
@@ -215,6 +236,7 @@ Please avoid deploying contracts to the same addresses on L1 and L2 and/or testn
 This section describes a kind of minimal bridging contracts setup and its configuration. This setup is a recommendation and might not be the best for a specific network — it serves as a suggestion for the main functional parts and their interconnections.
 
 Notation used:
+
 - `Lido Agent` - Lido DAO [Aragon Agent](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) on L1;
 - `Emergency Brakes L1 Multisig` - Emergency Multisig on L1 (ratified by the Lido DAO). See https://research.lido.fi/t/emergency-brakes-signer-rotation/5286;
 - `Emergency Brakes L2 Multisig` - Emergency Multisig on L2 (the same participants but using the L2 Safe instance).
@@ -235,6 +257,7 @@ Notation used:
 	- `Lido Agent`
 
 **L2 Governance Executor**
+
 - The only allow-listed L1 execution sender is `Lido Agent` (retrieved via `getEthereumExecutor()`)
 
 **L2 Custom Bridge Endpoint**
@@ -285,7 +308,7 @@ Notation used:
 ### Testnets
 
 :::info
-Please, deploy to Holesky if possible because Holešky has better long-term exposure and more robust Lido protocol deployment.
+Please, deploy to Holešky if possible because it has better long-term exposure and more robust Lido protocol deployment.
 :::
 
 #### Holesky
@@ -316,6 +339,9 @@ Please, deploy to Holesky if possible because Holešky has better long-term expo
 
 Yes, sure. For example, [OptimismBridgeExecutor](https://github.com/lidofinance/governance-crosschain-bridges/blob/master/contracts/bridges/OptimismBridgeExecutor.sol) has been [reused](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF#code) on Base network.
 If so, please don't alter the contract's code and use the same names. It allows to keep the audit valid and track origins.
+
+To speed up the process, you might perform a deployment verification against the bytecode already used for another network and configuration/storage state comparison to be 1:1 except only for the network specific configuration changes needed.
+Follow the case of [`wstETH on Mode`](https://research.lido.fi/t/wsteth-deployment-on-mode/7365) for the reference.
 
 ### What if wstETH is already bridged and has ample liquidity?
 
@@ -359,3 +385,5 @@ In the comments section, please provide the relevant details: the artifacts, if 
 - Lido DAO recognition proposal for wstETH on zkSync Era https://research.lido.fi/t/wsteth-deployment-on-zksync/5701
 - Lido DAO recognition proposal for wstETH on Mantle https://research.lido.fi/t/wsteth-deployment-on-mantle/5991
 - Lido DAO recognition proposal for wstETH on Linea https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961
+- Lido DAO recognition proposal for wstETH on Scroll https://research.lido.fi/t/wsteth-deployment-on-scroll/6603
+- Lido DAO recognition proposal for wstETH on Mode https://research.lido.fi/t/wsteth-deployment-on-mode/7365
