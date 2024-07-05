@@ -3,7 +3,7 @@
 :::warning
 Sepolia testnet has only a limited set of working parts of the protocol.
 
-For instance, the in-protocol [withdrawals](../contracts/withdrawal-queue-erc721.md) aren't available
+For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available
 (paused indefinitely), please use the [Holešky testnet](./holesky.md) deployment if possible.
 
 The goals for this testnet deployment are:

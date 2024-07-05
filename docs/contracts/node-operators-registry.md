@@ -12,7 +12,7 @@ A curated node operator is obliged by the Lido DAO to exit its validators timely
 
 The Lido DAO can also:
 
-- set target limit count as the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](../contracts/withdrawal-queue-erc721#finalization). Allocation of deposits above the target value is prohibited.
+- set target limit count as the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](/docs/contracts/withdrawal-queue-erc721.md#finalization). Allocation of deposits above the target value is prohibited.
 - deactivate misbehaving operators by `deactivateNodeOperator()`. A deactivated node operator do not get rewards and new deposits.
 
 ## Glossary
@@ -21,7 +21,7 @@ The Lido DAO can also:
 In the context of these terms "signing key", "key", "validator key", "validator" might be used interchangeably.
 :::
 
-**signing key**. BLS12-381 public key that will be used by the protocol for making Beacon deposits to [run a validator](../guides/node-operators/validator-keys#generating-signing-keys)
+**signing key**. BLS12-381 public key that will be used by the protocol for making Beacon deposits to [run a validator](/docs/guides/node-operators/validator-keys.md#generating-signing-keys)
 
 **vetted** (signing key). Approved by the Lido DAO for receiving ether for deposit.
 

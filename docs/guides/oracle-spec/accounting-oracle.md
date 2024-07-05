@@ -8,7 +8,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 
 As withdrawals on Ethereum are processed asynchronously, the Lido protocol has to have a request-claim process for `stETH` holders. To ensure the requests are processed in the order they are received, the in-protocol FIFO queue is introduced. Here is an overview of the withdrawals handling process:
 
-1. **Request:** To withdraw stETH to ether, one sends the withdrawal request to the [`WithdrawalQueue`](../../contracts/withdrawal-queue-erc721.md) contract, locking the `stETH` amount to be withdrawn.
+1. **Request:** To withdraw stETH to ether, one sends the withdrawal request to the [`WithdrawalQueue`](/docs/contracts/withdrawal-queue-erc721.md) contract, locking the `stETH` amount to be withdrawn.
 2. **Fulfillment:** The protocol handles the requests one-by-one, in the order of creation. Once the protocol has enough information to calculate the `stETH:ETH` redemption rate of the next request and obtains enough Ether to handle it, the request can be finalized: the required amount of ether is reserved and the locked stETH is burned.
 3. **Claim:** The requestor can then claim their ether at any time in the future. The `stETH:ETH` redemption rate for each request is determined at the time of its finalization and is the inverse of the `ETH:stETH` staking rate.
 
@@ -36,7 +36,7 @@ On each report, the oracle decides how many requests to finalize and at what rat
 
 #### Available ether and share rate
 
-The Oracle report has two parts: the report of the number of validators and their total balance and the finalization of requests in the [`WithdrawalQueue`](../../contracts/withdrawal-queue-erc721). The finalization of requests requires data from the first part of the report. Therefore, to calculate this part the oracle report is simulated by `eth_call` to `handleOracleReport` in Lido contract, getting share rate and amount of ether that can be withdrawn from [Withdrawal](../../contracts/withdrawal-vault.md) and [Execution Layer Rewards](../../contracts/lido-execution-layer-rewards-vault) Vaults taking into account the limits.
+The Oracle report has two parts: the report of the number of validators and their total balance and the finalization of requests in the [`WithdrawalQueue`](/docs/contracts/withdrawal-queue-erc721.md). The finalization of requests requires data from the first part of the report. Therefore, to calculate this part the oracle report is simulated by `eth_call` to `handleOracleReport` in Lido contract, getting share rate and amount of ether that can be withdrawn from [Withdrawal](/docs/contracts/withdrawal-vault.md) and [Execution Layer Rewards](/docs/contracts/lido-execution-layer-rewards-vault.md) Vaults taking into account the limits.
 
 The structure of the data for simulation:
 

@@ -7,7 +7,7 @@
 
 It's an [ERC-20](https://eips.ethereum.org/EIPS/eip-20) value-accruing token
 wrapper for `stETH`. Its balance does not change with each oracle report, but its
-value in `stETH` does. Internally, it represents the user's [share](../guides/lido-tokens-integration-guide#steth-internals-share-mechanics) of the total
+value in `stETH` does. Internally, it represents the user's [share](/docs/guides/lido-tokens-integration-guide.md#steth-internals-share-mechanics) of the total
 supply of `stETH` tokens.
 
 ## Why use wstETH?
