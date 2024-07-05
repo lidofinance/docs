@@ -3,7 +3,7 @@
 This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.
 
 :::info
-The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](../integrations/sdk#lido-ethereum-sdk) (off-chain).
+The integration might be implemented on the level of smart contracts (on-chain) or [Lido on Ethereum SDK](/docs/integrations/sdk.md#lido-ethereum-sdk) (off-chain).
 :::
 
 ## Lido
@@ -259,11 +259,11 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 The most recent testnet version of the Lido protocol lives on the Holešky testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/holesky)). Just like on mainnet, Holešky wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Holešky, and then calling `wrap` method on it. The corresponding amount of Holešky stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Holešky ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Holešky ether to WstETH contract on Holešky, and the corresponding amount of wstETH will be minted to your account.
 
-The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Holešky. Note that the protocol setup on Sepolia has no UIs and various services available on Holešky and Mainnet. For instance, the in-protocol [withdrawals](../contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Holešky testnet deployment if possible.
+The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Holešky. Note that the protocol setup on Sepolia has no UIs and various services available on Holešky and Mainnet. For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Holešky testnet deployment if possible.
 
 ### wstETH on L2s
 
-Currently, wstETH token is [present on](../deployed-contracts/index.md#lido-on-l2):
+Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-on-l2):
 
 - [Arbitrum](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529)
 - [Optimism](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb)
@@ -274,7 +274,7 @@ Currently, wstETH token is [present on](../deployed-contracts/index.md#lido-on-l
 - [Mantle](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83)
 - [Polygon PoS](https://polygonscan.com/token/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd)
 
-with bridging implemented via [the canonical bridges recommended approach](../token-guides/wsteth-bridging-guide.md).
+with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/wsteth-bridging-guide.md).
 
 :::note
 Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network as of now.
@@ -474,12 +474,12 @@ When adding stETH support to a DeFi wallet, it is important to preserve stETH's 
 Note that stETH balance changes on each rebase without any incoming or outgoing user transfers and does not emit ERC-20 'Transfer' events.
 As a consequence, avoid storing cached stETH balance for extended periods of time (over 24 hours).
 
-The integration might be implemented leveraging the [Lido on Ethereum SDK](../integrations/sdk#lido-ethereum-sdk)
+The integration might be implemented leveraging the [Lido on Ethereum SDK](/docs/integrations/sdk.md#lido-ethereum-sdk)
 
 ### Cross chain bridging
 
 The Lido's wstETH gets bridged to various L2's and sidechains.
-The process of a new network adoption in a future-proof way is outlined as a part of the separate [bridging guide](../token-guides/wsteth-bridging-guide.md).
+The process of a new network adoption in a future-proof way is outlined as a part of the separate [bridging guide](/docs/token-guides/wsteth-bridging-guide.md).
 
 Most cross-chain token bridges have no mechanics to handle rebases.
 This means bridging stETH to other chains will prevent stakers from collecting their staking rewards.

@@ -24,7 +24,7 @@ Consensus members rotate within one time into two subsets:
 - [Fast-lane members](/contracts/hash-consensus#fast-lane-members)
 
 Once the consensus is gathered, a [Report processor](#report-processor-ireportasyncprocessor) would allow submitting and processing the actual report data.
-The latter is a part of the [phased Oracle report flow](../guides/oracle-operator-manual#oracle-phases).
+The latter is a part of the [phased Oracle report flow](/docs/guides/oracle-operator-manual.md#oracle-phases).
 
 ## Report processor (`IReportAsyncProcessor`)
 

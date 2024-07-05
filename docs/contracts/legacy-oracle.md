@@ -55,7 +55,7 @@ userAPR = protocolAPR * (1 - lidoFeeAsFraction)
 
 #### What's new from Lido V2
 
-See the new Lido API docs with regards to [APR](../integrations/api#lido-apr).
+See the new Lido API docs with regards to [APR](/docs/integrations/api.md#lido-apr).
 
 ```js
 // Emits when token rebased (total supply and/or total shares were changed)
@@ -361,7 +361,7 @@ event PostTotalShares(
 ```
 
 :::note
-The new [`TokenRebased`](../integrations/api#last-lido-apr-for-steth) event emitted from the main Lido contract should be used instead because it provides the pre-report total shares amount as well which is essential to properly estimate a token rebase and its projected APR.
+The new [`TokenRebased`](/docs/integrations/api.md#last-lido-apr-for-steth) event emitted from the main Lido contract should be used instead because it provides the pre-report total shares amount as well which is essential to properly estimate a token rebase and its projected APR.
 :::
 
 #### Parameters
