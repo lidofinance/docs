@@ -406,6 +406,35 @@ Kyber Network
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
 
+## Lido on BSC
+
+##### Ethereum part
+
+- CrossChainController: [`0x93559892D3C7F66DE4570132d68b69BD3c369A7C`](https://etherscan.io/address/0x93559892D3C7F66DE4570132d68b69BD3c369A7C) (proxy)
+- CrossChainController: [`0x5f456f29238F8d63b3ae69bCEF9e9d4E953f2c63`](https://etherscan.io/address/0x5f456f29238F8d63b3ae69bCEF9e9d4E953f2c63) (impl)
+- ProxyAdmin [`0xADD673dC6A655AFD6f38fB88301028fA31A6fDeE`](https://etherscan.io/address/0xADD673dC6A655AFD6f38fB88301028fA31A6fDeE) for CrossChainController
+- CCIPAdapter: [`0x29D4fA5FCC282ba2788A281860770c166F597d5d`](https://etherscan.io/address/0x29D4fA5FCC282ba2788A281860770c166F597d5d)
+- HyperLaneAdapter: [`0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3`](https://etherscan.io/address/0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3)
+- LayerZeroAdapter: [`0x742650E0441Be8503682965d601AD0Ba1fB54411`](https://etherscan.io/address/0x742650E0441Be8503682965d601AD0Ba1fB54411)
+- WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
+- (proposed) NTT Manager: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9) (proxy)
+- (proposed) NTT Manager: [`0xc6c1f091450b54af3280cfed790047431bc99bb1`](https://etherscan.io/address/0xc6c1f091450b54af3280cfed790047431bc99bb1) (impl)
+
+##### BSC part
+
+- CrossChainController: [`0x40C4464fCa8caCd550C33B39d674fC257966022F`](https://bscscan.com/address/0x40C4464fCa8caCd550C33B39d674fC257966022F) (proxy)
+- CrossChainController: [`0xB7Ba81dd07885ae7BFD18452B36D3404d7EDD8Ee`](https://bscscan.com/address/0xB7Ba81dd07885ae7BFD18452B36D3404d7EDD8Ee) (impl)
+- ProxyAdmin [`0x29E6817db339795766244B96aEf5Dc534a98518d`](https://bscscan.com/address/0x29E6817db339795766244B96aEf5Dc534a98518d) for CrossChainController
+- CrossChainExecutor: [`0x8E5175D17f74d1D512de59b2f5d5A5d8177A123d`](https://bscscan.com/address/0x8E5175D17f74d1D512de59b2f5d5A5d8177A123d)
+- CCIPAdapter: [`0x15AD245133568c2498c7dA0cf2204A03b0e9b98A`](https://bscscan.com/address/0x15AD245133568c2498c7dA0cf2204A03b0e9b98A)
+- HyperLaneAdapter: [`0xCd867B440c726461e5fAbe8d3a050b2f8701C230`](https://bscscan.com/address/0xCd867B440c726461e5fAbe8d3a050b2f8701C230)
+- LayerZeroAdapter: [`0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408`](https://bscscan.com/address/0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408)
+- WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
+- (proposed) WstEthL2Token: [`0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C`](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C) (proxy)
+- (proposed) WstEthL2Token: [`0x451d447776778870bdfe76d031689703aba73ee5`](https://bscscan.com/address/0x451d447776778870bdfe76d031689703aba73ee5) (impl)
+- (proposed) NTT Manager: [`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278) (proxy)
+- (proposed) NTT Manager: [`0xe82c2a5846cfb6d8683d6b636719e7aa61486838`](https://bscscan.com/address/0xe82c2a5846cfb6d8683d6b636719e7aa61486838) (impl) 
+
 ## LRT Vaults on Mellow Protocol
 
 There's a joint bug bounty for the vaults deployed at addresses listed in [the deployment verification audit record](https://github.com/mellow-finance/mellow-lrt/blob/85370ae372f95d057dc9806ec98fde24e5ed4d29/audits/202406_Statemind/Mellow%20LRT%20report%20with%20deployment.pdf). Any findings regarding the code deployed on those addresses can be reported to [the Lido Immunefi Bug bounty](https://immunefi.com/bug-bounty/lido/) with thresholds of up to $500k on critical finding.
