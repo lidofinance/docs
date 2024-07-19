@@ -26,7 +26,7 @@ event ValidatorExitRequest(
 ## Contract: CSM
 
 > [Holesky](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f)
->
+ 
 ### ELRewardsStealingPenaltyReported
 The DAO can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
 ```solidity
