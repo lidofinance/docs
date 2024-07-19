@@ -98,7 +98,7 @@ event DistributionDataUpdated(
 
 ## 3rd party notification providers
 
-Node Operators can use [Tenderly](https://tenderly.co/) or [OZ Defender](https://www.openzeppelin.com/) as services that allow you to subscribe to the emitted events on the particular contracts and notify you in the Telegram, Discord, Email, etc. Both services work well, allowing filtering by event parameters and are available on the Holesky testnet.
+Node Operators can use [Tenderly](https://tenderly.co/) or [OZ Defender](https://www.openzeppelin.com/) as services that allow them to subscribe to the emitted events on the particular contracts and notify them in the Telegram, Discord, Email, etc. Both services work well, allowing filtering by event parameters and are available on the Holesky testnet.
 
 The free plan on Tenderly has the following limitations:
 - Batches events and sends them every 15 minutes. This is not a problem for CSM events, but you have to visit the app in the case of batch events to see them all.
