@@ -39,6 +39,10 @@ If, after penalties have been applied, a Node Operator's bond is less than requi
 
 If the amount of the penalty exceeds the amount of the Node Operator bond available, all available funds are burned.
 
+:::info
+Any unbonded validators are requested to exit. Unbonded but not deposited keys are excluded from the stake allocation queue.
+:::
+
 ## Benefits reset
 
 A bond curve different from the default one can be treated as a benefit for the Node Operator. It is crucial to ensure a reset of the benefits in case of inappropriate performance or rule violations. There are 4 cases when benefits can be reset for the Node Operator in CSM:

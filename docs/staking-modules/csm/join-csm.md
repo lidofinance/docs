@@ -39,6 +39,10 @@ The term "unbonded" is introduced to refer to the validators for which the bond 
 
 ![join-csm-4](../../../static/img/csm/join-csm-4.png)
 
+:::info
+Any unbonded validators are requested to exit. Unbonded but not deposited keys are excluded from the stake allocation queue.
+:::
+
 ### Possible negative stETH rebase consequences
 With the bond being stored in stETH, there is a risk of a reduction in the bond amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual bond being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [insurance fund](/contracts/insurance) at the Lido DAO's disposal for possible use as cover.
 
@@ -47,9 +51,9 @@ Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will ut
 
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
--   `targetLimit` is not set -> `vettedKeys - depositedKeys - unbondedKeys`
--   `targetLimit` is set -> `min(vettedKeys,targetLimit) - depositedKeys - unbondedKeys`
--   Node Operator has `stuckKeys != 0` no matter the `targetLimit` -> `0`.
+-   `targetValidatorsCount` is not set -> `vettedKeys - depositedKeys - unbondedKeys`
+-   `targetValidatorsCount` is set -> `min(vettedKeys,targetValidatorsCount) - depositedKeys - unbondedKeys`
+-   Node Operator has `stuckKeys != 0` no matter the `targetValidatorsCount` -> `0`.
 
 ## Stake allocation queue
 
