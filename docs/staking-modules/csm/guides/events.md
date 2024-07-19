@@ -1,4 +1,4 @@
-# Subscribing to events
+# Subscribing to the important events
 
 Some events in the CSM may occur on the protocol side, such as withdrawal requests, penalties, etc., which require specific actions from the Node Operator (NO).
 
