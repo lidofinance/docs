@@ -51,9 +51,9 @@ Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will ut
 
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
--   `targetLimit` is not set -> `vettedKeys - depositedKeys - unbondedKeys`
--   `targetLimit` is set -> `min(vettedKeys,targetLimit) - depositedKeys - unbondedKeys`
--   Node Operator has `stuckKeys != 0` no matter the `targetLimit` -> `0`.
+-   `targetValidatorsCount` is not set -> `vettedKeys - depositedKeys - unbondedKeys`
+-   `targetValidatorsCount` is set -> `min(vettedKeys,targetValidatorsCount) - depositedKeys - unbondedKeys`
+-   Node Operator has `stuckKeys != 0` no matter the `targetValidatorsCount` -> `0`.
 
 ## Stake allocation queue
 
