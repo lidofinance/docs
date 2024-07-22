@@ -64,3 +64,6 @@ The Node Operator data structure in CSM is similar to that of the [Curated modul
 - [Rewards](rewards.md)
 - [Penalties](penalties.md)
 - [Validator exits](validator-exits.md)
+
+## Guides
+- [Subscribing to events](guides/events.md)

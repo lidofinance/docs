@@ -163,6 +163,13 @@ module.exports = {
             'staking-modules/csm/rewards',
             'staking-modules/csm/penalties',
             'staking-modules/csm/validator-exits',
+            {
+              type: 'category',
+              label: 'Guides',
+              items: [
+                'staking-modules/csm/guides/events'
+              ]
+            },
             'staking-modules/csm/further-reading',
           ],
         },
