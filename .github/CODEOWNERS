@@ -1,8 +1,7 @@
+* @lidofinance/lido-eth-protocol
 .github @lidofinance/review-gh-workflows
 docs/deployed-contracts @lidofinance/lido-dao-ops-team
 docs/guides @lidofinance/lido-dao-ops-team
 docs/guides/lido-tokens-integration-guide.md @lidofinance/lido-eth-protocol
-docs/security @lidofinance/lido-eth-protocol
 docs/multisigs @lidofinance/lido-dao-ops-team
 docs/security/bugbounty.md @lidofinance/lido-dao-ops-team
-docs/contracts @lidofinance/lido-eth-protocol
