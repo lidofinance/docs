@@ -5,3 +5,4 @@ docs/guides @lidofinance/lido-dao-ops-team
 docs/guides/lido-tokens-integration-guide.md @lidofinance/lido-eth-protocol
 docs/multisigs @lidofinance/lido-dao-ops-team
 docs/security/bugbounty.md @lidofinance/lido-dao-ops-team
+docs/docs/staking-modules/csm @lidofinance/community-staking
