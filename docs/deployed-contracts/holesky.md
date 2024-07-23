@@ -99,6 +99,8 @@
   - ChangeNodeOperatorManager: [`0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E`](https://holesky.etherscan.io/address/0xb8C4728bc0826bA5864D02FA53148de7A44C2f7E)
 - **Sandbox staking module** (registry: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC))
   - IncreaseNodeOperatorStakingLimit: [`0xbD37e55748c6f4Ece637AeD3e278e7575346B587`](https://holesky.etherscan.io/address/0xbD37e55748c6f4Ece637AeD3e278e7575346B587)
+- **Community Staking Module** (module: [`0x4562c3e63c2e586cD1651B958C22F88135aCAd4f`](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f))
+  - CSMSettleElStealingPenalty: [`0x07696EA8A5b53C3E35d9cce10cc62c6c79C4691D`](https://holesky.etherscan.io/address/0x07696EA8A5b53C3E35d9cce10cc62c6c79C4691D)
 
 ### Easy Track factories for token transfers
 - **LOL (ex.reWARDS) stETH** (committee ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915))
