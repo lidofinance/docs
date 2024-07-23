@@ -8,9 +8,9 @@ You can read more about slashing in the [eth2book](https://eth2book.info/capella
 
 ## What misbehavior results in slashing?
 
-There are two reasons for the slashing to occur:
+There are two reasons for slashing to occur:
 
-- **Double signature** also known as propagation of the two different massages (attestation or block proposal) signed by the same validator key and corresponding to the same slot.
+- **Double signature** also known as propagation of the two different messages (attestation or block proposal) signed by the same validator key and corresponding to the same slot.
 - **Making attestation with the source and target votes "surrounding" the source and target votes from another attestation** by the same validator.
 
 While the second case can only result from a client bug, **the first case is easily reachable by running the same validator keys on two distinct setups**.
@@ -23,9 +23,9 @@ Despite the common misconception, being offline is not a slashable event.
 
 There are three penalties associated with the slashing:
 
-- **Initial penalty** also known as minimal penalty. Applied at the moment of slashing reporting to CSM. Amount = `effective_balance / 32` (usually 1 ETH)
-- **Midterm penalty** also known as correlation penalty. Applied in the middle of the slashing period (day #18). The amount may vary from `0 ETH to 32 ETH` depending on the number of other ongoing slashings (usually `0 ETH)`
-- **Misses attestation penalty**. During the whole period of slashing (usually 36 days), the validator balance is penalized for the missed attestations as if the validator was offline (usually `~0.1-0.2 ETH`)
+- **Initial penalty** also known as minimal penalty. Applied at the moment of slashing reporting to CSM. Amount = `effective_balance // 32` (usually 1 ETH)
+- **Midterm penalty** also known as correlation penalty. Applied in the middle of the slashing period (day #18). The amount may vary from `0 ETH to 32 ETH` depending on the number of other ongoing slashings (usually `0 ETH`)
+- **Missed attestations penalty**. During the whole period of slashing (usually 36 days), the validator balance is penalized for the missed attestations as if the validator was offline (usually `~0.1-0.2 ETH`)
 
 A typical total slashing penalty is **~1.2 ETH**
 
