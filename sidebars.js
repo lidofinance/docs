@@ -167,7 +167,9 @@ module.exports = {
               type: 'category',
               label: 'Guides',
               items: [
-                'staking-modules/csm/guides/events'
+                'staking-modules/csm/guides/events',
+                'staking-modules/csm/guides/slashing',
+                'staking-modules/csm/guides/mev-stealing',
               ]
             },
             'staking-modules/csm/further-reading',
