@@ -172,6 +172,7 @@ module.exports = {
                 'staking-modules/csm/guides/slashing',
                 'staking-modules/csm/guides/mev-stealing',
                 'staking-modules/csm/guides/unbonded-validators',
+                'staking-modules/csm/guides/addresses',
               ]
             },
             'staking-modules/csm/further-reading',
