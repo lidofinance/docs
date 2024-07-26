@@ -17,7 +17,7 @@ When a CSM Node Operator is created, two important addresses are set: `managerAd
 Hence, `managerAddress` is the address used to perform routine management operations regarding the CSM Node Operator.
 
 :::info
-`managerAddress` is never used as a recipient of rewards
+`managerAddress` is never used as a recipient of rewards, unless it is the same address as `rewardAddress`
 :::
 
 If no custom addresses were specified during the Node Operator creation, `managerAddress` would be set to `msg.sender` (transaction signer).
@@ -46,7 +46,7 @@ Given `rewardAddress` permissions, the best option is to set it to a "cold" wall
 
 ## Permissionless operations
 
-On top of the permissions above, there are several permissionless methods that can be called by both `managerAddress` and `rewardAddress`:
+On top of the permissions above, there are several permissionless methods that can be called by `managerAddress`, `rewardAddress`, or any other Ethereum address:
 
 - Top-up bond
 - Distribute allocated Node Operator rewards to the Node Operator's bond
