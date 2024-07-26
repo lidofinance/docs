@@ -40,7 +40,7 @@ If no custom addresses were specified during the Node Operator creation, `reward
 
 The process of changing both `managerAddress` and `rewardAddress` is two-phased. The first phase is the proposal of the new address from the current one. The second phase is confirmation from the new address. This two-phased process is required to ensure that node operators will never change any addresses to an address they cannot access.
 
-The only exception to the two-phased rule is the reset of the `managerAddress` from the `rewardAdderess`. In this case, the `managerAddress` is set equal to the `rewardAddress`, which should sign the transaction. Hence, one can be confident that the managerAddress will be set to the address under the Node Operator's control.
+The only exception to the two-phased rule is the reset of the `managerAddress` from the `rewardAddress`. In this case, the `managerAddress` is set equal to the `rewardAddress`, which should sign the transaction. Hence, one can be confident that the managerAddress will be set to the address under the Node Operator's control.
 
 :::info
 To change `managerAddress` or `rewardAddress` using CSM UI, the Node Operator should first connect the wallet, which is the current `managerAddress` or `rewardAddress`, to propose a new address and then connect the wallet, which is the new address, to confirm change
