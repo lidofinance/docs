@@ -22,6 +22,10 @@ Hence, `managerAddress` is the address used to perform routine management operat
 
 If no custom addresses were specified during the Node Operator creation, `managerAddress` would be set to `msg.sender` (transaction signer).
 
+:::info
+Given `managerAddress` permissions, it can be set to a "hot" address to ease Node Operator management
+:::
+
 ## Reward address
 
 `rewardAddress` is the address that can perform the following actions regarding the CSM Node Operator:
@@ -35,6 +39,21 @@ Also, `rewardAddress` is the ultimate recipient of the rewards. No matter from w
 Hence, `rewardAddress` is the ultimate recipient of the rewards and the address that has ultimate control over the Node Operator via the ability to reset `managerAddress`.
 
 If no custom addresses were specified during the Node Operator creation, `rewardAddress` would be set to `msg.sender` (transaction signer).
+
+:::info
+Given `rewardAddress` permissions, the best option is to set it to a "cold" wallet address to ensure security
+:::
+
+## Permissionless operations
+
+On top of the permissions above, there are several permissionless methods that can be called by both `managerAddress` and `rewardAddress`:
+
+- Top-up bond
+- Distribute allocated Node Operator rewards to the Node Operator's bond
+- Compensate for the reported MEV stealing penalty
+- Report validator withdrawal to release bond tokens (usually done by the CSM Bot)
+- Report validator slashing (usually done by the CSM Bot)
+
 
 ## Changing addresses
 
@@ -75,4 +94,8 @@ These changes grant `managerAddress` the ultimate control over the Node Operator
 
 :::info
 `rewardAddress` would still be able to propose a new `rewardAddress` and claim rewards if the `extendedManagerPermissions` option is enabled
+:::
+
+:::info
+If the `extendedManagerPermissions` option is used, `managerAddress` should be set to a secure address ("cold" wallet or multisig)
 :::
