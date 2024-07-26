@@ -65,11 +65,13 @@ The only exception to the two-phased rule is the reset of the `managerAddress` f
 To change `managerAddress` or `rewardAddress` using CSM UI, the Node Operator should first connect the wallet, which is the current `managerAddress` or `rewardAddress`, to propose a new address and then connect the wallet, which is the new address, to confirm change
 :::
 
-## Setting custom addresses upon Node Operator creation
+## Advanced options
 
-There is an opportunity to specify custom `managerAddress` and `rewardAddress` (different from the `msg.sender` aka transaction signer) within the Node Operator creation transaction. 
+### Setting custom addresses upon Node Operator creation
 
-This function is not available on CSM UI by default since there is no way to verify that the Node Operator's creator can access the address provided.
+Within the Node Operator creation transaction, one can specify a custom `managerAddress` and `rewardAddress` (different from the `msg.sender` aka transaction signer). 
+
+This function is not exposed by default in the standard CSM frontend since there is no way to verify that the Node Operator's creator can access the address provided.
 
 :::warning
 Specifying custom `managerAddress` and `rewardAddress` might result in a permanent loss of bond funds if the Node Operator's creator cannot access them
@@ -77,15 +79,15 @@ Specifying custom `managerAddress` and `rewardAddress` might result in a permane
 
 If you fully understand the risks and are still willing to set custom `managerAddress` and `rewardAddress` when creating a Node Operator in CSM, reach out to the Lido contributors in Discord for a special CSM UI link.
 
-## Using smart contract as a reward address
+### Extended Manager Address permissions
 
-All the rules described above apply to the default behavior of CSM. However, there is a special feature called `extendedManagerPermissions` that allows users to change the default permissions of the `managerAddress` and `rewardAddress` to ease Node Operator management in the case when a smart contract (e.g., splitter) is used as a `rewardAddress`.
+An option exists, although not exposed by default in the standard CSM frontend, to give the `managerAddress` extended permissions to accommodate cases where a limited-capability smart contract may be used as a rewards address (e.g. a standard 0xSplits splitter contract). Since some operations by default can be performed only by `rewardAddress`, and not all smart contracts have the ability for arbitrary calls to be made via other addresses, in order to prevent the possibility of a non-changeable `rewardAddress`, this `extendedManagerPermissions` feature has been included.
 
 :::warning
 The `extendedManagerPermissions` option can only be set once during Node Operator creation. It can not be changed later on
 :::
 
-If the user selects to enable `extendedManagerPermissions` during Node Operator creation (Rewards address type => Smart contract in CSM UI), the following changes to the default rules depicted above apply:
+If the user selects to enable `extendedManagerPermissions` during Node Operator creation, the following changes to the default rules depicted above apply:
 
 - `rewardAddress` will not be able to reset `managerAddress`
 - `managerAddress` will be able to change `rewardAddress` without additional confirmation from the new address
@@ -99,3 +101,35 @@ These changes grant `managerAddress` the ultimate control over the Node Operator
 :::info
 If the `extendedManagerPermissions` option is used, `managerAddress` should be set to a secure address ("cold" wallet or multisig)
 :::
+
+## Examples
+
+### Default
+
+By default, the Node Operator's creator is set as a `managerAddress` and `rewardAddress`.
+
+![addresses-2](../../../../static/img/csm/addresses-2.png)
+
+Following the creation of the node operator (i.e. once at least one key has been registered), it is recommended that addresses be re-assigned according to one of the optimal configurations below.
+
+### Optimal for solo operator
+
+It is considered optimal to set `managerAddress` to a "Hot" or easily accessible address and `rewardAddress` to a secure "Cold" wallet or even multisig with arbitrary call functionality, such as [Safe](https://app.safe.global) if you are a solo operator.
+
+![addresses-3](../../../../static/img/csm/addresses-3.png)
+
+### Optimal for DVT cluster
+
+Several optimal options exist for DVT clusters.
+
+The first is to set `managerAddress` to a "Hot" or just easily accessible address controlled by the cluster coordinator and `rewardAddress` to a cluster MultiSig. This option is only recommended in cases where cluster participants trust the coordinator completely (or have other types of guarantees/agreements in place) or if the DVT setup is an intra-operator setup rather than an inter-operator setup.
+
+![addresses-4](../../../../static/img/csm/addresses-4.png)
+
+The second option is to create a CSM Node operator from a cluster MultiSig, setting `managerAddress` and `rewardAddress` to a cluster MultiSig.
+
+![addresses-5](../../../../static/img/csm/addresses-5.png)
+
+The third option is to set `managerAddress` to a cluster MultiSig, `rewardAddress` to a splitter contract (e.g. to benefit from automated rewards splitting between cluster participants), and enable `extendedManagerPermissions`.
+
+![addresses-6](../../../../static/img/csm/addresses-6.png)
