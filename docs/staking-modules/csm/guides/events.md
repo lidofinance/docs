@@ -37,10 +37,10 @@ event ELRewardsStealingPenaltyReported(
 );
 ```
 
-### DecreaseVettedSigningKeysCountReported
+### VettedSigningKeysCountDecreased
 The uploaded keys might be invalid, so the Node Operator has to remove invalid keys to prevent the others from stopping deposits.
 ```solidity
-event DecreaseVettedSigningKeysCountReported(
+event VettedSigningKeysCountDecreased(
     uint256 indexed nodeOperatorId
 );
 ```
@@ -98,13 +98,17 @@ event DistributionDataUpdated(
 
 ## 3rd party notification providers
 
-Node Operators can use [Tenderly](https://tenderly.co/) or [OZ Defender](https://www.openzeppelin.com/) as services that allow them to subscribe to the emitted events on the particular contracts and notify them in the Telegram, Discord, Email, etc. Both services work well, allowing filtering by event parameters and are available on the Holesky testnet.
+Node Operators can use [OZ Defender](https://www.openzeppelin.com/) or [Tenderly](https://tenderly.co/) as services 
+that allow them to subscribe to the emitted events on the particular contracts 
+and notify in the Telegram, Discord, Email, etc.
 
-The free plan on Tenderly has the following limitations:
-- Batches events and sends them every 15 minutes. This is not a problem for CSM events, but you have to visit the app in the case of batch events to see them all.
-- Max 3 alerts per account, so the recommended events are: `ValidatorExitRequest`, `ELRewardsStealingPenaltyReported` and `DecreaseVettedSigningKeysCountReported`
+It is recommended to use OZ Defender - you can subscribe to all required events per contract in one `Monitor` using the free plan. 
 
-Using OZ Defender, you can subscribe to all required events per contract in one `Monitor`, so the free plan has no restrictions for the Node Operator's needs. The only difficulty is that the UI is less friendly than Tenderly's.
+At the same time, Tenderly has some limitations:
+- Not allowed to filter events by two or more fields, so you cannot subscribe to `ValidatorExitRequest` properly.
+- Batches events and sends them every 15 minutes on the free plan. This is not a problem for CSM events, but you have to visit the app in the case of batch events to see them all.
+- Max 3 alerts per account, so the recommended events are: `ELRewardsStealingPenaltyReported`, `DecreaseVettedSigningKeysCountReported` and `StuckSigningKeysCountChanged`
+
 
 See corresponding docs for set up guide:
 - [Tenderly - Intro into Alerts](https://docs.tenderly.co/alerts/intro-to-alerts)
