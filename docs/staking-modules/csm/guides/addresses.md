@@ -110,23 +110,26 @@ By default, the Node Operator's creator is set as a `managerAddress` and `reward
 
 ![addresses-2](../../../../static/img/csm/addresses-2.png)
 
-It is recommended that addresses be re-assigned according to one of the optimal configurations below.
+Following the creation of the node operator (i.e. once at least one key has been registered), it is recommended that addresses be re-assigned according to one of the optimal configurations below.
 
 ### Optimal for solo operator
 
-It is considered optimal to set `managerAddress` to a "Hot" or easily accessible address and `rewardAddress` to a secure "Cold" wallet or even a MultiSig if you are a solo operator.
+It is considered optimal to set `managerAddress` to a "Hot" or easily accessible address and `rewardAddress` to a secure "Cold" wallet or even multisig with arbitrary call functionality, such as [Safe](https://app.safe.global) if you are a solo operator.
 
 ![addresses-3](../../../../static/img/csm/addresses-3.png)
 
-### Optimal for DVT operator
+### Optimal for DVT cluster
 
-Several optimal options exist for the DVT operators.
+Several optimal options exist for DVT clusters.
 
-The first is to set `managerAddress` to a "Hot" or just easily accessible address controlled by the cluster coordinator and `rewardAddress` to a cluster MultiSig.
+The first is to set `managerAddress` to a "Hot" or just easily accessible address controlled by the cluster coordinator and `rewardAddress` to a cluster MultiSig. This option is only recommended in cases where cluster participants trust the coordinator completely (or have other types of guarantees/agreements in place) or if the DVT setup is an intra-operator setup rather than an inter-operator setup.
 
 ![addresses-4](../../../../static/img/csm/addresses-4.png)
 
-
-The second option is to set `managerAddress` to a cluster MultiSig, `rewardAddress` to a splitter contract, and enable `extendedManagerPermissions`.
+The second option is to create a CSM Node operator from a cluster MultiSig, setting `managerAddress` and `rewardAddress` to a cluster MultiSig.
 
 ![addresses-5](../../../../static/img/csm/addresses-5.png)
+
+The third option is to set `managerAddress` to a cluster MultiSig, `rewardAddress` to a splitter contract (e.g. to benefit from automated rewards splitting between cluster participants), and enable `extendedManagerPermissions`.
+
+![addresses-6](../../../../static/img/csm/addresses-6.png)
