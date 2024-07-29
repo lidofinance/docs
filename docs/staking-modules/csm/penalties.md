@@ -30,9 +30,9 @@ There are two mechanics related to Node Operator bond penalization.
 
 The first one is burning stETH shares using the [Burner](../../contracts/burner). Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
 
-The second mechanic is transferring confiscated stETH to the [Lido DAO Treasury](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c). This approach is applied to penalties that are used to address protocol operational costs (e.g., `removalCharge`).
+The second mechanic is transferring confiscated stETH to the [Lido DAO Treasury](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c). This approach is applied to penalties that are used to address protocol operational costs (e.g., `keyRemovalCharge`).
 
-Penalized funds are burned for all the reasons described in the previous section. At the moment, only one penalty transferred to the Treasury is the `removalCharge`.
+Penalized funds are burned for all the reasons described in the previous section. At the moment, only one penalty transferred to the Treasury is the `keyRemovalCharge`.
 
 ## Bond shortage
 If, after penalties have been applied, a Node Operator's bond is less than required to cover the current Node Operator's validators, all new rewards will be used to replenish the NO bond until it is back to the required level. Node Operators can also "top-up" the bond themselves (by submitting the required difference) to be able to claim new rewards.
