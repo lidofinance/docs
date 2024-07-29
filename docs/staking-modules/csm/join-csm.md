@@ -76,7 +76,7 @@ There is a method to check the next `X`elements and remove those containing no d
 A detailed description of the queue is provided in a separate [document](https://hackmd.io/@lido/ryw2Qo5ia).
 
 ## Deposit data deletion
-The Node Operator might delete uploaded deposit data voluntarily if it has not been deposited yet. The `removalCharge` is confiscated from the Node Operator's bond on each deleted key to cover maximal possible operational costs associated with the queue processing. Deposit data can be deleted in continuous batches (ex., from index 5 to 10).
+The Node Operator might delete uploaded deposit data voluntarily if it has not been deposited yet. The `keyRemovalCharge` is confiscated from the Node Operator's bond on each deleted key to cover maximal possible operational costs associated with the queue processing. Deposit data can be deleted in continuous batches (ex., from index 5 to 10).
 
 If the protocol has already deposited the validator related to the deposit data, the Node Operator cannot delete the deposit data. The only way to stop validation duties is to exit the validator on the CL. Once the validator is fully withdrawn, the Node Operator can claim the excess bond.
 
