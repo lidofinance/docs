@@ -387,6 +387,21 @@ pagination_next: deployed-contracts/holesky
   - L2LidoGateway
   - L2WstETHToken
 
+### Mode
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A`](https://etherscan.io/address/0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A) (proxy)
+- L1ERC20TokenBridge: [`0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76`](https://etherscan.io/address/0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76) (impl)
+
+##### Mode part
+
+- WstETH ERC20Bridged: [`0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81`](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81) (proxy)
+- WstETH ERC20Bridged: [`0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A`](https://explorer.mode.network/address/0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A) (impl)
+- L2ERC20TokenBridge: [`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc) (proxy)
+- L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
+- Optimism Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
+
 ### L2 Liquidity pools
 
 Balancer
@@ -433,7 +448,7 @@ Kyber Network
 - (proposed) WstEthL2Token: [`0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C`](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C) (proxy)
 - (proposed) WstEthL2Token: [`0x451d447776778870bdfe76d031689703aba73ee5`](https://bscscan.com/address/0x451d447776778870bdfe76d031689703aba73ee5) (impl)
 - (proposed) NTT Manager: [`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278) (proxy)
-- (proposed) NTT Manager: [`0xe82c2a5846cfb6d8683d6b636719e7aa61486838`](https://bscscan.com/address/0xe82c2a5846cfb6d8683d6b636719e7aa61486838) (impl) 
+- (proposed) NTT Manager: [`0xe82c2a5846cfb6d8683d6b636719e7aa61486838`](https://bscscan.com/address/0xe82c2a5846cfb6d8683d6b636719e7aa61486838) (impl)
 
 ## LRT Vaults on Mellow Protocol
 

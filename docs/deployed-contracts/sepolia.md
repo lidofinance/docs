@@ -100,6 +100,21 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
   - L2LidoGateway
   - L2WstETHToken
 
+### Mode
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0xD847780c8808fc99727001C43E6C17A198b39729`](https://sepolia.etherscan.io/address/0xD847780c8808fc99727001C43E6C17A198b39729) (proxy)
+- L1ERC20TokenBridge: [`0x514Aa1d41d840af7572509D75354A8612594eB30`](https://sepolia.etherscan.io/address/0x514Aa1d41d840af7572509D75354A8612594eB30) (impl)
+
+##### Mode part
+
+- WstETH ERC20Bridged: [`0x953757Db814392642e614DaBba794Ef4381D8292`](https://sepolia.explorer.mode.network/address/0x953757Db814392642e614DaBba794Ef4381D8292) (proxy)
+- WstETH ERC20Bridged: [`0x9C7CDB9312ddA72ACc24E4A3bE5aA6afeca2AAFE`](https://sepolia.explorer.mode.network/address/0x9C7CDB9312ddA72ACc24E4A3bE5aA6afeca2AAFE) (impl)
+- L2ERC20TokenBridge: [`0x2F3a332eff5f45cEA0486464fa4080fcF52Ea876`](https://sepolia.explorer.mode.network/address/0x2F3a332eff5f45cEA0486464fa4080fcF52Ea876) (proxy)
+- L2ERC20TokenBridge: [`0x2AD850d0c6b1846F9bBD8144362A586330a96B31`](https://sepolia.explorer.mode.network/address/0x2AD850d0c6b1846F9bBD8144362A586330a96B31) (impl)
+- Optimism Governance Bridge Executor: [`0x442a6Bea15718588391C5d1dE261AB2c617eA703`](https://sepolia.explorer.mode.network/address/0x442a6Bea15718588391C5d1dE261AB2c617eA703)
+
 ## Lido on BSC
 
 ##### Ethereum part
@@ -127,4 +142,4 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - (proposed) WstEthL2Token: [`0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6`](https://testnet.bscscan.com/address/0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6) (proxy)
 - (proposed) WstEthL2Token: [`0x83bc41aae95b447134e72892ba659d6ea664d496`](https://testnet.bscscan.com/address/0x83bc41aae95b447134e72892ba659d6ea664d496) (impl)
 - (proposed) NTT Manager: [`0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa`](https://testnet.bscscan.com/address/0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa) (proxy)
-- (proposed) NTT Manager: [`0xa0310f52f4ac9c394a82b2e19267a78d3390a16f`](https://testnet.bscscan.com/address/0xa0310f52f4ac9c394a82b2e19267a78d3390a16f) (impl) 
+- (proposed) NTT Manager: [`0xa0310f52f4ac9c394a82b2e19267a78d3390a16f`](https://testnet.bscscan.com/address/0xa0310f52f4ac9c394a82b2e19267a78d3390a16f) (impl)
