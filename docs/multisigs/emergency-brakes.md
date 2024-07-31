@@ -212,7 +212,9 @@ L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https
 | [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://twitter.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
 
-## 1.8 Emergency Brakes: Mode
+## 1.8 Emergency Brakes: Mode (proposed)
+
+(!) Not adopted: yet is in a proposal state.
 
 **Address:** Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 
@@ -222,7 +224,7 @@ L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https
 
 **Forum topics:** [wstETH Deployment on Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
 
-**Snapshot:** [wstETH Deployment on Mode](TODOTODOTODOTODOTODOTODOTODOTODO)
+**Snapshot:** No snapshot yet
 
 **Contracts and Roles:**
 

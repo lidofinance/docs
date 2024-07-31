@@ -245,7 +245,7 @@ pagination_next: deployed-contracts/holesky
 - zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 - Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
 - Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
-- Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
+- (proposed) Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -392,16 +392,16 @@ pagination_next: deployed-contracts/holesky
 
 ##### Ethereum part
 
-- L1ERC20TokenBridge: [`0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A`](https://etherscan.io/address/0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A) (proxy)
-- L1ERC20TokenBridge: [`0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76`](https://etherscan.io/address/0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76) (impl)
+- (proposed)  L1ERC20TokenBridge: [`0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A`](https://etherscan.io/address/0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A) (proxy)
+- (proposed) L1ERC20TokenBridge: [`0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76`](https://etherscan.io/address/0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76) (impl)
 
 ##### Mode part
 
-- WstETH ERC20Bridged: [`0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81`](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81) (proxy)
-- WstETH ERC20Bridged: [`0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A`](https://explorer.mode.network/address/0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A) (impl)
-- L2ERC20TokenBridge: [`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc) (proxy)
-- L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
-- Optimism Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
+- (proposed) WstETH ERC20Bridged: [`0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81`](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81) (proxy)
+- (proposed) WstETH ERC20Bridged: [`0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A`](https://explorer.mode.network/address/0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A) (impl)
+- (proposed) L2ERC20TokenBridge: [`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc) (proxy)
+- (proposed) L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
+- (proposed) Optimism Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
 
 ### L2 Liquidity pools
 
