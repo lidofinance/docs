@@ -115,9 +115,13 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - L2ERC20TokenBridge: [`0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6`](https://sepolia.explorer.mode.network/address/0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6) (impl)
 - Optimism Governance Bridge Executor: [`0x442a6Bea15718588391C5d1dE261AB2c617eA703`](https://sepolia.explorer.mode.network/address/0x442a6Bea15718588391C5d1dE261AB2c617eA703)
 
-## Lido on BSC
+## Lido on outer chains
+
+### BSC
 
 ##### Ethereum part
+
+###### a.DI governance forwarding
 
 - CrossChainController: [`0x9d8548963Fa0a9BE7C434cA482dd5b79E8062d3A`](https://sepolia.etherscan.io/address/0x9d8548963Fa0a9BE7C434cA482dd5b79E8062d3A) (proxy)
 - CrossChainController: [`0x57B3C8DC50d1C881fCB384Da4d66f3d610671177`](https://sepolia.etherscan.io/address/0x57B3C8DC50d1C881fCB384Da4d66f3d610671177) (impl)
@@ -126,10 +130,18 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - HyperLaneAdapter: [`0x9aa88aD35da12C89F5514d04e3BBd8CD95fDf428`](https://sepolia.etherscan.io/address/0x9aa88aD35da12C89F5514d04e3BBd8CD95fDf428)
 - LayerZeroAdapterTestnet: [`0xFA3199330C9F33e5bA2D559574033D9cf3FCb609`](https://sepolia.etherscan.io/address/0xFA3199330C9F33e5bA2D559574033D9cf3FCb609)
 - WormholeAdapterTestnet: [`0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d`](https://sepolia.etherscan.io/address/0x82C16B1e054fa94bf60b54A1Aa9FA74c5872899d)
+
+###### wstETH on BSC endpoints
+
 - (proposed) NTT Manager: [`0x8B715EAf61A7DdF61C67d5D46687c796D1f47146`](https://sepolia.etherscan.io/address/0x8B715EAf61A7DdF61C67d5D46687c796D1f47146) (proxy)
 - (proposed) NTT Manager: [`0x607b139bfee21b2676ee664a237a70d737b9466e`](https://sepolia.etherscan.io/address/0x607b139bfee21b2676ee664a237a70d737b9466e) (impl)
+- (proposed) Wormhole Transceiver: [`0xF2bc73502283fcaC4b047dfE45366d8744daaC5B`](https://sepolia.etherscan.io/address/0xF2bc73502283fcaC4b047dfE45366d8744daaC5B)
+- (proposed) Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://sepolia.etherscan.io/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
+- (proposed) Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://sepolia.etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 
-##### BSC Testnet part
+##### BSC part
+
+###### a.DI governance forwarding
 
 - CrossChainController: [`0x1FAa7AFD7851e7Cf931053e49CE26D4E262698b6`](https://testnet.bscscan.com/address/0x1FAa7AFD7851e7Cf931053e49CE26D4E262698b6) (proxy)
 - CrossChainController: [`0x5EC23B39E6E8eb5BA0c7064a0c08b5e678b02F37`](https://testnet.bscscan.com/address/0x5EC23B39E6E8eb5BA0c7064a0c08b5e678b02F37) (impl)
@@ -139,7 +151,13 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - HyperLaneAdapter: [`0xa75A4F7E70a983b7388CcAA1F6C88BebC4AFc0Ef`](https://testnet.bscscan.com/address/0xa75A4F7E70a983b7388CcAA1F6C88BebC4AFc0Ef)
 - LayerZeroAdapterTestnet: [`0xa950B68BDA44419683c788C5E5845abC8F1863C1`](https://testnet.bscscan.com/address/0xa950B68BDA44419683c788C5E5845abC8F1863C1)
 - WormholeAdapterTestnet: [`0x30dF46cF148Df5eB53eb8B81b0BD5Bc785001E12`](https://testnet.bscscan.com/address/0x30dF46cF148Df5eB53eb8B81b0BD5Bc785001E12)
+
+###### wstETH on BSC endpoints
+
 - (proposed) WstEthL2Token: [`0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6`](https://testnet.bscscan.com/address/0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6) (proxy)
 - (proposed) WstEthL2Token: [`0x83bc41aae95b447134e72892ba659d6ea664d496`](https://testnet.bscscan.com/address/0x83bc41aae95b447134e72892ba659d6ea664d496) (impl)
 - (proposed) NTT Manager: [`0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa`](https://testnet.bscscan.com/address/0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa) (proxy)
 - (proposed) NTT Manager: [`0xa0310f52f4ac9c394a82b2e19267a78d3390a16f`](https://testnet.bscscan.com/address/0xa0310f52f4ac9c394a82b2e19267a78d3390a16f) (impl)
+- (proposed) Wormhole Transceiver: [`0x3a84364d27Ed3D16022Da0f603f3E0F74826c707`](https://testnet.bscscan.com/address/0x3a84364d27Ed3D16022Da0f603f3E0F74826c707)
+- (proposed) Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://testnet.bscscan.com/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
+- (proposed) Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://testnet.bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)

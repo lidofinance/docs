@@ -246,6 +246,7 @@ pagination_next: deployed-contracts/holesky
 - Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
 - Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
 - (proposed) Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
+- BSC: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
@@ -422,9 +423,13 @@ Kyber Network
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
 
-## Lido on BSC
+## Lido on outer chains
+
+### BSC
 
 ##### Ethereum part
+
+###### a.DI governance forwarding
 
 - CrossChainController: [`0x93559892D3C7F66DE4570132d68b69BD3c369A7C`](https://etherscan.io/address/0x93559892D3C7F66DE4570132d68b69BD3c369A7C) (proxy)
 - CrossChainController: [`0x5f456f29238F8d63b3ae69bCEF9e9d4E953f2c63`](https://etherscan.io/address/0x5f456f29238F8d63b3ae69bCEF9e9d4E953f2c63) (impl)
@@ -433,10 +438,19 @@ Kyber Network
 - HyperLaneAdapter: [`0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3`](https://etherscan.io/address/0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3)
 - LayerZeroAdapter: [`0x742650E0441Be8503682965d601AD0Ba1fB54411`](https://etherscan.io/address/0x742650E0441Be8503682965d601AD0Ba1fB54411)
 - WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
+
+###### wstETH on BSC endpoints
+
 - (proposed) NTT Manager: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9) (proxy)
 - (proposed) NTT Manager: [`0xc6c1f091450b54af3280cfed790047431bc99bb1`](https://etherscan.io/address/0xc6c1f091450b54af3280cfed790047431bc99bb1) (impl)
+- (proposed) Wormhole Transceiver: [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0)
+- (proposed) Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+- (proposed) Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- (proposed) Transceiver Structs (used by Axelar Transceiver): [`0xa12bc993d8144404a8c8c812816048275a066ced`](https://etherscan.io/address/0xa12bc993d8144404a8c8c812816048275a066ced)
 
 ##### BSC part
+
+###### a.DI governance forwarding
 
 - CrossChainController: [`0x40C4464fCa8caCd550C33B39d674fC257966022F`](https://bscscan.com/address/0x40C4464fCa8caCd550C33B39d674fC257966022F) (proxy)
 - CrossChainController: [`0xB7Ba81dd07885ae7BFD18452B36D3404d7EDD8Ee`](https://bscscan.com/address/0xB7Ba81dd07885ae7BFD18452B36D3404d7EDD8Ee) (impl)
@@ -446,10 +460,17 @@ Kyber Network
 - HyperLaneAdapter: [`0xCd867B440c726461e5fAbe8d3a050b2f8701C230`](https://bscscan.com/address/0xCd867B440c726461e5fAbe8d3a050b2f8701C230)
 - LayerZeroAdapter: [`0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408`](https://bscscan.com/address/0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408)
 - WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
+
+###### wstETH on BSC endpoints
+
 - (proposed) WstEthL2Token: [`0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C`](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C) (proxy)
 - (proposed) WstEthL2Token: [`0x451d447776778870bdfe76d031689703aba73ee5`](https://bscscan.com/address/0x451d447776778870bdfe76d031689703aba73ee5) (impl)
 - (proposed) NTT Manager: [`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278) (proxy)
 - (proposed) NTT Manager: [`0xe82c2a5846cfb6d8683d6b636719e7aa61486838`](https://bscscan.com/address/0xe82c2a5846cfb6d8683d6b636719e7aa61486838) (impl)
+- (proposed) Wormhole Transceiver: [`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986)
+- (proposed) Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+- (proposed) Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- (proposed) Transceiver Structs (used by Axelar Transceiver): [`0x27a3daf3b243104e9b0afae6b56026a416b852c9`](https://bscscan.com/address/0x27a3daf3b243104e9b0afae6b56026a416b852c9)
 
 ## LRT Vaults on Mellow Protocol
 
