@@ -100,6 +100,21 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
   - L2LidoGateway
   - L2WstETHToken
 
+### Mode
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0x16B929D35B200EA0ae0B93EABc3Bf9Ad611BF18F`](https://sepolia.etherscan.io/address/0x16B929D35B200EA0ae0B93EABc3Bf9Ad611BF18F) (proxy)
+- L1ERC20TokenBridge: [`0x8c1E68A74E71594925c7D7a78Ef43657aec4d599`](https://sepolia.etherscan.io/address/0x8c1E68A74E71594925c7D7a78Ef43657aec4d599) (impl)
+
+##### Mode part
+
+- WstETH ERC20Bridged: [`0x2C937931B5d544E3dff1d9D78c80d9772B55837A`](https://sepolia.explorer.mode.network/address/0x2C937931B5d544E3dff1d9D78c80d9772B55837A) (proxy)
+- WstETH ERC20Bridged: [`0xC9C796E4CefdD38Eb462E84246bE41d500149162`](https://sepolia.explorer.mode.network/address/0xC9C796E4CefdD38Eb462E84246bE41d500149162) (impl)
+- L2ERC20TokenBridge: [`0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008`](https://sepolia.explorer.mode.network/address/0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008) (proxy)
+- L2ERC20TokenBridge: [`0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6`](https://sepolia.explorer.mode.network/address/0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6) (impl)
+- Optimism Governance Bridge Executor: [`0x442a6Bea15718588391C5d1dE261AB2c617eA703`](https://sepolia.explorer.mode.network/address/0x442a6Bea15718588391C5d1dE261AB2c617eA703)
+
 ## Lido on outer chains
 
 ### BSC
