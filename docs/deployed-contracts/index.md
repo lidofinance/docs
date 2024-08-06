@@ -238,9 +238,9 @@ pagination_next: deployed-contracts/holesky
 
 ### Emergency Brakes Multisigs
 
-- Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://gnosis-safe.io/app/eth:0x73b047fe6337183A454c5217241D780a932777bD)
-- Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://gnosis-safe.io/app/oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
-- Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://gnosis-safe.io/app/arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
+- Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/home?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
+- Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://app.safe.global/home?safe=oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
+- Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://app.safe.global/home?safe=arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
 - Base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 - zkSync Era: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync%3A0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 - Mantle: [`0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C`](https://multisig.mantle.xyz/home?safe=mantle:0xa8579D42E34398267dE16e6eeeCdb7ED0EFF953C)
@@ -250,16 +250,16 @@ pagination_next: deployed-contracts/holesky
 
 ### Liquidity Observation Lab (formerly known as reWARDS Committee) Multisigs
 
-- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Ethereum)
-- Liquidity Observation Lab: [`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://gnosis-safe.io/app/oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd/home) (Optimism)
+- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/home?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
+- Liquidity Observation Lab: [`0x5033823F27c5f977707B58F0351adcD732C955Dd`](https://app.safe.global/home?safe=oeth:0x5033823F27c5f977707B58F0351adcD732C955Dd) (Optimism)
 - Liquidity Observation Lab OP Token Multisig: [`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/home?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A) (Optimism)
-- Liquidity Observation Lab: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://gnosis-safe.io/app/arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16/home) (Arbitrum)
+- Liquidity Observation Lab: [`0x8C2b8595eA1b627427EFE4f29A64b145DF439d16`](https://app.safe.global/home?safe=arb1:0x8C2b8595eA1b627427EFE4f29A64b145DF439d16) (Arbitrum)
 - Liquidity Observation Lab ARB Token Multisig: [`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/home?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56) (Arbitrum)
 - Liquidity Observation Lab Arbitrum LTIPP Grant Token Multisig: [`0xD97221065E826167A2cFE3307972c0D42200fDB4`](https://app.safe.global/home?safe=arb1:0xD97221065E826167A2cFE3307972c0D42200fDB4) (Arbitrum)
 - Liquidity Observation Lab: [`0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D`](https://app.safe.global/home?safe=base:0x66f8cfe0ff5A9Cb4CF83EFEF8aD2F3eBBc746c2D) (Base)
 - Liquidity Observation Lab: [`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) (zkSync Era)
 - Liquidity Observation Lab ZK Token Multisig: [`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/home?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913) (zkSync Era)
-- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://gnosis-safe.io/app/matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home) (Polygon)
+- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/home?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Polygon)
 - Liquidity Observation Lab: [`0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4`](https://multisig.moonbeam.network/mriver:0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4/home) (Moonriver)
 - Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1/balances) (Moonbeam)
 - Liquidity Observation Lab: [`0x0b420D02ba56Ae734733864f57e78c8808650b91`](https://app.safe.global/home?safe=bnb:0x0b420D02ba56Ae734733864f57e78c8808650b91) (BNB)
