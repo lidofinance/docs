@@ -273,7 +273,7 @@ Returns the summary of a node operator from the staking module, as shown below,
 
 ```
 struct NodeOperatorSummary {
-	bool isTargetLimitActive;
+	uint256 targetLimitMode;
 	uint256 targetValidatorsCount;
 	uint256 stuckValidatorsCount;
 	uint256 refundedValidatorsCount;
@@ -681,7 +681,7 @@ Updates the limit of the validators that can be used for deposit.
 function updateTargetValidatorsLimits(
 	uint256 _stakingModuleId,
 	uint256 _nodeOperatorId,
-	bool _isTargetLimitActive,
+	uint256 _targetLimitMode,
 	uint256 _targetLimit
 ) external;
 ```
@@ -692,8 +692,8 @@ function updateTargetValidatorsLimits(
 |-------|-------------------|---------------------------------------------------|
 | `_stakingModuleId` | `uin256` | id of the module |
 | `_nodeOperatorId` | `uin256` | id of the node operator |
-| `_isTargetLimitActive` | `bool` | active flag |
-| `_targetLimit` | `uint256` | target limit of the node operator |
+| `_targetLimitMode` | `uint256` | target limit mode (0 = disabled, 1 = soft, 2 = boosted) |
+| `_targetLimit` | `uint256` | target limit validators count of the node operator |
 
 ### `updateRefundedValidatorsCount`
 

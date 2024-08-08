@@ -12,7 +12,7 @@ A curated node operator is obliged by the Lido DAO to exit its validators timely
 
 The Lido DAO can also:
 
-- set target limit count as the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](/docs/contracts/withdrawal-queue-erc721.md#finalization). Allocation of deposits above the target value is prohibited.
+- set target limit count as the number of validators for the NO, as well as the priority exit mode. If the current active number of validators is below the value, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](/docs/contracts/withdrawal-queue-erc721.md#finalization). Allocation of deposits above the target value is prohibited.
 - deactivate misbehaving operators by `deactivateNodeOperator()`. A deactivated node operator do not get rewards and new deposits.
 
 ## Glossary
@@ -52,8 +52,8 @@ For each NO the contract keeps a record of at least these values:
 - `totalExitedValidators: uint64` incremental counter of all exited validators for the NO so far
 - `totalAddedValidators: uint64` incremental counter of all added to the NO validators so far
 - `totalDepositedValidators: uint64` incremental counter of all deposited validators for the NO so far
-- `targetValidatorsCount: uint256` target value for the number of validators for the NO. If the current active number of validators is below the value, the excess ones will be requested to exit. Allocation of deposits above the target value is prohibited. The exiting works only if `isTargetLimitActive` is true. The `0` value will cause exit requests issued for all deposited validators of the NO.
-- `isTargetLimitActive: bool` flag whether NO validators number is target-limited (see `targetValidatorsCount`)
+- `targetValidatorsCount: uint256` target value for the number of validators for the NO. If the current active number of validators is above the value, the excess ones will be requested to exit. Allocation of deposits above the target value is prohibited. The exiting works only if `targetLimitMode` is non-zero. The `0` value will cause exit requests issued for all deposited validators of the NO. (see [VEBO](https://docs.lido.fi/guides/oracle-spec/validator-exit-bus) for details)
+- `targetLimitMode: uint256` NO's target limitation mode value (0 = disabled, 1 = smooth exit mode, 2 = boosted exit mode), determines whether the number of NO validators is target-limited, and if so, which exit mode will be applied on the [VEBO](https://docs.lido.fi/guides/oracle-spec/validator-exit-bus) side (see also `targetValidatorsCount`)
 - `stuckValidatorsCount: uint256` number of stuck keys  delivered by the oracle report
 - `refundedValidatorsCount: uint256` number of refunded validators
 - `depositableValidatorsCount: uint256` number of depositable validators
@@ -270,7 +270,7 @@ Returns some statistics of the node operator.
 
 ```sol
 function getNodeOperatorSummary(uint256 _nodeOperatorId) view returns (
-    bool isTargetLimitActive,
+    uint256 targetLimitMode,
     uint256 targetValidatorsCount,
     uint256 stuckValidatorsCount,
     uint256 refundedValidatorsCount,
@@ -283,7 +283,7 @@ function getNodeOperatorSummary(uint256 _nodeOperatorId) view returns (
 
 | Name                         | Type      | Description                                                                                      |
 | ---------------------------- | --------- | ------------------------------------------------------------------------------------------------ |
-| `isTargetLimitActive`        | `bool`    | Is limiting target active validators count for NO enabled                                        |
+| `targetLimitMode`            | `uint256` | Current target limit mode applied to the NO (0 = disabled, 1 = soft, 2 = boosted)                |
 | `targetValidatorsCount`      | `uint256` | Target validators count for full description see [parameters section](#node-operator-parameters) |
 | `stuckValidatorsCount`       | `uint256` | Number of stuck keys from oracle report                                                          |
 | `refundedValidatorsCount`    | `uint256` | Number of refunded keys                                                                          |
