@@ -254,7 +254,7 @@ struct StakingModuleSummary {
 }
 ```
 
-```
+```solidity
 function getStakingModuleSummary(uint256 _stakingModuleId) public view returns (StakingModuleSummary)
 ```
 
@@ -274,7 +274,7 @@ function getStakingModuleSummary(uint256 _stakingModuleId) public view returns (
 
 Returns the summary of a node operator from the staking module, as shown below,
 
-```
+```solidity
 struct NodeOperatorSummary {
 	uint256 targetLimitMode;
 	uint256 targetValidatorsCount;
@@ -320,7 +320,7 @@ struct StakingModuleDigest {
 }
 ```
 
-```
+```solidity
 function getAllStakingModuleDigests() external view returns (StakingModuleDigest[])
 ```
 
@@ -335,7 +335,7 @@ function getAllStakingModuleDigests() external view returns (StakingModuleDigest
 
 Returns the digest of the specified staking modules.
 
-```
+```solidity
 function getStakingModuleDigests(uint256[] memory _stakingModuleIds) public view returns (StakingModuleDigest[])
 ```
 
@@ -363,7 +363,7 @@ struct NodeOperatorDigest {
 }
 ```
 
-```
+```solidity
 function getAllNodeOperatorDigests(uint256 _stakingModuleId) external view returns (NodeOperatorDigest[])
 ```
 
@@ -425,7 +425,7 @@ function getStakingModuleIsStopped(uint256 _stakingModuleId) external view retur
 
 Return a boolean value whether deposits are paused for the staking module.
 
-```
+```solidity
 function getStakingModuleIsDepositsPaused(uint256 _stakingModuleId) external view returns (bool)
 ```
 
@@ -445,7 +445,7 @@ function getStakingModuleIsDepositsPaused(uint256 _stakingModuleId) external vie
 
 Return a boolean value whether the staking module is active.
 
-```
+```solidity
 function getStakingModuleIsActive(uint256 _stakingModuleId) external view returns (bool)
 ```
 
@@ -465,7 +465,7 @@ function getStakingModuleIsActive(uint256 _stakingModuleId) external view return
 
 Get the nonce of a staking module.
 
-```
+```solidity
 function getStakingModuleNonce(uint256 _stakingModuleId) external view returns (uint256)
 ```
 
@@ -485,7 +485,7 @@ function getStakingModuleNonce(uint256 _stakingModuleId) external view returns (
 
 Get the block number of the last deposit to the staking module.
 
-```
+```solidity
 function getStakingModuleLastDepositBlock(uint256 _stakingModuleId) external view returns (uint256)
 ```
 
@@ -505,7 +505,7 @@ function getStakingModuleLastDepositBlock(uint256 _stakingModuleId) external vie
 
 Get the min deposit block distance for the staking module
 
-```
+```solidity
 function getStakingModuleMinDepositBlockDistance(uint256 _stakingModuleId) external view returns (uint256)
 ```
 
@@ -523,9 +523,9 @@ function getStakingModuleMinDepositBlockDistance(uint256 _stakingModuleId) exter
 
 ### `getStakingModuleMaxDepositsPerBlock`
 
-Get the max deposit count for the staking module
+Get the max deposits count per block for the staking module
 
-```
+```solidity
 function getStakingModuleMaxDepositsPerBlock(uint256 _stakingModuleId) external view returns (uint256)
 ```
 
@@ -546,7 +546,7 @@ function getStakingModuleMaxDepositsPerBlock(uint256 _stakingModuleId) external 
 
 Returns the number of active validators in the staking module.
 
-```
+```solidity
 function getStakingModuleActiveValidatorsCount(uint256 _stakingModuleId) external view returns (uint256 activeValidatorsCount)
 ```
 
@@ -566,7 +566,7 @@ function getStakingModuleActiveValidatorsCount(uint256 _stakingModuleId) externa
 
 Calculates the maximum number of deposits a staking module can handle based on the available deposit value.
 
-```
+```solidity
 function getStakingModuleMaxDepositsCount(
 	uint256 _stakingModuleId,
 	uint256 _maxDepositsValue
@@ -590,7 +590,7 @@ function getStakingModuleMaxDepositsCount(
 
 Returns the total fee distribution proportion.
 
-```
+```solidity
 function getStakingFeeAggregateDistribution() public view returns (
 	uint96 modulesFee,
 	uint96 treasuryFee,
@@ -692,14 +692,14 @@ function addStakingModule(
 
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
-| `_name` | `string` | Human-readable name of the module |
+| `_name` | `string` | human-readable name of the module |
 | `_stakingModuleAddress` | `address` | Address of the module contract |
-| `_stakeShareLimit` | `uin256` | Maximum share that can be allocated to a module |
+| `_stakeShareLimit` | `uin256` | maximum share that can be allocated to a module |
 | `_priorityExitShareThreshold` | `uin256` | Module's priority exit share threshold |
-| `_stakingModuleFee` | `uin256` | Fee of the staking module taken from the staking rewards |
-| `_treasuryFee` | `uint256` | Treasury fee |
-| `_maxDepositsPerBlock` | `uint256` | The maximum number of validators that can be deposited in a single block |
-| `_minDepositBlockDistance` | `uint256` | The minimum distance between deposits in blocks |
+| `_stakingModuleFee` | `uin256` | fee of the staking module taken from the staking rewards |
+| `_treasuryFee` | `uint256` | treasury fee |
+| `_maxDepositsPerBlock` | `uint256` | maximum number of validators that can be deposited in a single block |
+| `_minDepositBlockDistance` | `uint256` | minimum distance between deposits in blocks |
 
 ### `updateStakingModule`
 
@@ -722,12 +722,12 @@ function updateStakingModule(
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
 | `_stakingModuleId` | `address` | id of the module |
-| `_stakeShareLimit` | `uin256` | Maximum share that can be allocated to a module |
+| `_stakeShareLimit` | `uin256` | maximum share that can be allocated to a module |
 | `_priorityExitShareThreshold` | `uin256` | Module's priority exit share threshold |
 | `_stakingModuleFee` | `uin256` | updated module fee |
 | `_treasuryFee` | `uint256` | updated module treasury fee |
-| `_maxDepositsPerBlock` | `uint256` | The maximum number of validators that can be deposited in a single block |
-| `_minDepositBlockDistance` | `uint256` | The minimum distance between deposits in blocks |
+| `_maxDepositsPerBlock` | `uint256` | maximum number of validators that can be deposited in a single block |
+| `_minDepositBlockDistance` | `uint256` | minimum distance between deposits in blocks |
 
 ### `updateTargetValidatorsLimits`
 

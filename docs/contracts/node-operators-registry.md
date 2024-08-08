@@ -70,7 +70,7 @@ Except for the function listed below, the contract has methods accessible only b
 
 Returns the rewards distribution proportional to the effective stake for each node operator
 
-```sol
+```solidity
 function getRewardsDistribution(uint256 _totalRewardShares) returns (
   address[] recipients,
   uint256[] shares,
@@ -86,7 +86,7 @@ function getRewardsDistribution(uint256 _totalRewardShares) returns (
 
 Returns the number of active node operators.
 
-```sol
+```solidity
 function getActiveNodeOperatorsCount() returns (uint256)
 ```
 
@@ -94,7 +94,7 @@ function getActiveNodeOperatorsCount() returns (uint256)
 
 Returns the node operator by id.
 
-```sol
+```solidity
 function getNodeOperator(uint256 _nodeOperatorId, bool _fullInfo) returns (
     bool active,
     string name,
@@ -115,7 +115,7 @@ function getNodeOperator(uint256 _nodeOperatorId, bool _fullInfo) returns (
 
 Returns the total number of signing keys of the node operator.
 
-```sol
+```solidity
 function getTotalSigningKeyCount(uint256 _nodeOperatorId) returns (uint256)
 ```
 
@@ -127,7 +127,7 @@ function getTotalSigningKeyCount(uint256 _nodeOperatorId) returns (uint256)
 
 Returns the number of usable signing keys of the node operator.
 
-```sol
+```solidity
 function getUnusedSigningKeyCount(uint256 _nodeOperatorId) returns (uint256)
 ```
 
@@ -139,7 +139,7 @@ function getUnusedSigningKeyCount(uint256 _nodeOperatorId) returns (uint256)
 
 Returns n-th signing key of the node operator.
 
-```sol
+```solidity
 function getSigningKey(uint256 _nodeOperatorId, uint256 _index) returns (
     bytes key,
     bytes depositSignature,
@@ -165,7 +165,7 @@ Returns:
 Returns subset of the signing keys of the node operator corresponding to the specified range `[_offset, _offset + _limit)`.
 If the range is out of bound of range `[0, <total keys number>)` reverts with `OUT_OF_RANGE` error.
 
-```sol
+```solidity
 function getSigningKeys(uint256 _nodeOperatorId, uint256 _offset, uint256 _limit) returns (
     bytes memory pubkeys,
     bytes memory signatures,
@@ -191,7 +191,7 @@ Returns:
 
 Returns the total number of node operators.
 
-```sol
+```solidity
 function getNodeOperatorsCount() returns (uint256)
 ```
 
@@ -208,7 +208,7 @@ Returns a counter that increments whenever the deposit data set changes. Namely,
 - ready to deposit keys invalidated (due to withdrawal credentials change or due to manual invalidation by call of `invalidateReadyToDepositKeysRange`);
 - ether deposited.
 
-```sol
+```solidity
 function getNonce() view returns (uint256)
 ```
 
@@ -216,7 +216,7 @@ function getNonce() view returns (uint256)
 
 Returns the type of the staking module.
 
-```sol
+```solidity
 function getType() view returns (bytes32)
 ```
 
@@ -224,7 +224,7 @@ function getType() view returns (bytes32)
 
 Returns some statistics of the staking module.
 
-```sol
+```solidity
 function getStakingModuleSummary() view returns (
     uint256 totalExitedValidators,
     uint256 totalDepositedValidators,
@@ -242,7 +242,7 @@ function getStakingModuleSummary() view returns (
 
 Returns if the node operator with given id is active.
 
-```sol
+```solidity
 function getNodeOperatorIsActive(uint256 _nodeOperatorId) view returns (bool)
 ```
 
@@ -254,7 +254,7 @@ function getNodeOperatorIsActive(uint256 _nodeOperatorId) view returns (bool)
 
 Returns up to `_limit` node operator ids starting from the `_offset`.
 
-```sol
+```solidity
 function getNodeOperatorIds(uint256 _offset, uint256 _limit) view
     returns (uint256[] memory nodeOperatorIds)
 ```
@@ -268,7 +268,7 @@ function getNodeOperatorIds(uint256 _offset, uint256 _limit) view
 
 Returns some statistics of the node operator.
 
-```sol
+```solidity
 function getNodeOperatorSummary(uint256 _nodeOperatorId) view returns (
     uint256 targetLimitMode,
     uint256 targetValidatorsCount,
@@ -297,7 +297,7 @@ function getNodeOperatorSummary(uint256 _nodeOperatorId) view returns (
 Returns value of the stuck penalty delay (in seconds).
 This parameter defines how long a penalized NO stays in penalty state after the stuck keys were refunded.
 
-```sol
+```solidity
 function getStuckPenaltyDelay() view returns (uint256)
 ```
 
@@ -305,7 +305,7 @@ function getStuckPenaltyDelay() view returns (uint256)
 
 Returns flag whether the NO is penalized.
 
-```sol
+```solidity
 function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
 ```
 
@@ -313,7 +313,7 @@ function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
 
 Returns flag whether the NO penalty is cleared.
 
-```sol
+```solidity
 function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
 ```
 
@@ -321,9 +321,31 @@ function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
 
 Returns the address of [`LidoLocator`](./lido-locator.md).
 
-```sol
+```solidity
 function getLocator() view returns (ILidoLocator)
 ```
+
+### getRewardDistributionState()
+
+Get the current reward distribution state, anyone can monitor this state and distribute reward (call `distributeReward` method) among operators when it's `ReadyForDistribution`
+
+```solidity
+enum RewardDistributionState {
+	TransferredToModule,
+	ReadyForDistribution,
+	Distributed
+}
+```
+
+```solidity
+function getRewardDistributionState() public view returns (RewardDistributionState)
+```
+
+**Returns:**
+
+| Name  | Type              | Description                                       |
+|-------|-------------------|---------------------------------------------------|
+|  | `RewardDistributionState` |  current reward distribution state |
 
 ## Methods
 
@@ -333,7 +355,7 @@ Add node operator named `_name` with reward address `_rewardAddress` and staking
 
 Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
-```sol
+```solidity
 function addNodeOperator(
   string _name,
   address _rewardAddress
@@ -361,7 +383,7 @@ Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 Increases the validators keys nonce
 :::
 
-```sol
+```solidity
 function activateNodeOperator(uint256 _nodeOperatorId)
 ```
 
@@ -379,7 +401,7 @@ Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role
 Increases the validators keys nonce
 :::
 
-```sol
+```solidity
 function deactivateNodeOperator(uint256 _nodeOperatorId)
 ```
 
@@ -393,7 +415,7 @@ Change human-readable name of the node operator with given id.
 
 Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
-```sol
+```solidity
 function setNodeOperatorName(uint256 _nodeOperatorId, string _name)
 ```
 
@@ -408,7 +430,7 @@ Change reward address of the node operator with given id.
 
 Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
-```sol
+```solidity
 function setNodeOperatorRewardAddress(uint256 _nodeOperatorId, address _rewardAddress)
 ```
 
@@ -434,7 +456,7 @@ the new vettedSigningKeysCount value will be set to the nearest range border.
 Increases the validators keys nonce
 :::
 
-```sol
+```solidity
 function setNodeOperatorStakingLimit(uint256 _nodeOperatorId, uint64 _vettedSigningKeysCount)
 ```
 
@@ -460,7 +482,7 @@ Given that information, the contract'll be able to call deposit_contract.deposit
 Increases the validators keys nonce
 :::
 
-```sol
+```solidity
 function addSigningKeys(
   uint256 _nodeOperatorId,
   uint256 _keysCount,
@@ -490,7 +512,7 @@ Keys removing from the last index to the highest one, so we won't get outside th
 Increases the validators keys nonce
 :::
 
-```sol
+```solidity
 function removeSigningKeys(uint256 _nodeOperatorId, uint256 _fromIndex, uint256 _keysCount)
 ```
 
@@ -505,7 +527,7 @@ function removeSigningKeys(uint256 _nodeOperatorId, uint256 _fromIndex, uint256 
 Invalidates all unused validators keys for node operators in the given range.
 Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
-```sol
+```solidity
 function invalidateReadyToDepositKeysRange(uint256 _indexFrom, uint256 _indexTo)
 ```
 
@@ -521,7 +543,7 @@ The penalty state is switched automatically upon oracle report if the conditions
 (e.g., if penalty delay expired), but this function allows it to happen quicker.
 Can be called by anyone.
 
-```sol
+```solidity
 function clearNodeOperatorPenalty(uint256 _nodeOperatorId) external returns (bool)
 ```
 
@@ -536,10 +558,28 @@ Sets the stuck penalty delay parameter.
 Add node operator named `_name` with reward address `_rewardAddress` and staking limit = 0.
 Executed on behalf of holder of `MANAGE_NODE_OPERATOR_ROLE` role.
 
-```sol
+```solidity
 function setStuckPenaltyDelay(uint256 _delay)
 ```
 
 | Name     | Type      | Description                    |
 | -------- | --------- | ------------------------------ |
 | `_delay` | `uint256` | Stuck penalty delay in seconds |
+
+### distributeReward()
+
+Permissionless method for distributing all accumulated module rewards among node operators based on the latest accounting report.
+
+Rewards can be distributed after all necessary data required to distribute rewards among operators has been delivered, including exited and stuck keys.
+
+The reward distribution lifecycle (see also [getRewardsDistribution](#getrewarddistributionstate)):
+
+1. TransferredToModule: Rewards are transferred to the module during an oracle main report.
+2. ReadyForDistribution: All necessary data required to distribute rewards among operators has been delivered.
+3. Distributed: Rewards have been successfully distributed.
+
+The function can only be called when the state is `ReadyForDistribution`.
+
+```solidity
+function distributeReward() external
+```
