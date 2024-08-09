@@ -51,7 +51,7 @@ The diagram shows the interaction with contracts.
 graph LR;
   A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
   AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
-  AccountingOracle--checkAccountingExtraDataListItemsCount-->OracleReportSanityChecker;
+  AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
   AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
   AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
   AccountingOracle--'onOracleReport'-->WithdrawalQueue;
@@ -166,7 +166,7 @@ The `itemPayload` field has the following format:
 
     byteLength(stuckValidatorsCounts) = nodeOpsCount * 16
 
-`nodeOpsCount` must not be greater than `maxAccountingExtraDataListItemsCount` specified
+`nodeOpsCount` must not be greater than `maxItemsPerExtraDataTransaction` specified
     in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
     with total stuck validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
@@ -621,7 +621,7 @@ To ensure that the reported data is within possible values, the handler function
 
 #### OracleReportSanityChecker
 
-- Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkaccountingextradatalistitemscount)
+- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkExtraDataItemsCountPerTransaction)
 - Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
 
 #### StakingRouter
