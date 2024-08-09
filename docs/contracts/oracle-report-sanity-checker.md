@@ -1,7 +1,7 @@
 # OracleReportSanityChecker
 
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
-- [Deployed contract](https://etherscan.io/address/0x9305c1Dbfe22c12c66339184C0025d7006f0f1cC)
+- [Deployed contract](https://etherscan.io/address/todo_put_new_address)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
 [`AccountingOracle`](./accounting-oracle.md), [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md).
@@ -24,38 +24,44 @@ contract and a bunch of [granular roles](#permissions).
 
 ```solidity
 struct LimitsList {
-    uint256 churnValidatorsPerDayLimit;
-    uint256 oneOffCLBalanceDecreaseBPLimit;
+    uint256 exitedValidatorsPerDayLimit;
+    uint256 appearedValidatorsPerDayLimit;
     uint256 annualBalanceIncreaseBPLimit;
     uint256 simulatedShareRateDeviationBPLimit;
     uint256 maxValidatorExitRequestsPerReport;
-    uint256 maxAccountingExtraDataListItemsCount;
-    uint256 maxNodeOperatorsPerExtraDataItemCount;
+    uint256 maxItemsPerExtraDataTransaction;
+    uint256 maxNodeOperatorsPerExtraDataItem;
     uint256 requestTimestampMargin;
     uint256 maxPositiveTokenRebase;
+    uint256 initialSlashingAmountPWei;
+    uint256 inactivityPenaltiesAmountPWei;
+    uint256 clBalanceOraclesErrorUpperBPLimit;
 }
 ```
 
-- **`churnValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_
-  or _**exited**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become
-  _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
-  intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
-  For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](./deposit-security-module.md). In contrast, _**exited**_ are reported according to the
+- **`exitedValidatorsPerDayLimit`  ∈ [0, 65535]** — the max possible number of validators that might be reported as exited per single day, _**exited**_ are reported according to the
   [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#get_validator_churn_limit).
-- **`oneOffCLBalanceDecreaseBPLimit` ∈ [0, 10000]** — the max decrease of the total validators' balances on the Consensus Layer since
-  the previous oracle report. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
+- **`appearedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
+  intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
+  For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](./deposit-security-module.md). 
 - **`annualBalanceIncreaseBPLimit` ∈ [0, 10000]** — the max annual increase of the total validators' balances on the Consensus Layer
   since the previous oracle report. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
 - **`simulatedShareRateDeviationBPLimit` ∈ [0, 10000]** — the max deviation of the provided `simulatedShareRate` and the actual one within the
   currently processing oracle report. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
 - **`maxValidatorExitRequestsPerReport` ∈ [0, 65535]** — the max number of exit requests allowed in report
   to [ValidatorsExitBusOracle](./validators-exit-bus-oracle.md)
-- **`maxAccountingExtraDataListItemsCount` ∈ [0, 65535]** — the max number of data list items reported to accounting oracle in extra data
-- **`maxNodeOperatorsPerExtraDataItemCount` ∈ [0, 65535]** — the max number of node operators reported per extra data list item
+- **`maxItemsPerExtraDataTransaction` ∈ [0, 65535]** — the max number of data list items reported to accounting oracle in extra data per single transaction.
+- **`maxNodeOperatorsPerExtraDataItem` ∈ [0, 65535]** — the max number of node operators reported per extra data list item
 - **`requestTimestampMargin` ∈ [0, type(uint64).max]** — the min time required to be passed from the creation of the request to be finalized till the time of the oracle report
 - **`maxPositiveTokenRebase` ∈ [1, type(uint64).max]** — the max positive token rebase allowed per single oracle report token rebase
   happens on total supply adjustment, huge positive rebase can incur oracle report sandwiching.
   Uses 1e9 precision, e.g.: `1e6` — 0.1%; `1e9` — 100%; `type(uint64).max` — unlimited rebase.
+
+ToDo: description 
+ - initialSlashingAmountPWei
+ - inactivityPenaltiesAmountPWei
+ - clBalanceOraclesErrorUpperBPLimit
+ - Second Opinion oracle ?
 
 ## Sanity Checks
 
@@ -76,8 +82,8 @@ Below is the list of restrictions checked by the method execution:
   decrease in basis points **exceeds** the allowed `LimitsList.oneOffCLBalanceDecreaseBPLimit`.
 - Revert with `IncorrectCLBalanceIncrease(uint256 annualBalanceDiff)` error when Consensus Layer annual balance increase
   expressed in basis points **exceeds** allowed `LimitsList.annualBalanceIncreaseBPLimit`.
-- Revert with `IncorrectAppearedValidators(uint256 churnLimit)` error when the number of appeared validators **exceeds**
-  the limit set by `LimitsList.churnValidatorsPerDayLimit`.
+- Revert with `IncorrectAppearedValidators(uint256 appearedValidatorsLimit)` error when the number of appeared validators **exceeds**
+  the limit set by `LimitsList.appearedValidatorsPerDayLimit`.
 
 :::
 
@@ -124,7 +130,7 @@ function checkExitBusOracleReport(uint256 _exitRequestsCount)
 
 ### checkExitedValidatorsRatePerDay()
 
-Validates that number of exited validators does not exceed the limit set by `LimitsList.churnValidatorsPerDayLimit`.
+Validates that number of exited validators does not exceed the limit set by `LimitsList.exitedValidatorsPerDayLimit`.
 
 :::note
 Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` error when check is failed.
@@ -141,7 +147,7 @@ function checkExitedValidatorsRatePerDay(uint256 _exitedValidatorsCount)
 ### checkNodeOperatorsPerExtraDataItemCount()
 
 Validates that number of node operators reported per extra data item does not exceed the limit
-set by `LimitsList.maxNodeOperatorsPerExtraDataItemCount`.
+set by `LimitsList.maxNodeOperatorsPerExtraDataItem`.
 
 :::note
 Reverts with `TooManyNodeOpsPerExtraDataItem(uint256 itemIndex, uint256 nodeOpsCount)` error when check is failed.
@@ -159,22 +165,22 @@ function checkNodeOperatorsPerExtraDataItemCount(
 - **`_itemIndex`** — index of item in extra data
 - **`_nodeOperatorsCount`** — number of validator exit requests supplied per oracle report
 
-### checkAccountingExtraDataListItemsCount()
+### checkExtraDataItemsCountPerTransaction()
 
-Validates that number of extra data items in the report does not exceed the limit
-set by `LimitsList.maxAccountingExtraDataListItemsCount`.
+Validates that number of extra data items per transaction in the report does not exceed the limit
+set by `LimitsList.maxItemsPerExtraDataTransaction`.
 
 :::note
-Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed.
+Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed.
 :::
 
 ```solidity
-function checkAccountingExtraDataListItemsCount(uint256 _extraDataListItemsCount)
+function checkExtraDataItemsCountPerTransaction(uint256 _extraDataListItemsCount)
 ```
 
 #### Arguments
 
-- **`_extraDataListItemsCount`** — number of validator exit requests supplied per oracle report
+- **`_extraDataListItemsCount`** — number of items per single transaction in the accounting oracle report
 
 ### checkWithdrawalQueueOracleReport()
 
@@ -349,26 +355,47 @@ function setOracleReportLimits(LimitsList memory _limitsList)
 
 - **`_limitsList`** — new limits list values
 
-### setChurnValidatorsPerDayLimit()
+### setExitedValidatorsPerDayLimit()
 
-Sets the new value for the `LimitsList.churnValidatorsPerDayLimit`.
-The limit is applicable for _**appeared**_ and _**exited**_ validators.
+Sets the new value for the `LimitsList.exitedValidatorsPerDayLimit`.
+The limit is applicable for _**exited**_ validators.
 
 :::note
 
-- Requires `CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE` to be granted to the caller.
+- Requires `EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE` to be granted to the caller.
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
 
 :::
 
 ```solidity
-function setChurnValidatorsPerDayLimit(uint256 _churnValidatorsPerDayLimit)
+function setExitedValidatorsPerDayLimit(uint256 _exitedValidatorsPerDayLimit)
 ```
 
 #### Arguments
 
-- **`_churnValidatorsPerDayLimit`** — new `LimitsList.churnValidatorsPerDayLimit` value
+- **`_exitedValidatorsPerDayLimit`** — new `LimitsList.exitedValidatorsPerDayLimit` value
+
+### setAppearedValidatorsPerDayLimit()
+
+Sets the new value for the `LimitsList.appearedValidatorsPerDayLimit`.
+The limit is applicable for _**appeared**_ validators.
+
+:::note
+
+- Requires `APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+
+:::
+
+```solidity
+function setAppearedValidatorsPerDayLimit(uint256 _appearedValidatorsPerDayLimit)
+```
+
+#### Arguments
+
+- **`_appearedValidatorsPerDayLimit`** — new `LimitsList.appearedValidatorsPerDayLimit` value
 
 ### setOneOffCLBalanceDecreaseBPLimit()
 
@@ -490,45 +517,45 @@ function setMaxPositiveTokenRebase(uint256 _maxPositiveTokenRebase)
 
 - **`_maxPositiveTokenRebase`** — new value for `LimitsList.maxPositiveTokenRebase`
 
-### setMaxAccountingExtraDataListItemsCount()
+### setMaxItemsPerExtraDataTransaction()
 
-Sets the new value for the `LimitsList.maxAccountingExtraDataListItemsCount` variable.
+Sets the new value for the `LimitsList.maxItemsPerExtraDataTransaction` variable.
 
 :::note
 
-- Requires `MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE` to be granted to the caller.
+- Requires `MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE` to be granted to the caller.
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
 
 :::
 
 ```solidity
-function setMaxAccountingExtraDataListItemsCount(uint256 _maxAccountingExtraDataListItemsCount)
+function setMaxItemsPerExtraDataTransaction(uint256 _maxItemsPerExtraDataTransaction)
 ```
 
 #### Arguments
 
-- **`_maxAccountingExtraDataListItemsCount`** — new value for `LimitsList.maxAccountingExtraDataListItemsCount`
+- **`_maxItemsPerExtraDataTransaction`** — new value for `LimitsList.maxItemsPerExtraDataTransaction`
 
-### setMaxNodeOperatorsPerExtraDataItemCount()
+### setMaxNodeOperatorsPerExtraDataItem()
 
-Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` variable.
+Sets the new value for the `LimitsList.maxNodeOperatorsPerExtraDataItem` variable.
 
 :::note
 
-- Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE` to be granted to the caller.
+- Requires `MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE` to be granted to the caller.
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
 
 :::
 
 ```solidity
-function setMaxNodeOperatorsPerExtraDataItemCount(uint256 _maxNodeOperatorsPerExtraDataItemCount)
+function setMaxNodeOperatorsPerExtraDataItem(uint256 _maxNodeOperatorsPerExtraDataItem)
 ```
 
 #### Arguments
 
-- **`_maxNodeOperatorsPerExtraDataItemCount`** — new value for `LimitsList.maxNodeOperatorsPerExtraDataItemCount`
+- **`_maxNodeOperatorsPerExtraDataItem`** — new value for `LimitsList.maxNodeOperatorsPerExtraDataItem`
 
 ## Permissions
 
@@ -543,14 +570,24 @@ See [`setOracleReportLimits()`](#setoraclereportlimits) method.
 
 **Grant this role with caution and give preference to the granular roles described below.**
 
-### CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
+### EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
 
-Granting this role allows updating the `churnValidatorsPerDayLimit` value of the [Limits List](#limits-list).
-See the [`setChurnValidatorsPerDayLimit()`](#setchurnvalidatorsperdaylimit) method.
+Granting this role allows updating the `exitedValidatorsPerDayLimit` value of the [Limits List](#limits-list).
+See the [`setExitedValidatorsPerDayLimit()`](#setExitedValidatorsPerDayLimit) method.
 
 ```solidity
-bytes32 public constant CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
-    keccak256("CHURN_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE")
+bytes32 public constant EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
+    keccak256("EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE");
+```
+
+### APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
+
+Granting this role allows updating the `appearedValidatorsPerDayLimit` value of the [Limits List](#limits-list).
+See the [`setAppearedValidatorsPerDayLimit()`](#setAppearedValidatorsPerDayLimit) method.
+
+```solidity
+bytes32 public constant APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
+    keccak256("APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE");
 ```
 
 ### ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE()
@@ -593,24 +630,24 @@ bytes32 public constant MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE =
     keccak256("MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE")
 ```
 
-### MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE()
+### MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE()
 
-Granting this role allows updating the `maxAccountingExtraDataListItemsCount` value of the [Limits List](#limits-list).
-See the [`setMaxAccountingExtraDataListItemsCount()`](#setmaxaccountingextradatalistitemscount) method.
+Granting this role allows updating the `maxItemsPerExtraDataTransaction` value of the [Limits List](#limits-list).
+See the [`setMaxItemsPerExtraDataTransaction()`](#setMaxItemsPerExtraDataTransaction) method.
 
 ```solidity
-bytes32 public constant MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE =
-    keccak256("MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE")
+bytes32 public constant MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE =
+    keccak256("MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE");
 ```
 
-### MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE()
+### MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE()
 
-Granting this role allows updating the `maxNodeOperatorsPerExtraDataItemCount` value of the [Limits List](#limits-list).
-See the [`setMaxNodeOperatorsPerExtraDataItemCount()`](#setmaxnodeoperatorsperextradataitemcount) method.
+Granting this role allows updating the `maxNodeOperatorsPerExtraDataItem` value of the [Limits List](#limits-list).
+See the [`setMaxNodeOperatorsPerExtraDataItem()`](#setMaxNodeOperatorsPerExtraDataItem) method.
 
 ```solidity
-bytes32 public constant MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE =
-    keccak256("MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE")
+bytes32 public constant MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE =
+    keccak256("MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE");
 ```
 
 ### REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE()
@@ -635,17 +672,29 @@ bytes32 public constant MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE =
 
 ## Events
 
-### ChurnValidatorsPerDayLimitSet()
+### ExitedValidatorsPerDayLimitSet()
 
-Emits whenever the value of the `LimitsList.churnValidatorsPerDayLimit` value is changed.
+Emits whenever the value of the `LimitsList.exitedValidatorsPerDayLimit` value is changed.
 
 ```solidity
-event ChurnValidatorsPerDayLimitSet(uint256 churnValidatorsPerDayLimit);
+event ExitedValidatorsPerDayLimitSet(uint256 exitedValidatorsPerDayLimit);
 ```
 
 #### Arguments
 
-- **`churnValidatorsPerDayLimit`** — new value of the `LimitsList.churnValidatorsPerDayLimit`
+- **`exitedValidatorsPerDayLimit`** — new value of the `LimitsList.exitedValidatorsPerDayLimit`
+
+### AppearedValidatorsPerDayLimitSet()
+
+Emits whenever the value of the `LimitsList.appearedValidatorsPerDayLimit` value is changed.
+
+```solidity
+event AppearedValidatorsPerDayLimitSet(uint256 appearedValidatorsPerDayLimit);
+```
+
+#### Arguments
+
+- **`appearedValidatorsPerDayLimit`** — new value of the `LimitsList.appearedValidatorsPerDayLimit`
 
 ### OneOffCLBalanceDecreaseBPLimitSet()
 
@@ -707,29 +756,29 @@ event MaxValidatorExitRequestsPerReportSet(uint256 maxValidatorExitRequestsPerRe
 
 - **`maxValidatorExitRequestsPerReport`** — new value of the `LimitsList.maxValidatorExitRequestsPerReport`
 
-### MaxAccountingExtraDataListItemsCountSet()
+### MaxItemsPerExtraDataTransactionSet()
 
-Emits whenever the value of the `LimitsList.maxAccountingExtraDataListItemsCount` value is changed.
+Emits whenever the value of the `LimitsList.maxItemsPerExtraDataTransaction` value is changed.
 
 ```solidity
-event MaxAccountingExtraDataListItemsCountSet(uint256 maxAccountingExtraDataListItemsCount);
+event MaxItemsPerExtraDataTransactionSet(uint256 maxItemsPerExtraDataTransaction);
 ```
 
 #### Arguments
 
-- **`maxAccountingExtraDataListItemsCount`** — new value of the `LimitsList.maxAccountingExtraDataListItemsCount`
+- **`maxItemsPerExtraDataTransaction`** — new value of the `LimitsList.maxItemsPerExtraDataTransaction`
 
-### MaxNodeOperatorsPerExtraDataItemCountSet()
+### MaxNodeOperatorsPerExtraDataItemSet()
 
-Emits whenever the value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount` value is changed.
+Emits whenever the value of the `LimitsList.maxNodeOperatorsPerExtraDataItem` value is changed.
 
 ```solidity
-event MaxNodeOperatorsPerExtraDataItemCountSet(uint256 maxNodeOperatorsPerExtraDataItemCount);
+event MaxNodeOperatorsPerExtraDataItemSet(uint256 maxNodeOperatorsPerExtraDataItem);
 ```
 
 #### Arguments
 
-- **`maxNodeOperatorsPerExtraDataItemCount`** — new value of the `LimitsList.maxNodeOperatorsPerExtraDataItemCount`
+- **`maxNodeOperatorsPerExtraDataItem`** — new value of the `LimitsList.maxNodeOperatorsPerExtraDataItem`
 
 ### RequestTimestampMarginSet()
 
