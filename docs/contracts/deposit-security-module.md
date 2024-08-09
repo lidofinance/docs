@@ -16,7 +16,7 @@ The guardian himself, or anyone else who has a signed pause message, can call `p
 
 To prevent a replay attack, the guardians sign the block number when  malicious pre-deposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
-Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `churnValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker).
+Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker).
 
 ## View Methods
 
@@ -160,7 +160,7 @@ Reverts if any of the following is true:
 
 Sets `maxDepositsPerBlock`.
 
-The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
+The value must be harmonized with the parameter `appearedValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
 
 ```sol
 function setMaxDeposits(uint256 newValue)
@@ -182,7 +182,7 @@ Reverts if any of the following is true:
 
 Sets `minDepositBlockDistance`.
 
-The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
+The value must be harmonized with the parameter `appearedValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
 
 ```sol
 function setMinDepositBlockDistance(uint256 newValue)
