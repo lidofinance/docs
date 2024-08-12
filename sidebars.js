@@ -157,6 +157,7 @@ module.exports = {
         {
           type: 'category',
           label: 'CSM',
+          link: { type: 'doc', id: 'staking-modules/csm/intro' },
           items: [
             'staking-modules/csm/intro',
             'staking-modules/csm/join-csm',
