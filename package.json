@@ -15,18 +15,19 @@
     "format": "prettier --write docs/"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.4.0",
-    "@docusaurus/plugin-client-redirects": "^3.4.0",
-    "@docusaurus/preset-classic": "^3.4.0",
-    "@docusaurus/theme-common": "^3.4.0",
-    "@docusaurus/theme-mermaid": "^3.4.0",
-    "@easyops-cn/docusaurus-search-local": "^0.44.1",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.1.0",
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/plugin-client-redirects": "^3.5.2",
+    "@docusaurus/plugin-content-docs": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/theme-common": "^3.5.2",
+    "@docusaurus/theme-mermaid": "^3.5.2",
+    "@easyops-cn/docusaurus-search-local": "^0.44.5",
+    "@mdx-js/react": "^3.0.1",
+    "clsx": "^2.1.1",
     "prism-react-renderer": "^2.3.1",
     "prop-types": "^15.8.1",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "browserslist": {
     "production": [
@@ -41,12 +42,12 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/types": "3.4.0",
-    "@types/react": "^18.3.0",
-    "prettier": "^3.3.2"
+    "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/types": "3.5.2",
+    "@types/react": "^18.3.3",
+    "prettier": "^3.3.3"
   },
-  "packageManager": "yarn@4.3.0",
+  "packageManager": "yarn@4.4.0",
   "engines": {
     "node": ">=20.0"
   }
