@@ -13,7 +13,7 @@ module.exports = {
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  // themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     prism: {
       additionalLanguages: ['solidity'],
