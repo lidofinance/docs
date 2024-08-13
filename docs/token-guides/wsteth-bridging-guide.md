@@ -35,10 +35,11 @@ The solution involves deploying dedicated bridge endpoint contracts behind proxy
 
 Lido DAO can recognize the bridged wstETH endpoints by means of a signalling snapshot. For example, it has happened for:
 [Base](https://snapshot.org/#/lido-snapshot.eth/proposal/0x8b35f64fffe67f67d4aeb2de2f3351404c54cd75a08277c035fa77065b6792f4),
-[zkSync Era](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe35f56a6117599eeb9dbef982613c0545710d91403a828d1fba00ab21d5188f3),
+[ZKSync](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe35f56a6117599eeb9dbef982613c0545710d91403a828d1fba00ab21d5188f3),
 [Mantle](https://snapshot.org/#/lido-snapshot.eth/proposal/0x1d38c11b27590ab5c69ca21c5d2545d53b7f5150dada7e05f89d500ede5becad),
 [Linea](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9382624eeee68a175dd7d1438347dbad4899ba0d2bfcf7c3955f087cb9f5cfc4),
 [Scroll](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcdb7d84ea80d914a4abffd689ecf9bdc4bb05d47f1fdbdda8793d555381a0493)
+[Mode>](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6bc51c2b07a9345a03a0bc0acb72ccc9f63879c981f3a6954164d110c5d330b2)
 
 If Lido DAO recognizes the bridged wstETH endpoints, in general, it means:
 
@@ -75,7 +76,7 @@ This section describes an approximate path to bridging wstETH to an L2 network. 
 - If the proposed solution does not include some of the recommendations (**R-5...**), consider including the roadmap and committing to deliver it.
 - Examples:
   - [wstETH to Base](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
-  - [wstETH to zkSync Era](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
+  - [wstETH to ZKSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
   - [wstETH to Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
   - [wstETH to Linea](https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961)
   - [wstETH to Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
