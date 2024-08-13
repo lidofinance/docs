@@ -323,15 +323,15 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 
-### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs 
+### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
 | № | Name | Address |
 | --- | --- | --- |
 | 2.8.2 | Optimism | oeth:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)|
 | 2.8.3 | Arbitrum | arb1:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)|
 | 2.8.4 | Base | base:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
-| 2.8.5 | zkSync Era | zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) |
-| 2.8.6 | BNB | bnb:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
+| 2.8.5 | ZKSync | zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) |
+| 2.8.6 | Binance Smart Chain (BSC) | bnb:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
 | 2.8.7 | Linea | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) |
 | 2.8.8 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
 | 2.8.9 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
@@ -482,5 +482,3 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
-
-
