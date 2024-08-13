@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Build Project
-        run: npn run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: lidofinance/github-pages-action@v1
