@@ -425,7 +425,7 @@ Kyber Network
 
 ## Lido on outer chains
 
-### BSC
+### Binance Smart Chain (BSC)
 
 ##### Ethereum part
 

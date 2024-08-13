@@ -117,7 +117,7 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ## Lido on outer chains
 
-### BSC
+### Binance Smart Chain (BSC)
 
 ##### Ethereum part
 

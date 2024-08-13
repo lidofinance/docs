@@ -35,7 +35,7 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Address:** [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/transactions/queue?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
 
-**Purpose of the multisig:** The multisig is used to disable deposits & withdrawals for wstETH bridging to other chains (Arbitrum, Optimism, Base, Scroll, Mantle, ZKSync, BSC, Mode) in case of an emergency on Ethereum mainnet or the counterpart chain, and can pause Easy Track pipeline.
+**Purpose of the multisig:** The multisig is used to disable deposits & withdrawals for wstETH bridging to other chains (Arbitrum, Optimism, Base, Scroll, Mantle, ZKSync, Binance Smart Chain, Mode) in case of an emergency on Ethereum mainnet or the counterpart chain, and can pause Easy Track pipeline.
 
 **Quorum:** 3/5
 
@@ -316,9 +316,9 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Quorum:** 3/5
 
-**Forum topics:** [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
+**Forum topics:** [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on Binance Smart Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
 
-**Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on BNB as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcc52cdc83273b42a056cfc632889355595821a2cc9a59ba8adff66b30e9718f9)
+**Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Binance Smart Chain as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcc52cdc83273b42a056cfc632889355595821a2cc9a59ba8adff66b30e9718f9)
 
 **Contracts and Roles:**
 
