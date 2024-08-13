@@ -254,7 +254,7 @@ L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https
 
 **Address:** Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
 
-**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Scroll side in case of emergency.
+**Purpose of the multisig:** The multisig is used to disable deposits and/or withdrawals for wstETH token bridge on Scroll side in case of an emergency.
 
 **Quorum:** 3/5
 
