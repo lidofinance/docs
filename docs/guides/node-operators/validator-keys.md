@@ -31,11 +31,11 @@ Use the latest release of [`staking-deposit-cli`].
 Example command usage:
 
 ```sh
-/contracts/deposit new-mnemonic --folder . --num_validators 123 --mnemonic_language english --chain mainnet --eth1_withdrawal_address 0x123
+./deposit new-mnemonic --folder . --num_validators 123 --mnemonic_language english --chain mainnet --eth1_withdrawal_address 0x123
 ```
 
 Here, `chain` is one of the available chain names (run the command with the `--help` flag
-to see the possible values: `/contracts/deposit new-mnemonic --help`) and `eth1_withdrawal_address` is the withdrawal address from the protocol documentation.
+to see the possible values: `./deposit new-mnemonic --help`) and `eth1_withdrawal_address` is the withdrawal address from the protocol documentation.
 
 As a result of running this, the `validator_keys` directory will be created in the current working
 directory. It will contain a deposit data file named `deposit-data-*.json` and a number of private key
