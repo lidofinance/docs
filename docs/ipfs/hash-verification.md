@@ -74,7 +74,7 @@ FROM node:20-alpine as build
 WORKDIR /app
 
 RUN apk add --no-cache git=~2
-COPY package.json yarn.lock /contracts/
+COPY package.json yarn.lock ./
 
 RUN yarn install --frozen-lockfile --non-interactive --ignore-scripts && yarn cache clean
 
@@ -130,7 +130,7 @@ For Next.js applications the build files will be in the `out` directory.
 The following command generates a CAR file from the `out` directory with build files, and it will display the IPFS hash in the console:
 
 ```
-npx ipfs-car pack /contracts/out --output /contracts/out.car
+npx ipfs-car pack ./out --output ./out.car
 ```
 
 ### 7. Get CID (hash) of the application deployed to IPFS

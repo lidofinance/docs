@@ -14,19 +14,19 @@ If your validator signing keys are in [keystores](https://eips.ethereum.org/EIPS
 Create a new wallet:
 
 ```bash
-./ethdo --base-dir=/contracts/temp wallet create --wallet=wallet
+./ethdo --base-dir=./temp wallet create --wallet=wallet
 ```
 
 Add key from a keystore:
 
 ```bash
-./ethdo --base-dir=/contracts/temp account import --account=wallet/account --keystore=./ethdo/keystore.json --keystore-passphrase=12345678 --passphrase=pass
+./ethdo --base-dir=./temp account import --account=wallet/account --keystore=./ethdo/keystore.json --keystore-passphrase=12345678 --passphrase=pass
 ```
 
 Generate and sign an exit message:
 
 ```bash
-./ethdo --base-dir=/contracts/temp validator exit --account=wallet/account --passphrase=pass --json --connection=http://consensus_node:5052
+./ethdo --base-dir=./temp validator exit --account=wallet/account --passphrase=pass --json --connection=http://consensus_node:5052
 ```
 
 ethdo will print out the exit message to stdout. You can save the file `ethdo ... > 0x123.json`.
@@ -34,7 +34,7 @@ ethdo will print out the exit message to stdout. You can save the file `ethdo ..
 After we are done, delete the wallet:
 
 ```bash
-./ethdo --base-dir=/contracts/temp wallet delete --wallet=wallet
+./ethdo --base-dir=./temp wallet delete --wallet=wallet
 ```
 
 If you are looking for a way to automate the process, check out [this example](https://gist.github.com/kolyasapphire/d2bafce3cdd04305bc109cbd49728ffe).
@@ -56,7 +56,7 @@ This file can be then transferred to a secure machine along with `ethdo` binary,
 On the secure machine, put `offline-preparation.json` into the directory `ethdo` is ran from, use `--offline` argument for the `validator exit` command and remove `--connection`:
 
 ```bash
-./ethdo --base-dir=/contracts/temp validator exit --account=wallet/account --passphrase=pass --json --offline
+./ethdo --base-dir=./temp validator exit --account=wallet/account --passphrase=pass --json --offline
 ```
 
 ### For Dirk:
