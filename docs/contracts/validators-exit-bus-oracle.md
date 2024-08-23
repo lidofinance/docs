@@ -35,14 +35,14 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](./hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+It's worth noting that frame length [can be changed](/contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
 
 The frame includes these stages:
 
 - **Waiting** - oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate with it with the expected reference slot;
 - **Data collection**: oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
 - **Hash consensus**: oracles analyze the report data, compile the report and submit its hash to the [HashConsensus](/contracts/hash-consensus) smart contract;
-- **Core update report**: once the [quorum](./hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `ValidatorsExitBusOracle` contract, which triggers a chain of the [`ValidatorExitRequest`](#validatorexitrequest) events containing details about the next validators to be ejected (to initiate a voluntary exit from the Ethereum Consensus Layer side).
+- **Core update report**: once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `ValidatorsExitBusOracle` contract, which triggers a chain of the [`ValidatorExitRequest`](#validatorexitrequest) events containing details about the next validators to be ejected (to initiate a voluntary exit from the Ethereum Consensus Layer side).
 
 ## Report data
 

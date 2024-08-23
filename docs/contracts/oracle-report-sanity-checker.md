@@ -4,7 +4,7 @@
 - [Deployed contract](https://etherscan.io/address/0x9305c1Dbfe22c12c66339184C0025d7006f0f1cC)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
-[`AccountingOracle`](./accounting-oracle.md), [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md).
+[`AccountingOracle`](/contracts/accounting-oracle.md), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md).
 Due to the high impact of data provided by the Oracles on the state of the protocol, each Oracle's
 report passes a set of onchain
 [sanity checks](https://en.wikipedia.org/wiki/Sanity_check).
@@ -37,10 +37,10 @@ struct LimitsList {
 ```
 
 - **`churnValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_
-  or _**exited**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become
+  or _**exited**_ during a single day. [`AccountingOracle`](/contracts/accounting-oracle.md) reports validators as _**appeared**_ once them become
   _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
   intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
-  For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](./deposit-security-module.md). In contrast, _**exited**_ are reported according to the
+  For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](/contracts/deposit-security-module.md). In contrast, _**exited**_ are reported according to the
   [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#get_validator_churn_limit).
 - **`oneOffCLBalanceDecreaseBPLimit` ∈ [0, 10000]** — the max decrease of the total validators' balances on the Consensus Layer since
   the previous oracle report. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
@@ -49,7 +49,7 @@ struct LimitsList {
 - **`simulatedShareRateDeviationBPLimit` ∈ [0, 10000]** — the max deviation of the provided `simulatedShareRate` and the actual one within the
   currently processing oracle report. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
 - **`maxValidatorExitRequestsPerReport` ∈ [0, 65535]** — the max number of exit requests allowed in report
-  to [ValidatorsExitBusOracle](./validators-exit-bus-oracle.md)
+  to [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle.md)
 - **`maxAccountingExtraDataListItemsCount` ∈ [0, 65535]** — the max number of data list items reported to accounting oracle in extra data
 - **`maxNodeOperatorsPerExtraDataItemCount` ∈ [0, 65535]** — the max number of node operators reported per extra data list item
 - **`requestTimestampMargin` ∈ [0, type(uint64).max]** — the min time required to be passed from the creation of the request to be finalized till the time of the oracle report
@@ -228,7 +228,7 @@ function checkSimulatedShareRate(
 
 ### getLidoLocator()
 
-Returns the address of the protocol-wide [LidoLocator](./lido-locator.md) instance.
+Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator.md) instance.
 
 ```solidity
 function getLidoLocator() returns (address)

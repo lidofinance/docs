@@ -69,7 +69,7 @@ To change `managerAddress` or `rewardAddress` using CSM UI, the Node Operator sh
 
 ### Setting custom addresses upon Node Operator creation
 
-Within the Node Operator creation transaction, one can specify a custom `managerAddress` and `rewardAddress` (different from the `msg.sender` aka transaction signer). 
+Within the Node Operator creation transaction, one can specify a custom `managerAddress` and `rewardAddress` (different from the `msg.sender` aka transaction signer).
 
 This function is not exposed by default in the standard CSM frontend since there is no way to verify that the Node Operator's creator can access the address provided.
 

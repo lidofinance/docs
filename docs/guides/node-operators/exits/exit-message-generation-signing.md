@@ -14,19 +14,19 @@ If your validator signing keys are in [keystores](https://eips.ethereum.org/EIPS
 Create a new wallet:
 
 ```bash
-./ethdo --base-dir=./temp wallet create --wallet=wallet
+/contracts/ethdo --base-dir=/contracts/temp wallet create --wallet=wallet
 ```
 
 Add key from a keystore:
 
 ```bash
-./ethdo --base-dir=./temp account import --account=wallet/account --keystore=./ethdo/keystore.json --keystore-passphrase=12345678 --passphrase=pass
+/contracts/ethdo --base-dir=/contracts/temp account import --account=wallet/account --keystore=/contracts/ethdo/keystore.json --keystore-passphrase=12345678 --passphrase=pass
 ```
 
 Generate and sign an exit message:
 
 ```bash
-./ethdo --base-dir=./temp validator exit --account=wallet/account --passphrase=pass --json --connection=http://consensus_node:5052
+/contracts/ethdo --base-dir=/contracts/temp validator exit --account=wallet/account --passphrase=pass --json --connection=http://consensus_node:5052
 ```
 
 ethdo will print out the exit message to stdout. You can save the file `ethdo ... > 0x123.json`.
@@ -34,7 +34,7 @@ ethdo will print out the exit message to stdout. You can save the file `ethdo ..
 After we are done, delete the wallet:
 
 ```bash
-./ethdo --base-dir=./temp wallet delete --wallet=wallet
+/contracts/ethdo --base-dir=/contracts/temp wallet delete --wallet=wallet
 ```
 
 If you are looking for a way to automate the process, check out [this example](https://gist.github.com/kolyasapphire/d2bafce3cdd04305bc109cbd49728ffe).
@@ -46,7 +46,7 @@ Although keystores are encrypted, it is highly recommended to interact with them
 ethdo allows you to prepare everything necessary for offline exit message generation in one convenient file. For this, on a machine with access to a Consensus Node run:
 
 ```bash
-./ethdo validator exit --prepare-offline --connection=http://consensus_node:5052 --timeout=300s
+/contracts/ethdo validator exit --prepare-offline --connection=http://consensus_node:5052 --timeout=300s
 ```
 
 This command will pull validators info, fork versions, current epoch and other chain data for offline exit message generation and save it to `offline-preparation.json` in the `ethdo` directory.
@@ -56,13 +56,13 @@ This file can be then transferred to a secure machine along with `ethdo` binary,
 On the secure machine, put `offline-preparation.json` into the directory `ethdo` is ran from, use `--offline` argument for the `validator exit` command and remove `--connection`:
 
 ```bash
-./ethdo --base-dir=./temp validator exit --account=wallet/account --passphrase=pass --json --offline
+/contracts/ethdo --base-dir=/contracts/temp validator exit --account=wallet/account --passphrase=pass --json --offline
 ```
 
 ### For Dirk:
 
 ```bash
-./ethdo --remote=server.example.com:9091 --client-cert=client.crt --client-key=client.key --server-ca-cert=dirk_authority.crt validator exit --account=Validators/1 --json --connection=http://127.0.0.1:5051
+/contracts/ethdo --remote=server.example.com:9091 --client-cert=client.crt --client-key=client.key --server-ca-cert=dirk_authority.crt validator exit --account=Validators/1 --json --connection=http://127.0.0.1:5051
 ```
 
 [ethdo](https://github.com/wealdtech/ethdo)

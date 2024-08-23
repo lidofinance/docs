@@ -281,7 +281,7 @@ Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot
 :::
 
 Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
-Use the [wstETH/stETH rate feeds](./lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
+Use the [wstETH/stETH rate feeds](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
 
 ## LDO
 
@@ -459,7 +459,7 @@ Lido's staked tokens have been listed on major liquidity protocols:
 - On AAVE v3, multiple tokens can be borrowed against wstETH on various chains (see the list of the [markets](#sttokens-steth-and-wsteth))
 
 Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard.
-The default option to use is exchange [rate feeds](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
+The default option to use is exchange [rate feeds](/guides/lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
 
 ```python
 'wstETH/X price feed' = 'wstETH/stETH rate feed' × 'ETH/X price feed'

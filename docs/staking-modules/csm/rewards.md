@@ -7,7 +7,7 @@ There are two types of rewards for CSM Node Operators:
 
 ![rewards-2](../../../static/img/csm/rewards-2.png)
 
-Node Operator rewards come from the LoE protocol's share of the Consensus and Execution layers rewards. These rewards are calculated as a percentage of the rewards of a full 32 ETH validator. Node Operator rewards are distributed between all staking modules in the same [way](../../contracts/staking-router#fee-distribution) (proportionally based on the number of active validators per module, where `active == deposited - exited`). Each [Accounting Oracle](../../contracts/accounting-oracle.md) report allocates a new portion of staking rewards to CSM. Allocated rewards are stored on the module. Then, the allocation of the Node Operator rewards for CSM Node Operators using a Merkle tree is provided by CSM Performance Oracle once in a `frame`, making a new portion of the rewards available for claim.
+Node Operator rewards come from the LoE protocol's share of the Consensus and Execution layers rewards. These rewards are calculated as a percentage of the rewards of a full 32 ETH validator. Node Operator rewards are distributed between all staking modules in the same [way](/contracts/staking-router#fee-distribution) (proportionally based on the number of active validators per module, where `active == deposited - exited`). Each [Accounting Oracle](/contracts/accounting-oracle.md) report allocates a new portion of staking rewards to CSM. Allocated rewards are stored on the module. Then, the allocation of the Node Operator rewards for CSM Node Operators using a Merkle tree is provided by CSM Performance Oracle once in a `frame`, making a new portion of the rewards available for claim.
 
 Bond rewards (rebase) part of the rewards come from stETH being a rebasing token and the bond being stored in stETH. After each Accounting Oracle report, `shareRate` changes (most likely increases). Hence, the same amount of stETH shares will now be equal to a bigger stETH token balance.
 
@@ -39,5 +39,5 @@ If you want to learn more about the actual Performance Oracle algorithm, check o
 
 ## Further reading
 
-- [Penalties](penalties.md)
-- [Validator exits](validator-exits.md)
+- [Penalties](/staking-modules/csm/penalties.md)
+- [Validator exits](/staking-modules/csm/validator-exits.md)

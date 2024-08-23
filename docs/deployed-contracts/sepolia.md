@@ -4,7 +4,7 @@
 Sepolia testnet has only a limited set of working parts of the protocol.
 
 For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available
-(paused indefinitely), please use the [Holešky testnet](./holesky.md) deployment if possible.
+(paused indefinitely), please use the [Holešky testnet](/deployed-contracts/holesky.md) deployment if possible.
 
 The goals for this testnet deployment are:
 
@@ -77,7 +77,7 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ##### Optimism part
 
-- WstETH ERC20BridgedPermit: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy) 
+- WstETH ERC20BridgedPermit: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy)
 - WstETH ERC20BridgedPermit: [`0x298953B9426eba4F35a137a4754278a16d97A063`](https://sepolia-optimism.etherscan.io/address/0x298953B9426eba4F35a137a4754278a16d97A063) (impl)
 - StETH ERC20RebasableBridgedPermit: [`0xf49D208B5C7b10415C7BeAFe9e656F2DF9eDfe3B`](https://sepolia-optimism.etherscan.io/address/0xf49D208B5C7b10415C7BeAFe9e656F2DF9eDfe3B) (proxy)
 - StETH ERC20RebasableBridgedPermit: [`0xFd21C82c99ddFa56EB0B9B2D1d0709b7E26D1B2C`](https://sepolia-optimism.etherscan.io/address/0xFd21C82c99ddFa56EB0B9B2D1d0709b7E26D1B2C) (impl)

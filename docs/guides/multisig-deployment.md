@@ -139,7 +139,7 @@ After preparing the values in network state file, generate a set of JSON files w
 data:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/01-deploy-lido-template-and-bases.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/01-deploy-lido-template-and-bases.js
 ====================
 Network ID: 1
 Reading network state from /Users/me/lido-dao/deployed-mainnet.json...
@@ -197,7 +197,7 @@ the following values:
 Run the following:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/02-obtain-deployed-instances.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/02-obtain-deployed-instances.js
 ```
 
 This step will verify the deployed contracts and add the following fields to the network state file:
@@ -218,7 +218,7 @@ the upgrade mechanics. Prior to running the step, add the following keys to the 
 Then, run:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/03-register-ens-domain.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/03-register-ens-domain.js
 ...
 ====================
 Saving data for commit transaction to tx-02-1-commit-ens-registration.json (projected gas usage is 53667)
@@ -247,7 +247,7 @@ to IPFS, so you'll need to specify `ipfsAPI` key in the network state file point
 client API endpoint, e.g. `"ipfsAPI": "http://localhost:5001/api/v0"`. Then, run the following:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/04-publish-app-frontends.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/04-publish-app-frontends.js
 ```
 
 Make sure that either the IPFS node you're using is going to be permanently up and publicly
@@ -263,7 +263,7 @@ Aragon-specific format.
 Run the following:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/05-deploy-apm.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/05-deploy-apm.js
 ...
 ====================
 Parent domain: eth 0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae
@@ -293,7 +293,7 @@ additional gas is used to handle multisig logic).
 Run the following:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/06-obtain-deployed-apm.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/06-obtain-deployed-apm.js
 ```
 
 Make sure that it finishes without errors and move to the next step. The following field will
@@ -306,7 +306,7 @@ be added to the network state file:
 Run the following:
 
 ```text
-yarn hardhat --network mainnet run ./scripts/multisig/07-create-app-repos.js
+yarn hardhat --network mainnet run /contracts/scripts/multisig/07-create-app-repos.js
 ...
 ====================
 Saving data for createRepos transaction to tx-04-create-app-repos.json (projected gas usage is 7160587)
@@ -357,7 +357,7 @@ called `daoInitialSettings` to the network state file prior to running the step:
 Then, run the following:
 
 ```text
-$ yarn hardhat --network mainnet run ./scripts/multisig/08-deploy-dao.js
+$ yarn hardhat --network mainnet run /contracts/scripts/multisig/08-deploy-dao.js
 ...
 Saving data for newDAO transaction to tx-05-deploy-dao.json (projected gas usage is 7118882)
 ```
@@ -370,7 +370,7 @@ is included in a block, move to the next step.
 Run the following:
 
 ```text
-yarn hardhat --network mainnet run ./scripts/multisig/09-obtain-deployed-dao.js
+yarn hardhat --network mainnet run /contracts/scripts/multisig/09-obtain-deployed-dao.js
 ```
 
 Make sure that it finishes without errors and move to the next step. The following fields will
@@ -410,7 +410,7 @@ Add the `vestingParams` key to the network state file containing the following:
 Then, run the following:
 
 ```text
-yarn hardhat --network mainnet run ./scripts/multisig/10-issue-tokens.js
+yarn hardhat --network mainnet run /contracts/scripts/multisig/10-issue-tokens.js
 ...
 ====================
 Total batches: 2
@@ -429,7 +429,7 @@ registered by in aragonID, i.e. `<daoAragonId>.aragonid.eth` will resolve to the
 Run the following:
 
 ```text
-yarn hardhat --network mainnet run ./scripts/multisig/11-finalize-dao.js
+yarn hardhat --network mainnet run /contracts/scripts/multisig/11-finalize-dao.js
 ...
 ====================
 Saving data for finalizeDAO transaction to tx-07-finalize-dao.json (projected gas usage is 5011582)
@@ -444,7 +444,7 @@ At this point, the DAO is fully deployed. Run the following to verify the correc
 configuration and permissions setup:
 
 ```text
-yarn hardhat --network mainnet run ./scripts/multisig/12-check-dao.js
+yarn hardhat --network mainnet run /contracts/scripts/multisig/12-check-dao.js
 ```
 
 If there's some error, it will be printed and further checks will be cancelled. This step only

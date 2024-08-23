@@ -1,7 +1,7 @@
 # Hash verification
 
 You may want to verify the authenticity and integrity of the application, deployed on IPFS.
-It can be done by CID (hash) verifying. In order to do so, you will need to download the source code of the application and build it locally.  
+It can be done by CID (hash) verifying. In order to do so, you will need to download the source code of the application and build it locally.
 See the detailed instructions below.
 
 ## Steps
@@ -26,7 +26,7 @@ The repo for Ethereum Staking Widget is here: https://github.com/lidofinance/eth
 ### 2. Git checkout a commit, matching the IPFS version
 
 You need to `git checkout` the specific commit, matching the release of an app you want to verify.
-This way, you can be sure that the app will not include any other changes, which affect the CID.  
+This way, you can be sure that the app will not include any other changes, which affect the CID.
 There are several ways to do it.
 
 #### Method 1 – using git tags
@@ -74,7 +74,7 @@ FROM node:20-alpine as build
 WORKDIR /app
 
 RUN apk add --no-cache git=~2
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock /contracts/
 
 RUN yarn install --frozen-lockfile --non-interactive --ignore-scripts && yarn cache clean
 
@@ -107,8 +107,8 @@ docker rm verification-container
 
 ### 4. Configure build-info.json
 
-The `build-info.json` file is located in the project's root, [here is the link](https://github.com/lidofinance/ethereum-staking-widget/blob/develop/build-info.json).  
-It must contain information about the version of the application, which is currently deployed to IPFS.  
+The `build-info.json` file is located in the project's root, [here is the link](https://github.com/lidofinance/ethereum-staking-widget/blob/develop/build-info.json).
+It must contain information about the version of the application, which is currently deployed to IPFS.
 You can take this information from the latest GitHub action in which IPFS pinning happened:
 
 1. Open the app's repo, follow the "Actions" tab.
@@ -121,21 +121,21 @@ You can take this information from the latest GitHub action in which IPFS pinnin
 
 ### 5. Build the IPFS version
 
-Run a suitable npm script to build the IPFS version.  
+Run a suitable npm script to build the IPFS version.
 In case of Ethereum Staking Widget, it is `yarn build-ipfs`.
 
 ### 6. Create a CAR file and get its CID (hash)
 
-For Next.js applications the build files will be in the `out` directory.  
+For Next.js applications the build files will be in the `out` directory.
 The following command generates a CAR file from the `out` directory with build files, and it will display the IPFS hash in the console:
 
 ```
-npx ipfs-car pack ./out --output ./out.car
+npx ipfs-car pack /contracts/out --output /contracts/out.car
 ```
 
 ### 7. Get CID (hash) of the application deployed to IPFS
 
-You will need to get the hash of the latest released CAR file.  
+You will need to get the hash of the latest released CAR file.
 It can be found on the Releases page of the repository under the "Assets" collapsible block.
 Download the CAR file and run the following command:
 

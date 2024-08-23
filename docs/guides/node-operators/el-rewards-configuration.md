@@ -50,13 +50,13 @@ List of possible relays that have been approved by DAO can be fetched by [queryi
 ### Mainnet
 
 ```shell
-./mev-boost -mainnet -relay-check -relay <comma-separated relay urls>
+/contracts/mev-boost -mainnet -relay-check -relay <comma-separated relay urls>
 ```
 
 ### Holešky
 
 ```shell
-./mev-boost -holesky -relay-check -relay <comma-separated relay urls>
+/contracts/mev-boost -holesky -relay-check -relay <comma-separated relay urls>
 ```
 
 Full list of MEV-boost CLI options can be found here [MEV-Boost CLI Options]
