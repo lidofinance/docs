@@ -5,12 +5,13 @@ This guide will walk you through how to vote, override your delegate's vote, and
 
 ## Getting Started
 
-Obtain the address of the Lido DAO `Aragon Voting` contract from the [Deployed Contracts](https://docs.lido.fi/deployed-contracts/#dao-contracts) page. Currently, it is [0xf165148978Fa3cE74d76043f833463c340CFB704](https://etherscan.io/address/0xf165148978Fa3cE74d76043f833463c340CFB704). Open this contract on Etherscan.
+Obtain the address of the Lido DAO `Aragon Voting` contract from the [Deployed Contracts](/deployed-contracts/#dao-contracts) page. Currently, it is [`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e). Open this contract on Etherscan.
 
 ## Voting
 
 ### Step 1: Find the Voting ID
-
+- Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
 - Go to the **Read as Proxy** tab of the Aragon Voting contract.
 - Locate the `votesLength` method (number 29) to get the current vote ID.
 
@@ -47,7 +48,8 @@ Sign the transaction to cast your vote. That's it! 🎉
 ## Overriding
 
 ### Step 1: Check Delegate's Vote
-
+-  Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
 - Go to the **Read as Proxy** tab of the Aragon Voting contract.
 - Use the `getVoterState` method (number 7).
 
@@ -62,8 +64,8 @@ If you disagree with the delegate's choice and wish to vote yourself, follow the
 ## Delegating Through Etherscan
 
 ### Assign a Delegate
-
-1. Open the Aragon Voting contract.
+1. Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
 2. Go to the **Write as Proxy** tab.
 3. Use the `assignDelegate` method (number 1).
 4. Click **Connect to Web3** and connect your address. The indicator should turn green.
@@ -72,10 +74,11 @@ If you disagree with the delegate's choice and wish to vote yourself, follow the
 That's it! Your delegate is assigned.
 
 ### Remove a Delegate
-
-1. Go to the **Write as Proxy** tab.
-2. Use the `unassignDelegate` method (number 2).
-3. Click **Connect to Web3** and connect your address. The indicator should turn green.
-4. Click **Write** without entering anything and sign the transaction.
+1. Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
+2. Go to the **Write as Proxy** tab.
+3. Use the `unassignDelegate` method (number 2).
+4. Click **Connect to Web3** and connect your address. The indicator should turn green.
+5. Click **Write** without entering anything and sign the transaction.
 
 That's it! Your delegate has been removed.
