@@ -5,11 +5,11 @@
 To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one `validator pubkey`, corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding bond amount should be provided.
 
 ## Deposit data preparation and upload
-CSM accepts deposit data in the same [format](../../contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the [Curated module](../../contracts/node-operators-registry.md), with the main difference being a requirement to submit the bond prior to or alongside deposit data upload.
+CSM accepts deposit data in the same [format](/contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the [Curated module](/contracts/node-operators-registry.md), with the main difference being a requirement to submit the bond prior to or alongside deposit data upload.
 
 [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata) **must** sign the root of the `(deposit_message, domain)`. Where a `domain` is used to identify the chain, and `deposit_message` has the form of the following tuple:
 - `validator pubkey`;
-- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](../../contracts/withdrawal-vault) address. Should be retrieved from [Staring Router](../../contracts/staking-router.md#getwithdrawalcredentials);
+- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](/contracts/withdrawal-vault) address. Should be retrieved from [Staring Router](/contracts/staking-router.md#getwithdrawalcredentials);
 - `32 ETH amount`;
 
 ## Bond

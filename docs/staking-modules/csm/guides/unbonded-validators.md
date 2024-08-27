@@ -1,8 +1,8 @@
 # Unbonded validators
 
-To [upload](../join-csm#deposit-data-preparation-and-upload) validator keys to CSM, Node Operators must provide a corresponding bond amount. The Node Operator creation and upload keys methods ensure that the bond amount provided is sufficient to cover all uploaded validator keys. However, Node Operators' bonds might be penalized if they misbehave. 
+To [upload](/staking-modules/csm/join-csm#deposit-data-preparation-and-upload) validator keys to CSM, Node Operators must provide a corresponding bond amount. The Node Operator creation and upload keys methods ensure that the bond amount provided is sufficient to cover all uploaded validator keys. However, Node Operators' bonds might be penalized if they misbehave.
 
-If the penalty is applied, [unbonded validators](../join-csm#unbonded-validators) might appear. As the documentation [describes](../join-csm#unbonded-validators), any new unbonded validators will be requested to exit during the upcoming [VEBO](../../../contracts/validators-exit-bus-oracle.md) reports. Let's dig deeper into the process of handling unbonded validators to find out what Node Operators can do to prevent the emergence of unbonded validators and what they should do if some of their validators become unbonded.
+If the penalty is applied, [unbonded validators](/staking-modules/csm/join-csm#unbonded-validators) might appear. As the documentation [describes](/staking-modules/csm/join-csm#unbonded-validators), any new unbonded validators will be requested to exit during the upcoming [VEBO](/contracts/validators-exit-bus-oracle.md) reports. Let's dig deeper into the process of handling unbonded validators to find out what Node Operators can do to prevent the emergence of unbonded validators and what they should do if some of their validators become unbonded.
 
 ## Unbonded validators and how they appear
 

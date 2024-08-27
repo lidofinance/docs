@@ -1,7 +1,7 @@
 # Holešky
 
 :::info
-[Holešky testnet](./holesky.md) is the main operational and maintained protocol testnet deployment.
+[Holešky testnet](/deployed-contracts/holesky.md) is the main operational and maintained protocol testnet deployment.
 :::
 
 ## Core protocol

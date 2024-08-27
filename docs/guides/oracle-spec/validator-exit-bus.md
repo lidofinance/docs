@@ -17,7 +17,7 @@ A report calculation consists of 4 key steps:
 :::note
 Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified [Lido on Ethereum Validator Exits Policy V1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330).
 
-See also the provided [penalties](./penalties.md) spec.
+See also the provided [penalties](/guides/oracle-spec/penalties.md) spec.
 :::
 
 ## Next validator to exit algorithm
@@ -91,7 +91,7 @@ NB: A validator can not be considered as delayed if it was requested to exit in 
 
 #### Last requested validators indices
 
-The [`ValidatorsExitBusOracle`](../../contracts/validators-exit-bus-oracle.md) contract stores the index of the last validator that was requested to exit. Since validators are requested in strict order from the lowest `validatorIndex` to the highest, the indexes help find all the previously requested validators without fetching all events.
+The [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) contract stores the index of the last validator that was requested to exit. Since validators are requested in strict order from the lowest `validatorIndex` to the highest, the indexes help find all the previously requested validators without fetching all events.
 
 Returns the latest validator indices that were requested to exit for the given
         `operator_indexes` in the given `module`. For node operators that were never requested to exit
@@ -133,7 +133,7 @@ Collects the amount of stETH in the queue yet to be finalized from `WithdrawalQu
 
 #### Calculate average rewards speed per epoch
 
-Fetches `ETHDistributed` and `TokenRebased` events from the [`Lido`](../../contracts/lido) contract and calculate average rewards amount per epoch. The rewards prediction period config fetches from the [OracleDaemonConfig](/contracts/oracle-daemon-config) contract.
+Fetches `ETHDistributed` and `TokenRebased` events from the [`Lido`](/contracts/lido) contract and calculate average rewards amount per epoch. The rewards prediction period config fetches from the [OracleDaemonConfig](/contracts/oracle-daemon-config) contract.
 
 To get events in past, addressing the cases where there can be slots with missed block, the next scheme is introduced:
 

@@ -42,8 +42,8 @@ at the moment of the `HashConsensus.submitReport` call.
 
 There are two core protocol contracts that implements this interface:
 
-- [AccountingOracle](./accounting-oracle)
-- [ValidatorsExitBusOracle](./validators-exit-bus-oracle.md)
+- [AccountingOracle](/contracts/accounting-oracle)
+- [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle.md)
 
 ## Fast-lane members
 

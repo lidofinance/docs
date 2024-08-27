@@ -11,7 +11,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 ## What is AccountingOracle
 
 AccountingOracle is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the
-amount of funds accumulated on the protocol vaults (i.e., [withdrawal](./withdrawal-vault) and [execution layer rewards](./lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](./staking-router#exited-and-stuck-validators) validators, the number of [withdrawal requests](./withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
+amount of funds accumulated on the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](/contracts/staking-router#exited-and-stuck-validators) validators, the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
 
 ## Report cycle
 
@@ -19,14 +19,14 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](./hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+It's worth noting that frame length [can be changed](/contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
 
 The frame includes these stages:
 
 - **Waiting:** oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate with it with the expected reference slot;
 - **Data collection:** oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
-- **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the [`HashConsensus`](./hash-consensus) smart contract;
-- **Core update report:** once the [quorum](./hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract, which triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to go in the bunker mode, and
+- **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the [`HashConsensus`](/contracts/hash-consensus) smart contract;
+- **Core update report:** once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract, which triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to go in the bunker mode, and
 - **Extra data report:** an additional report carrying additional information that is not vital for the core update is submitted to the AccountingOracle, can be submitted in chunks (e.g, node operator key states and reward distribution data).
 
 :::note
@@ -38,7 +38,7 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 ## Report processing
 
-The [submission](./accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
+The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
 
 1. Update exited validators counts for each StakingModule in StakingRouter;
 2. Update bunker mode status for WithdrawalQueue;
@@ -106,8 +106,8 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 
 **Withdrawals finalization decision**
 
-- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](./withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
-- `simulatedShareRate` — The share rate (i.e., [total pooled ether](./lido#gettotalpooledether) divided by [total shares](./lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` one should perform a view call [Lido.handleOracleReport](/contracts/lido#handleoraclereport) directly via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) JSON-RPC API and calculate as follows:
+- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
+- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` one should perform a view call [Lido.handleOracleReport](/contracts/lido#handleoraclereport) directly via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) JSON-RPC API and calculate as follows:
 
 ```solidity
 _simulatedShareRate = (postTotalPooledEther * 10**27) / postTotalShares
@@ -167,7 +167,7 @@ The `itemPayload` field has the following format:
     byteLength(stuckValidatorsCounts) = nodeOpsCount * 16
 
 `nodeOpsCount` must not be greater than `maxAccountingExtraDataListItemsCount` specified
-    in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
+    in the [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker) contract. If a staking module has more node operators
     with total stuck validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
     into multiple items.
@@ -406,7 +406,7 @@ function submitReportData(ReportData calldata data, uint256 contractVersion)
 
 | Name              | Type          | Description                                                  |
 | ------------------ | ------------ | ------------------------------------------------------------ |
-| `data`             | `ReportData` | The data. See the [ReportData](./accounting-oracle#report-data) structure's docs for details. |
+| `data`             | `ReportData` | The data. See the [ReportData](/contracts/accounting-oracle#report-data) structure's docs for details. |
 | `contractVersion`  | `uint256`    | Expected version of the oracle contract.                     |
 
 #### Reverts
