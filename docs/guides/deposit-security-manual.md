@@ -20,14 +20,15 @@ There is the vulnerability allowing the malicious Node Operator to intercept the
 
 We propose to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
-- monitoring the history of deposits and the set of Lido keys available for the deposit, signing and disseminating messages allowing deposits;
-- signing the special message allowing anyone to pause deposits once the malicious Node Operator pre-deposits are detected.
+- monitoring deposit history and the set of Lido keys available for the deposit, signing and distributing messages allowing deposits;
+- signing a special message to allow anyone to pause deposits if malicious pre-deposits by a Node Operator are detected;
+- signing a special message to allow anyone to decrease node operator deposit limits if duplicate or invalid signatures are found.
 
-To make a deposit, we propose to collect a quorum of 2/3 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option [<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
+To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option [<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
 
 ### Committee membership
 
-The first set of guardians is six node operators (Stakefish, Skillz, Chorus one, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
+The first set of guardians is five node operators (Stakefish, Skillz, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
 
 ### Members responsibilities
 
@@ -37,6 +38,7 @@ The daemon constantly watches all updates in `DepositContract` and `NodeOperator
 
 - If the state is correct, it signes the current to_sign struct and emits it to an off-chain message queue.
 - If the state has malicious pre-deposits, it signs the “something’s wrong” message at the current block, emits it to a message queue, and attempts to send pauseDeposits() tx.
+- If the state has duplicated keys, or invalid keys signatures, it signs the message that contains module id, node operator id and last valid key. Distribute this message, attempts to send unvet transaction.
 
 ## Preparation steps
 

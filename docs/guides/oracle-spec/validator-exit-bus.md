@@ -6,13 +6,16 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 
 [Validators Exit Bus](/contracts/validators-exit-bus-oracle) is an oracle that ejects Lido validators when the protocol requires additional funds to process user withdrawals.
 
-A report calculation consists of 4 key steps:
+There are two stages of selecting validators for exit: Covering Demand in WQ and Boosted Exits
+
+A report calculation consists of 6 key steps:
 
 1. Calculate withdrawals amount to cover with ether.
 2. Calculate ether rewards prediction per epoch.
-3. Calculate withdrawal epoch for next validator eligible for exit to cover withdrawal requests if needed
-4. Prepare validators exit order queue
-5. Go through the queue until the exited validators’ balances cover all withdrawal requests (considering the predicated final exited balance of each validator).
+3. Calculate withdrawal epoch for next validator eligible for exit to cover withdrawal requests if needed.
+4. Prepare validators exit order queue to fulfill withdrawals.
+5. Extend with forced to exit validators up to report limit or until there is no force requests.
+6. Go through the queue until the exited validators’ balances cover all withdrawal requests (considering the predicated final exited balance of each validator).
 
 :::note
 Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified [Lido on Ethereum Validator Exits Policy V1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330).
@@ -45,13 +48,20 @@ A few hours later it might look like the following:
 
 Note that th described algorithm is looking for a validator to exit only among those that can be exited, while using the projected number of validators, which includes non-existent yet validators. It's only weights, so there is no misconception here.
 
-The final exit order predicate sequence:
+The final exit order predicate sequence to fulfill withdrawal requests:
 
 1. Validator whose operator with the lowest number of delayed validators
-2. Validator whose operator with the highest number of targeted validators to exit
-3. Validator whose operator with the highest stake weight
-4. Validator whose operator with the highest number of validators
-5. Validator with the lowest index
+2. Validator whose operator with the highest number of forced targeted validators to exit
+3. Validator whose operator with the highest number of soft targeted validators to exit
+4. Validator whose staking module with the highest deviation from the exit share limit
+5. Validator whose operator with the highest stake weight
+6. Validator whose operator with the highest number of validators
+7. Validator with the lowest index
+
+Exit order for node operators with active forced target limits:
+
+1. Validator whose operator with the highest number of forced targeted validators to exit
+2. Validator with the lowest index
 
 ## Get information to prepare ordered queue
 
@@ -60,14 +70,14 @@ In order to prepare a queue of validators to exit, the following actions and con
 - the maximum number of validators that can be requested to exit in one report;
 - operator network penetration percent - only if the operator's share is greater than 1%;
 - 'exitable' Lido validators;
-- fetch node operators stats to sort exitable validators;
+- fetch node operators stats;
 - total predictable validators count;
-- last requested validators indices.
+- last requested validators indices;
 
 ### Report limits
 
 - `maxValidatorExitRequestsPerReport` - max number of exit requests allowed in report to `ValidatorsExitBusOracle` from `OracleReportSanityChecker.getOracleReportLimits()`.
-- `VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS` - A parameter from from `OracleDaemonConfig` contract used to calculate validators going to exit.
+- `VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS` - A parameter from `OracleDaemonConfig` contract used to calculate validators going to exit.
 - `NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP` - - A parameter from `OracleDaemonConfig` that is taken into account when determining the penetration of the operator into the network.
 
 ### Get exitable validators
@@ -83,8 +93,8 @@ Statistics for each node operator, which are needed for sorting their validators
 
 - validators count that are not yet in CL
 - validators that are in CL and are not yet requested to exit and not on exit
-- validators that are in CL and requested to exit but not on exit and not requested to exit recently
-- target validators count
+- validators that are in CL and requested to exit but not on exit and not requested to exit recently 
+- target type (forced/soft) and target validators count
 - checks whether the target limit mode is set
 
 NB: A validator can not be considered as delayed if it was requested to exit in last `VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS` slots
@@ -268,6 +278,18 @@ expected_balance = (
 First of all, it's checked without exiting the validator, whether the protocol already has enough available ether to cover withdrawal requests in the queue. If yes, then it's not reasonable to exit validators.
 
 If there is not enough, one more validator is considered to be exited and the expected balance gets calculated again. The process continues until the expected balance becomes greater than or equal to the unfinalized withdrawal requests amount.
+
+#### Boosted Exits
+
+This stage presupposes the exit of validators requiring exit regardless of the demand in WQ. The state of operators and validators after the first step is filtered, leaving only validators of operators having `targetLimitMode` set to boosted exits.
+
+Let's consider the target limit modes in more detail:
+
+- `0` - **Disabled.** This mode implies no limitation. The operator is not restricted in receiving new stakes and does not have additional priorities when choosing validators for exit.
+
+- `1` - **Smooth exit mode.** The operator has a limit on the number of active validators. As long as the number of active validators of the operator does not exceed the `targetLimit`, the operator receives stakes under general conditions. If this value is reached, the operator stops receiving new stakes (should be implemented at the module level). If the number of active keys of the operator exceeds the `targetLimit`, then such an operator's validators are prioritized for exit in the amount of targeted validators to exit.
+
+- `2` - **Boosted exit mode.** Similar to smooth mode, but does not consider demand in WQ. The operator's validators in the amount of targeted validators to exit are prioritized for exit and requested without considering demand in WQ.
 
 ## Helpful links
 
