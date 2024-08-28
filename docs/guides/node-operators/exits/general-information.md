@@ -34,7 +34,7 @@ On the endpoint, JSON will be POSTed with the following structure:
 
 200 response will be counted as a successful exit, non-200 as a fail.
 
-If it's not enough, you'll have to fork the Ejector or monitor `ValidatorExitRequest` events of the [`ValidatorsExitBusOracle`](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol) in your tooling.
+If it's not enough, you'll have to fork the Ejector or monitor `ValidatorExitRequest` events of the [`ValidatorsExitBusOracle`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol) in your tooling.
 
 [Example in the Ejector](https://github.com/lidofinance/validator-ejector/blob/d72cac9767a57936f29c5b54e7de4f74344342de/src/services/execution-api/service.ts#L160-L203)
 

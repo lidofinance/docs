@@ -2,7 +2,7 @@
 
 ## Tests setup configuration
 
-Tests setup based upon parameters specified in [this config file](https://github.com/lidofinance/scripts/blob/shapella-upgrade/configs/config_mainnet.py) . This document can be used to validate the values.
+Tests setup based upon parameters specified in [this config file](https://github.com/lidofinance/scripts/blob/master/configs/config_mainnet.py) . This document can be used to validate the values.
 
 ## Mainnet addresses
 
@@ -39,12 +39,12 @@ Single staking module named "Curated" added to StakingRouter. For the details se
 CURATED_STAKING_MODULE_STUCK_PENALTY_DELAY = 432000  # 5 days as seconds
 
 # Share of this staking module among all staking modules (in basis points, 100% = 10000). This is a single module so all 100% goes to it
-# https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+# https://github.com/lidofinance/core/blob/master/contracts/0.8.9/StakingRouter.sol#L167-L175
 # Currently have single Staking Module, so 100%
 CURATED_STAKING_MODULE_TARGET_SHARE_BP = 10000  # 100%
 
 # Shares of the rewards which goes to the curated set staking module and to the treasury (in basis points, 100% = 10000)
-# see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol#L167-L175
+# see https://github.com/lidofinance/core/blob/master/contracts/0.8.9/StakingRouter.sol#L167-L175
 # same as it set currently, see https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F29
 # https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F46
 # NB: that getFeeDistribution returns percent relative to the 10% returned by getFee
@@ -90,18 +90,18 @@ FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days
 
 ```python
 # Sanity limit on the number of deposits: not more than ~half of the current DSM deposits capacity (43200 it is)
-# https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L221-L232
+# https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L221-L232
 CHURN_VALIDATORS_PER_DAY_LIMIT = 20000
 
 # Taken from current oracle limit https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb#readProxyContract#F8
-# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L47-L50
+# See https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L47-L50
 ONE_OFF_CL_BALANCE_DECREASE_BP_LIMIT = 500  # 5%
 
 # See https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
 # Related to Consensus Layer rewards only
 ANNUAL_BALANCE_INCREASE_BP_LIMIT = 1000  # 10%
 
-# According to https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
+# According to https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L647-L672
 # and assuming Staking rate limit = 150 000, TVL = 3 000 000
 # SRL = 0.1
 # L = (2 * SRL) * max(ONE_OFF_CL_BALANCE_DECREASE_BP_LIMIT, MAX_POSITIVE_TOKEN_REBASE)
@@ -114,25 +114,25 @@ SIMULATED_SHARE_RATE_DEVIATION_BP_LIMIT = 50  # 0.5%
 # currently we have ~562000 active validators, which gives 8 validators per epoch unless active validators grew up to `589824`
 MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT = 600
 
-# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L65-L67
+# See https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L65-L67
 # Depends on the amount of staking modules and amount of data types. Have only one staking module at launch
-# and two data types exited and stuck validators ( see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/AccountingOracle.sol##L282-L319 )
+# and two data types exited and stuck validators ( see https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol##L282-L319 )
 # So need to deliver exited/delinquent sets of data: 1 x 2 = 2
 MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT = 2
 
-# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L69-L71
+# See https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L69-L71
 # and https://github.com/lidofinance/lido-dao/blob/e45c4d6fb8120fd29426b8d969c19d8a798ca974/contracts/0.8.9/oracle/AccountingOracle.sol#L302-L306
 # could have been 200, since NOR allows up to 200 node operators
 # decided to halve it down since Lido has 29 node operators onboarded while have the margin for more node operators
 MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT = 100
 
-# See https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L73-L75
+# See https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L73-L75
 # and https://research.lido.fi/t/withdrawals-for-lido-on-ethereum-bunker-mode-design-and-implementation/3890/4
 REQUEST_TIMESTAMP_MARGIN = 7680  # 2 hours rounded to epoch length
 
 # 27% yearly, in 1e9 so that it multiplied on 365 (link to code)
 # see https://research.lido.fi/t/increasing-max-apr-sanity-check-for-oracle-lido-report/3205
-# and https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L77-L79
+# and https://github.com/lidofinance/core/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol#L77-L79
 # the value might be re-considered once the stETH liquidity sources landscape changed
 MAX_POSITIVE_TOKEN_REBASE = 750000
 ```
@@ -172,7 +172,7 @@ AO_EPOCHS_PER_FRAME = 225  #
 # So, the AccountingOracle expected report time would be ~12:00 UTC
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
-# https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
+# https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
 # NB: min value is 64 as two epochs are required for the chain finality
 AO_FAST_LANE_LENGTH_SLOTS = 100
 
@@ -196,7 +196,7 @@ And its corresponding `HashConsensus`.
 VEBO_EPOCHS_PER_FRAME = 75
 
 # Number of slots dedicated for delay during oracles rotation including finalization time
-# https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
+# https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/HashConsensus.sol#L370-L398
 # NB: min value is 64 as two epochs are required for finalization
 VEBO_FAST_LANE_LENGTH_SLOTS = 100
 
@@ -225,7 +225,7 @@ WQ_ERC721_TOKEN_NAME = "Lido: stETH Withdrawal NFT"
 WQ_ERC721_TOKEN_SYMBOL = "unstETH"
 
 # Lido-maintained NFT-generator server
-# see https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueERC721.sol#L126-L129
+# see https://github.com/lidofinance/core/blob/master/contracts/0.8.9/WithdrawalQueueERC721.sol#L126-L129
 WQ_ERC721_TOKEN_BASE_URI = "https://wq-api.lido.fi/v1/nft"
 ```
 
@@ -261,13 +261,13 @@ GATE_SEAL_EXPIRY_TIMESTAMP = 1714521600  # 2024-05-01 00:00 UTC
 
 ## Roles setup
 
-For the roles setup in tests see [the permissions test](https://github.com/lidofinance/scripts/blob/shapella-upgrade/tests/regression/test_permissions.py).
+For the roles setup in tests see [the permissions test](https://github.com/lidofinance/scripts/blob/master/tests/regression/test_permissions.py).
 
 Contracts ACL denotation:
 
 - mark "*Aragon app*" means the contract is Aragon app which uses [Aragon ACL model](https://hack.aragon.org/developers/tools/aragonos/reference-documentation)
-- mark "*OZ*" means the contract uses [OpenZeppelin ACL model](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
-- mark "*Proxy*" means the contract is deployed behind a proxy so has an additional [ACL model related to the proxy](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/proxy/OssifiableProxy.sol)
+- mark "*OZ*" means the contract uses [OpenZeppelin ACL model](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+- mark "*Proxy*" means the contract is deployed behind a proxy so has an additional [ACL model related to the proxy](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/proxy/OssifiableProxy.sol)
 - mark "*Plain owner*" means has custom simple ACL model with single owner and setter for it
 - mark "*No access control*" means there is no any ACL
 

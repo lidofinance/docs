@@ -123,7 +123,7 @@ Liquidity: $409.3M
 Volume (24h): $509,3
 [Dune query](https://dune.xyz/embeds/153863/304423/684fdf22-161c-4352-a41d-81ce8a705c01)
 
-**[SushiSwap (wstETH/DAI)](https://analytics.sushi.com/pairs/0xc5578194d457dcce3f272538d1ad52c68d1ce849)**
+**[SushiSwap (wstETH/DAI)](https://app.sushi.com/add/0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0/0x6B175474E89094C44Da98b954EedeAC495271d0F)**
 Liquidity: $32.2M
 Volume (24h): $756,211
 [Dune query](https://dune.xyz/embeds/153729/304165/5c53e046-47ef-485d-9767-6ec188a5629e)
