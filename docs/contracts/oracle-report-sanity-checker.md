@@ -56,12 +56,16 @@ struct LimitsList {
 - **`maxPositiveTokenRebase` ∈ [1, type(uint64).max]** — the max positive token rebase allowed per single oracle report token rebase
   happens on total supply adjustment, huge positive rebase can incur oracle report sandwiching.
   Uses 1e9 precision, e.g.: `1e6` — 0.1%; `1e9` — 100%; `type(uint64).max` — unlimited rebase.
+- **`initialSlashingAmountPWei` ∈ [0, 65535]** - initial slashing amount per one validator to calculate initial slashing of the validators' balances on the Consensus Layer.
+- **`inactivityPenaltiesAmountPWei` ∈ [0, 65535]** - inactivity penalties amount per one validator to calculate penalties of the validators' balances on the Consensus Layer.
+- **`clBalanceOraclesErrorUpperBPLimit` ∈ [0, 10000]** - the maximum percent on how Second Opinion Oracle reported value could be greater than reported by the AccountingOracle. There is an assumption that second opinion oracle CL balance can be greater as calculated for the withdrawal credentials. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
 
-ToDo: description 
- - initialSlashingAmountPWei
- - inactivityPenaltiesAmountPWei
- - clBalanceOraclesErrorUpperBPLimit
- - Second Opinion oracle ?
+There is also parameter for Second Opinion Oracle which is not a part of the `LimitList` structure. However
+it's modification requires the same type of roles as for the Limits. It could be changed with a general 
+`setOracleReportLimits()` function or specific `setSecondOpinionOracleAndCLBalanceUpperMargin()`.
+
+For the details about meaning of the parameters: `initialSlashingAmountPWei`, `inactivityPenaltiesAmountPWei`,
+`clBalanceOraclesErrorUpperBPLimit` and `Second Opinion Oracle` please refer to [LIP-23](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-23.md).
 
 ## Sanity Checks
 
@@ -78,8 +82,10 @@ Below is the list of restrictions checked by the method execution:
   balance **is greater than** the actual balance of EL rewards vault.
 - Revert with `IncorrectSharesRequestedToBurn(uint256 actualSharesToBurn)` error when the amount of stETH shares requested
   to burn **exceeds** the number of shares marked to be burned in the Burner contract.
-- Revert with `IncorrectCLBalanceDecrease(uint256 oneOffCLBalanceDecreaseBP)` error when Consensus Layer one-off balance
-  decrease in basis points **exceeds** the allowed `LimitsList.oneOffCLBalanceDecreaseBPLimit`.
+- Revert with `IncorrectCLBalanceDecrease(uint256 negativeCLRebaseSum, uint256 maxNegativeCLRebaseSum)` error when Consensus Layer balance decrease **exceeds** the allowed. See [LIP-23](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-23.md) for this and other similar errors.
+- Revert with `IncorrectCLBalanceDecrease(uint256 negativeCLRebaseSum, uint256 maxNegativeCLRebaseSum)` error when Consensus Layer balance reported by oracles and second opinion oracle is too different. 
+- Revert with `NegativeRebaseFailedWithdrawalVaultBalanceMismatch(uint256 reportedValue, uint256 provedValue)` error when Withdrawal vault balance reported by oracles and second opinion oracle is different. 
+- Revert with `NegativeRebaseFailedSecondOpinionReportIsNotReady()` error when second opinion oracle report is not available. 
 - Revert with `IncorrectCLBalanceIncrease(uint256 annualBalanceDiff)` error when Consensus Layer annual balance increase
   expressed in basis points **exceeds** allowed `LimitsList.annualBalanceIncreaseBPLimit`.
 - Revert with `IncorrectAppearedValidators(uint256 appearedValidatorsLimit)` error when the number of appeared validators **exceeds**
@@ -344,16 +350,18 @@ Sets the new values for the limits list.
 - Reverts with `IncorrectLimitValue(uint256 value, uint256 minAllowedValue, uint256 maxAllowedValue)` error when some
   value in the passed data out of the allowed range.
   See details of allowed value boundaries in the [Limits List](#limits-list) section.
+- Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.  
 
 :::
 
 ```solidity
-function setOracleReportLimits(LimitsList memory _limitsList)
+function setOracleReportLimits(LimitsList calldata _limitsList, ISecondOpinionOracle _secondOpinionOracle)
 ```
 
 #### Arguments
 
 - **`_limitsList`** — new limits list values
+- **`_secondOpinionOracle`** — new second opinion oracle value
 
 ### setExitedValidatorsPerDayLimit()
 
@@ -557,6 +565,47 @@ function setMaxNodeOperatorsPerExtraDataItem(uint256 _maxNodeOperatorsPerExtraDa
 
 - **`_maxNodeOperatorsPerExtraDataItem`** — new value for `LimitsList.maxNodeOperatorsPerExtraDataItem`
 
+### setSecondOpinionOracleAndCLBalanceUpperMargin()
+
+Sets the new value for the Second Opinion Oracle and `LimitsList.clBalanceOraclesErrorUpperBPLimit` variable.
+
+:::note
+
+- Requires `SECOND_OPINION_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+- Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.  
+:::
+
+```solidity
+function setSecondOpinionOracleAndCLBalanceUpperMargin(ISecondOpinionOracle _secondOpinionOracle, uint256 _clBalanceOraclesErrorUpperBPLimit)
+```
+
+#### Arguments
+
+- **`_secondOpinionOracle`** — new value for Second Opinion Oracle
+- **`_clBalanceOraclesErrorUpperBPLimit`** — new value for `LimitsList.clBalanceOraclesErrorUpperBPLimit`
+
+### setInitialSlashingAndPenaltiesAmount()
+
+Sets the new value for the `LimitsList.initialSlashingAmountPWei` and `LimitsList.inactivityPenaltiesAmountPWei` variable.
+
+:::note
+
+- Requires `INITIAL_SLASHING_AND_PENALTIES_MANAGER_ROLE` to be granted to the caller.
+- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
+  See [Limits List](#limits-list) section for details.
+:::
+
+```solidity
+function setInitialSlashingAndPenaltiesAmount(uint256 _initialSlashingAmountPWei, uint256 _inactivityPenaltiesAmountPWei)
+```
+
+#### Arguments
+
+- **`_initialSlashingAmountPWei`** — new value for `LimitsList.initialSlashingAmountPWei`
+- **`_inactivityPenaltiesAmountPWei`** — new value for `LimitsList.inactivityPenaltiesAmountPWei`
+
 ## Permissions
 
 ### ALL_LIMITS_MANAGER_ROLE()
@@ -668,6 +717,26 @@ See the [`setMaxPositiveTokenRebase()`](#setmaxpositivetokenrebase) method.
 ```solidity
 bytes32 public constant MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE =
     keccak256("MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE")
+```
+
+### SECOND_OPINION_MANAGER_ROLE()
+
+Granting this role allows updating the Second Opinion Oracle and `clBalanceOraclesErrorUpperBPLimit` value of the [Limits List](#limits-list).
+See the [`setSecondOpinionOracleAndCLBalanceUpperMargin()`](#setsecondopinionoracleandclbalanceuppermargin) method.
+
+```solidity
+bytes32 public constant SECOND_OPINION_MANAGER_ROLE =
+    keccak256("SECOND_OPINION_MANAGER_ROLE")
+```
+
+### INITIAL_SLASHING_AND_PENALTIES_MANAGER_ROLE
+
+Granting this role allows updating the `initialSlashingAmountPWei` and `inactivityPenaltiesAmountPWei` values of the [Limits List](#limits-list).
+See the [`setInitialSlashingAndPenaltiesAmount()`](#setinitialslashingandpenaltiesamount) method.
+
+```solidity
+bytes32 public constant INITIAL_SLASHING_AND_PENALTIES_MANAGER_ROLE =
+    keccak256("INITIAL_SLASHING_AND_PENALTIES_MANAGER_ROLE")
 ```
 
 ## Events
@@ -791,3 +860,68 @@ event RequestTimestampMarginSet(uint256 requestTimestampMargin);
 #### Arguments
 
 - **`requestTimestampMargin`** — new value of the `LimitsList.requestTimestampMargin`
+
+### InitialSlashingAmountSet()
+
+Emits whenever the value of the `LimitsList.initialSlashingAmountPWei` value is changed.
+
+```solidity
+event InitialSlashingAmountSet(uint256 initialSlashingAmountPWei);
+```
+
+#### Arguments
+
+- **`initialSlashingAmountPWei`** — new value of the `LimitsList.initialSlashingAmountPWei`
+
+### InactivityPenaltiesAmountSet()
+
+Emits whenever the value of the `LimitsList.InactivityPenaltiesAmountSet` value is changed.
+
+```solidity
+event InactivityPenaltiesAmountSet(uint256 inactivityPenaltiesAmountPWei);
+```
+
+#### Arguments
+
+- **`inactivityPenaltiesAmountPWei`** — new value of the `LimitsList.inactivityPenaltiesAmountPWei`
+
+### CLBalanceOraclesErrorUpperBPLimitSet()
+
+Emits whenever the value of the `LimitsList.clBalanceOraclesErrorUpperBPLimit` value is changed.
+
+```solidity
+event CLBalanceOraclesErrorUpperBPLimitSet(uint256 clBalanceOraclesErrorUpperBPLimit);
+```
+
+#### Arguments
+
+- **`clBalanceOraclesErrorUpperBPLimit`** — new value of the `LimitsList.clBalanceOraclesErrorUpperBPLimit`
+
+### NegativeCLRebaseConfirmed()
+
+Emits whenever the checkAccountingOracleReport() finished with negative CL rebase check successfully with checking the Second Opinion Oracle.
+
+```solidity
+event NegativeCLRebaseConfirmed(uint256 refSlot, uint256 clBalanceWei, uint256 withdrawalVaultBalance);
+```
+
+#### Arguments
+
+- **`refSlot`** — the reference slot for the report checked.
+- **`clBalanceWei`** — the total Consensus Layer balance.
+- **`withdrawalVaultBalance`** — balance of the withdrawal vault.
+
+### NegativeCLRebaseAccepted()
+
+Emits whenever the checkAccountingOracleReport() finished with negative CL rebase check successfully without checking the Second Opinion Oracle.
+
+```solidity
+event NegativeCLRebaseAccepted(uint256 refSlot, uint256 clTotalBalance, uint256 clBalanceDecrease, uint256 maxAllowedCLRebaseNegativeSum);
+```
+
+#### Arguments
+
+- **`refSlot`** — the reference slot for the report checked.
+- **`clTotalBalance`** — the total Consensus Layer balance.
+- **`clBalanceDecrease`** — the decrease of Consensus Layer balance during report.
+- **`maxAllowedCLRebaseNegativeSum`** — the maximul accepted negative rebase balance change without second opinion.
