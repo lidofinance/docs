@@ -43,7 +43,7 @@ Lido DAO can recognize the bridged wstETH endpoints by means of a signalling sna
 
 If Lido DAO recognizes the bridged wstETH endpoints, in general, it means:
 
-- the integration is highlighted on the frontend pages: [landing](https://lido.fi/lido-on-l2), [widget](https://stake.lido.fi/), and [ecosystem pages](https://lido.fi/lido-ecosystem);
+- the integration is highlighted on the frontend pages: [landing](https://lido.fi/lido-multichain), [widget](https://stake.lido.fi/), and [ecosystem pages](https://lido.fi/lido-ecosystem);
 - when/if the dedicated bridging Lido UI is implemented, the network will be included;
 - the newly appeared integration announcement is published in the Lido's [blog](https://blog.lido.fi/category/l2/) and [twitter](https://twitter.com/LidoFinance);
 - the endpoint contracts are under the Lido's [bug bounty program](https://immunefi.com/bug-bounty/lido/);
@@ -172,7 +172,7 @@ Examples:
 - [`LineaBridgeExecutor`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 - [`ScrollBridgeExecutor`]https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 
-For more examples, see Governance Bridge Executors at https://docs.lido.fi/deployed-contracts/#lido-on-l2. The contracts originate from [Aave Governance Cross-Chain Bridges](https://github.com/aave/governance-crosschain-bridges) and can be found at https://github.com/lidofinance/governance-crosschain-bridges and [PRs](https://github.com/lidofinance/governance-crosschain-bridges/pulls).
+For more examples, see Governance Bridge Executors at https://docs.lido.fi/deployed-contracts/#lido-multichain. The contracts originate from [Aave Governance Cross-Chain Bridges](https://github.com/aave/governance-crosschain-bridges) and can be found at https://github.com/lidofinance/governance-crosschain-bridges and [PRs](https://github.com/lidofinance/governance-crosschain-bridges/pulls).
 
 #### R-6: Dedicated upgradable bridge instances
 
@@ -377,7 +377,7 @@ In the comments section, please provide the relevant details: the artifacts, if 
 
 ## References
 
-- Deployed contracts addresses https://docs.lido.fi/deployed-contracts/#lido-on-l2
+- Deployed contracts addresses https://docs.lido.fi/deployed-contracts/#lido-multichain
 - LOL (Liquidity Observation Labs) https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335
 - Lido L2 reference bridging contracts (Arbitrum and Optimism) https://github.com/lidofinance/lido-l2
 - Unofficial guidelines (like the 1st iteration of the guide) https://research.lido.fi/t/unofficial-guidelines-for-bridging-solutions-network-expansion-workgroup/5790
