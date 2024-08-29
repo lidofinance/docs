@@ -57,7 +57,7 @@ userAPR =
 https://eth-api.lido.fi/v1/protocol/steth/apr/last
 ```
 
-Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findLastAPRforSTETH)
+Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/#/APR%20for%20Eth%20and%20stEth/ProtocolController_findLastAPRforSTETH)
 
 #### Holesky
 

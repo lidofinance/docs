@@ -411,7 +411,7 @@ Any other viable approach for mitigation might be used as well. As one more exam
 ### Checking the state of withdrawal
 
 - You can check all the withdrawal requests for the owner by calling `getWithdrawalRequests(address _owner)` which returns an array of NFT ids.
-- To check the state of the particular NFTs you can call `getWithdrawalStatus(uint256[] _requestIds)` which returns an array of [`WithdrawalRequestStatus`](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueBase.sol#L67-L81) struct.
+- To check the state of the particular NFTs you can call `getWithdrawalStatus(uint256[] _requestIds)` which returns an array of [`WithdrawalRequestStatus`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/WithdrawalQueueBase.sol#L67-L81) struct.
 
 ```solidity
     struct WithdrawalRequestStatus {

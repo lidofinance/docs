@@ -117,7 +117,7 @@ Controls how many Ethereum deposits can be made in a single transaction.
 
 - The `_maxDepositsCount` parameter of the `deposit(uint256 _maxDepositsCount, uint256 _stakingModuleId, bytes _depositCalldata)` function
 - Default value: `16`
-- [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.js)
+- [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.test.js)
 
 When DSM calls `depositBufferedEther`, `Lido` tries to register as many Ethereum validators
 as it can given the buffered ether amount. The limit is passed as an argument to this function and

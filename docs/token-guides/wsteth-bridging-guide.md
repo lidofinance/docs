@@ -136,7 +136,7 @@ To speed up the process and make it more robust, please provide the artifacts (i
 
 - verify the configuration and storage state via [state-mate](https://github.com/lidofinance/state-mate), examples:
   - [wstETH on Mantle](https://github.com/lidofinance/state-mate/tree/main/configs/mantle)
-  - [a.DI on Binance Smart Chain (BSC)](https://github.com/lidofinance/state-mate/tree/main/configs/binance)
+  - [a.DI on Binance Smart Chain (BSC)](https://github.com/lidofinance/state-mate/tree/main/configs/bsc)
 
 #### R-2: "Lock and mint" bridge mechanics
 
