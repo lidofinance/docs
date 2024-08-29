@@ -17,18 +17,18 @@ The following penalization schemes are introduced:
 1. **Immediate penalization** (for penalties that are unambiguous and can be assessed via trustless proofs);
 2. **Delayed penalty with challenge period** (for cases where false positives may occur or investigation might be needed);
 
-The challenge period for delayed penalties is implemented by separating two roles involved in the application of the penalty. 
+The challenge period for delayed penalties is implemented by separating two roles involved in the application of the penalty.
 
 The first role is the "reporter". Members of this role can initially report a fact that should result in a penalty. Bond funds will be locked but not burned or confiscated at this stage. "Reporters" can also revoke the initial report in case of the challenge resolution in favor of the Node Operator.
 
 The second role is called "settler". Members of this role can finalize (settle) previously reported penalties.
 
-Separating these two roles ensures that a penalty can only be applied when two independent actors agree. 
+Separating these two roles ensures that a penalty can only be applied when two independent actors agree.
 
 ## Mechanics
 There are two mechanics related to Node Operator bond penalization.
 
-The first one is burning stETH shares using the [Burner](../../contracts/burner). Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
+The first one is burning stETH shares using the [Burner](/contracts/burner). Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
 
 The second mechanic is transferring confiscated stETH to the [Lido DAO Treasury](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c). This approach is applied to penalties that are used to address protocol operational costs (e.g., `keyRemovalCharge`).
 

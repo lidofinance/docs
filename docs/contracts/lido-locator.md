@@ -8,7 +8,7 @@ It follows the well-known [service locator](https://en.wikipedia.org/wiki/Servic
 
 ## Upgradability
 
-The contract uses [OssifiableProxy](./ossifiable-proxy.md) for upgradability and
+The contract uses [OssifiableProxy](/contracts/ossifiable-proxy.md) for upgradability and
 does not use storage for the address book. Instead, all addresses are embedded into
 the implementation's bytecode as immutables for gas efficiency, allowing one to
 update them along with a proxy implementation.
@@ -17,7 +17,7 @@ update them along with a proxy implementation.
 
 ### accountingOracle()
 
-Returns an address of the [AccountingOracle contract](./accounting-oracle.md)
+Returns an address of the [AccountingOracle contract](/contracts/accounting-oracle.md)
 
 ```sol
 function accountingOracle() view returns(address);
@@ -25,7 +25,7 @@ function accountingOracle() view returns(address);
 
 ### depositSecurityModule()
 
-Returns an address of the [DepositSecurityModule contract](./deposit-security-module.md)
+Returns an address of the [DepositSecurityModule contract](/contracts/deposit-security-module.md)
 
 ```sol
 function depositSecurityModule() view returns(address)
@@ -33,7 +33,7 @@ function depositSecurityModule() view returns(address)
 
 ### elRewardsVault()
 
-Returns an address of the [LidoExecutionLayerRewardsVault contract](./lido-execution-layer-rewards-vault.md)
+Returns an address of the [LidoExecutionLayerRewardsVault contract](/contracts/lido-execution-layer-rewards-vault.md)
 
 ```sol
 function elRewardsVault() view returns(address)
@@ -41,7 +41,7 @@ function elRewardsVault() view returns(address)
 
 ### legacyOracle()
 
-Returns an address of the [LegacyOracle contract](./legacy-oracle.md)
+Returns an address of the [LegacyOracle contract](/contracts/legacy-oracle.md)
 
 ```sol
 function legacyOracle() external view returns(address)
@@ -49,7 +49,7 @@ function legacyOracle() external view returns(address)
 
 ### lido()
 
-Returns an address of the [Lido contract](./lido.md)
+Returns an address of the [Lido contract](/contracts/lido.md)
 
 ```sol
 function lido() external view returns(address)
@@ -57,7 +57,7 @@ function lido() external view returns(address)
 
 ### oracleReportSanityChecker()
 
-Returns an address of the [OracleReportSanityChecker contract](./oracle-report-sanity-checker.md)
+Returns an address of the [OracleReportSanityChecker contract](/contracts/oracle-report-sanity-checker.md)
 
 ```sol
 function oracleReportSanityChecker() view returns(address)
@@ -65,7 +65,7 @@ function oracleReportSanityChecker() view returns(address)
 
 ### burner()
 
-Returns an address of the [Burner contract](./burner.md)
+Returns an address of the [Burner contract](/contracts/burner.md)
 
 ```sol
 function burner() view returns(address)
@@ -73,7 +73,7 @@ function burner() view returns(address)
 
 ### stakingRouter()
 
-Returns an address of the [StakingRouter contract](./staking-router.md)
+Returns an address of the [StakingRouter contract](/contracts/staking-router.md)
 
 ```sol
 function stakingRouter() view returns(address)
@@ -89,7 +89,7 @@ function treasury() view returns(address)
 
 ### validatorsExitBusOracle()
 
-Returns an address of the [ValidatorsExitBusOracle contract](./validators-exit-bus-oracle.md)
+Returns an address of the [ValidatorsExitBusOracle contract](/contracts/validators-exit-bus-oracle.md)
 
 ```sol
 function validatorsExitBusOracle() external view returns(address)
@@ -97,7 +97,7 @@ function validatorsExitBusOracle() external view returns(address)
 
 ### withdrawalQueue()
 
-Returns an address of the [WithdrawalQueueERC721 contract](./withdrawal-queue-erc721.md)
+Returns an address of the [WithdrawalQueueERC721 contract](/contracts/withdrawal-queue-erc721.md)
 
 ```sol
 function withdrawalQueue() view returns(address)
@@ -105,7 +105,7 @@ function withdrawalQueue() view returns(address)
 
 ### withdrawalVault()
 
-Returns an address of the [WithdrawalVault contract](./withdrawal-vault.md)
+Returns an address of the [WithdrawalVault contract](/contracts/withdrawal-vault.md)
 
 ```sol
 function withdrawalVault() view returns(address)
@@ -114,7 +114,7 @@ function withdrawalVault() view returns(address)
 ### postTokenRebaseReceiver()
 
 Returns an address of the contract following the [`IPostTokenRebaseReceiver`](https://github.com/lidofinance/lido-dao/blob/cadffa46a2b8ed6cfa1127fca2468bae1a82d6bf/contracts/0.4.24/Lido.sol#L20-L30) interface described inside `Lido`.
-Right now it returns the [LegacyOracle](./legacy-oracle.md) address.
+Right now it returns the [LegacyOracle](/contracts/legacy-oracle.md) address.
 
 ```sol
 function postTokenRebaseReceiver() view returns(address);
@@ -122,7 +122,7 @@ function postTokenRebaseReceiver() view returns(address);
 
 ### oracleDaemonConfig()
 
-Returns an address of the [OracleDaemonConfig contract](./oracle-daemon-config.md)
+Returns an address of the [OracleDaemonConfig contract](/contracts/oracle-daemon-config.md)
 
 ```sol
 function oracleDaemonConfig() view returns(address)

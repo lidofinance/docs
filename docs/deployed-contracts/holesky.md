@@ -1,7 +1,7 @@
 # Holešky
 
 :::info
-[Holešky testnet](./holesky.md) is the main operational and maintained protocol testnet deployment.
+[Holešky testnet](/deployed-contracts/holesky.md) is the main operational and maintained protocol testnet deployment.
 :::
 
 ## Core protocol
@@ -28,7 +28,7 @@
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0xffDDF7025410412deaa05E3E1cE68FE53208afcb`](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb) (proxy)
   - HashConsensus: [`0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f`](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f)
-- OracleReportSanityChecker: [`0xd7C870777e08325Ad0A3A85F41E66E7D84B63E4f`](https://holesky.etherscan.io/address/0xd7C870777e08325Ad0A3A85F41E66E7D84B63E4f)
+- OracleReportSanityChecker: [`0x80D1B1fF6E84134404abA18A628347960c38ccA7`](https://holesky.etherscan.io/address/0x80D1B1fF6E84134404abA18A628347960c38ccA7)
 - OracleDaemonConfig: [`0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7`](https://holesky.etherscan.io/address/0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019`](https://holesky.etherscan.io/address/0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019) (proxy)
 

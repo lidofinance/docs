@@ -4,9 +4,9 @@ Some events in the CSM may occur on the protocol side, such as withdrawal reques
 
 So, what exactly are the events that the NO has to follow?
 
-## Contract: [VEBO](https://docs.lido.fi/contracts/validators-exit-bus-oracle)
+## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
 
-> [Holesky](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb)  
+> [Holesky](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb)
 > [Mainnet](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
 
 ### ValidatorExitRequest
@@ -26,7 +26,7 @@ event ValidatorExitRequest(
 ## Contract: CSM
 
 > [Holesky](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f)
- 
+
 ### ELRewardsStealingPenaltyReported
 The DAO can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
 ```solidity
@@ -98,11 +98,11 @@ event DistributionDataUpdated(
 
 ## 3rd party notification providers
 
-Node Operators can use [OZ Defender](https://www.openzeppelin.com/) or [Tenderly](https://tenderly.co/) as services 
-that allow them to subscribe to the emitted events on the particular contracts 
+Node Operators can use [OZ Defender](https://www.openzeppelin.com/) or [Tenderly](https://tenderly.co/) as services
+that allow them to subscribe to the emitted events on the particular contracts
 and notify in the Telegram, Discord, Email, etc.
 
-It is recommended to use OZ Defender - you can subscribe to all required events per contract in one `Monitor` using the free plan. 
+It is recommended to use OZ Defender - you can subscribe to all required events per contract in one `Monitor` using the free plan.
 
 At the same time, Tenderly has some limitations:
 - Not allowed to filter events by two or more fields, so you cannot subscribe to `ValidatorExitRequest` properly.

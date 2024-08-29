@@ -13,7 +13,7 @@ Using EOA across Lido DAO ops or protocol contracts requires providing a public 
    4. The `sig` field in the result json is the signature hash.
 2. Publish the message along with the signature hash on twitter or other easily accessible social media.
 3. Share the link to the post as a comment at the relevant [Lido DAO forum](https://research.lido.fi) post.
-4. Make sure to follow the [general rules of thumb](./multisig-signer-manual) for being a signer in Lido DAO ops multisigs.
+4. Make sure to follow the [general rules of thumb](/guides/multisig-signer-manual) for being a signer in Lido DAO ops multisigs.
 
 ### In case of using Safe multisig
 

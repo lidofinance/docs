@@ -4,7 +4,7 @@
 Sepolia testnet has only a limited set of working parts of the protocol.
 
 For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available
-(paused indefinitely), please use the [Holešky testnet](./holesky.md) deployment if possible.
+(paused indefinitely), please use the [Holešky testnet](/deployed-contracts/holesky.md) deployment if possible.
 
 The goals for this testnet deployment are:
 
@@ -70,15 +70,21 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ##### Ethereum part
 
-- L1ERC20TokenBridge: [`0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332`](https://sepolia.etherscan.io/address/0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332) (proxy)
-- L1ERC20TokenBridge: [`0x02825dbCaFbBfda57511dBD73d22c2787B653814`](https://sepolia.etherscan.io/address/0x02825dbCaFbBfda57511dBD73d22c2787B653814) (impl)
+- TokenRateNotifier: [`0x10cA9008D7dcea1Bed4d5394F8c58F3113A2814D`](https://sepolia.etherscan.io/address/0x10cA9008D7dcea1Bed4d5394F8c58F3113A2814D)
+- OpStackTokenRatePusher: [`0x4067B05a6B2f6801Bfb8d4fF417eD32e71c216d9`](https://sepolia.etherscan.io/address/0x4067B05a6B2f6801Bfb8d4fF417eD32e71c216d9)
+- L1LidoTokensBridge: [`0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332`](https://sepolia.etherscan.io/address/0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332) (proxy)
+- L1LidoTokensBridge: [`0x8375029773953d91CaCfa452b7D24556b9F318AA`](https://sepolia.etherscan.io/address/0x8375029773953d91CaCfa452b7D24556b9F318AA) (impl)
 
 ##### Optimism part
 
-- WstETH ERC20Bridged: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy)
-- WstETH ERC20Bridged: [`0xaB0c6F1015b644c252064155759Cdc90a6CBd50d`](https://sepolia-optimism.etherscan.io/address/0xaB0c6F1015b644c252064155759Cdc90a6CBd50d) (impl)
-- L2ERC20TokenBridge: [`0xdBA2760246f315203F8B716b3a7590F0FFdc704a`](https://sepolia-optimism.etherscan.io/address/0xdBA2760246f315203F8B716b3a7590F0FFdc704a) (proxy)
-- L2ERC20TokenBridge: [`0x2B4a7968C173ea52745C3740B13da9609D83Bd82`](https://sepolia-optimism.etherscan.io/address/0x2B4a7968C173ea52745C3740B13da9609D83Bd82) (impl)
+- WstETH ERC20BridgedPermit: [`0x24B47cd3A74f1799b32B2de11073764Cb1bb318B`](https://sepolia-optimism.etherscan.io/address/0x24B47cd3A74f1799b32B2de11073764Cb1bb318B) (proxy)
+- WstETH ERC20BridgedPermit: [`0x298953B9426eba4F35a137a4754278a16d97A063`](https://sepolia-optimism.etherscan.io/address/0x298953B9426eba4F35a137a4754278a16d97A063) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0xf49D208B5C7b10415C7BeAFe9e656F2DF9eDfe3B`](https://sepolia-optimism.etherscan.io/address/0xf49D208B5C7b10415C7BeAFe9e656F2DF9eDfe3B) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0xFd21C82c99ddFa56EB0B9B2D1d0709b7E26D1B2C`](https://sepolia-optimism.etherscan.io/address/0xFd21C82c99ddFa56EB0B9B2D1d0709b7E26D1B2C) (impl)
+- TokenRateOracle: [`0xB34F2747BCd9BCC4107A0ccEb43D5dcdd7Fabf89`](https://sepolia-optimism.etherscan.io/address/0xB34F2747BCd9BCC4107A0ccEb43D5dcdd7Fabf89) (proxy)
+- TokenRateOracle: [`0xa989A4B3A26e28DC9d106F163B2B1f35153E0517`](https://sepolia-optimism.etherscan.io/address/0xa989A4B3A26e28DC9d106F163B2B1f35153E0517) (impl)
+- L2ERC20ExtendedTokensBridge: [`0xdBA2760246f315203F8B716b3a7590F0FFdc704a`](https://sepolia-optimism.etherscan.io/address/0xdBA2760246f315203F8B716b3a7590F0FFdc704a) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0xD48c69358193a34aC035ea7dfB70daDea1600112`](https://sepolia-optimism.etherscan.io/address/0xD48c69358193a34aC035ea7dfB70daDea1600112) (impl)
 - Optimism Governance Bridge Executor: [`0xf695357C66bA514150Da95b189acb37b46DDe602`](https://sepolia-optimism.etherscan.io/address/0xf695357C66bA514150Da95b189acb37b46DDe602)
 
 ### Scroll
@@ -100,9 +106,24 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
   - L2LidoGateway
   - L2WstETHToken
 
+### Mode
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0x16B929D35B200EA0ae0B93EABc3Bf9Ad611BF18F`](https://sepolia.etherscan.io/address/0x16B929D35B200EA0ae0B93EABc3Bf9Ad611BF18F) (proxy)
+- L1ERC20TokenBridge: [`0x8c1E68A74E71594925c7D7a78Ef43657aec4d599`](https://sepolia.etherscan.io/address/0x8c1E68A74E71594925c7D7a78Ef43657aec4d599) (impl)
+
+##### Mode part
+
+- WstETH ERC20Bridged: [`0x2C937931B5d544E3dff1d9D78c80d9772B55837A`](https://sepolia.explorer.mode.network/address/0x2C937931B5d544E3dff1d9D78c80d9772B55837A) (proxy)
+- WstETH ERC20Bridged: [`0xC9C796E4CefdD38Eb462E84246bE41d500149162`](https://sepolia.explorer.mode.network/address/0xC9C796E4CefdD38Eb462E84246bE41d500149162) (impl)
+- L2ERC20TokenBridge: [`0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008`](https://sepolia.explorer.mode.network/address/0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008) (proxy)
+- L2ERC20TokenBridge: [`0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6`](https://sepolia.explorer.mode.network/address/0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6) (impl)
+- Optimism Governance Bridge Executor: [`0x442a6Bea15718588391C5d1dE261AB2c617eA703`](https://sepolia.explorer.mode.network/address/0x442a6Bea15718588391C5d1dE261AB2c617eA703)
+
 ## Lido on outer chains
 
-### BSC
+### Binance Smart Chain (BSC)
 
 ##### Ethereum part
 
@@ -118,11 +139,11 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ###### wstETH on BSC endpoints
 
-- (proposed) NTT Manager: [`0x8B715EAf61A7DdF61C67d5D46687c796D1f47146`](https://sepolia.etherscan.io/address/0x8B715EAf61A7DdF61C67d5D46687c796D1f47146) (proxy)
-- (proposed) NTT Manager: [`0x607b139bfee21b2676ee664a237a70d737b9466e`](https://sepolia.etherscan.io/address/0x607b139bfee21b2676ee664a237a70d737b9466e) (impl)
-- (proposed) Wormhole Transceiver: [`0xF2bc73502283fcaC4b047dfE45366d8744daaC5B`](https://sepolia.etherscan.io/address/0xF2bc73502283fcaC4b047dfE45366d8744daaC5B)
-- (proposed) Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://sepolia.etherscan.io/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
-- (proposed) Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://sepolia.etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- NTT Manager: [`0x8B715EAf61A7DdF61C67d5D46687c796D1f47146`](https://sepolia.etherscan.io/address/0x8B715EAf61A7DdF61C67d5D46687c796D1f47146) (proxy)
+- NTT Manager: [`0x607b139bfee21b2676ee664a237a70d737b9466e`](https://sepolia.etherscan.io/address/0x607b139bfee21b2676ee664a237a70d737b9466e) (impl)
+- Wormhole Transceiver: [`0xF2bc73502283fcaC4b047dfE45366d8744daaC5B`](https://sepolia.etherscan.io/address/0xF2bc73502283fcaC4b047dfE45366d8744daaC5B)
+- Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://sepolia.etherscan.io/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
+- Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://sepolia.etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 
 ##### BSC part
 
@@ -139,10 +160,10 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ###### wstETH on BSC endpoints
 
-- (proposed) WstEthL2Token: [`0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6`](https://testnet.bscscan.com/address/0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6) (proxy)
-- (proposed) WstEthL2Token: [`0x83bc41aae95b447134e72892ba659d6ea664d496`](https://testnet.bscscan.com/address/0x83bc41aae95b447134e72892ba659d6ea664d496) (impl)
-- (proposed) NTT Manager: [`0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa`](https://testnet.bscscan.com/address/0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa) (proxy)
-- (proposed) NTT Manager: [`0xa0310f52f4ac9c394a82b2e19267a78d3390a16f`](https://testnet.bscscan.com/address/0xa0310f52f4ac9c394a82b2e19267a78d3390a16f) (impl)
-- (proposed) Wormhole Transceiver: [`0x3a84364d27Ed3D16022Da0f603f3E0F74826c707`](https://testnet.bscscan.com/address/0x3a84364d27Ed3D16022Da0f603f3E0F74826c707)
-- (proposed) Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://testnet.bscscan.com/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
-- (proposed) Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://testnet.bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- WstEthL2Token: [`0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6`](https://testnet.bscscan.com/address/0x0B15635FCF5316EdFD2a9A0b0dC3700aeA4D09E6) (proxy)
+- WstEthL2Token: [`0x83bc41aae95b447134e72892ba659d6ea664d496`](https://testnet.bscscan.com/address/0x83bc41aae95b447134e72892ba659d6ea664d496) (impl)
+- NTT Manager: [`0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa`](https://testnet.bscscan.com/address/0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa) (proxy)
+- NTT Manager: [`0xa0310f52f4ac9c394a82b2e19267a78d3390a16f`](https://testnet.bscscan.com/address/0xa0310f52f4ac9c394a82b2e19267a78d3390a16f) (impl)
+- Wormhole Transceiver: [`0x3a84364d27Ed3D16022Da0f603f3E0F74826c707`](https://testnet.bscscan.com/address/0x3a84364d27Ed3D16022Da0f603f3E0F74826c707)
+- Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://testnet.bscscan.com/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
+- Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://testnet.bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)

@@ -61,7 +61,7 @@ There are following `wstETH/stETH` rate feeds available to use in conjunction wi
 - [Scroll](https://data.chain.link/feeds/scroll/mainnet/wsteth-steth%20exchangerate)
 - [Base](https://data.chain.link/feeds/base/base/wsteth-steth%20exchangerate)
 - [Polygon PoS](https://data.chain.link/feeds/polygon/mainnet/wsteth-steth)
-- [ZKSync Era](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
+- [ZKSync](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
 :::note
 The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
 :::
@@ -270,7 +270,7 @@ Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-o
 - [Scroll](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32)
 - [Base](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452)
 - [Linea](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F)
-- [ZKSync Era](https://docs.lido.fi/deployed-contracts/#zksync-era)
+- [ZKSync](https://docs.lido.fi/deployed-contracts/#zksync-era)
 - [Mantle](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83)
 - [Polygon PoS](https://polygonscan.com/token/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd)
 
@@ -281,7 +281,7 @@ Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot
 :::
 
 Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
-Use the [wstETH/stETH rate feeds](./lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
+Use the [wstETH/stETH rate feeds](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
 
 ## LDO
 
@@ -459,7 +459,7 @@ Lido's staked tokens have been listed on major liquidity protocols:
 - On AAVE v3, multiple tokens can be borrowed against wstETH on various chains (see the list of the [markets](#sttokens-steth-and-wsteth))
 
 Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard.
-The default option to use is exchange [rate feeds](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
+The default option to use is exchange [rate feeds](/guides/lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
 
 ```python
 'wstETH/X price feed' = 'wstETH/stETH rate feed' × 'ETH/X price feed'

@@ -25,9 +25,9 @@ In Lido V2, `LegacyOracle` only supports a subset of view functions and events.
 The `LegacyOracle` contract receives the data changes on each `AccountingOracle` report using two stages
 (still within the same transaction):
 
-1. Invoke [`handleConsensusLayerReport`](./legacy-oracle#handleconsensuslayerreport)
+1. Invoke [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleconsensuslayerreport)
 providing the reference slot and validators data from `AccountingOracle` itself.
-1. Invoke [`handlePostTokenRebase`](./legacy-oracle#handleposttokenrebase)
+1. Invoke [`handlePostTokenRebase`](/contracts/legacy-oracle#handleposttokenrebase)
 from [`Lido`](/contracts/lido).
 
 ```mermaid
@@ -199,7 +199,7 @@ Always returns (225, 32, 12, 1606824023) for Mainnet and (225, 32, 12, 161650800
 
 ### getCurrentEpochId()
 
-Returns the Beacon Chain epoch id calculated from the current timestamp using the [beacon chain spec](./legacy-oracle#getbeaconspec).
+Returns the Beacon Chain epoch id calculated from the current timestamp using the [beacon chain spec](/contracts/legacy-oracle#getbeaconspec).
 
 ```sol
 function getCurrentEpochId() returns (uint256)
@@ -260,7 +260,7 @@ function getLastCompletedReportDelta() returns (
 Handles a `stETH` token rebase incurred by the succeeded `AccountingOracle` report storing
 the total ether and time elapsed stats.
 
-Emits [`PostTotalShares`](./legacy-oracle#posttotalshares)
+Emits [`PostTotalShares`](/contracts/legacy-oracle#posttotalshares)
 
 ```sol
 function handlePostTokenRebase(
@@ -294,7 +294,7 @@ The caller must be `Lido`.
 
 Handles a new completed `AccountingOracle` report storing the corresponding Beacon Chain epoch id.
 
-Emits [`Completed`](./legacy-oracle#completed).
+Emits [`Completed`](/contracts/legacy-oracle#completed).
 
 ```sol
 function handleConsensusLayerReport(
@@ -334,7 +334,7 @@ event Completed(
 ```
 
 :::note
-Emits inside the [`handleConsensusLayerReport`](./legacy-oracle#handleconsensuslayerreport) methods.
+Emits inside the [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleconsensuslayerreport) methods.
 :::
 
 #### Parameters

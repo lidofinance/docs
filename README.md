@@ -5,13 +5,13 @@ Lido documentation is built using [Docusaurus 3](https://docusaurus.io/). The re
 ## Installation
 
 ```console
-yarn install
+npm install
 ```
 
 ## Local Development
 
 ```console
-yarn start
+npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -76,7 +76,7 @@ Additional information about sidebar and ways to modify it can be found [here](h
 ## Build
 
 ```console
-yarn build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
@@ -88,5 +88,5 @@ Build and deploy happens automatically when pull request is merged to `main`bran
 To build documentation locally and push builded version to the `gh-pages` branch use next command:
 
 ```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy
 ```
