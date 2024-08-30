@@ -268,7 +268,7 @@ pagination_next: deployed-contracts/holesky
 - Liquidity Observation Lab: [`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) (Scroll)
 - Liquidity Observation Lab AAVE rewards multisig family: `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
 
-## Lido on L2
+## Lido Multichain
 
 ### Arbitrum
 
@@ -404,27 +404,6 @@ pagination_next: deployed-contracts/holesky
 - L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
 - Optimism Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
 
-### L2 Liquidity pools
-
-Balancer
-
-- [wstETH/WETH](https://arbitrum.balancer.fi/#/pool/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c000000000000000000000159) on Arbitrum: [`0xFB5e6d0c1DfeD2BA000fBC040Ab8DF3615AC329c`](https://arbiscan.io/address/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c)
-- [wstETH/USDC](https://arbitrum.balancer.fi/#/pool/0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158) on Arbitrum: [`0x178E029173417b1F9C8bC16DCeC6f697bC323746`](https://arbiscan.io/address/0x178e029173417b1f9c8bc16dcec6f697bc323746)
-
-Beethoven
-
-- [wstETH/bb-rf-aWETH](https://op.beets.fi/pool/0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f) on Optimism: [`0xde45f101250f2ca1c0f8adfc172576d10c12072d`](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d)
-- [wstETH/bb-rf-aUSD/bb-rf-aWBTC](https://op.beets.fi/pool/0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b) on Optimism: [`0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF`](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef)
-
-Kyber Network
-
-- [wstETH/ETH](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/ETH/40) on Arbitrum: [`0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a`](https://arbiscan.io/address/0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a)
-- [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40) on Arbitrum: [`0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`](https://arbiscan.io/address/0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494)
-- [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
-- [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
-
-## Lido on outer chains
-
 ### Binance Smart Chain (BSC)
 
 ##### Ethereum part
@@ -471,6 +450,25 @@ Kyber Network
 - Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
 - Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 - Transceiver Structs (used by Axelar Transceiver): [`0x27a3daf3b243104e9b0afae6b56026a416b852c9`](https://bscscan.com/address/0x27a3daf3b243104e9b0afae6b56026a416b852c9)
+
+### Lido Multichain Liquidity pools
+
+Balancer
+
+- [wstETH/WETH](https://arbitrum.balancer.fi/#/pool/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c000000000000000000000159) on Arbitrum: [`0xFB5e6d0c1DfeD2BA000fBC040Ab8DF3615AC329c`](https://arbiscan.io/address/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c)
+- [wstETH/USDC](https://arbitrum.balancer.fi/#/pool/0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158) on Arbitrum: [`0x178E029173417b1F9C8bC16DCeC6f697bC323746`](https://arbiscan.io/address/0x178e029173417b1f9c8bc16dcec6f697bc323746)
+
+Beethoven
+
+- [wstETH/bb-rf-aWETH](https://op.beets.fi/pool/0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f) on Optimism: [`0xde45f101250f2ca1c0f8adfc172576d10c12072d`](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d)
+- [wstETH/bb-rf-aUSD/bb-rf-aWBTC](https://op.beets.fi/pool/0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b) on Optimism: [`0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF`](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef)
+
+Kyber Network
+
+- [wstETH/ETH](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/ETH/40) on Arbitrum: [`0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a`](https://arbiscan.io/address/0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a)
+- [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40) on Arbitrum: [`0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`](https://arbiscan.io/address/0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494)
+- [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
+- [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
 
 ## LRT Vaults on Mellow Protocol
 

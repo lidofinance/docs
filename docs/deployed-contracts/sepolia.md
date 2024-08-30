@@ -8,7 +8,7 @@ For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc
 
 The goals for this testnet deployment are:
 
-- Have end-to-end testnet for Lido on L2
+- Have end-to-end testnet for Lido Multichain
 - The running-in of new zk-based oracles (based on [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) availability)
 
 There will be no comprehensive Lido testnet environment available for Sepolia due to the network's restricted
@@ -64,7 +64,7 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - Deployer: [`0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5`](https://sepolia.etherscan.io/address/0x6885E36BFcb68CB383DfE90023a462C03BCB2AE5)
 - Emergency breaks (EOA replacement): [`0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1`](https://sepolia.etherscan.io/address/0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1)
 
-## Lido on L2
+## Lido Multichain
 
 ### Optimism
 
@@ -120,8 +120,6 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - L2ERC20TokenBridge: [`0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008`](https://sepolia.explorer.mode.network/address/0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008) (proxy)
 - L2ERC20TokenBridge: [`0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6`](https://sepolia.explorer.mode.network/address/0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6) (impl)
 - Optimism Governance Bridge Executor: [`0x442a6Bea15718588391C5d1dE261AB2c617eA703`](https://sepolia.explorer.mode.network/address/0x442a6Bea15718588391C5d1dE261AB2c617eA703)
-
-## Lido on outer chains
 
 ### Binance Smart Chain (BSC)
 

@@ -261,9 +261,9 @@ The most recent testnet version of the Lido protocol lives on the Holešky testn
 
 The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Holešky. Note that the protocol setup on Sepolia has no UIs and various services available on Holešky and Mainnet. For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Holešky testnet deployment if possible.
 
-### wstETH on L2s
+### Lido Multichain
 
-Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-on-l2):
+Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-multichain):
 
 - [Arbitrum](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529)
 - [Optimism](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb)
@@ -273,11 +273,13 @@ Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-o
 - [ZKSync](https://docs.lido.fi/deployed-contracts/#zksync-era)
 - [Mantle](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83)
 - [Polygon PoS](https://polygonscan.com/token/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd)
+- [Mode](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81)
+- [Binance Smart Chain (BSC)](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C)
 
 with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/wsteth-bridging-guide.md).
 
 :::note
-Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network as of now.
+Unlike on the Ethereum mainnet, wstETH for Lido Multichain is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network as of now.
 :::
 
 Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
