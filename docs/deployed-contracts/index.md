@@ -7,6 +7,8 @@ pagination_next: deployed-contracts/holesky
 ## Core protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
+- Lido Locator: [`0x1D920cc5bACf7eE506a271a5259f2417CaDeCE1d`](https://etherscan.io/address/0x1D920cc5bACf7eE506a271a5259f2417CaDeCE1d) (impl)
+- (proposed) Lido Locator: [`0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463`](https://etherscan.io/address/0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
