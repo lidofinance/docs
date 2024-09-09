@@ -405,26 +405,6 @@ function setAppearedValidatorsPerDayLimit(uint256 _appearedValidatorsPerDayLimit
 
 - **`_appearedValidatorsPerDayLimit`** — new `LimitsList.appearedValidatorsPerDayLimit` value
 
-### setOneOffCLBalanceDecreaseBPLimit()
-
-Sets the new value for the `LimitsList.oneOffCLBalanceDecreaseBPLimit` variable.
-
-:::note
-
-- Requires `ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE` to be granted to the caller.
-- Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
-  See [Limits List](#limits-list) section for details.
-
-:::
-
-```solidity
-function setOneOffCLBalanceDecreaseBPLimit(uint256 _oneOffCLBalanceDecreaseBPLimit)
-```
-
-#### Arguments
-
-- **`_oneOffCLBalanceDecreaseBPLimit`** — new value for `LimitsList.oneOffCLBalanceDecreaseBPLimit`
-
 ### setAnnualBalanceIncreaseBPLimit()
 
 Sets the new value for the `LimitsList.annualBalanceIncreaseBPLimit` variable.
@@ -639,19 +619,9 @@ bytes32 public constant APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
     keccak256("APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE");
 ```
 
-### ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE()
-
-Granting this role allows updating the `annualBalanceIncreaseBPLimit` value of the [Limits List](#limits-list).
-See the [`setOneOffCLBalanceDecreaseBPLimit()`](#setoneoffclbalancedecreasebplimit) method.
-
-```solidity
-bytes32 public constant ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE =
-    keccak256("ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE")
-```
-
 ### ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE()
 
-Granting this role allows updating the `oneOffCLBalanceDecreaseBPLimit` value of the [Limits List](#limits-list).
+Granting this role allows updating the `annualBalanceIncreaseBPLimit` value of the [Limits List](#limits-list).
 See the [`setAnnualBalanceIncreaseBPLimit()`](#setannualbalanceincreasebplimit) method.
 
 ```solidity
@@ -764,18 +734,6 @@ event AppearedValidatorsPerDayLimitSet(uint256 appearedValidatorsPerDayLimit);
 #### Arguments
 
 - **`appearedValidatorsPerDayLimit`** — new value of the `LimitsList.appearedValidatorsPerDayLimit`
-
-### OneOffCLBalanceDecreaseBPLimitSet()
-
-Emits whenever the value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit` value is changed.
-
-```solidity
-event OneOffCLBalanceDecreaseBPLimitSet(uint256 oneOffCLBalanceDecreaseBPLimit);
-```
-
-#### Arguments
-
-- **`oneOffCLBalanceDecreaseBPLimit`** — new value of the `LimitsList.oneOffCLBalanceDecreaseBPLimit`
 
 ### AnnualBalanceIncreaseBPLimitSet()
 
