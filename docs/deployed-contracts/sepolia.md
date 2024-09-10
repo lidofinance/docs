@@ -33,7 +33,7 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 ## Sepolia deposit contract ad-hoc adapter
 
 - SepoliaDepositAdapter: [`0x80b5DC88C98E528bF9cb4B7F0f076aC41da24651`](https://sepolia.etherscan.io/address/0x80b5DC88C98E528bF9cb4B7F0f076aC41da24651) (proxy)
-- SepoliaDepositAdapter: [`0x5c5C4556F0017FF57c331185E1C61d91acEf966e`](https://sepolia.etherscan.io/address/0x5c5C4556F0017FF57c331185E1C61d91acEf966e) (impl)
+- SepoliaDepositAdapter: [`0xCcC9E7F5eF7695a7a36Fe08d2086E51eF6Df948f`](https://sepolia.etherscan.io/address/0xCcC9E7F5eF7695a7a36Fe08d2086E51eF6Df948f) (impl)
 
 ## Oracle Contracts
 
