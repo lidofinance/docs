@@ -4,6 +4,13 @@
 
 The full list of the contracts in scope is provided in the Lido Multichain section for [Optimism](https://docs.lido.fi/deployed-contracts/#optimism).
 
+:::note
+Levers and access control lists for L1 and L2 bridge endpoints stay the same and correspond to the [reference architecture and permissions setup](/token-guides/wsteth-bridging-guide.md#reference-architecture-and-permissions-setup).
+
+
+This document covers incremental changes proposed with the stETH on Optimism deployment.
+:::
+
 ## Ethereum part
 
 ### LidoLocator
