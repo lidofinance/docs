@@ -7,6 +7,8 @@ pagination_next: deployed-contracts/holesky
 ## Core protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
+- Lido Locator: [`0x1D920cc5bACf7eE506a271a5259f2417CaDeCE1d`](https://etherscan.io/address/0x1D920cc5bACf7eE506a271a5259f2417CaDeCE1d) (impl)
+- (proposed) Lido Locator: [`0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463`](https://etherscan.io/address/0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
@@ -290,15 +292,24 @@ pagination_next: deployed-contracts/holesky
 
 #### Ethereum part
 
-- L1ERC20TokenBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
+- (proposed) TokenRateNotifier: [`0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823`](https://etherscan.io/address/0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823)
+- (proposed) OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
+- L1ERC20TokenBridge (proposed rename to L1LidoTokensBridge): [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1ERC20TokenBridge: [`0x29C5c51A031165CE62F964966A6399b81165EFA4`](https://etherscan.io/address/0x29C5c51A031165CE62F964966A6399b81165EFA4) (impl)
+- (proposed) L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
 
 #### Optimism part
 
-- WstETH ERC20Bridged: [`0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb`](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb) (proxy)
+- WstETH ERC20Bridged (proposed rename to WstETH ERC20BridgedPermit): [`0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb`](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb) (proxy)
 - WstETH ERC20Bridged: [`0x92834c37dF982A13bb0f8C3F6608E26F0546538e`](https://optimistic.etherscan.io/address/0x92834c37dF982A13bb0f8C3F6608E26F0546538e) (impl)
-- L2ERC20TokenBridge: [`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957) (proxy)
+- (proposed) WstETH ERC20BridgedPermit: [`0xFe57042De76c8D6B1DF0E9E2047329fd3e2B7334`](https://optimistic.etherscan.io/address/0xFe57042De76c8D6B1DF0E9E2047329fd3e2B7334) (impl)
+- (proposed) StETH ERC20RebasableBridgedPermit: [`0x76A50b8c7349cCDDb7578c6627e79b5d99D24138`](https://optimistic.etherscan.io/address/0x76A50b8c7349cCDDb7578c6627e79b5d99D24138) (proxy)
+- (proposed) StETH ERC20RebasableBridgedPermit: [`0xe9b65dA5DcBe92f1b397991C464FF568Dc98D761`](https://optimistic.etherscan.io/address/0xe9b65dA5DcBe92f1b397991C464FF568Dc98D761) (impl)
+- (proposed) TokenRateOracle: [`0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0`](https://optimistic.etherscan.io/address/0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0) (proxy)
+- (proposed) TokenRateOracle: [`0x4bF0d419793d8722b8391efaD4c9cE78F460CEd3`](https://optimistic.etherscan.io/address/0x4bF0d419793d8722b8391efaD4c9cE78F460CEd3) (impl)
+- L2ERC20TokenBridge (proposed rename to L2ERC20ExtendedTokensBridge): [`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957) (proxy)
 - L2ERC20TokenBridge: [`0x23B96aDD54c479C6784Dd504670B5376B808f4C7`](https://optimistic.etherscan.io/address/0x23B96aDD54c479C6784Dd504670B5376B808f4C7) (impl)
+- (proposed) L2ERC20ExtendedTokensBridge: [`0x2734602C0CEbbA68662552CacD5553370B283E2E`](https://optimistic.etherscan.io/address/0x2734602C0CEbbA68662552CacD5553370B283E2E) (impl)
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - LDO token: [`0xFdb794692724153d1488CcdBE0C56c252596735F`](https://optimistic.etherscan.io/address/0xFdb794692724153d1488CcdBE0C56c252596735F)
 
