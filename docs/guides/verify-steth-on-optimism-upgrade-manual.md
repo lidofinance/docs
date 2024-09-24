@@ -215,7 +215,7 @@ decimals=18
 :::info
 An ERC-20 compatible contract (proxy and implementation) for the rebasable stETH token deployed on Optimism.
 
-Compatible with a seamlessly wrap/unwrap with wstETH and implements permit signature standards (ERC-2612 and ERC-1271).
+Provides a way to seamlessly wrap/unwrap from wstETH and implements permit signature standards (ERC-2612 and ERC-1271).
 
 :::
 
