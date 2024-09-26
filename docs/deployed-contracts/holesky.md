@@ -155,6 +155,10 @@
   - TopUpAllowedRecipients: [`0x71bcEf1f4E4945005e1D22d68F02085D5167ab43`](https://holesky.etherscan.io/address/0x71bcEf1f4E4945005e1D22d68F02085D5167ab43)
   - AddAllowedRecipient: [`0xB238fB1e7c8da5da022140dA956Fc3052808fC56`](https://holesky.etherscan.io/address/0xB238fB1e7c8da5da022140dA956Fc3052808fC56)
   - RemoveAllowedRecipient: [`0x51c730af05777c4D3CcC8c8B80558F4D155bb7BF`](https://holesky.etherscan.io/address/0x51c730af05777c4D3CcC8c8B80558F4D155bb7BF)
+- **Alliance stablecoins** (trusted caller is QA & DAO-ops ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://holesky.etherscan.io/address/0x96d2Ff1C4D30f592B91fd731E218247689a76915))
+  - AllowedRecipientsRegistry: [`0xe1ba8dee84a4df8e99e495419365d979cdb19991`](https://holesky.etherscan.io/address/0xe1ba8dee84a4df8e99e495419365d979cdb19991)
+  - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)
+  - TopUpAllowedRecipients: [`0x343fa5f0c79277e2d27e440f40420d619f962a23`](https://holesky.etherscan.io/address/0x343fa5f0c79277e2d27e440f40420d619f962a23)
 - **Tooling contracts:**
   - AllowedRecipientsBuilder (single token): [`0xeC3785b13b21c226D66B5bC2E82BB2f4226f715e`](https://holesky.etherscan.io/address/0xeC3785b13b21c226D66B5bC2E82BB2f4226f715e)
   - AllowedRecipientsFactory (single token): [`0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9`](https://holesky.etherscan.io/address/0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9)
