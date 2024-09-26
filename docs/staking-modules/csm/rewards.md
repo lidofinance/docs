@@ -25,7 +25,7 @@ Also, any excess bond will be treated as a reward.
 ## Performance Oracle
 The Performance Oracle creates a Merkle tree with the allocation of the staking rewards and delivers the root on-chain. To make the original tree available to users, it is published on [IPFS](https://ipfs.tech/) and [GitHub](https://github.com/). Instead of storing multiple roots, each new tree consists of all Node Operator rewards ever acquired by CSM Node Operators. Hence, only the latest tree is required to determine the reward allocation at any moment of time. The amount of rewards available for claiming can be calculated as `totalAcquiredRewards - claimedRewards`.
 
-The Performance Oracle uses the successful attestation rate `successfulAttestations / totalAssignedAttestations` as a proxy for the overall performance of a validator. A performance threshold is utilized to determine the allocation of the actual Node Operator rewards. Validators with performance above the threshold are included in the allocation pool, while the rest are not. Activation and exit events are accounted for during the Node Operator's share calculation. Once the allocation pool is formed, each validator gets a staking rewards part of `totalStakingRewardsAccumulated / totalValidatorsInAllocationPool`. This effectively means that all rewards acquired by the module will be allocated among well-performers. Then, validator shares are allocated to the corresponding Node Operators, and each Operator can claim rewards for all of their validators in one go.
+The Performance Oracle uses the successful attestation rate `successfulAttestations / totalAssignedAttestations` as a proxy for the overall performance of a validator. A performance threshold is utilized to determine the allocation of the actual Node Operator rewards. Validators with performance above the threshold are included in the allocation pool, while the rest are not. Activation and exit events are accounted for during the Node Operator's share calculation. Once the allocation pool is formed, each validator gets a part of `totalStakingRewardsAccumulated` proportional to its lifetime within a frame. This effectively means that all rewards acquired by the module will be allocated among well-performers. Then, validator shares are allocated to the corresponding Node Operators, and each Operator can claim rewards for all of their validators in one go.
 
 ![rewards-5](../../../static/img/csm/rewards-5.png)
 
@@ -34,6 +34,23 @@ It is crucial to note that the Performance Oracle manages only part of the total
 The `frame` for the Performance Oracle report is set to 28 days. This makes the `frame` long enough to account for short performance outages (with a smaller frame, this effect will be lower, and the performance threshold will be less useful). Making the `frame` bigger than 28 days will result in an unnecessary delay in reward allocation.
 
 The performance threshold is relative to the overall network attestation effectiveness to ensure that network issues outside the Node Operator's control do not affect reward allocation.
+
+Performance Oracle creates a few artifacts for each successful round of reward distribution: a dump of a Merkle Tree with node operators' cumulative rewards, and a log of per-operator performance assessment data.
+
+Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashes of the files used to retrieve the content back from the IPFS network) are pushed on-chain. The `CSFeeDistributor` contract (see [Deployed contracts](https://docs.lido.fi/deployed-contracts/holesky#community-staking-module)) has two view functions to retrieve these CIDs: **treeCid** and **logCid**.
+
+The Merkle tree dump can be used to construct a valid proof for node operators to claim their acquired rewards. For pre-generated proofs, see the [csm-rewards](https://github.com/lidofinance/csm-rewards) GitHub repository. A detailed instruction on how to generate a proof and claim rewards manually via Etherscan can also be found in this repository.
+
+A frame performance assessment log aims to achieve more transparency on rewards distribution made by oracles. It's another JSON object that stores, among other things:
+
+- the performance threshold for a given frame
+- the total amount of shares distributable in the frame
+- attestation rates of validators as "assigned" and "included" pairs
+- amount of shares distributed every operator in the frame.
+
+There's also additional data in the log; for a full definition look at the following [typescript gist](https://gist.github.com/madlabman/33bc63843b633aa114173d7898e5fcce).
+
+One can inspect the file to ensure all the operators' `distributed` amounts are correct; for example, by using this [python gist](https://gist.github.com/madlabman/ce47a5311f004985341c6fcad53dcd0e). Interested persons can also check the attestations summaries for each validator in the log and report any discrepancies to the CSM team.
 
 If you want to learn more about the actual Performance Oracle algorithm, check out this [detailed doc](https://hackmd.io/@lido/BJclaWbi6).
 
