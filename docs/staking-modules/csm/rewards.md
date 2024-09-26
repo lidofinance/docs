@@ -35,13 +35,13 @@ The `frame` for the Performance Oracle report is set to 28 days. This makes the 
 
 The performance threshold is relative to the overall network attestation effectiveness to ensure that network issues outside the Node Operator's control do not affect reward allocation.
 
-Performance Oracle creates a few artifacts for each successful round of reward distribution: a dump of a Merkle Tree with node operators' cumulative rewards, and a log of per-operator performance assessment data.
+Performance Oracle creates a few artifacts for each successful round of reward distribution: a dump of a Merkle Tree with Node Operators' cumulative rewards and a log of per-operator performance assessment data.
 
 Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashes of the files used to retrieve the content back from the IPFS network) are pushed on-chain. The `CSFeeDistributor` contract (see [Deployed contracts](https://docs.lido.fi/deployed-contracts/holesky#community-staking-module)) has two view functions to retrieve these CIDs: **treeCid** and **logCid**.
 
-The Merkle tree dump can be used to construct a valid proof for node operators to claim their acquired rewards. For pre-generated proofs, see the [csm-rewards](https://github.com/lidofinance/csm-rewards) GitHub repository. A detailed instruction on how to generate a proof and claim rewards manually via Etherscan can also be found in this repository.
+The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. For pre-generated proofs, see the [csm-rewards](https://github.com/lidofinance/csm-rewards) GitHub repository. This repository also provides detailed instructions on how to generate proof and claim rewards manually via Etherscan.
 
-A frame performance assessment log aims to achieve more transparency on rewards distribution made by oracles. It's another JSON object that stores, among other things:
+A frame performance assessment log aims to achieve more transparency on rewards distribution made by Oracles. It's another JSON object that stores, among other things:
 
 - the performance threshold for a given frame
 - the total amount of shares distributable in the frame
