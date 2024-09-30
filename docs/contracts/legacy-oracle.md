@@ -3,9 +3,12 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/oracle/LegacyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb)
 
-:::warning
-`LegacyOracle` will be maintained till the end of 2023.
-Afterwards, it will be discontinued and external integrations should rely on [`AccountingOracle`](/contracts/accounting-oracle).
+:::warning[**DEPRECATION NOTICE**]
+
+- Effective October 2024, the `LegacyOracle` contract on Mainnet will no longer receive state updates, as [announced](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6).
+- External integrations should transition to using the [`AccountingOracle`](/contracts/accounting-oracle) instead.
+- For compatibility reasons, the `LegacyOracle` contract will remain accessible via the [`LidoLocator`](/contracts/lido-locator) but may be removed in 2025 without further notice.
+
 :::
 
 ## What is LegacyOracle?
