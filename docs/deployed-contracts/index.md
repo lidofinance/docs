@@ -32,7 +32,7 @@ pagination_next: deployed-contracts/holesky
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - OracleReportSanityChecker: [`0x9305c1Dbfe22c12c66339184C0025d7006f0f1cC`](https://etherscan.io/address/0x9305c1Dbfe22c12c66339184C0025d7006f0f1cC)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
-- Legacy Oracle (Lido Oracle before V2, obsolete): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
+- Legacy Oracle ([proposed for deprecation effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
 
 ## DAO Contracts
 
