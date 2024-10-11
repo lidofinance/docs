@@ -69,7 +69,7 @@
 - CSAccounting: [`0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1`](https://holesky.etherscan.io/address/0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1) (proxy)
 - CSFeeDistributor: [`0xD7ba648C8F72669C6aE649648B516ec03D07c8ED`](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED) (proxy)
 - CSFeeOracle: [`0xaF57326C7d513085051b50912D51809ECC5d98Ee`](https://holesky.etherscan.io/address/0xaF57326C7d513085051b50912D51809ECC5d98Ee) (proxy)
-- CSVerifier: [`0xEaBA76fAf7A5473fAC6a2511d8115beAb43Cf8a7`](https://holesky.etherscan.io/address/0xEaBA76fAf7A5473fAC6a2511d8115beAb43Cf8a7)
+- CSVerifier: [`0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916`](https://holesky.etherscan.io/address/0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916)
 - CSEarlyAdoption: [`0x71E92eA77C198a770d9f33A03277DbeB99989660`](https://holesky.etherscan.io/address/0x71E92eA77C198a770d9f33A03277DbeB99989660)
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
 - GateSeal: [`0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce`](https://holesky.etherscan.io/address/0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce)
