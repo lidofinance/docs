@@ -15,12 +15,6 @@ pagination_next: deployed-contracts/holesky
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
 - Staking Router: [`0xD8784e748f59Ba711fB5643191Ec3fAdD50Fb6df`](https://etherscan.io/address/0xD8784e748f59Ba711fB5643191Ec3fAdD50Fb6df) (impl)
 - (proposed) Staking Router: [`0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa`](https://etherscan.io/address/0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa) (impl)
-- Node Operators registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
-- Node Operators registry: [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed) (impl)
-- (proposed) Node Operators registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
-- Simple DVT: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
-- Simple DVT: [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed) (impl)
-- (proposed) Simple DVT: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
 - Deposit Security Module: [`0xC77F8768774E1c9244BEed705C4354f2113CFc09`](https://etherscan.io/address/0xC77F8768774E1c9244BEed705C4354f2113CFc09)
 - (proposed) Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
@@ -63,6 +57,30 @@ pagination_next: deployed-contracts/holesky
 - Gate Seal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - Gate Seal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+
+## Staking modules
+
+- Curated (Node Operators registry): [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
+- Curated (Node Operators registry): [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed) (impl)
+- (proposed) Curated (Node Operators registry): [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
+- Simple DVT: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
+- Simple DVT: [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed) (impl)
+- (proposed) Simple DVT: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
+
+### Community Staking Module
+
+- (proposed) CSModule: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) (proxy)
+- (proposed) CSModule: [`0x8daea53b17a629918cdfab785c5c74077c1d895b`](https://etherscan.io/address/0x8daea53b17a629918cdfab785c5c74077c1d895b) (impl)
+- (proposed) CSAccounting: [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) (proxy)
+- (proposed) CSAccounting: [`0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758`](https://etherscan.io/address/0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758) (impl)
+- (proposed) CSFeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
+- (proposed) CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
+- (proposed) CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
+- (proposed) CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
+- (proposed) CSVerifier: [`0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583`](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
+- (proposed) CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
+- (proposed) HashConsensus: [`0x71093efF8D8599b5fA340D665Ad60fA7C80688e4`](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
+- (proposed) GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
 
 ## Liquidity pools
 
