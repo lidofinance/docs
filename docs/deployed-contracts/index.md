@@ -183,6 +183,8 @@ pagination_next: deployed-contracts/holesky
   - UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
   - (proposed) UpdateTargetValidatorLimits: [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b)
   - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
+- (proposed) **Community Staking Module** (module: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
+  - (proposed) CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
 
 ### Easy Track factories for token transfers
 
