@@ -286,6 +286,7 @@ pagination_next: deployed-contracts/holesky
 - Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
+- Zircuit (proposed): [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 
 ### Liquidity Observation Lab Multisigs
 
@@ -495,6 +496,21 @@ pagination_next: deployed-contracts/holesky
 - Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
 - Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 - Transceiver Structs (used by Axelar Transceiver): [`0x27a3daf3b243104e9b0afae6b56026a416b852c9`](https://bscscan.com/address/0x27a3daf3b243104e9b0afae6b56026a416b852c9)
+
+### Zircuit
+
+##### Ethereum part
+
+- L1ERC20TokenBridge (proposed): [`0x912C7271a6A3622dfb8B218eb46a6122aB046C79`](https://etherscan.io/address/0x912C7271a6A3622dfb8B218eb46a6122aB046C79) (proxy)
+- L1ERC20TokenBridge (proposed): [`0x6bc726C993103197C41d787dd72eCd4D2e1614E8`](https://etherscan.io/address/0x6bc726C993103197C41d787dd72eCd4D2e1614E8) (impl)
+
+##### Zircuit part
+
+- WstETH ERC20Bridged (proposed): [`0xf0e673Bc224A8Ca3ff67a61605814666b1234833`](https://explorer.zircuit.com/address/0xf0e673Bc224A8Ca3ff67a61605814666b1234833) (proxy)
+- WstETH ERC20Bridged (proposed): [`0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4`](https://explorer.zircuit.com/address/0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4) (impl)
+- L2ERC20TokenBridge (proposed): [`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e) (proxy)
+- L2ERC20TokenBridge (proposed): [`0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c`](https://explorer.zircuit.com/address/0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c) (impl)
+- Optimism Governance Bridge Executor (proposed): [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
 
 ### Lido Multichain Liquidity pools
 

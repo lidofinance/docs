@@ -95,6 +95,12 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
         - pause capability
 
+
+###### Zircuit Token Bridge: [`0x6bc726C993103197C41d787dd72eCd4D2e1614E8`](https://etherscan.io/address/0x6bc726C993103197C41d787dd72eCd4D2e1614E8)
+
+* WITHDRAWALS_DISABLER_ROLE,
+* DEPOSITS_DISABLER_ROLE
+
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
@@ -334,6 +340,34 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
     - pause capability
 
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [TheDZhon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
+| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://twitter.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
+
+## 1.11 Emergency Brakes: Zircuit
+
+**Address:** Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+
+**Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Zircuit side in case of emergency.
+
+**Quorum:** 3/5
+
+**Forum topics:** [wstETH Deployment on Zircuit](https://research.lido.fi/t/wsteth-deployment-to-zircuit-and-ownership-acceptance-by-lido-dao/8602)
+
+**Snapshot:** TBA
+
+**Contracts and Roles:**
+
+L2ERC20TokenBridge: Zircuit:[`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+
+- WITHDRAWALS_DISABLER_ROLE
+- DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
