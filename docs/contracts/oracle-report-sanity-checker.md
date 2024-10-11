@@ -1,7 +1,7 @@
 # OracleReportSanityChecker
 
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
-- [Deployed contract](https://etherscan.io/address/todo_put_new_address)
+- [Deployed contract](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
 [`AccountingOracle`](./accounting-oracle.md), [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md).
@@ -43,7 +43,7 @@ struct LimitsList {
   [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#get_validator_churn_limit).
 - **`appearedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
   intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
-  For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](./deposit-security-module.md). 
+  For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](./deposit-security-module.md).
 - **`annualBalanceIncreaseBPLimit` ∈ [0, 10000]** — the max annual increase of the total validators' balances on the Consensus Layer
   since the previous oracle report. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
 - **`simulatedShareRateDeviationBPLimit` ∈ [0, 10000]** — the max deviation of the provided `simulatedShareRate` and the actual one within the
@@ -61,7 +61,7 @@ struct LimitsList {
 - **`clBalanceOraclesErrorUpperBPLimit` ∈ [0, 10000]** - the maximum percent on how Second Opinion Oracle reported value could be greater than reported by the AccountingOracle. There is an assumption that second opinion oracle CL balance can be greater as calculated for the withdrawal credentials. Represented in the [Basis Points](https://en.wikipedia.org/wiki/Basis_point) (100% == 10000).
 
 There is also parameter for Second Opinion Oracle which is not a part of the `LimitList` structure. However
-it's modification requires the same type of roles as for the Limits. It could be changed with a general 
+it's modification requires the same type of roles as for the Limits. It could be changed with a general
 `setOracleReportLimits()` function or specific `setSecondOpinionOracleAndCLBalanceUpperMargin()`.
 
 For the details about meaning of the parameters: `initialSlashingAmountPWei`, `inactivityPenaltiesAmountPWei`,
@@ -83,9 +83,9 @@ Below is the list of restrictions checked by the method execution:
 - Revert with `IncorrectSharesRequestedToBurn(uint256 actualSharesToBurn)` error when the amount of stETH shares requested
   to burn **exceeds** the number of shares marked to be burned in the Burner contract.
 - Revert with `IncorrectCLBalanceDecrease(uint256 negativeCLRebaseSum, uint256 maxNegativeCLRebaseSum)` error when Consensus Layer balance decrease **exceeds** the allowed. See [LIP-23](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-23.md) for this and other similar errors.
-- Revert with `IncorrectCLBalanceDecrease(uint256 negativeCLRebaseSum, uint256 maxNegativeCLRebaseSum)` error when Consensus Layer balance reported by oracles and second opinion oracle is too different. 
-- Revert with `NegativeRebaseFailedWithdrawalVaultBalanceMismatch(uint256 reportedValue, uint256 provedValue)` error when Withdrawal vault balance reported by oracles and second opinion oracle is different. 
-- Revert with `NegativeRebaseFailedSecondOpinionReportIsNotReady()` error when second opinion oracle report is not available. 
+- Revert with `IncorrectCLBalanceDecrease(uint256 negativeCLRebaseSum, uint256 maxNegativeCLRebaseSum)` error when Consensus Layer balance reported by oracles and second opinion oracle is too different.
+- Revert with `NegativeRebaseFailedWithdrawalVaultBalanceMismatch(uint256 reportedValue, uint256 provedValue)` error when Withdrawal vault balance reported by oracles and second opinion oracle is different.
+- Revert with `NegativeRebaseFailedSecondOpinionReportIsNotReady()` error when second opinion oracle report is not available.
 - Revert with `IncorrectCLBalanceIncrease(uint256 annualBalanceDiff)` error when Consensus Layer annual balance increase
   expressed in basis points **exceeds** allowed `LimitsList.annualBalanceIncreaseBPLimit`.
 - Revert with `IncorrectAppearedValidators(uint256 appearedValidatorsLimit)` error when the number of appeared validators **exceeds**
@@ -350,7 +350,7 @@ Sets the new values for the limits list.
 - Reverts with `IncorrectLimitValue(uint256 value, uint256 minAllowedValue, uint256 maxAllowedValue)` error when some
   value in the passed data out of the allowed range.
   See details of allowed value boundaries in the [Limits List](#limits-list) section.
-- Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.  
+- Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.
 
 :::
 
@@ -554,7 +554,7 @@ Sets the new value for the Second Opinion Oracle and `LimitsList.clBalanceOracle
 - Requires `SECOND_OPINION_MANAGER_ROLE` to be granted to the caller.
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
-- Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.  
+- Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.
 :::
 
 ```solidity
