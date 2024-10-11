@@ -281,7 +281,7 @@ Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-m
 with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/wsteth-bridging-guide.md).
 
 :::note
-Unlike on the Ethereum mainnet, wstETH for Lido Multichain is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network unless handled via [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-24.md)
+Unlike on the Ethereum mainnet, wstETH for Lido Multichain is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network unless handled via [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md)
 :::
 
 Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
@@ -290,7 +290,7 @@ Use the [wstETH/stETH rate feeds](/guides/lido-tokens-integration-guide.md#integ
 #### stETH (Optimism pilot)
 
 Effective 2024 October, stETH token has become available [on Optimism](/docs/deployed-contracts/index.md#optimism).
-The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-24.md) architecture approach.
+The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) architecture approach.
 
 - Token address: [`0x76A50b8c7349cCDDb7578c6627e79b5d99D24138`](https://optimistic.etherscan.io/address/0x76A50b8c7349cCDDb7578c6627e79b5d99D24138)
 - wstETH/stETH in-protocol native rate feed on Optimism: [`0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0`](https://optimistic.etherscan.io/address/0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0)

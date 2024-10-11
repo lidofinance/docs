@@ -12,7 +12,7 @@ This document is intended for the developers representing network/rollup foundat
 This guide doesn't cover yet bridging of rebasable stETH token nor bridging to non-L2-rollup networks. However, please note that bridging rebasable stETH token in a regular way might cause a loss of user assets due to the rewards accrued being stuck on an L1 bridge.
 
 Effective 2024 October, stETH token has become available [on Optimism](/docs/deployed-contracts/index.md#optimism).
-The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-24.md) architecture approach.
+The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) architecture approach.
 
 See the [lido-l2-with-steth](https://github.com/lidofinance/lido-l2-with-steth/) repository for more details.
 :::
