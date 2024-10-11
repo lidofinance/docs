@@ -7,15 +7,22 @@ pagination_next: deployed-contracts/holesky
 ## Core protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-- Lido Locator: [`0x1D920cc5bACf7eE506a271a5259f2417CaDeCE1d`](https://etherscan.io/address/0x1D920cc5bACf7eE506a271a5259f2417CaDeCE1d) (impl)
-- (proposed) Lido Locator: [`0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463`](https://etherscan.io/address/0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463) (impl)
+- Lido Locator: [`0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463`](https://etherscan.io/address/0x39aFE23cE59e8Ef196b81F0DCb165E9aD38b9463) (impl)
+- (proposed) Lido Locator: [`0x3abc4764f0237923d52056cfba7e9aebf87113d3`](https://etherscan.io/address/0x3abc4764f0237923d52056cfba7e9aebf87113d3) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
+- Staking Router: [`0xD8784e748f59Ba711fB5643191Ec3fAdD50Fb6df`](https://etherscan.io/address/0xD8784e748f59Ba711fB5643191Ec3fAdD50Fb6df) (impl)
+- (proposed) Staking Router: [`0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa`](https://etherscan.io/address/0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa) (impl)
 - Node Operators registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
+- Node Operators registry: [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed) (impl)
+- (proposed) Node Operators registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
 - Simple DVT: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
+- Simple DVT: [`0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed`](https://etherscan.io/address/0x8538930c385C0438A357d2c25CB3eAD95Ab6D8ed) (impl)
+- (proposed) Simple DVT: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
 - Deposit Security Module: [`0xC77F8768774E1c9244BEed705C4354f2113CFc09`](https://etherscan.io/address/0xC77F8768774E1c9244BEed705C4354f2113CFc09)
+- (proposed) Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
@@ -26,11 +33,14 @@ pagination_next: deployed-contracts/holesky
 
 - Accounting Oracle:
   - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
+  - AccountingOracle: [`0xF3c5E0A67f32CF1dc07a8817590efa102079a1aF`](https://etherscan.io/address/0xF3c5E0A67f32CF1dc07a8817590efa102079a1aF) (impl)
+  - (proposed) AccountingOracle: [`0x0e65898527e77210fb0133d00dd4c0e86dc29bc7`](https://etherscan.io/address/0x0e65898527e77210fb0133d00dd4c0e86dc29bc7) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - OracleReportSanityChecker: [`0x9305c1Dbfe22c12c66339184C0025d7006f0f1cC`](https://etherscan.io/address/0x9305c1Dbfe22c12c66339184C0025d7006f0f1cC)
+- (proposed) OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Legacy Oracle ([proposed for deprecation effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
 
@@ -48,6 +58,7 @@ pagination_next: deployed-contracts/holesky
 - Lido App Repo: [`0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1`](https://etherscan.io/address/0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1) (proxy)
 - Lido Oracle (Legacy Oracle) Repo: [`0xF9339DE629973c60c4d2b76749c81E6F40960E3A`](https://etherscan.io/address/0xF9339DE629973c60c4d2b76749c81E6F40960E3A) (proxy)
 - Node Operators Registry Repo: [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
+- Simple DVT Repo: [`0x2325b0a607808dE42D918DB07F925FFcCfBb2968`](https://etherscan.io/address/0x2325b0a607808dE42D918DB07F925FFcCfBb2968) (proxy)
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - Gate Seal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
@@ -152,6 +163,7 @@ pagination_next: deployed-contracts/holesky
   - SetNodeOperatorNames: [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4)
   - SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
   - UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
+  - (proposed) UpdateTargetValidatorLimits: [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b)
   - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 
 ### Easy Track factories for token transfers
