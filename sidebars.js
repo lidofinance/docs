@@ -2,6 +2,7 @@ module.exports = {
   docs: [
     'introduction',
     'lido-dao',
+    'lips',
     'guides/lido-tokens-integration-guide',
     {
       type: 'category',
