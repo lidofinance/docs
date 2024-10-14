@@ -96,7 +96,7 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
         - pause capability
 
 
-###### Zircuit Token Bridge: [`0x6bc726C993103197C41d787dd72eCd4D2e1614E8`](https://etherscan.io/address/0x6bc726C993103197C41d787dd72eCd4D2e1614E8)
+###### Zircuit Token Bridge: [`0x912C7271a6A3622dfb8B218eb46a6122aB046C79`](https://etherscan.io/address/0x912C7271a6A3622dfb8B218eb46a6122aB046C79)
 
 * WITHDRAWALS_DISABLER_ROLE,
 * DEPOSITS_DISABLER_ROLE
@@ -364,7 +364,7 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: Zircuit:[`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+L2ERC20TokenBridge: Zircuit:[`0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902`](https://explorer.testnet.zircuit.com/address/0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902)
 
 - WITHDRAWALS_DISABLER_ROLE
 - DEPOSITS_DISABLER_ROLE
