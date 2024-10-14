@@ -75,12 +75,13 @@ pagination_next: deployed-contracts/holesky
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSAccounting: [`0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758`](https://etherscan.io/address/0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758) (impl)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
-- ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
-- ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSVerifier: [`0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583`](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
-- ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) HashConsensus: [`0x71093efF8D8599b5fA340D665Ad60fA7C80688e4`](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
+- CSFeeOracle:
+  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
+  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
+  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) HashConsensus: [`0x71093efF8D8599b5fA340D665Ad60fA7C80688e4`](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
 
 ## Liquidity pools
 
