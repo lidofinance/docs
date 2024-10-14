@@ -41,7 +41,7 @@ If, after penalties have been applied, a Node Operator's [bond](./join-csm#bond)
 Any unbonded validators are requested to exit. Unbonded but not deposited keys are excluded from the stake allocation queue.
 :::
 
-If the amount of the penalty exceeds the amount of the Node Operator [bond](./join-csm#bond) available, all available funds are burned.
+If the amount of the penalty exceeds the amount of the Node Operator [bond](./join-csm#bond) available, all available [bond](./join-csm#bond) tokens will be burned to cover the [bond](./join-csm#bond) shortage.
 
 ## Benefits reset
 
