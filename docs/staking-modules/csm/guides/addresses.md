@@ -48,7 +48,7 @@ Given `rewardAddress` permissions, the best option is to set it to a "cold" wall
 
 On top of the permissions above, there are several permissionless methods that can be called by `managerAddress`, `rewardAddress`, or any other Ethereum address:
 
-- Top-up bond;
+- Top-up [bond](../join-csm#bond);
 - Distribute allocated Node Operator rewards to the Node Operator's [bond](../join-csm#bond);
 - Compensate for the reported MEV stealing penalty;
 - Report validator withdrawal to release [bond](../join-csm#bond) tokens (usually done by the CSM Bot);
