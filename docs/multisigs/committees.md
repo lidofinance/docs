@@ -71,14 +71,14 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/34976 | - |
-| robingop | 0xf2374BCb265505002055942D070459a4d2011012 | - | https://twitter.com/robingop/status/1750498068976291883|
-| Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | - |
-| Smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | - | https://twitter.com/sasha0smiles/status/1749368543517491598|
-| McNut | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xaf2711bf27a3e7b5c51c59df0864d8f656d164212900f1667eb85df9622100dc37c623b9ce808c5847230104bc76be726642436dffcbd16584e7bc16ec85dc431b | https://twitter.com/damcnuta/status/1673918423729053697?s=20 |
+| K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
+| robingop | 0xf2374BCb265505002055942D070459a4d2011012 | Sig hash: 0x89523e02d087de609003a33b091bde12e6f1b733336d4f1ea2e5de7a7faf990b39f593dd46cf993f4b5d5d2185ae00c19ff65013da549914d9445b432582393701 | https://twitter.com/robingop/status/1750498068976291883|
+| Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
+| Smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | https://etherscan.io/verifySig/255460 | https://twitter.com/sasha0smiles/status/1749368543517491598|
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | - | https://twitter.com/apegenija/status/1738302153939128664?s=20 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://x.com/apegenija/status/1823290601921540342?t=H0MWkkxQnHt9A3N5VDgmnA |
 
 ## 2.3 Relay Maintenance Committee
 
