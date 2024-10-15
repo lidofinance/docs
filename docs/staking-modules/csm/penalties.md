@@ -2,7 +2,7 @@
 
 ## Reasons
 There are three major reasons for CSM Node Operator's [bond](./join-csm#bond) to be penalized:
-1. **The validator has been slashed.** In this case, the [initial (minimal) slashing penalty](https://github.com/ethereum/consensus-specs/blob/dev/specs/altair/beacon-chain.md#modified-slash_validator) is confiscated. Penalty amount = `1 ETH`;
+1. **The validator has been slashed.** In this case, the [initial (minimal) slashing penalty](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/altair/beacon-chain.md#modified-slash_validator) is confiscated. Penalty amount = `1 ETH`;
 2. **The operator has stolen EL rewards (MEV).** Penalty amount = `amount stolen + fixed stealing fine` (can be applied across multiple NO validators);
 3. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH)**. Penalty amount = `DEPOSIT_AMOUNT - validator's withdrawal balance`;
 
