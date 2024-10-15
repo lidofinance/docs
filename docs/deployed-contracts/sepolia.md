@@ -165,3 +165,18 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - Wormhole Transceiver: [`0x3a84364d27Ed3D16022Da0f603f3E0F74826c707`](https://testnet.bscscan.com/address/0x3a84364d27Ed3D16022Da0f603f3E0F74826c707)
 - Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://testnet.bscscan.com/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
 - Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://testnet.bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+
+### Zircuit
+
+##### Ethereum part
+
+- L1ERC20TokenBridge (proposed): [`0x130424c81a7d497Efa53bc71BB8B718202087726`](https://sepolia.etherscan.io/address/0x130424c81a7d497Efa53bc71BB8B718202087726) (proxy)
+- L1ERC20TokenBridge (proposed): [`0x0b72F930bb0e378b19E93eBadf1c563D28A584ed`](https://sepolia.etherscan.io/address/0x0b72F930bb0e378b19E93eBadf1c563D28A584ed) (impl)
+
+##### Zircuit part
+
+- WstETH ERC20Bridged (proposed): [`0x6b8116B41bFd7e1A976cB892acB79926080A6Ca1`](https://explorer.testnet.zircuit.com/address/0x6b8116B41bFd7e1A976cB892acB79926080A6Ca1) (proxy)
+- WstETH ERC20Bridged (proposed): [`0x549aF13787A46eF63341c8C7e78691F4a2bFbE48`](https://explorer.testnet.zircuit.com/address/0x549aF13787A46eF63341c8C7e78691F4a2bFbE48) (impl)
+- L2ERC20TokenBridge (proposed): [`0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902`](https://explorer.testnet.zircuit.com/address/0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902) (proxy)
+- L2ERC20TokenBridge (proposed): [`0x247f56cFc9021aeC161a4366412636ea33101D2B`](https://explorer.testnet.zircuit.com/address/0x247f56cFc9021aeC161a4366412636ea33101D2B) (impl)
+- Optimism Governance Bridge Executor (proposed): [`0x989CD486c02bfBe5c2D3C157cDCab099134e7697`](https://explorer.testnet.zircuit.com/address/0x989CD486c02bfBe5c2D3C157cDCab099134e7697)
