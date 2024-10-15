@@ -6,13 +6,13 @@ So, what exactly are the events that the NO has to follow?
 
 ## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
 
-> [Holesky](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb)
-> [Mainnet](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
+- [Mainnet](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
+- [Holesky](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb)
 
 ### ValidatorExitRequest
 `ValidatorExitRequest` is the most important event for key management. It requires sending a voluntary exit request using the key specified in the event.
 If the Node Operator doesn't do this in time, the key becomes stuck, and rewards for the current and upcoming frames until stuck keys are exited frame are zeroed.
-Following all the events filtered by `stakingModuleId=4 (Holesky)` and `nodeOperatorId` is essential.
+Following all the events filtered by `stakingModuleId=3 (Mainnet), stakingModuleId=4 (Holesky)` and `nodeOperatorId` is essential.
 ```solidity
 event ValidatorExitRequest(
     uint256 indexed stakingModuleId,
@@ -25,7 +25,9 @@ event ValidatorExitRequest(
 
 ## Contract: CSM
 
-> [Holesky](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f)
+- [Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
+- [Holesky](https://holesky.etherscan.io/address/0x4562c3e63c2e586cD1651B958C22F88135aCAd4f)
+
 
 ### ELRewardsStealingPenaltyReported
 The DAO can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
@@ -64,7 +66,7 @@ event InitialSlashingSubmitted(
 ```
 
 ### WithdrawalSubmitted
-Information event that the key has been reported as `withdrawn`, so the required bond for this key is released.
+Information event that the key has been reported as `withdrawn`, so the required [bond](../join-csm#bond) for this key is released.
 ```solidity
 event WithdrawalSubmitted(
     uint256 indexed nodeOperatorId,
@@ -84,7 +86,8 @@ event DepositedSigningKeysCountChanged(
 
 ## Contract: CSFeeDistributor
 
-> [Holesky](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED)
+- [Mainnet](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
+- [Holesky](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED)
 
 ### DistributionDataUpdated
 Notify when rewards for the current frame are available to claim
