@@ -47,9 +47,9 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Quorum:** 4/8
 
-**Forum topics:** [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808), [Proposal to start Rewards Share program, form Rewards Share Committee and reuse Referral Program Committee multisig](https://research.lido.fi/t/tiered-rewards-share-program-a-sustainable-approach-to-steth-growth/4851)
+**Forum topics:** [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808), [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
 
-**Snapshots:** [Proposal to form Rewards Share committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)
+**Snapshots:** [Proposal to adopt Rewards-Share Program 2024e](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
 
 **On-chain:**   [Omnibus vote #162](https://vote.lido.fi/vote/162)
 
