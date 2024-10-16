@@ -178,6 +178,18 @@ module.exports = {
                 'staking-modules/csm/guides/addresses',
               ]
             },
+            {
+              type: 'category',
+              label: 'Contracts',
+              items: [
+                'staking-modules/csm/contracts/CSModule',
+                'staking-modules/csm/contracts/CSAccounting',
+                'staking-modules/csm/contracts/CSFeeDistributor',
+                'staking-modules/csm/contracts/CSFeeOracle',
+                'staking-modules/csm/contracts/CSVerifier',
+                'staking-modules/csm/contracts/CSEarlyAdoption',
+              ],
+            },
             'staking-modules/csm/further-reading',
           ],
         },
