@@ -7,7 +7,7 @@ CSFeeDistributor.sol is the supplementary contract that stores non-claimed and n
 
 ## Upgradability
 
-The contract uses [OssifiableProxy](../../../contracts/ossifiable-proxy.md) for upgradability.
+The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
 

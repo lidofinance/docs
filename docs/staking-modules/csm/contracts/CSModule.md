@@ -3,11 +3,11 @@
 - [Source code](https://github.com/lidofinance/community-staking-module/blob/fa7ba8a0bab685fc924aa1b135b8d59f4c6de497/src/CSModule.sol)
 - [Deployed contract](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
 
-CSModule.sol is the core module contract conforming to the [IStakingModule](https://github.com/lidofinance/core/blob/aada42242e893ea2726e629c135cd375d30575fc/contracts/0.8.9/interfaces/IStakingModule.sol) interface. It stores information about Node Operators and deposit data (DD). This contract is used as an entry point for the Node Operators. It is responsible for all interactions with the [StakingRouter](../../../contracts/staking-router.md), namely, the DD queue management and Node Operator's params.
+CSModule.sol is the core module contract conforming to the [IStakingModule](https://github.com/lidofinance/core/blob/aada42242e893ea2726e629c135cd375d30575fc/contracts/0.8.9/interfaces/IStakingModule.sol) interface. It stores information about Node Operators and deposit data (DD). This contract is used as an entry point for the Node Operators. It is responsible for all interactions with the [StakingRouter](contracts/staking-router.md), namely, the DD queue management and Node Operator's params.
 
 ## Upgradability
 
-The contract uses [OssifiableProxy](../../../contracts/ossifiable-proxy.md) for upgradability.
+The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
 

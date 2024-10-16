@@ -7,7 +7,7 @@ CSFeeOracle.sol is the utility contract responsible for the execution of the CSM
 
 ## Upgradability
 
-The contract uses [OssifiableProxy](../../../contracts/ossifiable-proxy.md) for upgradability.
+The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
 

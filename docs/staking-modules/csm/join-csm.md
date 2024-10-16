@@ -22,7 +22,7 @@ Here and after, the term 'bond' has the following meaning:
 
 A [bond](./join-csm#bond) is a property of a Node Operator, not a validator. [Bond](./join-csm#bond) is stored in the form of stETH. Node Operators can submit [bond](./join-csm#bond) tokens in ETH, stETH, and wstETH. Provided ETH is staked, and wstETH is unwrapped during submission to ensure stETH is the only form of a [bond](./join-csm#bond).
 
-The total amount of the [bond](./join-csm#bond) required depends on the total number of Node Operator's validators and has the form of a curve (see [`getBondAmountByKeysCount`](./contracts/CSAccounting.md#getbondamountbykeyscount))
+The total amount of the [bond](./join-csm#bond) required depends on the total number of Node Operator's validators and has the form of a curve (see [`getBondAmountByKeysCount`](/staking-modules/csm/contracts/CSAccounting.md#getbondamountbykeyscount))
 
 ![join-csm-2](../../../static/img/csm/join-csm-2.png)
 
@@ -47,7 +47,7 @@ Any unbonded validators are requested to exit. Unbonded but not deposited keys a
 With the [bond](./join-csm#bond) being stored in stETH, there is a risk of a reduction in the [bond](./join-csm#bond) amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual [bond](./join-csm#bond) being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [insurance fund](/contracts/insurance) at the Lido DAO's disposal for possible use as cover.
 
 ## Deposit data validation and invalidation (aka vetting and unvetting)
-Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls [`decreaseVettedSigningKeysCount`](./contracts/CSModule.md#decreasevettedsigningkeyscount) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
+Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls [`decreaseVettedSigningKeysCount`](/staking-modules/csm/contracts/CSModule.md#decreasevettedsigningkeyscount) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
 
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
@@ -69,11 +69,11 @@ A simple analogy can be used to understand the CSM queue concept better. Imagine
 
 ### Queue normalization
 
-There might be a case when a Node Operator has keys that are not in the queue since they were skipped during the queue iteration as they were not depositable at the moment of iteration. The [`normalizeQueue`](./contracts/CSModule.md#normalizequeue) method allows Node Operators to place all depositable keys back into the queue.
+There might be a case when a Node Operator has keys that are not in the queue since they were skipped during the queue iteration as they were not depositable at the moment of iteration. The [`normalizeQueue`](/staking-modules/csm/contracts/CSModule.md#normalizequeue) method allows Node Operators to place all depositable keys back into the queue.
 
 There are several pointers regarding deposit data storage in CSM. Among the others, there are `totalAddedKeys` and `totalVettedKeys` pointers. With the optimistic vetting approach, these two pointers should be in sync most of the time (`totalAddedKeys == totalVettedKeys`), given that there are no reports about the presence of invalid deposit data. Hence, there are two ways for the deposit data to be placed into the queue:
 - Once the deposit data is uploaded, if `totalAddedKeys == totalVettedKeys`;
-- After the call of the [`normalizeQueue`](./contracts/CSModule.md#normalizequeue) method, in case some keys were not placed into the queue upon upload (`totalAddedKeys != totalVettedKeys` at the moment of upload) or were skipped during the queue iterations;
+- After the call of the [`normalizeQueue`](/staking-modules/csm/contracts/CSModule.md#normalizequeue) method, in case some keys were not placed into the queue upon upload (`totalAddedKeys != totalVettedKeys` at the moment of upload) or were skipped during the queue iterations;
 
 There is a method to check the next `X`elements and remove those containing no depositable keys. This methods is required to ensure queue operation even in catastrophic scenarios resulting in significant queue "pollution" with the non-depositable keys.
 

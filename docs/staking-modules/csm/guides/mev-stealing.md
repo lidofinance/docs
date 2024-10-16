@@ -6,7 +6,7 @@
 
 ## How does CSM react to MEV stealing?
 
-Once such a block is detected, the MEV Stealing Detection Committee (dev EOA on the testnet and CSM Multisig on the mainnet) reports this fact on-chain using the [`reportELRewardsStealingPenalty`](../contracts/CSModule.md#reportelrewardsstealingpenalty) method. Call of the method results in a lock of the stolen amount + fixed stealing fine (0.1 ETH for the testnet and most likely for the mainnet). Locked funds have not yet been burned, but will be accounted for during the required [bond](../join-csm#bond) calculation.
+Once such a block is detected, the MEV Stealing Detection Committee (dev EOA on the testnet and CSM Multisig on the mainnet) reports this fact on-chain using the [`reportELRewardsStealingPenalty`](/staking-modules/csm/contracts/CSModule.md#reportelrewardsstealingpenalty) method. Call of the method results in a lock of the stolen amount + fixed stealing fine (0.1 ETH for the testnet and most likely for the mainnet). Locked funds have not yet been burned, but will be accounted for during the required [bond](../join-csm#bond) calculation.
 
 Right after that, a challenge period starts. During this period, Node Operators can:
 

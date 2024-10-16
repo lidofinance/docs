@@ -7,7 +7,7 @@ CSAccounting.sol is the supplementary contract responsible for the management of
 
 ## Upgradability
 
-The contract uses [OssifiableProxy](../../../contracts/ossifiable-proxy.md) for upgradability.
+The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
 
