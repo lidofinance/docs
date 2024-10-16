@@ -52,7 +52,7 @@ A frame performance assessment log aims to achieve more transparency on rewards 
 - The performance threshold for a given frame;
 - The total amount of shares distributable in the frame;
 - Attestation rates of validators as "assigned" and "included" pairs;
-- The amount of shares distributed every operator in the frame.
+- The amount of shares distributed to every operator in the frame.
 
 There's also additional data in the log; for a full definition look at the following [typescript gist](https://gist.github.com/madlabman/33bc63843b633aa114173d7898e5fcce).
 
