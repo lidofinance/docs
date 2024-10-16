@@ -106,6 +106,7 @@ module.exports = {
         'contracts/withdrawal-vault',
         'contracts/wsteth',
         'contracts/deposit-security-module',
+        'contracts/data-bus',
         'contracts/burner',
         'contracts/lido-execution-layer-rewards-vault',
         'contracts/mev-boost-relays-allowed-list',
