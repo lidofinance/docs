@@ -181,7 +181,7 @@ pagination_next: deployed-contracts/holesky
   - SetVettedValidatorsLimits: [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D)
   - SetNodeOperatorNames: [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4)
   - SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
-  - UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
+  - ([proposed to remove](https://research.lido.fi/t/staking-router-community-staking-module-upgrade-announcement/8612/2)) UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
   - ([proposed](https://research.lido.fi/t/staking-router-community-staking-module-upgrade-announcement/8612/2)) UpdateTargetValidatorLimits: [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b)
   - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) **Community Staking Module** (module: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
