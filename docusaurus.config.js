@@ -25,11 +25,14 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
+        { to: '/deployed-contracts/', label: 'Mainnet contracts', position: 'left' },
+        { to: '/lips', label: 'LIPs', position: 'left' },
+        { to: '/security/audits', label: 'Audits', position: 'left' },
         {
           href: 'https://github.com/lidofinance',
           label: 'GitHub',
           position: 'right',
-        },
+        }
       ],
     },
   },
