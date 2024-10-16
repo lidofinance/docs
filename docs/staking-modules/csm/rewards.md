@@ -54,9 +54,9 @@ A frame performance assessment log aims to achieve more transparency on rewards 
 - Attestation rates of validators as "assigned" and "included" pairs;
 - The amount of shares distributed to every operator in the frame.
 
-There's also additional data in the log; for a full definition look at the following [typescript gist](https://gist.github.com/madlabman/33bc63843b633aa114173d7898e5fcce).
+There's also additional data in the log; for a full definition look at the following [typescript gist](https://github.com/lidofinance/community-staking-module/blob/51e140617e000a92e821f760444245a177d585af/gists/FramePerfLog.ts).
 
-One can inspect the file to ensure all the operators' `distributed` amounts are correct; for example, by using this [python gist](https://gist.github.com/madlabman/ce47a5311f004985341c6fcad53dcd0e). Interested persons can also check the attestations summaries for each validator in the log and report any discrepancies using official Lido Discord.
+One can inspect the file to ensure all the operators' `distributed` amounts are correct; for example, by using this [python gist](https://github.com/lidofinance/community-staking-module/blob/51e140617e000a92e821f760444245a177d585af/gists/check_frame_log.py). Interested persons can also check the attestations summaries for each validator in the log and report any discrepancies using official Lido Discord.
 
 If you want to learn more about the actual Performance Oracle algorithm, check out this [detailed doc](https://hackmd.io/@lido/BJclaWbi6).
 
