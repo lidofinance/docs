@@ -118,7 +118,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Security',
-      items: ['security/bugbounty'],
+      items: [
+        'security/bugbounty',
+        'security/audits'
+      ],
     },
     {
       type: 'category',
