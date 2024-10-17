@@ -51,8 +51,9 @@ Given the upcoming [DSM](https://hackmd.io/@lido/rJrTnEc2a) upgrade, CSM will ut
 
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
-- `depositableKeys = min(vettedKeys - depositedKeys, max(addedKeys - depositedKeys - unbondedKeys, 0), max(targetLimit - (depositedKeys - withdrawnKeys), 0))`
-- If Node Operator has `stuckKeys != 0` -> `depositableKeys = 0`.
+- If `targetLimit` is not set => `depositableKeys = min(vettedKeys - depositedKeys, max(addedKeys - depositedKeys - unbondedKeys, 0))`
+- If `targetLimit` is set => `depositableKeys = min(vettedKeys - depositedKeys, max(addedKeys - depositedKeys - unbondedKeys, 0), max(targetLimit - (depositedKeys - withdrawnKeys), 0))`
+- If Node Operator has `stuckKeys != 0` no matter the `targetLimit` => `depositableKeys = 0`.
 
 ## Stake allocation queue
 
