@@ -38,6 +38,9 @@ To learn more about bad-performers ejection please refer to the [separate docume
 ## Withdrawal balance reporting
 The withdrawal balance of the validator is required to release the [bond](./join-csm#bond) and calculate the exit penalty, if any. This balance is reported permissionlessly using [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) by the CSM bot or the Node Operator themselves.
 
+## Further reading
+
+- [Permissions](/staking-modules/csm/permissions.md)
 
 ## Useful links
 
