@@ -37,7 +37,7 @@ Lido DAO has the following permissions and controls via on-chain Aragon voting:
 - Lido DAO can end the Early Adoption period;
 
 ## CSM Committee permissions
-CSM Committee has the following permissions and controls:
+[CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) has the following permissions and controls:
 
 - Report facts of MEV and EL rewards stealing committed by CSM Node Operators;
 - Cancel MEV stealing penalty if needed;
