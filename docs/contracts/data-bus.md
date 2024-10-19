@@ -4,7 +4,7 @@
 
 :::info
 The contract is deployed at the address `0x37De961D6bb5865867aDd416be07189D2Dd960e6` and can be accessed on multiple blockchain networks as follows:
-- [DataBus on Chaido](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- [DataBus on Chiado (Testnet)](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - [DataBus on Gnosis Chain](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - [DataBus on Base](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - [DataBus on Optimism](https://optimistic.etherscan.io/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
