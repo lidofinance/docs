@@ -8,7 +8,7 @@ The contract is deployed at the address `0x37De961D6bb5865867aDd416be07189D2Dd96
 - [DataBus on Gnosis Chain](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - [DataBus on Base](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - [DataBus on Optimism](https://optimistic.etherscan.io/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
-- [DataBus on Polygon](https://polygonscan.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- [DataBus on Polygon PoS](https://polygonscan.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 :::
 
 ## What is Data Bus?
