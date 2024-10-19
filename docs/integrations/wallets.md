@@ -1,8 +1,8 @@
 # Wallets
 
-If you are an Ethereum wallet provider, you can integrate Lido staking into your app or website and get [Lido referral rewards](https://lido.fi/referral).
+If you are an Ethereum wallet provider, you can integrate Lido staking into your app or website and get [Lido referral rewards](https://research.lido.fi/t/rewards-share-program-2024/6812).
 
-*To participate in [Lido Referral Program](https://lido.fi/referral), apply for whitelisting on [Lido Forum](https://research.lido.fi/t/referral-program-whitelisting-ethereum/1039).*
+*To participate in [Lido Referral Program](https://research.lido.fi/t/rewards-share-program-2024/6812), apply for whitelisting on [Lido Forum](https://research.lido.fi/t/referral-program-whitelisting-ethereum/1039).*
 
 ## Your referral link
 
