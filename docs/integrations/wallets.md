@@ -2,7 +2,7 @@
 
 By integrating Lido staking into your app or website you may be eligible for [Lido Rewads-Share Program](https://research.lido.fi/t/rewards-share-program-2024/6812).
 
-*To participate in [Lido Referral Program](https://research.lido.fi/t/rewards-share-program-2024/6812), apply for whitelisting on [Lido Forum](https://research.lido.fi/t/referral-program-whitelisting-ethereum/1039).*
+*To participate in [Lido Rewards-Share Program](https://research.lido.fi/t/rewards-share-program-2024/6812), file your application following the onboarding process described.*
 
 ## Your referral link
 
