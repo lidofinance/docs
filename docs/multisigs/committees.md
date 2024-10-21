@@ -482,3 +482,37 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+
+
+## 2.9 Community Staking Module Committee
+
+**Address:** [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
+
+**Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
+cancel MEV stealing penalty if needed, starting EasyTracks to settle MEV stealing penalty, switching the bond curve for the particular Node Operator or resetting it to the default one,
+pausing CSM in case of emergency via Gate Seal.
+
+**Quorum:** 4/6
+
+**Forum topic:** [Community Staking Module Committee](https://research.lido.fi/t/csm-committee-creation/8333), [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
+
+**Snapshot:** [Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
+
+**Aragon:** [Omnibus vote #180 (items TBD)](https://vote.lido.fi/vote/180)
+
+**Easy Track contracts and roles:**
+
+CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) 
+- trustedcaller
+
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| madlabman | 0xdac96e602fbb38De089DaB03f7a37B70C4234221 | https://etherscan.io/verifySig/257503 | https://x.com/chtotonet/status/1841049313574531238 |
+| Remus | 0x83eeccaf434ac9da6132ab1124afb755a2ea9266 | https://etherscan.io/verifySig/257515 | https://x.com/nameisremus/status/1840671350014218291 |
+| enti| 0xfcfbafa0d5f5512c65dbb4c073fe4ee6dc3c4779 | https://etherscan.io/verifySig/257511| https://x.com/entigdd/status/1840691285180449003 |
+| lanski | 0x6ac2df117c82f51bfdef1a249672b9a9ca6b3d86 | https://etherscan.io/verifySig/257500 | https://x.com/Pol_Lanski/status/1840659602083324379 |
+| Eridian | 0x7afd3c7f16fdbb3adf331fcc20a585d768ecf60d | https://etherscan.io/verifySig/257510| https://x.com/EridianAlpha/status/1840661871516332220 |
+| POSTHUMAN | 0xcbc39c37ee315e4a504cc1ad0d7956a76e20d90d | https://etherscan.io/verifySig/257507 | https://x.com/ponimajushij/status/1833486702062493757 |
