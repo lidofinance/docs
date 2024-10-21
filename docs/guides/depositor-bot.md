@@ -19,8 +19,8 @@ the [DepositSecurityModule](https://docs.lido.fi/contracts/deposit-security-modu
 
 ### Nodes
 
-- Ethereum EL node
-- Onchain databus transport node (Gnosis node at the moment)
+- Ethereum EL RPC service
+- Onchain databus transport RPC service (Gnosis at the moment)
 
 ## How to use
 
@@ -48,7 +48,7 @@ Required variables are(mainnet):
 
 | Variable                          | Default                                    | Description                                                                                                              |
 |-----------------------------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| WEB3_RPC_ENDPOINTS                | -                                          | List of rpc endpoints that will be used to send requests comma separated (`,`)                                           |
+| WEB3_RPC_ENDPOINTS                | -                                          | List of EL rpc endpoints that will be used to send requests comma separated (`,`)                                        |
 | WALLET_PRIVATE_KEY                | -                                          | Account private key                                                                                                      |
 | CREATE_TRANSACTIONS               | false                                      | If true then tx will be send to blockchain                                                                               |
 | LIDO_LOCATOR                      | 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb | Lido Locator address. Mainnet by default. Other networks could be found [here](https://docs.lido.fi/deployed-contracts/) |
@@ -56,7 +56,7 @@ Required variables are(mainnet):
 | DEPOSIT_MODULES_WHITELIST         | 1                                          | List of staking module's ids in which the depositor bot will make deposits                                               |
 | ---                               | ---	                                       | ---                                                                                                                      |
 | MESSAGE_TRANSPORTS                | -                                          | Transports used in bot. Set: onchain_transport                                                                           |
-| ONCHAIN_TRANSPORT_RPC_ENDPOINTS   | -                                          | List of rpc endpoints that will be used for reading data bus contract, comma separated (`,`).                            |
+| ONCHAIN_TRANSPORT_RPC_ENDPOINTS   | -                                          | List of databus(Gnosis) rpc endpoints that will be used for reading data bus contract, comma separated (`,`).            |
 | ONCHAIN_TRANSPORT_ADDRESS         | -                                          | Data bus contract address.                                                                                               |
 | MIN_PRIORITY_FEE                  | 50 mwei                                    | Min priority fee that will be used in tx                                                                                 |
 | MAX_PRIORITY_FEE                  | 10 gwei                                    | Max priority fee that will be used in tx                                                                                 |
