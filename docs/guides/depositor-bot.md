@@ -2,11 +2,13 @@
 
 ## Introduction
 
-Depositor bot is a part of Deposit Security Module.
+Depositor bot is a part of [Deposit Security Module](link to dsm)..
 
 The Depositor Bot obtains signed deposit messages from Council Daemons. Once a sufficient number of messages is
 collected to constitute a quorum, the bot proceeds to initiate a deposit into the designated staking module. This
-deposit is executed using the depositBufferedEther function within the "DepositSecurityModule" smart contract.
+deposit is executed using
+the [depositBufferedEther](https://docs.lido.fi/contracts/deposit-security-module#depositbufferedether) function within
+the [DepositSecurityModule](https://docs.lido.fi/contracts/deposit-security-module) smart contract.
 
 ## Requirements
 
@@ -18,11 +20,11 @@ deposit is executed using the depositBufferedEther function within the "DepositS
 ### Nodes
 
 - Ethereum EL node
-- Onchain transport node
+- Onchain databus transport node (Gnosis node at the moment)
 
 ### Envs
 
-Required variables are:
+Required variables are(mainnet):
 
 | Variable                        | Default                                    | Description                                                                                                              |
 |---------------------------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -62,8 +64,9 @@ Optional variables can be found [here](https://github.com/lidofinance/depositor-
     {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 210, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Checks failed. Skip deposit."}
     {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 194, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Calculations deposit recommendations.", "value": false, "is_mellow": false}
     ```
-  
-  If you are facing problems, check what environment variables depositor bot is using, find a log line `"msg": "Bot env variables"`
+
+If you are facing problems, check what environment variables depositor bot is using, find a log
+line `"msg": "Bot env variables"`
 
 ### Docker
 
