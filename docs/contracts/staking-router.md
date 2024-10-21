@@ -82,7 +82,7 @@ Here is a breakdown of the process:
 
     b. It creates a `capacities` array of the same size as the number of staking modules. Each entry in this array represents the maximum capacity of a particular staking module, i.e., the maximum number of validators that module can have. This is calculated as the minimum of either:
 
-    - The target number of validators for a module, which is based on a desired target share (`stakingModulesCache[i].targetShare * totalActiveValidators / TOTAL_BASIS_POINTS`), or
+    - The target number of validators for a module, which is based on a desired target share (`stakingModulesCache[i].stakeShareLimit * totalActiveValidators / TOTAL_BASIS_POINTS`), or
     - The sum of the current active validators and the available validators in the module (`stakingModulesCache[i].activeValidatorsCount + stakingModulesCache[i].availableValidatorsCount`).
 
     c. Finally, it calls the `allocate` function from `MinFirstAllocationStrategy`, passing in the `allocations`, `capacities`, and `_depositsToAllocate`. The amount successfully allocated is stored in `allocated`.
@@ -143,12 +143,15 @@ struct StakingModule {
 	address stakingModuleAddress;
 	uint16 stakingModuleFee;
 	uint16 treasuryFee;
-	uint16 targetShare;
+	uint16 stakeShareLimit;
 	uint8 status;
 	string name;
 	uint64 lastDepositAt;
 	uint256 lastDepositBlock;
 	uint256 exitedValidatorsCount
+	uint16 priorityExitShareThreshold;
+	uint64 maxDepositsPerBlock;
+	uint64 minDepositBlockDistance;
 }
 ```
 
@@ -251,7 +254,7 @@ struct StakingModuleSummary {
 }
 ```
 
-```
+```solidity
 function getStakingModuleSummary(uint256 _stakingModuleId) public view returns (StakingModuleSummary)
 ```
 
@@ -271,9 +274,9 @@ function getStakingModuleSummary(uint256 _stakingModuleId) public view returns (
 
 Returns the summary of a node operator from the staking module, as shown below,
 
-```
+```solidity
 struct NodeOperatorSummary {
-	bool isTargetLimitActive;
+	uint256 targetLimitMode;
 	uint256 targetValidatorsCount;
 	uint256 stuckValidatorsCount;
 	uint256 refundedValidatorsCount;
@@ -317,7 +320,7 @@ struct StakingModuleDigest {
 }
 ```
 
-```
+```solidity
 function getAllStakingModuleDigests() external view returns (StakingModuleDigest[])
 ```
 
@@ -332,7 +335,7 @@ function getAllStakingModuleDigests() external view returns (StakingModuleDigest
 
 Returns the digest of the specified staking modules.
 
-```
+```solidity
 function getStakingModuleDigests(uint256[] memory _stakingModuleIds) public view returns (StakingModuleDigest[])
 ```
 
@@ -360,7 +363,7 @@ struct NodeOperatorDigest {
 }
 ```
 
-```
+```solidity
 function getAllNodeOperatorDigests(uint256 _stakingModuleId) external view returns (NodeOperatorDigest[])
 ```
 
@@ -422,7 +425,7 @@ function getStakingModuleIsStopped(uint256 _stakingModuleId) external view retur
 
 Return a boolean value whether deposits are paused for the staking module.
 
-```
+```solidity
 function getStakingModuleIsDepositsPaused(uint256 _stakingModuleId) external view returns (bool)
 ```
 
@@ -442,7 +445,7 @@ function getStakingModuleIsDepositsPaused(uint256 _stakingModuleId) external vie
 
 Return a boolean value whether the staking module is active.
 
-```
+```solidity
 function getStakingModuleIsActive(uint256 _stakingModuleId) external view returns (bool)
 ```
 
@@ -462,7 +465,7 @@ function getStakingModuleIsActive(uint256 _stakingModuleId) external view return
 
 Get the nonce of a staking module.
 
-```
+```solidity
 function getStakingModuleNonce(uint256 _stakingModuleId) external view returns (uint256)
 ```
 
@@ -482,7 +485,7 @@ function getStakingModuleNonce(uint256 _stakingModuleId) external view returns (
 
 Get the block number of the last deposit to the staking module.
 
-```
+```solidity
 function getStakingModuleLastDepositBlock(uint256 _stakingModuleId) external view returns (uint256)
 ```
 
@@ -498,11 +501,52 @@ function getStakingModuleLastDepositBlock(uint256 _stakingModuleId) external vie
 |-------|-------------------|---------------------------------------------------|
 |  | `uint256` | block number of the last deposit |
 
+### `getStakingModuleMinDepositBlockDistance`
+
+Get the min deposit block distance for the staking module
+
+```solidity
+function getStakingModuleMinDepositBlockDistance(uint256 _stakingModuleId) external view returns (uint256)
+```
+
+**Parameters:**
+
+| Name  | Type              | Description                                       |
+|-------|-------------------|---------------------------------------------------|
+| `_stakingModuleId`| `uint256` | staking module id |
+
+**Returns:**
+
+| Name  | Type              | Description                                       |
+|-------|-------------------|---------------------------------------------------|
+|  | `uint256` | min deposit block distance for the staking module |
+
+### `getStakingModuleMaxDepositsPerBlock`
+
+Get the max deposits count per block for the staking module
+
+```solidity
+function getStakingModuleMaxDepositsPerBlock(uint256 _stakingModuleId) external view returns (uint256)
+```
+
+**Parameters:**
+
+| Name  | Type              | Description                                       |
+|-------|-------------------|---------------------------------------------------|
+| `_stakingModuleId`| `uint256` | staking module id |
+
+**Returns:**
+
+| Name  | Type              | Description                                       |
+|-------|-------------------|---------------------------------------------------|
+|  | `uint256` | Max deposits count per block for the staking module |
+
+
 ### `getStakingModuleActiveValidatorsCount`
 
 Returns the number of active validators in the staking module.
 
-```
+```solidity
 function getStakingModuleActiveValidatorsCount(uint256 _stakingModuleId) external view returns (uint256 activeValidatorsCount)
 ```
 
@@ -522,7 +566,7 @@ function getStakingModuleActiveValidatorsCount(uint256 _stakingModuleId) externa
 
 Calculates the maximum number of deposits a staking module can handle based on the available deposit value.
 
-```
+```solidity
 function getStakingModuleMaxDepositsCount(
 	uint256 _stakingModuleId,
 	uint256 _maxDepositsValue
@@ -546,7 +590,7 @@ function getStakingModuleMaxDepositsCount(
 
 Returns the total fee distribution proportion.
 
-```
+```solidity
 function getStakingFeeAggregateDistribution() public view returns (
 	uint96 modulesFee,
 	uint96 treasuryFee,
@@ -635,9 +679,12 @@ Register a staking module.
 function addStakingModule(
 	string calldata _name,
 	address _stakingModuleAddress,
-	uint256 _targetShare,
+	uint256 _stakeShareLimit,
+	uint256 _priorityExitShareThreshold,
 	uint256 _stakingModuleFee,
-	uint256 _treasuryFee
+	uint256 _treasuryFee,
+	uint256 _maxDepositsPerBlock,
+	uint256 _minDepositBlockDistance
 ) external;
 ```
 
@@ -646,10 +693,13 @@ function addStakingModule(
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
 | `_name` | `string` | human-readable name of the module |
-| `_stakingModuleAddress` | `address` | address of the module contract |
-| `_targetShare` | `uin256` | module target share |
-| `_stakingModuleFee` | `uin256` | module fee |
-| `_treasuryFee` | `uint256` | module treasury fee |
+| `_stakingModuleAddress` | `address` | Address of the module contract |
+| `_stakeShareLimit` | `uin256` | maximum share that can be allocated to a module |
+| `_priorityExitShareThreshold` | `uin256` | Module's priority exit share threshold |
+| `_stakingModuleFee` | `uin256` | fee of the staking module taken from the staking rewards |
+| `_treasuryFee` | `uint256` | treasury fee |
+| `_maxDepositsPerBlock` | `uint256` | maximum number of validators that can be deposited in a single block |
+| `_minDepositBlockDistance` | `uint256` | minimum distance between deposits in blocks |
 
 ### `updateStakingModule`
 
@@ -658,9 +708,12 @@ Register a staking module.
 ```solidity
 function updateStakingModule(
 	uint256 _stakingModuleId,
-	uint256 _targetShare,
+	uint256 _stakeShareLimit,
+	uint256 _priorityExitShareThreshold,
 	uint256 _stakingModuleFee,
-	uint256 _treasuryFee
+	uint256 _treasuryFee,
+	uint256 _maxDepositsPerBlock,
+	uint256 _minDepositBlockDistance
 ) external;
 ```
 
@@ -669,9 +722,12 @@ function updateStakingModule(
 | Name  | Type              | Description                                       |
 |-------|-------------------|---------------------------------------------------|
 | `_stakingModuleId` | `address` | id of the module |
-| `_targetShare` | `uin256` | updated module target share |
+| `_stakeShareLimit` | `uin256` | maximum share that can be allocated to a module |
+| `_priorityExitShareThreshold` | `uin256` | Module's priority exit share threshold |
 | `_stakingModuleFee` | `uin256` | updated module fee |
 | `_treasuryFee` | `uint256` | updated module treasury fee |
+| `_maxDepositsPerBlock` | `uint256` | maximum number of validators that can be deposited in a single block |
+| `_minDepositBlockDistance` | `uint256` | minimum distance between deposits in blocks |
 
 ### `updateTargetValidatorsLimits`
 
@@ -681,7 +737,7 @@ Updates the limit of the validators that can be used for deposit.
 function updateTargetValidatorsLimits(
 	uint256 _stakingModuleId,
 	uint256 _nodeOperatorId,
-	bool _isTargetLimitActive,
+	uint256 _targetLimitMode,
 	uint256 _targetLimit
 ) external;
 ```
@@ -692,8 +748,8 @@ function updateTargetValidatorsLimits(
 |-------|-------------------|---------------------------------------------------|
 | `_stakingModuleId` | `uin256` | id of the module |
 | `_nodeOperatorId` | `uin256` | id of the node operator |
-| `_isTargetLimitActive` | `bool` | active flag |
-| `_targetLimit` | `uint256` | target limit of the node operator |
+| `_targetLimitMode` | `uint256` | target limit mode (0 = disabled, 1 = soft, 2 = boosted) |
+| `_targetLimit` | `uint256` | target limit validators count of the node operator |
 
 ### `updateRefundedValidatorsCount`
 
@@ -843,3 +899,23 @@ Post-report hook called by the oracle when the second phase of data reporting fi
 ```solidity
 function onValidatorsCountsByNodeOperatorReportingFinished() external;
 ```
+
+### `decreaseStakingModuleVettedKeysCountByNodeOperator`
+
+Decreases vetted signing keys counts per node operator for the staking module with the specified id. Method is called by DSM during the unvetting process.
+
+```solidity
+function decreaseStakingModuleVettedKeysCountByNodeOperator(
+	uint256 _stakingModuleId,
+	bytes calldata _nodeOperatorIds,
+	bytes calldata _vettedSigningKeysCounts
+) external;
+```
+
+**Parameters:**
+
+| Name  | Type              | Description                                       |
+|-------|-------------------|---------------------------------------------------|
+| `_stakingModuleId` | `uin256` | staking module id |
+| `_nodeOperatorIds` | `bytes` | ids of the node operators |
+| `_vettedSigningKeysCounts` | `bytes` | new counts of vetted signing keys for the specified node operators. |
