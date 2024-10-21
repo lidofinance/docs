@@ -46,7 +46,7 @@ module.exports = {
             'guides/tooling',
             'guides/validator-ejector-guide',
             'guides/kapi-guide',
-            'guides/reward-distributor-bot',
+            'guides/reward-distribution-bot',
           ],
         },
         'guides/multisig-deployment',
