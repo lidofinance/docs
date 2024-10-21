@@ -4,7 +4,7 @@
 - [Deployed contract](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
-[`AccountingOracle`](./accounting-oracle.md), [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md).
+[`AccountingOracle`](/contracts/accounting-oracle.md), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md).
 Due to the high impact of data provided by the Oracles on the state of the protocol, each Oracle's
 report passes a set of onchain
 [sanity checks](https://en.wikipedia.org/wiki/Sanity_check).
@@ -240,7 +240,7 @@ function checkSimulatedShareRate(
 
 ### getLidoLocator()
 
-Returns the address of the protocol-wide [LidoLocator](./lido-locator.md) instance.
+Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator.md) instance.
 
 ```solidity
 function getLidoLocator() returns (address)
@@ -602,7 +602,7 @@ See [`setOracleReportLimits()`](#setoraclereportlimits) method.
 ### EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
 
 Granting this role allows updating the `exitedValidatorsPerDayLimit` value of the [Limits List](#limits-list).
-See the [`setExitedValidatorsPerDayLimit()`](#setExitedValidatorsPerDayLimit) method.
+See the [`setExitedValidatorsPerDayLimit()`](#setexitedvalidatorsperdaylimit) method.
 
 ```solidity
 bytes32 public constant EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
@@ -612,7 +612,7 @@ bytes32 public constant EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
 ### APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
 
 Granting this role allows updating the `appearedValidatorsPerDayLimit` value of the [Limits List](#limits-list).
-See the [`setAppearedValidatorsPerDayLimit()`](#setAppearedValidatorsPerDayLimit) method.
+See the [`setAppearedValidatorsPerDayLimit()`](#setappearedvalidatorsperdaylimit) method.
 
 ```solidity
 bytes32 public constant APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
@@ -652,7 +652,7 @@ bytes32 public constant MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE =
 ### MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE()
 
 Granting this role allows updating the `maxItemsPerExtraDataTransaction` value of the [Limits List](#limits-list).
-See the [`setMaxItemsPerExtraDataTransaction()`](#setMaxItemsPerExtraDataTransaction) method.
+See the [`setMaxItemsPerExtraDataTransaction()`](#setmaxitemsperextradatatransaction) method.
 
 ```solidity
 bytes32 public constant MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE =
@@ -662,7 +662,7 @@ bytes32 public constant MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE =
 ### MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE()
 
 Granting this role allows updating the `maxNodeOperatorsPerExtraDataItem` value of the [Limits List](#limits-list).
-See the [`setMaxNodeOperatorsPerExtraDataItem()`](#setMaxNodeOperatorsPerExtraDataItem) method.
+See the [`setMaxNodeOperatorsPerExtraDataItem()`](#setmaxnodeoperatorsperextradataitem) method.
 
 ```solidity
 bytes32 public constant MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE =

@@ -4,11 +4,11 @@
 - [Deployed Contract](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5)
 
 The `NodeOperatorsRegistry` contract acts as a registry of Node Operators selected by the Lido DAO.
-Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](./staking-router.md) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/interfaces/IStakingModule.sol).
+Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](/contracts/staking-router.md) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/interfaces/IStakingModule.sol).
 
 `NodeOperatorsRegistry` keeps track of various Node Operators data, in particular limits of the allowed stake, reward addresses, penalty information, public keys of the Node Operators' validators. It defines order in which the Node Operators get the ether deposited and reward distribution between the node operators.
 
-A curated node operator is obliged by the Lido DAO to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by means of [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) contract. If a NO doesn't fulfil the request timely, it might get penalized. The penalized status is assigned automatically by the Lido protocol. The penalized NO do not get new ether for new deposits and also receives half of its rewards till the penalty is cleared. The other half of the NO rewards gets distributed between all stETH holders (technically, it gets burned). To get the penalty cleared, the NO must exit the stuck validators or refund the corresponding ether amount and wait `getStuckPenaltyDelay()` seconds after that.
+A curated node operator is obliged by the Lido DAO to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by means of [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) contract. If a NO doesn't fulfil the request timely, it might get penalized. The penalized status is assigned automatically by the Lido protocol. The penalized NO do not get new ether for new deposits and also receives half of its rewards till the penalty is cleared. The other half of the NO rewards gets distributed between all stETH holders (technically, it gets burned). To get the penalty cleared, the NO must exit the stuck validators or refund the corresponding ether amount and wait `getStuckPenaltyDelay()` seconds after that.
 
 The Lido DAO can also:
 
@@ -37,7 +37,7 @@ In the context of these terms "signing key", "key", "validator key", "validator"
 
 **used (active)** (signing key). Deposited but not yet exited.
 
-**stuck** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md) by Lido protocol.
+**stuck** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) by Lido protocol.
 
 **refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see [Lido on Ethereum Block Proposer Rewards Policy v1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0x3b1e5f9960e682abdc25c86624ad13acb88ee1cea18db9be99379b44750c7b36).
 
@@ -60,9 +60,9 @@ For each NO the contract keeps a record of at least these values:
 
 The values can be viewed by means of `getNodeOperator()` and `getNodeOperatorSummary()`.
 
-Except for the function listed below, the contract has methods accessible only by [`StakingRouter`](./staking-router.md)
+Except for the function listed below, the contract has methods accessible only by [`StakingRouter`](/contracts/staking-router.md)
 (holder of `STAKING_ROUTER_ROLE`). These functions are called internally in the course of
-[`AccountingOracle`](./accounting-oracle.md) report.
+[`AccountingOracle`](/contracts/accounting-oracle.md) report.
 
 ## View Methods
 
@@ -319,7 +319,7 @@ function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
 
 ### getLocator()
 
-Returns the address of [`LidoLocator`](./lido-locator.md).
+Returns the address of [`LidoLocator`](/contracts/lido-locator.md).
 
 ```solidity
 function getLocator() view returns (ILidoLocator)

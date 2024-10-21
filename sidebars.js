@@ -2,6 +2,7 @@ module.exports = {
   docs: [
     'introduction',
     'lido-dao',
+    'lips',
     'guides/lido-tokens-integration-guide',
     {
       type: 'category',
@@ -45,7 +46,7 @@ module.exports = {
             'guides/tooling',
             'guides/validator-ejector-guide',
             'guides/kapi-guide',
-            'guides/reward-distributor-bot',
+            'guides/reward-distribution-bot',
           ],
         },
         'guides/multisig-deployment',
@@ -59,7 +60,8 @@ module.exports = {
         'guides/1inch-pool-rewards',
         'guides/early-staker-airdrop',
         'guides/jumpgates',
-        'guides/verify-lido-v2-upgrade-manual'
+        'guides/verify-lido-v2-upgrade-manual',
+        'guides/verify-steth-on-optimism-upgrade-manual'
       ],
     },
     {
@@ -105,6 +107,7 @@ module.exports = {
         'contracts/withdrawal-vault',
         'contracts/wsteth',
         'contracts/deposit-security-module',
+        'contracts/data-bus',
         'contracts/burner',
         'contracts/lido-execution-layer-rewards-vault',
         'contracts/mev-boost-relays-allowed-list',
@@ -117,7 +120,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Security',
-      items: ['security/bugbounty'],
+      items: [
+        'security/bugbounty',
+        'security/audits'
+      ],
     },
     {
       type: 'category',
@@ -158,12 +164,14 @@ module.exports = {
         {
           type: 'category',
           label: 'CSM',
+          link: { type: 'doc', id: 'staking-modules/csm/intro' },
           items: [
             'staking-modules/csm/intro',
             'staking-modules/csm/join-csm',
             'staking-modules/csm/rewards',
             'staking-modules/csm/penalties',
             'staking-modules/csm/validator-exits',
+            { type: 'doc', id: 'staking-modules/csm/permissions', label: 'Permissions' },
             {
               type: 'category',
               label: 'Guides',
@@ -175,6 +183,18 @@ module.exports = {
                 'staking-modules/csm/guides/unbonded-validators',
                 'staking-modules/csm/guides/addresses',
               ]
+            },
+            {
+              type: 'category',
+              label: 'Contracts',
+              items: [
+                'staking-modules/csm/contracts/CSModule',
+                'staking-modules/csm/contracts/CSAccounting',
+                'staking-modules/csm/contracts/CSFeeDistributor',
+                'staking-modules/csm/contracts/CSFeeOracle',
+                'staking-modules/csm/contracts/CSVerifier',
+                'staking-modules/csm/contracts/CSEarlyAdoption',
+              ],
             },
             'staking-modules/csm/further-reading',
           ],

@@ -34,9 +34,9 @@ You can find it on the Operators Dashboard (`#123` on the operator card): [Hole≈
 
 ### Staking Router Module ID:
 
-ID of the [StakingRouter](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol) contract module.
+ID of the [StakingRouter](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/StakingRouter.sol) contract module.
 
-Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)), it's id is `1`.
+Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/lidofinance/core/blob/master/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)), it's id is `1`.
 
 ### Oracle Allowlist
 The oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle ) contract on-chain, directly from the contract using Etherscan.

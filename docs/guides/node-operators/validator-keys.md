@@ -164,8 +164,8 @@ When you submit a form, the keys are saved in your browser. This tool checks the
 
 [mainnet web interface for submitting the keys]: https://operators.lido.fi/submitter
 [testnet web interface for submitting the keys]: https://operators.testnet.fi/submitter
-[custom app]: https://help.gnosis-safe.io/en/articles/4022030-add-a-custom-safe-app
-[use walletconnect]: https://help.gnosis-safe.io/en/articles/4356253-walletconnect-safe-app
+[custom app]: https://help.safe.global/en/articles/40859-add-a-custom-safe-app
+[use walletconnect]: https://help.safe.global/en/articles/108235-how-to-connect-a-safe-to-a-dapp-using-walletconnect
 
 ## Importing the keys to a Lighthouse validator client
 

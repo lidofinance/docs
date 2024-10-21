@@ -3,7 +3,7 @@
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/DepositSecurityModule.sol)
 - [Deployed Contract](https://etherscan.io/address/0xC77F8768774E1c9244BEed705C4354f2113CFc09)
 
-Due to front-running vulnerability, we [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
+Due to front-running vulnerability, Lido contributors [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
 - monitoring the history of deposits and the set of Lido keys available for the deposit, signing and disseminating messages allowing deposits;
 - signing the special message allowing anyone to pause deposits once the malicious Node Operator pre-deposits are detected.

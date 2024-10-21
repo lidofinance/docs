@@ -1,8 +1,8 @@
 # Wallets
 
-If you are an Ethereum wallet provider, you can integrate Lido staking into your app or website and get [Lido referral rewards](https://lido.fi/referral).
+By integrating Lido staking into your app or website you may be eligible for [Lido Rewads-Share Program](https://research.lido.fi/t/rewards-share-program-2024/6812).
 
-*To participate in [Lido Referral Program](https://lido.fi/referral), apply for whitelisting on [Lido Forum](https://research.lido.fi/t/referral-program-whitelisting-ethereum/1039).*
+*To participate in [Lido Rewards-Share Program](https://research.lido.fi/t/rewards-share-program-2024/6812), file your application following the onboarding process described.*
 
 ## Your referral link
 
@@ -32,6 +32,31 @@ Preview,
 </a>
 
 For more examples, click [here](https://github.com/lidofinance/referral-program-integration-examples/tree/main/examples/banners).
+
+### Embedding Staking Widget
+
+If you don't want users to leave your app to stake, you can embed Staking Widget via the `iframe` HTML tag and use your referral link as the source.
+
+Example code,
+
+```html
+<iframe
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS"
+    title="Lido Staking App"
+    height="500"
+    width="100%"
+/>
+```
+
+Preview,
+<iframe
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS"
+    title="Lido Staking App"
+    height="500"
+    width="100%"
+/>
+
+For a full example, click [here](https://github.com/lidofinance/referral-program-integration-examples/blob/main/examples/iframe/iframe.html).
 
 ### Interacting with Lido contract directly
 

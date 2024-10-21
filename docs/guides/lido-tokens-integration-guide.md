@@ -61,7 +61,7 @@ There are following `wstETH/stETH` rate feeds available to use in conjunction wi
 - [Scroll](https://data.chain.link/feeds/scroll/mainnet/wsteth-steth%20exchangerate)
 - [Base](https://data.chain.link/feeds/base/base/wsteth-steth%20exchangerate)
 - [Polygon PoS](https://data.chain.link/feeds/polygon/mainnet/wsteth-steth)
-- [ZKSync Era](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
+- [ZKSync](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
 :::note
 The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
 :::
@@ -261,27 +261,41 @@ The most recent testnet version of the Lido protocol lives on the Holešky testn
 
 The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Holešky. Note that the protocol setup on Sepolia has no UIs and various services available on Holešky and Mainnet. For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Holešky testnet deployment if possible.
 
-### wstETH on L2s
+### Lido Multichain
 
-Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-on-l2):
+#### wstETH
+
+Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-multichain):
 
 - [Arbitrum](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529)
 - [Optimism](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb)
 - [Scroll](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32)
 - [Base](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452)
 - [Linea](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F)
-- [ZKSync Era](https://docs.lido.fi/deployed-contracts/#zksync-era)
+- [ZKSync](https://docs.lido.fi/deployed-contracts/#zksync-era)
 - [Mantle](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83)
 - [Polygon PoS](https://polygonscan.com/token/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd)
+- [Mode](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81)
+- [Binance Smart Chain (BSC)](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C)
 
 with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/wsteth-bridging-guide.md).
 
 :::note
-Unlike on the Ethereum mainnet, wstETH on L2s is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network as of now.
+Unlike on the Ethereum mainnet, wstETH for Lido Multichain is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network unless handled via [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md)
 :::
 
 Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
-Use the [wstETH/stETH rate feeds](./lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
+Use the [wstETH/stETH rate feeds](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
+
+#### stETH (Optimism pilot)
+
+Effective 2024 October, stETH token has become available [on Optimism](/docs/deployed-contracts/index.md#optimism).
+The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) architecture approach.
+
+- Token address: [`0x76A50b8c7349cCDDb7578c6627e79b5d99D24138`](https://optimistic.etherscan.io/address/0x76A50b8c7349cCDDb7578c6627e79b5d99D24138)
+- wstETH/stETH in-protocol native rate feed on Optimism: [`0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0`](https://optimistic.etherscan.io/address/0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0)
+
+The native rate feed allows getting `wstETH/stETH` in-protocol rate delivered from the L1 side by the canonical bridge.
 
 ## LDO
 
@@ -411,7 +425,7 @@ Any other viable approach for mitigation might be used as well. As one more exam
 ### Checking the state of withdrawal
 
 - You can check all the withdrawal requests for the owner by calling `getWithdrawalRequests(address _owner)` which returns an array of NFT ids.
-- To check the state of the particular NFTs you can call `getWithdrawalStatus(uint256[] _requestIds)` which returns an array of [`WithdrawalRequestStatus`](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/WithdrawalQueueBase.sol#L67-L81) struct.
+- To check the state of the particular NFTs you can call `getWithdrawalStatus(uint256[] _requestIds)` which returns an array of [`WithdrawalRequestStatus`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/WithdrawalQueueBase.sol#L67-L81) struct.
 
 ```solidity
     struct WithdrawalRequestStatus {
@@ -459,7 +473,7 @@ Lido's staked tokens have been listed on major liquidity protocols:
 - On AAVE v3, multiple tokens can be borrowed against wstETH on various chains (see the list of the [markets](#sttokens-steth-and-wsteth))
 
 Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard.
-The default option to use is exchange [rate feeds](./lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
+The default option to use is exchange [rate feeds](/guides/lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
 
 ```python
 'wstETH/X price feed' = 'wstETH/stETH rate feed' × 'ETH/X price feed'
@@ -496,7 +510,7 @@ There exist a number of potential risks when staking using liquid staking protoc
 
 ### Smart contract security
 
-  There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-source, audited, and covered by an extensive bug bounty program to minimize this risk. To mitigate smart contract risks, all of the core Lido contracts are audited. Audit reports can be found here. Besides, Lido is covered with a massive Immunefi bug bounty program.
+  There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-source, audited, and covered by an extensive bug bounty program to minimize this risk. To mitigate smart contract risks, all of the core Lido contracts are audited. Audit reports can be found [here](https://github.com/lidofinance/audits). Besides, Lido is covered with a massive Immunefi bug bounty program.
 
 ### Slashing risk
   Validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimize this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
