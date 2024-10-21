@@ -97,7 +97,7 @@ line `"msg": "Bot env variables"`
 
 ### Docker
 
-Docker image could be found [here](https://docs.lido.fi/guides/tooling#depositor-bot).
+Docker image can be found [here](https://docs.lido.fi/guides/tooling#depositor-bot).
 
 ## Monitoring
 
