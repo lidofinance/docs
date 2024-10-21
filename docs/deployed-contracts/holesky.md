@@ -1,7 +1,7 @@
 # Holešky
 
 :::info
-[Holešky testnet](./holesky.md) is the main operational and maintained protocol testnet deployment.
+[Holešky testnet](/deployed-contracts/holesky.md) is the main operational and maintained protocol testnet deployment.
 :::
 
 ## Core protocol
@@ -28,7 +28,7 @@
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0xffDDF7025410412deaa05E3E1cE68FE53208afcb`](https://holesky.etherscan.io/address/0xffDDF7025410412deaa05E3E1cE68FE53208afcb) (proxy)
   - HashConsensus: [`0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f`](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f)
-- OracleReportSanityChecker: [`0xd7C870777e08325Ad0A3A85F41E66E7D84B63E4f`](https://holesky.etherscan.io/address/0xd7C870777e08325Ad0A3A85F41E66E7D84B63E4f)
+- OracleReportSanityChecker: [`0x80D1B1fF6E84134404abA18A628347960c38ccA7`](https://holesky.etherscan.io/address/0x80D1B1fF6E84134404abA18A628347960c38ccA7)
 - OracleDaemonConfig: [`0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7`](https://holesky.etherscan.io/address/0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019`](https://holesky.etherscan.io/address/0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019) (proxy)
 
@@ -69,7 +69,7 @@
 - CSAccounting: [`0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1`](https://holesky.etherscan.io/address/0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1) (proxy)
 - CSFeeDistributor: [`0xD7ba648C8F72669C6aE649648B516ec03D07c8ED`](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED) (proxy)
 - CSFeeOracle: [`0xaF57326C7d513085051b50912D51809ECC5d98Ee`](https://holesky.etherscan.io/address/0xaF57326C7d513085051b50912D51809ECC5d98Ee) (proxy)
-- CSVerifier: [`0xEaBA76fAf7A5473fAC6a2511d8115beAb43Cf8a7`](https://holesky.etherscan.io/address/0xEaBA76fAf7A5473fAC6a2511d8115beAb43Cf8a7)
+- CSVerifier: [`0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916`](https://holesky.etherscan.io/address/0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916)
 - CSEarlyAdoption: [`0x71E92eA77C198a770d9f33A03277DbeB99989660`](https://holesky.etherscan.io/address/0x71E92eA77C198a770d9f33A03277DbeB99989660)
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
 - GateSeal: [`0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce`](https://holesky.etherscan.io/address/0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce)
@@ -149,6 +149,10 @@
 - **ATC stETH** (committee ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915))
   - AllowedRecipientsRegistry: [`0x955bA61676dAd6091Ff3F9BC498219D6DbD49107`](https://holesky.etherscan.io/address/0x955bA61676dAd6091Ff3F9BC498219D6DbD49107)
   - TopUpAllowedRecipients: [`0x1395970895282333dC914172944f52F15Df63620`](https://holesky.etherscan.io/address/0x1395970895282333dC914172944f52F15Df63620)
+- **Alliance Ops stablecoins** (trusted caller is QA & DAO-ops ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://holesky.etherscan.io/address/0x96d2Ff1C4D30f592B91fd731E218247689a76915))
+  - AllowedRecipientsRegistry: [`0xe1ba8dee84a4df8e99e495419365d979cdb19991`](https://holesky.etherscan.io/address/0xe1ba8dee84a4df8e99e495419365d979cdb19991)
+  - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)
+  - TopUpAllowedRecipients: [`0x343fa5f0c79277e2d27e440f40420d619f962a23`](https://holesky.etherscan.io/address/0x343fa5f0c79277e2d27e440f40420d619f962a23)
 - **Sandbox stablecoins** (trusted caller is DAO ops testnet EOA [`0xd4090ca1134f8de1450b8246916f73d212efdef6`](https://holesky.etherscan.io/address/0xd4090ca1134f8de1450b8246916f73d212efdef6))
   - AllowedRecipientsRegistry: [`0xF8a63a36B954D72de197097377aa00C238c653Cf`](https://holesky.etherscan.io/address/0xF8a63a36B954D72de197097377aa00C238c653Cf)
   - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)

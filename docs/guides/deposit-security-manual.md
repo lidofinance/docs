@@ -18,27 +18,21 @@ There is the vulnerability allowing the malicious Node Operator to intercept the
 
 ### The Deposit Security Committee
 
-We propose to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
+The Deposit Security Committee has been established to ensure the safety of deposits on the Beacon chain:
 
-- monitoring deposit history and the set of Lido keys available for the deposit, signing and distributing messages allowing deposits;
-- signing a special message to allow anyone to pause deposits if malicious pre-deposits by a Node Operator are detected;
-- signing a special message to allow anyone to decrease node operator deposit limits if duplicate or invalid signatures are found.
+- **Monitoring and Messaging**: Monitors the history of deposits and the set of Lido keys available for deposits, signs, and disseminates messages to permit deposits.
+- **Pause on Malice Detection**: Signs the "pause" message that allows anyone to halt deposits when malicious Node Operator deposits are detected.
+- **Enhanced Security Measures**: Signs the message that enables the unvetting of keys from the Staking Module in cases of detected malicious activities, duplicate entries, or invalid keys by Node Operators.
 
 To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option [<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
 
 ### Committee membership
 
-The first set of guardians is five node operators (Stakefish, Skillz, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 7 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
+The current set of guardians is five node operators (Stakefish, Kiln, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 6 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
 
 ### Members responsibilities
 
-Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, member has to run `DSC Daemon`that monitors the validators’ public keys in the `DepositContract` and `NodeOperatorRegistry`. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
-
-The daemon constantly watches all updates in `DepositContract` and `NodeOperatorRegistry`:
-
-- If the state is correct, it signes the current to_sign struct and emits it to an off-chain message queue.
-- If the state has malicious pre-deposits, it signs the “something’s wrong” message at the current block, emits it to a message queue, and attempts to send pauseDeposits() tx.
-- If the state has duplicated keys, or invalid keys signatures, it signs the message that contains module id, node operator id and last valid key. Distribute this message, attempts to send unvet transaction.
+Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, member has to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
 
 ## Preparation steps
 
@@ -47,6 +41,10 @@ Before running in the mainnet, all steps should be completed in the Holešky tes
 ### EOA account
 
 It might be any EOA account under the member's control. Send the address of its account to Lido for submitting it to the smart contract. Lido will provide some ETH to make stopping transactions if needed (shouldn't ever be the case). Note, all actions, except sending the stop message, would be done off-chain.
+
+### Onchain Data Bus Communication
+
+For inter-service communication, an onchain data bus is utilized, based on EVM-based network and a simple smart contract. This smart contract allows for sending messages essential for the operation of the service. The current specification of these messages is outlined in [this file](https://github.com/lidofinance/lido-council-daemon/blob/main/src/abi/data-bus.abi.json). For more details on the smart contract, please refer to [the document](/contracts/data-bus).
 
 ### Run lido-council-daemon
 

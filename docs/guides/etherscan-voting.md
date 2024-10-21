@@ -1,62 +1,84 @@
-# DAO voting with Etherscan
 
-This how to vote on Lido DAO Aragon with Etherscan UI
+# How to Vote, Override, Delegate with Etherscan
 
-## Video guide
+This guide will walk you through how to vote, override your delegate's vote, and delegate your voting power using Etherscan. If the [Voting UI](https://vote.lido.fi/) is unavailable or you prefer to vote via Etherscan, follow these simple steps.
 
-<div style={{position:'relative',width:'100%',paddingBottom:'62.5%',height:0}}>
-   <iframe style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} src="https://www.youtube.com/embed/5YTJgudYHs8" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-</div>
+## Getting Started
 
-## Preparation
-
-Get the address of the Lido DAO `Aragon Voting` contract from [Deployed Contracts](/deployed-contracts/#dao-contracts) page. It should be: [0x2e59A20f205bB85a89C53f1936454680651E618e].
-
-Get the vote id, either from [voting ui]:
-
-![](/img/etherscan-voting/voting_ui.png)
-
-or from [Etherscan]:
-
-![](/img/etherscan-voting/etherscan_vote_address.png)
-
-1. Open "[Contract/Read as Proxy]" tab
-2. Get the total number of the votes from `votesLength` method (number 21 on [Etherscan page])
-
-![](/img/etherscan-voting/votes-length.png)
-
-3. If you're looking to vote on the last vote, take `votesLength - 1` as an id. If the `votesLength` is `89`, last vote would have the id `88`
-4. You can check the vote data with `getVote` method (number 6 on [Etherscan page])
-
-![](/img/etherscan-voting/get-vote.png)
-
-[0x2e59a20f205bb85a89c53f1936454680651e618e]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e
-[voting ui]: https://vote.lido.fi
-[etherscan]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
-[contract/read as proxy]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
-[etherscan page]: https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#readProxyContract
+Obtain the address of the Lido DAO `Aragon Voting` contract from the [Deployed Contracts](/deployed-contracts/#dao-contracts) page. Currently, it is [`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e). Open this contract on Etherscan.
 
 ## Voting
 
-1. Open "[Contract / Write as Proxy](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#writeProxyContract)" tab on Etherscan
-2. Connect Etherscan UI to Web3 with either MetaMask or WalletConnect
+### Step 1: Find the Voting ID
+- Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
+- Go to the **Read as Proxy** tab of the Aragon Voting contract.
+- Locate the `votesLength` method (number 29) to get the current vote ID.
 
-![](/img/etherscan-voting/connect-wallet.png)
+![](/img/etherscan-voting/vote_ID_1.png)
 
-3. Use method `vote` (number 6 on the [Etherscan Page](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e#writeProxyContract))
+The number you see here is the ID of the current vote. For example, if it shows 110, that's the current vote ID.
 
-![](/img/etherscan-voting/vote-1.png)
+### Step 2: Review the Proposal
 
-- `_voteId` is the vote id from the point 2.
-- `_supports` is the flag of whether you're voting for (type `true`) or against (type `false`) the vote
-- `_executesIfDecided` is the flag to enact the vote if it could be executed right away in the tx sending the vote, `true` or `false`; from the experience of the previous votes, you may leave that as `false`
+- Use the `getVote` method (number 9) to review the proposal. Note that to understand the proposed changes, you will need to decode the bytecode into readable scripts.
 
-4. Fill in the parameters `_voteId`, `_supports` & `_executesIsDecided` and send the transaction
+![](/img/etherscan-voting/getVote_2.png)
 
-![](/img/etherscan-voting/vote-2.png)
+### Step 3: Cast Your Vote
 
-5. Sign the transaction
+- Navigate to the **Write as Proxy** tab.
+- Click **Connect to Web3** and connect the address where you hold LDO tokens. The indicator should turn green.
 
-![](/img/etherscan-voting/sign-transaction.png)
+![](/img/etherscan-voting/web3_connect_3.png)
 
-That's it! 🎉
+- Use the `vote` method (number 13).
+
+![](/img/etherscan-voting/vote_4.png)
+
+- Fill in the parameters `_voteId`, `_supports`, and `_executesIfDecided` and send the transaction:
+    - `_voteId` is the vote ID from Step 1.
+    - `_supports` indicates whether you support (`true`) or oppose (`false`) the vote.
+    - `_executesIfDecided` should be set to `false`.
+
+### Step 4: Sign the Transaction
+
+Sign the transaction to cast your vote. That's it! 🎉
+
+## Overriding
+
+### Step 1: Check Delegate's Vote
+-  Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
+- Go to the **Read as Proxy** tab of the Aragon Voting contract.
+- Use the `getVoterState` method (number 7).
+
+![](/img/etherscan-voting/getVoterState_5.png)
+
+Enter the vote ID and your address to see how your delegate voted. 
+
+### Step 2: Vote Yourself
+
+If you disagree with the delegate's choice and wish to vote yourself, follow the steps in the **Voting Steps** section.
+
+## Delegating Through Etherscan
+
+### Assign a Delegate
+1. Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
+2. Go to the **Write as Proxy** tab.
+3. Use the `assignDelegate` method (number 1).
+4. Click **Connect to Web3** and connect your address. The indicator should turn green.
+5. Enter your delegate's address and submit the transaction.
+
+That's it! Your delegate is assigned.
+
+### Remove a Delegate
+1. Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
+2. Go to the **Write as Proxy** tab.
+3. Use the `unassignDelegate` method (number 2).
+4. Click **Connect to Web3** and connect your address. The indicator should turn green.
+5. Click **Write** without entering anything and sign the transaction.
+
+That's it! Your delegate has been removed.

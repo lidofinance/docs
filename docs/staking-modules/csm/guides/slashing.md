@@ -34,9 +34,9 @@ A typical total slashing penalty is **~1.2 ETH**
 Several things happen with the slashed validator in CSM:
 
 1. Once the slashing is reported using a permissionless method (powered by EIP-4788), **1 ETH penalty is burned** from the Node Operator's bond.
-2. Once the slashing period has ended and the validator is reported as withdrawn, **the bond curve is [reset](../../csm/penalties.md#benefits-reset) to the default** one for the Node Operator due to the fact of slashing. Also, the **difference between the withdrawal balance and 31 ETH** (32 - 1, since 1 ETH was already penalized) **is [confiscated](../../csm/penalties.md#reasons) from the Node Operator's bond.**
+2. Once the slashing period has ended and the validator is reported as withdrawn, **the [bond](../join-csm#bond) curve is [reset](/staking-modules/csm/penalties.md#benefits-reset) to the default** one for the Node Operator due to the fact of slashing. Also, the **difference between the withdrawal balance and 31 ETH** (32 - 1, since 1 ETH was already penalized) **is [confiscated](/staking-modules/csm/penalties.md#reasons) from the Node Operator's bond.**
 
-So, **CSM will confiscate all slashing-related penalties from the Node Operator's bond and reset the beneficial bond curve if it was ever set.**
+So, **CSM will confiscate all slashing-related penalties from the Node Operator's [bond](../join-csm#bond) and reset the beneficial [bond](../join-csm#bond) curve if it was ever set.**
 
 ## What should I do to avoid slashing?
 

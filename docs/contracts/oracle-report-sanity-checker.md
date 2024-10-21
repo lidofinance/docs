@@ -4,7 +4,7 @@
 - [Deployed contract](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
-[`AccountingOracle`](./accounting-oracle.md), [`ValidatorsExitBusOracle`](./validators-exit-bus-oracle.md).
+[`AccountingOracle`](/contracts/accounting-oracle.md), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md).
 Due to the high impact of data provided by the Oracles on the state of the protocol, each Oracle's
 report passes a set of onchain
 [sanity checks](https://en.wikipedia.org/wiki/Sanity_check).
@@ -240,7 +240,7 @@ function checkSimulatedShareRate(
 
 ### getLidoLocator()
 
-Returns the address of the protocol-wide [LidoLocator](./lido-locator.md) instance.
+Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator.md) instance.
 
 ```solidity
 function getLidoLocator() returns (address)

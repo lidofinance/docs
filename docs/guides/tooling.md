@@ -28,20 +28,20 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 
 The Lido Council Daemon monitors deposit contract keys.
 
-- **Version**: 2.1.2
-- **Docker image**: sha256:a8fe22fdb9d6c51422f12b99cdd920150d9039127758490294b6a60641aa5eeb, [lidofinance/lido-council-daemon@sha256-a8fe22fdb9d6c51422f12b99cdd920150d9039127758490294b6a60641aa5eeb](https://hub.docker.com/layers/lidofinance/lido-council-daemon/2.1.2/images/sha256-a8fe22fdb9d6c51422f12b99cdd920150d9039127758490294b6a60641aa5eeb)
-- Commit hash: [lidofinance/lido-council-daemon@e675a48](https://github.com/lidofinance/lido-council-daemon/commit/e675a4856502b9f67e606f0c5f07d712288d5945)
-- **Last update date**: 30 March, 2024
-- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/2.1.2)
+- **Version**: 3.2.0
+- **Docker image**: sha256:b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9, [lidofinance/lido-council-daemon@sha256-b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9](https://hub.docker.com/layers/lidofinance/lido-council-daemon/3.2.0/images/sha256-b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9?context=explore)
+- Commit hash: [lidofinance/lido-council-daemon@0ac715d](https://github.com/lidofinance/lido-council-daemon/commit/0ac715d93755d07b93c1997cecdcf04d2c5bd539)
+- **Last update date**: 10 October, 2024
+- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.2.0)
 - [**Documentation**](/guides/deposit-security-manual)
 
 ## Keys API
 
 Lido keys HTTP API.
 
-- **Version**: 1.0.2
-- **Docker image**: sha256:1031ae9696c0cba41c32ca9496935be459a69ccbd18079631faa0413afd3ac4f, [lidofinance/lido-keys-api@sha256-1031ae9696c0cba41c32ca9496935be459a69ccbd18079631faa0413afd3ac4f](https://hub.docker.com/layers/lidofinance/lido-keys-api/1.0.2/images/sha256-1031ae9696c0cba41c32ca9496935be459a69ccbd18079631faa0413afd3ac4f)
-- **Commit hash**: [lidofinance/lido-keys-api@33141b1](https://github.com/lidofinance/lido-keys-api/commit/33141b195563769151f3d1054acdf785d92db381)
-- **Last update date**: 28 February, 2024
-- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/1.0.2)
+- **Version**: 2.2.0
+- **Docker image**: sha256:90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae, [lidofinance/lido-keys-api@sha256-90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae](https://hub.docker.com/layers/lidofinance/lido-keys-api/2.2.0/images/sha256-90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae?context=explore)
+- **Commit hash**: [lidofinance/lido-keys-api@b03e65b](https://github.com/lidofinance/lido-keys-api/commit/b03e65b18ff7bde3830554308b79fa9c234afa2d)
+- **Last update date**: 10 October, 2024
+- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/2.2.0)
 - [**Documentation**](/guides/kapi-guide)

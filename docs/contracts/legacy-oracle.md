@@ -3,9 +3,12 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/oracle/LegacyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb)
 
-:::warning
-`LegacyOracle` will be maintained till the end of 2023.
-Afterwards, it will be discontinued and external integrations should rely on [`AccountingOracle`](/contracts/accounting-oracle).
+:::warning[**DEPRECATION NOTICE**]
+
+- Effective October 2024, the `LegacyOracle` contract on Mainnet will no longer receive state updates, as [announced](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6).
+- External integrations should transition to using the [`AccountingOracle`](/contracts/accounting-oracle) instead.
+- For compatibility reasons, the `LegacyOracle` contract will remain accessible via the [`LidoLocator`](/contracts/lido-locator) but may be removed in 2025 without further notice.
+
 :::
 
 ## What is LegacyOracle?
@@ -25,9 +28,9 @@ In Lido V2, `LegacyOracle` only supports a subset of view functions and events.
 The `LegacyOracle` contract receives the data changes on each `AccountingOracle` report using two stages
 (still within the same transaction):
 
-1. Invoke [`handleConsensusLayerReport`](./legacy-oracle#handleconsensuslayerreport)
+1. Invoke [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleconsensuslayerreport)
 providing the reference slot and validators data from `AccountingOracle` itself.
-1. Invoke [`handlePostTokenRebase`](./legacy-oracle#handleposttokenrebase)
+1. Invoke [`handlePostTokenRebase`](/contracts/legacy-oracle#handleposttokenrebase)
 from [`Lido`](/contracts/lido).
 
 ```mermaid
@@ -199,7 +202,7 @@ Always returns (225, 32, 12, 1606824023) for Mainnet and (225, 32, 12, 161650800
 
 ### getCurrentEpochId()
 
-Returns the Beacon Chain epoch id calculated from the current timestamp using the [beacon chain spec](./legacy-oracle#getbeaconspec).
+Returns the Beacon Chain epoch id calculated from the current timestamp using the [beacon chain spec](/contracts/legacy-oracle#getbeaconspec).
 
 ```sol
 function getCurrentEpochId() returns (uint256)
@@ -260,7 +263,7 @@ function getLastCompletedReportDelta() returns (
 Handles a `stETH` token rebase incurred by the succeeded `AccountingOracle` report storing
 the total ether and time elapsed stats.
 
-Emits [`PostTotalShares`](./legacy-oracle#posttotalshares)
+Emits [`PostTotalShares`](/contracts/legacy-oracle#posttotalshares)
 
 ```sol
 function handlePostTokenRebase(
@@ -294,7 +297,7 @@ The caller must be `Lido`.
 
 Handles a new completed `AccountingOracle` report storing the corresponding Beacon Chain epoch id.
 
-Emits [`Completed`](./legacy-oracle#completed).
+Emits [`Completed`](/contracts/legacy-oracle#completed).
 
 ```sol
 function handleConsensusLayerReport(
@@ -334,7 +337,7 @@ event Completed(
 ```
 
 :::note
-Emits inside the [`handleConsensusLayerReport`](./legacy-oracle#handleconsensuslayerreport) methods.
+Emits inside the [`handleConsensusLayerReport`](/contracts/legacy-oracle#handleconsensuslayerreport) methods.
 :::
 
 #### Parameters

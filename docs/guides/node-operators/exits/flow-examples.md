@@ -25,7 +25,7 @@ Using the recommended tooling, the flow looks like this:
 1. Get a list of validators for which to generate and sign exit messages:
 
 - By the order keys are stored in (eg choose oldest)
-- Query [NodeOperatorsRegistry](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.4.24/nos/NodeOperatorsRegistry.sol) contract to get all your keys, sort by index, start with the lowest indexes. Each batch, either track the last pre-signed index or query validator status on the Consensus Node to ignore exiting and already exited validators.
+- Query [NodeOperatorsRegistry](https://github.com/lidofinance/core/blob/master/contracts/0.4.24/nos/NodeOperatorsRegistry.sol) contract to get all your keys, sort by index, start with the lowest indexes. Each batch, either track the last pre-signed index or query validator status on the Consensus Node to ignore exiting and already exited validators.
 
 2. Generate and sign exit messages:
 
@@ -42,7 +42,7 @@ Using the recommended tooling, the flow looks like this:
 
 [![](https://hackmd.io/_uploads/rJZ5TBme3.jpg)](https://hackmd.io/_uploads/rJZ5TBme3.jpg)
 
-1. Monitor `ValidatorExitRequest` events of the [`ValidatorsExitBusOracle`](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol)
+1. Monitor `ValidatorExitRequest` events of the [`ValidatorsExitBusOracle`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol)
 2. Generate and sign exit messages:
 
 - keystores - ethdo

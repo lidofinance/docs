@@ -40,7 +40,7 @@ For some clients the fee recipient option should be applied with other options, 
 [teku mev integration]: https://docs.teku.consensys.net/en/latest/Reference/CLI/CLI-Syntax/#builder-endpoint
 [nimbus mev integration]: https://nimbus.guide/external-block-builder.html
 [lighthouse mev integration]: https://lighthouse-book.sigmaprime.io/builders.html
-[lodestar mev integration]: https://chainsafe.github.io/lodestar/usage/mev-integration/
+[lodestar mev integration]: https://chainsafe.github.io/lodestar/run/beacon-management/mev-and-builder-integration
 [prysm mev integration]: https://docs.prylabs.network/docs/prysm-usage/parameters
 
 ## Relays and MEV-Boost options

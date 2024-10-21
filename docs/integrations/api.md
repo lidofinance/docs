@@ -28,7 +28,7 @@ https://eth-api-holesky.testnet.fi/v1/protocol/steth/apr/sma
 
 ### Last Lido APR for stETH
 
-The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](/docs/contracts/legacy-oracle.md#posttotalshares). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
+The latest staking APR value. For Lido V1, we collected APR values by periodically fetching [oracle report events](/contracts/legacy-oracle.md#posttotalshares). For the V2 version, the value is calculated based on [rebase events](https://github.com/lidofinance/lido-dao/blob/e45c4d6/contracts/0.4.24/Lido.sol#L232).
 
 V2 APR calculation:
 
@@ -57,7 +57,7 @@ userAPR =
 https://eth-api.lido.fi/v1/protocol/steth/apr/last
 ```
 
-Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/static/index.html#/APR%20for%20Eth%20and%20stEth/ProtocolController_findLastAPRforSTETH)
+Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/#/APR%20for%20Eth%20and%20stEth/ProtocolController_findLastAPRforSTETH)
 
 #### Holesky
 
