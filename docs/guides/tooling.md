@@ -12,7 +12,7 @@ Oracle daemon for Lido decentralized staking service.
 - **Last update date**: 10 Oct, 2024
 - [**Repository**](https://github.com/lidofinance/lido-oracle/tree/4.0.1)
 - [**Documentation**](/guides/oracle-operator-manual)
-- [**Audit**](https://github.com/mixbytes/audits_public/tree/029c182/Lido/Lido%20Oracle)
+- [**Audit**](https://github.com/lidofinance/audits/tree/main?tab=readme-ov-file#10-2024-mixbytes-off-chain-audit-of-lido-oracle-v4)
 
 ## Validator Ejector
 
