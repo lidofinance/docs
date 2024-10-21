@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Depositor bot is a part of [Deposit Security Module](link to dsm)..
+Depositor bot is a part of [Deposit Security Module](/contracts/deposit-security-module).
 
 The Depositor Bot obtains signed deposit messages from Council Daemons. Once a sufficient number of messages is
 collected to constitute a quorum, the bot proceeds to initiate a deposit into the designated staking module. This
