@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Depositor bot is a part of [Deposit Security Module](link to dsm)..
+Depositor bot is a part of [Deposit Security Module](/contracts/deposit-security-module).
 
 The Depositor Bot obtains signed deposit messages from Council Daemons. Once a sufficient number of messages is
 collected to constitute a quorum, the bot proceeds to initiate a deposit into the designated staking module. This
@@ -51,7 +51,7 @@ Required variables are(mainnet):
 | WEB3_RPC_ENDPOINTS                | -                                          | List of EL rpc endpoints that will be used to send requests comma separated (`,`)                                        |
 | WALLET_PRIVATE_KEY                | -                                          | Account private key                                                                                                      |
 | CREATE_TRANSACTIONS               | false                                      | If true then tx will be send to blockchain                                                                               |
-| LIDO_LOCATOR                      | 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb | Lido Locator address. Mainnet by default. Other networks could be found [here](https://docs.lido.fi/deployed-contracts/) |
+| LIDO_LOCATOR                      | 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb | Lido Locator address. Mainnet by default. Other networks can be found [here](https://docs.lido.fi/deployed-contracts/) |
 | DEPOSIT_CONTRACT                  | 0x00000000219ab540356cBB839Cbe05303d7705Fa | Ethereum deposit contract address                                                                                        |
 | DEPOSIT_MODULES_WHITELIST         | 1                                          | List of staking module's ids in which the depositor bot will make deposits                                               |
 | ---                               | ---	                                       | ---                                                                                                                      |
@@ -97,7 +97,7 @@ line `"msg": "Bot env variables"`
 
 ### Docker
 
-Docker image could be found [here](https://docs.lido.fi/guides/tooling#depositor-bot).
+Docker image can be found [here](https://docs.lido.fi/guides/tooling#depositor-bot).
 
 ## Monitoring
 
