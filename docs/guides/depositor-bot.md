@@ -102,3 +102,4 @@ Docker image could be found [here](https://docs.lido.fi/guides/tooling#depositor
 ## Monitoring
 
 Prometheus metrics will be available on endpoint `http://localhost:${PROMETHEUS_PORT}/metrics`.
+Alerts [source code](https://github.com/lidofinance/depositor-bot?tab=readme-ov-file#alerts) for AlertManager.
