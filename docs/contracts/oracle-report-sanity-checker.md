@@ -602,7 +602,7 @@ See [`setOracleReportLimits()`](#setoraclereportlimits) method.
 ### EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
 
 Granting this role allows updating the `exitedValidatorsPerDayLimit` value of the [Limits List](#limits-list).
-See the [`setExitedValidatorsPerDayLimit()`](#setExitedValidatorsPerDayLimit) method.
+See the [`setExitedValidatorsPerDayLimit()`](#setexitedvalidatorsperdaylimit) method.
 
 ```solidity
 bytes32 public constant EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
@@ -612,7 +612,7 @@ bytes32 public constant EXITED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
 ### APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE()
 
 Granting this role allows updating the `appearedValidatorsPerDayLimit` value of the [Limits List](#limits-list).
-See the [`setAppearedValidatorsPerDayLimit()`](#setAppearedValidatorsPerDayLimit) method.
+See the [`setAppearedValidatorsPerDayLimit()`](#setappearedvalidatorsperdaylimit) method.
 
 ```solidity
 bytes32 public constant APPEARED_VALIDATORS_PER_DAY_LIMIT_MANAGER_ROLE =
@@ -652,7 +652,7 @@ bytes32 public constant MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE =
 ### MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE()
 
 Granting this role allows updating the `maxItemsPerExtraDataTransaction` value of the [Limits List](#limits-list).
-See the [`setMaxItemsPerExtraDataTransaction()`](#setMaxItemsPerExtraDataTransaction) method.
+See the [`setMaxItemsPerExtraDataTransaction()`](#setmaxitemsperextradatatransaction) method.
 
 ```solidity
 bytes32 public constant MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE =
@@ -662,7 +662,7 @@ bytes32 public constant MAX_ITEMS_PER_EXTRA_DATA_TRANSACTION_ROLE =
 ### MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE()
 
 Granting this role allows updating the `maxNodeOperatorsPerExtraDataItem` value of the [Limits List](#limits-list).
-See the [`setMaxNodeOperatorsPerExtraDataItem()`](#setMaxNodeOperatorsPerExtraDataItem) method.
+See the [`setMaxNodeOperatorsPerExtraDataItem()`](#setmaxnodeoperatorsperextradataitem) method.
 
 ```solidity
 bytes32 public constant MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_ROLE =
