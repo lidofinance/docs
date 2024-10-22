@@ -94,7 +94,7 @@ Statistics for each node operator, which are needed for sorting their validators
 - validators count that are not yet in CL
 - validators that are in CL and are not yet requested to exit and not on exit
 - validators that are in CL and requested to exit but not on exit and not requested to exit recently 
-- target type (forced/soft) and target validators count
+- target type (soft/boosted) and target validators count
 - checks whether the target limit mode is set
 
 NB: A validator can not be considered as delayed if it was requested to exit in last `VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS` slots
