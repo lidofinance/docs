@@ -22,6 +22,7 @@ pagination_next: deployed-contracts/holesky
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
 - Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
+- ([proposed](https://research.lido.fi/t/staking-router-community-staking-module-upgrade-announcement/8612/2)) Min First Allocation Strategy: [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) (external lib)
 
 ## Oracle Contracts
 
@@ -82,6 +83,10 @@ pagination_next: deployed-contracts/holesky
   - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
   - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
   - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) HashConsensus: [`0x71093efF8D8599b5fA340D665Ad60fA7C80688e4`](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
+- External libraries:
+  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) AssetRecovererLib: [`0xa74528edc289b1a597Faf83fCfF7eFf871Cc01D9`](https://etherscan.io/address/0xa74528edc289b1a597Faf83fCfF7eFf871Cc01D9)
+  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) NOAddresses: [`0xF8E5de8bAf8Ad7C93DCB61D13d00eb3D57131C72`](https://etherscan.io/address/0xF8E5de8bAf8Ad7C93DCB61D13d00eb3D57131C72)
+  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/67)) QueueLib: [`0xD19B40Cb5401f1413D014A56529f03b3452f70f9`](https://etherscan.io/address/0xD19B40Cb5401f1413D014A56529f03b3452f70f9)
 
 ## Liquidity pools
 
