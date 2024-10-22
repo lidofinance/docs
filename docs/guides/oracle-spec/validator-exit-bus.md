@@ -14,7 +14,7 @@ A report calculation consists of 6 key steps:
 2. Calculate ether rewards prediction per epoch.
 3. Calculate withdrawal epoch for next validator eligible for exit to cover withdrawal requests if needed.
 4. Prepare validators exit order queue to fulfill withdrawals.
-5. Extend with forced to exit validators up to report limit or until there is no force requests.
+5. Extend exit list with forced to exit validators (`targetLimitMode` is set to the boosted mode) up to the report limit or until there are no forced requests.
 6. Go through the queue until the exited validators’ balances cover all withdrawal requests (considering the predicated final exited balance of each validator).
 
 :::note
