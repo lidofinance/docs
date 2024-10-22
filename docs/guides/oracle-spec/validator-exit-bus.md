@@ -51,7 +51,7 @@ Note that th described algorithm is looking for a validator to exit only among t
 The final exit order predicate sequence to fulfill withdrawal requests:
 
 1. Validator whose operator with the lowest number of delayed validators
-2. Validator whose operator with the highest number of forced targeted validators to exit
+2. Validator whose operator with the highest number of boosted targeted validators to exit
 3. Validator whose operator with the highest number of soft targeted validators to exit
 4. Validator whose staking module with the highest deviation from the exit share limit
 5. Validator whose operator with the highest stake weight
