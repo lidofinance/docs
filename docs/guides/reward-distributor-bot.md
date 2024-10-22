@@ -26,7 +26,7 @@ If module has `ReadyForDistribution` state, bot triggers [distributeReward](http
 ### Envs
 
 Required variables are:
-- WEB3_RPC_ENDPOINTS - list of EL rpc endpoints separated by `,`.
+- WEB3_RPC_ENDPOINTS - list of EL rpc endpoints separated by `,`. All except the first rpc will serve as fallback options.
 - NODE_OPERATOR_REGISTRY_ADDRESSES - List of staking modules that can accept rewards distribution. All addresses could be found [here](https://docs.lido.fi/deployed-contracts/).
 - WALLET_PRIVATE_KEY - Wallet private key that will send such transactions. Do not provide to run bot in DRY mode (do not send transaction).
 
