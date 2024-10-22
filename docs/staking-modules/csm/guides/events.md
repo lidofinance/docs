@@ -23,6 +23,11 @@ event ValidatorExitRequest(
 );
 ```
 
+:::info
+This event can be tracked using [Ejector](https://github.com/lidofinance/validator-ejector). In the case of Ejector usage, the requested validators will be exited automatically if the pre-signed messages for them are uploaded to the Ejector.
+:::
+
+
 ## Contract: CSM
 
 - [Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
@@ -30,7 +35,7 @@ event ValidatorExitRequest(
 
 
 ### ELRewardsStealingPenaltyReported
-The DAO can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
+The [CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
 ```solidity
 event ELRewardsStealingPenaltyReported(
     uint256 indexed nodeOperatorId,
