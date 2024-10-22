@@ -23,7 +23,7 @@ Given the picture above, one may see that in case of an insufficient bond [bond]
 There are several options available:
 
 - **Do not violate protocol rules to avoid penalization.** If no penalty is applied, no unbonded validators will emerge.
-- **Top-up [bond](../join-csm#bond) before the unbonded validators are requested to exit.** If the penalty was already applied, there is a relatively short period of time until the next VEBO report, which most likely will contain a validator exit request. During this period, Node Operators can top-up [bond](../join-csm#bond) to avoid exit requests for their validators.
+- **Top-up [bond](../join-csm#bond) before the unbonded validators are requested to exit.** If the penalty was already applied, there is a relatively short period of time until the next VEBO report frame. The corresponding report will most likely contain a validator exit request. Before the next VEBO report frame, Node Operators can top-up [bond](../join-csm#bond) to avoid exit requests for their validators.
 
 :::warning
 If the unbonded validator has already been requested to exit, Node Operators can only exit it. The [bond](../join-csm#bond) top-up after the exit request will not reverse the request.
