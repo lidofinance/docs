@@ -170,13 +170,13 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ##### Ethereum part
 
-- L1ERC20TokenBridge (proposed): [`0x130424c81a7d497Efa53bc71BB8B718202087726`](https://sepolia.etherscan.io/address/0x130424c81a7d497Efa53bc71BB8B718202087726) (proxy)
-- L1ERC20TokenBridge (proposed): [`0x0b72F930bb0e378b19E93eBadf1c563D28A584ed`](https://sepolia.etherscan.io/address/0x0b72F930bb0e378b19E93eBadf1c563D28A584ed) (impl)
+- L1ERC20TokenBridge: [`0x130424c81a7d497Efa53bc71BB8B718202087726`](https://sepolia.etherscan.io/address/0x130424c81a7d497Efa53bc71BB8B718202087726) (proxy)
+- L1ERC20TokenBridge: [`0x0b72F930bb0e378b19E93eBadf1c563D28A584ed`](https://sepolia.etherscan.io/address/0x0b72F930bb0e378b19E93eBadf1c563D28A584ed) (impl)
 
 ##### Zircuit part
 
-- WstETH ERC20Bridged (proposed): [`0x6b8116B41bFd7e1A976cB892acB79926080A6Ca1`](https://explorer.testnet.zircuit.com/address/0x6b8116B41bFd7e1A976cB892acB79926080A6Ca1) (proxy)
-- WstETH ERC20Bridged (proposed): [`0x549aF13787A46eF63341c8C7e78691F4a2bFbE48`](https://explorer.testnet.zircuit.com/address/0x549aF13787A46eF63341c8C7e78691F4a2bFbE48) (impl)
-- L2ERC20TokenBridge (proposed): [`0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902`](https://explorer.testnet.zircuit.com/address/0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902) (proxy)
-- L2ERC20TokenBridge (proposed): [`0x247f56cFc9021aeC161a4366412636ea33101D2B`](https://explorer.testnet.zircuit.com/address/0x247f56cFc9021aeC161a4366412636ea33101D2B) (impl)
-- Optimism Governance Bridge Executor (proposed): [`0x989CD486c02bfBe5c2D3C157cDCab099134e7697`](https://explorer.testnet.zircuit.com/address/0x989CD486c02bfBe5c2D3C157cDCab099134e7697)
+- WstETH ERC20Bridged: [`0x6b8116B41bFd7e1A976cB892acB79926080A6Ca1`](https://explorer.testnet.zircuit.com/address/0x6b8116B41bFd7e1A976cB892acB79926080A6Ca1) (proxy)
+- WstETH ERC20Bridged: [`0x549aF13787A46eF63341c8C7e78691F4a2bFbE48`](https://explorer.testnet.zircuit.com/address/0x549aF13787A46eF63341c8C7e78691F4a2bFbE48) (impl)
+- L2ERC20TokenBridge: [`0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902`](https://explorer.testnet.zircuit.com/address/0x7721F53d153Ae3CF937605fF1Bbb7D51B14E7902) (proxy)
+- L2ERC20TokenBridge: [`0x247f56cFc9021aeC161a4366412636ea33101D2B`](https://explorer.testnet.zircuit.com/address/0x247f56cFc9021aeC161a4366412636ea33101D2B) (impl)
+- Optimism Governance Bridge Executor: [`0x989CD486c02bfBe5c2D3C157cDCab099134e7697`](https://explorer.testnet.zircuit.com/address/0x989CD486c02bfBe5c2D3C157cDCab099134e7697)
