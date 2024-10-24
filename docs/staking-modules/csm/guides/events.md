@@ -2,6 +2,10 @@
 
 Some events in the CSM may occur on the protocol side, such as withdrawal requests, penalties, etc., which require specific actions from the Node Operator (NO).
 
+:::info
+If the guide seems too complicated, make sure to check out a community-developed tool: [CSM Sentinel](https://github.com/skhomuti/csm-sentinel). This is a Telegram bot that you can run on your own or use one of the community-supported instances. Note that community-supported instances come with no guarantee!
+:::
+
 So, what exactly are the events that the NO has to follow?
 
 ## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
