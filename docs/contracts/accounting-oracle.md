@@ -51,7 +51,7 @@ The diagram shows the interaction with contracts.
 graph LR;
   A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
   AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
-  AccountingOracle--checkAccountingExtraDataListItemsCount-->OracleReportSanityChecker;
+  AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
   AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
   AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
   AccountingOracle--'onOracleReport'-->WithdrawalQueue;
@@ -128,6 +128,14 @@ Extra data — the oracle information that allows asynchronous processing, poten
     data for a report is possible after its processing deadline passes or a new data report
     arrives.
 
+Depending on the size of the extra data, the processing might need to be split into
+multiple transactions. Each transaction contains a chunk of report data (an array of items)
+and the hash of the next transaction. The last transaction will contain ZERO_HASH
+as the next transaction hash.
+
+      32 bytes      array of items
+    | nextHash |         ...    
+
 Extra data is an array of items, each item being encoded as follows:
 
        3 bytes    2 bytes      X bytes
@@ -166,8 +174,8 @@ The `itemPayload` field has the following format:
 
     byteLength(stuckValidatorsCounts) = nodeOpsCount * 16
 
-`nodeOpsCount` must not be greater than `maxAccountingExtraDataListItemsCount` specified
-    in the [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker) contract. If a staking module has more node operators
+`nodeOpsCount` must not be greater than `maxItemsPerExtraDataTransaction` specified
+    in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
     with total stuck validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
     into multiple items.
@@ -621,7 +629,7 @@ To ensure that the reported data is within possible values, the handler function
 
 #### OracleReportSanityChecker
 
-- Reverts with `MaxAccountingExtraDataItemsCountExceeded(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkaccountingextradatalistitemscount)
+- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkextradataitemscountpertransaction)
 - Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
 
 #### StakingRouter
