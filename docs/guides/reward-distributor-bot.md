@@ -14,7 +14,7 @@ After the [Accounting Oracle](/guides/oracle-spec/accounting-oracle) completes t
 
 ### Nodes
 
-- Execution Node
+- Execution Node (can be an RPC)
 
 ## How to use
 
