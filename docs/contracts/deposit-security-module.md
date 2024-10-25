@@ -16,7 +16,7 @@ The guardian himself, or anyone else who has a signed pause message, can call `p
 
 To prevent a replay attack, the guardians sign the block number when  malicious pre-deposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
-Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `churnValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker).
+Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
 
 ## View Methods
 
@@ -24,7 +24,7 @@ Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are
 
 Returns the contract's owner address.
 
-```sol
+```solidity
 function getOwner() external view returns (address);
 ```
 
@@ -32,48 +32,32 @@ function getOwner() external view returns (address);
 
 Returns `PAUSE_INTENT_VALIDITY_PERIOD_BLOCKS` (see `pauseDeposits`).
 
-```sol
-function getPauseIntentValidityPeriodBlocks() external view returns (uint256)
-```
-
-### getMaxDeposits()
-
-Returns max amount of deposits per block (see `depositBufferedEther`).
-
-```sol
-function getMaxDeposits() external view returns (uint256)
-```
-
-### getMinDepositBlockDistance()
-
-Returns min distance in blocks between deposits (see `depositBufferedEther`).
-
-```sol
-function getMinDepositBlockDistance() external view returns (uint256)
+```solidity
+function getPauseIntentValidityPeriodBlocks() external view returns (uint256);
 ```
 
 ### getGuardianQuorum()
 
 Returns the number of valid guardian signatures required to vet (depositRoot, nonce) pair.
 
-```sol
-function getGuardianQuorum() external view returns (uint256)
+```solidity
+function getGuardianQuorum() external view returns (uint256);
 ```
 
 ### getGuardians()
 
 Returns guardian committee member list.
 
-```sol
-function getGuardians() external view returns (address[] memory)
+```solidity
+function getGuardians() external view returns (address[] memory);
 ```
 
 ### isGuardian()
 
 Checks whether the given address is a guardian.
 
-```sol
-function isGuardian(address addr) external view returns (bool)
+```solidity
+function isGuardian(address addr) external view returns (bool);
 ```
 
 #### Parameters
@@ -86,8 +70,8 @@ function isGuardian(address addr) external view returns (bool)
 
 Returns index of the guardian, or -1 if the address is not a guardian.
 
-```sol
-function getGuardianIndex(address addr) external view returns (int256)
+```solidity
+function getGuardianIndex(address addr) external view returns (int256);
 ```
 
 #### Parameters
@@ -102,8 +86,8 @@ Returns whether `LIDO.deposit()` can be called and a deposit can be made for the
 id `stakingModuleId`, given that the caller will provide guardian attestations of non-stale deposit
 root and `nonce` and the number of such attestations will be enough to reach a quorum.
 
-```sol
-function canDeposit(uint256 stakingModuleId) external view returns (bool)
+```solidity
+function canDeposit(uint256 stakingModuleId) external view returns (bool);
 ```
 
 #### Parameters
@@ -118,7 +102,7 @@ function canDeposit(uint256 stakingModuleId) external view returns (bool)
 
 Sets new owner.
 
-```sol
+```solidity
 function setOwner(address newValue) external;
 ```
 
@@ -139,8 +123,8 @@ Reverts if any of the following is true:
 
 Sets `pauseIntentValidityPeriodBlocks`.
 
-```sol
-function setPauseIntentValidityPeriodBlocks(uint256 newValue)
+```solidity
+function setPauseIntentValidityPeriodBlocks(uint256 newValue) external;
 ```
 
 :::note
@@ -156,56 +140,12 @@ Reverts if any of the following is true:
 | ---------- | --------- | ---------------------------------------------------- |
 | `newValue` | `uint256` | Number of blocks after which message becomes invalid |
 
-### setMaxDeposits()
-
-Sets `maxDepositsPerBlock`.
-
-The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
-
-```sol
-function setMaxDeposits(uint256 newValue)
-```
-
-:::note
-Reverts if any of the following is true:
-
-- `msg.sender` is not the owner.
-:::
-
-#### Parameters
-
-| Name       | Type      | Description                                    |
-| ---------- | --------- | ---------------------------------------------- |
-| `newValue` | `uint256` | New value of the maxDepositsPerBlock parameter |
-
-### setMinDepositBlockDistance()
-
-Sets `minDepositBlockDistance`.
-
-The value must be harmonized with the parameter `churnValidatorsPerDayLimit` of [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker).
-
-```sol
-function setMinDepositBlockDistance(uint256 newValue)
-```
-
-:::note
-Reverts if any of the following is true:
-
-- `msg.sender` is not the owner.
-:::
-
-#### Parameters
-
-| Name       | Type      | Description                                    |
-| ---------- | --------- | ---------------------------------------------- |
-| `newValue` | `uint256` | New value of the min DepositsPerBlock parameter |
-
 ### setGuardianQuorum()
 
 Sets the number of valid guardian signatures required to vet (depositRoot, nonce) pair (aka "quorum").
 
-```sol
-function setGuardianQuorum(uint256 newValue)
+```solidity
+function setGuardianQuorum(uint256 newValue) external;
 ```
 
 :::note
@@ -224,8 +164,8 @@ Reverts if any of the following is true:
 
 Adds a guardian address and sets a new quorum value.
 
-```sol
-function addGuardian(address addr, uint256 newQuorum)
+```solidity
+function addGuardian(address addr, uint256 newQuorum) external;
 ```
 
 :::note
@@ -246,8 +186,8 @@ Reverts if any of the following is true:
 
 Adds a set of guardian addresses and sets a new quorum value.
 
-```sol
-function addGuardians(address[] memory addresses, uint256 newQuorum)
+```solidity
+function addGuardians(address[] memory addresses, uint256 newQuorum) external;
 ```
 
 :::note
@@ -268,8 +208,8 @@ Reverts if any of the following is true:
 
 Removes a guardian with the given address and sets a new quorum value.
 
-```sol
-function removeGuardian(address addr, uint256 newQuorum)
+```solidity
+function removeGuardian(address addr, uint256 newQuorum) external;
 ```
 
 :::note
@@ -288,7 +228,7 @@ Reverts if any of the following is true:
 
 ### pauseDeposits()
 
-Pauses deposits for staking module given that both conditions are satisfied (reverts otherwise):
+Pauses deposits if both conditions are satisfied (reverts otherwise):
 
 1. The function is called by the guardian with index guardianIndex OR sig
       is a valid signature by the guardian with index guardianIndex of the data
@@ -299,15 +239,15 @@ Pauses deposits for staking module given that both conditions are satisfied (rev
  The signature, if present, must be produced for keccak256 hash of the following
  message (each component taking 32 bytes):
 
- | PAUSE_MESSAGE_PREFIX | blockNumber | stakingModuleId |
+| PAUSE_MESSAGE_PREFIX | blockNumber |
 
 If the staking module is not active does nothing.
 In case of an emergency, the function `pauseDeposits` is supposed to be called
-by all guardians. Thus only the first call will do the actual change. So
+by all guardians. Thus, only the first call will do the actual change. So
 the other calls would be OK operations from the point of view of the protocol logic.
 
-```sol
-function pauseDeposits(uint256 blockNumber, uint256 stakingModuleId, Signature memory sig)
+```solidity
+function pauseDeposits(uint256 blockNumber, Signature memory sig) external;
 ```
 
 #### Parameters
@@ -315,29 +255,22 @@ function pauseDeposits(uint256 blockNumber, uint256 stakingModuleId, Signature m
 | Name              | Type        | Description                                                                          |
 | ----------------- | ----------- | ------------------------------------------------------------------------------------ |
 | `blockNumber`     | `uint256`   | Block number with malicious pre-deposits have been observed by the guardian          |
-| `stakingModuleId` | `uint256`   | Id of the staking module to pause deposits for                                       |
 | `sig`             | `Signature` | Short ECDSA guardian signature as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unpauseDeposits()
 
-Unpauses deposits for staking module.
-If the staking module is not paused, do nothing.
+Unpauses deposits.
 
-```sol
-function unpauseDeposits(uint256 stakingModuleId)
+```solidity
+function unpauseDeposits() external;
 ```
 
 :::note
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner.
+- Deposits not paused.
 :::
-
-#### Parameters
-
-| Name              | Type      | Description              |
-| ----------------- | --------- | ------------------------ |
-| `stakingModuleId` | `uint256` | Id of the staking module |
 
 ### depositBufferedEther()
 
@@ -359,26 +292,69 @@ be produced for the keccak256 hash of the following message (each component taki
 
 | ATTEST_MESSAGE_PREFIX | blockNumber | blockHash | depositRoot | stakingModuleId | nonce |
 
-```sol
+```solidity
 function depositBufferedEther(
-        uint256 blockNumber,
-        bytes32 blockHash,
-        bytes32 depositRoot,
-        uint256 stakingModuleId,
-        uint256 nonce,
-        bytes calldata depositCalldata,
-        Signature[] calldata sortedGuardianSignatures
-    )
+    uint256 blockNumber,
+    bytes32 blockHash,
+    bytes32 depositRoot,
+    uint256 stakingModuleId,
+    uint256 nonce,
+    bytes calldata depositCalldata,
+    Signature[] calldata sortedGuardianSignatures
+) external;
 ```
 
 #### Parameters
 
-| Name                       | Type          | Description                                                                            |
-| -------------------------- | ------------- | -------------------------------------------------------------------------------------- |
-| `blockNumber`              | `uint256`     | Number of the current deposit block                                                    |
-| `blockHash`                | `bytes32`     | Hash of the current deposit block                                                      |
-| `depositRoot`              | `bytes32`     | Deposit root of the Ethereum DepositContract                                           |
-| `stakingModuleId`          | `uint256`     | Id of the staking module to deposit with                                               |
-| `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                          |
-| `depositCalldata`          | `bytes`       | Staking module deposit calldata                                                        |
+| Name                       | Type          | Description                                                                                        |
+|----------------------------|---------------|----------------------------------------------------------------------------------------------------|
+| `blockNumber`              | `uint256`     | Number of the current deposit block                                                                |
+| `blockHash`                | `bytes32`     | Hash of the current deposit block                                                                  |
+| `depositRoot`              | `bytes32`     | Deposit root of the Ethereum DepositContract                                                       |
+| `stakingModuleId`          | `uint256`     | Id of the staking module to deposit with                                                           |
+| `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                                      |
+| `depositCalldata`          | `bytes`       | Staking module deposit calldata                                                                    |
 | `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
+
+
+### unvetSigningKeys()
+
+Unvets signing keys for the given node operators.
+
+:::note
+Reverts if any of the following is true:
+
+1. The nonce is not equal to the on-chain nonce of the staking module;
+2. nodeOperatorIds is not packed with 8 bytes per id;
+3. vettedSigningKeysCounts is not packed with 16 bytes per count;
+4. the number of node operators is greater than maxOperatorsPerUnvetting;
+5. the signature is invalid or the signer is not a guardian;
+6. blockHash is zero or not equal to the blockhash(blockNumber).
+:::
+
+The signature, if present, must be produced for the keccak256 hash of the following message:
+| UNVET_MESSAGE_PREFIX | blockNumber | blockHash | stakingModuleId | nonce | nodeOperatorIds | vettedSigningKeysCounts |
+
+```solidity
+function unvetSigningKeys(
+    uint256 blockNumber,
+    bytes32 blockHash,
+    uint256 stakingModuleId,
+    uint256 nonce,
+    bytes calldata nodeOperatorIds,
+    bytes calldata vettedSigningKeysCounts,
+    Signature calldata sig
+) external;
+```
+
+#### Parameters
+
+| Name                      | Type        | Description                                                                                        |
+|---------------------------|-------------|----------------------------------------------------------------------------------------------------|
+| `blockNumber`             | `uint256`   | Number of the current deposit block                                                                |
+| `blockHash`               | `bytes32`   | Hash of the current deposit block                                                                  |
+| `stakingModuleId`         | `uint256`   | Id of the staking module to deposit with                                                           |
+| `nonce`                   | `uint256`   | Nonce of key operations of the staking module                                                      |
+| `nodeOperatorIds`         | `bytes`     | The list of node operator IDs packed with 8 bytes per id                                           |
+| `vettedSigningKeysCounts` | `bytes`     | The list of vetted signing keys counts packed with 16 bytes per count                              |
+| `sig`                     | `Signature` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
