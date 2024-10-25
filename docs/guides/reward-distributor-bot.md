@@ -3,7 +3,7 @@
 ## Introduction
 
 Permissionless reward distribution bot for Lido staking modules. Operates with smart contract based on the [Node Operator Registry](/contracts/node-operators-registry) smart contract. 
-After the [Accounting Oracle](https://docs.lido.fi/guides/oracle-spec/accounting-oracle) completes the third phase, anyone can initiate reward distribution to allocate rewards among Node Operators in the Staking Module, unless the oracle sends the next frame report.
+After the [Accounting Oracle](/guides/oracle-spec/accounting-oracle) completes the third phase, anyone can initiate reward distribution to allocate rewards among Node Operators in the Staking Module, unless the oracle sends the next frame report.
 
 ## Requirements
 
