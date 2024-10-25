@@ -20,7 +20,7 @@ After the [Accounting Oracle](/guides/oracle-spec/accounting-oracle) completes t
 
 Every epoch daemon checks the staking modules provided in environment. If a module has a non-distributed rewards, the bot pulls the trigger and distributes rewards between Node Operators inside this module.
 
-Basically bot is watching [RewardDistributionState](https://docs.lido.fi/contracts/node-operators-registry#getrewarddistributionstate) of module. 
+Basically bot is watching [RewardDistributionState](/contracts/node-operators-registry#getrewarddistributionstate) of module. 
 If module has `ReadyForDistribution` state, bot triggers [distributeReward](https://docs.lido.fi/contracts/node-operators-registry#distributereward) method to distribute rewards.
 
 ### Envs
