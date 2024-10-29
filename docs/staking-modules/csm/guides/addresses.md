@@ -71,18 +71,14 @@ To change `managerAddress` or `rewardAddress` using CSM UI, the Node Operator sh
 
 Within the Node Operator creation transaction, one can specify a custom `managerAddress` and `rewardAddress` (different from the `msg.sender` aka transaction signer).
 
-This function is not exposed by default in the standard CSM frontend since there is no way to verify that the Node Operator's creator can access the address provided.
-
 :::warning
 Specifying custom `managerAddress` and `rewardAddress` might result in a permanent loss of [bond](../join-csm#bond) tokens if the Node Operator's creator cannot access them.
 :::
 
-If you fully understand the risks and are still willing to set custom `managerAddress` and `rewardAddress` when creating a Node Operator in CSM, use the following links [mainnet](https://csm.lido.fi/?mode=extended), [testnet](https://csm.testnet.fi/?mode=extended).
-
 
 ### Extended Manager Address permissions
 
-An option exists, although not exposed by default in the standard CSM frontend, to give the `managerAddress` extended permissions to accommodate cases where a limited-capability smart contract may be used as a rewards address (e.g. a standard 0xSplits splitter contract). Since some operations by default can be performed only by `rewardAddress`, and not all smart contracts have the ability for arbitrary calls to be made via other addresses, in order to prevent the possibility of a non-changeable `rewardAddress`, this `extendedManagerPermissions` feature has been included.
+There is an option to give the `managerAddress` extended permissions to accommodate cases where a limited-capability smart contract may be used as a rewards address (e.g. a standard 0xSplits splitter contract). Since some operations by default can be performed only by `rewardAddress`, and not all smart contracts have the ability for arbitrary calls to be made via other addresses, in order to prevent the possibility of a non-changeable `rewardAddress`, this `extendedManagerPermissions` feature has been included.
 
 :::warning
 The `extendedManagerPermissions` option can only be set once during Node Operator creation. It can not be changed later on.
