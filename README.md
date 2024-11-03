@@ -90,3 +90,11 @@ To build documentation locally and push builded version to the `gh-pages` branch
 ```console
 GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy
 ```
+
+## Fetch and refresh external content
+
+Fetch external markdown files to build an up-to-date version.
+
+```console
+npm run fetch-external
+```

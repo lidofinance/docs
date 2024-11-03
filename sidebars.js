@@ -46,6 +46,8 @@ module.exports = {
             'guides/tooling',
             'guides/validator-ejector-guide',
             'guides/kapi-guide',
+            'guides/reward-distributor-bot',
+            'guides/depositor-bot',
           ],
         },
         'guides/multisig-deployment',
@@ -106,6 +108,7 @@ module.exports = {
         'contracts/withdrawal-vault',
         'contracts/wsteth',
         'contracts/deposit-security-module',
+        'contracts/data-bus',
         'contracts/burner',
         'contracts/lido-execution-layer-rewards-vault',
         'contracts/mev-boost-relays-allowed-list',
@@ -118,7 +121,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Security',
-      items: ['security/bugbounty'],
+      items: [
+        'security/bugbounty',
+        'security/audits'
+      ],
     },
     {
       type: 'category',
@@ -166,6 +172,7 @@ module.exports = {
             'staking-modules/csm/rewards',
             'staking-modules/csm/penalties',
             'staking-modules/csm/validator-exits',
+            { type: 'doc', id: 'staking-modules/csm/permissions', label: 'Permissions' },
             {
               type: 'category',
               label: 'Guides',
@@ -177,6 +184,18 @@ module.exports = {
                 'staking-modules/csm/guides/unbonded-validators',
                 'staking-modules/csm/guides/addresses',
               ]
+            },
+            {
+              type: 'category',
+              label: 'Contracts',
+              items: [
+                'staking-modules/csm/contracts/CSModule',
+                'staking-modules/csm/contracts/CSAccounting',
+                'staking-modules/csm/contracts/CSFeeDistributor',
+                'staking-modules/csm/contracts/CSFeeOracle',
+                'staking-modules/csm/contracts/CSVerifier',
+                'staking-modules/csm/contracts/CSEarlyAdoption',
+              ],
             },
             'staking-modules/csm/further-reading',
           ],
