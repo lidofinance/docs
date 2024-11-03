@@ -10,7 +10,7 @@ In Safe multisig wallets, besides the "public" owners visible in the UI, there c
 
 Safe maintains an [address] -> [address] mapping where each owner's address points to the next owner's address or a 'sentinel' (a dummy address indicating the end of owners list). This setup allows additional storage where owner addresses pointing to non-zero values might not be visible in the Safe UI. Owners added through this additional mechanism do not appear in the standard `getOwners()` list.
 
-![shadow 1](../../../static/img/shadow-signers/1.png)
+![shadow 1](/static/img/shadow-signers/1.png)
 
 Pic. source: [**bartek.eth**](https://x.com/bkiepuszewski)
 
@@ -24,13 +24,13 @@ Safe allows additional delegateCalls during:
 
 Any of these calls can modify arbitrary storage slots and add a shadow owner. The transaction might call another contract that adds a new owner to the multisig.
 
-![shadow 2](../../../static/img/shadow-signers/2.png)
+![shadow 2](/static/img/shadow-signers/2.png)
 
 Pic. source: [**bartek.eth**](https://x.com/bkiepuszewski)
 
 Although the Safe UI will warn about unexpected delegate calls, it is not always malicious but should be viewed with suspicion.
 
-![shadow 3](../../../static/img/shadow-signers/3.png)
+![shadow 3](/static/img/shadow-signers/3.png)
 
 Pic. source: [**bartek.eth**](https://x.com/bkiepuszewski)
 
@@ -49,31 +49,31 @@ You cannot see shadow owners in the UI or directly determine their addresses. Ho
 3. Enter the address of the Safe in the query parameter
 4. Click "RUN"
 
-![shadow 4](../../../static/img/shadow-signers/4.png)
+![shadow 4](/static/img/shadow-signers/4.png)
 
 **5. Analyze Results:**
 
 Smart contracts use storage slots written according to a specific layout. Let's see Safe storage layout:
 
-![shadow 5](../../../static/img/shadow-signers/5.jpg)
+![shadow 5](/static/img/shadow-signers/5.jpg)
 
 Pic. source: [**bartek.eth**](https://x.com/bkiepuszewski)
 
 When you analyze the results of the query:
 
-![shadow 6](../../../static/img/shadow-signers/6.png)
+![shadow 6](/static/img/shadow-signers/6.png)
 
 - The first two columns (`MEM_HASH`, `RAW_LOCATION`) show the "raw" storage slots as seen by the EVM .
 - The `LOCATION` column is a decoded storage slot derived from the Safe smart contract storage layout.
 - Look for storage locations that could not be decoded using the known storage layout. Such storage must have been set directly by an `STORE` assembly call, indicating "dirty" storage. Example below:
     
-    ![shadow 7](../../../static/img/shadow-signers/7.png)
+    ![shadow 7](/static/img/shadow-signers/7.png)
     
     Pic. source: [**bartek.eth**](https://x.com/bkiepuszewski)
     
     - To check the value of such “dirty” storage you can use https://storage-slots.swiss-knife.xyz/, select “custom”, enter the multisig address and the storage slot in to the form and hit query button:
         
-        ![shadow 8](../../../static/img/shadow-signers/8.png)
+        ![shadow 8](/static/img/shadow-signers/8.png)
         
         Alternatively if you have [brownie](https://github.com/eth-brownie/brownie) installed, enter following commands in the console:
         
@@ -84,7 +84,7 @@ When you analyze the results of the query:
         ```
         Results should look like that:
         
-        ![shadow 9](../../../static/img/shadow-signers/9.png)
+        ![shadow 9](/static/img/shadow-signers/9.png)
         
         :::
         💡 In Safe `0x6c9a6c4a39284e37ed1cf53d337577d14212a4870fb976a4366c693b939918d5` storage slot by default is used to store [fallback handler address](https://etherscan.io/address/0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4), you can read more about it [here](https://help.safe.global/en/articles/40838-what-is-a-fallback-handler-and-how-does-it-relate-to-safe) and find this address in the [official documentation](https://docs.safe.global/advanced/smart-account-supported-networks/v1.3.0#ethereum-mainnet).
