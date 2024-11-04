@@ -15,7 +15,7 @@ There are two types of the unbonded validator keys:
 - **Not yet deposited but unbonded keys.** In this case, unbonded validator keys are marked as non-depositable until the Node Operator tops up the [bond](../join-csm#bond) to make it sufficient to cover them.
 - **Unbonded and deposited validator keys.**  In this case, all unbonded and deposited keys will be requested to exit in the upcoming VEBO reports.
 
-Given the picture above, one may see that in case of a [bond](../join-csm#bond) shortage, the very last uploaded keys are considered unbonded. Non-deposited keys will be regarded as unbonded first to avoid unnecessary exit requests. At the same time, if there are no non-deposited keys or the unbonded keys count exceeds the number of non-deposited keys, it is up to VEBO to decide on the particular keys to be requested for exit. CSM can only report the number of the deposited keys to be exited to VEBO but not the actual keys.
+Given the picture above, one may see that in case of an insufficient bond [bond](../join-csm#bond), the very last uploaded keys are considered unbonded. Non-deposited keys will be regarded as unbonded first to avoid unnecessary exit requests. At the same time, if there are no non-deposited keys or the unbonded keys count exceeds the number of non-deposited keys, it is up to VEBO to decide on the particular keys to be requested for exit. CSM can only report the number of the deposited keys to be exited to VEBO but not the actual keys.
 
 
 ## How to avoid the emergence of unbonded keys and further exit requests?
@@ -23,10 +23,10 @@ Given the picture above, one may see that in case of a [bond](../join-csm#bond) 
 There are several options available:
 
 - **Do not violate protocol rules to avoid penalization.** If no penalty is applied, no unbonded validators will emerge.
-- **Top-up [bond](../join-csm#bond) before the unbonded validators are requested to exit.** If the penalty was already applied, there is a relatively short period of time until the next VEBO report, which most likely will contain a validator exit request. During this period, Node Operators can top-up [bond](../join-csm#bond) to avoid exit requests for their validators.
+- **Top-up [bond](../join-csm#bond) before the unbonded validators are requested to exit.** If the penalty was already applied, there is a relatively short period of time until the next VEBO report frame. The corresponding report will most likely contain a validator exit request. Before the next VEBO report frame, Node Operators can top-up [bond](../join-csm#bond) to avoid exit requests for their validators.
 
 :::warning
 If the unbonded validator has already been requested to exit, Node Operators can only exit it. The [bond](../join-csm#bond) top-up after the exit request will not reverse the request.
 :::
 
-Once the validator is withdrawn, Node Operators can upload a new key with the corresponding [bond](../join-csm#bond) amount sufficient to cover the previous [bond](../join-csm#bond) shortage if they want to continue running with the same number of validators as before.
+Once the validator is withdrawn, Node Operators can upload a new key with the corresponding [bond](../join-csm#bond) amount sufficient to cover the previously insufficient [bond](../join-csm#bond) if they want to continue running with the same number of validators as before.

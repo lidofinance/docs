@@ -2,6 +2,10 @@
 
 Some events in the CSM may occur on the protocol side, such as withdrawal requests, penalties, etc., which require specific actions from the Node Operator (NO).
 
+:::info
+If the guide seems too complicated, make sure to check out a community-developed tool: [CSM Sentinel](https://github.com/skhomuti/csm-sentinel). This is a Telegram bot that you can run on your own or use one of the community-supported instances. Note that community-supported instances come with no guarantee!
+:::
+
 So, what exactly are the events that the NO has to follow?
 
 ## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
@@ -23,6 +27,11 @@ event ValidatorExitRequest(
 );
 ```
 
+:::info
+This event can be tracked using [Ejector](https://github.com/lidofinance/validator-ejector). In the case of Ejector usage, the requested validators will be exited automatically if the pre-signed messages for them are uploaded to the Ejector.
+:::
+
+
 ## Contract: CSM
 
 - [Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
@@ -30,7 +39,7 @@ event ValidatorExitRequest(
 
 
 ### ELRewardsStealingPenaltyReported
-The DAO can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
+The [CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
 ```solidity
 event ELRewardsStealingPenaltyReported(
     uint256 indexed nodeOperatorId,
