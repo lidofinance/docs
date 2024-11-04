@@ -32,7 +32,7 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 | Azat | 0xA14BFfd91fb571bF1D9Bec70f273CAc13CA127Fa | https://etherscan.io/verifySig/11715 | https://twitter.com/mymphe/status/1587330426204569602 |
 | Krogla | 0x000000DfE832ccD7a4011a1Fca34602C9a598353 | https://etherscan.io/verifySig/11723 | https://twitter.com/_krogla/status/1587487599328985088 |
 | alxmrn | 0x444C7182bD7cd40f323Ba7A9b84d6B7564ccf5EC | https://etherscan.io/verifySig/251892 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/31 |
-| Elena_S | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/258195 | https://x.com/Elen0sh/status/1851915081820336403 |
+| Elena_S | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/260027 | https://x.com/Elen0sh/status/1853404050131206237 |
 
 ## 4.2 Argo Technology Consulting Ltd. (ATC):
 
