@@ -59,9 +59,17 @@
 
 ## Staking modules
 
-- Curated Node Operators: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
-- Simple DVT: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6)
-- Sandbox: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC)
+### Curated Module
+
+- Node Operators Registry: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
+
+### Simple DVT Module
+
+- Node Operators Registry: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6)
+
+### Sandbox Module
+
+- Node Operators Registry: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC)
 
 ### Community Staking Module
 
