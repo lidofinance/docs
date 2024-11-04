@@ -29,11 +29,11 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 
 The Lido Council Daemon monitors deposit contract keys.
 
-- **Version**: 3.2.0
-- **Docker image**: sha256:b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9, [lidofinance/lido-council-daemon@sha256-b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9](https://hub.docker.com/layers/lidofinance/lido-council-daemon/3.2.0/images/sha256-b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9?context=explore)
+- **Version**: 3.3.0
+- **Docker image**: sha256:35b6807baf1b509b48e7f0ef2f85542c259ed4e48a0a5d469dcc4b388fea680e, [lidofinance/lido-council-daemon@sha256-35b6807baf1b509b48e7f0ef2f85542c259ed4e48a0a5d469dcc4b388fea680e](https://hub.docker.com/layers/lidofinance/lido-council-daemon/3.2.0/images/sha256-35b6807baf1b509b48e7f0ef2f85542c259ed4e48a0a5d469dcc4b388fea680e?context=explore)
 - Commit hash: [lidofinance/lido-council-daemon@0ac715d](https://github.com/lidofinance/lido-council-daemon/commit/0ac715d93755d07b93c1997cecdcf04d2c5bd539)
 - **Last update date**: 10 October, 2024
-- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.2.0)
+- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.3.0)
 - [**Documentation**](/guides/deposit-security-manual)
 
 ## Keys API
