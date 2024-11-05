@@ -238,7 +238,7 @@ function getLastCompletedEpochId() returns (uint256)
 
 ### getLastCompletedReportDelta()
 
-Returns the total supply change ocurred with the last completed `AccountingOracle` report.
+Returns the total supply change occurred with the last completed `AccountingOracle` report.
 
 ```sol
 function getLastCompletedReportDelta() returns (
