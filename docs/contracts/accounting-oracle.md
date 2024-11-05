@@ -207,7 +207,7 @@ Extra data array can be passed in different formats, see below.
 - `extraDataHash` - Hash of the extra data. See the constant defining a specific extra data format for the info on how to calculate the hash. Must be set to a zero hash if the oracle report contains no extra data.
 - `extraDataItemsCount` - Number of the extra data items. Must be set to zero if the oracle report contains no extra data.
 
-## Access and permissioms
+## Access and permissions
 
 Access to lever methods is restricted using the functionality of the
 [AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
