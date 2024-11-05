@@ -39,7 +39,7 @@ It's worth noting that frame length [can be changed](/contracts/hash-consensus#s
 
 The frame includes these stages:
 
-- **Waiting** - oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate with it with the expected reference slot;
+- **Waiting** - oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate it with the expected reference slot;
 - **Data collection**: oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
 - **Hash consensus**: oracles analyze the report data, compile the report and submit its hash to the [HashConsensus](/contracts/hash-consensus) smart contract;
 - **Core update report**: once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `ValidatorsExitBusOracle` contract, which triggers a chain of the [`ValidatorExitRequest`](#validatorexitrequest) events containing details about the next validators to be ejected (to initiate a voluntary exit from the Ethereum Consensus Layer side).
@@ -147,7 +147,7 @@ struct ProcessingState {
 - `currentFrameRefSlot` — Reference slot for the current reporting frame.
 - `processingDeadlineTime` — The last time at which a report data can be submitted for the current reporting frame.
 - `dataHash` — Hash of the report data. Zero bytes if consensus on the hash hasn't been reached yet for the current reporting frame.
-- `dataSubmitted` — Whether any report data for the for the current reporting frame has been already submitted.
+- `dataSubmitted` — Whether any report data for the current reporting frame has been already submitted.
 - `dataFormat` — Format of the report data for the current reporting frame.
 - `requestsCount` — Total number of validator exit requests for the current reporting frame.
 - `requestsSubmitted` — How many validator exit requests are already submitted for the current reporting frame.
