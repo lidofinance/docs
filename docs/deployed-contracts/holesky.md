@@ -57,6 +57,10 @@
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
 - Gate Seal: [`0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d`](https://holesky.etherscan.io/address/0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d)
 
+## Data Bus
+
+- DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+
 ## Staking modules
 
 ### Curated Module

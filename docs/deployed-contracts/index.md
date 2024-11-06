@@ -54,6 +54,13 @@ pagination_next: deployed-contracts/holesky
 - Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - Gate Seal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
 
+## Data Bus
+
+- DataBus on Gnosis Chain: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- DataBus on Base: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- DataBus on Optimism: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://optimistic.etherscan.io/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- DataBus on Polygon PoS: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://polygonscan.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+
 ## Staking modules
 
 ### Curated Module
