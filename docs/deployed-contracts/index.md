@@ -5,7 +5,8 @@ pagination_next: deployed-contracts/holesky
 # Mainnet
 
 :::info
-This page lists production contract addresses on Mainnets — including Ethereum and other networks—where the protocol and its parts and extensions are deployed.
+This page lists production contract addresses on Mainnets — including Ethereum and other networks,
+where the protocol and its parts/extensions are deployed.
 :::
 
 ## Core protocol
