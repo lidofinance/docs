@@ -6,11 +6,11 @@ Summary of tooling used in Lido V2: Oracle, Validator Ejector, Council Daemon, a
 
 Oracle daemon for Lido decentralized staking service.
 
-- **Version**: 4.0.1
-- **Docker image**: sha256:94b63501658c8eaa540d7d3221510354f8284803a1016c0577204dc7fc599e37, [lidofinance/oracle@sha256-94b63501658c8eaa540d7d3221510354f8284803a1016c0577204dc7fc599e37](https://hub.docker.com/layers/lidofinance/oracle/4.0.1/images/sha256-94b63501658c8eaa540d7d3221510354f8284803a1016c0577204dc7fc599e37?context=explore)
-- **Commit hash**: [lidofinance/lido-oracle@3cc1193](https://github.com/lidofinance/lido-oracle/tree/3cc1193df61068f32504c2913f1f3da8bd179362)
-- **Last update date**: 10 Oct, 2024
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/4.0.1)
+- **Version**: 4.1.0
+- **Docker image**: sha256:deb8d3650c809bf1e96c329ed421439967ab02de49fb6c5d748963ab8c159568, [lidofinance/oracle@sha256-deb8d3650c809bf1e96c329ed421439967ab02de49fb6c5d748963ab8c159568](https://hub.docker.com/layers/lidofinance/oracle/4.1.0/images/sha256-deb8d3650c809bf1e96c329ed421439967ab02de49fb6c5d748963ab8c159568?context=explore)
+- **Commit hash**: [lidofinance/lido-oracle@34b0ce7](https://github.com/lidofinance/lido-oracle/tree/34b0ce7fe3877193228c5dda2d1065c98fe58df7 )
+- **Last update date**: 07 Nov, 2024 
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/4.1.0)
 - [**Documentation**](/guides/oracle-operator-manual)
 - [**Audit**](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20Security%20Audit%20Report%2010-24.pdf)
 
@@ -29,11 +29,11 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 
 The Lido Council Daemon monitors deposit contract keys.
 
-- **Version**: 3.2.0
-- **Docker image**: sha256:b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9, [lidofinance/lido-council-daemon@sha256-b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9](https://hub.docker.com/layers/lidofinance/lido-council-daemon/3.2.0/images/sha256-b288d200895708e1d929d8ce256944351aa86f9449101f24f846ad7615c9a2c9?context=explore)
-- Commit hash: [lidofinance/lido-council-daemon@0ac715d](https://github.com/lidofinance/lido-council-daemon/commit/0ac715d93755d07b93c1997cecdcf04d2c5bd539)
-- **Last update date**: 10 October, 2024
-- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.2.0)
+- **Version**: 3.3.0
+- **Docker image**: sha256:35b6807baf1b509b48e7f0ef2f85542c259ed4e48a0a5d469dcc4b388fea680e, [lidofinance/lido-council-daemon@sha256-35b6807baf1b509b48e7f0ef2f85542c259ed4e48a0a5d469dcc4b388fea680e](https://hub.docker.com/layers/lidofinance/lido-council-daemon/3.3.0/images/sha256-35b6807baf1b509b48e7f0ef2f85542c259ed4e48a0a5d469dcc4b388fea680e?context=explore)
+- Commit hash: [lidofinance/lido-council-daemon@0ac715d](https://github.com/lidofinance/lido-council-daemon/commit/77ecd8fbf74a06b2f92c6e6cdd344ef4ee6f33b8)
+- **Last update date**: 31 October, 2024
+- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.3.0)
 - [**Documentation**](/guides/deposit-security-manual)
 
 ## Keys API

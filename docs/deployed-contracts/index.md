@@ -4,6 +4,11 @@ pagination_next: deployed-contracts/holesky
 
 # Mainnet
 
+:::info
+This page lists production contract addresses on Mainnets — including Ethereum and other networks,
+where the protocol and its parts/extensions are deployed.
+:::
+
 ## Core protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
@@ -54,12 +59,24 @@ pagination_next: deployed-contracts/holesky
 - Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - Gate Seal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
 
+## Data Bus
+
+- DataBus on Gnosis Chain: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- DataBus on Base: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- DataBus on Optimism: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://optimistic.etherscan.io/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+- DataBus on Polygon PoS: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://polygonscan.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+
 ## Staking modules
 
-- Curated (Node Operators registry): [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
-- Curated (Node Operators registry): [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
-- Simple DVT: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
-- Simple DVT: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
+### Curated Module
+
+- Node Operators Registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
+- Node Operators Registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
+
+### Simple DVT Module
+
+- Node Operators Registry: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
+- Node Operators Registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
 
 ### Community Staking Module
 
@@ -344,6 +361,18 @@ pagination_next: deployed-contracts/holesky
 - L2ERC20ExtendedTokensBridge: [`0x2734602C0CEbbA68662552CacD5553370B283E2E`](https://optimistic.etherscan.io/address/0x2734602C0CEbbA68662552CacD5553370B283E2E) (impl)
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - LDO token: [`0xFdb794692724153d1488CcdBE0C56c252596735F`](https://optimistic.etherscan.io/address/0xFdb794692724153d1488CcdBE0C56c252596735F)
+
+### Polygon PoS
+
+#### Ethereum part
+
+- ERC20Predicate: [`0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf`](https://etherscan.io/address/0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf) (proxy)
+- ERC20Predicate: [`0xB1fd4ae726c64A793588001EB465c46BD1BdF1cB`](https://etherscan.io/address/0xB1fd4ae726c64A793588001EB465c46BD1BdF1cB) (impl)
+
+#### Polygon PoS part
+
+- WstETH UChildERC20: [`0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD`](https://polygonscan.com/address/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd) (proxy)
+- WstETH UChildERC20: [`0x60991ccaE8f1420B43bf14937a2c9F69162BE21A`](https://polygonscan.com/address/0x60991ccaE8f1420B43bf14937a2c9F69162BE21A) (impl)
 
 ### Base
 

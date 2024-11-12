@@ -97,7 +97,7 @@ The border represents the latest epoch before the reference slot before which th
 
 ![Safe border 4](../../../static/img/oracle-spec/safe-border-4.png)
 
-In the image above there are 4 slashings on the timeline that start with `slashed_epoch` and end with `withdrawable_epoch` and some points in time: a withrawal request and reference epoch relationship of the slashnings with which to be analyzed.
+In the image above there are 4 slashings on the timeline that start with `slashed_epoch` and end with `withdrawable_epoch` and some points in time: a withrawal request and reference epoch relationship of the slashings with which to be analyzed.
 
 ###### Completed non-associated
 
@@ -198,7 +198,7 @@ To start calculation oracle should pass next variables to `WithdrawalQueue.calcu
 - `maxShareRate` - calculated on previous step as simulatedShareRate, share rate that was simulated by oracle when the report data created
 - `maxTimestamp` - max timestamp of the request that can be finalized
 - `maxRequestsPerCall` - max request number that can be processed by the call. Better to be max possible number for EL node to handle before hitting `out of gas`. More this number is less calls it will require to calculate the result
-- `BatchesCalculationState` - structure that accumulates the state across multiple invokations to overcome gas limits.
+- `BatchesCalculationState` - structure that accumulates the state across multiple invocations to overcome gas limits.
 
 ```solidity
 struct BatchesCalculationState {

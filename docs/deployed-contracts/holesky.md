@@ -57,11 +57,23 @@
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
 - Gate Seal: [`0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d`](https://holesky.etherscan.io/address/0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d)
 
+## Data Bus
+
+- DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+
 ## Staking modules
 
-- Curated Node Operators: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
-- Simple DVT: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6)
-- Sandbox: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC)
+### Curated Module
+
+- Node Operators Registry: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
+
+### Simple DVT Module
+
+- Node Operators Registry: [`0x11a93807078f8BB880c1BD0ee4C387537de4b4b6`](https://holesky.etherscan.io/address/0x11a93807078f8BB880c1BD0ee4C387537de4b4b6)
+
+### Sandbox Module
+
+- Node Operators Registry: [`0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC`](https://holesky.etherscan.io/address/0xD6C2ce3BB8bea2832496Ac8b5144819719f343AC)
 
 ### Community Staking Module
 
