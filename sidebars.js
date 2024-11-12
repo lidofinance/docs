@@ -56,6 +56,7 @@ module.exports = {
         'guides/easy-track-guide',
         'guides/address-ownership-guide',
         'guides/multisig-signer-manual',
+        'guides/multisig-shadow-owners',
         'guides/checking-aragon-vote',
         'guides/checking-gnosis-safe',
         'guides/1inch-pool-rewards',
