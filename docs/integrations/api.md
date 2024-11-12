@@ -90,7 +90,7 @@ Optional Parameters:
 - `skip`: number - Amount of data items to skip.
 - `limit`: number - Maximum amount of data items to respond with.
 
-`skip` and `limit` params are used for pagination eg:
+`skip` and `limit` params are used for pagination, e.g.:
 
 ```
 skip: 0, limit: 100 = 1 page
