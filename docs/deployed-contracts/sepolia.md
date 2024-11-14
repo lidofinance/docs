@@ -46,6 +46,7 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - OracleReportSanityChecker: [`0x943885e61D1B15672D9913034aEa32C5c139B8fC`](https://sepolia.etherscan.io/address/0x943885e61D1B15672D9913034aEa32C5c139B8fC)
 - OracleDaemonConfig: [`0x7bC76076b0f3879b4A750450C0Ccf02c6Ca11220`](https://sepolia.etherscan.io/address/0x7bC76076b0f3879b4A750450C0Ccf02c6Ca11220)
 - Legacy Oracle (Lido Oracle before V2, obsolete): [`0x3483c140EF7F2716460198Ff831a8e53F05F1606`](https://sepolia.etherscan.io/address/0x3483c140EF7F2716460198Ff831a8e53F05F1606) (proxy)
+- TokenRateNotifier: [`0x10cA9008D7dcea1Bed4d5394F8c58F3113A2814D`](https://sepolia.etherscan.io/address/0x10cA9008D7dcea1Bed4d5394F8c58F3113A2814D)
 
 ## DAO contracts
 
@@ -70,7 +71,6 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ##### Ethereum part
 
-- TokenRateNotifier: [`0x10cA9008D7dcea1Bed4d5394F8c58F3113A2814D`](https://sepolia.etherscan.io/address/0x10cA9008D7dcea1Bed4d5394F8c58F3113A2814D)
 - OpStackTokenRatePusher: [`0x4067B05a6B2f6801Bfb8d4fF417eD32e71c216d9`](https://sepolia.etherscan.io/address/0x4067B05a6B2f6801Bfb8d4fF417eD32e71c216d9)
 - L1LidoTokensBridge: [`0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332`](https://sepolia.etherscan.io/address/0x4Abf633d9c0F4aEebB4C2E3213c7aa1b8505D332) (proxy)
 - L1LidoTokensBridge: [`0x8375029773953d91CaCfa452b7D24556b9F318AA`](https://sepolia.etherscan.io/address/0x8375029773953d91CaCfa452b7D24556b9F318AA) (impl)
@@ -120,6 +120,26 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - L2ERC20TokenBridge: [`0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008`](https://sepolia.explorer.mode.network/address/0xd41a90e55bcfC1CbF96D78aE80BbCB56A6BA0008) (proxy)
 - L2ERC20TokenBridge: [`0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6`](https://sepolia.explorer.mode.network/address/0x8Cc0183D53c8fB160BFB01fe49ff3E8A9Aa0B1F6) (impl)
 - Optimism Governance Bridge Executor: [`0x442a6Bea15718588391C5d1dE261AB2c617eA703`](https://sepolia.explorer.mode.network/address/0x442a6Bea15718588391C5d1dE261AB2c617eA703)
+
+### Unichain
+
+##### Ethereum part
+
+- OpStackTokenRatePusher: [`0xE186a901d1f39165154100C2528cc639835e2315`](https://sepolia.etherscan.io/address/0xE186a901d1f39165154100C2528cc639835e2315)
+- L1LidoTokensBridge: [`0xc58bAe09a7A681555D7cE0F71d5b14792aca9825`](https://sepolia.etherscan.io/address/0xc58bAe09a7A681555D7cE0F71d5b14792aca9825) (proxy)
+- L1LidoTokensBridge: [`0x2bda94eD0d580758DC03641E0710D07f5Ac791Bd`](https://sepolia.etherscan.io/address/0x2bda94eD0d580758DC03641E0710D07f5Ac791Bd) (impl)
+
+##### Unichain part
+
+- WstETH ERC20BridgedPermit: [`0xE66e1B0931345900024b524A88BBE58f09A18FD0`](https://unichain-sepolia.blockscout.com/address/0xE66e1B0931345900024b524A88BBE58f09A18FD0) (proxy)
+- WstETH ERC20BridgedPermit: [`0x72236fD13C28Ac260dF07079ba4a9bc661F3bF03`](https://unichain-sepolia.blockscout.com/address/0x72236fD13C28Ac260dF07079ba4a9bc661F3bF03) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x4436b2d6A2a0807b211c6a725E905b736dF8511F`](https://unichain-sepolia.blockscout.com/address/0x4436b2d6A2a0807b211c6a725E905b736dF8511F) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x62129b57d3C9097bd3D69086791Ae8cA564e3690`](https://unichain-sepolia.blockscout.com/address/0x62129b57d3C9097bd3D69086791Ae8cA564e3690) (impl)
+- TokenRateOracle: [`0xbb9fab96C5b3b3F50dDEa47E78fb31e5126eEc4D`](https://unichain-sepolia.blockscout.com/address/0xbb9fab96C5b3b3F50dDEa47E78fb31e5126eEc4D) (proxy)
+- TokenRateOracle: [`0x192B46934474F87e4E6AbE6f5Ec9957473FF29EF`](https://unichain-sepolia.blockscout.com/address/0x192B46934474F87e4E6AbE6f5Ec9957473FF29EF) (impl)
+- L2ERC20ExtendedTokensBridge: [`0x31FB29bcc9c4A6fdc29cD9959738c49437f701Bc`](https://unichain-sepolia.blockscout.com/address/0x31FB29bcc9c4A6fdc29cD9959738c49437f701Bc) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x8c9DE0825F5D04eF21CCea8A08427De07dD57F68`](https://unichain-sepolia.blockscout.com/address/0x8c9DE0825F5D04eF21CCea8A08427De07dD57F68) (impl)
+- Optimism Governance Bridge Executor: [`0x22098a8b7b38C3857f9226B2b0AE175644ABA7D6`](https://unichain-sepolia.blockscout.com/address/0x22098a8b7b38C3857f9226B2b0AE175644ABA7D6)
 
 ### Binance Smart Chain (BSC)
 
