@@ -35,13 +35,13 @@ The IPFS pinning and preparing ENS transactions in the workflow are facilitated
 by the [Blumen](https://github.com/StauroDEV/blumen) package, developed in collaboration with Lido.
 
 On every IPFS release, the content verification is carried out by both development and QA Lido contributors
-to ensure that there is no unexpected content added to the code during CI process.
+to ensure that there is no unexpected content added to the code during the CI process.
 The verification relies on hash comparisons, and if you want, you can also
 perform it using the [provided instructions](hash-verification.md).
 
 After the verification, the IPFS release is initiated, which results in adding
 the obtained pinning information to the application [releases page](https://github.com/lidofinance/ethereum-staking-widget/releases).
-The details about IPFS pinning (CID, IPFS providers, https gateway, source code archives) is attached to the release description.
+The details about IPFS pinning (CID, IPFS providers, https gateway, source code archives) are attached to the release description.
 
 ### Workflow steps
 
