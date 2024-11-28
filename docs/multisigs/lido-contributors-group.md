@@ -21,9 +21,12 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 
 **Easy Track contracts and roles:**
 
-PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](https://etherscan.io/address/0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD#readContract)
+| Factory         | Contract name           | Contract address | Multisig role |
+|-----------------|-------------------------|-----------------|---------------|
+| PML stablecoins | TopUpAllowedRecipients  | [`0x92a27C4e5e35cFEa112ACaB53851Ec70e2D99a8D`](https://etherscan.io/address/0x92a27C4e5e35cFEa112ACaB53851Ec70e2D99a8D#readContract) | trustedcaller |
+| PML stETH       | TopUpAllowedRecipients  | [`0xc5527396DDC353BD05bBA578aDAa1f5b6c721136`](https://etherscan.io/address/0xc5527396DDC353BD05bBA578aDAa1f5b6c721136#readContract) | trustedcaller |
 
-- trustedcaller
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
@@ -56,9 +59,12 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 
 **Easy Track contracts and roles:**
 
-ATC DAI TopUpAllowedRecipients [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](https://etherscan.io/address/0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07)
+| Factory         | Contract name           | Contract address | Multisig role |
+|-----------------|-------------------------|-----------------|---------------|
+| ATC stablecoins | TopUpAllowedRecipients  | [`0x1843Bc35d1fD15AbE1913b9f72852a79457C42Ab`](https://etherscan.io/address/0x1843Bc35d1fD15AbE1913b9f72852a79457C42Ab#readContract) | trustedcaller |
+| ATC stETH       | TopUpAllowedRecipients  | [`0x87b02dF27cd6ec128532Add7C8BC19f62E6f1fB9`](https://etherscan.io/address/0x87b02dF27cd6ec128532Add7C8BC19f62E6f1fB9#readContract) | trustedcaller |
 
-- trustedcaller
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
@@ -93,11 +99,12 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 
 **Easy Track contracts and roles:**
 
-RCC DAI TopUpAllowedRecipients [`0x84f74733ede9bFD53c1B3Ea96338867C94EC313e`](https://etherscan.io/address/0x84f74733ede9bFD53c1B3Ea96338867C94EC313e)
+| Factory         | Contract name           | Contract address | Multisig role |
+|-----------------|-------------------------|-----------------|---------------|
+| RCC stablecoins | TopUpAllowedRecipients  | [`0x75bDecbb6453a901EBBB945215416561547dfDD4`](https://etherscan.io/address/0x75bDecbb6453a901EBBB945215416561547dfDD4#readContract) | trustedcaller |
+| RCC stETH       | TopUpAllowedRecipients  | [`0xcD42Eb8a5db5a80Dc8f643745528DD77cf4C7D35`](https://etherscan.io/address/0xcD42Eb8a5db5a80Dc8f643745528DD77cf4C7D35#readContract) | trustedcaller |
 
-- trustedcaller
-
-
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
