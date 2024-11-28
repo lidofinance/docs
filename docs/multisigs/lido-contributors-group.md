@@ -129,3 +129,9 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/16616 | https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980/27 |
 | Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/32101 | https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980/28 |
+
+<!--- 
+was verified as of Nov 28:
+- contracts
+- multisig info (incl. quorum)
+--->
