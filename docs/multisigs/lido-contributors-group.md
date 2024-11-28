@@ -1,6 +1,6 @@
 # Lido Contributors Group 
 
-**Disclaimer:** The next multisigs are third party multisigs that are not associated with the Lido DAO and are operated by independent third parties. They are added to the list merely because they have access to Easy Track motions.
+**Disclaimer:** The following multisigs belong to independent third parties not affiliated with the Lido DAO and are managed by them. They are included in the list solely because they can access Easy Track motions.
 
 ## 4.1 Pool Maintenance Labs Ltd. (PML)
 
