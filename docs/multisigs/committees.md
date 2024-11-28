@@ -491,7 +491,7 @@ pausing CSM in case of emergency via Gate Seal.
 **Aragon:**\
 [Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)
 
-**Roles:** Corresponding roles were assigned to the MS during CSM deployment transactions:
+**Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
 - `SET_BOND_CURVE_ROLE`: [0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565](https://etherscan.io/tx/0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565)
 - `RESET_BOND_CURVE_ROLE`: [0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b](https://etherscan.io/tx/0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b)
