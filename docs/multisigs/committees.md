@@ -2,13 +2,11 @@
 
 ## 2.1 LEGO Committee
 
-**Purpose of the multisig:**
-
-The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. Multisig enables the reception of DAI and LDO from the Lido DAO Treasury by Easy Track.
-
-**Quorum:** 4/8
-
 **Address:** [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/settings/setup?safe=eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
+
+**Purpose of the multisig:**
+The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. 
+Multisig enables the reception of LDO and stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
 **Forum topics:**\
 [Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406)\
@@ -19,6 +17,8 @@ The LEGO Committee utilizes this multisig to make grants: sending dedicated gran
 
 **Aragon:**\
 [Omnibus vote #147](https://vote.lido.fi/vote/147) [(items 4,5)](https://vote.lido.fi/vote/147)
+
+**Quorum:** 4/8
 
 **Easy Track Factories contracts and roles:**
 
@@ -349,6 +349,8 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
+
+**Addresses:**
 
 | № | Name | Address |
 | --- | --- | --- |
