@@ -20,15 +20,14 @@ Multisig enables the reception of LDO and stablecoins (listed in the AllowedToke
 
 **Quorum:** 4/8
 
-**Easy Track Factories contracts and roles:**
+**Easy Track contracts and roles:**
 
-LEGO DAI Top Up Allowed Recipients [`0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC`](https://etherscan.io/address/0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC)
+| Factory          | Contract name           | Contract address | Multisig role |
+|------------------|-------------------------|-----------------|---------------|
+| LEGO LDO         | TopUpAllowedRecipients  | [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)| trustedcaller |
+| LEGO Stablecoins | TopUpAllowedRecipients  | [`0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c`](https://etherscan.io/address/0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c)| trustedcaller |
 
-- trustedcaller
-
-LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)
-
-- trustedcaller
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
@@ -63,17 +62,11 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Easy Track contracts and roles:**
 
-AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b63`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
-
-- trustedcaller
-
-RemoveAllowedRecipient: [`0xd30Dc38EdEfc21875257e8A3123503075226E14B`](https://etherscan.io/address/0xd30Dc38EdEfc21875257e8A3123503075226E14B)
-
-- trustedcaller
-
-TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://etherscan.io/address/0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea)
-
-- trustedcaller
+| Factory | Contract name        | Contract address                                                                                                        | Multisig role |
+|---------|----------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| Rewards Share stETH | AddAllowedRecipient  | [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6) | trustedcaller |
+| Rewards Share stETH | RemoveAllowedRecipient | [`0xd30Dc38EdEfc21875257e8A3123503075226E14B`](https://etherscan.io/address/0xd30Dc38EdEfc21875257e8A3123503075226E14B) | trustedcaller |
+| Rewards Share stETH | TopUpAllowedRecipients | [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea`](https://etherscan.io/address/0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea) | trustedcaller |
 
 **List of signers:**
 
@@ -92,7 +85,7 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 **Address:** [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/settings/setup?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
 
-**Purpose of the multisig:** The multisig signs off the  [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
+**Purpose of the multisig:** The multisig signs off the [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
 
 **Quorum:** 5/7
 
@@ -102,11 +95,11 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 **Aragon:** [Omnibus vote #149 (item 6)](https://vote.lido.fi/vote/149)
 
-**Contracts and Roles:**
+**Contracts and roles:**
 
-MEVBoostRelayAllowedList [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xF95f069F9AD107938F6ba802a3da87892298610E)
-
-- manager
+| Contract name           | Contract address | Multisig role |
+|-------------------------|-----------------|---------------|
+| MEVBoostRelayAllowedList  | [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xF95f069F9AD107938F6ba802a3da87892298610E) | manager |
 
 **List of signers:**
 
@@ -134,15 +127,12 @@ MEVBoostRelayAllowedList [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://
 
 **Aragon:** [Omnibus Vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
 
-**Contracts and Roles:**
+**Contracts and roles:**
 
-VestingEscrowFactory [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
-
-- manager
-
-Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C)
-
-- trustedcaller
+| Contract name                     | Contract address | Multisig role |
+|-----------------------------------|-----------------|---------------|
+| TRP VestingEscrowFactory          | [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0) | manager |
+| Easy Track TopUpAllowedRecipients | [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C) | trustedcaller |
 
 **List of signers:**
 
@@ -174,15 +164,14 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 **Aragon:**\
 [Omnibus vote #173](https://vote.lido.fi/vote/173)
 
-**Easy Track for swap stETH to stablecoin**
+**Easy Track contracts and roles:**
 
-TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
-- trustedcaller
+| Factory | Type of swap | Contract name          | Contract address | Multisig role |
+|---------|--------------|------------------------|------------------|---------------|
+| Stonks stETH | stETH to stablecoin | TopUpAllowedRecipients | [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69) | trustedcaller |
+| Stonks stablecoins | stablecoin to stablecoin | TopUpAllowedRecipients | [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6) | trustedcaller |
 
-**Easy Track for swap stablecoin to stablecoin (DAI / USDC / USDT)**
-
-TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
-- trustedcaller
+The complete list of Lido Stonks contracts is available [here](https://docs.lido.fi/deployed-contracts/#lido-stonks-contracts).
 
 **List of signers:**
 
@@ -217,17 +206,11 @@ TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://e
 
 **Easy Track contracts and roles:**
 
-Gas Supply stETH AddAllowedRecipient [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252)
-
-- trustedcaller
-
-Gas Supply stETH RemoveAllowedRecipient [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7)
-
-- trustedcaller
-
-Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1)
-
-- trustedcaller
+| Factory | Contract name | Contract address | Multisig role |
+|---------|---------------|------------------|---------------|
+| Gas Supply stETH | AddAllowedRecipient | [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252) | trustedcaller |
+| Gas Supply stETH | RemoveAllowedRecipient | [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7) | trustedcaller |
+| Gas Supply stETH | TopUpAllowedRecipients | [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1) | trustedcaller |
 
 **List of signers:**
 
@@ -257,33 +240,18 @@ Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB2
 **Aragon:**\
 [Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172)
 
-**Easy Track contracts and roles:**
+**Easy Track Simple DVT staking module contracts and roles:**
 
-AddNodeOperators: [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639)
-- trustedcaller
-
-ActivateNodeOperators: [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8)
-- trustedcaller
-
-DeactivateNodeOperators: [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7)
-- trustedcaller
-
-SetVettedValidatorsLimits: [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D)
-- trustedcaller
-
-SetNodeOperatorNames: [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4)
-- trustedcaller
-
-SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
-- trustedcaller
-
-UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
-- trustedcaller
-
-ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
-- trustedcaller
-
-
+| Contract name          | Contract address | Multisig role |
+|------------------------|-----------------|---------------|
+| AddNodeOperators | [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639) | trustedcaller |
+| ActivateNodeOperators | [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8) | trustedcaller |
+| DeactivateNodeOperators | [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7) | trustedcaller |
+| SetVettedValidatorsLimits | [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D) | trustedcaller |
+| SetNodeOperatorNames | [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4) | trustedcaller |
+| SetNodeOperatorRewardAddresses | [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0) | trustedcaller |
+| UpdateTargetValidatorLimits | [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b) | trustedcaller |
+| ChangeNodeOperatorManager | [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D) | trustedcaller |
 
 **List of signers:**
 
@@ -296,7 +264,6 @@ ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https:
 | Eridian | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://twitter.com/EridianAlpha/status/1752363981409288478|
 | George A | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/35156 | https://twitter.com/george_avs/status/1752380380282314889|
 | Will | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157| https://twitter.com/KimonSh/status/1752382287721927062 |
-
 
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
 
@@ -323,17 +290,11 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Easy Track contracts and roles:**
 
-AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
-
-- trustedcaller
-
-RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
-
-- trustedcaller
-
-TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
-
-- trustedcaller
+|  Factory                                       | Contract name          | Contract address | Multisig role |
+|----------------------------------------------------------|------------------------|----------------|---------------|
+| LOL stETH | AddAllowedRecipient | [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77) | trustedcaller |
+| LOL stETH | RemoveAllowedRecipient | [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b) | trustedcaller |
+| LOL  stETH | TopUpAllowedRecipients | [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E) | trustedcaller |
 
 **List of signers:**
 
@@ -538,9 +499,9 @@ pausing CSM in case of emergency via Gate Seal.
 
 **Easy Track contracts and roles:**
 
-CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) 
-- trustedcaller
-
+| Contract name          | Contract address | Multisig role |
+|------------------------|------------------|---------------|
+| CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)  | trustedcaller |
 
 **List of signers:**
 
