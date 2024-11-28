@@ -6,7 +6,10 @@
 
 **Address:** [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/settings/setup?safe=eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
 
-**Purpose of the multisig:** The multisig is used for signing off by Pool Maintenance Labs Ltd. It receives grants from Lido DAO and allocates them in accordance with its own budget. It is able to create Easy Track motions for requesting grants from the DAO Treasury in DAI tokens.
+**Purpose of the multisig:**
+The multisig is used for signing off by Pool Maintenance Labs Ltd. 
+It receives grants from Lido DAO and allocates them according to its budget. 
+It can create Easy Track motions to request grants from the DAO Treasury in stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) and stETH.
 
 **Quorum:** 4/7
 
@@ -38,7 +41,10 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 
 **Address**: [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/settings/setup?safe=eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
 
-**Purpose of the multisig:** The multisig is used for signing off by Argo Technology Consulting Ltd. It receives grants from the Lido DAO and allocates them in accordance with its own budget. It is able to create Easy Track motions for requesting grants from the DAO Treasury in DAI tokens.
+**Purpose of the multisig:** 
+The multisig is used for signing off by Argo Technology Consulting Ltd. 
+It receives grants from the Lido DAO and allocates them in accordance with its own budget. 
+It can create Easy Track motions to request grants from the DAO Treasury in stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) and stETH.
 
 **Quorum:** 4/7
 
@@ -70,7 +76,10 @@ ATC DAI TopUpAllowedRecipients [`0x67Fb97ABB9035E2e93A7e3761a0d0571c5d7CD07`](ht
 
 **Address:** [0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437](https://app.safe.global/settings/setup?safe=eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)[](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
 
-**Purpose of the multisig:** The multisig is used for signing off by the Resourcing and Compensation Committee. It receives funds from the Lido DAO and allocates them. It is able to create Easy Track motions for requesting grants from the DAO Treasury in DAI tokens.
+**Purpose of the multisig:** 
+The multisig is used for signing off by the Resourcing and Compensation Committee.
+It receives funds from the Lido DAO and allocates them. 
+It can create Easy Track motions to request grants from the DAO Treasury in stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) and stETH.
 
 **Quorum:** 4/7
 
