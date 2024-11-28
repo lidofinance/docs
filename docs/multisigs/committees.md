@@ -185,7 +185,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 | Mol_Eliza | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
 | kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
 
-## 2.6 Gas Supply Committee (prev.Depositor bot gas funding)
+## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
 **Address:** [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://app.safe.global/settings/setup?safe=eth:0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 
