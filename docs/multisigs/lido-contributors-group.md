@@ -13,11 +13,15 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 
 **Quorum:** 4/7
 
-**Proposed on the forum:** [[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133)
+**Proposed on the forum:**\
+[[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133)
 
-**Snapshots:** [[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xce01f9f6521b7873e1fd59564b64ee13f4d2dfd5251c996e61ed4258df9de685)	       [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
+**Snapshots:**\
+[[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xce01f9f6521b7873e1fd59564b64ee13f4d2dfd5251c996e61ed4258df9de685)\
+[[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
-**On-chain:** [Omnibus vote #147 to set up Easy Track Factory (item #10)](https://vote.lido.fi/vote/147) 
+**On-chain:**\
+[Omnibus vote #147 to set up Easy Track Factory (item #10)](https://vote.lido.fi/vote/147) 
 
 **Easy Track contracts and roles:**
 
@@ -51,11 +55,15 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 
 **Quorum:** 4/7
 
-**Proposed on the forum:** [[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133)
+**Proposed on the forum:**\
+[[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133)
 
-**Snapshots:** [[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xce01f9f6521b7873e1fd59564b64ee13f4d2dfd5251c996e61ed4258df9de685), [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
+**Snapshots:**\
+[[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xce01f9f6521b7873e1fd59564b64ee13f4d2dfd5251c996e61ed4258df9de685)\
+[[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
-**On-chain:** [Omnibus vote № 147 to set up Easy Track (item # 11)](https://vote.lido.fi/vote/147)
+**On-chain:**\
+[Omnibus vote № 147 to set up Easy Track (item #11)](https://vote.lido.fi/vote/147)
 
 **Easy Track contracts and roles:**
 
@@ -89,13 +97,17 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 
 **Quorum:** 4/7
 
-**Proposed on the forum:** [Proposal to form Resourcing and Compensation Committee (RCC)](https://research.lido.fi/t/proposal-to-form-resourcing-and-compensation-committee-rcc/1767), [[RCC-1] Apr 1, 2022 - June 30, 2022 Budget Request](https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980)
+**Proposed on the forum:**\
+[Proposal to form Resourcing and Compensation Committee (RCC)](https://research.lido.fi/t/proposal-to-form-resourcing-and-compensation-committee-rcc/1767)\
+[[RCC-1] Apr 1, 2022 - June 30, 2022 Budget Request](https://research.lido.fi/t/rcc-1-apr-1-2022-june-30-2022-budget-request/1980)
 
-**Snapshots:**
+**Snapshots:**\
+[Create RCC Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x008ce8f95382c70216820a39d717c6b494348aa474917b6351819af527bc2a54)\
+[[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xce01f9f6521b7873e1fd59564b64ee13f4d2dfd5251c996e61ed4258df9de685)\
+[[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
-[Create RCC Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x008ce8f95382c70216820a39d717c6b494348aa474917b6351819af527bc2a54),[[LIDO-1] November 1, 2022 - April 30, 2023 | Lido Ongoing Funding Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xce01f9f6521b7873e1fd59564b64ee13f4d2dfd5251c996e61ed4258df9de685),[[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
-
-**On-chain:** [Omnibus vote № 147 to set up Easy Track (item # 9)](https://vote.lido.fi/vote/147)
+**On-chain:**\
+[Omnibus vote № 147 to set up Easy Track (item #9)](https://vote.lido.fi/vote/147)
 
 **Easy Track contracts and roles:**
 
