@@ -21,7 +21,7 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **On-chain:**\
-[Omnibus vote #147 to set up Easy Track Factory (item #10)](https://vote.lido.fi/vote/147) 
+[Omnibus vote #147 to set up Easy Track Factory (item 10)](https://vote.lido.fi/vote/147) 
 
 **Easy Track contracts and roles:**
 
@@ -63,7 +63,7 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **On-chain:**\
-[Omnibus vote № 147 to set up Easy Track (item #11)](https://vote.lido.fi/vote/147)
+[Omnibus vote #147 to set up Easy Track (item 11)](https://vote.lido.fi/vote/147)
 
 **Easy Track contracts and roles:**
 
@@ -107,7 +107,7 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **On-chain:**\
-[Omnibus vote № 147 to set up Easy Track (item #9)](https://vote.lido.fi/vote/147)
+[Omnibus vote #147 to set up Easy Track (item 9)](https://vote.lido.fi/vote/147)
 
 **Easy Track contracts and roles:**
 
