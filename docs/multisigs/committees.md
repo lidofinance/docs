@@ -16,7 +16,7 @@ Multisig enables the reception of LDO and stablecoins (listed in the AllowedToke
 [A proposal to continue LEGO program](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)
 
 **Aragon:**\
-[Omnibus vote #147](https://vote.lido.fi/vote/147) [(items 4,5)](https://vote.lido.fi/vote/147)
+[Omnibus vote #147 (items 4,5)](https://vote.lido.fi/vote/147)
 
 **Quorum:** 4/8
 
@@ -125,7 +125,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Snapshot:** [Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)
 
-**Aragon:** [Omnibus Vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
+**Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
 
 **Contracts and roles:**
 
@@ -201,8 +201,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 [Nominate the Gas Supply Committee as a supervisor for gas expenditure](https://snapshot.org/#/lido-snapshot.eth/proposal/0xbfecc75c45bca53d3c5786f099d46559ac597bc3fae802d5f599b60f10b4bd4a)
 
 **Aragon:**\
-[Omnibus Vote #156](https://vote.lido.fi/vote/156)\
-[Omnibus vote #160, items 6-8](https://vote.lido.fi/vote/160)
+[Omnibus vote #156](https://vote.lido.fi/vote/156)\
+[Omnibus vote #160 (items 6-8)](https://vote.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
@@ -286,7 +286,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 [Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **Aragon:**\
-[Omnibus Vote № 160, items 9-14](https://vote.lido.fi/vote/160)
+[Omnibus vote #160 (items 9-14)](https://vote.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
