@@ -286,7 +286,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 [Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **Aragon:**\
-[Omnibus Vote № 160, item №9-14](https://vote.lido.fi/vote/160)
+[Omnibus Vote № 160, items 9-14](https://vote.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
