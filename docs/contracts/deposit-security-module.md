@@ -1,7 +1,7 @@
 # DepositSecurityModule
 
 - [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/DepositSecurityModule.sol)
-- [Deployed Contract](https://etherscan.io/address/0xC77F8768774E1c9244BEed705C4354f2113CFc09)
+- [Deployed Contract](https://etherscan.io/address/0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD)
 
 Due to front-running vulnerability, Lido contributors [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
