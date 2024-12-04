@@ -21,9 +21,8 @@
 
 **Contracts and Roles:**
 
-GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
-
-- Sealing Committee
+###### GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
+* Sealing Committee
 
 **List of signers:**
 
@@ -58,56 +57,50 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 * PAUSE_ROLE
 
 ###### Arbitrum L1 ERC20 Token Gateway [`0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a`](https://etherscan.io/address/0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a)
-* WITHDRAWALS_DISABLER_ROLE,
-* DEPOSITS_DISABLER_ROLE.
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 ###### Optimism L1 ERC20 Token Bridge [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Base L1 ERC20 Token Bridge [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Mantle L1 ERC20 TokenBridge [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### ZKSync L1 ERC20 TokenBridge [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Scroll L1 ERC20 TokenBridge [`0x6625c6332c9f91f2d27c304e729b86db87a3f504`](https://etherscan.io/address/0x6625c6332c9f91f2d27c304e729b86db87a3f504)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Mode L1 ERC20 Token Bridge [`0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A`](https://etherscan.io/address/0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### BSC L1 Token Bridge:
-    1. NTTManager: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9)
-
-        - pause capability
-
-    2. Wormhole Transceiver: [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0)
-
-        - pause capability
-
-    3. Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
-
-        - pause capability
-
+###### NTTManager [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9)
+* pause capability
+###### Wormhole Transceiver [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0)
+* pause capability
+###### Axelar Transceiver [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+* pause capability
 
 ###### Zircuit Token Bridge: [`0x912C7271a6A3622dfb8B218eb46a6122aB046C79`](https://etherscan.io/address/0x912C7271a6A3622dfb8B218eb46a6122aB046C79)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
@@ -137,10 +130,10 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Contracts and Roles:**
 
-L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957)
+###### L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957)
 
-- WITHDRAWALS_DISABLE_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLE_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -166,10 +159,10 @@ L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https:
 
 **Contracts and Roles:**
 
-L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](https://arbiscan.io/address/0x07D4692291B9E30E326fd31706f686f83f331B82)
+###### L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](https://arbiscan.io/address/0x07D4692291B9E30E326fd31706f686f83f331B82)
 
-- WITHDRAWALS_DISABLE_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLE_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -195,10 +188,10 @@ L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](http
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB)
+###### L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB)
 
-- WITHDRAWALS_DISABLE_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLE_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -224,10 +217,9 @@ L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https:/
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d)
-
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+###### L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d)
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -253,10 +245,10 @@ L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B)
+###### L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B)
 
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -282,10 +274,10 @@ L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https
 
 **Contracts and Roles:**
 
-L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9)
+###### L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9)
 
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -311,7 +303,7 @@ L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://s
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc)
+###### L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc)
 
 - WITHDRAWALS_DISABLER_ROLE
 - DEPOSITS_DISABLER_ROLE
@@ -340,17 +332,14 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Contracts and Roles:**
 
-1. NTTManager: BSC:[`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278)
+###### NTTManager: BSC:[`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278)
+* pause capability
 
-    - pause capability
+###### Wormhole Transceiver: BSC:[`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986)
+* pause capability
 
-2. Wormhole Transceiver: BSC:[`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986)
-
-    - pause capability
-
-3. Axelar Transceiver: BSC:[`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
-
-    - pause capability
+###### Axelar Transceiver: BSC:[`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+* pause capability
 
 **List of signers:**
 
@@ -376,10 +365,9 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: Zircuit:[`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e)
-
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+###### L2ERC20TokenBridge: Zircuit:[`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e)
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
