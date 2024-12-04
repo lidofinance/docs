@@ -8,11 +8,16 @@
 
 **Quorum:** 3/6
 
-**Forum topic:** [Lido V2 GateSeal Committee](https://research.lido.fi/t/lido-v2-gateseal-committee/4561)
+**Forum topic:**\
+[Lido V2 GateSeal Committee](https://research.lido.fi/t/lido-v2-gateseal-committee/4561)
 
-**Snapshot:** [Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d), [Voting for renewal GateSeal for the Withdrawal Queue and Validator Exit Bus Oracle](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa8ae592b09200c70629f3c5f4363d06dae9d8afb00c8910272319fc7fdb4e10a)
+**Snapshots:**\
+[Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d)\
+[Voting for renewal GateSeal for the Withdrawal Queue and Validator Exit Bus Oracle](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa8ae592b09200c70629f3c5f4363d06dae9d8afb00c8910272319fc7fdb4e10a)
 
-**Aragon:** [Vote #156](https://vote.lido.fi/vote/156), [Vote #174](https://vote.lido.fi/vote/174)
+**Aragon:**\
+[Vote #156](https://vote.lido.fi/vote/156)\
+[Vote #174](https://vote.lido.fi/vote/174)
 
 **Contracts and Roles:**
 
@@ -39,9 +44,13 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Quorum:** 3/5
 
-**Forum topics:** [Emergency Brakes MS for Easy Tracks](https://research.lido.fi/t/lip-3-easy-track-release/1406), [Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608)
+**Forum topics:**\
+[Emergency Brakes MS for Easy Tracks](https://research.lido.fi/t/lip-3-easy-track-release/1406)\
+[Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608)
 
-**Snapshots: [](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)**[Release Easy Track](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6f3b01ce0573545987665eaafe9b3410402d7d0be03ad7bf8ccc926307ae578b), [Emergency Brakes multisig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
+**Snapshots:**\
+[Release Easy Track](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6f3b01ce0573545987665eaafe9b3410402d7d0be03ad7bf8ccc926307ae578b)\
+[Emergency Brakes multisig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
 
 **Contracts and Roles**:
 
@@ -119,9 +128,12 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Quorum:** 3/5
 
-**Forum topics:** [Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608), [First launches of Lido on L2](https://research.lido.fi/t/lido-on-l2-first-launches/2786)
+**Forum topics:**\
+[Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608)\
+[First launches of Lido on L2](https://research.lido.fi/t/lido-on-l2-first-launches/2786)
 
-**Snapshot:** [Emergency Brakes multi-sig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
+**Snapshot:**\
+[Emergency Brakes multi-sig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
 
 **Contracts and Roles:**
 
@@ -177,7 +189,7 @@ L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](http
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment to Base and Ownership Acceptance by Lido DAO](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
+**Forum topic:** [wstETH Deployment to Base and Ownership Acceptance by Lido DAO](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
 
 **Snapshot:** [wstETH Deployment to Base and Ownership Acceptance by Lido DAO](https://snapshot.org/#/lido-snapshot.eth/proposal/0x8b35f64fffe67f67d4aeb2de2f3351404c54cd75a08277c035fa77065b6792f4)
 
@@ -206,7 +218,7 @@ L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https:/
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
+**Forum topic:** [wstETH Deployment on Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
 
 **Snapshot:** [wstETH Deployment on Mantle](https://snapshot.org/#/lido-snapshot.eth/proposal/0x349fa7409a99683405e71ddebaf5068f3dee7d4e6c9e4375198c4dc10c899bb9)
 
@@ -235,7 +247,7 @@ L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on zkSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
+**Forum topic:** [wstETH Deployment on zkSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
 
 **Snapshot:** [wstETH Deployment on zkSync](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd6c4a71c36bef27c4b5997223bd8612fe19177b46b238e78802a4a27fd5cdc9e)
 
@@ -264,7 +276,7 @@ L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
+**Forum topic:** [wstETH Deployment on Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
 
 **Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Scroll as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcdb7d84ea80d914a4abffd689ecf9bdc4bb05d47f1fdbdda8793d555381a0493)
 
@@ -293,7 +305,7 @@ L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://s
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
+**Forum topic:** [wstETH Deployment on Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
 
 **Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Mode as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6bc51c2b07a9345a03a0bc0acb72ccc9f63879c981f3a6954164d110c5d330b2)
 
@@ -322,7 +334,7 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Quorum:** 3/5
 
-**Forum topics:** [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on Binance Smart Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
+**Forum topic:** [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on Binance Smart Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
 
 **Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Binance Smart Chain as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcc52cdc83273b42a056cfc632889355595821a2cc9a59ba8adff66b30e9718f9)
 
@@ -358,9 +370,9 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Zircuit](https://research.lido.fi/t/wsteth-deployment-to-zircuit-and-ownership-acceptance-by-lido-dao/8602)
+**Forum topic:** [wstETH Deployment on Zircuit](https://research.lido.fi/t/wsteth-deployment-to-zircuit-and-ownership-acceptance-by-lido-dao/8602)
 
-**Snapshot:** TBA
+**Snapshot:** [Should the Lido DAO recognize the wstETH bridge endpoints on Zircuit as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac55c2cd8610c3b72cb769cec6b97891b5880f2f1f458eda2eb17218332cef6f)
 
 **Contracts and Roles:**
 
