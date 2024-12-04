@@ -13,7 +13,8 @@ Multisig enables the reception of LDO and stablecoins (listed in the AllowedToke
 [Proposal to continue LEGO fro Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
 
 **Snapshot:**\
-[A proposal to continue LEGO program](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)
+[Continue LEGO for year 2](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
+[Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.org/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)
 
 **Aragon:**\
 [Omnibus vote #147 (items 4,5)](https://vote.lido.fi/vote/147)
