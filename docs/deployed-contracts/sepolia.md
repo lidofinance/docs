@@ -184,11 +184,11 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ##### Ethereum part
 
-- **(proposed)** wstETH StarknetERC20Bridge: [`0xaCbb1B9021eC68370B9821d5F36ddE26796bb436`](https://sepolia.etherscan.io/address/0xaCbb1B9021eC68370B9821d5F36ddE26796bb436) (proxy)
-- **(proposed)** wstETH StarknetERC20Bridge: [`0x0e8f4faBc96C2B16fa627F06229a77a765D8bFe0`](https://sepolia.etherscan.io/address/0x0e8f4faBc96C2B16fa627F06229a77a765D8bFe0) (impl)
+- wstETH StarknetERC20Bridge: [`0xaCbb1B9021eC68370B9821d5F36ddE26796bb436`](https://sepolia.etherscan.io/address/0xaCbb1B9021eC68370B9821d5F36ddE26796bb436) (proxy)
+- wstETH StarknetERC20Bridge: [`0x0e8f4faBc96C2B16fa627F06229a77a765D8bFe0`](https://sepolia.etherscan.io/address/0x0e8f4faBc96C2B16fa627F06229a77a765D8bFe0) (impl)
 
 ##### Starknet part
 
-- **(proposed)** wstETH StarkGateL2Bridge: [`0x0172393a285eeac98ea136a4be473986a58ddd0beaf158517bc32166d0328824`](https://sepolia.starkscan.co/contract/0x0172393a285eeac98ea136a4be473986a58ddd0beaf158517bc32166d0328824#overview)
-- **(proposed)** wstETH ERC20: [`0x030de54c07e57818ae4a1210f2a3018a0b9521b8f8ae5206605684741650ac25`](https://starkscan.co/token/0x030de54c07e57818ae4a1210f2a3018a0b9521b8f8ae5206605684741650ac25)
-- **(proposed)** Governance BridgeExecutor: [`0x07d52ac5647e26ec8e356ae5a15900e92e2e7e52ddd3cbaf8f15300906c4a89a`](https://starkscan.co/contract/0x07d52ac5647e26ec8e356ae5a15900e92e2e7e52ddd3cbaf8f15300906c4a89a)
+- wstETH StarkGateL2Bridge: [`0x0172393a285eeac98ea136a4be473986a58ddd0beaf158517bc32166d0328824`](https://sepolia.starkscan.co/contract/0x0172393a285eeac98ea136a4be473986a58ddd0beaf158517bc32166d0328824#overview)
+- wstETH ERC20: [`0x030de54c07e57818ae4a1210f2a3018a0b9521b8f8ae5206605684741650ac25`](https://starkscan.co/token/0x030de54c07e57818ae4a1210f2a3018a0b9521b8f8ae5206605684741650ac25)
+- Governance BridgeExecutor: [`0x07d52ac5647e26ec8e356ae5a15900e92e2e7e52ddd3cbaf8f15300906c4a89a`](https://starkscan.co/contract/0x07d52ac5647e26ec8e356ae5a15900e92e2e7e52ddd3cbaf8f15300906c4a89a)
