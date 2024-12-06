@@ -543,14 +543,14 @@ where the protocol and its parts/extensions are deployed.
 
 ##### Ethereum part
 
-- **(proposed)** wstETH StarknetERC20Bridge: [`0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B`](https://etherscan.io/address/0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B) (proxy)
-- **(proposed)** wstETH StarknetERC20Bridge: [`0x6ad74d4b79a06a492c288ef66ef868dd981fdc85`](https://etherscan.io/address/0x6ad74d4b79a06a492c288ef66ef868dd981fdc85) (impl)
+- wstETH StarknetERC20Bridge: [`0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B`](https://etherscan.io/address/0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B) (proxy)
+- wstETH StarknetERC20Bridge: [`0x6ad74d4b79a06a492c288ef66ef868dd981fdc85`](https://etherscan.io/address/0x6ad74d4b79a06a492c288ef66ef868dd981fdc85) (impl)
 
 ##### Starknet part
 
-- **(proposed)** wstETH StarkGateL2Bridge: [`0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c`](https://starkscan.co/contract/0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c#overview)
-- **(proposed)** wstETH ERC20: [`0x42b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2`](https://starkscan.co/token/0x042b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2)
-- **(proposed)** Governance BridgeExecutor: [`0x7ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432`](https://starkscan.co/contract/0x07ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432)
+- wstETH StarkGateL2Bridge: [`0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c`](https://starkscan.co/contract/0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c#overview)
+- wstETH ERC20: [`0x42b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2`](https://starkscan.co/token/0x042b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2)
+- Governance BridgeExecutor: [`0x7ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432`](https://starkscan.co/contract/0x07ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432)
 
 ### Lido Multichain Liquidity pools
 
