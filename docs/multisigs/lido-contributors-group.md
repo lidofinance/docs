@@ -27,12 +27,12 @@ PML DAI TopUpAllowedRecipients [`0x4E6D3A5023A38cE2C4c5456d3760357fD93A22cD`](ht
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| folkyatina | 0x75E01e1B7a4Ac280fB744A8153beE668A7e83abd | https://etherscan.io/verifySig/11759 | https://twitter.com/folkyatina/status/1587738950453665792?s=20&t=-I_3fftZemHuesIMVrof3Q |
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | Azat | 0xA14BFfd91fb571bF1D9Bec70f273CAc13CA127Fa | https://etherscan.io/verifySig/11715 | https://twitter.com/mymphe/status/1587330426204569602 |
 | Krogla | 0x000000DfE832ccD7a4011a1Fca34602C9a598353 | https://etherscan.io/verifySig/11723 | https://twitter.com/_krogla/status/1587487599328985088 |
 | alxmrn | 0x444C7182bD7cd40f323Ba7A9b84d6B7564ccf5EC | https://etherscan.io/verifySig/251892 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/31 |
 | Elena_S | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/260027 | https://x.com/Elen0sh/status/1853404050131206237 |
-| Susanna_MV | 0xe1902751db24887546cc8870e4d2ef4c0ec58f82 | https://etherscan.io/verifySig/261191 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/36 |
 
 ## 4.2 Argo Technology Consulting Ltd. (ATC):
 
