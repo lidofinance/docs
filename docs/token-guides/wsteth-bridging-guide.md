@@ -151,7 +151,7 @@ The general security approach here is to isolate L2/cross-chain risks, ensuring 
 
 #### R-3: Usage of canonical bridge
 
-Usage of the bridge, canonical for the L2 network, is highly encouraged. If the native bridge does not exist, is not a public good, or is closed-sourced. Most "canonical like " options may be suitable.
+Usage of the bridge, canonical for the L2 network, is highly encouraged. If the native bridge does not exist, is not a public good, or is closed-sourced. Most "canonical like" options may be suitable.
 
 #### R-4: L2 wstETH token upgradable
 
@@ -171,11 +171,11 @@ A dedicated governance executor contract should be set as an admin the of the L2
 
 Examples:
 
-- [`OptimismBridgeExecutor`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3);
-- [Bridge executor on Base](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF) - reused `OptimismBridgeExecutor` contract;
+- [`OptimismBridgeExecutor`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
+- [Bridge executor on Base](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF) - reused `OptimismBridgeExecutor` contract
 - [`ZkSyncBridgeExecutor`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8#contract)
 - [`LineaBridgeExecutor`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
-- [`ScrollBridgeExecutor`]https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
+- [`ScrollBridgeExecutor`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 
 For more examples, see Governance Bridge Executors at https://docs.lido.fi/deployed-contracts/#lido-multichain. The contracts originate from [Aave Governance Cross-Chain Bridges](https://github.com/aave/governance-crosschain-bridges) and can be found at https://github.com/lidofinance/governance-crosschain-bridges and [PRs](https://github.com/lidofinance/governance-crosschain-bridges/pulls).
 
@@ -288,8 +288,8 @@ Notation used:
 - Optionally applicable (if `L2 Custom Bridge` doesn't support these)
     - Admin is `L2 Governance Executor`
     - Withdrawals pausable by
-        - `Emergency Brakes Multisig`
         - `L2 Governance Executor`
+        - `Emergency Brakes Multisig`
     - Withdrawals resumable by
         - `L2 Governance Executor`
     - Deposits pausable by
