@@ -793,7 +793,7 @@ function getBond(uint256 nodeOperatorId) public view returns (uint256);
 
 ### getCurveInfo
 
-Return bond curve for the given curve id
+Returns bond curve for the given curve id
 
 _Get default bond curve info if `curveId` is `0` or invalid_
 
