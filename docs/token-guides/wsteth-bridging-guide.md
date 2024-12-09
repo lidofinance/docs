@@ -1,7 +1,7 @@
 # wstETH rollup bridging guide
 
 :::warning Disclaimer
-This guide provides recommendations provided by the [Network Expansion Committee (NEC)](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5). NEC is not a representative of the Lido DAO and by giving the feedback NEC makes no warranties, express or implied, and disclaims all implied warranties, including any warranty of the likelihood of the recognition or rejection by the Lido DAO and representation.
+This guide provides recommendations provided by the [Network Expansion Committee (NEC)](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5). Following these recommendations increases the likelihood of recognition by the Committee, but does not guarantee it. However, the Lido DAO vote, with a quorum established, can override any NEC decision at any time, even if it has already been implemented and released. Therefore, NEC makes no warranties, express or implied, and disclaims all implied warranties, including any warranty of the likelihood of the recognition or rejection by the Lido DAO.
 :::
 
 ## Intro
@@ -19,7 +19,7 @@ See the [lido-l2-with-steth](https://github.com/lidofinance/lido-l2-with-steth/)
 
 While technically, it is feasible to bridge the wstETH token on an L2 network as any other standard plain ERC-20 compatible token, it might not be aligned with the long-term vision of the Lido DAO for stETH future-proof adoption and general community sentiment.
 
-This guide covers the recommendations as well as provides general guidelines, and reveals the logic behind to smooth the process. **It's essential to understand that conforming to or diverging from these guidelines won't ensure the recognition or rejection of a specific proposal by the Lido DAO.** Nonetheless, adhering to these guidelines substantially increases the likelihood of gaining support from the Network Expansion Committee (NEC) and community. Ultimately, the final decision is determined by the outcome of the voting process.
+This guide covers the recommendations as well as provides general guidelines, and reveals the logic behind to smooth the process. **It's essential to understand that conforming to or diverging from these guidelines won't ensure the recognition or rejection of a specific proposal by the Lido DAO, which can override any NEC decision at any time, even if it has already been implemented and released.** Nonetheless, adhering to these guidelines substantially increases the likelihood of gaining support from the Network Expansion Committee (NEC) and community.
 
 :::info
 Please send any of your feedback on the guide to the NEC — the doc gets iterative updates.
@@ -57,9 +57,9 @@ If Lido DAO recognizes the bridged wstETH endpoints, in general, it means:
 
 Usually, the Lido DAO recognizes the bridged wstETH endpoints if the specific set of security and design recommendations are followed. These recommendations are set out in the [Recommendations](#recommendations) section in paragraphs **R-1..R-8**. The rest of the recommendations (**R-9...**) are also important and foster the recognition's likelihood.
 
-If the recommendations **R-1...R-4** are followed, the token may have a chance of being acknowledged by NEC as following the security and future-proofing baseline.
+If the recommendations **R-1...R-4** are followed, the token may have a chance of being formally recognized by NEC as following the security and future-proofing baseline.
 
-If any of **R-1...R-4** isn’t followed, there can be less likelihood of the Lido DAO’s recognition or the NEC's acknowledgment.
+If any of **R-1...R-4** isn’t followed, there can be less likelihood of the NEC recognition.
 
 ## General scenario towards the Lido DAO recognition
 
@@ -117,7 +117,7 @@ This section enumerates design and security recommendations for a wstETH bridgin
 
 ### Security and future-proof baseline
 
-The baseline recommendations: the following of the recommendations are highly encouraged to increase the chance of the Lido DAO recognition or NEC acknowledgment.
+The baseline recommendations: following these recommendations is highly encouraged to increase the chance of NEC recognition.
 
 #### R-1: Audited code and verifiable deployment
 
@@ -159,15 +159,15 @@ The bridged token contract should be deployed behind a proxy with the ability to
 
 If a dedicated bridge endpoint contract is not deployed behind a proxy (**R-5**), it must provide the capability to set/change the bridge contract instance used.
 
-### The Lido DAO recognition recommendations by the NEC
+### Lido DAO support recommendations by the NEC
 
-The recommendations **R-5...R-8** are highly encouraged to follow for the recognition of the bridged wstETH endpoints by the Lido DAO.
+The recommendations **R-5...R-8** are highly encouraged to follow so that the recognition of the bridged wstETH endpoints is supported by the Lido DAO.
 
-The recommendations starting from **R-9** are also encouraged and may significantly contribute to the likelihood of the Lido DAO recognition.
+The recommendations starting from **R-9** are also encouraged and may significantly contribute to the likelihood of the Lido DAO support.
 
 #### R-5: Bridging L1 Lido DAO decisions
 
-A dedicated governance executor contract should be set as an admin the of the L2 endpoint contracts.
+A dedicated governance executor contract should be set as an admin of the L2 endpoint contracts.
 
 Examples:
 
@@ -355,7 +355,7 @@ Please consider getting in touch with the NEC if (**R-1...R-4**) are followed.
 
 ## Questionnaire
 
-To get fast feedback on the likelihood of the wstETH recognized by the Lido DAO, please fill in the questionnaire and send it to the NEC. **Please note: NEC is not a representative of the Lido DAO and by giving the feedback NEC makes no warranties, express or implied, and disclaims all implied warranties, including any warranty of the likelihood of the recognition or rejection by the Lido DAO and representation.**
+To get quick feedback on the likelihood of the wstETH being recognized by the NEC, please fill in the questionnaire and send it to the NEC. **Please note: by giving the feedback NEC makes no warranties, express or implied, and disclaims all implied warranties, including any warranty of the likelihood of the recognition or rejection by the Lido DAO.**
 
 In the comments section, please provide the relevant details: the artifacts, if present, and/or a description why the recommendation is not followed or followed partially, etc.
 
