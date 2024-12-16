@@ -55,7 +55,7 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Easy Track contracts and roles:**
 
-AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b63`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
+AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
 
 - trustedcaller
 
