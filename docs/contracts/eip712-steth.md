@@ -3,7 +3,7 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/EIP712StETH.sol)
 - [Deployed contract](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 
-`EIP712StETH` serves as a dedicated helper contract for `stETH`, crucial for complete support of [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
+`EIP712StETH` serves as a dedicated helper contract for `stETH`, crucial for the complete support of [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
 
 ## Why This Helper Is Needed
 
