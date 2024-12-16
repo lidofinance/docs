@@ -432,7 +432,7 @@ where the protocol and its parts/extensions are deployed.
 
 - L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
 - L1 TokenBridge (Canonical Bridge): [`0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34`](https://etherscan.io/address/0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34) (impl)
-- ProxyAdmin for L1 TokenBridge: [`0x5b0bb17755fba06028530682e2fd5bc373931768`](https://etherscan.io/address/0x5b0bb17755fba06028530682e2fd5bc373931768)
+- ProxyAdmin for L1 TokenBridge: [`0xF5058616517C068C7b8c7EbC69FF636Ade9066d6`](https://etherscan.io/address/0xF5058616517C068C7b8c7EbC69FF636Ade9066d6)
 
 #### Linea part
 
@@ -441,6 +441,7 @@ where the protocol and its parts/extensions are deployed.
 - ProxyAdmin for wstETH CustomBridgedToken: [`0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927`](https://lineascan.build/address/0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927)
 - L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
 - L2 TokenBridge (Canonical Bridge): [`0xd90ed3d4f9d11262d3d346a4369058d5b3777137`](https://lineascan.build/address/0xd90ed3d4f9d11262d3d346a4369058d5b3777137) (impl)
+- ProxyAdmin for L2 TokenBridge: [`0x1e1f6f22f97b4a7522d8b62e983953639239774e`](https://lineascan.build/address/0x1e1f6f22f97b4a7522d8b62e983953639239774e)
 - LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
 ### Scroll
