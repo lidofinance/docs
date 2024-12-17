@@ -302,6 +302,7 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+- Swell: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://safe.optimism.io/settings/setup?safe=swell-l2:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 ### Liquidity Observation Lab Multisigs
 
