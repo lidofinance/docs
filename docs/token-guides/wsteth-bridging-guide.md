@@ -59,7 +59,7 @@ Usually, the Lido DAO recognizes the bridged wstETH endpoints if the specific se
 
 If the recommendations **R-1...R-4** are followed, the token may have a chance of being formally recognized by NEC as following the security and future-proofing baseline.
 
-If any of **R-1...R-4** isn’t followed, there can be less likelihood of the NEC recognition.
+If any of **R-1...R-4** aren’t followed, there can be less likelihood of the NEC recognition.
 
 ## General scenario towards the Lido DAO recognition
 
