@@ -38,7 +38,7 @@ Transfer a single ERC1155 token with the specified id in the specified amount to
 - reverts if `msg.sender` is not `owner`;
 - reverts if `_recipient` is zero address;
 - reverts if the contract balance is insufficient;
-- emits `ERC721Transferred(address indexed _token, address indexed _recipient, uint256 _tokenId, bytes _data)`.
+- emits `ERC1155Transferred(address indexed _token, address indexed _recipient, uint256 _tokenId, bytes _data)`.
 
 ```solidity
 function transferERC1155(address _token, address _recipient, uint256 _tokenId, uint256 _amount, bytes calldata _data) external;
