@@ -522,3 +522,25 @@ CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https
 | lanski | 0x6ac2df117c82f51bfdef1a249672b9a9ca6b3d86 | https://etherscan.io/verifySig/257500 | https://x.com/Pol_Lanski/status/1840659602083324379 |
 | Eridian | 0x7afd3c7f16fdbb3adf331fcc20a585d768ecf60d | https://etherscan.io/verifySig/257510| https://x.com/EridianAlpha/status/1840661871516332220 |
 | POSTHUMAN | 0xcbc39c37ee315e4a504cc1ad0d7956a76e20d90d | https://etherscan.io/verifySig/257507 | https://x.com/ponimajushij/status/1833486702062493757 |
+
+## 2.10 Delegate Oversight Committee
+
+**Address:** [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
+
+**Purpose of the multisig:** This multisig receives and distributes grants from the LEGO Committee multisig within the Delegate Incentivization Program.
+
+**Quorum:** 3/5
+
+**Forum topic:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858)
+
+**Snapshot:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa502cf80451192672313911ce558e74799626da3b3b66130e21c6cd19707e584)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
+| Olga K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
+| Marcela| 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716| https://x.com/0xMarcela/status/1869171438630174818 |
+| kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
+| Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 |https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036 |
