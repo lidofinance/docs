@@ -302,6 +302,7 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+- Metis: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://metissafe.tech/home?safe=metis-andromeda:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 
 ### Liquidity Observation Lab Multisigs
 
@@ -552,6 +553,21 @@ where the protocol and its parts/extensions are deployed.
 - wstETH StarkGateL2Bridge: [`0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c`](https://starkscan.co/contract/0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c#overview)
 - wstETH ERC20: [`0x42b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2`](https://starkscan.co/token/0x042b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2)
 - Governance BridgeExecutor: [`0x7ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432`](https://starkscan.co/contract/0x07ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432)
+
+### Metis
+
+##### Ethereum part
+
+- *(proposed)* L1ERC20TokenBridgeMetis: [`0x2b329D37FcBCBf22b9B0bB473789fC27EB28494B`](https://etherscan.io/address/0x2b329D37FcBCBf22b9B0bB473789fC27EB28494B) (proxy)
+- *(proposed)* L1ERC20TokenBridgeMetis: [`0xdA5Bb509B1Ffa1709C23f10B4Ad732d60611EE3b`](https://etherscan.io/address/0xdA5Bb509B1Ffa1709C23f10B4Ad732d60611EE3b) (impl)
+
+##### Metis part
+
+- *(proposed)* WstETH ERC20BridgedPermit: [`0x84a600039E7C1169dA4aF41513763883D583fcC3`](https://andromeda-explorer.metis.io/address/0x84a600039E7C1169dA4aF41513763883D583fcC3) (proxy)
+- *(proposed)* WstETH ERC20BridgedPermit: [`0x65D7154B9aB83757CD8cB1d12e642B313E5Ae001`](https://andromeda-explorer.metis.io/address/0x65D7154B9aB83757CD8cB1d12e642B313E5Ae001) (impl)
+- *(proposed)* L2ERC20TokenBridgeMetis: [`0xfac6B64b91fb112bbd1dCc48e7EA7310FbdF33a5`](https://andromeda-explorer.metis.io/address/0xfac6B64b91fb112bbd1dCc48e7EA7310FbdF33a5) (proxy)
+- *(proposed)* L2ERC20TokenBridgeMetis: [`0x3502269b1837A04Cc6aBAa7fC57bFDDBF2AbF822`](https://andromeda-explorer.metis.io/address/0x3502269b1837A04Cc6aBAa7fC57bFDDBF2AbF822) (impl)
+- *(proposed)* Optimism Governance Bridge Executor: [`0x149AE66979c304C03EB12F0DEA876446b5bB37E1`](https://andromeda-explorer.metis.io/address/0x149AE66979c304C03EB12F0DEA876446b5bB37E1)
 
 ### Lido Multichain Liquidity pools
 
