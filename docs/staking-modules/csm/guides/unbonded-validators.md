@@ -15,7 +15,7 @@ There are two types of the unbonded validator keys:
 - **Not yet deposited but unbonded keys.** In this case, unbonded validator keys are marked as non-depositable until the Node Operator tops up the [bond](../join-csm#bond) to make it sufficient to cover them.
 - **Unbonded and deposited validator keys.**  In this case, all unbonded and deposited keys will be requested to exit in the upcoming VEBO reports.
 
-Given the picture above, one may see that in case of an insufficient bond [bond](../join-csm#bond), the very last uploaded keys are considered unbonded. Non-deposited keys will be regarded as unbonded first to avoid unnecessary exit requests. At the same time, if there are no non-deposited keys or the unbonded keys count exceeds the number of non-deposited keys, it is up to VEBO to decide on the particular keys to be requested for exit. CSM can only report the number of the deposited keys to be exited to VEBO but not the actual keys.
+Given the picture above, one may see that in case of an insufficient [bond](../join-csm#bond), the very last uploaded keys are considered unbonded. Non-deposited keys will be regarded as unbonded first to avoid unnecessary exit requests. At the same time, if there are no non-deposited keys or the unbonded keys count exceeds the number of non-deposited keys, it is up to VEBO to decide on the particular keys to be requested for exit. CSM can only report the number of the deposited keys to be exited to VEBO but not the actual keys.
 
 
 ## How to avoid the emergence of unbonded keys and further exit requests?
