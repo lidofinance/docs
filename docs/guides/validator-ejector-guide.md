@@ -152,7 +152,7 @@ Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/featur
 
 ### STAKING_MODULE_ID
 
-ID of the [StakingRouter](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/StakingRouter.sol) contract module.
+ID of the [StakingRouter](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/StakingRouter.sol) contract module.
 
 Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)), it's id is `1`.
 

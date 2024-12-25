@@ -28,7 +28,6 @@ TBA
 | [13](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-13.md) | Easy Track payments limit                                 | Alexey Potapkin, Eugene Pshenichnyy, Victor Suzdalev, Eugene Mamin               | [Link](https://research.lido.fi/t/lip-13-easy-track-payments-limit/1670) |
 | [12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) | On-chain part of the rewards distribution after the Merge | Eugene Pshenichnyy, Eugene Mamin, Artyom Veremeenko                              | [Link](https://research.lido.fi/t/lip-12-on-chain-part-of-the-rewards-distribution-after-the-merge/1625) |
 | [11](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-11.md) | Add a transfer shares function for stETH                  | Eugene Mamin, Sam Kozin, Artyom Veremeenko                                       | [Link](https://research.lido.fi/t/lip-11-add-a-transfer-shares-function-for-steth/1622) |
-| [10](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-10.md) | Proxy initializations and LidoOracle upgrade              | Artyom Veremeenko, Sam Kozin, Mihail Semenkin, Eugene Pshenichnyy, Eugene Mamin  | [Link](https://research.lido.fi/t/lip-10-proxy-initializations-and-lidooracle-upgrade/1616) |
 | [9](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-9.md)  | Add an explicit log for the stETH burn events             | Eugene Mamin, Artyom Veremeenko                                                  | [Link](https://research.lido.fi/t/lip-9-add-an-explicit-log-for-the-steth-burn-events/1609) |
 | [8](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-8.md)  | Increase keysOpIndex in assignNextSigningKeys             | George Avsetsin, Artyom Veremeenko                                               | [Link](https://research.lido.fi/t/lip-8-increase-keysopindex-in-assignnextsigningkeys/1608) |
 | [7](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-7.md)  | Introduce a composite oracle beacon report receiver       | Eugene Mamin, Sam Kozin, Eugene Pshenichnyy                                      | [Link](https://research.lido.fi/t/lip-6-in-protocol-coverage-proposal/1468/10) |
@@ -39,9 +38,14 @@ TBA
 | [2](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-2.md)  | Oracle contract upgrade to v2                             | Denis Glotov                                                                     | None  |
 | [1](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-1.md)  | Oracle interface and reward algorithm specification       | Kirill Varlamov                                                                  | None  |
 
+## Moribund
+
+| LIP&nbsp;# | Title | Author | Discussions&#8209;to |
+|------------|-------|--------|----------------|
+| [10](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-10.md) | Proxy initializations and LidoOracle upgrade              | Artyom Veremeenko, Sam Kozin, Mihail Semenkin, Eugene Pshenichnyy, Eugene Mamin | [Link](https://research.lido.fi/t/lip-10-proxy-initializations-and-lidooracle-upgrade/1616) |
 
 ## WIP
 
-| LIP&nbsp;# | Title | Status | Author | Discussions&#8209;to |
-|------------|-------|--------|--------|----------------|
-| [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md)  | LIP Purpose and Guidelines                                | Lidos Community                                                                  | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
+| LIP&nbsp;# | Title | Author          | Discussions&#8209;to |
+|------------|-------|-----------------|----------------|
+| [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md)  | LIP Purpose and Guidelines                                | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |

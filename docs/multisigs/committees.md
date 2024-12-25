@@ -301,7 +301,6 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086452812349441?s=20 |
@@ -309,6 +308,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c| https://x.com/KENX3495/status/1863795366321344968 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
@@ -516,3 +516,25 @@ pausing CSM in case of emergency via Gate Seal.
 | lanski | 0x6ac2df117c82f51bfdef1a249672b9a9ca6b3d86 | https://etherscan.io/verifySig/257500 | https://x.com/Pol_Lanski/status/1840659602083324379 |
 | Eridian | 0x7afd3c7f16fdbb3adf331fcc20a585d768ecf60d | https://etherscan.io/verifySig/257510| https://x.com/EridianAlpha/status/1840661871516332220 |
 | POSTHUMAN | 0xcbc39c37ee315e4a504cc1ad0d7956a76e20d90d | https://etherscan.io/verifySig/257507 | https://x.com/ponimajushij/status/1833486702062493757 |
+
+## 2.10 Delegate Oversight Committee
+
+**Address:** [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
+
+**Purpose of the multisig:** This multisig receives and distributes grants from the LEGO Committee multisig within the Delegate Incentivization Program.
+
+**Quorum:** 3/5
+
+**Forum topic:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858)
+
+**Snapshot:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa502cf80451192672313911ce558e74799626da3b3b66130e21c6cd19707e584)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
+| Olga K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
+| Marcela| 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716| https://x.com/0xMarcela/status/1869171438630174818 |
+| kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
+| Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 |https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036 |

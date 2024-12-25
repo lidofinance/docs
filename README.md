@@ -53,7 +53,7 @@ More information about document metadata fields available [there](https://docusa
 
 ### Documentation Sidebar
 
-The appereance of sidebar controlled manually via `sidebars.js` file. This file is used to:
+The appearance of sidebar controlled manually via `sidebars.js` file. This file is used to:
 
 - Group multiple related documents
 - Display a sidebar on each of those documents
@@ -85,7 +85,7 @@ This command generates static content into the `build` directory and can be serv
 
 Build and deploy happens automatically when pull request is merged to `main`branch or someone pushes to `main` branch directly.
 
-To build documentation locally and push builded version to the `gh-pages` branch use next command:
+To build documentation locally and push built version to the `gh-pages` branch use next command:
 
 ```console
 GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy

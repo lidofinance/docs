@@ -113,10 +113,12 @@ where the protocol and its parts/extensions are deployed.
 ## Price feeds
 
 - Primary price feeds
+
   - Chainlink stETH/USD Price Feed: [`0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8`](https://etherscan.io/address/0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8) ([steth-usd.data.eth](https://app.ens.domains/name/steth-usd.data.eth))
   - Chainlink stETH/ETH Price Feed: [`0x86392dC19c0b719886221c78AB11eb8Cf5c52812`](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
 
 - Reserve price feeds (obsolete)
+
   - stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
   - stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
 
@@ -169,16 +171,15 @@ where the protocol and its parts/extensions are deployed.
 
 ## Lido Stonks contracts
 
-  - STETH→DAI [`0x3e2D251275A92a8169A3B17A2C49016e2de492a7`](https://etherscan.io/address/0x3e2D251275A92a8169A3B17A2C49016e2de492a7)
-  - STETH→USDC [`0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5`](https://etherscan.io/address/0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5)
-  - STETH→USDT [`0x7C2a1E25cA6D778eCaEBC8549371062487846aAF`](https://etherscan.io/address/0x7C2a1E25cA6D778eCaEBC8549371062487846aAF)
-  - DAI→USDC [`0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D`](https://etherscan.io/address/0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D)
-  - DAI→USDT [`0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42`](https://etherscan.io/address/0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42)
-  - USDT→USDC [`0x281e6BB6F26A94250aCEb24396a8E4190726C97e`](https://etherscan.io/address/0x281e6BB6F26A94250aCEb24396a8E4190726C97e)
-  - USDT→DAI [`0x64B6aF9A108dCdF470E48e4c0147127F26221A7C`](https://etherscan.io/address/0x64B6aF9A108dCdF470E48e4c0147127F26221A7C)
-  - USDC→USDT [`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7)
-  - USDC→DAI [`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850)
-
+- STETH→DAI [`0x3e2D251275A92a8169A3B17A2C49016e2de492a7`](https://etherscan.io/address/0x3e2D251275A92a8169A3B17A2C49016e2de492a7)
+- STETH→USDC [`0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5`](https://etherscan.io/address/0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5)
+- STETH→USDT [`0x7C2a1E25cA6D778eCaEBC8549371062487846aAF`](https://etherscan.io/address/0x7C2a1E25cA6D778eCaEBC8549371062487846aAF)
+- DAI→USDC [`0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D`](https://etherscan.io/address/0x79f5E20996abE9f6a48AF6f9b13f1E55AED6f06D)
+- DAI→USDT [`0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42`](https://etherscan.io/address/0x8Ba6D367D15Ebc52f3eBBdb4a8710948C0918d42)
+- USDT→USDC [`0x281e6BB6F26A94250aCEb24396a8E4190726C97e`](https://etherscan.io/address/0x281e6BB6F26A94250aCEb24396a8E4190726C97e)
+- USDT→DAI [`0x64B6aF9A108dCdF470E48e4c0147127F26221A7C`](https://etherscan.io/address/0x64B6aF9A108dCdF470E48e4c0147127F26221A7C)
+- USDC→USDT [`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7)
+- USDC→DAI [`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850)
 
 ## Easy Track
 
@@ -430,8 +431,8 @@ where the protocol and its parts/extensions are deployed.
 #### Ethereum part
 
 - L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
-- L1 TokenBridge (Canonical Bridge): [`0x6ccfd65b0b14f67259c77ca6267104e058ddb292`](https://etherscan.io/address/0x6ccfd65b0b14f67259c77ca6267104e058ddb292) (impl)
-- ProxyAdmin for L1 TokenBridge: [`0x5b0bb17755fba06028530682e2fd5bc373931768`](https://etherscan.io/address/0x5b0bb17755fba06028530682e2fd5bc373931768)
+- L1 TokenBridge (Canonical Bridge): [`0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34`](https://etherscan.io/address/0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34) (impl)
+- ProxyAdmin for L1 TokenBridge: [`0xF5058616517C068C7b8c7EbC69FF636Ade9066d6`](https://etherscan.io/address/0xF5058616517C068C7b8c7EbC69FF636Ade9066d6)
 
 #### Linea part
 
@@ -439,7 +440,8 @@ where the protocol and its parts/extensions are deployed.
 - wstETH CustomBridgedToken: [`0xc0583e2F5930EDE5Fab9D57bAC4169878730B010`](https://lineascan.build/address/0xc0583e2f5930ede5fab9d57bac4169878730b010) (impl)
 - ProxyAdmin for wstETH CustomBridgedToken: [`0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927`](https://lineascan.build/address/0xF951d7592e03eDB0Bab3D533935e678Ce64Eb927)
 - L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
-- L2 TokenBridge (Canonical Bridge): [`0x2bfdf4a0d54C93a4bAF74F8DcEA8a275D8EE97a9`](https://lineascan.build/address/0x2bfdf4a0d54c93a4baf74f8dcea8a275d8ee97a9) (impl)
+- L2 TokenBridge (Canonical Bridge): [`0xd90ed3d4f9d11262d3d346a4369058d5b3777137`](https://lineascan.build/address/0xd90ed3d4f9d11262d3d346a4369058d5b3777137) (impl)
+- ProxyAdmin for L2 TokenBridge: [`0x1e1f6f22f97b4a7522d8b62e983953639239774e`](https://lineascan.build/address/0x1e1f6f22f97b4a7522d8b62e983953639239774e)
 - LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
 ### Scroll
@@ -537,6 +539,19 @@ where the protocol and its parts/extensions are deployed.
 - L2ERC20TokenBridge: [`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e) (proxy)
 - L2ERC20TokenBridge: [`0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c`](https://explorer.zircuit.com/address/0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c) (impl)
 - Optimism Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
+
+### Starknet
+
+##### Ethereum part
+
+- wstETH StarknetERC20Bridge: [`0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B`](https://etherscan.io/address/0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B) (proxy)
+- wstETH StarknetERC20Bridge: [`0x6ad74d4b79a06a492c288ef66ef868dd981fdc85`](https://etherscan.io/address/0x6ad74d4b79a06a492c288ef66ef868dd981fdc85) (impl)
+
+##### Starknet part
+
+- wstETH StarkGateL2Bridge: [`0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c`](https://starkscan.co/contract/0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c#overview)
+- wstETH ERC20: [`0x42b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2`](https://starkscan.co/token/0x042b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2)
+- Governance BridgeExecutor: [`0x7ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432`](https://starkscan.co/contract/0x07ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432)
 
 ### Lido Multichain Liquidity pools
 
