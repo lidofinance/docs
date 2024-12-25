@@ -10,7 +10,7 @@ Multisig enables the reception of LDO and stablecoins (listed in the AllowedToke
 
 **Forum topics:**\
 [Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406)\
-[Proposal to continue LEGO fo Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
+[Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
 
 **Snapshot:**\
 [Continue LEGO for year 2](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
