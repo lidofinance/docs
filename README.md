@@ -1,6 +1,6 @@
 # Lido Docs
 
-Lido documentation is built using [Docusaurus 3](https://docusaurus.io/). The resulting version of documentation hosted via Github Pages from branch `gh-pages` of this repository.
+Lido documentation is built using [Docusaurus 3](https://docusaurus.io/). The resulting version of documentation hosted via GitHub Pages from the `gh-pages` branch of this repository..
 
 ## Installation
 
@@ -18,7 +18,7 @@ This command starts a local development server and opens up a browser window. Mo
 
 ## Documentation Pages
 
-Documentation pages stored in `/docs` folder. By default files with `.md` and `.mdx` extensions are treated as documentation pages. Every document has a unique `id`. By default, a document `id` is the name of the document (without the extension) relative to the root docs directory.
+Documentation pages are stored in the `/docs` folder. By default files with `.md` and `.mdx` extensions are treated as documentation pages. Every document has a unique `id`. By default, a document `id` is the name of the document (without the extension) relative to the root docs directory.
 
 For example, `greeting.md` id is `greeting` and `guide/hello.md` id is `guide/hello`.
 
@@ -53,13 +53,13 @@ More information about document metadata fields available [there](https://docusa
 
 ### Documentation Sidebar
 
-The appearance of sidebar controlled manually via `sidebars.js` file. This file is used to:
+The appearance of the sidebar is controlled manually via the `sidebars.js` file. This file is used to:
 
 - Group multiple related documents
 - Display a sidebar on each of those documents
 - Provide a paginated navigation, with next/previous button
 
-By default new added pages don't added to sidebar automatically. For example to add new page `faq.md` as the last item of sidebar we need modify `sidebar.js` next way:
+By default, newly added pages are not added to the sidebar automatically. For example, to add a new page `faq.md` as the last item of the sidebar, we need to modify `sidebar.js` in the following way:
 
 ```js
 module.exports = {
@@ -83,9 +83,9 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-Build and deploy happens automatically when pull request is merged to `main`branch or someone pushes to `main` branch directly.
+Build and deployment happen automatically when a pull request is merged to the `main` branch or someone pushes to the `main` branch directly.
 
-To build documentation locally and push built version to the `gh-pages` branch use next command:
+To build the documentation locally and push the built version to the `gh-pages` branch, use the following command:
 
 ```console
 GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy
