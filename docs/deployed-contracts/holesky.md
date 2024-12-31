@@ -186,3 +186,22 @@
   - USDC: [`0x9715b2786f1053294fc8952df923b95cab9aac42`](https://holesky.etherscan.io/address/0x9715b2786f1053294fc8952df923b95cab9aac42)
   - USDT: [`0x86f6c353a0965eb069cd7f4f91c1afef8c725551`](https://holesky.etherscan.io/address/0x86f6c353a0965eb069cd7f4f91c1afef8c725551)
   - DAI: [`0x2eb8e9198e647f80ccf62a5e291bcd4a5a3ca68c`](https://holesky.etherscan.io/address/0x2eb8e9198e647f80ccf62a5e291bcd4a5a3ca68c)
+
+### Morph
+
+##### Ethereum part
+
+- L1LidoGateway : [`0xae9aA78222Ca3b6D1C38dF167D1F4f9B8fD7aC8a`](https://holesky.etherscan.io/address/0xae9aA78222Ca3b6D1C38dF167D1F4f9B8fD7aC8a) (proxy)
+- L1LidoGateway : [`0xc22c108f6ebef2d8a087620e4923244768a942fb`](https://holesky.etherscan.io/address/0xc22c108f6ebef2d8a087620e4923244768a942fb) (impl)
+- ProxyAdmin : [`0x1001a8c1766dd469958c2cabb4ee153d001865fc`](https://holesky.etherscan.io/address/0x1001a8c1766dd469958c2cabb4ee153d001865fc) for L1LidoGateway
+
+##### Morph part
+
+- MorphBridgeExecutor : [`0x01938475718f22eBAf62f3EAc1A23855C6EAf97b`](https://explorer-holesky.morphl2.io/address/0x01938475718f22eBAf62f3EAc1A23855C6EAf97b)
+- L2LidoGateway : [`0x45C0FFB5b9710B512B819058b7b9dDE839608D43`](https://explorer-holesky.morphl2.io/address/0x45C0FFB5b9710B512B819058b7b9dDE839608D43) (proxy)
+- L2LidoGateway : [`0xF60eF59b1a37347E33E008DF03a50be19368F44E`](https://explorer-holesky.morphl2.io/address/0xF60eF59b1a37347E33E008DF03a50be19368F44E) (impl)
+- L2WstETHToken : [`0x8E0f85515ec4412483b68DeA14661A86741cdC0a`](https://explorer-holesky.morphl2.io/address/0x8E0f85515ec4412483b68DeA14661A86741cdC0a) (proxy)
+- L2WstETHToken : [`0xaF4B5fDFa12656f8A4500055B102185C4b04a06E`](https://explorer-holesky.morphl2.io/address/0xaF4B5fDFa12656f8A4500055B102185C4b04a06E) (impl)
+- ProxyAdmin : [`0xa66aa05f4b89104d9cebe6a3f696ac084cde0055`](https://explorer-holesky.morphl2.io/address/0xA66AA05F4b89104D9CEBE6A3f696Ac084cdE0055) for:
+  - L2LidoGateway
+  - L2WstETHToken
