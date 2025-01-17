@@ -1,10 +1,8 @@
 # Guide to Easy Track
 
-This document is intended for:
+This guide provides information about Easy Track, voting rules, use cases, helpful tips and step-by-step instructions for initiating new motions.
 
-- the Lido Node Operators who wish to increase their staking limits within the Lido protocol;
-- the Lido Ecosystem Grants Organisation members who wish to allocate funds into LEGO program;
-- the Lido Liquidity Observation Lab members who wish to allocate funds into ongoing reward programs, or add a new reward program into the list of active reward programs, or remove a reward program from the list of active reward programs.
+This guide is intended for those who use Easy Track to initiate new motions, including committee members, node operators, and others with the ability to execute their governance functions through Easy Track.
 
 The guide consists of two sections: [General overview](#general-overview) and [Operations HOWTO](#operations-howto). If you’re here for the technical details of interacting with Easy Track, feel free to skip to the latter.
 
@@ -24,11 +22,17 @@ Easy Track has been developed as a solution to problem of the DAO getting tired 
 
 ### Easy Track use cases
 
-There are three types of votings run periodically by the Lido DAO wrapped into the Easy Track motions:
-
-- Node Operators increasing staking limits
-- Funds being allocated to LEGO program
-- Funds being allocated into reward programs
+The main types of votes periodically initiated by the Lido DAO via Easy Track motions are listed below:
+- the Lido Node Operator increases its staking limit within the Lido protocol;
+- the Simple DVT Module Committee member manages clusters, including adding new clusters, activating or deactivating existing ones, setting cluster key limits, and updating cluster manager and reward addresses;
+- the Community Staking Module (CSM) Committee member updates penalties for MEV stealing;
+- the Lido Ecosystem Grants Organisation (LEGO) member requests fund allocations to the LEGO program;
+- the Lido Liquidity Observation Lab (LOL) member requests fund allocations to ongoing reward programs or adjusts the list of active reward programs;
+- the Rewards Share Program Committee member requests fund allocations to the program or updates the participant whitelist;
+- the Resourcing and Compensation Committee (RCC), Pool Maintenance Labs Ltd. (PML), or Argo Technology Consulting Ltd. (ATC) member requests grants for further allocation following their respective work policies;
+- the TRP Multisig Committee member requests funding for TRP-related payments;
+- the Gas Rebates Multisig member requests funding to cover gas compensation expenses;
+- the Treasury Management Committee member requests tokens for swaps executed via Stonks orders.
 
 ### Possible motion outcomes
 
