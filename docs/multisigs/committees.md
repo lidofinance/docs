@@ -538,3 +538,26 @@ pausing CSM in case of emergency via Gate Seal.
 | Marcela| 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716| https://x.com/0xMarcela/status/1869171438630174818 |
 | kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
 | Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 |https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036 |
+
+## 2.11 Network Expansion Committee
+
+A Committee without multisig.
+
+**Purpose of the Committee:** Network Expansion Committee is assigned to formally recognize (w)stETH token bridging endpoints and denominations on new networks as canonical, acting on behalf of Lido DAO. NEC decisions require the unanimous support of committee members. Once the decision has been made, it must be announced on the forum by a committee member, along with the reasons for the decision and any supporting material (audits, deployment reviews, and so on). The prerequisite for committee voting is having a reputable third party to evaluate the onchain deployment matching the audited codebase along with QA tests for the entire user flow.
+
+**Quorum:** 4/4
+
+**Forum topics:**\
+[Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)
+
+**Snapshot:**\
+[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)
+
+**List of committee members:**
+
+| Name | Role |
+| --- | --- |
+| shardyaco | Protocol Relations |
+| TheDZhon | Tech |
+| EvgeniyEmelyanov | Product |
+| nikita.p | DAO Ops |
