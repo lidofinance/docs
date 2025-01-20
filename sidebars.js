@@ -139,7 +139,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Multisigs',
+      label: 'Committees & Multisigs',
       items: [
         'multisigs/emergency-brakes',
         'multisigs/committees',
