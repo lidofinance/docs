@@ -302,6 +302,7 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://stage.safe.protofire.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43) 
 
 ### Liquidity Observation Lab Multisigs
 
@@ -545,8 +546,8 @@ where the protocol and its parts/extensions are deployed.
 ##### Ethereum part
 
 - (proposed) OpStackTokenRatePusher: [`0x927C99fC46226bd5131420B16aF0b0371165C3FC`](https://etherscan.io/address/0x927C99fC46226bd5131420B16aF0b0371165C3FC)
-- (proposed)L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
-- (proposed)L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
+- (proposed) L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
+- (proposed) L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
 
 ##### Soneium part
 
