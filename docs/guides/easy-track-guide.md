@@ -1,10 +1,8 @@
 # Guide to Easy Track
 
-This document is intended for:
+This guide provides information about Easy Track, voting rules, use cases, helpful tips and step-by-step instructions for initiating new motions.
 
-- the Lido Node Operators who wish to increase their staking limits within the Lido protocol;
-- the Lido Ecosystem Grants Organisation members who wish to allocate funds into LEGO program;
-- the Lido Liquidity Observation Lab members who wish to allocate funds into ongoing reward programs, or add a new reward program into the list of active reward programs, or remove a reward program from the list of active reward programs.
+This guide is intended for those who use Easy Track to initiate new motions, including committee members, node operators, and others with the ability to execute their governance functions through Easy Track.
 
 The guide consists of two sections: [General overview](#general-overview) and [Operations HOWTO](#operations-howto). If you’re here for the technical details of interacting with Easy Track, feel free to skip to the latter.
 
@@ -24,11 +22,37 @@ Easy Track has been developed as a solution to problem of the DAO getting tired 
 
 ### Easy Track use cases
 
-There are three types of votings run periodically by the Lido DAO wrapped into the Easy Track motions:
+The main types of votes periodically initiated by the Lido DAO via Easy Track motions are listed below:
+- the Lido Node Operator increases its staking limit within the Lido protocol;
+- the Simple DVT Module Committee member manages clusters, including adding new clusters, activating or deactivating existing ones, setting cluster key limits, and updating cluster manager and reward addresses;
+- the Community Staking Module (CSM) Committee member updates penalties for MEV stealing;
+- the Lido Ecosystem Grants Organisation (LEGO) member requests fund allocations to the LEGO program;
+- the Lido Liquidity Observation Lab (LOL) member requests fund allocations to ongoing reward programs or adjusts the list of active reward programs;
+- the Rewards Share Program Committee member requests fund allocations to the program or updates the participant whitelist;
+- the Resourcing and Compensation Committee (RCC), Pool Maintenance Labs Ltd. (PML), or Argo Technology Consulting Ltd. (ATC) member requests grants for further allocation following their respective work policies;
+- the TRP Multisig Committee member requests funding for TRP-related payments;
+- the Gas Rebates Multisig member requests funding to cover gas compensation expenses;
+- the Treasury Management Committee member requests tokens for swaps executed via Stonks orders.
 
-- Node Operators increasing staking limits
-- Funds being allocated to LEGO program
-- Funds being allocated into reward programs
+### Possible motion outcomes
+
+A motion can have three possible outcomes:
+
+1. **Motion passed.**
+In case the minimum objections threshold of 0.5% of total LDO supply hasn't been reached, the motion is considered to have passed, and it can be enacted. This operation is permissionless, which means anyone can enact a passed motion. Please note, it is still possible to object a non-enacted motion even after 72 hours timelock. The enacted motion will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
+2. **Motion rejected.**
+In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
+3. **Motion canceled.**
+In case you find out you have made a mistake when starting the motion, you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction to complete it (gas costs apply).
+
+### Checking the motion details from Gnosis Multisig UI
+
+The motion start txs are created by one of the multisig signers, and the others should check the addresses & data of the tx they are asked to sign.
+
+1. Check the address the tx is being sent to — it should be `Easy Track` contract listed on the [Deployed Contracts page](/deployed-contracts/#easy-track).
+2. The params of the `createMotion` call are `_evmScriptFactory` address & `_evmScriptCallData` bytes string.
+   1. `_evmScriptFactory` address should be listed on the [Deployed Contracts page](/deployed-contracts/#easy-track) & match the type of motion is about to be started.
+   2. To check `_evmScriptCallData` open the `_evmScriptFactory` contract on the etherscan & call the `decodeEVMScriptCallData` with the string from the Gnosis Safe UI to see the motion params.
 
 ### Links
 
@@ -61,17 +85,6 @@ To initiate a staking limit Easy Track motion, follow these steps:
 
 As soon as transaction is confirmed, the motion has been started and you can see it on the 'Active motions' page of Easy Track UI. Notifications will be sent out to let the DAO know about the motion. From this moment on, the LDO token holders will have 72 hours to submit their objections if they have any. Please note the motion duration may be different for testnet deployment.
 
-### Possible motion outcomes
-
-A motion can have three possible outcomes:
-
-1. **Motion passed.**
-In case the minimum objections threshold of 0.5% of total LDO supply hasn't been reached, the motion is considered to have passed, and it can be enacted. This operation is permissionless, which means anyone can enact a passed motion. Please note, it is still possible to object a non-enacted motion even after 72 hours timelock. The enacted motion will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
-2. **Motion rejected.**
-In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
-3. **Motion canceled.**
-In case you find out you have made a mistake when starting the motion (e.g. you don't want to increase your staking limits just yet or you've misclicked when specifying the new limit value etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction to complete it (gas costs apply).
-
 ## LEGO guide to Easy Track
 
 There are several features of LEGO Easy Track motions to keep in mind before starting one:
@@ -97,17 +110,6 @@ Specify the amount of tokens you want to top up the LEGO program with.
 Press 'Submit' button below the form and sign the transaction on the Wallet Connect safe app page (gas costs apply).
 Next, you will need another LEGO Committee Gnosis multi-sig owner to confirm the transaction in the Gnosis Safe.
 As soon as transaction is confirmed, the motion has been started and you can see it on the 'Active motions' page of Easy Track UI. Notifications will be sent out to let the DAO know about the motion. From this moment on, the LDO token holders will have 72 hours to submit their objections if they have any.
-
-### Possible motion outcomes
-
-A motion can have three possible outcomes:
-
-1. **Motion passed.**
-In case the minimum objections threshold of 0.5% of total LDO supply hasn't been reached, the motion is considered to have passed, and it can be enacted. This operation is permissionless, which means anyone can enact a passed motion. Please note, it is still possible to object a non-enacted motion even after 72 hours timelock. The enacted motion will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
-2. **Motion rejected.**
-In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
-3. **Motion canceled.**
-In case you find out you have made a mistake when starting the motion (e.g. you don't want to top-up LEGO program just yet or you've misclicked when specifying the amount of tokens to transfer etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction in the Gnosis safe to complete it (gas costs apply).
 
 ## Liquidity Observation Lab guide to Easy Track
 
@@ -138,23 +140,3 @@ Fill the Ethereum address of the reward program (it could be reward contract or 
 Press 'Submit' button below the form and sign the transaction on the Wallet Connect safe app page (gas costs apply).
 Next, you will need another Liquidity Observation Lab Gnosis multi-sig owner to confirm the transaction in the Gnosis Safe.
 As soon as transaction is confirmed, the motion has been started and you can see it on the 'Active motions' page of Easy Track UI. Notifications will be sent out to let the DAO know about the motion. From this moment on, the LDO token holders will have 72 hours to submit their objections if they have any.
-
-### Possible motion outcomes
-
-A motion can have three possible outcomes:
-
-1. **Motion passed.**
-In case the minimum objections threshold of 0.5% of total LDO supply hasn't been reached, the motion is considered to have passed, and it can be enacted. This operation is permissionless, which means anyone can enact a passed motion. Please note, it is still possible to object a non-enacted motion even after 72 hours timelock. The enacted motion will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
-2. **Motion rejected.**
-In case the minimum objections threshold of 0.5% of total LDO supply has been reached, the motion is considered rejected. It will be automatically de-activated and put to the motion archive available under the 'Archive motions' section of Easy Track UI.
-3. **Motion canceled.**
-In case you find out you have made a mistake when starting the motion (e.g. you have added the wrong address for the new reward program or you've misclicked when specifying the amount of tokens to be allocated etc.), you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press 'Cancel' motion button top right. Please note, this is on-chain action, and you will have to sign a transaction via WalletConnect Safe app, as well as a confirmation from another Finance Team multi-sig owner to complete it (gas costs apply).
-
-### Checking the motion details from Gnosis Multisig UI
-
-The motion start txs are created by one of the multisig signers, and the others should check the addresses & data of the tx they are asked to sign.
-
-1. Check the address the tx is being sent to — it should be `Easy Track` contract listed on the [Deployed Contracts page](/deployed-contracts/#easy-track).
-2. The params of the `createMotion` call are `_evmScriptFactory` address & `_evmScriptCallData` bytes string.
-   1. `_evmScriptFactory` address should be listed on the [Deployed Contracts page](/deployed-contracts/#easy-track) & match the type of motion is about to be started.
-   2. To check `_evmScriptCallData` open the `_evmScriptFactory` contract on the etherscan & call the `decodeEVMScriptCallData` with the string from the Gnosis Safe UI to see the motion params.
