@@ -302,8 +302,8 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
-- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://stage.safe.protofire.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43) 
-
+- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43) 
+  
 ### Liquidity Observation Lab Multisigs
 
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/home?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
