@@ -302,7 +302,8 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
-
+- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43) 
+  
 ### Liquidity Observation Lab Multisigs
 
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/home?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
@@ -539,6 +540,26 @@ where the protocol and its parts/extensions are deployed.
 - L2ERC20TokenBridge: [`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e) (proxy)
 - L2ERC20TokenBridge: [`0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c`](https://explorer.zircuit.com/address/0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c) (impl)
 - Optimism Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
+
+### Soneium
+
+##### Ethereum part
+
+- (proposed) OpStackTokenRatePusher: [`0x927C99fC46226bd5131420B16aF0b0371165C3FC`](https://etherscan.io/address/0x927C99fC46226bd5131420B16aF0b0371165C3FC)
+- (proposed) L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
+- (proposed) L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
+
+##### Soneium part
+
+- (proposed) WstETH ERC20BridgedPermit: [`0xaA9BD8c957D803466FA92504BDd728cC140f8941`](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941) (proxy)
+- (proposed) WstETH ERC20BridgedPermit: [`0x7591f6BD2301f7EE9267738039054047b5B395B0`](https://soneium.blockscout.com/address/0x7591f6BD2301f7EE9267738039054047b5B395B0) (impl)
+- (proposed) StETH ERC20RebasableBridgedPermit: [`0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF`](https://soneium.blockscout.com/address/0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF) (proxy)
+- (proposed) StETH ERC20RebasableBridgedPermit: [`0x3BC5d0551F48902bDcC036d59F5D23987F581c28`](https://soneium.blockscout.com/address/0x3BC5d0551F48902bDcC036d59F5D23987F581c28) (impl)
+- (proposed) TokenRateOracle: [`0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265`](https://soneium.blockscout.com/address/0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265) (proxy)
+- (proposed) TokenRateOracle: [`0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4`](https://soneium.blockscout.com/address/0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4) (impl)
+- (proposed) L2ERC20ExtendedTokensBridge: [`0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8`](https://soneium.blockscout.com/address/0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8) (proxy)
+- (proposed) L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
+- (proposed) Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
 
 ### Lido Multichain Liquidity pools
 
