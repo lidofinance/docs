@@ -46,7 +46,7 @@ A Node Operator must supply a [bond](./join-csm#bond) to upload a new validator 
 The presence of "stuck" keys for the Node Operator indicates a failure of the Node Operator to conform to the [Validator Exits SNOP](/guides/node-operators/general-overview#validator-exits-protocol-penalties-and-recovering). In this case, each module defines and is responsible for the application of remediative measures for the relevant protocol violation. CSM uses measures that are different from those of the Curated Module and the Simple DVT Module. The measures are described in the corresponding [section](/staking-modules/csm/validator-exits.md#protocol-initiated-exits).
 
 :::info
-Note: CSM does not apply any measures to "Delayed" validators mentioned in the [Lido exit policy](/guides/node-operators/general-overview#validator-exits-policy-penalties-and-recovering).
+Note: CSM does not apply any measures to "Delayed" validators mentioned in the [Lido exit policy](/guides/node-operators/general-overview#validator-exits-protocol-penalties-and-recovering).
 :::
 
 ### Node Operator structure
