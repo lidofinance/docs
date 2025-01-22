@@ -543,7 +543,7 @@ pausing CSM in case of emergency via Gate Seal.
 
 A Committee without multisig.
 
-**Purpose of the Committee:** Network Expansion Committee is assigned to formally recognize (w)stETH token bridging endpoints and denominations on new networks as canonical, acting on behalf of Lido DAO. NEC decisions require the unanimous support of committee members. Once the decision has been made, it must be announced on the forum by a committee member, along with the reasons for the decision and any supporting materials (audits, deployment reviews, and so on). The prerequisite for committee voting is having a reputable third party to evaluate the onchain deployment matching the audited codebase along with QA tests for the entire user flow.
+**Purpose of the Committee:** Network Expansion Committee is assigned to formally recognize (w)stETH token bridging endpoints and denominations on new networks as canonical, acting on behalf of Lido DAO. NEC decisions require the unanimous support of committee members. Once the decision has been made, it must be announced on the forum by a committee member, along with the reasons for the decision and any supporting materials (audits, deployment reviews, and so on). The prerequisite for committee voting is having a reputable third party to evaluate the on-chain deployment matching the audited codebase along with QA tests for the entire user flow. NEC decisions are put on hold for 5 days after forum posting. If there are no objections, the decision stands. If objected to within this time, the decision is disregarded and a snapshot vote follows.
 
 **Quorum:** 4/4
 
