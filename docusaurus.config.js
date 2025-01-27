@@ -29,10 +29,14 @@ module.exports = {
         { to: '/lips', label: 'LIPs', position: 'left' },
         { to: '/security/audits', label: 'Audits', position: 'left' },
         {
+          type: 'custom-ask-docs',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/lidofinance',
           label: 'GitHub',
           position: 'right',
-        }
+        },
       ],
     },
   },
@@ -61,7 +65,7 @@ module.exports = {
           {
             to: '/guides/lido-tokens-integration-guide',
             from: '/guides/steth-integration-guide',
-          }
+          },
         ],
       },
     ],

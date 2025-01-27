@@ -98,3 +98,38 @@ Fetch external markdown files to build an up-to-date version.
 ```console
 npm run fetch-external
 ```
+
+## Ask Docs Feature Setup
+
+1. Add your OpenAI API token to the `.env` file ([platform.openai.com/api-keys](https://platform.openai.com/api-keys)):
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   ```bash
+   OPENAI_API_KEY=sk-...
+   ```
+
+2. Generate embeddings if they don't exist (this may take some time):
+
+   ```bash
+   npm run chat:generate-embeddings
+   ```
+
+3. Start the questions processing server:
+
+   ```bash
+   npm run chat:start-server
+   ```
+
+4. Launch the application by running `npm start` and click the "Ask Docs" button in the menu
+
+5. Start asking questions about the documentation!
+
+> **Note**: This is an MVP implementation intended for local testing only. For production use, several improvements are needed:
+>
+> - Replace JSON-based embeddings storage with a proper vector database
+> - Optimize embeddings generation and management for better resource utilization
+> - Refactor the state management (currently using Zustand for quick prototyping)
+> - Restructure the Q&A server architecture

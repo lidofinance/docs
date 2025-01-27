@@ -1,0 +1,93 @@
+.modal {
+  padding: 32px;
+  background: var(--ifm-background-color);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.title {
+  flex-shrink: 0;
+  margin: 0 0 24px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.form {
+  flex-shrink: 0;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+.input::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.button {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: var(--ifm-color-primary);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--ifm-color-primary-darker);
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--ifm-color-danger-lightest);
+  border: 1px solid var(--ifm-color-danger-light);
+  border-radius: 8px;
+  color: var(--ifm-color-danger-darkest);
+  font-size: 14px;
+}
+
+.answersContainer {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 16px;
+  margin-right: -16px;
+}
