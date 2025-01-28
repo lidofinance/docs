@@ -2,7 +2,7 @@
 
 - [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
 - [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
-- [Deployed contract](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
+- [Deployed contract](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
 - [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 
