@@ -29,7 +29,7 @@ The main types of votes periodically initiated by the Lido DAO via Easy Track mo
 - the Lido Ecosystem Grants Organisation (LEGO) member requests fund allocations to the LEGO program;
 - the Lido Liquidity Observation Lab (LOL) member requests fund allocations to ongoing reward programs or adjusts the list of active reward programs;
 - the Rewards Share Program Committee member requests fund allocations to the program or updates the participant whitelist;
-- the Resourcing and Compensation Committee (RCC), Pool Maintenance Labs Ltd. (PML), or Argo Technology Consulting Ltd. (ATC) member requests grants for further allocation following their respective work policies;
+- the Resourcing and Compensation Committee (RCC), Pool Maintenance Labs Ltd. (PML), or Argo Technology Consulting Ltd. (ATC) member requests grants for further allocation following their respective policies;
 - the TRP Multisig Committee member requests funding for TRP-related payments;
 - the Gas Rebates Multisig member requests funding to cover gas compensation expenses;
 - the Treasury Management Committee member requests tokens for swaps executed via Stonks orders.
