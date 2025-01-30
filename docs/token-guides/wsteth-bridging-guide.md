@@ -1,4 +1,4 @@
-# Lido tokens adoption guide
+# Lido cross-chain tokens adoption guide
 
 :::warning Disclaimer
 This guide provides recommendations provided by the [Network Expansion Committee (NEC)](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5). Following these recommendations increases the likelihood of recognition by the Committee, but does not guarantee it. Moreover, the Lido DAO vote, with a quorum established, can override any NEC decision at any time, even if it has already been implemented and released. Therefore, NEC makes no warranties, express or implied, and disclaims all implied warranties, including any warranty of the likelihood of the recognition or rejection by the Lido DAO.
