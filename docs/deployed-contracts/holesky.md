@@ -182,6 +182,7 @@
   - QA & DAO-ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
     - QA testnet EOA: [`0x1580881349e214Bab9f1E533bF97351271DB95a9`](https://holesky.etherscan.io/address/0x1580881349e214Bab9f1E533bF97351271DB95a9)
     - DAO-ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
+  - Testnet GateSeal Committee: [`0x6165267E76D609465640bffc158aff7905D47B46`](https://holesky-safe.protofire.io/home?safe=holesky:0x6165267E76D609465640bffc158aff7905D47B46)
 ## Testnet Stablecoins
   - USDC: [`0x9715b2786f1053294fc8952df923b95cab9aac42`](https://holesky.etherscan.io/address/0x9715b2786f1053294fc8952df923b95cab9aac42)
   - USDT: [`0x86f6c353a0965eb069cd7f4f91c1afef8c725551`](https://holesky.etherscan.io/address/0x86f6c353a0965eb069cd7f4f91c1afef8c725551)
