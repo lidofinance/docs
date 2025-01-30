@@ -6,12 +6,12 @@ This guide provides recommendations provided by the [Network Expansion Committee
 
 ## Intro
 
-This document is intended for the developers representing network/rollup foundations and DAOs looking to bridge Lido tokens (wstETH, stETH).
+This document is intended for the developers representing network/rollup foundations/bridge infra providers and DAOs looking to establish Lido tokens (wstETH, stETH) bridged representations outside Ethereum Mainnet.
 
 This guide covers the recommendations as well as provides general guidelines, and reveals the logic behind to smooth the process. **It's essential to understand that conforming to or diverging from these guidelines won't ensure the recognition or rejection of a specific proposal by the Lido DAO, which can override any NEC decision at any time, even if it has already been implemented and released.** Nonetheless, adhering to these guidelines substantially increases the likelihood of gaining support from the Network Expansion Committee (NEC) and community.
 
 While technically, it is feasible to bridge the wstETH/stETH token as any other standard non-upgradable ERC-20 compatible token,
-it might not be aligned with the long-term vision of the Lido DAO , nor support the stETH rebasable nature.
+it might not be aligned with the long-term vision of the Lido DAO, nor support the stETH rebasable nature, nor lay out the foundation for cross-chain interoperability considerations in future.
 
 :::info
 Please note that bridging rebasable stETH token in a regular way might cause a loss of user assets due to the rewards accrued being stuck on an L1 bridge.
@@ -23,7 +23,7 @@ The solution involves deploying dedicated bridge endpoint contracts behind proxy
 all governed by the Lido DAO on L1 ([Aragon Agent contract](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c))
 via a dedicated governance executor contract on target network. This architecture is proposed to provide the following capabilities.
 
-1. Passing arbitrary data. It allows delivering wstETH/stETH rate to the target network.
+1. Passing arbitrary data. E.g., it allows delivering wstETH/stETH rate to the target network or implementing any potential sophisticated interoperability-enabled messaging.
 2. Revamping the token logic, as stETH is not a general-purpose token but an asset built on top of a living liquid-staking middleware.
 3. Future-proofing the token, for example, to avoid high-cost liquidity migration as Ethereum continues evolving and new standards like [ERC-2612](https://eips.ethereum.org/EIPS/eip-2612)/[ERC-1271](https://eips.ethereum.org/EIPS/eip-1271) are adopted.
 4. Pausing and resuming bridging in an emergency or during upgrades.
@@ -41,15 +41,15 @@ If none of the reference setups matches your case, follow though the [Recommenda
 
 In any case, follow the [General scenario towards the recognition](#general-scenario-towards-the-recognition).
 
-### Optimistic rollup, wstETH + stETH
+### Ethereum L2 built on OP-Stack, wstETH + stETH
 
 Use [multichain-automaton](https://github.com/lidofinance/multichain-automaton) for automated deployment of wstETH + stETH setup.
 
-### Optimistic rollup, wstETH
+### Ethereum L2, wstETH
 
 Deploy the setup from [lido-l2](https://github.com/lidofinance/lido-l2) repository.
 
-### Non-rollup network, wstETH
+### alt-L1 network or L2 with non-native canonical ecosystem-wide bridges, wstETH
 
 Use [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3)
 as a reference for bridging wstETH via aggregation and bridging governance decisions via [a.DI](https://github.com/lidofinance/aave-delivery-infrastructure).
