@@ -653,6 +653,18 @@ The deployed contracts are verified against the [wstETH on Optimism](https://git
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Zircuit_2024-10-02-Quantstamp-wstETH-deployment-verification.pdf) for more details.
 
+### 11-2024 Nethermind Security wstETH on Starknet Deployment Verification
+
+The deployed contracts are verified in accordance to the [proposal](https://research.lido.fi/t/wsteth-deployment-on-starknet/6335/9)
+
+See the [full report](https://github.com/lidofinance/audits/blob/main/L2/Starknet-2024-11-14-deployment-verification.pdf) for more details.
+
+### 01-2025 MixBytes stETH on Soneium Audit Report
+
+The deployed contracts are verified against the [stETH on Optimism](https://docs.lido.fi/deployed-contracts/#optimism) deployment.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Soneium-2025-01-MixBytes-Audit-Report.pdf) for more details.
+
 ## Lido on Polygon PoS
 
 ### 04-2022 Lido On Polygon Smart Contracts Security Audit Report for PR#69

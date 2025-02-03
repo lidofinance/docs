@@ -4,6 +4,13 @@ Lido Improvement Proposals (LIPs) describe standards for the Lido platform, incl
 
 More details on the contribution process and LIPs statuses can be found [here](https://github.com/lidofinance/lido-improvement-proposals).
 
+## WIP
+
+| LIP&nbsp;# | Title | Author          | Discussions&#8209;to |
+|------------|-------|-----------------|----------------|
+| [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md)  | LIP Purpose and Guidelines                                | Lido Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
+| [27](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-27.md) | Ensuring Compatibility with Ethereum’s Pectra Upgrade | George Avsetsin | [Link](https://research.lido.fi/t/ensuring-compatibility-with-ethereum-s-pectra-upgrade/9444) |
+
 ## Proposed
 
 TBA
@@ -43,9 +50,3 @@ TBA
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
 | [10](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-10.md) | Proxy initializations and LidoOracle upgrade              | Artyom Veremeenko, Sam Kozin, Mihail Semenkin, Eugene Pshenichnyy, Eugene Mamin | [Link](https://research.lido.fi/t/lip-10-proxy-initializations-and-lidooracle-upgrade/1616) |
-
-## WIP
-
-| LIP&nbsp;# | Title | Author          | Discussions&#8209;to |
-|------------|-------|-----------------|----------------|
-| [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md)  | LIP Purpose and Guidelines                                | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
