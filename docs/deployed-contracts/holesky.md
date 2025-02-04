@@ -55,7 +55,7 @@
 - Aragon APMRegistry: [`0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A`](https://holesky.etherscan.io/address/0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A) (proxy)
 - Gate Seal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
 - Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
-- Gate Seal: [`0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d`](https://holesky.etherscan.io/address/0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d)
+- Gate Seal: [`0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778`](https://holesky.etherscan.io/address/0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778)
 
 ## Data Bus
 
