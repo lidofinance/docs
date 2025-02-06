@@ -17,7 +17,7 @@ Please follow recommendation R-9, which is specific to stETH bridging.
 
 ### Ethereum L2, wstETH
 
-Deploy the setup from the [lido-l2](https://github.com/lidofinance/lido-l2) repository. This repository allows you to deploy the default wstETH setup, which satisfies the required [Recommendations](#recommendations).
+Deploy the setup from the [lido-l2](https://github.com/lidofinance/lido-l2) repository. This repository allows you to deploy the default wstETH setup on OP-Stack and Arbitrum networks. The setup satisfies the required [Recommendations](#recommendations).
 
 ### alt-L1 network or L2 with non-native canonical ecosystem-wide bridges, wstETH
 
