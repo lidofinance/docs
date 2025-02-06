@@ -37,7 +37,7 @@ where the protocol and its parts/extensions are deployed.
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
-- Legacy Oracle ([proposed for deprecation effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
+- Legacy Oracle ([deprecated effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
 
 ## DAO Contracts
 
@@ -302,8 +302,8 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
-- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43) 
-  
+- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
+
 ### Liquidity Observation Lab Multisigs
 
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/home?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
@@ -545,21 +545,21 @@ where the protocol and its parts/extensions are deployed.
 
 ##### Ethereum part
 
-- (proposed) OpStackTokenRatePusher: [`0x927C99fC46226bd5131420B16aF0b0371165C3FC`](https://etherscan.io/address/0x927C99fC46226bd5131420B16aF0b0371165C3FC)
-- (proposed) L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
-- (proposed) L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
+- OpStackTokenRatePusher: [`0x927C99fC46226bd5131420B16aF0b0371165C3FC`](https://etherscan.io/address/0x927C99fC46226bd5131420B16aF0b0371165C3FC)
+- L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
+- L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
 
 ##### Soneium part
 
-- (proposed) WstETH ERC20BridgedPermit: [`0xaA9BD8c957D803466FA92504BDd728cC140f8941`](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941) (proxy)
-- (proposed) WstETH ERC20BridgedPermit: [`0x7591f6BD2301f7EE9267738039054047b5B395B0`](https://soneium.blockscout.com/address/0x7591f6BD2301f7EE9267738039054047b5B395B0) (impl)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF`](https://soneium.blockscout.com/address/0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF) (proxy)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x3BC5d0551F48902bDcC036d59F5D23987F581c28`](https://soneium.blockscout.com/address/0x3BC5d0551F48902bDcC036d59F5D23987F581c28) (impl)
-- (proposed) TokenRateOracle: [`0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265`](https://soneium.blockscout.com/address/0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265) (proxy)
-- (proposed) TokenRateOracle: [`0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4`](https://soneium.blockscout.com/address/0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4) (impl)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8`](https://soneium.blockscout.com/address/0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8) (proxy)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
-- (proposed) Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
+- WstETH ERC20BridgedPermit: [`0xaA9BD8c957D803466FA92504BDd728cC140f8941`](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941) (proxy)
+- WstETH ERC20BridgedPermit: [`0x7591f6BD2301f7EE9267738039054047b5B395B0`](https://soneium.blockscout.com/address/0x7591f6BD2301f7EE9267738039054047b5B395B0) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF`](https://soneium.blockscout.com/address/0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x3BC5d0551F48902bDcC036d59F5D23987F581c28`](https://soneium.blockscout.com/address/0x3BC5d0551F48902bDcC036d59F5D23987F581c28) (impl)
+- TokenRateOracle: [`0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265`](https://soneium.blockscout.com/address/0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265) (proxy)
+- TokenRateOracle: [`0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4`](https://soneium.blockscout.com/address/0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4) (impl)
+- L2ERC20ExtendedTokensBridge: [`0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8`](https://soneium.blockscout.com/address/0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
+- Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
 
 ### Lido Multichain Liquidity pools
 
