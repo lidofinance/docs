@@ -2,8 +2,8 @@
 module.exports = {
   title: 'Lido Docs',
   tagline: 'Documentation for the Lido staking protocol',
-  url: 'https://github.com/lidofinance',
-  baseUrl: '/',
+  url: 'https://github.com',
+  baseUrl: '/lidofinance',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   onBrokenAnchors: 'throw',
