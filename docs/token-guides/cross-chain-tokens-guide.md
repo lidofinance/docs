@@ -17,7 +17,15 @@ Please follow recommendation R-9, which is specific to stETH bridging.
 
 ### Ethereum L2, wstETH
 
-Deploy the setup from the [lido-l2](https://github.com/lidofinance/lido-l2) repository. This repository allows you to deploy the default wstETH setup on OP-Stack and Arbitrum networks. The setup satisfies the required [Recommendations](#recommendations).
+Deploy the wstETH setup from the [lido-l2](https://github.com/lidofinance/lido-l2) repository. This repository allows you to deploy the default wstETH setup on OP-Stack and Arbitrum networks. The setup satisfies the required [Recommendations](#recommendations).
+
+If your stack requires a modification of the default setup, please consider examples of how it is done for:
+
+- [zkSync Era](https://github.com/lidofinance/lido-l2/pull/62)
+- [Scroll](https://github.com/scroll-tech/scroll/pull/988)
+- [Mantle](https://github.com/lidofinance/lido-l2/pull/63)
+
+For the governance forwarding setup, use the [Governance Bridge Executor](https://github.com/lidofinance/governance-crosschain-bridges) repository.
 
 ### alt-L1 network or L2 with non-native canonical ecosystem-wide bridges, wstETH
 
