@@ -84,7 +84,7 @@
 - CSVerifier: [`0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916`](https://holesky.etherscan.io/address/0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916)
 - CSEarlyAdoption: [`0x71E92eA77C198a770d9f33A03277DbeB99989660`](https://holesky.etherscan.io/address/0x71E92eA77C198a770d9f33A03277DbeB99989660)
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
-- GateSeal: [`0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce`](https://holesky.etherscan.io/address/0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce)
+- GateSeal: [`0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a`](https://holesky.etherscan.io/address/0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a)
 
 
 ## DAO-ops contracts & addresses
