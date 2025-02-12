@@ -303,6 +303,8 @@ where the protocol and its parts/extensions are deployed.
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 - Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
+- Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF) 
+
 
 ### Liquidity Observation Lab Multisigs
 
@@ -560,6 +562,26 @@ where the protocol and its parts/extensions are deployed.
 - L2ERC20ExtendedTokensBridge: [`0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8`](https://soneium.blockscout.com/address/0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8) (proxy)
 - L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
 - Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
+
+### Unichain
+
+##### Ethereum part
+
+- (proposed) OpStackTokenRatePusher: [`0xA1D80a1f6f59897A2a9849965FbD1038453595bB`](https://etherscan.io/address/0xA1D80a1f6f59897A2a9849965FbD1038453595bB)
+- (proposed) L1LidoTokensBridge: [`0x59dBfd3734635F8A930FA0b9d54DC47e3f61a38F`](https://etherscan.io/address/0x59dBfd3734635F8A930FA0b9d54DC47e3f61a38F) (proxy)
+- (proposed) L1LidoTokensBridge: [`0x256B47D43426C2A3E5f730e0db58e4a042590041`](https://etherscan.io/address/0x256B47D43426C2A3E5f730e0db58e4a042590041) (impl)
+
+##### Unichain part
+
+- (proposed) WstETH ERC20BridgedPermit: [`0xace7519036b2815b4Dd9F173e6feaeC92942a3F0`](https://unichain.blockscout.com/address/0xace7519036b2815b4Dd9F173e6feaeC92942a3F0) (proxy)
+- (proposed) WstETH ERC20BridgedPermit: [`0xC3E7434c0966a54292739366ACD105EEc3344D14`](https://unichain.blockscout.com/address/0xC3E7434c0966a54292739366ACD105EEc3344D14) (impl)
+- (proposed) StETH ERC20RebasableBridgedPermit: [`0x0e7598aB63CBb7548750D18998390BB044c3B0d6`](https://unichain.blockscout.com/address/0x0e7598aB63CBb7548750D18998390BB044c3B0d6) (proxy)
+- (proposed) StETH ERC20RebasableBridgedPermit: [`0x6A8ED409Eec1337b0F9458Eb44D4115eA34CC917`](https://unichain.blockscout.com/address/0x6A8ED409Eec1337b0F9458Eb44D4115eA34CC917) (impl)
+- (proposed) TokenRateOracle: [`0x1F2C5C33B5D10cF0D9BCe8a727152a70130664Da`](https://unichain.blockscout.com/address/0x1F2C5C33B5D10cF0D9BCe8a727152a70130664Da) (proxy)
+- (proposed) TokenRateOracle: [`0x37771A95366755cc462E2EBEd9954666a4C1dd7a`](https://unichain.blockscout.com/address/0x37771A95366755cc462E2EBEd9954666a4C1dd7a) (impl)
+- (proposed) L2ERC20ExtendedTokensBridge: [`0x63e729CB708B4f23d6677f5FF61C40a5B6Cb9501`](https://unichain.blockscout.com/address/0x63e729CB708B4f23d6677f5FF61C40a5B6Cb9501) (proxy)
+- (proposed) L2ERC20ExtendedTokensBridge: [`0xb1DC78308693AaEca8D2B7249d911d759d6fB69F`](https://unichain.blockscout.com/address/0xb1DC78308693AaEca8D2B7249d911d759d6fB69F) (impl)
+- (proposed) Governance Bridge Executor: [`0x88CaF13EBf536e71dD1241B6Bbc89440D322b2cd`](https://unichain.blockscout.com/address/0x88CaF13EBf536e71dD1241B6Bbc89440D322b2cd)
 
 ### Lido Multichain Liquidity pools
 
