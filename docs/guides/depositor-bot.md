@@ -60,7 +60,7 @@ Required variables are(mainnet):
 | ONCHAIN_TRANSPORT_ADDRESS         | -                                          | Data bus contract address.                                                                                               |
 | MIN_PRIORITY_FEE                  | 50 mwei                                    | Min priority fee that will be used in tx                                                                                 |
 | MAX_PRIORITY_FEE                  | 10 gwei                                    | Max priority fee that will be used in tx                                                                                 |
-| MAX_GAS_FEE                       | 100 gwei                                   | Bot will wait for a lower price. Treshold for gas_fee                                                                    |
+| MAX_GAS_FEE                       | 100 gwei                                   | Bot will wait for a lower price. Threshold for gas_fee                                                                    |
 | CONTRACT_GAS_LIMIT                | 15000000                                   | Default transaction gas limit                                                                                            |
 | GAS_FEE_PERCENTILE_1              | 20                                         | Percentile for first recommended fee calculation                                                                         |
 | GAS_FEE_PERCENTILE_DAYS_HISTORY_1 | 1                                          | Percentile for first recommended calculates from N days of the fee history                                               |

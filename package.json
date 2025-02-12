@@ -16,22 +16,22 @@
     "fetch-external": "node scripts/fetch-audits.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.5.2",
-    "@docusaurus/module-type-aliases": "^3.5.2",
-    "@docusaurus/plugin-client-redirects": "^3.5.2",
-    "@docusaurus/plugin-content-docs": "^3.5.2",
-    "@docusaurus/preset-classic": "^3.5.2",
-    "@docusaurus/theme-common": "^3.5.2",
-    "@docusaurus/theme-mermaid": "^3.5.2",
-    "@docusaurus/types": "^3.5.2",
-    "@docusaurus/utils": "^3.5.2",
-    "@easyops-cn/docusaurus-search-local": "^0.44.1",
-    "@mdx-js/react": "^3.0.1",
+    "@docusaurus/core": "^3.7.0",
+    "@docusaurus/module-type-aliases": "^3.7.0",
+    "@docusaurus/plugin-client-redirects": "^3.7.0",
+    "@docusaurus/plugin-content-docs": "^3.7.0",
+    "@docusaurus/preset-classic": "^3.7.0",
+    "@docusaurus/theme-common": "^3.7.0",
+    "@docusaurus/theme-mermaid": "^3.7.0",
+    "@docusaurus/types": "^3.7.0",
+    "@docusaurus/utils": "^3.7.0",
+    "@easyops-cn/docusaurus-search-local": "^0.48.4",
+    "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.0",
-    "prism-react-renderer": "^2.3.1",
+    "prism-react-renderer": "^2.4.0",
     "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "browserslist": {
     "production": [
@@ -46,7 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^18.3.1",
+    "@types/react": "^19.0.8",
     "prettier": "^3.3.3"
   },
   "packageManager": "npm@10.8.2",

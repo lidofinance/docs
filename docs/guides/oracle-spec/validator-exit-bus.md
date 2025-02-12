@@ -46,7 +46,7 @@ Among all validators the projected ones are the point of interest. They include 
 A few hours later it might look like the following:
 ![VEBO 5](../../../static/img/oracle-spec/vebo-5.png)
 
-Note that th described algorithm is looking for a validator to exit only among those that can be exited, while using the projected number of validators, which includes non-existent yet validators. It's only weights, so there is no misconception here.
+Note that the described algorithm is looking for a validator to exit only among those that can be exited, while using the projected number of validators, which includes non-existent yet validators. It's only weights, so there is no misconception here.
 
 The final exit order predicate sequence to fulfill withdrawal requests:
 
@@ -181,7 +181,7 @@ In order to estimate the amount is needed to fully cover the non-finalized withd
 - **Future rewards**
 - **Future withdrawals amount**
 - **Total available balance**
-- **Validators to eject cummulative amount**
+- **Validators to eject cumulative amount**
 - **Going to withdrawn balance**
 
 To calculate **future rewards**, it's needed to [predict](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L244) an epoch when all validators in queue and `validators_to_eject` will be withdrawn:

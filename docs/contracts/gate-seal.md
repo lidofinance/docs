@@ -2,7 +2,7 @@
 
 - [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
 - [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
-- [Deployed contract](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
+- [Deployed contract](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
 - [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 
@@ -28,7 +28,7 @@ With all that said, it still is undesirable for a decentralized protocol to rely
 
 ## How does it work?
 
-The idea of GateSeals is heavily based around `PausableUntil` contracts which both `WithdrawalQueue` and `ValidatorsExitBusOracle` implement. These `PausableUntil` contracts are similar to [`Pausable`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.4/contracts/security/Pausable.sol) contracts with one important difference: the paused state is not merely a boolean value, but a timestamp from which the contract is resumed (or unpaused). This allows the user to pause the contract for a certain period, and after this period the contract will resume itself without an explicit call. Thus, the PausableUntil pattern in conjunction with a GateSeal provide a way to pull the break on the protocol in a critical situation.
+The idea of GateSeals is heavily based around `PausableUntil` contracts which both `WithdrawalQueue` and `ValidatorsExitBusOracle` implement. These `PausableUntil` contracts are similar to [`Pausable`](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.4/contracts/security/Pausable.sol) contracts with one important difference: the paused state is not merely a boolean value, but a timestamp from which the contract is resumed (or unpaused). This allows the user to pause the contract for a certain period, and after this period the contract will resume itself without an explicit call. Thus, the PausableUntil pattern in conjunction with a GateSeal provide a way to pull the brake on the protocol in a critical situation.
 
 A GateSeal is set up with an immutable configuration at the time of construction:
 

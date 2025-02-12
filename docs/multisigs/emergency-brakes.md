@@ -8,17 +8,21 @@
 
 **Quorum:** 3/6
 
-**Forum topic:** [Lido V2 GateSeal Committee](https://research.lido.fi/t/lido-v2-gateseal-committee/4561)
+**Forum topic:**\
+[Lido V2 GateSeal Committee](https://research.lido.fi/t/lido-v2-gateseal-committee/4561)
 
-**Snapshot:** [Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d), [Voting for renewal GateSeal for the Withdrawal Queue and Validator Exit Bus Oracle](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa8ae592b09200c70629f3c5f4363d06dae9d8afb00c8910272319fc7fdb4e10a)
+**Snapshots:**\
+[Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d)\
+[Voting for renewal GateSeal for the Withdrawal Queue and Validator Exit Bus Oracle](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa8ae592b09200c70629f3c5f4363d06dae9d8afb00c8910272319fc7fdb4e10a)
 
-**Aragon:** [Vote #156](https://vote.lido.fi/vote/156), [Vote #174](https://vote.lido.fi/vote/174)
+**Aragon:**\
+[Vote #156](https://vote.lido.fi/vote/156)\
+[Vote #174](https://vote.lido.fi/vote/174)
 
 **Contracts and Roles:**
 
-GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/address/0x1ad5cb2955940f998081c1ef5f5f00875431aa90)
-
-- Sealing Committee
+###### GateSeal [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+* Sealing Committee
 
 **List of signers:**
 
@@ -39,9 +43,13 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Quorum:** 3/5
 
-**Forum topics:** [Emergency Brakes MS for Easy Tracks](https://research.lido.fi/t/lip-3-easy-track-release/1406), [Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608)
+**Forum topics:**\
+[Emergency Brakes MS for Easy Tracks](https://research.lido.fi/t/lip-3-easy-track-release/1406)\
+[Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608)
 
-**Snapshots: [](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)**[Release Easy Track](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6f3b01ce0573545987665eaafe9b3410402d7d0be03ad7bf8ccc926307ae578b), [Emergency Brakes multisig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
+**Snapshots:**\
+[Release Easy Track](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6f3b01ce0573545987665eaafe9b3410402d7d0be03ad7bf8ccc926307ae578b)\
+[Emergency Brakes multisig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
 
 **Contracts and Roles**:
 
@@ -49,56 +57,50 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 * PAUSE_ROLE
 
 ###### Arbitrum L1 ERC20 Token Gateway [`0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a`](https://etherscan.io/address/0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a)
-* WITHDRAWALS_DISABLER_ROLE,
-* DEPOSITS_DISABLER_ROLE.
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 ###### Optimism L1 ERC20 Token Bridge [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Base L1 ERC20 Token Bridge [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Mantle L1 ERC20 TokenBridge [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### ZKSync L1 ERC20 TokenBridge [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Scroll L1 ERC20 TokenBridge [`0x6625c6332c9f91f2d27c304e729b86db87a3f504`](https://etherscan.io/address/0x6625c6332c9f91f2d27c304e729b86db87a3f504)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### Mode L1 ERC20 Token Bridge [`0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A`](https://etherscan.io/address/0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 ###### BSC L1 Token Bridge:
-    1. NTTManager: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9)
-
-        - pause capability
-
-    2. Wormhole Transceiver: [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0)
-
-        - pause capability
-
-    3. Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
-
-        - pause capability
-
+###### NTTManager [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9)
+* pause capability
+###### Wormhole Transceiver [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0)
+* pause capability
+###### Axelar Transceiver [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+* pause capability
 
 ###### Zircuit Token Bridge: [`0x912C7271a6A3622dfb8B218eb46a6122aB046C79`](https://etherscan.io/address/0x912C7271a6A3622dfb8B218eb46a6122aB046C79)
 
-* WITHDRAWALS_DISABLER_ROLE,
+* WITHDRAWALS_DISABLER_ROLE
 * DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
@@ -119,16 +121,19 @@ GateSeal [`0x1ad5cb2955940f998081c1ef5f5f00875431aa90`](https://etherscan.io/add
 
 **Quorum:** 3/5
 
-**Forum topics:** [Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608), [First launches of Lido on L2](https://research.lido.fi/t/lido-on-l2-first-launches/2786)
+**Forum topics:**\
+[Emergency Brakes MS for L2 (Upgrade)](https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608)\
+[First launches of Lido on L2](https://research.lido.fi/t/lido-on-l2-first-launches/2786)
 
-**Snapshot:** [Emergency Brakes multi-sig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
+**Snapshot:**\
+[Emergency Brakes multi-sig upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x2b368b535b2024394daff218d222e260dbc4543b6d4e49aa4700cc0a9233e86a)
 
 **Contracts and Roles:**
 
-L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957)
+###### L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957)
 
-- WITHDRAWALS_DISABLE_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLE_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -154,10 +159,10 @@ L2 ERC20 Token Bridge oeth:[`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https:
 
 **Contracts and Roles:**
 
-L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](https://arbiscan.io/address/0x07D4692291B9E30E326fd31706f686f83f331B82)
+###### L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](https://arbiscan.io/address/0x07D4692291B9E30E326fd31706f686f83f331B82)
 
-- WITHDRAWALS_DISABLE_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLE_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -177,16 +182,16 @@ L2 ERC20 Token Gateway arb1: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](http
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment to Base and Ownership Acceptance by Lido DAO](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
+**Forum topic:** [wstETH Deployment to Base and Ownership Acceptance by Lido DAO](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
 
 **Snapshot:** [wstETH Deployment to Base and Ownership Acceptance by Lido DAO](https://snapshot.org/#/lido-snapshot.eth/proposal/0x8b35f64fffe67f67d4aeb2de2f3351404c54cd75a08277c035fa77065b6792f4)
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB)
+###### L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB)
 
-- WITHDRAWALS_DISABLE_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLE_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -206,16 +211,15 @@ L2ERC20TokenBridge: base:[`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https:/
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
+**Forum topic:** [wstETH Deployment on Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
 
 **Snapshot:** [wstETH Deployment on Mantle](https://snapshot.org/#/lido-snapshot.eth/proposal/0x349fa7409a99683405e71ddebaf5068f3dee7d4e6c9e4375198c4dc10c899bb9)
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d)
-
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+###### L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https://explorer.mantle.xyz/address/0x9c46560D6209743968cC24150893631A39AfDe4d)
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -235,16 +239,16 @@ L2ERC20TokenBridge: mantle:[`0x9c46560D6209743968cC24150893631A39AfDe4d`](https
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on zkSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
+**Forum topic:** [wstETH Deployment on zkSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
 
 **Snapshot:** [wstETH Deployment on zkSync](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd6c4a71c36bef27c4b5997223bd8612fe19177b46b238e78802a4a27fd5cdc9e)
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B)
+###### L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B)
 
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -264,16 +268,16 @@ L2ERC20TokenBridge: zksync:[`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
+**Forum topic:** [wstETH Deployment on Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
 
 **Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Scroll as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcdb7d84ea80d914a4abffd689ecf9bdc4bb05d47f1fdbdda8793d555381a0493)
 
 **Contracts and Roles:**
 
-L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9)
+###### L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9)
 
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
@@ -293,13 +297,13 @@ L2 Lido Gateway: Scroll:[`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://s
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
+**Forum topic:** [wstETH Deployment on Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
 
 **Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Mode as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0x6bc51c2b07a9345a03a0bc0acb72ccc9f63879c981f3a6954164d110c5d330b2)
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc)
+###### L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc)
 
 - WITHDRAWALS_DISABLER_ROLE
 - DEPOSITS_DISABLER_ROLE
@@ -322,23 +326,20 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Quorum:** 3/5
 
-**Forum topics:** [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on Binance Smart Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
+**Forum topic:** [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on Binance Smart Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
 
 **Snapshot:** [Should the Lido DAO recognize the wstETH Bridge Endpoints on Binance Smart Chain as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xcc52cdc83273b42a056cfc632889355595821a2cc9a59ba8adff66b30e9718f9)
 
 **Contracts and Roles:**
 
-1. NTTManager: BSC:[`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278)
+###### NTTManager: BSC:[`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278)
+* pause capability
 
-    - pause capability
+###### Wormhole Transceiver: BSC:[`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986)
+* pause capability
 
-2. Wormhole Transceiver: BSC:[`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986)
-
-    - pause capability
-
-3. Axelar Transceiver: BSC:[`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
-
-    - pause capability
+###### Axelar Transceiver: BSC:[`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+* pause capability
 
 **List of signers:**
 
@@ -358,16 +359,15 @@ L2ERC20TokenBridge: Mode:[`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://
 
 **Quorum:** 3/5
 
-**Forum topics:** [wstETH Deployment on Zircuit](https://research.lido.fi/t/wsteth-deployment-to-zircuit-and-ownership-acceptance-by-lido-dao/8602)
+**Forum topic:** [wstETH Deployment on Zircuit](https://research.lido.fi/t/wsteth-deployment-to-zircuit-and-ownership-acceptance-by-lido-dao/8602)
 
-**Snapshot:** TBA
+**Snapshot:** [Should the Lido DAO recognize the wstETH bridge endpoints on Zircuit as canonical?](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac55c2cd8610c3b72cb769cec6b97891b5880f2f1f458eda2eb17218332cef6f)
 
 **Contracts and Roles:**
 
-L2ERC20TokenBridge: Zircuit:[`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e)
-
-- WITHDRAWALS_DISABLER_ROLE
-- DEPOSITS_DISABLER_ROLE
+###### L2ERC20TokenBridge: Zircuit:[`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e)
+* WITHDRAWALS_DISABLER_ROLE
+* DEPOSITS_DISABLER_ROLE
 
 **List of signers:**
 
