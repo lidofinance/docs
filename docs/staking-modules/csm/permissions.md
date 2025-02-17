@@ -43,4 +43,4 @@ Lido DAO has the following permissions and controls via on-chain Aragon voting:
 - Cancel MEV stealing penalty if needed;
 - Starting EasyTracks to settle MEV stealing penalty;
 - Switching the [bond](./join-csm#bond) curve for the particular Node Operator or resetting it to the default one;
-- Pausing CSM in case of emergency via Gate Seal;
+- Pausing CSM in case of emergency via GateSeal;

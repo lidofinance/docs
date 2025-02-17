@@ -53,9 +53,10 @@
 - CallsScript: [`0xAa8B4F258a4817bfb0058b861447878168ddf7B0`](https://holesky.etherscan.io/address/0xAa8B4F258a4817bfb0058b861447878168ddf7B0)
 - Lido APMRegistry: [`0x4605Dc9dC4BD0442F850eB8226B94Dd0e27C3Ce7`](https://holesky.etherscan.io/address/0x4605Dc9dC4BD0442F850eB8226B94Dd0e27C3Ce7) (proxy)
 - Aragon APMRegistry: [`0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A`](https://holesky.etherscan.io/address/0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A) (proxy)
-- Gate Seal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
-- Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
-- Gate Seal: [`0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d`](https://holesky.etherscan.io/address/0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d)
+- GateSeal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
+- GateSeal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
+- GateSeal (**Proposed to remove**): [`0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d`](https://holesky.etherscan.io/address/0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d)
+- GateSeal (**Proposed**): [`0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778`](https://holesky.etherscan.io/address/0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778)
 
 ## Data Bus
 
@@ -85,7 +86,8 @@
 - CSVerifier (**Proposed**): [`0xc099dfd61f6e5420e0ca7e84d820daad17fc1d44`](https://holesky.etherscan.io/address/0xc099dfd61f6e5420e0ca7e84d820daad17fc1d44)
 - CSEarlyAdoption: [`0x71E92eA77C198a770d9f33A03277DbeB99989660`](https://holesky.etherscan.io/address/0x71E92eA77C198a770d9f33A03277DbeB99989660)
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
-- GateSeal: [`0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce`](https://holesky.etherscan.io/address/0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce)
+- GateSeal (**Proposed to remove**): [`0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce`](https://holesky.etherscan.io/address/0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce)
+- GateSeal (**Proposed**): [`0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a`](https://holesky.etherscan.io/address/0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a)
 
 
 ## DAO-ops contracts & addresses
