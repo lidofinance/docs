@@ -68,7 +68,7 @@ To create a new Easy Track motion, follow these steps:
 7. select the type of motion you want to launch;
 8. fill out the form, make sure to complete all required fields;
 9. press the ‘Submit' button below the form and sign the transaction (gas costs apply);
-10. if a multisig was used to create the motion, another multisig owner must now confirm the transaction in Gnosis Safe.
+10. if a multisig was used to create the motion, another multisig owner must now confirm the transaction in Safe.
 
 As soon as the transaction is confirmed, the motion is started, and you can see it on the 'Active motions' page of Easy Track UI.
 Notifications will be sent to inform the DAO about the motion.
@@ -80,13 +80,13 @@ Please note that the motion duration may be different for testnet deployment.
 If you want to use a multisig to create a motion, follow these steps to connect the wallet:
 1. pick the 'Wallet Connect' option;
 2. copy the QR code by clicking the 'Copy to clipboard' button under the code;
-3. proceed to the [Gnosis Safe](https://safe.global/), connect your wallet by clicking 'Connect your wallet' button top right;
+3. proceed to the [Safe](https://safe.global/), connect your wallet by clicking 'Connect your wallet' button top right;
 4. open the 'Apps' section in the drawer menu on the left and find the Wallet Connect Safe app in the list;
 5. paste the code into the field on the left.
 
 Now the multisig is connected to the Easy Track app. You must keep the Wallet Connect Safe app tab open in your browser for transactions to pop up. You will not receive transaction requests if you don't have it open.
 
-#### Checking the motion details from Gnosis Multisig UI
+#### Checking the motion details from Safe Multisig UI
 
 When a motion start transaction is created by one of the multisig signers, the remaining signers should review the addresses and transaction data before signing. 
 
@@ -94,7 +94,7 @@ To verify the transaction, follow these steps:
 1. Check the address the tx is being sent to — it should be `Easy Track` contract listed on the [Deployed Contracts page](/deployed-contracts/#easy-track).
 2. Check the params of the `createMotion` call:
    1. to check `_evmScriptFactory` address use [Deployed Contracts page](/deployed-contracts/#easy-track) — the address should be listed on this page & match the type of motion is about to be started.
-   2. to check `_evmScriptCallData` bytes string open the `_evmScriptFactory` contract on the etherscan & call the `decodeEVMScriptCallData` with the string from the Gnosis Safe UI to see the motion params.
+   2. to check `_evmScriptCallData` bytes string open the `_evmScriptFactory` contract on the etherscan & call the `decodeEVMScriptCallData` with the string from the Safe UI to see the motion params.
 
 ### Node Operators guide to Easy Track
 
@@ -120,7 +120,7 @@ To verify the transaction, follow these steps:
   - You can add multiple token allocations into a single motion by clicking 'One more token' below the form.
 
 **Other key considerations:**
-1. **Only a LEGO committee member can start a motion to allocate funds to LEGO program.** Before starting a motion, please make sure you have access to [the LEGO Committee Gnosis Safe multisig](https://gnosis-safe.io/app/#/safes/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030).
+1. **Only a LEGO committee member can start a motion to allocate funds to LEGO program.** Before starting a motion, please make sure you have access to [the LEGO Committee multisig](https://app.safe.global/settings/setup?safe=eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030).
 2. **LEGO Easy Track motions support fund allocation in one or multiple of the following tokens: DAI, USDC, USDT and LDO.**
 
 ### Liquidity Observation Lab guide to Easy Track
@@ -134,7 +134,7 @@ To verify the transaction, follow these steps:
   - When creating a motion to remove a reward program from the list or to top up a previously added program, you will be able to pick a program by the program title, rather than pasting Ethereum address. UI for topping up the rewards program takes full tokens as an input (so, the amounts are in X LDOs, not X*1e18 LDO Weis).
 
 **Other key considerations:**
-1. **Only a Lido Liquidity Observation Lab member can start a motion to allocate funds to reward programs.** Before starting a motion, please make sure you have access to [the Liquidity Observation Lab Gnosis Safe multisig](https://gnosis-safe.io/app/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/balances).
+1. **Only a Lido Liquidity Observation Lab member can start a motion to allocate funds to reward programs.** Before starting a motion, please make sure you have access to [the Liquidity Observation Lab multisig](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5).
 2. **Liquidity Observation Lab Easy Track motions support fund allocation in stETH only.**
 3. **Easy Track supports topping up multiple reward programs in a single motion.** Though be careful, lack of consensus on one reward program will prevent the whole motion from passing.
 4. **To top up a reward program via Easy Track motion, it should first be added into the list of active reward programs.** This action requires a separate Easy Track motion to complete.
