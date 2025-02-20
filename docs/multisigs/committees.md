@@ -2,42 +2,47 @@
 
 ## 2.1 LEGO Committee
 
-**Purpose of the multisig:**
+**Address:** [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/settings/setup?safe=eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 
-The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. Multisig enables the reception of DAI and LDO from the Lido DAO Treasury by Easy Track.
+**Purpose of the multisig:**
+The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. 
+Multisig enables the reception of LDO and stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+
+**Forum topics:**\
+[Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406)\
+[Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
+
+**Snapshots:**\
+[Continue LEGO for year 2](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
+[Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.org/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)\
+[LEGO: Proposal to replace Tim Beiko with Eric Siu and update council members rotation rules](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2acd7e052fc5ac2513509f5023975451f69fd488628577fedf369c3da97bef6a)
+
+**Aragon:**\
+[Omnibus vote #147 (items 4,5)](https://vote.lido.fi/vote/147)
 
 **Quorum:** 4/8
 
-**Address:** [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/settings/setup?safe=eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
+**Easy Track contracts and roles:**
 
-**Forum topic:** [Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406), [Proposal to continue LEGO fro Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
+| Factory          | Contract name           | Contract address | Multisig role |
+|------------------|-------------------------|-----------------|---------------|
+| LEGO LDO         | TopUpAllowedRecipients  | [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)| trustedcaller |
+| LEGO Stablecoins | TopUpAllowedRecipients  | [`0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c`](https://etherscan.io/address/0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c)| trustedcaller |
 
-**Snapshot:** [A proposal to continue LEGO program](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)
-
-**On-chain:** [Omnibus vote #147](https://vote.lido.fi/vote/147) [(items 4,5)](https://vote.lido.fi/vote/147)
-
-**Easy Track Factories contracts and roles:**
-
-LEGO DAI Top Up Allowed Recipients [`0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC`](https://etherscan.io/address/0x0535a67ea2D6d46f85fE568B7EaA91Ca16824FEC)
-
-- trustedcaller
-
-LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)
-
-- trustedcaller
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
 | Name | Address | Verification | Public verification | Adding proposal |
-| --- | --- | --- | --- | --- |
+| --- | --- | -- | -- | --- |
 | Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
 | Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
-| Tim Beiko | 0x10F5d45854e038071485AC9e402308cF80D2d2fE | - | - | https://research.lido.fi/t/expand-lego-council-by-adding-tim-beiko/620 |
 | kadmil | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | skozin | 0x2CAE3a4D4c513026Ecc6af94A4BA89Df31c8cEA3 | https://etherscan.io/verifySig/17853 | https://twitter.com/_skozin/status/1655873413833998336 | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | Florian | 0xb3F9998BD84cE884CaFF8f0D803c0EDbb6fEC37C | - | - | https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/2 |
 | kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | vshvsh | 0x4A7489a3e94eFc8f4C4ee266ED297d3031f123A7 | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
+| Eric Siu  | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363 | https://warpcast.com/randomishwalk/0x7b35f539 | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2 |
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
@@ -47,25 +52,23 @@ LEGO LDO Top Up Allowed Recipients [`0x00caAeF11EC545B192f16313F53912E453c91458`
 
 **Quorum:** 4/8
 
-**Forum topics:** [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808), [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
+**Forum topics:**\
+[Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
+[Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
 
-**Snapshots:** [Proposal to adopt Rewards-Share Program 2024e](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
+**Snapshot:**\
+[Proposal to adopt Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
 
-**On-chain:**   [Omnibus vote #162](https://vote.lido.fi/vote/162)
+**Aragon:**\
+[Omnibus vote #162](https://vote.lido.fi/vote/162)
 
 **Easy Track contracts and roles:**
 
-AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b63`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
-
-- trustedcaller
-
-RemoveAllowedRecipient: [`0xd30Dc38EdEfc21875257e8A3123503075226E14B`](https://etherscan.io/address/0xd30Dc38EdEfc21875257e8A3123503075226E14B)
-
-- trustedcaller
-
-TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://etherscan.io/address/0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea)
-
-- trustedcaller
+| Factory | Contract name        | Contract address                                                                                                        | Multisig role |
+|---------|----------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| Rewards Share stETH | AddAllowedRecipient  | [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6) | trustedcaller |
+| Rewards Share stETH | RemoveAllowedRecipient | [`0xd30Dc38EdEfc21875257e8A3123503075226E14B`](https://etherscan.io/address/0xd30Dc38EdEfc21875257e8A3123503075226E14B) | trustedcaller |
+| Rewards Share stETH | TopUpAllowedRecipients | [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea`](https://etherscan.io/address/0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea) | trustedcaller |
 
 **List of signers:**
 
@@ -84,7 +87,7 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 **Address:** [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/settings/setup?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
 
-**Purpose of the multisig:** The multisig signs off the  [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
+**Purpose of the multisig:** The multisig signs off the [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
 
 **Quorum:** 5/7
 
@@ -94,11 +97,11 @@ TopUpAllowedRecipients: [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea2`](https://
 
 **Aragon:** [Omnibus vote #149 (item 6)](https://vote.lido.fi/vote/149)
 
-**Contracts and Roles:**
+**Contracts and roles:**
 
-MEVBoostRelayAllowedList [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xF95f069F9AD107938F6ba802a3da87892298610E)
-
-- manager
+| Contract name           | Contract address | Multisig role |
+|-------------------------|-----------------|---------------|
+| MEVBoostRelayAllowedList  | [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xF95f069F9AD107938F6ba802a3da87892298610E) | manager |
 
 **List of signers:**
 
@@ -124,17 +127,14 @@ MEVBoostRelayAllowedList [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://
 
 **Snapshot:** [Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)
 
-**On-chain:** [Omnibus Vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
+**Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
 
-**Contracts and Roles:**
+**Contracts and roles:**
 
-VestingEscrowFactory [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
-
-- manager
-
-Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C)
-
-- trustedcaller
+| Contract name                     | Contract address | Multisig role |
+|-----------------------------------|-----------------|---------------|
+| TRP VestingEscrowFactory          | [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0) | manager |
+| Easy Track TopUpAllowedRecipients | [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C) | trustedcaller |
 
 **List of signers:**
 
@@ -156,22 +156,24 @@ Easy Track TopUpAllowedRecipients [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`]
 
 **Quorum:** 4/7
 
-**Forum topic:** [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40), [Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
+**Forum topics:**\
+[Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40)\
+[Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
 
-**Snapshot:** [Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
+**Snapshot:**\
+[Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
 
-**Aragon:** [Omnibus vote #173](https://vote.lido.fi/vote/173)
+**Aragon:**\
+[Omnibus vote #173](https://vote.lido.fi/vote/173)
 
+**Easy Track contracts and roles:**
 
-**Easy Track for swap stETH to stablecoin**
+| Factory | Type of swap | Contract name          | Contract address | Multisig role |
+|---------|--------------|------------------------|------------------|---------------|
+| Stonks stETH | stETH to stablecoin | TopUpAllowedRecipients | [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69) | trustedcaller |
+| Stonks stablecoins | stablecoin to stablecoin | TopUpAllowedRecipients | [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6) | trustedcaller |
 
-TopUpAllowedRecipients: [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69)
-- trustedcaller
-
-**Easy Track for swap stablecoin to stablecoin (DAI / USDC / USDT)**
-
-TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
-- trustedcaller
+The complete list of Lido Stonks contracts is available [here](https://docs.lido.fi/deployed-contracts/#lido-stonks-contracts).
 
 **List of signers:**
 
@@ -179,13 +181,13 @@ TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://e
 | --- | --- | --- | --- |
 | karpatkey | 0x7d4FDba7d1b22834eA75B5E45e4110Bf56E690f1 | https://etherscan.io/tx/0x675609e65d19fe0e18d340381e5203d2744607ff0646ef24a81653d1403eb9ab | https://twitter.com/karpatkey/status/1648722691862429699 |
 | marcbcs | 0x98308b6dA79B47D15e9438CB66831563649Dbd94 | https://etherscan.io/verifySig/17088 | https://twitter.com/silhcet/status/1648638734294994946?s=20 |
-| steakhouse | 0x9106CBf2C882340b23cC40985c05648173E359e7 | https://etherscan.io/tx/0x93acaa8744228ba640e748c584112b1029dd1541a0ee75a5ad20ac0564b2c6b2/advanced | https://twitter.com/SteakFi/status/1648780257040687105?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
 | sabrychiaa | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
 | Mol_Eliza | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
 | kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
 
-## 2.6 Gas Supply Committee (prev.Depositor bot gas funding)
+## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
 **Address:** [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://app.safe.global/settings/setup?safe=eth:0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 
@@ -193,25 +195,24 @@ TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://e
 
 **Quorum:** 3/5
 
-**Forum topics:** [Depositor bot gas funding](https://research.lido.fi/t/proposal-to-fund-the-depositor-bot-in-ethereum/1881), [Gas Supply Committee](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724)
+**Forum topics:**\
+[Depositor bot gas funding](https://research.lido.fi/t/proposal-to-fund-the-depositor-bot-in-ethereum/1881)\
+[Gas Supply Committee](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724)
 
-**Snapshot:** [Nominate the Gas Supply Committee as a supervisor for gas expenditure](https://snapshot.org/#/lido-snapshot.eth/proposal/0xbfecc75c45bca53d3c5786f099d46559ac597bc3fae802d5f599b60f10b4bd4a)
+**Snapshot:**\
+[Nominate the Gas Supply Committee as a supervisor for gas expenditure](https://snapshot.org/#/lido-snapshot.eth/proposal/0xbfecc75c45bca53d3c5786f099d46559ac597bc3fae802d5f599b60f10b4bd4a)
 
-**Aragon:** [Omnibus Vote #156](https://vote.lido.fi/vote/156), [Omnibus vote #160, items 6-8](https://vote.lido.fi/vote/160)
+**Aragon:**\
+[Omnibus vote #156](https://vote.lido.fi/vote/156)\
+[Omnibus vote #160 (items 6-8)](https://vote.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
-Gas Supply stETH AddAllowedRecipient [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252)
-
-- trustedcaller
-
-Gas Supply stETH RemoveAllowedRecipient [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7)
-
-- trustedcaller
-
-Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1)
-
-- trustedcaller
+| Factory | Contract name | Contract address | Multisig role |
+|---------|---------------|------------------|---------------|
+| Gas Supply stETH | AddAllowedRecipient | [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252) | trustedcaller |
+| Gas Supply stETH | RemoveAllowedRecipient | [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7) | trustedcaller |
+| Gas Supply stETH | TopUpAllowedRecipients | [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1) | trustedcaller |
 
 **List of signers:**
 
@@ -231,39 +232,28 @@ Gas Supply stETH Top Up Allowed Recipients [`0x200dA0b6a9905A377CF8D469664C65dB2
 
 **Quorum:** 4/7
 
-**Forum topic:** [Simple DVT Module Committee Multisig](https://research.lido.fi/t/simple-dvt-module-committee-multisig/6520), [Simple DVT release](https://research.lido.fi/t/simple-dvt-release/6613)
+**Forum topics:**\
+[Simple DVT Module Committee Multisig](https://research.lido.fi/t/simple-dvt-module-committee-multisig/6520)\
+[Simple DVT release](https://research.lido.fi/t/simple-dvt-release/6613)
 
-**Snapshot:** [Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
+**Snapshot:**\
+[Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
 
-**Aragon:** [Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172)
+**Aragon:**\
+[Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172)
 
-**Easy Track contracts and roles:**
+**Easy Track Simple DVT staking module contracts and roles:**
 
-AddNodeOperators: [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639)
-- trustedcaller
-
-ActivateNodeOperators: [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8)
-- trustedcaller
-
-DeactivateNodeOperators: [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7)
-- trustedcaller
-
-SetVettedValidatorsLimits: [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D)
-- trustedcaller
-
-SetNodeOperatorNames: [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4)
-- trustedcaller
-
-SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
-- trustedcaller
-
-UpdateTargetValidatorLimits: [`0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C`](https://etherscan.io/address/0x41CF3DbDc939c5115823Fba1432c4EC5E7bD226C)
-- trustedcaller
-
-ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
-- trustedcaller
-
-
+| Contract name          | Contract address | Multisig role |
+|------------------------|-----------------|---------------|
+| AddNodeOperators | [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639) | trustedcaller |
+| ActivateNodeOperators | [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8) | trustedcaller |
+| DeactivateNodeOperators | [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7) | trustedcaller |
+| SetVettedValidatorsLimits | [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D) | trustedcaller |
+| SetNodeOperatorNames | [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4) | trustedcaller |
+| SetNodeOperatorRewardAddresses | [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0) | trustedcaller |
+| UpdateTargetValidatorLimits | [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b) | trustedcaller |
+| ChangeNodeOperatorManager | [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D) | trustedcaller |
 
 **List of signers:**
 
@@ -277,7 +267,6 @@ ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https:
 | George A | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/35156 | https://twitter.com/george_avs/status/1752380380282314889|
 | Will | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157| https://twitter.com/KimonSh/status/1752382287721927062 |
 
-
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
 
 ### 2.8.1 Liquidity Observation Lab Committee (Ethereum)
@@ -290,31 +279,29 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Quorum:** 4/8
 
-**Forum topics:** [Proposal to form reWARDS Committee](https://research.lido.fi/t/proposal-to-form-rewards-committee/1447), [Proposal to relaunch the reWARDS Committee as the Liquidity Observation Lab (LOL)](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
+**Forum topics:**\
+[Proposal to form reWARDS Committee](https://research.lido.fi/t/proposal-to-form-rewards-committee/1447)\
+[Proposal to relaunch the reWARDS Committee as the Liquidity Observation Lab (LOL)](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
 
-**Snapshots:**   [Proposal to form reWARDS Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe565ad27e1beaacbe0e68bec59bd3d86a80d669ca80022b76dc31be697f6e078), [Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
+**Snapshots:**\
+[Proposal to form reWARDS Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe565ad27e1beaacbe0e68bec59bd3d86a80d669ca80022b76dc31be697f6e078)\
+[Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
-**Aragon:** [Omnibus Vote № 160, item №9-14](https://vote.lido.fi/vote/160)
+**Aragon:**\
+[Omnibus vote #160 (items 9-14)](https://vote.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
-AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
-
-- trustedcaller
-
-RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
-
-- trustedcaller
-
-TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
-
-- trustedcaller
+|  Factory                                       | Contract name          | Contract address | Multisig role |
+|----------------------------------------------------------|------------------------|----------------|---------------|
+| LOL stETH | AddAllowedRecipient | [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77) | trustedcaller |
+| LOL stETH | RemoveAllowedRecipient | [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b) | trustedcaller |
+| LOL  stETH | TopUpAllowedRecipients | [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E) | trustedcaller |
 
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086452812349441?s=20 |
@@ -322,8 +309,11 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c| https://x.com/KENX3495/status/1863795366321344968 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
+
+**Addresses:**
 
 | № | Name | Address |
 | --- | --- | --- |
@@ -336,7 +326,6 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | 2.8.8 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
 | 2.8.9 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
 
-
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
 **Quorum:** 3/6
@@ -346,19 +335,19 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
 
 ### 2.8.10 Liquidity Observation Lab Committee (Polygon)
 
 **Address:** matic:[`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
-**Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
-
 **Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
+
+**Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
 
 **Quorum:** 2/3
 
@@ -372,7 +361,9 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 ### 2.8.11 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
-**Address:** `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022)), `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
+**Addresses:**\
+`0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` - [Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022)
+`0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` - [zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE)
 
 **Purpose of the multisig:** A family of multisigs on L2 networks is set up to receive assets from the Liquidity Observation Lab Committee multisigs on respective networks and distribute them among approved recipients.
 
@@ -383,11 +374,11 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
 
 ### 2.8.12 Liquidity Observation Lab Committee OP Token Multisig
 
@@ -402,24 +393,24 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
 
 
 ### 2.8.13 Liquidity Observation Lab Committee ARB Token Multisig
 
 **Address:** arb1:[`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/settings/setup?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56)
 
+**Purpose of the multisig:** Accept ARB tokens provided to Lido DAO by airdrop or any other way on Arbitrum.
+
 **Forum topic:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://research.lido.fi/t/arbitrum-arb-token-airdrop-acceptance/4393)
 
 **Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
-
-**Purpose of the multisig:** Accept ARB tokens provided to Lido DAO by airdrop or any other way on Arbitrum.
 
 **Quorum:** 4/8
 
@@ -428,23 +419,23 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/apegenija/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
 
 ### 2.8.14 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
 **Address:** arb1:[`0xD97221065E826167A2cFE3307972c0D42200fDB4`](https://app.safe.global/home?safe=arb1:0xD97221065E826167A2cFE3307972c0D42200fDB4)
 
+**Purpose of the multisig:** Accept ARB tokens provided to Lido DAO under the Arbitrum LTIPP grant.
+
 **Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/15)
 
 **Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
-
-**Purpose of the multisig:** Accept ARB tokens provided to Lido DAO under the Arbitrum LTIPP grant.
 
 **Quorum:** 3/5
 
@@ -452,21 +443,21 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
 
 ### 2.8.15 Liquidity Observation Lab Committee ZK Token Multisig
 
 **Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
 
+**Purpose of the multisig:** Accept ZK tokens provided to Lido DAO by airdrop or any other way on ZKSync.
+
 **Forum topic:** [Lido DAO ZKSync ZK Token Airdrop Acceptance](https://research.lido.fi/t/lido-dao-zksync-zk-token-airdrop-acceptance)
 
 **Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
-
-**Purpose of the multisig:** Accept ZK tokens provided to Lido DAO by airdrop or any other way on ZKSync.
 
 **Quorum:** 4/8
 
@@ -475,13 +466,13 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| Puffy325 | 0x1Fa1134a8eF43F0C98C1657a95276ae611FAd619 | Sig hash: 0x707490eb22200f49701b8877b47bd1d31b81e0841916a4b04149d0071c778d697ae7017bacad9da892af6c44eeb7169cfc67141a316c80fee19afcdaaaa435461c | https://twitter.com/puffy325/status/1746911039445147754?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/apegenija/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
 
 
 ## 2.9 Community Staking Module Committee
@@ -490,17 +481,21 @@ TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://
 
 **Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
 cancel MEV stealing penalty if needed, starting EasyTracks to settle MEV stealing penalty, switching the bond curve for the particular Node Operator or resetting it to the default one,
-pausing CSM in case of emergency via Gate Seal.
+pausing CSM in case of emergency via GateSeal.
 
 **Quorum:** 4/6
 
-**Forum topic:** [Community Staking Module Committee](https://research.lido.fi/t/csm-committee-creation/8333), [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
+**Forum topics:**\
+[Community Staking Module Committee](https://research.lido.fi/t/csm-committee-creation/8333)\
+[Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
 
-**Snapshot:** [Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
+**Snapshot:**\
+[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
 
-**Aragon:** CSM was added to the Lido on Ethereum protocol in [Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180)
+**Aragon:**\
+[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)
 
-**Roles:** Corresponding roles were assigned to the MS during CSM deployment transactions:
+**Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
 - `SET_BOND_CURVE_ROLE`: [0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565](https://etherscan.io/tx/0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565)
 - `RESET_BOND_CURVE_ROLE`: [0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b](https://etherscan.io/tx/0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b)
@@ -508,9 +503,9 @@ pausing CSM in case of emergency via Gate Seal.
 
 **Easy Track contracts and roles:**
 
-CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) 
-- trustedcaller
-
+| Contract name          | Contract address | Multisig role |
+|------------------------|------------------|---------------|
+| CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)  | trustedcaller |
 
 **List of signers:**
 
@@ -522,3 +517,48 @@ CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https
 | lanski | 0x6ac2df117c82f51bfdef1a249672b9a9ca6b3d86 | https://etherscan.io/verifySig/257500 | https://x.com/Pol_Lanski/status/1840659602083324379 |
 | Eridian | 0x7afd3c7f16fdbb3adf331fcc20a585d768ecf60d | https://etherscan.io/verifySig/257510| https://x.com/EridianAlpha/status/1840661871516332220 |
 | POSTHUMAN | 0xcbc39c37ee315e4a504cc1ad0d7956a76e20d90d | https://etherscan.io/verifySig/257507 | https://x.com/ponimajushij/status/1833486702062493757 |
+
+## 2.10 Delegate Oversight Committee
+
+**Address:** [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
+
+**Purpose of the multisig:** This multisig receives and distributes grants from the LEGO Committee multisig within the Delegate Incentivization Program.
+
+**Quorum:** 3/5
+
+**Forum topic:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858)
+
+**Snapshot:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa502cf80451192672313911ce558e74799626da3b3b66130e21c6cd19707e584)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
+| Olga K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
+| Marcela| 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716| https://x.com/0xMarcela/status/1869171438630174818 |
+| kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
+| Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 |https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036 |
+
+## 2.11 Network Expansion Committee
+
+A Committee without multisig.
+
+**Purpose of the Committee:** Network Expansion Committee is assigned to formally recognize (w)stETH token bridging endpoints and denominations on new networks as canonical, acting on behalf of Lido DAO. NEC decisions require the unanimous support of committee members. Once the decision has been made, it must be announced on the forum by a committee member, along with the reasons for the decision and any supporting materials (audits, deployment reviews, and so on). The prerequisite for committee voting is having a reputable third party to evaluate the on-chain deployment matching the audited codebase along with QA tests for the entire user flow. NEC decisions are put on hold for 5 days after forum posting. If there are no objections, the decision stands. If objected to within this time, the decision is disregarded and a snapshot vote follows.
+
+**Quorum:** 4/4
+
+**Forum topics:**\
+[Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)
+
+**Snapshot:**\
+[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)
+
+**List of committee members:**
+
+| Name | Role |
+| --- | --- |
+| shardyaco | Protocol Relations |
+| TheDZhon | Tech |
+| EvgeniyEmelyanov | Product |
+| nikita.p | DAO Ops |

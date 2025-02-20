@@ -882,4 +882,4 @@ event NegativeCLRebaseAccepted(uint256 refSlot, uint256 clTotalBalance, uint256 
 - **`refSlot`** — the reference slot for the report checked.
 - **`clTotalBalance`** — the total Consensus Layer balance.
 - **`clBalanceDecrease`** — the decrease of Consensus Layer balance during report.
-- **`maxAllowedCLRebaseNegativeSum`** — the maximul accepted negative rebase balance change without second opinion.
+- **`maxAllowedCLRebaseNegativeSum`** — the maximum accepted negative rebase balance change without second opinion.

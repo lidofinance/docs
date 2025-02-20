@@ -548,7 +548,7 @@ None
   - Before vote start:
     - None
   - After enactment:
-    - Gate Seal
+    - GateSeal
 - `RESUME_ROLE`
   - None
 - `SUBMIT_DATA_ROLE`
@@ -576,7 +576,7 @@ None
   - Before vote start:
     - None
   - After enactment:
-    - Gate Seal
+    - GateSeal
 - `RESUME_ROLE`
   - None
 - `FINALIZE_ROLE`

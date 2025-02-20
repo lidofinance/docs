@@ -9,6 +9,7 @@ Address: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/
 **Quorum:** 3/5
 
 **Forum topic:** [Lido on Polygon V2 upgrade](https://research.lido.fi/t/lido-on-polygon-protocol-upgrade/3213/)
+
 **Snapshot:** [Lido on Polygon V2 upgrade](https://snapshot.org/#/lido-snapshot.eth/proposal/0x32f6f095dc4f7b97665b560781d6e6795da11f9c8218936a505575040038d70f)
 
 **Contracts and Roles:**
