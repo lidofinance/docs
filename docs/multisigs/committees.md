@@ -12,9 +12,10 @@ Multisig enables the reception of LDO and stablecoins (listed in the AllowedToke
 [Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406)\
 [Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
 
-**Snapshot:**\
+**Snapshots:**\
 [Continue LEGO for year 2](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
-[Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.org/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)
+[Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.org/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)\
+[LEGO: Proposal to replace Tim Beiko with Eric Siu and update council members rotation rules](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2acd7e052fc5ac2513509f5023975451f69fd488628577fedf369c3da97bef6a)
 
 **Aragon:**\
 [Omnibus vote #147 (items 4,5)](https://vote.lido.fi/vote/147)
@@ -33,15 +34,15 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **List of signers:**
 
 | Name | Address | Verification | Public verification | Adding proposal |
-| --- | --- | --- | --- | --- |
+| --- | --- | -- | -- | --- |
 | Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
 | Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
-| Tim Beiko | 0x10F5d45854e038071485AC9e402308cF80D2d2fE | - | - | https://research.lido.fi/t/expand-lego-council-by-adding-tim-beiko/620 |
 | kadmil | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | skozin | 0x2CAE3a4D4c513026Ecc6af94A4BA89Df31c8cEA3 | https://etherscan.io/verifySig/17853 | https://twitter.com/_skozin/status/1655873413833998336 | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | Florian | 0xb3F9998BD84cE884CaFF8f0D803c0EDbb6fEC37C | - | - | https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/2 |
 | kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | vshvsh | 0x4A7489a3e94eFc8f4C4ee266ED297d3031f123A7 | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
+| Eric Siu  | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363 | https://warpcast.com/randomishwalk/0x7b35f539 | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2 |
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
@@ -480,7 +481,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
 cancel MEV stealing penalty if needed, starting EasyTracks to settle MEV stealing penalty, switching the bond curve for the particular Node Operator or resetting it to the default one,
-pausing CSM in case of emergency via Gate Seal.
+pausing CSM in case of emergency via GateSeal.
 
 **Quorum:** 4/6
 
