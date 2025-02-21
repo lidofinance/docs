@@ -36,8 +36,7 @@ It is acceptable to start with a simpler opening transient bridging implementati
 While in transient state, it is already possible to receive all support from Lido contributors (and committees).
 
 Getting endorsement from the NEC will require fulfilling recommendations from R-1 to R-8 (for example
-[Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3)
-).
+[Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3)).
 The NEC is working to provide a seamless solution for fulfilling those requirements instead of handling every expansion on the case by case basis. If you are in the transient state, please reach out to one of the NEC members for coordination.
 
 The NEC endorsement is a requirement for listing on [Lido Multichain](https://lido.fi/lido-multichain).
@@ -283,7 +282,7 @@ For access control, please prefer the standard OpenZeppelin ACL contract and its
 ### Architecture checklist
 
 If non-reference architecture is used
-(nor [Ethereum L2 built on OP-Stack, wstETH + stETH](#ethereum-l2-built-on-op-stack-wsteth-steth),
+nor [Ethereum L2 built on OP-Stack, wstETH + stETH](#ethereum-l2-built-on-op-stack-wsteth--steth),
 nor [Ethereum L2, wstETH](#ethereum-l2-wsteth))
 please fill out the list, providing the details if needed.
 
