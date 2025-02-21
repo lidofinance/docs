@@ -215,7 +215,7 @@ To curb the multisig's power, it is proposed to use the "Gate Seals" mechanic. T
 There are three contract states to consider: transient, pre-endorsement, and endorsement.
 
 The transient state is applicable for the transient setup when not all the minimal recommendations are followed yet.
-This state is mostly referred to [alt-L1 network or L2 with non-native canonical ecosystem-wide bridges, wstETH](alt-l1-network-or-l2-with-non-native-canonical-ecosystem-wide-bridges-wsteth).
+This state is mostly referred to [alt-L1 network or L2 with non-native canonical ecosystem-wide bridges, wstETH](#alt-l1-network-or-l2-with-non-native-canonical-ecosystem-wide-bridges-wsteth).
 
 The pre-endorsement state is applicable for the setup when all the minimal recommendations are followed
 possibly except for the bridging endpoint ownership passed to the Lido DAO.
@@ -436,7 +436,6 @@ Follow the case of [`wstETH on Mode`](https://research.lido.fi/t/wsteth-deployme
 ### What if wstETH is already bridged?
 
 Here is also an approximate decision tree to guide on this scenario.
-Please consider getting in touch with the NEC but for
 
 ```mermaid
 graph TD;
