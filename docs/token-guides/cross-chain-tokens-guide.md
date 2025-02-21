@@ -434,7 +434,7 @@ Follow the case of [`wstETH on Mode`](https://research.lido.fi/t/wsteth-deployme
 
 ### What if wstETH is already bridged?
 
-Here is also an approximate decision tree to guide on this scenario.
+Here is a rough decision tree to guide you through this scenario:
 
 ```mermaid
 graph TD;
