@@ -33,14 +33,14 @@ For the governance forwarding setup, use the [Governance Bridge Executor](https:
 
 It is acceptable to start with a simpler opening transient bridging implementation while obtaining liquidity. In this case, recommendations R-1 to R-4 and "transient" recommendations R-5-transient and R-6-transient are **required** for the possibility of future endorsement.
 
-#### Bridge with NEC endorsement from the start or getting endorsement when high liquidity
+While in transient state, it is already possible to receive all support from Lido contributors (and committees).
 
-In this case, the required recommendations are R-1 to R-6.
+Getting endorsement from the NEC will require fulfilling recommendations from R-1 to R-8 (for example
+[Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3)
+).
+The NEC is working to provide a seamless solution for fulfilling those requirements instead of handling every expansion on the case by case basis. If you are in the transient state, please reach out to one of the NEC members for coordination.
 
-Consider [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3)
-as a reference for bridging wstETH via aggregation and bridging governance decisions via [a.DI](https://github.com/lidofinance/aave-delivery-infrastructure).
-
-Adhere to recommendations R-1 to R-8.
+The NEC endorsement is a requirement for listing on [Lido Multichain](https://lido.fi/lido-multichain).
 
 ## General scenario towards the recognition
 
