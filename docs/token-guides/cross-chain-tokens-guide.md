@@ -53,7 +53,7 @@ This section describes an approximate path to bridging Lido tokens to a network.
 
 🐾 Make a proposal on the forum, outlining the details and technical plan. Consider:
 
-- Target one network per proposal to make the discussion more focused.
+- Target one network per proposal to make the discussion more focused, the proposal should request recognition by NEC (not DAO as it was before).
 - The post should be published in advance to allow time for discussion and verification of the proposal.
 - If the proposed solution does not fulfill some of the recommendations, consider including the roadmap and committing to deliver it.
 - Examples:
@@ -61,6 +61,7 @@ This section describes an approximate path to bridging Lido tokens to a network.
   - [wstETH to ZKSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
   - [wstETH to Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
   - [wstETH and stETH to Soneium](https://research.lido.fi/t/steth-wsteth-deployment-on-soneium/9389/2)
+  - [wstETH and stETH to Unichain](https://research.lido.fi/t/steth-wsteth-deployment-on-unichain/9553)
   - [wstETH to BSC by Wormhole x Axelar](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
 
 🐾 Get transient/pre-endorsement approval of the setup from the NEC.
