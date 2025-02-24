@@ -304,6 +304,7 @@ where the protocol and its parts/extensions are deployed.
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 - Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
 - Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
+- (proposed) Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
 
 ### Liquidity Observation Lab Multisigs
 
@@ -581,6 +582,21 @@ where the protocol and its parts/extensions are deployed.
 - L2ERC20ExtendedTokensBridge: [`0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372`](https://uniscan.xyz/address/0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372) (proxy)
 - L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
 - Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
+
+### Lisk
+
+##### Ethereum part
+
+- (proposed) L1ERC20TokenBridge: [`0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf`](https://etherscan.io/address/0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf) (proxy)
+- (proposed) L1ERC20TokenBridge: [`0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC`](https://etherscan.io/address/0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC) (impl)
+
+##### Lisk part
+
+- (proposed) WstETH ERC20Bridged: [`0x76D8de471F54aAA87784119c60Df1bbFc852C415`](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415) (proxy)
+- (proposed) WstETH ERC20Bridged: [`0x16B8006b49db9022BF5457BD2de0144a7d0F970b`](https://blockscout.lisk.com/address/0x16B8006b49db9022BF5457BD2de0144a7d0F970b) (impl)
+- (proposed) L2ERC20TokenBridge: [`0xca498Ee83eD3546321d4DC25e2789B0624F15f68`](https://blockscout.lisk.com/address/0xca498Ee83eD3546321d4DC25e2789B0624F15f68) (proxy)
+- (proposed) L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
+- (proposed) Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 
 ### Lido Multichain Liquidity pools
 
