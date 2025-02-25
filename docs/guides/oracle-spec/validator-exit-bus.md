@@ -162,16 +162,18 @@ To get events in past, addressing the cases where there can be slots with missed
 
 ##### Average sweep prediction
 
-Predicts the average epochs of the sweep cycle. In the spec: [get expected withdrawals](https://github.com/ethereum/consensus-specs/blob/dev/specs/capella/beacon-chain.md#new-get_expected_withdrawals), [process withdrawals](https://github.com/ethereum/consensus-specs/blob/dev/specs/capella/beacon-chain.md#new-process_withdrawals)
+Predicts the average epochs of the sweep cycle. In the spec: [get expected withdrawals](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#modified-get_expected_withdrawals), [process withdrawals](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#modified-process_withdrawals)
 
+# TODO: change link with merge
 [source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L301)
 
 ##### Withdrawable validators
 
-- Check if `validator` has the 0x01 prefixed "eth1" withdrawal credentials, and
-- Check if `validator` is partially withdrawable, or
+- Check if `validator` has the eth1 withdrawal credentials prefixed with 0x01 *OR* 'compound' withdrawal credentials' prefixed with 0x02, *and*
+- Check if `validator` is partially withdrawable, *or*
 - Check if `validator` is fully withdrawable
 
+# TODO: change link with merge
 [source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L306)
 
 #### Predict available ether before next withdrawn
@@ -188,7 +190,7 @@ To calculate **future rewards**, it's needed to [predict](https://github.com/lid
 
 1. Calculate latest exit epoch number and amount of validators that are exiting in this epoch
 2. If queue is empty - exit epoch will be calculated as `current epoch + MAX_SEED_LOOK AHEAD + 1`. **MAX_SEED_LOOKAHEAD** constant needs to mitigate some attacks, more details [here](https://eth2book.info/bellatrix/part3/config/preset/#max_seed_lookahead)
-3. Calculate **churn limit** - like a rate-limit on changes to the validator set. Minimum is 4 validators per epoch. And recalculates each `CHURN_LIMIT_QUOTIENT = 2**16`. For example when active validators reaches up to 327,680 amount, `churn limit` rises to 5, [spec](https://github.com/ethereum/consensus-specs/blob/master/specs/phase0/beacon-chain.md#get_validator_churn_limit)
+3. Calculate **churn limit** - like a rate-limit on changes to the validator set. Minimum is 4 validators with a balance of 32 ETH per epoch. The churn limit changes in increments of `EFFECTIVE_BALANCE_INCREMENT = 1 eth`. [spec](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#new-get_balance_churn_limit)
 4. Calculate slots capacity for exit:
 
 ```!
