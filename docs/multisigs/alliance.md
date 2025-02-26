@@ -42,7 +42,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Address:** [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
 
-**Purpose of the multisig:** Multisig is used to hold all tokens contributed by Lido Allies.
+**Purpose of the multisig:** The multisig is used to hold all tokens contributed by Lido Allies.
 
 **Quorum:** 4/7
 
@@ -69,9 +69,9 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://www.mintscan.io/neutron/wasm/contract/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
-**Purpose of the multisig:** -
+**Purpose of the multisig:** The multisig is used to receive and hold Drop's token contribution in accordance to the [snapshot](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b).
 
-**Quorum:** -
+**Quorum:** 4/7
 
 **Forum topics:**\
 [Proposal: Onboard Drop to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-drop-to-the-lido-alliance/7556)
