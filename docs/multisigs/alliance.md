@@ -74,7 +74,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **Quorum:** 4/7
 
 **Forum topics:**\
-[Proposal: Onboard Drop to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-drop-to-the-lido-alliance/7556)
+[Proposal: Onboard Drop to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-drop-to-the-lido-alliance/7556)\
 [Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173/32)
 
 **Snapshots:**\
