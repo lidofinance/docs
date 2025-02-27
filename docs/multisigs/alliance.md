@@ -60,10 +60,10 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Shaun Musuka | 0xeD85C7Bd46DDE10E1C48bbd78E9fa63076c5736C | https://etherscan.io/verifySig/257042 | https://x.com/dzidzoh/status/1828479578353914163 |
 | shik_happens | 0x734a30ABE434012FD413666b2210a4D1aca6ec7B | https://etherscan.io/verifySig/257077 | https://x.com/shik_happens/status/1828815318556533136 |
 | Jenya_K | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/256648 | https://x.com/tariquin/status/1828794385544434144?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
-| Aleksandr_Lukin | 0x1EAF931aabbB02Ca8A416040cF5b35C73Fff2A8a | https://etherscan.io/verifySig/257034 |  |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 |https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665 |
 | Matt | 0x76E0Cd4b34912Cf5381625704bCAFf232D26fFEE | https://etherscan.io/verifySig/255591 | https://x.com/MattC3W/status/1828376399654109224 |
 | Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 |  |
+| Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
 ## 2.3. Lido Alliance BORG Drop
 
