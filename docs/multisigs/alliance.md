@@ -30,13 +30,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification                                      |
-| --- | --- | -- |----------------------------------------------------------|
+| Name | Address | Verification | Public verification                                    |
+| --- | --- | -- |--------------------------------------------------------|
 | Shaun Musuka | 0xeD85C7Bd46DDE10E1C48bbd78E9fa63076c5736C | https://etherscan.io/verifySig/257042 | https://x.com/dzidzoh/status/1828479578353914163 |
-| shik_happens | 0x734a30ABE434012FD413666b2210a4D1aca6ec7B | https://etherscan.io/verifySig/257077 | https://x.com/shik_happens/status/1828815318556533136    |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665           |
-| Matt | 0x76E0Cd4b34912Cf5381625704bCAFf232D26fFEE | https://etherscan.io/verifySig/255591 | https://x.com/MattC3W/status/1828376399654109224         |
-| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | -                                                        |
+| shik_happens | 0x734a30ABE434012FD413666b2210a4D1aca6ec7B | https://etherscan.io/verifySig/257077 | https://x.com/shik_happens/status/1828815318556533136  |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665         |
+| Matt | 0x76E0Cd4b34912Cf5381625704bCAFf232D26fFEE | https://etherscan.io/verifySig/255591 | https://x.com/MattC3W/status/1828376399654109224       |
+| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
 
 ## 2.2 Lido Alliance BORG Allies/Partners
 
@@ -62,7 +62,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Jenya_K | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/256648 | https://x.com/tariquin/status/1828794385544434144?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 |https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665 |
 | Matt | 0x76E0Cd4b34912Cf5381625704bCAFf232D26fFEE | https://etherscan.io/verifySig/255591 | https://x.com/MattC3W/status/1828376399654109224 |
-| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 |  |
+| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
 ## 2.3. Lido Alliance BORG Drop
@@ -87,7 +87,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Adrian CV | neutron1y6d3ul0xlaewwqzy8nqkzaqzus9v0zfj5u26d6 | https://www.mintscan.io/neutron/tx/6CC5E32F21EB31B06244223D11D62B226DA89EF7454F545F60D51BDB44E684D7 | -                                                     |
 | Shaun M | neutron1cjwuryqr59g9y3ct82p03j4mhp7qp35jrp4geu | https://www.mintscan.io/neutron/tx/4DB9648880C4FB47B76A8E0D4348D2285A8A6CE2C8A8B486EDD49D61E3330E66 | https://x.com/dzidzoh/status/1866192391558091203      |
 | Ashik G | neutron15h5m63ztzxf7w8p9sgez0vtdhyw0h8sdt4f973 | https://www.mintscan.io/neutron/tx/2A8C00D9368BD821C49C8606A0214539ABD063C30291013C460BB943678EC7A9 | https://x.com/shik_happens/status/1887468639017730446 |
-| Olga K	 | neutron1u2l3f36xrf7rmu6uy02rnpg5p9x3sqr4llq7yp | https://www.mintscan.io/neutron/tx/BD96C9AB5D051B252912240764C41EA78A562BC1E2DF3E9428A2FF1FA30F28F5 | -                                                     |
+| Olga K	 | neutron1u2l3f36xrf7rmu6uy02rnpg5p9x3sqr4llq7yp | https://www.mintscan.io/neutron/tx/BD96C9AB5D051B252912240764C41EA78A562BC1E2DF3E9428A2FF1FA30F28F5 | https://x.com/itmamuramgk28/status/1865073956073406592 |
 | Matt W | neutron16ajg53ve49ykh9rwzxmm7eae5y5vpyc9zgxnk6 | https://www.mintscan.io/neutron/tx/0E28B8E7EB55F0A49573FC9291B8681030499F39B45137B593A9470B4E792E0A | -                                                     |
 | Tariquinn | neutron1u8vzrx6zwgcqrry4svp5vy4f5e8897ks7ryrph | https://www.mintscan.io/neutron/tx/3957ABB4A77AC495644EC299933DEE21B3AA214229091455BC3787AB04BC46C7 | -                                                     |
 | Nemo	 | neutron13aug5wkz0w3wmeukdzjyku8qnqg50njw69gfx0 | https://www.mintscan.io/neutron/tx/01D7D4B9E5BD339C208F2E9BC7ED85FBB227E183B1CFF457DF20AB6B48B71597?height=17520267 | -                                                     |
