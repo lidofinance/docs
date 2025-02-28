@@ -311,7 +311,7 @@ where the protocol and its parts/extensions are deployed.
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 - Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
-- (proposed) Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
+- Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
 - (proposed) Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
 
 ### Liquidity Observation Lab Multisigs
@@ -575,21 +575,21 @@ where the protocol and its parts/extensions are deployed.
 
 ##### Ethereum part
 
-- (proposed) OpStackTokenRatePusher: [`0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74`](https://etherscan.io/address/0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74)
-- (proposed) L1LidoTokensBridge: [`0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877`](https://etherscan.io/address/0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877) (proxy)
-- (proposed) L1LidoTokensBridge: [`0x6078232C54d956c901620fa4590e0F7E37c2B82f`](https://etherscan.io/address/0x6078232C54d956c901620fa4590e0F7E37c2B82f) (impl)
+- OpStackTokenRatePusher: [`0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74`](https://etherscan.io/address/0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74)
+- L1LidoTokensBridge: [`0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877`](https://etherscan.io/address/0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877) (proxy)
+- L1LidoTokensBridge: [`0x6078232C54d956c901620fa4590e0F7E37c2B82f`](https://etherscan.io/address/0x6078232C54d956c901620fa4590e0F7E37c2B82f) (impl)
 
 ##### Unichain part
 
-- (proposed) WstETH ERC20BridgedPermit: [`0xc02fE7317D4eb8753a02c35fe019786854A92001`](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001) (proxy)
-- (proposed) WstETH ERC20BridgedPermit: [`0xB5CF096A406C1D5297D2493073168F44EB4a1A1d`](https://uniscan.xyz/address/0xB5CF096A406C1D5297D2493073168F44EB4a1A1d) (impl)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F) (proxy)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x5A007D6E37633FB297b82c074b94Bb29546BEbc3`](https://uniscan.xyz/address/0x5A007D6E37633FB297b82c074b94Bb29546BEbc3) (impl)
-- (proposed) TokenRateOracle: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8) (proxy)
-- (proposed) TokenRateOracle: [`0x537A7F9D551da3C2800cB11ca17f2946D21029AF`](https://uniscan.xyz/address/0x537A7F9D551da3C2800cB11ca17f2946D21029AF) (impl)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372`](https://uniscan.xyz/address/0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372) (proxy)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
-- (proposed) Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
+- WstETH ERC20BridgedPermit: [`0xc02fE7317D4eb8753a02c35fe019786854A92001`](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001) (proxy)
+- WstETH ERC20BridgedPermit: [`0xB5CF096A406C1D5297D2493073168F44EB4a1A1d`](https://uniscan.xyz/address/0xB5CF096A406C1D5297D2493073168F44EB4a1A1d) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x5A007D6E37633FB297b82c074b94Bb29546BEbc3`](https://uniscan.xyz/address/0x5A007D6E37633FB297b82c074b94Bb29546BEbc3) (impl)
+- TokenRateOracle: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8) (proxy)
+- TokenRateOracle: [`0x537A7F9D551da3C2800cB11ca17f2946D21029AF`](https://uniscan.xyz/address/0x537A7F9D551da3C2800cB11ca17f2946D21029AF) (impl)
+- L2ERC20ExtendedTokensBridge: [`0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372`](https://uniscan.xyz/address/0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
+- Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
 
 ### Lisk
 
