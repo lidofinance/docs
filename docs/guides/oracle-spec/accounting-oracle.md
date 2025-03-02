@@ -69,7 +69,7 @@ Considering withdrawals, the Lido protocol can be in two states: Turbo and Bunke
 **Bunker mode**: there are two additional constraints.
 
 The protocol takes into account the impact of negative factors that occurred in a certain period and finalizes requests on which the negative effects have already been socialized.
-The safe request finalization border is considered to be the earliest of of the following:
+The safe request finalization border is considered to be the earliest of the following:
 
 - New requests border
 - Associated slashing border
@@ -203,10 +203,10 @@ To start calculation oracle should pass next variables to `WithdrawalQueue.calcu
 ```solidity
 struct BatchesCalculationState {
         /// @notice amount of ether available in the protocol that can be used to finalize withdrawal requests
-        ///  Will decrease on each invokation and will be equal to the remainder when calculation is finished
-        ///  Should be set before the first invokation
+        ///  Will decrease on each invocation and will be equal to the remainder when calculation is finished
+        ///  Should be set before the first invocation
         uint256 remainingEthBudget;
-        /// @notice flag that is `true` if returned state is final and `false` if more invokations required
+        /// @notice flag that is `true` if returned state is final and `false` if more invocations required
         bool finished;
         /// @notice static array to store all the batches ending request id
         uint256[MAX_BATCHES_LENGTH] batches;
