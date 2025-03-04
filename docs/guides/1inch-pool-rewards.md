@@ -9,7 +9,7 @@ Rewards distributed to LP on [1inch stETH/LDO pool](https://etherscan.io/addres
 
 Find your address [here](https://github.com/lidofinance/airdrop-data/blob/main/oneinch_lido_airdrop.csv) and get your index.
 
-If there is no your address [here](https://github.com/lidofinance/airdrop-data/blob/main/oneinch_lido_airdrop.csv) you are not eligible to claim the reward.
+If your address is not listed [here](https://github.com/lidofinance/airdrop-data/blob/main/oneinch_lido_airdrop.csv) you are not eligible to claim the reward.
 
 ### 2. Check if you haven’t already claimed your reward
 2.1 Go to [Etherscan](https://etherscan.io/address/0xdB46C277dA1599390eAb394327602889E9546296) (contract address  - [0xdB46C277dA1599390eAb394327602889E9546296](https://etherscan.io/address/0xdB46C277dA1599390eAb394327602889E9546296))
