@@ -89,7 +89,8 @@ where the protocol and its parts/extensions are deployed.
 - CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
 - CSVerifier: [`0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583`](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
 - CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
-- GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
+- (**proposed to remove**) GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
+- (**proposed**) GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
 - CSFeeOracle:
   - CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
   - CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
