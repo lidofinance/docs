@@ -139,7 +139,7 @@ Bunker mode can be enabled by a negative rebase in case of mass validator penalt
 
 ![Safe border 11](../../../static/img/oracle-spec/safe-border-11.png)
 
-This border has a maximum length equal to two times the governance reaction time (where governance reaction time is 72 hours).
+This border has a maximum length equal to two times the governance reaction time (where governance reaction time is 120 hours).
 
 ##### Border union
 
