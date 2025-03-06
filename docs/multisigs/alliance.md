@@ -48,10 +48,14 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
-[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173)
+[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173)\
+[Mellow Lido Alliance proposal](https://research.lido.fi/t/mellow-lido-alliance-proposal/7557)\
+[Proposal: Onboard Bolt to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-bolt-to-the-lido-alliance/7724)
 
 **Snapshots:**\
-[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa478fa5518769096eda2b7403a1d4104ca47de3102e8a9abab8640ef1b50650c)
+[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa478fa5518769096eda2b7403a1d4104ca47de3102e8a9abab8640ef1b50650c)\
+[Lido Alliance application: Mellow](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x9cf59093a927afe5ebd860a46aaeb92e67ff980168d95dce4c0fe2d5d46d2e68)\
+[Lido Alliance application: Bolt](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2676108832842e60ca27aa7060b9ca6c09c6d2a9fe308b0ee0decc7a6728e137)
 
 **List of signers:**
 
