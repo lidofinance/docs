@@ -37,7 +37,7 @@ To have a vote in the Lido DAO, and to contribute to the determination of any of
 
 The Lido DAO is an [Aragon](https://aragon.org/dao) organization. Since Aragon provides a full end-to-end framework to build DAOs, we use its standard tools.
 
-> 📝 The governance process only takes place within the Ethereum network. For other networks, this process is implemented through committee and multisig (we need a multisig list).
+> 📝 The governance process only takes place within the Ethereum network. For other networks, this process is implemented through committee and multisig. A complete list of committees and multisigs can be found [here](https://docs.lido.fi/multisigs/committees).
 
 While the Aragon application is a powerful tool for DAO governance due to the fact that it is both transparent and reliable, it is ill-suited to manage routine operations that either have strong token-holder support and/or are only relevant to a subsection of the DAO (e.g. the financial operations team). For that reason, [Easy Track](https://easytrack.lido.fi/) is developed as an efficient mechanism to assist with routine and uncontentious governance proposals for the Lido DAO. Importantly, flexibility, and scalability is all paramount concerns throughout the development of Easy Track, with extensive measures taken to ensure that safety has not been compromised for convenience.
 
