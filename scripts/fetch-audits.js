@@ -14,7 +14,7 @@ function preprocessMarkdown(content) {
   const urlPrefix = 'https://github.com/lidofinance/audits/blob/main/';
 
   // Regular expression to find relative links to PDF files in markdown preserving absolute ones
-  const pdfLinkRegex = /(\[.*?\]\()(?!http|https|#|\/|mailto:)([^)]+\.pdf)(\))/g;
+  const pdfLinkRegex = /(\[.*?\]\()(?!https?|#|\/|mailto:)([^)]+\.pdf)(\))/g;
 
   // Replace function
   const processedContent = content.replace(pdfLinkRegex, (match, p1, p2, p3) => {
