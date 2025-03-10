@@ -253,18 +253,10 @@ CHAIN_DEPOSIT_CONTRACT = 0x00000000219ab540356cBB839Cbe05303d7705Fa
 
 ## GateSeal
 
-(**proposed to remove**)
 ```python
 # 2 x governance response time - vote duration is 3 days
 GATE_SEAL_PAUSE_DURATION = 518400  # 6 days as seconds
 GATE_SEAL_EXPIRY_TIMESTAMP = 1714521600  # 2024-05-01 00:00 UTC
-```
-
-(**proposed**)
-```python
-# 2 x governance response time (vote duration is 5 days) + 1 day
-GATE_SEAL_PAUSE_DURATION = 950400  # 11 days as seconds
-GATE_SEAL_EXPIRY_TIMESTAMP = 1772323200  # Sun Mar 01 2026 00:00:00 GMT+0000
 ```
 
 ## Roles setup
