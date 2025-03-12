@@ -57,7 +57,8 @@ where the protocol and its parts/extensions are deployed.
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - GateSeal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- GateSeal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+- (**proposed to remove**) GateSeal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+- (**proposed**) GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
 
 ## Data Bus
 
@@ -88,7 +89,8 @@ where the protocol and its parts/extensions are deployed.
 - CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
 - CSVerifier: [`0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583`](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
 - CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
-- GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
+- (**proposed to remove**) CS GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
+- (**proposed**) CS GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
 - CSFeeOracle:
   - CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
   - CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
@@ -311,8 +313,8 @@ where the protocol and its parts/extensions are deployed.
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 - Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
-- (proposed) Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
-- (proposed) Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
+- Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
+- Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
 
 ### Liquidity Observation Lab Multisigs
 
@@ -412,8 +414,8 @@ where the protocol and its parts/extensions are deployed.
 
 #### ZKSync part
 
-- ZkSyncBridgeExecutor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
-- ZkSyncBridgeExecutor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
+- ZkSync Governance Bridge Executor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
+- ZkSync Governance Bridge Executor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
 - L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
 - L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
 - ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
@@ -453,7 +455,7 @@ where the protocol and its parts/extensions are deployed.
 - L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
 - L2 TokenBridge (Canonical Bridge): [`0xd90ed3d4f9d11262d3d346a4369058d5b3777137`](https://lineascan.build/address/0xd90ed3d4f9d11262d3d346a4369058d5b3777137) (impl)
 - ProxyAdmin for L2 TokenBridge: [`0x1e1f6f22f97b4a7522d8b62e983953639239774e`](https://lineascan.build/address/0x1e1f6f22f97b4a7522d8b62e983953639239774e)
-- LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
+- Linea Governance Bridge Executor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
 ### Scroll
 
@@ -465,7 +467,7 @@ where the protocol and its parts/extensions are deployed.
 
 ##### Scroll part
 
-- ScrollBridgeExecutor: [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
+- Scroll Governance Bridge Executor: [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 - L2LidoGateway: [`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9) (proxy)
 - L2LidoGateway: [`0x2B9beB2890DBeFC7cA25Af3164100d139B623C24`](https://scrollscan.com/address/0x2B9beB2890DBeFC7cA25Af3164100d139B623C24) (impl)
 - L2WstETHToken: [`0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32`](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32) (proxy)
@@ -487,7 +489,7 @@ where the protocol and its parts/extensions are deployed.
 - WstETH ERC20Bridged: [`0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A`](https://explorer.mode.network/address/0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A) (impl)
 - L2ERC20TokenBridge: [`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc) (proxy)
 - L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
-- Optimism Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
+- Mode Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
 
 ### Binance Smart Chain (BSC)
 
@@ -549,7 +551,7 @@ where the protocol and its parts/extensions are deployed.
 - WstETH ERC20Bridged: [`0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4`](https://explorer.zircuit.com/address/0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4) (impl)
 - L2ERC20TokenBridge: [`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e) (proxy)
 - L2ERC20TokenBridge: [`0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c`](https://explorer.zircuit.com/address/0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c) (impl)
-- Optimism Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
+- Zircuit Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
 
 ### Soneium
 
@@ -569,42 +571,42 @@ where the protocol and its parts/extensions are deployed.
 - TokenRateOracle: [`0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4`](https://soneium.blockscout.com/address/0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4) (impl)
 - L2ERC20ExtendedTokensBridge: [`0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8`](https://soneium.blockscout.com/address/0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8) (proxy)
 - L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
-- Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
+- Soneium Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
 
 ### Unichain
 
 ##### Ethereum part
 
-- (proposed) OpStackTokenRatePusher: [`0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74`](https://etherscan.io/address/0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74)
-- (proposed) L1LidoTokensBridge: [`0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877`](https://etherscan.io/address/0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877) (proxy)
-- (proposed) L1LidoTokensBridge: [`0x6078232C54d956c901620fa4590e0F7E37c2B82f`](https://etherscan.io/address/0x6078232C54d956c901620fa4590e0F7E37c2B82f) (impl)
+- OpStackTokenRatePusher: [`0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74`](https://etherscan.io/address/0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74)
+- L1LidoTokensBridge: [`0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877`](https://etherscan.io/address/0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877) (proxy)
+- L1LidoTokensBridge: [`0x6078232C54d956c901620fa4590e0F7E37c2B82f`](https://etherscan.io/address/0x6078232C54d956c901620fa4590e0F7E37c2B82f) (impl)
 
 ##### Unichain part
 
-- (proposed) WstETH ERC20BridgedPermit: [`0xc02fE7317D4eb8753a02c35fe019786854A92001`](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001) (proxy)
-- (proposed) WstETH ERC20BridgedPermit: [`0xB5CF096A406C1D5297D2493073168F44EB4a1A1d`](https://uniscan.xyz/address/0xB5CF096A406C1D5297D2493073168F44EB4a1A1d) (impl)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F) (proxy)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x5A007D6E37633FB297b82c074b94Bb29546BEbc3`](https://uniscan.xyz/address/0x5A007D6E37633FB297b82c074b94Bb29546BEbc3) (impl)
-- (proposed) TokenRateOracle: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8) (proxy)
-- (proposed) TokenRateOracle: [`0x537A7F9D551da3C2800cB11ca17f2946D21029AF`](https://uniscan.xyz/address/0x537A7F9D551da3C2800cB11ca17f2946D21029AF) (impl)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372`](https://uniscan.xyz/address/0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372) (proxy)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
-- (proposed) Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
+- WstETH ERC20BridgedPermit: [`0xc02fE7317D4eb8753a02c35fe019786854A92001`](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001) (proxy)
+- WstETH ERC20BridgedPermit: [`0xB5CF096A406C1D5297D2493073168F44EB4a1A1d`](https://uniscan.xyz/address/0xB5CF096A406C1D5297D2493073168F44EB4a1A1d) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x5A007D6E37633FB297b82c074b94Bb29546BEbc3`](https://uniscan.xyz/address/0x5A007D6E37633FB297b82c074b94Bb29546BEbc3) (impl)
+- TokenRateOracle: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8) (proxy)
+- TokenRateOracle: [`0x537A7F9D551da3C2800cB11ca17f2946D21029AF`](https://uniscan.xyz/address/0x537A7F9D551da3C2800cB11ca17f2946D21029AF) (impl)
+- L2ERC20ExtendedTokensBridge: [`0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372`](https://uniscan.xyz/address/0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
+- Unichain Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
 
 ### Lisk
 
 ##### Ethereum part
 
-- (proposed) L1ERC20TokenBridge: [`0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf`](https://etherscan.io/address/0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf) (proxy)
-- (proposed) L1ERC20TokenBridge: [`0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC`](https://etherscan.io/address/0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC) (impl)
+- L1ERC20TokenBridge: [`0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf`](https://etherscan.io/address/0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf) (proxy)
+- L1ERC20TokenBridge: [`0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC`](https://etherscan.io/address/0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC) (impl)
 
 ##### Lisk part
 
-- (proposed) WstETH ERC20Bridged: [`0x76D8de471F54aAA87784119c60Df1bbFc852C415`](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415) (proxy)
-- (proposed) WstETH ERC20Bridged: [`0x16B8006b49db9022BF5457BD2de0144a7d0F970b`](https://blockscout.lisk.com/address/0x16B8006b49db9022BF5457BD2de0144a7d0F970b) (impl)
-- (proposed) L2ERC20TokenBridge: [`0xca498Ee83eD3546321d4DC25e2789B0624F15f68`](https://blockscout.lisk.com/address/0xca498Ee83eD3546321d4DC25e2789B0624F15f68) (proxy)
-- (proposed) L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
-- (proposed) Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
+- WstETH ERC20Bridged: [`0x76D8de471F54aAA87784119c60Df1bbFc852C415`](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415) (proxy)
+- WstETH ERC20Bridged: [`0x16B8006b49db9022BF5457BD2de0144a7d0F970b`](https://blockscout.lisk.com/address/0x16B8006b49db9022BF5457BD2de0144a7d0F970b) (impl)
+- L2ERC20TokenBridge: [`0xca498Ee83eD3546321d4DC25e2789B0624F15f68`](https://blockscout.lisk.com/address/0xca498Ee83eD3546321d4DC25e2789B0624F15f68) (proxy)
+- L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
+- Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 
 ### Lido Multichain Liquidity pools
 
