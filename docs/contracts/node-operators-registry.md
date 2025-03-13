@@ -39,7 +39,7 @@ In the context of these terms "signing key", "key", "validator key", "validator"
 
 **stuck** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) by Lido protocol.
 
-**refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see [Lido on Ethereum Block Proposer Rewards Policy v1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0x3b1e5f9960e682abdc25c86624ad13acb88ee1cea18db9be99379b44750c7b36).
+**refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see Lido on Ethereum Validator Exits SNOP 2.0 ([IPFS](https://lido.mypinata.cloud/ipfs/QmZTMfmJZsYHz61f2FjhYdh5VNu6ifjYQJzYUGkysHs8Uu), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/0ed664255f48ef224b96fb0325f4d27bd3c03773/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md), [HackMD](https://hackmd.io/@lido/Bk9oDtV7ye)).
 
 ## Node operator parameters
 

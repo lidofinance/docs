@@ -22,7 +22,7 @@ A report calculation consists of 4 key steps:
 5. Go through the queue until the exited validators’ balances cover all withdrawal requests (considering the predicated final exited balance of each validator).
 
 :::note
-Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified [Lido on Ethereum Validator Exits Policy V1.0](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa4eb1220a15d46a1825d5a0f44de1b34644d4aa6bb95f910b86b29bb7654e330).
+Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified Lido on Ethereum Validator Exits SNOP 2.0 ([IPFS](https://lido.mypinata.cloud/ipfs/QmZTMfmJZsYHz61f2FjhYdh5VNu6ifjYQJzYUGkysHs8Uu), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/0ed664255f48ef224b96fb0325f4d27bd3c03773/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md), [HackMD](https://hackmd.io/@lido/Bk9oDtV7ye)).
 :::
 
 Access to lever methods is restricted using the functionality of the
