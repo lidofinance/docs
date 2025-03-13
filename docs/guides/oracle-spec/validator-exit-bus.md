@@ -164,8 +164,7 @@ To get events in past, addressing the cases where there can be slots with missed
 
 Predicts the average epochs of the sweep cycle. In the spec: [get expected withdrawals](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#modified-get_expected_withdrawals), [process withdrawals](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#modified-process_withdrawals)
 
-# TODO: change link with merge
-[source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L301)
+[source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/sweep.py#L40)
 
 ##### Withdrawable validators
 
@@ -173,8 +172,7 @@ Predicts the average epochs of the sweep cycle. In the spec: [get expected withd
 - Check if `validator` is partially withdrawable, *or*
 - Check if `validator` is fully withdrawable
 
-# TODO: change link with merge
-[source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L306)
+[source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L342)
 
 #### Predict available ether before next withdrawn
 
