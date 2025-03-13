@@ -4,7 +4,7 @@
 
 **Address:** [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 
-**Purpose of the multisig:** The GateSeal Committee can trigger GateSeal to pause WithdrawalQueueERC721 (pausing users' withdrawal requests), ValidatorExitBusOracle (pausing NOs withdrawal requests) or both smart contracts for 11 days. The right to pause is one-use only and automatically expires on 1 February 2026.
+**Purpose of the multisig:** The GateSeal Committee can trigger GateSeal to pause WithdrawalQueueERC721 (pausing users' withdrawal requests), ValidatorExitBusOracle (pausing NOs withdrawal requests) or both smart contracts for 11 days. The right to pause is one-use only and automatically expires on 1 March 2026.
 
 **Quorum:** 3/6
 
@@ -14,7 +14,7 @@
 **Snapshots:**\
 [Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d)\
 [Voting for renewal GateSeal for the Withdrawal Queue and Validator Exit Bus Oracle](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa8ae592b09200c70629f3c5f4363d06dae9d8afb00c8910272319fc7fdb4e10a)\
-[Extend On-Chain Voting Duration](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa58da73cc4257837ae981d8ad861252f4cbbda7a173a577702f8f93561f57825)
+[Extend On-Chain Voting Duration + GateSeal renewal and duration extension](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa58da73cc4257837ae981d8ad861252f4cbbda7a173a577702f8f93561f57825)
 
 **Aragon:**\
 [Vote #156](https://vote.lido.fi/vote/156)\
