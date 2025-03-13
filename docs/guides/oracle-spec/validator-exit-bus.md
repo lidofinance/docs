@@ -188,7 +188,7 @@ To calculate **future rewards**, it's needed to [predict](https://github.com/lid
 
 1. Calculate latest exit epoch number and amount of validators that are exiting in this epoch
 2. If queue is empty - exit epoch will be calculated as `current epoch + MAX_SEED_LOOK AHEAD + 1`. **MAX_SEED_LOOKAHEAD** constant needs to mitigate some attacks, more details [here](https://eth2book.info/bellatrix/part3/config/preset/#max_seed_lookahead)
-3. Calculate **churn limit** - like a rate-limit on changes to the validator set. Minimum is 4 validators with a balance of 32 ETH per epoch. The churn limit changes in increments of `EFFECTIVE_BALANCE_INCREMENT = 1 eth`. [spec](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#new-get_balance_churn_limit)
+3. Calculate **churn limit** - like a rate-limit on a balance change in the validator set. Minimum rate is 128 ETH per epoch. The churn limit changes in increments of `EFFECTIVE_BALANCE_INCREMENT = 1 eth`. [spec](https://github.com/ethereum/consensus-specs/blob/dev/specs/electra/beacon-chain.md#new-get_balance_churn_limit)
 4. Calculate slots capacity for exit:
 
 ```!
