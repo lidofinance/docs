@@ -166,7 +166,7 @@ where the protocol and its parts/extensions are deployed.
 - VariableDebtStETH: [`0xDe2c414b671d2DB93617D1592f0490c13674de24`](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24) (impl)
 - DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
 
-## DAO-ops contracts & addresses
+## DAO Ops contracts & addresses
 
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 - Token Reward Program (TRP) VestingEscrowFactory: [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
