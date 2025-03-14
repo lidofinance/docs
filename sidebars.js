@@ -145,6 +145,7 @@ module.exports = {
         'multisigs/committees',
         'multisigs/lido-on-x',
         'multisigs/lido-contributors-group',
+        'multisigs/alliance',
         'multisigs/other',
       ],
     },
