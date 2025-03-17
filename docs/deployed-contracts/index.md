@@ -114,19 +114,23 @@ where the protocol and its parts/extensions are deployed.
 
 ## Price feeds
 
-- Primary price feeds
+:::note
+See [integration guide](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds)
+for the rate and price feeds recommended approaches.
+:::
 
-  - Chainlink stETH/USD Price Feed: [`0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8`](https://etherscan.io/address/0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8) ([steth-usd.data.eth](https://app.ens.domains/name/steth-usd.data.eth))
-  - Chainlink stETH/ETH Price Feed: [`0x86392dC19c0b719886221c78AB11eb8Cf5c52812`](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
+- Mainnet price feeds
+  - Chainlink wstETH/USD Price Feed: [`0x8b6851156023f4f5a66f68bea80851c3d905ac93`](https://etherscan.io/address/0x8b6851156023f4f5a66f68bea80851c3d905ac93)
 
-- Reserve price feeds (obsolete)
-
-  - stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
-  - stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
-
-- L2 wstETH/stETH rate feeds
+- Multichain wstETH/stETH rate feeds
+  - Chainlink wstETH/stETH exchange rate on Base: [`0xB88BAc61a4Ca37C43a3725912B1f472c9A5bc061`](https://basescan.org/address/0xB88BAc61a4Ca37C43a3725912B1f472c9A5bc061) (proxy)
   - Chainlink wstETH/stETH exchange rate on Arbitrum: [`0xB1552C5e96B312d0Bf8b554186F846C40614a540`](https://arbiscan.io/address/0xb1552c5e96b312d0bf8b554186f846c40614a540) (proxy)
   - Chainlink wstETH/stETH exchange rate on Optimism: [`0xe59EBa0D492cA53C6f46015EEa00517F2707dc77`](https://optimistic.etherscan.io/address/0xe59eba0d492ca53c6f46015eea00517f2707dc77) (proxy)
+  - Chainlink wstETH/stETH exchange rate on Scroll: [`0xE61Da4C909F7d86797a0D06Db63c34f76c9bCBDC`](https://scrollscan.com/address/0xE61Da4C909F7d86797a0D06Db63c34f76c9bCBDC) (proxy)
+  - Chainlink wstETH/stETH exchange rate on zkSync: [`0x24a0C9404101A8d7497676BE12F10aEa356bAC28`](https://explorer.zksync.io/address/0x24a0C9404101A8d7497676BE12F10aEa356bAC28) (proxy)
+  - Chainlink wstETH/stETH exchange rate on Linea: [`0x3C8A95F2264bB3b52156c766b738357008d87cB7`](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7) (proxy)
+  - Chainlink wstETH/stETH exchange rate on BNB: [`0x4c75d01cfa4D998770b399246400a6dc40FB9645`](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645) (proxy)
+
 
 ## Reward Programs
 
@@ -156,7 +160,7 @@ where the protocol and its parts/extensions are deployed.
 - AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (impl)
 - bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 
-## AAVE Integration
+## AAVE V2 Integration
 
 - AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
