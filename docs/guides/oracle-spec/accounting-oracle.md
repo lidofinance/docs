@@ -233,10 +233,10 @@ The first condition is when there is a new or ongoing mass slashing that may cau
 
 #### Condition 2. Negative CL rebase in the current frame
 
-The second condition is when a negative CL rebase is detected in the current frame. The "bunker mode" is activated, and there is a limit on the maximum delay for withdrawal requests finalization that is set to ~6 days if there are no associated slashings.
+The second condition is when a negative CL rebase is detected in the current frame. The "bunker mode" is activated, and there is a limit on the maximum delay for withdrawal requests finalization that is set to 2 * gov_reaction_time (~10 days) if there are no associated slashings.
 
 #### Condition 3. Lower than expected CL rebase in the current frame and a negative CL rebase at the end of the frame
 
-The third condition is when there is a lower-than-expected CL rebase in the current frame and a negative CL rebase at the end of the frame. The "bunker mode" is activated when the Oracle detects this condition. The limit on the maximum delay for withdrawal requests finalization is set to ~7 days if there are no associated slashings.
+The third condition is when there is a lower-than-expected CL rebase in the current frame and a negative CL rebase at the end of the frame. The "bunker mode" is activated when the Oracle detects this condition. The limit on the maximum delay for withdrawal requests finalization is set to 2 * gov_reaction_time + 1 (~11 days) if there are no associated slashings.
 
 For more details, see [“Bunker mode”: what it is and how it works](https://docs.google.com/document/d/1NoJ3rbVZ1OJfByjibHPA91Ghqk487tT0djAf6PFu8s8/)
