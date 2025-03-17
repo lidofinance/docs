@@ -83,7 +83,7 @@ PREDICTION_DURATION_IN_SLOTS=50400  # 7 days
 
 # Max period of delay for requests finalization in case of bunker due to negative rebase
 # twice min governance response time - 3 days voting duration
- FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days
+FINALIZATION_MAX_NEGATIVE_REBASE_EPOCH_SHIFT=1350  # 6 days
 ```
 
 ## OracleReportSanityChecker
@@ -255,8 +255,8 @@ CHAIN_DEPOSIT_CONTRACT = 0x00000000219ab540356cBB839Cbe05303d7705Fa
 
 ```python
 # 2 x governance response time - vote duration is 3 days
- GATE_SEAL_PAUSE_DURATION = 518400  # 6 days as seconds
- GATE_SEAL_EXPIRY_TIMESTAMP = 1714521600  # 2024-05-01 00:00 UTC
+GATE_SEAL_PAUSE_DURATION = 518400  # 6 days as seconds
+GATE_SEAL_EXPIRY_TIMESTAMP = 1714521600  # 2024-05-01 00:00 UTC
 ```
 
 ## Roles setup
