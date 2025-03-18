@@ -562,3 +562,105 @@ A Committee without multisig.
 | TheDZhon | Tech |
 | EvgeniyEmelyanov | Product |
 | nikita.p | DAO Ops |
+
+
+## 2.12 Lido Labs BORG Foundation
+
+**Address:** [`0x95B521B4F55a447DB89f6a27f951713fC2035f3F`](https://app.safe.global/settings/setup?safe=eth:0x95B521B4F55a447DB89f6a27f951713fC2035f3F)
+
+**Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget. 
+Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+
+**Quorum:** 5/9
+
+**Forum topics:**\
+[Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://research.lido.fi/t/establishment-of-lido-labs-borg-foundation-as-a-lido-dao-adjacent-foundation/9344)\
+[[EGG] Lido Labs BORG Foundation Grant Funding Request](https://research.lido.fi/t/egg-lido-labs-borg-foundation-grant-funding-request/9708)
+
+**Snapshots:**\
+[Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xdf648307e68415e7b5cf96c6afbabd696c1731839f4b4a7cf5cb7efbc44ee9d6)\
+[Proposed] [[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025) ](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
+
+**Aragon:**\
+[Proposed] [Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
+
+**Easy Track contracts and roles:**
+
+| Factory | Contract name           | Contract address | Multisig role |
+|-------------------|-------------------------|-----------------|---------------|
+| Labs BORG operational funds stablecoins | TopUpAllowedRecipients  | [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)| trustedcaller |
+
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification                                    |
+| --- | --- | -- |--------------------------------------------------------|
+| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/266532 | https://x.com/itmamuramgk28/status/1886706479673065738 |
+| Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/266535 | https://x.com/helterswellter/status/1886725128693731410  |
+| dgusakov | 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/266612 | https://x.com/d_gusakov/status/1887037067001020872         |
+| Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/266672 | https://x.com/juanbugeth/status/1887267565807845481       |
+| krogla | 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/267077 | https://x.com/_krogla/status/1890331086091141171 |
+| alxmrn | 0x444C7182bD7cd40f323Ba7A9b84d6B7564ccf5EC | https://etherscan.io/verifySig/267078 | https://research.lido.fi/t/establishment-of-lido-labs-borg-foundation-as-a-lido-dao-adjacent-foundation/9344/16 |
+| Alex_L | 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/267399 | https://x.com/Al_lykov/status/1892928521825059308 |
+| ste_dunnion | 0xf7a9bE40f3E70322da9dD909f278521284C2BE1b | https://etherscan.io/verifySig/267887 | https://x.com/LidoSte23/status/1897605950820724953 |
+| shik_happens | 0x734a30ABE434012FD413666b2210a4D1aca6ec7B | https://etherscan.io/verifySig/267976 | https://x.com/shik_happens/status/1898007885830865098 |
+
+**Original List of Signers:**\
+https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6lsqyxjkg7hvii
+
+**Lido Labs BORG Foundation Key Documents:**
+
+* [Bylaws - describes operational processes](https://lido.mypinata.cloud/ipfs/bafybeiai3w76yf2mzswnt3azpwvpwhjqjnrukzo4qs43qoca5czzlfn4mm);
+* [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeibx47kkyzi56fojbhbndppbqmn6gwtrgcyynj2dy4tocgufkazqxq);
+* [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeidurwhooxckhgkiuf7z2at6l26yvdidnarbgk3jtcsyxywmwzxixy).
+
+
+## 2.13 Lido Ecosystem BORG Foundation
+
+**Address:** [`0x55897893c19e4B0c52731a3b7C689eC417005Ad6`](https://app.safe.global/settings/setup?safe=eth:0x55897893c19e4B0c52731a3b7C689eC417005Ad6)
+
+**Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget. 
+Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+
+**Quorum:** 4/7
+
+**Forum topics:**\
+[Establishment of Lido Ecosystem BORG Foundation as a Lido-DAO-Adjacent Foundation](https://research.lido.fi/t/establishment-of-lido-ecosystem-borg-foundation-as-a-lido-dao-adjacent-foundation/9345)\
+[[EGG] Lido Ecosystem BORG Foundation Grant Funding Request](https://research.lido.fi/t/egg-lido-ecosystem-borg-foundation-grant-funding-request/9706)
+
+**Snapshots:**\
+[Establishment of Lido Ecosystem BORG Foundation as a Lido-DAO-Adjacent Foundation](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x7f72f12d72643c20cd0455c603d344050248e75ed1074c8391fae4c30f09ca15)\
+[Proposed] [[EGG] Lido Ecosystem BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x90e2f9926e37867d2ef319a8ef7a0257bb5695086b64b88b43b43f00959a0047)
+
+**Aragon:**\
+[Proposed] [Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
+
+**Easy Track contracts and roles:**
+
+| Factory | Contract name           | Contract address | Multisig role |
+|-------------------|-------------------------|-----------------|---------------|
+| Ecosystem BORG operational funds stablecoins | TopUpAllowedRecipients  | [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)| trustedcaller |
+
+The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
+
+**Current List of signers:**
+
+| Name | Address | Verification | Public verification                                    |
+| --- | --- | -- |--------------------------------------------------------|
+| Olga_K | 0x85029FB6393416c54ea8Fb04f2bf2BBe3cA16E23 | https://etherscan.io/verifySig/266533 | https://x.com/itmamuramgk28/status/1886711010263749099 |
+| Elena_S | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/266617 | https://x.com/Elen0sh/status/1887061240549126642  |
+| Mol_Eliza | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/266655 | https://x.com/MaxMolEliza/status/1887170206675468338        |
+| pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/266776 | https://x.com/ppclunghe/status/1887785137024176411       |
+| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/266954 | https://x.com/zuzu_eeka/status/1889316339350659472 |
+| Susanna_MV | 0x27a3fc3d99eace1fdca71900a72079f6c3a4b4f8 | https://etherscan.io/verifySig/267541 | https://x.com/MamenSusan87135/status/1894315942991335668 |
+| adcv | 0xcc692077c65dd464caa7e7ae614328914f8469b3 | https://etherscan.io/verifySig/268854 | https://x.com/adcv_/status/1901924468043260399 |
+
+**Original List of Signers:**\
+https://lido.mypinata.cloud/ipfs/bafkreigan3ankyy6cfzbpakpiitjnmh6jw3lhtomb4zjm27wcgjdhdtvci
+
+**Lido Ecosystem BORG Foundation Key Documents:**
+
+* [Bylaws - describes operational processes](https://ipfs.io/ipfs/bafybeih22pbr7joo7br2q5ygdg52uvy45dpo5knae5kg5qqfhsxllboenm);
+* [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeihry3mfaxirlzrbnnwzk3vfo25hetlgcoyllnc3jstgtwru3l6lbq);
+* [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeieoowqqkwomdtcjaneyofxgib5qmbag7g4asdnkolvjecdu3uba6q).
