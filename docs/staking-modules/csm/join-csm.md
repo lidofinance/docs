@@ -1,6 +1,11 @@
 # Join CSM
 ![join-csm-1](../../../static/img/csm/join-csm-1.png)
 
+:::info
+- [Try CSM on Testnet](https://csm.testnet.fi)
+- [Join CSM on Mainnet](https://csm.lido.fi)
+:::
+
 ## Node Operator creation
 To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one [`validator pubkey`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#validator), corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding [bond](./join-csm#bond) amount should be provided.
 
