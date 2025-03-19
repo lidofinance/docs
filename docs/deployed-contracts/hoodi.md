@@ -95,15 +95,21 @@ Currently, the main operational and maintained protocol testnet is being migrate
 ## DAO-ops contracts & addresses
 
 ==TODO==
+-->
 
 ## Easy Track
 
-==TODO==
+- EasyTrack: [`0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a`](https://hoodi.cloud.blockscout.com/address/0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a)
+- EVMScriptExecutor: [`0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`](https://hoodi.cloud.blockscout.com/address/0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E)
 
 ### Easy Track factories for staking modules
 
-==TODO==
+- **Curated Node Operators staking module** (registry: [`0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5`](https://hoodi.cloud.blockscout.com/address/0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5))
+  - IncreaseNodeOperatorStakingLimit: [`0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323`](https://hoodi.cloud.blockscout.com/address/0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323)
+- **Community Staking Module** (module: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.cloud.blockscout.com/address/0x79CEf36D84743222f37765204Bec41E92a93E59d))
+  - CSMSettleElStealingPenalty: [`0x5c0af5b9f96921d3F61503e1006CF0ab9867279E`](https://hoodi.cloud.blockscout.com/address/0x5c0af5b9f96921d3F61503e1006CF0ab9867279E)
 
+<!--
 ### Easy Track factories for token transfers
 
 ==TODO==
