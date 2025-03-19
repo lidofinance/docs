@@ -22,7 +22,8 @@
 
 **Contracts and Roles:**
 
-###### GateSeal [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+###### (proposed to remove) GateSeal [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+###### (proposed) GateSeal [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
 * Sealing Committee
 
 **List of signers:**

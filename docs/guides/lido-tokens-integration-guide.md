@@ -278,7 +278,7 @@ Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-m
 - [Mode](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81)
 - [Binance Smart Chain (BSC)](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C)
 
-with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/wsteth-bridging-guide.md).
+with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/cross-chain-tokens-guide.md).
 
 :::note
 Unlike on the Ethereum mainnet, wstETH for Lido Multichain is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network unless handled via [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md)
@@ -493,7 +493,7 @@ The integration might be implemented leveraging the [Lido on Ethereum SDK](/docs
 ### Cross chain bridging
 
 The Lido's wstETH gets bridged to various L2's and sidechains.
-The process of a new network adoption in a future-proof way is outlined as a part of the separate [bridging guide](/docs/token-guides/wsteth-bridging-guide.md).
+The process of a new network adoption in a future-proof way is outlined as a part of the separate [bridging guide](/docs/token-guides/cross-chain-tokens-guide.md).
 
 Most cross-chain token bridges have no mechanics to handle rebases.
 This means bridging stETH to other chains will prevent stakers from collecting their staking rewards.

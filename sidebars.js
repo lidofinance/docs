@@ -87,7 +87,7 @@ module.exports = {
       items: [
         'token-guides/steth-superuser-functions',
         'token-guides/steth-on-aave-caveats',
-        'token-guides/wsteth-bridging-guide',
+        'token-guides/cross-chain-tokens-guide',
       ],
     },
     {
@@ -145,6 +145,7 @@ module.exports = {
         'multisigs/committees',
         'multisigs/lido-on-x',
         'multisigs/lido-contributors-group',
+        'multisigs/alliance',
         'multisigs/other',
       ],
     },

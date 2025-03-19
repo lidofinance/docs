@@ -61,6 +61,11 @@ module.exports = {
           {
             to: '/guides/lido-tokens-integration-guide',
             from: '/guides/steth-integration-guide',
+          },
+          // /token-guides/wsteth-bridging-guide -> /token-guides/cross-chain-tokens-guide
+          {
+            to: '/token-guides/cross-chain-tokens-guide',
+            from: '/token-guides/wsteth-bridging-guide',
           }
         ],
       },
