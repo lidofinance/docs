@@ -1,6 +1,6 @@
-# Verifying address ownership for Lido DAO Ops
+# Verifying address ownership for Lido DAO operational multisigs
 
-Using EOA across Lido DAO Ops or protocol contracts requires providing a public "proof of ownership". Main use-cases here are using address as a signer in Lido DAO Ops multisigs or using EOAs for offchain tooling where specific rights might be required.
+Using EOA across Lido DAO operational multisigs or protocol contracts requires providing a public "proof of ownership". Main use-cases here are using address as a signer in Lido DAO operational multisigs or using EOAs for offchain tooling where specific rights might be required.
 
 ## Preparing and sharing address & signature
 
@@ -13,7 +13,7 @@ Using EOA across Lido DAO Ops or protocol contracts requires providing a public 
    4. The `sig` field in the result json is the signature hash.
 2. Publish the message along with the signature hash on twitter or other easily accessible social media.
 3. Share the link to the post as a comment at the relevant [Lido DAO forum](https://research.lido.fi) post.
-4. Make sure to follow the [general rules of thumb](/guides/multisig-signer-manual) for being a signer in Lido DAO Ops multisigs.
+4. Make sure to follow the [general rules of thumb](/guides/multisig-signer-manual) for being a signer in Lido DAO operational multisigs.
 
 ### In case of using Safe multisig
 
