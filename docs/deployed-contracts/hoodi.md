@@ -17,7 +17,7 @@ Currently, the main operational and maintained protocol testnet is being migrate
 - Withdrawal Vault: [`0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`](https://hoodi.cloud.blockscout.com/address/0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2) (proxy)
 - Burner: [`0x4e9A9ea2F154bA34BE919CD16a4A953DCd888165`](https://hoodi.cloud.blockscout.com/address/0x4e9A9ea2F154bA34BE919CD16a4A953DCd888165)
 - Min First Allocation Strategy: [`0x6d1a9bBFF97f7565e9532FEB7b499982848E5e07`](https://hoodi.cloud.blockscout.com/address/0x6d1a9bBFF97f7565e9532FEB7b499982848E5e07) (external lib)
-<!-- - MEV Boost Relay Allowed List: [`<TBD>`](https://hoodi.cloud.blockscout.com/address/<TBD>)-->
+- MEV Boost Relay Allowed List: [`0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf`](https://hoodi.cloud.blockscout.com/address/0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf)
 
 ## Oracle Contracts
 
