@@ -297,14 +297,14 @@ for the rate and price feeds recommended approaches.
 - Relay Maintenance Committee: [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://etherscan.io/address/0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
 - Token Reward Program (TRP) Committee: [`0x834560F580764Bc2e0B16925F8bF229bb00cB759`](https://etherscan.io/address/0x834560F580764Bc2e0B16925F8bF229bb00cB759)
 - Treasury Management Committee: [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://etherscan.io/address/0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
-- Delegate Oversight Committee [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
-- Simple DVT Module Committee [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7)
-- Community Staking Module Committee [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
+- Delegate Oversight Committee: [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
+- Simple DVT Module Committee: [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7)
+- Community Staking Module Committee: [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
 
 ### Alliance
-- Lido Alliance BORG Foundation Operational [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
-- Lido Alliance BORG Allies/Partners [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
-- Lido Alliance BORG Drop [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://www.mintscan.io/neutron/wasm/contract/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
+- Lido Alliance BORG Foundation Operational: [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
+- Lido Alliance BORG Allies/Partners: [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
+- Lido Alliance BORG Drop: [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://www.mintscan.io/neutron/wasm/contract/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 ### Dev Team Multisigs
 
@@ -345,16 +345,16 @@ for the rate and price feeds recommended approaches.
 - Liquidity Observation Lab: [`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) (Linea)
 - Liquidity Observation Lab: [`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) (Mantle)
 - Liquidity Observation Lab: [`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) (Scroll)
-- Liquidity Observation Lab AAVE rewards: `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
+- Liquidity Observation Lab AAVE rewards: `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
 - Liquidity Observation Lab AAVE rewards: `0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935` ([Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935))
 - Liquidity Observation Lab AAVE rewards: `0x75483CE83100890c6bf1718c26052cE44e0F2839` ([Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839))
 - Liquidity Observation Lab AAVE rewards: `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
 
 ### Lido on X
-- Lido on Polygon [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
+- Lido on Polygon: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
 
 ### Other
-- Community Lifeguards Multisig [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
+- Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 
 ## Lido Multichain
 

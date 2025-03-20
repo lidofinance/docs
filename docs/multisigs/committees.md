@@ -362,7 +362,9 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 ### 2.8.11 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
 **Addresses:**\
-`0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` - [Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022)
+`0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` - [Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022)\
+`0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935` - [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935)\
+`0x75483CE83100890c6bf1718c26052cE44e0F2839` - [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839)\
 `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` - [zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE)
 
 **Purpose of the multisig:** A family of multisigs on L2 networks is set up to receive assets from the Liquidity Observation Lab Committee multisigs on respective networks and distribute them among approved recipients.
@@ -480,8 +482,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 **Address:** [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
 
 **Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
-cancel MEV stealing penalty if needed, starting EasyTracks to settle MEV stealing penalty, switching the bond curve for the particular Node Operator or resetting it to the default one,
-pausing the CSModule, CSAccounting, CSFeeOracle in case of emergency via CS GateSeal.
+cancel MEV stealing penalty if needed, start EasyTracks to settle MEV stealing penalty, switch the bond curve for the particular Node Operator or reset it to the default one,
+pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSeal.
 
 **Quorum:** 4/6
 
