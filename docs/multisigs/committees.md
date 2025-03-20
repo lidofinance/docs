@@ -481,7 +481,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
 cancel MEV stealing penalty if needed, starting EasyTracks to settle MEV stealing penalty, switching the bond curve for the particular Node Operator or resetting it to the default one,
-pausing CSM in case of emergency via GateSeal.
+pausing the CSModule, CSAccounting, CSFeeOracle in case of emergency via CS GateSeal.
 
 **Quorum:** 4/6
 
@@ -501,11 +501,13 @@ pausing CSM in case of emergency via GateSeal.
 - `RESET_BOND_CURVE_ROLE`: [0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b](https://etherscan.io/tx/0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b)
 - GateSeal sealing committee: [0x4baee8cc782ca8ca90729ca3f3af45f2fe9ed6c207358d0b3186552f43f4d679](https://etherscan.io/tx/0x4baee8cc782ca8ca90729ca3f3af45f2fe9ed6c207358d0b3186552f43f4d679)
 
-**Easy Track contracts and roles:**
+**List of related contracts and roles:**
 
-| Contract name          | Contract address | Multisig role |
-|------------------------|------------------|---------------|
-| CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)  | trustedcaller |
+| Contract name                         | Contract address                                                                                                        | Multisig role |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
+| CS GateSeal                           | [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0) | sealing_committee |
+
 
 **List of signers:**
 
