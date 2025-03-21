@@ -57,8 +57,7 @@ where the protocol and its parts/extensions are deployed.
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - GateSeal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- (**proposed to remove**) GateSeal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
-- (**proposed**) GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
+- GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
 
 ## Data Bus
 
@@ -89,8 +88,7 @@ where the protocol and its parts/extensions are deployed.
 - CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
 - CSVerifier: [`0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583`](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
 - CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
-- (**proposed to remove**) CS GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
-- (**proposed**) CS GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
+- CS GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
 - CSFeeOracle:
   - CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
   - CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
@@ -267,11 +265,11 @@ for the rate and price feeds recommended approaches.
   - AllowedRecipientsRegistry: [`0x3f0534CCcFb952470775C516DC2eff8396B8A368`](https://etherscan.io/address/0x3f0534CCcFb952470775C516DC2eff8396B8A368)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
-- **(proposed) Ecosystem BORG operational funds stablecoins** (committee ms [`0x55897893c19e4B0c52731a3b7C689eC417005Ad6`](https://app.safe.global/home?safe=eth:0x55897893c19e4B0c52731a3b7C689eC417005Ad6/home))
+- **Ecosystem BORG Foundation operational funds stablecoins** (committee ms [`0x55897893c19e4B0c52731a3b7C689eC417005Ad6`](https://app.safe.global/home?safe=eth:0x55897893c19e4B0c52731a3b7C689eC417005Ad6))
   - AllowedRecipientsRegistry: [`0xDAdC4C36cD8F468A398C25d0D8aaf6A928B47Ab4`](https://etherscan.io/address/0xDAdC4C36cD8F468A398C25d0D8aaf6A928B47Ab4)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - TopUpAllowedRecipients: [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)
-- **(proposed) Labs BORG operational funds stablecoins** (committee ms [`0x95B521B4F55a447DB89f6a27f951713fC2035f3F`](https://app.safe.global/home?safe=eth:0x95B521B4F55a447DB89f6a27f951713fC2035f3F/home))
+- **Labs BORG Foundation operational funds stablecoins** (committee ms [`0x95B521B4F55a447DB89f6a27f951713fC2035f3F`](https://app.safe.global/home?safe=eth:0x95B521B4F55a447DB89f6a27f951713fC2035f3F))
   - AllowedRecipientsRegistry: [`0x68267f3D310E9f0FF53a37c141c90B738E1133c2`](https://etherscan.io/address/0x68267f3D310E9f0FF53a37c141c90B738E1133c2)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - TopUpAllowedRecipients: [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)
