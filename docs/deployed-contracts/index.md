@@ -304,7 +304,7 @@ for the rate and price feeds recommended approaches.
 ### Alliance
 - Lido Alliance BORG Foundation Operational: [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 - Lido Alliance BORG Allies/Partners: [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
-- Lido Alliance BORG Drop: [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://www.mintscan.io/neutron/wasm/contract/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
+- Lido Alliance BORG Drop: [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 ### Dev Team Multisigs
 
