@@ -71,7 +71,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 ## 5.3. Lido Alliance BORG Drop
 
-**Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://www.mintscan.io/neutron/wasm/contract/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
+**Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 **Purpose of the multisig:** The multisig is used to receive and hold Drop's token contribution in accordance to the [snapshot](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b).
 
