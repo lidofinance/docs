@@ -583,7 +583,7 @@ Multisig enables the reception of stablecoins (listed in the AllowedTokensRegist
 
 **Snapshots:**\
 [Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xdf648307e68415e7b5cf96c6afbabd696c1731839f4b4a7cf5cb7efbc44ee9d6)\
-[Proposed] [[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025) ](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
+[[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
 
 **Aragon:**\
 [Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
@@ -592,7 +592,7 @@ Multisig enables the reception of stablecoins (listed in the AllowedTokensRegist
 
 | Factory | Contract name           | Contract address | Multisig role |
 |-------------------|-------------------------|-----------------|---------------|
-| Labs BORG operational funds stablecoins | TopUpAllowedRecipients  | [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)| trustedcaller |
+| Labs BORG Foundation operational funds stablecoins | TopUpAllowedRecipients  | [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)| trustedcaller |
 
 The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
@@ -635,7 +635,7 @@ Multisig enables the reception of stablecoins (listed in the AllowedTokensRegist
 
 **Snapshots:**\
 [Establishment of Lido Ecosystem BORG Foundation as a Lido-DAO-Adjacent Foundation](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x7f72f12d72643c20cd0455c603d344050248e75ed1074c8391fae4c30f09ca15)\
-[Proposed] [[EGG] Lido Ecosystem BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x90e2f9926e37867d2ef319a8ef7a0257bb5695086b64b88b43b43f00959a0047)
+[[EGG] Lido Ecosystem BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x90e2f9926e37867d2ef319a8ef7a0257bb5695086b64b88b43b43f00959a0047)
 
 **Aragon:**\
 [Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
@@ -644,7 +644,7 @@ Multisig enables the reception of stablecoins (listed in the AllowedTokensRegist
 
 | Factory | Contract name           | Contract address | Multisig role |
 |-------------------|-------------------------|-----------------|---------------|
-| Ecosystem BORG operational funds stablecoins | TopUpAllowedRecipients  | [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)| trustedcaller |
+| Ecosystem BORG Foundation operational funds stablecoins | TopUpAllowedRecipients  | [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)| trustedcaller |
 
 The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
