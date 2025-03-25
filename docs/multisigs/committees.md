@@ -583,7 +583,7 @@ Multisig enables the reception of stablecoins (listed in the AllowedTokensRegist
 
 **Snapshots:**\
 [Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xdf648307e68415e7b5cf96c6afbabd696c1731839f4b4a7cf5cb7efbc44ee9d6)\
-[[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025) ](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
+[[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
 
 **Aragon:**\
 [Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
