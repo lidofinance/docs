@@ -5,7 +5,7 @@
 Given the permissionless nature of CSM, NOs can voluntarily exit their validators at any moment.
 
 ## Protocol-initiated exits
-For consistency with the core protocol and other staking modules, CSM uses [VEBO](/contracts/validators-exit-bus-oracle) to request or trigger exits (to be implemented after the Pectra hardfork bringing [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) to life) for the validators.
+For consistency with the core protocol and other staking modules, CSM uses [VEBO](/contracts/validators-exit-bus-oracle) to request or trigger exits (to be implemented after the Pectra hardfork bringing [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) to life) for the validators. Details about the overall processes and mechanisms through which validator exits are requested by the protocol and why, including how these rules apply to CSM, are explained in the Lido on Ethereum Validator Exits SNOP 2.0 ([IPFS](https://lido.mypinata.cloud/ipfs/QmZTMfmJZsYHz61f2FjhYdh5VNu6ifjYQJzYUGkysHs8Uu), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/0ed664255f48ef224b96fb0325f4d27bd3c03773/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md), [HackMD](https://hackmd.io/@lido/Bk9oDtV7ye))
 
 :::info
 Note: The actual implementation of the triggerable exits is not defined yet. There might be additional contracts to actually trigger exits on top of the [VEBO](/contracts/validators-exit-bus-oracle).
