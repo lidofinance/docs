@@ -80,7 +80,7 @@ Currently, the main operational and maintained protocol testnet is being migrate
 - CSModule: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.cloud.blockscout.com/address/0x79CEf36D84743222f37765204Bec41E92a93E59d) (proxy)
 - CSAccounting: [`0xA54b90BA34C5f326BC1485054080994e38FB4C60`](https://hoodi.cloud.blockscout.com/address/0xA54b90BA34C5f326BC1485054080994e38FB4C60) (proxy)
 - CSFeeDistributor: [`0xaCd9820b0A2229a82dc1A0770307ce5522FF3582`](https://hoodi.cloud.blockscout.com/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582) (proxy)
-- CSVerifier: [`0x16D0f6068D211608e3703323314aa976a6492D09`](https://hoodi.cloud.blockscout.com/address/0x16D0f6068D211608e3703323314aa976a6492D09)
+- CSVerifier: [`0xB6bafBD970a4537077dE59cebE33081d794513d6`](https://hoodi.cloud.blockscout.com/address/0xB6bafBD970a4537077dE59cebE33081d794513d6)
 - CSEarlyAdoption: [`0x3281b9E45518F462E594697f8fba1896a8B43939`](https://hoodi.cloud.blockscout.com/address/0x3281b9E45518F462E594697f8fba1896a8B43939)
 - GateSeal: [`0xEe1f7f0ebB5900F348f2CfbcC641FB1681359B8a`](https://hoodi.cloud.blockscout.com/address/0xEe1f7f0ebB5900F348f2CfbcC641FB1681359B8a)
 - CSFeeOracle:
