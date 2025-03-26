@@ -109,6 +109,12 @@ Currently, the main operational and maintained protocol testnet is being migrate
 - **Community Staking Module** (module: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.cloud.blockscout.com/address/0x79CEf36D84743222f37765204Bec41E92a93E59d))
   - CSMSettleElStealingPenalty: [`0x5c0af5b9f96921d3F61503e1006CF0ab9867279E`](https://hoodi.cloud.blockscout.com/address/0x5c0af5b9f96921d3F61503e1006CF0ab9867279E)
 
+## Testnet Stablecoins
+
+  - **USDC**: [`0xeF07c9674661C4979cC6367d343a54cc48ff40dD`](https://hoodi.cloud.blockscout.com/address/0xeF07c9674661C4979cC6367d343a54cc48ff40dD)
+  - **USDT**: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.cloud.blockscout.com/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
+  - **DAI:** [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.cloud.blockscout.com/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
+  
 <!--
 ### Easy Track factories for token transfers
 
@@ -118,7 +124,4 @@ Currently, the main operational and maintained protocol testnet is being migrate
 
 ==TODO==
 
-## Testnet Stablecoins
-
-==TODO==
 -->
