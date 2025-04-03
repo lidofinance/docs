@@ -57,6 +57,28 @@ Currently, the main operational and maintained protocol testnet is being migrate
 - GateSeal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
 - GateSeal: [`0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778`](https://holesky.etherscan.io/address/0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778)
 
+### Dual Governance
+
+- Admin Executor (Proposed): [`0x8BD0a916faDa88Ba3accb595a3Acd28F467130e8`](https://holesky.etherscan.io/address/0x8BD0a916faDa88Ba3accb595a3Acd28F467130e8)
+- Dual Governance (Proposed): [`0x490bf377734CA134A8E207525E8576745652212e`](https://holesky.etherscan.io/address/0x490bf377734CA134A8E207525E8576745652212e)
+- Dual Governance Config Provider (Proposed): [`0xF3257b7E333Cdd15df92CBc3BAF645D83D22B97B`](https://holesky.etherscan.io/address/0xF3257b7E333Cdd15df92CBc3BAF645D83D22B97B)
+- Emergency Governance (Proposed): [`0x46c6C7E1Cc438456d658Eed61A764a475abDa0C1`](https://holesky.etherscan.io/address/0x46c6C7E1Cc438456d658Eed61A764a475abDa0C1)
+- Escrow Master Copy (Proposed): [`0x901bd16E9B8c317891E3b7D3D57f98Da50De5a36`](https://holesky.etherscan.io/address/0x901bd16E9B8c317891E3b7D3D57f98Da50De5a36)
+- Reseal Manager (Proposed): [`0x9dE2273f9f1e81145171CcA927EFeE7aCC64c9fb`](https://holesky.etherscan.io/address/0x9dE2273f9f1e81145171CcA927EFeE7aCC64c9fb)
+- Tiebreaker Core Committee (Proposed): [`0xE449EEd4C99EcC0157690f84cE64A6d66a83af55`](https://holesky.etherscan.io/address/0xE449EEd4C99EcC0157690f84cE64A6d66a83af55)
+- Tiebreaker Sub Committees (Proposed):
+  - [`0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27`](https://holesky.etherscan.io/address/0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27)
+  - [`0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F`](https://holesky.etherscan.io/address/0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F)
+  - [`0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0`](https://holesky.etherscan.io/address/0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0)
+- Timelock (Proposed): [`0xe9c5FfEAd0668AFdBB9aac16163840d649DB76DD`](https://holesky.etherscan.io/address/0xe9c5FfEAd0668AFdBB9aac16163840d649DB76DD)
+
+### Dual Governance launch contracts
+
+- Dual Governance Launch Verifier (Proposed): [`0x5dDD4E52C85313B80809dEd9E909DC391dfcF719`](https://holesky.etherscan.io/address/0x5dDD4E52C85313B80809dEd9E909DC391dfcF719)
+- Roles Validator (Proposed): [`0xf532fC0a18D3339A52b3f1152FcA9925De5855AA`](https://holesky.etherscan.io/address/0xf532fC0a18D3339A52b3f1152FcA9925De5855AA)
+- Time Constraints (Proposed): [`0x4D36598EA14bd70a1040CF59ABF6f9439afBf5d9`](https://holesky.etherscan.io/address/0x4D36598EA14bd70a1040CF59ABF6f9439afBf5d9)
+- Dual Governance voting calldata builder (Proposed): [`0xc76b2c80dc713e99fC616b651F3509238DcD2285`](https://holesky.etherscan.io/address/0xc76b2c80dc713e99fC616b651F3509238DcD2285)
+
 ## Data Bus
 
 - DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
