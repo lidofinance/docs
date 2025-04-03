@@ -77,7 +77,7 @@ You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura)
 > - changing the address will require another DAO vote.
 
 After generating the keys, a Node Operator submits them to the protocol. To do this, they send a
-transaction from the Node Operator’s withdrawal address to the `NodeOperatorsRegistry` contract
+transaction from the Node Operator’s rewards address to the `NodeOperatorsRegistry` contract
 instance, calling [`addSigningKeys` function] and with the following arguments:
 
 ```
