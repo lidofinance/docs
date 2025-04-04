@@ -68,9 +68,9 @@ Currently, the main operational and maintained protocol testnet is being migrate
 - (Proposed) Reseal Manager: [`0x9dE2273f9f1e81145171CcA927EFeE7aCC64c9fb`](https://holesky.etherscan.io/address/0x9dE2273f9f1e81145171CcA927EFeE7aCC64c9fb)
 - (Proposed) Tiebreaker Core Committee: [`0xE449EEd4C99EcC0157690f84cE64A6d66a83af55`](https://holesky.etherscan.io/address/0xE449EEd4C99EcC0157690f84cE64A6d66a83af55)
 - Tiebreaker Sub Committees:
-  - (Proposed) Developers Sub committee 1 [`0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27`](https://holesky.etherscan.io/address/0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27)
-  - (Proposed) Developers Sub committee 2 [`0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F`](https://holesky.etherscan.io/address/0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F)
-  - (Proposed) Developers Sub committee 3 [`0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0`](https://holesky.etherscan.io/address/0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0)
+  - (Proposed) Developers Sub Committee 1 [`0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27`](https://holesky.etherscan.io/address/0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27)
+  - (Proposed) Developers Sub Committee 2 [`0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F`](https://holesky.etherscan.io/address/0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F)
+  - (Proposed) Developers Sub Committee 3 [`0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0`](https://holesky.etherscan.io/address/0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0)
 
 ### Dual Governance launch contracts
 
