@@ -90,7 +90,7 @@ Ejector accepts messages in three formats:
 
 ## Encrypting Messages
 
-It is highly advised that after exit message are generated and signed, they should be encrypted for storage safety. Ejector will decrypt files on start by looking up the password in `MESSAGES_PASSWORD` environment variable.
+It is highly advised that after exit messages are generated and signed, they should be encrypted for storage safety. Ejector will decrypt files on start by looking up the password in `MESSAGES_PASSWORD` environment variable.
 
 Exit messages are encrypted and decrypted by Ejector following the [EIP-2335](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2335.md) spec.
 

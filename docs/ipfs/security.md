@@ -11,7 +11,7 @@ allowing them an option to specify necessary RPC nodes on the settings page. RPC
 :::warning
 The information below might severely affect your experience with IPFS applications.
 :::
-Lido widgets use your browser's localStorage to store some UI settings and RPC nodes urls.
+Lido widgets use your browser's localStorage to store some UI settings and RPC node urls.
 If you are using an IPFS gateway, which is referencing CID hash as a part of the URL path (e.g., `{GATEWAY_DOMAIN}/ipfs/{HASH}`),
 rather than the subdomain (e.g., `{HASH}.{GATEWAY}`), then other websites accessed from the same IPFS gateway
 can potentially view or edit your settings, because localStorage stays the same for the same domain.

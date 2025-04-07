@@ -32,7 +32,7 @@ The current set of guardians is five node operators (Stakefish, Kiln, Blockscape
 
 ### Members responsibilities
 
-Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, member has to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
+Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, members have to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
 
 ## Preparation steps
 
