@@ -2,6 +2,69 @@
 
 ## Lido on Ethereum
 
+### 04-2025 MixBytes Off-chain Audit of Lido Oracle v5
+
+- Total Issues: 6 (5 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 1 (1 Fixed)
+- Low Issues: 5 (4 Fixed, 1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v5%2004-25.pdf) for more details.
+
+### 04-2025 Composable Security Off-chain Audit of Lido Oracle v5
+
+- Total Issues: 6 (4 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 2 (2 Fixed)
+- Low Issues: 3 (1 Fixed, 2 Acknowledged)
+- Info Issues: 1 (1 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20v5%2004-25.pdf) for more details.
+
+### 03-2025 Statemind GateSeal Deployment Validation Note
+
+See [note](https://github.com/lidofinance/audits/blob/main/Statemind%20GateSeal%20Deployment%20Validation%2003-2025.pdf) contents for more details.
+
+### 02-2025 Certora Dual Governance Audit
+
+- Total Issues: 6 (4 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 4 (3 Fixed, 1 Acknowledged)
+- Low Issues: 2 (1 Fixed, 1 Acknowledged)
+
+See full [report](https://github.com/lidofinance/audits/blob/main/Certora%20Dual%20Governance%20Audit%20Report%2002-2025.pdf) for more details.
+
+### 02-2025 OpenZeppelin Dual Governance Re-Audit
+
+- Total Issues: 9 (4 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 3 (1 Fixed)
+- Info Issues: 6 (3 Fixed, 2 Acknowledged)
+
+See full [report](https://github.com/lidofinance/audits/blob/main/OpenZeppelin%20Dual%20Governance%20Re-Audit%20Report%2002-2025.pdf) for more details.
+
+### 02-2025 Runtime Verification Dual Governance Formal Verification
+
+Lido has engaged Runtime Verification to formally verify the correctness and safety properties of the smart contracts that comprise the Lido Dual Governance mechanism.
+
+See full [report](https://github.com/lidofinance/audits/blob/main/Runtime%20Verification%20Dual%20Governance%20Formal%20Verification%20Report%2002-2025.pdf) for more details.
+
+### 11-2024 OpenZeppelin Dual Governance Audit
+
+- Total Issues: 26 (18 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 1 (1 Fixed)
+- Low Issues: 9 (5 Fixed, 1 Acknowledged)
+- Info Issues: 16 (12 Fixed, 1 Acknowledged)
+
+See full [report](https://github.com/lidofinance/audits/blob/main/OpenZeppelin%20Dual%20Governance%20Audit%20Report%2011-2024.pdf) for more details.
+
 ### 10-2024 Ackee Blockchain Audit of Staking Router v2 (LIP-25)
 
 - Total Issues: 7 (5 Fixed, 2 Acknowledged)
@@ -45,6 +108,26 @@ See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lid
 - Low Issues: 3 (2 Fixed, 1 Acknowledged)
 
 See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20Security%20Audit%20Report%2010-24.pdf) for more details.
+
+### 10-2024 Statemind Dual Governance Audit
+
+- Total Issues: 46 (32 Fixed, 14 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 4 (3 Fixed, 1 Acknowledged)
+- Info Issues: 42 (29 Fixed, 13 Acknowledged)
+
+See full [report](https://github.com/lidofinance/audits/blob/main/Statemind%20Dual%20Governance%20Audit%20Report%2010-2024.pdf) for more details.
+
+### 09-2024 Certora Dual Governance Draft Audit
+
+- Total Issues: 23 (22 Fixed, 1 Acknowledged)
+- Critical Issues: 2 (2 Fixed)
+- High Issues: 6 (6 Fixed)
+- Medium Issues: 11 (10 Fixed, 1 Acknowledged)
+- Low Issues: 4 (4 Fixed)
+
+See full [report](https://github.com/lidofinance/audits/blob/main/Certora%20Dual%20Governance%20Draft%20Audit%20Report%2009-2024.pdf) for more details.
 
 ### 07-2024 Ackee Blockchain Audit of the Simple Delegation
 
@@ -529,11 +612,17 @@ See [full report](https://github.com/lidofinance/audits/blob/main/QSP%20Lido%20R
 
 ## Lido Multichain audit reports
 
-### 01-2025 MixBytes stETH on Soneium Audit Report
+### 02-2025 MixBytes stETH on Unichain Verification Report
 
 The deployed contracts are verified against the [stETH on Optimism](https://docs.lido.fi/deployed-contracts/#optimism) deployment.
 
-See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Soneium-2025-01-MixBytes-Audit-Report.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Unichain-2025-02-MixBytes-deployment-verification.pdf) for more details.
+
+### 01-2025 MixBytes stETH on Soneium Verification Report
+
+The deployed contracts are verified against the [stETH on Optimism](https://docs.lido.fi/deployed-contracts/#optimism) deployment.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Soneium-2025-01-MixBytes-deployment-verification.pdf) for more details.
 
 ### 11-2024 Nethermind Security wstETH on Starknet Deployment Verification
 
