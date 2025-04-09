@@ -23,6 +23,22 @@ See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lid
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20v5%2004-25.pdf) for more details.
 
+### 04-2025 Ackee Blockchain Audit of Community Staking Module (LIP-26, LIP-27)
+
+An updated report for [the previously audited Lido Community Staking Module](#10-2024-ackee-blockchain-audit-of-community-staking-module-lip-26) features a re-audit of the revised CS Verifier contract and deployment verification for the redeployed contract. This contract was updated to reflect changes introduced in LIP-27.
+
+No addition issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Lido%20Community%20Staking%20Module%20Report%2004-25.pdf) for more details.
+
+### 04-2025 MixBytes On-chain Audit of Community Staking Module (LIP-23, LIP-25, LIP-26, LIP-27)
+
+An updated report for [the previously audited Lido Community Staking Module](#10-2024-mixbytes-on-chain-audit-of-community-staking-module-lip-23-lip-25-lip-26) features a re-audit of the revised CS Verifier contract and deployment verification for the redeployed contract. This contract was updated to reflect changes introduced in LIP-27.
+
+No addition issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CSM%20Security%20Audit%20Report%2004-25.pdf) for more details.
+
 ### 03-2025 Statemind GateSeal Deployment Validation Note
 
 See [note](https://github.com/lidofinance/audits/blob/main/Statemind%20GateSeal%20Deployment%20Validation%2003-2025.pdf) contents for more details.
