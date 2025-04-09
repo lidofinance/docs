@@ -116,7 +116,7 @@ Currently, the main operational and maintained protocol testnet is being migrate
   - SetNodeOperatorNames: [`0x2F98760650922cf65f1b596635bC5835b6E561d4`](https://hoodi.etherscan.io/address/0x2F98760650922cf65f1b596635bC5835b6E561d4)
   - SetNodeOperatorRewardAddresses: [`0x3d267e4f8d9dCcc83c2DE66729e6A5B2B0856e31`](https://hoodi.etherscan.io/address/0x3d267e4f8d9dCcc83c2DE66729e6A5B2B0856e31)
   - UpdateTargetValidatorLimits: [`0xc3975Bc4091B585c57357990155B071111d7f4f8`](https://hoodi.etherscan.io/address/0xc3975Bc4091B585c57357990155B071111d7f4f8)
-  - ChangeNodeOperatorManager: [`0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9`](https://hoodi.etherscan.io/address/0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9)
+  - ChangeNodeOperatorManagers: [`0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9`](https://hoodi.etherscan.io/address/0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9)
 
 <!--
 ### Easy Track factories for token transfers
