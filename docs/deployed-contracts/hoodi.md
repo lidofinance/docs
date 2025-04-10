@@ -118,16 +118,22 @@ Currently, the main operational and maintained protocol testnet is being migrate
   - UpdateTargetValidatorLimits: [`0xc3975Bc4091B585c57357990155B071111d7f4f8`](https://hoodi.etherscan.io/address/0xc3975Bc4091B585c57357990155B071111d7f4f8)
   - ChangeNodeOperatorManagers: [`0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9`](https://hoodi.etherscan.io/address/0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9)
 
-<!--
 ### Easy Track factories for token transfers
 
-==TODO==
-
-## Testnet DAO Multisigs
-
-==TODO==
+- **Tooling contracts:**
+  - AllowedRecipientsBuilder (single token): [`0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC`](https://hoodi.etherscan.io/address/0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC)
+  - AllowedRecipientsFactory (single token): [`0xFdf256eED0ec8B782065E2aCDb975071033A6110`](https://hoodi.etherscan.io/address/0xFdf256eED0ec8B782065E2aCDb975071033A6110)
+  - AllowedRecipientsBuilder (multi token): [`0xf5436129Cf9d8fa2a1cb6e591347155276550635`](https://hoodi.etherscan.io/address/0xf5436129Cf9d8fa2a1cb6e591347155276550635)
+  - AllowedRecipientsFactory (multi token): [`0x08c48Fef9Cadca882E27d2325D1785858D5c1aE3`](https://hoodi.etherscan.io/address/0x08c48Fef9Cadca882E27d2325D1785858D5c1aE3)
+  - BokkyPooBah's DateTime Library: [`0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f`](https://hoodi.etherscan.io/address/0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f)
 
 ## Testnet Stablecoins
+
+  - USDC: [`0xeF07c9674661C4979cC6367d343a54cc48ff40dD`](https://hoodi.etherscan.io/address/0xeF07c9674661C4979cC6367d343a54cc48ff40dD)
+  - USDT: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.etherscan.io/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
+  - DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
+<!--
+## Testnet DAO Multisigs
 
 ==TODO==
 -->
