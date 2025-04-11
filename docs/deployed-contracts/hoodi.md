@@ -118,6 +118,12 @@ Currently, the main operational and maintained protocol testnet is being migrate
   - UpdateTargetValidatorLimits: [`0xc3975Bc4091B585c57357990155B071111d7f4f8`](https://hoodi.etherscan.io/address/0xc3975Bc4091B585c57357990155B071111d7f4f8)
   - ChangeNodeOperatorManagers: [`0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9`](https://hoodi.etherscan.io/address/0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9)
 
+## Testnet Stablecoins
+
+  - **USDC**: [`0xeF07c9674661C4979cC6367d343a54cc48ff40dD`](https://hoodi.cloud.blockscout.com/address/0xeF07c9674661C4979cC6367d343a54cc48ff40dD)
+  - **USDT**: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.cloud.blockscout.com/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
+  - **DAI:** [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.cloud.blockscout.com/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
+  
 <!--
 ### Easy Track factories for token transfers
 
@@ -127,7 +133,4 @@ Currently, the main operational and maintained protocol testnet is being migrate
 
 ==TODO==
 
-## Testnet Stablecoins
-
-==TODO==
 -->
