@@ -186,6 +186,7 @@ module.exports = {
                 'staking-modules/csm/guides/mev-stealing',
                 'staking-modules/csm/guides/unbonded-validators',
                 'staking-modules/csm/guides/addresses',
+                'staking-modules/csm/guides/fee-recipient',
               ]
             },
             {
