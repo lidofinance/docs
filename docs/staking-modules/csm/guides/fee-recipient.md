@@ -3,10 +3,12 @@
 When running validators via Lido Community Staking Module (CSM), it is **mandatory** to set the fee recipient to the **Lido Execution Layer Rewards Vault**:
 
 - Mainnet: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
-- Hoodi: [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258)
+- Hoodi testnet: [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258)
 
 :::info
-If you are setting `feeRecipient` for Hoodi, use [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258) instead of [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297) in the guides below.
+For Hoodi Testnet users:
+
+Use [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258) instead of [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297) in the guides below.
 :::
 
 Failure to do so may result in [MEV stealing penalties](./mev-stealing), including:
@@ -14,7 +16,7 @@ Failure to do so may result in [MEV stealing penalties](./mev-stealing), includi
 - A **penalty** equal to the stolen execution layer rewards plus a fixed fine
 - Your **bond being locked** until the full penalty amount is returned
 
-This guide shows you how to correctly set the fee recipient depending on your validator setup. It does **not** cover how to set up or run a validator node from scratch.
+This guide shows you how to correctly set the fee recipient on various platforms. It does not cover how to set up or run a validator node from scratch.
 
 :::note
 You can verify the fee recipient address on the [Lido Deployed Contracts](../../../deployed-contracts/) page.
@@ -57,9 +59,7 @@ Several users have [reported](https://research.lido.fi/t/proposed-blocks-with-wr
 
 This issue has been acknowledged by the Dappnode team but has not been confirmed as resolved.  
 
-**We thus do not recommend running Nimbus with Dappnode** for Lido CSM validators until the issue is conclusively fixed.  
-
-Consider switching to another consensus client when you're currently running Nimbus.
+We do not recommend running Nimbus with Dappnode for Lido CSM validators until the issue is conclusively fixed. Consider switching to another consensus client if you’re currently running Nimbus.
 :::
 
 ## Eth-Docker
