@@ -48,7 +48,7 @@ CURATED_STAKING_MODULE_TARGET_SHARE_BP = 10000  # 100%
 # same as it set currently, see https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F29
 # https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84#readProxyContract#F46
 # NB: that getFeeDistribution returns percent relative to the 10% returned by getFee
-# for for curated staking module the value is set as percent relative to the entire rewards, so it 500 but 5000
+# for curated staking module the value is set as percent relative to the entire rewards, so it 500 but 5000
 CURATED_STAKING_MODULE_MODULE_FEE_BP = 500  # 5%
 CURATED_STAKING_MODULE_TREASURY_FEE_BP = 500  # 5%
 
