@@ -483,7 +483,7 @@ function setRequestTimestampMargin(uint256 _requestTimestampMargin)
 
 #### Arguments
 
-- **`_requestTimestampMargin`** — new new value for `LimitsList.requestTimestampMargin`
+- **`_requestTimestampMargin`** — new value for `LimitsList.requestTimestampMargin`
 
 ### setMaxPositiveTokenRebase()
 
