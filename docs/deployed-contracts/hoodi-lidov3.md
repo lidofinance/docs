@@ -14,8 +14,9 @@ If you are looking for mainnet Lido V3 addresses – hang tight, they are not li
 ## 📚 Further reading
 
 - 🏗️ [Technical design doc](https://hackmd.io/@lido/stVaults-design)
-- 🔌 [stVaults integration guide](/guides/stVaults/integration-guide)
-- 🛡️ [stVaults Pre-deposit Guarantee (PDG) guide](/guides/stVaults/pdg)
+- 🔌 [stVaults integration guide](/guides/stvaults)
+- 🛡️ [stVaults Pre-deposit Guarantee (PDG) guide](/guides/stvaults/pdg)
+- ⚓ [stVaults deployment tag: **`v3.0.0-alpha`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-alpha)
 
 ---
 
@@ -64,7 +65,7 @@ If you are looking for mainnet Lido V3 addresses – hang tight, they are not li
 - Aragon Agent: [`0x2cE254Fd852d6B5023b1B2355ae96A8d752a47cf`](https://hoodi.etherscan.io/address/0x2cE254Fd852d6B5023b1B2355ae96A8d752a47cf) *(proxy)*
 - Aragon ACL: [`0x428d6E1C384B743b1D6bed40b3a01F5357Ec24A9`](https://hoodi.etherscan.io/address/0x428d6E1C384B743b1D6bed40b3a01F5357Ec24A9) *(proxy)*
 
-## Staking modules
+## 🧩 Staking modules
 
 ### Curated Module
 
