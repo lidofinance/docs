@@ -126,6 +126,7 @@ Currently, the main operational and maintained protocol testnet is being migrate
   - AllowedRecipientsBuilder (multi token): [`0xf5436129Cf9d8fa2a1cb6e591347155276550635`](https://hoodi.etherscan.io/address/0xf5436129Cf9d8fa2a1cb6e591347155276550635)
   - AllowedRecipientsFactory (multi token): [`0x08c48Fef9Cadca882E27d2325D1785858D5c1aE3`](https://hoodi.etherscan.io/address/0x08c48Fef9Cadca882E27d2325D1785858D5c1aE3)
   - BokkyPooBah's DateTime Library: [`0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f`](https://hoodi.etherscan.io/address/0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f)
+  - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40db7e8047c487bd8359289272c717ea3c34d1d3)
 
 ## Testnet Stablecoins
 
