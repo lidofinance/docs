@@ -81,7 +81,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://x.com/apegenija/status/1823290601921540342?t=H0MWkkxQnHt9A3N5VDgmnA |
+| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
 
 ## 2.3 Relay Maintenance Committee
 
@@ -563,7 +563,7 @@ A Committee without multisig.
 | Name | Role |
 | --- | --- |
 | shardyaco | Protocol Relations |
-| TheDZhon | Tech |
+| kovalgek | Tech |
 | EvgeniyEmelyanov | Product |
 | nikita.p | DAO Ops |
 
