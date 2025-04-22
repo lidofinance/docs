@@ -563,7 +563,7 @@ A Committee without multisig.
 | Name | Role |
 | --- | --- |
 | shardyaco | Protocol Relations |
-| TheDZhon | Tech |
+| kovalgek | Tech |
 | EvgeniyEmelyanov | Product |
 | nikita.p | DAO Ops |
 
