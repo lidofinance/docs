@@ -306,10 +306,10 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086452812349441?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c| https://x.com/KENX3495/status/1863795366321344968 |
+| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
@@ -397,11 +397,11 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
-| marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
+| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
 
 
 ### 2.8.13 Liquidity Observation Lab Committee ARB Token Multisig
@@ -423,11 +423,11 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
-| marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/apegenija/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 | Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
+| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
 
 ### 2.8.14 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
@@ -470,11 +470,11 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
-| marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/apegenija/status/1619812143326720000 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 | Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
+| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
 
 
 ## 2.9 Community Staking Module Committee
