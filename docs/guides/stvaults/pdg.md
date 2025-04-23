@@ -35,7 +35,7 @@ Method called: `PredepositGuarantee.setNodeOperatorGuarantor(newGuarantor)`.
 Method called: `PredepositGuarantee.topUpNodeOperatorBalance(nodeOperator)` with ETH transfer.
 4. The Node Operator generates validator keys and pre-deposit data.
 5. The Node Operator pre-deposits 1 ETH from the vault balance to the validator via the PDG contract.
-Method called: `PredepositGuarantee.predeposit(stakingVault, deposits, depositsY)`, same time the PDG locks 1 ETH from the Node Operator’s gurantee collateral in the PDG.
+Method called: `PredepositGuarantee.predeposit(stakingVault, deposits, depositsY)`, same time the PDG locks 1 ETH from the Node Operator’s guarantee collateral in the PDG.
 6. Anyone (permissionless) submits a Merkle proof of the validator’s appearing on the Consensus Layer to the PDG contract with the withdrawal credentials corresponding to the stVault's address.
 Method called: `PredepositGuarantee.proveValidatorWC(witness)`.
 6.1. Upon successful verification, 1 ETH of the Node Operator’s guarantee collateral is unlocked from the  PDG balance — making it available for withdrawal or reuse for the next validator pre-deposit.
