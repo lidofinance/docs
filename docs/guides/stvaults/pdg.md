@@ -61,7 +61,7 @@ Method called: `fund()` with ETH transfer (`payable`).
 2. The Node Operator generates validator keys and pre-deposit data.
 3. The Node Operator shares the validator keys and pre-deposit data with the stVault's owner.
 4. The stVault's owner deposits 1 ETH from the vault balance directly to the validator, bypassing the PDG. Method called: `unguaranteedDepositToBeaconChain(deposits)`.
-4.1. As a result, the stVault’s total value is temporarily reduced by 1 ETH until the next oracle report delivered.
+4.1. As a result, the stVault’s total value is temporarily reduced by 1 ETH until the next oracle report delivered containing the appeared validator's balance.
 5. The stVault's owner submits a Merkle proof of the validator’s appearing on the Consensus Layer to the `Dashboard` contract. Method called: `proveUnknownValidatorsToPDG(witness)`.
 6. The Oracle report confirms the validator’s balance (1 ETH). The stVault’s total value is then increased by 1 ETH accordingly.
 7. The Node Operator deposits the remaining 99 ETH from the vault balance to the validator through the PDG. Method called: `depositToBeaconChain(stakingVault, deposits)`.
