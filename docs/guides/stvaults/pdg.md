@@ -41,7 +41,7 @@ Method called: `proveValidatorWC(witness)`.
 6.1. Upon successful verification, 1 ETH of the Node Operator’s guarantee collateral is unlocked from the  PDG balance — making it available for withdrawal or reuse for the next validator pre-deposit.
 7. The Node Operator’s guarantor withdraws the 1 ETH from the PDG contract or retains it for reuse with future validators.
 Method called: `withdrawNodeOperatorBalance(nodeOperator, amount, recipient)`.
-8. The Node Operator make a top-up deposit of the remaining 31+ ETH from the vault balance to the validator through the PDG.
+8. The Node Operator makes a top-up deposit of the remaining 31+ ETH from the vault balance to the validator through the PDG.
 Method called: `depositToBeaconChain(stakingVault, deposits)`.
 
 ### PDG shortcut

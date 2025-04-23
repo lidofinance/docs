@@ -109,8 +109,8 @@ stVaults consist of the following components:
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
 2. Pre-deposit guarantee contract enables three main use cases:
     1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using a guarantor’s bond as a collateral ([read more](./pdg.md#full-cycle-trustless-path-through-pdg)).
-    2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, and upcoming adding the validator to the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg.md#pdg-shortcut)).
-    3. Adding existing validator to Vault from external staking infrastructure as an advanced mechanism.
+    2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg.md#pdg-shortcut)).
+    3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
 
 ### Off-chain monitoring tools
 
