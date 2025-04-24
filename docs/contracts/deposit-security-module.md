@@ -6,15 +6,15 @@
 Due to front-running vulnerability, Lido contributors [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
 - monitoring the history of deposits and the set of Lido keys available for the deposit, signing and disseminating messages allowing deposits;
-- signing the special message allowing anyone to pause deposits once the malicious Node Operator pre-deposits are detected.
+- signing the special message allowing anyone to pause deposits once the malicious Node Operator predeposits are detected.
 
 Each member must generate an EOA address to sign messages with their private key. The addresses of the committee members will be added to the smart contract.
 
-To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this, we propose allowing a single committee member to stop deposits and also enforce space deposits in time (e.g., no more than 150 deposits with 25 blocks in between them) to provide the single honest participant the ability to stop further deposits even if the supermajority colludes.
+To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious predeposits. To mitigate this, we propose allowing a single committee member to stop deposits and also enforce space deposits in time (e.g., no more than 150 deposits with 25 blocks in between them) to provide the single honest participant the ability to stop further deposits even if the supermajority colludes.
 
 The guardian himself, or anyone else who has a signed pause message, can call `pauseDeposits` that pauses `DepositSecurityModule`.
 
-To prevent a replay attack, the guardians sign the block number when  malicious pre-deposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
+To prevent a replay attack, the guardians sign the block number when  malicious predeposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
 Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
 
@@ -254,7 +254,7 @@ function pauseDeposits(uint256 blockNumber, Signature memory sig) external;
 
 | Name              | Type        | Description                                                                          |
 | ----------------- | ----------- | ------------------------------------------------------------------------------------ |
-| `blockNumber`     | `uint256`   | Block number with malicious pre-deposits have been observed by the guardian          |
+| `blockNumber`     | `uint256`   | Block number with malicious predeposits have been observed by the guardian           |
 | `sig`             | `Signature` | Short ECDSA guardian signature as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unpauseDeposits()
