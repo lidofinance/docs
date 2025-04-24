@@ -29,7 +29,7 @@ Steps:
 
 1. The stVault's owner supplies 32 ETH to the vault.
 Method called: `Dashboard.fund()` with ETH transfer (`payable`).
-2. The Node Operator *optionally* assigns a guarantor address that will further provide a 1 ETH guarantee bond. *(This guarantor can be the Node Operator, Vault Owner, or a third party.)*
+2. The Node Operator *optionally* assigns a guarantor address that will further provide a 1 ETH guarantee. *(This guarantor can be the Node Operator, Vault Owner, or a third party.)*
 Method called: `PredepositGuarantee.setNodeOperatorGuarantor(newGuarantor)`.
 3. The Node Operator’s guarantor tops up 1 ETH to the PDG contract, specifying the Node Operator’s address. This serves as the pre-deposit guarantee collateral.
 Method called: `PredepositGuarantee.topUpNodeOperatorBalance(nodeOperator)` with ETH transfer.
