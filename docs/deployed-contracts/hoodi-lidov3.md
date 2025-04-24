@@ -35,7 +35,7 @@ If you are looking for mainnet Lido V3 addresses – hang tight, they are not li
 - Accounting: [`0x7d7EcCE45cAc6eF043f34e8049399b4b03044F97`](https://hoodi.etherscan.io/address/0x7d7EcCE45cAc6eF043f34e8049399b4b03044F97) (proxy)
 - Vault Hub: [`0xDfA0B34F28b1b6735d2df150a99048139302a80E`](https://hoodi.etherscan.io/address/0xDfA0B34F28b1b6735d2df150a99048139302a80E) *(proxy)*
 - Operator Grid: [`0xccb86588b776743CCCB6572D2a6eAFd466012191`](https://hoodi.etherscan.io/address/0xccb86588b776743CCCB6572D2a6eAFd466012191) *(proxy)*
-- Pre‑deposit Guarantee: [`0x4C003D5586B32359Df5f37B42A2E717E24817Ec2`](https://hoodi.etherscan.io/address/0x4C003D5586B32359Df5f37B42A2E717E24817Ec2) *(proxy)*
+- Predeposit Guarantee: [`0x4C003D5586B32359Df5f37B42A2E717E24817Ec2`](https://hoodi.etherscan.io/address/0x4C003D5586B32359Df5f37B42A2E717E24817Ec2) *(proxy)*
 
 ### 🔨 stVaults factory stack
 
