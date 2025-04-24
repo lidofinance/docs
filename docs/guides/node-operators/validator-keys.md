@@ -213,7 +213,7 @@ This UI shows a number of submitted, approved and valid keys for each Node Opera
 It is updated every 30 minutes via cron, but update period may change in the future.
 
 [mainnet lido node operator dashboard]: https://operators.lido.fi
-[hoodi lido node operator dashboard]: https://operators-hoodi.testnet.fi/
+[hoodi lido node operator dashboard]: https://operators-hoodi.testnet.fi
 
 ### Results
 
