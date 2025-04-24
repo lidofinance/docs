@@ -30,7 +30,7 @@ It's also advised to have secure Ejector->Nodes and KAPI->Nodes communication, f
 
 ### Operator ID
 
-You can find it on the Operators Dashboard (`#123` on the operator card): [Hoodi](https://operators-hoodi.testnet.fi/), [Mainnet](https://operators.lido.fi)
+You can find it on the Operators Dashboard (`#123` on the operator card): [Hoodi](https://operators-hoodi.testnet.fi), [Mainnet](https://operators.lido.fi)
 
 ### Staking Router Module ID:
 
