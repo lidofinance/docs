@@ -15,7 +15,7 @@ If you are looking for mainnet Lido V3 addresses – hang tight, they are not li
 
 - 🏗️ [Technical design doc](https://hackmd.io/@lido/stVaults-design)
 - 🔌 [stVaults integration guide](/guides/stvaults)
-- 🛡️ [stVaults Pre-deposit Guarantee (PDG) guide](/guides/stvaults/pdg)
+- 🛡️ [stVaults Predeposit Guarantee (PDG) guide](/guides/stvaults/pdg)
 - ⚓ [stVaults deployment tag: **`v3.0.0-alpha`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-alpha)
 
 ---

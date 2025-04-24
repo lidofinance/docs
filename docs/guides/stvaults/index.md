@@ -14,7 +14,7 @@ stVaults consist of the following components:
 - **CLI (Command Line Interface)**: A command-line tool interacting directly with the `Dashboard` contract and other stVaults-related contracts offering advanced management capabilities (deposits, generating proofs, per-vault oracle reports, etc.). ([GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/))
 - **Dashboard contract**: A management contract deployed together with the `StakingVault` Contract, and is assigned as the owner of the `StakingVault` Contract by default. It provides granular management capabilities and introduces roles and permissions, allowing different actions to be managed by distinct roles. It also provides utility functions for minting/burning, performing deposits, collecting node operator fees.
 - **StakingVault Contract**: The core primitive contract representing the staking vault. Advanced use cases might include direct interaction with the `StakingVault` Contract, which requires transferring ownership from the `Dashboard` contract.
-- **Pre-deposit Guarantee (PDG)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows stVault's owner and Node Operators to deposit validators with the vault's funds in trustless manner.
+- **Predeposit Guarantee (PDG)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows stVault's owner and Node Operators to deposit validators with the vault's funds in trustless manner.
 - **Off-chain monitoring tools (can be used by the Node Operator):**
   - **Ethereum Validators Monitoring (EVM)**: Consensus layer validators monitoring bot, that fetches Lido or Custom Users Node Operators keys from Execution layer and checks their performance in Consensus layer by: balance delta, attestations, proposes, sync committee participation.
   - **Ethereum Head Watcher**: Bot which watches Ethereum head block and handle validator-related "events" and sends notifications through Alertmanager to Discord channel.
@@ -56,7 +56,7 @@ stVaults consist of the following components:
 **Use case examples**:
 
 - Institutional integrator requiring automated and scriptable staking management.
-- Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as pre-deposit, prove and top-up deposit validators via PDG.
+- Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as predeposit, prove and top-up deposit validators via PDG.
 - Protocols integrating with stVaults and run in the integration on testnet.
 
 ### Dashboard contract
@@ -98,7 +98,7 @@ stVaults consist of the following components:
 - Institutional users with a dedicated infrastructure for contract interaction who require maximum control over staking operations.
 - Structured product integrating `StakingVault` directly to reduce operations gas costs and use own infrastructure.
 
-### Pre-deposit Guarantee (PDG)
+### Predeposit Guarantee (PDG)
 
 **URL**: [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol), [PDG user guide](./pdg)
 
@@ -107,7 +107,7 @@ stVaults consist of the following components:
 **How to use:**
 
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
-2. Pre-deposit guarantee contract enables three main use cases:
+2. Predeposit guarantee contract enables three main use cases:
     1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](./pdg.md#full-cycle-trustless-path-through-pdg)).
     2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg.md#pdg-shortcut)).
     3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
