@@ -47,7 +47,7 @@ The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi
 For advanced or low-level features that haven’t yet been exposed in the interface, use the CLI.
 :::
 
-**URL**: https://vaults-hoodi-lidov3.testnet.fi/
+**URL**: https://vaults-hoodi-lidov3.testnet.fi
 
 **Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
 
