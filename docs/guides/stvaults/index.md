@@ -21,25 +21,6 @@ stVaults consist of the following components:
 
 ## Integration and interacting layers
 
-### Web UI
-
-**URL**: https://vaults-hoodi-lidov3.testnet.fi/
-
-**Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
-
-**Steps**:
-
-1. Access the Vault Web UI and connect the wallet.
-2. Create a vault and set up roles and permissions.
-3. Supply/withdraw ETH, perform Beacon Chain deposits/withdrawals, mint/burn stETH.
-4. View vault and validators metrics and configure settings.
-
-**Use case example**:
-
-- Individual and institutional stakers using the UI to perform operations, exploring vault performance, economy, fees, and efficiency.
-- Prospecting vault owners examining node operator performance and vault efficiency before creating their own staking vault.
-- Anyone using the UI as an educational and analytical tool for understanding staking vault metrics.
-
 ### Command-line interface
 
 **URL**: [GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
@@ -58,6 +39,30 @@ stVaults consist of the following components:
 - Institutional integrator requiring automated and scriptable staking management.
 - Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as predeposit, prove and top-up deposit validators via PDG.
 - Protocols integrating with stVaults and run in the integration on testnet.
+
+### Web UI
+
+:::info
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](../../deployed-contracts/hoodi-lidov3.md).
+For advanced or low-level features that haven’t yet been exposed in the interface, use the CLI.
+:::
+
+**URL**: https://vaults-hoodi-lidov3.testnet.fi/
+
+**Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
+
+**Steps**:
+
+1. Access the Vault Web UI and connect the wallet.
+2. Create a vault and set up roles and permissions.
+3. Supply/withdraw ETH, perform Beacon Chain deposits/withdrawals, mint/burn stETH.
+4. View vault and validators metrics and configure settings.
+
+**Use case example**:
+
+- Individual and institutional stakers using the UI to perform operations, exploring vault performance, economy, fees, and efficiency.
+- Prospecting vault owners examining node operator performance and vault efficiency before creating their own staking vault.
+- Anyone using the UI as an educational and analytical tool for understanding staking vault metrics.
 
 ### Dashboard contract
 
