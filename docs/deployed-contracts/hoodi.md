@@ -130,7 +130,7 @@ Currently, the main operational and maintained protocol testnet is being migrate
 
 ## Testnet Stablecoins
 
-  - USDC: [`0xeF07c9674661C4979cC6367d343a54cc48ff40dD`](https://hoodi.etherscan.io/address/0xeF07c9674661C4979cC6367d343a54cc48ff40dD)
+  - USDC: [`0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36`](https://hoodi.etherscan.io/address/0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36)
   - USDT: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.etherscan.io/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
   - DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
 <!--
