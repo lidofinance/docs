@@ -75,7 +75,7 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 1. Call `VaultFactory` to create a `StakingVault` contract and a `Dashboard` contract assigned as an owner of the Vault contract.
 2. Define roles and permissions on the `StakingVault` creating, or later via the `Dashboard` contract.
 3. Interact with the `Dashboard` contract for high-level operations.
-4. Use role-specific methods via the `Dashboard` contract to interact with the StakingVault contract.
+4. Use role-specific methods via the `Dashboard` contract to interact with the `StakingVault` contract.
 
 **Use case example**:
 
