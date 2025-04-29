@@ -75,6 +75,11 @@ If you are looking for mainnet Lido V3 addresses – hang tight, they are not li
 
 - Simple DVT: [`0x90106946d5525003385310D8e3e123cA6CFCf5Cd`](https://hoodi.etherscan.io/address/0x90106946d5525003385310D8e3e123cA6CFCf5Cd) (proxy)
 
+## Easy Track
+
+- EasyTrack: [`0x9A2029735Bd14C8b17fd03FE05D5F04F7AF797c2`](https://hoodi.etherscan.io/address/0x9A2029735Bd14C8b17fd03FE05D5F04F7AF797c2)
+- EVMScriptExecutor: [`0x0b6de69562CADa4dBFdCA7e448fdc71D3542A590`](https://hoodi.etherscan.io/address/0x0b6de69562CADa4dBFdCA7e448fdc71D3542A590)
+
 ## ⛏️ Special accounts and addresses
 
 <details>
