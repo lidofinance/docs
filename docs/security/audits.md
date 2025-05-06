@@ -628,6 +628,12 @@ See [full report](https://github.com/lidofinance/audits/blob/main/QSP%20Lido%20R
 
 ## Lido Multichain audit reports
 
+### 04-2025 MixBytes wstETH on Lisk Verification Report
+
+The deployed contracts are verified in accordance to the [proposal](https://research.lido.fi/t/temperature-check-wsteth-deployment-to-lisk-and-ownership-acceptance-by-lido-nec/6669/5)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/wstETH-on-Lisk-2025-04-MixBytes-deployment-verification.pdf) for more details.
+
 ### 02-2025 MixBytes stETH on Unichain Verification Report
 
 The deployed contracts are verified against the [stETH on Optimism](https://docs.lido.fi/deployed-contracts/#optimism) deployment.
