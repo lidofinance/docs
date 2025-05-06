@@ -69,3 +69,9 @@ Method called: `Dashboard.proveUnknownValidatorsToPDG(witness)`.
 6. The Oracle report confirms the validator’s balance (1 ETH). The stVault’s total value is then increased by 1 ETH accordingly.
 7. The Node Operator deposits the remaining 99 ETH from the vault balance to the validator through the PDG.  
 Method called: `PredepositGuarantee.depositToBeaconChain(stakingVault, deposits)`.
+
+—
+
+:::tip 📣 **Leave feedback**
+Feel free to drop your thoughts about PDG and Lido V3 through **[this simple form](https://tally.so/r/3X9vYe)**.
+:::

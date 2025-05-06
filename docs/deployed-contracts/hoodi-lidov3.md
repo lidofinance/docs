@@ -11,6 +11,11 @@ If you are looking for mainnet Lido V3 addresses – hang tight, they are not li
 
 :::
 
+:::tip 📣 **Leave feedback** ← NEW
+Tried this testnet? Lido contributors would love to hear from you!  
+Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r/3X9vYe)**.
+:::
+
 ## 📚 Further reading
 
 - 🏗️ [Technical design doc](https://hackmd.io/@lido/stVaults-design)
