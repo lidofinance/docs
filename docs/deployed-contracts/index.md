@@ -324,6 +324,7 @@ for the rate and price feeds recommended approaches.
 - Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
 - Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
 - Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
+- Swell: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://safe.optimism.io/settings/setup?safe=swell-l2:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 ### Liquidity Observation Lab Multisigs
 
@@ -625,6 +626,21 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0xca498Ee83eD3546321d4DC25e2789B0624F15f68`](https://blockscout.lisk.com/address/0xca498Ee83eD3546321d4DC25e2789B0624F15f68) (proxy)
 - L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
 - Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
+
+### Swell
+
+##### Ethereum part
+
+- (proposed) L1ERC20TokenBridge: [`0xecf3376512EDAcA4FBB63d2c67d12a0397d24121`](https://etherscan.io/address/0xecf3376512EDAcA4FBB63d2c67d12a0397d24121) (proxy)
+- (proposed) L1ERC20TokenBridge: [`0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2`](https://etherscan.io/address/0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2) (impl)
+
+##### Swell part
+
+- (proposed) WstETH ERC20Bridged: [`0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc`](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc) (proxy)
+- (proposed) WstETH ERC20Bridged: [`0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1`](https://explorer.swellnetwork.io/address/0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1) (impl)
+- (proposed) L2ERC20TokenBridge: [`0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0`](https://explorer.swellnetwork.io/address/0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0) (proxy)
+- (proposed) L2ERC20TokenBridge: [`0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE`](https://explorer.swellnetwork.io/address/0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE) (impl)
+- (proposed) Governance BridgeExecutor: [`0xFF22ea467301010F1364fc154c13e0c86Fcfb077`](https://explorer.swellnetwork.io/address/0xFF22ea467301010F1364fc154c13e0c86Fcfb077)
 
 ### Lido Multichain Liquidity pools
 
