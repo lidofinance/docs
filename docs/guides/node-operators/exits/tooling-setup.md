@@ -30,7 +30,7 @@ It's also advised to have secure Ejector->Nodes and KAPI->Nodes communication, f
 
 ### Operator ID
 
-You can find it on the Operators Dashboard (`#123` on the operator card): [Holešky](https://holesky-operators.testnet.fi), [Mainnet](https://operators.lido.fi)
+You can find it on the Operators Dashboard (`#123` on the operator card): [Hoodi](https://operators-hoodi.testnet.fi), [Mainnet](https://operators.lido.fi)
 
 ### Staking Router Module ID:
 
@@ -43,7 +43,7 @@ The oracle members are retrievable from the HashConsensus (for the Validator Exi
 | network  | Contract Call |
 | -------- | ------------- |
 | Mainnet  | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
-| Holešky  | [getMembers()](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f#readContract#F16) |
+| Hoodi    | [getMembers()](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c#readContract#F16) |
 
 ## Example Infra Setup
 

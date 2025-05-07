@@ -50,6 +50,14 @@ module.exports = {
             'guides/depositor-bot',
           ],
         },
+        {
+          type: 'category',
+          label: 'stVaults',
+          link: { type: 'doc', id: 'guides/stvaults/index' },
+          items: [
+            'guides/stvaults/pdg',
+          ]
+        },
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',
@@ -87,7 +95,7 @@ module.exports = {
       items: [
         'token-guides/steth-superuser-functions',
         'token-guides/steth-on-aave-caveats',
-        'token-guides/wsteth-bridging-guide',
+        'token-guides/cross-chain-tokens-guide',
       ],
     },
     {
@@ -133,6 +141,8 @@ module.exports = {
       link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
+        'deployed-contracts/hoodi',
+        { type: 'doc', id: 'deployed-contracts/hoodi-lidov3', label: 'Hoodi (Lido V3 testnet)' },
         'deployed-contracts/holesky',
         'deployed-contracts/sepolia'
       ],
@@ -145,6 +155,7 @@ module.exports = {
         'multisigs/committees',
         'multisigs/lido-on-x',
         'multisigs/lido-contributors-group',
+        'multisigs/alliance',
         'multisigs/other',
       ],
     },
@@ -184,6 +195,7 @@ module.exports = {
                 'staking-modules/csm/guides/mev-stealing',
                 'staking-modules/csm/guides/unbonded-validators',
                 'staking-modules/csm/guides/addresses',
+                'staking-modules/csm/guides/fee-recipient',
               ]
             },
             {

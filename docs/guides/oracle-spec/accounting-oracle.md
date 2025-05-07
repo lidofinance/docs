@@ -69,7 +69,7 @@ Considering withdrawals, the Lido protocol can be in two states: Turbo and Bunke
 **Bunker mode**: there are two additional constraints.
 
 The protocol takes into account the impact of negative factors that occurred in a certain period and finalizes requests on which the negative effects have already been socialized.
-The safe request finalization border is considered to be the earliest of of the following:
+The safe request finalization border is considered to be the earliest of the following:
 
 - New requests border
 - Associated slashing border
@@ -139,7 +139,7 @@ Bunker mode can be enabled by a negative rebase in case of mass validator penalt
 
 ![Safe border 11](../../../static/img/oracle-spec/safe-border-11.png)
 
-This border has a maximum length equal to two times the governance reaction time (where governance reaction time is 72 hours).
+This border has a maximum length equal to two times the governance reaction time (where governance reaction time is 120 hours).
 
 ##### Border union
 
@@ -203,10 +203,10 @@ To start calculation oracle should pass next variables to `WithdrawalQueue.calcu
 ```solidity
 struct BatchesCalculationState {
         /// @notice amount of ether available in the protocol that can be used to finalize withdrawal requests
-        ///  Will decrease on each invokation and will be equal to the remainder when calculation is finished
-        ///  Should be set before the first invokation
+        ///  Will decrease on each invocation and will be equal to the remainder when calculation is finished
+        ///  Should be set before the first invocation
         uint256 remainingEthBudget;
-        /// @notice flag that is `true` if returned state is final and `false` if more invokations required
+        /// @notice flag that is `true` if returned state is final and `false` if more invocations required
         bool finished;
         /// @notice static array to store all the batches ending request id
         uint256[MAX_BATCHES_LENGTH] batches;
@@ -233,10 +233,10 @@ The first condition is when there is a new or ongoing mass slashing that may cau
 
 #### Condition 2. Negative CL rebase in the current frame
 
-The second condition is when a negative CL rebase is detected in the current frame. The "bunker mode" is activated, and there is a limit on the maximum delay for withdrawal requests finalization that is set to 2 * gov_reaction_time (~6 days) if there are no associated slashings.
+The second condition is when a negative CL rebase is detected in the current frame. The "bunker mode" is activated, and there is a limit on the maximum delay for withdrawal requests finalization that is set to 2 * gov_reaction_time (~10 days) if there are no associated slashings.
 
 #### Condition 3. Lower than expected CL rebase in the current frame and a negative CL rebase at the end of the frame
 
-The third condition is when there is a lower-than-expected CL rebase in the current frame and a negative CL rebase at the end of the frame. The "bunker mode" is activated when the Oracle detects this condition. The limit on the maximum delay for withdrawal requests finalization is set to 2 * gov_reaction_time + 1 (~7 days) if there are no associated slashings.
+The third condition is when there is a lower-than-expected CL rebase in the current frame and a negative CL rebase at the end of the frame. The "bunker mode" is activated when the Oracle detects this condition. The limit on the maximum delay for withdrawal requests finalization is set to 2 * gov_reaction_time + 1 (~11 days) if there are no associated slashings.
 
 For more details, see [“Bunker mode”: what it is and how it works](https://docs.google.com/document/d/1NoJ3rbVZ1OJfByjibHPA91Ghqk487tT0djAf6PFu8s8/)

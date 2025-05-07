@@ -95,10 +95,10 @@ Operator id for a given reward address can be obtained by successively calling
 [`NodeOperatorsRegistry.getNodeOperator`] with the increasing `_id` argument until you get the
 operator with the matching `rewardAddress`.
 
-Etherscan pages for the Holešky contracts:
+Etherscan pages for the Hoodi contracts:
 
-- [`Lido`](https://holesky.etherscan.io/address/0x3F1c547b21f65e10480dE3ad8E19fAAC46C95034#readProxyContract)
-- [`NodeOperatorsRegistry`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC)
+- [`Lido`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a#readProxyContract)
+- [`NodeOperatorsRegistry`](https://hoodi.etherscan.io/address/0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5)
 
 Etherscan pages for the Mainnet contracts:
 
@@ -206,14 +206,14 @@ You would need an RPC endpoint - a local node / RPC provider (eg Alchemy/Infura)
 
 ### Lido Node Operator Dashboard
 
-You can also check the uploaded keys on [Mainnet Lido Node Operator Dashboard] or [Testnet Lido Node Operator Dashboard].
+You can also check the uploaded keys on [Mainnet Lido Node Operator Dashboard] or [Hoodi Lido Node Operator Dashboard].
 
 This UI shows a number of submitted, approved and valid keys for each Node Operator, along with all invalid keys in case there are any.
 
 It is updated every 30 minutes via cron, but update period may change in the future.
 
 [mainnet lido node operator dashboard]: https://operators.lido.fi
-[testnet lido node operator dashboard]: https://operators.testnet.fi
+[hoodi lido node operator dashboard]: https://operators-hoodi.testnet.fi
 
 ### Results
 

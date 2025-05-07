@@ -1,5 +1,5 @@
 ---
-pagination_next: deployed-contracts/holesky
+pagination_next: deployed-contracts/hoodi
 ---
 
 # Mainnet
@@ -37,7 +37,7 @@ where the protocol and its parts/extensions are deployed.
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
-- Legacy Oracle ([proposed for deprecation effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
+- Legacy Oracle ([deprecated effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
 
 ## DAO Contracts
 
@@ -55,9 +55,9 @@ where the protocol and its parts/extensions are deployed.
 - Node Operators Registry Repo: [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
 - Simple DVT Repo: [`0x2325b0a607808dE42D918DB07F925FFcCfBb2968`](https://etherscan.io/address/0x2325b0a607808dE42D918DB07F925FFcCfBb2968) (proxy)
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
-- Gate Seal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
-- Gate Seal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- Gate Seal: [`0x79243345eDbe01A7E42EDfF5900156700d22611c`](https://etherscan.io/address/0x79243345eDbe01A7E42EDfF5900156700d22611c)
+- GateSeal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
+- GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
+- GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
 
 ## Data Bus
 
@@ -86,9 +86,9 @@ where the protocol and its parts/extensions are deployed.
 - CSAccounting: [`0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758`](https://etherscan.io/address/0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758) (impl)
 - CSFeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
 - CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
-- CSVerifier: [`0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583`](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
+- CSVerifier: [`0x0c345dFa318f9F4977cdd4f33d80F9D0ffA38e8B`](https://etherscan.io/address/0x0c345dFa318f9F4977cdd4f33d80F9D0ffA38e8B)
 - CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
-- GateSeal: [`0x5cFCa30450B1e5548F140C24A47E36c10CE306F0`](https://etherscan.io/address/0x5cFCa30450B1e5548F140C24A47E36c10CE306F0)
+- CS GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
 - CSFeeOracle:
   - CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
   - CSFeeOracle: [`0x919ac5C6c62B6ef7B05cF05070080525a7B0381E`](https://etherscan.io/address/0x919ac5C6c62B6ef7B05cF05070080525a7B0381E) (impl)
@@ -112,19 +112,23 @@ where the protocol and its parts/extensions are deployed.
 
 ## Price feeds
 
-- Primary price feeds
+:::note
+See [integration guide](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds)
+for the rate and price feeds recommended approaches.
+:::
 
-  - Chainlink stETH/USD Price Feed: [`0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8`](https://etherscan.io/address/0xCfE54B5cD566aB89272946F602D76Ea879CAb4a8) ([steth-usd.data.eth](https://app.ens.domains/name/steth-usd.data.eth))
-  - Chainlink stETH/ETH Price Feed: [`0x86392dC19c0b719886221c78AB11eb8Cf5c52812`](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
+- Mainnet price feeds
+  - Chainlink wstETH/USD Price Feed: [`0x8b6851156023f4f5a66f68bea80851c3d905ac93`](https://etherscan.io/address/0x8b6851156023f4f5a66f68bea80851c3d905ac93)
 
-- Reserve price feeds (obsolete)
-
-  - stETH/ETH Merkle Price Oracle [`0x3a6bd15abf19581e411621d669b6a2bbe741ffd6`](https://etherscan.io/address/0x3a6bd15abf19581e411621d669b6a2bbe741ffd6)
-  - stETH/ETH Price Feed [`0xab55bf4dfbf469ebfe082b7872557d1f87692fe6`](https://etherscan.io/address/0xab55bf4dfbf469ebfe082b7872557d1f87692fe6) (proxy)
-
-- L2 wstETH/stETH rate feeds
+- Multichain wstETH/stETH rate feeds
+  - Chainlink wstETH/stETH exchange rate on Base: [`0xB88BAc61a4Ca37C43a3725912B1f472c9A5bc061`](https://basescan.org/address/0xB88BAc61a4Ca37C43a3725912B1f472c9A5bc061) (proxy)
   - Chainlink wstETH/stETH exchange rate on Arbitrum: [`0xB1552C5e96B312d0Bf8b554186F846C40614a540`](https://arbiscan.io/address/0xb1552c5e96b312d0bf8b554186f846c40614a540) (proxy)
   - Chainlink wstETH/stETH exchange rate on Optimism: [`0xe59EBa0D492cA53C6f46015EEa00517F2707dc77`](https://optimistic.etherscan.io/address/0xe59eba0d492ca53c6f46015eea00517f2707dc77) (proxy)
+  - Chainlink wstETH/stETH exchange rate on Scroll: [`0xE61Da4C909F7d86797a0D06Db63c34f76c9bCBDC`](https://scrollscan.com/address/0xE61Da4C909F7d86797a0D06Db63c34f76c9bCBDC) (proxy)
+  - Chainlink wstETH/stETH exchange rate on zkSync: [`0x24a0C9404101A8d7497676BE12F10aEa356bAC28`](https://explorer.zksync.io/address/0x24a0C9404101A8d7497676BE12F10aEa356bAC28) (proxy)
+  - Chainlink wstETH/stETH exchange rate on Linea: [`0x3C8A95F2264bB3b52156c766b738357008d87cB7`](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7) (proxy)
+  - Chainlink wstETH/stETH exchange rate on BNB: [`0x4c75d01cfa4D998770b399246400a6dc40FB9645`](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645) (proxy)
+
 
 ## Reward Programs
 
@@ -154,7 +158,7 @@ where the protocol and its parts/extensions are deployed.
 - AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (impl)
 - bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 
-## AAVE Integration
+## AAVE V2 Integration
 
 - AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
@@ -164,7 +168,7 @@ where the protocol and its parts/extensions are deployed.
 - VariableDebtStETH: [`0xDe2c414b671d2DB93617D1592f0490c13674de24`](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24) (impl)
 - DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
 
-## DAO-ops contracts & addresses
+## DAO Ops contracts & addresses
 
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 - Token Reward Program (TRP) VestingEscrowFactory: [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
@@ -261,6 +265,14 @@ where the protocol and its parts/extensions are deployed.
   - AllowedRecipientsRegistry: [`0x3f0534CCcFb952470775C516DC2eff8396B8A368`](https://etherscan.io/address/0x3f0534CCcFb952470775C516DC2eff8396B8A368)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - TopUpAllowedRecipients: [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6)
+- **Ecosystem BORG Foundation operational funds stablecoins** (committee ms [`0x55897893c19e4B0c52731a3b7C689eC417005Ad6`](https://app.safe.global/home?safe=eth:0x55897893c19e4B0c52731a3b7C689eC417005Ad6))
+  - AllowedRecipientsRegistry: [`0xDAdC4C36cD8F468A398C25d0D8aaf6A928B47Ab4`](https://etherscan.io/address/0xDAdC4C36cD8F468A398C25d0D8aaf6A928B47Ab4)
+  - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
+  - TopUpAllowedRecipients: [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)
+- **Labs BORG Foundation operational funds stablecoins** (committee ms [`0x95B521B4F55a447DB89f6a27f951713fC2035f3F`](https://app.safe.global/home?safe=eth:0x95B521B4F55a447DB89f6a27f951713fC2035f3F))
+  - AllowedRecipientsRegistry: [`0x68267f3D310E9f0FF53a37c141c90B738E1133c2`](https://etherscan.io/address/0x68267f3D310E9f0FF53a37c141c90B738E1133c2)
+  - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
+  - TopUpAllowedRecipients: [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)
 - **Tooling contracts:**
   - AllowedRecipientsBuilder (single token): [`0x958e0D946D014F377421a53AB5f9180d4485e63B`](https://etherscan.io/address/0x958e0D946D014F377421a53AB5f9180d4485e63B)
   - AllowedRecipientsFactory (single token): [`0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B`](https://etherscan.io/address/0x83E976758B7AB1bb676A4fEA073Fa0E2A807642B)
@@ -278,12 +290,19 @@ where the protocol and its parts/extensions are deployed.
 
 ### Committees
 
-- Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://etherscan.io/address/0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Rewards Share Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 - Relay Maintenance Committee: [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://etherscan.io/address/0x98be4a407Bff0c125e25fBE9Eb1165504349c37d)
 - Token Reward Program (TRP) Committee: [`0x834560F580764Bc2e0B16925F8bF229bb00cB759`](https://etherscan.io/address/0x834560F580764Bc2e0B16925F8bF229bb00cB759)
-- Treasury Committee: [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://etherscan.io/address/0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
+- Treasury Management Committee: [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://etherscan.io/address/0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
+- Delegate Oversight Committee: [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
+- Simple DVT Module Committee: [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7)
+- Community Staking Module Committee: [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
+
+### Alliance
+- Lido Alliance BORG Foundation Operational: [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
+- Lido Alliance BORG Allies/Partners: [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
+- Lido Alliance BORG Drop: [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 ### Dev Team Multisigs
 
@@ -291,7 +310,7 @@ where the protocol and its parts/extensions are deployed.
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
 ### Emergency Brakes Multisigs
-
+- GateSeal Committee: [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/home?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://app.safe.global/home?safe=oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://app.safe.global/home?safe=arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)
@@ -302,6 +321,9 @@ where the protocol and its parts/extensions are deployed.
 - Mode: [`0x244912352A639001ceCFa208cDaa7CB474c9eadE`](https://safe.optimism.io/home?safe=mode:0x244912352A639001ceCFa208cDaa7CB474c9eadE)
 - Binance Smart Chain (BSC): [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 - Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
+- Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
+- Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
+- Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
 - Swell: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://safe.optimism.io/settings/setup?safe=swell-l2:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 ### Liquidity Observation Lab Multisigs
@@ -322,7 +344,16 @@ where the protocol and its parts/extensions are deployed.
 - Liquidity Observation Lab: [`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) (Linea)
 - Liquidity Observation Lab: [`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) (Mantle)
 - Liquidity Observation Lab: [`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) (Scroll)
-- Liquidity Observation Lab AAVE rewards multisig family: `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935), [Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
+- Liquidity Observation Lab AAVE rewards: `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` ([Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022))
+- Liquidity Observation Lab AAVE rewards: `0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935` ([Base](https://app.safe.global/home?safe=base:0x4f793e5d1d71dbbcEE34E39A5aD3c6bA5b11e935))
+- Liquidity Observation Lab AAVE rewards: `0x75483CE83100890c6bf1718c26052cE44e0F2839` ([Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839))
+- Liquidity Observation Lab AAVE rewards: `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
+
+### Lido on X
+- Lido on Polygon: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
+
+### Other
+- Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 
 ## Lido Multichain
 
@@ -402,8 +433,8 @@ where the protocol and its parts/extensions are deployed.
 
 #### ZKSync part
 
-- ZkSyncBridgeExecutor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
-- ZkSyncBridgeExecutor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
+- ZkSync Governance Bridge Executor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
+- ZkSync Governance Bridge Executor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
 - L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
 - L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
 - ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
@@ -443,7 +474,7 @@ where the protocol and its parts/extensions are deployed.
 - L2 TokenBridge (Canonical Bridge): [`0x353012dc4a9a6cf55c941badc267f82004a8ceb9`](https://lineascan.build/address/0x353012dc4a9a6cf55c941badc267f82004a8ceb9) (proxy)
 - L2 TokenBridge (Canonical Bridge): [`0xd90ed3d4f9d11262d3d346a4369058d5b3777137`](https://lineascan.build/address/0xd90ed3d4f9d11262d3d346a4369058d5b3777137) (impl)
 - ProxyAdmin for L2 TokenBridge: [`0x1e1f6f22f97b4a7522d8b62e983953639239774e`](https://lineascan.build/address/0x1e1f6f22f97b4a7522d8b62e983953639239774e)
-- LineaBridgeExecutor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
+- Linea Governance Bridge Executor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
 ### Scroll
 
@@ -455,7 +486,7 @@ where the protocol and its parts/extensions are deployed.
 
 ##### Scroll part
 
-- ScrollBridgeExecutor: [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
+- Scroll Governance Bridge Executor: [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 - L2LidoGateway: [`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9) (proxy)
 - L2LidoGateway: [`0x2B9beB2890DBeFC7cA25Af3164100d139B623C24`](https://scrollscan.com/address/0x2B9beB2890DBeFC7cA25Af3164100d139B623C24) (impl)
 - L2WstETHToken: [`0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32`](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32) (proxy)
@@ -477,7 +508,7 @@ where the protocol and its parts/extensions are deployed.
 - WstETH ERC20Bridged: [`0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A`](https://explorer.mode.network/address/0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A) (impl)
 - L2ERC20TokenBridge: [`0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc`](https://explorer.mode.network/address/0xb8161F28a5a38cE58f155D9A96bDAc0104985FAc) (proxy)
 - L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
-- Optimism Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
+- Mode Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
 
 ### Binance Smart Chain (BSC)
 
@@ -539,20 +570,62 @@ where the protocol and its parts/extensions are deployed.
 - WstETH ERC20Bridged: [`0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4`](https://explorer.zircuit.com/address/0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4) (impl)
 - L2ERC20TokenBridge: [`0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e`](https://explorer.zircuit.com/address/0xF4DC271cA48446a5d2b97Ff41D39918DF8A4Eb0e) (proxy)
 - L2ERC20TokenBridge: [`0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c`](https://explorer.zircuit.com/address/0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c) (impl)
-- Optimism Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
+- Zircuit Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
 
-### Starknet
+### Soneium
 
 ##### Ethereum part
 
-- wstETH StarknetERC20Bridge: [`0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B`](https://etherscan.io/address/0xBf67F59D2988A46FBFF7ed79A621778a3Cd3985B) (proxy)
-- wstETH StarknetERC20Bridge: [`0x6ad74d4b79a06a492c288ef66ef868dd981fdc85`](https://etherscan.io/address/0x6ad74d4b79a06a492c288ef66ef868dd981fdc85) (impl)
+- OpStackTokenRatePusher: [`0x927C99fC46226bd5131420B16aF0b0371165C3FC`](https://etherscan.io/address/0x927C99fC46226bd5131420B16aF0b0371165C3FC)
+- L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
+- L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
 
-##### Starknet part
+##### Soneium part
 
-- wstETH StarkGateL2Bridge: [`0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c`](https://starkscan.co/contract/0x0088eedbe2fe3918b69ccb411713b7fa72079d4eddf291103ccbe41e78a9615c#overview)
-- wstETH ERC20: [`0x42b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2`](https://starkscan.co/token/0x042b8f0484674ca266ac5d08e4ac6a3fe65bd3129795def2dca5c34ecc5f96d2)
-- Governance BridgeExecutor: [`0x7ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432`](https://starkscan.co/contract/0x07ba4bb6a9ec398598c9c08424af6bdb83f56e78ffc8f07f0da0dfae8deca432)
+- WstETH ERC20BridgedPermit: [`0xaA9BD8c957D803466FA92504BDd728cC140f8941`](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941) (proxy)
+- WstETH ERC20BridgedPermit: [`0x7591f6BD2301f7EE9267738039054047b5B395B0`](https://soneium.blockscout.com/address/0x7591f6BD2301f7EE9267738039054047b5B395B0) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF`](https://soneium.blockscout.com/address/0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x3BC5d0551F48902bDcC036d59F5D23987F581c28`](https://soneium.blockscout.com/address/0x3BC5d0551F48902bDcC036d59F5D23987F581c28) (impl)
+- TokenRateOracle: [`0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265`](https://soneium.blockscout.com/address/0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265) (proxy)
+- TokenRateOracle: [`0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4`](https://soneium.blockscout.com/address/0xA2f12f7C109c0b9aa5FFAe71612a68B6b8B2eFC4) (impl)
+- L2ERC20ExtendedTokensBridge: [`0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8`](https://soneium.blockscout.com/address/0xb4a0Cc7bE277DC9F9CBB6fbE8574B6f5221018D8) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
+- Soneium Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
+
+### Unichain
+
+##### Ethereum part
+
+- OpStackTokenRatePusher: [`0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74`](https://etherscan.io/address/0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74)
+- L1LidoTokensBridge: [`0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877`](https://etherscan.io/address/0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877) (proxy)
+- L1LidoTokensBridge: [`0x6078232C54d956c901620fa4590e0F7E37c2B82f`](https://etherscan.io/address/0x6078232C54d956c901620fa4590e0F7E37c2B82f) (impl)
+
+##### Unichain part
+
+- WstETH ERC20BridgedPermit: [`0xc02fE7317D4eb8753a02c35fe019786854A92001`](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001) (proxy)
+- WstETH ERC20BridgedPermit: [`0xB5CF096A406C1D5297D2493073168F44EB4a1A1d`](https://uniscan.xyz/address/0xB5CF096A406C1D5297D2493073168F44EB4a1A1d) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x5A007D6E37633FB297b82c074b94Bb29546BEbc3`](https://uniscan.xyz/address/0x5A007D6E37633FB297b82c074b94Bb29546BEbc3) (impl)
+- TokenRateOracle: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8) (proxy)
+- TokenRateOracle: [`0x537A7F9D551da3C2800cB11ca17f2946D21029AF`](https://uniscan.xyz/address/0x537A7F9D551da3C2800cB11ca17f2946D21029AF) (impl)
+- L2ERC20ExtendedTokensBridge: [`0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372`](https://uniscan.xyz/address/0x1A513e9B6434a12C7bB5B9AF3B21963308DEE372) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
+- Unichain Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
+
+### Lisk
+
+##### Ethereum part
+
+- L1ERC20TokenBridge: [`0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf`](https://etherscan.io/address/0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf) (proxy)
+- L1ERC20TokenBridge: [`0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC`](https://etherscan.io/address/0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC) (impl)
+
+##### Lisk part
+
+- WstETH ERC20Bridged: [`0x76D8de471F54aAA87784119c60Df1bbFc852C415`](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415) (proxy)
+- WstETH ERC20Bridged: [`0x16B8006b49db9022BF5457BD2de0144a7d0F970b`](https://blockscout.lisk.com/address/0x16B8006b49db9022BF5457BD2de0144a7d0F970b) (impl)
+- L2ERC20TokenBridge: [`0xca498Ee83eD3546321d4DC25e2789B0624F15f68`](https://blockscout.lisk.com/address/0xca498Ee83eD3546321d4DC25e2789B0624F15f68) (proxy)
+- L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
+- Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 
 ### Swell
 

@@ -1,6 +1,11 @@
 # Join CSM
 ![join-csm-1](../../../static/img/csm/join-csm-1.png)
 
+:::info
+- [Try CSM on Testnet](https://csm.testnet.fi)
+- [Join CSM on Mainnet](https://csm.lido.fi)
+:::
+
 ## Node Operator creation
 To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one [`validator pubkey`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#validator), corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding [bond](./join-csm#bond) amount should be provided.
 
@@ -9,7 +14,7 @@ CSM accepts deposit data in the same [format](/contracts/node-operators-registry
 
 [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata) **must** sign the root of the `(deposit_message, domain)`. Where a `domain` is used to identify the chain, and `deposit_message` has the form of the following tuple:
 - `validator pubkey`;
-- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](/contracts/withdrawal-vault) address. Should be retrieved from [Staring Router](/contracts/staking-router.md#getwithdrawalcredentials);
+- `withdrawal_credentials` with actual [`Lido Withdrawal Vault contract`](/contracts/withdrawal-vault) address. Should be retrieved from [Staking Router](/contracts/staking-router.md#getwithdrawalcredentials);
 - `32 ETH amount`;
 
 ## Bond

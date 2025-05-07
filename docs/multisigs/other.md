@@ -1,6 +1,6 @@
 # Other
 
-## 5.1 Community Lifeguards Multisig
+## 6.1 Community Lifeguards Multisig
 
 **Address:** [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 

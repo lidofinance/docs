@@ -14,7 +14,7 @@ Before running in the mainnet all steps should be done in the Holešky testnet.
 
 ### The vulnerability
 
-There is the vulnerability allowing the malicious Node Operator to intercept the user funds on deposits to the Beacon chain in the Lido protocol. The vulnerability could only be exploited by the Node Operator front-running the `Lido.depositBufferedEther` transaction with direct deposit to the DepositContract of no less than 1 ETH with the same validator public key & withdrawal credentials different from the Lido’s ones, effectively getting control over 32 ETH from Lido. To mitigate this, Lido contracts should be able to check that Node Operators’ keys hadn’t been used for malicious pre-deposits.
+There is the vulnerability allowing the malicious Node Operator to intercept the user funds on deposits to the Beacon chain in the Lido protocol. The vulnerability could only be exploited by the Node Operator front-running the `Lido.depositBufferedEther` transaction with direct deposit to the DepositContract of no less than 1 ETH with the same validator public key & withdrawal credentials different from the Lido’s ones, effectively getting control over 32 ETH from Lido. To mitigate this, Lido contracts should be able to check that Node Operators’ keys hadn’t been used for malicious predeposits.
 
 ### The Deposit Security Committee
 
@@ -24,7 +24,7 @@ The Deposit Security Committee has been established to ensure the safety of depo
 - **Pause on Malice Detection**: Signs the "pause" message that allows anyone to halt deposits when malicious Node Operator deposits are detected.
 - **Enhanced Security Measures**: Signs the message that enables the unvetting of keys from the Staking Module in cases of detected malicious activities, duplicate entries, or invalid keys by Node Operators.
 
-To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious pre-deposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option [<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
+To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious predeposits. To mitigate this we propose to allow single committee member to stop deposits and also enforce space deposits in time (e.g. no more than 150 deposits with 150 blocks in between them), to provide single honest participant an ability to stop further deposits even if the supermajority colludes. The idea was outlined on research forum post as the option [<b>d</b>](https://research.lido.fi/t/mitigations-for-deposit-front-running-vulnerability/1239#d-approving-deposit-contract-merkle-root-7).
 
 ### Committee membership
 
@@ -32,7 +32,7 @@ The current set of guardians is five node operators (Stakefish, Kiln, Blockscape
 
 ### Members responsibilities
 
-Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, member has to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
+Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, members have to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
 
 ## Preparation steps
 

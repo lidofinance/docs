@@ -2,7 +2,7 @@
 
 ## What is MEV stealing?
 
-"MEV stealing" stands for violating the [Lido on Ethereum Block Proposer Rewards Policy](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f). Simply speaking, any block proposed by the CSM validator with either base block rewards or MEV rewards directed to an address different from the Lido Execution Layer Rewards Vault ([Mainnet](/deployed-contracts/index.md), [Holesky](/deployed-contracts/holesky.md)) is considered to be a violating block.
+"MEV stealing" stands for violating the [Lido on Ethereum Block Proposer Rewards Policy](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f). Simply speaking, any block proposed by the CSM validator with either base block rewards or MEV rewards directed to an address different from the Lido Execution Layer Rewards Vault ([Mainnet](/deployed-contracts/index.md), [Hoodi](/deployed-contracts/hoodi.md)) is considered to be a violating block.
 
 ## How does CSM react to MEV stealing?
 

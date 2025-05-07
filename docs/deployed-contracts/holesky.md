@@ -1,7 +1,7 @@
 # Holešky
 
-:::info
-[Holešky testnet](/deployed-contracts/holesky.md) is the main operational and maintained protocol testnet deployment.
+:::warning
+Currently, the main operational and maintained protocol testnet is being migrated from [Holešky](/deployed-contracts/holesky.md) to [Hoodi](/deployed-contracts/hoodi.md).
 :::
 
 ## Core protocol
@@ -53,9 +53,24 @@
 - CallsScript: [`0xAa8B4F258a4817bfb0058b861447878168ddf7B0`](https://holesky.etherscan.io/address/0xAa8B4F258a4817bfb0058b861447878168ddf7B0)
 - Lido APMRegistry: [`0x4605Dc9dC4BD0442F850eB8226B94Dd0e27C3Ce7`](https://holesky.etherscan.io/address/0x4605Dc9dC4BD0442F850eB8226B94Dd0e27C3Ce7) (proxy)
 - Aragon APMRegistry: [`0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A`](https://holesky.etherscan.io/address/0xB576A85c310CC7Af5C106ab26d2942fA3a5ea94A) (proxy)
-- Gate Seal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
-- Gate Seal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
-- Gate Seal: [`0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d`](https://holesky.etherscan.io/address/0xA34d620EA9F3e86bf8B8a7699B4dE44CD9D3202d)
+- GateSeal Blueprint: [`0x2e4fc708A6073241b6884dC72D817c6eb2632229`](https://holesky.etherscan.io/address/0x2e4fc708A6073241b6884dC72D817c6eb2632229)
+- GateSeal Factory: [`0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2`](https://holesky.etherscan.io/address/0x1134F7077055b0B3559BE52AfeF9aA22A0E1eEC2)
+- GateSeal: [`0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778`](https://holesky.etherscan.io/address/0xAE6eCd77DCC656c5533c4209454Fd56fB46e1778)
+
+### Dual Governance
+
+- Emergency Protected Timelock: [`0xe9c5FfEAd0668AFdBB9aac16163840d649DB76DD`](https://holesky.etherscan.io/address/0xe9c5FfEAd0668AFdBB9aac16163840d649DB76DD)
+- Admin Executor: [`0x8BD0a916faDa88Ba3accb595a3Acd28F467130e8`](https://holesky.etherscan.io/address/0x8BD0a916faDa88Ba3accb595a3Acd28F467130e8)
+- Dual Governance: [`0x490bf377734CA134A8E207525E8576745652212e`](https://holesky.etherscan.io/address/0x490bf377734CA134A8E207525E8576745652212e)
+- Dual Governance Config Provider: [`0xF3257b7E333Cdd15df92CBc3BAF645D83D22B97B`](https://holesky.etherscan.io/address/0xF3257b7E333Cdd15df92CBc3BAF645D83D22B97B)
+- Emergency Timelocked Governance: [`0x46c6C7E1Cc438456d658Eed61A764a475abDa0C1`](https://holesky.etherscan.io/address/0x46c6C7E1Cc438456d658Eed61A764a475abDa0C1)
+- Escrow: [`0x901bd16E9B8c317891E3b7D3D57f98Da50De5a36`](https://holesky.etherscan.io/address/0x901bd16E9B8c317891E3b7D3D57f98Da50De5a36) (impl)
+- Reseal Manager: [`0x9dE2273f9f1e81145171CcA927EFeE7aCC64c9fb`](https://holesky.etherscan.io/address/0x9dE2273f9f1e81145171CcA927EFeE7aCC64c9fb)
+- Tiebreaker Core Committee: [`0xE449EEd4C99EcC0157690f84cE64A6d66a83af55`](https://holesky.etherscan.io/address/0xE449EEd4C99EcC0157690f84cE64A6d66a83af55)
+- Tiebreaker Sub Committees:
+  - Developers Sub Committee 1 [`0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27`](https://holesky.etherscan.io/address/0xa0E6A8810E49b8A509dd01659d4A6D1EC0bBbA27)
+  - Developers Sub Committee 2 [`0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F`](https://holesky.etherscan.io/address/0xbfD6b8f44fcf65B5809d6B71FDc52c21Bcb4D13F)
+  - Developers Sub Committee 3 [`0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0`](https://holesky.etherscan.io/address/0xf822A746aA1ACC0b68649Ac83A9A93651B98B1b0)
 
 ## Data Bus
 
@@ -81,13 +96,13 @@
 - CSAccounting: [`0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1`](https://holesky.etherscan.io/address/0xc093e53e8F4b55A223c18A2Da6fA00e60DD5EFE1) (proxy)
 - CSFeeDistributor: [`0xD7ba648C8F72669C6aE649648B516ec03D07c8ED`](https://holesky.etherscan.io/address/0xD7ba648C8F72669C6aE649648B516ec03D07c8ED) (proxy)
 - CSFeeOracle: [`0xaF57326C7d513085051b50912D51809ECC5d98Ee`](https://holesky.etherscan.io/address/0xaF57326C7d513085051b50912D51809ECC5d98Ee) (proxy)
-- CSVerifier: [`0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916`](https://holesky.etherscan.io/address/0x6FDAA094227CF8E1593f9fB9C1b867C1f846F916)
+- CSVerifier: [`0xc099dfd61f6e5420e0ca7e84d820daad17fc1d44`](https://holesky.etherscan.io/address/0xc099dfd61f6e5420e0ca7e84d820daad17fc1d44)
 - CSEarlyAdoption: [`0x71E92eA77C198a770d9f33A03277DbeB99989660`](https://holesky.etherscan.io/address/0x71E92eA77C198a770d9f33A03277DbeB99989660)
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
-- GateSeal: [`0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce`](https://holesky.etherscan.io/address/0x41F2677fae0222cF1f08Cd1c0AAa607B469654Ce)
+- GateSeal: [`0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a`](https://holesky.etherscan.io/address/0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a)
 
 
-## DAO-ops contracts & addresses
+## DAO Ops contracts & addresses
 
 - Token Reward Program (TRP) VestingEscrowFactory: [`0x586f0b51d46ac8ac6058702d99cd066ae514e96b`](https://holesky.etherscan.io/address/0x586f0b51d46ac8ac6058702d99cd066ae514e96b)
 
@@ -161,16 +176,24 @@
 - **ATC stETH** (committee ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915))
   - AllowedRecipientsRegistry: [`0x955bA61676dAd6091Ff3F9BC498219D6DbD49107`](https://holesky.etherscan.io/address/0x955bA61676dAd6091Ff3F9BC498219D6DbD49107)
   - TopUpAllowedRecipients: [`0x1395970895282333dC914172944f52F15Df63620`](https://holesky.etherscan.io/address/0x1395970895282333dC914172944f52F15Df63620)
-- **Alliance Ops stablecoins** (trusted caller is QA & DAO-ops ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://holesky.etherscan.io/address/0x96d2Ff1C4D30f592B91fd731E218247689a76915))
+- **Alliance Ops stablecoins** (trusted caller is QA & DAO Ops ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://holesky.etherscan.io/address/0x96d2Ff1C4D30f592B91fd731E218247689a76915))
   - AllowedRecipientsRegistry: [`0xe1ba8dee84a4df8e99e495419365d979cdb19991`](https://holesky.etherscan.io/address/0xe1ba8dee84a4df8e99e495419365d979cdb19991)
   - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)
   - TopUpAllowedRecipients: [`0x343fa5f0c79277e2d27e440f40420d619f962a23`](https://holesky.etherscan.io/address/0x343fa5f0c79277e2d27e440f40420d619f962a23)
-- **Sandbox stablecoins** (trusted caller is DAO ops testnet EOA [`0xd4090ca1134f8de1450b8246916f73d212efdef6`](https://holesky.etherscan.io/address/0xd4090ca1134f8de1450b8246916f73d212efdef6))
+- **Sandbox stablecoins** (trusted caller is DAO Ops testnet EOA [`0xd4090ca1134f8de1450b8246916f73d212efdef6`](https://holesky.etherscan.io/address/0xd4090ca1134f8de1450b8246916f73d212efdef6))
   - AllowedRecipientsRegistry: [`0xF8a63a36B954D72de197097377aa00C238c653Cf`](https://holesky.etherscan.io/address/0xF8a63a36B954D72de197097377aa00C238c653Cf)
   - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)
   - TopUpAllowedRecipients: [`0x71bcEf1f4E4945005e1D22d68F02085D5167ab43`](https://holesky.etherscan.io/address/0x71bcEf1f4E4945005e1D22d68F02085D5167ab43)
   - AddAllowedRecipient: [`0xB238fB1e7c8da5da022140dA956Fc3052808fC56`](https://holesky.etherscan.io/address/0xB238fB1e7c8da5da022140dA956Fc3052808fC56)
   - RemoveAllowedRecipient: [`0x51c730af05777c4D3CcC8c8B80558F4D155bb7BF`](https://holesky.etherscan.io/address/0x51c730af05777c4D3CcC8c8B80558F4D155bb7BF)
+- **Ecosystem BORG Foundation operational funds stablecoins** (trusted caller is QA & DAO Ops ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://holesky.etherscan.io/address/0x96d2Ff1C4D30f592B91fd731E218247689a76915))
+  - AllowedRecipientsRegistry: [`0x0214CEBDEc06dc2729382860603d01113F068388`](https://holesky.etherscan.io/address/0x0214CEBDEc06dc2729382860603d01113F068388)
+  - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)
+  - TopUpAllowedRecipients: [`0x167caEDde0F3230eB18763270B11c970409F389e`](https://holesky.etherscan.io/address/0x167caEDde0F3230eB18763270B11c970409F389e)
+- **Labs BORG Foundation operational funds stablecoins** (trusted caller is QA & DAO Ops ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://holesky.etherscan.io/address/0x96d2Ff1C4D30f592B91fd731E218247689a76915))
+  - AllowedRecipientsRegistry: [`0x303F5b60e3cf6Ea11d8509A1546401e311A13B92`](https://holesky.etherscan.io/address/0x303F5b60e3cf6Ea11d8509A1546401e311A13B92)
+  - AllowedTokensRegistry: [`0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666`](https://holesky.etherscan.io/address/0x091c0ec8b4d54a9fcb36269b5d5e5af43309e666)
+  - TopUpAllowedRecipients: [`0xf7304738E9d4F572b909FaEd32504F558E234cdB`](https://holesky.etherscan.io/address/0xf7304738E9d4F572b909FaEd32504F558E234cdB)
 - **Tooling contracts:**
   - AllowedRecipientsBuilder (single token): [`0xeC3785b13b21c226D66B5bC2E82BB2f4226f715e`](https://holesky.etherscan.io/address/0xeC3785b13b21c226D66B5bC2E82BB2f4226f715e)
   - AllowedRecipientsFactory (single token): [`0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9`](https://holesky.etherscan.io/address/0x62a65b0eC11D74a00FcC445ef7A3374f02635Dd9)
@@ -178,10 +201,13 @@
   - AllowedRecipientsFactory (multi token): [`0x9d156F7F5ed1fEbDc4996CAA835CD964A10bd650`](https://holesky.etherscan.io/address/0x9d156F7F5ed1fEbDc4996CAA835CD964A10bd650)
   - BokkyPooBah's DateTime Library: [`0xd6237FecDF9C1D9b023A5205C17549E3037EeEec`](https://holesky.etherscan.io/address/0xd6237FecDF9C1D9b023A5205C17549E3037EeEec)
 
-## Testnet DAO Multisigs
-  - QA & DAO-ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
+## Testnet DAO Multisigs & EOA
+  - QA & DAO Ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
     - QA testnet EOA: [`0x1580881349e214Bab9f1E533bF97351271DB95a9`](https://holesky.etherscan.io/address/0x1580881349e214Bab9f1E533bF97351271DB95a9)
-    - DAO-ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
+    - DAO Ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
+  - Testnet GateSeal Committee: [`0x6165267E76D609465640bffc158aff7905D47B46`](https://holesky-safe.protofire.io/home?safe=holesky:0x6165267E76D609465640bffc158aff7905D47B46)
+  - CSM Development Team EOA: [`0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164`](https://holesky.etherscan.io/address/0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164)
+
 ## Testnet Stablecoins
   - USDC: [`0x9715b2786f1053294fc8952df923b95cab9aac42`](https://holesky.etherscan.io/address/0x9715b2786f1053294fc8952df923b95cab9aac42)
   - USDT: [`0x86f6c353a0965eb069cd7f4f91c1afef8c725551`](https://holesky.etherscan.io/address/0x86f6c353a0965eb069cd7f4f91c1afef8c725551)
