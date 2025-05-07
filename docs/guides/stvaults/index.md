@@ -4,6 +4,11 @@ stVaults are Lido staking building blocks that allows the creating of custom sta
 
 For a deeper technical dive, you can check out the [stVaults Technical Design and Architecture](https://hackmd.io/@lido/stVaults-design).
 
+:::tip 📣 **Leave feedback**
+Trying to integrate with Lido V3 and stVaults? 
+Please share your thoughts through **[the short form](https://tally.so/r/3X9vYe)**.
+:::
+
 ## Architecture Overview
 
 ![integration-overview](/img/stvaults/integration-overview.png)
