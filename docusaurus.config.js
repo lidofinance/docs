@@ -29,6 +29,13 @@ module.exports = {
         { to: '/lips', label: 'LIPs', position: 'left' },
         { to: '/security/audits', label: 'Audits', position: 'left' },
         {
+          type: 'doc',
+          docsPluginId: 'csm',
+          docId: 'intro',
+          label: 'CSM Guide',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/lidofinance',
           label: 'GitHub',
           position: 'right',
@@ -68,6 +75,15 @@ module.exports = {
             from: '/token-guides/wsteth-bridging-guide',
           }
         ],
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'csm',
+        path: 'csm',
+        routeBasePath: 'csm',
+        sidebarPath: require.resolve('./sidebarsCsm.js'),
       },
     ],
   ],
