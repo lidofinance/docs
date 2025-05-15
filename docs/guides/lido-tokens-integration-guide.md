@@ -255,11 +255,11 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 2. A rebase happens, the wstETH price goes up by 5%
 3. User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
 
-### Holešky or Sepolia wstETH for testing
+### Hoodi or Sepolia wstETH for testing
 
-The most recent testnet version of the Lido protocol lives on the Holešky testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/holesky)). Just like on mainnet, Holešky wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Holešky, and then calling `wrap` method on it. The corresponding amount of Holešky stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Holešky ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Holešky ether to WstETH contract on Holešky, and the corresponding amount of wstETH will be minted to your account.
+The most recent testnet version of the Lido protocol lives on the Hoodi testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/hoodi)). Just like on mainnet, Hoodi wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Hoodi, and then calling `wrap` method on it. The corresponding amount of Hoodi stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Hoodi ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Hoodi ether to WstETH contract on Hoodi, and the corresponding amount of wstETH will be minted to your account.
 
-The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Holešky. Note that the protocol setup on Sepolia has no UIs and various services available on Holešky and Mainnet. For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Holešky testnet deployment if possible.
+The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Hoodi. Note that the protocol setup on Sepolia has no UIs and various services available on Hoodi and Mainnet. For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Hoodi testnet deployment if possible.
 
 ### Lido Multichain
 

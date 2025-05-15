@@ -20,10 +20,10 @@ https://eth-api.lido.fi/v1/protocol/steth/apr/sma
 
 Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/#/APR%20for%20Eth%20and%20stEth/ProtocolController_findSmaAPRforSTETH)
 
-### Holesky
+### Hoodi
 
 ```
-https://eth-api-holesky.testnet.fi/v1/protocol/steth/apr/sma
+https://eth-api-hoodi.testnet.fi/v1/protocol/steth/apr/sma
 ```
 
 ### Last Lido APR for stETH
@@ -59,10 +59,10 @@ https://eth-api.lido.fi/v1/protocol/steth/apr/last
 
 Response schema and examples are available in the [Swagger API documentation](https://eth-api.lido.fi/api/#/APR%20for%20Eth%20and%20stEth/ProtocolController_findLastAPRforSTETH)
 
-#### Holesky
+#### Hoodi
 
 ```
-https://eth-api-holesky.testnet.fi/v1/protocol/steth/apr/last
+https://eth-api-hoodi.testnet.fi/v1/protocol/steth/apr/last
 ```
 
 ## Lido Reward History
@@ -98,15 +98,15 @@ skip: 100, limit: 100 = 2 page
 skip: 200, limit: 100 = 3 page
 ```
 
-### Holesky
+### Hoodi
 
 Reward History Backend is also available on Holešky:
 
 ```
-http://reward-history-backend-holesky.testnet.fi/?address=0x12345
+http://reward-history-backend-hoodi.testnet.fi/?address=0x12345
 ```
 
-Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend-holesky.testnet.fi/api)
+Response schema and examples are available in the [Swagger API documentation](https://reward-history-backend-hoodi.testnet.fi/api)
 
 ## Withdrawals API
 
@@ -138,9 +138,9 @@ https://wq-api.lido.fi/v2/request-time/calculate?amount=32
 
 Response schema and examples are available in the [Swagger API documentation](https://wq-api.lido.fi/api#/Request%20Time/RequestTimeController_calculateTime)
 
-### Holesky
+### Hoodi
 
 ```
-https://wq-api-holesky.testnet.fi/v2/request-time?ids=1&ids=2
+https://wq-api-hoodi.testnet.fi/v2/request-time?ids=1&ids=2
 ```
-Response schema and examples are available in the [Swagger API documentation](https://wq-api-holesky.testnet.fi/api#/Request%20Time/RequestTimeController_requestsTime)
+Response schema and examples are available in the [Swagger API documentation](https://wq-api-hoodi.testnet.fi/api#/Request%20Time/RequestTimeController_requestsTime)
