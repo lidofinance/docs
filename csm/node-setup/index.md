@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # 🧱 Node Setup
 
 Setting up your node is the first step to validate Ethereum and participate in the Community Staking Module. To make things easier and more accessible, we’ve divided this section into three tracks—**Beginner**, **Intermediate**, and **Advanced**—based on your familiarity with Ethereum staking and comfort level with server management.

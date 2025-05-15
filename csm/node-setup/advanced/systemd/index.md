@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Systemd
 
 This section of the guide focuses on helping CSM Operators run CSM validator keys on their existing validator node setup.

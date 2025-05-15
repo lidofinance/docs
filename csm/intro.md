@@ -1,6 +1,8 @@
-# Introduction
+---
+sidebar_position: 1
+---
 
-## About this Guide
+# About this Guide
 
 This guide focuses solely on the technical setup of Ethereum validators using the Lido Community Staking Module (CSM).
 
