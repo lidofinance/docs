@@ -104,12 +104,12 @@ graph LR;
 
 The current Oracle set consists of 9 participants:
 
-- Chorus One `0x140bd8fbdc884f48da7cb1c09be8a2fadfea776e`
+- Chorus One `0x285f8537e1daeedaf617e96c742f2cf36d63ccfb`
 - Staking Facilities `0x404335bce530400a5814375e7ec1fb55faff3ea2`
 - stakefish `0x946d3b081ed19173dc83cd974fc69e1e760b7d78`
 - P2P Validator `0x007de4a5f7bc37e2f26c0cb2e8a95006ee9b89b5`
 - bloXroute [0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/54)
-- Instadapp [0x1ca0fec59b86f549e1f1184d97cb47794c8af58d](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/53)
+- Instadapp [0x73181107c8D9ED4ce0bbeF7A0b4ccf3320C41d12](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/71)
 - Kyber Network [0xA7410857ABbf75043d61ea54e07D57A6EB6EF186](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/52)
 - ChainLayer [0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/69)
 - Matrixed.Link [0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9](https://research.lido.fi/t/rated-labs-replacement-in-the-oracle-set/7850/14)
