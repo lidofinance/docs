@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 # 🔑 Generating Validator Keys
@@ -12,11 +12,9 @@ In this section, we’ll guide you through the process of generating validator k
 
 ## Choose your path
 
-- **Testnet**  
-  [Key generation for Testnet →](./key-generation-for-testnet)
+[**Key generation for Testnet →**](./key-generation-for-testnet)
 
-- **Mainnet**  
-  [Key generation for Mainnet →](./key-generation-for-mainnet/)
+[**Key generation for Mainnet →**](./key-generation-for-mainnet/)
 
 :::info
 **Tip:** We strongly recommend testing your setup on a testnet first, especially if this is your first time operating a validator or using a new stack.

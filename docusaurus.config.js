@@ -30,9 +30,9 @@ module.exports = {
         { to: '/security/audits', label: 'Audits', position: 'left' },
         {
           type: 'doc',
-          docsPluginId: 'csm',
+          docsPluginId: 'runOnLido',
           docId: 'intro',
-          label: 'CSM Guide',
+          label: 'Run on Lido',     // <-- updated label
           position: 'left',
         },
         {
@@ -64,12 +64,10 @@ module.exports = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          // /guides/steth-integration-guide -> /guides/lido-tokens-integration-guide
           {
             to: '/guides/lido-tokens-integration-guide',
             from: '/guides/steth-integration-guide',
           },
-          // /token-guides/wsteth-bridging-guide -> /token-guides/cross-chain-tokens-guide
           {
             to: '/token-guides/cross-chain-tokens-guide',
             from: '/token-guides/wsteth-bridging-guide',
@@ -80,11 +78,11 @@ module.exports = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'csm',
-        path: 'csm',
-        routeBasePath: 'csm',
-        sidebarPath: require.resolve('./sidebarsCsm.js'),
+        id: 'runOnLido',
+        path: 'run-on-lido',
+        routeBasePath: 'run-on-lido',
+        sidebarPath: require.resolve('./sidebarsRunOnLido.js'),
       },
     ],
   ],
-}
+};

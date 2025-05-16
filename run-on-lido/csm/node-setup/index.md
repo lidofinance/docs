@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 0
 ---
 
 # 🧱 Node Setup
@@ -12,14 +12,11 @@ Each track includes guides tailored to different node management tools and prefe
 
 ## Choose your track
 
-- **Beginner**  
-  [Go to Beginner track →](./beginner/)
+[**Beginner track →**](./beginner/)
 
-- **Intermediate**  
-  [Go to Intermediate track →](./intermediate/)
+[**Intermediate track →**](./intermediate/)
 
-- **Advanced**  
-  [Go to Advanced track →](./advanced/)
+[**Advanced track →**](./advanced/)
 
 ---
 
