@@ -1,6 +1,12 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum
+## Lido on Ethereum (64 reports)
+
+### 05-2025 MixBytes Lido RMC EasyTrack Security Audit
+
+- Total Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20RMC%20EasyTrack%20Security%20Audit%20Report%2005-2025.pdf) for more details.
 
 ### 04-2025 MixBytes Off-chain Audit of Lido Oracle v5
 
@@ -626,7 +632,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Sigma%20Prime%
 
 See [full report](https://github.com/lidofinance/audits/blob/main/QSP%20Lido%20Report%2012-2020.pdf) for more details.
 
-## Lido Multichain audit reports
+## Lido Multichain audit reports (18 reports)
 
 ### 04-2025 MixBytes wstETH on Lisk Verification Report
 
@@ -776,7 +782,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/L2/Governance-
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Lido-L2-2022-07-Oxorio-Smart-Contracts-Security-Audit-Report.pdf) for more details.
 
-## Lido on Polygon PoS
+## Lido on Polygon PoS (2 reports)
 
 ### 08-2022 Oxorio Lido on Polygon V2
 
