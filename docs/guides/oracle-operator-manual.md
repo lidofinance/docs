@@ -104,7 +104,7 @@ graph LR;
 
 The current Oracle set consists of 9 participants:
 
-- Chorus One `0x285f8537e1daeedaf617e96c742f2cf36d63ccfb`
+- Chorus One [0x285f8537e1daeedaf617e96c742f2cf36d63ccfb](https://research.lido.fi/t/emergency-rotation-of-compromised-chorus-one-oracle/10037/2)
 - Staking Facilities `0x404335bce530400a5814375e7ec1fb55faff3ea2`
 - stakefish `0x946d3b081ed19173dc83cd974fc69e1e760b7d78`
 - P2P Validator `0x007de4a5f7bc37e2f26c0cb2e8a95006ee9b89b5`
