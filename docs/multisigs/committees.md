@@ -277,7 +277,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-january-22-upgrade-proposal/1532) for operations (sending grants) wherever they deem useful on Ethereum, L2s, and other blockchains.
 
-**Quorum:** 4/8
+**Quorum:** 5/9
 
 **Forum topics:**\
 [Proposal to form reWARDS Committee](https://research.lido.fi/t/proposal-to-form-rewards-committee/1447)\
@@ -310,6 +310,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c| https://x.com/KENX3495/status/1863795366321344968 |
 | ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
+| Olga_K | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
