@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Extra Resources
+# 📚 Extra Resources
 
 * Lido [Discord](https://discord.gg/lido)
 * Lido [Documentation](https://docs.lido.fi/staking-modules/csm/intro)

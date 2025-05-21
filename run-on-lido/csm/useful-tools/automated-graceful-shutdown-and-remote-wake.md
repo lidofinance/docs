@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Automated Graceful Shutdown & Remote Wake
+# 🤖 Automated Graceful Shutdown & Remote Wake
 
 For operators who spend lots of time away from home with frequent power trips, you may want to set up the following:
 

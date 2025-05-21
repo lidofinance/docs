@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Verifying Fee Recipient for CSM Validators
+# 🪛 Verifying Fee Recipient for CSM Validators
 
 You can also verify that your Fee Recipient address has been set and registered correctly on the block builder network using the external guide below.
 
