@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 ### Install Sedge
 
-Go to the [Sedge docs](https://docs.sedge.nethermind.io/) and run:
+Go to the [Sedge docs](https://docs.sedge.nethermind.io/) and run the installation command:
 
 ```bash
 bash <(curl -fsSL https://github.com/NethermindEth/sedge/raw/main/scripts/install.sh)
@@ -35,7 +35,7 @@ sedge deps install
 
 ### Interactive Setup
 
-Run Sedge in interactive mode:
+For convenience, we will be using Sedge's interactive mode to run Sedge:
 
 ```bash
 sedge cli
@@ -46,16 +46,28 @@ Follow the terminal UI prompts to:
 1. Choose `lido-node` → `Mainnet` or `Hoodi` → `full-node` and accept (or customize) the path.
 2. Set the container tag (e.g. `lido-setup`) and choose **yes** to set up a validator, selecting the default MEV-Boost image.
 3. Select execution, consensus, and validator clients (or randomize).
-4. Set **validator grace period** to `1` and **graffiti** to `lidoiscool` (or custom).
+4. Set **validator grace period** to `1` and **graffiti** to anything of your liking, like `lidoiscool`.
 5. Use default **Checkpoint Sync** and **No** for **expose all ports**.
 6. Choose **Create** for **JWT Source** and **yes** for the monitoring stack.
 
 ### Generate & Import Validator Keys
 
-Set up validator keys:
+If you're going through **testnet**, in the prompts, choose to generate keystore source, mnemonic source (backup your seed), and passphrase. Specify the number of keys and initial index.
 
-1. **\[Testnet only]** In the prompts, choose to generate keystore source, mnemonic source (backup your seed), and passphrase. Specify the number of keys and initial index. Verify fee recipient on the [CSM Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module).
-2. **\[Mainnet]** use a secure workflow in the [Key Generation for Mainnet guide](../../generating-validator-keys/key-generation-for-mainnet/) (WIP).
+Then copy deposit data for the CSM widget:
+
+```bash
+cat ~/sedge-data/keystore/deposit_data.json
+```
+
+If you're ready to set up your validators on **Mainnet**, use a secure workflow in the [Key Generation for Mainnet guide](../../generating-validator-keys/key-generation-for-mainnet/).
+
+To import the keys, run:
+
+```bash
+sedge import-key --from `path-to-keys` -n `network` --start-validator `name-of-validator-client`
+```
+This will copy the keys from the specified path, ensure are set to the correct network, and help Sedge know how to import them based on the used client.
 
 ## Address Tabs
 
@@ -78,14 +90,6 @@ Sometimes the validator import container exits with an error. If that happens, r
 
 ```bash
 sedge run
-```
-
-### Upload deposit data
-
-Copy deposit data for the CSM widget:
-
-```bash
-cat ~/sedge-data/keystore/deposit_data.json
 ```
 
 ### Monitor your setup
@@ -123,6 +127,5 @@ sedge monitoring init lido --node-operator-id <id> --network <mainnet or hoodi>
 
 This will install Grafana, Prometheus, Node Exporter, and Lido Exporter with CSM dashboards. Access at `INTERNAL_IP:3000`.
 
----
-
-You can read more about Nethermind Sedge in the [official docs](https://docs.sedge.nethermind.io/).
+### Keep your clients up to date
+To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).

@@ -26,7 +26,7 @@ You will be asked to confirm that you want to exit. Check the box and click **Wi
 
 ## Sedge
 
-Sedge currently does not have a built-in validator exit feature.
+Sedge currently does not have a built-in validator exit feature. You need to find the exit command from your chosen client, you can find them in the Systemd section below.
 
 To exit your validators manually:
 

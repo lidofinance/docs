@@ -12,11 +12,8 @@ Run these if you're a seasoned server manager and/or an OG Ethereum node operato
 
 ## Guides
 
-* **Sedge**
-  [Go to Sedge guide →](./sedge)
+[**Sedge →**](./sedge)
 
-* **Eth Docker**
-  [Go to Eth Docker guide →](./eth-docker)
+[**Eth Docker →**](./eth-docker)
 
-* **systemd**
-  [Go to systemd guide →](./systemd/)
+[**Systemd →**](./systemd/)

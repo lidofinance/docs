@@ -222,7 +222,12 @@ In Staking tab of Stereum Launcher, drag & drop keystores, enter password, click
   </TabItem>
   <TabItem value="sedge" label="Sedge">
 
-WIP
+To import keys in sedge, you just have to run:
+
+```bash
+sedge import-key --from `path-to-keys` -n `network` --start-validator `name-of-validator-client`
+```
+This will copy the keys from the specified path, ensure are set to the correct network, and help Sedge know how to import them based on the used client.
 
   </TabItem>
   <TabItem value="eth-docker" label="Eth Docker">

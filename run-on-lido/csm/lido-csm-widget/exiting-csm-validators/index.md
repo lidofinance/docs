@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Monitoring for exit requests from Lido
 
-The `DASHBOARD` header provides a consolidated view of any exit requests issued to you in the form of `Unbonded` and `Stuck` keys.
+The `Dashboard` header provides a consolidated view of any exit requests issued to you in the form of `Unbonded` and `Stuck` keys.
 
 ![Monitoring Dashboard](/img/csm-guide/exit1-1.png)
 
@@ -14,7 +14,7 @@ There are 3 reasons why CSM operators can receive exit requests from the Lido Pr
 
 1. The node operator's bond amounts fall below the minimum threshold for the number of validator keys deposited by the CSM
 2. To cover withdrawal requests from stETH holders
-3. By DAO decision in some exceptional cases. This will require an on-chain vote and public discussion on the [Lido research forum](https://research.lido.fi/).
+3. By DAO decision in some exceptional cases. This will require an onchain vote and public discussion on the [Lido Research Forum](https://research.lido.fi/).
 
 When this happens, CSM operators must initiate an exit on the requested number of validator keys as soon as possible (within 96 hours) to avoid penalty measures from having `Stuck Keys`.
 

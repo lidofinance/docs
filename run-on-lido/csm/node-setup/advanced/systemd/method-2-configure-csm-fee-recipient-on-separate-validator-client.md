@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Method 2: Configure CSM Fee Recipient on Separate Validator Client
 
 This guide covers how to configure a Community Staking Module (CSM) fee recipient using a separate validator client setup for various Ethereum clients (Teku, Nimbus, Lodestar, Lighthouse, Prysm).
@@ -8,8 +11,8 @@ This guide covers how to configure a Community Staking Module (CSM) fee recipien
 
 ### Download Validator Client
 
-#### Teku
-
+<Tabs>
+  <TabItem value="teku" label="Teku">
 Install Java dependencies:
 
 ```bash
@@ -33,9 +36,8 @@ tar xvf teku-24.10.2.tar.gz
 sudo cp -a teku-24.10.2 /usr/local/bin/teku
 rm -r teku*
 ```
-
-#### Nimbus
-
+  </TabItem>
+  <TabItem value="nimbus" label="Nimbus">
 Download and verify Nimbus:
 
 ```bash
@@ -55,13 +57,12 @@ sudo cp nimbus_beacon_node nimbus_validator_client /usr/local/bin
 cd
 rm -r nimbus*
 ```
-
-#### Lodestar
-
+  </TabItem>
+  <TabItem value="lodestar" label="Lodestar">
 No download needed here as Lodestar will be run via Docker.
 
-#### Lighthouse
-
+  </TabItem>
+  <TabItem value="lighthouse" label="Lighthouse">
 Download and verify Lighthouse:
 
 ```bash
@@ -80,8 +81,8 @@ sudo cp lighthouse /usr/local/bin
 rm -r lighthouse*
 ```
 
-#### Prysm
-
+  </TabItem>
+  <TabItem value="prysm" label="Prysm">
 Download and verify Prysm:
 
 ```bash
@@ -99,7 +100,8 @@ chmod +x prysmbeacon
 sudo cp prysmbeacon /usr/local/bin
 rm -r prysmbeacon beacon-chain-v5.1.2-linux-amd64.sha256
 ```
-
+  </TabItem>
+</Tabs>
 ---
 
 ### Create CSM User
@@ -117,12 +119,18 @@ Use the staking-deposit-cli to generate keys, then transfer them via USB:
 
 ```bash
 lsblk
-sudo mount /dev/sda1 /media
-cd /media/staking-deposit-cli
-sudo cp -r validator_keys ~
+sudo mount /dev/sda1 /media # Replace sda1 with the actual name of your USB drive.
+cd /media/staking-deposit-cli # Go into your USB drive
+sudo cp -r validator_keys ~ # Copy your validator signing keystore into the HOME directory of your node.
+```
+
+Then unmount and eject your USB drive:
+
+```bash
 cd
 sudo umount /media
 ```
+
 
 Create the password file:
 
@@ -131,6 +139,8 @@ cd ~/validator_keys
 ls
 sudo nano <validator_signing_keystore_file_name>.txt
 ```
+
+Type in the password you used when generating your validator keys in the earlier step. Then save and exit the file with `CTRL + O, enter, CTRL + X`.
 
 ---
 

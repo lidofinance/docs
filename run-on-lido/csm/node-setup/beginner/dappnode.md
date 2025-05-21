@@ -1,6 +1,6 @@
 # Dappnode
 
-**Dappnode** is an open-source node management software with a highly abstracted UI/UX. Perfect for beginners or operators seeking maximum comfort in their setup.
+**Dappnode** is an open-source node management software with a highly abstracted user interface. Perfect for beginners or operators seeking maximum comfort in their setup.
 
 ## Full Node Setup
 
@@ -21,7 +21,7 @@ For Testnet setups, replace all Holesky references with Hoodi.
 
 ## Installing Dappnode
 
-Dappnode sells ready-to-use machines (e.g. the [Lido edition](https://dappnode.com/collections/frontpage/products/home-lido)).  
+Dappnode sells ready-to-use machines, like the [Lido edition](https://dappnode.com/collections/frontpage/products/home-lido).  
 For a DIY install, you can either:
 
 - Use the [ISO installer](https://docs.dappnode.io/docs/user/install/iso) (Debian + Dappnode bundled).  
@@ -29,15 +29,14 @@ For a DIY install, you can either:
 
 You’ll manage Dappnode via its web UI. To access it remotely, set up a VPN:
 
-- **Tailscale VPN**: [YouTube guide](https://www.youtube.com/watch?ab_channel=SamuelChong&index=8&list=PLS0yTNR46xvEkuuWuiucxo0ZJ8W3wPpx1&v=jdLPUo6VK_A)  
-- **WireGuard VPN**: [YouTube guide](https://www.youtube.com/watch?ab_channel=Dappnode&v=qB0sMaNpXpU)
+- **WireGuard VPN**: Perfect for use after the initial setup. [YouTube guide](https://www.youtube.com/watch?ab_channel=Dappnode&v=qB0sMaNpXpU)
+- **Tailscale VPN**: Fast and reliable access that can be set up after the first connection. [YouTube guide](https://www.youtube.com/watch?ab_channel=SamuelChong&index=8&list=PLS0yTNR46xvEkuuWuiucxo0ZJ8W3wPpx1&v=jdLPUo6VK_A)  
 
 ## Configure Dappnode to run Lido CSM
 
 ### Setting up the Full Node
 
-With your VPN active, visit [http://my.dappnode/](http://my.dappnode/) → **Stakers** tab.  
-Select your network (Mainnet or Hoodi), pick execution & consensus clients, enable Web3signer, and choose MEV-Boost relays from [the operator portal](https://operatorportal.lido.fi/existing-operator-portal/ethereum-onboarding/mev-relays).
+With your VPN active, visit [http://my.dappnode/](http://my.dappnode/) → **Stakers** tab. Then select your network (Mainnet or Hoodi), pick execution & consensus clients, enable Web3signer, and choose MEV-Boost relays from [the list of Lido-vetted relays](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=d255247c822c409f99c498aeb6a4e51d).
 
 ![Chain syncing on Dashboard](/img/csm-guide/dappnode-1.png)
 
@@ -56,3 +55,6 @@ This gives you the local CSM widget plus extra features:
 - Upload keystores & deposit data.  
 - Monitor client status on Dashboard.  
 - Configure Telegram alerts in Notifications.
+
+### Keep your clients up to date
+To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).

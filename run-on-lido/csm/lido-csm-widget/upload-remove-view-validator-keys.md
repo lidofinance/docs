@@ -13,13 +13,13 @@ import TabItem from '@theme/TabItem';
 We encourage operators to see the queue before submitting new keys, as they may have to wait some time to get deposits and there's a fee of `0.05 ETH` for removing keys while in the queue.
 :::
 
-The way validators are deposited in the CSM is through a FIFO (first in, first out) queue. You can see a visual representation of the queue under the deposit widget, or at the top of the "View Keys" tab.
+The way validators are deposited in the CSM is through a FIFO (first in, first out) queue. You can see a visual representation of the queue under the deposit widget, or at the top of the `View Keys` tab.
 
 ![Deposit queue](/img/csm-guide/keys-1.png)
 
 ## Upload keys
 
-* Go to the Lido CSM Widget and connect your wallet. **MAKE SURE THAT YOU ARE ON THE CORRECT NETWORK (i.e., Holesky or Mainnet).**
+* Go to the Lido CSM Widget and connect your wallet. **MAKE SURE THAT YOU ARE ON THE CORRECT NETWORK (i.e., Hoodi or Mainnet).**
   * **Mainnet:** [https://csm.lido.fi/](https://csm.lido.fi/)
   * **Hoodi:** [https://csm.testnet.fi/](https://csm.testnet.fi/)
 * Select `Become a Node Operator` and then `Create a Node Operator`
@@ -70,7 +70,7 @@ More details [here](https://operatorportal.lido.fi/modules/community-staking-mod
 
 * Go to the Lido CSM Widget, under the **KEYS** header
 * Select the **REMOVE** tab on the widget
-* Select the keys you want to remove—
+* Select the keys you want to remove
 
 ![Remove keys](/img/csm-guide/keys-3.png)
 

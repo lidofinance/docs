@@ -17,18 +17,17 @@ To use Stereum your machine must be running Ubuntu. Follow the official installa
 
 Stereum requires passwordless `sudo` access to function properly. Follow these steps:
 
+1. Open the `/etc/sudoers` file
 ```bash
 sudo visudo
 ````
 
-Add this line under `#includedir /etc/sudoers.d` (replace `<username>` with your user):
-
+2. Add this line under `#includedir /etc/sudoers.d` (replace `<username>` with your user):
 ```text
 <username> ALL=(ALL) NOPASSWD: ALL
 ```
 
-Then log out and back in. Verify with:
-
+3. Then log out and back in. Verify with:
 ```bash
 sudo -l
 ```
@@ -37,13 +36,13 @@ If no password is requested, you’re all set.
 
 ### Download the Stereum Launcher
 
-Visit [stereum.net](https://stereum.net/) and download the launcher for your OS (we use macOS in this guide).
+Visit [stereum.net](https://stereum.net/) and download the launcher for your OS.
 
 ![Download the Stereum Launcher](/img/csm-guide/stereum-1.png)
 
 ### Configure the Stereum Launcher to run Lido CSM
 
-Open the launcher, add your server’s SSH credentials, and save them for future use.
+Open the launcher, add your server’s SSH credentials, you can save them for future use.
 
 ![Configure Stereum Launcher](/img/csm-guide/stereum-2.png)
 
@@ -55,7 +54,7 @@ Select **Ethereum** → **CSM** as your use case (we recommend testing on a test
 
 ![Select Use Case](/img/csm-guide/stereum-4.png)
 
-Next, pick execution, consensus, and validator clients, as well as MEV-Boost relays and a sync mode (Checkpoint Sync is recommended):
+Next, pick execution, consensus, and validator clients, as well as a sync mode (Checkpoint Sync is recommended) and MEV-Boost relays from the [Lido-vetted relay list](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=d255247c822c409f99c498aeb6a4e51d):
 
 ![Services Installation Options](/img/csm-guide/stereum-5.png)
 
@@ -96,10 +95,5 @@ After import, you’ll see your validator in the UI:
 
 Follow the [Generating Validator Keys guide](../../generating-validator-keys/) and ensure you set the correct withdrawal address.
 
-## Importing Validator Keys
-
-Upload your deposit data in the Lido CSM UI by following the [Lido CSM Widget guide](../../lido-csm-widget/).
-
----
-
-You can read more about Stereum in their [official docs](https://stereum-dev.github.io/ethereum-node-web-docs/docs/intro).
+### Keep your clients up to date
+To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).

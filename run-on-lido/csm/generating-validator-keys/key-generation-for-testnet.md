@@ -51,6 +51,14 @@ Keystores will be in `~/eth-docker/.eth/validator_keys`.
 
 </TabItem>
 
+<TabItem value="sedge" label="Sedge">
+
+### Sedge
+
+In the prompts when setting up your node with the interactive mode, choose to generate keystore source, mnemonic source (backup your seed), and passphrase. Specify the number of keys and initial index.
+
+</TabItem>
+
 <TabItem value="all" label="All Others">
 
 ### All Others
@@ -126,7 +134,12 @@ Go to **Staking** tab, drag & drop keystores:
 
 ### Sedge
 
-WIP
+To import keys in sedge, you just have to run:
+
+```bash
+sedge import-key --from `path-to-keys` -n `network` --start-validator `name-of-validator-client`
+```
+This will copy the keys from the specified path, ensure are set to the correct network, and help Sedge know how to import them based on the used client.
 
 </TabItem>
 

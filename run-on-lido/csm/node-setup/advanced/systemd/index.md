@@ -16,5 +16,6 @@ For an end-to-end setup of your validator node from scratch, refer to these comm
 
 ## Guides
 
-* [Method 1: Configure CSM fee recipient on validator keys](./method-1-configure-csm-fee-recipient-on-validator-keys.md)
-* [Method 2: Configure CSM fee recipient on separate validator client](./method-2-configure-csm-fee-recipient-on-separate-validator-client.md)
+[**Method 1: Configure CSM fee recipient on validator keys →**](./method-1-configure-csm-fee-recipient-on-validator-keys.md)
+
+[**Method 2: Configure CSM fee recipient on separate validator client →**](./method-2-configure-csm-fee-recipient-on-separate-validator-client.md)

@@ -15,20 +15,20 @@ sidebar_position: 1
   * **Hoodi:** [https://csm.testnet.fi/](https://csm.testnet.fi/)
 * Select the **BOND & REWARDS** section in the navigation bar
 
-### `CLAIM` tab
+### Claim tab
 
-Here, you will see your net rewards and bond claimable in aggregate and broken down into its individual parts. Note that **Locked bond** is also deducted from your aggregate rewards here.
+Here, you will see your net rewards and bond claimable in aggregate and broken down into its individual parts. Note that `Locked bond` is also deducted from your aggregate rewards here.
 
-You will also be able to claim your net rewards + bond in total or in individual parts if you wish, and select among 3 token types to receive — ETH / stETH / wstETH.
+You will also be able to claim your net rewards + bond in total or in individual parts if you wish, and select among 3 token types to receive: ETH / stETH / wstETH.
 
-### `ADD BOND` tab
+### Add Bond tab
 
 ![Add Bond](/img/csm-guide/bond-2.png)
 
 There are 2 activities you can perform here:
 
-1. Review the balance of your total bond provided and the excess/insufficient bond amounts
-2. Add more bond so that you can get more of your uploaded validator keys deposited by the CSM or top up any shortages due to poor performance or slashing events. **Read more on bond penalties [here](https://operatorportal.lido.fi/modules/community-staking-module#block-3951aa72ba1e471bafe95b40fef65d2b).**
+1. Review the balance of your total bond provided and the excess/insufficient bond amounts.
+2. Add more bond so that you can get more of your uploaded validator keys deposited by the CSM or top up any shortages due to poor performance or slashing events. **Read more on bond penalties [here](https://operatorportal.lido.fi/modules/community-staking-module#block-3951aa72ba1e471bafe95b40fef65d2b)**.
 
 Once your excess bond amount is sufficient for new validator keys to be deposited, the **Keys available to upload** will increase.
 
@@ -51,7 +51,7 @@ The required minimum bond amount is based on how many of your uploaded validator
 You cannot replenish **Locked bonds** using the **ADD BOND** feature.
 :::
 
-### `UNLOCK BOND` tab
+### Unlock Bond tab
 
 ![Unlock Bond](/img/csm-guide/bond-5.png)
 
