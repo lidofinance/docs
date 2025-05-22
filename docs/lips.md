@@ -8,7 +8,6 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
-| [28](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-28.md) | Dual Governance | Sam Kozin, Eugene Pshenichnyy, Victor Suzdalev, Sacha Saint-Leger, Bogdan Kovtun, Hasu, Isidoros Passadis, Vasiliy Shapovalov | [Link](https://research.lido.fi/t/lip-28-dual-governance/10032) |
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
 
 ## Proposed
@@ -16,6 +15,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
 | [29](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-29.md) | Community Staking Module v2 | Dmitry Gusakov, Sergey Khomutinin, Dmitry Chernukhin, Vladimir Gorkavenko | [Link](https://research.lido.fi/t/community-staking-module/5917) |
+| [28](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-28.md) | Dual Governance | Sam Kozin, Eugene Pshenichnyy, Victor Suzdalev, Sacha Saint-Leger, Bogdan Kovtun, Hasu, Isidoros Passadis, Vasiliy Shapovalov | [Link](https://research.lido.fi/t/lip-28-dual-governance/10032) |
 
 ## Implemented
 
