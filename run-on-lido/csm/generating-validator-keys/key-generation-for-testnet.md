@@ -161,7 +161,7 @@ ethd keys import
 
 Refer to **Advanced → Systemd → Method 2**:
 
-[Method 2 Systemd Guide](/csm/node-setup/advanced/systemd/method-2-configure-csm-fee-recipient-on-separate-validator-client)
+[Method 2 Systemd Guide](/run-on-lido/csm/node-setup/advanced/systemd/method-2-configure-csm-fee-recipient-on-separate-validator-client)
 
 </TabItem>
 </Tabs>
