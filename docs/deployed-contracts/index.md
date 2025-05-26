@@ -73,9 +73,9 @@ where the protocol and its parts/extensions are deployed.
   - (Proposed) Reseal committee: [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://etherscan.io/address/0xFFe21561251c49AdccFad065C94Fb4931dF49081)
 - (Proposed) Tiebreaker Core Committee: [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
 - Tiebreaker Sub Committees:
-  - (Proposed) Developers Sub Committee 1 [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
-  - (Proposed) Developers Sub Committee 2 [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
-  - (Proposed) Developers Sub Committee 3 [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
+  - (Proposed) Builders Sub Committee [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
+  - (Proposed) Node Operators Sub Committee [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
+  - (Proposed) Ethereum Ecosystem Sub Committee [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
 
 ### Dual Governance launch contracts
 
