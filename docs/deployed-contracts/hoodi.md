@@ -109,11 +109,9 @@ Currently, the main operational and maintained protocol testnet is being migrate
   - NOAddresses: [`0x479244bac2ae1d64841753307a0552183642c121`](https://hoodi.etherscan.io/address/0x479244bac2ae1d64841753307a0552183642c121)
   - QueueLib: [`0x6fb7af5addb044182caa27db35e394ed3451a4da`](https://hoodi.etherscan.io/address/0x6fb7af5addb044182caa27db35e394ed3451a4da)
 
-<!--
-## DAO-ops contracts & addresses
 
-==TODO==
--->
+## DAO-ops contracts & addresses
+- Token Reward Program (TRP) VestingEscrowFactory: [`0xaAea4cF0A7a967B91842B7670443ef3Aff541ffC`](https://hoodi.etherscan.io/address/0xaAea4cF0A7a967B91842B7670443ef3Aff541ffC)
 
 ## Easy Track
 
