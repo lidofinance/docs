@@ -31,7 +31,7 @@ The amount of the [bond](./join-csm#bond) required for each validator key to be 
 
 ![join-csm-2](../../../static/img/csm/join-csm-2.png)
 
-There might be several [bond](./join-csm#bond) curves. Typically a default curve is assigned to Node Operators upon creation. However, should Node Operator be eligible for a custom [Node Operator type]((#node-operator-types)), a custom curve can be set for the Node Operator.
+There might be several [bond](./join-csm#bond) curves. Typically a default curve is assigned to Node Operators upon creation. However, should Node Operator be eligible for a custom [Node Operator type](#node-operator-types), a custom curve can be set for the Node Operator.
 
 ![join-csm-3](../../../static/img/csm/join-csm-3.png)
 
