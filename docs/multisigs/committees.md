@@ -690,14 +690,14 @@ Each committee decision is publicly disclosed on the Lido Research Forum, along 
 
 **List of committee members:**
 
-| Name             | Role                            |
-|------------------|---------------------------------|
-| Gabriella Sofia	 | Lido NOM contributor            |
-|Ivan Metrikin | 	Lido Tech contributor          |
-|Drew Van der Werff	| Commit-Boost and Fabric steward |
-|Fredrik Svantes	| security expert                 |
-|Vishal Modali	| representing Chorus One, Lido Node Operator |
-|Sébastien Rannou	| representing Kiln, Lido Node Operator |
+| Name                | Role                                        |
+|---------------------|---------------------------------------------|
+| Gabriella Sofia	   | Lido NOM contributor                        |
+| Ivan Metrikin       | Lido Tech contributor                       |
+| Drew Van der Werff  | Commit-Boost and Fabric steward             |
+| Fredrik Svantes     | security expert                             |
+| Vishal Modali       | representing Chorus One, Lido Node Operator |
+| Sébastien Rannou    | representing Kiln, Lido Node Operator       |
 
 Additionally, the committee also includes consulting participant, which abstain from voting:
 - Justin Traglia - Ethereum Foundation
