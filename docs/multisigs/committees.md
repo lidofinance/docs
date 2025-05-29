@@ -669,3 +669,35 @@ https://lido.mypinata.cloud/ipfs/bafkreigan3ankyy6cfzbpakpiitjnmh6jw3lhtomb4zjm2
 * [Bylaws - describes operational processes](https://ipfs.io/ipfs/bafybeih22pbr7joo7br2q5ygdg52uvy45dpo5knae5kg5qqfhsxllboenm);
 * [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeihry3mfaxirlzrbnnwzk3vfo25hetlgcoyllnc3jstgtwru3l6lbq);
 * [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeieoowqqkwomdtcjaneyofxgib5qmbag7g4asdnkolvjecdu3uba6q).
+
+## 2.14 Auxiliary Proposer Mechanisms Committee
+
+A Committee without multisig.
+
+**Purpose of the Committee:**\
+The Auxiliary Proposer Mechanisms (APM) Committee is responsible for reviewing, approving, and maintaining the list of approved APMs that Lido Node Operators can use. The committee ensures that only proposer-layer mechanisms aligned with Ethereum’s roadmap, Lido’s values, and robust security standards are allowed, and defines the principles for their fair and appropriate use.\
+The committee operates on an ad-hoc basis and follows transparent, publicly accessible documentation and procedures. Decisions with significant strategic or financial implications are escalated to the DAO for further consideration.\
+Each committee decision is publicly disclosed on the Lido Research Forum, along with the underlying rationale. Upon publication, a mandatory 7-calendar-day review period begins. If no objections are raised during this time, the decision is considered ratified. If some objections are submitted, the decision is paused, and the involved parties are expected to engage and resolve them. If no resolution is achieved within an additional 7-calendar-day period, the decision is considered rejected by default.
+
+**Quorum:** 5/6
+
+**Forum topics:**\
+[Introducing the APM Framework: Mechanisms, Protocols, and Sidecars](https://research.lido.fi/t/introducing-the-apm-framework-mechanisms-protocols-and-sidecars/9884)\
+[Establishing the APM Committee](https://research.lido.fi/t/establishing-the-apm-committee/9998)
+
+**Snapshot:**\
+[Establishment of the Auxiliary Proposer Mechanisms Committee](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf7630cd2bfe47e892f8293cd68be277fefc33ba19f43c756747fe1113456ac4b)
+
+**List of committee members:**
+
+| Name             | Role                            |
+|------------------|---------------------------------|
+| Gabriella Sofia	 | Lido NOM contributor            |
+|Ivan Metrikin | 	Lido Tech contributor          |
+|Drew Van der Werff	| Commit-Boost and Fabric steward |
+|Fredrik Svantes	| security expert                 |
+|Vishal Modali	| representing Chorus One, Lido Node Operator |
+|Sébastien Rannou	| representing Kiln, Lido Node Operator |
+
+Additionally, the committee also includes consulting participant, which abstain from voting:
+- Justin Traglia - Ethereum Foundation
