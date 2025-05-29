@@ -4,7 +4,7 @@
 ## Voluntary exits
 Given CSM's permissionless nature, NOs can voluntarily exit their validators at any moment by publishing an exit message to the Ethereum Consensus Layer.
 
-Should a Node Operator decide to exit their validators using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002), they can do so via the [CSEjector](TODO: add link to CSEjector) contract.
+Should a Node Operator decide to exit their validators using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002), they can do so via the [CSEjector](./contracts/CSEjector.md) contract.
 
 :::warning
 Exiting validators using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) is an emergency measure and should be used only in exceptional cases. It is recommended to exit validators using the standard method of publishing an exit message to the Ethereum Consensus Layer.
@@ -17,7 +17,7 @@ From the core protocol side, validator exit can be requested to cover withdrawal
 
 From CSM side, validator exits can be requested or triggered for:
 - Unbonded validators. These exits are requested automatically using the `targetLimitMode = 2` (forced mode);
-- Validators with an excessive number of [bad performance strikes](penalties.md#bad-performance-strikes). These exits are triggered via the permissionless method on the [CSStrikes](TODO: add link to CSStrikes) contract. 
+- Validators with an excessive number of [bad performance strikes](penalties.md#bad-performance-strikes). These exits are triggered via the permissionless method on the [CSStrikes](./contracts/CSStrikes.md) contract. 
 
 :::info
 `targetLimitMode = 2` (forced mode) was introduced within the updated version of [Staking Router](https://hackmd.io/@lido/BJXRTxMRp#Forced-Exit-Requests1). In short, it is similar to the existing `targetLimit` but exits for the validators above `targetLimit` with `targetLimitMode = 2` (forced mode) can be requested within the next [VEBO](/contracts/validators-exit-bus-oracle) report, even without a need to fulfill withdrawal requests from stETH holders.

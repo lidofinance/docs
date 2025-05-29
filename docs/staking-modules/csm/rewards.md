@@ -16,7 +16,7 @@ Node Operator rewards come from the LoE protocol's share of the Consensus and Ex
 
 ## Total rewards
 
-![rewards-2](../../../static/img/csm/rewards-2-1.png)
+![rewards-2](../../../static/img/csm/rewards-2.png)
 
 The overall equation for the total rewards is as follows: totalRewards = validatorEffectiveBalance * networkAPR * moduleFee + bondAmount * shareRateChange. The [supplementary post](https://research.lido.fi/t/bond-and-staking-fee-napkin-math/5999) provides more details.
 
