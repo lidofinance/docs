@@ -382,7 +382,7 @@
 
 ## 1.12 (Proposed) Dual Governance Emergency Activation Committee: Ethereum
 
-**Address:**: [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://app.safe.global/home?safe=eth:0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
+**Address:** [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://app.safe.global/home?safe=eth:0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
 
 **Purpose of the multisig:** This committee has the one-off and time-limited right to activate an adversarial emergency mode if they see a scheduled proposal that was created or altered due to a vulnerability in the DG contracts or if governance execution is prevented by such a vulnerability. Active until emergency protection end date of `EmergencyProtectedTimelock` contract
 
@@ -411,7 +411,7 @@
 
 ## 1.13 (Proposed) Dual Governance Emergency Execution Committee: Ethereum
 
-**Address:**: [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
+**Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
 **Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
 
@@ -437,3 +437,32 @@
 | [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/6 |
 | [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/7 |
 | [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/8 |
+
+## 1.14 (Proposed) Dual Governance Reseal Committee: Ethereum
+
+**Address:** [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://app.safe.global/home?safe=eth:0xFFe21561251c49AdccFad065C94Fb4931dF49081)
+
+**Purpose of the multisig:** This committee has the right to extend temporarily paused contracts into a permanent pause or resume them if the following conditions are met:
+
+- The contracts are paused for a limited duration, not indefinitely.
+- The Dual Governance system is not in the Normal state.
+
+**Quorum:** 5/7
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**Contracts and Roles:**
+
+###### Dual Governance :[`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+* resealCommittee
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| ajbeal | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://twitter.com/ajbeal/status/1655876306771365888?s=20 |
+| eboadom | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877 | https://twitter.com/eboadom/status/1656002911854292993 |
+| michwill | 0xFe45baf0F18c207152A807c1b05926583CFE2e4b | Sig Hash: 0x44fc2bce69486ea826e1aaeb40878f9a8b038d5f0c8bd0ea9038fee7fca553005adfcd9d64172cacd2e7f1c11dc7e9b36c0f18916ed731e56ffa89feb95c8ae500 | https://twitter.com/newmichwill/status/1656597340780625920?s=20 |
+| thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://twitter.com/e330acid/status/1778451429172080726 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1655919930749976578 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
