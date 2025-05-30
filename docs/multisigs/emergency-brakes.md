@@ -379,3 +379,61 @@
 | [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
 | [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://twitter.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
+
+## 1.12 (Proposed) Dual Governance Emergency Activation Committee: Ethereum
+
+**Address:**: [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://app.safe.global/home?safe=eth:0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
+
+**Purpose of the multisig:** This committee has the one-off and time-limited right to activate an adversarial emergency mode if they see a scheduled proposal that was created or altered due to a vulnerability in the DG contracts or if governance execution is prevented by such a vulnerability. Active until emergency protection end date of `EmergencyProtectedTimelock` contract
+
+**Quorum:** 4/7
+
+**Forum topic:** [Lido Dual Governance Emergency Committee](https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049)
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**Contracts and Roles:**
+
+###### EmergencyProtectedTimelock :[`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
+* EmergencyActivationCommiittee
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/2 |
+| [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/3 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/4 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/5 |
+| [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/6 |
+| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/7 |
+| [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/8 |
+
+## 1.13 (Proposed) Dual Governance Emergency Execution Committee: Ethereum
+
+**Address:**: [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
+
+**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+
+**Quorum:** 5/7
+
+**Forum topic:** [Lido Dual Governance Emergency Committee](https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049)
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**Contracts and Roles:**
+
+###### EmergencyProtectedTimelock :[`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
+* EmergencyExecutionCommiittee
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/2 |
+| [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/3 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/4 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/5 |
+| [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/6 |
+| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/7 |
+| [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049/8 |
