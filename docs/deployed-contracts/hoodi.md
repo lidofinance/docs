@@ -111,7 +111,7 @@ Currently, the main operational and maintained protocol testnet is being migrate
 
 
 ## DAO-ops contracts & addresses
-- Token Reward Program (TRP) VestingEscrowFactory: [`0x0E7741C2A243C5120cC97178FEa5Ed0a2347871E`](https://hoodi.etherscan.io/address/0x0E7741C2A243C5120cC97178FEa5Ed0a2347871E)
+- Token Reward Program (TRP) VestingEscrowFactory: [`0xB50880Fe9aC6f8875de551D4C621024Bd7587259`](https://hoodi.etherscan.io/address/0xB50880Fe9aC6f8875de551D4C621024Bd7587259)
 
 ## Easy Track
 
