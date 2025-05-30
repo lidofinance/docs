@@ -773,7 +773,7 @@ function updateRefundedValidatorsCount(
 
 ### `reportRewardsMinted`
 
-Updates the number of the refunded validators in the staking module with the given node operator id.
+Reports the minted rewards to the staking modules with the specified ids.
 
 ```solidity
 function reportRewardsMinted(
