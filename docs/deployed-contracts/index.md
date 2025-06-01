@@ -310,9 +310,9 @@ for the rate and price feeds recommended approaches.
 
 ### Easy Track factories for MEV-Boost Relay Allowed List management
 - **MEV-Boost Relay Allowed List** (committee ms [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/home?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d))
-  - (proposed) AddMEVBoostRelays: [`0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60`](https://etherscan.io/address/0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60)
-  - (proposed) RemoveMEVBoostRelays : [`0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306`](https://etherscan.io/address/0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306)
-  - (proposed) EditMEVBoostRelay : [`0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535`](https://etherscan.io/address/0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535)
+  - AddMEVBoostRelays: [`0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60`](https://etherscan.io/address/0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60)
+  - RemoveMEVBoostRelays: [`0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306`](https://etherscan.io/address/0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306)
+  - EditMEVBoostRelay: [`0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535`](https://etherscan.io/address/0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535)
 
 ## Lido DAO Multisigs
 
