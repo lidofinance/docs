@@ -41,9 +41,9 @@ The Lido Council Daemon monitors deposit contract keys.
 
 Lido keys HTTP API.
 
-- **Version**: 2.2.0
-- **Docker image**: sha256:90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae, [lidofinance/lido-keys-api@sha256-90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae](https://hub.docker.com/layers/lidofinance/lido-keys-api/2.2.0/images/sha256-90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae?context=explore)
-- **Commit hash**: [lidofinance/lido-keys-api@b03e65b](https://github.com/lidofinance/lido-keys-api/commit/b03e65b18ff7bde3830554308b79fa9c234afa2d)
-- **Last update date**: 10 October, 2024
-- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/2.2.0)
+- **Version**: 2.2.1
+- **Docker image**: sha256:f8ce1d8828c99af22bba112ef23c0d235534a1436d8e4ba46f368c636f1c4bc9, [lidofinance/lido-keys-api@sha256-f8ce1d8828c99af22bba112ef23c0d235534a1436d8e4ba46f368c636f1c4bc9](https://hub.docker.com/layers/lidofinance/lido-keys-api/2.2.1/images/sha256-f8ce1d8828c99af22bba112ef23c0d235534a1436d8e4ba46f368c636f1c4bc9)
+- **Commit hash**: [lidofinance/lido-keys-api@99d4d4d](https://github.com/lidofinance/lido-keys-api/commit/99d4d4d99878a192028bb391251976d7fce53ba8)
+- **Last update date**: 1 April, 2025
+- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/2.2.1)
 - [**Documentation**](/guides/kapi-guide)
