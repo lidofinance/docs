@@ -3,5 +3,5 @@
 ### 📝 Describe your changes
 1. 
 
-### 🔎 Include the source of truth for described changes
+### 🔎 Include verifiable source of truth/proofs for described changes
 1. 
