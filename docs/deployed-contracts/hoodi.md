@@ -148,9 +148,9 @@ Currently, the main operational and maintained protocol testnet is being migrate
 
 ### Easy Track factories for MEV-Boost Relay Allowed List management
 - **MEV-Boost Relay Allowed List** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=eth:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
-  - (proposed) AddMEVBoostRelays: [`0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af`](https://hoodi.etherscan.io/address/0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af)
-  - (proposed) RemoveMEVBoostRelays : [`0x7FCc2901C6C3D62784cB178B14d44445B038f736`](https://hoodi.etherscan.io/address/0x7FCc2901C6C3D62784cB178B14d44445B038f736)
-  - (proposed) EditMEVBoostRelay : [`0x27A99a7104190DdA297B222104A6C70A4Ca5A17e`](https://hoodi.etherscan.io/address/0x27A99a7104190DdA297B222104A6C70A4Ca5A17e)
+  - AddMEVBoostRelays: [`0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af`](https://hoodi.etherscan.io/address/0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af)
+  - RemoveMEVBoostRelays: [`0x7FCc2901C6C3D62784cB178B14d44445B038f736`](https://hoodi.etherscan.io/address/0x7FCc2901C6C3D62784cB178B14d44445B038f736)
+  - EditMEVBoostRelay: [`0x27A99a7104190DdA297B222104A6C70A4Ca5A17e`](https://hoodi.etherscan.io/address/0x27A99a7104190DdA297B222104A6C70A4Ca5A17e)
 
 ## Testnet Stablecoins
 
