@@ -4,7 +4,7 @@
 
 > I'm usually tuning networking, memory, and file descriptors. This is a `sysctl.conf` file I'm using to tune and harden a blockchain node, collected and fine-tuned over the years.
 >
-> &#x20;\- [Marc Bonenberger, Founder @ Blockshard](https://www.linkedin.com/in/mbonenberger)
+> &#x20;\- Marc Bonenberger, Founder of [Blockshard](https://x.com/blockshard1)
 
 Edit the `/etc/sysctl.conf` file.
 
@@ -12,11 +12,7 @@ Edit the `/etc/sysctl.conf` file.
 sudo nano /etc/sysctl.conf
 ```
 
-Add the following contents to the bottom of the file. **Note:** Delete any uncommented lines that were previously added. e.g.,
-
-`vm.swappiness=10`
-
-`vm.vfs_cache_pressure=50`
+Add the following contents to the bottom of the file. **Note:** Delete any uncommented lines that were previously added.
 
 ```
 # =======================================
@@ -72,9 +68,13 @@ kernel.shmmax = 1073741824       # Max size of a shared memory segment (1GB)
 # =======================================
 # VIRTUAL MEMORY TUNING
 # =======================================
-vm.swappiness = 1               # Prefer RAM over swap
+vm.swappiness = 10               # Prefer RAM over swap. Set value to 1 for even better performance if you have 32GB RAM or more
 vm.vfs_cache_pressure = 50       # Retain inode/dentry cache longer (useful for I/O-heavy apps)
 ```
+
+:::info
+Set vm.swappiness = 1 instead if you have 32GB RAM or more for even better performance.
+:::
 
 `CTRL+O`, `ENTER`, `CTRL+X` to save and exit.
 
