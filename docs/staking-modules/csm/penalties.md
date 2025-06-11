@@ -4,9 +4,9 @@
 There are several reasons for the CSM Node Operator's [bond](./join-csm#bond) to be penalized:
 1. **The operator has stolen EL rewards (MEV).** Penalty amount = `amount stolen + fixed stealing fine` (can be applied across multiple NO validators);
 2. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH).** Penalty amount = `DEPOSIT_AMOUNT - validator's withdrawal balance`;
-3. **The operator has not exited the validators in time*.**  Penalty amount = `exitDelayPenalty` (fixed amount set by the DAO);
-4. **The validator has been ejected via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) due to an excessive number of strikes.** Penalty amount = `badPerformancePenalty` (fixed amount set by the DAO);
-5. **Force ejection via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) was triggered for the validator.** Penalty amount = `min(actual TW fee paid, maxWithdrawalRequestFee)`;
+3. **The operator has not exited the validators in time.**  Penalty amount = `exitDelayPenalty` (a fixed amount set by the DAO);
+4. **The validator has been ejected via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) due to an excessive number of strikes.** Penalty amount = `badPerformancePenalty` (a fixed amount set by the DAO);
+5. **Force ejection via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) was triggered for the validator.** Penalty amount = `min(actual TW fee paid, maxWithdrawalRequestFee)`.
 
 The first penalty has the form of a [delayed penalty](#immediate-and-delayed) with a challenge period. A dedicated committee (reporter) detects MEV stealing (violation of the [Lido on Ethereum Block Proposer Rewards Policy](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f)) and reports this fact on-chain, locking the [bond](./join-csm#bond) funds. Settlement over EasyTrack motion (settler) ensures alignment between the DAO and the detection committee. Once the penalty is settled (confirmed), all Node Operators' benefits are reset due to the violation of protocol rules. If the penalty is not settled for the `lockPeriod`, the locked [bond](./join-csm#bond) is automatically unlocked.
 
