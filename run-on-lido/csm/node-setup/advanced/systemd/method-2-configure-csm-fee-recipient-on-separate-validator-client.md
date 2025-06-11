@@ -130,8 +130,13 @@ After you got the name, proceed to mount the USB into the `/media` folder, acces
 
 ```bash
 sudo mount /dev/sda1 /media # Replace sda1 with the actual name of your USB drive.
-cd /media/staking-deposit-cli # Go into your USB drive
-sudo cp -r validator_keys ~ # Copy your validator signing keystore into the HOME directory of your node.
+cd /media/ # Go into your USB drive
+ls # find the actual file name of your validator keystore
+```
+Copy your validator keystore into the HOME directory of your node
+
+```bash
+sudo cp keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
 
 Then unmount and eject your USB drive:
@@ -587,7 +592,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_tekuvalidator.se
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/staking_deposit-cli*/validator_keys
+sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -625,7 +630,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_nimbusvalidator.
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/staking_deposit-cli*/validator_keys
+sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
   
   </TabItem>
@@ -653,7 +658,7 @@ docker logs csm_lodestar_validator -f
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/staking_deposit-cli*/validator_keys
+sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -691,7 +696,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_lighthousevalida
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/staking_deposit-cli*/validator_keys
+sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -729,7 +734,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_prysmvalidator.s
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/staking_deposit-cli*/validator_keys
+sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
