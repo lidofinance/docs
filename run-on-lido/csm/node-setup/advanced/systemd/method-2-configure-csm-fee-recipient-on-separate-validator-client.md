@@ -178,8 +178,8 @@ Type in the password you used when generating your validator keys in the earlier
 
 ```bash
 sudo mkdir -p /var/lib/csm_teku_validator/validator_keystores /var/lib/csm_teku_validator/keystore_password
-sudo cp ~/validator_keys/<validator_keystore.json> /var/lib/csm_teku_validator/validator_keystores
-sudo cp ~/validator_keys/<validator_keystore_password.txt> /var/lib/csm_teku_validator/keystore_password
+sudo cp ~/keystore-m_<timestamp>.json /var/lib/csm_teku_validator/validator_keystores # replace <timestamp> with actual file name
+sudo cp ~/keystore-m_<timestamp>.txt /var/lib/csm_teku_validator/keystore_password # replace <timestamp> with actual file name
 sudo chown -R csm_teku_validator:csm_teku_validator /var/lib/csm_teku_validator
 sudo chmod 700 /var/lib/csm_teku_validator
 ```
@@ -219,8 +219,8 @@ sudo chmod 700 /var/lib/csm_nimbus_validator
 
 ```bash
 sudo mkdir -p /var/lib/csm_lodestar_validator/validator_keystores /var/lib/csm_lodestar_validator/keystore_password
-sudo cp ~/validator_keys/<validator_keystore.json> /var/lib/csm_lodestar_validator/validator_keystores
-sudo cp ~/validator_keys/<validator_keystore_password.txt> /var/lib/csm_lodestar_validator/keystore_password
+sudo cp ~/keystore-m_<timestamp>.json /var/lib/csm_lodestar_validator/validator_keystores # replace <timestamp> with actual file name
+sudo cp ~/<keystore-m_<timestamp>.txt /var/lib/csm_lodestar_validator/keystore_password # replace <timestamp> with actual file name
 sudo chown -R csm_lodestar_validator:csm_lodestar_validator /var/lib/csm_lodestar_validator
 sudo chmod 700 /var/lib/csm_lodestar_validator
 id csm_lodestar_validator
