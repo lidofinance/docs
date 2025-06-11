@@ -3,6 +3,8 @@ import TabItem from '@theme/TabItem';
 
 # Method 1: Configure CSM Fee Recipient on validator keys
 
+**Note:** You will have to import your CSM validator keystores into your validator client first. Refer to the key import steps in Method 2 if you are unsure about how to proceed.
+
 ## Validator Clients
 
 <Tabs>
