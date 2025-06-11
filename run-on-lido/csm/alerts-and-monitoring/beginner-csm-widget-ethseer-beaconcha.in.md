@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # 📊 Beginner: CSM Widget, EthSeer, Beaconcha.in
 
-To get rewards on CSM your validators, their performance must be equal to the average performance of the network minus 5% during the monitoring frame of 28 days. That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
+To get rewards on your CSM validators, their performance must be above the average performance of the network minus 5% during the monitoring frame of 28 days. That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
 
 ## Snapshot Performance
 

@@ -1,6 +1,6 @@
 # CSM Guide
 
-This guide focuses solely on the technical setup of Ethereum validators using the Lido Community Staking Module (CSM).
+This guide focuses solely on the technical setup of Ethereum validators using Lido's Community Staking Module (CSM).
 
 We recommend that you first understand the **concepts and requirements** of participating in the [Lido CSM Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module) before you proceed. Other resources are linked below.
 

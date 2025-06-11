@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # 👥 Operator Roles
 
-CSM counts with two roles to interact with your Node Operator, these are **Manager** and **Rewards**. When you first create your operator both roles are assigned to the wallet you used at creation, but both can be changed later. Let's see what each role can do and how to change the wallet:
+CSM has two roles to interact with your Node Operator: **Manager** and **Rewards**. When you first create your operator, both roles are assigned to the wallet you used at creation (unless you are explicitly specifying custom addresses), but both can be changed later. Let's see what each role can do and how to change the wallet:
 
 :::warning
 You won't be able to change permissions if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Reward address.
@@ -33,7 +33,7 @@ The Reward can do the following:
 * Propose a new Reward address
 * Reset the Manager to make it equal to the current Reward address
 
-Given the Reward address is the recipient of funds, it is recommended to be set to a cold wallet.
+Given the Reward address is the recipient of funds, it is recommended to be set to a [cold wallet](https://www.coinbase.com/en-es/learn/wallet/hot-vs-cold-crypto-wallet-what-is-the-difference).
 
 ### Permissionless operations
 On top of the permissions above, there's several methods that can be called by any Ethereum address:

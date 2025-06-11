@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Deposit queue
 
 :::info
-We encourage operators to see the queue before submitting new keys, as they may have to wait some time to get deposits and there's a fee of `0.05 ETH` for removing keys while in the queue.
+We encourage operators to see the queue before submitting new keys, as they may have to wait some time to get deposits, and there's a fee of `0.02 ETH` for removing keys while in the queue.
 :::
 
 The way validators are deposited in the CSM is through a FIFO (first in, first out) queue. You can see a visual representation of the queue under the deposit widget, or at the top of the `View Keys` tab.

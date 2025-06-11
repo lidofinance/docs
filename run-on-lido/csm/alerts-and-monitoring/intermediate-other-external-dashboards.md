@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # 🌐 Intermediate: Other External Dashboards
 
-The CSM can be used in multiple external dashboards with different use cases or metrics for operators. To find all of them navigate to the **Monitoring** tab, and find them under the **External dashboards** section.
+CSM operators have access to multiple external dashboards with different use cases or metrics. To find all of them, navigate to the **Monitoring** tab and locate them under the **External dashboards** section.
 
 ![External Dashboards Section](/img/csm-guide/intermediate-1.png)
 
-Click on any of the dashboards and you'll automatically see the specific information for your operator only. Here is some of the things you can see and do with them:
+Click on any of the dashboards, and you'll automatically see the specific information for your operator only. Here are some of the things you can see and do with them:
 
-* [**beaconcha.in v2**](https://v2-beta-mainnet.beaconcha.in/dashboard/): see public key of your validators, along with its completed or missed duties, and a summary of performance including Efficiency or Attestations. They also have a mobile app where you can keep track and receive notifications of them.
+* [**beaconcha.in v2**](https://v2-beta-mainnet.beaconcha.in/dashboard/): see public key of your validators, along with its completed or missed duties, and a summary of performance including Efficiency or Attestations. They also have a mobile app where you can keep track of and receive notifications from them.
 
 ![beaconcha.in v2 Dashboard](/img/csm-guide/intermediate-2.png)
 
