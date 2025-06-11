@@ -7,7 +7,7 @@ sidebar_position: 4
 CSM has two roles to interact with your Node Operator: **Manager** and **Rewards**. When you first create your operator, both roles are assigned to the wallet you used at creation (unless you are explicitly specifying custom addresses), but both can be changed later. Let's see what each role can do and how to change the wallet:
 
 :::warning
-You won't be able to change permissions if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Reward address.
+You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Reward address.
 
 You can work around this by using the Extended mode explained [here](#extended-mode).
 :::
@@ -18,6 +18,7 @@ You can work around this by using the Extended mode explained [here](#extended-m
 The Manager can perform the following actions:
 
 * Add new validator keys
+* Compensate the reported MEV stealing penalty
 * Delete validator keys that were not deposited yet
 * Claim rewards (rewards will be transferred to the Reward address)
 * Put depositable keys back into the deposit queue if they were skipped during the queue iteration
@@ -39,7 +40,6 @@ Given the Reward address is the recipient of funds, it is recommended to be set 
 On top of the permissions above, there's several methods that can be called by any Ethereum address:
 - Top-up bond
 - Distribute allocated rewards to the Node Operator's bond
-- Compensate the reported MEV stealing penalty
 - Report validator withdrawal to release bond tokens (usually done by the CSM Bot)
 - Report validator slashing (usually done by the CSM Bot)
 
@@ -62,8 +62,8 @@ The other wallet will then have to sign a transaction accepting the request.
 
 ## Extended mode
 
-:::info
-If you're using a wallet that can't sign transactions chances are that it can't support some of the withdrawal methods like the Withdrawal NFT or the rebasable stETH token. Please confirm with the source of your wallet.
+:::note
+The extended mode can only be set upon the creation of the Node Operator.
 :::
 
 If you need to use a wallet that can't sign arbitrary transactions as the Reward address (e.g., Obol clusters using Splitter contracts), you can select **Extended mode** which gives the manager the ability to change the Reward address as well.

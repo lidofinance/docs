@@ -71,7 +71,6 @@ Use the [Wagyu Keygen](https://github.com/stake-house/wagyu-key-gen) GUI:
 4. Choose number of validator keys.
 5. Encrypt keystores with a strong password.
 6. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault:
-
    * **Hoodi:** `0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`
 7. Confirm password.
 8. Select output folder for keystores and deposit data.

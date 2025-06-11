@@ -19,7 +19,7 @@ sidebar_position: 1
 
 Here, you will see your net rewards and bond claimable in aggregate and broken down into its individual parts. Note that `Locked bond` is also deducted from your aggregate rewards here.
 
-You will also be able to claim your net rewards + bond in total or in individual parts if you wish, and select among 3 token types to receive: ETH / stETH / wstETH.
+You will also be able to claim your net rewards + bond in total or in individual parts if you wish, and select among 3 token types to receive: ETH (in the form of a [Withdrawal NFT](/guides/lido-tokens-integration-guide#unsteth)) / stETH / wstETH.
 
 ### Add Bond tab
 
@@ -39,7 +39,7 @@ On the other hand, if your bond falls below the required minimum, the unbonded k
 ![Unbonded Keys](/img/csm-guide/bond-4.png)
 
 :::info
-The required minimum bond amount is based on how many of your uploaded validator keys have been deposited by the CSM. Exiting your CSM-deposited keys will not unlock your **Locked bonds**.
+The required minimum bond amount is based on the amount of keys in your operator (including both deposited and non-deposited). Exiting your CSM-deposited keys will not unlock your **Locked bonds**.
 :::
 
 **At this point, there are 2 options you can take:**

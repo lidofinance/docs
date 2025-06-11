@@ -8,6 +8,7 @@ import TabItem from '@theme/TabItem';
 * It is highly recommended that you perform this step using an air-gapped machine (a device that has never connected to the public internet).
 * If this is not available, turn off all internet and wireless connections (Ethernet, WiFi, Bluetooth) before proceeding.
 * In both cases, ensure you’re in a safe environment with a trusted network and physically block all camera devices.
+* Generate the keys using **0x01 Withdrawal Credentials** with deposit amount set to 32 ETH.
 
 ## Creating an air-gapped machine
 

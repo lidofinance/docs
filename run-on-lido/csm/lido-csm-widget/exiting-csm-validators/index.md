@@ -6,17 +6,19 @@ sidebar_position: 3
 
 ## Monitoring for exit requests from Lido
 
-The `Dashboard` header provides a consolidated view of any exit requests issued to you in the form of `Unbonded` and `Stuck` keys.
+The **Dashboard** view  provides a consolidated view of the status of your keys. Including the exit requests as shown on the image below.
 
 ![Monitoring Dashboard](/img/csm-guide/exit1-1.png)
 
-There are 3 reasons why CSM operators can receive exit requests from the Lido Protocol:
+There are 2 reasons why CSM operators can receive exit request from the Lido Protocol:
+1. If the protocol needs ETH to fulfill stETH withdrawal requests. Note that because of how the protocol works withdrawal requests will, for the most part, be requested from bigger modules like the Curated Module first.
+2. If the validator is performing below the Performance Threshold for 3 frames within 6 months.
 
-1. The node operator's bond amounts fall below the minimum threshold for the number of validator keys deposited by the CSM
-2. To cover withdrawal requests from stETH holders
-3. By DAO decision in some exceptional cases. This will require an onchain vote and public discussion on the [Lido Research Forum](https://research.lido.fi/).
+If the operator does not exit their validators after the protocol request, the following will be applied:
+1. Exclude the Node Operator from the CSM deposit queue until the issue is resovled.
+2. Exclude the Node Operator from the staking rewards allocation cycle.
 
-When this happens, CSM operators must initiate an exit on the requested number of validator keys as soon as possible (within 96 hours) to avoid penalty measures from having `Stuck Keys`.
+You can read more about exits [here](/staking-modules/csm/validator-exits).
 
 ### Notifications for exit requests
 
@@ -24,7 +26,8 @@ You can also subscribe to notifications for exit requests from Lido using the [C
 
 **Quick start:**
 
-1. Search for the **"CSM Sentinel"** bot on Telegram and open a chat with it
+1. To use the hosted version, click [here for Mainnet](https://t.me/CSMSentinel_bot) or here for [Hoodi](https://t.me/CSMSentinelHoodi_bot)
+Search for the **"CSM Sentinel"** bot on Telegram and open a chat with it
 2. Type `/start` and send
 3. Select the `Follow` option
 4. Enter your CSM Operator ID. This can be found at the top of the CSM Widget after connecting your wallet.
