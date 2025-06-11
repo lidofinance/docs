@@ -35,14 +35,15 @@ Print the contents of the `deposit_data.json` file on your node machine, then co
 * Identify the actual file name of your `deposit_data.json` file on your node:
 
 ```sh
-ls ~/validator_keys
+find ~ -name "*deposit_data*" 2>/dev/null
 ```
+The output will be a file path to your deposit data. 
 
 * **Print the contents:**
 
 ```sh
-sudo cat ~/validator_keys/deposit_data-<timestamp>.json
-# replace <timestamp> with the actual numbers in your file name
+cat <FILEPATH_TO_DEPOSIT_DATA>
+# replace with the actual file path
 ```
 
   </TabItem>
