@@ -1,6 +1,9 @@
 # Intro
 
 :::info
+If you're looking for a practical guide to run CSM on your setup, please follow the CSM guide [here](/run-on-lido/csm/).
+:::
+:::info
 Terms "validator", "key", "validator key", and "deposit data" have the same meaning within the document.
 :::
 
@@ -64,6 +67,3 @@ The Node Operator data structure in CSM is similar to that of the [Curated modul
 - [Rewards](/staking-modules/csm/rewards.md)
 - [Penalties](/staking-modules/csm/penalties.md)
 - [Validator exits](/staking-modules/csm/validator-exits.md)
-
-## Guides
-- [Subscribing to events](/staking-modules/csm/guides/events.md)
