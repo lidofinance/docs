@@ -15,22 +15,46 @@ Please share your thoughts through **[the short form](https://tally.so/r/3X9vYe)
 
 stVaults consist of the following components:
 
-- **stVaults Web UI**: A web interface interacting directly with the `Dashboard` contract and other stVaults-related contracts, providing a user-friendly experience for managing vaults and monitoring metrics.
-- **CLI (Command Line Interface)**: A command-line tool interacting directly with the `Dashboard` contract and other stVaults-related contracts offering advanced management capabilities (deposits, generating proofs, per-vault oracle reports, etc.). ([GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/))
-- **Dashboard contract**: A management contract deployed together with the `StakingVault` contract, and is assigned as the owner of the `StakingVault` contract by default. It provides granular management capabilities and introduces roles and permissions, allowing different actions to be managed by distinct roles. It also provides utility functions for minting/burning, performing deposits, collecting node operator fees.
-- **StakingVault Contract**: The core primitive contract representing the staking vault. Advanced use cases might include direct interaction with the `StakingVault` contract, which requires transferring ownership from the `Dashboard` contract.
-- **Predeposit Guarantee (PDG)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows stVault's owner and Node Operators to deposit validators with the vault's funds in trustless manner.
+- **[stVaults Web UI](#web-ui)**: A web interface interacting directly with the `Dashboard` contract and other stVaults-related contracts, providing a user-friendly experience for managing vaults and monitoring metrics.
+- **[CLI (Command Line Interface)](#command-line-interface)**: A command-line tool interacting directly with the `Dashboard` contract and other stVaults-related contracts offering advanced management capabilities (deposits, generating proofs, per-vault oracle reports, etc.). ([GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/))
+- **[Dashboard contract](#dashboard-contract)**: A management contract deployed together with the `StakingVault` contract, and is assigned as the owner of the `StakingVault` contract by default. It provides granular management capabilities and introduces roles and permissions, allowing different actions to be managed by distinct roles. It also provides utility functions for minting/burning, performing deposits, collecting node operator fees.
+- **[StakingVault Contract](#stakingvault-contract)**: The core primitive contract representing the staking vault. Advanced use cases might include direct interaction with the `StakingVault` contract, which requires transferring ownership from the `Dashboard` contract.
+- **[Predeposit Guarantee (PDG)](#predeposit-guarantee-pdg)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows stVault's owner and Node Operators to deposit validators with the vault's funds in trustless manner.
 - **Off-chain monitoring tools (can be used by the Node Operator):**
-  - **Ethereum Validators Monitoring (EVM)**: Consensus layer validators monitoring bot, that fetches Lido or Custom Users Node Operators keys from Execution layer and checks their performance in Consensus layer by: balance delta, attestations, proposes, sync committee participation.
-  - **Ethereum Head Watcher**: Bot which watches Ethereum head block and handle validator-related "events" and sends notifications through Alertmanager to Discord channel.
+  - **[Ethereum Validators Monitoring (EVM)](#ethereum-validators-monitoring-evm)**: Consensus layer validators monitoring bot that fetches Lido or Custom Users Node Operators keys from the Execution layer and checks their performance on the Consensus layer by the balance delta, attestations, proposes, sync committee participation.
+  - **[Ethereum Head Watcher](#ethereum-head-watcher)**: Bot that watches Ethereum head block, handles validator-related "events", and sends notifications through Alertmanager to a Discord channel.
 
 ## Integration and interacting layers
+
+### Web UI
+
+:::info
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](../../deployed-contracts/hoodi-lidov3.md).
+For advanced or low-level features that haven’t yet been exposed in the interface, use the [CLI](#command-line-interface).
+:::
+
+**URL**: https://vaults-hoodi-lidov3.testnet.fi
+
+**Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
+
+**Steps**:
+
+1. Access the Vault Web UI and connect the wallet.
+2. Create a vault and set up roles and permissions.
+3. Supply/withdraw ETH, mint/repay stETH.
+4. Control stVault Health factor and corresponding metrics, configure stVault settings.
+
+**Use case example**:
+
+- Individual and institutional stakers using the Web UI to perform operations, exploring vault performance, economy, fees, and efficiency.
+- Prospecting vault owners examining node operator performance and vault efficiency before creating their own stVault.
+- Anyone using the Web UI as an educational and analytical tool for understanding stVaults mechanics and economy.
 
 ### Command-line interface
 
 **URL**: [GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
 
-**Goal**: Manage stVaults via CLI for automation and advanced operations (deposits, generating/submitting proofs, per-vault oracle reports, etc.).
+**Goal**: Manage stVaults via CLI for day-to-day and advanced operations as well as automation (deposits, generating/submitting proofs, per-vault oracle reports, etc.).
 
 **Steps**:
 
@@ -42,32 +66,9 @@ stVaults consist of the following components:
 **Use case examples**:
 
 - Institutional integrator requiring automated and scriptable staking management.
-- Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as predeposit, prove and top-up deposit validators via PDG.
-- Protocols integrating with stVaults and run in the integration on testnet.
+- Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as predeposit, prove and top-up deposit validators via Predeposit Guarantee (PDG).
+  - Protocols integrating with stVaults and running in the integration on testnet.
 
-### Web UI
-
-:::info
-The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](../../deployed-contracts/hoodi-lidov3.md).
-For advanced or low-level features that haven’t yet been exposed in the interface, use the CLI.
-:::
-
-**URL**: https://vaults-hoodi-lidov3.testnet.fi
-
-**Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
-
-**Steps**:
-
-1. Access the Vault Web UI and connect the wallet.
-2. Create a vault and set up roles and permissions.
-3. Supply/withdraw ETH, perform Beacon Chain deposits/withdrawals, mint/burn stETH.
-4. View vault and validators metrics and configure settings.
-
-**Use case example**:
-
-- Individual and institutional stakers using the UI to perform operations, exploring vault performance, economy, fees, and efficiency.
-- Prospecting vault owners examining node operator performance and vault efficiency before creating their own staking vault.
-- Anyone using the UI as an educational and analytical tool for understanding staking vault metrics.
 
 ### Dashboard contract
 
@@ -87,14 +88,13 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 - Granular permissions for staking vault operations and Node Operator fee claiming.
 - Structured product integrating stVaults for staking operations with granular control.
 
-### Staking Vault contract
+### StakingVault contract
 
 **URL**: [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/StakingVault.sol)
 
 **Goal**: Directly manage a `StakingVault` contract by transferring its ownership from the `Dashboard` contract to reduce operations gas costs (**advanced integrations**).
 
 > If vault ownership is changed to interact with the vault directly, it’s no longer possible to use other Lido stVaults infrastructure mechanisms to manage the vault. In this case, direct interaction with Lido core protocol via the Vault Hub contract is required.
->
 
 **Steps**:
 
