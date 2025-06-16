@@ -3,5 +3,5 @@
 ### 📝 Describe your changes
 1. 
 
-### 🔎 Include verifiable source of truth/proof for described changes
+### 🔎 Attach a source of truth or evidence that allows reviewers to confirm the changes independently
 1. 
