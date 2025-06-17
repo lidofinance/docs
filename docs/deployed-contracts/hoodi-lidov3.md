@@ -1,14 +1,10 @@
 # Hoodi: Lido V3 testnet instance :eyes:
 
-:::info 🔬 **Experimental playground**
-This page documents the **very first public testnet deployment of Lido V3 (stVaults)**. The contracts listed below exist _only_ on this test network and can be redeployed without notice.
+:::info 🔬 **Deployment refreshed: testnet‑2**
+Lido V3 (stVaults) contracts were redeployed with new addresses. The list below shows current testnet‑2 endpoints. Previous testnet‑1 addresses are available at the bottom of the page.
 
+The contracts listed below exist _only_ on this test network and can be redeployed without notice.
 If you are looking for mainnet Lido V3 addresses – hang tight, they are not live yet.
-
----
-
-**Tip →** Learn more about Lido V3 on **[v3.lido.fi](https://v3.lido.fi)** and share feedback on the Lido [research forum](https://research.lido.fi/t/lido-v3-ethereum-staking-infrastructure-for-a-diverse-product-line/9511).
-
 :::
 
 :::tip 📣 **Leave feedback** ← NEW
@@ -16,16 +12,13 @@ Tried this testnet? Lido contributors would love to hear from you!
 Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r/3X9vYe)**.
 :::
 
-:::info **Deployment refreshed: testnet‑2**
-Hoodi V3 contracts were redeployed with new addresses. The list below shows current testnet‑2 endpoints. Previous testnet‑1 addresses are available at the bottom of the page.
-:::
 
 ## 📚 Further reading
 
 - 🏗️ [Technical design doc](https://hackmd.io/@lido/stVaults-design)
 - 🔌 [stVaults integration guide](/guides/stvaults)
 - 🛡️ [stVaults Predeposit Guarantee (PDG) guide](/guides/stvaults/pdg)
-- ⚓ [stVaults deployment tag: **`v3.0.0-alpha`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-alpha)
+- ⚓ [stVaults deployment tag: **`v3.0.0-beta`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-beta)
 
 ---
 
@@ -39,7 +32,7 @@ Hoodi V3 contracts were redeployed with new addresses. The list below shows curr
 - Execution Layer Rewards Vault: [`0x99137683D4AAfaf76C84bD8F6e2Ae6A95DF90912`](https://hoodi.etherscan.io/address/0x99137683D4AAfaf76C84bD8F6e2Ae6A95DF90912)
 - Withdrawal Queue (ERC‑721): [`0x07F941C56f155fA4233f0ed8d351C9Af3152E525`](https://hoodi.etherscan.io/address/0x07F941C56f155fA4233f0ed8d351C9Af3152E525) (proxy)
 - Withdrawal Vault: [`0x9659aAa1458E2dba8713018Ffa36c64048345901`](https://hoodi.etherscan.io/address/0x9659aAa1458E2dba8713018Ffa36c64048345901) (proxy)
-- Burner: [`0xa0f32368d67870f4864A748c910C7Ca9B99e1027`](https://hoodi.etherscan.io/address/0xa0f32368d67870f4864A748c910C7Ca9B99e1027)
+- Burner: [`0xa0f32368d67870f4864A748c910C7Ca9B99e1027`](https://hoodi.etherscan.io/address/0xa0f32368d67870f4864A748c910C7Ca9B99e1027) (proxy)
 - Min First Allocation Strategy: [`0x4A08C1501a886861C17341317FF7885a5a1e5dB6`](https://hoodi.etherscan.io/address/0x4A08C1501a886861C17341317FF7885a5a1e5dB6)
 - Accounting: [`0x6adfFb27Dcc6b005988E4f9D408c877643D2d8A6`](https://hoodi.etherscan.io/address/0x6adfFb27Dcc6b005988E4f9D408c877643D2d8A6) (proxy)
 - Vault Hub: [`0x26b92f0fdfeBAf43E5Ea5b5974EeBee95F17Fe08`](https://hoodi.etherscan.io/address/0x26b92f0fdfeBAf43E5Ea5b5974EeBee95F17Fe08) (proxy)
@@ -86,8 +79,7 @@ Hoodi V3 contracts were redeployed with new addresses. The list below shows curr
 
 ## Easy Track
 
-- EasyTrack: [`0x9A2029735Bd14C8b17fd03FE05D5F04F7AF797c2`](https://hoodi.etherscan.io/address/0x9A2029735Bd14C8b17fd03FE05D5F04F7AF797c2)
-- EVMScriptExecutor: [`0x0b6de69562CADa4dBFdCA7e448fdc71D3542A590`](https://hoodi.etherscan.io/address/0x0b6de69562CADa4dBFdCA7e448fdc71D3542A590)
+- TBD
 
 ## ⛏️ Special accounts and addresses
 
