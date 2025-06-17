@@ -84,7 +84,7 @@ where the protocol and its parts/extensions are deployed.
 - (Proposed) Dual Governance Launch Verifier: [`0xd48c2fc419569537Bb069BAD2165dC0cEB160CEC`](https://etherscan.io/address/0xd48c2fc419569537Bb069BAD2165dC0cEB160CEC)
 - (Proposed) Roles Validator: [`0x31534e3aFE219B609da3715a00a1479D2A2d7981`](https://etherscan.io/address/0x31534e3aFE219B609da3715a00a1479D2A2d7981)
 - (Proposed) Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
-- (Proposed) Dual Governance Launch Omnibus Provider: [`0xcD7d0c2f0aEFF8cBD17702bfa9505421253edE54`](https://etherscan.io/address/0xcD7d0c2f0aEFF8cBD17702bfa9505421253edE54)
+- (Proposed) Dual Governance Launch Omnibus Provider: [`0x1DB8a9313785b78f7d0a201C5E0BE007f1eb63b4`](https://etherscan.io/address/0x1DB8a9313785b78f7d0a201C5E0BE007f1eb63b4)
 - (Proposed) Temporary Emergency Governance for Smoke Test: [`0x75850938C1Aa50B8cC6eb3c00995759dc1425ae6`](https://etherscan.io/address/0x75850938C1Aa50B8cC6eb3c00995759dc1425ae6)
   - Proposer committee: [`0xdd778153c3d0AE1B70fe81E0219b5D2C3e3951C2`](https://etherscan.io/address/0xdd778153c3d0AE1B70fe81E0219b5D2C3e3951C2)
 
