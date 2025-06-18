@@ -38,6 +38,8 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 - Vault Hub: [`0x26b92f0fdfeBAf43E5Ea5b5974EeBee95F17Fe08`](https://hoodi.etherscan.io/address/0x26b92f0fdfeBAf43E5Ea5b5974EeBee95F17Fe08) (proxy)
 - Operator Grid: [`0x35dd33A473D492745eD5226Cf940b5b1ef4C111D`](https://hoodi.etherscan.io/address/0x35dd33A473D492745eD5226Cf940b5b1ef4C111D) (proxy)
 - Predeposit Guarantee: [`0xAcb99d36e19763C210A548019C6F238B67644417`](https://hoodi.etherscan.io/address/0xAcb99d36e19763C210A548019C6F238B67644417) (proxy)
+- Triggerable Withdrawals Gateway: [`0xb273790D9ddA79E586Da819581f919e29ef6f83C`](https://hoodi.etherscan.io/address/0xb273790D9ddA79E586Da819581f919e29ef6f83C)
+- Validator Exit Delay Verifier: [`0x1b007bC74aB26Db6413B46A04BAB88104050b142`](https://hoodi.etherscan.io/address/0x1b007bC74aB26Db6413B46A04BAB88104050b142)
 
 ### 🔨 stVaults factory stack
 
@@ -45,6 +47,7 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 - Staking Vault Beacon: [`0x8de3b125221d07b44FCbd2CFD7354251858817B3`](https://hoodi.etherscan.io/address/0x8de3b125221d07b44FCbd2CFD7354251858817B3)
 - Staking Vault Implementation: [`0x5ff3782820Fc06cdF5a9ded897a778a6f0840b85`](https://hoodi.etherscan.io/address/0x5ff3782820Fc06cdF5a9ded897a778a6f0840b85)
 - Dashboard Implementation: [`0xcb3Bb848252F7ca05ED7753Ead0Eb2bdfD2ba878`](https://hoodi.etherscan.io/address/0xcb3Bb848252F7ca05ED7753Ead0Eb2bdfD2ba878)
+- Validator Consolidation Requests: [`0xD69239eFd4812E70238D9E3a80945C9138a241f6`](https://hoodi.etherscan.io/address/0xD69239eFd4812E70238D9E3a80945C9138a241f6)
 
 ## 🔮 Oracle contracts
 
@@ -56,6 +59,7 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
   - Hash Consensus for Validators Exit Bus Oracle: [`0xd7890f55266A795b59E9468Cd37a8524FBf44EFd`](https://hoodi.etherscan.io/address/0xd7890f55266A795b59E9468Cd37a8524FBf44EFd)
 - Oracle Report Sanity Checker: [`0x90F33A702E0DD5F050bA4910cCd3DC8b60C0901e`](https://hoodi.etherscan.io/address/0x90F33A702E0DD5F050bA4910cCd3DC8b60C0901e)
 - Oracle Daemon Config: [`0x2cB903dA5DB2Ad46E367F32499fB2781E0D2eD7D`](https://hoodi.etherscan.io/address/0x2cB903dA5DB2Ad46E367F32499fB2781E0D2eD7D)
+- Lazy Oracle: [`0xdF66Fb038CbB7587cC52A397CA88143657f3Ae4A`](https://hoodi.etherscan.io/address/0xdF66Fb038CbB7587cC52A397CA88143657f3Ae4A)
 
 ## 🗳️ DAO & Aragon apps
 
@@ -119,8 +123,6 @@ stETH obtained on this network **has no real ETH backing** and **cannot** be bri
 - Vault Hub: [`0xDfA0B34F28b1b6735d2df150a99048139302a80E`](https://hoodi.etherscan.io/address/0xDfA0B34F28b1b6735d2df150a99048139302a80E) (proxy)
 - Operator Grid: [`0xccb86588b776743CCCB6572D2a6eAFd466012191`](https://hoodi.etherscan.io/address/0xccb86588b776743CCCB6572D2a6eAFd466012191) (proxy)
 - Predeposit Guarantee: [`0x4C003D5586B32359Df5f37B42A2E717E24817Ec2`](https://hoodi.etherscan.io/address/0x4C003D5586B32359Df5f37B42A2E717E24817Ec2) (proxy)
-- Triggerable Withdrawals Gateway: [`0xb273790D9ddA79E586Da819581f919e29ef6f83C`](https://hoodi.etherscan.io/address/0xb273790D9ddA79E586Da819581f919e29ef6f83C)
-- Validator Exit Delay Verifier: [`0x1b007bC74aB26Db6413B46A04BAB88104050b142`](https://hoodi.etherscan.io/address/0x1b007bC74aB26Db6413B46A04BAB88104050b142)
 
 ### 🔨 stVaults factory stack
 
@@ -128,7 +130,6 @@ stETH obtained on this network **has no real ETH backing** and **cannot** be bri
 - Staking Vault Beacon: [`0xAF5bf52E784361f4eBBA86f2e918fFDd6A31453A`](https://hoodi.etherscan.io/address/0xAF5bf52E784361f4eBBA86f2e918fFDd6A31453A)
 - Staking Vault Implementation: [`0x7ade83C09A0Aa0FEA45695840067438a9dC96361`](https://hoodi.etherscan.io/address/0x7ade83C09A0Aa0FEA45695840067438a9dC96361)
 - Dashboard Implementation: [`0x5667f7477325F85C1b5E324387545C5045A57E2b`](https://hoodi.etherscan.io/address/0x5667f7477325F85C1b5E324387545C5045A57E2b)
-- Validator Consolidation Requests: [`0xD69239eFd4812E70238D9E3a80945C9138a241f6`](https://hoodi.etherscan.io/address/0xD69239eFd4812E70238D9E3a80945C9138a241f6)
 
 ## 🔮 Oracle contracts
 
@@ -140,7 +141,6 @@ stETH obtained on this network **has no real ETH backing** and **cannot** be bri
   - Hash Consensus for Validators Exit Bus Oracle: [`0xF1BbbB0749736cC0c39eA1a1EDAA7fD36E2924d1`](https://hoodi.etherscan.io/address/0xF1BbbB0749736cC0c39eA1a1EDAA7fD36E2924d1)
 - Oracle Report Sanity Checker: [`0x4077619FBAdB002fDC125171c8daf6a149C71166`](https://hoodi.etherscan.io/address/0x4077619FBAdB002fDC125171c8daf6a149C71166)
 - Oracle Daemon Config: [`0x2c2e8fE09a2449aB93D9eAD68f987D33189E6168`](https://hoodi.etherscan.io/address/0x2c2e8fE09a2449aB93D9eAD68f987D33189E6168)
-- Lazy Oracle: [`0xdF66Fb038CbB7587cC52A397CA88143657f3Ae4A`](https://hoodi.etherscan.io/address/0xdF66Fb038CbB7587cC52A397CA88143657f3Ae4A)
 
 ## 🗳️ DAO & Aragon apps
 
