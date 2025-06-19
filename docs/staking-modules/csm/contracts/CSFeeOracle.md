@@ -3,74 +3,63 @@
 - [Source code](https://github.com/lidofinance/community-staking-module/blob/fa7ba8a0bab685fc924aa1b135b8d59f4c6de497/src/CSFeeOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB)
 
-CSFeeOracle.sol is the utility contract responsible for the execution of the CSM Oracle report once the consensus is reached in the HashConsensus.sol contract, namely, transforming non-distributed rewards to non-claimed rewards stored on the CSFeeDistributor.sol, and reporting the latest root of rewards distribution Merkle tree to the CSFeeDistributor.sol. Inherited from the BaseOracle.sol from Lido on Ethereum.
+`CSFeeOracle.sol` is a utility contract responsible for the execution of the CSM Oracle report once the consensus is reached in the `HashConsensus.sol` contract, namely, transforming non-distributed rewards to non-claimed rewards stored on the `CSFeeDistributor.sol` and reporting the latest root of rewards distribution Merkle tree to the `CSFeeDistributor.sol`. Alongside rewards distribution, a contract manages strikes data delivery to the `CSStrikes.sol`. A contract is Inherited from the [`BaseOracle.sol`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/BaseOracle.sol) from Lido on Ethereum (LoE) core.
+
+**Changes in v2:**
+- Added strikes reporting support;
 
 ## Upgradability
 
 The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
-
-### CONTRACT_MANAGER_ROLE
-
-An ACL role granting the permission to manage the contract (update variables).
-
-```solidity
-bytes32 public constant CONTRACT_MANAGER_ROLE = keccak256("CONTRACT_MANAGER_ROLE");
-```
-
 ### SUBMIT_DATA_ROLE
-
 An ACL role granting the permission to submit the data for a committee report.
+
 
 ```solidity
 bytes32 public constant SUBMIT_DATA_ROLE = keccak256("SUBMIT_DATA_ROLE");
 ```
 
-### PAUSE_ROLE
 
+### PAUSE_ROLE
 An ACL role granting the permission to pause accepting oracle reports
+
 
 ```solidity
 bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE");
 ```
 
-### RESUME_ROLE
 
+### RESUME_ROLE
 An ACL role granting the permission to resume accepting oracle reports
+
 
 ```solidity
 bytes32 public constant RESUME_ROLE = keccak256("RESUME_ROLE");
 ```
 
-### RECOVERER_ROLE
 
+### RECOVERER_ROLE
 An ACL role granting the permission to recover assets
+
 
 ```solidity
 bytes32 public constant RECOVERER_ROLE = keccak256("RECOVERER_ROLE");
 ```
 
-### MAX_BP
+
+### FEE_DISTRIBUTOR
 
 ```solidity
-uint256 internal constant MAX_BP = 10000;
+ICSFeeDistributor public immutable FEE_DISTRIBUTOR;
 ```
 
-### feeDistributor
+
+### STRIKES
 
 ```solidity
-ICSFeeDistributor public feeDistributor;
-```
-
-### avgPerfLeewayBP
-
-Leeway in basis points is used to determine the under-performing validators threshold.
-`threshold` = `avgPerfBP` - `avgPerfLeewayBP`, where `avgPerfBP` is an average
-performance over the network computed by the off-chain oracle.
-
-```solidity
-uint256 public avgPerfLeewayBP;
+ICSStrikes public immutable STRIKES;
 ```
 
 ### MANAGE_CONSENSUS_CONTRACT_ROLE
@@ -93,42 +82,6 @@ bytes32 public constant MANAGE_CONSENSUS_VERSION_ROLE = keccak256("MANAGE_CONSEN
 ```
 
 
-### CONSENSUS_CONTRACT_POSITION
-*Storage slot: address consensusContract*
-
-
-```solidity
-bytes32 internal constant CONSENSUS_CONTRACT_POSITION = keccak256("lido.BaseOracle.consensusContract");
-```
-
-
-### CONSENSUS_VERSION_POSITION
-*Storage slot: uint256 consensusVersion*
-
-
-```solidity
-bytes32 internal constant CONSENSUS_VERSION_POSITION = keccak256("lido.BaseOracle.consensusVersion");
-```
-
-
-### LAST_PROCESSING_REF_SLOT_POSITION
-*Storage slot: uint256 lastProcessingRefSlot*
-
-
-```solidity
-bytes32 internal constant LAST_PROCESSING_REF_SLOT_POSITION = keccak256("lido.BaseOracle.lastProcessingRefSlot");
-```
-
-
-### CONSENSUS_REPORT_POSITION
-*Storage slot: ConsensusReport consensusReport*
-
-
-```solidity
-bytes32 internal constant CONSENSUS_REPORT_POSITION = keccak256("lido.BaseOracle.consensusReport");
-```
-
-
 ### SECONDS_PER_SLOT
 
 ```solidity
@@ -142,58 +95,13 @@ uint256 public immutable SECONDS_PER_SLOT;
 uint256 public immutable GENESIS_TIME;
 ```
 
+
 ## Functions
-
-### setFeeDistributorContract
-
-Set a new fee distributor contract
-
-_\_setFeeDistributorContract() reverts if zero address_
-
-```solidity
-function setFeeDistributorContract(
-  address feeDistributorContract
-) external onlyRole(CONTRACT_MANAGER_ROLE);
-```
-
-**Parameters**
-
-| Name                     | Type      | Description                                 |
-| ------------------------ | --------- | ------------------------------------------- |
-| `feeDistributorContract` | `address` | Address of the new fee distributor contract |
-
-### setPerformanceLeeway
-
-Set a new performance threshold value in basis points
-
-```solidity
-function setPerformanceLeeway(uint256 valueBP) external onlyRole(CONTRACT_MANAGER_ROLE);
-```
-
-**Parameters**
-
-| Name      | Type      | Description                           |
-| --------- | --------- | ------------------------------------- |
-| `valueBP` | `uint256` | performance threshold in basis points |
-
-### submitReportData
-
-Submit the data for a committee report
-
-```solidity
-function submitReportData(ReportData calldata data, uint256 contractVersion) external whenResumed;
-```
-
-**Parameters**
-
-| Name              | Type         | Description                           |
-| ----------------- | ------------ | ------------------------------------- |
-| `data`            | `ReportData` | Data for a committee report           |
-| `contractVersion` | `uint256`    | Version of the oracle consensus rules |
 
 ### resume
 
 Resume accepting oracle reports
+
 
 ```solidity
 function resume() external onlyRole(RESUME_ROLE);
@@ -203,29 +111,31 @@ function resume() external onlyRole(RESUME_ROLE);
 
 Pause accepting oracle reports for a `duration` seconds
 
+
 ```solidity
 function pauseFor(uint256 duration) external onlyRole(PAUSE_ROLE);
 ```
-
 **Parameters**
 
-| Name       | Type      | Description                      |
-| ---------- | --------- | -------------------------------- |
-| `duration` | `uint256` | Duration of the pause in seconds |
+|Name|Type|Description|
+|----|----|-----------|
+|`duration`|`uint256`|Duration of the pause in seconds|
 
-### pauseUntil
 
-Pause accepting oracle reports until a timestamp
+### submitReportData
+
+Submit the data for a committee report
+
 
 ```solidity
-function pauseUntil(uint256 pauseUntilInclusive) external onlyRole(PAUSE_ROLE);
+function submitReportData(ReportData calldata data, uint256 contractVersion) external whenResumed;
 ```
-
 **Parameters**
 
-| Name                  | Type      | Description                                         |
-| --------------------- | --------- | --------------------------------------------------- |
-| `pauseUntilInclusive` | `uint256` | Timestamp until which the oracle reports are paused |
+|Name|Type|Description|
+|----|----|-----------|
+|`data`|`ReportData`|Data for a committee report|
+|`contractVersion`|`uint256`|Version of the oracle consensus rules|
 
 ### getConsensusContract
 
@@ -328,20 +238,6 @@ function getLastProcessingRefSlot() external view returns (uint256);
 
 
 ## Events
-
-### FeeDistributorContractSet
-
-_Emitted when a new fee distributor contract is set_
-
-```solidity
-event FeeDistributorContractSet(address feeDistributorContract);
-```
-
-### PerfLeewaySet
-
-```solidity
-event PerfLeewaySet(uint256 valueBP);
-```
 ### ConsensusHashContractSet
 
 ```solidity
