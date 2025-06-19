@@ -26,8 +26,7 @@ You can also subscribe to notifications for exit requests from Lido using the [C
 
 **Quick start:**
 
-1. To use the hosted version, click [here for Mainnet](https://t.me/CSMSentinel_bot) or here for [Hoodi](https://t.me/CSMSentinelHoodi_bot)
-Search for the **"CSM Sentinel"** bot on Telegram and open a chat with it
+1. To use the hosted version, click [here for Mainnet](https://t.me/CSMSentinel_bot) or here for [Hoodi](https://t.me/CSMSentinelHoodi_bot). Alternatively, search for the **"CSM Sentinel"** bot on Telegram and open a chat with it
 2. Type `/start` and send
 3. Select the `Follow` option
 4. Enter your CSM Operator ID. This can be found at the top of the CSM Widget after connecting your wallet.
@@ -39,7 +38,7 @@ This [video guide](https://youtu.be/U1RkKnIR3_Y?t=242) covering how to set this 
 ## How to Exit Keys and Withdraw Your Bond
 
 1. Sign & broadcast an exit message for each validator key you want to exit. Refer to the sub-sections/pages below.
-2. Wait for the validator key to be fully exited on the beacon chain. Check your validator ID pubkey on [beaconcha.in](https://beaconcha.in/).
+2. Wait for the validator key to be fully exited on the beacon chain. Check your validator pubkey on [beaconcha.in](https://beaconcha.in/).
 3. Connect your wallet address to the Lido CSM Widget ([Mainnet](https://csm.lido.fi/) / [Testnet](https://csm.testnet.fi/)).
 4. Navigate to **Keys » View Keys** to verify that the status of your validator key is marked as **Withdrawn**.
 

@@ -5,7 +5,7 @@
 ## Full Node Setup
 
 :::info
-Machines purchased from the Dappnode store are plug-and-play. If you’re installing on your own hardware, it must run Debian. Follow the official Debian installer guide [here](https://www.debian.org/devel/debian-installer/).
+Machines purchased from the [Dappnode store](https://dappnode.com/) are plug-and-play. If you’re installing it on your own hardware, it must run on Debian. Follow the official Debian installer guide [here](https://www.debian.org/devel/debian-installer/).
 :::
 
 ### Video Guide

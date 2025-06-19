@@ -57,8 +57,10 @@ Transfer the `deposit_data-<timestamp>.json` file from the USB used in the valid
 * Finally, select `Submit`, sign the transaction with your connected wallet, and you are all set.
 * Now you just need to wait for the Lido CSM to deposit your validator keys (using your `deposit data file`). This is a first-in, first-out process so expect a queue when demand is high. More details on this process [here](https://operatorportal.lido.fi/modules/community-staking-module#block-25614a13674b465f875db871081091f9).
 
-:::info
-**DO NOT DEPOSIT 32 ETH** using the deposit data file generated this way as the Lido CSM will make the deposit for you. _**Doing so will result in a loss of funds.**_
+:::warning
+**DO NOT DEPOSIT 32 ETH** using the deposit data file generated this way, as the Lido CSM will make a deposit for you.
+
+  _**Doing so will result in a loss of funds.**_
 :::
 
 ## Remove keys
@@ -80,7 +82,7 @@ Once your keys have been removed, the associated bond amounts that you deposited
 ![Post-remove status](/img/csm-guide/keys-4.png)
 
 :::warning
-Keys that have been deposited cannot be deleted and only can be exited.
+Keys that have been deposited cannot be deleted and can only be exited from the Consensus Layer.
 :::
 
 ## View keys

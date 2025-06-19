@@ -1,6 +1,6 @@
 # Intro
 
-:::info
+:::tip
 If you're looking for a practical guide to run CSM on your setup, please follow the CSM guide [here](/run-on-lido/csm/).
 :::
 :::info
