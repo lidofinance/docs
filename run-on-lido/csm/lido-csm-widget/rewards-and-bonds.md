@@ -32,11 +32,7 @@ There are 2 activities you can perform here:
 
 Once your excess bond amount is sufficient for new validator keys to be deposited, the **Keys available to upload** will increase.
 
-![Excess / Insufficient Bond](/img/csm-guide/bond-3.png)
-
 On the other hand, if your bond falls below the required minimum, the unbonded keys count will increase.
-
-![Unbonded Keys](/img/csm-guide/bond-4.png)
 
 :::info
 The required minimum bond amount is based on the amount of keys in your operator (including both deposited and non-deposited). Exiting your CSM-deposited keys will not unlock your **Locked bonds**.
@@ -52,8 +48,6 @@ You cannot replenish **Locked bonds** using the **ADD BOND** feature.
 :::
 
 ### Unlock Bond tab
-
-![Unlock Bond](/img/csm-guide/bond-5.png)
 
 This tab allows you to replenish your **Locked bonds** due to MEV theft and resume the accruing of your CSM operator rewards.
 

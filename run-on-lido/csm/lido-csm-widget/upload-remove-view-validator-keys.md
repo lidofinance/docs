@@ -77,9 +77,7 @@ More details [here](https://operatorportal.lido.fi/modules/community-staking-mod
 
 ![Remove keys](/img/csm-guide/keys-3.png)
 
-Once your keys have been removed, the associated bond amounts that you deposited earlier will be available for claiming under the **Bond & Rewards** tab.
-
-![Post-remove status](/img/csm-guide/keys-4.png)
+Once your keys have been removed, the associated bond amounts that you deposited earlier will be available for claiming under the **Bond & Rewards** tab. You can learn more at the [Rewards & Bonds page of this guide](/run-on-lido/csm/lido-csm-widget/rewards-and-bonds).
 
 :::warning
 Keys that have been deposited cannot be deleted and can only be exited from the Consensus Layer.
@@ -89,7 +87,7 @@ Keys that have been deposited cannot be deleted and can only be exited from the 
 
 You can also view the status of the keys pertaining to your uploaded deposit data file and take the necessary actions.
 
-![View keys](/img/csm-guide/keys-5.png)
+![View keys](/img/csm-guide/keys-4.png)
 
 | Status                                                                 | What it means                                                                                 | What to do?                                                                                      |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |

@@ -14,7 +14,7 @@ Click on any of the dashboards, and you'll automatically see the specific inform
 
 ![beaconcha.in v2 Dashboard](/img/csm-guide/intermediate-2.png)
 
-* [**Rated explorer**](https://explorer.rated.network/o/Lido%20Community%20Staking%20Module?network=mainnet&timeWindow=1d&viewBy=operator&page=1&pageSize=15&idType=poolShare): aggregated granular metrics for the performance of all the keys under your operator. Helpful to see where your operator is lacking and explore solutions to improve it.
+* [**Rated Explorer**](https://explorer.rated.network/o/Lido%20Community%20Staking%20Module?network=mainnet&timeWindow=1d&viewBy=operator&page=1&pageSize=15&idType=poolShare): aggregated granular metrics for the performance of all the keys under your operator. Helpful to see where your operator is lacking and explore solutions to improve it.
 
 ![Rated Explorer Dashboard](/img/csm-guide/intermediate-3.png)
 

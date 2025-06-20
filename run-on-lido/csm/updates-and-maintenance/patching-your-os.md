@@ -77,3 +77,32 @@ Once you're done, save and exit with `Ctrl+O`and `Enter`, then `Ctrl+X`. Then re
 ```sh
 sudo systemctl restart unattended-upgrades
 ```
+
+## Configure Accurate System Time with Chrony
+
+Accurate system time is crucial for validators, as discrepancies can cause synchronization issues and even affect validation performance. To ensure your device maintains precise time synchronization, we recommend installing and configuring `chrony`, a reliable Network Time Protocol (NTP) client.
+
+### Install Chrony
+
+```
+sudo apt install -y chrony
+
+```
+
+### Verify Chrony is running and synchronizing
+
+```
+chronyc tracking
+
+```
+
+You should see output indicating synchronization with NTP servers, including your system's time offset. A stable offset within a few milliseconds is ideal.
+
+### Recommended: Ensure Chrony starts on boot and runs consistently
+
+```
+sudo systemctl enable --now chrony
+
+```
+
+Chrony will now automatically manage your system time, ensuring consistent validator performance and reliability.

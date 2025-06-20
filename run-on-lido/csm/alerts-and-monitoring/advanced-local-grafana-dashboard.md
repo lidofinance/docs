@@ -11,9 +11,12 @@ import TabItem from '@theme/TabItem';
 
 ### Dappnode
 
-* Check if the Dappnode Monitoring Service (DMS) Package is already installed under **Packages**. Else, install it from the Dappstore.  
-* Access your Dappnode interface, go to the DMS Package, and open up the DMS dashboard.  
-* [Video guide](https://www.youtube.com/watch?v=uhEiLQ4sRHo&ab_channel=SamuelChong)
+1. Check if the Dappnode Monitoring Service (DMS) Package is already installed under **Packages**. Else, install it from the Dappstore.  
+2. Access your Dappnode interface, go to the DMS Package, and open up the DMS dashboard.
+
+![Dappnode DMS](/img/csm-guide/advanced-1.png)
+
+[Video guide](https://www.youtube.com/watch?v=uhEiLQ4sRHo&ab_channel=SamuelChong)
 
 ### EthPillar
 
@@ -23,7 +26,7 @@ Run `ethpillar`. Then navigate to **21. Toolbox » 2. Monitoring: Observe Ethere
 
 You'll find a button to open Grafana at the top of the launcher screen. Click there and Stereum will open the local instance in your browser.
 
-![Stereum Grafana](/img/csm-guide/advanced-1.png)
+![Stereum Grafana](/img/csm-guide/advanced-2.png)
 
 ### Sedge
 

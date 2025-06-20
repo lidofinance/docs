@@ -9,7 +9,7 @@ CSM has two roles to interact with your Node Operator: **Manager** and **Rewards
 :::warning
 You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Reward address.
 
-You can work around this by using the Extended mode explained [here](#extended-mode).
+You can work around this by using the Extended mode explained [here](#extended-mode). **Note**: you can only do this when creating the Node Operator.
 :::
 
 ## Roles
@@ -63,7 +63,7 @@ The other wallet will then have to sign a transaction accepting the request.
 ## Extended mode
 
 :::note
-The extended mode can only be set upon the creation of the Node Operator.
+The extended mode can only be set upon the creation of the Node Operator and can't be changed later.
 :::
 
 If you need to use a wallet that can't sign arbitrary transactions as the Reward address (e.g., Obol clusters using Splitter contracts), you can select **Extended mode** which gives the manager the ability to change the Reward address as well.

@@ -12,7 +12,7 @@ The **Dashboard** view  provides a consolidated view of the status of your keys.
 
 There are 2 reasons why CSM operators can receive exit request from the Lido Protocol:
 1. If the protocol needs ETH to fulfill stETH withdrawal requests. Note that because of how the protocol works withdrawal requests will, for the most part, be requested from bigger modules like the Curated Module first.
-2. If the validator is performing below the Performance Threshold for 3 frames within 6 months.
+2. If you have unbonded validators you're required to either top up the bond, or exit the validator.
 
 If the operator does not exit their validators after the protocol request, the following will be applied:
 1. Exclude the Node Operator from the CSM deposit queue until the issue is resovled.
@@ -41,12 +41,9 @@ This [video guide](https://youtu.be/U1RkKnIR3_Y?t=242) covering how to set this 
 2. Wait for the validator key to be fully exited on the beacon chain. Check your validator pubkey on [beaconcha.in](https://beaconcha.in/).
 3. Connect your wallet address to the Lido CSM Widget ([Mainnet](https://csm.lido.fi/) / [Testnet](https://csm.testnet.fi/)).
 4. Navigate to **Keys » View Keys** to verify that the status of your validator key is marked as **Withdrawn**.
-
-![View Withdrawn Keys](/img/csm-guide/exit1-3.png)
-
 5. Navigate to **Bond & Rewards » Claim** to claim your deposited bond and any accumulated rewards.
 
-![Claim Bond & Rewards](/img/csm-guide/exit1-4.png)
+![Claim Bond & Rewards](/img/csm-guide/exit1-3.png)
 
 :::warning
 The 32 ETH deposited to activate each validator key will return to the Lido Protocol. Meanwhile, CSM Operators get their ETH-based bond deposits back from the Lido CSM Contract.
