@@ -231,7 +231,7 @@ Fetch total balance as sum from:
 - Balance from `elRewardsVault` +
 - Balance from `withdrawalVault`
 
-##### Validators to eject cummulative amount
+##### Validators to eject cumulative amount
 
 Get balance from next validator in exit queue.
 
