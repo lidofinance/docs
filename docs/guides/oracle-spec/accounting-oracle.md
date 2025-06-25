@@ -20,11 +20,11 @@ One can put any number of withdrawal requests in the queue. While there is an up
 
 A withdrawal request could be finalized only when the protocol has enough ether to fulfill it completely.  Partial fulfillments are not possible, however, one can accomplish similar behavior by splitting a bigger request into a few smaller ones.
 
-For UX reasons, the withdrawal request is transferrable being a non-fungible [ERC-721](https://ethereum.org/ru/developers/docs/standards/tokens/erc-721/) compatible token.
+For UX reasons, the withdrawal request is transferable being a non-fungible [ERC-721](https://ethereum.org/ru/developers/docs/standards/tokens/erc-721/) compatible token.
 
 It is important to note two additional restrictions related to withdrawal requests. Both restrictions serve to mitigate possible attack vectors allowing would-be attackers to effectively lower the protocol's APR and carry fewer penalties/slashing risk than `stETH` holders staying in the protocol.
 
-1. **Withdrawal requests cannot be canceled.** To fulfill a withdrawal request, the Lido protocol potentially has to eject validators. A malicious actor could send a withdrawal request to the queue, wait until the protocol sends ejection requests to the corresponding Node Operators, and cancel the request after that. By repeating this process, the attacker could effectively lower the protocol APR by forcing Lido validators to spend time in the activation queue without accruing rewards. If the withdrawal request can't be canceled, there vulnerability is mitigated. As noted above, making the position in the withdrawal queue transferrable can provide a "fast exit path" for regular stakers via external secondary markets.
+1. **Withdrawal requests cannot be canceled.** To fulfill a withdrawal request, the Lido protocol potentially has to eject validators. A malicious actor could send a withdrawal request to the queue, wait until the protocol sends ejection requests to the corresponding Node Operators, and cancel the request after that. By repeating this process, the attacker could effectively lower the protocol APR by forcing Lido validators to spend time in the activation queue without accruing rewards. If the withdrawal request can't be canceled, there vulnerability is mitigated. As noted above, making the position in the withdrawal queue transferable can provide a "fast exit path" for regular stakers via external secondary markets.
 2. **The redemption rate at which a request is fulfilled cannot be better than the redemption rate on the request creation.** Otherwise, there’s an incentive to always keep the stETH in the queue, depositing ether back once it’s redeemable, as this allows to carry lower staking risks without losing rewards. This would also allow a malicious actor to effectively lower the protocol APR. To avoid this, the penalties leading to a negative rebase are accounted for and socialized evenly between stETH holders and withdrawers. Positive rebases could still affect requests in the queue, but only to the point where rebases compensate for previously accrued penalties and don't push the redemption rate higher than it was at the moment of the withdrawal request's creation.
 
 ### Request finalization
@@ -97,7 +97,7 @@ The border represents the latest epoch before the reference slot before which th
 
 ![Safe border 4](../../../static/img/oracle-spec/safe-border-4.png)
 
-In the image above there are 4 slashings on the timeline that start with `slashed_epoch` and end with `withdrawable_epoch` and some points in time: a withrawal request and reference epoch relationship of the slashings with which to be analyzed.
+In the image above there are 4 slashings on the timeline that start with `slashed_epoch` and end with `withdrawable_epoch` and some points in time: a withdrawal request and reference epoch relationship of the slashings with which to be analyzed.
 
 ###### Completed non-associated
 
