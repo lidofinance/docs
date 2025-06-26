@@ -48,6 +48,7 @@ where the protocol and its parts/extensions are deployed.
 - Aragon Finance: [`0xB9E5CBB9CA5b0d659238807E84D0176930753d86`](https://etherscan.io/address/0xB9E5CBB9CA5b0d659238807E84D0176930753d86) (proxy)
 - Aragon Agent: [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) (proxy)
 - Aragon ACL: [`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb) (proxy)
+- EVMScriptRegistry: [`0x853cc0D5917f49B57B8e9F89e491F5E18919093A`](https://etherscan.io/address/0x853cc0D5917f49B57B8e9F89e491F5E18919093A) (proxy)
 - Aragon PM: [`0x0cb113890b04b49455dfe06554e2d784598a29c9`](https://etherscan.io/address/0x0cb113890b04b49455dfe06554e2d784598a29c9) (proxy)
 - Voting Repo: [`0x4ee3118e3858e8d7164a634825bfe0f73d99c792`](https://etherscan.io/address/0x4ee3118e3858e8d7164a634825bfe0f73d99c792) (proxy)
 - Lido App Repo: [`0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1`](https://etherscan.io/address/0xF5Dc67E54FC96F993CD06073f71ca732C1E654B1) (proxy)
@@ -58,6 +59,34 @@ where the protocol and its parts/extensions are deployed.
 - GateSeal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
+
+### Dual Governance
+
+- (Proposed) Emergency Protected Timelock: [`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
+  - (Proposed) Emergency activation committee: [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://etherscan.io/address/0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
+  - (Proposed) Emergency execution committee: [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://etherscan.io/address/0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
+- (Proposed) Admin Executor: [`0x23E0B465633FF5178808F4A75186E2F2F9537021`](https://etherscan.io/address/0x23E0B465633FF5178808F4A75186E2F2F9537021)
+- (Proposed) Dual Governance: [`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+- (Proposed) Dual Governance Config Provider: [`0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF`](https://etherscan.io/address/0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF)
+- (Proposed) Emergency Governance: [`0x553337946F2FAb8911774b20025fa776B76a7CcE`](https://etherscan.io/address/0x553337946F2FAb8911774b20025fa776B76a7CcE)
+- (Proposed) Escrow: [`0xA8F14D033f377779274Ae016584a05bF14Dccaf8`](https://etherscan.io/address/0xA8F14D033f377779274Ae016584a05bF14Dccaf8) (proxy)
+- (Proposed) Escrow: [`0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C`](https://etherscan.io/address/0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C) (impl)
+- (Proposed) Reseal Manager: [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)
+  - (Proposed) Reseal committee: [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://etherscan.io/address/0xFFe21561251c49AdccFad065C94Fb4931dF49081)
+- (Proposed) Tiebreaker Core Committee: [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
+- Tiebreaker Sub Committees:
+  - (Proposed) Builders Sub Committee [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
+  - (Proposed) Node Operators Sub Committee [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
+  - (Proposed) Ethereum Ecosystem Sub Committee [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
+
+### Dual Governance launch contracts
+
+- (Proposed) Dual Governance Launch Verifier: [`0xd48c2fc419569537Bb069BAD2165dC0cEB160CEC`](https://etherscan.io/address/0xd48c2fc419569537Bb069BAD2165dC0cEB160CEC)
+- (Proposed) Roles Validator: [`0x31534e3aFE219B609da3715a00a1479D2A2d7981`](https://etherscan.io/address/0x31534e3aFE219B609da3715a00a1479D2A2d7981)
+- (Proposed) Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
+- (Proposed) Dual Governance Launch Omnibus Provider: [`0x1DB8a9313785b78f7d0a201C5E0BE007f1eb63b4`](https://etherscan.io/address/0x1DB8a9313785b78f7d0a201C5E0BE007f1eb63b4)
+- (Proposed) Temporary Emergency Governance for Smoke Test: [`0x75850938C1Aa50B8cC6eb3c00995759dc1425ae6`](https://etherscan.io/address/0x75850938C1Aa50B8cC6eb3c00995759dc1425ae6)
+  - Proposer committee: [`0xdd778153c3d0AE1B70fe81E0219b5D2C3e3951C2`](https://etherscan.io/address/0xdd778153c3d0AE1B70fe81E0219b5D2C3e3951C2)
 
 ## Data Bus
 
@@ -280,6 +309,12 @@ for the rate and price feeds recommended approaches.
   - AllowedRecipientsFactory (multi token): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
+### Easy Track factories for MEV-Boost Relay Allowed List management
+- **MEV-Boost Relay Allowed List** (committee ms [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/home?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d))
+  - AddMEVBoostRelays: [`0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60`](https://etherscan.io/address/0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60)
+  - RemoveMEVBoostRelays: [`0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306`](https://etherscan.io/address/0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306)
+  - EditMEVBoostRelay: [`0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535`](https://etherscan.io/address/0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535)
+
 ## Lido DAO Multisigs
 
 ### Lido Contributors Group Multisigs
@@ -324,7 +359,7 @@ for the rate and price feeds recommended approaches.
 - Soneium: [`0x993F92e031B86b229D639463325f9d6a51609b43`](https://safe.optimism.io/home?safe=soneium:0x993F92e031B86b229D639463325f9d6a51609b43)
 - Unichain: [`0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF`](https://app.safe.global/home?safe=unichain:0xac8bc65814Dd0501674f6940aff1a4Ea78Fc20eF)
 - Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
-- Swell: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://safe.optimism.io/settings/setup?safe=swell-l2:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
+- Swellchain: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://safe.optimism.io/settings/setup?safe=swell-l2:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 ### Liquidity Observation Lab Multisigs
 
@@ -627,20 +662,20 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
 - Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 
-### Swell
+### Swellchain
 
 ##### Ethereum part
 
-- (proposed) L1ERC20TokenBridge: [`0xecf3376512EDAcA4FBB63d2c67d12a0397d24121`](https://etherscan.io/address/0xecf3376512EDAcA4FBB63d2c67d12a0397d24121) (proxy)
-- (proposed) L1ERC20TokenBridge: [`0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2`](https://etherscan.io/address/0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2) (impl)
+- L1ERC20TokenBridge: [`0xecf3376512EDAcA4FBB63d2c67d12a0397d24121`](https://etherscan.io/address/0xecf3376512EDAcA4FBB63d2c67d12a0397d24121) (proxy)
+- L1ERC20TokenBridge: [`0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2`](https://etherscan.io/address/0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2) (impl)
 
-##### Swell part
+##### Swellchain part
 
-- (proposed) WstETH ERC20Bridged: [`0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc`](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc) (proxy)
-- (proposed) WstETH ERC20Bridged: [`0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1`](https://explorer.swellnetwork.io/address/0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1) (impl)
-- (proposed) L2ERC20TokenBridge: [`0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0`](https://explorer.swellnetwork.io/address/0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0) (proxy)
-- (proposed) L2ERC20TokenBridge: [`0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE`](https://explorer.swellnetwork.io/address/0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE) (impl)
-- (proposed) Governance BridgeExecutor: [`0xFF22ea467301010F1364fc154c13e0c86Fcfb077`](https://explorer.swellnetwork.io/address/0xFF22ea467301010F1364fc154c13e0c86Fcfb077)
+- WstETH ERC20Bridged: [`0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc`](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc) (proxy)
+- WstETH ERC20Bridged: [`0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1`](https://explorer.swellnetwork.io/address/0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1) (impl)
+- L2ERC20TokenBridge: [`0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0`](https://explorer.swellnetwork.io/address/0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0) (proxy)
+- L2ERC20TokenBridge: [`0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE`](https://explorer.swellnetwork.io/address/0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE) (impl)
+- Governance BridgeExecutor: [`0xFF22ea467301010F1364fc154c13e0c86Fcfb077`](https://explorer.swellnetwork.io/address/0xFF22ea467301010F1364fc154c13e0c86Fcfb077)
 
 ### Lido Multichain Liquidity pools
 

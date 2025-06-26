@@ -3,5 +3,5 @@
 ### 📝 Describe your changes
 1. 
 
-### 🔎 Include source of truth for all changes that reference on-chain data (addresses, etc.)
+### 🔎 Attach a source of truth or evidence that allows reviewers to confirm the changes independently
 1. 

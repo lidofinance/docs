@@ -1,7 +1,8 @@
 # Holešky
 
 :::warning
-Currently, the main operational and maintained protocol testnet is being migrated from [Holešky](/deployed-contracts/holesky.md) to [Hoodi](/deployed-contracts/hoodi.md).
+The **Holešky** deployment is now fully **deprecated**.  
+Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 :::
 
 ## Core protocol
