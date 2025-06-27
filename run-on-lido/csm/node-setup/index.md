@@ -22,6 +22,6 @@ Each track includes guides tailored to different node management tools and prefe
 
 ## Additional Guides
 
-Regardless of which setup path you choose, there are a few key steps every operator must complete to ensure their validator functions correctly within the Community Staking Module, and [avoid being penalized](/staking-modules/csm/guides/mev-stealing). Don’t skip these:
+Regardless of which setup path you choose, there are a few key steps every operator must complete to ensure their validator functions correctly within the Community Staking Module, and [avoid being penalized](/run-on-lido/csm/troubleshooting/mev-stealing). Don’t skip these:
 
-[**Setting the fee recipient for CSM validators →**](../troubleshooting/setting-the-fee-recipient-for-csm-validators)
+[**Setting the fee recipient for CSM validators →**](/run-on-lido/csm/troubleshooting/setting-the-fee-recipient-for-csm-validators)

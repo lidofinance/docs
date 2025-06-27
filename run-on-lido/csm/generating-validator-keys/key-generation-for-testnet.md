@@ -44,7 +44,7 @@ If you selected **No**, run:
 
 ```bash
 cd ~/eth-docker
-./ethd cmd run --rm deposit-cli-new --execution_address YOURHARDWAREWALLETADDRESS --uid $(id -u)
+./ethd cmd run --rm deposit-cli-new --execution_address 0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2 --uid $(id -u)
 ```
 
 Keystores will be in `~/eth-docker/.eth/validator_keys`.

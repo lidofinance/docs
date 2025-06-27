@@ -104,10 +104,7 @@ Run the GUI and:
 3. Write down and confirm the phrase.
 4. Choose number of keys.
 5. Encrypt keystores with a password.
-6. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault:
-
-   * **Mainnet:** `0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f`
-   * **Hoodi:** `0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`
+6. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault in Ethereum Mainnet: `0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f`
 7. Confirm password.
 8. Save keystores & deposit data to a USB drive.
 
