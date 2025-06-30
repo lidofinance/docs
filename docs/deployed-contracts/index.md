@@ -69,7 +69,7 @@ where the protocol and its parts/extensions are deployed.
 - Dual Governance: [`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
 - Dual Governance Config Provider: [`0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF`](https://etherscan.io/address/0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF)
 - Emergency Governance: [`0x553337946F2FAb8911774b20025fa776B76a7CcE`](https://etherscan.io/address/0x553337946F2FAb8911774b20025fa776B76a7CcE)
-- Escrow: [`0xA8F14D033f377779274Ae016584a05bF14Dccaf8`](https://etherscan.io/address/0xA8F14D033f377779274Ae016584a05bF14Dccaf8) (proxy)
+- Veto Signaling Escrow: [`0xA8F14D033f377779274Ae016584a05bF14Dccaf8`](https://etherscan.io/address/0xA8F14D033f377779274Ae016584a05bF14Dccaf8) (proxy)
 - Escrow: [`0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C`](https://etherscan.io/address/0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C) (impl)
 - Reseal Manager: [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)
   - Reseal committee: [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://etherscan.io/address/0xFFe21561251c49AdccFad065C94Fb4931dF49081)
