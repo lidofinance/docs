@@ -2,7 +2,7 @@
 
 [The Dual Governance interface](https://dg.lido.fi/) provides stETH holders with tools to monitor the governance state, escrow tokens for Veto Signaling, manage them during Veto Signaling and withdraw after a Rage Quit.
 
-For more information about Dual Governance [visit the blog](https://blog.lido.fi/dual-governance-101-explainer/) or check [the pecification](https://github.com/lidofinance/dual-governance/blob/3e0f1ae5740ef8410e928f6cc106e3a5f45a5a75/docs/specification.md).
+For more information about Dual Governance [visit the blog](https://blog.lido.fi/dual-governance-101-explainer/) or check [the specification](https://github.com/lidofinance/dual-governance/blob/3e0f1ae5740ef8410e928f6cc106e3a5f45a5a75/docs/specification.md).
 
 ## Understanding Governance State
 
