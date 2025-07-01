@@ -61,6 +61,7 @@ module.exports = {
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',
+        'guides/dg-guide',
         'guides/easy-track-guide',
         'guides/address-ownership-guide',
         'guides/multisig-signer-manual',
