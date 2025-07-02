@@ -85,7 +85,7 @@ event InitialSlashingSubmitted(
 ```
 
 ### WithdrawalSubmitted
-Information event that the key has been reported as `withdrawn`, so the required [bond](/run-on-lido/csm/join-csm#bond) for this key is released.
+Information event that the key has been reported as `withdrawn`, so the required bond for this key is released.
 ```solidity
 event WithdrawalSubmitted(
     uint256 indexed nodeOperatorId,
