@@ -125,7 +125,7 @@ The current status of your tokens and remaining timelock are indicated on the **
 
  **Step 2a: Claim your withdrawal NFT**
 
-After the NFT finalizes you can claim it immediately. **A 60-day window** after Rage Quit finalized is provided to claim before execution becomes unblocked.
+Once your NFT is finalized, you can immediately claim it. There is **a 60-day window** after the Rage Quit is finalized to claim NFT before execution is unblocked.
 
 1. Click `Claim` button next to the NFT
     
