@@ -1,10 +1,16 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (65 reports)
+## Lido on Ethereum (66 reports)
 
 ### 06-2025 Statemind Dual Governance Deployment and Voting Script Review
 
 See [note](https://github.com/lidofinance/audits/blob/main/Statemind%20Dual%20Governance%20Deployment%20and%20Voting%20Script%20Review%20Report%2006-2025.pdf) contents for more details.
+
+### 06-2025 Composable Security Lido Oracle v5.2 Security consultation report
+
+After conducting a consultation, the security assessment did not identify any vulnerabilities introduced by the introduced version that could directly compromise the security or operational integrity of the Oracle system.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V5_2%2006-25.pdf) for more details.
 
 ### 05-2025 MixBytes Lido RMC EasyTrack Security Audit
 
