@@ -1,7 +1,7 @@
 # Hoodi
 
-:::warning
-Currently, the main operational and maintained protocol testnet is being migrated from [Holešky](/deployed-contracts/holesky.md) to [Hoodi](/deployed-contracts/hoodi.md).
+:::info
+Hoodi is the main operational and maintained protocol testnet.
 :::
 
 ## Core protocol
