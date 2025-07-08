@@ -187,19 +187,6 @@ module.exports = {
             { type: 'doc', id: 'staking-modules/csm/permissions', label: 'Permissions' },
             {
               type: 'category',
-              label: 'Guides',
-              link: { type: 'doc', id: 'staking-modules/csm/guides/index' },
-              items: [
-                'staking-modules/csm/guides/events',
-                'staking-modules/csm/guides/slashing',
-                'staking-modules/csm/guides/mev-stealing',
-                'staking-modules/csm/guides/unbonded-validators',
-                'staking-modules/csm/guides/addresses',
-                'staking-modules/csm/guides/fee-recipient',
-              ]
-            },
-            {
-              type: 'category',
               label: 'Contracts',
               items: [
                 'staking-modules/csm/contracts/CSModule',
