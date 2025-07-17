@@ -95,15 +95,23 @@ Hoodi is the main operational and maintained protocol testnet.
 
 ### Community Staking Module
 
+- Entry Gates:
+  - PermissionlessGate: [`0x5553077102322689876A6AdFd48D75014c28acfb`](https://hoodi.etherscan.io/address/0x5553077102322689876A6AdFd48D75014c28acfb)
+  - VettedGate (IdentifiedCommunityStakersGate): [`0x10a254E724fe2b7f305F76f3F116a3969c53845f`](https://hoodi.etherscan.io/address/0x10a254E724fe2b7f305F76f3F116a3969c53845f) (proxy)
 - CSModule: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d) (proxy)
 - CSAccounting: [`0xA54b90BA34C5f326BC1485054080994e38FB4C60`](https://hoodi.etherscan.io/address/0xA54b90BA34C5f326BC1485054080994e38FB4C60) (proxy)
+- CSParametersRegistry: [`0xA4aD5236963f9Fe4229864712269D8d79B65C5Ad`](https://hoodi.etherscan.io/address/0xA4aD5236963f9Fe4229864712269D8d79B65C5Ad) (proxy)
 - CSFeeDistributor: [`0xaCd9820b0A2229a82dc1A0770307ce5522FF3582`](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582) (proxy)
-- CSVerifier: [`0xB6bafBD970a4537077dE59cebE33081d794513d6`](https://hoodi.etherscan.io/address/0xB6bafBD970a4537077dE59cebE33081d794513d6)
-- CSEarlyAdoption: [`0x3281b9E45518F462E594697f8fba1896a8B43939`](https://hoodi.etherscan.io/address/0x3281b9E45518F462E594697f8fba1896a8B43939)
-- GateSeal: [`0xEe1f7f0ebB5900F348f2CfbcC641FB1681359B8a`](https://hoodi.etherscan.io/address/0xEe1f7f0ebB5900F348f2CfbcC641FB1681359B8a)
+- CSVerifier: [`0xf805b3711cBB48F15Ae2bb27095ddC38c5339968`](https://hoodi.etherscan.io/address/0xf805b3711cBB48F15Ae2bb27095ddC38c5339968)
+- GateSeal: [`0x94a3aEB0E9148F64CB453Be2BDe2Bc0148f6AC24`](https://hoodi.etherscan.io/address/0x94a3aEB0E9148F64CB453Be2BDe2Bc0148f6AC24)
 - CSFeeOracle:
   - CSFeeOracle: [`0xe7314f561B2e72f9543F1004e741bab6Fc51028B`](https://hoodi.etherscan.io/address/0xe7314f561B2e72f9543F1004e741bab6Fc51028B) (proxy)
   - HashConsensus: [`0x54f74a10e4397dDeF85C4854d9dfcA129D72C637`](https://hoodi.etherscan.io/address/0x54f74a10e4397dDeF85C4854d9dfcA129D72C637)
+- CSStrikes: [`0x8fBA385C3c334D251eE413e79d4D3890db98693c`](https://hoodi.etherscan.io/address/0x8fBA385C3c334D251eE413e79d4D3890db98693c) (proxy)
+- CSEjector: [`0x21e271cBa32672B106737AbeB3a45E53Fe9a0df4`](https://hoodi.etherscan.io/address/0x21e271cBa32672B106737AbeB3a45E53Fe9a0df4)
+- CSExitPenalties: [`0xD259b31083Be841E5C85b2D481Cfc17C14276800`](https://hoodi.etherscan.io/address/0xD259b31083Be841E5C85b2D481Cfc17C14276800) (proxy)
+- Factories:
+  - VettedGateFactory: [`0x46ab64db7C2748dBdaF38AF588eBa38A88445d1b`](https://hoodi.etherscan.io/address/0x46ab64db7C2748dBdaF38AF588eBa38A88445d1b)
 - External libraries:
   - AssetRecovererLib: [`0xa0513a7e28dac4c31b5ccbf9a5f474b759257985`](https://hoodi.etherscan.io/address/0xa0513a7e28dac4c31b5ccbf9a5f474b759257985)
   - NOAddresses: [`0x479244bac2ae1d64841753307a0552183642c121`](https://hoodi.etherscan.io/address/0x479244bac2ae1d64841753307a0552183642c121)
@@ -126,6 +134,7 @@ Hoodi is the main operational and maintained protocol testnet.
   - IncreaseNodeOperatorStakingLimit: [`0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323`](https://hoodi.etherscan.io/address/0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323)
 - **Community Staking Module** (module: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d))
   - CSMSettleElStealingPenalty: [`0x5c0af5b9f96921d3F61503e1006CF0ab9867279E`](https://hoodi.etherscan.io/address/0x5c0af5b9f96921d3F61503e1006CF0ab9867279E)
+  - CSMSetVettedGateTree: [`0xa890fc73e1b771Ee6073e2402E631c312FF92Cd9`](https://hoodi.etherscan.io/address/0xa890fc73e1b771Ee6073e2402E631c312FF92Cd9)
 - **Simple DVT staking module** (registry: [`0x0B5236BECA68004DB89434462DfC3BB074d2c830`](https://hoodi.etherscan.io/address/0x0B5236BECA68004DB89434462DfC3BB074d2c830), committee ms [`0xbB958292042c604855d23F8db458855d20e16996`](https://app.safe.protofire.io/home?safe=hoe:0xbB958292042c604855d23F8db458855d20e16996))
   - AddNodeOperators: [`0x42f2532ab3d41dfD6030db1EC2fF3DBC8DCdf89a`](https://hoodi.etherscan.io/address/0x42f2532ab3d41dfD6030db1EC2fF3DBC8DCdf89a)
   - ActivateNodeOperators: [`0xfA3B3EE204E1f0f165379326768667300992530e`](https://hoodi.etherscan.io/address/0xfA3B3EE204E1f0f165379326768667300992530e)
