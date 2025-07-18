@@ -320,9 +320,9 @@ for the rate and price feeds recommended approaches.
 
 ### Lido Contributors Group Multisigs
 
-- Pool Maintenance Labs Ltd. (PML): [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://etherscan.io/address/0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
-- Argo Technology Consulting Ltd. (ATC): [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://etherscan.io/address/0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
-- Resourcing and Compensation Committee (RCC): [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
+- (**proposed to mark as obsolete**) Pool Maintenance Labs Ltd. (PML): [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://etherscan.io/address/0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
+- (**proposed to mark as obsolete**) Argo Technology Consulting Ltd. (ATC): [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://etherscan.io/address/0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
+- (**proposed to mark as obsolete**) Resourcing and Compensation Committee (RCC): [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
 
 ### Committees
 
