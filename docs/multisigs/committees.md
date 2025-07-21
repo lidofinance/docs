@@ -704,7 +704,7 @@ Additionally, the committee also includes consulting participant, which abstain 
 
 # 2.15 Dual Governance Committees
 
-## 2.15.1 (Proposed) Dual Governance Emergency Activation Committee: Ethereum
+## 2.15.1 Dual Governance Emergency Activation Committee: Ethereum
 
 **Address:** [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://app.safe.global/home?safe=eth:0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
 
@@ -733,7 +733,7 @@ Additionally, the committee also includes consulting participant, which abstain 
 | [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
 | [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353 |
 
-## 2.15.2 (Proposed) Dual Governance Emergency Execution Committee: Ethereum
+## 2.15.2 Dual Governance Emergency Execution Committee: Ethereum
 
 **Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
@@ -764,7 +764,7 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 | [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
 | [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353 |
 
-## 2.15.3 (Proposed) Dual Governance Reseal Committee: Ethereum
+## 2.15.3 Dual Governance Reseal Committee: Ethereum
 
 **Address:** [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://app.safe.global/home?safe=eth:0xFFe21561251c49AdccFad065C94Fb4931dF49081)
 
@@ -793,7 +793,7 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1655919930749976578 |
 | kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 
-## 2.15.4 (Proposed) Dual Governance Tiebreaker Committees: Ethereum
+## 2.15.4 Dual Governance Tiebreaker Committees: Ethereum
 
 **Address:** [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
 
@@ -815,7 +815,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 ###### Dual Governance :[`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
 * tiebreakerCommittee
 
-## 2.15.4.1 (Proposed) Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
+## 2.15.4.1 Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
 
 **Address:** [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
 
@@ -835,7 +835,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 | Michael_Ippolito  | 0x60BDa95a40d5536303BFcf84D679ca461A23398d | sigHash: 0x55228d86025525135644be0b1fb9ba06db7a665a0be7c2a35a1129b031086d1d37a24d59ab71ede3f0a0d98f9770eca6acc2904f3cda4d3b0f4e5f923dd9e45e1c |  |
 | polar | 0x5d60F5d653Cc318d1f0ABacd83eD4feeAa6e5804 | https://etherscan.io/verifySig/273447 |  |
 
-## 2.15.4.2 (Proposed) Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
+## 2.15.4.2 Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
 
 **Address:** [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
 
@@ -855,7 +855,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 | BogdanHabic  | 0x81000e270B4f66B8666544E8FEc073e0a23FFf00 | sigHash: f70a5b5d9029475464b35ff4b9b9c25102e1055c3a4660cd9b866df9ae1e44172fa2f67b86aa39a4e29f30e1a16deeb6044e77827ec859d995748f8861e4c8441c | https://x.com/BogdanHabic/status/1924586022974722286 |
 | Leuts | 0xD8a9072D82a28307279aC0aD3c97Cb61bEe67952 | https://etherscan.io/verifySig/273483 | https://x.com/A_Leutenegger/status/1924882733014110396 |
 
-## 2.15.4.2 (Proposed) Dual Governance Tiebreaker Committees. Node Operators Subcommittee: Ethereum
+## 2.15.4.2 Dual Governance Tiebreaker Committees. Node Operators Subcommittee: Ethereum
 
 **Address:** [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
 
