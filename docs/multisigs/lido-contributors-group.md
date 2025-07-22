@@ -1,8 +1,8 @@
-# Lido Contributors Group 
+# Lido Contributors Group
 
 **Disclaimer:** The following multisigs belong to independent third parties not affiliated with the Lido DAO and are managed by them. They are included in the list solely because they can access Easy Track motions.
 
-## 4.1 Pool Maintenance Labs Ltd. (PML)
+## (proposed to mark as obsolete) 4.1 Pool Maintenance Labs Ltd. (PML)
 
 **Address:** [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/settings/setup?safe=eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
 
@@ -45,7 +45,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Susanna_MV | 0x27a3Fc3D99EACE1FdCA71900A72079F6c3a4b4F8 | https://etherscan.io/verifySig/262411 | https://x.com/MamenSusan87135/status/1877337266621747297 |
 
 
-## 4.2 Argo Technology Consulting Ltd. (ATC):
+## (proposed to mark as obsolete) 4.2 Argo Technology Consulting Ltd. (ATC):
 
 **Address**: [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/settings/setup?safe=eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
 
@@ -87,7 +87,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/246897 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/29 |
 | Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/260858 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/35 |
 
-## 4.3 Resourcing and Compensation Committee (RCC)
+## (proposed to mark as obsolete) 4.3 Resourcing and Compensation Committee (RCC)
 
 **Address:** [0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437](https://app.safe.global/settings/setup?safe=eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)[](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
 
