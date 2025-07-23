@@ -62,7 +62,8 @@ Hoodi is the main operational and maintained protocol testnet.
 - Aragon APMRegistry: [`0x948ffB5fDA2961C60ED3Eb84c7a31aae42EbEdCC`](https://hoodi.etherscan.io/address/0x948ffB5fDA2961C60ED3Eb84c7a31aae42EbEdCC) (proxy)
 - Gate Seal Blueprint: [`0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7`](https://hoodi.etherscan.io/address/0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7)
 - Gate Seal Factory: [`0xA402349F560D45310D301E92B1AA4DeCABe147B3`](https://hoodi.etherscan.io/address/0xA402349F560D45310D301E92B1AA4DeCABe147B3)
-- Gate Seal: [`0x2168Ea6D948Ab49c3D34c667A7e02F92369F3A9C`](https://hoodi.etherscan.io/address/0x2168Ea6D948Ab49c3D34c667A7e02F92369F3A9C)
+- GateSeal (VEB and TWG): [`0x368f2fcb593170823cc844F1B29e75E3d26879A1`](https://hoodi.etherscan.io/address/0x368f2fcb593170823cc844F1B29e75E3d26879A1)
+- GateSeal (Withdrawal Queue): [`0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D`](https://hoodi.etherscan.io/address/0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D)
 
 ### Dual Governance
 
@@ -110,8 +111,7 @@ Hoodi is the main operational and maintained protocol testnet.
 - CSFeeDistributor: [`0xaCd9820b0A2229a82dc1A0770307ce5522FF3582`](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582) (proxy)
 - CSVerifier: [`0xB6bafBD970a4537077dE59cebE33081d794513d6`](https://hoodi.etherscan.io/address/0xB6bafBD970a4537077dE59cebE33081d794513d6)
 - CSEarlyAdoption: [`0x3281b9E45518F462E594697f8fba1896a8B43939`](https://hoodi.etherscan.io/address/0x3281b9E45518F462E594697f8fba1896a8B43939)
-- GateSeal (VEB and TWG): [`0x368f2fcb593170823cc844F1B29e75E3d26879A1`](https://hoodi.etherscan.io/address/0x368f2fcb593170823cc844F1B29e75E3d26879A1)
-- GateSeal (Withdrawal Queue): [`0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D`](https://hoodi.etherscan.io/address/0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D)
+- GateSeal: [`0xEe1f7f0ebB5900F348f2CfbcC641FB1681359B8a`](https://hoodi.etherscan.io/address/0xEe1f7f0ebB5900F348f2CfbcC641FB1681359B8a)
 - CSFeeOracle:
   - CSFeeOracle: [`0xe7314f561B2e72f9543F1004e741bab6Fc51028B`](https://hoodi.etherscan.io/address/0xe7314f561B2e72f9543F1004e741bab6Fc51028B) (proxy)
   - HashConsensus: [`0x54f74a10e4397dDeF85C4854d9dfcA129D72C637`](https://hoodi.etherscan.io/address/0x54f74a10e4397dDeF85C4854d9dfcA129D72C637)
