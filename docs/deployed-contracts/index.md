@@ -717,7 +717,7 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 - ATC stETH (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
   - AllowedRecipientsRegistry: [`0xd3950eB3d7A9B0aBf8515922c0d35D13e85a2c91`](https://etherscan.io/address/0xd3950eB3d7A9B0aBf8515922c0d35D13e85a2c91)
   - TopUpAllowedRecipients: [`0x87b02dF27cd6ec128532Add7C8BC19f62E6f1fB9`](https://etherscan.io/address/0x87b02dF27cd6ec128532Add7C8BC19f62E6f1fB9)
-- Lido Contributors Group Multisigs
+- [Lido Contributors Group Multisigs](/multisigs/lido-contributors-group.md)
   - Pool Maintenance Labs Ltd. (PML): [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://etherscan.io/address/0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
   - Argo Technology Consulting Ltd. (ATC): [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://etherscan.io/address/0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
   - Resourcing and Compensation Committee (RCC): [`0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437`](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
