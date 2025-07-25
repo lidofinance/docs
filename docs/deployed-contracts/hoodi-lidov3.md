@@ -83,7 +83,8 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 
 ## Easy Track
 
-- TBD
+- EasyTrack: [`0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C`](https://hoodi.etherscan.io/address/0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C)
+- EVMScriptExecutor: [`0xbf91a57E194c2c7a758247eC12648Fc5651478db`](https://hoodi.etherscan.io/address/0xbf91a57E194c2c7a758247eC12648Fc5651478db)
 
 ## ⛏️ Special accounts and addresses
 
