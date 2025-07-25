@@ -71,26 +71,18 @@ Hoodi is the main operational and maintained protocol testnet.
   - Emergency activation committee: [`0xA678c29cbFde2C74aF15C7724EE4b1527A50D45B`](https://hoodi.etherscan.io/address/0xA678c29cbFde2C74aF15C7724EE4b1527A50D45B)
   - Emergency execution committee: [`0x8E1Ce8995E370222CbD825fFD7Dce2A5BfE1E631`](https://hoodi.etherscan.io/address/0x8E1Ce8995E370222CbD825fFD7Dce2A5BfE1E631)
 - Admin Executor: [`0x0eCc17597D292271836691358B22340b78F3035B`](https://hoodi.etherscan.io/address/0x0eCc17597D292271836691358B22340b78F3035B)
-- Dual Governance (Proposed to remove): [`0x4d12b9f6aCAB54FF6a3a776BA3b8724D9B77845F`](https://hoodi.etherscan.io/address/0x4d12b9f6aCAB54FF6a3a776BA3b8724D9B77845F)
-- Dual Governance (Proposed): [`0x9CAaCCc62c66d817CC59c44780D1b722359795bF`](https://hoodi.etherscan.io/address/0x9CAaCCc62c66d817CC59c44780D1b722359795bF)
+- Dual Governance: [`0x9CAaCCc62c66d817CC59c44780D1b722359795bF`](https://hoodi.etherscan.io/address/0x9CAaCCc62c66d817CC59c44780D1b722359795bF)
 - Dual Governance Config Provider: [`0x2b685e6fB288bBb7A82533BAfb679FfDF6E5bb33`](https://hoodi.etherscan.io/address/0x2b685e6fB288bBb7A82533BAfb679FfDF6E5bb33)
 - Emergency Governance: [`0x69E8e916c4A19F42C13C802abDF2767E1fB4F059`](https://hoodi.etherscan.io/address/0x69E8e916c4A19F42C13C802abDF2767E1fB4F059)
-- Escrow (Proposed to remove): [`0x0AB2eBf304E41bcc5Db37Bf0a3fdB83faa19324e`](https://hoodi.etherscan.io/address/0x0AB2eBf304E41bcc5Db37Bf0a3fdB83faa19324e) (proxy)
-- Escrow (Proposed): [`0x781afe6C8D768CEaA9a97f2A75714e80AE0e83B9`](https://hoodi.etherscan.io/address/0x781afe6C8D768CEaA9a97f2A75714e80AE0e83B9) (proxy)
-- Escrow (Proposed to remove): [`0xD82Ea63b6196dbd100a1067341EEC8aec9eEd4Af`](https://hoodi.etherscan.io/address/0xD82Ea63b6196dbd100a1067341EEC8aec9eEd4Af) (impl)
-- Escrow (Proposed): [`0x61b7C2351F63b7f9840736D020eE65D2803A00fb`](https://hoodi.etherscan.io/address/0x61b7C2351F63b7f9840736D020eE65D2803A00fb) (impl)
+- Escrow: [`0x781afe6C8D768CEaA9a97f2A75714e80AE0e83B9`](https://hoodi.etherscan.io/address/0x781afe6C8D768CEaA9a97f2A75714e80AE0e83B9) (proxy)
+- Escrow: [`0x61b7C2351F63b7f9840736D020eE65D2803A00fb`](https://hoodi.etherscan.io/address/0x61b7C2351F63b7f9840736D020eE65D2803A00fb) (impl)
 - Reseal Manager: [`0x05172CbCDb7307228F781436b327679e4DAE166B`](https://hoodi.etherscan.io/address/0x05172CbCDb7307228F781436b327679e4DAE166B)
   - Reseal committee: [`0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102`](https://hoodi.etherscan.io/address/0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102)
-- Tiebreaker Core Committee (Proposed to remove): : [`0x1648dF6CeA35eA413d6bF611aFd6eB9aFE21339A`](https://hoodi.etherscan.io/address/0x1648dF6CeA35eA413d6bF611aFd6eB9aFE21339A)
+- Tiebreaker Core Committee: [`0x9Ce4bA766C87cC87e507307163eA54C5003A3563`](https://hoodi.etherscan.io/address/0x9Ce4bA766C87cC87e507307163eA54C5003A3563)
 - Tiebreaker Sub Committees:
-  - Developers Sub Committee 1 (Proposed to remove):  [`0x32F9CA8B1621E5AC2E38e1b8715633DE237F58Db`](https://hoodi.etherscan.io/address/0x32F9CA8B1621E5AC2E38e1b8715633DE237F58Db)
-  - Developers Sub Committee 2 (Proposed to remove):  [`0x2Dd5D6216843D456dc33CAF241031e37eA3C9c5f`](https://hoodi.etherscan.io/address/0x2Dd5D6216843D456dc33CAF241031e37eA3C9c5f)
-  - Developers Sub Committee 3 (Proposed to remove):  [`0x7aDD2cFf6D61D0496d1E2Aa3C4089e126ef88D74`](https://hoodi.etherscan.io/address/0x7aDD2cFf6D61D0496d1E2Aa3C4089e126ef88D74)
-- Tiebreaker Core Committee (Proposed): [`0x9Ce4bA766C87cC87e507307163eA54C5003A3563`](https://hoodi.etherscan.io/address/0x9Ce4bA766C87cC87e507307163eA54C5003A3563)
-- Tiebreaker Sub Committees:
-  - Developers Sub Committee 1 (Proposed): [`0xEd27F0d08630685A0cEFb1040596Cb264cf79f14`](https://hoodi.etherscan.io/address/0xEd27F0d08630685A0cEFb1040596Cb264cf79f14)
-  - Developers Sub Committee 2 (Proposed): [`0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794`](https://hoodi.etherscan.io/address/0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794)
-  - Developers Sub Committee 3 (Proposed): [`0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d`](https://hoodi.etherscan.io/address/0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d)
+  - Developers Sub Committee 1: [`0xEd27F0d08630685A0cEFb1040596Cb264cf79f14`](https://hoodi.etherscan.io/address/0xEd27F0d08630685A0cEFb1040596Cb264cf79f14)
+  - Developers Sub Committee 2: [`0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794`](https://hoodi.etherscan.io/address/0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794)
+  - Developers Sub Committee 3: [`0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d`](https://hoodi.etherscan.io/address/0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d)
 
 ## Data Bus
 
