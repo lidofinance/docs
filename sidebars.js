@@ -154,6 +154,7 @@ module.exports = {
       items: [
         'multisigs/emergency-brakes',
         'multisigs/committees',
+        'multisigs/lido-contributors-group',
         'multisigs/alliance',
         'multisigs/other',
       ],
