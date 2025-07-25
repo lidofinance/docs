@@ -45,7 +45,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Susanna_MV | 0x27a3Fc3D99EACE1FdCA71900A72079F6c3a4b4F8 | https://etherscan.io/verifySig/262411 | https://x.com/MamenSusan87135/status/1877337266621747297 |
 
 
-## (proposed to mark as obsolete) 4.2 Argo Technology Consulting Ltd. (ATC)
+## (proposed to mark as obsolete) 4.2 Argo Technology Consulting Ltd. (ATC):
 
 **Address**: [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/settings/setup?safe=eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
 
