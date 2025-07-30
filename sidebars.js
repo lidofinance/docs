@@ -10,20 +10,20 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Node Operators',
+          label: 'Curated Module',
           items: [
-            'guides/node-operators/general-overview',
-            'guides/node-operators/validator-keys',
-            'guides/node-operators/el-rewards-configuration',
+            'guides/curated-module/general-overview',
+            'guides/curated-module/validator-keys',
+            'guides/curated-module/el-rewards-configuration',
             {
               type: 'category',
               label: 'Validator Exits Automation',
               items: [
-                'guides/node-operators/exits/introduction',
-                'guides/node-operators/exits/general-information',
-                'guides/node-operators/exits/exit-message-generation-signing',
-                'guides/node-operators/exits/flow-examples',
-                'guides/node-operators/exits/tooling-setup',
+                'guides/curated-module/exits/introduction',
+                'guides/curated-module/exits/general-information',
+                'guides/curated-module/exits/exit-message-generation-signing',
+                'guides/curated-module/exits/flow-examples',
+                'guides/curated-module/exits/tooling-setup',
               ],
             },
           ],

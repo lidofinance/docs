@@ -1,12 +1,12 @@
 # General Overview
 
-Node Operators manage a secure and stable infrastructure for running Beacon validator clients
+Node Operators in the Curated Module manage a secure and stable infrastructure for running Beacon validator clients
 for the benefit of the protocol. They’re professional staking providers who can ensure the safety
 of funds belonging to the protocol users and correctness of validator operations.
 
 The general flow is the following:
 
-1. A Node Operator expresses their interest to the DAO members. Their address gets proposed to the DAO vote for inclusion to the DAO's Node Operator list. Note that the Node Operator address should be supplied to the DAO with zero signing keys limit.
+1. A Node Operator expresses their interest to the DAO members. Their address gets proposed to the DAO vote for inclusion to the Curated Module's Node Operator list. Note that the Node Operator address should be supplied to the DAO with zero signing keys limit.
 
 2. The DAO votes for including the Operator to the list of active operators. After successful
    voting for inclusion, the Node Operator becomes active.

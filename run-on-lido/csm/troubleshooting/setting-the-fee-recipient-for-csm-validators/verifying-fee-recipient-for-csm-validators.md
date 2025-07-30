@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 0
 ---
 
 # 🪛 Verifying Fee Recipient for CSM Validators

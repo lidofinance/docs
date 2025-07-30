@@ -1,8 +1,8 @@
 ---
-sidebar_position: 0
+sidebar_position: 2
 ---
 
-# 🤖 MEV stealing. Reasons, consequences, and prevention measures
+# 💰 MEV stealing. Reasons and consequences
 
 ## What is MEV stealing?
 
