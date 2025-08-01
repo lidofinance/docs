@@ -115,8 +115,7 @@ where the protocol and its parts/extensions are deployed.
 - CSAccounting: [`0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758`](https://etherscan.io/address/0x71FCD2a6F38B644641B0F46c345Ea03Daabf2758) (impl)
 - CSFeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
 - CSFeeDistributor: [`0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0`](https://etherscan.io/address/0x17Fc610ecbbAc3f99751b3B2aAc1bA2b22E444f0) (impl)
-- (**proposed to remove**) CSVerifier: [`0x0c345dFa318f9F4977cdd4f33d80F9D0ffA38e8B`](https://etherscan.io/address/0x0c345dFa318f9F4977cdd4f33d80F9D0ffA38e8B)
-- (**proposed**) CSVerifier: [`0xeC6Cc185f671F627fb9b6f06C8772755F587b05d`](https://etherscan.io/address/0xeC6Cc185f671F627fb9b6f06C8772755F587b05d)
+- CSVerifier: [`0xeC6Cc185f671F627fb9b6f06C8772755F587b05d`](https://etherscan.io/address/0xeC6Cc185f671F627fb9b6f06C8772755F587b05d)
 - CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
 - CS GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
 - CSFeeOracle:
