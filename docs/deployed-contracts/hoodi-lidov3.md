@@ -86,17 +86,17 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 - EasyTrack: [`0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C`](https://hoodi.etherscan.io/address/0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C)
 - EVMScriptExecutor: [`0xbf91a57E194c2c7a758247eC12648Fc5651478db`](https://hoodi.etherscan.io/address/0xbf91a57E194c2c7a758247eC12648Fc5651478db)
 - Factories:
-  - DecreaseShareLimitsInVaultHub: [`0x669a2Ca43567eF08cb45d8f2dFB5A09FE43e61C5`](https://hoodi.etherscan.io/address/0x669a2Ca43567eF08cb45d8f2dFB5A09FE43e61C5)
-  - DecreaseVaultsFeesInVaultHub: [`0x2C28bc861bdCc47BBB219985cf0f40726C707593`](https://hoodi.etherscan.io/address/0x2C28bc861bdCc47BBB219985cf0f40726C707593)
-  - ForceValidatorExitsInVaultHub: [`0x91C3A4826D37AE62F6B25f8A3dd63B4aF75d6C99`](https://hoodi.etherscan.io/address/0x91C3A4826D37AE62F6B25f8A3dd63B4aF75d6C99)
-  - SocializeBadDebtInVaultHub: [`0x00836B9F5458a3Dfe89394661A6dab960E30e6b7`](https://hoodi.etherscan.io/address/0x00836B9F5458a3Dfe89394661A6dab960E30e6b7)
-  - SetVaultRedemptionsInVaultHub: [`0x83A689a3aE8701adF391dd72CfA052BC1413769d`](https://hoodi.etherscan.io/address/0x83A689a3aE8701adF391dd72CfA052BC1413769d)
-  - RegisterGroupsInOperatorGrid: [`0x2ADCf0Ce691654323c2D61c93715FBaF2e54700c`](https://hoodi.etherscan.io/address/0x2ADCf0Ce691654323c2D61c93715FBaF2e54700c)
-  - UpdateGroupsShareLimitInOperatorGrid: [`0x66A94c229418Fe0b92207d5D5f2A0D8c2b75fe37`](https://hoodi.etherscan.io/address/0x66A94c229418Fe0b92207d5D5f2A0D8c2b75fe37)
-  - RegisterTiersInOperatorGrid: [`0x15C5D73D720F78cCfe3a7FC282b0a9ac4E1659d9`](https://hoodi.etherscan.io/address/0x15C5D73D720F78cCfe3a7FC282b0a9ac4E1659d9)
-  - AlterTiersInOperatorGrid:[`0xa09D1741BaF54532ACA5e1793Bd327473CE6768c`](https://hoodi.etherscan.io/address/0xa09D1741BaF54532ACA5e1793Bd327473CE6768c)
+  - DecreaseShareLimitsInVaultHub: [`0x96B4215538d1B838a6A452d6F50c02e7fA258f43`](https://hoodi.etherscan.io/address/0x96B4215538d1B838a6A452d6F50c02e7fA258f43)
+  - DecreaseVaultsFeesInVaultHub: [`0x806F27100347d735819f25B75Be3f0acBd6aEbAF`](https://hoodi.etherscan.io/address/0x806F27100347d735819f25B75Be3f0acBd6aEbAF)
+  - ForceValidatorExitsInVaultHub: [`0xd0E3b451495E63923e45fC95f5Dc2e16c55e4209`](https://hoodi.etherscan.io/address/0xd0E3b451495E63923e45fC95f5Dc2e16c55e4209)
+  - SocializeBadDebtInVaultHub: [`0x921A2D3efcE8b66b0CA9493a2C26AEf69aFC8f1E`](https://hoodi.etherscan.io/address/0x921A2D3efcE8b66b0CA9493a2C26AEf69aFC8f1E)
+  - SetVaultRedemptionsInVaultHub: [`0x8562BA0D14851cb2cB88d7E1497968e9001E7f94`](https://hoodi.etherscan.io/address/0x8562BA0D14851cb2cB88d7E1497968e9001E7f94)
+  - RegisterGroupsInOperatorGrid: [`0x89a7472DD79dDEb731Bc7B3Aad6ba42666616D22`](https://hoodi.etherscan.io/address/0x89a7472DD79dDEb731Bc7B3Aad6ba42666616D22)
+  - UpdateGroupsShareLimitInOperatorGrid: [`0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab`](https://hoodi.etherscan.io/address/0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab)
+  - RegisterTiersInOperatorGrid: [`0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854`](https://hoodi.etherscan.io/address/0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854)
+  - AlterTiersInOperatorGrid:[`0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4`](https://hoodi.etherscan.io/address/0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4)
 - Adapters:
-  - VaultHubAdapter: [`0x240A8d17c9b5dd762318A68e5Ab2005cbD6b4671`](https://hoodi.etherscan.io/address/0x240A8d17c9b5dd762318A68e5Ab2005cbD6b4671)
+  - VaultHubAdapter: [`0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4`](https://hoodi.etherscan.io/address/0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4)
 
 ## ⛏️ Special accounts and addresses
 
