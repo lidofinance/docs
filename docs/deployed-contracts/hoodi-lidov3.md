@@ -85,6 +85,18 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 
 - EasyTrack: [`0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C`](https://hoodi.etherscan.io/address/0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C)
 - EVMScriptExecutor: [`0xbf91a57E194c2c7a758247eC12648Fc5651478db`](https://hoodi.etherscan.io/address/0xbf91a57E194c2c7a758247eC12648Fc5651478db)
+- Factories:
+  - DecreaseShareLimitsInVaultHub: [`0x96B4215538d1B838a6A452d6F50c02e7fA258f43`](https://hoodi.etherscan.io/address/0x96B4215538d1B838a6A452d6F50c02e7fA258f43)
+  - DecreaseVaultsFeesInVaultHub: [`0x806F27100347d735819f25B75Be3f0acBd6aEbAF`](https://hoodi.etherscan.io/address/0x806F27100347d735819f25B75Be3f0acBd6aEbAF)
+  - ForceValidatorExitsInVaultHub: [`0xd0E3b451495E63923e45fC95f5Dc2e16c55e4209`](https://hoodi.etherscan.io/address/0xd0E3b451495E63923e45fC95f5Dc2e16c55e4209)
+  - SocializeBadDebtInVaultHub: [`0x921A2D3efcE8b66b0CA9493a2C26AEf69aFC8f1E`](https://hoodi.etherscan.io/address/0x921A2D3efcE8b66b0CA9493a2C26AEf69aFC8f1E)
+  - SetVaultRedemptionsInVaultHub: [`0x8562BA0D14851cb2cB88d7E1497968e9001E7f94`](https://hoodi.etherscan.io/address/0x8562BA0D14851cb2cB88d7E1497968e9001E7f94)
+  - RegisterGroupsInOperatorGrid: [`0x89a7472DD79dDEb731Bc7B3Aad6ba42666616D22`](https://hoodi.etherscan.io/address/0x89a7472DD79dDEb731Bc7B3Aad6ba42666616D22)
+  - UpdateGroupsShareLimitInOperatorGrid: [`0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab`](https://hoodi.etherscan.io/address/0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab)
+  - RegisterTiersInOperatorGrid: [`0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854`](https://hoodi.etherscan.io/address/0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854)
+  - AlterTiersInOperatorGrid:[`0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4`](https://hoodi.etherscan.io/address/0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4)
+- Adapters:
+  - VaultHubAdapter: [`0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4`](https://hoodi.etherscan.io/address/0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4)
 
 ## ⛏️ Special accounts and addresses
 
