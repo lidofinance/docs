@@ -46,10 +46,10 @@ The [Curated module](/contracts/node-operators-registry.md) uses the "exited" st
 A Node Operator must supply a [bond](./join-csm#bond) to upload a new validator key to CSM. It is reasonable to allocate a stake in an order similar to the [bond](./join-csm#bond) submission order. For this purpose, a FIFO (first in, first out) [stake allocation queue](/staking-modules/csm/join-csm.md#stake-allocation-queue) is utilized. Once the Staking Router requests keys to make a deposit, the next `X` keys from the queue are returned, preserving the [bond](./join-csm#bond) submit order.
 
 ### Alternative measures for "stuck" keys
-The presence of "stuck" keys for the Node Operator indicates a failure of the Node Operator to conform to the [Validator Exits SNOP](/guides/node-operators/general-overview#validator-exits-protocol-penalties-and-recovering). In this case, each module defines and is responsible for the application of remediative measures for the relevant protocol violation. CSM uses measures that are different from those of the Curated Module and the Simple DVT Module. The measures are described in the corresponding [section](/staking-modules/csm/validator-exits.md#protocol-initiated-exits).
+The presence of "stuck" keys for the Node Operator indicates a failure of the Node Operator to conform to the [Validator Exits SNOP](/guides/curated-module/general-overview#validator-exits-protocol-penalties-and-recovering). In this case, each module defines and is responsible for the application of remediative measures for the relevant protocol violation. CSM uses measures that are different from those of the Curated Module and the Simple DVT Module. The measures are described in the corresponding [section](/staking-modules/csm/validator-exits.md#protocol-initiated-exits).
 
 :::info
-Note: CSM does not apply any measures to "Delayed" validators mentioned in the [Lido exit policy](/guides/node-operators/general-overview#validator-exits-protocol-penalties-and-recovering).
+Note: CSM does not apply any measures to "Delayed" validators mentioned in the [Lido exit policy](/guides/curated-module/general-overview#validator-exits-protocol-penalties-and-recovering).
 :::
 
 ### Node Operator structure

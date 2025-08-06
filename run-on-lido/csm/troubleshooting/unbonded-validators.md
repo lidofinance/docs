@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # ⚠️ Unbonded validators
 
 To [upload](/staking-modules/csm/join-csm#deposit-data-preparation-and-upload) validator keys to CSM, Node Operators must provide a corresponding [bond](/staking-modules/csm/join-csm#bond) amount. The Node Operator creation and upload keys methods ensure that the bond amount provided is sufficient to cover all uploaded validator keys. However, Node Operators' bond might be penalized if they misbehave.

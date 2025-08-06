@@ -1,7 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
-
 # 🔧 Setting the Fee Recipient for CSM Validators
 
 When running validators via Lido Community Staking Module (CSM), it is **mandatory** to set the fee recipient to the **Lido Execution Layer Rewards Vault**:
