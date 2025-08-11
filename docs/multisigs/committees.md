@@ -795,7 +795,8 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 
 ## 2.15.4 Dual Governance Tiebreaker Committees: Ethereum
 
-**Address:** [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
+**(Proposed to remove) Address:** [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
+**(Proposed) Address:** [`0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5`](https://etherscan.io/address/0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5)
 
 The Tiebreaker Committee includes three subcommittees covering different interest groups within the Ethereum community. The approval from a supermajority of sub-committees is required to execute a pending proposal. The approval by each subcommittee requires the majority support within the subcommittee.
 
@@ -817,7 +818,8 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 ## 2.15.4.1 Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
 
-**Address:** [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
+**(Proposed to remove) Address:** [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
+**(Proposed) Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
 
@@ -837,7 +839,8 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 ## 2.15.4.2 Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
 
-**Address:** [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
+**(Proposed to remove) Address:** [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
+**(Proposed) Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
 
@@ -857,7 +860,8 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 ## 2.15.4.2 Dual Governance Tiebreaker Committees. Node Operators Subcommittee: Ethereum
 
-**Address:** [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
+**(Proposed to remove) Address:** [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
+**(Proposed) Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
 

@@ -66,27 +66,31 @@ where the protocol and its parts/extensions are deployed.
   - Emergency activation committee: [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://etherscan.io/address/0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
   - Emergency execution committee: [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://etherscan.io/address/0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 - Admin Executor: [`0x23E0B465633FF5178808F4A75186E2F2F9537021`](https://etherscan.io/address/0x23E0B465633FF5178808F4A75186E2F2F9537021)
-- Dual Governance: [`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+- (Proposed to remove) Dual Governance: [`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+- (Proposed) Dual Governance: [`0xC1db28B3301331277e307FDCfF8DE28242A4486E`](https://etherscan.io/address/0xC1db28B3301331277e307FDCfF8DE28242A4486E)
 - Dual Governance Config Provider: [`0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF`](https://etherscan.io/address/0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF)
 - Emergency Governance: [`0x553337946F2FAb8911774b20025fa776B76a7CcE`](https://etherscan.io/address/0x553337946F2FAb8911774b20025fa776B76a7CcE)
-- Veto Signaling Escrow: [`0xA8F14D033f377779274Ae016584a05bF14Dccaf8`](https://etherscan.io/address/0xA8F14D033f377779274Ae016584a05bF14Dccaf8) (proxy)
-- Veto Signaling Escrow: [`0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C`](https://etherscan.io/address/0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C) (impl)
+- (Proposed to remove) Veto Signaling Escrow: [`0xA8F14D033f377779274Ae016584a05bF14Dccaf8`](https://etherscan.io/address/0xA8F14D033f377779274Ae016584a05bF14Dccaf8) (proxy)
+- (Proposed) Veto Signaling Escrow: [`0x165813A31446a98c84E20Dda8C101BB3C8228e1c`](https://etherscan.io/address/0x165813A31446a98c84E20Dda8C101BB3C8228e1c) (proxy)
+- (Proposed to remove) Veto Signaling Escrow: [`0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C`](https://etherscan.io/address/0xb84317C0E142D8911A0d69Dc32c48d87753B8d1C) (impl)
+- (Proposed) Veto Signaling Escrow: [`0xd6A67636c05BeB5B4a5c90D408b03A63c4e39426`](https://etherscan.io/address/0xd6A67636c05BeB5B4a5c90D408b03A63c4e39426) (impl)
 - Reseal Manager: [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)
   - Reseal committee: [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://etherscan.io/address/0xFFe21561251c49AdccFad065C94Fb4931dF49081)
-- Tiebreaker Core Committee: [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
-- Tiebreaker Sub Committees:
+- (Proposed to remove) Tiebreaker Core Committee: [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
+- (Proposed) Tiebreaker Core Committee: [`0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5`](https://etherscan.io/address/0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5)
+- (Proposed to remove) Tiebreaker Sub Committees:
   - Builders Sub Committee [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
   - Node Operators Sub Committee [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
   - Ethereum Ecosystem Sub Committee [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
+- (Proposed) Tiebreaker Sub Committees:
+  - Builders Sub Committee [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
+  - Node Operators Sub Committee [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
+  - Ethereum Ecosystem Sub Committee [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 
-### Dual Governance launch contracts
+### Dual Governance upgrade contracts
 
-- Dual Governance Launch Verifier: [`0xd48c2fc419569537Bb069BAD2165dC0cEB160CEC`](https://etherscan.io/address/0xd48c2fc419569537Bb069BAD2165dC0cEB160CEC)
-- Roles Validator: [`0x31534e3aFE219B609da3715a00a1479D2A2d7981`](https://etherscan.io/address/0x31534e3aFE219B609da3715a00a1479D2A2d7981)
-- Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
-- Dual Governance Launch Omnibus Provider: [`0x1DB8a9313785b78f7d0a201C5E0BE007f1eb63b4`](https://etherscan.io/address/0x1DB8a9313785b78f7d0a201C5E0BE007f1eb63b4)
-- Temporary Emergency Governance for Smoke Test: [`0x75850938C1Aa50B8cC6eb3c00995759dc1425ae6`](https://etherscan.io/address/0x75850938C1Aa50B8cC6eb3c00995759dc1425ae6)
-  - Proposer committee: [`0xdd778153c3d0AE1B70fe81E0219b5D2C3e3951C2`](https://etherscan.io/address/0xdd778153c3d0AE1B70fe81E0219b5D2C3e3951C2)
+- Dual Governance Upgrade State Verifier: [`0x487b764a2085ffd595D9141BAec0A766B7904786`](https://etherscan.io/address/0x487b764a2085ffd595D9141BAec0A766B7904786)
+- Dual Governance Upgrade Omnibus Provider: [`0x67988077f29FbA661911d9567E05cc52C51ca1B0`](https://etherscan.io/address/0x67988077f29FbA661911d9567E05cc52C51ca1B0)
 
 ## Data Bus
 
