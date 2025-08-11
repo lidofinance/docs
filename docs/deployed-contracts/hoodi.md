@@ -7,7 +7,7 @@ Hoodi is the main operational and maintained protocol testnet.
 ## Core protocol
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x003f20CD17e7683A7F88A7AfF004f0C44F0cfB31`](https://hoodi.etherscan.io/address/0x003f20CD17e7683A7F88A7AfF004f0C44F0cfB31) (impl)
+- Lido Locator: [`0xA656983a6686615850BE018b7d42a7C3E46DcD71`](https://hoodi.etherscan.io/address/0xA656983a6686615850BE018b7d42a7C3E46DcD71) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
 - EIP-712 helper for stETH: [`0x2A1d51BF3aAA7A7D027C8f561e5f579876a17B0a`](https://hoodi.etherscan.io/address/0x2A1d51BF3aAA7A7D027C8f561e5f579876a17B0a)
@@ -22,7 +22,7 @@ Hoodi is the main operational and maintained protocol testnet.
 - Min First Allocation Strategy: [`0x6d1a9bBFF97f7565e9532FEB7b499982848E5e07`](https://hoodi.etherscan.io/address/0x6d1a9bBFF97f7565e9532FEB7b499982848E5e07) (external lib)
 - MEV Boost Relay Allowed List: [`0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf`](https://hoodi.etherscan.io/address/0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf)
 - Triggerable Withdrawals Gateway: [`0x6679090D92b08a2a686eF8614feECD8cDFE209db`](https://hoodi.etherscan.io/address/0x6679090D92b08a2a686eF8614feECD8cDFE209db)
-- Validator Exit Delay Verifier: [`0xFd4386A8795956f4B6D01cbb6dB116749731D7bD`](https://hoodi.etherscan.io/address/0xFd4386A8795956f4B6D01cbb6dB116749731D7bD)
+- Validator Exit Delay Verifier: [`0x7990A2F4E16E3c0D651306D26084718DB5aC9947`](https://hoodi.etherscan.io/address/0x7990A2F4E16E3c0D651306D26084718DB5aC9947)
 
 ## Oracle Contracts
 
