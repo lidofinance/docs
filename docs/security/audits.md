@@ -1,6 +1,32 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (66 reports)
+## Lido on Ethereum (68 reports)
+
+### 08-2025 Certora Dual Governance v.1.0.1 Hotfix Review
+
+Lido has engaged Certora to review and verify the correctness and safety of the Dual Governance v.1.0.1 hotfix.
+
+See full [report](https://github.com/lidofinance/audits/blob/main/Certora%20Dual%20Governance%20v1.0.1%20Hotfix%20Review%20Report%2008-2025.pdf) for more details.
+
+### 07-2025 MixBytes On-chain Audit of Community Staking Module (LIP-23, LIP-25, LIP-26, LIP-27)
+
+An updated report for [the previously audited Lido Community Staking Module](#10-2024-mixbytes-on-chain-audit-of-community-staking-module-lip-23-lip-25-lip-26) features a re-audit of the revised CS Verifier contract and deployment verification for the redeployed contract. This contract was updated to reflect changes introduced in LIP-27.
+
+No additional issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CSM%20Security%20Audit%20Report%2007-2025.pdf) for more details.
+
+### 07-2025 Nethermind Lido Accounting Zk Oracle Security Review Report
+
+- Total Issues: 9 (8 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Fixed)
+- Medium Issues: 1 (1 Fixed)
+- Low Issues: 1 (1 Fixed)
+- Info Issues: 5 (4 Fixed, 1 Acknowledged)
+- Best Practices Issues: 1 (1 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/zk/Nethermind_LIDO_ACCOUNTING_ZK_ORACLE_FINAL.pdf) for more details.
 
 ### 06-2025 Statemind Dual Governance Deployment and Voting Script Review
 
@@ -46,14 +72,6 @@ An updated report for [the previously audited Lido Community Staking Module](#10
 No addition issues were found.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Lido%20Community%20Staking%20Module%20Report%2004-25.pdf) for more details.
-
-### 04-2025 MixBytes On-chain Audit of Community Staking Module (LIP-23, LIP-25, LIP-26, LIP-27)
-
-An updated report for [the previously audited Lido Community Staking Module](#10-2024-mixbytes-on-chain-audit-of-community-staking-module-lip-23-lip-25-lip-26) features a re-audit of the revised CS Verifier contract and deployment verification for the redeployed contract. This contract was updated to reflect changes introduced in LIP-27.
-
-No addition issues were found.
-
-See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CSM%20Security%20Audit%20Report%2004-25.pdf) for more details.
 
 ### 03-2025 Statemind GateSeal Deployment Validation Note
 
