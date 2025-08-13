@@ -91,7 +91,7 @@ where the protocol and its parts/extensions are deployed.
 
 - Dual Governance Upgrade State Verifier: [`0x487b764a2085ffd595D9141BAec0A766B7904786`](https://etherscan.io/address/0x487b764a2085ffd595D9141BAec0A766B7904786)
 - Dual Governance Upgrade Omnibus Provider: [`0x67988077f29FbA661911d9567E05cc52C51ca1B0`](https://etherscan.io/address/0x67988077f29FbA661911d9567E05cc52C51ca1B0)
-- Dual Governance Config Provider for disconnected DualGovernance contract: [`0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF`](https://etherscan.io/address/0xa1692Af6FDfdD1030E4E9c4Bc429986FA64CB5EF)
+- Dual Governance Config Provider for disconnected DualGovernance contract: [`0xc934E90E76449F09f2369BB85DCEa056567A327a`](https://etherscan.io/address/0xc934E90E76449F09f2369BB85DCEa056567A327a)
 
 ## Data Bus
 
