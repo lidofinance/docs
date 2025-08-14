@@ -161,6 +161,15 @@ Hoodi is the main operational and maintained protocol testnet.
 
 ### Easy Track factories for token transfers
 
+- **Sandbox stETH** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=eth:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+  - AllowedRecipientsRegistry: [`0x7E33f2192c2cEC339493B9193110BC0510d6CBD2`](https://hoodi.etherscan.io/address/0x7E33f2192c2cEC339493B9193110BC0510d6CBD2)
+  - TopUpAllowedRecipients: [`0xE5aE943A3AEFA44AD16438Bc3D2cA7654103F985`](https://hoodi.etherscan.io/address/0xE5aE943A3AEFA44AD16438Bc3D2cA7654103F985)
+  - AddAllowedRecipient: [`0x8f05Cc4cC42745E9723E105D38638683f162e1d9`](https://hoodi.etherscan.io/address/0x8f05Cc4cC42745E9723E105D38638683f162e1d9)
+  - RemoveAllowedRecipient: [`0x86E10ffC7c67A92e0c5E58ae42945213da43D0c7`](https://hoodi.etherscan.io/address/0x86E10ffC7c67A92e0c5E58ae42945213da43D0c7)
+- **Sandbox stablecoins** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=eth:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+  - AllowedRecipientsRegistry: [`0xdf53b1cd4CFE43b6CdA3640Be0e4f1a45126ec61`](https://hoodi.etherscan.io/address/0xdf53b1cd4CFE43b6CdA3640Be0e4f1a45126ec61)
+  - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40Db7E8047C487bD8359289272c717eA3C34D1D3)
+  - TopUpAllowedRecipients: [`0x9D735eeDfa96F53BF9d31DbE81B51a5d333198dB`](https://hoodi.etherscan.io/address/0x9D735eeDfa96F53BF9d31DbE81B51a5d333198dB)
 - **Tooling contracts:**
   - AllowedRecipientsBuilder (single token): [`0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC`](https://hoodi.etherscan.io/address/0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC)
   - AllowedRecipientsFactory (single token): [`0xFdf256eED0ec8B782065E2aCDb975071033A6110`](https://hoodi.etherscan.io/address/0xFdf256eED0ec8B782065E2aCDb975071033A6110)
