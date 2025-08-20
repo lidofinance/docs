@@ -5,7 +5,7 @@ stVaults are Lido staking building blocks that allows the creating of custom sta
 For a deeper technical dive, you can check out the [stVaults Technical Design and Architecture](https://hackmd.io/@lido/stVaults-design).
 
 :::tip 📣 **Leave feedback**
-Trying to integrate with Lido V3 and stVaults? 
+Trying to integrate with Lido V3 and stVaults?
 Please share your thoughts through **[the short form](https://tally.so/r/3X9vYe)**.
 :::
 
@@ -48,7 +48,7 @@ stVaults consist of the following components:
 ### Web UI
 
 :::info
-The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](../../deployed-contracts/hoodi-lidov3.md).
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](/deployed-contracts/hoodi-lidov3.md).
 For advanced or low-level features that haven’t yet been exposed in the interface, use the CLI.
 :::
 
@@ -94,7 +94,6 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 **Goal**: Directly manage a `StakingVault` contract by transferring its ownership from the `Dashboard` contract to reduce operations gas costs (**advanced integrations**).
 
 > If vault ownership is changed to interact with the vault directly, it’s no longer possible to use other Lido stVaults infrastructure mechanisms to manage the vault. In this case, direct interaction with Lido core protocol via the Vault Hub contract is required.
->
 
 **Steps**:
 
@@ -110,7 +109,7 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 
 ### Predeposit Guarantee (PDG)
 
-**URL**: [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol), [PDG user guide](./pdg)
+**URL**: [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol), [PDG user guide](/guides/stvaults/pdg)
 
 **Goal**: Prevent deposit frontrunning enabled by vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). PDG secures the vault owner’s ether depositing to the validator from front-running by the node operator or third parties. One of the key advantages is a separating finances of the vault owner and the node operator.
 
@@ -118,9 +117,9 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
 2. Predeposit guarantee contract enables three main use cases:
-    1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](./pdg.md#full-cycle-trustless-path-through-pdg)).
-    2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg.md#pdg-shortcut)).
-    3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
+   1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](/guides/stvaults/pdg.md#full-cycle-trustless-path-through-pdg)).
+   2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](/guides/stvaults/pdg.md#pdg-shortcut)).
+   3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
 
 ### Off-chain monitoring tools
 
