@@ -10,20 +10,20 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: 'Node Operators',
+          label: 'Curated Module',
           items: [
-            'guides/node-operators/general-overview',
-            'guides/node-operators/validator-keys',
-            'guides/node-operators/el-rewards-configuration',
+            'guides/curated-module/general-overview',
+            'guides/curated-module/validator-keys',
+            'guides/curated-module/el-rewards-configuration',
             {
               type: 'category',
               label: 'Validator Exits Automation',
               items: [
-                'guides/node-operators/exits/introduction',
-                'guides/node-operators/exits/general-information',
-                'guides/node-operators/exits/exit-message-generation-signing',
-                'guides/node-operators/exits/flow-examples',
-                'guides/node-operators/exits/tooling-setup',
+                'guides/curated-module/exits/introduction',
+                'guides/curated-module/exits/general-information',
+                'guides/curated-module/exits/exit-message-generation-signing',
+                'guides/curated-module/exits/flow-examples',
+                'guides/curated-module/exits/tooling-setup',
               ],
             },
           ],
@@ -61,6 +61,7 @@ module.exports = {
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',
+        'guides/dg-guide',
         'guides/easy-track-guide',
         'guides/address-ownership-guide',
         'guides/multisig-signer-manual',
@@ -153,8 +154,6 @@ module.exports = {
       items: [
         'multisigs/emergency-brakes',
         'multisigs/committees',
-        'multisigs/lido-on-x',
-        'multisigs/lido-contributors-group',
         'multisigs/alliance',
         'multisigs/other',
       ],
@@ -185,19 +184,6 @@ module.exports = {
             'staking-modules/csm/penalties',
             'staking-modules/csm/validator-exits',
             { type: 'doc', id: 'staking-modules/csm/permissions', label: 'Permissions' },
-            {
-              type: 'category',
-              label: 'Guides',
-              link: { type: 'doc', id: 'staking-modules/csm/guides/index' },
-              items: [
-                'staking-modules/csm/guides/events',
-                'staking-modules/csm/guides/slashing',
-                'staking-modules/csm/guides/mev-stealing',
-                'staking-modules/csm/guides/unbonded-validators',
-                'staking-modules/csm/guides/addresses',
-                'staking-modules/csm/guides/fee-recipient',
-              ]
-            },
             {
               type: 'category',
               label: 'Contracts',

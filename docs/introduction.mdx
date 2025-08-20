@@ -2,16 +2,13 @@
 slug: /
 ---
 
-import GridLink from '@site/src/components/GridLink'
-import Grid from '@site/src/components/Grid'
-import SolanaIcon from '@site/src/assets/SolanaIcon'
-import PolygonIcon from '@site/src/assets/PolygonIcon'
-
 # Introduction
 
 This documentation is intended to introduce the general user to the project, as well as to serve as a guide for anyone who may be developing software using Lido.
 
 &emsp;❔ Get started with [FAQ](https://lido.fi/faq)
+
+&emsp;🖥 See guides for Node Operators, Vault managers or Oracle Operators at [Run on Lido](./run-on-lido/intro)
 
 &emsp;🐞 Follow the [bug bounty](https://immunefi.com/bounty/lido/) program
 
@@ -43,18 +40,7 @@ Lido is the leading liquid staking solution - providing a simple way to get rewa
 
 4. **Node Operators**. Entities that manage a secure and stable infrastructure for running validator clients for the benefit of the protocols. They’re dedicated staking providers who can ensure the safety of funds belonging to the protocol users and correctness of validator operations.
 
-Ethereum is and remains a primary focus of Lido. That’s affected the organisational structure - the governance is implemented through ERC20 `LDO` token. Currently Lido supports also the Polygon PoS network - when staking native tokens with Lido, users will receive a `st[token]`, which represents their `[token]` which represents their deposit and the rewards aggregated over time (penalties too).
-
-<Grid>
-
-<GridLink
-  to="https://docs.polygon.lido.fi"
-  title="Lido on Polygon (stMATIC)"
-  subtitle="For the Lido on Polygon protocol documentation please proceed to a separate portal."
-  Icon={<PolygonIcon />}
-/>
-
-</Grid>
+Ethereum is and remains a primary focus of Lido. That’s affected the organisational structure - the governance is implemented through ERC20 `LDO` token on Ethereum.
 
 ## Liquid staking
 

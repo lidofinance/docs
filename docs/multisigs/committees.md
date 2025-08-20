@@ -77,11 +77,11 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
 | robingop | 0xf2374BCb265505002055942D070459a4d2011012 | Sig hash: 0x89523e02d087de609003a33b091bde12e6f1b733336d4f1ea2e5de7a7faf990b39f593dd46cf993f4b5d5d2185ae00c19ff65013da549914d9445b432582393701 | https://twitter.com/robingop/status/1750498068976291883|
 | Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
-| Smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | https://etherscan.io/verifySig/255460 | https://twitter.com/sasha0smiles/status/1749368543517491598|
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ## 2.3 Relay Maintenance Committee
 
@@ -300,17 +300,17 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| McNut | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086452812349441?s=20 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| Name       | Address | Verification | Public verification |
+|------------| --- | --- | --- |
+| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| McNut      | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086452812349441?s=20 |
+| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c| https://x.com/KENX3495/status/1863795366321344968 |
-| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
-| Olga_K | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
+| Olga_K     | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
+| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
@@ -323,9 +323,9 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | 2.8.4 | Base | base:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
 | 2.8.5 | ZKSync | zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) |
 | 2.8.6 | Binance Smart Chain (BSC) | bnb:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
-| 2.8.7 | Linea | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) |
-| 2.8.8 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/home?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
-| 2.8.9 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://safe.scroll.xyz/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
+| 2.8.7 | Linea | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) |
+| 2.8.8 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
+| 2.8.9 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
 
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
@@ -337,10 +337,10 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.10 Liquidity Observation Lab Committee (Polygon)
 
@@ -378,10 +378,10 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.12 Liquidity Observation Lab Committee OP Token Multisig
 
@@ -397,12 +397,12 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
-| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 
 ### 2.8.13 Liquidity Observation Lab Committee ARB Token Multisig
@@ -423,12 +423,12 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
-| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.14 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
@@ -447,10 +447,10 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.15 Liquidity Observation Lab Committee ZK Token Multisig
 
@@ -470,12 +470,12 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | --- | --- | --- | --- |
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| smiles | 0x90D07d4c4801f275217de42Dca67c552Da0295Af | Sig hash: 0xce23703ae83409a9d64da90787eee209c3d9786d48b892ebadc43b1e62c8931025a71f294a7bdf850e060672a9d285651f23965d99f57728907021c0fc2249cf1c | https://twitter.com/sasha0smiles/status/1745335154502144092?s=20 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
-| Kenneth | 0x24bC449E616e8266f9290849Ec1F035AF3dFD9DB | Sig hash: 0xc9cb79cf93cc7372cbcc87339e00db1434f98dd63376de7625ff0d17f609240f6fc40c86fe41a578bd654c96409e369e6393f7d36724a7dcd969f736a809bbbf1c | https://x.com/KENX3495/status/1863795366321344968 |
-| ivpavici | 0x0e0534eca7e2fa9f06698a857170efe715823ae0 | https://etherscan.io/verifySig/271962 | https://x.com/ivpavici/status/1911682229866058160 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 
 ## 2.9 Community Staking Module Committee
@@ -690,14 +690,197 @@ Each committee decision is publicly disclosed on the Lido Research Forum, along 
 
 **List of committee members:**
 
-| Name                | Role                                        |
-|---------------------|---------------------------------------------|
+| Name               | Role                                        |
+|--------------------|---------------------------------------------|
 | Gabriella Sofia	   | Lido NOM contributor                        |
-| Ivan Metrikin       | Lido Tech contributor                       |
-| Drew Van der Werff  | Commit-Boost and Fabric steward             |
-| Fredrik Svantes     | security expert                             |
-| Vishal Modali       | representing Chorus One, Lido Node Operator |
-| Sébastien Rannou    | representing Kiln, Lido Node Operator       |
+| Ivan Metrikin      | Lido Tech contributor                       |
+| Drew Van der Werff | Commit-Boost and Fabric steward             |
+| Fredrik Svantes    | security expert                             |
+| Sébastien Rannou   | representing Kiln, Lido Node Operator       |
+| Kam Benbrik        | representing Chorus One, Lido Node Operator |
 
 Additionally, the committee also includes consulting participant, which abstain from voting:
 - Justin Traglia - Ethereum Foundation
+
+## 2.15 Dual Governance Committees
+
+### 2.15.1 Dual Governance Emergency Activation Committee: Ethereum
+
+**Address:** [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://app.safe.global/home?safe=eth:0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
+
+**Purpose of the multisig:** This committee has the one-off and time-limited right to activate an adversarial emergency mode if they see a scheduled proposal that was created or altered due to a vulnerability in the DG contracts or if governance execution is prevented by such a vulnerability. Active until emergency protection end date of `EmergencyProtectedTimelock` contract
+
+**Quorum:** 4/7
+
+**Forum topic:** [Lido Dual Governance Emergency Committee](https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049)
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**Contracts and Roles:**
+
+###### EmergencyProtectedTimelock :[`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
+* EmergencyActivationCommiittee
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945 |
+| [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454 |
+| [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893 |
+| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
+| [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353 |
+
+### 2.15.2 Dual Governance Emergency Execution Committee: Ethereum
+
+**Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
+
+**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+
+This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is stricted to 5 of 7
+
+**Quorum:** 5/7
+
+**Forum topic:** [Lido Dual Governance Emergency Committee](https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049)
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**Contracts and Roles:**
+
+###### EmergencyProtectedTimelock :[`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
+* EmergencyExecutionCommiittee
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945 |
+| [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454 |
+| [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893 |
+| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
+| [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353 |
+
+### 2.15.3 Dual Governance Reseal Committee: Ethereum
+
+**Address:** [`0xFFe21561251c49AdccFad065C94Fb4931dF49081`](https://app.safe.global/home?safe=eth:0xFFe21561251c49AdccFad065C94Fb4931dF49081)
+
+**Purpose of the multisig:** This committee has the right to extend temporarily paused contracts into a permanent pause or resume them if the following conditions are met:
+
+- The contracts are paused for a limited duration, not indefinitely.
+- The Dual Governance system is not in the Normal state.
+
+**Quorum:** 5/6
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**Contracts and Roles:**
+
+###### Dual Governance :[`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+* resealCommittee
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| ajbeal | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://twitter.com/ajbeal/status/1655876306771365888?s=20 |
+| eboadom | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877 | https://twitter.com/eboadom/status/1656002911854292993 |
+| michwill | 0xFe45baf0F18c207152A807c1b05926583CFE2e4b | Sig Hash: 0x44fc2bce69486ea826e1aaeb40878f9a8b038d5f0c8bd0ea9038fee7fca553005adfcd9d64172cacd2e7f1c11dc7e9b36c0f18916ed731e56ffa89feb95c8ae500 | https://twitter.com/newmichwill/status/1656597340780625920?s=20 |
+| thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://twitter.com/e330acid/status/1778451429172080726 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1655919930749976578 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
+
+### 2.15.4 Dual Governance Tiebreaker Committees: Ethereum
+
+**(Proposed to remove) Address:** [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
+
+**(Proposed) Address:** [`0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5`](https://etherscan.io/address/0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5)
+
+The Tiebreaker Committee includes three subcommittees covering different interest groups within the Ethereum community. The approval from a supermajority of sub-committees is required to execute a pending proposal. The approval by each subcommittee requires the majority support within the subcommittee.
+
+The committee gains its power only under the specific conditions of the deadlock (see below), and can only perform the following actions:
+
+ - Execute any pending proposal submitted by the DAO to DG (i.e. bypass the DG dynamic timelock).
+ - Unpause any of the paused protocol contracts.
+
+The Tiebreaker committee can perform the above actions, subject to a timelock of TiebreakerExecutionTimelock days, if any of the following two conditions is true:
+
+Tiebreaker Condition A: Governance state is Rage Quit
+and protocol withdrawals are paused for a duration exceeding TiebreakerActivationTimeout.
+Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown state was more than TiebreakerActivationTimeout days ago.
+
+**Contracts and Roles:**
+
+###### Dual Governance :[`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+* tiebreakerCommittee
+
+### 2.15.4.1 Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
+
+**(Proposed to remove) Address:** [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
+
+**(Proposed) Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
+
+**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Quorum:** 3/5
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Jorge of Nethermind | 0x80B2D9FA613c35Ec52B0dA5D84e6A819bcc5e369 | https://etherscan.io/verifySig/273436 | https://x.com/0xjorgeth/status/1925082175931593179 |
+| Sigma Prime | 0xEC7ABf73f339361ecCA951E1746C90a3e6205BFC | https://etherscan.io/verifySig/273315 | https://x.com/sigp_io/status/1924440542076883107 |
+| mteam | 0xb04b6fb471e766d7f21a6aa0e4e25b2aea0a75ab | https://etherscan.io/verifySig/273429 | https://x.com/mteamisloading/status/1925023188481646982 |
+| Michael_Ippolito  | 0x60BDa95a40d5536303BFcf84D679ca461A23398d | sigHash: 0x55228d86025525135644be0b1fb9ba06db7a665a0be7c2a35a1129b031086d1d37a24d59ab71ede3f0a0d98f9770eca6acc2904f3cda4d3b0f4e5f923dd9e45e1c |  |
+| polar | 0x5d60F5d653Cc318d1f0ABacd83eD4feeAa6e5804 | https://etherscan.io/verifySig/273447 |  |
+
+### 2.15.4.2 Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
+
+**(Proposed to remove) Address:** [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
+
+**(Proposed) Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
+
+**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Quorum:** 3/5
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| andy_koz | 0x805fa0f79dc0ddcd73dcbc23487d2d5bd77de598 | sigHash: 778925c21cea7d3fda14bdc7cb68a67cfc7317ed1223f4782707a6c6b8f4a4e004ca4bf55c482a511414597a1e483f07d6c9d2942d5b9c8fe43bcbf180ae88ad1c | https://x.com/andy_koz/status/1923300897746030788 |
+| dennisonbertram | 0x49769c3443c74f144991ca560ba5f635581b8176 | sigHash: c074644bac4f5335441618c3f77b868c505e032baf172d8c24f373e48c4d575e37523bfa79406724315a26dd31a9ada7e630729cf3cc9207e09086b925bfe3631b |  |
+| koeppelmann | 0x9A921867EbB579D137184b397E7D087f1ae716fd | sigHash: 000b2074661792990ca4b7c3b17b5b5e70660f883d3a1e723334d1d29cf658866cbab193707f2cecb3e0913efb523fc5bc08800877e8ef349868cb6c15d0881a1b | https://x.com/koeppelmann/status/1924570381181989239 |
+| BogdanHabic  | 0x81000e270B4f66B8666544E8FEc073e0a23FFf00 | sigHash: f70a5b5d9029475464b35ff4b9b9c25102e1055c3a4660cd9b866df9ae1e44172fa2f67b86aa39a4e29f30e1a16deeb6044e77827ec859d995748f8861e4c8441c | https://x.com/BogdanHabic/status/1924586022974722286 |
+| Leuts | 0xD8a9072D82a28307279aC0aD3c97Cb61bEe67952 | https://etherscan.io/verifySig/273483 | https://x.com/A_Leutenegger/status/1924882733014110396 |
+
+### 2.15.4.3 Dual Governance Tiebreaker Committees. Node Operators Subcommittee: Ethereum
+
+**(Proposed to remove) Address:** [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
+
+**(Proposed) Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
+
+**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Quorum:** 5/7
+
+**Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Launchnodes | 0x9837b0Db0b733DED04D96a0A25Ba1E414A6C4c08 | https://etherscan.io/verifySig/273475 | https://x.com/launchnodes/status/1923359338384547912 |
+| Florian Staking Facilities | 0xDBD124e898839ec8C829d806C0328f069d1bB810 | https://etherscan.io/verifySig/273214 | https://x.com/MangoLissBNassi/status/1923378667930943609 |
+| linuxcity Gateway.fm | 0xf8Bfa395744Cb25fa4368Ffe2344Dc35546092d9 | https://etherscan.io/tx/0xb9e18899b57134cd8eca6c4d733112f9ef5fe30390b330e2f9f10fa178044157 | https://x.com/linuxcity/status/1924185313766781084 |
+| Chorus One  | 0x8103E9eDC04d87F6DA24A3a0c7778daE689E9D63 | https://etherscan.io/verifySig/273414 | https://x.com/ChorusOne/status/1924905920963785171 |
+| Morten Nansen | 0xfcd02c040cea45dc6cec3e24f1d3946fce7077b0 | https://etherscan.io/verifySig/273439 | https://x.com/mrfylkesnes/status/1925095334797308243 |
+| DSRV | 0xD7cABE01709c7E36e9D1fb3248A19b525578a1Fc | https://etherscan.io/verifySig/273446 | https://x.com/hyungkyu_hqueue/status/1925152842907807861 |
+| P2P | 0x8ed4dfd3A610CCF1FB45e797bf5D8e0f93084F22 | https://etherscan.io/verifySig/273444 | https://x.com/P2Pvalidator/status/1925197289389261218 |

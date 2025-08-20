@@ -29,6 +29,13 @@ module.exports = {
         { to: '/lips', label: 'LIPs', position: 'left' },
         { to: '/security/audits', label: 'Audits', position: 'left' },
         {
+          type: 'doc',
+          docsPluginId: 'runOnLido',
+          docId: 'intro',
+          label: 'Run on Lido',     // <-- updated label
+          position: 'left',
+        },
+        {
           href: 'https://github.com/lidofinance',
           label: 'GitHub',
           position: 'right',
@@ -57,12 +64,10 @@ module.exports = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          // /guides/steth-integration-guide -> /guides/lido-tokens-integration-guide
           {
             to: '/guides/lido-tokens-integration-guide',
             from: '/guides/steth-integration-guide',
           },
-          // /token-guides/wsteth-bridging-guide -> /token-guides/cross-chain-tokens-guide
           {
             to: '/token-guides/cross-chain-tokens-guide',
             from: '/token-guides/wsteth-bridging-guide',
@@ -70,5 +75,14 @@ module.exports = {
         ],
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'runOnLido',
+        path: 'run-on-lido',
+        routeBasePath: 'run-on-lido',
+        sidebarPath: require.resolve('./sidebarsRunOnLido.js'),
+      },
+    ],
   ],
-}
+};
