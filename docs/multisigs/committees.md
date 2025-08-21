@@ -13,8 +13,8 @@ Multisig enables the reception of LDO and stablecoins (listed in the AllowedToke
 [Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
 
 **Snapshots:**\
-[Continue LEGO for year 2](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
-[Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.org/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)\
+[Continue LEGO for year 2](https://snapshot.box/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
+[Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.box/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)\
 [LEGO: Proposal to replace Tim Beiko with Eric Siu and update council members rotation rules](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2acd7e052fc5ac2513509f5023975451f69fd488628577fedf369c3da97bef6a)
 
 **Aragon:**\
@@ -57,7 +57,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
 
 **Snapshot:**\
-[Proposal to adopt Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
+[Proposal to adopt Rewards-Share Program 2024](https://snapshot.box/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
 
 **Aragon:**\
 [Omnibus vote #162](https://vote.lido.fi/vote/162)
@@ -93,7 +93,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Forum topic:** [Identify and constitute Relay Maintenance Committee](https://research.lido.fi/t/lido-on-ethereum-identify-and-constitute-relay-maintenance-committee/3386)
 
-**Snapshot:** [Lido on Ethereum Block Proposer Rewards Policy 2.0 and Relay Maintenance Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f)
+**Snapshot:** [Lido on Ethereum Block Proposer Rewards Policy 2.0 and Relay Maintenance Committee](https://snapshot.box/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f)
 
 **Aragon:** [Omnibus vote #149 (item 6)](https://vote.lido.fi/vote/149)
 
@@ -125,7 +125,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Forum topic:** [Lido DAO Token Rewards Plan (TRP)](https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833)
 
-**Snapshot:** [Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)
+**Snapshot:** [Proposal to form TRP Committee](https://snapshot.box/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)
 
 **Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
 
@@ -161,7 +161,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 [Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
 
 **Snapshot:**\
-[Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
+[Voting for the approval of the creation of Treasury Committee](https://snapshot.box/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
 
 **Aragon:**\
 [Omnibus vote #173](https://vote.lido.fi/vote/173)
@@ -200,7 +200,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 [Gas Supply Committee](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724)
 
 **Snapshot:**\
-[Nominate the Gas Supply Committee as a supervisor for gas expenditure](https://snapshot.org/#/lido-snapshot.eth/proposal/0xbfecc75c45bca53d3c5786f099d46559ac597bc3fae802d5f599b60f10b4bd4a)
+[Nominate the Gas Supply Committee as a supervisor for gas expenditure](https://snapshot.box/#/lido-snapshot.eth/proposal/0xbfecc75c45bca53d3c5786f099d46559ac597bc3fae802d5f599b60f10b4bd4a)
 
 **Aragon:**\
 [Omnibus vote #156](https://vote.lido.fi/vote/156)\
@@ -237,7 +237,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 [Simple DVT release](https://research.lido.fi/t/simple-dvt-release/6613)
 
 **Snapshot:**\
-[Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
+[Staking Router Module Proposal: Simple DVT](https://snapshot.box/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
 
 **Aragon:**\
 [Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172)
@@ -284,8 +284,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 [Proposal to relaunch the reWARDS Committee as the Liquidity Observation Lab (LOL)](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
 
 **Snapshots:**\
-[Proposal to form reWARDS Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe565ad27e1beaacbe0e68bec59bd3d86a80d669ca80022b76dc31be697f6e078)\
-[Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
+[Proposal to form reWARDS Committee](https://snapshot.box/#/lido-snapshot.eth/proposal/0xe565ad27e1beaacbe0e68bec59bd3d86a80d669ca80022b76dc31be697f6e078)\
+[Vote to move from LDO, DAI to stETH](https://snapshot.box/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **Aragon:**\
 [Omnibus vote #160 (items 9-14)](https://vote.lido.fi/vote/160)
@@ -413,7 +413,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Forum topic:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://research.lido.fi/t/arbitrum-arb-token-airdrop-acceptance/4393)
 
-**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
+**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.box/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
 
 **Quorum:** 4/8
 
@@ -438,7 +438,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/15)
 
-**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
+**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.box/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
 
 **Quorum:** 3/5
 
@@ -460,7 +460,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Forum topic:** [Lido DAO ZKSync ZK Token Airdrop Acceptance](https://research.lido.fi/t/lido-dao-zksync-zk-token-airdrop-acceptance)
 
-**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
+**Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.box/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
 
 **Quorum:** 4/8
 
@@ -493,7 +493,7 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
 
 **Snapshot:**\
-[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
+[Lido Community Staking Module Mainnet Release Setup](https://snapshot.box/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
 
 **Aragon:**\
 [Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)
@@ -557,7 +557,7 @@ A Committee without multisig.
 [Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)
 
 **Snapshot:**\
-[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)
+[Establish the Network Expansion Committee (NEC)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)
 
 **List of committee members:**
 
