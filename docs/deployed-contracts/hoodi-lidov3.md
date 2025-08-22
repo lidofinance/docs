@@ -70,6 +70,10 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 - Aragon Finance: [`0x86eAE4CBb13e5d7f8f4a3582F24F6133047672F2`](https://hoodi.etherscan.io/address/0x86eAE4CBb13e5d7f8f4a3582F24F6133047672F2) (proxy)
 - Aragon Agent: [`0xEB9712bf5DD2179EEacc45A62A69b156299084a7`](https://hoodi.etherscan.io/address/0xEB9712bf5DD2179EEacc45A62A69b156299084a7) (proxy)
 - Aragon ACL: [`0xF55a0c7Da6932eBd859Bd7AE896757959785340e`](https://hoodi.etherscan.io/address/0xF55a0c7Da6932eBd859Bd7AE896757959785340e) (proxy)
+- GateSeal Blueprint: [`0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7`](https://hoodi.etherscan.io/address/0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7)
+- GateSeal Factory: [`0xA402349F560D45310D301E92B1AA4DeCABe147B3`](https://hoodi.etherscan.io/address/0xA402349F560D45310D301E92B1AA4DeCABe147B3)
+- GateSeal (Withdrawal Queue and TWG): [`0x3FC140BB4E493f999219B3cf1153853a507a511d`](https://hoodi.etherscan.io/address/0x3FC140BB4E493f999219B3cf1153853a507a511d)
+- GateSeal (Vaulthub and PDG): [`0x58EaE128f46d2D5BF578fb4A21d0A4a3546D11d3`](https://hoodi.etherscan.io/address/0x58EaE128f46d2D5BF578fb4A21d0A4a3546D11d3)
 
 ## 🧩 Staking modules
 
