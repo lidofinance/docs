@@ -10,7 +10,7 @@ Whether you’re using built-in dashboards or external services, here’s how to
 
 ## Explore the sub-sections
 
-[**Begginer: CSM Widget, EthSeer, Beaconcha.in →**](./beginner-csm-widget-ethseer-beaconcha.in)
+[**Beginner: CSM Widget, EthSeer, Beaconcha.in →**](./beginner-csm-widget-ethseer-beaconcha.in)
 
 [**Intermediate: Other External Dashboards →**](./intermediate-other-external-dashboards)
 
