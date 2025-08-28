@@ -1,5 +1,8 @@
 # Intro
 
+:::tip
+If you're looking for a practical guide to run CSM on your setup, please follow the CSM guide [here](/run-on-lido/csm/).
+:::
 :::info
 Terms `validator`, `key`, `validator key`, and `deposit data` have the same meaning within the document.
 :::

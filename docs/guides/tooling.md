@@ -6,14 +6,15 @@ Summary of tooling used in Lido V2: Oracle, Validator Ejector, Council Daemon, a
 
 Oracle daemon for Lido decentralized staking service.
 
-- **Version**: 5.1.0
-- **Docker image**: sha256:b15bb7fcd19b6368cf8f8498b52bb527b1da1f36227a44b47b3a5709db8b4e46, [lidofinance/oracle@sha256-b15bb7fcd19b6368cf8f8498b52bb527b1da1f36227a44b47b3a5709db8b4e46](https://hub.docker.com/layers/lidofinance/oracle/5.1.0/images/sha256-b15bb7fcd19b6368cf8f8498b52bb527b1da1f36227a44b47b3a5709db8b4e46?context=explore)
-- **Commit hash**: [lidofinance/lido-oracle@41f3f96](https://github.com/lidofinance/lido-oracle/commit/41f3f9671ea7e349e048c3ac47264a118c7983a8)
-- **Last update date**: 1 Apr, 2025
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/5.1.0)
+- **Version**: 5.4.1
+- **Docker image**: sha256:db0d00468df9840aa4084485314911a030c39c57da80656e92152883b2da6566, [lidofinance/oracle@sha256-db0d00468df9840aa4084485314911a030c39c57da80656e92152883b2da6566](https://hub.docker.com/layers/lidofinance/oracle/5.4.1/images/sha256-db0d00468df9840aa4084485314911a030c39c57da80656e92152883b2da6566)
+- **Commit hash**: [lidofinance/lido-oracle@f17f089](https://github.com/lidofinance/lido-oracle/commit/f17f0898cd8c46eefba5da0ad3162dc2f4bcf439)
+- **Last update date**: 20 Aug, 2025
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/5.4.1)
 - [**Documentation**](/guides/oracle-operator-manual)
 - [**Audit 1**](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v5%2004-25.pdf)
 - [**Audit 2**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20v5%2004-25.pdf)
+- [**Audit 3**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V5_4_1%2008-25.pdf)
 
 ## Validator Ejector
 
@@ -41,9 +42,9 @@ The Lido Council Daemon monitors deposit contract keys.
 
 Lido keys HTTP API.
 
-- **Version**: 2.2.0
-- **Docker image**: sha256:90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae, [lidofinance/lido-keys-api@sha256-90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae](https://hub.docker.com/layers/lidofinance/lido-keys-api/2.2.0/images/sha256-90cedb5e0ec768eaa572a795fdf60df9739c78e9315a935f981c6408448155ae?context=explore)
-- **Commit hash**: [lidofinance/lido-keys-api@b03e65b](https://github.com/lidofinance/lido-keys-api/commit/b03e65b18ff7bde3830554308b79fa9c234afa2d)
-- **Last update date**: 10 October, 2024
-- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/2.2.0)
+- **Version**: 2.2.1
+- **Docker image**: sha256:f8ce1d8828c99af22bba112ef23c0d235534a1436d8e4ba46f368c636f1c4bc9, [lidofinance/lido-keys-api@sha256-f8ce1d8828c99af22bba112ef23c0d235534a1436d8e4ba46f368c636f1c4bc9](https://hub.docker.com/layers/lidofinance/lido-keys-api/2.2.1/images/sha256-f8ce1d8828c99af22bba112ef23c0d235534a1436d8e4ba46f368c636f1c4bc9)
+- **Commit hash**: [lidofinance/lido-keys-api@99d4d4d](https://github.com/lidofinance/lido-keys-api/commit/99d4d4d99878a192028bb391251976d7fce53ba8)
+- **Last update date**: 1 April, 2025
+- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/2.2.1)
 - [**Documentation**](/guides/kapi-guide)

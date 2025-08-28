@@ -1,6 +1,47 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (64 reports)
+## Lido on Ethereum (69 reports)
+
+### 08-2025 Certora Dual Governance v.1.0.1 Hotfix Review
+
+Lido has engaged Certora to review and verify the correctness and safety of the Dual Governance v.1.0.1 hotfix.
+See full [report](https://github.com/lidofinance/audits/blob/main/Certora%20Dual%20Governance%20v1.0.1%20Hotfix%20Review%20Report%2008-2025.pdf) for more details.
+
+### 08-2025 Composable Security Off-chain Audit of Lido Oracle v5.4.1
+
+A security audit for a hotfix to the Lido Oracle V5. Previous [report for V5](#04-2025-composable-security-off-chain-audit-of-lido-oracle-v5).
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V5_4_1%2008-25.pdf) for more details.
+
+### 07-2025 MixBytes On-chain Audit of Community Staking Module (LIP-23, LIP-25, LIP-26, LIP-27)
+
+An updated report for [the previously audited Lido Community Staking Module](#10-2024-mixbytes-on-chain-audit-of-community-staking-module-lip-23-lip-25-lip-26) features a re-audit of the revised CS Verifier contract and deployment verification for the redeployed contract. This contract was updated to reflect changes introduced in LIP-27.
+
+No additional issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CSM%20Security%20Audit%20Report%2007-2025.pdf) for more details.
+
+### 07-2025 Nethermind Lido Accounting Zk Oracle Security Review Report
+
+- Total Issues: 9 (8 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Fixed)
+- Medium Issues: 1 (1 Fixed)
+- Low Issues: 1 (1 Fixed)
+- Info Issues: 5 (4 Fixed, 1 Acknowledged)
+- Best Practices Issues: 1 (1 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/zk/Nethermind_LIDO_ACCOUNTING_ZK_ORACLE_FINAL.pdf) for more details.
+
+### 06-2025 Statemind Dual Governance Deployment and Voting Script Review
+
+See [note](https://github.com/lidofinance/audits/blob/main/Statemind%20Dual%20Governance%20Deployment%20and%20Voting%20Script%20Review%20Report%2006-2025.pdf) contents for more details.
+
+### 06-2025 Composable Security Lido Oracle v5.2 Security consultation report
+
+After conducting a consultation, the security assessment did not identify any vulnerabilities introduced by the introduced version that could directly compromise the security or operational integrity of the Oracle system.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V5_2%2006-25.pdf) for more details.
 
 ### 05-2025 MixBytes Lido RMC EasyTrack Security Audit
 
@@ -36,14 +77,6 @@ An updated report for [the previously audited Lido Community Staking Module](#10
 No addition issues were found.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Lido%20Community%20Staking%20Module%20Report%2004-25.pdf) for more details.
-
-### 04-2025 MixBytes On-chain Audit of Community Staking Module (LIP-23, LIP-25, LIP-26, LIP-27)
-
-An updated report for [the previously audited Lido Community Staking Module](#10-2024-mixbytes-on-chain-audit-of-community-staking-module-lip-23-lip-25-lip-26) features a re-audit of the revised CS Verifier contract and deployment verification for the redeployed contract. This contract was updated to reflect changes introduced in LIP-27.
-
-No addition issues were found.
-
-See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CSM%20Security%20Audit%20Report%2004-25.pdf) for more details.
 
 ### 03-2025 Statemind GateSeal Deployment Validation Note
 
@@ -423,7 +456,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/ChainSecurity%
 
 ### 08-2022 MixBytes Lido Protocol Security Auditor's Note On The Deployed Code Compliance
 
-See [note](https://github.com/lidofinance/audits/blob/main/MixBytes%20Note%20on%20Deployed%20Code%20Compliance%2008-22.pdf) contents for more details
+See [note](https://github.com/lidofinance/audits/blob/main/MixBytes%20Note%20on%20Deployed%20Code%20Compliance%2008-22.pdf) contents for more details.
 
 ### 06-2022 MixBytes Lido Two-Phase Voting Security Audit Report
 
