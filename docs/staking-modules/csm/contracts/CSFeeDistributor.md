@@ -222,11 +222,17 @@ Get the historical record of distribution data
 ```solidity
 function getHistoricalDistributionData(uint256 index) external view returns (DistributionData memory);
 ```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`index`|`uint256`|Historical entry index|
+
 **Returns**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`<none>`|`DistributionData`|index Historical entry index|
+|`<none>`|`DistributionData`|Historical distribution data|
 
 
 ### getFeesToDistribute

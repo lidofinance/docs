@@ -258,7 +258,7 @@ function setDefaultQueueConfig(uint256 priority, uint256 maxDeposits) external o
 |Name|Type|Description|
 |----|----|-----------|
 |`priority`|`uint256`|Queue priority.|
-|`maxDeposits`|`uint256`|Maximum number of deposits a Node Operator can get via the priority queue.|
+|`maxDeposits`|`uint256`|Maximum number of the fist deposits a Node Operator can get via the priority queue. Ex. with `maxDeposits = 10` the Node Operator сan get keys added to the priority queue until the Node Operator has totalDepositedKeys + enqueued >= 10.|
 
 
 ### setDefaultAllowedExitDelay
@@ -584,8 +584,8 @@ function setQueueConfig(uint256 curveId, uint256 priority, uint256 maxDeposits) 
 |Name|Type|Description|
 |----|----|-----------|
 |`curveId`|`uint256`|Curve Id to set the config.|
-|`priority`|`uint256`|Priority of the queue|
-|`maxDeposits`|`uint256`|Max deposits in prioritized queue|
+|`priority`|`uint256`|Queue priority.|
+|`maxDeposits`|`uint256`|Maximum number of the fist deposits a Node Operator can get via the priority queue. Ex. with `maxDeposits = 10` the Node Operator сan get keys added to the priority queue until the Node Operator has totalDepositedKeys + enqueued >= 10.|
 
 
 ### unsetQueueConfig
@@ -895,7 +895,7 @@ function getQueueConfig(uint256 curveId) external view returns (uint32 queuePrio
 |Name|Type|Description|
 |----|----|-----------|
 |`queuePriority`|`uint32`|priority Queue priority.|
-|`maxDeposits`|`uint32`|Maximum number of deposits a Node Operator can get via the priority queue.|
+|`maxDeposits`|`uint256`|Maximum number of the fist deposits a Node Operator can get via the priority queue. Ex. with `maxDeposits = 10` the Node Operator сan get keys added to the priority queue until the Node Operator has totalDepositedKeys + enqueued >= 10.|
 
 
 ### getAllowedExitDelay

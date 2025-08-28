@@ -42,6 +42,18 @@ uint64 public immutable SLOTS_PER_EPOCH;
 ```
 
 
+### SLOTS_PER_HISTORICAL_ROOT
+*Count of historical roots per accumulator.*
+
+*See https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#time-parameters*
+
+
+```solidity
+uint64 public immutable SLOTS_PER_HISTORICAL_ROOT;
+```
+
+
+
 ### GI_FIRST_WITHDRAWAL_PREV
 *This index is relative to a state like: `BeaconState.latest_execution_payload_header.withdrawals[0]`.*
 
@@ -78,21 +90,39 @@ GIndex public immutable GI_FIRST_VALIDATOR_CURR;
 ```
 
 
-### GI_HISTORICAL_SUMMARIES_PREV
-*This index is relative to a state like: `BeaconState.historical_summaries`.*
+### GI_FIRST_HISTORICAL_SUMMARY_PREV
+*This index is relative to a state like: `BeaconState.historical_summaries[0]`.*
 
 
 ```solidity
-GIndex public immutable GI_HISTORICAL_SUMMARIES_PREV;
+GIndex public immutable GI_FIRST_HISTORICAL_SUMMARY_PREV;
 ```
 
 
-### GI_HISTORICAL_SUMMARIES_CURR
-*This index is relative to a state like: `BeaconState.historical_summaries`.*
+### GI_FIRST_HISTORICAL_SUMMARY_CURR
+*This index is relative to a state like: `BeaconState.historical_summaries[0]`.*
 
 
 ```solidity
-GIndex public immutable GI_HISTORICAL_SUMMARIES_CURR;
+GIndex public immutable GI_FIRST_HISTORICAL_SUMMARY_CURR;
+```
+
+
+### GI_FIRST_BLOCK_ROOT_IN_SUMMARY_PREV
+*This index is relative to HistoricalSummary like: HistoricalSummary.blockRoots[0].*
+
+
+```solidity
+GIndex public immutable GI_FIRST_BLOCK_ROOT_IN_SUMMARY_PREV;
+```
+
+
+### GI_FIRST_BLOCK_ROOT_IN_SUMMARY_CURR
+*This index is relative to HistoricalSummary like: HistoricalSummary.blockRoots[0].*
+
+
+```solidity
+GIndex public immutable GI_FIRST_BLOCK_ROOT_IN_SUMMARY_CURR;
 ```
 
 
@@ -111,6 +141,15 @@ Slot public immutable FIRST_SUPPORTED_SLOT;
 
 ```solidity
 Slot public immutable PIVOT_SLOT;
+```
+
+
+### CAPELLA_SLOT
+*Historical summaries started accumulating from the slot of Capella fork.*
+
+
+```solidity
+Slot public immutable CAPELLA_SLOT;
 ```
 
 

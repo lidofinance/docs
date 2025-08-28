@@ -1,6 +1,6 @@
 # CSEjector
 
-- [Source code](TBD)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSEjector.sol)
 - [Deployed contract](TBD)
 
 `CSEjector.sol` is a supplementary contract responsible for interactions with EIP-7002-powered Lido Withdrawal credentials via `VEB`. Node Operators can voluntarily eject their validators. `CSStrikes.sol` uses `CSEjector.sol` to trigger exits for validators that have surpassed the strike threshold.
