@@ -11,7 +11,7 @@ const localPath = path.join(__dirname, '../docs/security/audits.md');
 function preprocessMarkdown(md) {
   const urlPrefix =
     'https://github.com/lidofinance/audits/blob/main/';
-  const pdfRe = /(\[.*?\]\()(?!http|https|#|\/|mailto:)([^)]+\.pdf)(\))/g;
+  const pdfRe = /(\[.*?\]\()(?!https?:|#|\/|mailto:)([^)]+\.pdf)(\))/g;
   return md.replace(pdfRe, (_, p1, rel, p3) => p1 + urlPrefix + rel + p3);
 }
 
