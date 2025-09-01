@@ -118,3 +118,18 @@ In case you wish to track on-chain submits, you need to subscribe to the followi
 See [Deployed Contracts](/deployed-contracts) for Lido addresses on Mainnet.
 
 For token integrations, see [Lido tokens integration guide](/guides/lido-tokens-integration-guide).
+
+### Earn Page
+
+The ETH Staking Widget includes an Earn page where users can deposit ETH, WETH, stETH, or wstETH into vaults to earn enhanced rewards compared with standard staking.
+
+If the widget is embedded using an `iframe`, the Earn page is **disabled** by default. Control visibility with the `earn` URL query parameter:
+
+- `earn=enabled` — show the Earn page
+- `earn=disabled` — hide the Earn page (default behavior)
+
+#### Example of enabling Earn page using iframe
+
+```html
+<iframe src="https://stake.lido.fi/?earn=enabled" title="Lido Staking App" height="500" width="100%" />
+```
