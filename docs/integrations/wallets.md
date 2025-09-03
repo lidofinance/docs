@@ -60,7 +60,7 @@ For a full example, click [here](https://github.com/lidofinance/referral-program
 
 ### Earn Page
 
-The ETH Staking Widget includes an Earn page where users can deposit ETH, WETH, stETH, or wstETH into vaults to earn higher rewards compared with standard staking.
+The ETH Staking Widget’s Earn page lets users deposit ETH, WETH, stETH, or wstETH into vaults seeking extra rewards on top of staking.
 
 If the widget is embedded using an `iframe`, the Earn page is **disabled** by default. Control visibility with the `earn` URL query parameter:
 
