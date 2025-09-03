@@ -70,7 +70,12 @@ If the widget is embedded using an `iframe`, the Earn page is **disabled** by de
 #### Example of enabling Earn page using iframe
 
 ```html
-<iframe src="https://stake.lido.fi/?earn=enabled" title="Lido Staking App" height="500" width="100%" />
+<iframe
+    src="https://stake.lido.fi/?earn=enabled"
+    title="Lido Staking App"
+    height="500" 
+    width="100%"
+/>
 ```
 
 ### Interacting with Lido contract directly
