@@ -15,8 +15,6 @@ import TabItem from '@theme/TabItem';
 1. Buy a cheap single-board computer (e.g., Raspberry Pi).
 2. **OS‑on‑a‑stick:** Flash a USB drive with TailsOS and run from USB—no files persist after removal.
 
-> ***We will cover Method 2 (executable binaries) in this guide.***
-
 ## What you will need
 
 1. Two new, empty USB drives

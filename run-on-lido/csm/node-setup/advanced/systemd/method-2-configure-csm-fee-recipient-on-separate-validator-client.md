@@ -345,8 +345,8 @@ Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand 
 
 :::important
 Recall that you will have to use designated fee recipient addresses as a CSM operator.
-Mainnet: 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f 
-Hoodi:  0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
+- Mainnet: 0x388C818CA8B9251b393131C08a736A67ccB19297 
+- Hoodi:  0x9b108015fe433F173696Af3Aa0CF7CDb3E104258
 :::
 
   </TabItem>
