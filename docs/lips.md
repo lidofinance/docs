@@ -8,7 +8,6 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
-| [30](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md) | Triggerable Withdrawals Framework | Raman Siamionau, Evgeniy Pirogov | [Link](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299) |
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
 
 ## Proposed
@@ -22,6 +21,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
+| [30](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md) | Triggerable Withdrawals Framework | Raman Siamionau, Evgeniy Pirogov | [Link](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299) |
 | [27](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-27.md) | Ensuring Compatibility with Ethereum’s Pectra Upgrade | George Avsetsin | [Link](https://research.lido.fi/t/lip-27-ensuring-compatibility-with-ethereum-s-pectra-upgrade/9444) |
 | [26](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-26.md) | Community Staking Module | Dmitry Gusakov, Sergey Khomutinin, Dmitry Chernukhin, Vladimir Gorkovenko | [Link](https://research.lido.fi/t/community-staking-module/5917) |
 | [25](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-25.md) | Staking Router 2.0 | Kirill Minenko, Alexander Lukin | [Link](https://research.lido.fi/t/lip-25-staking-router-v2-0/7773) |
