@@ -12,18 +12,18 @@ where the protocol and its parts/extensions are deployed.
 ## Core protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-- Lido Locator: [`0x3abc4764f0237923d52056cfba7e9aebf87113d3`](https://etherscan.io/address/0x3abc4764f0237923d52056cfba7e9aebf87113d3) (impl)
+- (proposed to remove) Lido Locator: [`0x3abc4764f0237923d52056cfba7e9aebf87113d3`](https://etherscan.io/address/0x3abc4764f0237923d52056cfba7e9aebf87113d3) (impl)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) Lido Locator: [`0x2C298963FB763f74765829722a1ebe0784f4F5Cf`](https://etherscan.io/address/0x2C298963FB763f74765829722a1ebe0784f4F5Cf) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
-- Staking Router: [`0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa`](https://etherscan.io/address/0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa) (impl)
+- (proposed to remove) Staking Router: [`0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa`](https://etherscan.io/address/0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa) (impl)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) Staking Router: [`0x226f9265CBC37231882b7409658C18bB7738173A`](https://etherscan.io/address/0x226f9265CBC37231882b7409658C18bB7738173A) (impl)
 - Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
-- Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
+- (proposed to remove) Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
 - Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
@@ -35,11 +35,11 @@ where the protocol and its parts/extensions are deployed.
 
 - Accounting Oracle:
   - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
-  - AccountingOracle: [`0x0e65898527e77210fb0133d00dd4c0e86dc29bc7`](https://etherscan.io/address/0x0e65898527e77210fb0133d00dd4c0e86dc29bc7) (impl)
+  - (proposed to remove) AccountingOracle: [`0x0e65898527e77210fb0133d00dd4c0e86dc29bc7`](https://etherscan.io/address/0x0e65898527e77210fb0133d00dd4c0e86dc29bc7) (impl)
   - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) AccountingOracle: [`0xE9906E543274cebcd335d2C560094089e9547e8d`](https://etherscan.io/address/0xE9906E543274cebcd335d2C560094089e9547e8d) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
-  - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
+  - (proposed to remove) ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
   - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) ValidatorsExitBusOracle: [`0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94`](https://etherscan.io/address/0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94) (impl)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
@@ -65,7 +65,7 @@ where the protocol and its parts/extensions are deployed.
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - GateSeal Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 - GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
+- (proposed to remove) GateSeal: [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) GateSeal (VEB and TWG): [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://hoodi.etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) GateSeal (Withdrawal Queue): [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://hoodi.etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
 
@@ -114,13 +114,13 @@ where the protocol and its parts/extensions are deployed.
 ### Curated Module
 
 - Node Operators Registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
-- Node Operators Registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
+- (proposed to remove) Node Operators Registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) Node Operators Registry: [`0x6828b023e737f96B168aCd0b5c6351971a4F81aE`](https://etherscan.io/address/0x6828b023e737f96B168aCd0b5c6351971a4F81aE) (impl)
 
 ### Simple DVT Module
 
 - Node Operators Registry: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
-- Node Operators Registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
+- (proposed to remove) Node Operators Registry: [`0x1770044a38402e3cfca2fcfa0c84a093c9b42135`](https://etherscan.io/address/0x1770044a38402e3cfca2fcfa0c84a093c9b42135) (impl)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) Node Operators Registry: [`0x6828b023e737f96B168aCd0b5c6351971a4F81aE`](https://etherscan.io/address/0x6828b023e737f96B168aCd0b5c6351971a4F81aE) (impl)
 
 ### Community Staking Module
