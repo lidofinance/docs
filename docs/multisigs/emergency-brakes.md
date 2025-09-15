@@ -22,7 +22,8 @@
 
 **Contracts and Roles:**
 
-###### GateSeal (VEB and TWG) [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) and GateSeal (Withdrawal Queue) [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
+###### (proposed to remove) GateSeal [`0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178`](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
+###### ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) GateSeal (VEB and TWG) [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) and GateSeal (Withdrawal Queue) [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
 * Sealing Committee
 
 **List of signers:**
