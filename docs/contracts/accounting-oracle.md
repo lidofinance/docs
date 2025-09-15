@@ -5,32 +5,31 @@
 - Inherits [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
-It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
+It's advised to read [What is the Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before proceeding.
 :::
 
 ## What is AccountingOracle
 
-AccountingOracle is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the
-amount of funds accumulated on the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](/contracts/staking-router#exited-and-stuck-validators) validators, the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
+AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amount of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; and the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process.
 
 ## Report cycle
 
-The oracle work is delineated by equal time periods called frames. In normal operation, oracles finalize a report in each frame (the frame duration is 225 Ethereum Consensus Layer epochs, each frame starts at ~12:00 noon UTC). Each frame has a reference slot and processing deadline. Report data is gathered by looking at the world state (both Ethereum Execution and Consensus Layers) at the moment of the frame's reference slot (including any state changes made in that slot), and must be processed before the frame's processing deadline.
+The oracle work is delineated by equal time periods called frames. In normal operation, oracles finalize a report in each frame (the frame duration is 225 Ethereum Consensus Layer epochs, each frame starts at ~12:00 noon UTC). Each frame has a reference slot and processing deadline. Report data is gathered by looking at the blockchain state (both Ethereum Execution and Consensus Layers) at the moment of the frame's reference slot (including any state changes made in that slot), and must be processed before the frame's processing deadline.
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](/contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+It's worth noting that the frame length [can be changed](/contracts/hash-consensus#setframeconfig). If an oracle report is delayed, it does not extend the report period unless it's missed. In that case, the next report will cover an increased report period.
 
 The frame includes these stages:
 
-- **Waiting:** oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate with it with the expected reference slot;
+- **Waiting:** the oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) to find the last finalized slot, trying to collate it with the expected reference slot;
 - **Data collection:** oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
 - **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the [`HashConsensus`](/contracts/hash-consensus) smart contract;
-- **Core update report:** once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract, which triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to go in the bunker mode, and
-- **Extra data report:** an additional report carrying additional information that is not vital for the core update is submitted to the AccountingOracle, can be submitted in chunks (e.g, node operator key states and reward distribution data).
+- **Core update report:** once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached — meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing) — one of the oracles, chosen in turn, submits the actual report to the `AccountingOracle` contract. This triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision (whether to go into bunker mode).
+- **Extra data report:** an additional report carrying information that is not vital for the core update is submitted to the AccountingOracle; it can be submitted in chunks (e.g., node operator key states for reward distribution functionality).
 
 :::note
-As it was said, daily oracle reports shouldn't be taken for granted.
+As noted above, daily oracle reports shouldn't be taken for granted.
 Oracle daemons could stop pushing their reports for extended periods of time in case of no
 [finality](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#finality) on the Ethereum Consensus Layer.
 This would ultimately result in no oracle reports and no stETH rebases for this whole period.
@@ -38,12 +37,12 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 ## Report processing
 
-The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
+The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the following processes, within a single transaction:
 
-1. Update exited validators counts for each StakingModule in StakingRouter;
+1. Update the exited validators count for each StakingModule in StakingRouter;
 2. Update bunker mode status for WithdrawalQueue;
-3. Handle function on the Lido contract which performs the main protocol state change.
-4. Store information about ExtraData
+3. Call the handler function on the Lido contract, which performs the main protocol state change;
+4. Store information about extra data.
 
 The diagram shows the interaction with contracts.
 
@@ -84,7 +83,7 @@ struct ReportData {
 **Oracle consensus info**
 
 - `consensusVersion` — Version of the oracle consensus rules. A current version expected by the oracle can be obtained by calling `getConsensusVersion()`.
-- `refSlot` — Reference slot for which the report was calculated. The state being reported must include all state changes resulting from the all blocks up to this reference slot (inclusive). The epoch containing the slot must be finalized prior to calculating the report.
+- `refSlot` — Reference slot for which the report was calculated. The state being reported must include all state changes resulting from all blocks up to this reference slot (inclusive). The epoch containing the slot must be finalized prior to calculating the report.
 
 **CL values**
 
@@ -106,7 +105,7 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 
 **Withdrawals finalization decision**
 
-- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
+- `withdrawalFinalizationBatches` — The array of withdrawal request IDs, sorted in ascending order, obtained by the oracle daemon during report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that there are no withdrawal requests to be finalized.
 - `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` one should perform a view call [Lido.handleOracleReport](/contracts/lido#handleoraclereport) directly via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) JSON-RPC API and calculate as follows:
 
 ```solidity
@@ -150,16 +149,16 @@ where `itemSortingKey` calculation depends on the item's type (see below).
 
 ---------------------------------------------------------------------------------------
 
-**`itemType=0`** (`EXTRA_DATA_TYPE_STUCK_VALIDATORS`): stuck validators by node operators.
+**`itemType=1`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
 
 The `itemPayload` field has the following format:
 
     | 3 bytes  |   8 bytes    |  nodeOpsCount * 8 bytes  |  nodeOpsCount * 16 bytes  |
-    | moduleId | nodeOpsCount |      nodeOperatorIds     |   stuckValidatorsCounts   |
+    | moduleId | nodeOpsCount |      nodeOperatorIds     |   exitedValidatorsCounts   |
 
 `moduleId` is the staking module for which exited keys counts are being reported.
 
-`nodeOperatorIds` contains an array of ids of node operators that have total stuck
+`nodeOperatorIds` contains an array of ids of node operators that have total exited
     validators counts changed compared to the staking module smart contract storage as
     observed at the reference slot. Each id is a 8-byte uint, ids are packed tightly.
 
@@ -168,15 +167,15 @@ The `itemPayload` field has the following format:
 
     nodeOpsCount = byteLength(nodeOperatorIds) / 8
 
-`stuckValidatorsCounts` contains an array of stuck validators total counts, as observed at
+`exitedValidatorsCounts` contains an array of exited validators total counts, as observed at
     the reference slot, for the node operators from the nodeOperatorIds array, in the same
     order. Each count is a 16-byte uint, counts are packed tightly. Thus,
 
-    byteLength(stuckValidatorsCounts) = nodeOpsCount * 16
+    byteLength(exitedValidatorsCounts) = nodeOpsCount * 16
 
 `nodeOpsCount` must not be greater than `maxItemsPerExtraDataTransaction` specified
     in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
-    with total stuck validators counts changed compared to the staking module smart contract
+    with total exited validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
     into multiple items.
 
@@ -185,17 +184,10 @@ Item sorting key is a compound key consisting of the module id and the first rep
 
     itemSortingKey = (moduleId, nodeOperatorIds[0:8])
 
----------------------------------------------------------------------------------------
-
-**`itemType=1`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
-
-The payload format is exactly the same as for `itemType=EXTRA_DATA_TYPE_STUCK_VALIDATORS`,
-    except that, instead of stuck validators counts, exited validators counts are reported.
-    The `itemSortingKey` is calculated identically.
 
 ---------------------------------------------------------------------------------------
 
-The oracle daemon must report exited/stuck validators counts ONLY for those
+The oracle daemon must report exited validators counts ONLY for those
     `(moduleId, nodeOperatorId)` pairs that contain outdated counts in the staking
     module smart contract as observed at the reference slot.
 
@@ -209,7 +201,7 @@ Extra data array can be passed in different formats, see below.
 
 ## Access and permissions
 
-Access to lever methods is restricted using the functionality of the
+Access to privileged methods is restricted using the functionality of the
 [AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
@@ -217,7 +209,7 @@ contract and a bunch of [granular roles](#permissions).
 
 ### LIDO()
 
-Returns an address of the [Lido](/contracts/lido) contract
+Returns the address of the [Lido](/contracts/lido) contract
 
 ```solidity
 address public immutable LIDO
@@ -225,7 +217,7 @@ address public immutable LIDO
 
 ### LOCATOR()
 
-Returns an address of the [LidoLocator](/contracts/lido-locator) contract
+Returns the address of the [LidoLocator](/contracts/lido-locator) contract
 
 ```solidity
 ILidoLocator public immutable LOCATOR
@@ -233,7 +225,7 @@ ILidoLocator public immutable LOCATOR
 
 ### LEGACY_ORACLE()
 
-Returns an address of the [LegacyOracle](/contracts/legacy-oracle) contract
+Returns the address of the [LegacyOracle](/contracts/legacy-oracle) contract
 
 ```solidity
 address public immutable LEGACY_ORACLE
@@ -244,7 +236,7 @@ address public immutable LEGACY_ORACLE
 See [https://ethereum.org/en/developers/docs/blocks/#block-time](https://ethereum.org/en/developers/docs/blocks/#block-time)
 
 :::note
-always returns 12 seconds due to [the Merge](https://ethereum.org/en/roadmap/merge/)
+Always returns 12 seconds due to [the Merge](https://ethereum.org/en/roadmap/merge/)
 :::
 
 ```solidity
@@ -256,24 +248,16 @@ uint256 public immutable SECONDS_PER_SLOT
 See [https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)
 
 :::note
-always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)
+Always returns 1606824023 (December 1, 2020, 12:00:23 pm UTC) on [Mainnet](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)
 :::
 
 ```solidity
 uint256 public immutable GENESIS_TIME
 ```
 
-### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
-
-This type carries the details of [stuck](/contracts/staking-router#exited-and-stuck-validators) validator(s).
-
-```solidity
-uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1
-```
-
 ### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
 
-This type contains the details of [exited](/contracts/staking-router#exited-and-stuck-validators) validator(s).
+This type contains the details of [exited](/contracts/staking-router#exited-validators) validator(s).
 
 ```solidity
 uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
@@ -283,9 +267,9 @@ uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
 
 The extra data format used to signify that the oracle report contains no [extra data](/contracts/accounting-oracle#extra-data).
 
-Sends as a part of the Oracle's [Phase 3](/guides/oracle-operator-manual#phase-3-submitting-a-report-extra-data).
+Sent as part of the Oracle's [Phase 3](/guides/oracle-operator-manual#phase-3-submitting-a-report-extra-data).
 
-This format uses when there are no new [stuck](/contracts/staking-router#exited-and-stuck-validators) or [exited](/contracts/staking-router#exited-and-stuck-validators) validators on report period.
+This format is used when there are no new [exited](/contracts/staking-router#exited-validators) validators for the report period.
 
 ```solidity
 uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0
@@ -296,7 +280,7 @@ uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0
 The list format for the extra data array. Used when all extra data processing
  fits into a single transaction.
 
-Extra data is passed within a single transaction as a bytearray containing all data items
+Extra data is passed within a single transaction as a byte array containing all data items
 packed tightly.
 
 Hash is a `keccak256` hash calculated over the bytearray items. The Solidity equivalent of
@@ -323,7 +307,7 @@ struct ProcessingState {
 ```
 
 - `currentFrameRefSlot` - Reference slot for the current reporting frame.
-- `processingDeadlineTime` - The last time at which a data can be submitted for the current reporting frame.
+- `processingDeadlineTime` - The last time at which data can be submitted for the current reporting frame.
 - `mainDataHash` - Hash of the main report data. Zero bytes if consensus on the hash hasn't been reached yet for the current reporting frame.
 - `mainDataSubmitted` - Whether the main report data for the current reporting frame has already been submitted.
 - `extraDataHash` - Hash of the extra report data. Should be ignored unless `mainDataSubmitted` is true.
@@ -445,7 +429,7 @@ function submitReportExtraDataList(bytes calldata items)
 
 | Name    | Type    | Description                                                  |
 | ------- | ------- | ------------------------------------------------------------ |
-| `items` | `bytes` | The extra data items list. See docs for the [EXTRA_DATA_FORMAT_LIST](#extra_data_format_list) constant for details. |
+| `items` | `bytes` | The extra data items list. See docs for the [EXTRA_DATA_FORMAT_LIST](#extra-data-format-list) constant for details. |
 
 #### Reverts
 
@@ -458,7 +442,7 @@ Called by [AccountingOracle HashConsensus](/contracts/hash-consensus) contract t
 :::note
 Note that submitting the report doesn't require the processor to start processing it right
  away, this can happen later (see [`getLastProcessingRefSlot`](#getlastprocessingrefslot)). Until processing is started,
- HashConsensus is free to reach consensus on another report for the same reporting frame an
+ HashConsensus is free to reach consensus on another report for the same reporting frame and
  submit it using this same function, or to lose the consensus on the submitted report,
  notifying the processor via `discardConsensusReport`.
 :::
@@ -547,7 +531,7 @@ ExtraDataSubmitted(uint256 indexed refSlot, uint256 itemsProcessed, uint256 item
 
 ### WarnExtraDataIncompleteProcessing()
 
-Emits when try to submit the same report, but not all items are processed yet.
+Emits when trying to submit the same report, but not all items are processed yet.
 
 ```solidity
 event WarnExtraDataIncompleteProcessing(
