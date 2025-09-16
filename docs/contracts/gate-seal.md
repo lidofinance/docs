@@ -4,7 +4,7 @@
 - [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
 - (proposed to remove) [Deployed contract](https://etherscan.io/address/0xf9C9fDB4A5D2AA1D836D5370AB9b28BC1847e178)
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) [GateSeal (ValidatorExitBus and TriggerableWithdrawalsGateway)](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
-- ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) [GateSeal (Withdrawal Queue)](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
+- ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) [GateSeal (WithdrawalQueue)](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
 - [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 
