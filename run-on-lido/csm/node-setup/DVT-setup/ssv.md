@@ -6,9 +6,6 @@
 - **Resilience**: Validators keep operating if one or more operators go offline.  
 - **Security**: No single operator holds the full key; compromising the validator requires multiple shares.
 
-### Video Guide
-In Progress.
-
 ## Preparation
 
 :::info
@@ -31,7 +28,7 @@ Before creating your SSV cluster:
 ## 1. Preparing Your Environment
 SSV provides a Node Stack using Docker for easy installation and configuration of your SSV node. Please note you need to run your own execution and consensus clients, you can see how to do so in the [node setup section](/run-on-lido/csm/node-setup/).
 
-1. Clone the Charon client repository and set up the environment:
+1. Clone the SSV Stack repository and set up the environment:
 ```
 git clone https://github.com/ssvlabs/ssv-stack.git
 cd ssv-stack

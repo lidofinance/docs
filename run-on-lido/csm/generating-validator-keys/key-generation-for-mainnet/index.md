@@ -36,7 +36,7 @@ This GUI method generates keystores, deposit data, and mnemonic.
 
 ### Downloading the executable binary file
 
-On your working laptop, get the latest (releases)[https://github.com/ethstaker/ethstaker-deposit-cli/releases] of the Ethstaker validator key generation tool and it's corresponding sha256 checksum.
+On your working laptop, get the latest [release](https://github.com/ethstaker/ethstaker-deposit-cli/releases) of the EthStaker validator key generation tool and it's corresponding sha256 checksum.
 
 ```bash
 cd ~
