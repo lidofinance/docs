@@ -5,7 +5,7 @@
 
 ## What is wstETH Referral Staker
 
-**WstETHReferralStaker** is a utility contract that allows users to stake ETH into the Lido protocol with referral address, then automatically wrap the received stETH into wstETH and transfer it back to the user in a single transaction.
+**WstETHReferralStaker** is an utility contract that allows users to stake ETH into the Lido protocol with referral address, then automatically wrap the received stETH into wstETH and transfer it back to the user in a single transaction.
 
 ## Upgradability
 
@@ -17,14 +17,14 @@ This contract is **not upgradable**, **ossified** and **permissionaless**.
 Do not send Ether or any tokens directly to this contract address. No funds can be rescued from this contract.
 :::
 
-Call `stakeETH(address _referral)` method on the `wstETHReferralStaker` contract with `value` equal to amount of ETH you want to stake with `_referral` address set to preferred referral address(could be zero address). For more information see [`stETH.submit(address _referral)`](/contracts/lido#submit)
+Call the `stakeETH(address _referral)` method on the `wstETHReferralStaker` contract with `value` equal to the amount of ETH you want to stake with a `_referral` address set to the preferred referral address(could be a zero address). For more information see [`stETH.submit(address _referral)`](/contracts/lido#submit)
 
 ## Methods
 
-Stake ETH directly into wstETH with `referral` address.
+Stake ETH directly into wstETH with a `referral` address.
 
 :::note
-With correct parameters `eth_call` RPC method can be used to preview total amount of wstETH caller will receive from transaction.
+With correct parameters the `eth_call` RPC method can be used to preview a total amount of wstETH tokens the caller will receive from the transaction.
 :::
 
 ```solidity
@@ -35,7 +35,7 @@ function stakeETH(address _referral) external payable returns (uint256)
 
 | Parameter Name | Type      | Description                                   |
 | -------------- | --------- | --------------------------------------------- |
-| `value`        | `uint256` | ETH value attached to                         |
+| `msg.value`    | `uint256` | ETH value attached to                         |
 | `_referral`    | `address` | Referral address for Lido's referral program. |
 
 **Returns**

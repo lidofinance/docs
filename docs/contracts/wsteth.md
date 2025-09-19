@@ -25,7 +25,7 @@ and sends the user locked `stETH` in return.
 ### Staking shortcut
 
 :::note
-For attaching referral address use [Wsteth Referral Staker contract](/contracts/wsteth-staker)
+For attaching a referral address use the [Wsteth Referral Staker contract](/contracts/wsteth-staker)
 :::
 
 The user can send ETH with regular transfer to the address of the contract and
