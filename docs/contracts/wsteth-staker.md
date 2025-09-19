@@ -1,4 +1,4 @@
-# WstETHReferralStaker
+# wstETHReferralStaker
 
 - [Source code](https://github.com/lidofinance/si-lidity/blob/develop/si-contracts/0.8.25/WstETHReferralStaker.sol)
 - [Deployed Contract](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d)
@@ -17,7 +17,7 @@ This contract is **not upgradable**, **ossified** and **permissionaless**.
 Do not send Ether or any tokens directly to this contract address. No funds can be rescued from this contract.
 :::
 
-Call `stakeETH(address _referral)` method on the `WstETHReferralStaker` contract with `value` equal to amount of ETH you want to stake with `_referral` address set to preferred referral address(could be zero address). For more information see [`stETH.submit(address _referral)`](/contracts/lido#submit)
+Call `stakeETH(address _referral)` method on the `wstETHReferralStaker` contract with `value` equal to amount of ETH you want to stake with `_referral` address set to preferred referral address(could be zero address). For more information see [`stETH.submit(address _referral)`](/contracts/lido#submit)
 
 ## Methods
 
