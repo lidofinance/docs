@@ -117,6 +117,7 @@ module.exports = {
         'contracts/withdrawal-queue-erc721',
         'contracts/withdrawal-vault',
         'contracts/wsteth',
+        'contracts/wsteth-staker',
         'contracts/deposit-security-module',
         'contracts/data-bus',
         'contracts/burner',

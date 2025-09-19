@@ -24,6 +24,10 @@ and sends the user locked `stETH` in return.
 
 ### Staking shortcut
 
+:::note
+For attaching referral address use [Wsteth Referral Staker contract](./wsteth-staker.md)
+:::
+
 The user can send ETH with regular transfer to the address of the contract and
 get wstETH in return. The contract will send ETH to Lido submit method,
 staking it and wrapping the received stETH seamlessly under the hood.
@@ -129,8 +133,8 @@ Requirements:
 
 #### Parameters
 
-| Parameter Name  | Type      | Description                                     |
-| --------------- | --------- | ----------------------------------------------- |
+| Parameter Name  | Type      | Description                                      |
+| --------------- | --------- | ------------------------------------------------ |
 | `_wstETHAmount` | `uint256` | amount of wstETH to unwrap in exchange for stETH |
 
 #### Returns

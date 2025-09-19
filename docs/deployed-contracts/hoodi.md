@@ -10,6 +10,7 @@ Hoodi is the main operational and maintained protocol testnet.
 - Lido Locator: [`0x47975A61067a4CE41BeB730cf6c57378E55b849A`](https://hoodi.etherscan.io/address/0x47975A61067a4CE41BeB730cf6c57378E55b849A) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
+- wstETH referral staker: [`0xf886BcC68b240316103fE8A12453Ce7831c2e835`](https://hoodi.etherscan.io/address/0xf886BcC68b240316103fE8A12453Ce7831c2e835)
 - EIP-712 helper for stETH: [`0x2A1d51BF3aAA7A7D027C8f561e5f579876a17B0a`](https://hoodi.etherscan.io/address/0x2A1d51BF3aAA7A7D027C8f561e5f579876a17B0a)
 - Staking Router: [`0xCc820558B39ee15C7C45B59390B503b83fb499A8`](https://hoodi.etherscan.io/address/0xCc820558B39ee15C7C45B59390B503b83fb499A8) (proxy)
 - Staking Router: [`0xd5F04A81ac472B2cB32073CE9dDABa6FaF022827`](https://hoodi.etherscan.io/address/0xd5F04A81ac472B2cB32073CE9dDABa6FaF022827) (impl)
