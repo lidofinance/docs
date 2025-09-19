@@ -1,6 +1,10 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (71 reports)
+## Lido on Ethereum (72 reports)
+
+### 09-2025 MixBytes WstETH Staker Security Audit Report and Deployment Validation
+
+See [note](https://github.com/lidofinance/audits/blob/main/MixBytes%20WstETH%20Staker%20Security%20Audit%20Report%2009-2025.pdf) contents for more details.
 
 ### 08-2025 Certora Dual Governance v.1.0.1 Hotfix Review
 
