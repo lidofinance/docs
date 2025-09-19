@@ -17,7 +17,7 @@ This contract is **not upgradable**, **ossified** and **permissionaless**.
 Do not send Ether or any tokens directly to this contract address. No funds can be rescued from this contract.
 :::
 
-Call `stakeETH(address _referral)` method on the `WstETHReferralStaker` contract with `value` equal to amount of ETH you want to stake with `_referral` address set to preferred referral address(could be zero address). For more information see [`stETH.submit(address _referral)`](<./lido.md#submit()>)
+Call `stakeETH(address _referral)` method on the `WstETHReferralStaker` contract with `value` equal to amount of ETH you want to stake with `_referral` address set to preferred referral address(could be zero address). For more information see [`stETH.submit(address _referral)`](/contracts/lido#submit)
 
 ## Methods
 
