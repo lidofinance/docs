@@ -55,6 +55,11 @@ module.exports = {
           label: 'stVaults',
           link: { type: 'doc', id: 'guides/stvaults/index' },
           items: [
+            { type: 'doc', id: 'guides/stvaults/guide-basic-stvault', label: 'Building guide: Basic stVault' },
+            'guides/stvaults/integration-overview',
+            { type: 'doc', id: 'guides/stvaults/consolidation', label: 'Migrate validators to stVault' },
+            { type: 'doc', id: 'guides/stvaults/roles-and-permissions', label: 'Roles and permissions' },
+            { type: 'doc', id: 'guides/stvaults/parameters-and-metrics', label: 'Parameters and metrics' },
             'guides/stvaults/pdg',
           ]
         },
