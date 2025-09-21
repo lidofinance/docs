@@ -6,7 +6,7 @@ CSM Node Operators have the following permissions and controls:
 
 - Node Operator is **the ultimate owner** of the validators' private keys;
 - Node Operator can join CSM permissionlessly;
-- Node Operator can have up to `kaysLimit` validator public keys. `kaysLimit` is set by the Lido DAO and typically is unlimited;
+- Node Operator can have up to `keysLimit` validator public keys. `keysLimit` is set by the Lido DAO and typically is unlimited;
 - Node Operator can delete uploaded validator public keys that are not deposited by the Lido on Ethereum protocol yet. A service `keyDeletionFee` is taken for each deleted key to cover associated maintenance costs incurred by the protocol;
 - Node Operator can claim excess [bond](./join-csm#bond) tokens and rewards at any moment;
 - Node Operator can upload additional [bond](./join-csm#bond) tokens at any moment without uploading new validator public keys;
