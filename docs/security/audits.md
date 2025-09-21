@@ -1,17 +1,28 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (69 reports)
+## Lido on Ethereum (71 reports)
 
 ### 08-2025 Certora Dual Governance v.1.0.1 Hotfix Review
 
 Lido has engaged Certora to review and verify the correctness and safety of the Dual Governance v.1.0.1 hotfix.
 See full [report](https://github.com/lidofinance/audits/blob/main/Certora%20Dual%20Governance%20v1.0.1%20Hotfix%20Review%20Report%2008-2025.pdf) for more details.
 
+### 08-2025 Statemind Dual Governance Escrow Fix Review and Deployment Validation
+
+See [note](https://github.com/lidofinance/audits/blob/main/Statemind%20Dual%20Governance%20Escrow%20Fix%20Review%20Report%2008-2025.pdf) contents for more details.
+
 ### 08-2025 Composable Security Off-chain Audit of Lido Oracle v5.4.1
 
 A security audit for a hotfix to the Lido Oracle V5. Previous [report for V5](#04-2025-composable-security-off-chain-audit-of-lido-oracle-v5).
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V5_4_1%2008-25.pdf) for more details.
+
+### 08-2025 Code4rena Audit of Lido Community Staking Module
+
+- Total Issues: 2 (2 Acknowledged)
+- Low Issues: 2 (2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Code4rena%20CSM%20V2%20Audit%20Report%2008-2025.pdf) for more details.
 
 ### 07-2025 MixBytes On-chain Audit of Community Staking Module (LIP-23, LIP-25, LIP-26, LIP-27)
 

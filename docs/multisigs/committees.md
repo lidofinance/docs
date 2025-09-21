@@ -606,10 +606,10 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | dgusakov | 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/266612 | https://x.com/d_gusakov/status/1887037067001020872         |
 | Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/266672 | https://x.com/juanbugeth/status/1887267565807845481       |
 | krogla | 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/267077 | https://x.com/_krogla/status/1890331086091141171 |
-| alxmrn | 0x444C7182bD7cd40f323Ba7A9b84d6B7564ccf5EC | https://etherscan.io/verifySig/267078 | https://research.lido.fi/t/establishment-of-lido-labs-borg-foundation-as-a-lido-dao-adjacent-foundation/9344/16 |
 | Alex_L | 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/267399 | https://x.com/Al_lykov/status/1892928521825059308 |
-| ste_dunnion | 0xf7a9bE40f3E70322da9dD909f278521284C2BE1b | https://etherscan.io/verifySig/267887 | https://x.com/LidoSte23/status/1897605950820724953 |
-| shik_happens | 0x734a30ABE434012FD413666b2210a4D1aca6ec7B | https://etherscan.io/verifySig/267976 | https://x.com/shik_happens/status/1898007885830865098 |
+| UniteTheClans | 0x81ca68f085282434d15c09619360d6513710a979 | https://etherscan.io/verifySig/274605 | https://x.com/0xeferium_m8/status/1930605132573515936 |
+| GrStepanov | 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/278586 |  https://x.com/shalfeyshur/status/1957736329296437494 |
+| Elena_S | 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/279001 | https://x.com/Elen0sh/status/1960254652479414583 |
 
 **Original List of Signers:**\
 https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6lsqyxjkg7hvii
@@ -837,7 +837,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 | Sigma Prime | 0xEC7ABf73f339361ecCA951E1746C90a3e6205BFC | https://etherscan.io/verifySig/273315 | https://x.com/sigp_io/status/1924440542076883107 |
 | mteam | 0xb04b6fb471e766d7f21a6aa0e4e25b2aea0a75ab | https://etherscan.io/verifySig/273429 | https://x.com/mteamisloading/status/1925023188481646982 |
 | Michael_Ippolito  | 0x60BDa95a40d5536303BFcf84D679ca461A23398d | sigHash: 0x55228d86025525135644be0b1fb9ba06db7a665a0be7c2a35a1129b031086d1d37a24d59ab71ede3f0a0d98f9770eca6acc2904f3cda4d3b0f4e5f923dd9e45e1c |  |
-| polar | 0x5d60F5d653Cc318d1f0ABacd83eD4feeAa6e5804 | https://etherscan.io/verifySig/273447 |  |
+| polar | 0x5d60F5d653Cc318d1f0ABacd83eD4feeAa6e5804 | https://etherscan.io/verifySig/273447 | https://farcaster.xyz/polar/0x663dcaad |
 
 ### 2.15.4.2 Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
 

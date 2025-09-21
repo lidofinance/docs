@@ -15,8 +15,6 @@ import TabItem from '@theme/TabItem';
 1. Buy a cheap single-board computer (e.g., Raspberry Pi).
 2. **OS‑on‑a‑stick:** Flash a USB drive with TailsOS and run from USB—no files persist after removal.
 
-> ***We will cover Method 2 (executable binaries) in this guide.***
-
 ## What you will need
 
 1. Two new, empty USB drives
@@ -38,18 +36,20 @@ This GUI method generates keystores, deposit data, and mnemonic.
 
 ### Downloading the executable binary file
 
-On your working laptop:
+On your working laptop, get the latest [release](https://github.com/ethstaker/ethstaker-deposit-cli/releases) of the EthStaker validator key generation tool and it's corresponding sha256 checksum.
 
 ```bash
 cd ~
-curl -LO https://github.com/ethereum/staking-deposit-cli/releases/download/v2.7.0/staking_deposit-cli-fdab65d-linux-amd64.tar.gz
-echo "ac3151843d681c92ae75567a88fbe0e040d53c21368cc1ed1a8c3d9fb29f2a3a staking_deposit-cli-fdab65d-linux-amd64.tar.gz" | sha256sum --check
+# change the URL to the actual URL (right-click & copy link URL)
+curl -LO https://github.com/eth-educators/ethstaker-deposit-cli/releases/download/v1.2.2/ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz
+# change the sha256 checksum to the actual checksum
+echo "04af3f4fd2fdccf4ae060abde47637622a31114d9f2e53e62722a694a4d5b206 ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz" | sha256sum --check
 ```
 
 **Expected output:**
 
 ```
-staking_deposit-cli-fdab65d-linux-amd64.tar.gz: OK
+ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz: OK
 ```
 
 After verification, move the `.tar.gz` file onto a new USB drive.
@@ -117,8 +117,8 @@ Load the USB drive with the `.tar.gz` file to the fresh OS. Open terminal:
 
 ```bash
 cd Desktop
-tar xvf staking_deposit-cli-fdab65d-linux-amd64.tar.gz
-cd staking_deposit-cli-fdab65d-linux-amd64
+tar xvf ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz
+cd ethstaker_deposit-cli-b13dcb9-linux-amd64
 ```
 
 #### Before proceeding
@@ -163,8 +163,6 @@ Create venv & clone tool:
 ```bash
 virtualenv venv
 source venv/bin/activate
-git clone https://github.com/ethereum/staking-deposit-cli.git
-cd staking-deposit-cli
 pip3 install -r requirements.txt
 ```
 
@@ -178,7 +176,7 @@ pip3 install -r requirements.txt
 Generate keys:
 
 ```bash
-python3 ./deposit.py new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address <YourWithdrawalAddress>
+python -m ethstaker_deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address <YourWithdrawalAddress>
 ```
 
   </TabItem>

@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# 📊 Beginner: CSM Widget, EthSeer, Beaconcha.in
+# 📊 Beginner: CSM Widget, MigaLabs, Beaconcha.in
 
 To get rewards on your CSM validators, their performance must be above the average performance of the network minus 5% during the monitoring frame of 28 days. That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
 
@@ -12,11 +12,11 @@ Go to the [monitoring](https://csm.lido.fi/monitoring) tab in the CSM UI to see 
 
 ![Snapshot Performance](/img/csm-guide/beginner-1.png)
 
-## EthSeer: Performance vs Network Average
+## MigaLabs: Performance vs Network Average
 
-The easiest way to see the performance of your keys against the network average is via [EthSeer](https://ethseer.io/). To see them:
+The easiest way to see the performance of your keys against the network average is via [MigaLabs](https://migalabs.io/lido-csm). To see them:
 
-1. Head to the [monitoring](https://csm.lido.fi/monitoring) and click on EthSeer under **External dashboards**. This will open the view of your operator.  
+1. Head to the [monitoring](https://csm.lido.fi/monitoring) and click on MigaLabs under **External dashboards**. This will open the view of your operator.  
 2. Scroll down and click on the validator number you want to monitor.  
 3. There you will see information including Source, Target and Head correctness from your validator against the network for the selected period of time.
 

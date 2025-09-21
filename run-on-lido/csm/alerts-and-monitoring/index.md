@@ -10,10 +10,10 @@ Whether you’re using built-in dashboards or external services, here’s how to
 
 ## Explore the sub-sections
 
-[**Begginer: CSM Widget, EthSeer, Beaconcha.in →**](./beginner-csm-widget-ethseer-beaconcha.in)
+[**Begginer: CSM Widget, MigaLabs, Beaconcha.in →**](./beginner)
 
-[**Intermediate: Other External Dashboards →**](./intermediate-other-external-dashboards)
+[**Intermediate: Other External Dashboards →**](./intermediate)
 
-[**Advanced: Local Grafana Dashboard →**](./advanced-local-grafana-dashboard)
+[**Advanced: Local Grafana Dashboard →**](./advanced)
 
 [**Expert: Custom Alerts →**](./expert-custom-alerts)
