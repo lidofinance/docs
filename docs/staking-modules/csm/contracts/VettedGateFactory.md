@@ -1,7 +1,7 @@
 # VettedGateFactory
 
-- [Source code](TBD)
-- [Deployed contract](TBD)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/VettedGateFactory.sol)
+- [Deployed contract](https://etherscan.io/address/0xFdab48c4D627e500207e9AF29c98579d90Ea0ad4)
 
 `VettedGateFactory.sol` is a supplementary contract that is used to deploy new instances of `VettedGate` contract behind [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 

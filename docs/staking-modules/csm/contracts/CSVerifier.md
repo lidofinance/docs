@@ -1,7 +1,7 @@
 # CSVerifier
 
-- [Source code](https://github.com/lidofinance/community-staking-module/blob/fa7ba8a0bab685fc924aa1b135b8d59f4c6de497/src/CSVerifier.sol)
-- [Deployed contract](https://etherscan.io/address/0x3Dfc50f22aCA652a0a6F28a0F892ab62074b5583)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSVerifier.sol)
+- [Deployed contract](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC)
 
 `CSVerifier.sol` is a utility contract responsible for validating the CL data proofs using [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788). It accepts proof of the validator withdrawals and reports these facts to the `CSModule.sol` if the proof is valid.
 

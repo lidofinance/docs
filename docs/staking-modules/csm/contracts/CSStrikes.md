@@ -1,7 +1,7 @@
 # CSStrikes
 
-- [Source code](TBD)
-- [Deployed contract](TBD)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSStrikes.sol)
+- [Deployed contract](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f)
 
 `CSStrikes.sol` is a utility contract that stores information about strikes assigned to the CSM validators by CSM Performance Oracle. It has a permissionless method to prove that a particular validator should be ejected because the number of strikes is above the threshold for this validator. It calls `CSEjector.sol` to perform a strikes threshold check and eject the validator.
 

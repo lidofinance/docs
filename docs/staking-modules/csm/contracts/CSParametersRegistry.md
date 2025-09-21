@@ -1,7 +1,7 @@
 # CSParametersRegistry
 
-- [Source code](TBD)
-- [Deployed contract](TBD)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSParametersRegistry.sol)
+- [Deployed contract](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428)
 
 `CSParametersRegistry.sol` is a utility contract that stores Node-Operator-type-related parameters fetched by the other smart contracts related to CSM. A contract requires a mandatory default value for all parameters to ensure consistency. The custom value is returned if it is set for a particular parameter. Otherwise, the default value is returned.
 

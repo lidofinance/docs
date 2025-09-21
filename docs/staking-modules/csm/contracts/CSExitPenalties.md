@@ -1,7 +1,7 @@
 # CSExitPenalties
 
 - [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSExitPenalties.sol)
-- [Deployed contract](TBD)
+- [Deployed contract](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
 
 `CSExitPenalties.sol` is a supplementary contract responsible for processing and storing information about exit-related penalties, namely:
 - Delayed exit penalty;

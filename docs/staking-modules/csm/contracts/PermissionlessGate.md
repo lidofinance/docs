@@ -1,7 +1,7 @@
 # PermissionlessGate
 
-- [Source code](TBD)
-- [Deployed contract](TBD)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/PermissionlessGate.sol)
+- [Deployed contract](https://etherscan.io/address/0xcF33a38111d0B1246A3F38a838fb41D626B454f0)
 
 `PermissionlessGate.sol` is a supplementary contract that enables permissionless Node Operator creation in `CSModule.sol`, serving as an entry point.
 

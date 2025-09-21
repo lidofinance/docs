@@ -1,6 +1,6 @@
 # CSFeeDistributor
 
-- [Source code](https://github.com/lidofinance/community-staking-module/blob/fa7ba8a0bab685fc924aa1b135b8d59f4c6de497/src/CSFeeDistributor.sol)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSFeeDistributor.sol)
 - [Deployed contract](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
 
 `CSFeeDistributor.sol` is a supplementary contract that stores non-claimed and non-distributed Node Operator rewards on its balance. This contract stores the latest root of a rewards distribution Merkle tree. It accepts calls from `CSAccounting.sol` with reward claim requests and stores data about already claimed rewards by the Node Operator. It receives non-distributed rewards from the `CSModule.sol` each time the `StakingRouter` mints the new portion of the module's rewards. This contract transfers excess rewards allocated by `StakingRouter` due to variable Node Operator reward share back to Lido treasury.

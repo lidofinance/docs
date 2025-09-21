@@ -1,7 +1,7 @@
 # VettedGate
 
-- [Source code](TBD)
-- [Deployed contract](TBD)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/VettedGate.sol)
+- [Deployed contract](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0)
 
 `VettedGate.sol` is a supplementary contract that enables Node Operator creation for the vetted addresses, which serves as an entry point to `CSModule.sol`. Alongside Node Operator creation, a contract can assign a custom Node Operator type (bondCurveId) in `CSAccounting.sol`. Deployed using `VettedGateFactory.sol` to allow the addition of the new instances later without additional code security audits. The list of the vetted participants is upgradable for each instance of the `VettedGate.sol` individually.
 

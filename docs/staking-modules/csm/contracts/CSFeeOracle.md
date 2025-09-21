@@ -1,6 +1,6 @@
 # CSFeeOracle
 
-- [Source code](https://github.com/lidofinance/community-staking-module/blob/fa7ba8a0bab685fc924aa1b135b8d59f4c6de497/src/CSFeeOracle.sol)
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSFeeOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB)
 
 `CSFeeOracle.sol` is a utility contract responsible for the execution of the CSM Oracle report once the consensus is reached in the `HashConsensus.sol` contract, namely, transforming non-distributed rewards to non-claimed rewards stored on the `CSFeeDistributor.sol` and reporting the latest root of rewards distribution Merkle tree to the `CSFeeDistributor.sol`. Alongside rewards distribution, a contract manages strikes data delivery to the `CSStrikes.sol`. A contract is Inherited from the [`BaseOracle.sol`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/BaseOracle.sol) from Lido on Ethereum (LoE) core.
