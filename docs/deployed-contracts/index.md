@@ -16,6 +16,7 @@ where the protocol and its parts/extensions are deployed.
 - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) Lido Locator: [`0x2C298963FB763f74765829722a1ebe0784f4F5Cf`](https://etherscan.io/address/0x2C298963FB763f74765829722a1ebe0784f4F5Cf) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
+- wstETH referral staker: [`0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
 - (proposed to remove) Staking Router: [`0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa`](https://etherscan.io/address/0x89eda99c0551d4320b56f82dde8df2f8d2ef81aa) (impl)
