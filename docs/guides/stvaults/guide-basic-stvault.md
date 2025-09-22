@@ -31,7 +31,7 @@ Creating an stVault is permissionless. There are two main ways to do it:
 2. One-step process (for experienced Vault Owners / Stakers): create the stVault and supply 1 ETH in a single transaction.
 
 #### Parameters needed to create an stVault:
-1. **Node Operator address (immutable)**. The address of the Node Operator providing validation services for the stVault. The Node Operator manages ETH deposits from the stVault balance to validators and handles validator exits when required.
+1. **Node Operator address** — a unique, immutable identifier of the Node Operator within stVaults, used in protocol logic such as calculating per-operator stETH minting terms and limits. It designates the Node Operator that provides validation services for the stVault and also manages ETH deposits from the stVault balance to validators, as well as handling validator exits when required.
 2. **Node Operator Manager address**. One of the two administrative roles in an stVault. From the Node Operator perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 3. **Vault Owner address**. One of the two administrative roles in an stVault. From the Vault Owner (Staker) perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 4. **Node Operator Fee**. The share of gross staking rewards that the Node Operator charges for providing validation services. Expressed as a percentage [0% .. 100.00%].
@@ -51,7 +51,7 @@ Creating stVault is permissionless operations, but in this 2-steps process it is
       Note down the addresses of the created **Vault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
        1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
@@ -78,7 +78,7 @@ To perform this step, the Node Operator of the newly created vault must already 
       ```
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
       1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
@@ -104,6 +104,14 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 - `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
 
+
+<details>
+  <summary>using stVaults Web UI</summary>
+
+      *Will be supported later this Autumn*
+
+</details>
+
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
@@ -111,7 +119,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
       ```
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
       1. Open **Etherscan** and navigate to the **Dashboard** contract by its address (provided in the results of stVault creation, see step 1.1).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
@@ -131,7 +139,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 In this approach, the Vault Owner creates an stVault that automatically connects to Lido Core, enabling stETH minting. This requires supplying 1 ETH, which will be locked as collateral for the connection to Lido Core. All completed in a single transaction, so despite it is a permissionless operation, it is usually performed by the Vault Owner of the future stVault.
 
 <details>
-  <summary>by User Interface</summary>
+  <summary>using stVaults Web UI</summary>
       1. Open the stVaults mainpage (see [#Environments](/guides/stvaults/guide-basic-stvault#environments)) 
       2. Connect wallet on the "My Vaults" page.
       3. Click "Create vault".
@@ -145,7 +153,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
       ```
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
       1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
@@ -180,7 +188,7 @@ Addresses perform this operation must have the following roles ([Read more about
 
 
 <details>
-  <summary>by User Interface</summary>
+  <summary>using stVaults Web UI</summary>
       1. On behalf of the first contracting party, open 'Settings > Tiers', and click the tier selector:
 
       ![Settings > Tiers](/img/stvaults/guide-basic-stvault/guide_1_scr_1.png)
@@ -218,7 +226,7 @@ Addresses perform this operation must have the following roles ([Read more about
       ```
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
 
       The Node Operator and Vault Owner use same-named metods in different contracts to perform this change.
 
@@ -257,7 +265,7 @@ Supply and Withdraw ETH are permissioned operations. By default, these permissio
 
 
 <details>
-  <summary>by User Interface</summary>
+  <summary>using stVaults Web UI</summary>
 
       Supply / Withdraw section:
       ![Supply and Withdraw](/img/stvaults/guide-basic-stvault/guide_1_scr_6.png)
@@ -278,7 +286,7 @@ yarn start vo w withdraw <amount>
 ```
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
       1. Open **Etherscan** and navigate to the **Dashboard** contract by its address (provided in the results of stVault creation, see step 1.1).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
@@ -314,7 +322,7 @@ Mint and Repay stETH are permissioned operations. By default, these permissions 
 
 
 <details>
-  <summary>by User Interface</summary>
+  <summary>using stVaults Web UI</summary>
 
       Mint / Repay section:
       ![Mint and Repay](/img/stvaults/guide-basic-stvault/guide_1_scr_7.png)
@@ -337,7 +345,7 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
 
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
       1. Open **Etherscan** and navigate to the **Dashboard** contract by its address (provided in the results of stVault creation, see step 1.1).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
@@ -413,7 +421,7 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 
 </details>
 <details>
-  <summary>by Smart contracts</summary>
+  <summary>using Etherscan UI</summary>
       1. Open **Etherscan** and navigate to the **VaultHub** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
