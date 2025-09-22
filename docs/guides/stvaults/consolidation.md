@@ -7,17 +7,21 @@ This document provides step-by-step instructions for performing the process smoo
 Use [these instuctions](https://lidofinance.github.io/lido-staking-vault-cli/) to setup stVaults CLI.
 ## 2. Preconditions
 - Set `NODE_OPERATOR_REWARDS_ADJUST_ROLE` to the address of your original validator's withdrawal credentials:
-    - go to `https://vaults-hoodi-lidov3.testnet.fi/vaults/<vault_address>/settings/permissions`.
+  - CLI
+    - `yarn start dashboard -w role-grant [{"account": <withdrawal_credentials>, "role": <node_operator_role_in_hex>}]`
+  - StVault UI
+    - go to `https://vaults-hoodi-lidov3.testnet.fi/vaults/<vault_address>/settings/permissions`. **TODO: update links to mainnet.**
     - navigate to "Node Operator Manager Permissions" section, "Adjust rewards on the validators" item.
     - add the address of your original validator's withdrawal credentials.
 - Source valdiators
-    - can have a `0x01` or `0x02` withdrawal credentials.
+    - withdrawal credentials must be `0x01` or `0x02` (`0x00` is not supported).
     - must be active (i.e., not exiting or slashed).
     - must be active for at least 256 epochs to be able to perform consolidation.
 - Target validators
-    - must have a withdrawal credentials type `0x02`.
+    - must have a withdrawal credentials of type `0x02` equal to stVault's `withdrawalCredentials()` function result.
     - must be active (i.e., not exiting or slashed).
 
+> **Note:** You can check a validator’s credentials or state at [Beaconcha](https://beaconcha.in/validator/<pubkey>).
 
 ## 3. Prepare input data
 - A list of source pubkeys of validators that you want to consolidate from.
@@ -29,20 +33,11 @@ Use [these instuctions](https://lidofinance.github.io/lido-staking-vault-cli/) t
 ## 4. Run consolidation command
 All input data for consolidation requests undergoes two checks: off-chain in CLI and on-chain by our audited contract `ValidatorConsolidationRequests`. Additionally, the calldata for the final request is formed on-chain, which brings an additional level of security.
 
-Configure WalletConnect [by the instruction](https://lidofinance.github.io/lido-staking-vault-cli/get-started/wallet-connect). Use the WalletConnect option and run the command:
-```bash
-yarn start consolidation w <dashboard> \
-  --source_pubkeys "source_pubkey_first_group_01 source_pubkey_first_group_02, source_pubkey_second_group_01 source_pubkey_second_group_02" \
-  --target_pubkeys "target_pubkey_first target_pubkey_second" \
-  --wallet-connect
-```
+---
 
-stVaults CLI will use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792), which enables transaction batching. It will display a QR code or a link for WalletConnect, allowing you to sign the transaction in an external wallet client or in Safe, if you are using a multisig with WalletConnect.
-
-If your wallet does not support `EIP-5792`, the consolidation request will be executed using the `eth_sendTransaction` method, processing the transaction calls one by one instead of in a batch.
-
-### Hint
-If there are many public keys, it’s better to use the file option. Create a JSON file in the following format:
+### Steps
+1. Configure WalletConnect [by the instruction](https://lidofinance.github.io/lido-staking-vault-cli/get-started/wallet-connect).
+2. Create a JSON file with pubkeys in the following format:
 ```json
 {
     "target_pubkey_first": [
@@ -55,20 +50,29 @@ If there are many public keys, it’s better to use the file option. Create a JS
     ]
 }
 ```
-and reference it in the command:
-
+3. Run the command using the WalletConnect option:
 ```bash
-yarn start consolidation w <dashboard> --file <path-to-json-with-pubkeys>
+yarn start consolidation w <dashboard> --file <path-to-json-with-pubkeys> --wallet-connect
+```
+- stVaults CLI will use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792), which enables transaction batching. It will display a QR code or a link for WalletConnect, allowing you to sign the transaction in an external wallet client or in Safe, if you are using a multisig with WalletConnect.
+- If your wallet does not support `EIP-5792`, the consolidation request will be executed using the `eth_sendTransaction` method, processing the transaction calls one by one instead of in a batch.
+
+> **Note:** Alternatively, you can list pubkeys directly in the command as parameters:
+If you prefere it's possible to list pubkeys in command as parameteres:
+```bash
+yarn start consolidation w <dashboard> \
+  --source_pubkeys "source_pubkey_first_group_01 source_pubkey_first_group_02, source_pubkey_second_group_01 source_pubkey_second_group_02" \
+  --target_pubkeys "target_pubkey_first target_pubkey_second" \
+  --wallet-connect
 ```
 
 ## 5. Post-consolidation checks
 
 ### 5.1 Check consolidation request state
 Consolidation request transactions may succeed on the execution layer but fail on the consensus layer.
-- Navigate to: `https://hoodi.beaconcha.in/validator/<pubkey>#consolidations`.
+- Navigate to: `https://hoodi.beaconcha.in/validator/<pubkey>#consolidations`. **TODO: update links to mainnet.**
 - Check the consolidation request status for each validator you consolidated to.
-
 ### 5.2 Revoke NODE_OPERATOR_REWARDS_ADJUST_ROLE role
-- go to `https://vaults-hoodi-lidov3.testnet.fi/vaults/<vault_address>/settings`.
+- go to `https://vaults-hoodi-lidov3.testnet.fi/vaults/<vault_address>/settings`. **TODO: update links to mainnet.**
 - navigate to "Node Operator Manager Permissions" section, "Adjust rewards on the validators" item.
 - remove withdrawal credentials address.
