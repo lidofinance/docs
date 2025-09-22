@@ -3,7 +3,7 @@
 ## Reasons
 There are several reasons for the CSM Node Operator's [bond](./join-csm#bond) to be penalized:
 1. **The operator has stolen EL rewards (MEV).** Penalty amount = `amount stolen + fixed stealing fine` (can be applied across multiple NO validators);
-2. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH).** Covers cases of a meaningful downtime and slashing.Penalty amount = `DEPOSIT_AMOUNT - validator's withdrawal balance`;
+2. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH).** Covers cases of a meaningful downtime and slashing. Penalty amount = `DEPOSIT_AMOUNT - validator's withdrawal balance`;
 3. **The operator has not exited the validators in time.**  Penalty amount = `exitDelayPenalty` (a fixed amount set by the DAO);
 4. **The validator has been ejected via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) due to an excessive number of strikes.** Penalty amount = `badPerformancePenalty` (a fixed amount set by the DAO);
 5. **Force ejection via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) was triggered for the validator.** Penalty amount = `min(actual TW fee paid, maxWithdrawalRequestFee)`.
