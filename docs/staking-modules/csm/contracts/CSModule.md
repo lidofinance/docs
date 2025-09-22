@@ -11,7 +11,7 @@
 - The slashing reporting method is removed;
 - Node-Operator-type-related parameters moved to `CSParametersRegistry.sol`;
 - DD queue mechanism was reworked to allow for multiple [priority queues](https://hackmd.io/@lido/csm-v2-tech#Priority-Queues);
-- Public release mechanism was deprecated. Permissioned CSM is now possible with the use of the Vetted Gates without Permissionless Gate while setting a key limit for the corresponding Node Operator type;
+- Public release mechanism (used for Early Access purpose) was deprecated. Permissioned CSM is now possible with the use of the Vetted Gates without Permissionless Gate while setting a key limit for the corresponding Node Operator type;
 - Reset bond curve removed for cases of slashing and settled EL stealing penalty due to the introduction of the Node Operator types associated with the bond curve;
 
 ## Upgradability
