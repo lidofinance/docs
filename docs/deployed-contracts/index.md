@@ -134,7 +134,7 @@ where the protocol and its parts/extensions are deployed.
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/171#p-22979-appendix-1-detailed-addresses-1)) CSFeeDistributor: [`0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1`](https://etherscan.io/address/0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1) (impl)
 - (proposed to remove) CSVerifier: [`0xeC6Cc185f671F627fb9b6f06C8772755F587b05d`](https://etherscan.io/address/0xeC6Cc185f671F627fb9b6f06C8772755F587b05d)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/171#p-22979-appendix-1-detailed-addresses-1)) CSVerifier: [`0xdC5FE1782B6943f318E05230d688713a560063DC`](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC)
-- CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
+- (proposed to remove) CSEarlyAdoption: [`0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E`](https://etherscan.io/address/0x3D5148ad93e2ae5DedD1f7A8B3C19E7F67F90c0E)
 - (proposed to remove) CS GateSeal: [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0)
 - ([proposed](https://research.lido.fi/t/community-staking-module/5917/171#p-22979-appendix-1-detailed-addresses-1)) CS GateSeal: [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)
 - CSFeeOracle:
