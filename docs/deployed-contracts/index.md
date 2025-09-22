@@ -88,12 +88,7 @@ where the protocol and its parts/extensions are deployed.
   - Builders Sub Committee [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
   - Node Operators Sub Committee [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
   - Ethereum Ecosystem Sub Committee [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
-
-### Dual Governance upgrade contracts
-
-- Dual Governance Upgrade State Verifier: [`0x487b764a2085ffd595D9141BAec0A766B7904786`](https://etherscan.io/address/0x487b764a2085ffd595D9141BAec0A766B7904786)
-- Dual Governance Upgrade Omnibus Provider: [`0x67988077f29FbA661911d9567E05cc52C51ca1B0`](https://etherscan.io/address/0x67988077f29FbA661911d9567E05cc52C51ca1B0)
-- Dual Governance Config Provider for disconnected DualGovernance contract: [`0xc934E90E76449F09f2369BB85DCEa056567A327a`](https://etherscan.io/address/0xc934E90E76449F09f2369BB85DCEa056567A327a)
+- Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
 
 ## Data Bus
 
@@ -753,3 +748,7 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 - Easy Track factory for token transfers: ATC stETH (committee ms [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956/home))
   - AllowedRecipientsRegistry: [`0xd3950eB3d7A9B0aBf8515922c0d35D13e85a2c91`](https://etherscan.io/address/0xd3950eB3d7A9B0aBf8515922c0d35D13e85a2c91)
   - TopUpAllowedRecipients: [`0x87b02dF27cd6ec128532Add7C8BC19f62E6f1fB9`](https://etherscan.io/address/0x87b02dF27cd6ec128532Add7C8BC19f62E6f1fB9)
+- Dual Governance upgrade contracts
+  - Dual Governance Upgrade State Verifier: [`0x487b764a2085ffd595D9141BAec0A766B7904786`](https://etherscan.io/address/0x487b764a2085ffd595D9141BAec0A766B7904786)
+  - Dual Governance Upgrade Omnibus Provider: [`0x67988077f29FbA661911d9567E05cc52C51ca1B0`](https://etherscan.io/address/0x67988077f29FbA661911d9567E05cc52C51ca1B0)
+  - Dual Governance Config Provider for disconnected DualGovernance contract: [`0xc934E90E76449F09f2369BB85DCEa056567A327a`](https://etherscan.io/address/0xc934E90E76449F09f2369BB85DCEa056567A327a)
