@@ -9,7 +9,7 @@
 
 ## Upgradability
 
-This contract is **not upgradable**, **ossified** and **permissionaless**.
+This contract is **non-upgradable**, **immutable** and **permissionless**.
 
 ## How to use this contract?
 
@@ -24,7 +24,7 @@ Call the `stakeETH(address _referral)` method on the `wstETHReferralStaker` cont
 Stake ETH directly into wstETH with a `referral` address.
 
 :::note
-With correct parameters the `eth_call` RPC method can be used to preview a total amount of wstETH tokens the caller will receive from the transaction.
+To preview a total amount of wstETH tokens to be staked, the `eth_call` RPC method can be used assuming the same `msg.value` passed.
 :::
 
 ```solidity
@@ -33,10 +33,10 @@ function stakeETH(address _referral) external payable returns (uint256)
 
 **Parameters**
 
-| Parameter Name | Type      | Description                                   |
-| -------------- | --------- | --------------------------------------------- |
-| `msg.value`    | `uint256` | ETH value attached to                         |
-| `_referral`    | `address` | Referral address for Lido's referral program. |
+| Parameter Name | Type      | Description                       |
+| -------------- | --------- | --------------------------------- |
+| `msg.value`    | `uint256` | ETH value attached to transaction |
+| `_referral`    | `address` | Referral address                  |
 
 **Returns**
 

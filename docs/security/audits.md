@@ -1,10 +1,19 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (72 reports)
+## Lido on Ethereum (73 reports)
 
-### 09-2025 MixBytes WstETH Staker Security Audit Report and Deployment Validation
+### 09-2025 MixBytes Lido Triggerable Withdrawals Easy Track Security Audit
 
-See [note](https://github.com/lidofinance/audits/blob/main/MixBytes%20WstETH%20Staker%20Security%20Audit%20Report%2009-2025.pdf) contents for more details.
+- Total Issues: 3
+- Low Issues: 3 (3 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Easy%20Track%20Security%20Audit%20Report%2009-25.pdf) for more details.
+
+### 09-2025 MixBytes WstETH Staker Security Audit
+
+- Total Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20WstETH%20Staker%20Security%20Audit%20Report%2009-2025.pdf) for more details.
 
 ### 08-2025 Certora Dual Governance v.1.0.1 Hotfix Review
 
@@ -36,7 +45,7 @@ No additional issues were found.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CSM%20Security%20Audit%20Report%2007-2025.pdf) for more details.
 
-### 07-2025 Nethermind Lido Accounting Zk Oracle Security Review Report
+### 07-2025 Nethermind Lido Accounting Zk Oracle Security Review
 
 - Total Issues: 9 (8 Fixed, 1 Acknowledged)
 - Critical Issues: 0
@@ -52,7 +61,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/zk/Nethermind_
 
 See [note](https://github.com/lidofinance/audits/blob/main/Statemind%20Dual%20Governance%20Deployment%20and%20Voting%20Script%20Review%20Report%2006-2025.pdf) contents for more details.
 
-### 06-2025 Composable Security Lido Oracle v5.2 Security consultation report
+### 06-2025 Composable Security Lido Oracle v5.2 Security Consultation Report
 
 After conducting a consultation, the security assessment did not identify any vulnerabilities introduced by the introduced version that could directly compromise the security or operational integrity of the Oracle system.
 
