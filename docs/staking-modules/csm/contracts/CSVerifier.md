@@ -8,6 +8,7 @@
 **Changes in v2:**
 - The slashing reporting method is removed;
 - Pause methods added;
+- Historical proof processing improved;
 
 ## Upgradability
 

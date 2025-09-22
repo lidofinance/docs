@@ -6,7 +6,7 @@
 `CSExitPenalties.sol` is a supplementary contract responsible for processing and storing information about exit-related penalties, namely:
 - Delayed exit penalty;
 - Bad performance ejection penalty (see `CSStrikes`);
-- TE fee paid in case of a forced and involuntary exit.
+- TE fee paid in case of a forced exit.
 
 ## Upgradability
 
