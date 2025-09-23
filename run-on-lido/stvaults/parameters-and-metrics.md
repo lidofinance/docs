@@ -1,4 +1,8 @@
-# stVaults Parameters and metrics
+---
+sidebar_position: 4
+---
+
+# Parameters and metrics
 :::warning
 This document covers metric calculations intended for stVaults on mainnet. The implementation on deployed testnet contracts may vary.
 :::

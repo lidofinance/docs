@@ -1,4 +1,8 @@
-# stVaults Roles and permissions
+---
+sidebar_position: 3
+---
+
+# Roles and permissions
 :::warning
 This document covers roles and permissions intended for stVaults on mainnet. The implementation on deployed testnet contracts may vary.
 :::

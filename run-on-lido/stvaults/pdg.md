@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Predeposit Guarantee
 
 This user guide explains how to use the Predeposit Guarantee contract as part of the stVaults staking infrastructure.

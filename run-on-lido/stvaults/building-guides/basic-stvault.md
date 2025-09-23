@@ -1,7 +1,11 @@
+---
+sidebar_position: 1
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# stVaults building guide: Basic stVault with optional liquidity
+# Basic stVault with optional liquidity
 
 ## Intro
 This guide is aimed to help Node Operators, Builders, Protocols, Liquidity Providers create and operate an stVault with optional liquidity.
