@@ -317,7 +317,7 @@ Withdrawable ETH is defined by:
 
 ### Mint and repay stETH
 When ETH is supplied to an stVault, the Vault Owner can mint stETH on demand.
-Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](/guides/stvaults/parameters-and-metrics#total-steth-minting-capacity).
+Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](../parameters-and-metrics#total-steth-minting-capacity).
 
 Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
 
@@ -385,8 +385,8 @@ Supplying ETH to the stVault increases its balance. The Node Operator can then d
 One of the key benefits of using PDG is the avoidance of commingling: it keeps the finances of the Vault Owner and the Node Operator strictly separated.
 
 PDG enables three main use cases:
-- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](https://docs.lido.fi/guides/stvaults/pdg/#full-cycle-trustless-path-through-pdg).
-- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](https://docs.lido.fi/guides/stvaults/pdg/#pdg-shortcut).
+- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../pdg/#full-cycle-trustless-path-through-pdg).
+- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../pdg/#pdg-shortcut).
 - **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case.
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
