@@ -3,12 +3,12 @@ sidebar_position: 7
 ---
 
 # Consolidation: Migrate validators to the stVault
-Stakers with validators already running may need to join stVautls. Validators in stVaults must have withdrawal credentials set to the Vault contract address. Instead of stopping existing validators, moving funds, and launching new ones, stakers can use the consolidation mechanism [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251). This makes it possible to migrate funds from their current validators to new validators whose withdrawal credentials point to the stVaults.
+Stakers with validators already running may need to join stVaults. Validators in stVaults must have withdrawal credentials set to the Vault contract address. Instead of stopping existing validators, moving funds, and launching new ones, stakers can use the consolidation mechanism [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251). This makes it possible to migrate funds from their current validators to new validators whose withdrawal credentials point to the stVaults.
 
 This document provides step-by-step instructions for performing the process smoothly with our stVaults CLI.
 
 ## 1. Setup stVaults CLI tool.
-Use [these instuctions](https://lidofinance.github.io/lido-staking-vault-cli/) to setup stVaults CLI.
+Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) to setup stVaults CLI.
 ## 2. Preconditions
 - Set `NODE_OPERATOR_REWARDS_ADJUST_ROLE` to the address of your original validator's withdrawal credentials:
   - CLI
@@ -17,7 +17,7 @@ Use [these instuctions](https://lidofinance.github.io/lido-staking-vault-cli/) t
     - go to `https://vaults-hoodi-lidov3.testnet.fi/vaults/<vault_address>/settings/permissions`. **TODO: update links to mainnet.**
     - navigate to "Node Operator Manager Permissions" section, "Adjust rewards on the validators" item.
     - add the address of your original validator's withdrawal credentials.
-- Source valdiators
+- Source validiators
     - withdrawal credentials must be `0x01` or `0x02` (`0x00` is not supported).
     - must be active (i.e., not exiting or slashed).
     - must be active for at least 256 epochs to be able to perform consolidation.

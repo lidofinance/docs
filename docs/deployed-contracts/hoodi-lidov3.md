@@ -16,8 +16,8 @@ Take 30 s to drop your thoughts through **[this quick form](https://tally.so/r
 ## 📚 Further reading
 
 - 🏗️ [Technical design doc](https://hackmd.io/@lido/stVaults-design)
-- 🔌 [stVaults integration guide](/guides/stvaults)
-- 🛡️ [stVaults Predeposit Guarantee (PDG) guide](/guides/stvaults/pdg)
+- 🔌 [stVaults Documentation Center](/run-on-lido/stvaults/)
+- 🛡️ [stVaults Predeposit Guarantee (PDG) guide](/run-on-lido/stvaults/pdg)
 - ⚓ [stVaults deployment tag: **`v3.0.0-beta`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-beta)
 
 ---

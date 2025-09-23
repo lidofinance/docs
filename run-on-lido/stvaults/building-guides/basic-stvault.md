@@ -56,7 +56,7 @@ Creating stVault is permissionless operations, but in this 2-steps process it is
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-       1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
+       1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
       4. Find the method `createVaultWithDashboardWithoutConnectingToVaultHub` in the list, fill out the fields, and click **Write**.
@@ -83,7 +83,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
+      1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.
@@ -100,7 +100,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 ##### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as collateral for connection to Lido Core, and initiates the connection to Lido Core.
 
-This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](./roles-and-permissions).
+This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
 
 **Parameters and addresses needed for this step:**
 - `VaultAddress`: the address of the `Vault` contract.
@@ -144,7 +144,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 
 <details>
   <summary>using stVaults Web UI</summary>
-      1. Open the stVaults mainpage (see [#Environments](/guides/stvaults/guide-basic-stvault#environments)) 
+      1. Open the stVaults mainpage (see [#Environments](#environments)) 
       2. Connect wallet on the "My Vaults" page.
       3. Click "Create vault".
       4. Fill out the form and click "Continue".
@@ -158,7 +158,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
+      1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
       4. Find the method `createVaultWithDashboard` in the list, fill out the fields, and click **Write**.
@@ -179,7 +179,7 @@ Tier changes are performed via a multi-role confirmation mechanism, where the No
 
 Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-Addresses perform this operation must have the following roles ([Read more about roles](./roles-and-permissions)):
+Addresses perform this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
 - From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE].
 - From the Node Operator: Node Operator (registered in the`OperatorGrid` contract).
 
@@ -235,7 +235,7 @@ Addresses perform this operation must have the following roles ([Read more about
       The Node Operator and Vault Owner use same-named metods in different contracts to perform this change.
 
       **Node Operator:**
-      1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
+      1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.
@@ -265,7 +265,7 @@ Addresses perform this operation must have the following roles ([Read more about
 </details>
 
 ### Supply and withdraw ETH
-Supply and Withdraw ETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple are supported, including the Vault Owner’s own address). [Read more about roles](./roles-and-permissions).
+Supply and Withdraw ETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple are supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
 
 
 <details>
@@ -312,14 +312,14 @@ Withdrawable ETH is defined by:
 - stVault Balance - it is ETH that is not staked on validators. 
 - Total lock by collateral for stETH Liability or connection to the Lido Core, and fees obligations.
  
-[Read more about stVaults metrics](./parameters-and-metrics)
+[Read more about stVaults metrics](../parameters-and-metrics)
 :::
 
 ### Mint and repay stETH
 When ETH is supplied to an stVault, the Vault Owner can mint stETH on demand.
 Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](/guides/stvaults/parameters-and-metrics#total-steth-minting-capacity).
 
-Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](./roles-and-permissions).
+Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
 
 
 
@@ -369,7 +369,7 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
       6. Sign the transaction in your wallet.
       7. Click **View your transaction** and wait for it to be executed.
 
-      To repay (burn) shares and stETH, you must first grant approval to the contract. Go to the token contract and execute the `approve()` method for the amount you want to set as allowance. Only after the approval is confirmed you can proceed with the repay (burn) operation. Please find the contracts' addresses on the **Contracts** page in accordance with your [environment](/guides/stvaults/guide-basic-stvault#environments).
+      To repay (burn) shares and stETH, you must first grant approval to the contract. Go to the token contract and execute the `approve()` method for the amount you want to set as allowance. Only after the approval is confirmed you can proceed with the repay (burn) operation. Please find the contracts' addresses on the **Contracts** page in accordance with your [environment](#environments).
 </details>
 
 
@@ -395,8 +395,8 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 ### Monitor stVault health and rebalance
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** -- the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](./parameters-and-metrics)
-- **Health Factor** -- a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](./parameters-and-metrics)
+- **Utilization ratio** -- the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
+- **Health Factor** -- a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
 
 The Health Factor metric may decrease as a result of validator underperformance, penalties, or a slashing event.
 
@@ -426,7 +426,7 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **VaultHub** contract by its address (available in the stVaults contract addresses list, see [#Environments](/guides/stvaults/guide-basic-stvault#environments)).
+      1. Open **Etherscan** and navigate to the **VaultHub** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.
@@ -440,5 +440,5 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 </details>
 
 ## Useful links
-- [stVaults Roles](./roles-and-permissions)
-- [stVaults Metrics](./parameters-and-metrics)
+- [stVaults Roles](../roles-and-permissions)
+- [stVaults Metrics](../parameters-and-metrics)
