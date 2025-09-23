@@ -1,6 +1,6 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (73 reports)
+## Lido on Ethereum (78 reports)
 
 ### 09-2025 MixBytes Lido Triggerable Withdrawals Easy Track Security Audit
 
@@ -14,6 +14,50 @@ See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lid
 - Total Issues: 0
 
 See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20WstETH%20Staker%20Security%20Audit%20Report%2009-2025.pdf) for more details.
+
+### 09-2025 Ackee Blockchain Lido Triggerable Withdrawals Security Audit
+
+- Total Issues: 11 (9 Fixed, 1 Partially fixed, 1 Acknowledged)
+- Low Issues: 2 (2 Fixed)
+- Warning Issues: 4 (3 Fixed, 1 Acknowledged)
+- Info Issues: 5 (4 Fixed, 1 Partially fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Lido%20Triggerable%20Withdrawals%20Audit%20Report%2009-25.pdf) for more details.
+
+### 09-2025 Composable Security Lido Oracle v6 Security Audit
+
+- Total Issues: 4 (2 Fixed, 2 Acknowledged)
+- Low Issues: 2 (2 Acknowledged)
+- Info Issues: 2 (2 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6%20Audit%20Report.pdf) for more details.
+
+### 09-2025 MixBytes Easy Track CSM v2 Security Audit
+
+- Total Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Easy%20Track%20CSM%20v2%20Security%20Audit%20Report%2009-2025.pdf) for more details.
+
+### 09-2025 Ackee Blockchain CSM v2 Security Audit
+
+- Total Issues: 20 (10 Fixed, 10 Acknowledged)
+- High Issues: 2 (2 Fixed)
+- Medium Issues: 1 (1 Fixed)
+- Low Issues: 3 (3 Fixed)
+- Warning Issues: 10 (2 Fixed, 8 Acknowledged)
+- Info Issues: 4 (2 Fixed, 2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Community%20Staking%20Module%20v2%20Audit%20Report%2009-2025.pdf) for more details.
+
+### 09-2025 Statemind Triggerable Withdrawals and CSM v2 Audit
+
+- Total Issues: 26 (17 Fixed, 9 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 5 (2 Fixed, 3 Acknowledged)
+- Info Issues: 21 (15 Fixed, 6 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Statemind%20Triggerable%20Withdrawals%20and%20CSM%20v2%20Audit%20Report%2009-2025.pdf) for more details.
 
 ### 08-2025 Certora Dual Governance v.1.0.1 Hotfix Review
 
