@@ -892,7 +892,7 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Mol_Eliza | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | - |
+| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | - |
 | mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | - |
 | Marin | 0x04e7c0350241b818ee5c92cc260008c9898f41cf | https://etherscan.io/verifySig/274497 | - |
 | KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | - |
