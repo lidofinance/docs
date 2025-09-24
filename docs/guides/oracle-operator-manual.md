@@ -105,6 +105,7 @@ graph LR;
 The current Oracle set consists of 9 participants with a quorum of 5. This means that report finalization can only occur when there are 5 identical reports from 5 different oracle members.
 
 The actual list of Oracle participants list can be fetched from the HashConsensus contract using the [`getMembers`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16) method.
+*Hoodi Oracle participants' addresses can be found [here](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16)*
 
 The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post.
 
