@@ -71,7 +71,11 @@ module.exports = {
           {
             to: '/token-guides/cross-chain-tokens-guide',
             from: '/token-guides/wsteth-bridging-guide',
-          }
+          },
+          {
+            to: '/run-on-lido/stvaults/',
+            from: '/guides/stvaults/',
+          },
         ],
       },
     ],
