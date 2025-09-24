@@ -50,14 +50,6 @@ module.exports = {
             'guides/depositor-bot',
           ],
         },
-        {
-          type: 'category',
-          label: 'stVaults',
-          link: { type: 'doc', id: 'guides/stvaults/index' },
-          items: [
-            'guides/stvaults/pdg',
-          ]
-        },
         'guides/multisig-deployment',
         'guides/protocol-levers',
         'guides/etherscan-voting',

@@ -1,4 +1,8 @@
-# stVault integration overview
+---
+sidebar_position: 2
+---
+
+# Integration overview
 
 stVaults are Lido staking building blocks that allows the creating of custom staking solutions still accessing unmatched stETH liquidity. The stVaults User Guide provides instructions for **managing** and **integrating** Staking Vaults (stVaults). This guide covers various interaction levels, from direct contract calls to using CLI tools and web interfaces, depending on requirements and preferred methods of fine-grained control.
 
@@ -29,11 +33,11 @@ stVaults consist of the following components:
 ### Web UI
 
 :::info
-The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](../../deployed-contracts/hoodi-lidov3.md).
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](https://docs.lido.fi/deployed-contracts/hoodi-lidov3/deployed-contracts/hoodi-lidov3/).
 For advanced or low-level features that haven’t yet been exposed in the interface, use the [CLI](#command-line-interface).
 :::
 
-**URL**: https://vaults-hoodi-lidov3.testnet.fi
+**URL**: Testnet on Hoodi: https://vaults-hoodi-lidov3.testnet.fi
 
 **Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
 
@@ -109,7 +113,7 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 
 ### Predeposit Guarantee (PDG)
 
-**URL**: [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol), [PDG user guide](/guides/stvaults/pdg)
+**URL**: [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol), [PDG user guide](./pdg)
 
 **Goal**: Prevent deposit frontrunning enabled by vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). PDG secures the vault owner’s ether depositing to the validator from front-running by the node operator or third parties. One of the key advantages is a separating finances of the vault owner and the node operator.
 
@@ -117,8 +121,8 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
 2. Predeposit guarantee contract enables three main use cases:
-   1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](/guides/stvaults/pdg.md#full-cycle-trustless-path-through-pdg)).
-   2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](/guides/stvaults/pdg.md#pdg-shortcut)).
+   1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](./pdg#full-cycle-trustless-path-through-pdg)).
+   2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg#pdg-shortcut)).
    3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
 
 ### Off-chain monitoring tools
