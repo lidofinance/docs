@@ -25,6 +25,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 ### Tools
 1. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
+2. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
 ### Tech documentation
 3. [stVaults Integration Overview](./integration-overview.md)
