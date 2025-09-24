@@ -25,7 +25,11 @@ ETH is deposited to validators and generate staking rewards, stETH is minted on 
 - Etherscan: https://hoodi.etherscan.io/
 
 ### Mainnet
-*Coming this autumn*
+:::info
+
+      *Coming this autumn*
+
+::::
 
 ## Steps
 
@@ -309,8 +313,8 @@ yarn start vo w withdraw <amount>
 
 :::info
 Withdrawable ETH is defined by:
-- stVault Balance - it is ETH that is not staked on validators. 
-- Total lock by collateral for stETH Liability or connection to the Lido Core, and fees obligations.
+- stVault Balance - ETH that is not staked on validators.
+- Total lock — collateral reserved for stETH liability, the mandatory 1 ETH minimal reserve for connecting the stVault to Lido Core, and protocol and Node Operator fee obligations.
  
 [Read more about stVaults metrics](../parameters-and-metrics)
 :::
