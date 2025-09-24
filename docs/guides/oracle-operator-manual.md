@@ -102,21 +102,11 @@ graph LR;
 
 ## Committee membership
 
-The current Oracle set consists of 9 participants:
+The current Oracle set consists of 9 participants with a quorum of 5. This means that report finalization can only occur when there are 5 identical reports from 5 different oracle members.
 
-- Chorus One [0x285f8537e1daeedaf617e96c742f2cf36d63ccfb](https://research.lido.fi/t/emergency-rotation-of-compromised-chorus-one-oracle/10037/2)
-- Staking Facilities `0x404335bce530400a5814375e7ec1fb55faff3ea2`
-- stakefish `0x946d3b081ed19173dc83cd974fc69e1e760b7d78`
-- P2P Validator `0x007de4a5f7bc37e2f26c0cb2e8a95006ee9b89b5`
-- bloXroute [0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/54)
-- Instadapp [0x73181107c8D9ED4ce0bbeF7A0b4ccf3320C41d12](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/71)
-- Caliber [0x4118dad7f348a4063bd15786c299de2f3b1333f3](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/78)
-- ChainLayer [0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/69)
-- Matrixed.Link [0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9](https://research.lido.fi/t/rated-labs-replacement-in-the-oracle-set/7850/14)
+The actual list of Oracle participants list can be fetched from the HashConsensus contract using the [`getMembers`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16) method.
 
-The quorum is 5/9. This means that the report finalization can only occur when there are 5 identical reports from the 5 different oracle members.
-
-See [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post for more details.
+The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post.
 
 ## Prerequisites
 
