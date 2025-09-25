@@ -161,12 +161,12 @@ Hoodi is the main operational and maintained protocol testnet.
 
 ### Easy Track factories for token transfers
 
-- **Sandbox stETH** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=eth:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+- **Sandbox stETH** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AllowedRecipientsRegistry: [`0x7E33f2192c2cEC339493B9193110BC0510d6CBD2`](https://hoodi.etherscan.io/address/0x7E33f2192c2cEC339493B9193110BC0510d6CBD2)
   - TopUpAllowedRecipients: [`0xE5aE943A3AEFA44AD16438Bc3D2cA7654103F985`](https://hoodi.etherscan.io/address/0xE5aE943A3AEFA44AD16438Bc3D2cA7654103F985)
   - AddAllowedRecipient: [`0x8f05Cc4cC42745E9723E105D38638683f162e1d9`](https://hoodi.etherscan.io/address/0x8f05Cc4cC42745E9723E105D38638683f162e1d9)
   - RemoveAllowedRecipient: [`0x86E10ffC7c67A92e0c5E58ae42945213da43D0c7`](https://hoodi.etherscan.io/address/0x86E10ffC7c67A92e0c5E58ae42945213da43D0c7)
-- **Sandbox stablecoins** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=eth:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+- **Sandbox stablecoins** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AllowedRecipientsRegistry: [`0xdf53b1cd4CFE43b6CdA3640Be0e4f1a45126ec61`](https://hoodi.etherscan.io/address/0xdf53b1cd4CFE43b6CdA3640Be0e4f1a45126ec61)
   - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40Db7E8047C487bD8359289272c717eA3C34D1D3)
   - TopUpAllowedRecipients: [`0x9D735eeDfa96F53BF9d31DbE81B51a5d333198dB`](https://hoodi.etherscan.io/address/0x9D735eeDfa96F53BF9d31DbE81B51a5d333198dB)
@@ -179,7 +179,7 @@ Hoodi is the main operational and maintained protocol testnet.
   - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40db7e8047c487bd8359289272c717ea3c34d1d3)
 
 ### Easy Track factories for MEV-Boost Relay Allowed List management
-- **MEV-Boost Relay Allowed List** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=eth:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+- **MEV-Boost Relay Allowed List** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AddMEVBoostRelays: [`0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af`](https://hoodi.etherscan.io/address/0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af)
   - RemoveMEVBoostRelays: [`0x7FCc2901C6C3D62784cB178B14d44445B038f736`](https://hoodi.etherscan.io/address/0x7FCc2901C6C3D62784cB178B14d44445B038f736)
   - EditMEVBoostRelay: [`0x27A99a7104190DdA297B222104A6C70A4Ca5A17e`](https://hoodi.etherscan.io/address/0x27A99a7104190DdA297B222104A6C70A4Ca5A17e)
@@ -192,4 +192,4 @@ Hoodi is the main operational and maintained protocol testnet.
 
 ## Testnet DAO Multisigs
 
-- QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=holesky:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
+- QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
