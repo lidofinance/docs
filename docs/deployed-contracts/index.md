@@ -248,7 +248,7 @@ for the rate and price feeds recommended approaches.
 
 - **Curated Node Operators staking module** (registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5))
   - IncreaseNodeOperatorStakingLimit: [`0xFeBd8FAC16De88206d4b18764e826AF38546AfE0`](https://etherscan.io/address/0xFeBd8FAC16De88206d4b18764e826AF38546AfE0)
-  - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) CuratedSubmitExitRequestHashes: [`0x8aa34dAaF0fC263203A15Bcfa0Ed926D466e59F3`](https://etherscan.io/address/0x8aa34dAaF0fC263203A15Bcfa0Ed926D466e59F3)
+  - CuratedSubmitExitRequestHashes: [`0x8aa34dAaF0fC263203A15Bcfa0Ed926D466e59F3`](https://etherscan.io/address/0x8aa34dAaF0fC263203A15Bcfa0Ed926D466e59F3)
 - **Simple DVT staking module** (registry: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433), committee ms [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7))
   - AddNodeOperators: [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639)
   - ActivateNodeOperators: [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8)
@@ -260,8 +260,8 @@ for the rate and price feeds recommended approaches.
   - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
 - **Community Staking Module** (module: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
   - CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
-  - ([proposed](https://research.lido.fi/t/community-staking-module/5917/171#p-22979-appendix-1-detailed-addresses-1)) CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
-  - ([proposed](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299)) SDVTSubmitExitRequestHashes: [`0xB7668B5485d0f826B86a75b0115e088bB9ee03eE`](https://etherscan.io/address/0xB7668B5485d0f826B86a75b0115e088bB9ee03eE)
+  - CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
+  - SDVTSubmitExitRequestHashes: [`0xB7668B5485d0f826B86a75b0115e088bB9ee03eE`](https://etherscan.io/address/0xB7668B5485d0f826B86a75b0115e088bB9ee03eE)
 
 ### Easy Track factories for token transfers
 
