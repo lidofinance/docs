@@ -258,10 +258,10 @@ for the rate and price feeds recommended approaches.
   - SetNodeOperatorRewardAddresses: [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0)
   - UpdateTargetValidatorLimits: [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b)
   - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
+  - SDVTSubmitExitRequestHashes: [`0xB7668B5485d0f826B86a75b0115e088bB9ee03eE`](https://etherscan.io/address/0xB7668B5485d0f826B86a75b0115e088bB9ee03eE)
 - **Community Staking Module** (module: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
   - CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
   - CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
-  - SDVTSubmitExitRequestHashes: [`0xB7668B5485d0f826B86a75b0115e088bB9ee03eE`](https://etherscan.io/address/0xB7668B5485d0f826B86a75b0115e088bB9ee03eE)
 
 ### Easy Track factories for token transfers
 
