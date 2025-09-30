@@ -877,7 +877,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 | DSRV | 0xD7cABE01709c7E36e9D1fb3248A19b525578a1Fc | https://etherscan.io/verifySig/273446 | https://x.com/hyungkyu_hqueue/status/1925152842907807861 |
 | P2P | 0x8ed4dfd3A610CCF1FB45e797bf5D8e0f93084F22 | https://etherscan.io/verifySig/273444 | https://x.com/P2Pvalidator/status/1925197289389261218 |
 
-## (Proposed) 2.16 stVaults Committee
+## 2.16 stVaults Committee
 
 **Address:** [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/settings/setup?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF)
 
