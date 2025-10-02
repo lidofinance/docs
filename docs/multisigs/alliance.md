@@ -8,6 +8,8 @@
 The Lido Alliance BORG Foundation utilizes this multisig to hold and manage the Lido Alliance BORG’s operational budget. 
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
+
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
 [Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173)
@@ -44,6 +46,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Purpose of the multisig:** The multisig is used to hold all tokens contributed by Lido Allies.
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreiczu2tjmbsmz33up6qqnvkpmuewnu2lvocxigpyotousvaxsokql4)
+
 **Quorum:** 4/7
 
 **Forum topics:**\
@@ -74,6 +78,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 **Purpose of the multisig:** The multisig is used to receive and hold Drop's token contribution in accordance to the [snapshot](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b).
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreicgvjh5rrepfnlkjom5npn2gyejqxvzoop2fqgnmp5yuugc5drw5q)
 
 **Quorum:** 4/7
 
