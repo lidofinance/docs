@@ -58,7 +58,6 @@ By default, if no override admin role is set, the Vault Owner can perform all th
 | REQUEST_VALIDATOR_EXIT_ROLE | Ask Node Operator to exit validator and return ETH to stVault Balance |
 | TRIGGER_VALIDATOR_WITHDRAWAL_ROLE | Force fully or partially withdraw ETH from validator |
 | VOLUNTARY_DISCONNECT_ROLE | Disconnect from Lido VaultHub (disable minting stETH, stop paying fees to Lido, distribute Node Operator's fee) |
-| PDG_PROVE_VALIDATOR_ROLE | If validator exists on Beacon chain, user can prove this validator to PDG |
 | VAULT_CONFIGURATION_ROLE | — Request to OperatorGrid to change the vault tier (specify new tier) |
 | | — Request to OperatorGrid to change the sync with tier params |
 | | — Request to OperatorGrid to update share limit on the vault |
