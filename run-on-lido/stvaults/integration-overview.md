@@ -33,7 +33,7 @@ stVaults consist of the following components:
 ### Web UI
 
 :::info
-The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](https://docs.lido.fi/deployed-contracts/hoodi-lidov3/deployed-contracts/hoodi-lidov3/).
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](https://docs.lido.fi/deployed-contracts/hoodi-lidov3/).
 For advanced or low-level features that haven’t yet been exposed in the interface, use the [CLI](#command-line-interface).
 :::
 
