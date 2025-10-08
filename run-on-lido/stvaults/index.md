@@ -24,8 +24,9 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 3. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
 
 ### Tools
-1. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
-2. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
+1. [stVaults Web UI](https://stvaults-hoodi.testnet.fi/)
+2. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
+3. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
 ### Tech documentation
 3. [stVaults Integration Overview](./integration-overview.md)
