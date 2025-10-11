@@ -44,7 +44,7 @@ Next, type and enter `ethpillar` to launch the terminal UI and:
 Copy your deposit data for the CSM widget:
 
 ```sh
-cat ~/staking-deposit-cli/validator_keys*/deposit*json
+cat ~/ethstaker_deposit-cli/validator_keys*/deposit*json
 ```
 
 **Interfaces:**
