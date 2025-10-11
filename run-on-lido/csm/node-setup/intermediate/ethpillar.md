@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ### Download EthPillar
 
-Go to the [Coincashew website](https://www.coincashew.com/coins/overview-eth/ethpillar) and copy the latest install script, then run:
+Review EthPillar's homepage at [Coincashew website](https://docs.coincashew.com/ethpillar), then run:
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/coincashew/EthPillar/main/install.sh)"
@@ -49,8 +49,8 @@ cat ~/staking-deposit-cli/validator_keys*/deposit*json
 
 **Interfaces:**
 
-* Mainnet: [https://csm.lido.fi/](https://csm.lido.fi/)
-* Hoodi: [https://csm.testnet.fi/](https://csm.testnet.fi/)
+* Mainnet: [https://csm.lido.fi/](https://csm.lido.fi/?ref=ethpillar)
+* Hoodi: [https://csm.testnet.fi/](https://csm.testnet.fi/?ref=ethpillar)
 
 ## ETHPillar Terminal-UI Navigation
 
