@@ -76,6 +76,10 @@ module.exports = {
             to: '/run-on-lido/stvaults/',
             from: '/guides/stvaults/',
           },
+          {
+            to: '/run-on-lido/stvaults/pdg',
+            from: '/guides/stvaults/pdg',
+          },
         ],
       },
     ],

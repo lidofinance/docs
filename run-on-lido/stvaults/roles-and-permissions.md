@@ -58,13 +58,12 @@ By default, if no override admin role is set, the Vault Owner can perform all th
 | REQUEST_VALIDATOR_EXIT_ROLE | Ask Node Operator to exit validator and return ETH to stVault Balance |
 | TRIGGER_VALIDATOR_WITHDRAWAL_ROLE | Force fully or partially withdraw ETH from validator |
 | VOLUNTARY_DISCONNECT_ROLE | Disconnect from Lido VaultHub (disable minting stETH, stop paying fees to Lido, distribute Node Operator's fee) |
-| PDG_PROVE_VALIDATOR_ROLE | If validator exists on Beacon chain, user can prove this validator to PDG |
-| UNGUARANTEED_BEACON_CHAIN_DEPOSIT_ROLE | Withdraws ether from vault and deposits directly to provided validators bypassing the default PDG process |
 | VAULT_CONFIGURATION_ROLE | — Request to OperatorGrid to change the vault tier (specify new tier) |
 | | — Request to OperatorGrid to change the sync with tier params |
 | | — Request to OperatorGrid to update share limit on the vault |
 | | — Accept new tier on connection to the VaultHub |
-| RECOVER_ASSETS_ROLE | Allows to recover assets wrongly transferred to the Dashboard contract. |
+| COLLECT_VAULT_ERC20_ROLE |  Allows recovery of ERC20 tokens wrongly transferred to the Dashboard contract or claim of incentives transferred to the vault address as ERC20 tokens. |
+
 
 ### Node Operator Manager's non-delegable permissions (sub-roles)
 | Permission | Operation |
@@ -82,7 +81,9 @@ By default, if no override admin role is set, the Node Operator Manager can perf
 
 | Permission | Operation |
 | -------- | -------- |
-| NODE_OPERATOR_REWARDS_ADJUST_ROLE | Increases rewards adjustment to correct fee calculation due to non-rewards ether on CL. |
+| UNGUARANTEED_BEACON_CHAIN_DEPOSIT_ROLE | Withdraw ether from vault and deposits directly to provided validators bypassing the default PDG process |
+| NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE | Prove unknown validators through PDG |
+| NODE_OPERATOR_FEE_EXEMPT_ROLE | Add a fee exemption to exclude this value from node operator fee base. The exemption works by increasing the settled growth, effectively treating the exempted amount as if fees were already paid on it. |
 
 
 ## Predeposit guarantee contract roles and permissions
@@ -91,7 +92,7 @@ By default, if no override admin role is set, the Node Operator Manager can perf
 | Permission | Operation |
 | -------- | -------- |
 |Permissionless | Provide Merkle Proof of validator existence on CL (positive). |
-| | Provide Merkle Proof of invalid validator existence on CL (negative). |
+| | Provide Merkle Proof of invalid validator existence on CL (negative) and compensate the staking vault. |
 
 ### Predeposit guarantee contract configurable permissions
 
