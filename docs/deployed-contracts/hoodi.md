@@ -76,7 +76,7 @@ Hoodi is the main operational and maintained protocol testnet.
 - Gate Seal Factory: [`0xA402349F560D45310D301E92B1AA4DeCABe147B3`](https://hoodi.etherscan.io/address/0xA402349F560D45310D301E92B1AA4DeCABe147B3)
 - GateSeal (VEB and TWG): [`0x368f2fcb593170823cc844F1B29e75E3d26879A1`](https://hoodi.etherscan.io/address/0x368f2fcb593170823cc844F1B29e75E3d26879A1)
 - GateSeal (Withdrawal Queue): [`0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D`](https://hoodi.etherscan.io/address/0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D)
-- GateSeal (Vaulthub and PredepositGuarantee): [`0xB045dB2A0b0e4F9e03e6F220214B655eFa54fed2`](https://hoodi.etherscan.io/address/0xB045dB2A0b0e4F9e03e6F220214B655eFa54fed2)
+- GateSeal (Vaulthub and PredepositGuarantee): [`0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32`](https://hoodi.etherscan.io/address/0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32)
 
 ### Dual Governance
 
