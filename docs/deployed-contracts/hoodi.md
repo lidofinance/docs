@@ -216,14 +216,14 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 ### Easy Track Factories for stVaults Management
 
-- **Operator Grid:** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+- **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
   - Register Groups: [`0xa4A0FbE57E2D274B90BbDEaC9E6492eBE9E5acBE`](https://hoodi.etherscan.io/address/0xa4A0FbE57E2D274B90BbDEaC9E6492eBE9E5acBE)
   - Update Groups Share Limit: [`0x7fC0E3084124090fd3401154584727a7a16Af834`](https://hoodi.etherscan.io/address/0x7fC0E3084124090fd3401154584727a7a16Af834)
   - Register Tiers: [`0xf8F8902c333666c175ccAcC738c3c3D80a78ACfb`](https://hoodi.etherscan.io/address/0xf8F8902c333666c175ccAcC738c3c3D80a78ACfb)
   - Alter Tiers: [`0xB17f6E44ed6bf55b8139573119c02526631e24d3`](https://hoodi.etherscan.io/address/0xB17f6E44ed6bf55b8139573119c02526631e24d3)
   - Set Jail Status: [`0xc3FA83D65a900303e1d99cDBBF762c6630562c04`](https://hoodi.etherscan.io/address/0xc3FA83D65a900303e1d99cDBBF762c6630562c04)
   - Update Vaults Fees: [`0x351426775c75aB5127de860Cdcaf1953F1D622a2`](https://hoodi.etherscan.io/address/0x351426775c75aB5127de860Cdcaf1953F1D622a2)
-- **Vault Hub:** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+- **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
   - Force Validator Exits: [`0x83DfE5Fe8ac8b7DB38c020F4F54BF09b65D92c63`](https://hoodi.etherscan.io/address/0x83DfE5Fe8ac8b7DB38c020F4F54BF09b65D92c63)
   - Socialize Bad Debt: [`0xa11906bBBBaC5207b8FDA4F7F294d7EcB8dcc758`](https://hoodi.etherscan.io/address/0xa11906bBBBaC5207b8FDA4F7F294d7EcB8dcc758)
   - Set Liability Shares Target: [`0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40`](https://hoodi.etherscan.io/address/0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40)
