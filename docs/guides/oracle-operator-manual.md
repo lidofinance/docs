@@ -9,10 +9,10 @@ Due to the lack of native communication between these two networks, Lido employs
 2. Launch and sync an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) (archive data for at least 2 weeks) Execution Layer node with JSON-RPC endpoint enabled.
 3. Launch and sync an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) Consensus Layer node with API endpoint enabled.
 4. Launch and sync a [Keys API Service](https://github.com/lidofinance/lido-keys-api).
-5. Launch the accounting and ejector modules of Oracle.
+5. Launch the **accounting**, **ejector**, and **csm** modules of the Oracle.
 6. [**Optional**] Add alerts to Oracle's Prometheus metrics.
-7. In case of mainnet share your address and intention to join the Oracle set with public. You need to publish it on Twitter and also write a message with a twitter link under Onboarding post on [the Research forum](https://research.lido.fi/).
-8. Propose your Oracle's ethereum address to Lido Team to vote on your address being added to the Oracle Members.
+7. In case of mainnet, share your address and intention to join the Oracle set with the public. You need to publish it on Twitter and also write a message with a Twitter link under the Onboarding post on [the Research forum](https://research.lido.fi/). You need to publish it on Twitter and also write a message with a twitter link under the Onboarding post on [the Research forum](https://research.lido.fi/).
+8. Propose your Oracle's Ethereum address to the Lido team to vote on adding your address to the Oracle Members.
 
 ## Intro
 
@@ -113,44 +113,42 @@ The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set
 
 ### Execution Client Node
 
-To prepare the report, Oracle fetches up to 10 days old events, makes historical requests for balance data and makes simulated reports on historical blocks. This requires an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) execution node.
-Oracle needs two weeks of archived data.
+To prepare reports, the Oracle might fetch a few months' worth of old events. It also makes historical requests for balance data and simulates reports on historical blocks. This requires an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) execution node.
 
 | Client                                          | Tested | Notes                                                                                                                                                                                 |
-|-------------------------------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Geth](https://geth.ethereum.org/)              |        | `--gcmode=archive` <br/> `--syncmode=snap` <br/><br/>OR<br/><br/>`--gcmode=archive`<br/>`--syncmode=full`                                                                             |
-| [Nethermind](https://nethermind.io/)            |        | Not tested yet                                                                                                                                                                        |
-| [Besu](https://besu.hyperledger.org/en/stable/) |        | Use <br/>`--rpc-max-logs-range=100000` <br/> `--sync-mode=FULL` <br/> `--data-storage-format="FOREST"` <br/> `--pruning-enabled` <br/>`--pruning-blocks-retained=100000` <br/> params |
-| [Erigon](https://github.com/ledgerwatch/erigon) |        | Use <br/> `--prune=htc` <br/> `--prune.h.before=100000` <br/> `--prune.t.before=100000` <br/> `--prune.c.before=100000` <br/> params                                                  |
+|-------------------------------------------------|:------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Geth](https://geth.ethereum.org/)              |   🟢   | `--gcmode=archive` <br/> `--syncmode=snap` <br/><br/>OR<br/><br/>`--gcmode=archive`<br/>`--syncmode=full`                                                                             |
+| [Nethermind](https://nethermind.io/)            |   🔴   | -                                                                                                                                                                                     |
+| [Besu](https://besu.hyperledger.org/en/stable/) |   🔴   | Recent changes require FULL sync                                                                                                                                                      |
+| [Erigon](https://github.com/ledgerwatch/erigon) |   🟢   | Use<br/> `--prune=rhtc`<br/> `--prune.r.before=324000`<br/> `--prune.h.before=324000`<br/> `--prune.t.before=256`<br/> `--prune.c.before=256`<br/> params                             |
 
 ### Consensus Client Node
 
 To calculate some metrics for bunker mode Oracle needs [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) consensus node.
 
 | Client                                            | Tested | Notes                                                                                                                                               |
-|---------------------------------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Lighthouse](https://lighthouse.sigmaprime.io/)   |        | Use `--reconstruct-historic-states` param                                                                                                           |
-| [Lodestar](https://nethermind.io/)                |        | Not tested yet                                                                                                                                      |
-| [Nimbus](https://nimbus.guide/quick-start.html)   |        | Not tested yet                                                                                                                                      |
-| [Prysm](https://github.com/ledgerwatch/erigon)    |        | Use <br/> `--grpc-max-msg-size=104857600` <br/> `--enable-historical-state-representation=true` <br/> `--slots-per-archive-point=1024` <br/> params |
-| [Teku](https://docs.teku.consensys.net)           |        | Use <br/> `--data-storage-mode=archive` <br/>`--data-storage-archive-frequency=1024`<br/> `--reconstruct-historic-states=true`<br/> params          |
+|---------------------------------------------------|:------:|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Lighthouse](https://lighthouse.sigmaprime.io/)   |   🟢   | Use `--reconstruct-historic-states` param                                                                                                           |
+| [Lodestar](https://nethermind.io/)                |   🔴   | Not tested yet                                                                                                                                      |
+| [Nimbus](https://nimbus.guide/quick-start.html)   |   🔴   | Not tested yet                                                                                                                                      |
+| [Prysm](https://github.com/ledgerwatch/erigon)    |   🟢   | Use <br/> `--grpc-max-msg-size=104857600` <br/> `--enable-historical-state-representation=true` <br/> `--slots-per-archive-point=1024` <br/> params |
+| [Teku](https://docs.teku.consensys.net)           |   🟢   | Use <br/> `--data-storage-mode=archive` <br/>`--data-storage-archive-frequency=1024`<br/> `--reconstruct-historic-states=true`<br/> params          |
 
 ### Keys API Service
 
-This is a separate service that uses Execution Client to fetch all lido keys. It stores the latest state of lido keys in database.
+This is a separate service that uses the Execution Client to fetch all Lido keys. It stores the latest state of Lido keys in a database.
 
 [Lido Keys API repository.](https://github.com/lidofinance/lido-keys-api)
 
 ## The oracle daemon
 
-The Oracle daemon is a Python application that contains two modules:
+The Oracle daemon is a Python application that contains the following modules:
 
 - Accounting module
 - Ejector module
+- CSM module
 
 The oracle source code is available at [https://github.com/lidofinance/lido-oracle](https://github.com/lidofinance/lido-oracle).
-
-Modules fetch the reportable slot, and if this slot is finalized, calculate and send the report to AccountingOracle and ExitBusOracle smart contracts.
 
 ### Environment variables
 
@@ -162,6 +160,13 @@ The oracle daemon requires the following environment variables:
 - `CONSENSUS_CLIENT_URI` - list of Consensus Client uris separated with comma. The second and next uris will be used as fallback.
 - `KEYS_API_URI` - list of Key API client uris separated with comma. The second and next uris will be used as fallback.
 - `LIDO_LOCATOR_ADDRESS` - Lido Locator smart contract address.
+
+Additional variables required by the CSM module:
+
+- `CSM_MODULE_ADDRESS` - Community Staking Module address.
+- `PINATA_JWT` - Pinata IPFS provider JWT token.
+- `PINATA_DEDICATED_GATEWAY_URL` - Pinata IPFS provider dedicated gateway URL.
+- `PINATA_DEDICATED_GATEWAY_TOKEN` - Pinata IPFS provider dedicated gateway access token.
 
 **Optional**
 
@@ -177,8 +182,8 @@ Full list could be found [here](https://github.com/lidofinance/lido-oracle#env-v
 **Mainnet**
 **[0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb)**
 
-**Holešky**
-**[0x28FAB2059C713A7F9D8c86Db49f9bb0e96Af1ef8](https://holesky.etherscan.io/address/0x28FAB2059C713A7F9D8c86Db49f9bb0e96Af1ef8)**
+**Hoodi**
+**[0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8 ](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8 )**
 
 ### Running the daemon
 
@@ -204,6 +209,42 @@ docker run -d --name lido-oracle-ejector \
   --env "LIDO_LOCATOR_ADDRESS=$LOCATOR_ADDRESS" \
   --env "MEMBER_PRIV_KEY=$MEMBER_PRIV_KEY" \
   lidofinance/oracle@<image-hash> ejector
+```
+
+Startup CSM module
+
+```shell
+docker run -d --name lido-oracle-csm \
+  --env "EXECUTION_CLIENT_URI=$EXECUTION_CLIENT_URI" \
+  --env "CONSENSUS_CLIENT_URI=$CONSENSUS_CLIENT_URI" \
+  --env "KEYS_API_URI=$KEYS_API_URI" \
+  --env "LIDO_LOCATOR_ADDRESS=$LOCATOR_ADDRESS" \
+  --env "MEMBER_PRIV_KEY=$MEMBER_PRIV_KEY" \
+  --env "CSM_MODULE_ADDRESS=$CSM_MODULE_ADDRESS" \
+  --env "PINATA_JWT=$PINATA_JWT" \
+  --env "PINATA_DEDICATED_GATEWAY_URL=$PINATA_DEDICATED_GATEWAY_URL" \
+  --env "PINATA_DEDICATED_GATEWAY_TOKEN=$PINATA_DEDICATED_GATEWAY_TOKEN" \
+  lidofinance/oracle@<image-hash> csm
+```
+
+#### Persistent cache of CSM module
+
+CSM module of the Oracle uses a cache to store per-epoch data of network-wide validator performance. It takes a significant amount of time to collect the data from scratch. That's why it's encouraged to set up a persistent cache location for the oracle outside of a Docker container in order to keep the cache in case of container destruction for maintenance purposes.
+
+The `CACHE_PATH` environment variable sets the path to a directory where the oracle will store its cache. Run the container with the additional arguments:
+
+```shell
+docker run -d --name lido-oracle-csm \
+  "...required_variables_from_the_example_above" \
+  --env "CACHE_PATH=/app/cache" \
+  --volume "/var/lib/lido_csm_cache/:/app/cache"
+  lidofinance/oracle@<image-hash> csm
+```
+
+Make sure the correct permissions are set up for the mounted directory. The UID of the oracle process in the image provided by Lido is `33`, and it might require changing the owner of the directory on the host machine:
+
+```shell
+chown -R 33:33 /path/to/cache/on/host
 ```
 
 **Latest image hash**
