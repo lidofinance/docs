@@ -118,9 +118,10 @@ To prepare reports, the Oracle might fetch a few months' worth of old events. It
 | Client                                          | Tested | Notes                                                                                                                                                                                 |
 |-------------------------------------------------|:------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Geth](https://geth.ethereum.org/)              |   🟢   | `--gcmode=archive` <br/> `--syncmode=snap` <br/><br/>OR<br/><br/>`--gcmode=archive`<br/>`--syncmode=full`                                                                             |
-| [Nethermind](https://nethermind.io/)            |   🔴   | -                                                                                                                                                                                     |
+| [Nethermind](https://nethermind.io/)            |   🔴   | Not tested yet                                                                                                                                                                        |
 | [Besu](https://besu.hyperledger.org/en/stable/) |   🔴   | Recent changes require FULL sync                                                                                                                                                      |
 | [Erigon](https://github.com/ledgerwatch/erigon) |   🟢   | Use<br/> `--prune=rhtc`<br/> `--prune.r.before=324000`<br/> `--prune.h.before=324000`<br/> `--prune.t.before=256`<br/> `--prune.c.before=256`<br/> params                             |
+| [Reth](https://reth.rs/)                        |   🔴   | Not tested yet                                                                                                                                                                        |
 
 ### Consensus Client Node
 
