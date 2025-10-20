@@ -133,6 +133,7 @@ To calculate some metrics for bunker mode Oracle needs [archive](https://ethereu
 | [Nimbus](https://nimbus.guide/quick-start.html)   |   🔴   | Not tested yet                                                                                                                                      |
 | [Prysm](https://github.com/ledgerwatch/erigon)    |   🟢   | Use <br/> `--grpc-max-msg-size=104857600` <br/> `--enable-historical-state-representation=true` <br/> `--slots-per-archive-point=1024` <br/> params |
 | [Teku](https://docs.teku.consensys.net)           |   🟢   | Use <br/> `--data-storage-mode=archive` <br/>`--data-storage-archive-frequency=1024`<br/> `--reconstruct-historic-states=true`<br/> params          |
+| [Grandine](https://grandine.io/)                  |   🔴   | Not tested yet                                                                                                                                      |
 
 ### Keys API Service
 
