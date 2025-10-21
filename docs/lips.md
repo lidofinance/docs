@@ -23,6 +23,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
+| [30](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md) | Triggerable Withdrawals Framework | Raman Siamionau, Evgeniy Pirogov | [Link](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299) |
 | [28](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-28.md) | Dual Governance | Sam Kozin, Eugene Pshenichnyy, Victor Suzdalev, Sacha Saint-Leger, Bogdan Kovtun, Hasu, Isidoros Passadis, Vasiliy Shapovalov | [Link](https://research.lido.fi/t/lip-28-dual-governance/10032) |
 | [27](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-27.md) | Ensuring Compatibility with Ethereum’s Pectra Upgrade | George Avsetsin | [Link](https://research.lido.fi/t/lip-27-ensuring-compatibility-with-ethereum-s-pectra-upgrade/9444) |
 | [26](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-26.md) | Community Staking Module | Dmitry Gusakov, Sergey Khomutinin, Dmitry Chernukhin, Vladimir Gorkovenko | [Link](https://research.lido.fi/t/community-staking-module/5917) |
