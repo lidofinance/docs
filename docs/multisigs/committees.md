@@ -608,6 +608,8 @@ A Committee without multisig.
 **Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget. 
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmQnaVbozzBwnskfGbZqKWsckkEWN9QZqT8uqrJNUQysJ6)
+
 **Quorum:** 5/9
 
 **Forum topics:**\
@@ -659,6 +661,8 @@ https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6l
 
 **Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget. 
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmfCmQEcv1qsWAv8qhZcHtydPYU6RENzwU4CfmXo5rud3E)
 
 **Quorum:** 4/7
 
