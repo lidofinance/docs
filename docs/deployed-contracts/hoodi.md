@@ -23,7 +23,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ## 🏛️ Core Protocol
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x16e2D8ABc9d0682A10e10Ba5300DF000757BE522`](https://hoodi.etherscan.io/address/0x16e2D8ABc9d0682A10e10Ba5300DF000757BE522) (impl)
+- Lido Locator: [`0x8717971067D6FeeB631d750B09Ba66a6B4E01BA3`](https://hoodi.etherscan.io/address/0x8717971067D6FeeB631d750B09Ba66a6B4E01BA3) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
 - wstETH referral staker: [`0xf886BcC68b240316103fE8A12453Ce7831c2e835`](https://hoodi.etherscan.io/address/0xf886BcC68b240316103fE8A12453Ce7831c2e835)
@@ -47,10 +47,10 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 ### 🔨 stVaults Factory Stack
 
-- Staking Vault Factory: [`0x67Fc99587B4Cd6FA16E26FF4782711f79055d7ad`](https://hoodi.etherscan.io/address/0x67Fc99587B4Cd6FA16E26FF4782711f79055d7ad)
+- Staking Vault Factory: [`0xf0Cf0c852Bb2b41eF8171399a71be79aa67e6295`](https://hoodi.etherscan.io/address/0xf0Cf0c852Bb2b41eF8171399a71be79aa67e6295)
 - Staking Vault Beacon: [`0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`](https://hoodi.etherscan.io/address/0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e)
-- Staking Vault Implementation: [`0xdc79D1751D1435fEc9204c03ca3D64ceEB73A7df`](https://hoodi.etherscan.io/address/0xdc79D1751D1435fEc9204c03ca3D64ceEB73A7df)
-- Dashboard Implementation: [`0x7b2B6EA1e53B2039a493cA587805183883Cb8B88`](https://hoodi.etherscan.io/address/0x7b2B6EA1e53B2039a493cA587805183883Cb8B88)
+- Staking Vault Implementation: [`0xE96BE4FB723e68e7b96244b7399C64a58bcD0062`](https://hoodi.etherscan.io/address/0xE96BE4FB723e68e7b96244b7399C64a58bcD0062)
+- Dashboard Implementation: [`0x7CA203e3b7341341A4a83086780137eb283A9338`](https://hoodi.etherscan.io/address/0x7CA203e3b7341341A4a83086780137eb283A9338)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
 ## 🔮 Oracle Contracts
