@@ -16,14 +16,12 @@ This document covers roles and permissions intended for stVaults on mainnet. The
 | Deposit ETH from Staking Vault to validators using Predeposit Guarantee contract. |
 
 ## Dashboard contract roles and permissions
-There are three key roles in the stVaults:
 
 1. **Vault Owner** [Dashboard contract role DEFAULT_ADMIN (VAULT_OWNER)] is one of the two admin roles for the stVault, allows to manage permissions and change key vault parameters from the Vault Owner (Staker) perspective. Multiple addresses supported.
 
 2. **Node Operator Manager** [Dashboard contract role NODE_OPERATOR_MANAGER] is another of the two admin roles for the stVault, allows to manage permissions and change key vault parameters from the Node Operator perspective. Multiple addresses supported.
 
-By default, **Vault Owner** and **Node Operator Manager** addresses have permissions for all actions they are supposed to do in stVaults. They can grant some of these permissions (sub-roles) to other addresses. If the permission is assigned to another addresses only, the address with the admin role can't do this action. To keep permission when the admin grants access to the action to another address, one needs to provide access to own address and another address.
-
+**Vault Owner** and **Node Operator Manager** addresses have permissions for all actions within their respective scopes in stVaults. They can also delegate specific permissions (sub-roles) to other addresses.
  
 ### Permissionless operations
 
@@ -37,9 +35,9 @@ These operations are available only for addresses with the admin role.
 | -------- | -------- |
 |DEFAULT_ADMIN_ROLE | Grant/Remove role or permission, including own role DEFAULT_ADMIN (VAULT_OWNER). |
 || Confirm the transfer of the StakingVault ownership (Abandon Dashboard, Connect to VaultHub, Reconnect to VaultHub). |
-|| Confirm changing NO fee by Multi-roles confirmation. |
-|| Confirm changing Confirmation Expiry parameter by Multi-roles confirmation. |
-|| Confirm AccruedRewardsAdjustment: Marks transferred directly ETH as funded (supplied) so that these assets wouldn’t considered as rewards. |
+|| Propose and confirm changing NO fee by Multi-roles confirmation. |
+|| Propose and confirm changing the Confirmation Expiry parameter by Multi-roles confirmation. |
+|| Propose and confirm AccruedRewardsAdjustment: Marks transferred directly ETH as funded (supplied) so that these assets wouldn’t considered as rewards. |
 
 
 ### Vault Owner's delegatable permissions (sub-roles)
@@ -69,9 +67,9 @@ By default, if no override admin role is set, the Vault Owner can perform all th
 | Permission | Operation |
 | -------- | -------- |
 |NODE_OPERATOR_MANAGER_ROLE| Grant/Remove role or permission, including own role NODE_OPERATOR_MANAGER. |
-|| Confirm changing NO fee by Multi-roles confirmation. |
-|| Confirm changing Confirmation Expiry parameter by Multi-roles confirmation. |
-|| Confirm AccruedRewardsAdjustment: Marks transferred directly ETH as funded (supplied) so that these assets wouldn’t considered as rewards. |
+|| Propose and confirm changing NO fee by Multi-roles confirmation. |
+|| Propose and confirm changing Confirmation Expiry parameter by Multi-roles confirmation. |
+|| Propose and confirm AccruedRewardsAdjustment: Marks transferred directly ETH as funded (supplied) so that these assets wouldn’t considered as rewards. |
 || Set NO fee recipient address. |
 
 ### Node Operator Manager's delegatable permissions (sub-roles)

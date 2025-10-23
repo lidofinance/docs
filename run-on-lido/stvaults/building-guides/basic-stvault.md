@@ -59,7 +59,7 @@ This approach enables a Node Operator to create an stVault without providing the
 
 ##### 1.1. **Node Operator** creates an stVault that is not yet connected to Lido Core.
 
-Creating stVault is permissionless operations, but in this 2-steps process it is usually performed by the Node Operator.
+Creating stVault is a permissionless operation, but in this 2-steps process it is usually performed by the Node Operator.
 
 <details>
   <summary>by Command-line Interface</summary>
@@ -296,7 +296,7 @@ Supply and Withdraw ETH are permissioned operations. By default, these permissio
 <details>
   <summary>by Command-line Interface</summary>
 
-Supply (fund) (([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal#fund-vault))):
+Supply (fund) ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal#fund-vault)):
 
 ```bash
 yarn start vo w fund <amount>
@@ -380,8 +380,8 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
       4. Click **Connect to Web3** and connect your wallet in the dialog window.
       5. Find the required method in the list, fill out the fields, and click **Write**:
          - `mintShares` to mint shares;
-         - `mintStETH` to mint stETH token (rebasable);
-         - `mintWstETH` to mint the wrapped token wstETH (not rebasable);
+         - `mintStETH` to mint stETH token (rebasing);
+         - `mintWstETH` to mint the wrapped token wstETH (non-rebasing);
          - `burnShares` to repay (burn) shares;
          - `burnStETH` to repay (burn) stETH token;
          - `burnWstETH` to repay (burn) the wrapped token wstETH;
