@@ -79,7 +79,7 @@ By default, if no override admin role is set, the Node Operator Manager can perf
 
 | Permission | Operation |
 | -------- | -------- |
-| UNGUARANTEED_BEACON_CHAIN_DEPOSIT_ROLE | Withdraw ether from vault and deposits directly to provided validators bypassing the default PDG process |
+| NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE | Withdraw ether from vault and deposits directly to provided validators bypassing the default PDG process |
 | NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE | Prove unknown validators through PDG |
 | NODE_OPERATOR_FEE_EXEMPT_ROLE | Add a fee exemption to exclude this value from node operator fee base. The exemption works by increasing the settled growth, effectively treating the exempted amount as if fees were already paid on it. |
 
