@@ -897,3 +897,26 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 | Marin | 0x04e7c0350241b818ee5c92cc260008c9898f41cf | https://etherscan.io/verifySig/274497 | - |
 | KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | - |
 | dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | - |
+
+## 2.17 Bridging Security Committee
+
+A Committee without multisig.
+
+**Purpose of the Committee:** The committee is established to act as a counterbalance and a safeguard on behalf of the DAO, ensuring that bridge-related agreements protect the long-term integrity of the protocol.
+
+**Quorum:** 4/4
+
+**Forum topics:**\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships ](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
+
+**Snapshot:**\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)
+
+**List of committee members:**
+
+| Name | Role |
+| --- | --- |
+| TheDZhon | Tech |
+| tamtamchik | Tech |
+| psirex | Tech |
+| zuzu_eeka | DAO Ops |
