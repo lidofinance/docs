@@ -557,17 +557,17 @@ A Committee without multisig.
 [Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)
 
 **Snapshot:**\
-[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)
+[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)
 
 **List of committee members:**
 
 | Name | Role |
 | --- | --- |
-| shardyaco | Protocol Relations |
-| kovalgek | Tech |
-| EvgeniyEmelyanov | Product |
+| vtrush | QA |
+| arwer13 | Tech |
+| Mariya_Muzyko | Product |
 | nikita.p | DAO Ops |
-
 
 ## 2.12 Lido Labs BORG Foundation
 
