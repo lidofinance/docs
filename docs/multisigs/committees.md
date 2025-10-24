@@ -554,7 +554,8 @@ A Committee without multisig.
 **Quorum:** 4/4
 
 **Forum topics:**\
-[Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)
+[Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
 
 **Snapshot:**\
 [Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)\
