@@ -907,7 +907,7 @@ A Committee without multisig.
 **Quorum:** 4/4
 
 **Forum topics:**\
-[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships ](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
 
 **Snapshot:**\
 [Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)
