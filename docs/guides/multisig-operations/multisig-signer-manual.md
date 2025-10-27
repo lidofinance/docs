@@ -1,4 +1,4 @@
-# Guide to being a signer at any Lido DAO multisigs
+# Multisig Signer Guide
 
 Lido DAO uses multisig wallet for different ops for flexibility and fast reaction times. Here's a list of general tips & rules around being the signer:
 
