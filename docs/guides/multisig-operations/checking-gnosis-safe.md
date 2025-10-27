@@ -1,4 +1,4 @@
-# How to verify the multisig is a Gnosis one
+# Gnosis Multisig Verification
 
 Gnosis multisig contracts are usually deployed from the Gnosis factory contracts. Gnosis has the list of `proxy_factory` contracts addresses deployed to different networks — https://github.com/safe-global/safe-deployments/tree/main/src/assets
 
