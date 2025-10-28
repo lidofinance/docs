@@ -172,18 +172,27 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
 1. **Public Identification Request on Lido Research Forum**
     
-    On the [Lido Research Forum](https://research.lido.fi/), post your baseline request and summary; it is the formal trigger for consideration to be moved from *Unidentified* to *Identified:*
+    Post your baseline request and summary on the Lido Research Forum – it is the formal trigger for consideration to be moved from *Unidentified* to *Identified*.
+
+    Where: [Lido Research Forum](https://research.lido.fi/)
+
+    What information to provide:
     
     - Who you are; **request** (become Identified; apply category tiers; any non-default requests).
     - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
     - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
     - **Links**: site/docs/audits/certifications/insurance (if any).
-    - Mark the post with the “**Node Operator Identification**” category.
+    - Mark the post with the “**Identification for stVaults**” category.
 
 2. **Node Operator Questionnaire** (**private**)
     
-    You are also asked to provide technical and business detailed information through the following questionnaire (with a **separate DVT cluster form** if relevant):
-    
+    You are also asked to provide technical and business detailed information.
+
+    Where:
+    - [Single Node Operator form](https://tally.so/r/3xk45o)
+    - [DVT Cluster form](https://tally.so/r/wAoAkW)
+
+    What information to provide:    
     - **KYB** (entity, jurisdictions, contacts, certifications).
     - **Business plan** (ETH sourcing, channels, audience, timing).
     - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.).
