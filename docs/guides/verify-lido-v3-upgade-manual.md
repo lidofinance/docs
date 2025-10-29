@@ -67,73 +67,90 @@ TODO:
 
 # Verify Lido V3 upgrade (mainnet)
 
-This manual describes how to verify the Lido V3 upgrade on Ethereum mainnet. It follows the structure and rigor of the V2 verification guide and adapts it to the V3 architecture (stVaults, Accounting/Oracle split, GateSeal roles, etc.).
+This manual describes how to verify the Lido V3 contracts initialization and the Lido V2 → Lido V3 upgrade vote on Ethereum mainnet. 
 
-Use it as a step-by-step checklist around the enacted governance vote and as a post-upgrade audit of on-chain state and ACLs.
+It follows the structure and rigor of the V2 verification guide and adapts it to the V3 architecture (stVaults, Accounting/Oracle split, GateSeal roles, etc.).
+
+Use it as a step-by-step checklist for the following stages:
+
+- deployed contracts and initial params verification;
+- ongoing governance vote;
+- post-upgrade audit of the on-chain state and ACLs.
 
 ## 1) Scope and assumptions
 
 - Network: mainnet (chain_id = 1)
-- Target upgrade: Lido V3
-- We use the deployed V3 Template and Vote Script to derive exact actions and invariants.
-- Where an address is unknown, read it from the deployed `V3Template` contract on mainnet.
-
-References used for this manual:
-
-- Deployed contracts (mainnet): see `https://github.com/lidofinance/core/blob/v3.0.0-rc.2/deployed-mainnet.json` and `docs/deployed-contracts/index.md`
-- Upgrade logic and invariants: `https://github.com/lidofinance/core/blob/v3.0.0-rc.2/contracts/upgrade/V3Template.sol`
-- On-chain vote actions: `https://github.com/lidofinance/core/blob/v3.0.0-rc.2/contracts/upgrade/V3VoteScript.sol`
+- Target upgrade: [Lido V3](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.3), commit id: [`7cae7a14192ff094fb0eb089433ac9f6fd70e3c6`](https://github.com/lidofinance/core/commit/7cae7a14192ff094fb0eb089433ac9f6fd70e3c6)
 - Design context: [Lido V3 forum post (design & implementation proposal)](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)
 
-## 2) Prerequisites
+Artifacts to be used for this manual as a reference:
 
-- Block explorer access for mainnet
-- Ability to make read-only calls (cast/etherscan RPC) to contracts
-- The following deployed artifacts on mainnet:
-  - V3 Template: `v3Template.address` from [`deployed-mainnet.json`](https://github.com/lidofinance/core/blob/v3.0.0-rc.2/deployed-mainnet.json)
-  - V3 Vote Script: `v3VoteScript.address` from [`deployed-mainnet.json`](https://github.com/lidofinance/core/blob/v3.0.0-rc.2/deployed-mainnet.json)
+- Deployed contracts (mainnet): see `https://github.com/lidofinance/core/blob/v3.0.0-rc.2/deployed-mainnet.json` and `docs/deployed-contracts/index.md`
+### Voting contracts
 
-Tip: The `V3Template` exposes most addresses via public getters; prefer reading them from the live template to avoid drift.
+- Upgrade logic and invariants: [`0x...`](https://etherscan.io/address/0x...), [V3Template.sol](https://github.com/lidofinance/core/blob/v3.0.0-rc.2/contracts/upgrade/V3Template.sol)
+- On-chain vote actions: [`0x...`](https://etherscan.io/address/0x...), [V3VoteScript.sol](https://github.com/lidofinance/core/blob/v3.0.0-rc.2/contracts/upgrade/V3VoteScript.sol)
+- On-chain vote address book contract: [`0x...`](https://etherscan.io/address/0x...), [V3VoteScript.sol](https://github.com/lidofinance/core/blob/v3.0.0-rc.2/contracts/upgrade/V3Addresses.sol)
 
-## 3) Core addresses (mainnet)
+## 2) Audit reports
 
-Cross-check these against `https://github.com/lidofinance/core/blob/v3.0.0-rc.2/deployed-mainnet.json` and `docs/deployed-contracts/index.md`.
+### Lido V3 formal verification
 
-Established addresses:
+- [Certora Lido V3 FV](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3-fv)
+### Lido V3 core protocol smart contracts
 
-- AGENT: `0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`
-- KERNEL (DAO): `0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc`
-- ACL (Aragon): `0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`
-- Lido (proxy): `0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`
-- wstETH: `0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0`
-- Lido Locator (proxy): `0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`
-- AccountingOracle (proxy): `0x852deD011285fe67063a08005c71a85690503Cee`
-- OracleDaemonConfig: `0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`
+- [Mixbytes Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3)
+- [Consensys Dilligence Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-consensys-dilligence-lido-v3)
+- [Certora Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3)
 
-Newly introduced addresses
+### Lido V3 offchain oracle
 
-- Lido Locator (impl): `TBD`
-- Accounting (proxy): `TBD`
-- Accounting (impl): `TBD`
+- [Composable Security Lido V3 oracle audit report](https://docs.lido.fi/security/audits/#10-2025-composable-security-oracle-v7)
+- [Certora Lido V3 oracle audit report](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3-oracle)
 
-- AccountingOracle (impl): `0x6D799F4C92e8eE9CC0E33367Dd47990ed49a21AC`
-- OracleReportSanityChecker: `0x53417BA942bC86492bAF46FAbA8769f246422388`
-- LazyOracle (proxy): `0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`
-- OperatorGrid (proxy): `0x501e678182bB5dF3f733281521D3f3D1aDe69917`
-- VaultHub (proxy): `0x4C9fFC325392090F789255b9948Ab1659b797964`
-- PredepositGuarantee (proxy): `0xa5F55f3402beA2B14AE15Dae1b6811457D43581d`
-- VaultsAdapter: `0xBC2bb8310730F3D2b514Cb26f7e0A8776De879Ac`
-- EasyTrack EVMScriptExecutor: `0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`
-- GateSeal (Vaulthub & PDG): `0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32`
-- UPGRADEABLE BEACON (StakingVault): `0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`
-- StakingVault Implementation: `0xdc79D1751D1435fEc9204c03ca3D64ceEB73A7df`
-- Dashboard Implementation: `0x7b2B6EA1e53B2039a493cA587805183883Cb8B88`
-- StakingVault Factory: `0x67Fc99587B4Cd6FA16E26FF4782711f79055d7ad`
-- TriggerableWithdrawalsGateway: `0x6679090D92b08a2a686eF8614feECD8cDFE209db`
+### Lido V3 Easy Track factories for the stVaults Committee
 
-Deployment verification report ⇒ [MixBytes deployment verification](TBD)
+- [Mixbytes Lido V3 Easy Track factories audit report](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3-easy-track)
 
-Note: The old/new Burner addresses are available via the deployed `V3Template` getters (`OLD_BURNER()`, `BURNER()`). Use those for checks below.
+## 3) Deployment verification
+
+- [Deployment verification report by Mixbytes (including voting contracts)](https://docs.lido.fi/security/audits/#10-2025-mixbytes-deployment-verification)
+- [Diffyscan config files for Lido V3]()
+- Statemate config files for Lido V3
+  - [Pre-vote]()
+  - [Post-vote]()
+
+## 4) Vote structure and items in depth
+
+### Proposal
+
+#### 1. Upgrade Lido protocol to V3
+
+#### 2. Attach new Easy Track factories
+
+#### 3. Change SimpleDVT share from 3.5 to 4.5%
+
+## 5) Rationale for parameters
+
+### Deployment parameters (constructor and initializers)
+
+### Vote paramaters
+
+## 6) Roles and permissions changes
+
+### Pre-vote ACL
+
+### Post-vote ACL
+
+## 7) How-to run automated checks
+
+### Vote script check
+
+### Diffyscan
+
+### State-mate
+
+---
 
 ## 4) Chain spec (mainnet)
 
@@ -322,14 +339,3 @@ cast call <UPGRADEABLE_BEACON> "owner()(address)"
 cast call <UPGRADEABLE_BEACON> "implementation()(address)"
 ```
 
-## 10) Troubleshooting notes
-
-- If any invariant fails, re-run the pre-snapshot reads and compare carefully; mismatches usually indicate a missed vote item or mis-ordered execution.
-- For Hoodi-only vote item 14 (Sandbox role on OLD_BURNER), validate the expected end-state against the enacted transaction: both “retained by Sandbox” or “fully revoked” patterns have been used on test deployments; the canonical check is the executed vote calldata.
-
-## 11) References
-
-- Deployed contracts and parameters: `docs/deployed-hoodi.json`, `docs/deployed-contracts/hoodi.md`
-- Upgrade invariants: `docs/V3Template.sol`
-- Governance actions: `docs/V3VoteScript.sol`
-- Lido V3 design and implementation proposal (forum)
