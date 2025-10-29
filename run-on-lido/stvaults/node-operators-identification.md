@@ -10,14 +10,14 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 
 - **stVaults are permissionless**, meaning **anyone can create and run an stVault**. However, if the stVault is created by an *unidentified* Node Operator, it will be assigned to the *Default tier* with a Reserve Ratio = **50%**. During the [V3 secure rollout](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665#p-22926-rollout-plan-9), stETH minting in the *Default tier* will be restricted in the first two phases, which will be lifted later during “Phase 3: Permissionless Mode”.
 - **Better economics vs. permissionless defaults.** The risk framework for V3 sets default RR and caps, and allows improved terms for identified Node Operators. The default terms are:  **Unidentified = 50% RR**, **Identified ≈ 5-3% RR**, (illustrative; final terms are case-by-case).
-- **A clear governance path** exists to approve non-default terms and monitor performance via the **stVaults Committee**.
+- **A clear governance path** exists to approve non-default terms and monitor performance via the **[stVaults Committee](https://research.lido.fi/t/stvaults-committee-proposal/10608)**.
 
 ---
 
 ## The category → tiers model
 
 - **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, Epic, Legendary).
-- **Each category contains multiple tiers.** A **tier** is a concrete **minting configuration**: **Reserve Ratio (RR)** + **stETH Minting Limit** (cap). Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers increase the allowed minting cap but decrease the Reserve Ratio.
+- **Each category contains multiple tiers.** **A tier** is a specific **minting configuration** that defines the **Reserve Ratio (RR)**, **stETH Minting Limit (cap)**, and corresponding **Lido fees**. Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers increase the allowed minting cap but decrease the Reserve Ratio.
 - Within the assigned category, **one Node Operator can hold multiple tiers** that the stVaults Committee can set or change based on the Node Operator’s requests, performance, slashing events, or market circumstances in accordance with the stVaults Risk Framework.
 - Categories — **Basic, Epic, and DVT** — can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **Legendary** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
 
@@ -174,41 +174,48 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     
     Post your baseline request and summary on the Lido Research Forum – it is the formal trigger for consideration to be moved from *Unidentified* to *Identified*.
 
-    Where: [Lido Research Forum](https://research.lido.fi/)
+    🔗 [Lido Research Forum](https://research.lido.fi/c/node-operators/stvaults-identification/24)
 
     What information to provide:
     
-    - Who you are; **request** (become Identified; apply category tiers; any non-default requests).
+    - Who you are; **request** (become Identified; apply for a Category or for a Category change; any non-default requests).
     - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
     - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
     - **Links**: site/docs/audits/certifications/insurance (if any).
-    - Mark the post with the “**Identification for stVaults**” category.
+    - Publish your post to “**Node Operators > stVaults Identification**” category.
 
-2. **Node Operator Questionnaire** (**private**)
+2. **Node Operator Questionnaires (private)**
     
-    You are also asked to provide technical and business detailed information.
+    You are also asked to provide technical and business detailed information. This step is required only during the initial identification process and category assignment.
 
-    Where:
-    - [Single Node Operator form](https://tally.so/r/3xk45o)
-    - [DVT Cluster form](https://tally.so/r/wAoAkW)
+    2.1. To complete the identification process and obtain the **“Simple”** category, please fill out this form:
+    
+    🔗 [Basic stVaults Identification form](/).
 
-    What information to provide:    
-    - **KYB** (entity, jurisdictions, contacts, certifications).
-    - **Business plan** (ETH sourcing, channels, audience, timing).
-    - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.).
-    - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
-    - Your **Node Operator card** on the Node Operators Overview page.
+    What information you will be asked to fill in the form:
+    - **KYC(B)** (entity, jurisdictions, contacts).
+    - Data for your card on the Node Operators Overview page.
+
+    2.2. To obtain better stETH minting terms under the **“Epic”** category (and **“Legendary”** later on), please also fill out this form:
+    
+    🔗 [Extended stVaults Node Operator assessment form](/).
+
+    What information you will be asked to fill in the form:
+        - **Business plan** (ETH sourcing, channels, audience, timing).
+        - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.).
+        - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
+
 3. **Assessment & scoring**
     
     You are evaluated across three main areas by the stVaults Committee: **Operational Capabilities, Decentralization & Infrastructure Distribution, and Business Case with an emphasis on proposed business cases.**
     
 4. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
     
-    The stVaults Committee assigns your **category** (Basic identified, Epic, or DVT cluster), defines your **tiers grid, and** then pushes updates through **Easy Track**. The reasoning behind the decision is described in a post on the Lido Research Forum.
+    The stVaults Committee assigns your **category** (Basic identified, Epic, or DVT cluster), defines your **tiers grid, and** then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision in a post on the Lido Research Forum.
     
 5. **Node Operator card creation**
     
-    The stVaults Committee creates your Node Operator card (name/logo, links, geo/jurisdiction, infra/DVT/relays, certifications/audits/insurance/bug-bounty). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value. *The Node Operators Overview page will be released in the weeks following the V3 Mainnet launch.*
+    The stVaults Committee creates your Node Operator card (name/logo, links, geo/jurisdiction, infra/DVT/relays, certifications/audits/insurance/bug-bounty). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value. *The Node Operators Overview page will follow in a later release after stVaults Mainnet.*
     
 6. **Communication & listing**
     
@@ -221,9 +228,11 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
 **1) Why categories exist.**
 
-The V3 risk assessment framework must balance growth with protection from major risks like correlated slashing and centralization. **Categories** connect qualitative (ops/decentralization) and quantitative (stake volumes) signals so that **stETH minting limits** and **Reserve Ratios** scale with an operator’s overall profile. Defaults keep the protocol safe; categories allow well-earned flexibility.
+The [Lido V3 risk assessment framework](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504) aims to balance growth opportunities with protection against major risks such as correlated slashing and centralization. It does this by linking qualitative signals (like operational and decentralization metrics) with quantitative ones (like stake volumes). Together, these determine how **stETH minting limits** and **Reserve Ratios** scale with each operator’s overall risk profile. Default parameters ensure protocol safety, while categories allow well-earned flexibility.
 
-**Category** is the Node Operators classification; each NO category has an associated default tier grid, which is used by Node Operators from this Category. Each Node Operator has its own Tiers with its own stETH minting limits. 
+A **Category** represents a classification of Node Operators:
+- Each Category has an associated **tier grid**, which serves as a baseline configuration for Node Operators within that Category.
+- When a Node Operator is assigned to a Category based on its unique performance and characteristics, it receives tiers (with defined RRs and stETH limits) according to that Category and the Node Operator’s total stETH minting limit.
 
 **2) Why multiple tiers per category?**
 
@@ -251,6 +260,7 @@ In order to keep the stVaults risk framework flexible and to streamline the gove
 - Define the default and custom tier grids for node operators.
 - Set DAO fee values for specific vaults and tiers within a node operator’s grid.
 - Bad debt compensation management between vaults/tiers in complex cases, like mass slashing.
+- Manage Lido Core redemptions, trigger validator exits for rebalancing or redemptions, and perform other actions required in exceptional cases to keep the Lido Core protocol stable and secure, in accordance with the stVaults risk assessment framework.
 - Adjusting the stVaults risk framework and the scores within the framework.
 
 **Easy Track** helps to speed up the process of changing parameters while securing protocol, builders, and node operators from the malicious actions of committee members as these motions are vetoable by LDO token-holders.

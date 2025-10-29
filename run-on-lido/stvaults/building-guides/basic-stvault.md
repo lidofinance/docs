@@ -122,7 +122,9 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 - `TierID`: the ID of the tier to which the stVault will be connected.
 - `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
-- `currentSettledGrowth` the amount of unaccounted growth accrued on the vault while it was disconnected. 0 for newly created vaults via create without connecting method.
+- `currentSettledGrowth` the amount of unaccounted growth accrued on the vault while it was disconnected. 0 for newly created vaults via create without connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
+
+
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -150,7 +152,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
       4. Click **Connect to Web3** and connect your wallet in the dialog window.
       5. Find the `connectAndAcceptTier` method in the list, fill out the fields, and click **Write**.
          -  fill out the `payableAmount` field with '1' to supply `1 ETH` in the same transaction.
-         -  set the `_currentSettledGrowth` field to '0' for newly created vault like in this scenario
+         -  set the `_currentSettledGrowth` field to '0' for newly created vault like in this scenario (if the stVault is newly created but had side deposits before connecting, settled growth must be set accordingly before the connection).
       6. Sign the transaction in your wallet.
       7. Click **View your transaction** and wait for it to be executed.
 </details>
