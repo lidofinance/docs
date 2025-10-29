@@ -35,7 +35,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
   <thead>
     <tr>
       <th></th>
-      <th colSpan="2" style={{ backgroundColor: "#e8f5e9" }}>Simple</th>
+      <th colSpan="2" style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
       <th colSpan="2" style={{ backgroundColor: "#f3e5f5" }}>Epic</th>
       <th colSpan="2" style={{ backgroundColor: "#fff3e0" }}>Legendary</th>
       <th colSpan="2" style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
@@ -118,7 +118,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     <tr>
       <th>Category</th>
       <th style={{ backgroundColor: "#f5f5f5" }}>Unidentified (permissionless)</th>
-      <th style={{ backgroundColor: "#e8f5e9" }}>Simple</th>
+      <th style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
       <th style={{ backgroundColor: "#f3e5f5" }}>Epic</th>
       <th style={{ backgroundColor: "#fff3e0" }}>Legendary</th>
       <th style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
@@ -188,7 +188,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     
     You are also asked to provide technical and business detailed information. This step is required only during the initial identification process and category assignment.
 
-    2.1. To complete the identification process and obtain the **“Simple”** category, please fill out this form:
+    2.1. To complete the identification process and obtain the **"Basic"** category, please fill out this form:
     
     🔗 [Basic stVaults Identification form](/).
 
