@@ -16,10 +16,10 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 
 ## The category → tiers model
 
-- **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, Epic, Legendary).
+- **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, stVault Professional Operator, stVault Professional Trusted Operator).
 - **Each category contains multiple tiers.** **A tier** is a specific **minting configuration** that defines the **Reserve Ratio (RR)**, **stETH Minting Limit (cap)**, and corresponding **Lido fees**. Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers increase the allowed minting cap but decrease the Reserve Ratio.
 - Within the assigned category, **one Node Operator can hold multiple tiers** that the stVaults Committee can set or change based on the Node Operator’s requests, performance, slashing events, or market circumstances in accordance with the stVaults Risk Framework.
-- Categories — **Basic, Epic, and DVT** — can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **Legendary** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
+- Categories — **Basic, stVault Professional Operator, and DVT** — can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **stVault Professional Trusted Operator** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
 
 ### Categories and tiers
 
@@ -36,8 +36,8 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     <tr>
       <th></th>
       <th colSpan="2" style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
-      <th colSpan="2" style={{ backgroundColor: "#f3e5f5" }}>Epic</th>
-      <th colSpan="2" style={{ backgroundColor: "#fff3e0" }}>Legendary</th>
+      <th colSpan="2" style={{ backgroundColor: "#f3e5f5" }}>stVault Professional Operator</th>
+      <th colSpan="2" style={{ backgroundColor: "#fff3e0" }}>stVault Professional Trusted Operator</th>
       <th colSpan="2" style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
     </tr>
     <tr>
@@ -119,8 +119,8 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
       <th>Category</th>
       <th style={{ backgroundColor: "#f5f5f5" }}>Unidentified (permissionless)</th>
       <th style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
-      <th style={{ backgroundColor: "#f3e5f5" }}>Epic</th>
-      <th style={{ backgroundColor: "#fff3e0" }}>Legendary</th>
+      <th style={{ backgroundColor: "#f3e5f5" }}>stVault Professional Operator</th>
+      <th style={{ backgroundColor: "#fff3e0" }}>stVault Professional Trusted Operator</th>
       <th style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
     </tr>
   </thead>
@@ -196,7 +196,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     - **KYC(B)** (entity, jurisdictions, contacts).
     - Data for your card on the Node Operators Overview page.
 
-    2.2. To obtain better stETH minting terms under the **“Epic”** category (and **“Legendary”** later on), please also fill out this form:
+    2.2. To obtain better stETH minting terms under the **stVault Professional Operator** category (and **stVault Professional Trusted Operator** later on), please also fill out this form:
     
     🔗 [Extended stVaults Category Application](https://tally.so/r/npjNdq).
 
@@ -211,7 +211,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     
 4. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
     
-    The stVaults Committee assigns your **category** (Basic identified, Epic, or DVT cluster), defines your **tiers grid, and** then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
+    The stVaults Committee assigns your **category** (Basic identified, stVault Professional Operator, or DVT cluster), defines your **tiers grid, and** then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
     
 5. **Node Operator card creation**
     
