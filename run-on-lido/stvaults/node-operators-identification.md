@@ -182,7 +182,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
     - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
     - **Links**: site/docs/audits/certifications/insurance (if any).
-    - Publish your post to “**Node Operators > stVaults Identification**” category.
+    - Publish your post under the “**Node Operators > stVaults Identification**” category.
 
 2. **Node Operator Questionnaires (private)**
     
@@ -190,7 +190,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
     2.1. To complete the identification process and obtain the **"Basic"** category, please fill out this form:
     
-    🔗 [Basic stVaults Identification form](/).
+    🔗 [Basic stVaults Identification form](https://tally.so/r/3xk45o).
 
     What information you will be asked to fill in the form:
     - **KYC(B)** (entity, jurisdictions, contacts).
@@ -198,7 +198,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
     2.2. To obtain better stETH minting terms under the **“Epic”** category (and **“Legendary”** later on), please also fill out this form:
     
-    🔗 [Extended stVaults Node Operator assessment form](/).
+    🔗 [Extended stVaults Category Application](https://tally.so/r/npjNdq).
 
     What information you will be asked to fill in the form:
         - **Business plan** (ETH sourcing, channels, audience, timing).
@@ -211,7 +211,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     
 4. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
     
-    The stVaults Committee assigns your **category** (Basic identified, Epic, or DVT cluster), defines your **tiers grid, and** then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision in a post on the Lido Research Forum.
+    The stVaults Committee assigns your **category** (Basic identified, Epic, or DVT cluster), defines your **tiers grid, and** then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
     
 5. **Node Operator card creation**
     
