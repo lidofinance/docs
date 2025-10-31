@@ -62,7 +62,9 @@ Also, can be limited by:
 - stVault personal stETH minting limit;
 - Tier remaining capacity;
 - Node operator remaining capacity;
-- Total stVaults remaining capacity.
+- Total stVaults remaining capacity;
+- Lido Core staking rate limits [learn more](https://docs.lido.fi/guides/lido-tokens-integration-guide/#staking-rate-limits).
+
 
 ### stETH Liability
 The amount of stETH that the vault owner minted in the vault backed by the ETH collateral. Increases daily due to daily stETH rebase.
@@ -154,7 +156,7 @@ Amount of stETH that is recommended to repay to the vault to compensate ETH defi
 ### ETH to rebalance
 Amount of ETH on the vault balance that is recommended to rebalance to compensate ETH deficit and return the stETH minting utilization ratio back to 100%.
 
-Rebalance is a mechanism that sends available ETH from the stault balance to Lido Core, receiving stETH with a ratio of 1:1, and repaying received stETH back to stVault so that stETH minting utilization ratio is back to 100%.
+Rebalance is a mechanism that sends available ETH from the stVault balance to Lido Core, receiving stETH with a ratio of 1:1, and repaying received stETH back to stVault so that stETH minting utilization ratio is back to 100%.
 
 The amount of ETH for rebalancing to make Utilization Ratio 100% is pre-calculated by the system or can be calculated by the formula:
 
