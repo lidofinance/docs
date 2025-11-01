@@ -234,6 +234,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 - USDC: [`0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36`](https://hoodi.etherscan.io/address/0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36)
 - USDT: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.etherscan.io/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
 - DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
+- sUSDS: [`0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70`](https://hoodi.etherscan.io/address/0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70)
 
 ## 🔐 Testnet DAO Multisigs
 
