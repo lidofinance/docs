@@ -11,7 +11,10 @@ The goals for this testnet deployment were:
 
 - Have end-to-end testnet for Lido Multichain
 - The running-in of new zk-based oracles (based on [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) availability)
-  :::
+
+There will be no comprehensive Lido testnet environment available for Sepolia due to the network's restricted
+and permission-based [validator set](https://github.com/eth-clients/sepolia/issues/12) configuration.
+:::
 
 ## Core protocol
 
