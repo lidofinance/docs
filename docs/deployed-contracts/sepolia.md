@@ -1,19 +1,17 @@
 # Sepolia
 
 :::warning
-Sepolia testnet has only a limited set of working parts of the protocol.
+The **Sepolia** deployment is now fully **deprecated**.  
+Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
+:::
 
-For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available
-(paused indefinitely), please use the [Hoodi testnet](/deployed-contracts/hoodi.md) deployment if possible.
-
-The goals for this testnet deployment are:
+:::info
+Sepolia testnet has had only a limited set of working parts of the protocol.
+The goals for this testnet deployment were:
 
 - Have end-to-end testnet for Lido Multichain
 - The running-in of new zk-based oracles (based on [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) availability)
-
-There will be no comprehensive Lido testnet environment available for Sepolia due to the network's restricted
-and permission-based [validator set](https://github.com/eth-clients/sepolia/issues/12) configuration.
-:::
+  :::
 
 ## Core protocol
 
