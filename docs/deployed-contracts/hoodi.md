@@ -8,7 +8,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v3.0.0-rc.1`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.1) (Lido V3 with stVaults)
+- ⚓ Lido protocol version: [**`v3.0.0-rc.3`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.3) (Lido V3 with stVaults)
 - 🌐 Network: Hoodi testnet
 - ✅ Status: Active and maintained
 
@@ -23,7 +23,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ## 🏛️ Core Protocol
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x8717971067D6FeeB631d750B09Ba66a6B4E01BA3`](https://hoodi.etherscan.io/address/0x8717971067D6FeeB631d750B09Ba66a6B4E01BA3) (impl)
+- Lido Locator: [`0x778Dc3a94B24D0Cd66E36d3ED8d47cAa622688F6`](https://hoodi.etherscan.io/address/0x778Dc3a94B24D0Cd66E36d3ED8d47cAa622688F6) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
 - wstETH referral staker: [`0xf886BcC68b240316103fE8A12453Ce7831c2e835`](https://hoodi.etherscan.io/address/0xf886BcC68b240316103fE8A12453Ce7831c2e835)
@@ -47,10 +47,10 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 ### 🔨 stVaults Factory Stack
 
-- Staking Vault Factory: [`0xf0Cf0c852Bb2b41eF8171399a71be79aa67e6295`](https://hoodi.etherscan.io/address/0xf0Cf0c852Bb2b41eF8171399a71be79aa67e6295)
+- Staking Vault Factory: [`0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569`](https://hoodi.etherscan.io/address/0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569)
 - Staking Vault Beacon: [`0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`](https://hoodi.etherscan.io/address/0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e)
 - Staking Vault Implementation: [`0xE96BE4FB723e68e7b96244b7399C64a58bcD0062`](https://hoodi.etherscan.io/address/0xE96BE4FB723e68e7b96244b7399C64a58bcD0062)
-- Dashboard Implementation: [`0x7CA203e3b7341341A4a83086780137eb283A9338`](https://hoodi.etherscan.io/address/0x7CA203e3b7341341A4a83086780137eb283A9338)
+- Dashboard Implementation: [`0x7D25D43D5a69ae0521440211C655C11840aF0FD6`](https://hoodi.etherscan.io/address/0x7D25D43D5a69ae0521440211C655C11840aF0FD6)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
 ## 🔮 Oracle Contracts
@@ -217,10 +217,10 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ### Easy Track Factories for stVaults Management
 
 - **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
-  - Register Groups: [`0x4D80CBe1a4AcAA53870074Ea3e25BFE7B04e1282`](https://hoodi.etherscan.io/address/0x4D80CBe1a4AcAA53870074Ea3e25BFE7B04e1282)
+  - Register Groups: [`0xF5ce5E9348EB58AfA29aD933ae3A0DCb74b68d1b`](https://hoodi.etherscan.io/address/0xF5ce5E9348EB58AfA29aD933ae3A0DCb74b68d1b)
   - Update Groups Share Limit: [`0x56Ff87F41a8CF795764E15E496124240Ac17695b`](https://hoodi.etherscan.io/address/0x56Ff87F41a8CF795764E15E496124240Ac17695b)
-  - Register Tiers: [`0xf8F8902c333666c175ccAcC738c3c3D80a78ACfb`](https://hoodi.etherscan.io/address/0xf8F8902c333666c175ccAcC738c3c3D80a78ACfb)
-  - Alter Tiers: [`0xE0b822c1126E22D5E248c52F0DF3362DF4D85eAc`](https://hoodi.etherscan.io/address/0xE0b822c1126E22D5E248c52F0DF3362DF4D85eAc)
+  - Register Tiers: [`0x6d91c6751DfB46E7E22eC78f5e6FbcEb1BBe6614`](https://hoodi.etherscan.io/address/0x6d91c6751DfB46E7E22eC78f5e6FbcEb1BBe6614)
+  - Alter Tiers: [`0xA76bD0a2ca6E1Be2F7Cf62fa63BddaCb6d6d1287`](https://hoodi.etherscan.io/address/0xA76bD0a2ca6E1Be2F7Cf62fa63BddaCb6d6d1287)
   - Set Jail Status: [`0xc3FA83D65a900303e1d99cDBBF762c6630562c04`](https://hoodi.etherscan.io/address/0xc3FA83D65a900303e1d99cDBBF762c6630562c04)
   - Update Vaults Fees: [`0x351426775c75aB5127de860Cdcaf1953F1D622a2`](https://hoodi.etherscan.io/address/0x351426775c75aB5127de860Cdcaf1953F1D622a2)
 - **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
