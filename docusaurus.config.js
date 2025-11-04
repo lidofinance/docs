@@ -3,7 +3,7 @@ module.exports = async function createConfigAsync() {
   return {
     title: 'Lido Docs',
     tagline: 'Documentation for the Lido staking protocol',
-    url: 'https://docs.lifo.fi',
+    url: 'https://docs.lido.fi',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'throw',
