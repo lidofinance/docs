@@ -33,14 +33,22 @@
     "clsx": "^2.1.0",
     "prism-react-renderer": "^2.4.0",
     "prop-types": "^15.8.1",
-        "react": "^19.0.0",
+    "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0"
   },
   "browserslist": {
     "production": [
-	@@ -52,7 +50,10 @@
+	    ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "@types/react": "^19.0.8",
