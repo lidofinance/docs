@@ -42,7 +42,7 @@ Advantages:
 - **Separation of ether funds** between the vault owner and the Node Operator.
 - This way enables to spawn validators without impact on key stVautls metrics: Total Value, stETH minting capacity, Heath Factor, etc.
 
-![Full-cycle trustless](/img/stvaults/pdg_main_flow.jpg)
+![Full-cycle trustless](/img/stvaults/pdg_main_flow.png)
 
 Steps:
 
@@ -102,7 +102,7 @@ Cons:
 - This mechanism drops stVault Total Value until validator activation.
 - Need to have 32+ unlocked ETH on the stVault Balance to deposit (so it's impossible when utilization ratio is close to 100%).
 
-![Shortcut-pdg](/img/stvaults/pdg-shortcut.jpg)
+![Shortcut-pdg](/img/stvaults/pdg-shortcut.png)
 
 Steps:
 
