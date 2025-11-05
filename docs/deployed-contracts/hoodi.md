@@ -50,6 +50,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 - Staking Vault Factory: [`0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569`](https://hoodi.etherscan.io/address/0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569)
 - Staking Vault Beacon: [`0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`](https://hoodi.etherscan.io/address/0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e)
 - Staking Vault Implementation: [`0xE96BE4FB723e68e7b96244b7399C64a58bcD0062`](https://hoodi.etherscan.io/address/0xE96BE4FB723e68e7b96244b7399C64a58bcD0062)
+- Staking Vault Pinned Beacon Proxy: [`0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76`](https://hoodi.etherscan.io/address/0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76)
 - Dashboard Implementation: [`0x7D25D43D5a69ae0521440211C655C11840aF0FD6`](https://hoodi.etherscan.io/address/0x7D25D43D5a69ae0521440211C655C11840aF0FD6)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
