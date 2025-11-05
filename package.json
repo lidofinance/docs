@@ -34,9 +34,7 @@
     "prism-react-renderer": "^2.4.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0"
+    "react-dom": "^19.0.0"
   },
   "browserslist": {
     "production": [
@@ -52,7 +50,10 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.8",
-    "prettier": "^3.3.3"
+    "katex": "^0.16.25",
+    "prettier": "^3.3.3",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "packageManager": "npm@10.8.2",
   "engines": {
