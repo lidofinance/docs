@@ -101,6 +101,8 @@ module.exports = async function createConfigAsync() {
           path: 'run-on-lido',
           routeBasePath: 'run-on-lido',
           sidebarPath: require.resolve('./sidebarsRunOnLido.js'),
+          remarkPlugins: [(await import('remark-math')).default],
+          rehypePlugins: [(await import('rehype-katex')).default],
         },
       ],
     ],
