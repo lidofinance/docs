@@ -75,6 +75,9 @@ The amount of stETH remaining mintable in the vault, based on the current Total 
 ### Utilization ratio
 The share of the stETH minting capacity currently utilized by the vault owner.
 
+### Health Factor
+The Health Factor demonstrates the economic state of the stVault. It shows how the stETH Liability is backed by the Total Value.
+
 ### Locked by fees obligations (unsettled fees)
 The amount of ETH locked in the vault due to the undisbursed Node Operator fee and unsettled Lido fees.
 
