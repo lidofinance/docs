@@ -8,7 +8,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v3.0.0-rc.3`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.3) (Lido V3 with stVaults)
+- ⚓ Lido protocol version: [**`v3.0.0-rc.4`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.4) (Lido V3 with stVaults)
 - 🌐 Network: Hoodi testnet
 - ✅ Status: Active and maintained
 
