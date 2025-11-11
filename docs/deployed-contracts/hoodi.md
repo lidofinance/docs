@@ -218,10 +218,10 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ### Easy Track Factories for stVaults Management
 
 - **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
-  - Register Groups: [`0xF5ce5E9348EB58AfA29aD933ae3A0DCb74b68d1b`](https://hoodi.etherscan.io/address/0xF5ce5E9348EB58AfA29aD933ae3A0DCb74b68d1b)
+  - Register Groups: [`0xfEF8B796Fea42b3C68E342364Adcf88F1d6145a6`](https://hoodi.etherscan.io/address/0xfEF8B796Fea42b3C68E342364Adcf88F1d6145a6)
   - Update Groups Share Limit: [`0x56Ff87F41a8CF795764E15E496124240Ac17695b`](https://hoodi.etherscan.io/address/0x56Ff87F41a8CF795764E15E496124240Ac17695b)
-  - Register Tiers: [`0x6d91c6751DfB46E7E22eC78f5e6FbcEb1BBe6614`](https://hoodi.etherscan.io/address/0x6d91c6751DfB46E7E22eC78f5e6FbcEb1BBe6614)
-  - Alter Tiers: [`0xA76bD0a2ca6E1Be2F7Cf62fa63BddaCb6d6d1287`](https://hoodi.etherscan.io/address/0xA76bD0a2ca6E1Be2F7Cf62fa63BddaCb6d6d1287)
+  - Register Tiers: [`0x4DF806111AC58e93d90E6D2fBE8522a76be6F499`](https://hoodi.etherscan.io/address/0x4DF806111AC58e93d90E6D2fBE8522a76be6F499)
+  - Alter Tiers: [`0xF21f98cac0Ba38f02b4d5be1667cc345929E8877`](https://hoodi.etherscan.io/address/0xF21f98cac0Ba38f02b4d5be1667cc345929E8877)
   - Set Jail Status: [`0xc3FA83D65a900303e1d99cDBBF762c6630562c04`](https://hoodi.etherscan.io/address/0xc3FA83D65a900303e1d99cDBBF762c6630562c04)
   - Update Vaults Fees: [`0x351426775c75aB5127de860Cdcaf1953F1D622a2`](https://hoodi.etherscan.io/address/0x351426775c75aB5127de860Cdcaf1953F1D622a2)
 - **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
