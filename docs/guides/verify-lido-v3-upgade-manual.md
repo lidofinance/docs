@@ -124,7 +124,38 @@ Artifacts to be used for this manual as a reference:
 
 ### Proposal
 
-#### 1. Upgrade Lido protocol to V3
+#### 1. Upgrade Lido protocol to V3 through Dual Governance proposal
+
+- Item 1.1: Call UpgradeTemplateV3.startUpgrade
+
+> Initiates an opening stage of the protocol upgrade transaction, doesn't require input arguments
+> Address: `0x...`
+> Function selector: `0x2239c48a` (`cast sig "startUpgrade()"`)
+> Calldata: `0x` (empty)
+
+- Item 1.2: Upgrade LidoLocator implementation
+
+> Upgrades the protocol-wide address book to include the up-to-date Lido V3 addresses
+> Address: `0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb` ([Lido Locator](https://docs.lido.fi/deployed-contracts/#core-protocol))
+> Function selector: `0x3ebdd0eb` (`cast sig "proxy__upgradeTo(address)"`)
+> Calldata: `0x...` (new implementation)
+
+- Item 1.3: Grant Aragon APP_MANAGER_ROLE to the AGENT
+
+- Item 1.4: Set Lido implementation in Kernel
+
+- Item 1.5: Revoke Aragon APP_MANAGER_ROLE from the AGENT
+
+- Item 1.6: Revoke REQUEST_BURN_SHARES_ROLE from Lido
+
+- Item 1.7: Revoke old burner role
+
+- Item 1.8: Revoke old burner role
+
+- Item 1.9: Revoke old burner role
+
+- Item 1.10: 
+
 
 #### 2. Attach new Easy Track factories
 
