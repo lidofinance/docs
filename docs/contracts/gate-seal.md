@@ -4,6 +4,7 @@
 - [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
 - [GateSeal (ValidatorExitBus and TriggerableWithdrawalsGateway)](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
 - [GateSeal (WithdrawalQueue)](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
+- [GateSeal (CSM)](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)
 - [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 

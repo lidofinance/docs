@@ -493,10 +493,12 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
 
 **Snapshot:**\
-[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
+[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)\
+[CSM v2 Final Rollout](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xc3f92bcdf8926cfa7528ca6a979c0fdce1e4d0cfaaa72dd6410a76a2e1e55766)
 
 **Aragon:**\
-[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)
+[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
+[Omnibus vote #192 (items 1.34-1.59)](https://vote.lido.fi/vote/192) (upgrade to CSM v2)
 
 **Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
@@ -509,7 +511,7 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 | Contract name                         | Contract address                                                                                                        | Multisig role |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
 | Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
-| CS GateSeal                           | [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0) | sealing_committee |
+| CS GateSeal                           | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | sealing_committee |
 
 
 **List of signers:**
