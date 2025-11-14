@@ -10,7 +10,7 @@ Whether you’re using built-in dashboards or external services, here’s how to
 
 ## Explore the sub-sections
 
-[**Begginer: CSM Widget, MigaLabs, Beaconcha.in →**](./beginner)
+[**Beginner: CSM Widget, MigaLabs, Beaconcha.in →**](./beginner)
 
 [**Intermediate: Other External Dashboards →**](./intermediate)
 
