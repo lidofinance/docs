@@ -17,7 +17,7 @@ Therefore stVaults can utilize large validators (depositing up to 2048 ETH per a
 
 ## Resources
 
-- [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj)
+- [Technical details](https://hackmd.io/@lido/stVaults-design#36-PredepositGuarantee)
 - [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol)
 
 ## Deposit Data Generation
