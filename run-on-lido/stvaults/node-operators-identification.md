@@ -139,7 +139,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
       <td style={{ backgroundColor: "#e8f5e9" }}>Basic</td>
       <td style={{ backgroundColor: "#f3e5f5" }}>Strong</td>
       <td style={{ backgroundColor: "#fff3e0" }}>Strong</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>DVT cluster with 4+ independent Node Operators.</td>
+      <td style={{ backgroundColor: "#e3f2fd" }}>DVT cluster with 4+ independent Identified Node Operators</td>
     </tr>
     <tr>
       <td>Operations Requirements</td>
@@ -162,7 +162,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
       <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
       <td style={{ backgroundColor: "#e8f5e9" }}>-</td>
       <td style={{ backgroundColor: "#f3e5f5" }}>-</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>3+ months of successful validation</td>
+      <td style={{ backgroundColor: "#fff3e0" }}>3+ months of successful validation as an stVault Professional Operator</td>
       <td style={{ backgroundColor: "#e3f2fd" }}>-</td>
     </tr>
   </tbody>

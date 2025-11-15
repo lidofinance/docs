@@ -50,8 +50,8 @@ Creating an stVault is permissionless. There are two main ways to do it:
 1. **Node Operator address** — a unique, immutable identifier of the Node Operator within stVaults, used in protocol logic such as calculating per-operator stETH minting terms and limits. It designates the Node Operator that provides validation services for the stVault and also manages ETH deposits from the stVault balance to validators, as well as handling validator exits when required.
 2. **Node Operator Manager address**. One of the two administrative roles in an stVault. From the Node Operator perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 3. **Vault Owner address**. One of the two administrative roles in an stVault. From the Vault Owner (Staker) perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
-4. **Node Operator Fee**. The share of gross staking rewards that the Node Operator charges for providing validation services. Expressed as a percentage [0% .. 100.00%].
-5. **Confirmation Lifetime**. The key parameter of the multi-role confirmation mechanism. This mechanism is used to update certain stVault parameters by requiring consensus between the two stVault representatives: the Vault Owner and the Node Operator Manager. Measured in hours [24h .. 720h (30 days)].
+4. **Node Operator Fee**. The share of gross staking rewards that the Node Operator charges for providing validation services. Expressed in basis points [0 (0%) .. 10'000 (100%)].
+5. **Confirmation Lifetime**. The key parameter of the multi-role confirmation mechanism. It defines the maximum time interval between proposal and confirmation. This mechanism is used to update certain stVault parameters by requiring consensus between the two stVault representatives: the Vault Owner and the Node Operator Manager. Measured in seconds [86'400 sec (24 hours) .. 25'920'000 sec (30 days)]. For security reasons, it is strongly recommended to keep it as sort as possible, ideally the minimal 86'400 sec.
 
 #### 1. Two-step process (recommended)
 
