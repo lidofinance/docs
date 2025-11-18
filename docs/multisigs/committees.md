@@ -143,7 +143,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-| --- | --- | --- | - |
+| --- | --- | --- | --- |
 | Alex_L | 0xF3d5Fdb50154B1b3047F311485780Baa1D770492 | https://etherscan.io/verifySig/14259 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/9 |
 | adcv | 0x5157CeE5ee585A8331C936e838591FaeBf9123D4 | https://etherscan.io/verifySig/14301 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/13 |
 | irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/14300 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/12 |
