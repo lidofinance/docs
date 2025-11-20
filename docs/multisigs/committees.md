@@ -746,6 +746,8 @@ Additionally, the committee also includes consulting participant, which abstain 
 
 **Purpose of the multisig:** This committee has the one-off and time-limited right to activate an adversarial emergency mode if they see a scheduled proposal that was created or altered due to a vulnerability in the DG contracts or if governance execution is prevented by such a vulnerability. Active until emergency protection end date of `EmergencyProtectedTimelock` contract
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmX8jRsarQyZNbeG2zfPY6xYPKLMJQ6BgZx2YEr1GqswRe)
+
 **Quorum:** 4/7
 
 **Forum topic:** [Lido Dual Governance Emergency Committee](https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049)
@@ -774,6 +776,8 @@ Additionally, the committee also includes consulting participant, which abstain 
 **Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
 **Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmYGSShK4z2abbcrDRihZ7fyLUqRKvHxnLpDrGsobFMv1L)
 
 This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is stricted to 5 of 7
 
@@ -809,6 +813,8 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 - The contracts are paused for a limited duration, not indefinitely.
 - The Dual Governance system is not in the Normal state.
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmNp6vV5F4FLBoLmW4YwTP8sWCRqSRMkrp5kW8cQh4xdwt)
+
 **Quorum:** 5/6
 
 **Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
@@ -831,9 +837,7 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 
 ### 2.15.4 Dual Governance Tiebreaker Committees: Ethereum
 
-**(Proposed to remove) Address:** [`0x175742c3DDD88B0192df3EcF98f180A79cb259D0`](https://etherscan.io/address/0x175742c3DDD88B0192df3EcF98f180A79cb259D0)
-
-**(Proposed) Address:** [`0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5`](https://etherscan.io/address/0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5)
+**Address:** [`0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5`](https://etherscan.io/address/0xf65614d73952Be91ce0aE7Dd9cFf25Ba15bEE2f5)
 
 The Tiebreaker Committee includes three subcommittees covering different interest groups within the Ethereum community. The approval from a supermajority of sub-committees is required to execute a pending proposal. The approval by each subcommittee requires the majority support within the subcommittee.
 
@@ -855,11 +859,11 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 ### 2.15.4.1 Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
 
-**(Proposed to remove) Address:** [`0x7dAdae4e1a0DB43F6bcfA75295666fc044605679`](https://etherscan.io/address/0x7dAdae4e1a0DB43F6bcfA75295666fc044605679)
-
-**(Proposed) Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
+**Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmeKc1qWZc5gYcdsoergoc7iCTtAKnNk6VxJ2d7m8dzNJk)
 
 **Quorum:** 3/5
 
@@ -877,11 +881,11 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 ### 2.15.4.2 Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
 
-**(Proposed to remove) Address:** [`0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3`](https://etherscan.io/address/0x74836470337Ba5d2a92fe16E44AD862E28fcf9B3)
-
-**(Proposed) Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
+**Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmUtgmTmvsPzRUtWQCbVNNnB3DtUhiDa9Dxwos3bKs55kR)
 
 **Quorum:** 3/5
 
@@ -899,11 +903,11 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 ### 2.15.4.3 Dual Governance Tiebreaker Committees. Node Operators Subcommittee: Ethereum
 
-**(Proposed to remove) Address:** [`0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C`](https://etherscan.io/address/0xb9d82E1A49f6a66E8a07260BA05Cf9Ac8a938B1C)
-
-**(Proposed) Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
+**Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmdqsKzsUt1kDTPUtFVUWQHjyxpFuBne828qbKAEMpVEfZ)
 
 **Quorum:** 5/7
 
