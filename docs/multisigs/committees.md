@@ -52,6 +52,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmZzkaADXGZmRg9Yb9HCCLKP19Lt4pitpFB4BDi3CfaU7t)
+
 **Quorum:** 4/8
 
 **Forum topics:**\
@@ -644,9 +646,6 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | UniteTheClans | 0x81ca68f085282434d15c09619360d6513710a979 | https://etherscan.io/verifySig/274605 | https://x.com/0xeferium_m8/status/1930605132573515936 |
 | GrStepanov | 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/278586 |  https://x.com/shalfeyshur/status/1957736329296437494 |
 | Elena_S | 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/279001 | https://x.com/Elen0sh/status/1960254652479414583 |
-
-**Original List of Signers:**\
-https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6lsqyxjkg7hvii
 
 **Lido Labs BORG Foundation Key Documents:**
 
