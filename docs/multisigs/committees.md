@@ -123,9 +123,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Quorum:** 4/7
 
-**Forum topic:** [Lido DAO Token Rewards Plan (TRP)](https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833)
+**Forum topics:**\
+[Lido DAO Token Rewards Plan (TRP)](https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833)\
+[Transfer TRP to Lido Labs Foundation and Amend TRP Terms](https://research.lido.fi/t/transfer-trp-to-lido-labs-foundation-and-amend-trp-terms/10647)
 
-**Snapshot:** [Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)
+**Snapshots:**\
+[Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)\
+[Transfer TRP to Lido Labs Foundation and Amend TRP Terms](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x16ecb51631d67213d44629444fcc6275bc2abe4d7e955bebaf15c60a42cba471)
 
 **Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
 
@@ -140,13 +144,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| kadmil | 0x4ce07bbcd6c8a6331e95d23b61cbedf0111db179 | https://etherscan.io/verifySig/14399 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/16 |
 | Alex_L | 0xF3d5Fdb50154B1b3047F311485780Baa1D770492 | https://etherscan.io/verifySig/14259 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/9 |
-| skozin | 0xD516fce5737388b126d550B5a5CAf53bcBF73895 | https://etherscan.io/verifySig/14303 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/14 |
 | adcv | 0x5157CeE5ee585A8331C936e838591FaeBf9123D4 | https://etherscan.io/verifySig/14301 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/13 |
 | irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/14300 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/12 |
 | dgusakov | 0x806cAC2126F2a74ba04D712bA64Bd0792FE811d5 | https://etherscan.io/verifySig/14263 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/10 |
 | George | 0xAF0e81325a05a9F123907983F3F1a48864947127 | https://etherscan.io/verifySig/14296 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/11 |
+| Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/1989274615194227170 |
+| Elena_S | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/296381 | https://x.com/Elen0sh/status/1989387508875219258 |
 
 ## 2.5 Treasury Management Committee
 
@@ -493,10 +497,12 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
 
 **Snapshot:**\
-[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
+[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)\
+[CSM v2 Final Rollout](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xc3f92bcdf8926cfa7528ca6a979c0fdce1e4d0cfaaa72dd6410a76a2e1e55766)
 
 **Aragon:**\
-[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)
+[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
+[Omnibus vote #192 (items 1.34-1.59)](https://vote.lido.fi/vote/192) (upgrade to CSM v2)
 
 **Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
@@ -509,7 +515,7 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 | Contract name                         | Contract address                                                                                                        | Multisig role |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
 | Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
-| CS GateSeal                           | [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0) | sealing_committee |
+| CS GateSeal                           | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | sealing_committee |
 
 
 **List of signers:**
@@ -885,7 +891,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 **Purpose of the multisig:** The committee is established to ensure protocol security and resilience, and enable stake growth and DAO fee efficiency under the stVault risk framework.
 Committee's multisig is designated to configure stVaults and/or Node Operator Tiers, within the confines of the Easy Track optimistic governance process: set the reserve ratio for specific tiers or vaults, define the default and custom tier grids for node operators, set DAO fee values for specific vaults and for tiers within a given node operator’s grid, manage bad debt compensation  between vaults/tiers in complex cases like mass slashing.
 
-**Quorum:** 3/5
+**Quorum:** 4/7
 
 **Snapshot:** [Establish the stVaults Committee](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0e8b53944051321d2cedf8881b546427bc6a22c9fe16f7d150af62fd837ff7da)
 
@@ -893,11 +899,13 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
+| dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | - |
+| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | - |
+| Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | - |
+| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | - |
 | Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | - |
 | mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | - |
-| Marin | 0x04e7c0350241b818ee5c92cc260008c9898f41cf | https://etherscan.io/verifySig/274497 | - |
-| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | - |
-| dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | - |
+| AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | - |
 
 ## 2.17 Bridging Security Committee
 
