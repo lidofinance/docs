@@ -5,7 +5,7 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Pooled staking product powered by stVaults
+# Pooled Staking Product powered by stVaults
 
 ## Intro
 The DeFi Wrapper is a no-/low-code toolkit that allows Builders, Node Operators, and platforms to launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
@@ -16,26 +16,37 @@ This guide explains conceptually and practically how to launch such a product wi
 
 DeFi Wrapper supports three product archetypes:
 
-### Pooled Delegated Staking 
+### 1. Pooled Delegated Staking
+![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_pooled.png)
 - Users stake ETH with the same Node Operator.
 - Users receive APR from validator performance.
 
-**Use case:** end-user staking product with conservative validation-based APR and user friendly-interface embedded in the colntrolled or partner's traffic channel. 
+**Use case:** End-user staking product with conservative validation-based APR and user friendly-interface embedded in the colntrolled or partner's traffic channel.
 
-## Pooled Delegated Liquid Staking
+## 2. Pooled Delegated Liquid Staking
+![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_liquid.png)
 - Users stake ETH with the same Node Operator.
 - Users receive stETH (within the stVault’s Reserve Ratio).
 - Users receive APR from validator performance.
 
-**Use case:** institutional-aimed individual (whitelisted) staking product with conservative validation-based APR and liquidity, and also simple interface hosted on the Node Operator's web server.
+**Use case:** Institutional-aimed individual (whitelisted) staking product with conservative validation-based APR and liquidity, and simple user interface hosted on the Node Operator's web server.
 
-## Pooled Delegated Staking with Boosted APR
+## 3.1. Pooled Delegated Staking with Boosted APR via Leveraged staking
+![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_looping.png)
+- Users stake ETH with the same Node Operator.
+- stETH is minted automatically and deposited to the connected curated looping strategy: pre-integrated, or custom one.
+- ETH is borrowed against stETH and deposited back to the stVault increasing stVault Total Value and the amount of ETH on validators.
+- Users receive boosted APR from validator performance.
+
+**Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators. The product allows the Node Operator to attract more ETH for validation than the end-users deposit.
+
+## 3.2. Pooled Delegated Staking with Boosted APR via DeFi Strategy
+![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 - Users stake ETH with the same Node Operator and 
 - stETH is minted automatically and deposited to the connected DeFi strategy: Leverage staking, GGV, or any custom one.
-- In case of leveraged staking, Users receive boosted APR from validator performance.
-- In case of stETH/wstETH-based DeFi strategy, Users receive APR from validator performance + Startegy APR.
+- Users receive APR from validator performance + Startegy APR.
 
-**Use cases:**
+**Use case:**
 - end-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators.
 - end-user staking product with higher risk/yield profile through the connected curated DeFi strategy which makes the product more attractive for the end-user.
 
@@ -45,7 +56,8 @@ DeFi Wrapper supports three product archetypes:
 ### Testnet
 
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- Contracts: https://docs.lido.fi/deployed-contracts/hoodi/
+- DeFi Wrapper Factory (Testnet-4): https://hoodi.etherscan.io/address/0x1436290a4d0aea78164e1e6762fcee3f8f27cf38#code 
+- Latest development branch: https://github.com/lidofinance/vaults-wrapper/tree/develop
 - Etherscan: https://hoodi.etherscan.io/
 
 ### Mainnet
@@ -58,7 +70,13 @@ DeFi Wrapper supports three product archetypes:
 
 ## Steps
 
-### Create a product
+### 1. Create a product
+
+1.
+2.
+3.
+
+### 2. Create Web UI
 
 
 ### Adjust stETH minting parameters
