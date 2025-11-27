@@ -1,6 +1,7 @@
 # TriggerableWithdrawalsGateway
 
-- Deployed contract: https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B
+- [Source code](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/TriggerableWithdrawalsGateway.sol)
+- [Deployed contract](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Specification basis: [LIP-30 — Triggerable withdrawals](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md)
 
 ## What is TriggerableWithdrawalsGateway
