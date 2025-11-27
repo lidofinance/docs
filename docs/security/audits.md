@@ -32,6 +32,10 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockc
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6%20Audit%20Report.pdf) for more details.
 
+**Note:** An additional report for version **6.0.2** is ready, covering the hotfix review.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6_0_2%20Audit%20Report.pdf) for more details
+
 ### 09-2025 MixBytes Easy Track CSM v2 Security Audit
 
 - Total Issues: 0

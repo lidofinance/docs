@@ -1,13 +1,29 @@
 # Hoodi
 
-:::info
-Hoodi is the main operational and maintained protocol testnet.
+:::info **Primary Lido Protocol Testnet**
+
+Hoodi is the main operational and actively maintained Lido protocol testnet.
+
+🆕 This deployment features the latest Lido V3 implementation (testnet-3 with stVaults) and mirrors the anticipated mainnet configuration for comprehensive testing.
+
+**Deployment Information:**
+
+- ⚓ Lido protocol version: [**`v3.0.0-rc.4`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.4) (Lido V3 with stVaults)
+- 🌐 Network: Hoodi testnet
+- ✅ Status: Active and maintained
+
+**Key Resources on Lido V3:**
+
+- 🏗️ [stVaults Technical Design Document](https://hackmd.io/@lido/stVaults-design)
+- 🔌 [stVaults Documentation Center](/run-on-lido/stvaults/)
+- 🛡️ [stVaults Predeposit Guarantee (PDG) Guide](/run-on-lido/stvaults/pdg)
+
 :::
 
-## Core protocol
+## 🏛️ Core Protocol
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x47975A61067a4CE41BeB730cf6c57378E55b849A`](https://hoodi.etherscan.io/address/0x47975A61067a4CE41BeB730cf6c57378E55b849A) (impl)
+- Lido Locator: [`0x778Dc3a94B24D0Cd66E36d3ED8d47cAa622688F6`](https://hoodi.etherscan.io/address/0x778Dc3a94B24D0Cd66E36d3ED8d47cAa622688F6) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
 - wstETH referral staker: [`0xf886BcC68b240316103fE8A12453Ce7831c2e835`](https://hoodi.etherscan.io/address/0xf886BcC68b240316103fE8A12453Ce7831c2e835)
@@ -19,27 +35,40 @@ Hoodi is the main operational and maintained protocol testnet.
 - Withdrawal Queue ERC721: [`0xfe56573178f1bcdf53F01A6E9977670dcBBD9186`](https://hoodi.etherscan.io/address/0xfe56573178f1bcdf53F01A6E9977670dcBBD9186) (proxy)
 - Withdrawal Vault: [`0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`](https://hoodi.etherscan.io/address/0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2) (proxy)
 - Withdrawal Vault: [`0xfe7A58960Af333eAdeAeC39149F9d6A71dc3E668`](https://hoodi.etherscan.io/address/0xfe7A58960Af333eAdeAeC39149F9d6A71dc3E668) (impl)
-- Burner: [`0x4e9A9ea2F154bA34BE919CD16a4A953DCd888165`](https://hoodi.etherscan.io/address/0x4e9A9ea2F154bA34BE919CD16a4A953DCd888165)
+- Accounting: [`0x9b5b78D1C9A3238bF24662067e34c57c83E8c354`](https://hoodi.etherscan.io/address/0x9b5b78D1C9A3238bF24662067e34c57c83E8c354) (proxy)
+- Burner: [`0xb2c99cd38a2636a6281a849C8de938B3eF4A7C3D`](https://hoodi.etherscan.io/address/0xb2c99cd38a2636a6281a849C8de938B3eF4A7C3D) (proxy)
 - Min First Allocation Strategy: [`0x6d1a9bBFF97f7565e9532FEB7b499982848E5e07`](https://hoodi.etherscan.io/address/0x6d1a9bBFF97f7565e9532FEB7b499982848E5e07) (external lib)
 - MEV Boost Relay Allowed List: [`0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf`](https://hoodi.etherscan.io/address/0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf)
 - Triggerable Withdrawals Gateway: [`0x6679090D92b08a2a686eF8614feECD8cDFE209db`](https://hoodi.etherscan.io/address/0x6679090D92b08a2a686eF8614feECD8cDFE209db)
 - Validator Exit Delay Verifier: [`0xa5F5A9360275390fF9728262a29384399f38d2f0`](https://hoodi.etherscan.io/address/0xa5F5A9360275390fF9728262a29384399f38d2f0)
+- Vault Hub: [`0x4C9fFC325392090F789255b9948Ab1659b797964`](https://hoodi.etherscan.io/address/0x4C9fFC325392090F789255b9948Ab1659b797964) (proxy)
+- Predeposit Guarantee: [`0xa5F55f3402beA2B14AE15Dae1b6811457D43581d`](https://hoodi.etherscan.io/address/0xa5F55f3402beA2B14AE15Dae1b6811457D43581d) (proxy)
+- Operator Grid: [`0x501e678182bB5dF3f733281521D3f3D1aDe69917`](https://hoodi.etherscan.io/address/0x501e678182bB5dF3f733281521D3f3D1aDe69917) (proxy)
 
-## Oracle Contracts
+### 🔨 stVaults Factory Stack
+
+- Staking Vault Factory: [`0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569`](https://hoodi.etherscan.io/address/0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569)
+- Staking Vault Beacon: [`0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`](https://hoodi.etherscan.io/address/0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e)
+- Staking Vault Implementation: [`0xE96BE4FB723e68e7b96244b7399C64a58bcD0062`](https://hoodi.etherscan.io/address/0xE96BE4FB723e68e7b96244b7399C64a58bcD0062)
+- Staking Vault Pinned Beacon Proxy: [`0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76`](https://hoodi.etherscan.io/address/0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76)
+- Dashboard Implementation: [`0x7D25D43D5a69ae0521440211C655C11840aF0FD6`](https://hoodi.etherscan.io/address/0x7D25D43D5a69ae0521440211C655C11840aF0FD6)
+- Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
+
+## 🔮 Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0xcb883B1bD0a41512b42D2dB267F2A2cd919FB216`](https://hoodi.etherscan.io/address/0xcb883B1bD0a41512b42D2dB267F2A2cd919FB216) (proxy)
-  - AccountingOracle: [`0x2341c9BE0E639f262f8170f9ef1efeCC92cCF617`](https://hoodi.etherscan.io/address/0x2341c9BE0E639f262f8170f9ef1efeCC92cCF617) (impl)
+  - AccountingOracle: [`0x6D799F4C92e8eE9CC0E33367Dd47990ed49a21AC`](https://hoodi.etherscan.io/address/0x6D799F4C92e8eE9CC0E33367Dd47990ed49a21AC) (impl)
   - HashConsensus: [`0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC`](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC)
 - Validators Exit Bus Oracle (Validator Exit Bus):
   - ValidatorsExitBusOracle: [`0x8664d394C2B3278F26A1B44B967aEf99707eeAB2`](https://hoodi.etherscan.io/address/0x8664d394C2B3278F26A1B44B967aEf99707eeAB2) (proxy)
   - ValidatorsExitBusOracle: [`0x7E6d9C9C44417bf2EaF69685981646e9752D623A`](https://hoodi.etherscan.io/address/0x7E6d9C9C44417bf2EaF69685981646e9752D623A) (impl)
   - HashConsensus: [`0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c`](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c)
-- OracleReportSanityChecker: [`0x26AED10459e1096d242ABf251Ff55f8DEaf52348`](https://hoodi.etherscan.io/address/0x26AED10459e1096d242ABf251Ff55f8DEaf52348)
+- OracleReportSanityChecker: [`0x53417BA942bC86492bAF46FAbA8769f246422388`](https://hoodi.etherscan.io/address/0x53417BA942bC86492bAF46FAbA8769f246422388)
 - OracleDaemonConfig: [`0x2a833402e3F46fFC1ecAb3598c599147a78731a9`](https://hoodi.etherscan.io/address/0x2a833402e3F46fFC1ecAb3598c599147a78731a9)
-- Legacy Oracle (Lido Oracle before V2, obsolete): [`0x5B70b650B7E14136eb141b5Bf46a52f962885752`](https://hoodi.etherscan.io/address/0x5B70b650B7E14136eb141b5Bf46a52f962885752) (proxy)
+- Lazy Oracle: [`0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`](https://hoodi.etherscan.io/address/0xf41491C79C30e8f4862d3F4A5b790171adB8e04A) (proxy)
 
-## DAO contracts
+## 🗳️ DAO & Aragon Apps
 
 - Lido DAO (Kernel): [`0xA48DF029Fd2e5FCECB3886c5c2F60e3625A1E87d`](https://hoodi.etherscan.io/address/0xA48DF029Fd2e5FCECB3886c5c2F60e3625A1E87d) (proxy)
 - LDO token: [`0xEf2573966D009CcEA0Fc74451dee2193564198dc`](https://hoodi.etherscan.io/address/0xEf2573966D009CcEA0Fc74451dee2193564198dc)
@@ -53,7 +82,6 @@ Hoodi is the main operational and maintained protocol testnet.
 - Finance Repo: [`0xa91aA04E0D6a06063d2E878309B60b723D75584d`](https://hoodi.etherscan.io/address/0xa91aA04E0D6a06063d2E878309B60b723D75584d) (proxy)
 - Agent Repo: [`0x7AA5670B2b4f6f0F7369F4F701C03ebFCe97d130`](https://hoodi.etherscan.io/address/0x7AA5670B2b4f6f0F7369F4F701C03ebFCe97d130) (proxy)
 - Lido App Repo: [`0xd3545AC0286A94970BacC41D3AF676b89606204F`](https://hoodi.etherscan.io/address/0xd3545AC0286A94970BacC41D3AF676b89606204F) (proxy)
-- Lido Oracle (Legacy Oracle) Repo: [`0x6E0997D68C1930a76413DE7da666D8A531eF1f9b`](https://hoodi.etherscan.io/address/0x6E0997D68C1930a76413DE7da666D8A531eF1f9b) (proxy)
 - Node Operators Registry Repo: [`0x52eff83071275341ef0A5A2cE48ee818Cef44c39`](https://hoodi.etherscan.io/address/0x52eff83071275341ef0A5A2cE48ee818Cef44c39) (proxy)
 - Simple DVT Repo: [`0x2b8B52A5e3485853aDccED669B1d0bbF31D40222`](https://hoodi.etherscan.io/address/0x2b8B52A5e3485853aDccED669B1d0bbF31D40222) (proxy)
 - Sandbox Repo: [`0x89D37eC788988e98BEceB32a8774394F1338B09C`](https://hoodi.etherscan.io/address/0x89D37eC788988e98BEceB32a8774394F1338B09C) (proxy)
@@ -65,8 +93,9 @@ Hoodi is the main operational and maintained protocol testnet.
 - Gate Seal Factory: [`0xA402349F560D45310D301E92B1AA4DeCABe147B3`](https://hoodi.etherscan.io/address/0xA402349F560D45310D301E92B1AA4DeCABe147B3)
 - GateSeal (VEB and TWG): [`0x368f2fcb593170823cc844F1B29e75E3d26879A1`](https://hoodi.etherscan.io/address/0x368f2fcb593170823cc844F1B29e75E3d26879A1)
 - GateSeal (Withdrawal Queue): [`0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D`](https://hoodi.etherscan.io/address/0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D)
+- GateSeal (Vaulthub and PredepositGuarantee): [`0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32`](https://hoodi.etherscan.io/address/0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32)
 
-### Dual Governance
+### 🧬 Dual Governance
 
 - Emergency Protected Timelock: [`0x0A5E22782C0Bd4AddF10D771f0bF0406B038282d`](https://hoodi.etherscan.io/address/0x0A5E22782C0Bd4AddF10D771f0bF0406B038282d)
   - Emergency activation committee: [`0xA678c29cbFde2C74aF15C7724EE4b1527A50D45B`](https://hoodi.etherscan.io/address/0xA678c29cbFde2C74aF15C7724EE4b1527A50D45B)
@@ -85,11 +114,11 @@ Hoodi is the main operational and maintained protocol testnet.
   - Developers Sub Committee 2: [`0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794`](https://hoodi.etherscan.io/address/0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794)
   - Developers Sub Committee 3: [`0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d`](https://hoodi.etherscan.io/address/0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d)
 
-## Data Bus
+## 📊 Data Bus
 
 - DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 
-## Staking modules
+## 🧩 Staking Modules
 
 ### Curated Module
 
@@ -136,7 +165,7 @@ Hoodi is the main operational and maintained protocol testnet.
 ==TODO==
 -->
 
-## Easy Track
+## ⚡ Easy Track
 
 - EasyTrack: [`0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a`](https://hoodi.etherscan.io/address/0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a)
 - EVMScriptExecutor: [`0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`](https://hoodi.etherscan.io/address/0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E)
@@ -160,7 +189,7 @@ Hoodi is the main operational and maintained protocol testnet.
   - ChangeNodeOperatorManagers: [`0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9`](https://hoodi.etherscan.io/address/0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9)
   - SDVTSubmitExitRequestHashes: [`0xAa3D6A8B52447F272c1E8FAaA06EA06658bd95E2`](https://hoodi.etherscan.io/address/0xAa3D6A8B52447F272c1E8FAaA06EA06658bd95E2)
 
-### Easy Track factories for token transfers
+### Easy Track Factories for Token Transfers
 
 - **Sandbox stETH** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AllowedRecipientsRegistry: [`0x7E33f2192c2cEC339493B9193110BC0510d6CBD2`](https://hoodi.etherscan.io/address/0x7E33f2192c2cEC339493B9193110BC0510d6CBD2)
@@ -179,18 +208,143 @@ Hoodi is the main operational and maintained protocol testnet.
   - BokkyPooBah's DateTime Library: [`0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f`](https://hoodi.etherscan.io/address/0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f)
   - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40db7e8047c487bd8359289272c717ea3c34d1d3)
 
-### Easy Track factories for MEV-Boost Relay Allowed List management
+### Easy Track Factories for MEV-Boost Relay Allowed List Management
+
 - **MEV-Boost Relay Allowed List** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AddMEVBoostRelays: [`0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af`](https://hoodi.etherscan.io/address/0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af)
   - RemoveMEVBoostRelays: [`0x7FCc2901C6C3D62784cB178B14d44445B038f736`](https://hoodi.etherscan.io/address/0x7FCc2901C6C3D62784cB178B14d44445B038f736)
   - EditMEVBoostRelay: [`0x27A99a7104190DdA297B222104A6C70A4Ca5A17e`](https://hoodi.etherscan.io/address/0x27A99a7104190DdA297B222104A6C70A4Ca5A17e)
 
-## Testnet Stablecoins
+### Easy Track Factories for stVaults Management
 
-  - USDC: [`0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36`](https://hoodi.etherscan.io/address/0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36)
-  - USDT: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.etherscan.io/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
-  - DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
+- **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
+  - Register Groups: [`0xfEF8B796Fea42b3C68E342364Adcf88F1d6145a6`](https://hoodi.etherscan.io/address/0xfEF8B796Fea42b3C68E342364Adcf88F1d6145a6)
+  - Update Groups Share Limit: [`0x56Ff87F41a8CF795764E15E496124240Ac17695b`](https://hoodi.etherscan.io/address/0x56Ff87F41a8CF795764E15E496124240Ac17695b)
+  - Register Tiers: [`0x4DF806111AC58e93d90E6D2fBE8522a76be6F499`](https://hoodi.etherscan.io/address/0x4DF806111AC58e93d90E6D2fBE8522a76be6F499)
+  - Alter Tiers: [`0xF21f98cac0Ba38f02b4d5be1667cc345929E8877`](https://hoodi.etherscan.io/address/0xF21f98cac0Ba38f02b4d5be1667cc345929E8877)
+  - Set Jail Status: [`0x4e5b0187479854e88A5b18c49047636707a26f0d`](https://hoodi.etherscan.io/address/0x4e5b0187479854e88A5b18c49047636707a26f0d)
+  - Update Vaults Fees: [`0x615D3f028D1CA549d350403Cd6043Cb515BE08BF`](https://hoodi.etherscan.io/address/0x615D3f028D1CA549d350403Cd6043Cb515BE08BF)
+- **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
+  - Force Validator Exits: [`0x83DfE5Fe8ac8b7DB38c020F4F54BF09b65D92c63`](https://hoodi.etherscan.io/address/0x83DfE5Fe8ac8b7DB38c020F4F54BF09b65D92c63)
+  - Socialize Bad Debt: [`0xa11906bBBBaC5207b8FDA4F7F294d7EcB8dcc758`](https://hoodi.etherscan.io/address/0xa11906bBBBaC5207b8FDA4F7F294d7EcB8dcc758)
+  - Set Liability Shares Target: [`0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40`](https://hoodi.etherscan.io/address/0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40)
+- VaultsAdapter: [`0xBC2bb8310730F3D2b514Cb26f7e0A8776De879Ac`](https://hoodi.etherscan.io/address/0xBC2bb8310730F3D2b514Cb26f7e0A8776De879Ac)
 
-## Testnet DAO Multisigs
+## 💵 Testnet Stablecoins
+
+- USDC: [`0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36`](https://hoodi.etherscan.io/address/0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36)
+- USDT: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.etherscan.io/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
+- DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
+- sUSDS: [`0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70`](https://hoodi.etherscan.io/address/0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70)
+
+## 🔐 Testnet DAO Multisigs
 
 - QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
+
+---
+
+:::caution
+🧪 Testnet use only
+stETH obtained on this network **has no real ETH backing** and **cannot** be bridged, swapped or redeemed on mainnet. Please do _not_ send mainnet tokens here – they will be lost forever.
+:::
+
+## 📚 Archived Deployments
+
+<details>
+<summary>Lido V3: Testnet-2 (archive)</summary>
+
+### 🏛️ Core Protocol (Archive)
+
+- Lido Locator: [`0xD7c1B80fA86965B48cCA3aDcCB08E1DAEa291980`](https://hoodi.etherscan.io/address/0xD7c1B80fA86965B48cCA3aDcCB08E1DAEa291980) (proxy)
+- Lido and stETH token: [`0x2C220A2a91602dd93bEAC7b3A1773cdADE369ba1`](https://hoodi.etherscan.io/address/0x2C220A2a91602dd93bEAC7b3A1773cdADE369ba1) (proxy)
+- wstETH token: [`0x05F2927c5c2825BC0dCDc14d258a99A36116bE8B`](https://hoodi.etherscan.io/address/0x05F2927c5c2825BC0dCDc14d258a99A36116bE8B)
+- EIP-712 helper for stETH: [`0xBa4F7888A7Cb803776cc2f64b269a7cC7447cD1f`](https://hoodi.etherscan.io/address/0xBa4F7888A7Cb803776cc2f64b269a7cC7447cD1f)
+- Staking Router: [`0x7DE7173aeB9CDc06E429910104BD1e61a965f567`](https://hoodi.etherscan.io/address/0x7DE7173aeB9CDc06E429910104BD1e61a965f567) (proxy)
+- Execution Layer Rewards Vault: [`0x99137683D4AAfaf76C84bD8F6e2Ae6A95DF90912`](https://hoodi.etherscan.io/address/0x99137683D4AAfaf76C84bD8F6e2Ae6A95DF90912)
+- Withdrawal Queue (ERC‑721): [`0x07F941C56f155fA4233f0ed8d351C9Af3152E525`](https://hoodi.etherscan.io/address/0x07F941C56f155fA4233f0ed8d351C9Af3152E525) (proxy)
+- Withdrawal Vault: [`0x9659aAa1458E2dba8713018Ffa36c64048345901`](https://hoodi.etherscan.io/address/0x9659aAa1458E2dba8713018Ffa36c64048345901) (proxy)
+- Burner: [`0xa0f32368d67870f4864A748c910C7Ca9B99e1027`](https://hoodi.etherscan.io/address/0xa0f32368d67870f4864A748c910C7Ca9B99e1027) (proxy)
+- Min First Allocation Strategy: [`0x4A08C1501a886861C17341317FF7885a5a1e5dB6`](https://hoodi.etherscan.io/address/0x4A08C1501a886861C17341317FF7885a5a1e5dB6)
+- Accounting: [`0x6adfFb27Dcc6b005988E4f9D408c877643D2d8A6`](https://hoodi.etherscan.io/address/0x6adfFb27Dcc6b005988E4f9D408c877643D2d8A6) (proxy)
+- Vault Hub: [`0x26b92f0fdfeBAf43E5Ea5b5974EeBee95F17Fe08`](https://hoodi.etherscan.io/address/0x26b92f0fdfeBAf43E5Ea5b5974EeBee95F17Fe08) (proxy)
+- Operator Grid: [`0x35dd33A473D492745eD5226Cf940b5b1ef4C111D`](https://hoodi.etherscan.io/address/0x35dd33A473D492745eD5226Cf940b5b1ef4C111D) (proxy)
+- Predeposit Guarantee: [`0xAcb99d36e19763C210A548019C6F238B67644417`](https://hoodi.etherscan.io/address/0xAcb99d36e19763C210A548019C6F238B67644417) (proxy)
+- Triggerable Withdrawals Gateway: [`0xb273790D9ddA79E586Da819581f919e29ef6f83C`](https://hoodi.etherscan.io/address/0xb273790D9ddA79E586Da819581f919e29ef6f83C)
+- Validator Exit Delay Verifier: [`0x1b007bC74aB26Db6413B46A04BAB88104050b142`](https://hoodi.etherscan.io/address/0x1b007bC74aB26Db6413B46A04BAB88104050b142)
+
+#### 🔨 stVaults Factory Stack (Archive)
+
+- Staking Vault Factory: [`0x74808E3Fe5B7714b580067Ab02032d19E0cD9f5f`](https://hoodi.etherscan.io/address/0x74808E3Fe5B7714b580067Ab02032d19E0cD9f5f)
+- Staking Vault Beacon: [`0x8de3b125221d07b44FCbd2CFD7354251858817B3`](https://hoodi.etherscan.io/address/0x8de3b125221d07b44FCbd2CFD7354251858817B3)
+- Staking Vault Implementation: [`0x5ff3782820Fc06cdF5a9ded897a778a6f0840b85`](https://hoodi.etherscan.io/address/0x5ff3782820Fc06cdF5a9ded897a778a6f0840b85)
+- Dashboard Implementation: [`0xcb3Bb848252F7ca05ED7753Ead0Eb2bdfD2ba878`](https://hoodi.etherscan.io/address/0xcb3Bb848252F7ca05ED7753Ead0Eb2bdfD2ba878)
+- Validator Consolidation Requests: [`0xD69239eFd4812E70238D9E3a80945C9138a241f6`](https://hoodi.etherscan.io/address/0xD69239eFd4812E70238D9E3a80945C9138a241f6)
+
+### 🔮 Oracle Contracts (Archive)
+
+- Accounting Oracle:
+  - AccountingOracle: [`0x43b319f67F9c48Ca76AA60d8693dc63E3B94698F`](https://hoodi.etherscan.io/address/0x43b319f67F9c48Ca76AA60d8693dc63E3B94698F) (proxy)
+  - Hash Consensus for Accounting Oracle: [`0x49C3eCB0F8C32a6F00be2848BE3Edb09Ef0646D9`](https://hoodi.etherscan.io/address/0x49C3eCB0F8C32a6F00be2848BE3Edb09Ef0646D9)
+- Validators Exit Bus Oracle:
+  - ValidatorsExitBusOracle: [`0xF1D059331C81C4ac9ACe81e3cE1a4961d59413f8`](https://hoodi.etherscan.io/address/0xF1D059331C81C4ac9ACe81e3cE1a4961d59413f8) (proxy)
+  - Hash Consensus for Validators Exit Bus Oracle: [`0xd7890f55266A795b59E9468Cd37a8524FBf44EFd`](https://hoodi.etherscan.io/address/0xd7890f55266A795b59E9468Cd37a8524FBf44EFd)
+- Oracle Report Sanity Checker: [`0x90F33A702E0DD5F050bA4910cCd3DC8b60C0901e`](https://hoodi.etherscan.io/address/0x90F33A702E0DD5F050bA4910cCd3DC8b60C0901e)
+- Oracle Daemon Config: [`0x2cB903dA5DB2Ad46E367F32499fB2781E0D2eD7D`](https://hoodi.etherscan.io/address/0x2cB903dA5DB2Ad46E367F32499fB2781E0D2eD7D)
+- Lazy Oracle: [`0xdF66Fb038CbB7587cC52A397CA88143657f3Ae4A`](https://hoodi.etherscan.io/address/0xdF66Fb038CbB7587cC52A397CA88143657f3Ae4A)
+
+### 🗳️ DAO & Aragon Apps (Archive)
+
+- Lido DAO (Kernel): [`0x207BAA2a636f094eCCBaA70FDE74D31723b7709c`](https://hoodi.etherscan.io/address/0x207BAA2a636f094eCCBaA70FDE74D31723b7709c) (proxy)
+- LDO token: [`0xbfd40Db0a3CB72cF936353CE4EA6cdbBeB65F1Db`](https://hoodi.etherscan.io/address/0xbfd40Db0a3CB72cF936353CE4EA6cdbBeB65F1Db)
+- Aragon Voting: [`0x3DF09262F937a92b9d7CC020e22709b6c6641d7d`](https://hoodi.etherscan.io/address/0x3DF09262F937a92b9d7CC020e22709b6c6641d7d) (proxy)
+- Aragon Token Manager: [`0xB769867675CD2e3c2ea7b29b5Bd282dC1C00Ad66`](https://hoodi.etherscan.io/address/0xB769867675CD2e3c2ea7b29b5Bd282dC1C00Ad66) (proxy)
+- Aragon Finance: [`0x86eAE4CBb13e5d7f8f4a3582F24F6133047672F2`](https://hoodi.etherscan.io/address/0x86eAE4CBb13e5d7f8f4a3582F24F6133047672F2) (proxy)
+- Aragon Agent: [`0xEB9712bf5DD2179EEacc45A62A69b156299084a7`](https://hoodi.etherscan.io/address/0xEB9712bf5DD2179EEacc45A62A69b156299084a7) (proxy)
+- Aragon ACL: [`0xF55a0c7Da6932eBd859Bd7AE896757959785340e`](https://hoodi.etherscan.io/address/0xF55a0c7Da6932eBd859Bd7AE896757959785340e) (proxy)
+- GateSeal Blueprint: [`0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7`](https://hoodi.etherscan.io/address/0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7)
+- GateSeal Factory: [`0xA402349F560D45310D301E92B1AA4DeCABe147B3`](https://hoodi.etherscan.io/address/0xA402349F560D45310D301E92B1AA4DeCABe147B3)
+- GateSeal (Withdrawal Queue and TWG): [`0x3FC140BB4E493f999219B3cf1153853a507a511d`](https://hoodi.etherscan.io/address/0x3FC140BB4E493f999219B3cf1153853a507a511d)
+- GateSeal (Vaulthub and PDG): [`0x58EaE128f46d2D5BF578fb4A21d0A4a3546D11d3`](https://hoodi.etherscan.io/address/0x58EaE128f46d2D5BF578fb4A21d0A4a3546D11d3)
+
+### 🧩 Staking Modules (Archive)
+
+#### Curated Module (Archive)
+
+- Node Operators Registry: [`0xa38DE5874E81561F29cfa4436111852CC34aC1e1`](https://hoodi.etherscan.io/address/0xa38DE5874E81561F29cfa4436111852CC34aC1e1) (proxy)
+
+#### Simple DVT Module (Archive)
+
+- Simple DVT: [`0x0718D0A48D9B3Fd6E03B10249655539DB4Bf63c4`](https://hoodi.etherscan.io/address/0x0718D0A48D9B3Fd6E03B10249655539DB4Bf63c4) (proxy)
+
+### ⚡ Easy Track (Archive)
+
+- EasyTrack: [`0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C`](https://hoodi.etherscan.io/address/0x2b2b29E8C0f0fA5D16057Ca0cdC9B4152d4B8C9C)
+- EVMScriptExecutor: [`0xbf91a57E194c2c7a758247eC12648Fc5651478db`](https://hoodi.etherscan.io/address/0xbf91a57E194c2c7a758247eC12648Fc5651478db)
+- Factories:
+  - DecreaseShareLimitsInVaultHub: [`0x96B4215538d1B838a6A452d6F50c02e7fA258f43`](https://hoodi.etherscan.io/address/0x96B4215538d1B838a6A452d6F50c02e7fA258f43)
+  - DecreaseVaultsFeesInVaultHub: [`0x806F27100347d735819f25B75Be3f0acBd6aEbAF`](https://hoodi.etherscan.io/address/0x806F27100347d735819f25B75Be3f0acBd6aEbAF)
+  - ForceValidatorExitsInVaultHub: [`0xd0E3b451495E63923e45fC95f5Dc2e16c55e4209`](https://hoodi.etherscan.io/address/0xd0E3b451495E63923e45fC95f5Dc2e16c55e4209)
+  - SocializeBadDebtInVaultHub: [`0x921A2D3efcE8b66b0CA9493a2C26AEf69aFC8f1E`](https://hoodi.etherscan.io/address/0x921A2D3efcE8b66b0CA9493a2C26AEf69aFC8f1E)
+  - SetVaultRedemptionsInVaultHub: [`0x8562BA0D14851cb2cB88d7E1497968e9001E7f94`](https://hoodi.etherscan.io/address/0x8562BA0D14851cb2cB88d7E1497968e9001E7f94)
+  - RegisterGroupsInOperatorGrid: [`0x89a7472DD79dDEb731Bc7B3Aad6ba42666616D22`](https://hoodi.etherscan.io/address/0x89a7472DD79dDEb731Bc7B3Aad6ba42666616D22)
+  - UpdateGroupsShareLimitInOperatorGrid: [`0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab`](https://hoodi.etherscan.io/address/0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab)
+  - RegisterTiersInOperatorGrid: [`0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854`](https://hoodi.etherscan.io/address/0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854)
+  - AlterTiersInOperatorGrid:[`0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4`](https://hoodi.etherscan.io/address/0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4)
+- Adapters:
+  - VaultHubAdapter: [`0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4`](https://hoodi.etherscan.io/address/0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4)
+
+#### ⛏️ Special accounts and addresses
+
+<details>
+<summary>Show/hide</summary>
+
+| Contract                           | Address                                                                                                                       |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Deposit Security Module (EOA stub) | [`0xfF772cd178D04F0B4b1EFB730c5F2B9683B31611`](https://hoodi.etherscan.io/address/0xfF772cd178D04F0B4b1EFB730c5F2B9683B31611) |
+| Deployer (EOA)                     | [`0x26EDb7f0f223A25EE390aCCccb577F3a31edDfC5`](https://hoodi.etherscan.io/address/0x26EDb7f0f223A25EE390aCCccb577F3a31edDfC5) |
+
+</details>
+
+---
+
+</details>
