@@ -8,7 +8,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v3.0.0-rc.3`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.3) (Lido V3 with stVaults)
+- ⚓ Lido protocol version: [**`v3.0.0-rc.5`**](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.5) (Lido V3 with stVaults)
 - 🌐 Network: Hoodi testnet
 - ✅ Status: Active and maintained
 
@@ -23,7 +23,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ## 🏛️ Core Protocol
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x778Dc3a94B24D0Cd66E36d3ED8d47cAa622688F6`](https://hoodi.etherscan.io/address/0x778Dc3a94B24D0Cd66E36d3ED8d47cAa622688F6) (impl)
+- Lido Locator: [`0x751a4aa1a29bc0c0e587aa04c3eabf0797f9b1a4`](https://hoodi.etherscan.io/address/0x751a4aa1a29bc0c0e587aa04c3eabf0797f9b1a4) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
 - wstETH referral staker: [`0xf886BcC68b240316103fE8A12453Ce7831c2e835`](https://hoodi.etherscan.io/address/0xf886BcC68b240316103fE8A12453Ce7831c2e835)
@@ -47,11 +47,11 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 ### 🔨 stVaults Factory Stack
 
-- Staking Vault Factory: [`0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569`](https://hoodi.etherscan.io/address/0x1d10DB6a66EF8D2A6f6D36Ad4dc7092Ef7C12569)
+- Staking Vault Factory: [`0x7Ba269a03eeD86f2f54CB04CA3b4b7626636Df4E`](https://hoodi.etherscan.io/address/0x7Ba269a03eeD86f2f54CB04CA3b4b7626636Df4E)
 - Staking Vault Beacon: [`0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`](https://hoodi.etherscan.io/address/0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e)
 - Staking Vault Implementation: [`0xE96BE4FB723e68e7b96244b7399C64a58bcD0062`](https://hoodi.etherscan.io/address/0xE96BE4FB723e68e7b96244b7399C64a58bcD0062)
 - Staking Vault Pinned Beacon Proxy: [`0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76`](https://hoodi.etherscan.io/address/0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76)
-- Dashboard Implementation: [`0x7D25D43D5a69ae0521440211C655C11840aF0FD6`](https://hoodi.etherscan.io/address/0x7D25D43D5a69ae0521440211C655C11840aF0FD6)
+- Dashboard Implementation: [`0x38131D5548Be57A34937521fe427a23f49e1e2d4`](https://hoodi.etherscan.io/address/0x38131D5548Be57A34937521fe427a23f49e1e2d4)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
 ## 🔮 Oracle Contracts
@@ -117,6 +117,10 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ## 📊 Data Bus
 
 - DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+
+## 🔄 Post Token Rebase Receiver
+
+- Token Rate Notifier: [`0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D`](https://hoodi.etherscan.io/address/0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D)
 
 ## 🧩 Staking Modules
 
