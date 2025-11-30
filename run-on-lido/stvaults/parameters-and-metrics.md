@@ -62,7 +62,9 @@ Also, can be limited by:
 - stVault personal stETH minting limit;
 - Tier remaining capacity;
 - Node operator remaining capacity;
-- Total stVaults remaining capacity.
+- Total stVaults remaining capacity;
+- Lido Core staking rate limits [learn more](https://docs.lido.fi/guides/lido-tokens-integration-guide/#staking-rate-limits).
+
 
 ### stETH Liability
 The amount of stETH that the vault owner minted in the vault backed by the ETH collateral. Increases daily due to daily stETH rebase.
@@ -72,6 +74,13 @@ The amount of stETH remaining mintable in the vault, based on the current Total 
 
 ### Utilization ratio
 The share of the stETH minting capacity currently utilized by the vault owner.
+
+### Health Factor
+The Health Factor demonstrates the economic state of the stVault. It shows how the stETH Liability is backed by the Total Value.
+
+ $$
+    Health Factor = \frac{Total Value * (1 - Forced Rebalance Threshold)}{stETH Liability}
+ $$
 
 ### Locked by fees obligations (unsettled fees)
 The amount of ETH locked in the vault due to the undisbursed Node Operator fee and unsettled Lido fees.
@@ -154,7 +163,7 @@ Amount of stETH that is recommended to repay to the vault to compensate ETH defi
 ### ETH to rebalance
 Amount of ETH on the vault balance that is recommended to rebalance to compensate ETH deficit and return the stETH minting utilization ratio back to 100%.
 
-Rebalance is a mechanism that sends available ETH from the stault balance to Lido Core, receiving stETH with a ratio of 1:1, and repaying received stETH back to stVault so that stETH minting utilization ratio is back to 100%.
+Rebalance is a mechanism that sends available ETH from the stVault balance to Lido Core, receiving stETH with a ratio of 1:1, and repaying received stETH back to stVault so that stETH minting utilization ratio is back to 100%.
 
 The amount of ETH for rebalancing to make Utilization Ratio 100% is pre-calculated by the system or can be calculated by the formula:
 

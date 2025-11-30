@@ -32,5 +32,5 @@ In the case that a Node Operator cannot, for any reason, exit a validator (e.g. 
 
 #### Helpful links
 
-* Lido on Ethereum Validator Exits SNOP 2.0 ([IPFS](https://lido.mypinata.cloud/ipfs/QmZTMfmJZsYHz61f2FjhYdh5VNu6ifjYQJzYUGkysHs8Uu), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/0ed664255f48ef224b96fb0325f4d27bd3c03773/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md), [HackMD](https://hackmd.io/@lido/Bk9oDtV7ye))
+* Lido on Ethereum Validator Exits SNOP 3.0 ([IPFS](https://ipfs.io/ipfs/QmW9kE61zC61PcuikCQRwn82aoTCj9yPuENGNPML9QLkSM), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md))
 * [Withdrawals: on Validator Exiting Order](https://research.lido.fi/t/withdrawals-on-validator-exiting-order/3048/1)

@@ -33,11 +33,11 @@ stVaults consist of the following components:
 ### Web UI
 
 :::info
-The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](https://docs.lido.fi/deployed-contracts/hoodi-lidov3/deployed-contracts/hoodi-lidov3/).
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](https://docs.lido.fi/deployed-contracts/hoodi/).
 For advanced or low-level features that haven’t yet been exposed in the interface, use the [CLI](#command-line-interface).
 :::
 
-**URL**: Testnet on Hoodi: https://vaults-hoodi-lidov3.testnet.fi
+**URL**: Testnet on Hoodi: https://stvaults-hoodi.testnet.fi/
 
 **Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
 
@@ -122,7 +122,7 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
 2. Predeposit guarantee contract enables three main use cases:
    1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](./pdg#full-cycle-trustless-path-through-pdg)).
-   2. PDG shortcut that allows to skip the predepositing steps and deposit directly to validator without using of PDG, later on associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg#pdg-shortcut)).
+   2. PDG shortcut that allows to skip the predepositing steps and deposit to validator up to 2048 ETH in one trancation, later on optional associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg#pdg-shortcut)).
    3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
 
 ### Off-chain monitoring tools
