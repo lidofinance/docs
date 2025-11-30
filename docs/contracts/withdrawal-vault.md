@@ -6,17 +6,14 @@
 
 ## What is WithdrawalVault
 
-A simple contract that accumulates partial and full withdrawals that come from
-the Beacon Chain. Its address corresponds to the type-0x01 Lido withdrawal credentials.
+A simple contract that accumulates partial and full withdrawals that come from the Beacon Chain. Its address corresponds to the type-0x01 Lido withdrawal credentials.
 During the accounting oracle report, the vault is emptied by Lido into the internal buffer; see [Lido contract docs](lido.md#oracle-report) for details.
 
-The vault is recoverable, so any ERC-20 and ERC-721 tokens can be transferred to the treasury by the DAO.
+The vault is recoverable, so the DAO can transfer any ERC-20 and ERC-721 tokens to the treasury.
+
+WithdrawalVault supports [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) - execution-layer triggered partial and full withdrawals.
 
 The currently deployed version is upgradable because of anticipated Ethereum withdrawal mechanics changes.
-
-:::note
-The contract is meant to be ossified somewhere after withdrawal credentials triggerable exits are implemented.
-:::
 
 ## View methods
 

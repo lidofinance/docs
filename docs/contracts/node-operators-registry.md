@@ -8,7 +8,7 @@ Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperator
 
 `NodeOperatorsRegistry` keeps track of various Node Operators data, in particular limits of the allowed stake, reward addresses, penalty information, public keys of the Node Operators' validators. It defines order in which the Node Operators get the ether deposited and reward distribution between the node operators.
 
-A curated node operator is obliged by the Lido DAO to exit its validators in a timely manner if requested by the Lido protocol. The exit request is formed on-chain by the [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) contract. If a NO doesn't fulfill the request in time, it might be penalized. The penalized status is assigned automatically by the Lido protocol. A penalized NO does not receive new ether for deposits and receives only half of its rewards until the penalty is cleared. The other half of the NO’s rewards is distributed among all stETH holders (technically, it is burned). To get the penalty cleared, the NO must exit the stuck validators or refund the corresponding ether amount and then wait `getStuckPenaltyDelay()` seconds.
+The Lido DAO obliges a curated node operator to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by the [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) contract. If a NO doesn't fulfil the request timely, it will be reported onchain and sanctions may be applied by the DAO.
 
 The Lido DAO can also:
 

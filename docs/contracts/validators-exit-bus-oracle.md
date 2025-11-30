@@ -14,7 +14,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 A contract that implements an on-chain "source of truth" message bus between the protocol's off-chain oracle and off-chain observers,
 with the main goal of delivering validator exit requests to the Lido-participating node operators.
 
-The oracle report determines which validators should be requested to exit to satisfy withdrawal demand, following the policy and prioritization rules described in the Validator Exit Bus guide. For the step-by-step algorithm, see Guides → Oracle spec → Validators Exit Bus.
+The oracle report determines which validators should be requested to exit to satisfy withdrawal queue demand, following the policy and prioritization rules described in the [Validator Exits and Penalties](/guides/oracle-spec/penalties) page.
 
 :::note
 Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified Lido on Ethereum Validator Exits SNOP 3.0 ([IPFS](https://ipfs.io/ipfs/QmW9kE61zC61PcuikCQRwn82aoTCj9yPuENGNPML9QLkSM), [GitHub](https://github.com/lidofinance/documents-and-policies/pull/5/files#diff-92dd6a3081d1573080e06b65edafd41e5521fc50c95ef94ad8db023d3372343a)).
