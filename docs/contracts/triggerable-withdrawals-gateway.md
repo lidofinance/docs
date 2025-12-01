@@ -100,3 +100,20 @@ struct ValidatorExitData {
 | `refundRecipient` | `address`             | The address that will receive any excess ETH sent for fees.                                                              |
 | `exitType`        | `uint256`             | A parameter indicating the type of exit, passed to the Staking Module.                                                   |
 
+## Permissions
+
+### ADD_FULL_WITHDRAWAL_REQUEST_ROLE()
+
+An ACL role granting the permission to add withdrawal requests.
+
+```solidity
+bytes32 public constant RESUME_ROLE = keccak256("ADD_FULL_WITHDRAWAL_REQUEST_ROLE");
+```
+
+### TW_EXIT_LIMIT_MANAGER_ROLE()
+
+An ACL role granting the permission to change trigger request limits.
+
+```solidity
+bytes32 public constant TW_EXIT_LIMIT_MANAGER_ROLE = keccak256("TW_EXIT_LIMIT_MANAGER_ROLE");
+```
