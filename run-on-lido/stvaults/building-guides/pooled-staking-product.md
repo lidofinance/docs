@@ -56,7 +56,8 @@ DeFi Wrapper supports three product archetypes:
 ### Testnet
 
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- DeFi Wrapper Factory (Testnet-4): https://hoodi.etherscan.io/address/0x1436290a4d0aea78164e1e6762fcee3f8f27cf38#code 
+- DeFi Wrapper Factory (Testnet-3): https://hoodi.etherscan.io/address/0x3405ef99395db3e8a9a0ab720429a8d68650a96f
+  - NB: Testnet-4 is not supported by the CLI yet
 - Latest development branch: https://github.com/lidofinance/vaults-wrapper/tree/develop
 - Etherscan: https://hoodi.etherscan.io/
 
@@ -70,14 +71,61 @@ DeFi Wrapper supports three product archetypes:
 
 ## Steps
 
-### 1. Create a product
+### 1. Create a tokenized staking vault (pool)
 
-1.
-2.
-3.
+The easiest way to create a pool over staking vault is to use [CLI](https://lidofinance.github.io/lido-staking-vault-cli).
+This is a command line tool intended both for staking vault and pool (wrapper) management. It supports creation of a pool with its underlying staking vault via dedicated [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+The deployment happens in two transactions (to fit Fusaka 16m tx gas limit) which the CLI does in its single command run.
+
+To start:
+- setup CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md)
+- prepare a valid CLI configuration - see [this tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
+
+:::info
+
+  The deployer must have at least `1 ETH` on their balance - this is `CONNECT_DEPOSIT` required to be locked
+  on the vault upon connection to Lido `VaultHub`. The newly created staking vault is automatically connected to
+  Lido `VaultHub` and placed into the default tier. Placement to none-default tiers right upon deployment is not supported.
+
+::::
+
+To list commands for creation of available pool types, run
+```shell
+yarn start defi-wrapper contracts factory write -h
+```
+
+#### Deployment of a pool with GGV strategy
+
+Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the description of the required GGV pool parameters.
+
+Start the deployment like:
+
+```shell
+yarn start defi-wrapper contracts factory w create-pool-ggv 0x3405ef99395db3e8a9a0ab720429a8d68650a96f \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug GGV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --reserveRatioGapBP 250
+```
+
+:::info
+
+  Comming soon:
+  - CLI update for the Hoodi testnet-4+ (with configurable emergency committee).
+  - support of config like https://github.com/lidofinance/vaults-wrapper/blob/develop/config/hoodi-stv-ggv.json
+
+::::
 
 ### 2. Create Web UI
 
+TODO
 
 ### Adjust stETH minting parameters
 
