@@ -131,20 +131,15 @@ TODO
 
 By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed identification and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
-When using vault creation method #1 ("Two-step process"), the Node Operator and Vault Owner can set up the stVault with the desired stETH minting parameters from the start. Otherwise, the tier can be changed afterwards.
+Tier changes are performed via a multi-role confirmation mechanism, where the Node Operator and Vault Owner act as contracting parties. One party proposes the change, and the other party accepts it. Technically, both requests are made through the same method: `changeTier(tierId, requestedShareLimit)`. Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-Tier changes are performed via a multi-role confirmation mechanism, where the Node Operator and Vault Owner act as contracting parties. One party proposes the change, and the other party accepts it. Technically, both requests are made through the same method: `changeTier(tierId, requestedShareLimit)`.
-
-Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
-
-Addresses perform this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
-
-- From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE].
-- From the Node Operator: Node Operator (registered in the`OperatorGrid` contract).
+In case of the vault deployed as part of a pool deployment Vault Owner role is assigned to the Timelock contract. The timelock contract as well implements a two-step process of performing an onchain action. At first, the holder of its proposer role creates a proposed on-chain action, at second, after a time period the holder of the executor role executes it.
 
 :::info
 Confirming tier change request requires applying fresh report to vault.
 :::
+
+TODO: CLI and UI?
 
 **Parameters and addresses needed for this step (for CLI and Smart contracts):**
 
