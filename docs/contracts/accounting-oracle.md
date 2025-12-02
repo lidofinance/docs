@@ -10,8 +10,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 
 ## What is AccountingOracle
 
-AccountingOracle is a contract which collects information submitted by the off-chain oracles about state of the Lido-participating validators and their balances, the
-amount of funds accumulated on the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults), the number [exited and stuck](/contracts/staking-router#exited-and-stuck-validators) validators, the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process and distributes node-operator rewards.
+AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
 
 ## Report cycle
 
@@ -19,15 +18,15 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](/contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+Note: the frame length [can be changed](/contracts/hash-consensus#setframeconfig). If an oracle report is delayed, it does not extend the reporting period unless the report is missed; in that case, the next report will cover a longer period.
 
 The frame includes these stages:
 
-- **Waiting:** oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate with it with the expected reference slot;
+- **Waiting:** the oracle runs as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) to find the last finalized slot, trying to align it with the expected reference slot;
 - **Data collection:** oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
 - **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the [`HashConsensus`](/contracts/hash-consensus) smart contract;
-- **Core update report:** once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract, which triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to go in the bunker mode, and
-- **Extra data report:** an additional report carrying additional information that is not vital for the core update is submitted to the AccountingOracle, can be submitted in chunks (e.g, node operator key states and reward distribution data).
+- **Core update report:** once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract. This triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to enter bunker mode.
+- **Extra data report:** an additional report carrying information that is not vital for the core update is submitted to AccountingOracle; it can be submitted in chunks (e.g., node operator key states and reward distribution data).
 
 :::note
 As it was said, daily oracle reports shouldn't be taken for granted.
@@ -150,16 +149,16 @@ where `itemSortingKey` calculation depends on the item's type (see below).
 
 ---------------------------------------------------------------------------------------
 
-**`itemType=0`** (`EXTRA_DATA_TYPE_STUCK_VALIDATORS`): stuck validators by node operators.
+**`itemType=1`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
 
 The `itemPayload` field has the following format:
 
     | 3 bytes  |   8 bytes    |  nodeOpsCount * 8 bytes  |  nodeOpsCount * 16 bytes  |
-    | moduleId | nodeOpsCount |      nodeOperatorIds     |   stuckValidatorsCounts   |
+    | moduleId | nodeOpsCount |      nodeOperatorIds     |   exitedValidatorsCounts   |
 
 `moduleId` is the staking module for which exited keys counts are being reported.
 
-`nodeOperatorIds` contains an array of ids of node operators that have total stuck
+`nodeOperatorIds` contains an array of ids of node operators that have total exited
     validators counts changed compared to the staking module smart contract storage as
     observed at the reference slot. Each id is a 8-byte uint, ids are packed tightly.
 
@@ -168,15 +167,15 @@ The `itemPayload` field has the following format:
 
     nodeOpsCount = byteLength(nodeOperatorIds) / 8
 
-`stuckValidatorsCounts` contains an array of stuck validators total counts, as observed at
+`exitedValidatorsCounts` contains an array of exited validators total counts, as observed at
     the reference slot, for the node operators from the nodeOperatorIds array, in the same
     order. Each count is a 16-byte uint, counts are packed tightly. Thus,
 
-    byteLength(stuckValidatorsCounts) = nodeOpsCount * 16
+    byteLength(exitedValidatorsCounts) = nodeOpsCount * 16
 
 `nodeOpsCount` must not be greater than `maxItemsPerExtraDataTransaction` specified
     in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
-    with total stuck validators counts changed compared to the staking module smart contract
+    with total exited validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
     into multiple items.
 
@@ -187,15 +186,7 @@ Item sorting key is a compound key consisting of the module id and the first rep
 
 ---------------------------------------------------------------------------------------
 
-**`itemType=1`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
-
-The payload format is exactly the same as for `itemType=EXTRA_DATA_TYPE_STUCK_VALIDATORS`,
-    except that, instead of stuck validators counts, exited validators counts are reported.
-    The `itemSortingKey` is calculated identically.
-
----------------------------------------------------------------------------------------
-
-The oracle daemon must report exited/stuck validators counts ONLY for those
+The oracle daemon must report exited validators counts ONLY for those
     `(moduleId, nodeOperatorId)` pairs that contain outdated counts in the staking
     module smart contract as observed at the reference slot.
 
@@ -220,7 +211,7 @@ contract and a bunch of [granular roles](#permissions).
 Returns an address of the [Lido](/contracts/lido) contract
 
 ```solidity
-address public immutable LIDO
+address public immutable LIDO;
 ```
 
 ### LOCATOR()
@@ -228,7 +219,7 @@ address public immutable LIDO
 Returns an address of the [LidoLocator](/contracts/lido-locator) contract
 
 ```solidity
-ILidoLocator public immutable LOCATOR
+ILidoLocator public immutable LOCATOR;
 ```
 
 ### LEGACY_ORACLE()
@@ -236,7 +227,7 @@ ILidoLocator public immutable LOCATOR
 Returns an address of the [LegacyOracle](/contracts/legacy-oracle) contract
 
 ```solidity
-address public immutable LEGACY_ORACLE
+address public immutable LEGACY_ORACLE;
 ```
 
 ### SECONDS_PER_SLOT()
@@ -248,7 +239,7 @@ always returns 12 seconds due to [the Merge](https://ethereum.org/en/roadmap/mer
 :::
 
 ```solidity
-uint256 public immutable SECONDS_PER_SLOT
+uint256 public immutable SECONDS_PER_SLOT;
 ```
 
 ### GENESIS_TIME()
@@ -260,23 +251,15 @@ always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https:
 :::
 
 ```solidity
-uint256 public immutable GENESIS_TIME
-```
-
-### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
-
-This type carries the details of [stuck](/contracts/staking-router#exited-and-stuck-validators) validator(s).
-
-```solidity
-uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1
+uint256 public immutable GENESIS_TIME;
 ```
 
 ### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
 
-This type contains the details of [exited](/contracts/staking-router#exited-and-stuck-validators) validator(s).
+This type contains the details of [exited](/contracts/staking-router#exited-validators) validator(s).
 
 ```solidity
-uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2
+uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2;
 ```
 
 ### EXTRA_DATA_FORMAT_EMPTY()
@@ -285,10 +268,10 @@ The extra data format used to signify that the oracle report contains no [extra 
 
 Sends as a part of the Oracle's [Phase 3](/guides/oracle-operator-manual#phase-3-submitting-a-report-extra-data).
 
-This format uses when there are no new [stuck](/contracts/staking-router#exited-and-stuck-validators) or [exited](/contracts/staking-router#exited-and-stuck-validators) validators on report period.
+This format uses when there are no new [exited](/contracts/staking-router#exited-validators) validators on report period.
 
 ```solidity
-uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0
+uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0;
 ```
 
 ### EXTRA_DATA_FORMAT_LIST()
@@ -303,7 +286,7 @@ Hash is a `keccak256` hash calculated over the bytearray items. The Solidity equ
 the hash calculation code would be `keccak256(array)`, where `array` has the `bytes` type.
 
 ```solidity
-uint256 public constant EXTRA_DATA_FORMAT_LIST = 1
+uint256 public constant EXTRA_DATA_FORMAT_LIST = 1;
 ```
 
 ## ProcessingState
@@ -338,7 +321,7 @@ struct ProcessingState {
 Returns the address of the [HashConsensus](/contracts/hash-consensus) contract instance used by `AccountingOracle`.
 
 ```solidity
-function getConsensusContract() external view returns (address)
+function getConsensusContract() external view returns (address);
 ```
 
 ### getConsensusReport()
@@ -351,7 +334,7 @@ function getConsensusReport() external view returns (
     uint256 refSlot,
     uint256 processingDeadlineTime,
     bool processingStarted
-)
+);
 ```
 
 #### Returns
@@ -373,7 +356,7 @@ Consensus version must change every time consensus rules change, meaning that
 :::
 
 ```solidity
-function getConsensusVersion() external view returns (uint256)
+function getConsensusVersion() external view returns (uint256);
 ```
 
 ### getContractVersion()
@@ -381,7 +364,7 @@ function getConsensusVersion() external view returns (uint256)
 Returns the current contract version.
 
 ```solidity
-function getContractVersion() public view returns (uint256)
+function getContractVersion() public view returns (uint256);
 ```
 
 ### getLastProcessingRefSlot()
@@ -389,7 +372,7 @@ function getContractVersion() public view returns (uint256)
 Returns the last reference slot for which processing of the report was started.
 
 ```solidity
-function getLastProcessingRefSlot() external view returns (uint256)
+function getLastProcessingRefSlot() external view returns (uint256);
 ```
 
 ### getProcessingState()
@@ -397,7 +380,7 @@ function getLastProcessingRefSlot() external view returns (uint256)
 Returns data processing state for the current reporting frame. See the docs for the [ProcessingState](#processingstate) struct.
 
 ```solidity
-function getProcessingState() external view returns (ProcessingState memory result)
+function getProcessingState() external view returns (ProcessingState memory result);
 ```
 
 ## Methods
@@ -407,7 +390,7 @@ function getProcessingState() external view returns (ProcessingState memory resu
 Submits report data for processing.
 
 ```solidity
-function submitReportData(ReportData calldata data, uint256 contractVersion)
+function submitReportData(ReportData calldata data, uint256 contractVersion);
 ```
 
 #### Parameters
@@ -426,7 +409,7 @@ For more information about reverts, see a separate section [here](#reverts-3)
 Triggers the processing required when no extra data is present in the report, i.e. when extra data format equals EXTRA_DATA_FORMAT_EMPTY.
 
 ```solidity
-function submitReportExtraDataEmpty()
+function submitReportExtraDataEmpty();
 ```
 
 #### Reverts

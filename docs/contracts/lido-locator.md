@@ -28,7 +28,7 @@ function accountingOracle() view returns(address);
 Returns an address of the [DepositSecurityModule contract](/contracts/deposit-security-module.md)
 
 ```sol
-function depositSecurityModule() view returns(address)
+function depositSecurityModule() view returns(address);
 ```
 
 ### elRewardsVault()
@@ -36,7 +36,7 @@ function depositSecurityModule() view returns(address)
 Returns an address of the [LidoExecutionLayerRewardsVault contract](/contracts/lido-execution-layer-rewards-vault.md)
 
 ```sol
-function elRewardsVault() view returns(address)
+function elRewardsVault() view returns(address);
 ```
 
 ### legacyOracle()
@@ -44,7 +44,7 @@ function elRewardsVault() view returns(address)
 Returns an address of the [LegacyOracle contract](/contracts/legacy-oracle.md)
 
 ```sol
-function legacyOracle() external view returns(address)
+function legacyOracle() external view returns(address);
 ```
 
 ### lido()
@@ -52,7 +52,7 @@ function legacyOracle() external view returns(address)
 Returns an address of the [Lido contract](/contracts/lido.md)
 
 ```sol
-function lido() external view returns(address)
+function lido() external view returns(address);
 ```
 
 ### oracleReportSanityChecker()
@@ -60,7 +60,7 @@ function lido() external view returns(address)
 Returns an address of the [OracleReportSanityChecker contract](/contracts/oracle-report-sanity-checker.md)
 
 ```sol
-function oracleReportSanityChecker() view returns(address)
+function oracleReportSanityChecker() view returns(address);
 ```
 
 ### burner()
@@ -68,7 +68,7 @@ function oracleReportSanityChecker() view returns(address)
 Returns an address of the [Burner contract](/contracts/burner.md)
 
 ```sol
-function burner() view returns(address)
+function burner() view returns(address);
 ```
 
 ### stakingRouter()
@@ -76,7 +76,7 @@ function burner() view returns(address)
 Returns an address of the [StakingRouter contract](/contracts/staking-router.md)
 
 ```sol
-function stakingRouter() view returns(address)
+function stakingRouter() view returns(address);
 ```
 
 ### treasury()
@@ -84,7 +84,7 @@ function stakingRouter() view returns(address)
 Returns an address of the treasury
 
 ```sol
-function treasury() view returns(address)
+function treasury() view returns(address);
 ```
 
 ### validatorsExitBusOracle()
@@ -92,7 +92,7 @@ function treasury() view returns(address)
 Returns an address of the [ValidatorsExitBusOracle contract](/contracts/validators-exit-bus-oracle.md)
 
 ```sol
-function validatorsExitBusOracle() external view returns(address)
+function validatorsExitBusOracle() external view returns(address);
 ```
 
 ### withdrawalQueue()
@@ -100,7 +100,7 @@ function validatorsExitBusOracle() external view returns(address)
 Returns an address of the [WithdrawalQueueERC721 contract](/contracts/withdrawal-queue-erc721.md)
 
 ```sol
-function withdrawalQueue() view returns(address)
+function withdrawalQueue() view returns(address);
 ```
 
 ### withdrawalVault()
@@ -108,7 +108,7 @@ function withdrawalQueue() view returns(address)
 Returns an address of the [WithdrawalVault contract](/contracts/withdrawal-vault.md)
 
 ```sol
-function withdrawalVault() view returns(address)
+function withdrawalVault() view returns(address);
 ```
 
 ### postTokenRebaseReceiver()
@@ -125,7 +125,23 @@ function postTokenRebaseReceiver() view returns(address);
 Returns an address of the [OracleDaemonConfig contract](/contracts/oracle-daemon-config.md)
 
 ```sol
-function oracleDaemonConfig() view returns(address)
+function oracleDaemonConfig() view returns(address);
+```
+
+### triggerableWithdrawalsGateway()
+
+Returns an address of the [TriggerableWithdrawalsGateway contract](/contracts/triggerable-withdrawals-gateway.md)
+
+```sol
+function triggerableWithdrawalsGateway() view returns(address);
+```
+
+### validatorExitDelayVerifier()
+
+Returns an address of the [ValidatorExitDelayVerifier contract](/contracts/validator-exit-delay-verifier.md)
+
+```sol
+function validatorExitDelayVerifier() view returns(address);
 ```
 
 ### coreComponents()
@@ -142,7 +158,7 @@ function coreComponents() view returns(
     address treasury,
     address withdrawalQueue,
     address withdrawalVault
-)
+);
 ```
 
 ### oracleReportComponentsForLido()
@@ -161,5 +177,5 @@ function oracleReportComponentsForLido() view returns(
     address withdrawalQueue,
     address withdrawalVault,
     address postTokenRebaseReceiver
-)
+);
 ```
