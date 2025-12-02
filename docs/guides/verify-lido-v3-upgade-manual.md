@@ -67,7 +67,7 @@ TODO:
 
 # Verify Lido V3 upgrade (mainnet)
 
-This manual describes how to verify the [Lido V2 → V3 version line upgrade vote](https://research.lido.fi/TBD), including contract deployments, governance actions, and post-upgrade state on Ethereum mainnet. Each requirement is backed by the artifacts stored in this repository so that LDO tokenholders can reproduce the checks independently.
+This manual describes how to verify the [Lido V2 → V3 version line upgrade vote](https://research.lido.fi/TBD), including contract deployments, governance actions, and post-upgrade state on Ethereum mainnet. Each requirement is backed by the artifacts stored in this repository so that community members, security expers, and LDO tokenholders can reproduce the checks independently.
 
 ## 1) Scope and assumptions
 
@@ -83,51 +83,76 @@ This manual describes how to verify the [Lido V2 → V3 version line upgrade vot
   - `V3VoteScript` [`TBD`](https://etherscan.io/address/TBD) orchestrates the dual-governance vote (time constraints, Aragon ACL edits, proxy upgrades, role migrations, oracle config changes).
   - `V3TemporaryAdmin` [`TBD`](https://etherscan.io/address/TBD) handled intermediate admin tasks before transferring control to the Agent (`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`).
 - Canonical reference files:
-  - [`contracts/upgrade/V3Addresses`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/contracts/upgrade/V3Addresses.sol) for the immutable address book referenced throughout the template and vote script.
-  - [`deployed-mainnet.json`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/deployed-mainnet.json) for the deployed proxies/implementations snapshot.
-  - [`state-mate/configs/lidov3/mainnet/`](https://github.com/lidofinance/state-mate/tree/main/configs/lidov3/mainnet)
-  - [`diffyscan/config_samples/ethereum/mainnet/vaults`](https://github.com/lidofinance/diffyscan/tree/v3-mainnet-test-deploy-episode-2/config_samples/ethereum/mainnet/vaults) for bytecode/constructor verification across all new contracts.
-  - [`scripts/upgrade/upgrade-params-mainnet.toml`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/scripts/upgrade/upgrade-params-mainnet.toml) for operational parameters (GateSeal metadata, LazyOracle/VaultHub limits, TimeConstraints window, etc.).
+  - `core` contracts
+    - [`contracts/upgrade/V3Addresses`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/contracts/upgrade/V3Addresses.sol) for the immutable address book referenced throughout the template and vote script.
+    - [`deployed-mainnet.json`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/deployed-mainnet.json) for the deployed proxies/implementations snapshot.
+    - [`scripts/upgrade/upgrade-params-mainnet.toml`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/scripts/upgrade/upgrade-params-mainnet.toml) for operational parameters (GateSeal metadata, LazyOracle/VaultHub limits, TimeConstraints window, etc.).
+  - `state-mate`
+    - [`state-mate/configs/lidov3/mainnet/`](https://github.com/lidofinance/state-mate/tree/main/configs/lidov3/mainnet)
+  - `diffyscan`
+    - [`diffyscan/config_samples/ethereum/mainnet/vaults`](https://github.com/lidofinance/diffyscan/tree/v3-mainnet-test-deploy-episode-2/config_samples/ethereum/mainnet/vaults) for bytecode/constructor verification across all new contracts.  
 
 ## 2) Audit & verification artifacts
 
 > TODO: check the commit mentioned here and there
 
 - Certora:
-  - [Certora Lido V3 formal verification](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3-fv)
   - [Certora Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3)
-  - [Certora oracle audit](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3-oracle)
+  - [Certora Lido V3 formal verification](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3-fv)
+  - [Certora Offchain Oracle audit](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3-oracle)
 - Mixbytes
   - [Mixbytes Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3)
-  - [Mixbytes Lido V3 deployment verification report](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3-deployment)
   - [Mixbytes Easy Track factories audit](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3-easy-track)
+  - [Mixbytes Lido V3 deployment verification report](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3-deployment)
 - Consensys Dilligence
   - [Consensys Dilligence Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-consensys-dilligence-lido-v3)
 - Composable Security
-  - [Composable Security oracle audit](https://docs.lido.fi/security/audits/#10-2025-composable-security-oracle-v7)
+  - [Composable Security Offchain Oracle audit](https://docs.lido.fi/security/audits/#10-2025-composable-security-oracle-v7)
 - Immunefi audit competition for Lido V3
-  - [Link](Link)
+  - [Bug Bounty Comp | Lido V3](https://immunefi.com/audit-competition/lido-v3-bug-bounty-competition/information/)
+- Safe Harbor
+  - [Proposal: Adopt The SEAL Safe Harbor Agreement](https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940)
 
 ## 3) Deployment verification references
 
 ### 3.1 MixBytes note on deployment verification
 
+- [Mixbytes Lido V3 deployment verification report](https://docs.lido.fi/security/audits/#10-2025-mixbytes-lido-v3-deployment)
+- [Composable Security oracle image hash verification](https://docs.lido.fi/security/audits/#10-2025-composable-security-oracle-v7)
+
 ### 3.2 Diffyscan configs
 
-- `diffyscan/config_samples/ethereum/mainnet/vaults/vaults_config.template.json` covers the Locator, Lido, Accounting, Burner, VaultHub, PredepositGuarantee, OperatorGrid, VaultFactory stack, AccountingOracle, OracleReportSanityChecker, LazyOracle, V3Template, V3VoteScript, V3TemporaryAdmin, and all dependencies.
-  - The config pins the `core` repository at commit `bc6c56f567976f1df871789cdd8eb8c6dfb886b7` and lists every external dependency (Aragon apps, OpenZeppelin, solidity-bytes-utils, etc.) so bytecode comparison is reproducible.
+- `diffyscan/config_samples/ethereum/mainnet/vaults/vaults_config.template.json` covers: LidoLocator, Lido, Accounting, Burner, VaultHub, PredepositGuarantee, OperatorGrid, VaultFactory stack, AccountingOracle, OracleReportSanityChecker, LazyOracle, V3Template, V3VoteScript, V3TemporaryAdmin, and all relevant OssifiableProxy proxy deployments.
+  - The config pins the `core` repository at commit `568ef50d5cb41de0f6bd1112155ebe69095910d7` and lists every external dependency (Aragon apps, OpenZeppelin, solidity-bytes-utils, etc.) so bytecode comparison is reproducible.
   - Constructor arguments are explicitly encoded for each proxy/implementation pair.
-- `diffyscan/config_samples/ethereum/mainnet/vaults/vaults_easy_track_config.template.json` lists the EasyTrack factory set used for stVaults management.
-- Run Diffyscan with `ETHERSCAN_EXPLORER_TOKEN` to produce an artifact matching the MixBytes deployment verification report.
+- `diffyscan/config_samples/ethereum/mainnet/vaults/vaults_easy_track_config.template.json` lists the EasyTrack factory set used for stVaults management under [stVaults Committee](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0e8b53944051321d2cedf8881b546427bc6a22c9fe16f7d150af62fd837ff7da) execution.
 
 ### 3.3 State-mate configs
+
+#### Pre-vote acceptance tests
 
 - `state-mate/configs/lidov3/mainnet/lidov3-core-pre-vote.yaml` asserts:
   - Proxy admins (`proxy__getAdmin`) are equal to the Agent and proxies are not ossified before the vote.
   - ACL holders for every Aragon app, VaultHub, PredepositGuarantee, LazyOracle, WithdrawalQueue, CSAccounting, GateSeals, etc.
   - Chain constants (`CHAIN_ID`, `GENESIS_TIME`, `SLOTS_PER_EPOCH`, pause role hashes) that the oracle verifiers depend on.
+  - Protocol is NOT upgraded yet (e.g. old `LidoLocator` implementation)
+  - Upgrade template contract state constitutes that upgrade hasn't started yet
 - `state-mate/configs/lidov3/mainnet/lidov3-et-pre-vote.yml` covers EasyTrack:
-  - Trusted caller (`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`), executor, objections thresholds, pause/unpause roles.
+  - Trusted caller, being [stVaults Committee multisig: `0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](/multisigs/committees#216-stvaults-committee), executor, objections thresholds, pause/unpause roles for Easy Track itself.
+  - New factories are NOT registered in
+  - The full list of factories, share limits, validator exit fee limit, and VaultsAdapter wiring.
+
+#### Post-vote acceptance tests
+
+- `state-mate/configs/lidov3/mainnet/lidov3-core-post-vote.yaml` asserts:
+  - Proxy admins (`proxy__getAdmin`) are equal to the Agent and proxies are not ossified after the vote.
+  - ACL holders for every Aragon app, VaultHub, PredepositGuarantee, LazyOracle, WithdrawalQueue, CSAccounting, GateSeals, etc.
+  - Chain constants (`CHAIN_ID`, `GENESIS_TIME`, `SLOTS_PER_EPOCH`, pause role hashes) that the oracle verifiers depend on.
+  - Protocol is upgraded (e.g. old `LidoLocator` implementation)
+  - Upgrade template contract state constitutes that upgrade has completed
+- `state-mate/configs/lidov3/mainnet/lidov3-et-post-vote.yml` covers EasyTrack:
+  - Trusted caller, being [stVaults Committee multisig: `0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](/multisigs/committees#216-stvaults-committee), executor, objections thresholds, pause/unpause roles for Easy Track itself.
+  - New factories are registered in
   - The full list of factories, share limits, validator exit fee limit, and VaultsAdapter wiring.
 
 ### 3.4 Upgrade parameters
@@ -151,7 +176,7 @@ This manual describes how to verify the [Lido V2 → V3 version line upgrade vot
 
 ### 4.1 Easy Track factory attachments (Lido voting items 2–10)
 
-The vote adds nine EVMScript factories so the Vaults Adapter committee can manage stVaults. For each factory:
+The vote adds nine EVMScript factories so the stVaults Committee can manage stVaults operations under the Risk Framework assumptions. For each factory:
 
 1. Ensure `easyTrack.getEVMScriptFactories()` ends with the factory address.
 2. `easyTrack.isEVMScriptFactory(factory)` returns `true`.
@@ -412,19 +437,19 @@ Example `cast` calls (replace addresses as needed):
 ```bash
 # Versions
 
-cast call 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 "getContractVersion()(uint256)"
-cast call 0x852deD011285fe67063a08005c71a85690503Cee "getContractVersion()(uint256)"
-cast call 0x852deD011285fe67063a08005c71a85690503Cee "getConsensusVersion()(uint256)"
+cast call 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 "getContractVersion()(uint256)"  # Check Lido contract version
+cast call 0x852deD011285fe67063a08005c71a85690503Cee "getContractVersion()(uint256)"  # Check AccountingOracle contract version
+cast call 0x852deD011285fe67063a08005c71a85690503Cee "getConsensusVersion()(uint256)" # Check AccountingOracle consensus version
 
 # Locator implementation / admin
 
-cast call 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb "proxy__getImplementation()(address)"
-cast call 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb "proxy__getAdmin()(address)"
+cast call 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb "proxy__getImplementation()(address)" # Check current implementation of LidoLocator
+cast call 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb "proxy__getAdmin()(address)"          # Check current proxy admin of LidoLocator
 
 # GateSeal + pause roles
 
-cast call 0x9c2D30177DB12334998EB554f5d4E6dD44458167 "get_sealing_committee()(address)"
-cast call 0x9c2D30177DB12334998EB554f5d4E6dD44458167 "get_sealables()(address[])"
+cast call 0x9c2D30177DB12334998EB554f5d4E6dD44458167 "get_sealing_committee()(address)" # Check sealing committee address
+cast call 0x9c2D30177DB12334998EB554f5d4E6dD44458167 "get_sealables()(address[])"       # Check sealable contract addresses
 PAUSE_ROLE=$(cast call 0xdcC04F506E24495E9F2599A7b214522647363669 "PAUSE_ROLE()(bytes32)")
 cast call 0xdcC04F506E24495E9F2599A7b214522647363669 "getRoleMember(bytes32,uint256)(address)" $PAUSE_ROLE 0
 
@@ -449,5 +474,3 @@ cast call 0xF0211b7660680B49De1A7E9f25C65660F0a13Fea "isEVMScriptFactory(address
 cast call 0xD140f4f3C515E1a328F6804C5426d9e8b883ED50 "proxy__getAdmin()(address)"
 cast call 0x7B49b203A100E326B84886dCC0e2c426f9b8cbBd "proxy__getAdmin()(address)"
 ```
-
-Capture the outputs (block number, result, RPC endpoint) and attach them to the governance discussion alongside the Diffyscan and state-mate reports.
