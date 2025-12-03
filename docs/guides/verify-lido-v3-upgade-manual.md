@@ -1,87 +1,95 @@
 ---
-
-TODO:
-
-- [ ] GateSeal for VaultHub & PDG (pause window/roles)
-  - [ ] GateSeal (VaultHub+PDG) address = 0x9c2D30177DB12334998EB554f5d4E6dD44458167
-  - [ ] sealingCommittee = 0x8772E3a2D86B9347A2688f9bc1808A6d8917760C
-  - [ ] sealDuration = 1,209,600 seconds (14 days)
-  - [ ] `VAULT_HUB.PAUSE_ROLE` + `PREDEPOSIT_GUARANTEE.PAUSE_ROLE` holders = GateSeal; `RESUME_ROLE` = ResealManager 0x7914b5a1539b97Bd0bbd155757F25FD79A522d24
-  - [ ] Seal expiry for VaultHub/PDG = 1791454296 (state-mate config)
-
-- [ ] EasyTrack (stVaults)
-  - [ ] trustedCaller = 0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF
-  - [ ] initialValidatorExitFeeLimit = 100000000000000000 wei (0.1 ETH)
-  - [ ] maxGroupShareLimit = 50000000000000000000000
-  - [ ] maxDefaultTierShareLimit = 0
-  - [ ] EVMScript executor = 0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977
-  - [ ] Factories [AlterTiers, RegisterGroups, RegisterTiers, UpdateGroupsShareLimit, SetJailStatus, UpdateVaultsFees, ForceValidatorExits, SetLiabilitySharesTarget, SocializeBadDebt] wired to EasyTrack in the order asserted by `V3Template._assertEasyTrackFactoriesAdded()`
-  - [ ] Each factory permission bytes = target (OperatorGrid or VaultsAdapter) + selector per `V3VoteScript`
-
-- [ ] Legacy oracle removal
-  - [ ] AccountingOracle proxy (0x852deD011285fe67063a08005c71a85690503Cee) implementation = 0xb2295820F5286BE40c2da8102eB2cDB24aD608Be
-  - [ ] `REPORT_REWARDS_MINTED_ROLE` revoked from Lido (0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) and granted to Accounting (0xc9158c756D2a510eaC85792C847798a30dE20D46)
-  - [ ] OLD_BURNER (0xD15a672319Cf0352560eE76d9e89eAB0889046D3) has zero `REQUEST_BURN_SHARES_ROLE` holders
-
-- [ ] LazyOracle parameters
-  - [ ] quarantinePeriod = 259200 seconds (3 days)
-  - [ ] maxRewardRatioBP = 350
-  - [ ] maxLidoFeeRatePerSecond = 180000000000000000 wei (0.18 ETH)
-
-- [ ] VaultHub parameters
-  - [ ] MAX_RELATIVE_SHARE_LIMIT_BP = 1000 (10%)
-  - [ ] REPORT_FRESHNESS_DELTA = 172800 seconds
-  - [ ] CONNECT_DEPOSIT = 1 ETH
-  - [ ] GateSeal controls `PAUSE_ROLE`, ResealManager controls `RESUME_ROLE`
-
-- [ ] PredepositGuarantee parameters
-  - [ ] genesisForkVersion = 0x00000000
-  - [ ] gIndex/gIndexAfterChange = 0x0000000000000000000000000000000000000000000000000096000000000028
-  - [ ] firstSupportedSlot = 11649024, capellaSlot = 6209536, PIVOT_SLOT = 0
-
-- [ ] OperatorGrid default tier parameters
-  - [ ] shareLimitInEther = 0
-  - [ ] reserveRatioBP = 5000
-  - [ ] forcedRebalanceThresholdBP = 4975
-  - [ ] infraFeeBP = 100, liquidityFeeBP = 650, reservationFeeBP = 0
-
-- [ ] Burner migration switch
-  - [ ] Pre-upgrade `IBurner(BURNER).isMigrationAllowed()` = true (per upgrade params)
-  - [ ] Post-upgrade `IBurner(0xD140f4f3C515E1a328F6804C5426d9e8b883ED50).isMigrationAllowed()` = false and allowances migrated from OLD_BURNER
-
-- [ ] Oracle versions
-  - [ ] `Lido.getContractVersion()` = 3
-  - [ ] `AccountingOracle.getContractVersion()` = 4
-  - [ ] AccountingOracle consensus version after `finalizeUpgrade_v4` = 5
-
-- [ ] Automation configs
-  - [ ] Statemate configs = `state-mate/configs/lidov3/mainnet/lidov3-core-pre-vote.yaml` and `lidov3-et-pre-vote.yml`
-  - [ ] Diffyscan configs = `diffyscan/config_samples/ethereum/mainnet/vaults/*.json`
-  - [ ] Upgrade params = `core_contracts/scripts/upgrade/upgrade-params-mainnet.toml`
-  - [ ] ACL + multisig docs refreshed under `docs/multisigs/*`
-  - [ ] MixBytes deployment verification report attached for tokenholder review
-
-- [ ] AI Agent friendly formatting (checkbox, one fact per line)
-
+title: Verify Lido V3 upgrade (mainnet)
+sidebar_label: Verify Lido V3 upgrade
+description: How to reproduce the Lido V2 → V3 vote, contracts, roles, and parameter checks on Ethereum mainnet.
 ---
 
 # Verify Lido V3 upgrade (mainnet)
 
-This manual describes how to verify the [Lido V2 → V3 version line upgrade vote](https://research.lido.fi/TBD), including contract deployments, governance actions, and post-upgrade state on Ethereum mainnet. Each requirement is backed by the artifacts stored in this repository so that community members, security expers, and LDO tokenholders can reproduce the checks independently.
+## Checklist at a glance
+
+### GateSeal for VaultHub & PDG
+- [ ] GateSeal (VaultHub + PDG) address = 0x9c2D30177DB12334998EB554f5d4E6dD44458167.
+- [ ] Sealing committee = 0x8772E3a2D86B9347A2688f9bc1808A6d8917760C.
+- [ ] Seal duration = 1,209,600 seconds (14 days).
+- [ ] `VAULT_HUB.PAUSE_ROLE` + `PREDEPOSIT_GUARANTEE.PAUSE_ROLE` holders = GateSeal; `RESUME_ROLE` holder = ResealManager 0x7914b5a1539b97Bd0bbd155757F25FD79A522d24.
+- [ ] Seal expiry for VaultHub/PDG = 1791454296 as encoded in state-mate configs.
+
+### EasyTrack (stVaults)
+- [ ] `trustedCaller` = 0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF (stVaults Committee).
+- [ ] `initialValidatorExitFeeLimit` = 0.1 ETH (100000000000000000 wei).
+- [ ] `maxGroupShareLimit` = 50,000 stETH (50000000000000000000000 wei).
+- [ ] `maxDefaultTierShareLimit` = 0.
+- [ ] EVMScript executor = 0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977.
+- [ ] Factories [AlterTiers, RegisterGroups, RegisterTiers, UpdateGroupsShareLimit, SetJailStatus, UpdateVaultsFees, ForceValidatorExits, SetLiabilitySharesTarget, SocializeBadDebt] wired to Easy Track in the order asserted by `V3Template._assertEasyTrackFactoriesAdded()`.
+- [ ] Each factory permission bytes blob = target (OperatorGrid or VaultsAdapter) concatenated with selector(s) per `V3VoteScript`.
+
+### Legacy oracle removal
+- [ ] AccountingOracle proxy (0x852deD011285fe67063a08005c71a85690503Cee) implementation = 0xb2295820F5286BE40c2da8102eB2cDB24aD608Be.
+- [ ] `REPORT_REWARDS_MINTED_ROLE` revoked from Lido (0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) and granted to Accounting (0xc9158c756D2a510eaC85792C847798a30dE20D46).
+- [ ] OLD_BURNER (0xD15a672319Cf0352560eE76d9e89eAB0889046D3) has zero `REQUEST_BURN_SHARES_ROLE` holders.
+
+### LazyOracle parameters
+- [ ] `quarantinePeriod` = 259,200 seconds (3 days).
+- [ ] `maxRewardRatioBP` = 350.
+- [ ] `maxLidoFeeRatePerSecond` = 180000000000000000 wei (0.18 ETH).
+
+### VaultHub parameters
+- [ ] `MAX_RELATIVE_SHARE_LIMIT_BP` = 1000 (10%).
+- [ ] `REPORT_FRESHNESS_DELTA` = 172,800 seconds.
+- [ ] `CONNECT_DEPOSIT` = 1 ETH.
+- [ ] GateSeal controls `PAUSE_ROLE`; ResealManager controls `RESUME_ROLE`.
+
+### PredepositGuarantee parameters
+- [ ] `genesisForkVersion` = 0x00000000.
+- [ ] `gIndex` = `gIndexAfterChange` = 0x0000000000000000000000000000000000000000000000000096000000000028.
+- [ ] `firstSupportedSlot` = 11649024, `capellaSlot` = 6209536, `PIVOT_SLOT` = 0.
+
+### OperatorGrid default tier parameters
+- [ ] `shareLimitInEther` = 0.
+- [ ] `reserveRatioBP` = 5000.
+- [ ] `forcedRebalanceThresholdBP` = 4950.
+- [ ] `infraFeeBP` = 100, `liquidityFeeBP` = 650, `reservationFeeBP` = 0.
+
+### Burner migration switch
+- [ ] Pre-upgrade `IBurner(BURNER).isMigrationAllowed()` = true (per upgrade params).
+- [ ] Post-upgrade `IBurner(0xD140f4f3C515E1a328F6804C5426d9e8b883ED50).isMigrationAllowed()` = false and allowances migrated from OLD_BURNER.
+
+### Oracle versions
+- [ ] `Lido.getContractVersion()` = 3.
+- [ ] `AccountingOracle.getContractVersion()` = 4.
+- [ ] `AccountingOracle.getConsensusVersion()` = 5 after `finalizeUpgrade_v4`.
+
+### Automation configs
+- [ ] Statemate configs = `state-mate/configs/lidov3/mainnet/lidov3-core-pre-vote.yaml` and `lidov3-et-pre-vote.yml`.
+- [ ] Diffyscan configs = `diffyscan/config_samples/ethereum/mainnet/vaults/*.json`.
+- [ ] Upgrade params = `core_contracts/scripts/upgrade/upgrade-params-mainnet.toml`.
+- [ ] ACL + multisig docs refreshed under `docs/multisigs/*`.
+- [ ] MixBytes deployment verification report attached for tokenholder review.
+
+### Formatting guardrail
+- [ ] Checklist uses checkbox-per-fact formatting for fast AI/automation parsing.
+
+## Overview
+
+This manual describes how to verify the Lido V2 → V3 version line upgrade vote discussed on the [Lido Research Forum](https://research.lido.fi), including contract deployments, governance actions, and post-upgrade state on Ethereum mainnet. Each requirement is backed by artifacts stored in this repository so that community members, security experts, and LDO tokenholders can reproduce the checks independently.
 
 ## 1) Scope and assumptions
-
-> TODO: update tags and commits
 
 - Network: Ethereum mainnet (`chain_id = 1`).
 - Release target:
   - [Lido V3 core contracts, tag `v3.0.0-rc.5`](https://github.com/lidofinance/core/releases/tag/v3.0.0-rc.5) built from commit [`568ef50d5cb41de0f6bd1112155ebe69095910d7`](https://github.com/lidofinance/core/commit/568ef50d5cb41de0f6bd1112155ebe69095910d7).
-  - [Lido V3 oracle offchain daemon, tag: `7.0.0-beta.4`](https://github.com/lidofinance/lido-oracle/releases/tag/7.0.0-beta.4) built from commit [`d6c09a16736b2c132343a4e349c8f27179c73e6e`](https://github.com/lidofinance/lido-oracle/commit/d6c09a16736b2c132343a4e349c8f27179c73e6e)
-  - [Lido V3 Easy Track factories]() built from commit
+  - [Lido V3 oracle offchain daemon, tag: `7.0.0-beta.4`](https://github.com/lidofinance/lido-oracle/releases/tag/7.0.0-beta.4) built from commit [`d6c09a16736b2c132343a4e349c8f27179c73e6e`](https://github.com/lidofinance/lido-oracle/commit/d6c09a16736b2c132343a4e349c8f27179c73e6e).
+  - Lido V3 Easy Track factories ship with the same `v3.0.0-rc.5` snapshot under [`contracts/easy-track`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/contracts/easy-track) to keep bytecode and constructor params pinned.
 - Voting stack:
-  - `V3Template` [`TBD`](https://etherscan.io/address/TBD) encodes pre/post conditions and exposes `startUpgrade()` / `finishUpgrade()`.
-  - `V3VoteScript` [`TBD`](https://etherscan.io/address/TBD) orchestrates the dual-governance vote (time constraints, Aragon ACL edits, proxy upgrades, role migrations, oracle config changes).
-  - `V3TemporaryAdmin` [`TBD`](https://etherscan.io/address/TBD) handled intermediate admin tasks before transferring control to the Agent (`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`).
+  - `V3Template` (source: [`contracts/upgrade/V3Template.sol`](https://github.com/lidofinance/core/blob/568ef50d5cb41de0f6bd1112155ebe69095910d7/contracts/upgrade/V3Template.sol); mainnet address will be published together with the vote) encodes pre/post conditions and exposes `startUpgrade()` / `finishUpgrade()`.
+  - `V3VoteScript` (source: `/V3VoteScript.sol`; deployed via the dual-governance vote) orchestrates the action list, enforces the execution window, and forwards payloads through the Agent.
+  - `V3TemporaryAdmin` (source: [`contracts/upgrade/V3TemporaryAdmin.sol`](https://github.com/lidofinance/core/blob/568ef50d5cb41de0f6bd1112155ebe69095910d7/contracts/upgrade/V3TemporaryAdmin.sol); deployed prior to the vote) handled intermediate admin tasks before transferring control to the Agent (`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`).
+  - `V3VoteScript.sol` quick facts:
+    - `ENABLED_DAY_SPAN_START/END` = 14:00 → 23:00 UTC to guard execution.
+    - `VOTING_ITEMS_COUNT = 9` Easy Track factory attachments; `DG_ITEMS_COUNT = 18` dual-governance calls.
+    - `ScriptParams` carries `upgradeTemplate`, `timeConstraints`, and the two `OracleDaemonConfig` slashing reserve shift epochs.
+    - Items 2–10 register Easy Track factories; Items 1.1–1.18 cover template start/finish, Aragon ACL edits, proxy upgrades, burner/staking-router role moves, OracleDaemonConfig writes, and clean-up.
 - Canonical reference files:
   - `core` contracts
     - [`contracts/upgrade/V3Addresses`](https://github.com/lidofinance/core/tree/568ef50d5cb41de0f6bd1112155ebe69095910d7/contracts/upgrade/V3Addresses.sol) for the immutable address book referenced throughout the template and vote script.
@@ -93,8 +101,6 @@ This manual describes how to verify the [Lido V2 → V3 version line upgrade vot
     - [`diffyscan/config_samples/ethereum/mainnet/vaults`](https://github.com/lidofinance/diffyscan/tree/v3-mainnet-test-deploy-episode-2/config_samples/ethereum/mainnet/vaults) for bytecode/constructor verification across all new contracts.  
 
 ## 2) Audit & verification artifacts
-
-> TODO: check the commit mentioned here and there
 
 - Certora:
   - [Certora Lido V3 audit report](https://docs.lido.fi/security/audits/#10-2025-certora-lido-v3)
@@ -139,8 +145,8 @@ This manual describes how to verify the [Lido V2 → V3 version line upgrade vot
   - Upgrade template contract state constitutes that upgrade hasn't started yet
 - `state-mate/configs/lidov3/mainnet/lidov3-et-pre-vote.yml` covers EasyTrack:
   - Trusted caller, being [stVaults Committee multisig: `0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](/multisigs/committees#216-stvaults-committee), executor, objections thresholds, pause/unpause roles for Easy Track itself.
-  - New factories are NOT registered in
-  - The full list of factories, share limits, validator exit fee limit, and VaultsAdapter wiring.
+  - Confirms new factories are **not** registered yet (pre-upgrade baseline).
+  - Tracks the reference list of factories, share limits, validator exit fee limit, and VaultsAdapter wiring.
 
 #### Post-vote acceptance tests
 
@@ -152,8 +158,8 @@ This manual describes how to verify the [Lido V2 → V3 version line upgrade vot
   - Upgrade template contract state constitutes that upgrade has completed
 - `state-mate/configs/lidov3/mainnet/lidov3-et-post-vote.yml` covers EasyTrack:
   - Trusted caller, being [stVaults Committee multisig: `0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](/multisigs/committees#216-stvaults-committee), executor, objections thresholds, pause/unpause roles for Easy Track itself.
-  - New factories are registered in
-  - The full list of factories, share limits, validator exit fee limit, and VaultsAdapter wiring.
+  - Confirms the nine new factories are registered with the correct permissions bytes.
+  - Mirrors the full list of factories, share limits, validator exit fee limit, and VaultsAdapter wiring for the post-upgrade state.
 
 ### 3.4 Upgrade parameters
 
@@ -262,7 +268,7 @@ The trusted caller, validator exit fee, share limits, and pause roles for these 
 
 ### 5.5 OperatorGrid default tier
 
-- `shareLimitInEther = 0`, `reserveRatioBP = 5000`, `forcedRebalanceThresholdBP = 4975`, `infraFeeBP = 100`, `liquidityFeeBP = 650`, `reservationFeeBP = 0`.
+- `shareLimitInEther = 0`, `reserveRatioBP = 5000`, `forcedRebalanceThresholdBP = 4950`, `infraFeeBP = 100`, `liquidityFeeBP = 650`, `reservationFeeBP = 0`.
 - These settings are referenced by both OperatorGrid and the EasyTrack factories, preventing mismatched expectations.
 
 ### 5.6 Initial max external ratio
