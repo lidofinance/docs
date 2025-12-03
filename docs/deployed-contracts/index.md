@@ -75,7 +75,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
   - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lazy Oracle: [`0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B`](https://etherscan.io/address/0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B) (impl)
 
-## 🗳️ DAO Contracts
+## 🗳️ DAO Contracts {#dao-contracts}
 
 - Lido DAO (Kernel): [`0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc`](https://etherscan.io/address/0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc) (proxy)
 - LDO token: [`0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32)
@@ -118,7 +118,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
   - Ethereum Ecosystem Sub Committee [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 - Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
 
-## 📊 Data Bus
+## 📊 Data Bus {#data-bus}
 
 - DataBus on Gnosis Chain: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - DataBus on Base: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
@@ -201,7 +201,7 @@ for the rate and price feeds recommended approaches.
   - Chainlink wstETH/stETH exchange rate on Linea: [`0x3C8A95F2264bB3b52156c766b738357008d87cB7`](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7) (proxy)
   - Chainlink wstETH/stETH exchange rate on BNB: [`0x4c75d01cfa4D998770b399246400a6dc40FB9645`](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645) (proxy)
 
-## 🎁 Reward Programs
+## 🎁 Reward Programs {#reward-programs}
 
 - Early Stakers Airdrop: [`0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B`](https://etherscan.io/address/0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B)
 
@@ -256,7 +256,7 @@ for the rate and price feeds recommended approaches.
 - USDC→USDT [`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7)
 - USDC→DAI [`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850)
 
-## ⚡ Easy Track
+## ⚡ Easy Track {#easy-track}
 
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
@@ -427,7 +427,7 @@ for the rate and price feeds recommended approaches.
 
 - Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 
-## 🌐 Lido Multichain
+## 🌐 Lido Multichain {#lido-multichain}
 
 ### Arbitrum
 
