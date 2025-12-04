@@ -343,16 +343,16 @@ for the rate and price feeds recommended approaches.
 ### 🔨 ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Easy Track Factories for stVaults Management
 
 - **Operator Grid:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Groups (Phase 1): [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://hoodi.etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Groups Share Limit (Phase 1): [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://hoodi.etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://hoodi.etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Alter Tiers (Phase 1): [`0xa29173C7BCf39dA48D5E404146A652d7464aee14`](https://hoodi.etherscan.io/address/0xa29173C7BCf39dA48D5E404146A652d7464aee14)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Set Jail Status: [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://hoodi.etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Vaults Fees: [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://hoodi.etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Groups (Phase 1): [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Groups Share Limit (Phase 1): [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Alter Tiers (Phase 1): [`0xa29173C7BCf39dA48D5E404146A652d7464aee14`](https://etherscan.io/address/0xa29173C7BCf39dA48D5E404146A652d7464aee14)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Set Jail Status: [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Vaults Fees: [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c)
 - **Vault Hub:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Force Validator Exits: [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://hoodi.etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Socialize Bad Debt: [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://hoodi.etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) VaultsAdapter: [`0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D`](https://hoodi.etherscan.io/address/0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Force Validator Exits: [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Socialize Bad Debt: [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) VaultsAdapter: [`0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D`](https://etherscan.io/address/0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D)
 
 ## 🔐 Lido DAO Multisigs
 
