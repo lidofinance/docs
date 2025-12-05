@@ -11,7 +11,7 @@ This document covers roles and permissions intended for stVaults on mainnet. The
 **Node Operator** provides validation service for the vault: handles depositing ETH from the vault balance to validators and exiting validators if necessary. Address of the Node Operator can’t be changed after the vault is created.
 
 :::info
-**The Node Operator management address** is registered in the **Operator Grid** contract as the primary identifier of the Node Operator. Tiers with defined **Reserve Ratios** and **stETH minting limits** are assigned to this address according to the obtained Category.
+**The Node Operator address** is registered in the **Operator Grid** contract as the primary identifier of the Node Operator. Tiers with defined **Reserve Ratios** and **stETH minting limits** are assigned to this address according to the obtained Category.
 
 This address is also used to perform key operations in stVaults from the Node Operator’s perspective and must be set up as a **multisig** for security reasons.
 :::
