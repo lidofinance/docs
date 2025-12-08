@@ -98,11 +98,11 @@ This page lists production contract addresses on Mainnets — including Ethereum
 - GateSeal (Withdrawal Queue): [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
 - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) GateSeal (VaultHub and PredepositGuarantee): [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
 
-### 🗳️ ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lido V3 Voting Contracts
+### 🗳️ ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) Lido V3 Voting Contracts
 
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) V3 Vote Script: [`0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA`](https://etherscan.io/address/0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Vote Script: [`0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA`](https://etherscan.io/address/0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA)
 
 ### 🧬 Dual Governance
 
