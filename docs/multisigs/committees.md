@@ -900,7 +900,7 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | https://research.lido.fi/t/stvaults-committee-proposal/10608/9 |
-| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | - |
+| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | https://research.lido.fi/t/stvaults-committee-proposal/10608/14 |
 | Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | https://research.lido.fi/t/stvaults-committee-proposal/10608/10 |
 | Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | https://research.lido.fi/t/stvaults-committee-proposal/10608/8 |
 | Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
