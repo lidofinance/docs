@@ -6,8 +6,8 @@ sidebar_position: 5
 
 ## Definitions
 
-- Reserve Ratio (RR) limits minting - this means that user will be able to mint up to 90% of stETH out of ETH he put into the stVault. However falling below RR doesn’t force an immediate correction.
-- Utilization Ratio (UR) - is a metric which shows how much stETH is minted out of Total Mintable stETH capacity: Utilization Rate = (stETH Liability / Total stETH Minting Capacity) * 100%
+- **Reserve Ratio (RR)** limits minting — this means that users will be able to mint up to 90% of stETH out of ETH they put into the stVault. However, falling below RR doesn't force an immediate correction.
+- **Utilization Ratio (UR)** is a metric that shows how much stETH is minted out of Total stETH Minting Capacity: Utilization Ratio = (stETH Liability / Total stETH Minting Capacity) × 100%
 
 ## TLDR
 
@@ -37,7 +37,7 @@ This section explains what each metric means, where to find it in the UI, and wh
 
 ### Health factor
 
-**Definition:** Health Factor (HF) - is a metric calculated using following formula: Health Factor = TotalValue * (1 - FRT) / Minted stETH
+**Definition:** Health Factor (HF) is a metric calculated using the following formula: Health Factor = Total Value × (1 − FRT) / Minted stETH
 
 **Health factor** shows how well the stETH Liability is collateralized by the Total value of the vault.
 
@@ -65,7 +65,7 @@ Carry Spread shows whether the vault economics are improving or deteriorating ov
 
 If the Carry Spread turns negative or the Health factor trends down toward 100%, you should treat this as an early warning and consider taking actions to improve the vault’s economics.
 
-If Health Factor of the Vault drops below 100% please refer to [stVaults Health Emergency Guide](./health-emergency-guide.md).
+If the Health Factor of the vault drops below 100%, please refer to the [stVaults Health Emergency Guide](./health-emergency-guide.md).
 
 ### Net staking APR
 
@@ -109,4 +109,4 @@ When **Utilization ratio approaches 100%**:
 - There is little remaining capacity to mint additional stETH.
 - The vault comes closer to the boundary where forced rebalancing may be triggered.
 
-If Utilization reaches or exceeds 100%, the vault is effectively at or above its intended Liability limit and may enter the forced rebalancing zone. In this situation the vault owner should promptly review their position and take corrective actions as described in the [stVaults Health Emergency Guide](./health-emergency-guide.md).
+If Utilization reaches or exceeds 100%, the vault is effectively at or above its intended Liability limit and may enter the forced rebalancing zone. In this situation, the Vault Owner should promptly review their position and take corrective actions as described in the [stVaults Health Emergency Guide](./health-emergency-guide.md).
