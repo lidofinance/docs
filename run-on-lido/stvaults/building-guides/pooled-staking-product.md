@@ -8,6 +8,7 @@ import TabItem from '@theme/TabItem';
 # Pooled Staking Product powered by stVaults
 
 ## Intro
+
 The DeFi Wrapper is a no-/low-code toolkit that allows Builders, Node Operators, and platforms to launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
 
 This guide explains conceptually and practically how to launch such a product without deep protocol knowledge.
@@ -17,14 +18,18 @@ This guide explains conceptually and practically how to launch such a product wi
 DeFi Wrapper supports three product archetypes:
 
 ### 1. Pooled Delegated Staking
+
 ![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_pooled.png)
+
 - Users stake ETH with the same Node Operator.
 - Users receive APR from validator performance.
 
 **Use case:** End-user staking product with conservative validation-based APR and user friendly-interface embedded in the colntrolled or partner's traffic channel.
 
 ## 2. Pooled Delegated Liquid Staking
+
 ![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_liquid.png)
+
 - Users stake ETH with the same Node Operator.
 - Users receive stETH (within the stVault’s Reserve Ratio).
 - Users receive APR from validator performance.
@@ -32,7 +37,9 @@ DeFi Wrapper supports three product archetypes:
 **Use case:** Institutional-aimed individual (whitelisted) staking product with conservative validation-based APR and liquidity, and simple user interface hosted on the Node Operator's web server.
 
 ## 3.1. Pooled Delegated Staking with Boosted APR via Leveraged staking
+
 ![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_looping.png)
+
 - Users stake ETH with the same Node Operator.
 - stETH is minted automatically and deposited to the connected curated looping strategy: pre-integrated, or custom one.
 - ETH is borrowed against stETH and deposited back to the stVault increasing stVault Total Value and the amount of ETH on validators.
@@ -41,23 +48,25 @@ DeFi Wrapper supports three product archetypes:
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators. The product allows the Node Operator to attract more ETH for validation than the end-users deposit.
 
 ## 3.2. Pooled Delegated Staking with Boosted APR via DeFi Strategy
+
 ![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
-- Users stake ETH with the same Node Operator and 
+
+- Users stake ETH with the same Node Operator and
 - stETH is minted automatically and deposited to the connected DeFi strategy: Leverage staking, GGV, or any custom one.
 - Users receive APR from validator performance + Startegy APR.
 
 **Use case:**
+
 - end-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators.
 - end-user staking product with higher risk/yield profile through the connected curated DeFi strategy which makes the product more attractive for the end-user.
-
 
 ## Environments
 
 ### Testnet
 
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- DeFi Wrapper Factory (Testnet-3): https://hoodi.etherscan.io/address/0x3405ef99395db3e8a9a0ab720429a8d68650a96f
-  - NB: Testnet-4 is not supported by the CLI yet
+- DeFi Wrapper Factory (Testnet-5): https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code
+- UI template: https://github.com/lidofinance/defi-wrapper-widget
 - Latest development branch: https://github.com/lidofinance/vaults-wrapper/tree/develop
 - Etherscan: https://hoodi.etherscan.io/
 
@@ -94,14 +103,72 @@ To list commands for creation of available pool types, run
 yarn start defi-wrapper contracts factory write -h
 ```
 
-#### Deployment of a pool with GGV strategy
+:::info
+
+  For any pool type upon creation the CLI tool prints the env variables required
+  for the UI setup. Don't toss these lines away if planning to setup UI.
+
+:::
+
+### Deployment of `StvPool` (pool without stETH minting)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
+
+Start the deployment like:
+```shell
+yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug STV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --allowList false
+```
+
+### Deployment of `StvStETHPool` (pool with stETH minting)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
+
+Start the deployment like:
+```shell
+yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug STV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --reserveRatioGapBP 250 \
+  --allowList false
+```
+
+:::warning
+  
+  The minimal recommended value for reserveRatioGapBP is `250` (2.5%). It is
+  expected to be sufficient to absorb enough of the vault's performance volatility
+  to keep users positions healthy in most of the cases.
+
+:::
+
+#### Deployment of `StvGGV` (pool with GGV strategy)
 
 Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the description of the required GGV pool parameters.
 
 Start the deployment like:
 
 ```shell
-yarn start defi-wrapper contracts factory w create-pool-ggv 0x3405ef99395db3e8a9a0ab720429a8d68650a96f \ 
+yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -112,20 +179,25 @@ yarn start defi-wrapper contracts factory w create-pool-ggv 0x3405ef99395db3e8a9
   --symbol STV \
   --proposer 0x0000000000000000000000000000000000000003 \
   --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
   --reserveRatioGapBP 250
 ```
 
 :::info
 
-  Comming soon:
-  - CLI update for the Hoodi testnet-4+ (with configurable emergency committee).
-  - support of config like https://github.com/lidofinance/vaults-wrapper/blob/develop/config/hoodi-stv-ggv.json
+  Note, that for `StvGGV` pool allow list is not configurable: the only address allowed to deposit is The
+  GGV strategy contract itself, and users are not to deposit via the pool directly, but to supply to the strategy.
 
 ::::
 
 ### 2. Create Web UI
 
-TODO
+Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
+
+- clone provided repository
+- use addresses outputted by CLI to fill up .env
+- adjust titles, logos, texts and color scheme to your liking
+- deploy dApp
 
 ### Adjust stETH minting parameters
 
