@@ -65,7 +65,7 @@ DeFi Wrapper supports three product archetypes:
 ### Testnet
 
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- DeFi Wrapper Factory (Testnet-4): https://hoodi.etherscan.io/address/0x1436290a4d0aea78164e1e6762fcee3f8f27cf38#code
+- DeFi Wrapper Factory (Testnet-5): https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code
 - UI template: https://github.com/lidofinance/defi-wrapper-widget
 - Latest development branch: https://github.com/lidofinance/vaults-wrapper/tree/develop
 - Etherscan: https://hoodi.etherscan.io/
@@ -80,11 +80,115 @@ DeFi Wrapper supports three product archetypes:
 
 ## Steps
 
-### 1. Create a product
+### 1. Create a tokenized staking vault (pool)
 
-1.
-2.
-3. [Use interactive CLI to deploy DeFi product](https://lidofinance.github.io/lido-staking-vault-cli/commands/defi-wrapper/Factory#write)
+The easiest way to create a pool over staking vault is to use [CLI](https://lidofinance.github.io/lido-staking-vault-cli).
+This is a command line tool intended both for staking vault and pool (wrapper) management. It supports creation of a pool with its underlying staking vault via dedicated [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+The deployment happens in two transactions (to fit Fusaka 16m tx gas limit) which the CLI does in its single command run.
+
+To start:
+- setup CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md)
+- prepare a valid CLI configuration - see [this tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
+
+:::info
+
+  The deployer must have at least `1 ETH` on their balance - this is `CONNECT_DEPOSIT` required to be locked
+  on the vault upon connection to Lido `VaultHub`. The newly created staking vault is automatically connected to
+  Lido `VaultHub` and placed into the default tier. Placement to none-default tiers right upon deployment is not supported.
+
+::::
+
+To list commands for creation of available pool types, run
+```shell
+yarn start defi-wrapper contracts factory write -h
+```
+
+:::info
+
+  For any pool type upon creation the CLI tool prints the env variables required
+  for the UI setup. Don't toss these lines away if planning to setup UI.
+
+:::
+
+### Deployment of `StvPool` (pool without stETH minting)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
+
+Start the deployment like:
+```shell
+yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug STV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --allowList false
+```
+
+### Deployment of `StvStETHPool` (pool with stETH minting)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
+
+Start the deployment like:
+```shell
+yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug STV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --reserveRatioGapBP 250 \
+  --allowList false
+```
+
+:::warning
+  
+  The minimal recommended value for reserveRatioGapBP is `250` (2.5%). It is
+  expected to be sufficient to absorb enough of the vault's performance volatility
+  to keep users positions healthy in most of the cases.
+
+:::
+
+#### Deployment of `StvGGV` (pool with GGV strategy)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the description of the required GGV pool parameters.
+
+Start the deployment like:
+
+```shell
+yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug GGV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
+  --reserveRatioGapBP 250
+```
+
+:::info
+
+  Note, that for `StvGGV` pool allow list is not configurable: the only address allowed to deposit is The
+  GGV strategy contract itself, and users are not to deposit via the pool directly, but to supply to the strategy.
+
+::::
 
 ### 2. Create Web UI
 
@@ -99,20 +203,15 @@ Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/deve
 
 By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed identification and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
-When using vault creation method #1 ("Two-step process"), the Node Operator and Vault Owner can set up the stVault with the desired stETH minting parameters from the start. Otherwise, the tier can be changed afterwards.
+Tier changes are performed via a multi-role confirmation mechanism, where the Node Operator and Vault Owner act as contracting parties. One party proposes the change, and the other party accepts it. Technically, both requests are made through the same method: `changeTier(tierId, requestedShareLimit)`. Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-Tier changes are performed via a multi-role confirmation mechanism, where the Node Operator and Vault Owner act as contracting parties. One party proposes the change, and the other party accepts it. Technically, both requests are made through the same method: `changeTier(tierId, requestedShareLimit)`.
-
-Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
-
-Addresses perform this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
-
-- From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE].
-- From the Node Operator: Node Operator (registered in the`OperatorGrid` contract).
+In case of the vault deployed as part of a pool deployment Vault Owner role is assigned to the Timelock contract. The timelock contract as well implements a two-step process of performing an onchain action. At first, the holder of its proposer role creates a proposed on-chain action, at second, after a time period the holder of the executor role executes it.
 
 :::info
 Confirming tier change request requires applying fresh report to vault.
 :::
+
+TODO: CLI and UI?
 
 **Parameters and addresses needed for this step (for CLI and Smart contracts):**
 
