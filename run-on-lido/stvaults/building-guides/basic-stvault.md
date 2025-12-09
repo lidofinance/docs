@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## Intro
 
-This guide is aimed to help Node Operators, Builders, Protocols, Liquidity Providers create and operate an stVault with optional liquidity.
+This guide is aimed at helping Node Operators, Builders, Protocols, and Liquidity Providers create and operate an stVault with optional liquidity.
 
 ### Product value proposition
 
@@ -17,7 +17,7 @@ Competitive offering to native staking — users stake with the same Node Operat
 
 ### The vault strategy
 
-ETH is deposited to validators and generate staking rewards, stETH is minted on demand by the Vault Owner.
+ETH is deposited to validators and generates staking rewards; stETH is minted on demand by the Vault Owner.
 
 ## Environments
 
@@ -30,11 +30,10 @@ ETH is deposited to validators and generate staking rewards, stETH is minted on 
 
 ### Mainnet
 
-:::info
-
-      *Coming this autumn*
-
-::::
+- UI: https://stvaults.lido.fi/
+- CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
+- Contracts: https://docs.lido.fi/deployed-contracts/
+- Etherscan: https://etherscan.io/
 
 ## Steps
 
@@ -51,7 +50,7 @@ Creating an stVault is permissionless. There are two main ways to do it:
 2. **Node Operator Manager address**. One of the two administrative roles in an stVault. From the Node Operator perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 3. **Vault Owner address**. One of the two administrative roles in an stVault. From the Vault Owner (Staker) perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 4. **Node Operator Fee**. The share of gross staking rewards that the Node Operator charges for providing validation services. Expressed in basis points [0 (0%) .. 10'000 (100%)].
-5. **Confirmation Lifetime**. The key parameter of the multi-role confirmation mechanism. It defines the maximum time interval between proposal and confirmation. This mechanism is used to update certain stVault parameters by requiring consensus between the two stVault representatives: the Vault Owner and the Node Operator Manager. Measured in seconds [86'400 sec (24 hours) .. 25'920'000 sec (30 days)]. For security reasons, it is strongly recommended to keep it as sort as possible, ideally the minimal 86'400 sec.
+5. **Confirmation Lifetime**. The key parameter of the multi-role confirmation mechanism. It defines the maximum time interval between proposal and confirmation. This mechanism is used to update certain stVault parameters by requiring consensus between the two stVault representatives: the Vault Owner and the Node Operator Manager. Measured in seconds [86,400 sec (24 hours) .. 25,920,000 sec (30 days)]. For security reasons, it is strongly recommended to keep it as short as possible, ideally the minimum 86,400 sec.
 
 #### 1. Two-step process (recommended)
 
@@ -59,7 +58,7 @@ This approach enables a Node Operator to create an stVault without providing the
 
 ##### 1.1. **Node Operator** creates an stVault that is not yet connected to Lido Core.
 
-Creating stVault is a permissionless operation, but in this 2-steps process it is usually performed by the Node Operator.
+Creating an stVault is a permissionless operation, but in this two-step process it is usually performed by the Node Operator.
 
 <details>
   <summary>by Command-line Interface</summary>
@@ -159,7 +158,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
 #### 2. One-step process (for experienced Vault Owners / Stakers)
 
-In this approach, the Vault Owner creates an stVault that automatically connects to Lido Core, enabling stETH minting. This requires supplying 1 ETH, which will be locked as collateral for the connection to Lido Core. All completed in a single transaction, so despite it is a permissionless operation, it is usually performed by the Vault Owner of the future stVault.
+In this approach, the Vault Owner creates an stVault that automatically connects to Lido Core, enabling stETH minting. This requires supplying 1 ETH, which will be locked as collateral for the connection to Lido Core. All completed in a single transaction, so despite being a permissionless operation, it is usually performed by the Vault Owner of the future stVault.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -198,10 +197,10 @@ Tier changes are performed via a multi-role confirmation mechanism, where the No
 
 Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-Addresses perform this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
+Addresses performing this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
 
-- From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE].
-- From the Node Operator: Node Operator (registered in the`OperatorGrid` contract).
+- From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE).
+- From the Node Operator: Node Operator (registered in the `OperatorGrid` contract).
 
 :::info
 Confirming tier change request requires applying fresh report to vault.
@@ -256,7 +255,7 @@ Confirming tier change request requires applying fresh report to vault.
 <details>
   <summary>using Etherscan UI</summary>
 
-      The Node Operator and Vault Owner use same-named metods in different contracts to perform this change.
+      The Node Operator and Vault Owner use same-named methods in different contracts to perform this change.
 
       **Node Operator:**
       1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
@@ -437,20 +436,20 @@ If this happens, there are three main options available:
 
 **Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH Liability and thereby increases the Health Factor.
 
-Rebalancing is performed in one transacion.
+Rebalancing is performed in one transaction.
 
 The amount of ETH required for rebalancing to bring the Utilization Ratio to 100% depends on the current Health Factor and Reserve Ratio. It can be pre-calculated manually using the formula, or via the built-in methods.
 
 <details>
   <summary>by Formula</summary>
 
-      ETH for rebalance = stETH Liability - (1 - Reserve Ratio * Total Value ) / Reserve Ratio
+      ETH for rebalance = (stETH Liability − (1 − Reserve Ratio) × Total Value) / Reserve Ratio
 
 </details>
 <details>
   <summary>by Command-line Interface</summary>
 
-      *Will be supported later on testnet-3*
+      See the [CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/) for rebalance commands.
 
 </details>
 <details>

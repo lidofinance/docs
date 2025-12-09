@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Integration overview
 
-stVaults are Lido staking building blocks that allows the creating of custom staking solutions still accessing unmatched stETH liquidity. The stVaults User Guide provides instructions for **managing** and **integrating** Staking Vaults (stVaults). This guide covers various interaction levels, from direct contract calls to using CLI tools and web interfaces, depending on requirements and preferred methods of fine-grained control.
+stVaults are Lido staking building blocks that allow creating custom staking solutions while still accessing unmatched stETH liquidity. This guide provides instructions for **managing** and **integrating** Staking Vaults (stVaults). It covers various interaction levels, from direct contract calls to using CLI tools and web interfaces, depending on requirements and preferred methods of fine-grained control.
 
 For a deeper technical dive, you can check out the [stVaults Technical Design and Architecture](https://hackmd.io/@lido/stVaults-design).
 
@@ -21,9 +21,9 @@ stVaults consist of the following components:
 
 - **[stVaults Web UI](#web-ui)**: A web interface interacting directly with the `Dashboard` contract and other stVaults-related contracts, providing a user-friendly experience for managing vaults and monitoring metrics.
 - **[CLI (Command Line Interface)](#command-line-interface)**: A command-line tool interacting directly with the `Dashboard` contract and other stVaults-related contracts offering advanced management capabilities (deposits, generating proofs, per-vault oracle reports, etc.). ([GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/))
-- **[Dashboard contract](#dashboard-contract)**: A management contract deployed together with the `StakingVault` contract, and is assigned as the owner of the `StakingVault` contract by default. It provides granular management capabilities and introduces roles and permissions, allowing different actions to be managed by distinct roles. It also provides utility functions for minting/burning, performing deposits, collecting node operator fees.
+- **[Dashboard contract](#dashboard-contract)**: A management contract deployed together with the `StakingVault` contract, and assigned as the owner of the `StakingVault` contract by default. It provides granular management capabilities and introduces roles and permissions, allowing different actions to be managed by distinct roles. It also provides utility functions for minting/burning, performing deposits, and collecting Node Operator fees.
 - **[StakingVault Contract](#stakingvault-contract)**: The core primitive contract representing the staking vault. Advanced use cases might include direct interaction with the `StakingVault` contract, which requires transferring ownership from the `Dashboard` contract.
-- **[Predeposit Guarantee (PDG)](#predeposit-guarantee-pdg)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows stVault's owner and Node Operators to deposit validators with the vault's funds in trustless manner.
+- **[Predeposit Guarantee (PDG)](#predeposit-guarantee-pdg)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows the Vault Owner and Node Operators to deposit validators with the vault's funds in a trustless manner.
 - **Off-chain monitoring tools (can be used by the Node Operator):**
   - **[Ethereum Validators Monitoring (EVM)](#ethereum-validators-monitoring-evm)**: Consensus layer validators monitoring bot that fetches Lido or Custom Users Node Operators keys from the Execution layer and checks their performance on the Consensus layer by the balance delta, attestations, proposes, sync committee participation.
   - **[Ethereum Head Watcher](#ethereum-head-watcher)**: Bot that watches Ethereum head block, handles validator-related "events", and sends notifications through Alertmanager to a Discord channel.
@@ -37,7 +37,7 @@ The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi
 For advanced or low-level features that haven’t yet been exposed in the interface, use the [CLI](#command-line-interface).
 :::
 
-**URL**: Testnet on Hoodi: https://stvaults-hoodi.testnet.fi/
+**URL**: https://stvaults.lido.fi/
 
 **Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
 
@@ -70,8 +70,8 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 **Use case examples**:
 
 - Institutional integrator requiring automated and scriptable staking management.
-- Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as predeposit, prove and top-up deposit validators via Predeposit Guarantee (PDG).
-  - Protocols integrating with stVaults and running in the integration on testnet.
+- Node Operator using the CLI to initiate staking operations and monitor staking performance, as well as predeposit, prove, and top-up validators via Predeposit Guarantee (PDG).
+- Protocols integrating with stVaults and running integration.
 
 ### Dashboard contract
 
@@ -115,14 +115,14 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 
 **URL**: [Technical details](https://hackmd.io/@lido/stVaults-design?stext=5138%3A160%3A0%3A1744277214%3A66cxZj); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol), [PDG user guide](./pdg)
 
-**Goal**: Prevent deposit frontrunning enabled by vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). PDG secures the vault owner’s ether depositing to the validator from front-running by the node operator or third parties. One of the key advantages is a separating finances of the vault owner and the node operator.
+**Goal**: Prevent deposit frontrunning enabled by vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). PDG secures the Vault Owner's ETH deposits to validators from front-running by the Node Operator or third parties. One of the key advantages is the separation of finances between the Vault Owner and the Node Operator.
 
 **How to use:**
 
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
 2. Predeposit guarantee contract enables three main use cases:
-   1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](./pdg#full-cycle-trustless-path-through-pdg)).
-   2. PDG shortcut that allows to skip the predepositing steps and deposit to validator up to 2048 ETH in one trancation, later on optional associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg#pdg-shortcut)).
+   1. Full-cycle proof of validators through PDG to enable a non-custodial depositing mechanism, using the guarantee ETH as collateral ([read more](./pdg#full-cycle-trustless-path-through-pdg)).
+   2. PDG shortcut that allows skipping the predepositing steps and depositing up to 2048 ETH to a validator in one transaction, with optional later association of the validator with the vault by proving it through PDG. Applicable when there is unconditional trust between the Node Operator and the Vault Owner ([read more](./pdg#pdg-shortcut)).
    3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
 
 ### Off-chain monitoring tools

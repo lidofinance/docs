@@ -23,9 +23,9 @@ This address is also used to perform key operations in stVaults from the Node Op
 
 ## Dashboard contract roles and permissions
 
-1. **Vault Owner** [Dashboard contract role DEFAULT_ADMIN (VAULT_OWNER)] is one of the two admin roles for the stVault, allows to manage permissions and change key vault parameters from the Vault Owner (Staker) perspective. Multiple addresses supported.
+1. **Vault Owner** [Dashboard contract role DEFAULT_ADMIN (VAULT_OWNER)] is one of the two admin roles for the stVault. It allows managing permissions and changing key vault parameters from the Vault Owner (Staker) perspective. Multiple addresses are supported.
 
-2. **Node Operator Manager** [Dashboard contract role NODE_OPERATOR_MANAGER] is another of the two admin roles for the stVault, allows to manage permissions and change key vault parameters from the Node Operator perspective. Multiple addresses supported.
+2. **Node Operator Manager** [Dashboard contract role NODE_OPERATOR_MANAGER] is another of the two admin roles for the stVault. It allows managing permissions and changing key vault parameters from the Node Operator perspective. Multiple addresses are supported.
 
 **Vault Owner** and **Node Operator Manager** addresses have permissions for all actions within their respective scopes in stVaults. They can also delegate specific permissions (sub-roles) to other addresses.
  
@@ -36,14 +36,14 @@ This address is also used to perform key operations in stVaults from the Node Op
 |Permissionless | Disburse Node Operator fees. |
 
 ### Vault Owner's non-delegable permissions
-These operations are available only for addresses with the admin role. 
+These operations are available only to addresses with the admin role. 
 | Permission | Operation |
 | -------- | -------- |
 |DEFAULT_ADMIN_ROLE | Grant/Remove role or permission, including own role DEFAULT_ADMIN (VAULT_OWNER). |
 || Confirm the transfer of the StakingVault ownership (Abandon Dashboard, Connect to VaultHub, Reconnect to VaultHub). |
 || Propose and confirm changing NO fee by Multi-roles confirmation. |
 || Propose and confirm changing the Confirmation Expiry parameter by Multi-roles confirmation. |
-|| Propose and confirm AccruedRewardsAdjustment: Marks transferred directly ETH as funded (supplied) so that these assets wouldn’t considered as rewards. |
+|| Propose and confirm AccruedRewardsAdjustment: Marks directly transferred ETH as funded (supplied) so that these assets wouldn't be considered as rewards. |
 
 
 ### Vault Owner's delegatable permissions (sub-roles)
@@ -56,17 +56,17 @@ By default, if no override admin role is set, the Vault Owner can perform all th
 | WITHDRAW_ROLE | Withdraw ETH from the stVault Balance |
 | MINT_ROLE | Mint stETH in a boundaries of stETH minting capacity |
 | BURN_ROLE | Repay (burn) previously minted stETH to decrease stETH Liability |
-| REBALANCE_ROLE | Perform volunteering rebalance |
-| PAUSE_BEACON_CHAIN_DEPOSITS_ROLE | Pause deposits ETH to Beacon chain. |
-| RESUME_BEACON_CHAIN_DEPOSITS_ROLE | Resume deposits ETH to Beacon chain. |
+| REBALANCE_ROLE | Perform voluntary rebalance |
+| PAUSE_BEACON_CHAIN_DEPOSITS_ROLE | Pause ETH deposits to Beacon Chain |
+| RESUME_BEACON_CHAIN_DEPOSITS_ROLE | Resume ETH deposits to Beacon Chain |
 | REQUEST_VALIDATOR_EXIT_ROLE | Ask Node Operator to exit validator and return ETH to stVault Balance |
 | TRIGGER_VALIDATOR_WITHDRAWAL_ROLE | Force fully or partially withdraw ETH from validator |
-| VOLUNTARY_DISCONNECT_ROLE | Disconnect from Lido VaultHub (disable minting stETH, stop paying fees to Lido, distribute Node Operator's fee) |
+| VOLUNTARY_DISCONNECT_ROLE | Disconnect from Lido VaultHub (disables minting stETH, stops paying fees to Lido, distributes Node Operator fee) |
 | VAULT_CONFIGURATION_ROLE | — Request to OperatorGrid to change the vault tier (specify new tier) |
 | | — Request to OperatorGrid to change the sync with tier params |
 | | — Request to OperatorGrid to update share limit on the vault |
 | | — Accept new tier on connection to the VaultHub |
-| COLLECT_VAULT_ERC20_ROLE |  Allows recovery of ERC20 tokens wrongly transferred to the Dashboard contract or claim of incentives transferred to the vault address as ERC20 tokens. |
+| COLLECT_VAULT_ERC20_ROLE | Allows recovery of ERC20 tokens wrongly transferred to the Dashboard contract or claiming of incentives transferred to the vault address as ERC20 tokens |
 
 
 ### Node Operator Manager's non-delegable permissions (sub-roles)
@@ -75,7 +75,7 @@ By default, if no override admin role is set, the Vault Owner can perform all th
 |NODE_OPERATOR_MANAGER_ROLE| Grant/Remove role or permission, including own role NODE_OPERATOR_MANAGER. |
 || Propose and confirm changing NO fee by Multi-roles confirmation. |
 || Propose and confirm changing Confirmation Expiry parameter by Multi-roles confirmation. |
-|| Propose and confirm AccruedRewardsAdjustment: Marks transferred directly ETH as funded (supplied) so that these assets wouldn’t considered as rewards. |
+|| Propose and confirm AccruedRewardsAdjustment: Marks directly transferred ETH as funded (supplied) so that these assets wouldn't be considered as rewards. |
 || Set NO fee recipient address. |
 
 ### Node Operator Manager's delegatable permissions (sub-roles)
@@ -85,9 +85,9 @@ By default, if no override admin role is set, the Node Operator Manager can perf
 
 | Permission | Operation |
 | -------- | -------- |
-| NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE | Withdraw ether from vault and deposits directly to provided validators bypassing the default PDG process |
+| NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE | Withdraw ETH from the vault and deposit directly to provided validators, bypassing the default PDG process |
 | NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE | Prove unknown validators through PDG |
-| NODE_OPERATOR_FEE_EXEMPT_ROLE | Add a fee exemption to exclude this value from node operator fee base. The exemption works by increasing the settled growth, effectively treating the exempted amount as if fees were already paid on it. |
+| NODE_OPERATOR_FEE_EXEMPT_ROLE | Add a fee exemption to exclude this value from the Node Operator fee base. The exemption works by increasing the settled growth, effectively treating the exempted amount as if fees were already paid on it |
 
 
 ## Predeposit guarantee contract roles and permissions

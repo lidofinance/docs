@@ -27,7 +27,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 ### Tools
 
-1. [stVaults Web UI](https://stvaults-hoodi.testnet.fi/)
+1. [stVaults Web UI](https://stvaults.lido.fi/)
 2. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
 3. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
@@ -44,7 +44,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 1. [stVaults Roles](./roles-and-permissions.md)
 2. [stVaults Parameters and Metrics](./parameters-and-metrics.md)
-3. [Become an identified Node Operator and get tiers, or request for changes](./node-operators-identification.md)
+3. [Become an identified Node Operator and get tiers, or request changes](./node-operators-identification.md)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
