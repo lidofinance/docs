@@ -22,7 +22,7 @@
 
 **Contracts and Roles:**
 
-###### GateSeal (ValidatorExitBus and TriggerableWithdrawalsGateway) [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) and GateSeal (WithdrawalQueue) [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
+###### GateSeal (ValidatorExitBus and TriggerableWithdrawalsGateway) [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1), GateSeal (WithdrawalQueue) [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) and ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) GateSeal (VaultHub and PredepositGuarantee (PDG)) [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
 * Sealing Committee
 
 **List of signers:**
