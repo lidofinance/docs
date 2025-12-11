@@ -43,7 +43,7 @@ All these options require a mutual off-chain trust between the Node Operator and
         - PGD Policy to set up: `ALLOW_PROVE`.
         - Caller must have the `DEFAULT_ADMIN_ROLE` role.
     3. The Node Operator Manager assigns role `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` to the address that will make deposits (Depositor).
-    4. Depositor deposits from the stvault Balance to Validator BeaconChain  using Unguaranteed Deposit method:
+    4. Depositor deposits from the stvault Balance to Validator BeaconChain using Unguaranteed Deposit method:
         - Method called: `Dashboard.unguaranteedDepositToBeaconChain(deposits)`.
         - Caller must have the `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` role.
 2. **Option 2: Side-deposit**, i.e. deposit ETH right to validators on BeaconChain without supplying it to the stVault before.
@@ -53,7 +53,7 @@ All these options require a mutual off-chain trust between the Node Operator and
         2. Caller must have the `NODE_OPERATOR_MANAGER_ROLE`, or delegated `NODE_OPERATOR_FEE_EXEMPT_ROLE` role.
 3. **Option 3**: Consolidation of validators to validators with mapped to stVault by withdrawal credentials (see [Consolidation guide](https://docs.lido.fi/run-on-lido/stvaults/consolidation)), i.e. migrate existing external stake without exits and re-entering:
     1. Launch “recipient” validators according to options 1 or 2.
-    2. Consolidate other “external” validators into stVault associated validators (created on the prev step) after they become active on the beacon chain..
+    2. Consolidate other “external” validators into stVault associated validators (created on the prev step) after they become active on the beacon chain.
 
 ## Capabilities that will be enabled later with the full launch
 
