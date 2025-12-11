@@ -34,13 +34,13 @@ All these options require a mutual off-chain trust between the Node Operator and
 
 :::
 
-1. **Option 1: Unguaranteed Deposit method (suggested)**, i.e. withdraw ETH from the stVault to deposit it without PDG checks under an on-chain consent from a vault owner to a node operator.
+1. **Option 1: Unguaranteed Deposit method (suggested)**, i.e. withdraw ETH from the stVault to deposit it without PDG checks under an on-chain consent from a vault owner to a Node Operator.
     1. Supply ETH into stVaults:
         - Method called: `Dashboard.fund()` with ETH transfer (`payable`).
         - Caller must have the `FUND_ROLE` role.
     2. The stVault's owner allows Depositor bypassing PDG.
         - Method called: `Dashboard.setPDGPolicy(PDGPolicy)`.
-        - PGD Policy to set up: `ALLOW_PROVE`.
+        - PDG Policy to set up: `ALLOW_PROVE`.
         - Caller must have the `DEFAULT_ADMIN_ROLE` role.
     3. The Node Operator Manager assigns role `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` to the address that will make deposits (Depositor).
     4. Depositor deposits from the stvault Balance to Validator BeaconChain using Unguaranteed Deposit method:
