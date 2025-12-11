@@ -15,7 +15,7 @@ Soft launch will not enable PredepositGuarantee (PDG) contract.
 
 The PDG enables Node Operators to deposit validators using vault funds in a trustless manner.
 
-The full-cycle trustless path through PDG enables depositing ETH from an stVault's Balance to validators on BeaconChain without impact on key stVault metrics: Total Value, stETH minting capacity, Heath Factor, etc. It means that the Vault Owner can fully utilize stETH minting capacity right after supplying ETH to the stVault, and enables the Node Operator to separately manage the depositing of ETH from the stVault Balance to validators.
+The full-cycle trustless path through PDG enables depositing ETH from an stVault's Balance to validators on BeaconChain without impact on key stVault metrics: Total Value, stETH minting capacity, Health Factor, etc. It means that the Vault Owner can fully utilize stETH minting capacity right after supplying ETH to the stVault, and enables the Node Operator to separately manage the depositing of ETH from the stVault Balance to validators.
 :::
 
 Because PDG will not be enabled during soft launch, deposits from stVault Balance to validators will reduce the Total Value of the vault temporarily until the deposit is verified, meaning that:
