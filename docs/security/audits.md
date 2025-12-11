@@ -1,6 +1,81 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (78 reports)
+## Lido on Ethereum (85 reports)
+
+### 12-2025 Certora Lido V3 Security Audit Report
+
+- Total Issues: 84 (70 Fixed, 14 Acknowledged)
+- Critical Issues: 7 (7 Fixed)
+- High Issues: 14 (14 Fixed)
+- Medium Issues: 29 (25 Fixed, 4 Acknowledged)
+- Low Issues: 21 (13 Fixed, 8 Acknowledged)
+- Info Issues: 13 (11 Fixed, 2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Audit%20Report%20-%2012-2025.pdf) for more details.
+
+### 12-2025 Certora Lido V3 Formal Verification Report
+
+- Total Issues: 10 (6 Fixed, 4 Acknowledged)
+- Critical Issues: 1 (1 Fixed)
+- High Issues: 0
+- Medium Issues: 3 (2 Fixed, 1 Acknowledged)
+- Low Issues: 5 (3 Fixed, 2 Acknowledged)
+- Info Issues: 1 (1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Formal%20Verification%20Report%20-%2012-2025.pdf) for more details.
+
+### 12-2025 Certora Lido V3 Oracle Off-chain Security Assessment Report
+
+- Total Issues: 16 (7 Fixed, 9 Acknowledged)
+- Critical Issues: 0
+- High Issues: 2 (2 Fixed)
+- Medium Issues: 2 (2 Fixed)
+- Low Issues: 7 (2 Fixed, 5 Acknowledged)
+- Info Issues: 5 (1 Fixed, 4 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf) for more details.
+
+### 12-2025 MixBytes Lido V3 Security Audit Report
+
+- Total Issues: 19 (8 Fixed, 11 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Acknowledged)
+- Medium Issues: 5 (1 Fixed, 4 Acknowledged)
+- Low Issues: 13 (7 Fixed, 6 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20V3%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details.
+
+### 12-2025 MixBytes Lido V3 Easy Track Security Audit Report
+
+- Total Issues: 4 (2 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 4 (2 Fixed, 2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20V3%20Easy%20Track%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details.
+
+### 12-2025 Consensys Diligence Lido V3 Security Audit Report
+
+- Total Issues: 43 (32 Fixed, 11 Acknowledged)
+- Critical Issues: 2 (2 Fixed)
+- Major Issues: 5 (5 Fixed)
+- Medium Issues: 13 (12 Fixed, 1 Acknowledged)
+- Minor Issues: 9 (5 Fixed, 4 Acknowledged)
+- Info Issues: 14 (8 Fixed, 6 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Consensys%20Diligence%20Lido%20V3%20Security%20Audit%20-%2011-2025.pdf) for more details.
+
+### 12-2025 Composable Security Lido V3 Oracle v7 Security Audit Report
+
+- Total Issues: 6 (4 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Fixed)
+- Medium Issues: 2 (2 Fixed)
+- Low Issues: 0
+- Info Issues: 3 (1 Fixed, 2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf) for more details.
 
 ### 09-2025 MixBytes Lido Triggerable Withdrawals Easy Track Security Audit
 
