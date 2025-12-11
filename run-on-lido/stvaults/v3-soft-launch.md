@@ -40,7 +40,7 @@ All these options require a mutual off-chain trust between the Node Operator and
         - Caller must have the `FUND_ROLE` role.
     2. The stVault's owner allows Depositor bypassing PDG.
         - Method called: `Dashboard.setPDGPolicy(PDGPolicy)`.
-        - PDG Policy to set up: `ALLOW_PROVE`.
+        - PDG Policy to set up: `ALLOW_DEPOSIT_AND_PROVE`.
         - Caller must have the `DEFAULT_ADMIN_ROLE` role.
     3. The Node Operator Manager assigns role `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` to the address that will make deposits (Depositor).
     4. Depositor deposits from the stvault Balance to Validator BeaconChain using Unguaranteed Deposit method:
