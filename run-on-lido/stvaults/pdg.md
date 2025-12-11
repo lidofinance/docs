@@ -5,7 +5,9 @@ sidebar_position: 5
 # Predeposit Guarantee
 
 :::warning
-According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft launch in late December 2025.
+According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft-launch in late December 2025.
+
+Phase 2 (Full Launch Mode), including the fully functional PDG, is expected in late January 2026.
 :::
 
 
