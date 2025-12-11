@@ -4,7 +4,7 @@ sidebar_position: 6
 # V3 soft launch with paused PDG
 Lido V3 is [launching in phases](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665#p-22926-rollout-plan-9).
 
-[Phase 1 is split into a *soft-launch*](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8) for early adopters and builders to enable building and testing on Mainnet.
+[Phase 1 evolves into Soft-Launch Mode](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8) for early adopters and builders to enable building and testing on Mainnet.
 
 ## Soft launch limitations
 
@@ -42,7 +42,7 @@ All these options require a mutual off-chain trust between the Node Operator and
         - Method called: `Dashboard.setPDGPolicy(PDGPolicy)`.
         - PGD Policy to set up: `ALLOW_PROVE`.
         - Caller must have the `DEFAULT_ADMIN_ROLE` role.
-    3. The Node Operator Manager assigns role `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE`.
+    3. The Node Operator Manager assigns role `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` to the address that will make deposits (Depositor).
     4. Depositor deposits from the stvault Balance to Validator BeaconChain  using Unguaranteed Deposit method:
         - Method called: `Dashboard.unguaranteedDepositToBeaconChain(deposits)`.
         - Caller must have the `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` role.
