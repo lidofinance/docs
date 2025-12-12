@@ -437,7 +437,7 @@ If this happens, there are three main options available:
 
 **Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH Liability and thereby increases the Health Factor.
 
-Rebalancing is performed in one transacion.
+Rebalancing is performed in one transaction.
 
 The amount of ETH required for rebalancing to bring the Utilization Ratio to 100% depends on the current Health Factor and Reserve Ratio. It can be pre-calculated manually using the formula, or via the built-in methods.
 

@@ -21,7 +21,7 @@ Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) 
     - go to `https://stvaults-hoodi.testnet.fi/vaults/<vault_address>/settings/permissions`. **TODO: update links to mainnet.**
     - navigate to "Node Operator Manager Permissions" section, "Adjust rewards on the validators" item.
     - add the address of your original validator's withdrawal credentials.
-- Source validiators
+- Source validators
   - withdrawal credentials must be `0x01` or `0x02` (`0x00` is not supported).
   - must be active (i.e., not exiting or slashed).
   - must be active for at least 256 epochs to be able to perform consolidation.
@@ -66,7 +66,7 @@ yarn start consolidation w <dashboard> --file <path-to-json-with-pubkeys> --wall
 - If your wallet does not support `EIP-5792`, the consolidation request will be executed using the `eth_sendTransaction` method, processing the transaction calls one by one instead of in a batch.
 
 > **Note:** Alternatively, you can list pubkeys directly in the command as parameters:
-> If you prefere it's possible to list pubkeys in command as parameteres:
+> If you prefer it's possible to list pubkeys in command as parameters:
 
 ```bash
 yarn start consolidation w <dashboard> \

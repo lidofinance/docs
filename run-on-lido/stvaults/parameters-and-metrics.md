@@ -170,7 +170,7 @@ The amount of ETH for rebalancing to make Utilization Ratio 100% is pre-calculat
 ETH for rebalance = (stETH Liability - (1 - RR) * Total Value) / RR.
 
 
-## Lido Core referrence metrics
+## Lido Core reference metrics
 
 ### stETH APR
 Estimated total yearly returns from staking in the Lido Core protocol.

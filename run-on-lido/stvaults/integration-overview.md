@@ -122,7 +122,7 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 1. Create and configure a vault through any convenient interface (contracts, CLI, or UI).
 2. Predeposit guarantee contract enables three main use cases:
    1. Full-cycle proof of validators through PDG to enable non-custodial depositing mechanism, using the guarantee ether as a collateral ([read more](./pdg#full-cycle-trustless-path-through-pdg)).
-   2. PDG shortcut that allows to skip the predepositing steps and deposit to validator up to 2048 ETH in one trancation, later on optional associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg#pdg-shortcut)).
+   2. PDG shortcut that allows to skip the predepositing steps and deposit to validator up to 2048 ETH in one transaction, later on optional associating the validator with the vault by proving it through PDG. Applicable in unconditional trust between the node operator and the vault owner ([read more](./pdg#pdg-shortcut)).
    3. Adding existing validator to Vault from external staking infrastructure as an advanced integration use-case.
 
 ### Off-chain monitoring tools
