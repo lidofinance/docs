@@ -238,7 +238,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     
 ### DVT Cluster identification and assessment
 
-Each individual Node Operator participating in the DVT Cluster must pass the identification process [as descibed above](#individual-node-operators-identification-and-assessment):
+Each individual Node Operator participating in the DVT Cluster must pass the identification process [as described above](#individual-node-operators-identification-and-assessment):
 1. Post an identification request on the Lido Research Forum (mandatory).
 2. Complete the stVaults Identification Form (mandatory).
 3. Complete the extended stVaults Node Operator Category Application (optional).
