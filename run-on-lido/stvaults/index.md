@@ -27,9 +27,10 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 ### Tools
 
-1. [stVaults Web UI](https://stvaults-hoodi.testnet.fi/)
-2. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
-3. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
+1. [stVaults Web UI on Hoodi Testnet](https://stvaults-hoodi.testnet.fi/)
+2. [stVaults Web UI on Mainnet](https://stvaults.lido.fi/) // will be available on [Phase 2](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8)
+3. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
+4. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
 ### Tech documentation
 
@@ -44,7 +45,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 1. [stVaults Roles](./roles-and-permissions.md)
 2. [stVaults Parameters and Metrics](./parameters-and-metrics.md)
-3. [Become an identified Node Operator and get tiers, or request for changes](./node-operators-identification.md)
+3. [Become an identified Node Operator and get tiers, or request changes](./node-operators-identification.md)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
