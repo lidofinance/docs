@@ -57,7 +57,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
 
 **Snapshot:**\
-[Proposal to adopt Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
+[Tiered Rewards Share Program: A Sustainable Approach to stETH Growth](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)\
+[Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
 
 **Aragon:**\
 [Omnibus vote #162](https://vote.lido.fi/vote/162)
@@ -899,13 +900,13 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | - |
-| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | - |
-| Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | - |
-| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | - |
-| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | - |
-| mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | - |
-| AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | - |
+| dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | https://research.lido.fi/t/stvaults-committee-proposal/10608/9 |
+| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | https://research.lido.fi/t/stvaults-committee-proposal/10608/14 |
+| Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | https://research.lido.fi/t/stvaults-committee-proposal/10608/10 |
+| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | https://research.lido.fi/t/stvaults-committee-proposal/10608/8 |
+| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
+| mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | https://research.lido.fi/t/stvaults-committee-proposal/10608/11 |
+| AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | https://research.lido.fi/t/stvaults-committee-proposal/10608/12 |
 
 ## 2.17 Bridging Security Committee
 

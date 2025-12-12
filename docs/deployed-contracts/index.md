@@ -4,47 +4,78 @@ pagination_next: deployed-contracts/hoodi
 
 # Mainnet
 
-:::info
-This page lists production contract addresses on Mainnets — including Ethereum and other networks,
-where the protocol and its parts/extensions are deployed.
+:::info **Production Lido Protocol Deployment**
+
+This page lists production contract addresses on Mainnets — including Ethereum and other networks, where the protocol and its parts/extensions are deployed.
+
+**Deployment Information:**
+
+- ⚓ Lido protocol version: [**`v2.2.0`**](https://github.com/lidofinance/core/releases/tag/v2.2.0) (Lido V2 version line)
+- ✅ Status: Active and maintained
+
 :::
 
-## Core protocol
+## 🏛️ Core Protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-- Lido Locator: [`0x2C298963FB763f74765829722a1ebe0784f4F5Cf`](https://etherscan.io/address/0x2C298963FB763f74765829722a1ebe0784f4F5Cf) (impl)
+  - (<u>proposed to remove</u>) Lido Locator: [`0x2C298963FB763f74765829722a1ebe0784f4F5Cf`](https://etherscan.io/address/0x2C298963FB763f74765829722a1ebe0784f4F5Cf) (impl)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
+  - (<u>proposed to remove</u>) Lido: [`0x17144556fd3424EDC8Fc8A4C940B2D04936d17eb`](https://etherscan.io/address/0x17144556fd3424EDC8Fc8A4C940B2D04936d17eb) (impl)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Accounting: [`0xd43a3E984071F40d5d840f60708Af0e9526785df`](https://etherscan.io/address/0xd43a3E984071F40d5d840f60708Af0e9526785df) (impl)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - wstETH referral staker: [`0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
-- Staking Router: [`0x226f9265CBC37231882b7409658C18bB7738173A`](https://etherscan.io/address/0x226f9265CBC37231882b7409658C18bB7738173A) (impl)
+  - Staking Router: [`0x226f9265CBC37231882b7409658C18bB7738173A`](https://etherscan.io/address/0x226f9265CBC37231882b7409658C18bB7738173A) (impl)
 - Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
-- Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
-- Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
+  - Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
+- (<u>proposed to remove</u>) Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Burner: [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) (proxy)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Burner: [`0xEe1E3B4f047122650086985f794f0dB5f10Ae49D`](https://etherscan.io/address/0xEe1E3B4f047122650086985f794f0dB5f10Ae49D) (impl)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 - Min First Allocation Strategy: [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) (external lib)
 - Triggerable Withdrawals Gateway: [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Validator Exit Delay Verifier: [`0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f`](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Vault Hub: [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) (proxy)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Vault Hub: [`0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50`](https://etherscan.io/address/0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50) (impl)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Predeposit Guarantee: [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) (proxy)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Predeposit Guarantee: [`0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023`](https://etherscan.io/address/0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023) (impl)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Operator Grid: [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) (proxy)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Operator Grid: [`0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C`](https://etherscan.io/address/0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C) (impl)
 
-## Oracle Contracts
+### 🔨 ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) stVaults Factory Stack
+
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Staking Vault Factory: [`0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A`](https://etherscan.io/address/0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Staking Vault Beacon: [`0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789`](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Staking Vault Implementation: [`0x06A56487494aa080deC7Bf69128EdA9225784553`](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
+
+## 🔮 Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
-  - AccountingOracle: [`0xE9906E543274cebcd335d2C560094089e9547e8d`](https://etherscan.io/address/0xE9906E543274cebcd335d2C560094089e9547e8d) (impl)
+    - (<u>proposed to remove</u>) AccountingOracle: [`0xE9906E543274cebcd335d2C560094089e9547e8d`](https://etherscan.io/address/0xE9906E543274cebcd335d2C560094089e9547e8d) (impl)
+    - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) AccountingOracle: [`0x1455B96780A93e08abFE41243Db92E2fCbb0141c`](https://etherscan.io/address/0x1455B96780A93e08abFE41243Db92E2fCbb0141c) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
   - ValidatorsExitBusOracle: [`0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94`](https://etherscan.io/address/0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94) (impl)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
-- OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
+- (<u>proposed to remove</u>) OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
-- Legacy Oracle ([deprecated effective October 2024](https://research.lido.fi/t/steth-on-optimism-upgrade-announcement-and-action-plan/8474#p-17840-legacyoracle-deprecation-notice-6)): [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
+- (<u>proposed to remove</u>) Legacy Oracle: [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lazy Oracle: [`0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B`](https://etherscan.io/address/0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B) (impl)
 
-## DAO Contracts
+## 🗳️ DAO Contracts {#dao-contracts}
 
 - Lido DAO (Kernel): [`0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc`](https://etherscan.io/address/0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc) (proxy)
 - LDO token: [`0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32`](https://etherscan.io/address/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32)
@@ -65,8 +96,15 @@ where the protocol and its parts/extensions are deployed.
 - GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - GateSeal (VEB and TWG): [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
 - GateSeal (Withdrawal Queue): [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) GateSeal (VaultHub and PredepositGuarantee): [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
 
-### Dual Governance
+### 🗳️ ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) Lido V3 Voting Contracts
+
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Vote Script: [`0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA`](https://etherscan.io/address/0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA)
+
+### 🧬 Dual Governance
 
 - Emergency Protected Timelock: [`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
   - Emergency activation committee: [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://etherscan.io/address/0x8B7854488Fde088d686Ea672B6ba1A5242515f45)
@@ -86,14 +124,14 @@ where the protocol and its parts/extensions are deployed.
   - Ethereum Ecosystem Sub Committee [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 - Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
 
-## Data Bus
+## 📊 Data Bus {#data-bus}
 
 - DataBus on Gnosis Chain: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - DataBus on Base: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - DataBus on Optimism: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://optimistic.etherscan.io/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - DataBus on Polygon PoS: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://polygonscan.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 
-## Staking modules
+## 🧩 Staking Modules
 
 ### Curated Module
 
@@ -137,7 +175,7 @@ where the protocol and its parts/extensions are deployed.
   - NOAddresses: [`0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc`](https://etherscan.io/address/0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc)
   - QueueLib: [`0x6eff460627b6798c2907409ea2fdfb287eaa2e55`](https://etherscan.io/address/0x6eff460627b6798c2907409ea2fdfb287eaa2e55)
 
-## Liquidity pools
+## 💧 Liquidity Pools
 
 - Curve [stETH/ETH](https://curve.fi/steth) pool: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
 - Curve concentrated [stETH/wETH](https://curve.fi/factory/117) pool:
@@ -149,7 +187,7 @@ where the protocol and its parts/extensions are deployed.
 - 1inch stETH/DAI pool: [`0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431`](https://etherscan.io/address/0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431)
 - Sushi wstETH/DAI pool: [`0xc5578194D457dcce3f272538D1ad52c68d1CE849`](https://etherscan.io/address/0xc5578194D457dcce3f272538D1ad52c68d1CE849)
 
-## Price feeds
+## 📈 Price Feeds
 
 :::note
 See [integration guide](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds)
@@ -157,6 +195,7 @@ for the rate and price feeds recommended approaches.
 :::
 
 - Mainnet price feeds
+
   - Chainlink wstETH/USD Price Feed: [`0x8b6851156023f4f5a66f68bea80851c3d905ac93`](https://etherscan.io/address/0x8b6851156023f4f5a66f68bea80851c3d905ac93)
 
 - Multichain wstETH/stETH rate feeds
@@ -168,8 +207,7 @@ for the rate and price feeds recommended approaches.
   - Chainlink wstETH/stETH exchange rate on Linea: [`0x3C8A95F2264bB3b52156c766b738357008d87cB7`](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7) (proxy)
   - Chainlink wstETH/stETH exchange rate on BNB: [`0x4c75d01cfa4D998770b399246400a6dc40FB9645`](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645) (proxy)
 
-
-## Reward Programs
+## 🎁 Reward Programs {#reward-programs}
 
 - Early Stakers Airdrop: [`0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B`](https://etherscan.io/address/0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B)
 
@@ -191,13 +229,13 @@ for the rate and price feeds recommended approaches.
 
   - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
 
-## Anchor Integration (stETH as collateral on Anchor protocol), [discontinued](https://research.lido.fi/t/anchor-vault-upgrade-on-chain-voting-announcement/5538)
+## ⚓ Anchor Integration (stETH as collateral on Anchor protocol), [discontinued](https://research.lido.fi/t/anchor-vault-upgrade-on-chain-voting-announcement/5538)
 
 - AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
 - AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (impl)
 - bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 
-## AAVE V2 Integration
+## 🔗 AAVE V2 Integration
 
 - AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
@@ -207,12 +245,12 @@ for the rate and price feeds recommended approaches.
 - VariableDebtStETH: [`0xDe2c414b671d2DB93617D1592f0490c13674de24`](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24) (impl)
 - DefaultReserveInterestRateStrategy: [`0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c`](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
 
-## DAO Ops contracts & addresses
+## ⚙️ DAO Ops Contracts & Addresses
 
 - Tokens recoverer for Manager contracts ([Reward Programs](#reward-programs)): [`0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C`](https://etherscan.io/address/0x1bdfFe0EBef3FEAdF2723D3330727D73f538959C).
 - Token Reward Program (TRP) VestingEscrowFactory: [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0)
 
-## Lido Stonks contracts
+## 🪨 Lido Stonks Contracts
 
 - STETH→DAI [`0x3e2D251275A92a8169A3B17A2C49016e2de492a7`](https://etherscan.io/address/0x3e2D251275A92a8169A3B17A2C49016e2de492a7)
 - STETH→USDC [`0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5`](https://etherscan.io/address/0xf4F6A03E3dbf0aA22083be80fDD340943d275Ea5)
@@ -224,12 +262,12 @@ for the rate and price feeds recommended approaches.
 - USDC→USDT [`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7)
 - USDC→DAI [`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850)
 
-## Easy Track
+## ⚡ Easy Track {#easy-track}
 
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
 
-### Easy Track factories for staking modules
+### Easy Track Factories for Staking Modules
 
 - **Curated Node Operators staking module** (registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5))
   - IncreaseNodeOperatorStakingLimit: [`0xFeBd8FAC16De88206d4b18764e826AF38546AfE0`](https://etherscan.io/address/0xFeBd8FAC16De88206d4b18764e826AF38546AfE0)
@@ -248,7 +286,7 @@ for the rate and price feeds recommended approaches.
   - CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
   - CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
 
-### Easy Track factories for token transfers
+### Easy Track Factories for Token Transfers
 
 - **LOL (ex.reWARDS) stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home))
   - AllowedRecipientsRegistry: [`0x48c4929630099b217136b64089E8543dB0E5163a`](https://etherscan.io/address/0x48c4929630099b217136b64089E8543dB0E5163a)
@@ -301,13 +339,28 @@ for the rate and price feeds recommended approaches.
   - AllowedRecipientsFactory (multi token): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
-### Easy Track factories for MEV-Boost Relay Allowed List management
+### Easy Track Factories for MEV-Boost Relay Allowed List management
+
 - **MEV-Boost Relay Allowed List** (committee ms [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/home?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d))
   - AddMEVBoostRelays: [`0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60`](https://etherscan.io/address/0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60)
   - RemoveMEVBoostRelays: [`0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306`](https://etherscan.io/address/0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306)
   - EditMEVBoostRelay: [`0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535`](https://etherscan.io/address/0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535)
 
-## Lido DAO Multisigs
+### 🔨 ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Easy Track Factories for stVaults Management
+
+- **Operator Grid:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Groups (Phase 1): [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Groups Share Limit (Phase 1): [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Alter Tiers (Phase 1): [`0xa29173C7BCf39dA48D5E404146A652d7464aee14`](https://etherscan.io/address/0xa29173C7BCf39dA48D5E404146A652d7464aee14)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Set Jail Status: [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Vaults Fees: [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c)
+- **Vault Hub:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Force Validator Exits: [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA)
+  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Socialize Bad Debt: [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) VaultsAdapter: [`0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D`](https://etherscan.io/address/0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D)
+
+## 🔐 Lido DAO Multisigs
 
 ### Committees
 
@@ -321,6 +374,7 @@ for the rate and price feeds recommended approaches.
 - Community Staking Module Committee: [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
 
 ### Alliance
+
 - Lido Alliance BORG Foundation Operational: [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 - Lido Alliance BORG Allies/Partners: [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
 - Lido Alliance BORG Drop: [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
@@ -331,6 +385,7 @@ for the rate and price feeds recommended approaches.
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
 ### Emergency Brakes Multisigs
+
 - GateSeal Committee: [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/home?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://app.safe.global/home?safe=oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
@@ -371,12 +426,14 @@ for the rate and price feeds recommended approaches.
 - Liquidity Observation Lab AAVE rewards: `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
 
 ### Lido on X
+
 - Lido on Polygon: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
 
 ### Other
+
 - Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 
-## Lido Multichain
+## 🌐 Lido Multichain {#lido-multichain}
 
 ### Arbitrum
 
@@ -398,7 +455,8 @@ for the rate and price feeds recommended approaches.
 
 #### Ethereum part
 
-- TokenRateNotifier: [`0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823`](https://etherscan.io/address/0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823)
+- (<u>proposed to remove</u>) TokenRateNotifier: [`0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823`](https://etherscan.io/address/0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823)
+- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
 - OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
 - L1LidoTokensBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
@@ -682,11 +740,11 @@ Kyber Network
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
 
-## LRT Vaults on Mellow Protocol
+## 🔒 LRT Vaults on Mellow Protocol
 
 There's a joint bug bounty for the vaults deployed at addresses listed in [the deployment verification audit record](https://github.com/mellow-finance/mellow-lrt/blob/85370ae372f95d057dc9806ec98fde24e5ed4d29/audits/202406_Statemind/Mellow%20LRT%20report%20with%20deployment.pdf). Any findings regarding the code deployed on those addresses can be reported to [the Lido Immunefi Bug bounty](https://immunefi.com/bug-bounty/lido/) with thresholds of up to $500k on critical finding.
 
-## Legacy contracts
+## 📜 Legacy Contracts
 
 > **These contracts were previously used and are currently active, but they are no longer being supported by contributors from Lido DAO**
 
