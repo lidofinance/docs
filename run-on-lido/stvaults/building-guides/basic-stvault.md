@@ -30,7 +30,7 @@ ETH is deposited to validators and generates staking rewards; stETH is minted on
 
 ### Mainnet
 
-- UI: https://stvaults.lido.fi/
+- UI: https://stvaults.lido.fi/ (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
 - Contracts: https://docs.lido.fi/deployed-contracts/
 - Etherscan: https://etherscan.io/
@@ -124,14 +124,20 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 - `currentSettledGrowth` the amount of unaccounted growth accrued on the vault while it was disconnected. 0 for newly created vaults via create without connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
 
 
-
 <details>
   <summary>using stVaults Web UI</summary>
+      1. Open the stVaults mainpage (see [#Environments](#environments))
 
-      *Will be supported later this Autumn*
+      2. Connect wallet on the "My Vaults" page.
 
+      3. Open an stVault oveview page by the URL ```https://<domain>/vaults/<StakingVault_address>```
+      
+      ![Connect and accept tier](/img/stvaults/guide-basic-stvault/guide_1_scr_8.png)
+
+      4. Review parameters and click "Approve and supply 1 ETH".
+
+      5. Sign transaction in the wallet.
 </details>
-
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
@@ -165,6 +171,9 @@ In this approach, the Vault Owner creates an stVault that automatically connects
       1. Open the stVaults mainpage (see [#Environments](#environments))
       2. Connect wallet on the "My Vaults" page.
       3. Click "Create vault".
+
+      ![Create vault](/img/stvaults/guide-basic-stvault/guide_1_scr_9.png)
+
       4. Fill out the form and click "Continue".
       5. Sign transaction in the wallet.
 </details>
@@ -409,6 +418,13 @@ Supplying ETH to the stVault increases its balance. The Node Operator can then d
 
 **The Predeposit Guarantee (PDG)** contract, as part of the stVaults platform, helps prevent deposit frontrunning caused by the vulnerabilities described in [LIP-5](https://research.lido.fi/t/lip-5-mitigations-for-deposit-front-running-vulnerability/1269). PDG secures the Vault Owner’s ETH deposits to validators from being front-run by the Node Operator.
 
+:::warning
+According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft-launch in late December 2025.
+
+Phase 2 (Full Launch Mode), including the fully functional PDG, is expected in late January 2026.
+:::
+
+
 One of the key benefits of using PDG is the avoidance of commingling: it keeps the finances of the Vault Owner and the Node Operator strictly separated.
 
 PDG enables three main use cases:
@@ -469,5 +485,7 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 
 ## Useful links
 
+- [Health Monitoring Guide](../health-monitoring-guide.md)
+- [Health Emergency Guide](../health-emergency-guide.md)
 - [stVaults Roles](../roles-and-permissions)
 - [stVaults Metrics](../parameters-and-metrics)

@@ -19,7 +19,7 @@ Defines the minimum allowed ratio of stETH Liability to Total Value. Exceeding t
 ### Total Value
 The total amount of ETH, consisting of ETH staked on validators plus ETH held in the vault balance. Rewards accrue to both and increase Total Value.
 
-### Unstaked stVault Balance
+### Not Staked stVault Balance
 The amount of ETH held on the stVault Balance (Vault contract balance) and not deposited on validators, and therefore not used for earning rewards.
 
 ### Staked on validators
