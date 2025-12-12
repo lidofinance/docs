@@ -950,3 +950,5 @@ A Committee without multisig.
 | n0guest | 0x235750Acd5F02A88be3cBF96BB9635DAeB22B203 | https://etherscan.io/verifySig/297452 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/8 |
 | Nikita_K | 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/297389 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/4 |
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/297421 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/7 |
+
+**Lifespan**: The committee will be dissolved immediately once ownership is transferred to the Aragon Voting or Safe Harbor is decommissioned.
