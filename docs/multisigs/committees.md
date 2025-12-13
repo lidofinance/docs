@@ -8,6 +8,8 @@
 The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. 
 Multisig enables the reception of LDO and stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreicjxt3e7rshzokkerhpieprxnoqs7hnkucblcc7jayolmjpc55b7u)
+
 **Forum topics:**\
 [Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406)\
 [Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
@@ -50,6 +52,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmZzkaADXGZmRg9Yb9HCCLKP19Lt4pitpFB4BDi3CfaU7t)
+
 **Quorum:** 4/8
 
 **Forum topics:**\
@@ -90,6 +94,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Purpose of the multisig:** The multisig signs off the [MEV Boost Relay Allowed List smart contract](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) in order to introduce changes to the list of relays proposed to be used by the Lido on Ethereum Node Operators
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreicdfiiwzjkf2ux72g7sjesa3cuvauklvons2jvxqfoqbq5gydqgda)
+
 **Quorum:** 5/7
 
 **Forum topic:** [Identify and constitute Relay Maintenance Committee](https://research.lido.fi/t/lido-on-ethereum-identify-and-constitute-relay-maintenance-committee/3386)
@@ -121,6 +127,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **Address:** [`0x834560F580764Bc2e0B16925F8bF229bb00cB759`](https://app.safe.global/settings/setup?safe=eth:0x834560F580764Bc2e0B16925F8bF229bb00cB759)
 
 **Purpose of the multisig:** TRP Multisig performs operations around TRP: receives LDOs for TRP allocations, creates new TRP distribution vaults, revokes the allowances from the no longer required existing TRP vault, grants direct TRP payments if operationally necessary & gets funded from the DAO Treasury through ET motions.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreier6ryh5u3wqasjxvph73xzhdypncsdswj5mjmr45wsrqivdbfps4)
 
 **Quorum:** 4/7
 
@@ -158,6 +166,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **Address:** [`0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647`](https://app.safe.global/settings/setup?safe=eth:0xa02FC823cCE0D016bD7e17ac684c9abAb2d6D647)
 
 **Purpose of the multisig:** The multisig is intended for treasury management committee operations. Multisig will strictly never take custody of Aragon funds and will use a suitable technical solution for executing any swaps permissionlessly.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreigaqvw7vu375bnfi3ehi2iiuqlgh3uqkqvtwg764zelz35ai5uisu)
 
 **Quorum:** 4/7
 
@@ -198,6 +208,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **Purpose of the multisig:** Multisig operationally funds the gas rebates for some operations in Lido on X protocols under the specified [budget of 1000 stETH per year](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724/4).
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreichudjplzf7uqnxvwqsojkpsznueyyluifbijz5c6amhkecfkxfcy)
+
 **Quorum:** 3/5
 
 **Forum topics:**\
@@ -234,6 +246,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 **Address:** [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7)
 
 **Purpose of the multisig:** The Simple DVT Module Committee uses this multisig to perform operations: create new clusters, activate and deactivate existing clusters, raise and lower cluster key limits, and change cluster manager and reward addresses via Easy Track.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreiasdttk5ht22eql7qhvoog3rjxghjgzsvwugbhid2tqvyhlpogl7q)
 
 **Quorum:** 4/7
 
@@ -281,6 +295,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 **Purpose of the multisig:** The multisig used by the Liquidity Observation Lab (LOL) Committee for signing off, and perform LOL operations of allocating grants across DeFI & is funded through Easy Track motions.
 
 This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-january-22-upgrade-proposal/1532) for operations (sending grants) wherever they deem useful on Ethereum, L2s, and other blockchains.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreifanau6d3d2qt6z3erasgaacvkertfw6hnxndlup7z6xv7wjiuz4a)
 
 **Quorum:** 5/9
 
@@ -334,6 +350,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreigppizx235i7didunpw3ruq6xg74auew6l4qkbnooud3pwxbrf3gu)
+
 **Quorum:** 3/6
 
 **List of signers:**
@@ -352,6 +370,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 **Address:** matic:[`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
 **Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreih6slbs73uyeki2nbst4tiu3uyxpvcy4e5xjaoowdvgb2ovj3ireu)
 
 **Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
 
@@ -375,6 +395,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Purpose of the multisig:** A family of multisigs on L2 networks is set up to receive assets from the Liquidity Observation Lab Committee multisigs on respective networks and distribute them among approved recipients.
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreifsj3444jrevxs6o5f7jgxfgry2cipgig3umhgwd4zy77gamjjm54)
+
 **Quorum:** 3/6
 
 **List of signers (same on every network):**
@@ -393,6 +415,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 **Address:** oeth:[`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/settings/setup?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A)
 
 **Purpose of the multisig:** Accept OP tokens provided to Lido DAO by airdrop or any other way on Optimism.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreigkdjz3qwp3qfd7a6sgldxsfbc6aut5fczfkrdn7aa5spk2n4t2na)
 
 **Quorum:** 4/8
 
@@ -415,6 +439,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 **Address:** arb1:[`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/settings/setup?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56)
 
 **Purpose of the multisig:** Accept ARB tokens provided to Lido DAO by airdrop or any other way on Arbitrum.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreie7ogvqx3meectfji6vgopaeioryfziigpu7bms3pjudie653y4wm)
 
 **Forum topic:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://research.lido.fi/t/arbitrum-arb-token-airdrop-acceptance/4393)
 
@@ -441,6 +467,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Purpose of the multisig:** Accept ARB tokens provided to Lido DAO under the Arbitrum LTIPP grant.
 
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreihwxieeqrjiakc555vmgosgblyigjhnq6et4dpqyfdfkhr5jzio4q)
+
 **Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/15)
 
 **Snapshot:** [Nominating reWARDS committee as a Lido DAO representative for airdrops](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd460ea50072deb6bc428064a118dfd499714d4a7865552b4047eba3199663596)
@@ -462,6 +490,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 **Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
 
 **Purpose of the multisig:** Accept ZK tokens provided to Lido DAO by airdrop or any other way on ZKSync.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreidi7cvpnk3tsc5b4j5fiawx4de3guxdytk6sii66lkv6iyyqgzyja)
 
 **Forum topic:** [Lido DAO ZKSync ZK Token Airdrop Acceptance](https://research.lido.fi/t/lido-dao-zksync-zk-token-airdrop-acceptance)
 
@@ -490,6 +520,8 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 **Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
 cancel MEV stealing penalty if needed, start EasyTracks to settle MEV stealing penalty, switch the bond curve for the particular Node Operator or reset it to the default one,
 pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSeal.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreiaiscc3qcvq3bbhz6cz4vy77l2t3edt6idr4quafln2tfuadltcia)
 
 **Quorum:** 4/6
 
@@ -535,6 +567,8 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 **Address:** [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/home?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
 
 **Purpose of the multisig:** This multisig receives and distributes grants from the LEGO Committee multisig within the Delegate Incentivization Program.
+
+**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreiasw2uskk3v46jpjsb6khnpfhicltohsba7nrfl67jhj4ermsceee)
 
 **Quorum:** 3/5
 
@@ -584,6 +618,8 @@ A Committee without multisig.
 **Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget. 
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmQnaVbozzBwnskfGbZqKWsckkEWN9QZqT8uqrJNUQysJ6)
+
 **Quorum:** 5/9
 
 **Forum topics:**\
@@ -619,9 +655,6 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | GrStepanov | 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/278586 |  https://x.com/shalfeyshur/status/1957736329296437494 |
 | Elena_S | 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/279001 | https://x.com/Elen0sh/status/1960254652479414583 |
 
-**Original List of Signers:**\
-https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6lsqyxjkg7hvii
-
 **Lido Labs BORG Foundation Key Documents:**
 
 * [Bylaws - describes operational processes](https://lido.mypinata.cloud/ipfs/bafybeiai3w76yf2mzswnt3azpwvpwhjqjnrukzo4qs43qoca5czzlfn4mm);
@@ -635,6 +668,8 @@ https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6l
 
 **Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget. 
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmfCmQEcv1qsWAv8qhZcHtydPYU6RENzwU4CfmXo5rud3E)
 
 **Quorum:** 4/7
 
@@ -718,6 +753,8 @@ Additionally, the committee also includes consulting participant, which abstain 
 
 **Purpose of the multisig:** This committee has the one-off and time-limited right to activate an adversarial emergency mode if they see a scheduled proposal that was created or altered due to a vulnerability in the DG contracts or if governance execution is prevented by such a vulnerability. Active until emergency protection end date of `EmergencyProtectedTimelock` contract
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmX8jRsarQyZNbeG2zfPY6xYPKLMJQ6BgZx2YEr1GqswRe)
+
 **Quorum:** 4/7
 
 **Forum topic:** [Lido Dual Governance Emergency Committee](https://research.lido.fi/t/lido-dual-governance-emergency-committee/10049)
@@ -746,6 +783,8 @@ Additionally, the committee also includes consulting participant, which abstain 
 **Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
 **Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmYGSShK4z2abbcrDRihZ7fyLUqRKvHxnLpDrGsobFMv1L)
 
 This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is stricted to 5 of 7
 
@@ -780,6 +819,8 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 
 - The contracts are paused for a limited duration, not indefinitely.
 - The Dual Governance system is not in the Normal state.
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmNp6vV5F4FLBoLmW4YwTP8sWCRqSRMkrp5kW8cQh4xdwt)
 
 **Quorum:** 5/6
 
@@ -829,6 +870,8 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmeKc1qWZc5gYcdsoergoc7iCTtAKnNk6VxJ2d7m8dzNJk)
+
 **Quorum:** 3/5
 
 **Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
@@ -849,6 +892,8 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
 
+**Original signers list:** [link](https://ipfs.io/ipfs/QmUtgmTmvsPzRUtWQCbVNNnB3DtUhiDa9Dxwos3bKs55kR)
+
 **Quorum:** 3/5
 
 **Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
@@ -868,6 +913,8 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 **Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
 
 **Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+
+**Original signers list:** [link](https://ipfs.io/ipfs/QmdqsKzsUt1kDTPUtFVUWQHjyxpFuBne828qbKAEMpVEfZ)
 
 **Quorum:** 5/7
 
