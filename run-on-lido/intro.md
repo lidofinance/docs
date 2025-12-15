@@ -6,12 +6,6 @@ sidebar_position: 0
 
 This section of the Lido documentation is for users who want to run any of the Lido products, whether Node Operators, Vault owners, or Oracle Operators.
 
-:::tip 📘 **Lido V3 Technical Paper**
-
-Learn about the next evolution of Lido staking — **stVaults** enable user-defined validator setups with optional stETH liquidity. Read the [**Lido V3 Technical Paper**](/lido-v3-whitepaper) for the complete technical specification.
-
-:::
-
 &emsp;📘 Read the [Lido V3 Technical Paper](/lido-v3-whitepaper) — the vision and architecture of stVaults
 
 &emsp;🖥️ Learn how to set up a CSM Operator with the [Community Staking Module](/run-on-lido/csm/)  

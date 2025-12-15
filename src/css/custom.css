@@ -53,13 +53,16 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
+  vertical-align: middle;
+  white-space: nowrap;
   background: linear-gradient(135deg, rgba(0, 163, 255, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
   border: 1px solid rgba(0, 163, 255, 0.3);
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1;
   color: #00A3FF;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
