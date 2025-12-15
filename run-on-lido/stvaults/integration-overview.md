@@ -39,7 +39,7 @@ For advanced or low-level features that haven’t yet been exposed in the interf
 
 **URL**:
 - Testnet on Hoodi: https://stvaults-hoodi.testnet.fi/
-- Mainet: https://stvaults.lido.fi/ (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
+- Mainnet: https://stvaults.lido.fi/ (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
 
 **Goal**: Provide an easy-to-use interface for managing and monitoring stVaults via the Vault UI.
 

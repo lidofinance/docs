@@ -32,7 +32,7 @@ There are **three ways to restore stVault Health**:
     - 105% > HF ≥ 100% - Healthy stVault, but too close to Unhealthy stVault, critical risk of rebalancing
     - 100% > HF - Unhealthy stVault
 
-- **Utilization Ratio (UR)** - is a metric which shows how much stETH is minted out of Total Mintable stETH capacity: Utilization Ratio = (stETH Liability / Total stETH Minting Capacity) * 100%
+- **Utilization Ratio (UR)** is a metric that shows how much stETH is minted out of Total stETH Minting Capacity: Utilization Ratio = (stETH Liability / Total stETH Minting Capacity) × 100%
 
 ## Explanatory scenario:
 
