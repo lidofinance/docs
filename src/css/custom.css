@@ -7,13 +7,11 @@
 .v3-hero-banner {
   position: relative;
   padding: 3rem 2rem;
-  margin: -1rem -1rem 2rem -1rem;
-  background: 
+  background:
     linear-gradient(135deg, rgba(0, 163, 255, 0.15) 0%, rgba(0, 163, 255, 0.03) 50%, rgba(139, 92, 246, 0.08) 100%),
     linear-gradient(to bottom, #0d1117, #161b22);
   border: 1px solid rgba(0, 163, 255, 0.2);
-  border-top: none;
-  border-radius: 0 0 24px 24px;
+  border-radius: 24px;
   overflow: hidden;
 }
 
@@ -36,7 +34,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 30%, rgba(0, 163, 255, 0.2) 0%, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
   pointer-events: none;
@@ -67,9 +65,12 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(0, 163, 255, 0.2);
   }
+
   50% {
     box-shadow: 0 0 30px rgba(0, 163, 255, 0.4);
   }
@@ -186,9 +187,13 @@
   text-decoration: none;
 }
 
+.v3-quick-link p {
+  margin: 0;
+}
+
 /* Light theme adjustments */
 [data-theme='light'] .v3-hero-banner {
-  background: 
+  background:
     linear-gradient(135deg, rgba(0, 163, 255, 0.08) 0%, rgba(0, 163, 255, 0.02) 50%, rgba(139, 92, 246, 0.04) 100%),
     linear-gradient(to bottom, #f0f6fc, #e8f4fc);
   border-color: rgba(0, 163, 255, 0.15);
@@ -239,7 +244,6 @@
 @media (max-width: 768px) {
   .v3-hero-banner {
     padding: 2rem 1.5rem;
-    margin: -1rem -1rem 1.5rem -1rem;
   }
 
   .v3-hero-title {
@@ -276,8 +280,8 @@
   position: relative;
 }
 
-.sidebar-v3-highlight > a,
-.sidebar-v3-highlight > .menu__link {
+.sidebar-v3-highlight>a,
+.sidebar-v3-highlight>.menu__link {
   background: linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%) !important;
   border: 1px solid rgba(0, 163, 255, 0.2) !important;
   border-radius: 8px !important;
@@ -288,21 +292,21 @@
   transition: all 0.2s ease;
 }
 
-.sidebar-v3-highlight > a:hover,
-.sidebar-v3-highlight > .menu__link:hover {
+.sidebar-v3-highlight>a:hover,
+.sidebar-v3-highlight>.menu__link:hover {
   background: linear-gradient(135deg, rgba(0, 163, 255, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%) !important;
   border-color: rgba(0, 163, 255, 0.4) !important;
   color: #58a6ff !important;
 }
 
-[data-theme='light'] .sidebar-v3-highlight > a,
-[data-theme='light'] .sidebar-v3-highlight > .menu__link {
+[data-theme='light'] .sidebar-v3-highlight>a,
+[data-theme='light'] .sidebar-v3-highlight>.menu__link {
   background: linear-gradient(135deg, rgba(0, 163, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%) !important;
   color: #0969da !important;
 }
 
-[data-theme='light'] .sidebar-v3-highlight > a:hover,
-[data-theme='light'] .sidebar-v3-highlight > .menu__link:hover {
+[data-theme='light'] .sidebar-v3-highlight>a:hover,
+[data-theme='light'] .sidebar-v3-highlight>.menu__link:hover {
   background: linear-gradient(135deg, rgba(0, 163, 255, 0.12) 0%, rgba(139, 92, 246, 0.06) 100%) !important;
   color: #0550ae !important;
 }
@@ -342,4 +346,3 @@
 .v3-callout-content a:hover {
   color: #79c0ff;
 }
-
