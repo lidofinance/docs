@@ -16,10 +16,10 @@ import PdfViewer from '@site/src/components/PdfViewer';
       <span>December 2025 Release</span>
     </div>
     <h1 className="v3-hero-title">Lido V3 Technical Paper</h1>
-    <p className="v3-hero-subtitle">
-      Introducing stVaults — a new primitive that enables staking through user-defined validator setups, 
-      with optional stETH liquidity on top. The evolution of liquid staking.
-    </p>
+    <div className="v3-hero-subtitle">
+      Introducing stVaults — a new primitive that enables staking through user-defined validator setups, with optional
+      stETH liquidity on top. The evolution of liquid staking.
+    </div>
     <div className="v3-hero-meta">
       <div className="v3-hero-meta-item">
         <span>📄</span>
@@ -47,37 +47,37 @@ stVaults are non-custodial smart contracts that delegate ETH to chosen node oper
   <div className="v3-concept-card">
     <div className="v3-concept-icon">🏛️</div>
     <h3 className="v3-concept-title">stVaults</h3>
-    <p className="v3-concept-description">
-      Isolated staking positions enabling user-defined validator setups with optional stETH minting. 
+    <div className="v3-concept-description">
+      Isolated staking positions enabling user-defined validator setups with optional stETH minting.
       Modular, sovereign building blocks for the staking economy.
-    </p>
+    </div>
   </div>
-  
+
   <div className="v3-concept-card">
     <div className="v3-concept-icon">💧</div>
     <h3 className="v3-concept-title">stETH Liquidity Layer</h3>
-    <p className="v3-concept-description">
-      Two ways to mint stETH: Core Pool (1:1 ratio) and stVaults (overcollateralized). 
+    <div className="v3-concept-description">
+      Two ways to mint stETH: Core Pool (1:1 ratio) and stVaults (overcollateralized).
       Maintains fungibility while enabling diverse staking setups.
-    </p>
+    </div>
   </div>
-  
+
   <div className="v3-concept-card">
     <div className="v3-concept-icon">🔒</div>
     <h3 className="v3-concept-title">Overcollateralization</h3>
-    <p className="v3-concept-description">
-      Part of the stake is held back to mitigate slashing risk and preserve stETH fungibility. 
+    <div className="v3-concept-description">
+      Part of the stake is held back to mitigate slashing risk and preserve stETH fungibility.
       Health Factor and Reserve Ratio ensure protocol stability.
-    </p>
+    </div>
   </div>
-  
+
   <div className="v3-concept-card">
     <div className="v3-concept-icon">⚡</div>
     <h3 className="v3-concept-title">Sovereignty</h3>
-    <p className="v3-concept-description">
-      Stakers retain an exit path — similar in spirit to Dual Governance — allowing them to opt out of 
+    <div className="v3-concept-description">
+      Stakers retain an exit path — similar in spirit to Dual Governance — allowing them to opt out of
       Lido governance in edge cases like governance capture.
-    </p>
+    </div>
   </div>
 </div>
 
@@ -115,7 +115,7 @@ The stVault architecture enables a wide range of staking strategies:
 
 The complete Lido V3 Technical Paper covers architecture, mechanisms, risks, and implementation details.
 
-<PdfViewer 
+<PdfViewer
   pdfUrl="/Lido_V3_Whitepaper.pdf"
   title="Lido V3 Technical Paper"
   description="Complete technical specification including stVaults architecture, fee mechanisms, risk framework, and user flows"
