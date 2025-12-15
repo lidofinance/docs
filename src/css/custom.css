@@ -6,7 +6,7 @@
 /* V3 Whitepaper Hero Banner */
 .v3-hero-banner {
   position: relative;
-  padding: 3rem 2rem;
+  padding: 2rem;
   background:
     linear-gradient(135deg, rgba(0, 163, 255, 0.15) 0%, rgba(0, 163, 255, 0.03) 50%, rgba(139, 92, 246, 0.08) 100%),
     linear-gradient(to bottom, #0d1117, #161b22);
