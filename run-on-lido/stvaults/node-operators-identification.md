@@ -9,7 +9,7 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 ## Why become Identified
 
 - **stVaults are permissionless**, meaning **anyone can create and run an stVault**. However, if the stVault is created by an *unidentified* Node Operator, it will be assigned to the *Default tier* with a Reserve Ratio = **50%**. During the [V3 secure rollout](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665#p-22926-rollout-plan-9), stETH minting in the *Default tier* will be restricted in the first two phases, which will be lifted later during “Phase 3: Permissionless Mode”.
-- **Better economics vs. permissionless defaults.** The risk framework for V3 sets default RR and caps, and allows improved terms for identified Node Operators. The default terms are:  **Unidentified = 50% RR**, **Identified ≈ 5-3% RR**, (illustrative; final terms are case-by-case).
+- **Better economics vs. permissionless defaults.** The risk framework for V3 sets default RR and caps, and allows improved terms for identified Node Operators. The default terms are: **Unidentified = 50% RR**, **Identified ≈ 3–5% RR** (illustrative; final terms are case-by-case).
 - **A clear governance path** exists to approve non-default terms and monitor performance via the **[stVaults Committee](https://research.lido.fi/t/stvaults-committee-proposal/10608)**.
 
 ---
@@ -19,7 +19,7 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 - **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, stVault Professional Operator, stVault Professional Trusted Operator).
 - **Each category contains multiple tiers.** **A tier** is a specific **minting configuration** that defines the **Reserve Ratio (RR)**, **stETH Minting Limit (cap)**, and corresponding **Lido fees**. Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers increase the allowed minting cap but decrease the Reserve Ratio.
 - Within the assigned category, **one Node Operator can hold multiple tiers** that the stVaults Committee can set or change based on the Node Operator’s requests, performance, slashing events, or market circumstances in accordance with the stVaults Risk Framework.
-- Categories — **Basic, stVault Professional Operator, and DVT** — can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **stVault Professional Trusted Operator** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
+- Categories **Basic**, **stVault Professional Operator**, and **DVT** can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **stVault Professional Trusted Operator** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
 
 ### Categories and tiers
 
@@ -332,9 +332,9 @@ In order to keep the stVaults risk framework flexible and to streamline the gove
 - Manage Lido Core redemptions, trigger validator exits for rebalancing or redemptions, and perform other actions required in exceptional cases to keep the Lido Core protocol stable and secure, in accordance with the stVaults risk assessment framework.
 - Adjusting the stVaults risk framework and the scores within the framework.
 
-**Easy Track** helps to speed up the process of changing parameters while securing protocol, builders, and node operators from the malicious actions of committee members as these motions are vetoable by LDO token-holders.
+**Easy Track** helps to speed up the process of changing parameters while securing the protocol, builders, and Node Operators from malicious actions by committee members, as these motions are vetoable by LDO token-holders.
 
-LDO token-holders may also at any time vote to rescind or reassign these responsibilities to another group, entity, or individual, and may vote to modify, extend, or remove them entirely.
+LDO token-holders may at any time vote to rescind or reassign these responsibilities to another group, entity, or individual, and may vote to modify, extend, or remove them entirely.
 
 ---
 
