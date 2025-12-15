@@ -62,6 +62,7 @@
   color: #00A3FF;
   margin-bottom: 1rem;
   animation: pulse-glow 3s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 @keyframes pulse-glow {
