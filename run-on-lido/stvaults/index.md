@@ -28,7 +28,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 ### Tools
 
 1. [stVaults Web UI on Hoodi Testnet](https://stvaults-hoodi.testnet.fi/)
-2. [stVaults Web UI on Mainnet](https://stvaults.lido.fi/) // will be available on [Phase 2](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8)
+2. [stVaults Web UI on Mainnet](https://stvaults.lido.fi/) (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
 3. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
 4. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
