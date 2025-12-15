@@ -94,9 +94,9 @@ To start:
 
   The deployer must have at least `1 ETH` on their balance - this is `CONNECT_DEPOSIT` required to be locked
   on the vault upon connection to Lido `VaultHub`. The newly created staking vault is automatically connected to
-  Lido `VaultHub` and placed into the default tier. Placement to none-default tiers right upon deployment is not supported.
+  Lido `VaultHub` and placed into the default tier. Placement to non-default tiers right upon deployment is not supported.
 
-::::
+:::
 
 To list commands for creation of available pool types, run
 ```shell
@@ -133,7 +133,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a355
 
 ### Deployment of `StvStETHPool` (pool with stETH minting)
 
-Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
+Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` for the description of the required STV pool parameters.
 
 Start the deployment like:
 ```shell
@@ -188,7 +188,7 @@ yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a355
   Note, that for `StvGGV` pool allow list is not configurable: the only address allowed to deposit is The
   GGV strategy contract itself, and users are not to deposit via the pool directly, but to supply to the strategy.
 
-::::
+:::
 
 ### 2. Create Web UI
 
@@ -205,13 +205,13 @@ By default, a newly created stVault is connected to the Default tier with a Rese
 
 Tier changes are performed via a multi-role confirmation mechanism, where the Node Operator and Vault Owner act as contracting parties. One party proposes the change, and the other party accepts it. Technically, both requests are made through the same method: `changeTier(tierId, requestedShareLimit)`. Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-In case of the vault deployed as part of a pool deployment Vault Owner role is assigned to the Timelock contract. The timelock contract as well implements a two-step process of performing an onchain action. At first, the holder of its proposer role creates a proposed on-chain action, at second, after a time period the holder of the executor role executes it.
+In the case of a vault deployed as part of a pool deployment, the Vault Owner role is assigned to the Timelock contract. The Timelock contract also implements a two-step process for performing an on-chain action. First, the holder of its proposer role creates a proposed on-chain action; second, after a time period, the holder of the executor role executes it.
 
 :::info
 Confirming tier change request requires applying fresh report to vault.
 :::
 
-TODO: CLI and UI?
+
 
 **Parameters and addresses needed for this step (for CLI and Smart contracts):**
 
