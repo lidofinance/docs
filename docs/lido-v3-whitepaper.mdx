@@ -1,0 +1,147 @@
+---
+title: Lido V3 Technical Paper
+description: Introducing stVaults — staking through user-defined validator setups with optional stETH liquidity.
+sidebar_label: 📘 Lido V3 Technical Paper
+sidebar_position: 0.5
+hide_title: true
+---
+
+import Link from '@docusaurus/Link';
+import PdfViewer from '@site/src/components/PdfViewer';
+
+<div className="v3-hero-banner">
+  <div className="v3-hero-content">
+    <div className="v3-hero-badge">
+      ✨ December 2025 Release
+    </div>
+    <h1 className="v3-hero-title">Lido V3 Technical Paper</h1>
+    <p className="v3-hero-subtitle">
+      Introducing stVaults — a new primitive that enables staking through user-defined validator setups, 
+      with optional stETH liquidity on top. The evolution of liquid staking.
+    </p>
+    <div className="v3-hero-meta">
+      <div className="v3-hero-meta-item">
+        <span>📄</span>
+        <span><strong>Authors:</strong> Eugene Pshenichnyy, Eugene Mamin, Max Merkulov, Alexey Potapkin</span>
+      </div>
+      <div className="v3-hero-meta-item">
+        <span>📅</span>
+        <span><strong>Published:</strong> December 2025</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+## Executive Summary
+
+**Lido V3** resolves the fundamental **control-versus-liquidity dilemma** in Ethereum staking through **stVaults** — isolated staking positions that give users control over validator choice, fee terms, and infrastructure, while retaining access to stETH liquidity.
+
+:::tip Key Innovation
+stVaults are non-custodial smart contracts that delegate ETH to chosen node operators while maintaining withdrawal credentials control. Stakers define key parameters: fees, MEV, sidecars, custody, insurance, and more.
+:::
+
+## Key Concepts
+
+<div className="v3-concepts-grid">
+  <div className="v3-concept-card">
+    <div className="v3-concept-icon">🏛️</div>
+    <h3 className="v3-concept-title">stVaults</h3>
+    <p className="v3-concept-description">
+      Isolated staking positions enabling user-defined validator setups with optional stETH minting. 
+      Modular, sovereign building blocks for the staking economy.
+    </p>
+  </div>
+  
+  <div className="v3-concept-card">
+    <div className="v3-concept-icon">💧</div>
+    <h3 className="v3-concept-title">stETH Liquidity Layer</h3>
+    <p className="v3-concept-description">
+      Two ways to mint stETH: Core Pool (1:1 ratio) and stVaults (overcollateralized). 
+      Maintains fungibility while enabling diverse staking setups.
+    </p>
+  </div>
+  
+  <div className="v3-concept-card">
+    <div className="v3-concept-icon">🔒</div>
+    <h3 className="v3-concept-title">Overcollateralization</h3>
+    <p className="v3-concept-description">
+      Part of the stake is held back to mitigate slashing risk and preserve stETH fungibility. 
+      Health Factor and Reserve Ratio ensure protocol stability.
+    </p>
+  </div>
+  
+  <div className="v3-concept-card">
+    <div className="v3-concept-icon">⚡</div>
+    <h3 className="v3-concept-title">Sovereignty</h3>
+    <p className="v3-concept-description">
+      Stakers retain an exit path — similar in spirit to Dual Governance — allowing them to opt out of 
+      Lido governance in edge cases like governance capture.
+    </p>
+  </div>
+</div>
+
+## Supported Use Cases
+
+The stVault architecture enables a wide range of staking strategies:
+
+| Use Case | Description |
+|----------|-------------|
+| **Delegation Liquid Staking** | Node operators attract stake directly and launch their own stVaults with stETH liquidity |
+| **Custom Staking Strategies & LRTs** | Build custom portfolios, integrate restaking (Symbiotic), wrap stVaults (Mellow) |
+| **Leverage Staking** | Mint stETH, borrow more ETH, stake again — capital-efficient loops |
+| **Institutional Staking** | ETFs, ETPs, custodians maintain validator control without idle liquidity buffers |
+
+## Quick Links
+
+<div className="v3-quick-links">
+  <Link to="/run-on-lido/stvaults/" className="v3-quick-link">
+    📚 stVaults Doc Center
+  </Link>
+  <Link to="/deployed-contracts/" className="v3-quick-link">
+    📋 Deployed Contracts
+  </Link>
+  <a href="https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665" className="v3-quick-link" target="_blank" rel="noopener noreferrer">
+    💬 Research Forum
+  </a>
+  <Link to="/run-on-lido/stvaults/building-guides/basic-stvault" className="v3-quick-link">
+    🔧 Building Guide
+  </Link>
+</div>
+
+---
+
+## Full Technical Paper
+
+The complete Lido V3 Technical Paper covers architecture, mechanisms, risks, and implementation details.
+
+<PdfViewer 
+  pdfUrl="/Lido_Whitepaper.pdf"
+  title="Lido V3 Technical Paper"
+  description="Complete technical specification including stVaults architecture, fee mechanisms, risk framework, and user flows"
+  height="900px"
+  accentColor="#00A3FF"
+/>
+
+## Document Contents
+
+The technical paper includes the following sections:
+
+1. **Introduction** — The control vs. liquidity dilemma in Ethereum staking
+2. **stETH as the Liquidity Layer** — How Core Pool and stVaults link up
+3. **stVaults** — Architecture, anatomy, shared layers, minting mechanics, fees, and sovereignty
+4. **Core Pool** — Current state, anchoring role, and strengthening measures
+5. **Known Risks** — Smart contract complexity, governance, slashing, liquidity, and oracle risks
+6. **Appendix A** — User flows for opening positions, closing positions, and rebalancing
+7. **Appendix B** — Risk Assessment Framework for evaluating validator risks
+
+---
+
+## Related Documentation
+
+For implementation guides and technical details, see:
+
+- [stVaults Doc Center](/run-on-lido/stvaults/) — Building guides and knowledge base
+- [stVaults Integration Overview](/run-on-lido/stvaults/integration-overview) — Technical integration details
+- [Deployed Contracts](/deployed-contracts/) — Production and testnet contract addresses
+- [Predeposit Guarantee (PDG)](/run-on-lido/stvaults/pdg) — Validator deposit security mechanism
+

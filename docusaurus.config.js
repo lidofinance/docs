@@ -34,6 +34,13 @@ module.exports = async function createConfigAsync() {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            type: 'doc',
+            docId: 'lido-v3-whitepaper',
+            label: '📘 V3 Technical Paper',
+            position: 'left',
+            className: 'navbar__item--v3',
+          },
           { to: '/deployed-contracts/', label: 'Mainnet contracts', position: 'left' },
           { to: '/lips', label: 'LIPs', position: 'left' },
           { to: '/security/audits', label: 'Audits', position: 'left' },
@@ -41,7 +48,7 @@ module.exports = async function createConfigAsync() {
             type: 'doc',
             docsPluginId: 'runOnLido',
             docId: 'intro',
-            label: 'Run on Lido',     // <-- updated label
+            label: 'Run on Lido',
             position: 'left',
           },
           {
@@ -62,6 +69,9 @@ module.exports = async function createConfigAsync() {
             editUrl: 'https://github.com/lidofinance/docs/blob/main/',
             remarkPlugins: [(await import('remark-math')).default],
             rehypePlugins: [(await import('rehype-katex')).default],
+          },
+          theme: {
+            customCss: require.resolve('./src/css/custom.css'),
           },
         },
       ],
