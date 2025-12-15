@@ -745,9 +745,9 @@ Additionally, the committee also includes consulting participant, which abstain 
 
 **Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
-**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emergency governance while emergency mode is active.
 
-This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is stricted to 5 of 7
+This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is restricted to 5 of 7
 
 **Quorum:** 5/7
 

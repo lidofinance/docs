@@ -88,7 +88,7 @@ It's optimal to set the Manager to a *hot* address and the Rewards to a secure *
 ### Optimal for DVT clusters
 There's multiple ways to set up a DVT cluster using CSM.
 
-1. Set the Manager address to a *hot* wallet controled by the cluster coordinator and the Rewards to a cluster mulgisig. This option is only recommended in cases where cluster participants trust the coordinator completely (or have other types of guarantees/agreements in place) or if the DVT setup is an intra-operator setup rather than an inter-operator setup.
+1. Set the Manager address to a *hot* wallet controlled by the cluster coordinator and the Rewards to a cluster multisig. This option is only recommended in cases where cluster participants trust the coordinator completely (or have other types of guarantees/agreements in place) or if the DVT setup is an intra-operator setup rather than an inter-operator setup.
 
 ![roles-7](/img/csm-guide/roles-7.png)
 

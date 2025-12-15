@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-If you're lookoing for a complete set up of your node head to the [Node Setup](/run-on-lido/csm/node-setup/) section.
+If you're looking for a complete set up of your node head to the [Node Setup](/run-on-lido/csm/node-setup/) section.
 :::
 
 ## Dappnode

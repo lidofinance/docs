@@ -15,7 +15,7 @@ There are 2 reasons why CSM operators can receive exit request from the Lido Pro
 2. If you have unbonded validators you're required to either top up the bond, or exit the validator.
 
 If the operator does not exit their validators after the protocol request, the following will be applied:
-1. Exclude the Node Operator from the CSM deposit queue until the issue is resovled.
+1. Exclude the Node Operator from the CSM deposit queue until the issue is resolved.
 2. Exclude the Node Operator from the staking rewards allocation cycle.
 
 You can read more about exits [here](/staking-modules/csm/validator-exits).
