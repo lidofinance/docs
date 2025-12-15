@@ -130,7 +130,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
       2. Connect wallet on the "My Vaults" page.
 
-      3. Open an stVault oveview page by the URL ```https://<domain>/vaults/<StakingVault_address>```
+      3. Open an stVault overview page by the URL ```https://<domain>/vaults/<StakingVault_address>```
       
       ![Connect and accept tier](/img/stvaults/guide-basic-stvault/guide_1_scr_8.png)
 
