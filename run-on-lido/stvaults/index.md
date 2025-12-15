@@ -32,6 +32,17 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 3. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
 4. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
+### Operational and Management Guides
+
+1. [Health Monitoring guide](./health-monitoring-guide.md)
+2. [Health Emergency guide](./health-emergency-guide.md)
+3. [Become an Identified Node Operator and get tiers, or request changes](./node-operators-identification.md)
+
+### stVaults Features and Mechanics
+
+1. [stVaults Roles](./roles-and-permissions.md)
+2. [stVaults Parameters and Metrics](./parameters-and-metrics.md)
+
 ### Tech documentation
 
 1. [stVaults Integration Overview](./integration-overview.md)
@@ -40,12 +51,6 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 4. [Deployed Testnet Contracts](../../deployed-contracts/hoodi/)
 5. [Migrate validators to stVault through consolidation](./consolidation.md)
 6. [Deposit validators through Predeposit Guarantee](./pdg.md)
-
-### stVaults Features and Mechanics
-
-1. [stVaults Roles](./roles-and-permissions.md)
-2. [stVaults Parameters and Metrics](./parameters-and-metrics.md)
-3. [Become an identified Node Operator and get tiers, or request changes](./node-operators-identification.md)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
