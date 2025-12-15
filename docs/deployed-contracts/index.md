@@ -102,7 +102,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 
 - ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
 - ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Vote Script: [`0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA`](https://etherscan.io/address/0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/9)) V3 Vote Script: [`0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442`](https://etherscan.io/address/0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442)
 
 ### 🧬 Dual Governance
 
