@@ -4,6 +4,12 @@ sidebar_position: 2
 
 # stVaults Doc Center
 
+:::tip 📘 **Lido V3 Technical Paper**
+
+For a comprehensive understanding of stVaults architecture, mechanisms, and the vision behind Lido V3, read the official [**Lido V3 Technical Paper**](/lido-v3-whitepaper) with embedded PDF preview.
+
+:::
+
 ## Building guides
 
 The stVaults platform enables the creation of staking products tailored to different target audiences with diverse needs. These two comprehensive guides provide detailed instructions on how to create any product powered by stVaults.
@@ -21,9 +27,10 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 ### Essentials
 
-1. [[RFC] stVaults Whitepaper](https://hackmd.io/@lido/B1NuB15-gx)
-2. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
-3. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
+1. [📘 **Lido V3 Technical Paper**](/lido-v3-whitepaper) — Complete technical specification with PDF preview
+2. [[RFC] stVaults Whitepaper](https://hackmd.io/@lido/B1NuB15-gx)
+3. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
+4. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
 
 ### Tools
 

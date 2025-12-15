@@ -1,6 +1,11 @@
 module.exports = {
   docs: [
     'introduction',
+    {
+      type: 'doc',
+      id: 'lido-v3-whitepaper',
+      className: 'sidebar-v3-highlight',
+    },
     'lido-dao',
     'lips',
     'guides/lido-tokens-integration-guide',

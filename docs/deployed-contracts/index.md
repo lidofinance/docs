@@ -4,6 +4,12 @@ pagination_next: deployed-contracts/hoodi
 
 # Mainnet
 
+:::tip 📘 **Lido V3 Technical Paper**
+
+Learn about the next evolution of Lido staking with **stVaults** — user-defined validator setups with optional stETH liquidity. Read the complete [**Lido V3 Technical Paper**](/lido-v3-whitepaper) for architecture details, mechanisms, and implementation specifics.
+
+:::
+
 :::info **Production Lido Protocol Deployment**
 
 This page lists production contract addresses on Mainnets — including Ethereum and other networks, where the protocol and its parts/extensions are deployed.
@@ -11,6 +17,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 **Deployment Information:**
 
 - ⚓ Lido protocol version: [**`v2.2.0`**](https://github.com/lidofinance/core/releases/tag/v2.2.0) (Lido V2 version line)
+- 🚀 **Lido V3 (proposed)**: stVaults architecture with overcollateralized stETH minting — see [Technical Paper](/lido-v3-whitepaper)
 - ✅ Status: Active and maintained
 
 :::
