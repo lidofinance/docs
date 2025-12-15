@@ -150,4 +150,3 @@ PdfViewer.propTypes = {
   showDownloadButton: PropTypes.bool,
   accentColor: PropTypes.string,
 };
-
