@@ -65,7 +65,7 @@ DeFi Wrapper supports three product archetypes:
 ### Testnet
 
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- DeFi Wrapper Factory (Testnet-4): https://hoodi.etherscan.io/address/0x1436290a4d0aea78164e1e6762fcee3f8f27cf38#code
+- DeFi Wrapper Factory (Testnet-5): https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code
 - UI template: https://github.com/lidofinance/defi-wrapper-widget
 - Latest development branch: https://github.com/lidofinance/vaults-wrapper/tree/develop
 - Etherscan: https://hoodi.etherscan.io/
@@ -80,11 +80,115 @@ DeFi Wrapper supports three product archetypes:
 
 ## Steps
 
-### 1. Create a product
+### 1. Create a tokenized staking vault (pool)
 
-1.
-2.
-3. [Use interactive CLI to deploy DeFi product](https://lidofinance.github.io/lido-staking-vault-cli/commands/defi-wrapper/Factory#write)
+The easiest way to create a pool over staking vault is to use [CLI](https://lidofinance.github.io/lido-staking-vault-cli).
+This is a command line tool intended both for staking vault and pool (wrapper) management. It supports creation of a pool with its underlying staking vault via dedicated [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+The deployment happens in two transactions (to fit Fusaka 16m tx gas limit) which the CLI does in its single command run.
+
+To start:
+- setup CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md)
+- prepare a valid CLI configuration - see [this tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
+
+:::info
+
+  The deployer must have at least `1 ETH` on their balance - this is `CONNECT_DEPOSIT` required to be locked
+  on the vault upon connection to Lido `VaultHub`. The newly created staking vault is automatically connected to
+  Lido `VaultHub` and placed into the default tier. Placement to non-default tiers right upon deployment is not supported.
+
+:::
+
+To list commands for creation of available pool types, run
+```shell
+yarn start defi-wrapper contracts factory write -h
+```
+
+:::info
+
+  For any pool type upon creation the CLI tool prints the env variables required
+  for the UI setup. Don't toss these lines away if planning to setup UI.
+
+:::
+
+#### Deployment of `StvPool` (pool without stETH minting)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
+
+Start the deployment like:
+```shell
+yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug STV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --allowList false
+```
+
+#### Deployment of `StvStETHPool` (pool with stETH minting)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` for the description of the required STV pool parameters.
+
+Start the deployment like:
+```shell
+yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug STV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --reserveRatioGapBP 250 \
+  --allowList false
+```
+
+:::warning
+  
+  The minimal recommended value for reserveRatioGapBP is `250` (2.5%). It is
+  expected to be sufficient to absorb enough of the vault's performance volatility
+  to keep users positions healthy in most of the cases.
+
+:::
+
+#### Deployment of `StvGGV` (pool with GGV strategy)
+
+Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the description of the required GGV pool parameters.
+
+Start the deployment like:
+
+```shell
+yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+  --nodeOperator 0x0000000000000000000000000000000000000001 \
+  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
+  --nodeOperatorFeeRate 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Debug GGV Pool" \
+  --symbol STV \
+  --proposer 0x0000000000000000000000000000000000000003 \
+  --executor 0x0000000000000000000000000000000000000004 \
+  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
+  --reserveRatioGapBP 250
+```
+
+:::info
+
+  Note, that for `StvGGV` pool allow list is not configurable: the only address allowed to deposit is The
+  GGV strategy contract itself, and users are not to deposit via the pool directly, but to supply to the strategy.
+
+:::
 
 ### 2. Create Web UI
 
@@ -95,107 +199,100 @@ Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/deve
 - adjust titles, logos, texts and color scheme to your liking
 - deploy dApp
 
-### Adjust stETH minting parameters
+### 3. (optional) Adjust stETH minting parameters
 
 By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed identification and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
-When using vault creation method #1 ("Two-step process"), the Node Operator and Vault Owner can set up the stVault with the desired stETH minting parameters from the start. Otherwise, the tier can be changed afterwards.
+For more information about stVault tiers please see [Adjust stETH minting parameters](./basic-stvault#adjust-steth-minting-parameters).
 
-Tier changes are performed via a multi-role confirmation mechanism, where the Node Operator and Vault Owner act as contracting parties. One party proposes the change, and the other party accepts it. Technically, both requests are made through the same method: `changeTier(tierId, requestedShareLimit)`.
+For pooled vaults the process of changing tier is a bit different because the Vault Owner role is assigned to the Timelock contract. The Timelock contract itself implements a two-step process for performing an on-chain action. First, the holder of its proposer role creates a proposed on-chain action; second, after a time period, the holder of the executor role executes it.
 
-Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
+Thus, changing tier for a pooled vault is a three-step process:
 
-Addresses perform this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
-
-- From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE].
-- From the Node Operator: Node Operator (registered in the`OperatorGrid` contract).
+1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `OperatorGrid.changeTier` call
+2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
+3. Within the confirmation time window period (default 24 hours), the Node operator calls `OperatorGrid.changeTier` with the same parameters
 
 :::info
-Confirming tier change request requires applying fresh report to vault.
+Confirming a tier change request requires applying a fresh report to the vault.
 :::
 
-**Parameters and addresses needed for this step (for CLI and Smart contracts):**
+:::warning
+CLI does not yet support operations with TimelockController contract and steps 1 and 2 must be performed via manual contract calls, e.g. via Etherscan.
+:::
+
+**Parameters needed for this step:**
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier's stETH limit.
+- `TimelockAddress`: the address of the `TimelockController` contract (deployed together with the pool).
+- `OperatorGridAddress`: the address of the `OperatorGrid` contract (available in the stVaults contract addresses list, see [#Environments](#environments)).
 
 <details>
-  <summary>using stVaults Web UI</summary>
-      1. On behalf of the first contracting party, open 'Settings > Tiers', and click the tier selector:
+  <summary>Step 1: Schedule the tier change (Proposer)</summary>
 
-      ![Settings > Tiers](/img/stvaults/guide-basic-stvault/guide_1_scr_1.png)
-
-      2. Select the desired tier from the list:
-
-      ![Selecting Tier](/img/stvaults/guide-basic-stvault/guide_1_scr_2.png)
-
-      3. Review how the stVault metrics will change after moving to the new tier, then submit your request/proposal.
-
-      ![Review settings](/img/stvaults/guide-basic-stvault/guide_1_scr_3.png)
-
-      4. On behalf of the another contracting party open 'Settings > Tiers'.
-
-      ![Open proposal](/img/stvaults/guide-basic-stvault/guide_1_scr_4.png)
-
-      5. Open the request details, review the projected changes to the stVault metrics, and submit approval.
-
-      ![Review settings](/img/stvaults/guide-basic-stvault/guide_1_scr_5.png)
+  1. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+  2. Go to the **Contract** tab → **Write Contract**.
+  3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
+  4. Find the `schedule` method in the list and fill out the fields:
+     - `target`: the `OperatorGrid` contract address.
+     - `value`: `0` (no ETH is sent with this call).
+     - `data`: the ABI-encoded call to `changeTier(address vault, uint256 tierId, uint256 requestedShareLimit)`. You can generate this using tools like [ABI Encoder](https://abi.hashex.org/) or cast from Foundry:
+       ```bash
+       cast calldata "changeTier(address,uint256,uint256)" <VaultAddress> <TierID> <RequestedShareLimit>
+       ```
+     - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000` (no predecessor required).
+     - `salt`: `0x0000000000000000000000000000000000000000000000000000000000000000` (or any unique value if you need to differentiate identical operations).
+     - `delay`: the delay in seconds (must be at least the `minDelaySeconds` configured during pool deployment).
+  5. Click **Write** and sign the transaction in your wallet.
+  6. Click **View your transaction** and wait for it to be executed.
+  7. Note down the **operation ID** from the `CallScheduled` event in the transaction logs — you will need it to verify the operation status before execution.
 
 </details>
 
 <details>
-  <summary>by Command-line Interface</summary>
+  <summary>Step 2: Execute the scheduled tier change (Executor)</summary>
 
-      On behalf of the Vault Owner ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations/#change-tier-ct)):
-
-      ```bash
-      yarn start vo w change-tier -v <vaultAddress> -r <requestedShareLimit> <tierId>
-      ```
-
-      On behalf of the Node Operator ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations/#change-tier-by-no-ct-no))::
-
-      ```bash
-      yarn start vo w change-tier-by-no -v <vaultAddress> -r <requestedShareLimit> <tierId>
-      ```
+  1. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
+  2. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+  3. Go to the **Contract** tab → **Write Contract**.
+  4. Click **Connect to Web3** and connect the wallet that holds the **executor role**.
+  5. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
+     - `target`: the `OperatorGrid` contract address.
+     - `value`: `0`.
+     - `payload`: the same ABI-encoded call data used in step 1.
+     - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000`.
+     - `salt`: the same salt value used in step 1.
+  6. Click **Write** and sign the transaction in your wallet.
+  7. Click **View your transaction** and wait for it to be executed.
 
 </details>
+
 <details>
-  <summary>using Etherscan UI</summary>
+  <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-      The Node Operator and Vault Owner use same-named metods in different contracts to perform this change.
+  Within the confirmation time window period (default 24 hours) after step 2, the Node Operator must confirm the tier change:
 
-      **Node Operator:**
-      1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
-      2. Since this contract is a proxy, complete the verification steps once (if not done before):
-         - Go to **Contract → Code**.
-         - Click **More options**.
-         - Select **Is this a proxy?**.
-         - Click **Verify** in the dialog.
-         - Return to the contract details page.
-      3. Open the **Contract** tab → **Write as Proxy**.
-      4. Click **Connect to Web3** and connect your wallet in the dialog window.
-      5. Find the `changeTier` method in the list, fill out the fields, and click **Write**.
-      6. Sign the transaction in your wallet.
-      7. Click **View your transaction** and wait for it to be executed.
-
-      **Vault Owner:**
-      1. Open **Etherscan** and navigate to the **Dashboard** contract by its address (provided in the results of stVault creation, see step 1.1).
-      2. Since this contract is a proxy, complete the verification steps once (if not done before):
-         - Go to **Contract → Code**.
-         - Click **More options**.
-         - Select **Is this a proxy?**.
-         - Click **Verify** in the dialog.
-         - Return to the contract details page.
-      3. Open the **Contract** tab → **Write as Proxy**.
-      4. Click **Connect to Web3** and connect your wallet in the dialog window.
-      5. Find the `changeTier` method in the list, fill out the fields, and click **Write**.
-      6. Sign the transaction in your wallet.
-      7. Click **View your transaction** and wait for it to be executed.
+  1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+  2. Since this contract is a proxy, complete the verification steps once (if not done before):
+     - Go to **Contract → Code**.
+     - Click **More options**.
+     - Select **Is this a proxy?**.
+     - Click **Verify** in the dialog.
+     - Return to the contract details page.
+  3. Open the **Contract** tab → **Write as Proxy**.
+  4. Click **Connect to Web3** and connect the wallet registered as the **Node Operator**.
+  5. Find the `changeTier` method in the list and fill out the fields with the **same values** used in steps 1 and 2:
+     - `vault`: the `Vault` contract address.
+     - `tierId`: the tier ID.
+     - `requestedShareLimit`: the requested share limit.
+  6. Click **Write** and sign the transaction in your wallet.
+  7. Click **View your transaction** and wait for it to be executed.
 
 </details>
 
-### Deposit ETH to validators
+### 4. Deposit ETH to validators
 
 Supplying ETH to the stVault increases its balance. The Node Operator can then deposit ETH from this balance into validators.
 
@@ -211,7 +308,7 @@ PDG enables three main use cases:
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
 
-### Monitor stVault health and rebalance
+### 5. Monitor stVault health and rebalance
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
