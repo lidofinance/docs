@@ -6,6 +6,17 @@ Summary of tooling used in Lido V3: Oracle, Validator Ejector, Council Daemon, a
 
 Oracle daemon for Lido decentralized staking service.
 
+- **Version**: 6.0.2
+- **Docker image**: sha256:1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098, [lidofinance/oracle@sha256-1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098](https://hub.docker.com/layers/lidofinance/oracle/6.0.2/images/sha256-1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098)
+- **Commit hash**: [lidofinance/lido-oracle@1070513](https://github.com/lidofinance/lido-oracle/commit/10705137a8be0c4b9f4fb52bfdb8ece12d77cb69)
+- **Last update date**: 30 September, 2025
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/6.0.2)
+- [**Documentation**](/guides/oracle-operator-manual)
+- [**Audit Report for v6**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6%20Audit%20Report.pdf)
+- [**Audit Report for v6.0.2**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6_0_2%20Audit%20Report.pdf)
+
+## Oracle V7 (proposed)
+
 - **Version**: 7.0.0
 - **Docker image**: sha256:d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60, [lidofinance/oracle@sha256-d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60](https://hub.docker.com/layers/lidofinance/oracle/7.0.0/images/sha256-d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60)
 - **Commit hash**: [lidofinance/lido-oracle@b6e546b](https://github.com/lidofinance/lido-oracle/commit/b6e546bd38e73f23fa4e3edd9502e34ec5eb62ae)
