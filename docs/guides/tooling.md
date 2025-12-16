@@ -1,6 +1,6 @@
 # Tooling Overview
 
-Summary of tooling used in Lido V2: Oracle, Validator Ejector, Council Daemon, and Keys API.
+Summary of tooling used in Lido V3: Oracle, Validator Ejector, Council Daemon, and Keys API.
 
 ## Oracle
 
