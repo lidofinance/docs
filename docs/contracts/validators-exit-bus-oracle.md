@@ -2,6 +2,7 @@
 
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
+- Inherits [VEB](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/ValidatorsExitBus.sol)
 - Inherits [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
@@ -13,19 +14,13 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 A contract that implements an on-chain "source of truth" message bus between the protocol's off-chain oracle and off-chain observers,
 with the main goal of delivering validator exit requests to the Lido-participating node operators.
 
-A report calculation consists of 4 key steps:
-
-1. Calculate withdrawals amount to cover with ether.
-2. Calculate ether rewards prediction per epoch.
-3. Calculate withdrawal epoch for next validator eligible for exit to cover withdrawal requests if needed
-4. Prepare validators exit order queue
-5. Go through the queue until the exited validators’ balances cover all withdrawal requests (considering the predicated final exited balance of each validator).
+The oracle report determines which validators should be requested to exit to satisfy withdrawal queue demand, following the policy and prioritization rules described in the [Validator Exits and Penalties](/guides/oracle-spec/penalties) page.
 
 :::note
-Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified Lido on Ethereum Validator Exits SNOP 2.0 ([IPFS](https://lido.mypinata.cloud/ipfs/QmZTMfmJZsYHz61f2FjhYdh5VNu6ifjYQJzYUGkysHs8Uu), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/0ed664255f48ef224b96fb0325f4d27bd3c03773/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md), [HackMD](https://hackmd.io/@lido/Bk9oDtV7ye)).
+Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified Lido on Ethereum Validator Exits SNOP 3.0 ([IPFS](https://ipfs.io/ipfs/QmW9kE61zC61PcuikCQRwn82aoTCj9yPuENGNPML9QLkSM), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md)).
 :::
 
-Access to lever methods is restricted using the functionality of the
+Access to privileged methods is restricted using the functionality of the
 [AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
@@ -94,7 +89,7 @@ key: `(moduleId, nodeOpId, validatorIndex)`.
 :::
 
 ```solidity
-uint256 public constant DATA_FORMAT_LIST = 1
+uint256 public constant DATA_FORMAT_LIST = 1;
 ```
 
 ### SECONDS_PER_SLOT()
@@ -106,7 +101,7 @@ always returns 12 seconds due to [the Merge](https://ethereum.org/en/roadmap/mer
 :::
 
 ```solidity
-uint256 public immutable SECONDS_PER_SLOT
+uint256 public immutable SECONDS_PER_SLOT;
 ```
 
 ### GENESIS_TIME()
@@ -118,7 +113,7 @@ always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https:
 :::
 
 ```solidity
-uint256 public immutable GENESIS_TIME
+uint256 public immutable GENESIS_TIME;
 ```
 
 ### PAUSE_INFINITELY()
@@ -127,7 +122,7 @@ Special value for the infinite pause.
 See [`pauseFor`](#pausefor) and [`pauseUntil`](#pauseuntil).
 
 ```solidity
-uint256 public constant PAUSE_INFINITELY = type(uint256).max
+uint256 public constant PAUSE_INFINITELY = type(uint256).max;
 ```
 
 ## ProcessingState
@@ -159,7 +154,7 @@ struct ProcessingState {
 Returns the total number of validator exit requests ever processed across all received reports.
 
 ```solidity
-function getTotalRequestsProcessed() external view returns (uint256)
+function getTotalRequestsProcessed() external view returns (uint256);
 ```
 
 ### getLastRequestedValidatorIndices()
@@ -170,7 +165,7 @@ any validator, index is set to `-1`.
 
 ```solidity
 function getLastRequestedValidatorIndices(uint256 moduleId, uint256[] calldata nodeOpIds)
-        external view returns (int256[] memory)
+        external view returns (int256[] memory);
 ```
 
 #### Parameters
@@ -190,7 +185,7 @@ function getLastRequestedValidatorIndices(uint256 moduleId, uint256[] calldata n
 Returns data processing state for the current reporting frame. See the docs for the [ProcessingState](#processingstate) struct.
 
 ```solidity
-function getProcessingState() external view returns (ProcessingState memory result)
+function getProcessingState() external view returns (ProcessingState memory result);
 ```
 
 ### getConsensusContract()
@@ -198,7 +193,7 @@ function getProcessingState() external view returns (ProcessingState memory resu
 Returns the address of the [HashConsensus](/contracts/hash-consensus) contract instance used by `ValidatorsExitBusOracle`.
 
 ```solidity
-function getConsensusContract() external view returns (address)
+function getConsensusContract() external view returns (address);
 ```
 
 ### getConsensusReport()
@@ -211,7 +206,7 @@ function getConsensusReport() external view returns (
     uint256 refSlot,
     uint256 processingDeadlineTime,
     bool processingStarted
-)
+);
 ```
 
 ### getConsensusVersion()
@@ -224,7 +219,7 @@ Consensus version must change every time consensus rules change, meaning that
 :::
 
 ```solidity
-function getConsensusVersion() external view returns (uint256)
+function getConsensusVersion() external view returns (uint256);
 ```
 
 ### getContractVersion()
@@ -232,7 +227,7 @@ function getConsensusVersion() external view returns (uint256)
 Returns the current contract version.
 
 ```solidity
-function getContractVersion() public view returns (uint256)
+function getContractVersion() public view returns (uint256);
 ```
 
 ### getLastProcessingRefSlot()
@@ -240,7 +235,7 @@ function getContractVersion() public view returns (uint256)
 Returns the last reference slot for which processing of the report was started.
 
 ```solidity
-function getLastProcessingRefSlot() external view returns (uint256)
+function getLastProcessingRefSlot() external view returns (uint256);
 ```
 
 #### Returns
@@ -261,7 +256,7 @@ Returns one of the `timestamp` values:
 - some timestamp in past if not paused (if `timestamp < block.timestamp`)
 
 ```solidity
-function getResumeSinceTimestamp() external view returns (uint256 timestamp)
+function getResumeSinceTimestamp() external view returns (uint256 timestamp);
 ```
 
 ### isPaused()
@@ -269,7 +264,7 @@ function getResumeSinceTimestamp() external view returns (uint256 timestamp)
 Returns whether the contract is paused or not at the moment.
 
 ```solidity
-function isPaused() public view returns (bool)
+function isPaused() public view returns (bool);
 ```
 
 ## Methods
@@ -279,8 +274,7 @@ function isPaused() public view returns (bool)
 Submits report data for processing.
 
 ```solidity
-function submitReportData(ReportData calldata data, uint256 contractVersion)
-        external whenResumed
+function submitReportData(ReportData calldata data, uint256 contractVersion) external whenResumed;
 ```
 
 #### Parameters
@@ -315,7 +309,7 @@ function submitReportData(ReportData calldata data, uint256 contractVersion)
 Pause accepting the reports data and forming new validator exit requests for the provided duration in seconds.
 
 ```solidity
-function pauseFor(uint256 _duration) external
+function pauseFor(uint256 _duration) external;
 ```
 
 #### Parameters
@@ -335,7 +329,7 @@ function pauseFor(uint256 _duration) external
 Pause accepting the reports data and forming new validator exit requests till the given timestamp (inclusive).
 
 ```solidity
-function pauseUntil(uint256 _pauseUntilInclusive) external
+function pauseUntil(uint256 _pauseUntilInclusive) external;
 ```
 
 #### Parameters
@@ -355,7 +349,7 @@ function pauseUntil(uint256 _pauseUntilInclusive) external
 Resume accepting the reports data and forming new validator exit requests.
 
 ```solidity
-function resume() external
+function resume() external;
 ```
 
 #### Reverts
@@ -370,7 +364,7 @@ function resume() external
 An ACL role granting the permission to submit the data for a committee report.
 
 ```solidity
-bytes32 public constant SUBMIT_DATA_ROLE = keccak256("SUBMIT_DATA_ROLE")
+bytes32 public constant SUBMIT_DATA_ROLE = keccak256("SUBMIT_DATA_ROLE");
 ```
 
 ### PAUSE_ROLE()
@@ -378,7 +372,7 @@ bytes32 public constant SUBMIT_DATA_ROLE = keccak256("SUBMIT_DATA_ROLE")
 An ACL role granting the permission to pause accepting the reports data and forming new validator exit requests.
 
 ```solidity
-bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE")
+bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE");
 ```
 
 ### RESUME_ROLE()
@@ -386,7 +380,7 @@ bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE")
 An ACL role granting the permission to resume accepting the reports data and forming new validator exit requests.
 
 ```solidity
-bytes32 public constant RESUME_ROLE = keccak256("RESUME_ROLE")
+bytes32 public constant RESUME_ROLE = keccak256("RESUME_ROLE");
 ```
 
 ### MANAGE_CONSENSUS_CONTRACT_ROLE()
@@ -418,7 +412,7 @@ event ValidatorExitRequest(
     uint256 indexed validatorIndex,
     bytes validatorPubkey,
     uint256 timestamp
-)
+);
 ```
 
 ### WarnDataIncompleteProcessing()
@@ -430,7 +424,7 @@ event WarnDataIncompleteProcessing(
     uint256 indexed refSlot,
     uint256 requestsProcessed,
     uint256 requestsCount
-)
+);
 ```
 
 ### Paused()
@@ -438,7 +432,7 @@ event WarnDataIncompleteProcessing(
 Emits when the contract is paused either by the `pauseFor` or `pauseUntil` calls.
 
 ```solidity
-event Paused(uint256 duration)
+event Paused(uint256 duration);
 ```
 
 ### Resumed()
@@ -446,5 +440,130 @@ event Paused(uint256 duration)
 Emits when the contract is resumed by the `resume` call.
 
 ```solidity
-event Resumed()
+event Resumed();
 ```
+
+
+### setMaxValidatorsPerReport()
+
+Sets the hard cap for the number of validator exit requests that can be processed in a single report. This cap is applied on top of the OracleReportSanityChecker limits.
+
+```solidity
+function setMaxValidatorsPerReport(uint256 maxValidatorsPerReport) external;
+```
+**Parameters**
+
+| Name                     | Type      | Description                                                                     |
+|--------------------------|-----------|---------------------------------------------------------------------------------|
+| `maxValidatorsPerReport` | `uint256` | The maximum number of exit requests allowed per report. Must be greater than 0. |
+
+### getMaxValidatorsPerReport()
+
+Returns the current per-report cap.
+
+```solidity
+function getMaxValidatorsPerReport() external view returns (uint256);
+```
+
+**Response**
+
+| Name                     | Type      | Description                                                                     |
+|--------------------------|-----------|---------------------------------------------------------------------------------|
+| `maxValidatorsPerReport` | `uint256` | The maximum number of exit requests allowed per report. Must be greater than 0. |
+
+
+### triggerExits()
+
+Triggers exits for the specified validators requested to exit by VEBO or other permissioned sources.
+
+
+```solidity
+function triggerExits(
+  ExitRequestsData calldata exitsData,
+  uint256[] calldata exitDataIndexes,
+  address refundRecipient
+) external;
+```
+
+**Parameters**
+
+| Name              | Type               | Description                                                          |
+|-------------------|--------------------|----------------------------------------------------------------------|
+| `exitsData`       | `ExitRequestsData` | Tightly packed list of exit requests in the DATA_FORMAT_LIST format. |
+| `exitDataIndexes` | `uint256[]`        | Item indexes in `exitData` array to be exited via Trigger Exit.      |
+| `refundRecipient` | `address`          | Refund recipient for exceed fees for 7002 contract.                  |
+
+### submitExitRequestsHash()
+
+Submits a hash pre-commit for the exit requests data to be delivered later. This enables a two-step delivery: first hash, then data.
+
+```solidity
+function submitExitRequestsHash(bytes32 exitRequestsHash, uint256 contractVersion) external whenResumed
+```
+
+**Parameters**
+
+| Name               | Type      | Description                                                                                                |
+|--------------------|-----------|------------------------------------------------------------------------------------------------------------|
+| `exitRequestsHash` | `bytes32` | keccak256 hash of the ABI-encoded exit requests payload to be submitted later via `submitExitRequestsData` |
+
+### submitExitRequestsData()
+
+Submits the actual exit requests payload previously pre-committed by submitExitRequestsHash. Verifies the hash, validates, applies limits and emits exit events.
+
+Structure:
+```solidity
+struct ExitRequestsData {
+  bytes data;
+  uint256 dataFormat;
+}
+```
+
+```solidity
+function submitExitRequestsData(ExitRequestsData calldata request) external;
+```
+
+**Parameters**
+
+| Name         | Type      | Description                                                          |
+|--------------|-----------|----------------------------------------------------------------------|
+| `data`       | `bytes`   | Tightly packed list of exit requests in the DATA_FORMAT_LIST format. |
+| `dataFormat` | `uint256` | Data format. Currently must be equal to DATA_FORMAT_LIST (1)         |
+
+### `getExitRequestLimitFullInfo`
+
+Returns information about current limits data.
+
+```solidity
+function getExitRequestLimitFullInfo() external view;
+```
+
+**Returns:**
+
+| Name                        | Type      | Description                                                                               |
+|-----------------------------|-----------|-------------------------------------------------------------------------------------------|
+| `_maxExitRequestsLimit`     | `uint256` | Maximum exit requests limit                                                               |
+| `_exitsPerFrame`            | `uint256` | The number of exits that can be restored per frame                                        |
+| `_frameDurationInSec`       | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored |
+| `_prevExitRequestsLimit`    | `uint256` | Limit left after previous requests                                                        |
+| `_currentExitRequestsLimit` | `uint256` | Current exit requests limit                                                               |
+
+### `setExitRequestLimit`
+
+Sets the maximum exit request limit and the frame during which a portion of the limit can be restored.
+
+```solidity
+function setExitRequestLimit(
+  uint256 maxExitRequestsLimit,
+  uint256 exitsPerFrame,
+  uint256 frameDurationInSec
+) external onlyRole(TW_EXIT_LIMIT_MANAGER_ROLE);
+```
+
+**Parameters:**
+
+| Name                   | Type      | Description                                                                                |
+|------------------------|-----------|--------------------------------------------------------------------------------------------|
+| `maxExitRequestsLimit` | `uint256` | The maximum number of exit requests.                                                       |
+| `exitsPerFrame`        | `uint256` | The number of exits that can be restored per frame.                                        |
+| `frameDurationInSec`   | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored. |

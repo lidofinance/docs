@@ -1,6 +1,11 @@
 module.exports = {
   docs: [
     'introduction',
+    {
+      type: 'doc',
+      id: 'lido-v3-whitepaper',
+      className: 'sidebar-v3-highlight',
+    },
     'lido-dao',
     'lips',
     'guides/lido-tokens-integration-guide',
@@ -136,7 +141,6 @@ module.exports = {
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/hoodi',
-        { type: 'doc', id: 'deployed-contracts/hoodi-lidov3', label: 'Hoodi (Lido V3 testnet)' },
         'deployed-contracts/holesky',
         'deployed-contracts/sepolia'
       ],

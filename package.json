@@ -29,12 +29,13 @@
     "@docusaurus/utils": "^3.8.1",
     "@easyops-cn/docusaurus-search-local": "^0.48.4",
     "@mdx-js/react": "^3.1.0",
-    "again": "^0.0.1",
     "clsx": "^2.1.0",
     "prism-react-renderer": "^2.4.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "browserslist": {
     "production": [
