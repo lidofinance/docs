@@ -4,6 +4,12 @@ pagination_next: deployed-contracts/hoodi
 
 # Mainnet
 
+:::tip 📘 **Lido V3 Technical Paper**
+
+Learn about the next evolution of Lido staking with **stVaults** — user-defined validator setups with optional stETH liquidity. Read the complete [**Lido V3 Technical Paper**](/lido-v3-whitepaper) for architecture details, mechanisms, and implementation specifics.
+
+:::
+
 :::info **Production Lido Protocol Deployment**
 
 This page lists production contract addresses on Mainnets — including Ethereum and other networks, where the protocol and its parts/extensions are deployed.
@@ -11,6 +17,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 **Deployment Information:**
 
 - ⚓ Lido protocol version: [**`v2.2.0`**](https://github.com/lidofinance/core/releases/tag/v2.2.0) (Lido V2 version line)
+- 🚀 **Lido V3 (proposed)**: stVaults architecture with overcollateralized stETH minting — see [Technical Paper](/lido-v3-whitepaper)
 - ✅ Status: Active and maintained
 
 :::
@@ -102,7 +109,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 
 - ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
 - ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Vote Script: [`0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA`](https://etherscan.io/address/0xf2BeCc7aF0AA50DaD54781e06d5ce1A7eAD59AfA)
+- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/9)) V3 Vote Script: [`0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442`](https://etherscan.io/address/0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442)
 
 ### 🧬 Dual Governance
 
