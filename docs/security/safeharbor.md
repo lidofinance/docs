@@ -37,7 +37,7 @@ On-chain Safe Harbor Agreement Contract can be found at [0xe19f54e8322214839a874
 
     - are at least 18 or the age of majority in their jurisdiction (whichever is higher) and have full legal capacity;
     - are not (i) a citizen or resident of, located, incorporated, or otherwise established in any jurisdiction that is the subject of comprehensive sanctions or an embargo administered or enforced by the United States, United Kingdom, European Union, or United Nations, or (ii) a person that is, or that is owned or controlled by, or acting on behalf of, any person that is the subject of any sanctions administered or enforced by any of those authorities;
-    - are not (and for the prior 12 months have not been) an employee, contractor, or service provider of any Lido Labs or Lido Ecosystem or any other person or entity that directly or indirectly develops, maintains, or operates the Lido protocol or Lido Smart Contract Systems, nor an immediate family member of such a person, and are not acting on behalf of or sharing any Bounty with any such person in connection with any Exploit or Eligible Funds Rescue, nor an immediate family member of such a person, and are not acting on their behalf or receiving any advice from the said persons;
+    - are not (and for the prior 12 months have not been) an employee, contractor, or service provider of any Lido Labs or Lido Ecosystem or any other person or entity that directly or indirectly develops, maintains, or operates the Lido protocol or Lido Smart Contract Systems, nor an immediate family member of such a person, and are not acting on behalf of or sharing any Bounty with any such person in connection with any Exploit or Eligible Funds Rescue, and are not acting on their behalf or receiving any advice from the said persons;
     - The Whitehat further acknowledges that the Lido Labs, acting solely in its diligence-support capacity, may require additional information (including information relating to their identity and jurisdiction) and may provide Lido DAO with all information gathered as a result of this diligence check and an assessment of whether making such payment would violate, or would present an undue risk of violating, any applicable law or regulation (including sanctions, anti–money laundering, or anti–terrorist–financing laws). Lido Labs will not make any payment determinations, which remain exclusively within the authority of Lido DAO.
 
     These representations, warranties, and acknowledgements are continuing and are conditions precedent to eligibility for any bounty.
@@ -65,7 +65,11 @@ Aragon Voting was chosen because it provides a predictable, resilient, and timel
 
 Chain: eip155:1 (*Ethereum Mainnet*)
 
-Initial list of all on-chain assets owned by the protocol protected under Safe Harbor: [link](https://ipfs.io/ipfs/QmZ3xk9qa2uBmj9Si4Kv98PjTehxr4QyiMnmKSd9dPg6Ln) (all contract addresses can be verified using [Lido Docs](https://docs.lido.fi/deployed-contracts/)). The initial list may be updated by the Safe Harbor Management committee until ownership transfer to Aragon Voting, with all changes published on the research forum in the [dedicated thread](https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/11).
+Initial list of all on-chain assets owned by the protocol protected under Safe Harbor can be found in an [associated Snapshot proposal](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0188ab77d59b11ce589d88c350093faffdb07b3a9c9ba4d8af12755d4b2178c0).
+
+As the protocol evolves, new contracts will be reviewed and added to the Safe Harbor Agreement scope, ensuring continued protection for all new contracts and functionalities.
+
+An up-to-date list of contracts under a scope of program can be found in a [Safe Harbor Agreement Contract](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87).
 
 ChildContractScope: all (*all contracts, whether created by Address before or after calling `adoptSafeHarbor`, are in scope for Eligible Funds Rescues and will automatically fall under Safe Harbor protections and will not require a separate vote*)
 
@@ -75,5 +79,3 @@ ChildContractScope: all (*all contracts, whether created by Address before or af
 - Safe Harbor does not provide immunity from criminal liability, regulatory enforcement, or third-party claims. It is a civil contract that sets out the rights and obligations of the parties.
 - The Agreement may not be enforceable in all jurisdictions, and Whitehats remain responsible for compliance with all applicable laws.
 - Whitehats remain responsible for their own tax obligations and for ensuring that their use of Lido protocol and participation in Safe Harbor does not violate any obligations owed to employers or other third parties.
-
-As the protocol evolves, new contracts will be reviewed and added to the Safe Harbor Agreement scope, ensuring continued protection for all new contracts and functionalities.

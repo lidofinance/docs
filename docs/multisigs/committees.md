@@ -935,7 +935,7 @@ A Committee without multisig.
 
 **Address:** [`0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd`](https://app.safe.global/settings/setup?safe=eth:0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd)
 
-**Purpose of the multisig:** A short-lived, DAO-mandated working group established solely to manage the Agreement Details Contract during the audit and rollout, ensuring changes to the allowlist are aligned with DAO intent. This committee will maintain the list by making necessary additions and updates to the set of contracts in scope for Safe Harbor until ownership is handed over to Lido DAO governance. The committee will not manage or custody any funds.
+**Purpose of the multisig:** A short-lived, DAO-mandated working group established solely to manage the [Safe Harbor](https://docs.lido.fi/security/safeharbor) Agreement Details during the audit and rollout, ensuring changes to the allowlist are aligned with DAO intent. This committee will maintain the list by making necessary additions and updates to the set of contracts in scope for Safe Harbor until ownership is handed over to Lido DAO governance. The committee will not manage or custody any funds.
 
 **Quorum:** 4/5
 
