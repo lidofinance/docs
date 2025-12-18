@@ -2,9 +2,6 @@
 sidebar_position: 2
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Pooled Staking Product powered by stVaults
 
 ## Intro
@@ -55,10 +52,7 @@ DeFi Wrapper supports three product archetypes:
 - stETH is minted automatically and deposited to the connected DeFi strategy: Leverage staking, GGV, or any custom one.
 - Users receive APR from validator performance + Startegy APR.
 
-**Use case:**
-
-- end-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators.
-- end-user staking product with higher risk/yield profile through the connected curated DeFi strategy which makes the product more attractive for the end-user.
+**Use case:** End-user staking product with higher risk/yield profile through the connected curated DeFi strategy which makes the product more attractive for the end-user.
 
 ## Environments
 
@@ -315,6 +309,10 @@ The key stVault metrics that the Vault Owner should monitor and control are:
 - **Utilization ratio** -- the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
 - **Health Factor** -- a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
 
+Read more: 
+- [Health Monitoring Guide](../health-monitoring-guide.md)
+- [Health Emergency Guide](../health-emergency-guide.md)
+
 The Health Factor metric may decrease as a result of validator underperformance, penalties, or a slashing event.
 
 If this happens, there are three main options available:
@@ -358,6 +356,8 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 
 ## Useful links
 
+- [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
 - [stVaults Roles](../roles-and-permissions)
 - [stVaults Metrics](../parameters-and-metrics)
-- [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
+- [Health Monitoring Guide](../health-monitoring-guide.md)
+- [Health Emergency Guide](../health-emergency-guide.md)
