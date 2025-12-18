@@ -14,14 +14,14 @@ Benefits of adopting the Safe Harbor Agreement include:
 
 - **Agile Defense Against Exploits:** Whitehats are authorized to intervene as soon as an active exploit is detected, enabling them to respond faster than traditional methods. Immediate action minimizes the window for malicious actors, reduces damages, and accelerates the recovery of assets during critical moments.
 - **Clarified Rescue Process:** The agreement ensures that every step, from intervention to fund recovery, is predetermined and streamlined. Whitehats know exactly where to send recovered funds, preventing chaotic negotiations or rushed decisions during an exploit. This clarity ensures efficient, decisive action when it matters most.
-- **Clear Financial Boundaries:** The predefined bounty system, with a cap matching Lido DAO [existing bug bounty](https://immunefi.com/bug-bounty/lido/information/), ensures that Whitehats are incentivized fairly without creating conflicting priorities between exploit intervention and standard vulnerability disclosure. By setting expectations upfront, it eliminates post-exploit negotiations, ensuring funds are returned promptly without attempts to change the reward amount, keeping the process fair and transparent.
+- **Clear Financial Boundaries:** The predefined bounty system, with a cap matching Lido DAO's [existing bug bounty](https://immunefi.com/bug-bounty/lido/information/), ensures that Whitehats are incentivized fairly without creating conflicting priorities between exploit intervention and standard vulnerability disclosure. By setting expectations upfront, it eliminates post-exploit negotiations, ensuring funds are returned promptly without attempts to change the reward amount, keeping the process fair and transparent.
 - **Aligning with Industry Best Practices:** By adopting the Safe Harbor Agreement, Lido DAO aligns with leading security practices across the industry, reinforcing its commitment to staying at the forefront of protocol security.
 
 Adoption of the agreement complements audits and the ongoing Immunefi Lido bug bounty by providing an additional layer of security, ensuring that the protocol is better prepared to respond to active threats.
 
 ## Adoption Details
 
-On-chain Safe Harbor Agreement Contract can be found at [0xe19f54e8322214839a87408f084aa14ebefe9e87](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87).
+On-chain Safe Harbor Agreement Contract can be found at **0xe19f54e8322214839a87408f084aa14ebefe9e87** ([etherscan](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87), [blockscout](https://eth.blockscout.com/address/0xE19F54E8322214839A87408f084aA14eBEfe9E87)).
 
 **Bounty Terms,** predetermined rewards for successful Whitehats that recover protocol funds (for more information, review the [Safe Harbor](https://frameworks.securityalliance.org/safe-harbor/scope-terms)):
 
@@ -69,7 +69,7 @@ Initial list of all on-chain assets owned by the protocol protected under Safe H
 
 As the protocol evolves, new contracts will be reviewed and added to the Safe Harbor Agreement scope, ensuring continued protection for all new contracts and functionalities.
 
-An up-to-date list of contracts under a scope of program can be found in a [Safe Harbor Agreement Contract](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87).
+An up-to-date list of contracts under the scope of the program can be found in a **Safe Harbor Agreement Contract** ([etherscan](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87#readContract), [blockscout](https://eth.blockscout.com/address/0xE19F54E8322214839A87408f084aA14eBEfe9E87?tab=read_contract#0xfbbf93a0)).
 
 ChildContractScope: all (*all contracts, whether created by Address before or after calling `adoptSafeHarbor`, are in scope for Eligible Funds Rescues and will automatically fall under Safe Harbor protections and will not require a separate vote*)
 
