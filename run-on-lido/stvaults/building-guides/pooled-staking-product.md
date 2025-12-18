@@ -19,16 +19,16 @@ DeFi Wrapper supports three product archetypes:
 
 ### 1. Pooled Delegated Staking
 
-![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_pooled.png)
+![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_pooled.png)
 
 - Users stake ETH with the same Node Operator.
 - Users receive APR from validator performance.
 
-**Use case:** End-user staking product with conservative validation-based APR and user friendly-interface embedded in the colntrolled or partner's traffic channel.
+**Use case:** End-user staking product with conservative validation-based APR and user-friendly interface embedded in the controlled or partner's traffic channel.
 
-## 2. Pooled Delegated Liquid Staking
+### 2. Pooled Delegated Liquid Staking
 
-![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_liquid.png)
+![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_liquid.png)
 
 - Users stake ETH with the same Node Operator.
 - Users receive stETH (within the stVault’s Reserve Ratio).
@@ -36,9 +36,9 @@ DeFi Wrapper supports three product archetypes:
 
 **Use case:** Institutional-aimed individual (whitelisted) staking product with conservative validation-based APR and liquidity, and simple user interface hosted on the Node Operator's web server.
 
-## 3.1. Pooled Delegated Staking with Boosted APR via Leveraged staking
+### 3.1. Pooled Delegated Staking with Boosted APR via Leveraged Staking
 
-![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_looping.png)
+![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_looping.png)
 
 - Users stake ETH with the same Node Operator.
 - stETH is minted automatically and deposited to the connected curated looping strategy: pre-integrated, or custom one.
@@ -47,13 +47,13 @@ DeFi Wrapper supports three product archetypes:
 
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators. The product allows the Node Operator to attract more ETH for validation than the end-users deposit.
 
-## 3.2. Pooled Delegated Staking with Boosted APR via DeFi Strategy
+### 3.2. Pooled Delegated Staking with Boosted APR via DeFi Strategy
 
-![Pooled delegarted staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
+![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 
 - Users stake ETH with the same Node Operator and
 - stETH is minted automatically and deposited to the connected DeFi strategy: Leverage staking, GGV, or any custom one.
-- Users receive APR from validator performance + Startegy APR.
+- Users receive APR from validator performance + Strategy APR.
 
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated DeFi strategy which makes the product more attractive for the end-user.
 
@@ -70,10 +70,8 @@ DeFi Wrapper supports three product archetypes:
 ### Mainnet
 
 :::info
-
-      *Coming this Winter*
-
-::::
+*Coming this Winter*
+:::
 
 ## Steps
 
@@ -124,7 +122,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a355
   --symbol STV \
   --proposer 0x0000000000000000000000000000000000000003 \
   --executor 0x0000000000000000000000000000000000000004 \
-  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
   --allowList false
 ```
 
@@ -145,7 +143,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F5
   --symbol STV \
   --proposer 0x0000000000000000000000000000000000000003 \
   --executor 0x0000000000000000000000000000000000000004 \
-  --emergencyCommittee 0x0000000000000000000000000000000000000005
+  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
   --reserveRatioGapBP 250 \
   --allowList false
 ```
@@ -191,10 +189,10 @@ yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a355
 
 Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
 
-- clone provided repository
-- use addresses outputted by CLI to fill up .env
-- adjust titles, logos, texts and color scheme to your liking
-- deploy dApp
+- Clone the provided repository
+- Use addresses outputted by CLI to fill up `.env`
+- Adjust titles, logos, texts, and color scheme to your liking
+- Deploy the dApp
 
 ### 3. (optional) Adjust stETH minting parameters
 
@@ -326,20 +324,20 @@ If this happens, there are three main options available:
 
 **Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH Liability and thereby increases the Health Factor.
 
-Rebalancing is performed in one transacion.
+Rebalancing is performed in one transaction.
 
 The amount of ETH required for rebalancing to bring the Utilization Ratio to 100% depends on the current Health Factor and Reserve Ratio. It can be pre-calculated manually using the formula, or via the built-in methods.
 
 <details>
   <summary>by Formula</summary>
 
-      ETH for rebalance = stETH Liability - (1 - Reserve Ratio * Total Value ) / Reserve Ratio
+      ETH for rebalance = (stETH Liability − (1 − Reserve Ratio) × Total Value) / Reserve Ratio
 
 </details>
 <details>
   <summary>by Command-line Interface</summary>
 
-      *Will be supported later on testnet-3*
+      See the [CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/) for rebalance commands.
 
 </details>
 <details>
