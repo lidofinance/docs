@@ -5,30 +5,30 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Pooled Staking Product powered by stVaults
+# Pooled staking product powered by stVaults
 
 ## Intro
 
-The DeFi Wrapper is a no-/low-code toolkit that allows Builders, Node Operators, and platforms to launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
+The DeFi Wrapper is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
 
-This guide explains conceptually and practically how to launch such a product without deep protocol knowledge.
+This guide walks through the concepts and practical steps to launch such a product without deep protocol knowledge.
 
-## What You Can Build
+## What you can build
 
 DeFi Wrapper supports three product archetypes:
 
-### 1. Pooled Delegated Staking
+### 1. Pooled delegated staking
 
-![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_pooled.png)
+![Pooled delegated staking](/img/stvaults/guide-pooled-staking-product/wrapped_products_pooled.png)
 
 - Users stake ETH with the same Node Operator.
 - Users receive APR from validator performance.
 
-**Use case:** End-user staking product with conservative validation-based APR and user-friendly interface embedded in the controlled or partner's traffic channel.
+**Use case:** End-user staking product with conservative validation-based APR and a user-friendly interface embedded in your own traffic channel or a partner channel.
 
-### 2. Pooled Delegated Liquid Staking
+### 2. Pooled delegated liquid staking
 
-![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_liquid.png)
+![Pooled delegated liquid staking](/img/stvaults/guide-pooled-staking-product/wrapped_products_liquid.png)
 
 - Users stake ETH with the same Node Operator.
 - Users receive stETH (within the stVault’s Reserve Ratio).
@@ -36,72 +36,80 @@ DeFi Wrapper supports three product archetypes:
 
 **Use case:** Institutional-aimed individual (whitelisted) staking product with conservative validation-based APR and liquidity, and simple user interface hosted on the Node Operator's web server.
 
-### 3.1. Pooled Delegated Staking with Boosted APR via Leveraged Staking
+### 3. Pooled delegated staking with boosted APR
 
-![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_looping.png)
+#### 3.1. Leveraged staking (looping)
+
+![Boosted APR via leveraged staking (looping)](/img/stvaults/guide-pooled-staking-product/wrapped_products_looping.png)
 
 - Users stake ETH with the same Node Operator.
-- stETH is minted automatically and deposited to the connected curated looping strategy: pre-integrated, or custom one.
-- ETH is borrowed against stETH and deposited back to the stVault increasing stVault Total Value and the amount of ETH on validators.
+- stETH is minted automatically and deposited into the connected looping strategy (pre-integrated or custom).
+- ETH is borrowed against stETH and deposited back into the stVault, increasing the stVault's total value and the amount of ETH on validators.
 - Users receive boosted APR from validator performance.
 
-**Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy which increases amount of ETH on validators. The product allows the Node Operator to attract more ETH for validation than the end-users deposit.
+**Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy, increasing the amount of ETH on validators. The product lets the Node Operator attract more ETH for validation than end users deposit.
 
-### 3.2. Pooled Delegated Staking with Boosted APR via DeFi Strategy
+#### 3.2. DeFi strategy (GGV or custom)
 
-![Pooled delegated staking product](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
+![Boosted APR via DeFi strategy](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 
-- Users stake ETH with the same Node Operator and
-- stETH is minted automatically and deposited to the connected DeFi strategy: Leverage staking, GGV, or any custom one.
-- Users receive APR from validator performance + Strategy APR.
+- Users stake ETH with the same Node Operator.
+- stETH is minted automatically and deposited into the connected DeFi strategy (leveraged staking, GGV, or any custom stETH-based module).
+- Users receive APR from validator performance + strategy APR.
 
-**Use case:** End-user staking product with higher risk/yield profile through the connected curated DeFi strategy which makes the product more attractive for the end-user.
+**Use case:** End-user staking product with higher risk/yield profile through the connected curated DeFi strategy, making the product more attractive for end users.
 
 ## Environments
 
-### Testnet
+<Tabs>
+  <TabItem value="testnet" label="Testnet">
+    <ul>
+      <li><strong>CLI:</strong> <a href="https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration">Configuration guide</a></li>
+      <li><strong>DeFi Wrapper Factory (Testnet-5):</strong> <a href="https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code">0xFA97…1f38</a></li>
+      <li><strong>UI template:</strong> <a href="https://github.com/lidofinance/defi-wrapper-widget">defi-wrapper-widget</a></li>
+      <li><strong>Latest development branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
+      <li><strong>Etherscan:</strong> <a href="https://hoodi.etherscan.io/">hoodi.etherscan.io</a></li>
+    </ul>
+  </TabItem>
+  <TabItem value="mainnet" label="Mainnet">
 
-- CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- DeFi Wrapper Factory (Testnet-5): https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code
-- UI template: https://github.com/lidofinance/defi-wrapper-widget
-- Latest development branch: https://github.com/lidofinance/vaults-wrapper/tree/develop
-- Etherscan: https://hoodi.etherscan.io/
-
-### Mainnet
-
-:::info
+:::info Coming soon
 *Coming this Winter*
 :::
+
+  </TabItem>
+</Tabs>
 
 ## Steps
 
 ### 1. Create a tokenized staking vault (pool)
 
-The easiest way to create a pool over staking vault is to use [CLI](https://lidofinance.github.io/lido-staking-vault-cli).
-This is a command line tool intended both for staking vault and pool (wrapper) management. It supports creation of a pool with its underlying staking vault via dedicated [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
-The deployment happens in two transactions (to fit Fusaka 16m tx gas limit) which the CLI does in its single command run.
+The easiest way to create a tokenized staking vault (pool) is to use the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli).
+It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+
+The CLI performs the deployment in two transactions to stay within the current 16M transaction gas limit.
 
 To start:
-- setup CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md)
-- prepare a valid CLI configuration - see [this tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
+- Set up the CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md).
+- Prepare a valid CLI configuration — see the [configuration tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
 
 :::info
 
-  The deployer must have at least `1 ETH` on their balance - this is `CONNECT_DEPOSIT` required to be locked
-  on the vault upon connection to Lido `VaultHub`. The newly created staking vault is automatically connected to
-  Lido `VaultHub` and placed into the default tier. Placement to non-default tiers right upon deployment is not supported.
+The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the vault upon connection to Lido `VaultHub`.
+
+The newly created staking vault is automatically connected to Lido `VaultHub` and placed into the default tier. Placement into non-default tiers right upon deployment is not supported.
 
 :::
 
-To list commands for creation of available pool types, run
-```shell
+To list the available pool types and creation commands, run:
+```bash
 yarn start defi-wrapper contracts factory write -h
 ```
 
 :::info
 
-  For any pool type upon creation the CLI tool prints the env variables required
-  for the UI setup. Don't toss these lines away if planning to setup UI.
+For each pool type, the CLI prints the environment variables required for the UI setup.
+Keep this output if you plan to set up the UI.
 
 :::
 
@@ -110,8 +118,8 @@ yarn start defi-wrapper contracts factory write -h
 Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
 
 Start the deployment like:
-```shell
-yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+```bash
+yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -131,8 +139,8 @@ yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a355
 Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` for the description of the required STV pool parameters.
 
 Start the deployment like:
-```shell
-yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+```bash
+yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -149,10 +157,8 @@ yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F5
 ```
 
 :::warning
-  
-  The minimal recommended value for reserveRatioGapBP is `250` (2.5%). It is
-  expected to be sufficient to absorb enough of the vault's performance volatility
-  to keep users positions healthy in most of the cases.
+
+The minimal recommended value for `reserveRatioGapBP` is `250` (2.5%). It is expected to be sufficient to absorb enough of the vault's performance volatility to keep users' positions healthy in most cases.
 
 :::
 
@@ -162,8 +168,8 @@ Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the
 
 Start the deployment like:
 
-```shell
-yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \ 
+```bash
+yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -180,8 +186,9 @@ yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a355
 
 :::info
 
-  Note, that for `StvGGV` pool allow list is not configurable: the only address allowed to deposit is The
-  GGV strategy contract itself, and users are not to deposit via the pool directly, but to supply to the strategy.
+Note that for `StvGGV` pools, the allowlist is not configurable: the only address allowed to deposit is the GGV strategy contract itself.
+
+Users do not deposit via the pool directly — they supply to the strategy.
 
 :::
 
@@ -206,7 +213,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `OperatorGrid.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (default 24 hours), the Node operator calls `OperatorGrid.changeTier` with the same parameters
+3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
 :::info
 Confirming a tier change request requires applying a fresh report to the vault.
@@ -293,6 +300,12 @@ Supplying ETH to the stVault increases its balance. The Node Operator can then d
 
 **The Predeposit Guarantee (PDG)** contract, as part of the stVaults platform, helps prevent deposit frontrunning caused by the vulnerabilities described in [LIP-5](https://research.lido.fi/t/lip-5-mitigations-for-deposit-front-running-vulnerability/1269). PDG secures the Vault Owner’s ETH deposits to validators from being front-run by the Node Operator.
 
+:::warning
+According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft-launch in late December 2025.
+
+Phase 2 (Full Launch Mode), including the fully functional PDG, is expected in late January 2026.
+:::
+
 One of the key benefits of using PDG is the avoidance of commingling: it keeps the finances of the Vault Owner and the Node Operator strictly separated.
 
 PDG enables three main use cases:
@@ -307,10 +320,10 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** -- the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
-- **Health Factor** -- a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
+- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
+- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
 
-Read more: 
+Read more:
 - [Health Monitoring Guide](../health-monitoring-guide.md)
 - [Health Emergency Guide](../health-emergency-guide.md)
 
@@ -322,7 +335,7 @@ If this happens, there are three main options available:
 - Repay stETH to reduce stETH liability.
 - Rebalance ETH (optionally combined with a supply in a single transaction).
 
-**Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH Liability and thereby increases the Health Factor.
+**Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH liability and thereby increases the Health Factor.
 
 Rebalancing is performed in one transaction.
 

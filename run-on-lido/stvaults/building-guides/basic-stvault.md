@@ -2,9 +2,6 @@
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Basic stVault with optional liquidity
 
 ## Intro
@@ -130,8 +127,8 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
       2. Connect wallet on the "My Vaults" page.
 
-      3. Open an stVault overview page by the URL ```https://<domain>/vaults/<StakingVault_address>```
-      
+      3. Open an stVault overview page at `https://<domain>/vaults/<StakingVaultAddress>`
+
       ![Connect and accept tier](/img/stvaults/guide-basic-stvault/guide_1_scr_8.png)
 
       4. Review parameters and click "Approve and supply 1 ETH".
@@ -254,7 +251,7 @@ Confirming tier change request requires applying fresh report to vault.
       yarn start vo w change-tier -v <vaultAddress> -r <requestedShareLimit> <tierId>
       ```
 
-      On behalf of the Node Operator ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations/#change-tier-by-no-ct-no))::
+      On behalf of the Node Operator ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations/#change-tier-by-no-ct-no)):
 
       ```bash
       yarn start vo w change-tier-by-no -v <vaultAddress> -r <requestedShareLimit> <tierId>
@@ -337,8 +334,8 @@ yarn start vo w withdraw <amount>
       3. Open the **Contract** tab → **Write as Proxy**.
       4. Click **Connect to Web3** and connect your wallet in the dialog window.
       5. Find the required method in the list, fill out the fields, and click **Write**:
-         - `fund` to supply (fund) ETH into the stVault; 
-         - `withdraw` to withdraw ETH from the stVault balance. (accepts wei for amount)
+         - `fund` to supply (fund) ETH into the stVault.
+         - `withdraw` to withdraw ETH from the stVault balance (accepts wei for amount).
       6. Sign the transaction in your wallet.
       7. Click **View your transaction** and wait for it to be executed.
 </details>
@@ -439,10 +436,10 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** -- the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
-- **Health Factor** -- a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
+- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
+- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
 
-Read more: 
+Read more:
 - [Health Monitoring Guide](../health-monitoring-guide.md)
 - [Health Emergency Guide](../health-emergency-guide.md)
 
@@ -454,7 +451,7 @@ If this happens, there are three main options available:
 - Repay stETH to reduce stETH liability.
 - Rebalance ETH (optionally combined with a supply in a single transaction).
 
-**Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH Liability and thereby increases the Health Factor.
+**Rebalancing** involves transferring available ETH from the stVault balance to Lido Core, receiving stETH at a 1:1 ratio, and repaying it back to the stVault. This reduces stETH liability and thereby increases the Health Factor.
 
 Rebalancing is performed in one transaction.
 
