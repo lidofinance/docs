@@ -71,7 +71,7 @@ As the protocol evolves, new contracts will be reviewed and added to the Safe Ha
 
 An up-to-date list of contracts under the scope of the program can be found in a **Safe Harbor Agreement Contract** ([etherscan](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87#readContract), [blockscout](https://eth.blockscout.com/address/0xE19F54E8322214839A87408f084aA14eBEfe9E87?tab=read_contract#0xfbbf93a0)).
 
-ChildContractScope: all (*all contracts, whether created by Address before or after calling `adoptSafeHarbor`, are in scope for Eligible Funds Rescues and will automatically fall under Safe Harbor protections and will not require a separate vote*)
+ChildContractScope: all (*all child contracts created by the contracts from the list, whether created before or after calling `adoptSafeHarbor`, are in scope for Eligible Funds Rescues and will automatically fall under Safe Harbor protections and will not require a separate vote*)
 
 ## Important Disclaimers
 

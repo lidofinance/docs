@@ -745,7 +745,7 @@ Additionally, the committee also includes consulting participant, which abstain 
 
 **Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
-**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emergency governance while emergency mode is active.
 
 This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is stricted to 5 of 7
 
@@ -827,7 +827,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Quorum:** 3/5
 
@@ -847,7 +847,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Quorum:** 3/5
 
@@ -867,7 +867,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Quorum:** 5/7
 
