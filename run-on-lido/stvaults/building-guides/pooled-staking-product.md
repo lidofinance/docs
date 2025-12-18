@@ -34,7 +34,7 @@ DeFi Wrapper supports three product archetypes:
 - Users receive stETH (within the stVault’s Reserve Ratio).
 - Users receive APR from validator performance.
 
-**Use case:** Institutional-aimed individual (whitelisted) staking product with conservative validation-based APR and liquidity, and simple user interface hosted on the Node Operator's web server.
+**Use case:** Institution-targeted individual (whitelisted) staking product with conservative validation-based APR and liquidity, and a simple user interface hosted on the Node Operator's web server.
 
 ### 3. Pooled delegated staking with boosted APR
 
@@ -158,7 +158,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F5
 
 :::warning
 
-The minimal recommended value for `reserveRatioGapBP` is `250` (2.5%). It is expected to be sufficient to absorb enough of the vault's performance volatility to keep users' positions healthy in most cases.
+The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is expected to be sufficient to absorb enough of the vault's performance volatility to keep users' positions healthy in most cases.
 
 :::
 
