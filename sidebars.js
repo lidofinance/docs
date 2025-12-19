@@ -131,7 +131,8 @@ module.exports = {
       label: 'Security',
       items: [
         'security/bugbounty',
-        'security/audits'
+        'security/audits',
+        'security/safeharbor',
       ],
     },
     {

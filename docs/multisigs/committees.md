@@ -5,7 +5,7 @@
 **Address:** [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/settings/setup?safe=eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 
 **Purpose of the multisig:**
-The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. 
+The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances.
 Multisig enables the reception of LDO and stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
 **Forum topics:**\
@@ -582,7 +582,7 @@ A Committee without multisig.
 
 **Address:** [`0x95B521B4F55a447DB89f6a27f951713fC2035f3F`](https://app.safe.global/settings/setup?safe=eth:0x95B521B4F55a447DB89f6a27f951713fC2035f3F)
 
-**Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget. 
+**Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget.
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
 **Quorum:** 5/9
@@ -634,7 +634,7 @@ https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6l
 
 **Address:** [`0x55897893c19e4B0c52731a3b7C689eC417005Ad6`](https://app.safe.global/settings/setup?safe=eth:0x55897893c19e4B0c52731a3b7C689eC417005Ad6)
 
-**Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget. 
+**Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget.
 Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
 
 **Quorum:** 4/7
@@ -828,7 +828,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Quorum:** 3/5
 
@@ -848,7 +848,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Quorum:** 3/5
 
@@ -868,7 +868,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Quorum:** 5/7
 
@@ -931,3 +931,25 @@ A Committee without multisig.
 | tamtamchik | Tech |
 | psirex | Tech |
 | zuzu_eeka | DAO Ops |
+
+## 2.18 Safe Harbor Management Committee
+
+**Address:** [`0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd`](https://app.safe.global/settings/setup?safe=eth:0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd)
+
+**Purpose of the multisig:** A short-lived, DAO-mandated working group established solely to manage the [Safe Harbor](https://docs.lido.fi/security/safeharbor) Agreement Details during the audit and rollout, ensuring changes to the allowlist are aligned with DAO intent. This committee will maintain the list by making necessary additions and updates to the set of contracts in scope for Safe Harbor until ownership is handed over to Lido DAO governance. The committee will not manage or custody any funds.
+
+**Quorum:** 4/5
+
+**Snapshot:** [Adopt The SEAL Safe Harbor Agreement](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0188ab77d59b11ce589d88c350093faffdb07b3a9c9ba4d8af12755d4b2178c0)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| TheDZhon | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/297455 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/9 |
+| tamtamchik | 0x9777af8c6727d57f74f7d381ad47eb4a65f042ff | https://etherscan.io/verifySig/297408 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/6 |
+| n0guest | 0x235750Acd5F02A88be3cBF96BB9635DAeB22B203 | https://etherscan.io/verifySig/297452 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/8 |
+| Nikita_K | 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/297389 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/4 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/297421 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/7 |
+
+**Lifespan**: The committee will be dissolved immediately once ownership is transferred to the Aragon Voting or Safe Harbor is decommissioned, followed by a notification on the Research Forum.
