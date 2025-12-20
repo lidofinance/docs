@@ -101,6 +101,10 @@ module.exports = async function createConfigAsync() {
               to: '/run-on-lido/stvaults/pdg',
               from: '/guides/stvaults/pdg',
             },
+            {
+              to: '/multisigs/emergency-brakes',
+              from: '/multisigs/emergency-breaks',
+            }
           ],
         },
       ],
