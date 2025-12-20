@@ -1,6 +1,6 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (86 reports)
+## Lido on Ethereum (87 reports)
 
 ### 12-2025 Certora Lido V3 Security Audit
 
@@ -88,6 +88,16 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20S
 - Info Issues: 9 (9 Fixed)
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Stonks%202%20Audit%20Report%2012-25.pdf) for more details.
+
+### 12-2025 MixBytes Lido LDO Revesting Security Audit Report
+
+- Total Issues: 1 (1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Lido%20LDO%20Revesting%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details.
 
 ### 09-2025 MixBytes Lido Triggerable Withdrawals Easy Track Security Audit
 
