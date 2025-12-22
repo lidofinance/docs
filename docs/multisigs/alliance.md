@@ -6,14 +6,16 @@
 
 **Purpose of the multisig:**
 The Lido Alliance BORG Foundation utilizes this multisig to hold and manage the Lido Alliance BORG’s operational budget. 
-Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
-[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173)
+[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173)\
+[Lido Alliance BORG – Amendment of Bylaws to Enable GOOSE-3 Execution](https://research.lido.fi/t/lido-alliance-borg-amendment-of-bylaws-to-enable-goose-3-execution/10959)
 
 **Snapshots:**\
-[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa478fa5518769096eda2b7403a1d4104ca47de3102e8a9abab8640ef1b50650c)
+[Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa478fa5518769096eda2b7403a1d4104ca47de3102e8a9abab8640ef1b50650c)\
+[Lido Alliance BORG – Amendment of Bylaws to Enable GOOSE-3 Execution](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x5e087c8d53509dd9b55441f9ee6180da21ee5cf8fe68fab9d852b75b35a44a18)
 
 **Aragon:**\
 [Omnibus vote #179, item 6](https://vote.lido.fi/vote/179)
