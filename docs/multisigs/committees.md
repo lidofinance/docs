@@ -44,7 +44,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | vshvsh | 0x4A7489a3e94eFc8f4C4ee266ED297d3031f123A7 | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | Eric Siu | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363 | https://warpcast.com/randomishwalk/0x7b35f539 | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2 |
-| zuzu_eeka | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297048 | https://x.com/zuzu_eeka/status/1994316105997746385 | https://research.lido.fi/t/lido-ecosystem-grants-organization-lego-framework-update-1-october-2025/10836 |
+| zuzu_eeka | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297048 | https://x.com/zuzu_eeka/status/1994316105997746385 | https://research.lido.fi/t/lido-ecosystem-grants-organization-lego-framework-update-1-october-2025/10836/11 |
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
