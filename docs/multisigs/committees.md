@@ -165,13 +165,16 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Forum topics:**\
 [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40)\
-[Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
+[Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)\
+[Conversion of Treasury Stablecoins into sUSDS or TMMFs](https://research.lido.fi/t/tmc-6-convert-dao-treasury-stablecoins-into-susds-and-update-config-on-easy-track-and-aragon-finance-accordingly/10868)
 
 **Snapshot:**\
-[Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
+[Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)\
+[Conversion of Treasury Stablecoins into sUSDS or TMMFs](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x4dd947f5e73377b074fd393148b377558179f22ea923d584dd3c718f3bab0687)
 
 **Aragon:**\
-[Omnibus vote #173](https://vote.lido.fi/vote/173)
+[Omnibus vote #173](https://vote.lido.fi/vote/173)\
+[Omnibus vote #195](https://vote.lido.fi/vote/195)
 
 **Easy Track contracts and roles:**
 
@@ -184,15 +187,15 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| karpatkey | 0x7d4FDba7d1b22834eA75B5E45e4110Bf56E690f1 | https://etherscan.io/tx/0x675609e65d19fe0e18d340381e5203d2744607ff0646ef24a81653d1403eb9ab | https://twitter.com/karpatkey/status/1648722691862429699 |
-| marcbcs | 0x98308b6dA79B47D15e9438CB66831563649Dbd94 | https://etherscan.io/verifySig/17088 | https://twitter.com/silhcet/status/1648638734294994946?s=20 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| Name        | Address | Verification | Public verification |
+|-------------| --- | --- | --- |
+| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
-| sabrychiaa | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
-| Mol_Eliza | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
-| kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
+| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
+| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
+| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
+| zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582 |
+| 0xasot | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309 |
 
 ## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
