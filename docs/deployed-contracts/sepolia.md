@@ -1,7 +1,7 @@
 # Sepolia
 
 :::warning
-The **Sepolia** deployment is now fully **deprecated**.  
+The **Sepolia** deployment is now fully **deprecated**.
 Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 :::
 
@@ -186,18 +186,18 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ##### Ethereum part
 
-- (proposed) OpStackTokenRatePusher: [`0xd0E719f172430c2B22fA6252a0217469bCCecBB9`](https://sepolia.etherscan.io/address/0xd0E719f172430c2B22fA6252a0217469bCCecBB9)
-- (proposed) L1LidoTokensBridge: [`0x3982e730E1813FA385331e491bb75c42Ab07d780`](https://sepolia.etherscan.io/address/0x3982e730E1813FA385331e491bb75c42Ab07d780) (proxy)
-- (proposed) L1LidoTokensBridge: [`0x84f32114140a3313147291281648AaC037Bbe4B4`](https://sepolia.etherscan.io/address/0x84f32114140a3313147291281648AaC037Bbe4B4) (impl)
+- OpStackTokenRatePusher: [`0xd0E719f172430c2B22fA6252a0217469bCCecBB9`](https://sepolia.etherscan.io/address/0xd0E719f172430c2B22fA6252a0217469bCCecBB9)
+- L1LidoTokensBridge: [`0x3982e730E1813FA385331e491bb75c42Ab07d780`](https://sepolia.etherscan.io/address/0x3982e730E1813FA385331e491bb75c42Ab07d780) (proxy)
+- L1LidoTokensBridge: [`0x84f32114140a3313147291281648AaC037Bbe4B4`](https://sepolia.etherscan.io/address/0x84f32114140a3313147291281648AaC037Bbe4B4) (impl)
 
 ##### Soneium part
 
-- (proposed) WstETH ERC20BridgedPermit: [`0xf7489b8d220DCf33bAe6b594C070061E4da9fDa9`](https://soneium-minato.blockscout.com/address/0xf7489b8d220DCf33bAe6b594C070061E4da9fDa9) (proxy)
-- (proposed) WstETH ERC20BridgedPermit: [`0x1DDcF5BDc10a7d47537E4e2C8FD82c7b7EDF2fcd`](https://soneium-minato.blockscout.com/address/0x1DDcF5BDc10a7d47537E4e2C8FD82c7b7EDF2fcd) (impl)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x4e55E2d4c83df2E0083f1D616AFf007ac420b110`](https://soneium-minato.blockscout.com/address/0x4e55E2d4c83df2E0083f1D616AFf007ac420b110) (proxy)
-- (proposed) StETH ERC20RebasableBridgedPermit: [`0x2746640A14A77e68167E3B51eC6ee348A23473ab`](https://soneium-minato.blockscout.com/address/0x2746640A14A77e68167E3B51eC6ee348A23473ab) (impl)
-- (proposed) TokenRateOracle: [`0xDBD42a02D4DE52A58fe005dE2DD88B3379a50165`](https://soneium-minato.blockscout.com/address/0xDBD42a02D4DE52A58fe005dE2DD88B3379a50165) (proxy)
-- (proposed) TokenRateOracle: [`0x116DbC8E6742d9506349a70F1A9ddB89844E9B11`](https://soneium-minato.blockscout.com/address/0x116DbC8E6742d9506349a70F1A9ddB89844E9B11) (impl)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0xc58bAe09a7A681555D7cE0F71d5b14792aca9825`](https://soneium-minato.blockscout.com/address/0xc58bAe09a7A681555D7cE0F71d5b14792aca9825) (proxy)
-- (proposed) L2ERC20ExtendedTokensBridge: [`0x2bda94eD0d580758DC03641E0710D07f5Ac791Bd`](https://soneium-minato.blockscout.com/address/0x2bda94eD0d580758DC03641E0710D07f5Ac791Bd) (impl)
-- (proposed) Governance Bridge Executor: [`0xded8560057e5AAb75803d440Fff46fF22Dd98cfE`](https://soneium-minato.blockscout.com/address/0xded8560057e5AAb75803d440Fff46fF22Dd98cfE)
+- WstETH ERC20BridgedPermit: [`0xf7489b8d220DCf33bAe6b594C070061E4da9fDa9`](https://soneium-minato.blockscout.com/address/0xf7489b8d220DCf33bAe6b594C070061E4da9fDa9) (proxy)
+- WstETH ERC20BridgedPermit: [`0x1DDcF5BDc10a7d47537E4e2C8FD82c7b7EDF2fcd`](https://soneium-minato.blockscout.com/address/0x1DDcF5BDc10a7d47537E4e2C8FD82c7b7EDF2fcd) (impl)
+- StETH ERC20RebasableBridgedPermit: [`0x4e55E2d4c83df2E0083f1D616AFf007ac420b110`](https://soneium-minato.blockscout.com/address/0x4e55E2d4c83df2E0083f1D616AFf007ac420b110) (proxy)
+- StETH ERC20RebasableBridgedPermit: [`0x2746640A14A77e68167E3B51eC6ee348A23473ab`](https://soneium-minato.blockscout.com/address/0x2746640A14A77e68167E3B51eC6ee348A23473ab) (impl)
+- TokenRateOracle: [`0xDBD42a02D4DE52A58fe005dE2DD88B3379a50165`](https://soneium-minato.blockscout.com/address/0xDBD42a02D4DE52A58fe005dE2DD88B3379a50165) (proxy)
+- TokenRateOracle: [`0x116DbC8E6742d9506349a70F1A9ddB89844E9B11`](https://soneium-minato.blockscout.com/address/0x116DbC8E6742d9506349a70F1A9ddB89844E9B11) (impl)
+- L2ERC20ExtendedTokensBridge: [`0xc58bAe09a7A681555D7cE0F71d5b14792aca9825`](https://soneium-minato.blockscout.com/address/0xc58bAe09a7A681555D7cE0F71d5b14792aca9825) (proxy)
+- L2ERC20ExtendedTokensBridge: [`0x2bda94eD0d580758DC03641E0710D07f5Ac791Bd`](https://soneium-minato.blockscout.com/address/0x2bda94eD0d580758DC03641E0710D07f5Ac791Bd) (impl)
+- Governance Bridge Executor: [`0xded8560057e5AAb75803d440Fff46fF22Dd98cfE`](https://soneium-minato.blockscout.com/address/0xded8560057e5AAb75803d440Fff46fF22Dd98cfE)

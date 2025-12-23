@@ -2,7 +2,7 @@
 pagination_next: deployed-contracts/hoodi
 ---
 
-# Mainnet
+# 🌐 Mainnet
 
 :::tip 📘 **Lido V3 Technical Paper**
 
@@ -16,8 +16,8 @@ This page lists production contract addresses on Mainnets — including Ethereum
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v2.2.0`**](https://github.com/lidofinance/core/releases/tag/v2.2.0) (Lido V2 version line)
-- 🚀 **Lido V3 (proposed)**: stVaults architecture with overcollateralized stETH minting — see [Technical Paper](/lido-v3-whitepaper)
+- ⚓ Lido protocol version: [**`v3.0.0`**](https://github.com/lidofinance/core/releases/tag/v3.0.0)
+  - Lido V3 version line features stVaults architecture with overcollateralized stETH minting — see [Technical Paper](/lido-v3-whitepaper)
 - ✅ Status: Active and maintained
 
 :::
@@ -25,13 +25,11 @@ This page lists production contract addresses on Mainnets — including Ethereum
 ## 🏛️ Core Protocol
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - (<u>proposed to remove</u>) Lido Locator: [`0x2C298963FB763f74765829722a1ebe0784f4F5Cf`](https://etherscan.io/address/0x2C298963FB763f74765829722a1ebe0784f4F5Cf) (impl)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
+  - Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
-  - (<u>proposed to remove</u>) Lido: [`0x17144556fd3424EDC8Fc8A4C940B2D04936d17eb`](https://etherscan.io/address/0x17144556fd3424EDC8Fc8A4C940B2D04936d17eb) (impl)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Accounting: [`0xd43a3E984071F40d5d840f60708Af0e9526785df`](https://etherscan.io/address/0xd43a3E984071F40d5d840f60708Af0e9526785df) (impl)
+  - Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
+- Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
+  - Accounting: [`0xd43a3E984071F40d5d840f60708Af0e9526785df`](https://etherscan.io/address/0xd43a3E984071F40d5d840f60708Af0e9526785df) (impl)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - wstETH referral staker: [`0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
@@ -42,45 +40,41 @@ This page lists production contract addresses on Mainnets — including Ethereum
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
   - Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
-- (<u>proposed to remove</u>) Burner: [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Burner: [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) (proxy)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Burner: [`0xEe1E3B4f047122650086985f794f0dB5f10Ae49D`](https://etherscan.io/address/0xEe1E3B4f047122650086985f794f0dB5f10Ae49D) (impl)
+- Burner: [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) (proxy)
+  - Burner: [`0xEe1E3B4f047122650086985f794f0dB5f10Ae49D`](https://etherscan.io/address/0xEe1E3B4f047122650086985f794f0dB5f10Ae49D) (impl)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 - Min First Allocation Strategy: [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) (external lib)
 - Triggerable Withdrawals Gateway: [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Validator Exit Delay Verifier: [`0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f`](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Vault Hub: [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) (proxy)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Vault Hub: [`0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50`](https://etherscan.io/address/0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50) (impl)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Predeposit Guarantee: [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) (proxy)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Predeposit Guarantee: [`0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023`](https://etherscan.io/address/0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023) (impl)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Operator Grid: [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) (proxy)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Operator Grid: [`0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C`](https://etherscan.io/address/0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C) (impl)
+- Vault Hub: [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) (proxy)
+  - Vault Hub: [`0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50`](https://etherscan.io/address/0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50) (impl)
+- Predeposit Guarantee: [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) (proxy)
+  - Predeposit Guarantee: [`0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023`](https://etherscan.io/address/0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023) (impl)
+- Operator Grid: [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) (proxy)
+  - Operator Grid: [`0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C`](https://etherscan.io/address/0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C) (impl)
 
-### 🔨 ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) stVaults Factory Stack
+### 🔨 stVaults Factory Stack
 
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Staking Vault Factory: [`0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A`](https://etherscan.io/address/0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Staking Vault Beacon: [`0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789`](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Staking Vault Implementation: [`0x06A56487494aa080deC7Bf69128EdA9225784553`](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
+- Staking Vault Factory: [`0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A`](https://etherscan.io/address/0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A)
+- Staking Vault Beacon: [`0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789`](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
+- Staking Vault Implementation: [`0x06A56487494aa080deC7Bf69128EdA9225784553`](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
+- Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
+- Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
 
 ## 🔮 Oracle Contracts
 
 - Accounting Oracle:
   - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
-    - (<u>proposed to remove</u>) AccountingOracle: [`0xE9906E543274cebcd335d2C560094089e9547e8d`](https://etherscan.io/address/0xE9906E543274cebcd335d2C560094089e9547e8d) (impl)
-    - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) AccountingOracle: [`0x1455B96780A93e08abFE41243Db92E2fCbb0141c`](https://etherscan.io/address/0x1455B96780A93e08abFE41243Db92E2fCbb0141c) (impl)
+  - AccountingOracle: [`0x1455B96780A93e08abFE41243Db92E2fCbb0141c`](https://etherscan.io/address/0x1455B96780A93e08abFE41243Db92E2fCbb0141c) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
   - ValidatorsExitBusOracle: [`0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94`](https://etherscan.io/address/0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94) (impl)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
-- (<u>proposed to remove</u>) OracleReportSanityChecker: [`0x6232397ebac4f5772e53285b26c47914e9461e75`](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
+- OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
-- (<u>proposed to remove</u>) Legacy Oracle: [`0x442af784A788A5bd6F42A01Ebe9F287a871243fb`](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb) (proxy)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Lazy Oracle: [`0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B`](https://etherscan.io/address/0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B) (impl)
+- Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
+  - Lazy Oracle: [`0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B`](https://etherscan.io/address/0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B) (impl)
 
 ## 🗳️ DAO Contracts {#dao-contracts}
 
@@ -103,13 +97,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 - GateSeal Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
 - GateSeal (VEB and TWG): [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
 - GateSeal (Withdrawal Queue): [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) GateSeal (VaultHub and PredepositGuarantee): [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
-
-### 🗳️ ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) Lido V3 Voting Contracts
-
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/5)) V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
-- ([temporary](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/9)) V3 Vote Script: [`0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442`](https://etherscan.io/address/0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442)
+- GateSeal (VaultHub and PredepositGuarantee): [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
 
 ### 🧬 Dual Governance
 
@@ -140,17 +128,17 @@ This page lists production contract addresses on Mainnets — including Ethereum
 
 ## 🧩 Staking Modules
 
-### Curated Module
+### 🔒 Curated Module
 
 - Node Operators Registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
 - Node Operators Registry: [`0x6828b023e737f96B168aCd0b5c6351971a4F81aE`](https://etherscan.io/address/0x6828b023e737f96B168aCd0b5c6351971a4F81aE) (impl)
 
-### Simple DVT Module
+### ☀️ Simple DVT Module
 
 - Node Operators Registry: [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) (proxy)
 - Node Operators Registry: [`0x6828b023e737f96B168aCd0b5c6351971a4F81aE`](https://etherscan.io/address/0x6828b023e737f96B168aCd0b5c6351971a4F81aE) (impl)
 
-### Community Staking Module
+### 🕶️ Community Staking Module
 
 - Entry Gates:
   - PermissionlessGate: [`0xcF33a38111d0B1246A3F38a838fb41D626B454f0`](https://etherscan.io/address/0xcF33a38111d0B1246A3F38a838fb41D626B454f0)
@@ -186,11 +174,10 @@ This page lists production contract addresses on Mainnets — including Ethereum
 
 - Curve [stETH/ETH](https://curve.fi/steth) pool: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
 - Curve concentrated [stETH/wETH](https://curve.fi/factory/117) pool:
-
   - Pool contract: [`0x828b154032950C8ff7CF8085D841723Db2696056`](https://etherscan.io/address/0x828b154032950C8ff7CF8085D841723Db2696056)
   - Gauge contract: [`0xF668E6D326945d499e5B35E7CD2E82aCFbcFE6f0`](https://etherscan.io/address/0xF668E6D326945d499e5B35E7CD2E82aCFbcFE6f0)
-
-- Balancer wstETH/WETH pool: [`0x32296969Ef14EB0c6d29669C550D4a0449130230`](https://etherscan.io/address/0x32296969Ef14EB0c6d29669C550D4a0449130230) (pool id: `0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080`)
+- Balancer wstETH/WETH pool: [`0x32296969Ef14EB0c6d29669C550D4a0449130230`](https://etherscan.io/address/0x32296969Ef14EB0c6d29669C550D4a0449130230)
+  - Pool id: `0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080`
 - 1inch stETH/DAI pool: [`0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431`](https://etherscan.io/address/0xC1A900Ae76dB21dC5aa8E418Ac0F4E888A4C7431)
 - Sushi wstETH/DAI pool: [`0xc5578194D457dcce3f272538D1ad52c68d1CE849`](https://etherscan.io/address/0xc5578194D457dcce3f272538D1ad52c68d1CE849)
 
@@ -202,9 +189,7 @@ for the rate and price feeds recommended approaches.
 :::
 
 - Mainnet price feeds
-
   - Chainlink wstETH/USD Price Feed: [`0x8b6851156023f4f5a66f68bea80851c3d905ac93`](https://etherscan.io/address/0x8b6851156023f4f5a66f68bea80851c3d905ac93)
-
 - Multichain wstETH/stETH rate feeds
   - Chainlink wstETH/stETH exchange rate on Base: [`0xB88BAc61a4Ca37C43a3725912B1f472c9A5bc061`](https://basescan.org/address/0xB88BAc61a4Ca37C43a3725912B1f472c9A5bc061) (proxy)
   - Chainlink wstETH/stETH exchange rate on Arbitrum: [`0xB1552C5e96B312d0Bf8b554186F846C40614a540`](https://arbiscan.io/address/0xb1552c5e96b312d0bf8b554186f846c40614a540) (proxy)
@@ -217,30 +202,17 @@ for the rate and price feeds recommended approaches.
 ## 🎁 Reward Programs {#reward-programs}
 
 - Early Stakers Airdrop: [`0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B`](https://etherscan.io/address/0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B)
-
 - Curve Liquidity Farming:
-
   - Manager Contract: [`0x753D5167C31fBEB5b49624314d74A957Eb271709`](https://etherscan.io/address/0x753D5167C31fBEB5b49624314d74A957Eb271709)
   - Reward Contract: [`0x99ac10631f69c753ddb595d074422a0922d9056b`](https://etherscan.io/address/0x99ac10631f69c753ddb595d074422a0922d9056b)
   - Pool Contract: [`0xDC24316b9AE028F1497c275EB9192a3Ea0f67022`](https://etherscan.io/address/0xDC24316b9AE028F1497c275EB9192a3Ea0f67022)
-
 - Balancer LP rewards v3:
-
   - Manager Contract: [`0x86F6c353A0965eB069cD7f4f91C1aFEf8C725551`](https://etherscan.io/address/0x86F6c353A0965eB069cD7f4f91C1aFEf8C725551)
-
 - Arbitrum Curve rewards manager:
-
   - Manager Contract: [`0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC`](https://arbiscan.io/address/0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC)
-
 - Optimism Curve rewards manager:
-
   - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
 
-## ⚓ Anchor Integration (stETH as collateral on Anchor protocol), [discontinued](https://research.lido.fi/t/anchor-vault-upgrade-on-chain-voting-announcement/5538)
-
-- AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf) (proxy)
-- AnchorVault: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d) (impl)
-- bETH token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 
 ## 🔗 AAVE V2 Integration
 
@@ -274,7 +246,7 @@ for the rate and price feeds recommended approaches.
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
 
-### Easy Track Factories for Staking Modules
+### 🧩 Easy Track Factories for Staking Modules
 
 - **Curated Node Operators staking module** (registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5))
   - IncreaseNodeOperatorStakingLimit: [`0xFeBd8FAC16De88206d4b18764e826AF38546AfE0`](https://etherscan.io/address/0xFeBd8FAC16De88206d4b18764e826AF38546AfE0)
@@ -293,7 +265,7 @@ for the rate and price feeds recommended approaches.
   - CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
   - CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
 
-### Easy Track Factories for Token Transfers
+### 💰 Easy Track Factories for Token Transfers
 
 - **LOL (ex.reWARDS) stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5/home))
   - AllowedRecipientsRegistry: [`0x48c4929630099b217136b64089E8543dB0E5163a`](https://etherscan.io/address/0x48c4929630099b217136b64089E8543dB0E5163a)
@@ -346,30 +318,30 @@ for the rate and price feeds recommended approaches.
   - AllowedRecipientsFactory (multi token): [`0xEe60C6ebC91237d334230b12263E26EE3b480ec4`](https://etherscan.io/address/0xEe60C6ebC91237d334230b12263E26EE3b480ec4)
   - BokkyPooBah's DateTime Library: [`0x75100bd564415731b5936a4a94d0dc29dde5db3c`](https://etherscan.io/address/0x75100bd564415731b5936a4a94d0dc29dde5db3c)
 
-### Easy Track Factories for MEV-Boost Relay Allowed List management
+### 🤖 Easy Track Factories for MEV-Boost Relay Allowed List management
 
 - **MEV-Boost Relay Allowed List** (committee ms [`0x98be4a407Bff0c125e25fBE9Eb1165504349c37d`](https://app.safe.global/home?safe=eth:0x98be4a407Bff0c125e25fBE9Eb1165504349c37d))
   - AddMEVBoostRelays: [`0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60`](https://etherscan.io/address/0x00A3D6260f70b1660c8646Ef25D0820EFFd7bE60)
   - RemoveMEVBoostRelays: [`0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306`](https://etherscan.io/address/0x9721c0f77E3Ea40eD592B9DCf3032DaF269c0306)
   - EditMEVBoostRelay: [`0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535`](https://etherscan.io/address/0x6b7863f2c7dEE99D3b744fDAEDbEB1aeCC025535)
 
-### 🔨 ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Easy Track Factories for stVaults Management
+### 🔨 Easy Track Factories for stVaults Management
 
 - **Operator Grid:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Groups (Phase 1): [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Groups Share Limit (Phase 1): [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Alter Tiers (Phase 1): [`0xa29173C7BCf39dA48D5E404146A652d7464aee14`](https://etherscan.io/address/0xa29173C7BCf39dA48D5E404146A652d7464aee14)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Set Jail Status: [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Update Vaults Fees: [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c)
+  - Register Groups (Phase 1): [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC)
+  - Update Groups Share Limit (Phase 1): [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6)
+  - Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
+  - Alter Tiers (Phase 1): [`0xa29173C7BCf39dA48D5E404146A652d7464aee14`](https://etherscan.io/address/0xa29173C7BCf39dA48D5E404146A652d7464aee14)
+  - Set Jail Status: [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67)
+  - Update Vaults Fees: [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c)
 - **Vault Hub:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Force Validator Exits: [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA)
-  - ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) Socialize Bad Debt: [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) VaultsAdapter: [`0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D`](https://etherscan.io/address/0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D)
+  - Force Validator Exits: [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA)
+  - Socialize Bad Debt: [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C)
+- VaultsAdapter: [`0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D`](https://etherscan.io/address/0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D)
 
 ## 🔐 Lido DAO Multisigs
 
-### Committees
+### 🧑‍🤝‍🧑 Committees
 
 - LEGO Committee: [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://etherscan.io/address/0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 - Rewards Share Committee: [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://etherscan.io/address/0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
@@ -380,18 +352,18 @@ for the rate and price feeds recommended approaches.
 - Simple DVT Module Committee: [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7)
 - Community Staking Module Committee: [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
 
-### Alliance
+### 🤝 Alliance
 
 - Lido Alliance BORG Foundation Operational: [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 - Lido Alliance BORG Allies/Partners: [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
 - Lido Alliance BORG Drop: [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
-### Dev Team Multisigs
+### 🛠️ Dev Team Multisigs
 
 - Gas Supply Committee: [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://etherscan.io/address/0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 - Lido Subgraph NFT owner: [`0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41`](https://etherscan.io/address/0x14CeF290c79fc84FDDfDf4129Ba335972aAc7F41)
 
-### Emergency Brakes Multisigs
+### 🛑 Emergency Brakes Multisigs
 
 - GateSeal Committee: [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/home?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
@@ -409,7 +381,7 @@ for the rate and price feeds recommended approaches.
 - Lisk: [`0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39`](https://safe.optimism.io/settings/setup?safe=lisk:0x1356C0b19c2531bBf0Dd23E585b7C7f7096EeC39)
 - Swellchain: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://safe.optimism.io/settings/setup?safe=swell-l2:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
-### Liquidity Observation Lab Multisigs
+### 🔬 Liquidity Observation Lab Multisigs
 
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/home?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Ethereum)
 - Liquidity Observation Lab: [`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) (Optimism)
@@ -432,24 +404,24 @@ for the rate and price feeds recommended approaches.
 - Liquidity Observation Lab AAVE rewards: `0x75483CE83100890c6bf1718c26052cE44e0F2839` ([Optimism](https://app.safe.global/home?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839))
 - Liquidity Observation Lab AAVE rewards: `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/home?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
 
-### Lido on X
+### 📣 Lido on X
 
 - Lido on Polygon: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
 
-### Other
+### 🗂️ Other
 
 - Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 
 ## 🌐 Lido Multichain {#lido-multichain}
 
-### Arbitrum
+### 🌀 Arbitrum
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - L1ERC20TokenGateway: [`0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a`](https://etherscan.io/address/0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a) (proxy)
 - L1ERC20TokenGateway: [`0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C`](https://etherscan.io/address/0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C) (impl)
 
-##### Arbitrum part
+##### 🌀 Arbitrum part
 
 - WstETH ERC20Bridged: [`0x5979D7b546E38E414F7E9822514be443A4800529`](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529) (proxy)
 - WstETH ERC20Bridged: [`0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921`](https://arbiscan.io/address/0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921) (impl)
@@ -458,17 +430,16 @@ for the rate and price feeds recommended approaches.
 - Arbitrum Governance Bridge Executor: [`0x1dcA41859Cd23b526CBe74dA8F48aC96e14B1A29`](https://arbiscan.io/address/0x1dca41859cd23b526cbe74da8f48ac96e14b1a29)
 - LDO token: [`0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60`](https://arbiscan.io/address/0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60) (proxy)
 
-### Optimism
+### 🌞 Optimism
 
-#### Ethereum part
+#### 🧱 Ethereum part
 
-- (<u>proposed to remove</u>) TokenRateNotifier: [`0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823`](https://etherscan.io/address/0xe6793B9e4FbA7DE0ee833F9D02bba7DB5EB27823)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
+- TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
 - OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
 - L1LidoTokensBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
 
-#### Optimism part
+#### 🌞 Optimism part
 
 - WstETH ERC20BridgedPermit: [`0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb`](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb) (proxy)
 - WstETH ERC20BridgedPermit: [`0xFe57042De76c8D6B1DF0E9E2047329fd3e2B7334`](https://optimistic.etherscan.io/address/0xFe57042De76c8D6B1DF0E9E2047329fd3e2B7334) (impl)
@@ -481,26 +452,26 @@ for the rate and price feeds recommended approaches.
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - LDO token: [`0xFdb794692724153d1488CcdBE0C56c252596735F`](https://optimistic.etherscan.io/address/0xFdb794692724153d1488CcdBE0C56c252596735F)
 
-### Polygon PoS
+### 🔺 Polygon PoS
 
-#### Ethereum part
+#### 🧱 Ethereum part
 
 - ERC20Predicate: [`0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf`](https://etherscan.io/address/0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf) (proxy)
 - ERC20Predicate: [`0xB1fd4ae726c64A793588001EB465c46BD1BdF1cB`](https://etherscan.io/address/0xB1fd4ae726c64A793588001EB465c46BD1BdF1cB) (impl)
 
-#### Polygon PoS part
+#### 🔺 Polygon PoS part
 
 - WstETH UChildERC20: [`0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD`](https://polygonscan.com/address/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd) (proxy)
 - WstETH UChildERC20: [`0x60991ccaE8f1420B43bf14937a2c9F69162BE21A`](https://polygonscan.com/address/0x60991ccaE8f1420B43bf14937a2c9F69162BE21A) (impl)
 
-### Base
+### 🟦 Base
 
-#### Ethereum part
+#### 🧱 Ethereum part
 
 - L1ERC20TokenBridge: [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72) (proxy)
 - L1ERC20TokenBridge: [`0x313819736457910ac1dd21a712a37f3d7595645a`](https://etherscan.io/address/0x313819736457910ac1dd21a712a37f3d7595645a) (impl)
 
-#### Base part
+#### 🟦 Base part
 
 - WstETH ERC20Bridged: [`0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452`](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452) (proxy)
 - WstETH ERC20Bridged: [`0x69ce2505ce515c0203160450157366f927243309`](https://basescan.org/address/0x69ce2505ce515c0203160450157366f927243309) (impl)
@@ -508,16 +479,16 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
 - Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
 
-### ZKSync
+### 🧵 ZKSync
 
-#### Ethereum part
+#### 🧱 Ethereum part
 
 - L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
 - L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
 - L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
 - L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
 
-#### ZKSync part
+#### 🧵 ZKSync part
 
 - ZkSync Governance Bridge Executor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
 - ZkSync Governance Bridge Executor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
@@ -529,14 +500,14 @@ for the rate and price feeds recommended approaches.
   - ZkSyncBridgeExecutor
   - ERC20BridgedUpgradeable
 
-### Mantle
+### 🧥 Mantle
 
-#### Ethereum part
+#### 🧱 Ethereum part
 
 - L1ERC20TokenBridge: [`0x2D001d79E5aF5F65a939781FE228B267a8Ed468B`](https://etherscan.io/address/0x2D001d79E5aF5F65a939781FE228B267a8Ed468B) (proxy)
 - L1ERC20TokenBridge: [`0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23`](https://etherscan.io/address/0x6fBBe1Af52D22557D7F161Dc5952E306F4742e23) (impl)
 
-#### Mantle part
+#### 🧥 Mantle part
 
 - WstETH ERC20BridgedPermit: [`0x458ed78EB972a369799fb278c0243b25e5242A83`](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83) (proxy)
 - WstETH ERC20BridgedPermit: [`0x1FaBaAec88198291A4efCc85Cabb33a3785165ba`](https://explorer.mantle.xyz/address/0x1FaBaAec88198291A4efCc85Cabb33a3785165ba) (impl)
@@ -544,15 +515,15 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0xf10A7ffC613a9b23Abc36167925A375bf5986181`](https://explorer.mantle.xyz/address/0xf10A7ffC613a9b23Abc36167925A375bf5986181) (impl)
 - Mantle Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd`](https://explorer.mantle.xyz/address/0x3a7b055bf88cdc59d20d0245809c6e6b3c5819dd)
 
-### Linea
+### 📏 Linea
 
-#### Ethereum part
+#### 🧱 Ethereum part
 
 - L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
 - L1 TokenBridge (Canonical Bridge): [`0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34`](https://etherscan.io/address/0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34) (impl)
 - ProxyAdmin for L1 TokenBridge: [`0xF5058616517C068C7b8c7EbC69FF636Ade9066d6`](https://etherscan.io/address/0xF5058616517C068C7b8c7EbC69FF636Ade9066d6)
 
-#### Linea part
+#### 📏 Linea part
 
 - wstETH CustomBridgedToken: [`0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F`](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F) (proxy)
 - wstETH CustomBridgedToken: [`0xc0583e2F5930EDE5Fab9D57bAC4169878730B010`](https://lineascan.build/address/0xc0583e2f5930ede5fab9d57bac4169878730b010) (impl)
@@ -562,15 +533,15 @@ for the rate and price feeds recommended approaches.
 - ProxyAdmin for L2 TokenBridge: [`0x1e1f6f22f97b4a7522d8b62e983953639239774e`](https://lineascan.build/address/0x1e1f6f22f97b4a7522d8b62e983953639239774e)
 - Linea Governance Bridge Executor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 
-### Scroll
+### 📜 Scroll
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - L1LidoGateway: [`0x6625c6332c9f91f2d27c304e729b86db87a3f504`](https://etherscan.io/address/0x6625c6332c9f91f2d27c304e729b86db87a3f504) (proxy)
 - L1LidoGateway: [`0xF4f2066EE72D62e3caF9678459149BA7FCf2262F`](https://etherscan.io/address/0xF4f2066EE72D62e3caF9678459149BA7FCf2262F) (impl)
 - ProxyAdmin: [`0xCC2C53556Bc75217cf698721b29071d6f12628A9`](https://etherscan.io/address/0xCC2C53556Bc75217cf698721b29071d6f12628A9) for L1LidoGateway
 
-##### Scroll part
+##### 📜 Scroll part
 
 - Scroll Governance Bridge Executor: [`0x0c67D8D067E349669dfEAB132A7c03A90594eE09`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 - L2LidoGateway: [`0x8aE8f22226B9d789A36AC81474e633f8bE2856c9`](https://scrollscan.com/address/0x8aE8f22226B9d789A36AC81474e633f8bE2856c9) (proxy)
@@ -581,14 +552,14 @@ for the rate and price feeds recommended approaches.
   - L2LidoGateway
   - L2WstETHToken
 
-### Mode
+### 🎛️ Mode
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - L1ERC20TokenBridge: [`0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A`](https://etherscan.io/address/0xD0DeA0a3bd8E4D55170943129c025d3fe0493F2A) (proxy)
 - L1ERC20TokenBridge: [`0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76`](https://etherscan.io/address/0xE6A4ED59Ec73eD78aE3A10294c99F0EE18A6bF76) (impl)
 
-##### Mode part
+##### 🎛️ Mode part
 
 - WstETH ERC20Bridged: [`0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81`](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81) (proxy)
 - WstETH ERC20Bridged: [`0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A`](https://explorer.mode.network/address/0xF27b1B121e55A13047d66dC4AAA8c17BA72c762A) (impl)
@@ -596,11 +567,11 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97`](https://explorer.mode.network/address/0x488cDB57E9a1006ab77730fC8b19e1BB76e1cB97) (impl)
 - Mode Governance Bridge Executor: [`0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C`](https://explorer.mode.network/address/0x2aCeC6D8ABA90685927b61968D84CfFf6192B32C)
 
-### Binance Smart Chain (BSC)
+### 🟡 Binance Smart Chain (BSC)
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
-###### a.DI governance forwarding
+###### 📡 a.DI governance forwarding
 
 - CrossChainController: [`0x93559892D3C7F66DE4570132d68b69BD3c369A7C`](https://etherscan.io/address/0x93559892D3C7F66DE4570132d68b69BD3c369A7C) (proxy)
 - CrossChainController: [`0x5f456f29238F8d63b3ae69bCEF9e9d4E953f2c63`](https://etherscan.io/address/0x5f456f29238F8d63b3ae69bCEF9e9d4E953f2c63) (impl)
@@ -610,7 +581,7 @@ for the rate and price feeds recommended approaches.
 - LayerZeroAdapter: [`0x742650E0441Be8503682965d601AD0Ba1fB54411`](https://etherscan.io/address/0x742650E0441Be8503682965d601AD0Ba1fB54411)
 - WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
 
-###### wstETH on BSC endpoints
+###### 🔌 wstETH on BSC endpoints
 
 - NTT Manager: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9) (proxy)
 - NTT Manager: [`0xc6c1f091450b54af3280cfed790047431bc99bb1`](https://etherscan.io/address/0xc6c1f091450b54af3280cfed790047431bc99bb1) (impl)
@@ -619,9 +590,9 @@ for the rate and price feeds recommended approaches.
 - Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 - Transceiver Structs (used by Axelar Transceiver): [`0xa12bc993d8144404a8c8c812816048275a066ced`](https://etherscan.io/address/0xa12bc993d8144404a8c8c812816048275a066ced)
 
-##### BSC part
+##### 🟡 BSC part
 
-###### a.DI governance forwarding
+###### 📡 a.DI governance forwarding
 
 - CrossChainController: [`0x40C4464fCa8caCd550C33B39d674fC257966022F`](https://bscscan.com/address/0x40C4464fCa8caCd550C33B39d674fC257966022F) (proxy)
 - CrossChainController: [`0xB7Ba81dd07885ae7BFD18452B36D3404d7EDD8Ee`](https://bscscan.com/address/0xB7Ba81dd07885ae7BFD18452B36D3404d7EDD8Ee) (impl)
@@ -632,7 +603,7 @@ for the rate and price feeds recommended approaches.
 - LayerZeroAdapter: [`0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408`](https://bscscan.com/address/0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408)
 - WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
 
-###### wstETH on BSC endpoints
+###### 🔌 wstETH on BSC endpoints
 
 - WstEthL2Token: [`0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C`](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C) (proxy)
 - WstEthL2Token: [`0x451d447776778870bdfe76d031689703aba73ee5`](https://bscscan.com/address/0x451d447776778870bdfe76d031689703aba73ee5) (impl)
@@ -643,14 +614,14 @@ for the rate and price feeds recommended approaches.
 - Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 - Transceiver Structs (used by Axelar Transceiver): [`0x27a3daf3b243104e9b0afae6b56026a416b852c9`](https://bscscan.com/address/0x27a3daf3b243104e9b0afae6b56026a416b852c9)
 
-### Zircuit
+### ⚗️ Zircuit
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - L1ERC20TokenBridge: [`0x912C7271a6A3622dfb8B218eb46a6122aB046C79`](https://etherscan.io/address/0x912C7271a6A3622dfb8B218eb46a6122aB046C79) (proxy)
 - L1ERC20TokenBridge: [`0x6bc726C993103197C41d787dd72eCd4D2e1614E8`](https://etherscan.io/address/0x6bc726C993103197C41d787dd72eCd4D2e1614E8) (impl)
 
-##### Zircuit part
+##### ⚗️ Zircuit part
 
 - WstETH ERC20Bridged: [`0xf0e673Bc224A8Ca3ff67a61605814666b1234833`](https://explorer.zircuit.com/address/0xf0e673Bc224A8Ca3ff67a61605814666b1234833) (proxy)
 - WstETH ERC20Bridged: [`0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4`](https://explorer.zircuit.com/address/0x929569e10d9166f31c8284fE3FE5db1C1E56D6b4) (impl)
@@ -658,15 +629,15 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c`](https://explorer.zircuit.com/address/0x224F00AEDD7A9F10e571898662ad19CD5abd9F2c) (impl)
 - Zircuit Governance Bridge Executor: [`0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5`](https://explorer.zircuit.com/address/0x6Bf2cac3ed2481da30aD36Cd3D64325c31065Cc5)
 
-### Soneium
+### 🎧 Soneium
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - OpStackTokenRatePusher: [`0x927C99fC46226bd5131420B16aF0b0371165C3FC`](https://etherscan.io/address/0x927C99fC46226bd5131420B16aF0b0371165C3FC)
 - L1LidoTokensBridge: [`0x2F543A7C9cc80Cc2427c892B96263098d23ee55a`](https://etherscan.io/address/0x2F543A7C9cc80Cc2427c892B96263098d23ee55a) (proxy)
 - L1LidoTokensBridge: [`0xf034dE8BD85A434d9Dc68F03382B589f86791425`](https://etherscan.io/address/0xf034dE8BD85A434d9Dc68F03382B589f86791425) (impl)
 
-##### Soneium part
+##### 🎧 Soneium part
 
 - WstETH ERC20BridgedPermit: [`0xaA9BD8c957D803466FA92504BDd728cC140f8941`](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941) (proxy)
 - WstETH ERC20BridgedPermit: [`0x7591f6BD2301f7EE9267738039054047b5B395B0`](https://soneium.blockscout.com/address/0x7591f6BD2301f7EE9267738039054047b5B395B0) (impl)
@@ -678,15 +649,15 @@ for the rate and price feeds recommended approaches.
 - L2ERC20ExtendedTokensBridge: [`0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0`](https://soneium.blockscout.com/address/0x3e2DcBe31617577d9CF934A9fb97DdC8FD844fa0) (impl)
 - Soneium Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
 
-### Unichain
+### 🔗 Unichain
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - OpStackTokenRatePusher: [`0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74`](https://etherscan.io/address/0x3F9600439Ad97fC6f55C2AC7C118f8Fd0595eB74)
 - L1LidoTokensBridge: [`0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877`](https://etherscan.io/address/0x755610f5Be536Ad7afBAa7c10F3E938Ea3aa1877) (proxy)
 - L1LidoTokensBridge: [`0x6078232C54d956c901620fa4590e0F7E37c2B82f`](https://etherscan.io/address/0x6078232C54d956c901620fa4590e0F7E37c2B82f) (impl)
 
-##### Unichain part
+##### 🔗 Unichain part
 
 - WstETH ERC20BridgedPermit: [`0xc02fE7317D4eb8753a02c35fe019786854A92001`](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001) (proxy)
 - WstETH ERC20BridgedPermit: [`0xB5CF096A406C1D5297D2493073168F44EB4a1A1d`](https://uniscan.xyz/address/0xB5CF096A406C1D5297D2493073168F44EB4a1A1d) (impl)
@@ -698,14 +669,14 @@ for the rate and price feeds recommended approaches.
 - L2ERC20ExtendedTokensBridge: [`0x332CA368dd09AD309c51dC6350730e0Bca85CffE`](https://uniscan.xyz/address/0x332CA368dd09AD309c51dC6350730e0Bca85CffE) (impl)
 - Unichain Governance Bridge Executor: [`0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0`](https://uniscan.xyz/address/0x3b00f262e39372DF2756f809DD5DC36aeEdFC4A0)
 
-### Lisk
+### 🔹 Lisk
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - L1ERC20TokenBridge: [`0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf`](https://etherscan.io/address/0x9348AF23B01F2B517AFE8f29B3183d2Bb7d69Fcf) (proxy)
 - L1ERC20TokenBridge: [`0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC`](https://etherscan.io/address/0xC7315f4FaaB2F700fc6b4704BB801c46ff6327AC) (impl)
 
-##### Lisk part
+##### 🔹 Lisk part
 
 - WstETH ERC20Bridged: [`0x76D8de471F54aAA87784119c60Df1bbFc852C415`](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415) (proxy)
 - WstETH ERC20Bridged: [`0x16B8006b49db9022BF5457BD2de0144a7d0F970b`](https://blockscout.lisk.com/address/0x16B8006b49db9022BF5457BD2de0144a7d0F970b) (impl)
@@ -713,14 +684,14 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
 - Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 
-### Swellchain
+### 🌊 Swellchain
 
-##### Ethereum part
+##### 🧱 Ethereum part
 
 - L1ERC20TokenBridge: [`0xecf3376512EDAcA4FBB63d2c67d12a0397d24121`](https://etherscan.io/address/0xecf3376512EDAcA4FBB63d2c67d12a0397d24121) (proxy)
 - L1ERC20TokenBridge: [`0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2`](https://etherscan.io/address/0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2) (impl)
 
-##### Swellchain part
+##### 🌊 Swellchain part
 
 - WstETH ERC20Bridged: [`0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc`](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc) (proxy)
 - WstETH ERC20Bridged: [`0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1`](https://explorer.swellnetwork.io/address/0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1) (impl)
@@ -728,7 +699,7 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE`](https://explorer.swellnetwork.io/address/0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE) (impl)
 - Governance BridgeExecutor: [`0xFF22ea467301010F1364fc154c13e0c86Fcfb077`](https://explorer.swellnetwork.io/address/0xFF22ea467301010F1364fc154c13e0c86Fcfb077)
 
-### Lido Multichain Liquidity pools
+### 🏊 Lido Multichain Liquidity pools
 
 Balancer
 
@@ -758,6 +729,9 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 - Finance Ops: [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops: [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 - 1inch Liquidity Farming: [`0xdB46C277dA1599390eAb394327602889E9546296`](https://etherscan.io/address/0xdB46C277dA1599390eAb394327602889E9546296)
+- AnchorVault: [`0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf`](https://etherscan.io/address/0xA2F987A546D4CD1c607Ee8141276876C26b72Bdf)
+  - AnchorVault Implementation: [`0x9530708033E7262bD7c005d0e0D47D8A9184277d`](https://etherscan.io/address/0x9530708033E7262bD7c005d0e0D47D8A9184277d)
+  - bETH Token: [`0x707f9118e33a9b8998bea41dd0d46f38bb963fc8`](https://etherscan.io/address/0x707f9118e33a9b8998bea41dd0d46f38bb963fc8)
 - ARCx:
   - Manager Contract: [`0x6140182B2536AE7B6Cfcfb2d2bAB0f6Fe0D7b58E`](https://etherscan.io/address/0x6140182B2536AE7B6Cfcfb2d2bAB0f6Fe0D7b58E)
   - Reward Contract: [`0x8F1155447Ee97b5Ae147a01a5c420B0FDDF0370D`](https://etherscan.io/address/0x8F1155447Ee97b5Ae147a01a5c420B0FDDF0370D)
@@ -802,3 +776,7 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
   - Dual Governance Upgrade State Verifier: [`0x487b764a2085ffd595D9141BAec0A766B7904786`](https://etherscan.io/address/0x487b764a2085ffd595D9141BAec0A766B7904786)
   - Dual Governance Upgrade Omnibus Provider: [`0x67988077f29FbA661911d9567E05cc52C51ca1B0`](https://etherscan.io/address/0x67988077f29FbA661911d9567E05cc52C51ca1B0)
   - Dual Governance Config Provider for disconnected DualGovernance contract: [`0xc934E90E76449F09f2369BB85DCEa056567A327a`](https://etherscan.io/address/0xc934E90E76449F09f2369BB85DCEa056567A327a)
+- Lido V3 upgrade contracts:
+  - V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
+  - V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
+  - V3 Vote Script: [`0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442`](https://etherscan.io/address/0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442)
