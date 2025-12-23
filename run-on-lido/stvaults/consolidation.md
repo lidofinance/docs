@@ -9,7 +9,7 @@ Stakers with validators already running may need to join stVaults. Validators in
 This document provides step-by-step instructions for performing the process smoothly with our stVaults CLI.
 
 :::info
-The consolidation mechanism only transfers the effective balance (32 ETH) from source validators to target validators. Any rewards above 32 ETH are automatically withdrawn to the source validator's withdrawal credentials during the consolidation process.
+The consolidation mechanism only transfers the effective balance from source validators to target validators. Any rewards above the effective balance are automatically withdrawn to the source validator's withdrawal credentials during the consolidation process.
 :::
 
 ## 1. Setup stVaults CLI tool.
