@@ -1,4 +1,4 @@
-# Checking the evm script from Aragon vote
+# Aragon vote: checking the evm script
 
 We've published a short replit from the script parts we're using for preparing the votes: [EVMVoteScriptParser#main.py](https://replit.com/@VictorSuzdalev/EVMVoteScriptParser#main.py)
 

@@ -1,4 +1,4 @@
-# Lido V2 mainnet parameters
+# Lido V2 mainnet parameters validation
 
 ## Tests setup configuration
 
