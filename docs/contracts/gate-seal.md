@@ -2,7 +2,7 @@
 
 - [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
 - [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) [GateSeal (VaultHub and PredepositGuarantee (PDG))](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
+- [GateSeal (VaultHub and PredepositGuarantee (PDG))](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
 - [GateSeal (ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG))](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
 - [GateSeal (WithdrawalQueue)](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
 - [GateSeal (CSM)](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)
