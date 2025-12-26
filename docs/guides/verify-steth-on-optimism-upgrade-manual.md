@@ -1,4 +1,4 @@
-# stETH on Optimism parameters for Mainnet
+# stETH on Optimism parameters
 
 ## Deployment scope
 
