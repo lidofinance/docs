@@ -1,19 +1,22 @@
 # GateSeal
 
-- [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
-- [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
-- [GateSeal (VaultHub and PredepositGuarantee (PDG))](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
-- [GateSeal (ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG))](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
-- [GateSeal (WithdrawalQueue)](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
-- [GateSeal (CSM)](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)
-- [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
-
 A one-time panic button for pausable contracts.
+
+| Active GateSeals | Expiration date (UTC) |
+|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| [ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG)](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | 12 Sep 2026, 09:59:47 |
+| [WithdrawalQueue](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)                                            | 12 Sep 2026, 09:59:47 |
+| [CSM](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)                                                        | 17 Sep 2026, 12:31:23 |
+| [VaultHub and PredepositGuarantee (PDG)](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)                     | 03 Dec 2026, 12:54:59 |
 
 ## What is a GateSeal?
 
 A GateSeal is a contract that allows the designated account to instantly put a set of contracts on pause (i.e., seal) for a limited duration. GateSeals are meant to be used as a panic button for crucial contracts in case of an emergency. Each GateSeal is one-time use only and immediately becomes unusable once activated. If the seal is never triggered, the GateSeal will still eventually expire after a set period.
+
+- [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
+- [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
+- [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
+- [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 
 ## Why use a GateSeal?
 
