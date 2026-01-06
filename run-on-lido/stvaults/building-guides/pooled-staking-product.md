@@ -310,8 +310,8 @@ One of the key benefits of using PDG is the avoidance of commingling: it keeps t
 
 PDG enables three main use cases:
 
-- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../pdg/#full-cycle-trustless-path-through-pdg).
-- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../pdg/#pdg-shortcut).
+- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../tech-documentation/pdg#full-cycle-trustless-path-through-pdg).
+- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../tech-documentation/pdg#pdg-shortcut).
 - **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case.
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
@@ -320,8 +320,8 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
-- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
+- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../features-and-mechanics/parameters-and-metrics)
+- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../features-and-mechanics/parameters-and-metrics)
 
 Read more:
 - [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
@@ -371,7 +371,7 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 ## Useful links
 
 - [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
-- [stVaults Roles](../roles-and-permissions)
-- [stVaults Metrics](../parameters-and-metrics)
+- [stVaults Roles](../features-and-mechanics/roles-and-permissions)
+- [stVaults Metrics](../features-and-mechanics/parameters-and-metrics)
 - [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
 - [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)

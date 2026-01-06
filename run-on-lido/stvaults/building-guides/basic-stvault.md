@@ -110,7 +110,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 ##### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as collateral for connection to Lido Core, and initiates the connection to Lido Core.
 
-This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
+This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
 
 **Parameters and addresses needed for this step:**
 
@@ -203,7 +203,7 @@ Tier changes are performed via a multi-role confirmation mechanism, where the No
 
 Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-Addresses performing this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
+Addresses performing this operation must have the following roles ([Read more about roles](../features-and-mechanics/roles-and-permissions)):
 
 - From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE).
 - From the Node Operator: Node Operator (registered in the `OperatorGrid` contract).
@@ -295,7 +295,7 @@ Confirming tier change request requires applying fresh report to vault.
 
 ### Supply and withdraw ETH
 
-Supply and Withdraw ETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple are supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
+Supply and Withdraw ETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple are supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -346,15 +346,15 @@ Withdrawable ETH is defined by:
 - stVault Balance - ETH that is not staked on validators.
 - Total lock — collateral reserved for stETH liability, the mandatory 1 ETH minimal reserve for connecting the stVault to Lido Core, and protocol and Node Operator fee obligations.
 
-[Read more about stVaults metrics](../parameters-and-metrics)
+[Read more about stVaults metrics](../features-and-mechanics/parameters-and-metrics)
 :::
 
 ### Mint and repay stETH
 
 When ETH is supplied to an stVault, the Vault Owner can mint stETH on demand.
-Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](../parameters-and-metrics#total-steth-minting-capacity).
+Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](../features-and-mechanics/parameters-and-metrics#total-steth-minting-capacity).
 
-Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
+Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -426,8 +426,8 @@ One of the key benefits of using PDG is the avoidance of commingling: it keeps t
 
 PDG enables three main use cases:
 
-- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../pdg/#full-cycle-trustless-path-through-pdg).
-- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../pdg/#pdg-shortcut).
+- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../tech-documentation/pdg#full-cycle-trustless-path-through-pdg).
+- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../tech-documentation/pdg#pdg-shortcut).
 - **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case.
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
@@ -436,8 +436,8 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
-- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
+- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../features-and-mechanics/parameters-and-metrics)
+- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../features-and-mechanics/parameters-and-metrics)
 
 Read more:
 - [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
@@ -486,7 +486,7 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 
 ## Useful links
 
-- [stVaults Roles](../roles-and-permissions)
-- [stVaults Metrics](../parameters-and-metrics)
+- [stVaults Roles](../features-and-mechanics/roles-and-permissions)
+- [stVaults Metrics](../features-and-mechanics/parameters-and-metrics)
 - [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
 - [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
