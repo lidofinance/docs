@@ -1,8 +1,8 @@
 ---
-sidebar_position: 10
+sidebar_position: 3
 ---
 
-# Consolidation: Migrate validators to the stVault
+# 🔁 Consolidations
 
 Stakers with validators already running may need to join stVaults. Validators in stVaults must have withdrawal credentials set to the Vault contract address. Instead of stopping existing validators, moving funds, and launching new ones, stakers can use the consolidation mechanism [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251). This makes it possible to migrate funds from their current validators to new validators whose withdrawal credentials point to the stVaults.
 

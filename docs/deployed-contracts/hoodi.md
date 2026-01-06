@@ -16,7 +16,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 - 🏗️ [stVaults Technical Design Document](https://hackmd.io/@lido/stVaults-design)
 - 🔌 [stVaults Documentation Center](/run-on-lido/stvaults/)
-- 🛡️ [stVaults Predeposit Guarantee (PDG) Guide](/run-on-lido/stvaults/pdg)
+- 🛡️ [stVaults Predeposit Guarantee (PDG) Guide](/run-on-lido/stvaults/tech-documentation/pdg)
 
 :::
 

@@ -1,4 +1,8 @@
-# Technical Design and Architecture
+---
+sidebar_position: 2
+---
+
+# 🏗️ Technical Design and Architecture
 
 ## 1. Abstract
 

@@ -23,7 +23,7 @@ The user's stETH balance represents the amount of ether withdrawable directly fr
 For easier DeFi integrations, `stETH` has a non-rebasable, value-accruing counterpart called ['wrapped stETH'](#wsteth)
 (or just `wstETH`).
 
-stETH (and therefore wstETH) can be obtained not only via direct staking in Lido Core and wrapping, but also via **Lido V3 stVaults (Staking Vaults)**: vault owners can mint `stETH` or `wstETH` backed by an stVault. **stETH minted via stVaults is the same canonical stETH token** as stETH minted via Lido Core. See [/run-on-lido/stvaults/](/run-on-lido/stvaults/) (especially the [integration overview](/run-on-lido/stvaults/integration-overview)).
+stETH (and therefore wstETH) can be obtained not only via direct staking in Lido Core and wrapping, but also via **Lido V3 stVaults (Staking Vaults)**: vault owners can mint `stETH` or `wstETH` backed by an stVault. **stETH minted via stVaults is the same canonical stETH token** as stETH minted via Lido Core. See [/run-on-lido/stvaults/](/run-on-lido/stvaults/) (especially the [integration overview](/run-on-lido/stvaults/tech-documentation/integration-overview)).
 
 
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
