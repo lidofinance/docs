@@ -53,7 +53,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 ### Tech documentation
 
 1. [stVaults Integration Overview](./integration-overview.md)
-2. [stVaults Technical Design](https://hackmd.io/@lido/stVaults-design)
+2. [stVaults Technical Design](./tech-design.md)
 3. [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
 4. [Deployed Testnet Contracts](../../deployed-contracts/hoodi/)
 5. [Migrate validators to stVault through consolidation](./consolidation.md)
