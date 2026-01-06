@@ -20,10 +20,10 @@ These goals are built on the vision outlined in [Hasu's 2nd GOOSE voted-in propo
 
 The introduction of stVaults brings major changes to the existing Lido core pool protocol contracts (hereafter referred to as **Lido Core**). To ensure protocol stability, it's essential to define the foundational constraints that remain unchanged:
 
-1. StVaults users don't negatively affect stETH users:
-   - StVaults don't negatively affect stETH user APR
+1. StVaults users do not negatively affect stETH users:
+   - StVaults do not negatively affect stETH users' APR
    - Slashing risk consequences are contained within the node operator group of staking vaults up to the level agreed by the DAO
-2. StVaults have a set reserve ratio that determines the quantity of stETH that can be minted based on ETH provided, and that can only be changed by the DAO
+2. StVaults have a set reserve ratio that determines the quantity of stETH that can be minted based on ETH provided, and can only be changed by the DAO
 3. The impact of possible reallocation of stake between Lido Core and stVaults is contained and manageable
 4. StETH solvency - all existing stETH can be converted into ETH at a 1:1 ratio
 
@@ -33,13 +33,13 @@ So, it remains the key priority to maintain the stability and security of the Li
 
 The Lido Vaults platform comprises the following contracts:
 
-- **StakingVault**: Manages individual staking position and holds assets for validators.
+- **StakingVault**: Manages individual staking positions and holds assets for validators.
 - **VaultHub**: Serves as the central registry and coordination point between the vaults platform and Lido Core.
 - **LazyOracle**: Verifies reports from the oracle network and forwards individual vault updates to VaultHub.
 - **OperatorGrid**: Maintains a node operator registry and manages vaults' minting parameters.
 - **PredepositGuarantee**: Ensures validator deposit security.
 - **VaultFactory**: Deploys verified (allowed to be connected to VaultHub) vault instances.
-- **Dashboard**: An optional contract that provides node operator fee accouting and a UX-friendly interface for a StakingVault.
+- **Dashboard**: An optional contract that provides node operator fee accounting and a UX-friendly interface for a StakingVault.
 
 ### 3.1 StakingVault
 
@@ -47,8 +47,8 @@ The StakingVault contract is a 0x02-type withdrawal credentials target and a fun
 
 With a StakingVault, the owner can:
 
-- Stake their funds directly with their preferred node operator without giving up the custody;
-- Tap into various block proposing and validation flavors,
+- Stake their funds directly with their preferred node operator without giving up custody;
+- Tap into various block proposing and validation flavors;
 - Mint stETH backed by the StakingVault's total value; and
 - Build structured products by integrating protocols and risk curators.
 
@@ -64,8 +64,8 @@ A staking vault is a valid **0x02-type** withdrawal credentials target and suppo
 
 The owner is the administrative account with the most power in the vault. The owner can:
 
-- fund ether to the vault,
-- withdraw ether from the vault,
+- fund ETH to the vault,
+- withdraw ETH from the vault,
 - pause and resume beacon-chain deposits,
 - request validator exits,
 - trigger [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) validator withdrawals,
@@ -80,7 +80,7 @@ When a vault connects to the Lido protocol, VaultHub is set as the vault’s tec
 The node operator address represents the party that runs the validators associated with the vault. This address is set upon initialization of the vault and cannot be changed.
 
 :::important
-It is strongly recommended to use a multisignature account (e.g. Gnosis Safe) to avoid losing access to this account.
+It is strongly recommended to use a multisignature account (e.g., Gnosis Safe) to avoid losing access to this account.
 :::
 
 Because validator withdrawal credentials are hard-coded to the vault (0x02-type pointing back to the contract), all consensus rewards and exited balances flow into the StakingVault automatically; the operator never takes custody of ETH.
@@ -97,27 +97,28 @@ The depositor address is the only party allowed to perform deposits to the beaco
 #### Staged balance
 
 :::note
-Staged balance is a mechanism **only** used as a part of the PredepositGuarantee contract's predeposit-based deposit process.
+Staged balance is a mechanism **only** used as part of the PredepositGuarantee contract's predeposit-based deposit process.
 :::
 
-The vault depositor controls the vault's **staged balance** counter that reserves ETH for validator activations and cannot be withdrawn. Unstaging ETH make this ETH to available for withdrawals again. This staging mechanism ensures the vault's commitment to activating the validator. Staging enforces a strict invariant: every predeposit of 1 ETH must be paired with 31 ETH staged for activation. This guarantees that the validator can always be topped up to the required 32 ETH, the minimal balance for validator activation. Without this rule, a vault could spawn many 1-ETH validators that never activate, leaving funds locked on the beacon chain that cannot be withdrawn for protocol obligations.
+The vault depositor controls the vault's **staged balance** counter that reserves ETH for validator activations and cannot be withdrawn. Unstaging ETH makes this ETH available for withdrawal again. This staging mechanism ensures the vault's commitment to activating the validator. Staging enforces a strict invariant: every predeposit of 1 ETH must be paired with 31 ETH staged for activation. This guarantees that the validator can always be topped up to the required 32 ETH, the minimal balance for validator activation. Without this rule, a vault could spawn many 1-ETH validators that never activate, leaving funds locked on the beacon chain that cannot be withdrawn for protocol obligations.
 
 **StakingVault source code**: https://github.com/lidofinance/core/blob/master/contracts/0.8.25/vaults/StakingVault.sol
 
 ### 3.2 VaultHub
 
-VaultHub is the central coordination contract of the Lido Vaults platform. It maintains the registry of connected **StakingVaults**, enforces collateralization constraints, mints / burns stETH against per-vault total values, and tracks vault obligations.
+VaultHub is the central coordination contract of the Lido Vaults platform. It maintains the registry of connected **StakingVaults**, enforces collateralization constraints, mints and burns stETH against per-vault total values, and tracks vault obligations.
 
 When a StakingVault is connected to VaultHub, the latter:
 
 - assumes technical ownership of that vault (via the 2-step pattern) and escrows the **CONNECT_DEPOSIT** (1 ETH);
 - records static connection parameters (share limit, reserve ratio, fees) supplied by **OperatorGrid**;
 - tracks dynamic state (total value, locked ETH, liability shares, obligations—fee accrued and redemptions if applicable) using reports from **LazyOracle**; and
-- exposes a control surface for the vault owner to fund, withdraw, mint, burn, rebalance, pause beacon-chain deposits, request validator exits and settle obligations.
-  The **vault owner**:
-- Retains ownership of the underlying StakingVault through VaultHub;
-- Authorized to fund, withdraw, mint, burn, manage validators and settle obligations;
-- May transfer factual ownership to another owner without disconnecting the vault.
+- exposes a control surface for the vault owner to fund, withdraw, mint, burn, rebalance, pause beacon-chain deposits, request validator exits, and settle obligations.
+
+The **vault owner**:
+- retains ownership of the underlying StakingVault through VaultHub;
+- is authorized to fund, withdraw, mint, burn, manage validators, and settle obligations;
+- may transfer factual ownership to another owner without disconnecting the vault.
 
 _Diagram. VaultHub interactions_
 ![Simplified contract structure](/img/stvaults/tech-design/simplified-contract-structure.png)
@@ -134,14 +135,17 @@ Each StakingVault has two important parameters that define its state: **total va
 To control stETH minting, VaultHub tracks these parameters for each stVault:
 
 - **Liability**: The amount of stETH shares minted against the vault (as in, liability towards Lido Core).
-- **Reserve ratio (RR)**: A portion of the vault's total value locked an additional reserve (safety buffer) for minted stETH (e.g., if reserve ratio is 30%, with a total value of 100 ETH, 30 ETH must be reserved, which means the vault can mint 70 stETH max). The maximum possible reserve ratio is 99.99%.
+- **Reserve ratio (RR)**: A portion of the vault's total value locked as an additional reserve (safety buffer) for minted stETH (e.g., if reserve ratio is 30%, with a total value of 100 ETH, 30 ETH must be reserved, which means the vault can mint 70 stETH max). The maximum possible reserve ratio is 99.99%.
 - **Force rebalance threshold (FRT)**: When the reserve drops below this threshold, the vault is considered unhealthy and is subject to **force-rebalancing**. FRT must be at least 0.1% lower than RR, e.g. if RR is 30%, FRT must be 29.9% or smaller.
 - **Share limit**: The absolute flat cap on stETH shares that a stVault can mint.
-- **Obligations**: the health obligation, stETH redemption requests and Lido fees.
+- **Obligations**: the health obligation, stETH redemption requests, and Lido fees.
 
 If the vault's locked amount breaches FRT, the vault is considered unhealthy and:
 
-- cannot mint stETH, withdraw ETH, deposit new validators, and is limited partial validator withdrawals,
+- cannot mint stETH
+- cannot withdraw ETH
+- cannot deposit new validators
+- is limited to full validator withdrawals only
 - and is subject to permissionless force-rebalancing.
 
 :::important
@@ -187,12 +191,12 @@ Given:
 
 #### Locked
 
-The locked amount is the total ETH in a vault that cannot be withdrawn. It represents the collateral backing the vault's stETH liability plus reserve. This locked amount ensures the vault remains overcollateralized and can absorb penalties without immediately creating bad debt. The locked amount consists of **stETH liability** and **reserve**, i.e. `locked = liability + reserve`. The reserve itself is derived as the greater value of the calculated reserve derived from Reserve Ratio and Minimal reserve.
+The locked amount is the total ETH in a vault that cannot be withdrawn. It represents the collateral backing the vault's stETH liability plus reserve. This locked amount ensures the vault remains overcollateralized and can absorb penalties without immediately creating bad debt. The locked amount consists of **stETH liability** and **reserve**, i.e., `locked = liability + reserve`. The reserve itself is derived as the greater of the reserve calculated from the Reserve Ratio and the minimal reserve.
 
-The minimal reserve is the absolute floor for how much collateral must stay locked in a vault, regardless of how much liability exists. The minimal reserve is calculated as the greatest value of **connect deposit** and **slashing reserve**.
+The minimal reserve is the absolute floor for how much collateral must stay locked in a vault, regardless of how much liability exists. The minimal reserve is calculated as the greater of the **connect deposit** and **slashing reserve**.
 
-- **1 ETH Connect Deposit**. The vault creation requires at least 1 ETH to be on the connecting vault. This mandatory connect deposit acts as an anti-sybil mechanism that prevents the creation of spam vaults that would burden the oracle network. The VaultHub verifies that sufficient ETH is present on the vault's balance before proceeding with vault connection, locks this deposit during setup, it remains locked for the duration of the vault's connection to VaultHub and may be used to pay out Lido fees. The connect deposit cannot be used to mint stETH against.
-- **Slashing reserve**. Applicable for vaults of a node operator with validators undergoing slashing – an extra chunk of ETH that must remain locked in the event of slashing until the oracle proves that the vault’s validators are no longer at risk of being additionally penalized due to the beacon chain's [associated slashing mechanism](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/). The oracles calculate the reserve off-chain (based on the validator set, time-at-risk and any slashable offences it detects) and publish the figure in every report. When the report is applied, VaultHub locks at least this reserve on the vault until the validators are cleared and no additional correlation penalties were applied.
+- **1 ETH Connect Deposit**. Vault creation requires at least 1 ETH to be in the connecting vault. This mandatory connect deposit acts as an anti-sybil mechanism that prevents the creation of spam vaults that would burden the oracle network. The VaultHub verifies that sufficient ETH is present on the vault's balance before proceeding with vault connection, locks this deposit during setup, and keeps it locked for the duration of the vault's connection to VaultHub; it may be used to pay out Lido fees. The connect deposit cannot be used to mint stETH against.
+- **Slashing reserve**. Applicable for vaults of a node operator with validators undergoing slashing - an extra chunk of ETH that must remain locked in the event of slashing until the oracle proves that the vault's validators are no longer at risk of being additionally penalized due to the beacon chain's [associated slashing mechanism](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/). The oracles calculate the reserve off-chain (based on the validator set, time-at-risk, and any slashable offenses it detects) and publish the figure in every report. When the report is applied, VaultHub locks at least this reserve on the vault until the validators are cleared and no additional correlation penalties have been applied.
 
 So the final calculation for **locked** is as follows:
 $$
@@ -204,11 +208,11 @@ _Diagram. Locked amount breakdown_
 
 #### Vault obligations
 
-Obligations are the record of everything a StakingVault _owes_ to the Lido protocol and, thus, impose a block on the vault balance in the amount of pending obligations. VaultHub tracks three types of obligations.
+Obligations are the record of everything a StakingVault _owes_ to the Lido protocol and thus impose a block on the vault balance equal to the pending obligations. VaultHub tracks three types of obligations.
 
 ##### 1. Health obligation
 
-Nominated in stETH shares, the health obligation is the amount of liability shares that must be force-rebalanced to restore the vault's health. Health obligation arises automatically when collateralization drops below the health threshold as a result of validator penalties, slashing, or underperformance compared to stETH APR. Health obligation has the **highest settlement priority** over the rest of the obligations.
+Nominated in stETH shares, the health obligation is the amount of liability shares that must be force-rebalanced to restore the vault's health. The health obligation arises automatically when collateralization drops below the health threshold as a result of validator penalties, slashing, or underperformance compared to stETH APR. The health obligation has the **highest settlement priority** over the rest of the obligations.
 
 :::warning
 Force-rebalancing is a **punishing** operation, so it is strongly recommended to restore health in more efficient ways like repaying stETH or funding the vault when approaching FRT.
@@ -216,21 +220,21 @@ Force-rebalancing is a **punishing** operation, so it is strongly recommended to
 
 ##### 2. Redemptions
 
-Nominated in stETH shares, redemptions represent the amount of liability that must be rebalanced or burned to support Lido Core withdrawals. In a rare scenario where Lido Core pool is depleted and needs liquidity for its withdrawal queue, the protocol retains a right to issue a redemption obligation to an eligible vault, which ought to be settled by rebalancing or burning shares. Redemption settlement writes off the corresponding liability amount from the vault and supplies the Core pool with ETH to process withdrawals. Redemptions have the **second priority**, meaning the protocol first restores health of the vault and only then settles any redemptions.
+Nominated in stETH shares, redemptions represent the amount of liability that must be rebalanced or burned to support Lido Core withdrawals. In a rare scenario where the Lido Core pool is depleted and needs liquidity for its withdrawal queue, the protocol retains the right to issue a redemption obligation to an eligible vault, which ought to be settled by rebalancing or burning shares. Redemption settlement writes off the corresponding liability amount from the vault and supplies the Core pool with ETH to process withdrawals. Redemptions have the **second priority**, meaning the protocol first restores health of the vault and only then settles any redemptions.
 
 :::important
-Issued redemptions **do not increase** the vault's liability. Redemptions can be thought of as a portion of the vault's existing liability that must be burned or rebalanced, i.e. if the vault does not have any liability, the protocol cannot issue redemption on the vault.
+Issued redemptions **do not increase** the vault's liability. Redemptions can be thought of as a portion of the vault's existing liability that must be burned or rebalanced, i.e. if the vault does not have any liability, the protocol cannot issue a redemption against the vault.
 :::
 
 ##### 3. Lido fees
 
-Nominated in ETH, **Lido fees** — the combined **infra**-, **liquidity**- and **reservation**-fees — are the Lido protocol service fees. These fees accrue continuously on each oracle report, which supplies an updated cumulative-fee counter. VaultHub tracks the settled-fees counter, thus, the delta between cumulative fees and settled fees are considered **unsettled fees**. Lido fees have the **lowest priority**, i.e. settled only if the vault is healthy and has no redemptions assigned. Lido fees are settled permissionlessly via a dedicated function in VaultHub.
+Nominated in ETH, **Lido fees** - the combined **infra**-, **liquidity**- and **reservation**-fees - are the Lido protocol service fees. These fees accrue continuously on each oracle report, which supplies an updated cumulative-fee counter. VaultHub tracks the settled-fees counter; thus, the delta between cumulative fees and settled fees is considered **unsettled fees**. Lido fees have the **lowest priority**, i.e., are settled only if the vault is healthy and has no redemptions assigned. Lido fees are settled permissionlessly via a dedicated function in VaultHub.
 
 Any outstanding obligations on a vault:
 
-- limit withdrawals on the vault by the amount required to cover obligations;
-- reduces minting capacity by the amount required to cover obligations;
-- pauses beacon chain deposits while the vault is unhealthy, has redemptions to cover, or has unsettled fees greater than 1 ETH. This pause prevents the vault from continuously depositing ETH to the consensus layer avoiding the obligation settlement;
+- limit withdrawals from the vault by the amount required to cover obligations;
+- reduce minting capacity by the amount required to cover obligations;
+- pause beacon chain deposits while the vault is unhealthy, has redemptions to cover, or has unsettled fees greater than 1 ETH. This pause prevents the vault from continuously depositing ETH to the consensus layer and avoiding obligation settlement;
 - reject attempts to disconnect from VaultHub.
 
 _Obligations cheatsheet_
@@ -243,18 +247,18 @@ _Obligations cheatsheet_
 
 #### Bad debt
 
-Reserve ratio ensures stETH minted by a vault is overcollateralized. When a vault drops below the force rebalance threshold, it should be rebalanced to restore the collateralization ratio. However, in severe mass slashing events, vault total value can drop below 1:1 ratio, meaning the vault's total value cannot fully cover outstanding stETH liability. This is bad debt.
+The reserve ratio ensures that stETH minted by a vault is overcollateralized. When a vault drops below the force rebalance threshold, it should be rebalanced to restore the collateralization ratio. However, in severe mass-slashing events, vault total value can drop below 1:1 ratio, meaning the vault's total value cannot fully cover outstanding stETH liability. This is bad debt.
 
 Bad debt is resolved through an escalation path:
 
-1. **Vault replenishment**: Voluntary depositing additional funds to cover the debt
-2. **Bad debt socialization**: DAO-initiated shifting uncovered liability to other vaults operated by the same node operator. The accepting vault must have sufficient capacity to absorb the extra liability without breaching its own health threshold. This keeps the operator responsible for all their vaults rather than isolating losses
-3. **Self-coverage application**: DAO-initiating insurance or coverage application mechanisms
-4. **Bad debt internalization**: As a last resort, Lido DAO is able to write off the vault's remaining bad debt and accepts losses to the protocol by decreasing stETH token rebase.
+1. **Vault replenishment**: Voluntary deposit of additional funds to cover the debt
+2. **Bad debt socialization**: DAO-initiated shifting of uncovered liability to other vaults operated by the same node operator. The accepting vault must have sufficient capacity to absorb the extra liability without breaching its own health threshold. This keeps the operator responsible for all their vaults rather than isolating losses
+3. **Self-coverage application**: DAO-initiated insurance or coverage application mechanisms
+4. **Bad debt internalization**: As a last resort, Lido DAO is able to write off the vault's remaining bad debt and accept losses to the protocol by decreasing stETH token rebase.
 
 ### 3.3 LazyOracle
 
-LazyOracle is a contract that handles accounting reports for Lido vaults. LazyOracle receives a daily snapshot from the AccountingOracle (which reports for the entire Lido protocol). This "lazy oracle" mechanism efficiently handles state updates across potentially thousands of individual vaults. Rather than updating each vault's state in a single transaction—which would be prohibitively expensive in terms of gas costs—the system uses a Merkle tree-based approach where only the root hash representing the global state is stored and updated daily by the AccountingOracle as a part of the main accounting protocol report.
+LazyOracle is a contract that handles accounting reports for Lido vaults. LazyOracle receives a daily snapshot from the AccountingOracle (which reports for the entire Lido protocol). This "lazy oracle" mechanism efficiently handles state updates across potentially thousands of individual vaults. Rather than updating each vault's state in a single transaction—which would be prohibitively expensive in terms of gas costs—the system uses a Merkle tree-based approach where only the root hash representing the global state is stored and updated daily by the AccountingOracle as part of the main accounting protocol report.
 
 Individual vault updates happen on-demand by providing Merkle proofs verifying a specific vault's data against the stored root. When a vault's data needs updating, anyone can submit the proof along with the vault's latest data. The system verifies this data against the Merkle root and, if valid, updates the vault's state and forwards the relevant information to the StakingVault contract.
 
@@ -266,13 +270,13 @@ Each vault operation that relies on the accuracy of the vault's total value is g
 - mint stETH against the vault,
 - rebalance the vault,
 - deposit to beacon chain, or
-- disconnect from the vault hub.
+- disconnect from the VaultHub.
 
 Staleness therefore seals the vault in a conservative state until a fresh report is submitted, ensuring that collateral calculations never proceed on outdated data.
 
 #### Quarantine
 
-A quarantine is a timelock LazyOracle places on any sudden jump in a vault’s reported value that it cannot immediately confirm on-chain. If the reported total value exceeds beyond the normal routine EL/CL rewards, the excess is not reflected in the total value straight away. Instead, the excess is pushed into a quarantine buffer and ignored for a predefined period; only after that delay is the quarantined value released into VaultHub's total value. If another jump occurs during the quarantine period, the initial amount is released at the end of the current quarantine, and the cumulative amount of the new excesses enters a new quarantine period starting right after the first one ends.
+A quarantine is a timelock LazyOracle places on any sudden jump in a vault's reported value that it cannot immediately confirm on-chain. If the reported total value exceeds normal routine EL/CL rewards, the excess is not reflected in the total value straight away. Instead, the excess is pushed into a quarantine buffer and ignored for a predefined period; only after that delay is the quarantined value released into VaultHub's total value. If another jump occurs during the quarantine period, the initial amount is released at the end of the current quarantine, and the cumulative amount of the new excesses enters a new quarantine period starting right after the first one ends.
 
 This timelock mechanism gives the protocol the time to inspect a sudden growth and raise alarm if necessary.
 
@@ -302,7 +306,7 @@ OperatorGrid source code: https://github.com/lidofinance/core/blob/master/contra
 
 All vaults start in the default tier. The default tier has no specific node operator group. It has its stETH minting limits defined at initialization. Vaults in the default tier don't contribute to any operator group's liability. When a vault moves from the default tier to an operator tier, its shares are added to that operator's group liability.
 
-A new vault is placed in the default tier even if the vault node operator has a registered group. The vault change change its tier which must confirmed by both the vault owner and the node operator. Upon disconnection, the vault drops back to the default tier.
+A new vault is placed in the default tier even if the vault node operator has a registered group. The vault can change its tier, which must be confirmed by both the vault owner and the node operator. Upon disconnection, the vault drops back to the default tier.
 
 #### Tier Parameters
 
@@ -337,7 +341,7 @@ These parameters can be restored by mutual confirmation from both the owner and 
 
 #### Jail
 
-OperatorGrid can **jail** a vault as a protective measure. The main purpose of the jailing mechanism prevents further minting of a problematic vault.
+OperatorGrid can **jail** a vault as a protective measure. The main purpose of the jailing mechanism is to prevent further minting of a problematic vault.
 
 - While jailed, a vault **cannot mint** new stETH shares.
 - Jailing **does not** affect burning or other administrative operations;
@@ -401,13 +405,13 @@ _Diagram. Proven validator deposit flow_
 
 ##### Node Operator’s Depositor
 
-For operational flexibility a node operator can designate a dedicated _depositor_ address (not to be confused with StakingVault.depositor) authorized to perform deposits (including predeposits and activations) through PDG on behalf of that operator. The depositor role is replaceable at any time by the operator without affecting existing balances or guarantees. If unassigned, the depositor defaults to the operator address.
+For operational flexibility, a node operator can designate a dedicated _depositor_ address (not to be confused with StakingVault.depositor) authorized to perform deposits (including predeposits and activations) through PDG on behalf of that operator. The depositor role is replaceable at any time by the operator without affecting existing balances or guarantees. If unassigned, the depositor defaults to the operator address.
 
 It is important to note that VaultHub enforces that every connected vault sets PDG as the **depositor** in the vault, while PDG itself verifies that the caller matches the operator-specified depositor. This separation allows secure validator signing operations while keeping administrative keys offline.
 
 ##### Onchain BLS12-381 signature verification
 
-The predeposit operation must include a valid BLS12-381 signature to pass on-chain verification using the precompiles introduced in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537). This is why the transaction must also carry the necessary signature transformation data. Signature verification is essential—it ensures that the predeposit is a legitimate deposit and a validator with the specified pubkey will eventually appear the consensus layer. This will make it possible to generate the presence proof for the validator and its withdrawal credentials.
+The predeposit operation must include a valid BLS12-381 signature to pass on-chain verification using the precompiles introduced in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537). This is why the transaction must also carry the necessary signature transformation data. Signature verification is essential—it ensures that the predeposit is a legitimate deposit and a validator with the specified pubkey will eventually appear on the consensus layer. This will make it possible to generate the presence proof for the validator and its withdrawal credentials.
 
 :::note
 Proven validator top-ups do not require a valid BLS signature, only predeposits.
@@ -443,7 +447,7 @@ While technically optional, Dashboard is highly recommended for easier operation
 
 #### Architecture
 
-StakingVault is a minimal staking primitive that manages only immediate staking operations and tracks its totalValue and locked ether. It implements a simple single-owner model. Dashboard is optional and operates at the level on top of VaultHub, i.e. it is recorded as the owner of the vault in VaultHub while the actual vault owner becomes the admin of the `Dashboard` contract.
+StakingVault is a minimal staking primitive that manages only immediate staking operations and tracks its totalValue and locked ETH. It implements a simple single-owner model. Dashboard is optional and operates on top of VaultHub, i.e., it is recorded as the owner of the vault in VaultHub while the actual vault owner becomes the admin of the `Dashboard` contract.
 
 _Diagram. Dashboard access control model_
 
@@ -459,7 +463,7 @@ _Diagram. Role-restricted operations_
 
 :::important
 - The `Dashboard` contract includes functions for batch-granting and batch-revoking roles;
-- Some operations (like rebalance) can be pre-funded if ether is > attached to the transaction and the sender has `FUND_ROLE`.
+- Some operations (like rebalance) can be pre-funded if ether is attached to the transaction and the sender has `FUND_ROLE`.
 :::
 
 #### Multi-role confirmation
@@ -472,7 +476,7 @@ _Diagram. Example of a multi-role confirmation process_
 
 #### Node operator fee
 
-The StakingVault intentionally does not include any accounting for extraneous fees (e.g., node operator, reward share) to allow for flexibility in different setups. Instead, this logic was implemented in `Dashboard` with room for configuration. Dashboard includes the Node operator manager role which is granted to an address representing node operator's interests and can differ from the node operator address set in the vault.
+The StakingVault intentionally does not include any accounting for extraneous fees (e.g., node operator, reward share) to allow for flexibility in different setups. Instead, this logic was implemented in `Dashboard` with room for configuration. Dashboard includes the node-operator manager role, which is granted to an address representing the node operator's interests and can differ from the node operator address set in the vault.
 
 The fee accounting uses a high-water mark approach and is calculated as follows:
 
@@ -498,7 +502,7 @@ If unsettled is zero or negative, the settled growth remains the same and no fee
 
 ##### Fee disbursement
 
-The fee is disbursed permissionlessly (with an exception of abnormally high fee). The disbursement process:
+The fee is disbursed permissionlessly (with an exception for abnormally high fees). The disbursement process:
 
 1. Reads the latest vault report,
 2. Computes `unsettled` growth and the fee,
@@ -534,7 +538,7 @@ Dashboard enforces a **PDG policy** configured by the admin:
 - **ALLOW_PROVE**
   Node operator can prove validators that did not come through the standard flow (e.g., side deposits), so they become eligible for future top-ups via PDG.
 - **ALLOW_DEPOSIT_AND_PROVE**
-  Node operator can (a) perform **unguaranteed deposits**—withdrawing ETH from the vault and depositing to the beacon contract directly, bypassing the guarantee/signature checks—and (b) later **prove** those validators to PDG. This shortcut that assumes trust between the vault owner and operator.
+  Node operator can (a) perform **unguaranteed deposits**—withdrawing ETH from the vault and depositing to the beacon contract directly, bypassing the guarantee/signature checks—and (b) later **prove** those validators to PDG. This shortcut assumes trust between the vault owner and operator.
 
 ##### Unguaranteed deposits
 
@@ -573,7 +577,7 @@ Other scenarios—such as validator consolidation or direct deposits made to the
 3. **Receiving EL and CL validation rewards**
 
    - Validator fee recipient can be set to the vault address.
-   - Although increasing the vault's balance is not reflected in `totalValue` until updated with a report
+   - Although the increase in the vault's balance is not reflected in `totalValue` until updated with a report.
 
 4. **Exiting Validators**
 
@@ -619,13 +623,13 @@ Minting against a stVault is subject to the protocol-wide minting [rate limits](
 
 #### Connecting and Disconnecting
 
-Each staking vault can operate independently as a basic delegated staking setup. However, to enable stETH minting, it must be connected to the Lido VaultHub—a central contract that manages vault registry and controls minting.
+Each staking vault can operate independently as a basic delegated staking setup. However, to enable stETH minting, it must be connected to the Lido VaultHub, a central contract that manages vault registry and controls minting.
 
 **Connection Process:**
 
-1. **Fund the vault**: The vault must have at least 1 ether (connect deposit) on its balance.
+1. **Fund the vault**: The vault must have at least 1 ETH (connect deposit) on its balance.
 2. **Set the depositor:** The depositor in the vault must reference the Predeposit Guarantee contract.
-3. **Transfer ownership to VaultHub:** The vault transfer ownership over the vault to VaultHub, thus, signalling consent to join. This prevents VaultHub from forcefully connecting vaults.
+3. **Transfer ownership to VaultHub:** The vault transfers ownership to VaultHub, thus signaling consent to join. This prevents VaultHub from forcefully connecting vaults.
 4. **Connect**: call the connect function on VaultHub, which creates the vault record with default minting parameters retrieved from OperatorGrid.
 
 **Disconnection Process:**
@@ -633,7 +637,7 @@ Each staking vault can operate independently as a basic delegated staking setup.
 1. **Burn Outstanding stETH:** The vault owner must fully burn any stETH still backed by the vault.
 2. **Settle any outstanding obligations**. The vault owner must fully repay any existing redemptions and repay Lido fees.
 3. **Request Disconnection:** The owner calls the disconnect function on VaultHub, flagging the vault for removal.
-4. **Report Confirmation:** The disconnection is finalized during the next VaultHub report—the vault is removed from the records and the ownership is tranferred back. The vault is removed from its tier in OperatorGrid. If it chooses to connect again, it is placed in the default tier. If any of the vault validators are reported in a slashing event, the disconnection is aborted.
+4. **Report Confirmation:** The disconnection is finalized during the next VaultHub report; the vault is removed from the records and ownership is transferred back. The vault is removed from its tier in OperatorGrid. If it chooses to connect again, it is placed in the default tier. If any of the vault validators are reported as slashed, the disconnection is aborted.
 
 #### Vault Ossification
 
@@ -645,7 +649,7 @@ To permanently freeze the vault's logic and reject any future upgrades, the vaul
 
 A cornerstone principle of stVaults design is:
 
-> **stETH solvency** - all stETH existing could be converted into ETH at a **1:1** ratio
+> **stETH solvency** - all existing stETH can be converted into ETH at a **1:1** ratio
 
 Thus, each vault must remain solvent, preventing any vault-specific losses from spilling over to stETH holders. The mechanism to enforce this is called _forced rebalancing_:
 
@@ -658,7 +662,7 @@ Thus, each vault must remain solvent, preventing any vault-specific losses from 
 
 - Once triggered, no further deposits or withdrawals are allowed until the vault's health is restored.
 
-- Force-rebalancing restores the collaterization ratio up to Reserve Ratio.
+- Force-rebalancing restores the collateralization ratio up to Reserve Ratio.
 
 - The maximum rebalancing amount `X` satisfies:
   $$
@@ -671,8 +675,8 @@ Stakers and ecosystem participants are advised to carefully consider these risks
 
 ### 5.1 Ecosystem risks
 
-1. Stake concentration: Mitigated through stVault permissionless creation, risk parameters, and limits, balancing for a diverse node operator participation.
-2. Token insolvency: Addressed via risk parameters to maintain a reasonable reserve margin for minted stETH alongside local and global limits for the max mintable stETH through the stVaults.
+1. Stake concentration: Mitigated through stVault permissionless creation, risk parameters, and limits, balancing for diverse node operator participation.
+2. Token insolvency: Addressed via risk parameters to maintain a reasonable reserve margin for minted stETH alongside local and global limits for the maximum mintable stETH through the stVaults.
 
 ### 5.2 Risks for stVaults stakers
 
@@ -686,16 +690,18 @@ Stakers and ecosystem participants are advised to carefully consider these risks
 
 1. Ethereum Risks: Issues with the Ethereum network, such as consensus failures or major protocol changes, could impact stVault operations.
 2. Lido Infrastructure Risks:
-   - stETH Market Price: Stakers risk an exchange price of stETH lower than the inherent value due to prolonged withdrawal times, expecting validator exits and making arbitrage and risk-free market-making impossible.
+   - stETH Market Price: Stakers risk an exchange price of stETH lower than the inherent value due to prolonged withdrawal times that delay validator exits and make arbitrage and risk-free market-making impossible.
    - Smart Contract Security: There is an inherent risk that Lido could contain a smart contract vulnerability or bug; to minimize this risk, the Lido protocol codebase remains open-source, reviewed, audited, rolled out on testnets, and covered by extensive tests and a bug bounty program.
-   - Oracle failures and data manipulation: Oracle may affect protocol's accounting state by bringing malformed data, the risk is mitigated with a consensus mechanisms for the oracle committee and smart contract safety nets.
+   - Oracle failures and data manipulation: The oracle may affect the protocol's accounting state by providing malformed data; the risk is mitigated with consensus mechanisms for the oracle committee and smart contract safety nets.
    - Correlated in-protocol mass-slashing: In case of mass-slashing events in Lido Core, the bunker mode activates to socialize conversion rate losses among stETH holders.
    - Governance risks: The protocol is maintained and upgraded by the LDO tokenholders. The mitigation of governance risks includes a two-phase voting system, a public delegate voting platform, and an anticipated 2025 H1 Dual Governance activation.
 
 ## 6. Useful Links
 
-- [the Hasu's 2nd GOOSE voted-in proposal](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xeedef9fea3d782f192410768cabaf6974da40ef36e1d22c7f8fff5fd4cfc7a59)
+- [Hasu's 2nd GOOSE voted-in proposal](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xeedef9fea3d782f192410768cabaf6974da40ef36e1d22c7f8fff5fd4cfc7a59)
 - [EIP-7002 "Triggerable Withdrawals"](https://eips.ethereum.org/EIPS/eip-7002)
 - [EIP-7251 "Increase the MAX_EFFECTIVE_BALANCE"](https://eips.ethereum.org/EIPS/eip-7251)
-- [LIP-5 "Mitigations for deposit frontrunning vulnerability"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md)
 - [EIP-6110: Supply validator deposits on chain](https://eips.ethereum.org/EIPS/eip-6110)
+- [LIP-5 "Mitigations for deposit frontrunning vulnerability"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md)
+- [LIP-31 "Expanding stETH liquidity layer with over-collateralized minting"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-31.md)
+- [LIP-32 "Sanity Checks for stVaults"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-32.md)
