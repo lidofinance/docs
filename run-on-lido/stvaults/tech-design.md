@@ -663,9 +663,6 @@ Stakers and ecosystem participants are advised to carefully consider these risks
 
 ## 6. Useful Links
 
-- [stVaults Doc Center](https://docs.lido.fi/run-on-lido/stvaults/)
-- [Lido V3 testnet](https://docs.lido.fi/deployed-contracts/hoodi)
-- [stVaults PR on GH](https://github.com/lidofinance/core/pull/874)
 - [the Hasu's 2nd GOOSE voted-in proposal](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xeedef9fea3d782f192410768cabaf6974da40ef36e1d22c7f8fff5fd4cfc7a59)
 - [EIP-7002 "Triggerable Withdrawals"](https://eips.ethereum.org/EIPS/eip-7002)
 - [EIP-7251 "Increase the MAX_EFFECTIVE_BALANCE"](https://eips.ethereum.org/EIPS/eip-7251)
