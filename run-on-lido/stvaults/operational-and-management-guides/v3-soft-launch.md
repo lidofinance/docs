@@ -1,14 +1,16 @@
 ---
-sidebar_position: 8
+sidebar_position: 4
 ---
-# V3 soft launch with paused PDG
+
+# 🚀 V3 Soft Launch
+
 Lido V3 is [launching in phases](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665#p-22926-rollout-plan-9).
 
 [Phase 1 evolves into Soft-Launch Mode](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8) for early adopters and builders to enable building and testing on Mainnet.
 
 ## Soft launch limitations
 
-Soft launch will not enable PredepositGuarantee (PDG) contract. 
+Soft launch will not enable PredepositGuarantee (PDG) contract.
 
 :::tip
 **The Predeposit Guarantee (PDG)** contract mitigates deposit frontrunning vulnerabilities outlined in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It employs a Merkle proof based mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) used by Lido Core.
@@ -51,7 +53,7 @@ All these options require a mutual off-chain trust between the Node Operator and
     2. Adjust increased amount of ETH on Validator as part of Total Value, not as rewards, to avoid calculation Node Operator fees based on this amount:
         1. Method called `Dashboard.addFeeExemption(uint256 _exemptedAmount)`.
         2. Caller must have the `NODE_OPERATOR_MANAGER_ROLE`, or delegated `NODE_OPERATOR_FEE_EXEMPT_ROLE` role.
-3. **Option 3**: Consolidation of validators to validators with mapped to stVault by withdrawal credentials (see [Consolidation guide](https://docs.lido.fi/run-on-lido/stvaults/consolidation)), i.e. migrate existing external stake without exits and re-entering:
+3. **Option 3**: Consolidation of validators to validators with mapped to stVault by withdrawal credentials (see [Consolidation guide](https://docs.lido.fi/run-on-lido/stvaults/tech-documentation/consolidation)), i.e. migrate existing external stake without exits and re-entering:
     1. Launch “recipient” validators according to options 1 or 2.
     2. Consolidate other “external” validators into stVault associated validators (created on the prev step) after they become active on the beacon chain.
 

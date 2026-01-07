@@ -1,7 +1,9 @@
 ---
-sidebar_position: 0
+sidebar_position: 1
 ---
-# Building guides
+
+# 🛠️ Building Guides
+
 The stVaults platform enables the creation of staking products tailored to different target audiences with diverse needs. These two comprehensive guides provide detailed instructions on how to create any product powered by stVaults.
 
 | Staking Product to build | Its Value Proposition | Its Segments |

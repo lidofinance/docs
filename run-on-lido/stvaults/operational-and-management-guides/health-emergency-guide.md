@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 2
 ---
 
-# Health Emergency Guide
+# 🚨 Health Emergency Guide
 
 ## TLDR
 

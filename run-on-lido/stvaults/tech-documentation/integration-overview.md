@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Integration overview
+# 🔌 Integration overview
 
 stVaults are Lido staking building blocks that allow creating custom staking solutions while still accessing unmatched stETH liquidity. This guide provides instructions for **managing** and **integrating** Staking Vaults (stVaults). It covers various interaction levels, from direct contract calls to using CLI tools and web interfaces, depending on requirements and preferred methods of fine-grained control.
 
