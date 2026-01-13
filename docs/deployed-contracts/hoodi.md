@@ -222,17 +222,17 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ### Easy Track Factories for stVaults Management
 
 - **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
-  - Register Groups: [`0xfEF8B796Fea42b3C68E342364Adcf88F1d6145a6`](https://hoodi.etherscan.io/address/0xfEF8B796Fea42b3C68E342364Adcf88F1d6145a6)
-  - Update Groups Share Limit: [`0x56Ff87F41a8CF795764E15E496124240Ac17695b`](https://hoodi.etherscan.io/address/0x56Ff87F41a8CF795764E15E496124240Ac17695b)
+  - Register Groups: [`0x6e8D6e23A46AD61967CDD5C220B67645F46A2D7c`](https://hoodi.etherscan.io/address/0x6e8D6e23A46AD61967CDD5C220B67645F46A2D7c)
+  - Update Groups Share Limit: [`0x99a645A4137ea171Ce4D43c22d30A71251D6Ed7d`](https://hoodi.etherscan.io/address/0x99a645A4137ea171Ce4D43c22d30A71251D6Ed7d)
   - Register Tiers: [`0x4DF806111AC58e93d90E6D2fBE8522a76be6F499`](https://hoodi.etherscan.io/address/0x4DF806111AC58e93d90E6D2fBE8522a76be6F499)
-  - Alter Tiers: [`0xF21f98cac0Ba38f02b4d5be1667cc345929E8877`](https://hoodi.etherscan.io/address/0xF21f98cac0Ba38f02b4d5be1667cc345929E8877)
-  - Set Jail Status: [`0x4e5b0187479854e88A5b18c49047636707a26f0d`](https://hoodi.etherscan.io/address/0x4e5b0187479854e88A5b18c49047636707a26f0d)
-  - Update Vaults Fees: [`0x615D3f028D1CA549d350403Cd6043Cb515BE08BF`](https://hoodi.etherscan.io/address/0x615D3f028D1CA549d350403Cd6043Cb515BE08BF)
+  - Alter Tiers: [`0x1e71B8E60e0491A212999f3104A06913b77f438e`](https://hoodi.etherscan.io/address/0x1e71B8E60e0491A212999f3104A06913b77f438e)
+  - Set Jail Status: [`0x395E6AF61B6Ba3EC0E72E168A2Ec8204589F357c`](https://hoodi.etherscan.io/address/0x395E6AF61B6Ba3EC0E72E168A2Ec8204589F357c)
+  - Update Vaults Fees: [`0x2D5b8B082d618A8d5DeFE3f4c2b2869e3f1C1a3D`](https://hoodi.etherscan.io/address/0x2D5b8B082d618A8d5DeFE3f4c2b2869e3f1C1a3D)
 - **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
-  - Force Validator Exits: [`0x83DfE5Fe8ac8b7DB38c020F4F54BF09b65D92c63`](https://hoodi.etherscan.io/address/0x83DfE5Fe8ac8b7DB38c020F4F54BF09b65D92c63)
-  - Socialize Bad Debt: [`0xa11906bBBBaC5207b8FDA4F7F294d7EcB8dcc758`](https://hoodi.etherscan.io/address/0xa11906bBBBaC5207b8FDA4F7F294d7EcB8dcc758)
+  - Force Validator Exits: [`0x820e9924C2059d37871acd6eccB578e4a3B15c30`](https://hoodi.etherscan.io/address/0x820e9924C2059d37871acd6eccB578e4a3B15c30)
+  - Socialize Bad Debt: [`0x01C9dB53D7a87c3e47D537c925921fB735bEe6c9`](https://hoodi.etherscan.io/address/0x01C9dB53D7a87c3e47D537c925921fB735bEe6c9)
   - Set Liability Shares Target: [`0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40`](https://hoodi.etherscan.io/address/0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40)
-- VaultsAdapter: [`0xBC2bb8310730F3D2b514Cb26f7e0A8776De879Ac`](https://hoodi.etherscan.io/address/0xBC2bb8310730F3D2b514Cb26f7e0A8776De879Ac)
+- VaultsAdapter: [`0x854CF0D7446Faa7AdDFE557cc8aa9FA9b7017910`](https://hoodi.etherscan.io/address/0x854CF0D7446Faa7AdDFE557cc8aa9FA9b7017910)
 
 ## 💵 Testnet Stablecoins
 
