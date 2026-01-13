@@ -301,9 +301,7 @@ Supplying ETH to the stVault increases its balance. The Node Operator can then d
 **The Predeposit Guarantee (PDG)** contract, as part of the stVaults platform, helps prevent deposit frontrunning caused by the vulnerabilities described in [LIP-5](https://research.lido.fi/t/lip-5-mitigations-for-deposit-front-running-vulnerability/1269). PDG secures the Vault Owner’s ETH deposits to validators from being front-run by the Node Operator.
 
 :::warning
-According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft-launch in late December 2025.
-
-Phase 2 (Full Launch Mode), including the fully functional PDG, is expected in late January 2026.
+According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is **active on the Hoodi Testnet**. However, PDG is currently **paused on Mainnet** as we are in Phase 1 (soft-launch). PDG will become available with Phase 2 (Full Launch Mode), expected in late January 2026.
 :::
 
 One of the key benefits of using PDG is the avoidance of commingling: it keeps the finances of the Vault Owner and the Node Operator strictly separated.
