@@ -1,4 +1,4 @@
-# How to claim 1inch stETH/LDO pool rewards
+# 1inch Rewards Claim
 This is how to claim 1inch stETH/LDO pool rewards with Etherscan UI.
 
 Rewards distributed to LP on [1inch stETH/LDO pool](https://etherscan.io/address/0x1f629794b34ffb3b29ff206be5478a52678b47ae) proportional to the amount of liquidity and timespan of providing it as described in the [proposal](https://research.lido.fi/t/proposal-ldo-incentives-to-liquidity-providers-on-ldo-steth-pair-on-1inch-exchange/274).
