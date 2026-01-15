@@ -170,7 +170,7 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
 
 ## Create and Activate the CSM Operator
 
-For instructions on how to upload your deposit data and activate your validator, please refer to the [CSM Activation](https://docs.lido.fi/run-on-lido/csm/activation/) guide.
+For instructions on how to upload your deposit data and activate your validator, please refer to the [CSM Activation](../../lido-csm-widget/upload-remove-view-validator-keys) guide.
 
 ## Running CSM on Hoodi Testnet
 
