@@ -45,6 +45,14 @@ A GateSeal is set up with an immutable configuration at the time of construction
 
 It is important to note that GateSeals do not bypass the access control settings for pausable contracts, which is why GateSeals must be given the appropriate permissions beforehand. If and when an emergency arises, the sealing committee simply calls the seal function and puts the contracts on pause for the set duration.
 
+## GateSeal and Dual Governance
+
+When combined with Dual Governance, the time required for the DAO to reach and execute a decision may exceed the fixed safety window provided by an ephemeral GateSeal pause. To ensure that a protocol component remains paused for as long as governance requires, an additional mechanism is introduced in the form of the ResealManager. 
+
+Working together with GateSeal, the ResealManager can extend an existing temporary pause by converting it into a governance-controlled pause that remains in effect until the governance explicitly unpauses the contract. This action is only permitted when the protocol is in a non-Normal governance phase, which ties the extended pause strictly to governance state rather than to committee control.
+
+> For this setup to function correctly, the ResealManager must be authorized to pause/resume target contracts via `PAUSE_ROLE`/`RESUME_ROLE`.
+
 ## How are GateSeals created?
 
 GateSeals are created using the [GateSealFactory](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy). The factory uses the blueprint pattern whereby new GateSeals are deployed using the initcode (blueprint) stored on-chain. The blueprint is essentially a broken GateSeal that can only be used to create new GateSeals.
