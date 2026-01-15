@@ -108,7 +108,7 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    Ensure you use the service name with the `-mev` suffix (e.g., `lighthouse-beacon-mev`, `prysm-beacon-mev`, `teku-beacon-mev`) to enable MEV, which is required for running CSM validators.
    :::
 
-1. **Start MEV Boost**:
+3. **Start MEV Boost**:
 
    ```bash
    sudo systemctl start mev-boost
@@ -153,9 +153,21 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
    <TabItem value="teku" label="Teku">
 
    ```bash
-   # No specific import command needed for Teku with standard Ethereum on ARM setup if keys are in the correct location or handled via config
-   # Refer to Ethereum on ARM documentation for specific Teku key management if needed.
-   # Based on original doc: "Teku: No need to specify the path"
+   Run the helper script to create validator passwords:
+
+   ```bash
+   sudo setup_validator_passwords
+   ```
+
+   This will generate a secure random password and create a `.txt` file for each keystore with correct permissions.
+
+   You should now have matching files like:
+
+   ```text
+   keystore-m_12381_3600_0_0_0-1661710189.json
+   keystore-m_12381_3600_0_0_0-1661710189.txt
+   ```
+
    ```
 
    </TabItem>
@@ -283,14 +295,59 @@ You can test the setup on the Hoodi testnet as well. The process is the same, yo
    sudo systemctl start mev-boost-hoodi
    ```
 
-2. **Generate Keys for hoodi**:
-   Use [Key Generation for Testnet](../../generating-validator-keys/key-generation-for-testnet).
+2. **Generate Keys for Hoodi**:
+   Follow the testnet instructions in the [Key Generation guide](../generating-validator-keys/key-generation-for-mainnet/) (selecting Hoodi network).
 
-3. **Import and Start**:
+3. **Import and Start on Testnet**:
 
-   ```bash
-   lighthouse account validator --network hoodi import --directory=/home/ethereum/validator_keys -d /home/ethereum/.lighthouse-validator-lido
-   ```
+   <Tabs groupId="consensus-client">
+     <TabItem value="lighthouse" label="Lighthouse">
+
+       ```bash
+       lighthouse account validator --network hoodi import --directory=/home/ethereum/validator_keys -d /home/ethereum/.lighthouse-validator-lido
+       sudo systemctl start lighthouse-validator-hoodi-lido
+       ```
+
+     </TabItem>
+     <TabItem value="prysm" label="Prysm">
+
+       ```bash
+       validator accounts import --hoodi --keys-dir=/home/ethereum/validator_keys --wallet-dir=/home/ethereum/.prysm-validator-hoodi-lido/prysm-wallet-v2
+       sudo systemctl start prysm-validator-hoodi-lido
+       ```
+
+     </TabItem>
+     <TabItem value="nimbus" label="Nimbus">
+
+       ```bash
+       nimbus_beacon_node deposits import /home/ethereum/validator_keys --data-dir=/home/ethereum/.nimbus-validator-hoodi-lido
+       sudo systemctl start nimbus-validator-hoodi-lido
+       ```
+
+     </TabItem>
+     <TabItem value="teku" label="Teku">
+
+       Run the helper script to create validator passwords:
+
+       ```bash
+       sudo setup_validator_passwords
+       ```
+
+       This will generate a secure random password and create a `.txt` file for each keystore with correct permissions.
+       
+       You should now have matching files like:
+
+       ```text
+       keystore-m_12381_3600_0_0_0-1661710189.json
+       keystore-m_12381_3600_0_0_0-1661710189.txt
+       ```
+
+       ```bash
+       sudo systemctl start teku-validator-hoodi-lido
+       ```
+
+     </TabItem>
+   </Tabs>
 
 4. **CSM Testnet Portal**:
    [https://csm.testnet.fi](https://csm.testnet.fi)
