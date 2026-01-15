@@ -129,7 +129,7 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
 
    <Tabs>
 
-  <TabItem value="lighthouse" label="Lighthouse">
+   <TabItem value="lighthouse" label="Lighthouse">
 
    ```bash
    lighthouse account validator import --directory=/home/ethereum/validator_keys -d /home/ethereum/.lighthouse-validator-lido
