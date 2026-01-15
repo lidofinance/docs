@@ -166,7 +166,7 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
 
    <Tabs>
 
-  <TabItem value="lighthouse" label="Lighthouse">
+   <TabItem value="lighthouse" label="Lighthouse">
 
    ```bash
    sudo systemctl start lighthouse-validator-lido
