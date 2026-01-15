@@ -74,7 +74,7 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
 
    <Tabs>
 
-  <TabItem value="lighthouse" label="Lighthouse">
+   <TabItem value="lighthouse" label="Lighthouse">
 
    ```bash
    sudo systemctl start lighthouse-beacon-mev
