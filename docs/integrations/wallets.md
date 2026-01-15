@@ -78,6 +78,19 @@ If the widget is embedded using an `iframe`, the Earn page is **disabled** by de
 />
 ```
 
+### Force Allowance
+
+If you want to force the Allowance mechanism instead of Permit for EOA wallets for withdrawal requests, you can use the `forceAllowance` URL query parameter.
+
+- `forceAllowance=enabled` — force the Allowance mechanism instead of Permit for withdrawal requests (EOA wallets)
+- `forceAllowance=disabled` or not set — use the Permit mechanism for withdrawal requests (default behavior)
+
+#### Example of forcing Allowance mechanism using iframe
+
+```html
+<iframe src="https://stake.lido.fi/?forceAllowance=enabled" title="Lido Staking App" height="500" width="100%" />
+```
+
 ### Interacting with Lido contract directly
 
 If none of the options above suits you, you may choose to interact with Lido directly.
