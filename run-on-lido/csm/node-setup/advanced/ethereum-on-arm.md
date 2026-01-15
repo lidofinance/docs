@@ -185,7 +185,7 @@ You can test the setup on the Hoodi testnet as well. The process is the same, yo
    ```
 
 2. **Generate Keys for hoodi**:
-   Use Wagyu (select hoodi/Hoodi network) or the CLI tool with `--chain hoodi`.
+   Use [Key Generation for Testnet](../../generating-validator-keys/key-generation-for-testnet).
 
 3. **Import and Start**:
 
