@@ -152,7 +152,6 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
    </TabItem>
    <TabItem value="teku" label="Teku">
 
-   ```bash
    Run the helper script to create validator passwords:
 
    ```bash
@@ -166,8 +165,6 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
    ```text
    keystore-m_12381_3600_0_0_0-1661710189.json
    keystore-m_12381_3600_0_0_0-1661710189.txt
-   ```
-
    ```
 
    </TabItem>
@@ -303,48 +300,48 @@ You can test the setup on the Hoodi testnet as well. The process is the same, yo
    <Tabs groupId="consensus-client">
      <TabItem value="lighthouse" label="Lighthouse">
 
-       ```bash
-       lighthouse account validator --network hoodi import --directory=/home/ethereum/validator_keys -d /home/ethereum/.lighthouse-validator-lido
-       sudo systemctl start lighthouse-validator-hoodi-lido
-       ```
+   ```bash
+   lighthouse account validator --network hoodi import --directory=/home/ethereum/validator_keys -d /home/ethereum/.lighthouse-validator-lido
+   sudo systemctl start lighthouse-validator-hoodi-lido
+   ```
 
      </TabItem>
      <TabItem value="prysm" label="Prysm">
 
-       ```bash
-       validator accounts import --hoodi --keys-dir=/home/ethereum/validator_keys --wallet-dir=/home/ethereum/.prysm-validator-hoodi-lido/prysm-wallet-v2
-       sudo systemctl start prysm-validator-hoodi-lido
-       ```
+   ```bash
+   validator accounts import --hoodi --keys-dir=/home/ethereum/validator_keys --wallet-dir=/home/ethereum/.prysm-validator-hoodi-lido/prysm-wallet-v2
+   sudo systemctl start prysm-validator-hoodi-lido
+   ```
 
      </TabItem>
      <TabItem value="nimbus" label="Nimbus">
 
-       ```bash
-       nimbus_beacon_node deposits import /home/ethereum/validator_keys --data-dir=/home/ethereum/.nimbus-validator-hoodi-lido
-       sudo systemctl start nimbus-validator-hoodi-lido
-       ```
+   ```bash
+   nimbus_beacon_node deposits import /home/ethereum/validator_keys --data-dir=/home/ethereum/.nimbus-validator-hoodi-lido
+   sudo systemctl start nimbus-validator-hoodi-lido
+   ```
 
      </TabItem>
      <TabItem value="teku" label="Teku">
 
-       Run the helper script to create validator passwords:
+   Run the helper script to create validator passwords:
 
-       ```bash
-       sudo setup_validator_passwords
-       ```
+   ```bash
+   setup_validator_passwords
+   ```
 
-       This will generate a secure random password and create a `.txt` file for each keystore with correct permissions.
-       
-       You should now have matching files like:
+   This will generate a secure random password and create a `.txt` file for each keystore with correct permissions.
 
-       ```text
-       keystore-m_12381_3600_0_0_0-1661710189.json
-       keystore-m_12381_3600_0_0_0-1661710189.txt
-       ```
+   You should now have matching files like:
 
-       ```bash
-       sudo systemctl start teku-validator-hoodi-lido
-       ```
+   ```text
+   keystore-m_12381_3600_0_0_0-1661710189.json
+   keystore-m_12381_3600_0_0_0-1661710189.txt
+   ```
+
+   ```bash
+   sudo systemctl start teku-validator-hoodi-lido
+   ```
 
      </TabItem>
    </Tabs>
