@@ -84,7 +84,7 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
 
 Bond requirements are available on the [Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module).
 
-To generate your validator keys, please refer to the [Key Generation for Mainnet](https://docs.lido.fi/run-on-lido/csm/validator-keys/mainnet/) guide.
+To generate your validator keys, please refer to the [Key Generation for Mainnet](../../generating-validator-keys/key-generation-for-mainnet/) guide.
 
 ## Importing Keys and Starting the Validator
 
