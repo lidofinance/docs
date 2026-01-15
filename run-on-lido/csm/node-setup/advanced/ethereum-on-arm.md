@@ -15,11 +15,8 @@ This guide assumes you have a supported ARM64 device with the [Ethereum on ARM i
 
 ## Prerequisites
 
-- A supported ARM64 device with Ethereum on ARM image installed (see above link for installation)
-- A Full/Archive Ethereum node synced.
-- A MEV server compatible with Lido.
-- A Validator Client with Lido configuration.
-- Ethereum on ARM `ls-lido` package.
+- A supported ARM64 device with the Ethereum on ARM image installed (see above link for installation).
+- Validator keys generated (see "Creating Validator Keys" below).
 
 ## Running CSM on Mainnet
 
@@ -31,15 +28,55 @@ sudo apt-get update && sudo apt-get install ls-lido
 
 You need to run a Full or Archive Ethereum node. This follows the standard process for Ethereum on ARM, but you must enable MEV Boost on the Beacon Chain and start a MEV Boost server to meet Lido CSM requirements.
 
-1. **Start Consensus and Execution Clients**:
-   Choose your preferred clients and start them.
+1. **Start Execution Client**:
+   Choose your preferred Execution Client and start it.
+
+   <Tabs>
+   <TabItem value="nethermind" label="Nethermind">
+
+   ```bash
+   sudo systemctl start nethermind
+   ```
+
+   </TabItem>
+   <TabItem value="geth" label="Geth">
+
+   ```bash
+   sudo systemctl start geth
+   ```
+
+   </TabItem>
+   <TabItem value="besu" label="Besu">
+
+   ```bash
+   sudo systemctl start besu
+   ```
+
+   </TabItem>
+   <TabItem value="reth" label="Reth">
+
+   ```bash
+   sudo systemctl start reth
+   ```
+
+   </TabItem>
+   <TabItem value="erigon" label="Erigon">
+
+   ```bash
+   sudo systemctl start erigon
+   ```
+
+   </TabItem>
+   </Tabs>
+
+2. **Start Consensus Client**:
+   Choose your preferred Consensus Client and start it.
 
    <Tabs>
 
   <TabItem value="lighthouse" label="Lighthouse">
 
    ```bash
-   sudo systemctl start nethermind
    sudo systemctl start lighthouse-beacon-mev
    ```
 
@@ -47,7 +84,6 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    <TabItem value="prysm" label="Prysm">
 
    ```bash
-   sudo systemctl start nethermind
    sudo systemctl start prysm-beacon-mev
    ```
 
@@ -55,7 +91,6 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    <TabItem value="teku" label="Teku">
 
    ```bash
-   sudo systemctl start nethermind
    sudo systemctl start teku-beacon-mev
    ```
 
@@ -63,7 +98,6 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    <TabItem value="nimbus" label="Nimbus">
 
    ```bash
-   sudo systemctl start nethermind
    sudo systemctl start nimbus-beacon-mev
    ```
 
@@ -81,8 +115,6 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    ```
 
 ## Creating Validator Keys
-
-Bond requirements are available on the [Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module).
 
 To generate your validator keys, please refer to the [Key Generation for Mainnet](../../generating-validator-keys/key-generation-for-mainnet/) guide.
 
@@ -168,7 +200,7 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
    The `lido` argument/suffix is essential as it applies the specific configuration required for Lido CSM.
    :::
 
-## Create and Activate the CSM Operator
+## Create and Activate the CSM Validator
 
 For instructions on how to upload your deposit data and activate your validator, please refer to the [CSM Activation](../../lido-csm-widget/upload-remove-view-validator-keys) guide.
 
@@ -178,9 +210,76 @@ You can test the setup on the Hoodi testnet as well. The process is the same, yo
 
 1. **Start Clients on Testnet**:
 
+   <Tabs>
+   <TabItem value="nethermind" label="Nethermind">
+
    ```bash
    sudo systemctl start nethermind-hoodi
+   ```
+
+   </TabItem>
+   <TabItem value="geth" label="Geth">
+
+   ```bash
+   sudo systemctl start geth-hoodi
+   ```
+
+   </TabItem>
+   <TabItem value="besu" label="Besu">
+
+   ```bash
+   sudo systemctl start besu-hoodi
+   ```
+
+   </TabItem>
+   <TabItem value="reth" label="Reth">
+
+   ```bash
+   sudo systemctl start reth-hoodi
+   ```
+
+   </TabItem>
+   <TabItem value="erigon" label="Erigon">
+
+   ```bash
+   sudo systemctl start erigon-hoodi
+   ```
+
+   </TabItem>
+   </Tabs>
+
+   <Tabs>
+   <TabItem value="lighthouse" label="Lighthouse">
+
+   ```bash
    sudo systemctl start lighthouse-beacon-hoodi-mev
+   ```
+
+   </TabItem>
+   <TabItem value="prysm" label="Prysm">
+
+   ```bash
+   sudo systemctl start prysm-beacon-hoodi-mev
+   ```
+
+   </TabItem>
+   <TabItem value="teku" label="Teku">
+
+   ```bash
+   sudo systemctl start teku-beacon-hoodi-mev
+   ```
+
+   </TabItem>
+   <TabItem value="nimbus" label="Nimbus">
+
+   ```bash
+   sudo systemctl start nimbus-beacon-hoodi-mev
+   ```
+
+   </TabItem>
+   </Tabs>
+
+   ```bash
    sudo systemctl start mev-boost-hoodi
    ```
 
