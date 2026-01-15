@@ -293,7 +293,7 @@ You can test the setup on the Hoodi testnet as well. The process is the same, yo
    ```
 
 2. **Generate Keys for Hoodi**:
-   Follow the testnet instructions in the [Key Generation guide](../generating-validator-keys/key-generation-for-testnet/) (selecting Hoodi network).
+   Follow the testnet instructions in the [Key Generation guide](../../generating-validator-keys/key-generation-for-testnet) (selecting Hoodi network).
 
 3. **Import and Start on Testnet**:
 
