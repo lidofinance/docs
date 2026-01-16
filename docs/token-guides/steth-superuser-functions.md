@@ -1,66 +1,169 @@
 # stETH superuser functions
 
-This guide describes the stETH control surface in Lido V3 and the roles that can change protocol behavior. It is written from first principles rather than legacy V1/V2 flows.
+This guide describes the stETH control surface in Lido V3 and the roles that can change protocol behavior. It provides concrete addresses for role holders and explains the operational implications of each capability.
 
 ## What stETH is in Lido V3
 
-- stETH is the rebasing token that represents pooled ETH in the core Lido pool.
-- stVaults can mint stETH as **external shares** against overcollateralized collateral.
-- Rebases are driven by oracle reports applied through the `Accounting` contract.
+- stETH is the rebasing token representing pooled ETH in the core Lido pool
+- stVaults can mint stETH as **external shares** against overcollateralized collateral
+- Rebases are driven by oracle reports applied through the [Accounting](/contracts/accounting) contract
+- Total supply = internal shares (core pool) + external shares (stVaults)
+
+## Key contracts
+
+| Contract | Address | Purpose |
+|----------|---------|---------|
+| Lido (stETH) | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) | Core stETH token and staking pool |
+| Accounting | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) | Oracle report handling and rebases |
+| Burner | [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3) | stETH burning for withdrawals |
+| VaultHub | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | External share minting for stVaults |
 
 ## Who controls stETH behavior
 
-Control is governed by the DAO. Roles are assigned to DAO-owned contracts (Voting/Agent) or protocol components.
+Control is governed by the Lido DAO. Roles are assigned to DAO-owned contracts or protocol components.
+
+| Entity | Address | Description |
+|--------|---------|-------------|
+| Aragon Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) | Holds most admin roles; executes DAO votes |
+| GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause capability |
 
 All protocol proxy admins are set to the Lido DAO Agent.
 
-### Pause and resume
+## Pause and resume
 
-- Mutators: `stop()`, `resume()` on [Lido](/contracts/lido)
-- Roles: `PAUSE_ROLE`, `RESUME_ROLE`
+**When paused**: Token transfers, approvals, and rebases are disabled. Core protocol entry points (staking, withdrawals) revert.
 
-When paused, token transfers, approvals, and rebases are disabled, and core protocol entry points revert.
+| Role | Holder | Address |
+|------|--------|---------|
+| `PAUSE_ROLE` | DAO Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
+| `RESUME_ROLE` | DAO Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
 
-### Burning stETH
+**Mutators**: `stop()`, `resume()` on [Lido](/contracts/lido)
 
-Burning is routed through [Burner](/contracts/burner) and the withdrawal finalization process.
+### Emergency pause via GateSeal
 
-- Roles: `REQUEST_BURN_SHARES_ROLE` and `REQUEST_BURN_MY_STETH_ROLE`
-- Used for: withdrawal finalization, penalties, and DAO-directed burns
+The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days), after which the DAO must vote to resume or extend.
 
-### Fees and treasury configuration
+| GateSeal | Address | Protects |
+|----------|---------|----------|
+| Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721 |
+| VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee |
 
-- Mutators: protocol fee updates, treasury changes, and staking module fee splits
-- Contracts: [Lido](/contracts/lido), [StakingRouter](/contracts/staking-router)
-- Roles: `MANAGE_FEE`, `STAKING_MODULE_MANAGE_ROLE`
+## Burning stETH
 
-### Withdrawal credentials
+Burning is routed through the [Burner](/contracts/burner) contract ([`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)).
 
-- Mutator: `setWithdrawalCredentials()`
-- Role: `MANAGE_WITHDRAWAL_KEY_ROLE`
+| Role | Purpose | Holder |
+|------|---------|--------|
+| `REQUEST_BURN_SHARES_ROLE` | Request burns on behalf of others | Lido contract, VaultHub |
+| `REQUEST_BURN_MY_STETH_ROLE` | Burn caller's own stETH | DAO Agent |
 
-### External shares cap (stVaults)
+**Used for**:
+- Withdrawal finalization (burning stETH to release ETH)
+- Covering slashing penalties
+- DAO-directed burns (e.g., insurance fund operations)
 
-External shares are capped to preserve core pool solvency.
+## Staking limits
 
-- Mutator: `setMaxExternalRatioBP()` on [Lido](/contracts/lido)
-- Role: `STAKING_CONTROL_ROLE`
+Controls the maximum ETH that can be staked per transaction or in total.
+
+| Role | Holder |
+|------|--------|
+| `STAKING_CONTROL_ROLE` | DAO Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+
+**Mutators**: `setStakingLimit()`, `removeStakingLimit()`, `pauseStaking()`, `resumeStaking()`
+
+## External shares cap (stVaults)
+
+External shares are stETH minted by stVaults against overcollateralized ETH. The cap limits how much stETH can be minted externally relative to the core pool.
+
+| Role | Holder |
+|------|--------|
+| `STAKING_CONTROL_ROLE` | DAO Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+
+**Mutator**: `setMaxExternalRatioBP()` on [Lido](/contracts/lido)
+
+**Current behavior**: External shares are capped as a basis point ratio of total shares. For example, if the cap is 1000 BP (10%), and total internal shares are 9M stETH, external shares cannot exceed 1M stETH.
+
+**View methods**:
+- `getExternalShares()` - Returns total external shares
+- `getExternalEther()` - Returns ETH backing external shares
+- `getMaxExternalRatioBP()` - Returns current cap in basis points
+
+## Withdrawal credentials
+
+Controls the Ethereum withdrawal credentials for new validators deposited by the protocol.
+
+| Role | Holder |
+|------|--------|
+| `MANAGE_WITHDRAWAL_KEY_ROLE` | DAO Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+
+**Mutator**: `setWithdrawalCredentials()`
+
+This is a sensitive operation that should only occur during protocol setup or major upgrades.
+
+## Fees and treasury configuration
+
+| Lever | Role | Holder |
+|-------|------|--------|
+| Protocol fee (total) | Aragon permissions | DAO Agent |
+| Module fee splits | `STAKING_MODULE_MANAGE_ROLE` | DAO Agent |
+| Treasury address | Aragon permissions | DAO Agent |
+
+**Contracts**: [Lido](/contracts/lido), [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999))
+
+Current fee structure:
+- **Total protocol fee**: 10% of staking rewards
+- **Split**: 50% to node operators, 50% to DAO treasury
 
 ## Oracle and accounting flow
 
-- `AccountingOracle` aggregates reports via `HashConsensus`.
-- `Accounting` applies the report and updates Lido state.
-- Token rebases are emitted after report application.
+```mermaid
+graph LR;
+  HC[HashConsensus]--quorum reached-->AO[AccountingOracle];
+  AO--handleOracleReport-->A[Accounting];
+  A--processClStateUpdate-->L[Lido/stETH];
+  A--finalize-->WQ[WithdrawalQueue];
+  A--internalizeBadDebt-->VH[VaultHub];
+  L--TokenRebased event-->Observers;
+```
 
-See [AccountingOracle](/contracts/accounting-oracle) and [Accounting](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol) for details.
+1. Oracle committee members submit reports to HashConsensus ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
+2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) triggers the report
+3. [Accounting](/contracts/accounting) applies the report and updates Lido state
+4. Token rebases are emitted via `TokenRebased` event
 
 ## Operational implications
 
-- **Pausing** disables rebases and token transfers.
-- **External shares cap** limits stVault minting against Lido core liquidity.
-- **Fee configuration** affects stETH yield distribution.
+### Pausing effects
+
+| When paused... | Effect |
+|----------------|--------|
+| Token transfers | All `transfer()` and `transferFrom()` calls revert |
+| Approvals | `approve()` calls revert |
+| Staking | `submit()` reverts; no new ETH can be staked |
+| Withdrawals | Withdrawal requests revert |
+| Rebases | Oracle reports still process but token balances don't update |
+
+### External shares cap effects
+
+| Cap reached... | Effect |
+|----------------|--------|
+| stVault minting | New `mintShares()` calls from VaultHub revert |
+| Core pool staking | Unaffected; internal shares can still grow |
+| Existing stVaults | Existing minted shares unaffected; can still burn |
+
+### Fee configuration effects
+
+| Change | Effect |
+|--------|--------|
+| Increase protocol fee | More staking rewards go to protocol vs stakers |
+| Change module splits | Affects node operator vs treasury distribution |
+| Treasury address change | Future fee distributions go to new address |
 
 ## Governance references
 
 - [Lido DAO Voting](https://vote.lido.fi/)
 - [Protocol levers](/guides/protocol-levers)
+- [Emergency Brakes Multisigs](/multisigs/emergency-brakes)
+- [Deployed contracts (mainnet)](/deployed-contracts)
