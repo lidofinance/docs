@@ -4,7 +4,7 @@ Lido V3 governance controls a set of configurable parameters across core pool, o
 
 ## Upgradeability
 
-Upgradeable components are managed by the DAO via Aragon or proxy admins. Core upgradeable contracts include:
+Upgradeable components are managed by the DAO, with proxy admin set to the Lido DAO Agent. Core upgradeable contracts include:
 
 - [Lido](/contracts/lido)
 - [LidoLocator](/contracts/lido-locator)
@@ -16,7 +16,6 @@ Upgradeable components are managed by the DAO via Aragon or proxy admins. Core u
 - [VaultHub](/contracts/vault-hub)
 - [LazyOracle](/contracts/lazy-oracle)
 
-Proxy admin for protocol proxy contracts is the Lido DAO Agent.
 
 ## Lido (core pool)
 
