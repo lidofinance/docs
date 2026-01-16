@@ -1,6 +1,6 @@
 # LidoExecutionLayerRewardsVault
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/LidoExecutionLayerRewardsVault.sol)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/LidoExecutionLayerRewardsVault.sol)
 - [Deployed Contract](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 
 A vault for temporary storage of execution layer (EL) rewards (MEV and tx priority fee).

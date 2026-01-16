@@ -19,7 +19,6 @@ The following contracts are upgradeable by the DAO voting:
 - [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle)
 - [`WithdrawalVault`](/contracts/withdrawal-vault)
 - [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
-- [`LegacyOracle`](/contracts/legacy-oracle)
 
 Upgradeability is implemented either by the Aragon kernel and base contracts OR by the [OssifiableProxy](/contracts/ossifiable-proxy) instances.
 To upgrade an Aragon app, one needs the `dao.APP_MANAGER_ROLE` permission provided by Aragon.
@@ -41,7 +40,7 @@ Some of the contracts still contain structured storage data, hence the order of 
 There is a dedicated contract responsible for `stETH` tokens burning.
 The burning itself is a part of the core protocol procedures:
 
-- deduct underlying finalized withdrawal request `stETH`, see [`Lido.handleOracleReport`](/contracts/lido#handleoraclereport)
+- deduct underlying finalized withdrawal request `stETH`, see `Accounting.handleOracleReport`
 - penalize delinquent node operators by halving their rewards, see [Validator exits and penalties](/guides/oracle-spec/penalties)
 
 These responsibilities are controlled by the `REQUEST_BURN_SHARES_ROLE` role which is assigned to both
@@ -69,7 +68,6 @@ allowances) are allowed. The following transactions revert:
 - plain ether transfers to `Lido`;
 - calls to `submit(address)`;
 - calls to `deposit(uint256, uint256, bytes)`;
-- calls to `handleOracleReport(...)`;
 - calls to `transfer(address, uint256)`;
 - calls to `transferFrom(address, address, uint256)`;
 - calls to `transferShares(address, uint256)`;
@@ -260,45 +258,6 @@ Allow to manage signing keys for the given node operator.
 
 Allows to report that `_stoppedIncrement` more validators of a node operator have become stopped.
 
-## [LegacyOracle](/contracts/legacy-oracle)
-
-### Lido
-
-Address of the Lido contract.
-
-- Accessor: `getLido() returns (address)`
-
-### Members list
-
-The list of oracle committee members.
-
-- Mutators: `addOracleMember(address)`, `removeOracleMember(address)`
-  - Permission required: `MANAGE_MEMBERS`
-- Accessor: `getOracleMembers() returns (address[])`
-
-### The quorum
-
-The number of exactly the same reports needed to finalize the epoch.
-
-- Mutator: `setQuorum(uint256)`
-  - Permission required: `MANAGE_QUORUM`
-- Accessor: `getQuorum() returns (uint256)`
-
-When the `quorum` number of the same reports is collected for the current epoch,
-
-- the epoch is finalized (no more reports are accepted for it),
-- the final report is pushed to the Lido,
-- statistics collected and the [sanity check][1] is evaluated,
-
-### Sanity check
-
-To make oracles less dangerous, we can limit rewards report by 0.1% increase in stake and 15%
-decrease in stake, with both values configurable by the governance in case of extremely unusual
-circumstances.
-
-- Mutators: `setAllowedBeaconBalanceAnnualRelativeIncrease(uint256)` and
-  `setAllowedBeaconBalanceRelativeDecrease(uint256)`
-  - Permission required: `SET_REPORT_BOUNDARIES`
 - Accessors: `getAllowedBeaconBalanceAnnualRelativeIncrease() returns (uint256)` and
   `getAllowedBeaconBalanceRelativeDecrease() returns (uint256)`
 

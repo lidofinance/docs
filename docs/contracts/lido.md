@@ -1,6 +1,6 @@
 # Lido
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 Liquid staking pool and a related [ERC-20](https://eips.ethereum.org/EIPS/eip-20)
@@ -46,6 +46,10 @@ vault to collect priority fees and MEV rewards coming from validators of the poo
 deposit frontrunning vulnerability
 - [`AccountingOracle`](/contracts/accounting-oracle.md): oracle committee, which gathers
 an accounting report for the protocol
+- [`Accounting`](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol):
+applies oracle reports and distributes rewards
+- [`VaultHub`](/contracts/vault-hub): stVaults coordination and external share accounting
+- [`PredepositGuarantee`](/contracts/predeposit-guarantee): predeposit protection for stVaults
 - [`EIP712StETH`](/contracts/eip712-steth.md): ad-hoc helper to implement ERC-2612 permit
 for Solidity 0.4.24 Lido contract
 
@@ -111,6 +115,19 @@ balanceOf(account) = shares[account] * totalPooledEther / totalShares
   is reported by oracles and makes the strongest impact on stETH total supply
   change
 
+### External shares (stVaults)
+
+Lido V3 introduces **external shares**, which represent stETH minted against
+stVault collateral. These shares are tracked separately from core pool shares
+to keep the core pool solvent while allowing overcollateralized minting.
+
+- `getExternalShares()` returns total external shares outstanding.
+- `getExternalEther()` returns the ETH amount backing external shares.
+- `getMaxExternalRatioBP()` caps external shares as a ratio of total shares.
+
+Accounting uses internal (core pool) ether/shares for rebase calculations and
+applies external share accounting separately through `VaultHub`.
+
 For example, assume that we have:
 
 ```js
@@ -174,6 +191,10 @@ withdrawal requests.
   - share rate to be used for finalization
 
 Oracle report is processed in 9 simple steps:
+
+AccountingOracle submits the report to the `Accounting` contract, which
+simulates and applies the report, then calls into Lido to update pooled ether
+and rebase observers.
 
 1. Memorize the pre-state that will be required for incremental updates of the
 protocol balance
@@ -358,47 +379,7 @@ function canDeposit() view returns (bool)
 
 ## Accounting-related methods
 
-### handleOracleReport()
-
-Updates accounting stats, collects EL rewards and distributes collected rewards
-if beacon balance increased, performs withdrawal requests finalization.
-
-Can be called only by [AccountingOracle](/contracts/accounting-oracle.md) contract.
-
-```sol
-function handleOracleReport(
-    uint256 _reportTimestamp,
-    uint256 _timeElapsed,
-    uint256 _clValidators,
-    uint256 _clBalance,
-    uint256 _withdrawalVaultBalance,
-    uint256 _elRewardsVaultBalance,
-    uint256 _sharesRequestedToBurn,
-    uint256[] _withdrawalFinalizationBatches,
-    uint256 _simulatedShareRate
-) returns (uint256[4] postRebaseAmounts)
-```
-
-| Parameter                        | Type       | Description                                                       |
-| -------------------------------- | ---------- | ----------------------------------------------------------------- |
-| `_reportTimestamp`               | `uint256`  | The moment of the oracle report calculation                       |
-| `_timeElapsed`                   | `uint256`  | Seconds elapsed since the previous report calculation             |
-| `_clValidators`                  | `uint256`  | Number of Lido validators on Consensus Layer                      |
-| `_clBalance`                     | `uint256`  | Sum of all Lido validators' balances on Consensus Layer           |
-| `_withdrawalVaultBalance`        | `uint256`  | Withdrawal vault balance on Execution Layer                       |
-| `_elRewardsVaultBalance`         | `uint256`  | elRewards vault balance on Execution Layer                        |
-| `_sharesRequestedToBurn`         | `uint256`  | shares requested to burn through Burner                           |
-| `_withdrawalFinalizationBatches` | `uint256[]`| the ascendingly-sorted array of withdrawal request IDs to finalize|
-| `_simulatedShareRate`            | `uint256`  | share rate simulated by oracle when (1e27 precision)              |
-
-Returns a fixed array of 4 values that represents changes made during the report
-
-| Name                  | Type      | Description                                                 |
-| --------------------- | --------- | ----------------------------------------------------------- |
-| `postRebaseAmounts[0]`| `uint256` | `postTotalPooledEther` amount of ether in the protocol      |
-| `postRebaseAmounts[1]`| `uint256` | `postTotalShares` amount of shares in the protocol          |
-| `postRebaseAmounts[2]`| `uint256` | `withdrawals` withdrawn from the withdrawals vault          |
-| `postRebaseAmounts[3]`| `uint256` | `elRewards` withdrawn from the execution layer rewards vault|
+Accounting and report application are handled by the [`Accounting`](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol) contract, which is called by `AccountingOracle` and updates Lido state during the report cycle.
 
 ### getTotalPooledEther()
 
@@ -411,6 +392,30 @@ function getTotalPooledEther() view returns (uint256)
 :::note
 The sum of all ETH balances in the protocol, equals to the total supply of `stETH`.
 :::
+
+### getExternalEther()
+
+Returns the amount of ether backing external shares (stVaults).
+
+```sol
+function getExternalEther() view returns (uint256)
+```
+
+### getExternalShares()
+
+Returns total external shares minted against stVault collateral.
+
+```sol
+function getExternalShares() view returns (uint256)
+```
+
+### getMaxExternalRatioBP()
+
+Returns the maximum ratio of external shares to total shares (basis points).
+
+```sol
+function getMaxExternalRatioBP() view returns (uint256)
+```
 
 ### getTotalELRewardsCollected()
 
@@ -558,6 +563,20 @@ Can be called only by the bearer of `STAKING_CONTROL_ROLE`
 ```sol
 function removeStakingLimit()
 ```
+
+### setMaxExternalRatioBP()
+
+Sets the maximum ratio of external shares to total shares (basis points).
+
+Can be called only by the bearer of `STAKING_CONTROL_ROLE`
+
+```sol
+function setMaxExternalRatioBP(uint256 _maxExternalRatioBP)
+```
+
+| Parameter            | Type      | Description                                              |
+| -------------------- | --------- | -------------------------------------------------------- |
+| `_maxExternalRatioBP`| `uint256` | Max external shares ratio in basis points (0-10000)      |
 
 ### unsafeChangeDepositedValidators()
 

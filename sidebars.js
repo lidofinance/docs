@@ -106,7 +106,6 @@ module.exports = {
         'contracts/accounting-oracle',
         'contracts/validators-exit-bus-oracle',
         'contracts/hash-consensus',
-        'contracts/legacy-oracle',
         'contracts/oracle-report-sanity-checker',
         'contracts/oracle-daemon-config',
         'contracts/staking-router',

@@ -1,6 +1,6 @@
 # WithdrawalVault
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/WithdrawalVault.sol)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/WithdrawalVault.sol)
 - [Deployed Contract](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f)
 - Inherits [WithdrawalVaultEIP7002](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/WithdrawalVaultEIP7002.sol). Interface that implements basic EIP-7002 functionality.
 

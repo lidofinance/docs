@@ -1,6 +1,6 @@
 # OssifiableProxy
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/proxy/OssifiableProxy.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/proxy/OssifiableProxy.sol)
 - [Source code of `WithdrawalsManagerProxy`](https://github.com/lidofinance/withdrawals-manager-stub/blob/main/contracts/WithdrawalsManagerProxy.sol)
 
 Deployed instances:

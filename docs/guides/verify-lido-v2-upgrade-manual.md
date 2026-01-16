@@ -338,25 +338,6 @@ Contracts ACL denotation:
 - `SET_NODE_OPERATOR_ADDRESS_ROLE`
 - `REPORT_STOPPED_VALIDATORS_ROLE`
 
-### **LegacyOracle (former LidoOracle)**
-
-*Aragon app*
-
-**New**
-None
-
-**Kept**
-None
-
-**Obsolete**
-*To be revoked at voting.*
-
-- `MANAGE_MEMBERS`
-- `MANAGE_QUORUM`
-- `SET_BEACON_SPEC`
-- `SET_REPORT_BOUNDARIES`
-- `SET_BEACON_REPORT_RECEIVER`
-
 ### **AccountingOracle**
 
 *OZ, Proxy*

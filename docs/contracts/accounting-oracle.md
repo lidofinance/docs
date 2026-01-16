@@ -1,8 +1,8 @@
 # AccountingOracle
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
-- Inherits [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
+- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
 It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
@@ -41,15 +41,17 @@ The [submission](/contracts/accounting-oracle#submitreportdata) of the main repo
 
 1. Update exited validators counts for each StakingModule in StakingRouter;
 2. Update bunker mode status for WithdrawalQueue;
-3. Handle function on the Lido contract which performs the main protocol state change.
-4. Store information about ExtraData
+3. Call `Accounting.handleOracleReport` to apply the report and rebase stETH.
+4. Update the stVaults report root in `LazyOracle`.
+5. Store information about ExtraData
 
 The diagram shows the interaction with contracts.
 
 ```mermaid
 graph LR;
-  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
-  AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
+  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->Accounting;
+  AccountingOracle--updateReportData-->LazyOracle;
+  AccountingOracle--handleOracleReport-->Accounting-->Lido;
   AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
   AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
   AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
@@ -106,7 +108,7 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 **Withdrawals finalization decision**
 
 - `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
-- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` one should perform a view call [Lido.handleOracleReport](/contracts/lido#handleoraclereport) directly via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) JSON-RPC API and calculate as follows:
+- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` use `Accounting.simulateOracleReport` via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) and calculate as follows:
 
 ```solidity
 _simulatedShareRate = (postTotalPooledEther * 10**27) / postTotalShares
@@ -201,7 +203,7 @@ Extra data array can be passed in different formats, see below.
 ## Access and permissions
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Constants
@@ -220,14 +222,6 @@ Returns an address of the [LidoLocator](/contracts/lido-locator) contract
 
 ```solidity
 ILidoLocator public immutable LOCATOR;
-```
-
-### LEGACY_ORACLE()
-
-Returns an address of the [LegacyOracle](/contracts/legacy-oracle) contract
-
-```solidity
-address public immutable LEGACY_ORACLE;
 ```
 
 ### SECONDS_PER_SLOT()
@@ -621,4 +615,4 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `ExitedValidatorsCountCannotDecrease()` if provided exited validators data doesn't meet safety checks. (StakingRouter)
 - Reverts with `ReportedExitedValidatorsExceedDeposited(uint256 reportedExitedValidatorsCount,uint256 depositedValidatorsCount)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
 
-Other reverts on `Lido.handleOracleReport()`
+Other reverts on `Accounting.handleOracleReport()`

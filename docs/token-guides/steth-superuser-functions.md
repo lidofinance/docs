@@ -28,7 +28,7 @@ Note that there are other roles for DAO management, but they don't affect the to
 
 ## Oracle rebasing reports
 
-StETH is a rebasable token. It receives reports from the Oracle contract (`handleOracleReport` method) with the state of the protocol's Consensus Layer validators balances, and updates all the balances of stETH holders distributing the protocol's total staking rewards and penalties. The protocol employs distributed Oracle reporting: there are five Oracle daemons running by the Lido Node operators, and the Oracle smart contract formats beacon report on the consensus of three of five daemon reports. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total Consensus Layer balance or rewards with higher-than-possible APY. Current Oracle contract is [https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb). Note that: 1) DAO can set another address for the Oracle contract via vote; 2) Oracle implementation can change via vote.
+stETH is a rebasable token. Reports are produced by the `AccountingOracle` committee and applied by the `Accounting` contract, which updates Lido state and triggers the token rebase. The protocol employs distributed oracle reporting via `HashConsensus` (currently 9 oracles with a majority quorum). Sanity checks limit sudden drops in Consensus Layer balance or abnormally high rewards. Oracle contract addresses and committee membership are governed by DAO decisions and can change via vote.
 
 ## Superuser privileges decentralization
 

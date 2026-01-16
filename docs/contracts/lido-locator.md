@@ -1,6 +1,6 @@
 # LidoLocator
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/LidoLocator.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/LidoLocator.sol)
 - [Deployed contract](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb)
 
 LidoLocator is the universal address book for the Lido protocol.
@@ -23,6 +23,14 @@ Returns an address of the [AccountingOracle contract](/contracts/accounting-orac
 function accountingOracle() view returns(address);
 ```
 
+### accounting()
+
+Returns an address of the Accounting contract.
+
+```sol
+function accounting() view returns(address);
+```
+
 ### depositSecurityModule()
 
 Returns an address of the [DepositSecurityModule contract](/contracts/deposit-security-module.md)
@@ -37,14 +45,6 @@ Returns an address of the [LidoExecutionLayerRewardsVault contract](/contracts/l
 
 ```sol
 function elRewardsVault() view returns(address);
-```
-
-### legacyOracle()
-
-Returns an address of the [LegacyOracle contract](/contracts/legacy-oracle.md)
-
-```sol
-function legacyOracle() external view returns(address);
 ```
 
 ### lido()
@@ -113,8 +113,8 @@ function withdrawalVault() view returns(address);
 
 ### postTokenRebaseReceiver()
 
-Returns an address of the contract following the [`IPostTokenRebaseReceiver`](https://github.com/lidofinance/lido-dao/blob/cadffa46a2b8ed6cfa1127fca2468bae1a82d6bf/contracts/0.4.24/Lido.sol#L20-L30) interface described inside `Lido`.
-Right now it returns the [LegacyOracle](/contracts/legacy-oracle.md) address.
+Returns an address of the contract following the `IPostTokenRebaseReceiver`
+interface described inside `Lido`.
 
 ```sol
 function postTokenRebaseReceiver() view returns(address);
@@ -144,6 +144,54 @@ Returns an address of the [ValidatorExitDelayVerifier contract](/contracts/valid
 function validatorExitDelayVerifier() view returns(address);
 ```
 
+### predepositGuarantee()
+
+Returns an address of the [PredepositGuarantee contract](/contracts/predeposit-guarantee)
+
+```sol
+function predepositGuarantee() view returns(address);
+```
+
+### wstETH()
+
+Returns an address of the [wstETH contract](/contracts/wsteth)
+
+```sol
+function wstETH() view returns(address);
+```
+
+### vaultHub()
+
+Returns an address of the [VaultHub contract](/contracts/vault-hub)
+
+```sol
+function vaultHub() view returns(address);
+```
+
+### vaultFactory()
+
+Returns an address of the [VaultFactory contract](/contracts/staking-vault-factory)
+
+```sol
+function vaultFactory() view returns(address);
+```
+
+### lazyOracle()
+
+Returns an address of the [LazyOracle contract](/contracts/lazy-oracle)
+
+```sol
+function lazyOracle() view returns(address);
+```
+
+### operatorGrid()
+
+Returns an address of the [OperatorGrid contract](/contracts/operator-grid)
+
+```sol
+function operatorGrid() view returns(address);
+```
+
 ### coreComponents()
 
 Returns a batch of core components addresses at once.
@@ -161,7 +209,7 @@ function coreComponents() view returns(
 );
 ```
 
-### oracleReportComponentsForLido()
+### oracleReportComponents()
 
 Returns a batch of addresses that is used specifically during oracle report
 handling in the Lido contract.
@@ -169,13 +217,13 @@ handling in the Lido contract.
 It's just a more gas-efficient way of calling several public getters at once.
 
 ```sol
-function oracleReportComponentsForLido() view returns(
+function oracleReportComponents() view returns(
     address accountingOracle,
-    address elRewardsVault,
     address oracleReportSanityChecker,
     address burner,
     address withdrawalQueue,
-    address withdrawalVault,
-    address postTokenRebaseReceiver
+    address postTokenRebaseReceiver,
+    address stakingRouter,
+    address vaultHub
 );
 ```

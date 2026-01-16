@@ -1,9 +1,9 @@
 # ValidatorsExitBusOracle
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/ValidatorsExitBusOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
 - Inherits [VEB](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/ValidatorsExitBus.sol)
-- Inherits [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
+- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
 It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
@@ -21,7 +21,7 @@ Placed exit requests via `ValidatorsExitBusOracle` should be processed timely ac
 :::
 
 Access to privileged methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Report cycle

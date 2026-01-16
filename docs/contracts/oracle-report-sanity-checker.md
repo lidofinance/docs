@@ -1,6 +1,6 @@
 # OracleReportSanityChecker
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
 - [Deployed contract](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
@@ -15,7 +15,7 @@ Besides the validation methods, the `OracleReportSanityChecker` contract contain
 used during the report validation process.
 To configure the limits values contract provides the lever methods described in the [standalone section](#lever-methods).
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Limits List
@@ -279,7 +279,7 @@ stETH balance for the `account` defined as:
         shares[account] * totalPooledEther / totalShares = shares[account] * shareRate
 ```
 
-Suppose shareRate changes when oracle reports (see `handleOracleReport`)
+Suppose shareRate changes when oracle reports (see `Accounting.handleOracleReport`)
 which means that token rebase happens:
 
 ```solidity
