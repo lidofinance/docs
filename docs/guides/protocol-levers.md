@@ -20,13 +20,18 @@ Core upgradeable contracts:
 
 | Contract | Proxy Address |
 |----------|---------------|
+| [LidoLocator](/contracts/lido-locator) | [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) |
 | [Lido](/contracts/lido) | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
 | [Accounting](/contracts/accounting) | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) |
 | [AccountingOracle](/contracts/accounting-oracle) | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
 | [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) |
 | [StakingRouter](/contracts/staking-router) | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) |
 | [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) | [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) |
+| [WithdrawalVault](/contracts/withdrawal-vault) | [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) |
+| [Burner](/contracts/burner) | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) |
 | [VaultHub](/contracts/vault-hub) | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) |
+| [PredepositGuarantee](/contracts/predeposit-guarantee) | [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) |
+| [OperatorGrid](/contracts/operator-grid) | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
 | [LazyOracle](/contracts/lazy-oracle) | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
 
 ## Lido (core pool)

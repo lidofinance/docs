@@ -15,7 +15,7 @@ This guide describes the stETH control surface in Lido V3 and the roles that can
 |----------|---------|---------|
 | Lido (stETH) | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) | Core stETH token and staking pool |
 | Accounting | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) | Oracle report handling and rebases |
-| Burner | [`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3) | stETH burning for withdrawals |
+| Burner | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) | stETH burning for withdrawals |
 | VaultHub | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | External share minting for stVaults |
 
 ## Who controls stETH behavior
@@ -51,7 +51,7 @@ The GateSeal mechanism allows emergency pausing without a full DAO vote. The Gat
 
 ## Burning stETH
 
-Burning is routed through the [Burner](/contracts/burner) contract ([`0xD15a672319Cf0352560eE76d9e89eAB0889046D3`](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)).
+Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)).
 
 | Role | Purpose | Holder |
 |------|---------|--------|
@@ -112,9 +112,7 @@ This is a sensitive operation that should only occur during protocol setup or ma
 
 **Contracts**: [Lido](/contracts/lido), [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999))
 
-Current fee structure:
-- **Total protocol fee**: 10% of staking rewards
-- **Split**: 50% to node operators, 50% to DAO treasury
+Fee parameters are set on-chain and can change via DAO decisions. For current values, see [StakingRouter](/contracts/staking-router) and related module parameters.
 
 ## Oracle and accounting flow
 
@@ -143,7 +141,7 @@ graph LR;
 | Approvals | `approve()` calls revert |
 | Staking | `submit()` reverts; no new ETH can be staked |
 | Withdrawals | Withdrawal requests revert |
-| Rebases | Oracle reports still process but token balances don't update |
+| Rebases | Oracle report processing and rebases may be blocked while paused |
 
 ### External shares cap effects
 
