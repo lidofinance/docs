@@ -26,6 +26,36 @@ Vaults are deployed via `VaultFactory` as beacon proxies. The deployed contract 
 The vault is a **PinnedBeaconProxy** instance, meaning it can be ossified (pinned)
 to prevent future upgrades once disconnected from VaultHub.
 
+## Staged balance
+
+Staged balance is ETH reserved for validator activations. This mechanism supports the Predeposit Guarantee (PDG) flow:
+
+1. **Staging**: When preparing validators via PDG, the depositor calls `stage()` to reserve 31 ETH per validator (the remaining 1 ETH comes from the predeposit).
+2. **Staged funds are locked**: Staged ETH cannot be withdrawn via `withdraw()` - only `availableBalance()` (unstaged funds) can be withdrawn.
+3. **Activation**: When a validator is activated via `depositFromStaged()`, the staged ETH is consumed for the beacon chain deposit.
+4. **Unstaging**: If a predeposit fails or is cancelled, `unstage()` releases the ETH back to available balance.
+
+The invariant is: every 1 ETH predeposit in PDG must be paired with 31 ETH staged in the vault for the full 32 ETH validator activation.
+
+```
+Total vault balance = availableBalance() + stagedBalance()
+```
+
+## Structs
+
+### Deposit
+
+Validator deposit data for beacon chain deposits:
+
+```solidity
+struct Deposit {
+    bytes pubkey;             // Validator public key (48 bytes)
+    bytes signature;          // BLS signature (96 bytes)
+    uint256 amount;           // Deposit amount in wei
+    bytes32 depositDataRoot;  // Deposit data root for verification
+}
+```
+
 ## View methods
 
 ### getInitializedVersion()

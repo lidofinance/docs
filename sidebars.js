@@ -101,6 +101,7 @@ module.exports = {
       items: [
         'contracts/lido-locator',
         'contracts/lido',
+        'contracts/accounting',
         'contracts/eip712-steth',
         'contracts/accounting-oracle',
         'contracts/validators-exit-bus-oracle',

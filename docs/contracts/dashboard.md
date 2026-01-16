@@ -14,6 +14,68 @@ Dashboard is the default control surface for stVaults:
 - routes mint/burn and funding operations to VaultHub
 - manages PDG policy and unguaranteed deposits
 
+Dashboard is technically optional - advanced users can interact with `StakingVault` and `VaultHub` directly, but Dashboard provides a convenient interface with granular permission controls.
+
+## Roles and permissions
+
+Dashboard uses OpenZeppelin's `AccessControl` with a two-admin model: **Vault Owner** and **Node Operator Manager**. Each can delegate specific sub-roles to other addresses.
+
+### Admin roles
+
+| Role | Description |
+|------|-------------|
+| `DEFAULT_ADMIN_ROLE` | Vault Owner admin. Can grant/revoke any role, transfer vault ownership, and perform all owner operations. |
+| `NODE_OPERATOR_MANAGER_ROLE` | Node Operator admin. Can grant/revoke node operator sub-roles and manage operator-specific settings. |
+
+### Vault Owner delegatable roles
+
+These roles can be granted by `DEFAULT_ADMIN_ROLE`:
+
+| Role | Operations |
+|------|------------|
+| `FUND_ROLE` | Supply (fund) ETH to the stVault |
+| `WITHDRAW_ROLE` | Withdraw ETH from the stVault balance |
+| `MINT_ROLE` | Mint stETH within minting capacity |
+| `BURN_ROLE` | Burn stETH to decrease liability |
+| `REBALANCE_ROLE` | Perform voluntary rebalance |
+| `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` | Pause ETH deposits to Beacon Chain |
+| `RESUME_BEACON_CHAIN_DEPOSITS_ROLE` | Resume ETH deposits to Beacon Chain |
+| `REQUEST_VALIDATOR_EXIT_ROLE` | Request validator exits |
+| `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` | Force validator withdrawals via EIP-7002 |
+| `VOLUNTARY_DISCONNECT_ROLE` | Disconnect from VaultHub |
+| `VAULT_CONFIGURATION_ROLE` | Change tier, sync tier params, update share limit |
+| `COLLECT_VAULT_ERC20_ROLE` | Recover ERC-20 tokens from vault |
+
+### Node Operator Manager delegatable roles
+
+These roles can be granted by `NODE_OPERATOR_MANAGER_ROLE`:
+
+| Role | Operations |
+|------|------------|
+| `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` | Bypass PDG and deposit directly to validators |
+| `NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE` | Prove unknown validators through PDG |
+| `NODE_OPERATOR_FEE_EXEMPT_ROLE` | Add fee exemptions to exclude value from operator fee base |
+
+## PDGPolicy
+
+The `PDGPolicy` enum controls how deposits interact with the Predeposit Guarantee system:
+
+```solidity
+enum PDGPolicy {
+    STRICT,              // All deposits require full PDG process (default)
+    ALLOW_PROVE,         // Allows proving unknown validators but not unguaranteed deposits
+    ALLOW_DEPOSIT_AND_PROVE  // Allows both unguaranteed deposits and proving unknown validators
+}
+```
+
+| Policy | Unguaranteed Deposits | Prove Unknown Validators |
+|--------|----------------------|--------------------------|
+| `STRICT` | No | No |
+| `ALLOW_PROVE` | No | Yes |
+| `ALLOW_DEPOSIT_AND_PROVE` | Yes | Yes |
+
+Set via `setPDGPolicy()` by the Vault Owner (`DEFAULT_ADMIN_ROLE`).
+
 ## View methods
 
 ### vaultConnection()

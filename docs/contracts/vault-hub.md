@@ -28,6 +28,60 @@ VaultHub is driven by reports from `LazyOracle` and vault actions routed via the
 VaultHub validates that a vault was deployed by the current VaultFactory (or a
 previous factory in the chain) before allowing connection.
 
+## Structs
+
+### VaultConnection
+
+Static parameters set when a vault connects:
+
+```solidity
+struct VaultConnection {
+    address owner;                      // Vault owner address
+    address nodeOperator;               // Node operator address
+    uint96 shareLimit;                  // Maximum shares mintable for this vault
+    uint16 reserveRatioBP;              // Reserve ratio in basis points (e.g., 5000 = 50%)
+    uint16 forcedRebalanceThresholdBP;  // Threshold below reserve ratio triggering force rebalance
+    uint16 infraFeeBP;                  // Infrastructure fee in basis points
+    uint16 liquidityFeeBP;              // Liquidity fee in basis points
+    uint16 reservationFeeBP;            // Reservation fee in basis points
+}
+```
+
+### VaultRecord
+
+Dynamic accounting state updated by oracle reports:
+
+```solidity
+struct VaultRecord {
+    uint96 liabilityShares;         // stETH shares minted against this vault
+    uint96 totalValue;              // Total value of the vault (validators + available balance)
+    int96 inOutDelta;               // Cumulative funding minus withdrawals
+    uint40 reportTimestamp;         // Timestamp of the last applied report
+    uint96 cumulativeLidoFees;      // Accumulated Lido fees
+    uint96 maxLiabilityShares;      // Maximum liability shares from oracle report
+    uint96 slashingReserve;         // Reserved value for potential slashing
+    uint8 pauseIntentOwner;         // Owner's intent to pause (0 or 1)
+    uint8 pauseIntentNO;            // Node operator's intent to pause (0 or 1)
+    bool isPendingDisconnect;       // Whether vault is queued for disconnect
+}
+```
+
+### Report
+
+Oracle report data for a vault:
+
+```solidity
+struct Report {
+    uint256 timestamp;           // Report timestamp
+    uint256 totalValue;          // Reported total value
+    int256 inOutDelta;           // Reported in/out delta
+    uint256 cumulativeLidoFees;  // Reported cumulative fees
+    uint256 liabilityShares;     // Reported liability shares
+    uint256 maxLiabilityShares;  // Reported max liability shares
+    uint256 slashingReserve;     // Reported slashing reserve
+}
+```
+
 ```mermaid
 graph LR;
   F[VaultFactory]-->V[StakingVault];
@@ -387,7 +441,7 @@ function resumeBeaconChainDeposits(address _vault) external
 
 Clears pause intent and resumes deposits if healthy.
 
-### requestValidatorExit(bytes _pubkeys)
+### requestValidatorExit(address _vault, bytes _pubkeys)
 
 ```solidity
 function requestValidatorExit(address _vault, bytes calldata _pubkeys) external
