@@ -1,10 +1,10 @@
 # OracleReportSanityChecker
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
 - [Deployed contract](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
-[`AccountingOracle`](/contracts/accounting-oracle.md), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md).
+[`AccountingOracle`](/contracts/accounting-oracle), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle).
 Due to the high impact of data provided by the Oracles on the state of the protocol, each Oracle's
 report passes a set of onchain
 [sanity checks](https://en.wikipedia.org/wiki/Sanity_check).
@@ -15,7 +15,7 @@ Besides the validation methods, the `OracleReportSanityChecker` contract contain
 used during the report validation process.
 To configure the limits values contract provides the lever methods described in the [standalone section](#lever-methods).
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Limits List
@@ -234,13 +234,13 @@ function checkSimulatedShareRate(
 - **`_postTotalShares`** — total shares after report applied
 - **`_etherLockedOnWithdrawalQueue`** — ether locked on withdrawal queue for the current oracle report
 - **`_sharesBurntDueToWithdrawals`** — shares burnt due to withdrawals finalization
-- **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via off-chain "eth_call")
+- **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via `Accounting.simulateOracleReport`)
 
 ## View Methods
 
 ### getLidoLocator()
 
-Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator.md) instance.
+Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator) instance.
 
 ```solidity
 function getLidoLocator() returns (address)
@@ -279,7 +279,7 @@ stETH balance for the `account` defined as:
         shares[account] * totalPooledEther / totalShares = shares[account] * shareRate
 ```
 
-Suppose shareRate changes when oracle reports (see `handleOracleReport`)
+Suppose shareRate changes when oracle reports (see `Accounting.handleOracleReport`)
 which means that token rebase happens:
 
 ```solidity

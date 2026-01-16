@@ -1,6 +1,6 @@
 # Burner
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/Burner.sol)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Burner.sol)
 - [Deployed Contract](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
 
 The contract provides a way for Lido protocol to burn stETH token shares as a means to finalize withdrawals,

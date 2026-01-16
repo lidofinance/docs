@@ -31,7 +31,6 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
   - HashConsensus: [`0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f`](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f)
 - OracleReportSanityChecker: [`0x80D1B1fF6E84134404abA18A628347960c38ccA7`](https://holesky.etherscan.io/address/0x80D1B1fF6E84134404abA18A628347960c38ccA7)
 - OracleDaemonConfig: [`0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7`](https://holesky.etherscan.io/address/0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7)
-- Legacy Oracle (Lido Oracle before V2, obsolete): [`0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019`](https://holesky.etherscan.io/address/0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019) (proxy)
 
 ## DAO contracts
 
@@ -47,7 +46,6 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 - Finance Repo: [`0x0df65b7c78Dc42a872010d031D3601C284D8fE71`](https://holesky.etherscan.io/address/0x0df65b7c78Dc42a872010d031D3601C284D8fE71) (proxy)
 - Agent Repo: [`0xe7b4567913AaF2bD54A26E742cec22727D8109eA`](https://holesky.etherscan.io/address/0xe7b4567913AaF2bD54A26E742cec22727D8109eA) (proxy)
 - Lido App Repo: [`0xA37fb4C41e7D30af5172618a863BBB0f9042c604`](https://holesky.etherscan.io/address/0xA37fb4C41e7D30af5172618a863BBB0f9042c604) (proxy)
-- Lido Oracle (Legacy Oracle) Repo: [`0xB3d74c319C0C792522705fFD3097f873eEc71764`](https://holesky.etherscan.io/address/0xB3d74c319C0C792522705fFD3097f873eEc71764) (proxy)
 - Node Operators Registry Repo: [`0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF`](https://holesky.etherscan.io/address/0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF) (proxy)
 - Simple DVT Repo: [`0x889dB59baf032E1dfD4fCA720e0833c24f1404C6`](https://holesky.etherscan.io/address/0x889dB59baf032E1dfD4fCA720e0833c24f1404C6) (proxy)
 - EVMScriptRegistry: [`0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0`](https://holesky.etherscan.io/address/0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0) (proxy)

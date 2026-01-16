@@ -1,371 +1,161 @@
 # Protocol levers
 
-The protocol provides a number of settings controllable by the DAO. Modifying each of them requires
-the caller to have a specific permission. After deploying the DAO, all permissions belong to either DAO `Voting` or `Agent` apps,
-which can also manage them. This means that, initially, levers can only be changed by
-the DAO voting, and other entities can be allowed to do the same only as a result of the voting.
+Lido V3 governance controls a set of configurable parameters across core pool, oracle, withdrawals, and stVaults. This page summarizes the primary on-chain levers, who can operate them, and provides concrete addresses for role holders.
 
-All existing levers are listed below, grouped by the contract.
+## Governance structure
 
-### A note on upgradeability
+| Entity | Address | Description |
+|--------|---------|-------------|
+| Aragon Voting | [`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e) | LDO token voting for protocol governance |
+| Aragon Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) | DAO execution agent; holds most admin roles |
+| Easy Track | [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea) | Optimistic governance for routine operations |
+| stVaults Committee | [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF) | Manages stVaults operations via Easy Track |
+| GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause capability |
 
-The following contracts are upgradeable by the DAO voting:
+## Upgradeability
 
-- [`LidoLocator`](/contracts/lido-locator)
-- [`Lido`](/contracts/lido)
-- [`StakingRouter`](/contracts/staking-router)
-- [`NodeOperatorsRegistry`](/contracts/node-operators-registry)
-- [`AccountingOracle`](/contracts/accounting-oracle)
-- [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle)
-- [`WithdrawalVault`](/contracts/withdrawal-vault)
-- [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
-- [`LegacyOracle`](/contracts/legacy-oracle)
+All protocol proxy admins are set to the **Lido DAO Agent** ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)). Upgrades require a successful DAO vote.
 
-Upgradeability is implemented either by the Aragon kernel and base contracts OR by the [OssifiableProxy](/contracts/ossifiable-proxy) instances.
-To upgrade an Aragon app, one needs the `dao.APP_MANAGER_ROLE` permission provided by Aragon.
-To upgrade an `OssifiableProxy` implementation, one needs to be an owner of the proxy.
-As it was said previously, both belong either to the DAO `Voting` or `Agent` apps.
+Core upgradeable contracts:
 
-All upgradeable contracts use the [Unstructured Storage pattern] in order to provide stable storage structure across upgrades.
+| Contract | Proxy Address |
+|----------|---------------|
+| [LidoLocator](/contracts/lido-locator) | [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) |
+| [Lido](/contracts/lido) | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
+| [Accounting](/contracts/accounting) | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) |
+| [AccountingOracle](/contracts/accounting-oracle) | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
+| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) |
+| [StakingRouter](/contracts/staking-router) | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) |
+| [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) | [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) |
+| [WithdrawalVault](/contracts/withdrawal-vault) | [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) |
+| [Burner](/contracts/burner) | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) |
+| [VaultHub](/contracts/vault-hub) | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) |
+| [PredepositGuarantee](/contracts/predeposit-guarantee) | [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) |
+| [OperatorGrid](/contracts/operator-grid) | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
+| [LazyOracle](/contracts/lazy-oracle) | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
 
-:::note
-Some of the contracts still contain structured storage data, hence the order of inheritance always matters.
-:::
+## Lido (core pool)
 
-[unstructured storage pattern]: https://blog.openzeppelin.com/upgradeability-using-unstructured-storage
+Key levers on the core pool contract ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)):
 
-## [Lido](/contracts/lido)
+| Lever | Mutators | Role | Holder |
+|-------|----------|------|--------|
+| Pause/Resume protocol | `stop()`, `resume()` | `PAUSE_ROLE`, `RESUME_ROLE` | DAO Agent + GateSeal |
+| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | DAO Agent |
+| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | DAO Agent |
+| Withdrawal credentials | `setWithdrawalCredentials()` | `MANAGE_WITHDRAWAL_KEY_ROLE` | DAO Agent |
 
-### Burning stETH tokens
+### Emergency pause
 
-There is a dedicated contract responsible for `stETH` tokens burning.
-The burning itself is a part of the core protocol procedures:
+The GateSeal mechanism allows emergency pausing without a full DAO vote:
 
-- deduct underlying finalized withdrawal request `stETH`, see [`Lido.handleOracleReport`](/contracts/lido#handleoraclereport)
-- penalize delinquent node operators by halving their rewards, see [Validator exits and penalties](/guides/oracle-spec/penalties)
+| GateSeal | Address | Sealable Contracts |
+|----------|---------|-------------------|
+| VEB and TWG | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | ValidatorsExitBusOracle, TriggerableWithdrawalsGateway |
+| Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721 |
+| VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee |
 
-These responsibilities are controlled by the `REQUEST_BURN_SHARES_ROLE` role which is assigned to both
-[`Lido`](/contracts/lido) and [`NodeOperatorsRegistry`](/contracts/node-operators-registry) contracts.
-This role should not be ever permanently assigned to another entities.
+GateSeal pauses are time-limited and require DAO vote to resume or extend.
 
-Apart from this, `stETH` token burning can be applied to compensate for penalties/slashing losses by the DAO decision.
-It's possible via more restrictive role `REQUEST_BURN_MY_STETH_ROLE` which is currently unassigned.
+## Accounting and oracles
 
-The key difference that despite of both roles rely on the `stETH` allowance provided to the `Burner` contract,
-the latter allows token burning only from the request originator balance.
+| Lever | Contract | Mutators | Role | Holder |
+|-------|----------|----------|------|--------|
+| Consensus settings | AccountingOracle | `setConsensusVersion()`, `setConsensusContract()` | `MANAGE_CONSENSUS_VERSION_ROLE`, `MANAGE_CONSENSUS_CONTRACT_ROLE` | DAO Agent |
+| Oracle report bounds | OracleReportSanityChecker | Various limit setters | `ALL_LIMITS_MANAGER_ROLE` | DAO Agent |
+| LazyOracle sanity | LazyOracle | `updateSanityParams()` | `UPDATE_SANITY_PARAMS_ROLE` | DAO Agent |
 
-### Pausing
+### Oracle consensus
 
-- Mutator: `stop()`
-  - Permission required: `PAUSE_ROLE`
-- Mutator: `resume()`
-  - Permission required: `RESUME_ROLE`
-- Accessor: `isStopped() returns (bool)`
+Oracle reports are submitted through HashConsensus contracts:
 
-When paused, `Lido` doesn't accept user submissions, doesn't allow user withdrawals and oracle
-report submissions. No token actions (burning, transferring, approving transfers and changing
-allowances) are allowed. The following transactions revert:
+| Oracle | HashConsensus Address |
+|--------|----------------------|
+| AccountingOracle | [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288) |
+| ValidatorsExitBusOracle | [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a) |
 
-- plain ether transfers to `Lido`;
-- calls to `submit(address)`;
-- calls to `deposit(uint256, uint256, bytes)`;
-- calls to `handleOracleReport(...)`;
-- calls to `transfer(address, uint256)`;
-- calls to `transferFrom(address, address, uint256)`;
-- calls to `transferShares(address, uint256)`;
-- calls to `transferSharesFrom(address, uint256)`;
-- calls to `approve(address, uint256)`;
-- calls to `increaseAllowance(address, uint256)`;
-- calls to `decreaseAllowance(address, uint256)`.
+## StakingRouter and modules
 
-As a consequence of the list above:
+StakingRouter ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)):
 
-- calls to `WithdrawalQueueERC721.requestWithdrawals(uint256[] calldata, address)`, and its variants;
-- calls to `wstETH.wrap(uint256)` and `wstETH.unwrap(uint256)`;
-- calls to `Burner.requestBurnShares`, `Burner.requestBurnMyStETH`, and its variants;
+| Lever | Mutators | Role | Holder |
+|-------|----------|------|--------|
+| Module registry | `addStakingModule()`, `updateStakingModule()`, `setStakingModuleStatus()` | `STAKING_MODULE_MANAGE_ROLE` | DAO Agent |
+| Module fees | `setStakingModuleFees()` | `STAKING_MODULE_MANAGE_ROLE` | DAO Agent |
 
-:::note
-External stETH/wstETH DeFi integrations are directly affected as well.
-:::
+### Active staking modules
 
-### Override deposited validators counter
+| Module | Registry Address |
+|--------|-----------------|
+| Curated (NodeOperatorsRegistry) | [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) |
+| SimpleDVT | [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) |
+| Community Staking (CSM) | [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) |
 
-- Mutator: `unsafeChangeDepositedValidators(uint256)`
-  - Permission required: `UNSAFE_CHANGE_DEPOSITED_VALIDATORS_ROLE`
+## Withdrawals
 
-The method unsafely changes deposited validator counter.
-Can be required when onboarding external validators to Lido (i.e., had deposited before and rotated their type-0x00 withdrawal credentials to Lido).
+WithdrawalQueueERC721 ([`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1)):
 
-The incorrect values might disrupt protocol operation.
+| Lever | Mutators | Role | Holder |
+|-------|----------|------|--------|
+| Pause/Resume | `pauseFor()`, `resume()` | `PAUSE_ROLE`, `RESUME_ROLE` | DAO Agent + GateSeal |
+| Bunker mode | `setBunkerMode()` | Internally managed | AccountingOracle |
 
-### Oracle report
-
-TODO: oracle reports are committee-driven
-
-### Deposit access control
-
-The `Lido.deposit` method performs an actual deposit (stake) of buffered ether to Consensus Layer
-undergoing through `StakingRouter`, its selected module, and the official Ethereum deposit contract in the end.
-
-The method can be called only by `DepositSecurityModule` since access control is a part of the deposits frontrunning vulnerability mitigation.
-
-Please see [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) for more details.
-
-### Deposit loop iteration limit
-
-Controls how many Ethereum deposits can be made in a single transaction.
-
-- The `_maxDepositsCount` parameter of the `deposit(uint256 _maxDepositsCount, uint256 _stakingModuleId, bytes _depositCalldata)` function
-- Default value: `16`
-- [Scenario test](https://github.com/lidofinance/lido-dao/blob/master/test/scenario/lido_deposit_iteration_limit.test.js)
-
-When DSM calls `depositBufferedEther`, `Lido` tries to register as many Ethereum validators
-as it can given the buffered ether amount. The limit is passed as an argument to this function and
-is needed to prevent the transaction from [failing due to the block gas limit], which is possible
-if the amount of the buffered ether becomes sufficiently large.
-
-[failing due to the block gas limit]: https://github.com/ConsenSys/smart-contract-best-practices/blob/8f99aef/docs/known_attacks.md#gas-limit-dos-on-a-contract-via-unbounded-operations
-
-### Execution layer rewards
-
-Lido implements an architecture design which was proposed in the Lido Improvement Proposal [#12](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-12.md) to collect the execution level rewards (starting from the Merge hardfork) and distribute them as part of the Lido Oracle report.
-
-These execution layer rewards are initially accumulated on the dedicated [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract and consists of priority fees and MEV.
-
-There is an additional limit to prevent drastic token rebase events.
-See the following issue: [`#405`](https://github.com/lidofinance/lido-dao/issues/405)
-
-- Mutator: `setELRewardsVault()`
-  - Permission required: `SET_EL_REWARDS_VAULT_ROLE`
-
-- Mutator: `setELRewardsWithdrawalLimit()`
-  - Permission required: `SET_EL_REWARDS_WITHDRAWAL_LIMIT_ROLE`
-
-- Accessors:
-  - `getELRewardsVault()`;
-  - `getELRewardsWithdrawalLimit()`.
-
-### Staking rate limiting
-
-Lido features a safeguard mechanism to prevent huge APR losses facing the [post-merge entry queue demand](https://blog.lido.fi/modelling-the-entry-queue-post-merge-an-analysis-of-impacts-on-lidos-socialized-model/).
-
-New staking requests could be rate-limited with a soft moving cap for the stake amount per desired period.
-
-Limit explanation scheme:
-
-```
-    * ▲ Stake limit
-    * │.....  .....   ........ ...            ....     ... Stake limit = max
-    * │      .       .        .   .   .      .    . . .
-    * │     .       .              . .  . . .      . .
-    * │            .                .  . . .
-    * │──────────────────────────────────────────────────> Time
-    * │     ^      ^          ^   ^^^  ^ ^ ^     ^^^ ^     Stake events
-```
-
-- Mutators: `resumeStaking()`, `setStakingLimit(uint256, uint256)`, `removeStakingLimit()`
-  - Permission required: `STAKING_CONTROL_ROLE`
-
-- Mutator: `pauseStaking()`
-  - Permission required: `STAKING_PAUSE_ROLE`
-
-- Accessors:
-  - `isStakingPaused()`
-  - `getCurrentStakeLimit()`
-  - `getStakeLimitFullInfo()`
-
-When staking is paused, `Lido` doesn't accept user submissions. The following transactions revert:
-
-- Plain ether transfers;
-- calls to `submit(address)`.
-
-For details, see the Lido Improvement Proposal [#14](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-14.md).
-
-## [StakingRouter](/contracts/staking-router)
-
-### Fee
-
-The total fee, in basis points (`10000` corresponding to `100%`).
-
-- Mutator: `setFee(uint16)`
-  - Permission required: `MANAGE_FEE`
-- Accessor: `getFee() returns (uint16)`
-
-The fee is taken on staking rewards and distributed between the treasury, the insurance fund, and
-node operators.
-
-### Fee distribution
-
-Controls how the fee is distributed between the treasury, the insurance fund, and node operators.
-Each fee component is in basis points; the sum of all components must add up to 1 (`10000` basis points).
-
-- Mutator: `setFeeDistribution(uint16 treasury, uint16 insurance, uint16 operators)`
-  - Permission required: `MANAGE_FEE`
-- Accessor: `getFeeDistribution() returns (uint16 treasury, uint16 insurance, uint16 operators)`
-
-### Ethereum withdrawal Credentials
-
-Credentials to withdraw ETH on the Execution Layer side
-
-- Mutator: `setWithdrawalCredentials(bytes)`
-  - Permission required: `MANAGE_WITHDRAWAL_KEY`
-- Accessor: `getWithdrawalCredentials() returns (bytes)`
-
-The protocol uses these credentials to register new Ethereum validators.
-
-## [NodeOperatorsRegistry](/contracts/node-operators-registry)
-
-### Node Operators list
-
-- Mutator: `addNodeOperator(string _name, address _rewardAddress, uint64 _stakingLimit)`
-  - Permission required: `ADD_NODE_OPERATOR_ROLE`
-- Mutator: `setNodeOperatorName(uint256 _id, string _name)`
-  - Permission required: `SET_NODE_OPERATOR_NAME_ROLE`
-- Mutator: `setNodeOperatorRewardAddress(uint256 _id, address _rewardAddress)`
-  - Permission required: `SET_NODE_OPERATOR_ADDRESS_ROLE`
-- Mutator: `setNodeOperatorStakingLimit(uint256 _id, uint64 _stakingLimit)`
-  - Permission required: `SET_NODE_OPERATOR_LIMIT_ROLE`
-
-Node Operators act as validators on the Beacon chain for the benefit of the protocol. Each
-node operator submits no more than `_stakingLimit` signing keys that will be used later
-by the protocol for registering the corresponding Ethereum validators. As oracle committee
-reports rewards on the Ethereum side, the fee is taken on these rewards, and part of that fee
-is sent to node operators’ reward addresses (`_rewardAddress`).
-
-### Deactivating a node operator
-
-- Mutator: `setNodeOperatorActive(uint256 _id, bool _active)`
-  - Permission required: `SET_NODE_OPERATOR_ACTIVE_ROLE`
-
-Misbehaving node operators can be deactivated by calling this function. The protocol skips
-deactivated operators during validator registration; also, deactivated operators don’t
-take part in fee distribution.
-
-### Managing node operator’s signing keys
-
-- Mutator: `addSigningKeys(uint256 _operator_id, uint256 _quantity, bytes _pubkeys, bytes _signatures)`
-  - Permission required: `MANAGE_SIGNING_KEYS`
-- Mutator: `removeSigningKey(uint256 _operator_id, uint256 _index)`
-  - Permission required: `MANAGE_SIGNING_KEYS`
-
-Allow to manage signing keys for the given node operator.
-
-> Signing keys can also be managed by the reward address of a signing provider by calling
-> the equivalent functions with the `OperatorBH` suffix: `addSigningKeysOperatorBH`, `removeSigningKeyOperatorBH`.
-
-### Reporting new stopped validators
-
-- Mutator: `reportStoppedValidators(uint256 _id, uint64 _stoppedIncrement)`
-  - Permission required: `REPORT_STOPPED_VALIDATORS_ROLE`
-
-Allows to report that `_stoppedIncrement` more validators of a node operator have become stopped.
-
-## [LegacyOracle](/contracts/legacy-oracle)
-
-### Lido
-
-Address of the Lido contract.
-
-- Accessor: `getLido() returns (address)`
-
-### Members list
-
-The list of oracle committee members.
-
-- Mutators: `addOracleMember(address)`, `removeOracleMember(address)`
-  - Permission required: `MANAGE_MEMBERS`
-- Accessor: `getOracleMembers() returns (address[])`
-
-### The quorum
-
-The number of exactly the same reports needed to finalize the epoch.
-
-- Mutator: `setQuorum(uint256)`
-  - Permission required: `MANAGE_QUORUM`
-- Accessor: `getQuorum() returns (uint256)`
-
-When the `quorum` number of the same reports is collected for the current epoch,
-
-- the epoch is finalized (no more reports are accepted for it),
-- the final report is pushed to the Lido,
-- statistics collected and the [sanity check][1] is evaluated,
-
-### Sanity check
-
-To make oracles less dangerous, we can limit rewards report by 0.1% increase in stake and 15%
-decrease in stake, with both values configurable by the governance in case of extremely unusual
-circumstances.
-
-- Mutators: `setAllowedBeaconBalanceAnnualRelativeIncrease(uint256)` and
-  `setAllowedBeaconBalanceRelativeDecrease(uint256)`
-  - Permission required: `SET_REPORT_BOUNDARIES`
-- Accessors: `getAllowedBeaconBalanceAnnualRelativeIncrease() returns (uint256)` and
-  `getAllowedBeaconBalanceRelativeDecrease() returns (uint256)`
-
-### Current reporting status
-
-For transparency we provide accessors to return status of the oracle daemons reporting for the
-current "[expected epoch][3]".
-
-- Accessors:
-  - `getCurrentOraclesReportStatus() returns (uint256)` - returns the current reporting bitmap,
-    representing oracles who have already pushed their version of report during the [expected][3]
-    epoch, every oracle bit corresponds to the index of the oracle in the current members list,
-  - `getCurrentReportVariantsSize() returns (uint256)` - returns the current reporting variants
-    array size,
-  - `getCurrentReportVariant(uint256 _index) returns (uint64 beaconBalance, uint32 beaconValidators, uint16 count)` - returns the current reporting array element with the given
-    index.
-
-### Expected epoch
-
-The oracle daemons may provide their reports only for the one epoch in every frame: the first
-one. The following accessor can be used to look up the current epoch that this contract expects
-reports.
-
-- Accessor: `getExpectedEpochId() returns (uint256)`.
-
-Note that any later epoch, that has already come _and_ is also the first epoch of its frame, is
-also eligible for reporting. If some oracle daemon reports it, the contract discards any results of
-this epoch and advances to the just reported one.
-
-### Version of the contract
-
-Returns the initialized version of this contract starting from 0.
-
-- Accessor: `getVersion() returns (uint256)`.
-
-### Beacon specification
-
-Sets and queries configurable beacon chain specification.
-
-- Mutator: `setBeaconSpec( uint64 _epochsPerFrame, uint64 _slotsPerEpoch, uint64 _secondsPerSlot, uint64 _genesisTime )`,
-  - Permission required: `SET_BEACON_SPEC`,
-- Accessor: `getBeaconSpec() returns (uint64 epochsPerFrame, uint64 slotsPerEpoch, uint64 secondsPerSlot, uint64 genesisTime)`.
-
-### Current epoch
-
-Returns the epoch calculated from current timestamp.
-
-- Accessor: `getCurrentEpochId() returns (uint256)`.
-
-### Supplemental epoch information
-
-Returns currently reportable epoch (the first epoch of the current frame) as well as its start and
-end times in seconds.
-
-- Accessor: `getCurrentFrame() returns (uint256 frameEpochId, uint256 frameStartTime, uint256 frameEndTime)`.
-
-### Last completed epoch
-
-Return the last epoch that has been pushed to Lido.
-
-- Accessor: `getLastCompletedEpochId() returns (uint256)`.
-
-### Supplemental rewards information
-
-Reports beacon balance and its change during the last frame.
-
-- Accessor: `getLastCompletedReportDelta() returns (uint256 postTotalPooledEther, uint256 preTotalPooledEther, uint256 timeElapsed)`.
-
-[1]: #sanity-check
-[3]: #expected-epoch
+## stVaults (VaultHub + OperatorGrid)
+
+### VaultHub
+
+VaultHub ([`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)):
+
+| Lever | Mutators | Role | Holder |
+|-------|----------|------|--------|
+| Vault connections | `connectVault()`, `updateConnection()`, `disconnect()` | `VAULT_MASTER_ROLE` | DAO Agent |
+| Bad debt handling | `socializeBadDebt()`, `internalizeBadDebt()` | `BAD_DEBT_MASTER_ROLE` | stVaults Committee (via Easy Track) |
+| Forced exits | `forceValidatorExit()` | `VALIDATOR_EXIT_ROLE` | stVaults Committee (via Easy Track) |
+| Pause/Resume | `pauseFor()`, `resume()` | `PAUSE_ROLE`, `RESUME_ROLE` | DAO Agent + GateSeal |
+
+### OperatorGrid
+
+OperatorGrid ([`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d)):
+
+| Lever | Mutators | Role | Holder |
+|-------|----------|------|--------|
+| Group registration | `registerGroup()`, `updateGroupShareLimit()` | `REGISTRY_ROLE` | stVaults Committee (via Easy Track) |
+| Tier management | `registerTiers()`, `alterTiers()` | `REGISTRY_ROLE` | stVaults Committee (via Easy Track) |
+| Vault fees | `updateVaultFees()` | `REGISTRY_ROLE` | stVaults Committee (via Easy Track) |
+| Jail status | `setVaultJailStatus()` | `REGISTRY_ROLE` | stVaults Committee (via Easy Track) |
+
+### stVaults Easy Track factories
+
+The stVaults Committee operates these via Easy Track:
+
+| Factory | Address | Purpose |
+|---------|---------|---------|
+| Register Groups | [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC) | Add node operator groups |
+| Update Groups Share Limit | [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6) | Modify group share limits |
+| Set Jail Status | [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67) | Jail/unjail vaults |
+| Update Vaults Fees | [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c) | Modify vault fee parameters |
+| Force Validator Exits | [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA) | Trigger forced validator exits |
+| Socialize Bad Debt | [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C) | Handle bad debt between vaults |
+
+## Dual Governance
+
+Lido V3 includes a Dual Governance system allowing stETH holders to veto DAO decisions:
+
+| Component | Address |
+|-----------|---------|
+| Dual Governance | [`0xC1db28B3301331277e307FDCfF8DE28242A4486E`](https://etherscan.io/address/0xC1db28B3301331277e307FDCfF8DE28242A4486E) |
+| Emergency Protected Timelock | [`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316) |
+| Veto Signaling Escrow | [`0x165813A31446a98c84E20Dda8C101BB3C8228e1c`](https://etherscan.io/address/0x165813A31446a98c84E20Dda8C101BB3C8228e1c) |
+| Emergency Activation Committee | [`0x8B7854488Fde088d686Ea672B6ba1A5242515f45`](https://etherscan.io/address/0x8B7854488Fde088d686Ea672B6ba1A5242515f45) |
+| Emergency Execution Committee | [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://etherscan.io/address/0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF) |
+
+## References
+
+- [Deployed contracts (mainnet)](/deployed-contracts)
+- [AccountingOracle](/contracts/accounting-oracle)
+- [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker)
+- [StakingRouter](/contracts/staking-router)
+- [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721)
+- [VaultHub](/contracts/vault-hub)
+- [OperatorGrid](/contracts/operator-grid)
+- [Emergency Brakes Multisigs](/multisigs/emergency-brakes)
