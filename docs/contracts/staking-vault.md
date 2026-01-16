@@ -1,9 +1,10 @@
 # StakingVault
 
 - [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/StakingVault.sol)
-- [Deployed contract](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
+- [Implementation](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
+- [Beacon](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
 
-Isolated staking position with 0x02 withdrawal credentials. Holds validator funds and supports minting stETH through VaultHub while preserving non-custodial ownership.
+Isolated staking position with 0x02 withdrawal credentials. Holds validator funds and supports minting stETH through VaultHub while preserving non-custodial ownership. Individual vaults are deployed as beacon proxies by [VaultFactory](/contracts/staking-vault-factory).
 
 ## What is StakingVault?
 
