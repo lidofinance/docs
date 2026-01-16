@@ -50,6 +50,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
   - Vault Hub: [`0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50`](https://etherscan.io/address/0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50) (impl)
 - Predeposit Guarantee: [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) (proxy)
   - Predeposit Guarantee: [`0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023`](https://etherscan.io/address/0xCC08C36BD5bb78FDcB10F35B404ada6Ffc71a023) (impl)
+    - **(proposed)** Predeposit Guarantee: [`0xE78717192C45736DF0E4be55c0219Ee7f9aDdd0D`](https://etherscan.io/address/0xE78717192C45736DF0E4be55c0219Ee7f9aDdd0D) (impl)
 - Operator Grid: [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) (proxy)
   - Operator Grid: [`0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C`](https://etherscan.io/address/0xA612E30D71d7D54aEaf4e5A21023F3F270932C2C) (impl)
 
@@ -328,15 +329,23 @@ for the rate and price feeds recommended approaches.
 
 - **Operator Grid:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
   - Register Groups (Phase 1): [`0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC`](https://etherscan.io/address/0x194A46DA1947E98c9D79af13E06Cfbee0D8610cC)
+    - **(proposed)** Register Groups (Phase 2): [`0xE73842AEbEC99Dacf2aAEec61409fD01A033f478`](https://etherscan.io/address/0xE73842AEbEC99Dacf2aAEec61409fD01A033f478)
   - Update Groups Share Limit (Phase 1): [`0x8Bdc726a3147D8187820391D7c6F9F942606aEe6`](https://etherscan.io/address/0x8Bdc726a3147D8187820391D7c6F9F942606aEe6)
+    - **(proposed)** Update Groups Share Limit (Phase 2): [`0xf23559De8ab37fF7a154384B0822dA867Cfa7Eac`](https://etherscan.io/address/0xf23559De8ab37fF7a154384B0822dA867Cfa7Eac)
   - Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
   - Alter Tiers (Phase 1): [`0xa29173C7BCf39dA48D5E404146A652d7464aee14`](https://etherscan.io/address/0xa29173C7BCf39dA48D5E404146A652d7464aee14)
+    - **(proposed)** Alter Tiers (Phase 2): [`0x73f80240ad9363d5d3C5C3626953C351cA36Bfe9`](https://etherscan.io/address/0x73f80240ad9363d5d3C5C3626953C351cA36Bfe9)
   - Set Jail Status: [`0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67`](https://etherscan.io/address/0x93F1DEE4473Ee9F42c8257C201e33a6Da30E5d67)
+    - **(proposed)** Set Jail Status: [`0x6a4f33F05E7412A11100353724Bb6a152Cf0D305`](https://etherscan.io/address/0x6a4f33F05E7412A11100353724Bb6a152Cf0D305)
   - Update Vaults Fees: [`0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c`](https://etherscan.io/address/0x5C3bDFa3E7f312d8cf72F56F2b797b026f6B471c)
+    - **(proposed)** Update Vaults Fees: [`0xDfA0bc38113B6d53c2881573FD764CEEFf468610`](https://etherscan.io/address/0xDfA0bc38113B6d53c2881573FD764CEEFf468610)
 - **Vault Hub:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/home?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
   - Force Validator Exits: [`0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA`](https://etherscan.io/address/0x6C968cD89CA358fbAf57B18e77a8973Fa869a6aA)
+    - **(proposed)** Force Validator Exits: [`0x6F5c0A5a824773E8f8285bC5aA59ea0Aab2A6400`](https://etherscan.io/address/0x6F5c0A5a824773E8f8285bC5aA59ea0Aab2A6400)
   - Socialize Bad Debt: [`0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C`](https://etherscan.io/address/0x1dF50522A1D868C12bF71747Bb6F24A18Fe6d32C)
+    - **(proposed)** Socialize Bad Debt: [`0xaf35A63a4114B7481589fDD9FDB3e35Fd65fAed7`](https://etherscan.io/address/0xaf35A63a4114B7481589fDD9FDB3e35Fd65fAed7)
 - VaultsAdapter: [`0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D`](https://etherscan.io/address/0xe2DE6d2DefF15588a71849c0429101F8ca9FB14D)
+  - **(proposed)** VaultsAdapter: [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)
 
 ## 🔐 Lido DAO Multisigs {#lido-dao-multisigs}
 
