@@ -25,7 +25,7 @@ function accountingOracle() view returns(address);
 
 ### accounting()
 
-Returns an address of the Accounting contract.
+Returns an address of the [Accounting contract](/contracts/accounting).
 
 ```sol
 function accounting() view returns(address);

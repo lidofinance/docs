@@ -12,6 +12,8 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 
 AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
 
+The report is applied by the [Accounting](/contracts/accounting) contract, which performs the core state updates and rebase calculations.
+
 ## Report cycle
 
 The oracle work is delineated by equal time periods called frames. In normal operation, oracles finalize a report in each frame (the frame duration is 225 Ethereum Consensus Layer epochs, each frame starts at ~12:00 noon UTC). Each frame has a reference slot and processing deadline. Report data is gathered by looking at the world state (both Ethereum Execution and Consensus Layers) at the moment of the frame's reference slot (including any state changes made in that slot), and must be processed before the frame's processing deadline.

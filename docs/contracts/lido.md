@@ -46,8 +46,7 @@ vault to collect priority fees and MEV rewards coming from validators of the poo
 deposit frontrunning vulnerability
 - [`AccountingOracle`](/contracts/accounting-oracle): oracle committee, which gathers
 an accounting report for the protocol
-- [`Accounting`](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol):
-applies oracle reports and distributes rewards
+- [`Accounting`](/contracts/accounting): applies oracle reports and distributes rewards
 - [`VaultHub`](/contracts/vault-hub): stVaults coordination and external share accounting
 - [`PredepositGuarantee`](/contracts/predeposit-guarantee): predeposit protection for stVaults
 - [`EIP712StETH`](/contracts/eip712-steth): ad-hoc helper to implement ERC-2612 permit
@@ -379,7 +378,7 @@ function canDeposit() view returns (bool)
 
 ## Accounting-related methods
 
-Accounting and report application are handled by the [`Accounting`](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol) contract, which is called by `AccountingOracle` and updates Lido state during the report cycle.
+Accounting and report application are handled by the [`Accounting`](/contracts/accounting) contract, which is called by `AccountingOracle` and updates Lido state during the report cycle.
 
 ### getTotalPooledEther()
 
