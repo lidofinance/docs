@@ -45,6 +45,8 @@ The Lido Vaults platform comprises the following contracts:
 - **VaultFactory**: Deploys verified (allowed to be connected to VaultHub) vault instances.
 - **Dashboard**: An optional contract that provides node operator fee accounting and a UX-friendly interface for a StakingVault.
 
+See the [stVaults contracts reference](/contracts/vault-hub) for per-contract APIs.
+
 ### 3.1 StakingVault
 
 The StakingVault contract is a 0x02-type withdrawal credentials target and a fundamental building block of the Lido Vaults platform. It represents an isolated staking position managed by a single **owner** and serviced by a single **node operator**. When connected to Lido, the vault can be used as collateral for minting stETH.

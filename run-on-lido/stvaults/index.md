@@ -58,6 +58,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 4. [Deployed Testnet Contracts](../../deployed-contracts/hoodi/)
 5. [Migrate validators to stVault through consolidation](./tech-documentation/consolidation.md)
 6. [Deposit validators through Predeposit Guarantee](./tech-documentation/pdg.md)
+7. [stVaults contracts reference](/contracts/vault-hub)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
