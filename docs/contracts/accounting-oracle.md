@@ -108,7 +108,7 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 **Withdrawals finalization decision**
 
 - `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
-- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` use `Accounting.simulateOracleReport` via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) and calculate as follows:
+- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` use the view method `Accounting.simulateOracleReport` and calculate as follows:
 
 ```solidity
 _simulatedShareRate = (postTotalPooledEther * 10**27) / postTotalShares

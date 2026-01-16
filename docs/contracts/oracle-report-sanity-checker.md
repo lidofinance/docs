@@ -234,7 +234,7 @@ function checkSimulatedShareRate(
 - **`_postTotalShares`** — total shares after report applied
 - **`_etherLockedOnWithdrawalQueue`** — ether locked on withdrawal queue for the current oracle report
 - **`_sharesBurntDueToWithdrawals`** — shares burnt due to withdrawals finalization
-- **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via off-chain "eth_call")
+- **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via `Accounting.simulateOracleReport`)
 
 ## View Methods
 
