@@ -76,6 +76,23 @@ enum PDGPolicy {
 
 Set via `setPDGPolicy()` by the Vault Owner (`DEFAULT_ADMIN_ROLE`).
 
+## Node operator fee accounting
+
+Dashboard implements a **high-water mark** approach for node operator fees:
+
+1. **Fee base tracking**: The contract tracks the vault's "settled growth" - the cumulative value increase that fees have already been calculated on.
+2. **Fee calculation**: `fee = max(currentGrowth - settledGrowth, 0) * nodeOperatorFeeBP / 10000`
+3. **Only positive growth**: Fees are only charged on new growth above the high-water mark. If the vault value decreases (e.g., due to slashing), no fees accrue until value exceeds the previous high.
+4. **Settlement**: When fees are claimed via the fee recipient, the settled growth marker advances.
+
+### Safety threshold
+
+An **abnormally high fee threshold** (1% of total value) exists as a safety mechanism. If calculated fees exceed this threshold, fee disbursement requires explicit action rather than automatic distribution.
+
+### Fee recovery
+
+The `recoverFeeLeftover()` method allows recovery of any fee calculation dust or leftover amounts to the fee recipient.
+
 ## View methods
 
 ### vaultConnection()

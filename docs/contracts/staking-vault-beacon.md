@@ -13,6 +13,22 @@ UpgradeableBeacon is a beacon proxy controller:
 - allows the owner to upgrade the implementation
 - is referenced by all `PinnedBeaconProxy` vaults created by `VaultFactory`
 
+## Ownership and upgrades
+
+The beacon is owned by the **Lido DAO** (via the Agent/Aragon governance). This means:
+
+- Only Lido DAO governance can upgrade the StakingVault implementation
+- All beacon proxy vaults automatically use the new implementation after an upgrade
+- Upgrades affect all vaults simultaneously unless they have been ossified
+
+### Ossification
+
+Individual vaults can opt out of future upgrades by calling `ossify()` on their `StakingVault`. This "pins" the vault to its current implementation, making it immune to beacon upgrades. Ossification is:
+
+- **Irreversible**: Once ossified, a vault cannot be un-ossified
+- **Only available after disconnect**: Vaults must disconnect from VaultHub before ossifying
+- **Owner-controlled**: Only the vault owner can ossify their vault
+
 ## View methods
 
 ### implementation()

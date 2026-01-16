@@ -24,6 +24,21 @@ LazyOracle is a lightweight oracle for stVaults:
 Per-vault report submissions are **permissionless**: any account can call `updateVaultData`
 with a valid Merkle proof from the latest report root.
 
+### Report freshness
+
+A vault report is considered **fresh** when:
+1. Its timestamp matches the latest global report checkpoint
+2. Less than **two days** have elapsed since that checkpoint
+
+With a stale report, the vault cannot:
+- Withdraw ETH
+- Mint stETH shares
+- Rebalance
+- Deposit to beacon chain
+- Disconnect from VaultHub
+
+This freshness requirement ensures vault operations are based on recent oracle data.
+
 ### Quarantine mechanics
 
 LazyOracle applies a quarantine buffer for sudden total value jumps that cannot be

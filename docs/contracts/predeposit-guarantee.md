@@ -18,6 +18,13 @@ PDG enables trust-minimized deposits for stVaults:
 - PDG verifies validator existence and withdrawal credentials via beacon root proofs
 - PDG unlocks guarantees once activation is proven
 
+### On-chain BLS verification
+
+Predeposit operations require valid BLS12-381 signatures verified on-chain using [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537) precompiles. This cryptographic verification ensures:
+- The predeposit is legitimate and properly signed
+- The validator will appear on the consensus layer with correct withdrawal credentials
+- Frontrunning attacks cannot substitute different validator keys
+
 ## How it works
 
 1. Guarantor tops up the node operator balance.
@@ -44,6 +51,45 @@ sequenceDiagram
 ```
 
 See the [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg) for step-by-step flows.
+
+## Structs
+
+### ValidatorStatus
+
+Status of a validator in PDG:
+
+```solidity
+struct ValidatorStatus {
+    address stakingVault;    // Vault the validator belongs to
+    address nodeOperator;    // Node operator responsible
+    uint8 status;            // Current status (0=Unknown, 1=Predeposited, 2=Proven, 3=Activated)
+}
+```
+
+### ValidatorWitness
+
+Proof data for validator verification:
+
+```solidity
+struct ValidatorWitness {
+    bytes pubkey;                  // Validator public key
+    bytes32 withdrawalCredentials; // Expected withdrawal credentials
+    uint64 validatorIndex;         // Validator index on beacon chain
+    bytes32 beaconBlockRoot;       // Beacon block root for proof
+    bytes32[] validatorProof;      // Merkle proof of validator inclusion
+}
+```
+
+### NodeOperatorBalance
+
+Node operator guarantee balance:
+
+```solidity
+struct NodeOperatorBalance {
+    uint256 total;    // Total guarantee balance
+    uint256 locked;   // Locked for pending predeposits
+}
+```
 
 ## View methods
 

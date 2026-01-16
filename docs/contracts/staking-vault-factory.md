@@ -31,8 +31,33 @@ VaultFactory exposes two creation flows, reflected in the NatSpec:
 
 ### Factory chaining
 
-The factory supports a `PREVIOUS_FACTORY` reference. This allows migration to a
-new factory while keeping previously deployed vaults eligible for connection.
+The factory supports a `PREVIOUS_FACTORY` immutable reference. This enables migration between factory versions:
+
+- VaultHub only accepts vaults deployed by the **current factory** or any **previous factory in the chain**
+- When a new factory is deployed, it references the old factory via `PREVIOUS_FACTORY`
+- This creates a linked list of valid factories, maintaining backwards compatibility
+- Previously deployed vaults remain eligible for connection without redeployment
+
+```
+NewFactory.PREVIOUS_FACTORY → OldFactory.PREVIOUS_FACTORY → ... → address(0)
+```
+
+### Connect deposit
+
+When using `createVaultWithDashboard()`, the caller must send **1 ETH** with the transaction. This ETH is escrowed by VaultHub as a connect deposit and returned when the vault disconnects.
+
+## Structs
+
+### RoleAssignment
+
+Role assignment for Dashboard initialization:
+
+```solidity
+struct RoleAssignment {
+    bytes32 role;      // Role identifier
+    address account;   // Account to grant role to
+}
+```
 
 ## View methods
 

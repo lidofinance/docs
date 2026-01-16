@@ -246,7 +246,7 @@ Triggers EL withdrawals via EIP-7002.
 function ejectValidators(bytes calldata _pubkeys, address _refundRecipient) external payable
 ```
 
-Allows node operator to force eject validators.
+Allows the node operator to force eject validators via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) triggerable withdrawals. This enables the node operator to initiate validator exits without requiring the vault owner's cooperation.
 
 ### acceptOwnership()
 

@@ -16,6 +16,87 @@ OperatorGrid governs vault risk and fee parameters:
 
 VaultHub consults OperatorGrid to validate connection parameters and minting constraints.
 
+## Key concepts
+
+### Groups
+
+A **group** represents a node operator in the OperatorGrid. Each group has:
+- A unique node operator address
+- A share limit (maximum stETH shares across all their vaults)
+- One or more tiers defining risk parameters
+
+Groups are registered via `registerGroup()` by addresses with `REGISTRY_ROLE`.
+
+### Tiers
+
+A **tier** defines risk and fee parameters for vaults:
+- **Reserve ratio**: Minimum collateralization (e.g., 50%)
+- **Forced rebalance threshold**: When to trigger force rebalance
+- **Share limit**: Maximum shares for vaults in this tier
+- **Fees**: Infrastructure, liquidity, and reservation fees
+
+### Default tier
+
+All vaults start in the **default tier** (tier ID 0), which has no specific node operator group. The default tier parameters are set during initialization and apply to all newly connected vaults until they explicitly change to a node operator's tier.
+
+### Tier changes
+
+Changing a vault's tier requires **multi-confirmation** from both parties:
+1. Vault owner requests the tier change via `changeTier()`
+2. Node operator confirms by also calling `changeTier()` with the same parameters
+3. Once both confirm within the `confirmExpiry` window, `syncTier()` applies the change
+
+This ensures both the vault owner and node operator agree to the new terms.
+
+### Jailing
+
+Vaults can be "jailed" by addresses with `REGISTRY_ROLE`. A jailed vault cannot mint new shares but can still burn shares and rebalance. This mechanism allows the protocol to restrict problematic vaults.
+
+## Structs
+
+### Group
+
+Node operator group information:
+
+```solidity
+struct Group {
+    uint256 shareLimit;      // Maximum shares across all group vaults
+    uint256 mintedShares;    // Currently minted shares
+    uint256 firstTierId;     // First tier ID for this group
+    uint256 tiersCount;      // Number of tiers
+}
+```
+
+### Tier
+
+Tier parameters:
+
+```solidity
+struct Tier {
+    uint256 shareLimit;                  // Max shares for vaults in this tier
+    uint256 reserveRatioBP;              // Reserve ratio in basis points
+    uint256 forcedRebalanceThresholdBP;  // Force rebalance threshold
+    uint256 infraFeeBP;                  // Infrastructure fee
+    uint256 liquidityFeeBP;              // Liquidity fee
+    uint256 reservationFeeBP;            // Reservation fee
+}
+```
+
+### TierParams
+
+Parameters for registering or updating tiers:
+
+```solidity
+struct TierParams {
+    uint256 shareLimit;
+    uint256 reserveRatioBP;
+    uint256 forcedRebalanceThresholdBP;
+    uint256 infraFeeBP;
+    uint256 liquidityFeeBP;
+    uint256 reservationFeeBP;
+}
+```
+
 ## View methods
 
 ### group(address _nodeOperator)
