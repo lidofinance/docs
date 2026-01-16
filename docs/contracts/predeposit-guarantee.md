@@ -251,7 +251,7 @@ Batch proof, activation, and top up.
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
+- [StakingVault](/contracts/staking-vault)
 - [VaultHub](/contracts/vault-hub)
-- [Dashboard](/contracts/dashboard.md)
+- [Dashboard](/contracts/dashboard)
 - [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg)

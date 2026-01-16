@@ -392,8 +392,8 @@ Requests a share limit change.
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
+- [StakingVault](/contracts/staking-vault)
 - [VaultHub](/contracts/vault-hub)
-- [OperatorGrid](/contracts/operator-grid.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
+- [OperatorGrid](/contracts/operator-grid)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
 - [stVaults Integration Overview](/run-on-lido/stvaults/tech-documentation/integration-overview)

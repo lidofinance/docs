@@ -15,7 +15,7 @@ This contract is a main entry point to exchange `stETH` for underlying ether dir
 It is responsible for:
 
 - managing a queue of withdrawal requests
-- committing withdrawal request finalization as a part of the [AccountingOracle](/contracts/accounting-oracle.md) report
+- committing withdrawal request finalization as a part of the [AccountingOracle](/contracts/accounting-oracle) report
 - storing `stETH` before and ether after the finalization
 - transfer reserved ether to the user upon the claim
 

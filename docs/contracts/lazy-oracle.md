@@ -191,6 +191,6 @@ Removes quarantine for a vault once issues are resolved.
 ## Related
 
 - [VaultHub](/contracts/vault-hub)
-- [OperatorGrid](/contracts/operator-grid.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
+- [OperatorGrid](/contracts/operator-grid)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
 - [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

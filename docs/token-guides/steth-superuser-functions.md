@@ -1,53 +1,64 @@
 # stETH superuser functions
 
-<!--  -->
+This guide describes the stETH control surface in Lido V3 and the roles that can change protocol behavior. It is written from first principles rather than legacy V1/V2 flows.
 
-## Superuser privileges and accounts
+## What stETH is in Lido V3
 
-StETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at [https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84). Lido DAO can change the implementation with the successful DAO vote.
+- stETH is the rebasing token that represents pooled ETH in the core Lido pool.
+- stVaults can mint stETH as **external shares** against overcollateralized collateral.
+- Rebases are driven by oracle reports applied through the `Accounting` contract.
 
-StETH can be stopped by the DAO vote. No operations changing stETH balances can be performed on the stopped contract:
+## Who controls stETH behavior
 
-1. `transfer` call reverts;
-2. No mints or burns can be performed. Note that StETH contract can mint stETH only in two cases: user deposits (tokens are minted to the depositor's address) or fee distribution (where tokens are minted in accordance to fee calculations to the addresses set in the contract — namely the DAO treasury, the insurance fund and the Node Operator's reward addresses);
-3. Users can't submit their ETH to the Lido;
-4. Oracle can't push updates on the Consensus Layer staking state;
-5. No ETH buffered in Lido can be sent to the Ethereum deposit contract;
-6. Staking withdrawals can't be performed.
+Control is governed by the DAO. Roles are assigned to DAO-owned contracts (Voting/Agent) or protocol components.
 
-## Superuser roles
+### Pause and resume
 
-TODO: Outdated `BURN_ROLE`
+- Mutators: `stop()`, `resume()` on [Lido](/contracts/lido)
+- Roles: `PAUSE_ROLE`, `RESUME_ROLE`
 
-StETH contract specifies PAUSE_ROLE (address can pause the protocol) and BURN_ROLE (address can burn stETH tokens):
+When paused, token transfers, approvals, and rebases are disabled, and core protocol entry points revert.
 
-* The `PAUSE_ROLE` assigned only to the DAO Voting contract [https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e](https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e)
-* The `BURN_ROLE` assigned to the [`Burner`](/contracts/burner) contract with additional ACL parameters effectively allowing to burn stETH tokens only from the contract own balance. Tokens could be requested to burn only by direct request from the DAO Voting.
+### Burning stETH
 
-Note that there are other roles for DAO management, but they don't affect the token actions. These roles are MANAGE_FEE (set staking fee amount), MANAGE_WITHDRAWAL_KEY (set withdrawal credentials of the protocol), MANAGE_PROTOCOL_CONTRACTS_ROLE (set oracle contract address, set DAO treasury address to send fee to, set DAO insurance address to send fee to). The roles and addresses are listed in the following independent [report](https://github.com/lidofinance/audits/?tab=readme-ov-file#10-2023-statemind-lido-roles-analysis) as of end of 2023.
+Burning is routed through [Burner](/contracts/burner) and the withdrawal finalization process.
 
-## Oracle rebasing reports
+- Roles: `REQUEST_BURN_SHARES_ROLE` and `REQUEST_BURN_MY_STETH_ROLE`
+- Used for: withdrawal finalization, penalties, and DAO-directed burns
 
-stETH is a rebasable token. Reports are produced by the `AccountingOracle` committee and applied by the `Accounting` contract, which updates Lido state and triggers the token rebase. The protocol employs distributed oracle reporting via `HashConsensus` (currently 9 oracles with a majority quorum). Sanity checks limit sudden drops in Consensus Layer balance or abnormally high rewards. Oracle contract addresses and committee membership are governed by DAO decisions and can change via vote.
+### Fees and treasury configuration
 
-## Superuser privileges decentralization
+- Mutators: protocol fee updates, treasury changes, and staking module fee splits
+- Contracts: [Lido](/contracts/lido), [StakingRouter](/contracts/staking-router)
+- Roles: `MANAGE_FEE`, `STAKING_MODULE_MANAGE_ROLE`
 
-The superuser privileges are managed by the Lido DAO's governance system. To enact any change the DAO has to have a successful vote.
+### Withdrawal credentials
 
-Oracles are: 1) limited in impact 2) distributed - there are five of them, all top-tier professional node operators.
+- Mutator: `setWithdrawalCredentials()`
+- Role: `MANAGE_WITHDRAWAL_KEY_ROLE`
 
-## Superuser actions thresholds
+### External shares cap (stVaults)
 
-The "superuser actions" with the StETH token are performed via DAO votes. The votes are managed by the Aragon voting. Voting power is proportional to the addresses' LDO token balance ([https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32](https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32)). For the voting to pass successfully, it should: 1) get at least 5% of the total LDOs to be cast "for" the vote; 2) get at least 50% of votes cast "for" the vote. The voting duration is 120 hours.
+External shares are capped to preserve core pool solvency.
 
-There are five Oracle daemons running by the Lido Node operators, with 3 of 5 needed to agree on the data they provide. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total Consensus Layer balance or rewards with higher-than-possible APY.
+- Mutator: `setMaxExternalRatioBP()` on [Lido](/contracts/lido)
+- Role: `STAKING_CONTROL_ROLE`
 
-## Superuser keys management
+## Oracle and accounting flow
 
-Token management roles belong to smart contracts, and any changes in roles must pass through the successful DAO vote.
+- `AccountingOracle` aggregates reports via `HashConsensus`.
+- `Accounting` applies the report and updates Lido state.
+- Token rebases are emitted after report application.
 
-Oracle operators are: Stakefish, Certus One, Chorus One, Staking Facilities, P2P Validator.
+See [AccountingOracle](/contracts/accounting-oracle) and [Accounting](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol) for details.
 
-## Superuser keys generation procedure
+## Operational implications
 
-There was no special keygen ceremony, as the permissions are managed by smart contracts. The votes can be cast by the EOAs and smart contracts with the voting power proportional to the addresses' LDO balance.
+- **Pausing** disables rebases and token transfers.
+- **External shares cap** limits stVault minting against Lido core liquidity.
+- **Fee configuration** affects stETH yield distribution.
+
+## Governance references
+
+- [Lido DAO Voting](https://vote.lido.fi/)
+- [Protocol levers](/guides/protocol-levers)

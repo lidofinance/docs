@@ -68,7 +68,6 @@ module.exports = {
         'guides/1inch-pool-rewards',
         'guides/early-staker-airdrop',
         'guides/jumpgates',
-        'guides/verify-lido-v2-upgrade-manual',
         'guides/verify-steth-on-optimism-upgrade-manual'
       ],
     },

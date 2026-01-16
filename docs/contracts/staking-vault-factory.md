@@ -57,7 +57,7 @@ Creates a vault + dashboard without connecting to VaultHub.
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
-- [Staking Vault Beacon](/contracts/staking-vault-beacon.md)
-- [Dashboard](/contracts/dashboard.md)
+- [StakingVault](/contracts/staking-vault)
+- [Staking Vault Beacon](/contracts/staking-vault-beacon)
+- [Dashboard](/contracts/dashboard)
 - [VaultHub](/contracts/vault-hub)

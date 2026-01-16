@@ -20,7 +20,7 @@ VaultHub is driven by reports from `LazyOracle` and vault actions routed via the
 ## How it works
 
 1. `VaultFactory` deploys a `StakingVault` + `Dashboard` pair.
-2. `Dashboard` connects the vault to VaultHub (escrows a 1 ETH connect deposit).
+2. `Dashboard` connects the vault to VaultHub, and VaultHub escrows the 1 ETH connect deposit.
 3. `LazyOracle` posts per-vault reports; VaultHub applies them to update total value and liabilities.
 4. Vault owners mint/burn stETH shares, fund/withdraw ETH, or rebalance as needed.
 5. If a vault becomes unhealthy, VaultHub restricts operations and enables force rebalancing.
@@ -469,8 +469,8 @@ VaultHub uses `AccessControl` with these key roles:
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
-- [OperatorGrid](/contracts/operator-grid.md)
-- [LazyOracle](/contracts/lazy-oracle.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
+- [StakingVault](/contracts/staking-vault)
+- [OperatorGrid](/contracts/operator-grid)
+- [LazyOracle](/contracts/lazy-oracle)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
 - [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

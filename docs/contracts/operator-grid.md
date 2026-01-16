@@ -232,6 +232,6 @@ Jails or unjails a vault.
 ## Related
 
 - [VaultHub](/contracts/vault-hub)
-- [StakingVault](/contracts/staking-vault.md)
-- [Dashboard](/contracts/dashboard.md)
+- [StakingVault](/contracts/staking-vault)
+- [Dashboard](/contracts/dashboard)
 - [stVaults Parameters and Metrics](/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics)

@@ -606,7 +606,7 @@ To ensure that the reported data is within possible values, the handler function
 
 #### OracleReportSanityChecker
 
-- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkextradataitemscountpertransaction)
+- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker#checkextradataitemscountpertransaction)
 - Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
 
 #### StakingRouter

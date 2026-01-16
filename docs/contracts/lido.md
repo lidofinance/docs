@@ -26,31 +26,31 @@ validation extensions.
 
 Other contracts are bound to the core and have the following responsibilities:
 
-- [`LidoLocator`](/contracts/lido-locator.md): protocol-wide address book which contains
+- [`LidoLocator`](/contracts/lido-locator): protocol-wide address book which contains
 references to all meaningful parts of the Lido protocol on-chain
-- [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md): a withdrawal requests
+- [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721): a withdrawal requests
 FIFO queue and a respective NFT (unstETH)
-- [`StakingRouter`](/contracts/staking-router.md): hub, which manages staking modules and
+- [`StakingRouter`](/contracts/staking-router): hub, which manages staking modules and
 distributes the stake among them
-- [`NodeOperatorsRegistry`](/contracts/node-operators-registry.md): original module,
+- [`NodeOperatorsRegistry`](/contracts/node-operators-registry): original module,
 responsible for managing the curated set of node operators
-- [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker.md): helper for
+- [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker): helper for
 validation of oracle report parameters and smoothening token rebases
-- [`Burner`](/contracts/burner.md): vault to contain `stETH` that ought to be burned on
+- [`Burner`](/contracts/burner): vault to contain `stETH` that ought to be burned on
 oracle report
-- [`WithdrawalVault`](/contracts/withdrawal-vault.md): vault to collect partial and full
+- [`WithdrawalVault`](/contracts/withdrawal-vault): vault to collect partial and full
 withdrawals coming from the Beacon Chain
-- [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault.md):
+- [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault):
 vault to collect priority fees and MEV rewards coming from validators of the pool
-- [`DepositSecurityModule`](/contracts/deposit-security-module.md): protection from
+- [`DepositSecurityModule`](/contracts/deposit-security-module): protection from
 deposit frontrunning vulnerability
-- [`AccountingOracle`](/contracts/accounting-oracle.md): oracle committee, which gathers
+- [`AccountingOracle`](/contracts/accounting-oracle): oracle committee, which gathers
 an accounting report for the protocol
 - [`Accounting`](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol):
 applies oracle reports and distributes rewards
 - [`VaultHub`](/contracts/vault-hub): stVaults coordination and external share accounting
 - [`PredepositGuarantee`](/contracts/predeposit-guarantee): predeposit protection for stVaults
-- [`EIP712StETH`](/contracts/eip712-steth.md): ad-hoc helper to implement ERC-2612 permit
+- [`EIP712StETH`](/contracts/eip712-steth): ad-hoc helper to implement ERC-2612 permit
 for Solidity 0.4.24 Lido contract
 
 ## Submit
@@ -59,18 +59,18 @@ Lido contract is a main entry point for stakers. To take part in the pool, a
 user can send some ETH to the contract address and the same amount of `stETH`
 tokens will be minted to the sender address. Submitted ether is accumulated in
 the buffer and can be passed further to
-[`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md) to fulfill withdrawal
-requests or to [`StakingRouter`](/contracts/staking-router.md) to deposit as a new
+[`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) to fulfill withdrawal
+requests or to [`StakingRouter`](/contracts/staking-router) to deposit as a new
 validator stake.
 
-To withdraw the underlying ETH back, a user may use the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md) contract or swap the token on the secondary market (it may be a cheaper and faster alternative).
+To withdraw the underlying ETH back, a user may use the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) contract or swap the token on the secondary market (it may be a cheaper and faster alternative).
 
 ## Deposit
 
 User-submitted ether is stored in the buffer and can be later used for
-withdrawals or passed further to [`StakingRouter`](/contracts/staking-router.md) to be
+withdrawals or passed further to [`StakingRouter`](/contracts/staking-router) to be
 used as validator's deposits. It happens asynchronously and uses
-[`DepositSecurityModule`](/contracts/deposit-security-module.md) as a guard to prevent
+[`DepositSecurityModule`](/contracts/deposit-security-module) as a guard to prevent
 deposit frontrunning vulnerability.
 
 ```mermaid
@@ -81,7 +81,7 @@ graph LR;
 ## Redeem
 
 The token might be redeemed for ether through the protocol using
-the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md) contract leveraging [staking withdrawals](https://ethereum.org/en/staking/withdrawals/)
+the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) contract leveraging [staking withdrawals](https://ethereum.org/en/staking/withdrawals/)
 enabled with the Shanghai/Capella (aka "Shapella") Ethereum hardfork.
 
 ## Rebase
@@ -198,18 +198,18 @@ and rebase observers.
 
 1. Memorize the pre-state that will be required for incremental updates of the
 protocol balance
-2. Validate the report data using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker.md)
-3. Calculate the amount of ether to be locked on [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md)
-and move the respective amount of shares to be burnt to [`Burner`](/contracts/burner.md)
-4. Using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker.md)
+2. Validate the report data using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker)
+3. Calculate the amount of ether to be locked on [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
+and move the respective amount of shares to be burnt to [`Burner`](/contracts/burner)
+4. Using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker)
 calculate the amounts of ether that can be withdrawn from
-[`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault.md) and
-[`WithdrawalVault`](/contracts/withdrawal-vault.md) as well as the number of shares that
-can be burnt from [`Burner`](/contracts/burner.md) to avoid the rebase that can be easily
+[`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) and
+[`WithdrawalVault`](/contracts/withdrawal-vault) as well as the number of shares that
+can be burnt from [`Burner`](/contracts/burner) to avoid the rebase that can be easily
 frontrun.
 5. Collect the calculated amounts of ether from vaults and proceed with
-withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](/contracts/withdrawal-queue-erc721.md)
-6. Burn the previously requested shares from [`Burner`](/contracts/burner.md) for
+withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](/contracts/withdrawal-queue-erc721)
+6. Burn the previously requested shares from [`Burner`](/contracts/burner) for
 withdrawals or coverage application
 7. Distribute rewards and protocol fees minting new stETH for the respective
 parties
@@ -349,7 +349,7 @@ function getStakeLimitFullInfo() view returns (
 
 Deposit buffered ether to the StakingRouter's module with the id of `_stakingModuleId`.
 
-Can be called only by [DepositSecurityModule](/contracts/deposit-security-module.md) contract.
+Can be called only by [DepositSecurityModule](/contracts/deposit-security-module) contract.
 
 ```sol
 function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositCalldata)
@@ -451,7 +451,7 @@ function getBeaconStat() view returns (
 ### receiveELRewards()
 
 A payable function for execution layer rewards.
-Can be called only by the [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault.md) contract.
+Can be called only by the [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract.
 
 ```sol
 function receiveELRewards() payable
@@ -459,7 +459,7 @@ function receiveELRewards() payable
 
 ### receiveWithdrawals()
 
-A payable function for withdrawals acquisition. Can be called only by [`WithdrawalVault`](/contracts/withdrawal-vault.md).
+A payable function for withdrawals acquisition. Can be called only by [`WithdrawalVault`](/contracts/withdrawal-vault).
 
 ```sol
 function receiveWithdrawals() payable
@@ -966,7 +966,7 @@ function eip712Domain() view returns (
 
 ### getLidoLocator()
 
-Returns the address of [LidoLocator](/contracts/lido-locator.md).
+Returns the address of [LidoLocator](/contracts/lido-locator).
 
 ```sol
 function getLidoLocator() view returns (address)

@@ -266,7 +266,7 @@ Recovers ERC-20 tokens from the vault.
 ## Related
 
 - [VaultHub](/contracts/vault-hub)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
-- [Staking Vault Beacon](/contracts/staking-vault-beacon.md)
-- [Staking Vault Factory](/contracts/staking-vault-factory.md)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
+- [Staking Vault Beacon](/contracts/staking-vault-beacon)
+- [Staking Vault Factory](/contracts/staking-vault-factory)
 - [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

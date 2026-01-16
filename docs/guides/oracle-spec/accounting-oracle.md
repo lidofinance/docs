@@ -36,7 +36,7 @@ On each report, the oracle decides how many requests to finalize and at what rat
 
 #### Available ether and share rate
 
-The Oracle report has two parts: the report of the number of validators and their total balance and the finalization of requests in the [`WithdrawalQueue`](/docs/contracts/withdrawal-queue-erc721.md). The finalization of requests requires data from the first part of the report. Therefore, to calculate this part the oracle report is simulated by `eth_call` to `Accounting.simulateOracleReport`, getting share rate and amount of ether that can be withdrawn from [Withdrawal](/docs/contracts/withdrawal-vault.md) and [Execution Layer Rewards](/docs/contracts/lido-execution-layer-rewards-vault.md) Vaults taking into account the limits.
+The Oracle report has two parts: the report of the number of validators and their total balance and the finalization of requests in the [`WithdrawalQueue`](/docs/contracts/withdrawal-queue-erc721.md). The finalization of requests requires data from the first part of the report. Therefore, to calculate this part the oracle report is simulated by calling `Accounting.simulateOracleReport`, getting share rate and amount of ether that can be withdrawn from [Withdrawal](/docs/contracts/withdrawal-vault.md) and [Execution Layer Rewards](/docs/contracts/lido-execution-layer-rewards-vault.md) Vaults taking into account the limits.
 
 The structure of the data for simulation:
 
