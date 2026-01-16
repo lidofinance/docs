@@ -47,9 +47,6 @@ The Lido Vaults platform comprises the following contracts:
 
 See the [stVaults contracts reference](/contracts/vault-hub) for per-contract APIs.
 
-:::note
-Proxy admin for stVaults-related proxy contracts is the Lido DAO Agent.
-:::
 
 ### 3.1 StakingVault
 

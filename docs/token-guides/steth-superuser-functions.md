@@ -12,6 +12,8 @@ This guide describes the stETH control surface in Lido V3 and the roles that can
 
 Control is governed by the DAO. Roles are assigned to DAO-owned contracts (Voting/Agent) or protocol components.
 
+Proxy admin for protocol proxy contracts is the Lido DAO Agent.
+
 ### Pause and resume
 
 - Mutators: `stop()`, `resume()` on [Lido](/contracts/lido)

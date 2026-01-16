@@ -16,6 +16,8 @@ Upgradeable components are managed by the DAO via Aragon or proxy admins. Core u
 - [VaultHub](/contracts/vault-hub)
 - [LazyOracle](/contracts/lazy-oracle)
 
+Proxy admin for protocol proxy contracts is the Lido DAO Agent.
+
 ## Lido (core pool)
 
 Key levers on the core pool contract:
