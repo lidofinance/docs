@@ -47,6 +47,10 @@ The Lido Vaults platform comprises the following contracts:
 
 See the [stVaults contracts reference](/contracts/vault-hub) for per-contract APIs.
 
+:::note
+Proxy admin for stVaults-related proxy contracts is the Lido DAO Agent.
+:::
+
 ### 3.1 StakingVault
 
 The StakingVault contract is a 0x02-type withdrawal credentials target and a fundamental building block of the Lido Vaults platform. It represents an isolated staking position managed by a single **owner** and serviced by a single **node operator**. When connected to Lido, the vault can be used as collateral for minting stETH.

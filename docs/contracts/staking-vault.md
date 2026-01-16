@@ -23,6 +23,33 @@ Vaults are deployed via `VaultFactory` as beacon proxies. The deployed contract 
 - The depositor role performs beacon chain deposits and staging.
 - When connected to VaultHub, deposits and withdrawals are gated by collateral rules.
 
+### Contract layout (from NatSpec)
+
+The implementation includes ASCII layout markers for constants, state, and initialization:
+
+```
+╔══════════════════════════════════════════════════╗
+║ ┌──────────────────────────────────────────────┐ ║
+║ │            CONSTANTS                         │ ║
+║ └──────────────────────────────────────────────┘ ║
+╚══════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════╗
+║ ┌──────────────────────────────────────────────┐ ║
+║ │            STATE                             │ ║
+║ └──────────────────────────────────────────────┘ ║
+╚══════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════╗
+║ ┌──────────────────────────────────────────────┐ ║
+║ │            INITIALIZATION                    │ ║
+║ └──────────────────────────────────────────────┘ ║
+╚══════════════════════════════════════════════════╝
+```
+
+The vault is a **PinnedBeaconProxy** instance, meaning it can be ossified (pinned)
+to prevent future upgrades once disconnected from VaultHub.
+
 ## View methods
 
 ### getInitializedVersion()

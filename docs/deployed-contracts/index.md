@@ -19,6 +19,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 - ⚓ Lido protocol version: [**`v3.0.0`**](https://github.com/lidofinance/core/releases/tag/v3.0.0)
   - Lido V3 version line features stVaults architecture with overcollateralized stETH minting — see [Technical Paper](/lido-v3-whitepaper)
 - ✅ Status: Active and maintained
+- 🛡️ Proxy admins: Lido DAO Agent (all proxy-based contracts)
 
 :::
 

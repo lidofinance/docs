@@ -25,6 +25,9 @@ VaultHub is driven by reports from `LazyOracle` and vault actions routed via the
 4. Vault owners mint/burn stETH shares, fund/withdraw ETH, or rebalance as needed.
 5. If a vault becomes unhealthy, VaultHub restricts operations and enables force rebalancing.
 
+VaultHub validates that a vault was deployed by the current VaultFactory (or a
+previous factory in the chain) before allowing connection.
+
 ```mermaid
 graph LR;
   F[VaultFactory]-->V[StakingVault];

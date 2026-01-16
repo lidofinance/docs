@@ -21,6 +21,46 @@ LazyOracle is a lightweight oracle for stVaults:
 3. LazyOracle validates proofs and checks reward/fee bounds.
 4. VaultHub applies the report data and updates vault health.
 
+Per-vault report submissions are **permissionless**: any account can call `updateVaultData`
+with a valid Merkle proof from the latest report root.
+
+### Quarantine mechanics
+
+LazyOracle applies a quarantine buffer for sudden total value jumps that cannot be
+verified immediately via `inOutDelta`. The NatSpec in the contract describes the
+flow as follows:
+
+```
+Time 0: Total Value = 100 ETH
+┌────────────────────────────────────┐
+│            100 ETH Active          │
+└────────────────────────────────────┘
+
+Time 1: Sudden jump of +50 ETH → start quarantine for 50 ETH
+┌────────────────────────────────────┐
+│            100 ETH Active          │
+│            50 ETH Quarantined      │
+└────────────────────────────────────┘
+
+Time 2: Another jump of +70 ETH → wait for current quarantine to expire
+┌────────────────────────────────────┐
+│            100 ETH Active          │
+│            50 ETH Quarantined      │
+│            70 ETH Quarantine Queue │
+└────────────────────────────────────┘
+
+Time 3: First quarantine expires → add 50 ETH to active value, start new quarantine for 70 ETH
+┌────────────────────────────────────┐
+│            150 ETH Active          │
+│            70 ETH Quarantined      │
+└────────────────────────────────────┘
+
+Time 4: Second quarantine expires → add 70 ETH to active value
+┌────────────────────────────────────┐
+│            220 ETH Active          │
+└────────────────────────────────────┘
+```
+
 ## View methods
 
 ### latestReportData()

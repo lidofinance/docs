@@ -13,6 +13,27 @@ VaultFactory creates new stVault instances:
 - deploys a `Dashboard` to manage the vault
 - optionally connects the vault to `VaultHub`
 
+VaultHub enforces factory-based deployments upon connection by checking that the
+vault was created by the current factory or a previous factory in the chain.
+
+## Factory flows
+
+VaultFactory exposes two creation flows, reflected in the NatSpec:
+
+1. **Create + connect** via `createVaultWithDashboard()`:
+   - deploys `StakingVault` and `Dashboard`
+   - initializes the vault with `Dashboard` as owner
+   - initializes the dashboard and immediately connects to `VaultHub`
+2. **Create without connecting** via `createVaultWithDashboardWithoutConnectingToVaultHub()`:
+   - deploys `StakingVault` and `Dashboard`
+   - initializes the vault with `Dashboard` as owner
+   - initializes the dashboard without calling `connectToVaultHub`
+
+### Factory chaining
+
+The factory supports a `PREVIOUS_FACTORY` reference. This allows migration to a
+new factory while keeping previously deployed vaults eligible for connection.
+
 ## View methods
 
 ### deployedVaults(address _vault)
