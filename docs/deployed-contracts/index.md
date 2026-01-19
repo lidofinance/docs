@@ -172,7 +172,7 @@ This page lists production contract addresses on Mainnets — including Ethereum
 
 #### 🛠️ Temporary Contracts {#temporary-contracts-csm}
 
-- TwoPhaseFrameConfigUpdate: [`0xb2B4DB1491cbe949ae85EfF01E0d3ee239f110C1`](https://etherscan.io/address/0xb2B4DB1491cbe949ae85EfF01E0d3ee239f110C1)
+- **(proposed)** TwoPhaseFrameConfigUpdate: [`0xb2B4DB1491cbe949ae85EfF01E0d3ee239f110C1`](https://etherscan.io/address/0xb2B4DB1491cbe949ae85EfF01E0d3ee239f110C1)
 
 ## 💧 Liquidity Pools {#liquidity-pools}
 
