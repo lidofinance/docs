@@ -80,10 +80,12 @@ If the widget is embedded using an `iframe`, the Earn page is **disabled** by de
 
 ### Force Allowance
 
-If you want to force the Allowance mechanism instead of Permit for EOA wallets for withdrawal requests, you can use the `forceAllowance` URL query parameter.
+If you want to force the Allowance mechanism for EOA wallets for withdrawal requests, you can use the `forceAllowance` URL query parameter.
 
-- `forceAllowance=enabled` — force the Allowance mechanism instead of Permit for withdrawal requests (EOA wallets)
-- `forceAllowance=disabled` or not set — use the Permit mechanism for withdrawal requests (default behavior)
+- `forceAllowance=enabled` — force the Allowance mechanism for withdrawal requests (EOA wallets)
+- `forceAllowance=disabled` or not set — use the default behavior for withdrawal requests
+
+> **Note:** When delegation is enabled, batching is used for smart wallets and always uses the Allowance mechanism, regardless of the `forceAllowance` parameter value.
 
 #### Example of forcing Allowance mechanism using iframe
 
