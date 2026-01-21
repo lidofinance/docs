@@ -4,10 +4,6 @@ sidebar_position: 4
 
 # 🛡️ Predeposit Guarantee
 
-:::warning
-According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is **active on the Hoodi Testnet**. However, PDG is currently **paused on Mainnet** as we are in Phase 1 (soft-launch). PDG will become available with Phase 2 (Full Launch Mode), expected in late January 2026.
-:::
-
 This user guide explains how to use the Predeposit Guarantee contract as part of the stVaults staking infrastructure.
 
 The Predeposit Guarantee (PDG) contract mitigates deposit frontrunning vulnerabilities outlined in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It disincentivizes frontrunning by having the Node Operator post an economic guarantee of honest behavior, which is proven/disproven via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788). This mechanism is distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) used by Lido Core.
@@ -37,15 +33,21 @@ Additional deposits may be made in any amount up to the validator’s remaining 
 You can use this tool for generating deposit data: [Depositor](https://github.com/tamtamchik/depositor)
 :::
 
-## Use cases
+## PDG Flows
 
 ### Full-cycle trustless path through PDG
 
 Advantages:
 
-- The PDG enables a **non-custodial depositing mechanism** by using a Node Operator's (or its guarantor's) provided ether guarantee as collateral.
-- **Separation of ether funds** between the Vault Owner and the Node Operator.
-- This approach enables spawning validators without impacting key stVault metrics: Total Value, stETH minting capacity, Health Factor, etc.
+- **Non-custodial depositing mechanism** using the Node Operator’s (or guarantor’s) provided ether guarantee as collateral.
+- **Separation of ETH funds** between the Vault Owner and the Node Operator.
+- A depositing mechanism **that does not affect key stVaults metrics** — Total Value, stETH minting capacity, or Health Factor. This means ETH can be deposited to validators through PDG even when the stETH minting capacity is fully utilized.
+
+Use cases enabled by the full-cycle trustless path through PDG:
+
+- Direct top-ups of proved validators with ETH from the stVault Balance.
+- Keys rotation even when the stETH minting capacity utilization is close to 100%.
+- Leveraged staking through lending markets using a flash loan.
 
 ![Full-cycle trustless](/img/stvaults/pdg_main_flow.png)
 
