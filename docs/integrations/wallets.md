@@ -78,21 +78,40 @@ If the widget is embedded using an `iframe`, the Earn page is **disabled** by de
 />
 ```
 
-### Force Allowance
 
-If you want to force the Allowance mechanism for EOA wallets for withdrawal requests, you can use the `forceAllowance` URL query parameter.
+### Force Allowance (EOA wallets)
 
-- `forceAllowance=enabled` — force the Allowance mechanism for withdrawal requests (EOA wallets)
-- `forceAllowance=disabled` or not set — use the default behavior for withdrawal requests
+By default, staking widget automatically selects how withdrawal requests are executed. If you need deterministic behavior, you can **force the Allowance-based flow** for **EOA (Externally Owned Account) wallets** using the `forceAllowance` URL parameter.
 
-> **Note:** When delegation is enabled, batching is used for smart wallets and always uses the Allowance mechanism, regardless of the `forceAllowance` parameter value.
+:::info
+**Allowance** refers to the standard ERC-20 approval mechanism, where a user explicitly approves a contract to spend tokens on their behalf.
+:::
 
-#### Example of forcing Allowance mechanism using iframe
+#### Options
+
+* `forceAllowance=enabled`
+  Always use the Allowance mechanism for withdrawal requests from EOA wallets.
+
+* `forceAllowance=disabled` (or not set)
+  Use the default behavior.
+
+#### Delegation (EIP-7702)
+
+:::info
+**Delegation** refers to EIP-7702–style execution, where an EOA temporarily delegates execution rights to another account or contract.
+:::
+
+When delegation is enabled, withdrawals are executed via **batched transactions** and **always use the Allowance mechanism**, regardless of the `forceAllowance` parameter.
+
+#### Example (iframe)
 
 ```html
-<iframe src="https://stake.lido.fi/?forceAllowance=enabled" title="Lido Staking App" height="500" width="100%" />
-```
-
+<iframe
+  src="https://stake.lido.fi/?forceAllowance=enabled"
+  title="Lido Staking App"
+  height="500"
+  width="100%"
+/>
 ### Interacting with Lido contract directly
 
 If none of the options above suits you, you may choose to interact with Lido directly.
