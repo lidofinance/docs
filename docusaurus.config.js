@@ -117,10 +117,6 @@ module.exports = async function createConfigAsync() {
               from: '/run-on-lido/stvaults/node-operators-identification',
             },
             {
-              to: '/run-on-lido/stvaults/operational-and-management-guides/v3-soft-launch',
-              from: '/run-on-lido/stvaults/v3-soft-launch',
-            },
-            {
               to: '/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions',
               from: '/run-on-lido/stvaults/roles-and-permissions',
             },
