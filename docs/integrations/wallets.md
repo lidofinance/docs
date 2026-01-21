@@ -112,6 +112,9 @@ When delegation is enabled, withdrawals are executed via **batched transactions*
   height="500"
   width="100%"
 />
+```
+
+
 ### Interacting with Lido contract directly
 
 If none of the options above suits you, you may choose to interact with Lido directly.
