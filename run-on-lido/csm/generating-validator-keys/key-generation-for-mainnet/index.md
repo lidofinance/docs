@@ -129,7 +129,7 @@ cd ethstaker_deposit-cli-b13dcb9-linux-amd64
 Generate keys:
 
 ```bash
-./deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address <YourWithdrawalAddress>
+./deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 ```
 
 Expected output:
@@ -176,7 +176,7 @@ pip3 install -r requirements.txt
 Generate keys:
 
 ```bash
-python -m ethstaker_deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address <YourWithdrawalAddress>
+python -m ethstaker_deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 ```
 
   </TabItem>

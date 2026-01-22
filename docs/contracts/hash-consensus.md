@@ -3,6 +3,7 @@
 - [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/HashConsensus.sol)
 - [Deployed instance for AccountingOracle](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - [Deployed instance for ValidatorsExitBusOracle](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
+- [Deployed instance for CSFeeOracle](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
 
 :::info
 It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before

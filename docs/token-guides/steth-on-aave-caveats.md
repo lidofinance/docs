@@ -10,7 +10,7 @@ There are two workarounds:
 - Have at least 1 stETH wei more than it is required to close the flashloan. In this case, the amount of stETH transferred will be equal to or 1 wei greater than the loaned amount.
 - If leaving an extra wei is somehow not an option, you should check if the amount to transfer actually matches the loaned amount beforehand. This can be done using this formula:
 ```
-    uint256 exactTransferedAmount = StETH.getPooledEthByShares(StETH.getSharesByPooledEth(amount))
+    uint256 exactTransferredAmount = StETH.getPooledEthByShares(StETH.getSharesByPooledEth(amount))
 ```
 
 ### Why does it happen?

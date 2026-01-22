@@ -20,8 +20,11 @@ This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
 Staking ether with Lido gives an equivalent amount of [stETH](#steth).
 The user's stETH balance represents the amount of ether withdrawable directly from the Lido protocol.
 
-For easier DeFi integrations, `stETH` has a non-rebasable value-accruing (non-rebasable) counterpart called ['wrapped stETH'](#wsteth)
+For easier DeFi integrations, `stETH` has a non-rebasable, value-accruing counterpart called ['wrapped stETH'](#wsteth)
 (or just `wstETH`).
+
+stETH (and therefore wstETH) can be obtained not only via direct staking in Lido Core and wrapping, but also via **Lido V3 stVaults (Staking Vaults)**: vault owners can mint `stETH` or `wstETH` backed by an stVault. **stETH minted via stVaults is the same canonical stETH token** as stETH minted via Lido Core. See [/run-on-lido/stvaults/](/run-on-lido/stvaults/) (especially the [integration overview](/run-on-lido/stvaults/tech-documentation/integration-overview)).
+
 
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
 
@@ -55,13 +58,17 @@ More in depth analysis is available [here](https://www.comp.xyz/t/franklin-dao-r
 
 There are following `wstETH/stETH` rate feeds available to use in conjunction with (w)stETH:
 
+For an up-to-date list of networks and feed addresses, see [/deployed-contracts/#price-feeds](/deployed-contracts/#price-feeds).
+
 - [Ethereum Mainnet](https://etherscan.io/address/0x94336dF517036f2Bf5c620a1BC75a73A37b7bb16#readContract)
 - [Arbitrum](https://data.chain.link/feeds/arbitrum/mainnet/wsteth-steth%20exchangerate)
 - [Optimism](https://data.chain.link/feeds/optimism/mainnet/wsteth-steth%20exchangerate)
 - [Scroll](https://data.chain.link/feeds/scroll/mainnet/wsteth-steth%20exchangerate)
 - [Base](https://data.chain.link/feeds/base/base/wsteth-steth%20exchangerate)
+- [Linea](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7)
+- [BNB Chain](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645)
 - [Polygon PoS](https://data.chain.link/feeds/polygon/mainnet/wsteth-steth)
-- [ZKSync](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
+- [zkSync Era](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
 :::note
 The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
 :::
@@ -245,6 +252,16 @@ Thus, the amount of stETH unlocked when unwrapping is different from what has be
 
 Note, that the WstETH contract includes a shortcut to convert ether to wstETH under the hood, which allows you to effectively skip the wrapping step and stake ether for wstETH directly. Keep in mind that when using the shortcut, [the staking rate limits](#staking-rate-limits) still apply.
 
+#### `wstETHReferralStaker`: stake directly into wstETH with referral
+
+If you need to stake ETH into Lido and receive `wstETH` in **one transaction** (while also providing a `referral` address), use the permissionless `wstETHReferralStaker` helper contract.
+
+::::warning
+Do not send ETH or tokens directly to `wstETHReferralStaker`. Use its payable `stakeETH(address _referral)` method.
+::::
+
+See: [`wstETHReferralStaker`](/contracts/wsteth-staker).
+
 ### Rewards accounting
 
 Since wstETH represents the holder's share in the total amount of Lido-controlled ether, rebases don't affect wstETH balances but change the wstETH price denominated in stETH.
@@ -255,45 +272,59 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 2. A rebase happens, the wstETH price goes up by 5%
 3. User unwraps 0.9803 wstETH and gets 1.0499 stETH (1 stETH = 0.9337 wstETH)
 
-### Hoodi or Sepolia wstETH for testing
+### Hoodi wstETH for testing
 
-The most recent testnet version of the Lido protocol lives on the Hoodi testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/hoodi)). Just like on mainnet, Hoodi wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Hoodi, and then calling `wrap` method on it. The corresponding amount of Hoodi stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Hoodi ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Hoodi ether to WstETH contract on Hoodi, and the corresponding amount of wstETH will be minted to your account.
+The most recent testnet version of the Lido protocol lives on the Hoodi testnet (see the full list of contracts [here](/deployed-contracts/hoodi)). Just like on mainnet, Hoodi wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Hoodi, and then calling `wrap` method on it. The corresponding amount of Hoodi stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Hoodi ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Hoodi ether to WstETH contract on Hoodi, and the corresponding amount of wstETH will be minted to your account.
 
-The minimal version of the protocol is also deployed on the Sepolia testnet ([see the full list of contracts deployed here](https://docs.lido.fi/deployed-contracts/sepolia)). The process of getting wstETH is the same as described above for Hoodi. Note that the protocol setup on Sepolia has no UIs and various services available on Hoodi and Mainnet. For instance, the in-protocol [withdrawals](/docs/contracts/withdrawal-queue-erc721.md) aren't available (paused indefinitely), please use the Hoodi testnet deployment if possible.
+::::note
+Sepolia is deprecated and no longer used for Lido token testing. Use Hoodi for testnet integrations.
+::::
 
 ### Lido Multichain
 
 #### wstETH
 
-Currently, wstETH token is [present on](/docs/deployed-contracts/index.md#lido-multichain):
+Currently, wstETH token is present on multiple networks (see [/deployed-contracts/#lido-multichain](/deployed-contracts/#lido-multichain)):
 
 - [Arbitrum](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529)
 - [Optimism](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb)
 - [Scroll](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32)
 - [Base](https://basescan.org/address/0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452)
 - [Linea](https://lineascan.build/address/0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F)
-- [ZKSync](https://docs.lido.fi/deployed-contracts/#zksync-era)
+- [zkSync Era](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867)
 - [Mantle](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83)
 - [Polygon PoS](https://polygonscan.com/token/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd)
 - [Mode](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81)
 - [Binance Smart Chain (BSC)](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C)
+- [Zircuit](https://explorer.zircuit.com/address/0xf0e673Bc224A8Ca3ff67a61605814666b1234833)
+- [Soneium](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941)
+- [Unichain](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001)
+- [Lisk](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415)
+- [Swellchain](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc)
 
 with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/cross-chain-tokens-guide.md).
 
 :::note
-Unlike on the Ethereum mainnet, wstETH for Lido Multichain is a plain ERC-20 token and cannot be unwrapped to unlock stETH on the corresponding L2 network unless handled via [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md)
+On most networks, wstETH for Lido Multichain is a bridged ERC-20 token and cannot be unwrapped locally. On networks where stETH is also available, the token design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) approach.
 :::
 
-Without the shares bookkeeping, the token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
-Use the [wstETH/stETH rate feeds](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds) listed above.
+Without the shares bookkeeping, the bridged token cannot provide the `wstETH/stETH` rate and the rewards accrued on-chain.
+Use the [wstETH/stETH rate feeds](#integration-utilities-rate-and-price-feeds) listed above.
 
-#### stETH (Optimism pilot)
+#### stETH (OP Stack networks)
 
-Effective 2024 October, stETH token has become available [on Optimism](/docs/deployed-contracts/index.md#optimism).
+stETH is available on some OP Stack networks alongside wstETH (see [/deployed-contracts/#lido-multichain](/deployed-contracts/#lido-multichain)).
 The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) architecture approach.
 
-- Token address: [`0x76A50b8c7349cCDDb7578c6627e79b5d99D24138`](https://optimistic.etherscan.io/address/0x76A50b8c7349cCDDb7578c6627e79b5d99D24138)
-- wstETH/stETH in-protocol native rate feed on Optimism: [`0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0`](https://optimistic.etherscan.io/address/0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0)
+- Optimism:
+  - Token address: [`0x76A50b8c7349cCDDb7578c6627e79b5d99D24138`](https://optimistic.etherscan.io/address/0x76A50b8c7349cCDDb7578c6627e79b5d99D24138)
+  - wstETH/stETH in-protocol native rate feed: [`0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0`](https://optimistic.etherscan.io/address/0x294ED1f214F4e0ecAE31C3Eae4F04EBB3b36C9d0)
+- Soneium:
+  - Token address: [`0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF`](https://soneium.blockscout.com/address/0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF)
+  - wstETH/stETH in-protocol native rate feed: [`0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265`](https://soneium.blockscout.com/address/0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265)
+- Unichain:
+  - Token address: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F)
+  - wstETH/stETH in-protocol native rate feed: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8)
 
 The native rate feed allows getting `wstETH/stETH` in-protocol rate delivered from the L1 side by the canonical bridge.
 
@@ -328,7 +359,7 @@ By not relying on `approve` method, you can build interfaces that will approve a
 ## Staking rate limits
 
 In order to handle the staking surge in case of some unforeseen market conditions, the Lido protocol implemented staking rate limits aimed at reducing the surge's impact on the staking queue & Lido’s socialized rewards distribution model.
-There is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much ether to the Lido staking contracts within a 24-hours timeframe. Currently, the daily staking limit is set at 150,000 ether.
+There is a sliding window limit that is parametrized with `_maxStakingLimit` and `_stakeLimitIncreasePerBlock`. This means it is only possible to submit this much ether to the Lido staking contracts within a 24-hours timeframe. The exact limit can change over time; read it on-chain via `getCurrentStakeLimit()` (or `getStakeLimitFullInfo()`).
 
 You can picture this as a health globe from Diablo 2 with a maximum of `_maxStakingLimit` and regenerating with a constant speed per block.
 When you deposit ether to the protocol, the level of health is reduced by its amount and the current limit becomes smaller and smaller.
@@ -473,7 +504,7 @@ Lido's staked tokens have been listed on major liquidity protocols:
 - On AAVE v3, multiple tokens can be borrowed against wstETH on various chains (see the list of the [markets](#sttokens-steth-and-wsteth))
 
 Robust price sources are required for listing on most money markets, with ChainLink price feeds being the industry standard.
-The default option to use is exchange [rate feeds](/guides/lido-tokens-integration-guide.md#sttokens-steth-and-wsteth) with an option to compose arbitrary feeds:
+The default option to use is exchange [rate feeds](#integration-utilities-rate-and-price-feeds) with an option to compose arbitrary feeds:
 
 ```python
 'wstETH/X price feed' = 'wstETH/stETH rate feed' × 'ETH/X price feed'

@@ -21,5 +21,6 @@ yarn-error.log*
 .yarn*
 
 # IDE
+.cursor
 .vscode
 .idea

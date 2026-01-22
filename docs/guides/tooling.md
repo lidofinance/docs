@@ -1,28 +1,40 @@
 # Tooling Overview
 
-Summary of tooling used in Lido V2: Oracle, Validator Ejector, Council Daemon, and Keys API.
+Summary of tooling used in Lido: Oracle, Validator Ejector, Council Daemon, and Keys API.
 
 ## Oracle
 
 Oracle daemon for Lido decentralized staking service.
 
-- **Version**: 6.0.1
-- **Docker image**: sha256:f7d5f06c0b5774f09d85578a42a155cbcacdc305e0c5572ed7eaa8a6769d4077, [lidofinance/oracle@sha256-f7d5f06c0b5774f09d85578a42a155cbcacdc305e0c5572ed7eaa8a6769d4077](https://hub.docker.com/layers/lidofinance/oracle/6.0.1/images/sha256-f7d5f06c0b5774f09d85578a42a155cbcacdc305e0c5572ed7eaa8a6769d4077)
-- **Commit hash**: [lidofinance/lido-oracle@54434f4](https://github.com/lidofinance/lido-oracle/commit/54434f46ab6681785451db88d03677036e4dd07b)
-- **Last update date**: 18 September, 2025
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/6.0.1)
+- **Version**: 6.0.2
+- **Docker image**: sha256:1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098, [lidofinance/oracle@sha256-1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098](https://hub.docker.com/layers/lidofinance/oracle/6.0.2/images/sha256-1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098)
+- **Commit hash**: [lidofinance/lido-oracle@1070513](https://github.com/lidofinance/lido-oracle/commit/10705137a8be0c4b9f4fb52bfdb8ece12d77cb69)
+- **Last update date**: 30 September, 2025
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/6.0.2)
 - [**Documentation**](/guides/oracle-operator-manual)
-- [**Audit Report**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6%20Audit%20Report.pdf)
+- [**Audit Report for v6**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6%20Audit%20Report.pdf)
+- [**Audit Report for v6.0.2**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6_0_2%20Audit%20Report.pdf)
+
+## Oracle V7 (AccountingOracle)
+
+- **Version**: 7.0.0
+- **Docker image**: sha256:d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60, [lidofinance/oracle@sha256-d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60](https://hub.docker.com/layers/lidofinance/oracle/7.0.0/images/sha256-d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60)
+- **Commit hash**: [lidofinance/lido-oracle@b6e546b](https://github.com/lidofinance/lido-oracle/commit/b6e546bd38e73f23fa4e3edd9502e34ec5eb62ae)
+- **Last update date**: 16 December 2025
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/7.0.0)
+- [**Documentation**](/guides/oracle-operator-manual)
+- [**Composable Security Audit Report**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
+- [**Certora Audit Report**](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
 
 ## Validator Ejector
 
 Daemon service which loads LidoOracle events for validator exits and sends out exit messages when necessary.
 
-- **Version**: 1.6.0
-- **Docker image**: sha256:6d80a57895e0a4d577dc78b187d2bbc62742259ccc1efcadff16685bda7a817e, [lidofinance/validator-ejector@sha256-6d80a57895e0a4d577dc78b187d2bbc62742259ccc1efcadff16685bda7a817e](https://hub.docker.com/layers/lidofinance/validator-ejector/1.6.0/images/sha256-6d80a57895e0a4d577dc78b187d2bbc62742259ccc1efcadff16685bda7a817e)
-- **Commit hash**: [lidofinance/validator-ejector@cae145c](https://github.com/lidofinance/validator-ejector/commit/cae145cde6e0c41726335dcbb761395fd54c26de)
-- **Last update date**: 17 April, 2024
-- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/1.6.0#readme)
+- **Version**: 1.9.0
+- **Docker image**: sha256:5346eb0c07557c567fed110c603a8cc35fe51ff1a7790922d03541c56b38da32, [lidofinance/validator-ejector@sha256-5346eb0c07557c567fed110c603a8cc35fe51ff1a7790922d03541c56b38da32](https://hub.docker.com/layers/lidofinance/validator-ejector/1.9.0/images/sha256-5346eb0c07557c567fed110c603a8cc35fe51ff1a7790922d03541c56b38da32)
+- **Commit hash**: [lidofinance/validator-ejector@28ae303](https://github.com/lidofinance/validator-ejector/commit/28ae303c3306fa9808b3bcfb8ec6a8ab6af06d02)
+- **Last update date**: 21 Aug, 2025
+- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/1.9.0#readme)
 - [**Documentation**](/guides/validator-ejector-guide)
 
 ## Council daemon

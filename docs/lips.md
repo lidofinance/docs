@@ -10,7 +10,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 |------------|-------|--------|----------------|
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
 
-## Proposed
+## Implemented
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
@@ -18,11 +18,6 @@ More details on the contribution process and LIPs statuses can be found [here](h
 | [31](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-31.md) | Expanding stETH liquidity layer with over-collateralized minting | Alexei Potapkin, Eugene Mamin, Eugene Pshenichnyy, Max Merkulov | [Link](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665) |
 | [30](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md) | Triggerable Withdrawals Framework | Raman Siamionau, Evgeniy Pirogov | [Link](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299) |
 | [29](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-29.md) | Community Staking Module v2 | Dmitry Gusakov, Sergey Khomutinin, Dmitry Chernukhin, Vladimir Gorkavenko | [Link](https://research.lido.fi/t/community-staking-module/5917) |
-
-## Implemented
-
-| LIP&nbsp;# | Title | Author | Discussions&#8209;to |
-|------------|-------|--------|----------------|
 | [28](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-28.md) | Dual Governance | Sam Kozin, Eugene Pshenichnyy, Victor Suzdalev, Sacha Saint-Leger, Bogdan Kovtun, Hasu, Isidoros Passadis, Vasiliy Shapovalov | [Link](https://research.lido.fi/t/lip-28-dual-governance/10032) |
 | [27](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-27.md) | Ensuring Compatibility with Ethereum’s Pectra Upgrade | George Avsetsin | [Link](https://research.lido.fi/t/lip-27-ensuring-compatibility-with-ethereum-s-pectra-upgrade/9444) |
 | [26](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-26.md) | Community Staking Module | Dmitry Gusakov, Sergey Khomutinin, Dmitry Chernukhin, Vladimir Gorkovenko | [Link](https://research.lido.fi/t/community-staking-module/5917) |

@@ -5,19 +5,21 @@
 **Address:** [`0x12a43b049A7D330cB8aEAB5113032D18AE9a9030`](https://app.safe.global/settings/setup?safe=eth:0x12a43b049A7D330cB8aEAB5113032D18AE9a9030)
 
 **Purpose of the multisig:**
-The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances. 
-Multisig enables the reception of LDO and stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+The LEGO Committee utilizes this multisig to make grants: sending dedicated grants directly to recipients & funding committee members’ personal grant allowances.
+The multisig enables the receipt of LDO and other allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
 **Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreicjxt3e7rshzokkerhpieprxnoqs7hnkucblcc7jayolmjpc55b7u)
 
 **Forum topics:**\
 [Project: Lido Ecosystem Grants Organization](https://research.lido.fi/t/project-lido-ecosystem-grants-organization/406)\
-[Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)
+[Proposal to continue LEGO for Q1 2022](https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/)\
+[Lido Ecosystem Grants Organization (LEGO) — Framework Update 1 October 2025](https://research.lido.fi/t/lido-ecosystem-grants-organization-lego-framework-update-1-october-2025/10836)
 
 **Snapshots:**\
 [Continue LEGO for year 2](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd9d13bb5c9a2be4a17d75b007a16ae3f1b799af4b33717e646a8aa11da19992e)\
 [Proposal to Diversify LEGO budget for Q4 22 and moving further (restart)](https://snapshot.org/#/lido-snapshot.eth/proposal/0xeeadc3b5bfb4565cca611499c2c39e37e84bab8ad63b4f6a74d73b4151b0e791)\
-[LEGO: Proposal to replace Tim Beiko with Eric Siu and update council members rotation rules](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2acd7e052fc5ac2513509f5023975451f69fd488628577fedf369c3da97bef6a)
+[LEGO: Proposal to replace Tim Beiko with Eric Siu and update council members rotation rules](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2acd7e052fc5ac2513509f5023975451f69fd488628577fedf369c3da97bef6a)\
+[Lido Ecosystem Grants Organization (LEGO) — Framework Update 1 October 2025](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0xc87e56b48594d0a5560a959ac32252f86464966a5a9d6ea86ef189d842d9328a)
 
 **Aragon:**\
 [Omnibus vote #147 (items 4,5)](https://vote.lido.fi/vote/147)
@@ -36,15 +38,15 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **List of signers:**
 
 | Name | Address | Verification | Public verification | Adding proposal |
-| --- | --- | -- | -- | --- |
+| -- | --- | -- | -- | -- |
 | Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
 | Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
 | kadmil | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
-| skozin | 0x2CAE3a4D4c513026Ecc6af94A4BA89Df31c8cEA3 | https://etherscan.io/verifySig/17853 | https://twitter.com/_skozin/status/1655873413833998336 | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | Florian | 0xb3F9998BD84cE884CaFF8f0D803c0EDbb6fEC37C | - | - | https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/2 |
 | kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | vshvsh | 0x4A7489a3e94eFc8f4C4ee266ED297d3031f123A7 | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
-| Eric Siu  | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363 | https://warpcast.com/randomishwalk/0x7b35f539 | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2 |
+| Eric Siu | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363 | https://warpcast.com/randomishwalk/0x7b35f539 | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2 |
+| zuzu_eeka | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297048 | https://x.com/zuzu_eeka/status/1994316105997746385 | https://research.lido.fi/t/lido-ecosystem-grants-organization-lego-framework-update-1-october-2025/10836/11 |
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
@@ -61,7 +63,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
 
 **Snapshot:**\
-[Proposal to adopt Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
+[Tiered Rewards Share Program: A Sustainable Approach to stETH Growth](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)\
+[Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
 
 **Aragon:**\
 [Omnibus vote #162](https://vote.lido.fi/vote/162)
@@ -113,13 +116,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 |
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1602229253696790528 |
 | eliasimos | 0x4981a4775983e947b12d0982021bea8697175f4a | Sig hash: 0x67291ff9224b8ebfd217ff00d5f1eefceacdd1fe2916b0b1a2157169d813ac9c099ce5d926c2b16252abc89fc7df21d1efa07e1e0b1d7497f454ff340920d23e01 | https://twitter.com/eliasimos/status/1602924642645282816?s=20&t=_dSkjtTQhkyjM2kVdpEZbA |
-| yorickdowne | 0xeCbb058Fc429941124a2b8d0984354c3132F536f | https://etherscan.io/verifySig/12686 | https://twitter.com/yorickdowne/status/1601284004631941120?s=20&t=Qv2CBYDSEtNaWBIdQtKvYQ |
 | michaelsprou | 0x6B29132ea388a308578c1d3Be068D0e4fc9915a2 | https://gist.github.com/michaelsproul/677cf9abb2789e61973662868f8bd29d | https://twitter.com/sproulM_/status/1602519592026382337 |
 | philknows | 0x0ef5c6Ab0C44b2b042606215530437809eFE54c8 | https://etherscan.io/verifySig/12760 | https://twitter.com/philngo_/status/1602781428114411520?s=20&t=Q2XjlHIwayyTdVNoKQshig |
 | Dharmendra | 0x2d0669db84f11a9ead41e57ce2f242d92111a58f | https://etherscan.io/verifySig/17652 | https://twitter.com/DharmendraKari3/status/1653844633921916931?s=20 |
+| Sven | 0x215b5f40b6507d8398a23af4d92a1aeeb6457901 | https://etherscan.io/verifySig/279163 | https://x.com/SvenBrekelmans/status/1961034505671561229 |
+| Mario | 0xBC621E0fAd141CD1b14f34f7954695E6C3322472 | https://etherscan.io/verifySig/279564 | https://x.com/Mario782674/status/1963207911531843615 |
 
 ## 2.4 Token Reward Program (TRP) Association Multisig
 
@@ -131,9 +134,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Quorum:** 4/7
 
-**Forum topic:** [Lido DAO Token Rewards Plan (TRP)](https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833)
+**Forum topics:**\
+[Lido DAO Token Rewards Plan (TRP)](https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833)\
+[Transfer TRP to Lido Labs Foundation and Amend TRP Terms](https://research.lido.fi/t/transfer-trp-to-lido-labs-foundation-and-amend-trp-terms/10647)
 
-**Snapshot:** [Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)
+**Snapshots:**\
+[Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)\
+[Transfer TRP to Lido Labs Foundation and Amend TRP Terms](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x16ecb51631d67213d44629444fcc6275bc2abe4d7e955bebaf15c60a42cba471)
 
 **Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
 
@@ -148,13 +155,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| kadmil | 0x4ce07bbcd6c8a6331e95d23b61cbedf0111db179 | https://etherscan.io/verifySig/14399 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/16 |
 | Alex_L | 0xF3d5Fdb50154B1b3047F311485780Baa1D770492 | https://etherscan.io/verifySig/14259 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/9 |
-| skozin | 0xD516fce5737388b126d550B5a5CAf53bcBF73895 | https://etherscan.io/verifySig/14303 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/14 |
 | adcv | 0x5157CeE5ee585A8331C936e838591FaeBf9123D4 | https://etherscan.io/verifySig/14301 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/13 |
 | irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/14300 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/12 |
 | dgusakov | 0x806cAC2126F2a74ba04D712bA64Bd0792FE811d5 | https://etherscan.io/verifySig/14263 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/10 |
 | George | 0xAF0e81325a05a9F123907983F3F1a48864947127 | https://etherscan.io/verifySig/14296 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/11 |
+| Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/1989274615194227170 |
+| Elena_S | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/296381 | https://x.com/Elen0sh/status/1989387508875219258 |
 
 ## 2.5 Treasury Management Committee
 
@@ -168,13 +175,16 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Forum topics:**\
 [Proposal to approve Lido DAO Treasury Management Principles and authorize the formation of a Treasury Management Committee](https://research.lido.fi/t/proposal-to-approve-lido-dao-treasury-management-principles-and-authorize-the-formation-of-a-treasury-management-committee/4279/40)\
-[Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)
+[Stonks: Treasury Swaps via Optimistic Governance](https://research.lido.fi/t/lido-stonks-treasury-swaps-via-optimistic-governance/6860)\
+[Conversion of Treasury Stablecoins into sUSDS or TMMFs](https://research.lido.fi/t/tmc-6-convert-dao-treasury-stablecoins-into-susds-and-update-config-on-easy-track-and-aragon-finance-accordingly/10868)
 
 **Snapshot:**\
-[Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)
+[Voting for the approval of the creation of Treasury Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xac31f800288c68e32d1eb3cea7a525022faae3eb3bf805d1b3d248cda5375a13)\
+[Conversion of Treasury Stablecoins into sUSDS or TMMFs](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x4dd947f5e73377b074fd393148b377558179f22ea923d584dd3c718f3bab0687)
 
 **Aragon:**\
-[Omnibus vote #173](https://vote.lido.fi/vote/173)
+[Omnibus vote #173](https://vote.lido.fi/vote/173)\
+[Omnibus vote #195](https://vote.lido.fi/vote/195)
 
 **Easy Track contracts and roles:**
 
@@ -187,15 +197,15 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| karpatkey | 0x7d4FDba7d1b22834eA75B5E45e4110Bf56E690f1 | https://etherscan.io/tx/0x675609e65d19fe0e18d340381e5203d2744607ff0646ef24a81653d1403eb9ab | https://twitter.com/karpatkey/status/1648722691862429699 |
-| marcbcs | 0x98308b6dA79B47D15e9438CB66831563649Dbd94 | https://etherscan.io/verifySig/17088 | https://twitter.com/silhcet/status/1648638734294994946?s=20 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| Name        | Address | Verification | Public verification |
+|-------------| --- | --- | --- |
+| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
-| sabrychiaa | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
-| Mol_Eliza | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
-| kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
+| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
+| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
+| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
+| zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582 |
+| 0xasot | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309 |
 
 ## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
@@ -232,9 +242,10 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 | --- | --- | --- | --- |
 | zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/14255 | https://twitter.com/zuzu_eeka/status/1625030303453442049 |
 | Raman | 0x56aAaF3e07507C3f2554c4087b0f3ECC61F78a9e | Sig hash: 0x8555fbae4fee1b4adedc05d20525c097c29d75df13470a5f4cd0e2db98575b5e5a89d7b477e43d7ee5315448ab73861b4b87c61cd46e1e77e404bc8e105a5fa100 | https://twitter.com/RSiamionau/status/1623708249236156417?s=20&t=y-o2_ey7po8qeejNd2KmBQ |
-| skozin | 0x2CAE3a4D4c513026Ecc6af94A4BA89Df31c8cEA3 | https://etherscan.io/verifySig/17853 | https://twitter.com/_skozin/status/1655873413833998336 |
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1587788184410267649 |
-| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
+| Kate_Alekseeva | 0xB2cB98A7764b01CB628e87455b3E8f46DC40987E | https://etherscan.io/verifySig/296760 | https://x.com/KateAleksseeva/status/1991798186563055871 |
+| chasing.rainbows | 0x00517B8D167a50Bb07e282cea7b2f9273055d30C | https://etherscan.io/verifySig/297387 | https://x.com/chsngrnbows/status/1996227779436712075 |
+
 
 ## 2.7 Simple DVT Module Committee
 
@@ -319,7 +330,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Name       | Address | Verification | Public verification |
 |------------| --- | --- | --- |
 | shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| McNut      | 0xc7a8DE05264442A318189f2bd160d2830902C8CD | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086452812349441?s=20 |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
@@ -422,7 +433,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
@@ -450,7 +461,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
@@ -475,7 +486,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
@@ -501,7 +512,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| McNut | 0xc7a8de05264442a318189f2bd160d2830902c8cd | Sig hash: 0xcb4ea5657307ca2a22b8ec283f6c83c33b1c4b09108a3ae0f3718cdac819adfe3ff003f583d51f89e495055517ed084f9b9ec3740cac0ba5407888d91374bb951c | https://twitter.com/damcnuta/status/1641086451478585353?s=20 |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
@@ -525,10 +536,12 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
 
 **Snapshot:**\
-[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)
+[Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)\
+[CSM v2 Final Rollout](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xc3f92bcdf8926cfa7528ca6a979c0fdce1e4d0cfaaa72dd6410a76a2e1e55766)
 
 **Aragon:**\
-[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)
+[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
+[Omnibus vote #192 (items 1.34-1.59)](https://vote.lido.fi/vote/192) (upgrade to CSM v2)
 
 **Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
@@ -541,7 +554,7 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 | Contract name                         | Contract address                                                                                                        | Multisig role |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
 | Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
-| CS GateSeal                           | [`0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0`](https://etherscan.io/address/0x16Dbd4B85a448bE564f1742d5c8cCdD2bB3185D0) | sealing_committee |
+| CS GateSeal                           | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | sealing_committee |
 
 
 **List of signers:**
@@ -588,27 +601,28 @@ A Committee without multisig.
 **Quorum:** 4/4
 
 **Forum topics:**\
-[Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)
+[Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
 
 **Snapshot:**\
-[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)
+[Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)
 
 **List of committee members:**
 
 | Name | Role |
 | --- | --- |
-| shardyaco | Protocol Relations |
-| kovalgek | Tech |
-| EvgeniyEmelyanov | Product |
+| vtrush | QA |
+| arwer13 | Tech |
+| Mariya_Muzyko | Product |
 | nikita.p | DAO Ops |
-
 
 ## 2.12 Lido Labs BORG Foundation
 
 **Address:** [`0x95B521B4F55a447DB89f6a27f951713fC2035f3F`](https://app.safe.global/settings/setup?safe=eth:0x95B521B4F55a447DB89f6a27f951713fC2035f3F)
 
-**Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget. 
-Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+**Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget.
+The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
 **Original signers list:** [link](https://ipfs.io/ipfs/QmQnaVbozzBwnskfGbZqKWsckkEWN9QZqT8uqrJNUQysJ6)
 
@@ -658,8 +672,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Address:** [`0x55897893c19e4B0c52731a3b7C689eC417005Ad6`](https://app.safe.global/settings/setup?safe=eth:0x55897893c19e4B0c52731a3b7C689eC417005Ad6)
 
-**Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget. 
-Multisig enables the reception of stablecoins (listed in the AllowedTokensRegistry, use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to see the list) from the Lido DAO Treasury by Easy Track.
+**Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget.
+The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
 **Original signers list:** [link](https://ipfs.io/ipfs/QmfCmQEcv1qsWAv8qhZcHtydPYU6RENzwU4CfmXo5rud3E)
 
@@ -774,11 +788,9 @@ Additionally, the committee also includes consulting participant, which abstain 
 
 **Address:** [`0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF`](https://app.safe.global/home?safe=eth:0xC7792b3F2B399bB0EdF53fECDceCeB97FBEB18AF)
 
-**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emegency governance while emergency mode is active.
+**Purpose of the multisig:** This committee has the exclusive right to execute scheduled proposals while emergency mode is active and the one-off and time-limited right to reset the governance of `EmergencyProtectedTimelock` to emergency governance while emergency mode is active.
 
-**Original signers list:** [link](https://ipfs.io/ipfs/QmYGSShK4z2abbcrDRihZ7fyLUqRKvHxnLpDrGsobFMv1L)
-
-This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is stricted to 5 of 7
+This committee has the same list of participants as Dual Governance Emergency Activation Committee, but the quorum is restricted to 5 of 7
 
 **Quorum:** 5/7
 
@@ -853,14 +865,14 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Contracts and Roles:**
 
-###### Dual Governance :[`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
+###### Dual Governance :[`0xC1db28B3301331277e307FDCfF8DE28242A4486E`](https://etherscan.io/address/0xC1db28B3301331277e307FDCfF8DE28242A4486E)
 * tiebreakerCommittee
 
 ### 2.15.4.1 Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
 
 **Address:** [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Original signers list:** [link](https://ipfs.io/ipfs/QmeKc1qWZc5gYcdsoergoc7iCTtAKnNk6VxJ2d7m8dzNJk)
 
@@ -882,7 +894,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951`](https://etherscan.io/address/0x3D3ba54D54bbFF40F2Dfa2A8e27bD4dE3dab2951)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Original signers list:** [link](https://ipfs.io/ipfs/QmUtgmTmvsPzRUtWQCbVNNnB3DtUhiDa9Dxwos3bKs55kR)
 
@@ -904,7 +916,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **Address:** [`0xDBfa0B8A15a503f25224fcA5F84a3853230A715C`](https://etherscan.io/address/0xDBfa0B8A15a503f25224fcA5F84a3853230A715C)
 
-**Purpose of the multisig:** This committee is part of Dual Governance Tibreaker Committee. It could vote for Core Tiebreaker committee action as participant 
+**Purpose of the multisig:** This committee is part of the Dual Governance Tibreaker Committee. It could vote for the Core Tiebreaker committee action as a participant.
 
 **Original signers list:** [link](https://ipfs.io/ipfs/QmdqsKzsUt1kDTPUtFVUWQHjyxpFuBne828qbKAEMpVEfZ)
 
@@ -923,3 +935,71 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 | Morten Nansen | 0xfcd02c040cea45dc6cec3e24f1d3946fce7077b0 | https://etherscan.io/verifySig/273439 | https://x.com/mrfylkesnes/status/1925095334797308243 |
 | DSRV | 0xD7cABE01709c7E36e9D1fb3248A19b525578a1Fc | https://etherscan.io/verifySig/273446 | https://x.com/hyungkyu_hqueue/status/1925152842907807861 |
 | P2P | 0x8ed4dfd3A610CCF1FB45e797bf5D8e0f93084F22 | https://etherscan.io/verifySig/273444 | https://x.com/P2Pvalidator/status/1925197289389261218 |
+
+## 2.16 stVaults Committee
+
+**Address:** [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/settings/setup?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF)
+
+**Purpose of the multisig:** The committee is established to ensure protocol security and resilience, and enable stake growth and DAO fee efficiency under the stVault risk framework.
+Committee's multisig is designated to configure stVaults and/or Node Operator Tiers, within the confines of the Easy Track optimistic governance process: set the reserve ratio for specific tiers or vaults, define the default and custom tier grids for node operators, set DAO fee values for specific vaults and for tiers within a given node operator’s grid, manage bad debt compensation  between vaults/tiers in complex cases like mass slashing.
+
+**Quorum:** 4/7
+
+**Snapshot:** [Establish the stVaults Committee](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0e8b53944051321d2cedf8881b546427bc6a22c9fe16f7d150af62fd837ff7da)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | https://research.lido.fi/t/stvaults-committee-proposal/10608/9 |
+| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | https://research.lido.fi/t/stvaults-committee-proposal/10608/14 |
+| Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | https://research.lido.fi/t/stvaults-committee-proposal/10608/10 |
+| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | https://research.lido.fi/t/stvaults-committee-proposal/10608/8 |
+| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
+| mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | https://research.lido.fi/t/stvaults-committee-proposal/10608/11 |
+| AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | https://research.lido.fi/t/stvaults-committee-proposal/10608/12 |
+
+## 2.17 Bridging Security Committee
+
+A Committee without multisig.
+
+**Purpose of the Committee:** The committee is established to act as a counterbalance and a safeguard on behalf of the DAO, ensuring that bridge-related agreements protect the long-term integrity of the protocol.
+
+**Quorum:** 4/4
+
+**Forum topics:**\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
+
+**Snapshot:**\
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)
+
+**List of committee members:**
+
+| Name | Role |
+| --- | --- |
+| TheDZhon | Tech |
+| tamtamchik | Tech |
+| psirex | Tech |
+| zuzu_eeka | DAO Ops |
+
+## 2.18 Safe Harbor Management Committee
+
+**Address:** [`0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd`](https://app.safe.global/settings/setup?safe=eth:0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd)
+
+**Purpose of the multisig:** A short-lived, DAO-mandated working group established solely to manage the [Safe Harbor](https://docs.lido.fi/security/safeharbor) Agreement Details during the audit and rollout, ensuring changes to the allowlist are aligned with DAO intent. This committee will maintain the list by making necessary additions and updates to the set of contracts in scope for Safe Harbor until ownership is handed over to Lido DAO governance. The committee will not manage or custody any funds.
+
+**Quorum:** 4/5
+
+**Snapshot:** [Adopt The SEAL Safe Harbor Agreement](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0188ab77d59b11ce589d88c350093faffdb07b3a9c9ba4d8af12755d4b2178c0)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| TheDZhon | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/297455 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/9 |
+| tamtamchik | 0x9777af8c6727d57f74f7d381ad47eb4a65f042ff | https://etherscan.io/verifySig/297408 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/6 |
+| n0guest | 0x235750Acd5F02A88be3cBF96BB9635DAeB22B203 | https://etherscan.io/verifySig/297452 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/8 |
+| Nikita_K | 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/297389 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/4 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/297421 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/7 |
+
+**Lifespan**: The committee will be dissolved immediately once ownership is transferred to the Aragon Voting or Safe Harbor is decommissioned, followed by a notification on the Research Forum.

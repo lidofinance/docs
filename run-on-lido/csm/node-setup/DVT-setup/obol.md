@@ -29,7 +29,7 @@ Before creating a cluster:
 ## 1. Preparing Your Environment
 Obol's client is named Charon, we will need this to use this to distribute keys and perform the actions as a group.
 
-In this guide we will use a multi-container Docker setup that includes execution client, consensus client, MEV-Boost and the Charon client. Steps to use Obol with other integrations (e.g. Dappnode) differs in the instalation of Charon, but are largely the same afterwards.
+In this guide we will use a multi-container Docker setup that includes execution client, consensus client, MEV-Boost and the Charon client. Steps to use Obol with other integrations (e.g. Dappnode) differs in the installation of Charon, but are largely the same afterwards.
 
 1. Clone the Charon client repository and set up the environment:
 ```
