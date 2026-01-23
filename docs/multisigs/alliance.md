@@ -1,6 +1,6 @@
 # Alliance
 
-## 5.1. Lido Alliance BORG Operational
+## 3.1. Lido Alliance BORG Operational
 
 **Address:** [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 
@@ -8,7 +8,7 @@
 The Lido Alliance BORG Foundation utilizes this multisig to hold and manage the Lido Alliance BORG’s operational budget. 
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
-**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
+**Initial list of signers (as of Aug 22, 2024):** [link](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
 
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
@@ -42,13 +42,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
-## 5.2 Lido Alliance BORG Allies/Partners
+## 3.2 Lido Alliance BORG Allies/Partners
 
 **Address:** [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
 
 **Purpose of the multisig:** The multisig is used to hold all tokens contributed by Lido Allies.
 
-**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreiczu2tjmbsmz33up6qqnvkpmuewnu2lvocxigpyotousvaxsokql4)
+**Initial list of signers (as of Aug 22, 2024):** [link](https://lido.mypinata.cloud/ipfs/bafkreiczu2tjmbsmz33up6qqnvkpmuewnu2lvocxigpyotousvaxsokql4)
 
 **Quorum:** 4/7
 
@@ -75,13 +75,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Aleksandr_Lukin | 0x1EAF931aabbB02Ca8A416040cF5b35C73Fff2A8a | https://etherscan.io/verifySig/257034 | https://twitter.com/alexanderlukin9/status/1828449516950892650 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
-## 5.3. Lido Alliance BORG Drop
+## 3.3. Lido Alliance BORG Drop
 
 **Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 **Purpose of the multisig:** The multisig is used to receive and hold Drop's token contribution in accordance to the [snapshot](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b).
 
-**Original signers list:** [link](https://lido.mypinata.cloud/ipfs/bafkreicgvjh5rrepfnlkjom5npn2gyejqxvzoop2fqgnmp5yuugc5drw5q)
+**Initial list of signers:** [link](https://lido.mypinata.cloud/ipfs/bafkreicgvjh5rrepfnlkjom5npn2gyejqxvzoop2fqgnmp5yuugc5drw5q)
 
 **Quorum:** 4/7
 
