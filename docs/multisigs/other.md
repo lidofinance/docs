@@ -6,7 +6,7 @@
 
 **Purpose of the multisig:** the multisig is intended to receive and distribute grants from the LEGO Committee multisig for the Lido Community Lifeguards Initiative operations.
 
-**Initial list of signers (as of Mar 17, 2025):** [link](https://lido.mypinata.cloud/ipfs/bafkreiaoz2ihxq2bxa3r6hkcwz4c6m3dfyac7xoy3pjgwiextm2piguimm)
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreiaoz2ihxq2bxa3r6hkcwz4c6m3dfyac7xoy3pjgwiextm2piguimm)
 
 **Quorum:** 3/5
 
