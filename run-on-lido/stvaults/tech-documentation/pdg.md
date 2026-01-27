@@ -39,7 +39,7 @@ You can use this tool for generating deposit data: [Depositor](https://github.co
 
 Advantages:
 
-- **Non-custodial depositing mechanism** using the Node Operator’s (or guarantor’s) provided ether guarantee as collateral.
+- **Non-custodial depositing mechanism** using the Node Operator’s (or guarantor’s) provided ETH guarantee as collateral.
 - **Separation of ETH funds** between the Vault Owner and the Node Operator.
 - A depositing mechanism **that does not affect key stVaults metrics** — Total Value, stETH minting capacity, or Health Factor. This means ETH can be deposited to validators through PDG even when the stETH minting capacity is fully utilized.
 
