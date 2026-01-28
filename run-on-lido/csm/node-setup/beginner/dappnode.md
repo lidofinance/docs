@@ -36,7 +36,7 @@ You’ll manage Dappnode via its web UI. To access it remotely, set up a VPN:
 
 ### Setting up the Full Node
 
-With your VPN active, visit [http://my.dappnode/](http://my.dappnode/) → **Stakers** tab. Then select your network (Mainnet or Hoodi), pick execution & consensus clients, enable Web3signer, and choose MEV-Boost relays from [the list of Lido-vetted relays](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=d255247c822c409f99c498aeb6a4e51d).
+With your VPN active, visit [http://my.dappnode/](http://my.dappnode/) → **Stakers** tab. Then select your network (Mainnet or Hoodi), pick execution & consensus clients, enable Web3signer, and choose MEV-Boost relays. Learn more about [CSM relay requirements](/run-on-lido/csm/troubleshooting/mev-install#dappnode).
 
 ![Chain syncing on Dashboard](/img/csm-guide/dappnode-1.png)
 

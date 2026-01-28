@@ -105,7 +105,7 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    </Tabs>
 
    :::warning
-   Ensure you use the service name with the `-mev` suffix (e.g., `lighthouse-beacon-mev`, `prysm-beacon-mev`, `teku-beacon-mev`) to enable MEV, which is required for running CSM validators.
+   Ensure you use the service name with the `-mev` suffix (e.g., `lighthouse-beacon-mev`, `prysm-beacon-mev`, `teku-beacon-mev`) to enable MEV, which is required for running CSM validators. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#ethereum-on-arm).
    :::
 
 3. **Start MEV Boost**:

@@ -15,6 +15,10 @@ import TabItem from '@theme/TabItem';
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/wTxhkr_eDa4?si=1vHZfSK5QMipt31O" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
+:::warning
+For Testnet setups, replace all Holesky references with Hoodi.
+:::
+
 ### Install Sedge
 
 Go to the [Sedge docs](https://docs.sedge.nethermind.io/) and run the installation command:
@@ -49,6 +53,8 @@ Follow the terminal UI prompts to:
 4. Set **validator grace period** to `1` and **graffiti** to anything of your liking, like `lidoiscool`.
 5. Use default **Checkpoint Sync** and **No** for **expose all ports**.
 6. Choose **Create** for **JWT Source** and **yes** for the monitoring stack.
+
+The MEV-Boost service is configured with designated relays. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#sedge).
 
 ### Generate & Import Validator Keys
 

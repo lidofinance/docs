@@ -49,13 +49,13 @@ Just ensure you never use the same validator keys on two different setups.
 
 If you need to migrate keys from one setup to another, follow these simple steps:
 
-1. Copy validator key stores from the source machine to the air-gapped device (USB flash or new machine that is not currently connected to the network)
-2. Remove the keys from the source machine. Always delete the keystores and any cached versions of it on your old device or VMs when doing migration
-3. Wait for at least 1 hour and double-check that the keys are deleted and that no attestations have been performed from the validator that you are migrating. **Do not worry. Being offline for 1 hour will not affect your CSM rewards**
-4. Import key stores on the new machine
+1. Copy validator key stores from the source machine to the air-gapped device (USB flash or new machine that is not currently connected to the network).
+2. Remove the keys from the source machine. Always delete the keystores and any cached versions of it on your old device or VMs when doing migration.
+3. Wait for at least 1 hour and double-check that the keys are deleted and that no attestations have been performed from the validator that you are migrating. **Do not worry. Being offline for 1 hour will not affect your CSM rewards**.
+4. Import key stores on the new machine.
 5. It is recommended to import the slashing protection database of your existing validator keys into a new validator client when performing client or hardware migrations.
-6. Start the new setup
-7. Check that your validator is now submitting attestations again
+6. Start the new setup.
+7. Check that your validator is now submitting attestations again.
 
 ### Forced key migration
 
