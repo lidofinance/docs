@@ -20,7 +20,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 :::
 
-## 🏛️ Core Protocol
+## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
 - Lido Locator: [`0x751a4aa1a29bc0c0e587aa04c3eabf0797f9b1a4`](https://hoodi.etherscan.io/address/0x751a4aa1a29bc0c0e587aa04c3eabf0797f9b1a4) (impl)
@@ -45,7 +45,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 - Predeposit Guarantee: [`0xa5F55f3402beA2B14AE15Dae1b6811457D43581d`](https://hoodi.etherscan.io/address/0xa5F55f3402beA2B14AE15Dae1b6811457D43581d) (proxy)
 - Operator Grid: [`0x501e678182bB5dF3f733281521D3f3D1aDe69917`](https://hoodi.etherscan.io/address/0x501e678182bB5dF3f733281521D3f3D1aDe69917) (proxy)
 
-### 🔨 stVaults Factory Stack
+### 🔨 stVaults Factory Stack {#stvaults-factory-stack}
 
 - Staking Vault Factory: [`0x7Ba269a03eeD86f2f54CB04CA3b4b7626636Df4E`](https://hoodi.etherscan.io/address/0x7Ba269a03eeD86f2f54CB04CA3b4b7626636Df4E)
 - Staking Vault Beacon: [`0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e`](https://hoodi.etherscan.io/address/0xb3e6a8B6A752d3bb905A1B3Ef12bbdeE77E8160e)
@@ -54,7 +54,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 - Dashboard Implementation: [`0x38131D5548Be57A34937521fe427a23f49e1e2d4`](https://hoodi.etherscan.io/address/0x38131D5548Be57A34937521fe427a23f49e1e2d4)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
-## 🔮 Oracle Contracts
+## 🔮 Oracle Contracts {#oracle-contracts}
 
 - Accounting Oracle:
   - AccountingOracle: [`0xcb883B1bD0a41512b42D2dB267F2A2cd919FB216`](https://hoodi.etherscan.io/address/0xcb883B1bD0a41512b42D2dB267F2A2cd919FB216) (proxy)
@@ -68,7 +68,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 - OracleDaemonConfig: [`0x2a833402e3F46fFC1ecAb3598c599147a78731a9`](https://hoodi.etherscan.io/address/0x2a833402e3F46fFC1ecAb3598c599147a78731a9)
 - Lazy Oracle: [`0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`](https://hoodi.etherscan.io/address/0xf41491C79C30e8f4862d3F4A5b790171adB8e04A) (proxy)
 
-## 🗳️ DAO & Aragon Apps
+## 🗳️ DAO & Aragon Apps {#dao-contracts}
 
 - Lido DAO (Kernel): [`0xA48DF029Fd2e5FCECB3886c5c2F60e3625A1E87d`](https://hoodi.etherscan.io/address/0xA48DF029Fd2e5FCECB3886c5c2F60e3625A1E87d) (proxy)
 - LDO token: [`0xEf2573966D009CcEA0Fc74451dee2193564198dc`](https://hoodi.etherscan.io/address/0xEf2573966D009CcEA0Fc74451dee2193564198dc)
@@ -95,7 +95,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 - GateSeal (Withdrawal Queue): [`0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D`](https://hoodi.etherscan.io/address/0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D)
 - GateSeal (Vaulthub and PredepositGuarantee): [`0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32`](https://hoodi.etherscan.io/address/0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32)
 
-### 🧬 Dual Governance
+### 🧬 Dual Governance {#dual-governance}
 
 - Emergency Protected Timelock: [`0x0A5E22782C0Bd4AddF10D771f0bF0406B038282d`](https://hoodi.etherscan.io/address/0x0A5E22782C0Bd4AddF10D771f0bF0406B038282d)
   - Emergency activation committee: [`0xA678c29cbFde2C74aF15C7724EE4b1527A50D45B`](https://hoodi.etherscan.io/address/0xA678c29cbFde2C74aF15C7724EE4b1527A50D45B)
@@ -114,7 +114,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
   - Developers Sub Committee 2: [`0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794`](https://hoodi.etherscan.io/address/0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794)
   - Developers Sub Committee 3: [`0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d`](https://hoodi.etherscan.io/address/0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d)
 
-## 📊 Data Bus
+## 📊 Data Bus {#data-bus}
 
 - DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 
@@ -126,24 +126,24 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 - Token Rate Notifier: [`0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D`](https://hoodi.etherscan.io/address/0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D)
 
-## 🧩 Staking Modules
+## 🧩 Staking Modules {#staking-modules}
 
-### Curated Module
+### 🛡️ Curated Module
 
 - Node Operators Registry: [`0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5`](https://hoodi.etherscan.io/address/0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5) (proxy)
 - Node Operators Registry: [`0x95F00b016bB31b7182D96D25074684518246E42a`](https://hoodi.etherscan.io/address/0x95F00b016bB31b7182D96D25074684518246E42a) (impl)
 
-### Simple DVT Module
+### 🧩 Simple DVT Module
 
 - Node Operators Registry: [`0x0B5236BECA68004DB89434462DfC3BB074d2c830`](https://hoodi.etherscan.io/address/0x0B5236BECA68004DB89434462DfC3BB074d2c830) (proxy)
 - Node Operators Registry: [`0x95F00b016bB31b7182D96D25074684518246E42a`](https://hoodi.etherscan.io/address/0x95F00b016bB31b7182D96D25074684518246E42a) (impl)
 
-### Sandbox Module
+### 🧪 Sandbox Module
 
 - Node Operators Registry: [`0x682E94d2630846a503BDeE8b6810DF71C9806891`](https://hoodi.etherscan.io/address/0x682E94d2630846a503BDeE8b6810DF71C9806891) (proxy)
 - Node Operators Registry: [`0x95F00b016bB31b7182D96D25074684518246E42a`](https://hoodi.etherscan.io/address/0x95F00b016bB31b7182D96D25074684518246E42a) (impl)
 
-### Community Staking Module
+### 🤝 Community Staking Module
 
 - Entry Gates:
   - PermissionlessGate: [`0x5553077102322689876A6AdFd48D75014c28acfb`](https://hoodi.etherscan.io/address/0x5553077102322689876A6AdFd48D75014c28acfb)
@@ -173,12 +173,12 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 ==TODO==
 -->
 
-## ⚡ Easy Track
+## ⚡ Easy Track {#easy-track}
 
 - EasyTrack: [`0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a`](https://hoodi.etherscan.io/address/0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a)
 - EVMScriptExecutor: [`0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`](https://hoodi.etherscan.io/address/0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E)
 
-### Easy Track factories for staking modules
+### 🧩 Easy Track factories for staking modules {#easy-track-factories-for-staking-modules}
 
 - **Curated Node Operators staking module** (registry: [`0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5`](https://hoodi.etherscan.io/address/0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5))
   - IncreaseNodeOperatorStakingLimit: [`0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323`](https://hoodi.etherscan.io/address/0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323)
@@ -197,7 +197,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
   - ChangeNodeOperatorManagers: [`0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9`](https://hoodi.etherscan.io/address/0x8a437cd5685e270cDDb347eeEfEbD22109Fa42a9)
   - SDVTSubmitExitRequestHashes: [`0xAa3D6A8B52447F272c1E8FAaA06EA06658bd95E2`](https://hoodi.etherscan.io/address/0xAa3D6A8B52447F272c1E8FAaA06EA06658bd95E2)
 
-### Easy Track Factories for Token Transfers
+### 💰 Easy Track Factories for Token Transfers {#easy-track-factories-for-token-transfers}
 
 - **Sandbox stETH** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AllowedRecipientsRegistry: [`0x7E33f2192c2cEC339493B9193110BC0510d6CBD2`](https://hoodi.etherscan.io/address/0x7E33f2192c2cEC339493B9193110BC0510d6CBD2)
@@ -216,14 +216,14 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
   - BokkyPooBah's DateTime Library: [`0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f`](https://hoodi.etherscan.io/address/0xd1df0cf660d531fad9eaabd3e7b4e8881e28ae2f)
   - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40db7e8047c487bd8359289272c717ea3c34d1d3)
 
-### Easy Track Factories for MEV-Boost Relay Allowed List Management
+### 🤖 Easy Track Factories for MEV-Boost Relay Allowed List Management {#easy-track-factories-for-mev-boost-relay-allowed-list-management}
 
 - **MEV-Boost Relay Allowed List** (trusted caller is QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
   - AddMEVBoostRelays: [`0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af`](https://hoodi.etherscan.io/address/0xF02DbeaA1Bbc90226CaB995db4C190DbE25983af)
   - RemoveMEVBoostRelays: [`0x7FCc2901C6C3D62784cB178B14d44445B038f736`](https://hoodi.etherscan.io/address/0x7FCc2901C6C3D62784cB178B14d44445B038f736)
   - EditMEVBoostRelay: [`0x27A99a7104190DdA297B222104A6C70A4Ca5A17e`](https://hoodi.etherscan.io/address/0x27A99a7104190DdA297B222104A6C70A4Ca5A17e)
 
-### Easy Track Factories for stVaults Management
+### 🔨 Easy Track Factories for stVaults Management {#easy-track-factories-for-stvaults-management}
 
 - **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
   - Register Groups: [`0x6e8D6e23A46AD61967CDD5C220B67645F46A2D7c`](https://hoodi.etherscan.io/address/0x6e8D6e23A46AD61967CDD5C220B67645F46A2D7c)
@@ -238,14 +238,14 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
   - Set Liability Shares Target: [`0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40`](https://hoodi.etherscan.io/address/0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40)
 - VaultsAdapter: [`0x854CF0D7446Faa7AdDFE557cc8aa9FA9b7017910`](https://hoodi.etherscan.io/address/0x854CF0D7446Faa7AdDFE557cc8aa9FA9b7017910)
 
-## 💵 Testnet Stablecoins
+## 💵 Testnet Stablecoins {#testnet-stablecoins}
 
 - USDC: [`0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36`](https://hoodi.etherscan.io/address/0x97bb030B93faF4684eAC76bA0bf3be5ec7140F36)
 - USDT: [`0x64f1904d1b419c6889BDf3238e31A138E258eA68`](https://hoodi.etherscan.io/address/0x64f1904d1b419c6889BDf3238e31A138E258eA68)
 - DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
 - sUSDS: [`0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70`](https://hoodi.etherscan.io/address/0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70)
 
-## 🔐 Testnet DAO Multisigs
+## 🔐 Testnet DAO Multisigs {#testnet-dao-multisigs}
 
 - QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
 
@@ -256,7 +256,7 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 stETH obtained on this network **has no real ETH backing** and **cannot** be bridged, swapped or redeemed on mainnet. Please do _not_ send mainnet tokens here – they will be lost forever.
 :::
 
-## 📚 Archived Deployments
+## 📚 Archived Deployments {#archived-deployments}
 
 <details>
 <summary>Lido V3: Testnet-2 (archive)</summary>
@@ -316,11 +316,11 @@ stETH obtained on this network **has no real ETH backing** and **cannot** be bri
 
 ### 🧩 Staking Modules (Archive)
 
-#### Curated Module (Archive)
+#### 🛡️ Curated Module (Archive)
 
 - Node Operators Registry: [`0xa38DE5874E81561F29cfa4436111852CC34aC1e1`](https://hoodi.etherscan.io/address/0xa38DE5874E81561F29cfa4436111852CC34aC1e1) (proxy)
 
-#### Simple DVT Module (Archive)
+#### 🧩 Simple DVT Module (Archive)
 
 - Simple DVT: [`0x0718D0A48D9B3Fd6E03B10249655539DB4Bf63c4`](https://hoodi.etherscan.io/address/0x0718D0A48D9B3Fd6E03B10249655539DB4Bf63c4) (proxy)
 
