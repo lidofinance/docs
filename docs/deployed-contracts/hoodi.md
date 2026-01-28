@@ -118,7 +118,11 @@ Hoodi is the main operational and actively maintained Lido protocol testnet.
 
 - DataBus on Chiado (Testnet): [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis-chiado.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 
-## 🔄 Post Token Rebase Receiver
+## 🤖 Bots {#bots}
+
+- Depositor bot: [`0x9b186cE78Ddd6fF098b4a533Dd17a139e1FFeD76`](https://hoodi.etherscan.io/address/0x9b186cE78Ddd6fF098b4a533Dd17a139e1FFeD76)
+
+## 🔄 Post Token Rebase Receiver {#post-token-rebase-receiver}
 
 - Token Rate Notifier: [`0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D`](https://hoodi.etherscan.io/address/0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D)
 
