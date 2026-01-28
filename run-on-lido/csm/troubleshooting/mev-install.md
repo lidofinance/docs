@@ -13,7 +13,18 @@ If you're looking for a complete set up of your node head to the [Node Setup](/r
 
 ## Dappnode
 
-To install or modify MEV Boost in your Dappnode setup, head to the [**Stakers tab**](http://my.dappnode/stakers/ethereum) and choose relays from [the list of Lido-vetted relays](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=d255247c822c409f99c498aeb6a4e51d).
+To install or modify MEV Boost in your Dappnode setup, head to the [**Stakers tab**](http://my.dappnode/stakers/ethereum) and choose relays from:
+
+- **Mainnet:** [Mainnet Active + Vetted tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=8e5d1f1276b0493caea8a2aa1517ed65)
+   
+- **Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
+
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list
+:::
 
 ![Dappnode Stakers tab](/img/csm-guide/mev-1.png)
 
@@ -40,6 +51,13 @@ Add MEV Relays using the -relay flag and ending with a " \" for each line. Refer
 - **Mainnet:** [Mainnet Active + Vetted tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=8e5d1f1276b0493caea8a2aa1517ed65)
    
 - **Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
+
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list
+:::
 
 **Mainnet Example:**
 
@@ -77,6 +95,19 @@ WantedBy=multi-user.target
 ## Stereum
 Whether through manual or 1-click setup, the Stereum launcher installs MEV Boost by default. Follow these steps if you want to change your relays or install MEV Boost.
 
+Refer to the allowed MEV relays according to your network (Mainnet vs Testnet):
+
+- **Mainnet:** [Mainnet Active + Vetted tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=8e5d1f1276b0493caea8a2aa1517ed65)
+   
+- **Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
+
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list
+:::
+
 1. If you have MEV Boost installed but you want to change the relays, open MEV Boost in Stereum by clicking on the logo at the top as shown in the image below.
 
 ![Stereum MEV Boost 1](/img/csm-guide/mev-2.png)
@@ -98,6 +129,13 @@ To add the service alone, you can run `sedge generate mev-boost --relay-urls=` f
 - **Mainnet:** [Mainnet Active + Vetted tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=8e5d1f1276b0493caea8a2aa1517ed65)
    
 - **Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
+
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list
+:::
 
 **Mainnet Example:**
 
@@ -123,8 +161,44 @@ sudo nano ~/eth-docker/.env
 
    **- Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
 
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list
+:::
+
 **Mainnet Example:**
 
 ```
 MEV_RELAYS=https://0xb0b07cd0abef743db4260b0ed50619cf6ad4d82064cb4fbec9d3ec530f7c5e6793d9f286c4e082c0244ffb9f2658fe88@bloxroute.regulated.blxrbdn.com,https://0xa7ab7a996c8584251c8f925da3170bdfd6ebc75d50f5ddc4050a6fdc77f2a3b5fce2cc750d0865e05d7228af97d69561@agnostic-relay.net,https://0x8b5d2e73e2a3a55c6c87b8b6eb92e0149a125c852751db1422fa951e42a09b82c142c3ea98d0d9930b056a3bc9896b8f@bloxroute.max-profit.blxrbdn.com,https://0xac6e77dfe25ecd6110b8e780608cce0dab71fdd5ebea22a16c0205200f2f8e2e3ad3b71d3499c54ad14d6c21b41a37ae@boost-relay.flashbots.net,https://0xa15b52576bcbf1072f4a011c0f99f9fb6c66f3e1ff321f11f461d15e31b1cb359caa092c71bbded0bae5b5ea401aab7e@aestus.live,https://0xa1559ace749633b997cb3fdacffb890aeebdb0f5a3b6aaa7eeeaf1a38af0a8fe88b9e4b1f61f236d2e64d95733327a62@relay.ultrasound.money
 ```
+
+## Systemd
+
+Refer to the allowed MEV relays according to your network (Mainnet vs Testnet):
+
+   **- Mainnet:** [Mainnet Active + Vetted tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=8e5d1f1276b0493caea8a2aa1517ed65)
+
+   **- Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
+
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list
+:::
+
+## Ethereum on ARM
+
+Refer to the allowed MEV relays according to your network (Mainnet vs Testnet):
+
+   **- Mainnet:** [Mainnet Active + Vetted tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=8e5d1f1276b0493caea8a2aa1517ed65)
+
+   **- Testnet:** [Hoodi tab](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=1bdbf633d0c980ddb2c3000ce3c37311)
+
+:::info
+For mainnet operators:
+- You can only use relays marked with "must use some" and "may use" tags
+- You must use at least some relays marked with "must use some" tag
+- Do not use any relays that are not in the list

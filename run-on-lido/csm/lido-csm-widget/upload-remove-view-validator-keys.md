@@ -5,7 +5,7 @@ sidebar_position: 0
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 📥 Upload/Remove/View validator keys
+# 📥 Upload/Delete/View validator keys
 
 ## Deposit queue
 
@@ -19,11 +19,11 @@ The way validators are deposited in the CSM is through a FIFO (first in, first o
 
 ## Upload keys
 
-* Go to the Lido CSM Widget and connect your wallet. **MAKE SURE THAT YOU ARE ON THE CORRECT NETWORK (i.e., Hoodi or Mainnet).**
+* Go to the Lido CSM Widget and connect your wallet. **MAKE SURE THAT YOU ARE ON THE CORRECT NETWORK (i.e., Mainnet or Hoodi).**
   * **Mainnet:** [https://csm.lido.fi/](https://csm.lido.fi/)
   * **Hoodi:** [https://csm.testnet.fi/](https://csm.testnet.fi/)
 * Select `Become a Node Operator` and then `Create a Node Operator`
-* On the Lido CSM Widget, upload your `deposit data file` and select the corresponding bond type (ETH, stETH, wstETH), and provide the desired bond amount
+* On the Lido CSM Widget, upload your `deposit data file` and select the corresponding bond type (ETH, stETH, or wstETH), and provide the desired bond amount. Learn more about [bond requirements](https://operatorportal.lido.fi/modules/community-staking-module#block-2d1c307d95fc4f8ab7c32b7584f795cf).
 
 ![Upload keys](/img/csm-guide/keys-2.png)
 
@@ -72,7 +72,8 @@ A fee is confiscated from the Node Operator's bond on each deleted key to cover 
 More details [here](https://operatorportal.lido.fi/modules/community-staking-module#block-051fceb673504a489e541e3615984084).
 
 * Go to the Lido CSM Widget, under the **KEYS** header
-* Select the **REMOVE** tab on the widget
+* Select the **DELETE** tab on the widget
+* Press the **Remove** button
 * Select the keys you want to remove
 
 ![Remove keys](/img/csm-guide/keys-3.png)
@@ -80,8 +81,23 @@ More details [here](https://operatorportal.lido.fi/modules/community-staking-mod
 Once your keys have been removed, the associated bond amounts that you deposited earlier will be available for claiming under the **Bond & Rewards** tab. You can learn more at the [Rewards & Bonds page of this guide](/run-on-lido/csm/lido-csm-widget/rewards-and-bonds).
 
 :::warning
-Keys that have been deposited cannot be deleted and can only be exited from the Consensus Layer.
+Keys that have been deposited cannot be removed and can only be manually exited from the Consensus Layer or rejected via triggerable withdrawal requests to the protocol.
 :::
+
+## Eject keys
+
+CSM now supports ejecting validators via Execution Layer Triggerable Withdrawals (which requires an ejection fee).
+
+However, this is not the standard exit flow. This method should be used only as a last resort, such as when you have lost access to your validator keys.
+
+* Go to the Lido CSM Widget, under the **KEYS** header
+* Select the **DELETE** tab on the widget
+* Press the **Eject** button
+* Select the keys you want to eject
+
+![Eject keys](/img/csm-guide/keys-5.png)
+
+Once the validators are fully exited, you can claim your locked bond.
 
 ## View keys
 
