@@ -1,97 +1,136 @@
 # VaultHub
 
 - [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/VaultHub.sol)
-- [Deployed contract](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)
+- [Deployed contract](https://etherscan.io/address/0x5eccbf9eb4f16de4e09a40e1e71a66f9993ec5b8)
 
-Central registry and accounting engine for stVaults. It connects vaults to Lido Core, enforces reserve constraints, and mints/burns stETH against per-vault collateral.
+Central registry and lifecycle manager for StakingVaults connected to the Lido protocol. Handles vault connection, minting/burning stETH against vault collateral, rebalancing, fee settlement, and bad debt management.
 
 ## What is VaultHub?
 
-VaultHub coordinates stVault lifecycle and accounting:
+VaultHub is the coordinator between individual StakingVaults and the Lido protocol:
 
-- connects and disconnects `StakingVault` instances
-- tracks each vault's total value, liabilities, reserve ratio, and obligations
-- mints and burns stETH shares for vaults based on reported health
-- enforces force-rebalance when collateralization drops
-- settles Lido fees and bad debt events
+- **Connection management**: vaults connect permissionlessly (with OperatorGrid limits) and can disconnect voluntarily or be disconnected by governance
+- **Minting/burning**: vault owners mint stETH shares against their vault's total value as collateral
+- **Rebalancing**: when vaults become unhealthy, anyone can trigger forced rebalancing using available vault funds
+- **Fee settlement**: Lido fees accrue on vaults and can be settled permissionlessly
+- **Bad debt handling**: governance can socialize bad debt to other vaults or internalize it as protocol loss
+- **Beacon chain deposits auto-pause**: deposits are automatically paused when vaults have outstanding obligations
 
-VaultHub is driven by reports from `LazyOracle` and vault actions routed via the `Dashboard` or direct calls.
+## Inherits
 
-## How it works
+- [PausableUntilWithRoles](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/utils/PausableUntilWithRoles.sol)
 
-1. `VaultFactory` deploys a `StakingVault` + `Dashboard` pair.
-2. `Dashboard` connects the vault to VaultHub, and VaultHub escrows the 1 ETH connect deposit.
-3. `LazyOracle` posts per-vault reports; VaultHub applies them to update total value and liabilities.
-4. Vault owners mint/burn stETH shares, fund/withdraw ETH, or rebalance as needed.
-5. If a vault becomes unhealthy, VaultHub restricts operations and enables force rebalancing.
+## Constants
 
-VaultHub validates that a vault was deployed by the current VaultFactory (or a
-previous factory in the chain) before allowing connection.
+| Constant                   | Value              | Description                                                          |
+| -------------------------- | ------------------ | -------------------------------------------------------------------- |
+| `CONNECT_DEPOSIT`          | 1 ether            | ETH locked on connection, returned on disconnect                     |
+| `REPORT_FRESHNESS_DELTA`   | 2 days             | Maximum age for a report to be considered fresh                      |
+| `MIN_BEACON_DEPOSIT`       | 1 ether            | Threshold for beacon chain deposits pause on unsettled fees          |
+| `PDG_ACTIVATION_DEPOSIT`   | 31 ether           | ETH required per validator activation after PDG predeposit           |
+| `DISCONNECT_NOT_INITIATED` | `type(uint48).max` | Special value indicating vault is connected (not pending disconnect) |
+| `TOTAL_BASIS_POINTS`       | 10000              | Basis points denominator                                             |
+
+## Immutable variables
+
+| Variable                      | Description                                             |
+| ----------------------------- | ------------------------------------------------------- |
+| `LIDO`                        | stETH contract for minting/burning external shares      |
+| `LIDO_LOCATOR`                | Protocol locator for resolving contract addresses       |
+| `CONSENSUS_CONTRACT`          | HashConsensus contract for ref slot tracking            |
+| `MAX_RELATIVE_SHARE_LIMIT_BP` | Maximum share limit relative to Lido TVL (basis points) |
+
+## Roles
+
+| Role                     | Description                                                |
+| ------------------------ | ---------------------------------------------------------- |
+| `VAULT_MASTER_ROLE`      | Can force disconnect vaults from the hub                   |
+| `REDEMPTION_MASTER_ROLE` | Can set liability shares targets for Lido Core redemptions |
+| `VALIDATOR_EXIT_ROLE`    | Can trigger forced validator exits for unhealthy vaults    |
+| `BAD_DEBT_MASTER_ROLE`   | Can socialize or internalize bad debt from vaults          |
+
+## Storage
+
+### ERC-7201 Namespaced Storage
+
+```solidity
+struct Storage {
+    mapping(address vault => VaultRecord) records;
+    mapping(address vault => VaultConnection) connections;
+    address[] vaults;  // 1-based array, index 0 reserved
+    RefSlotCache.Uint104WithCache badDebtToInternalize;
+}
+```
 
 ## Structs
 
 ### VaultConnection
 
-Static parameters set when a vault connects:
+Connection parameters for a vault:
 
 ```solidity
 struct VaultConnection {
     address owner;                      // Vault owner address
-    address nodeOperator;               // Node operator address
-    uint96 shareLimit;                  // Maximum shares mintable for this vault
-    uint16 reserveRatioBP;              // Reserve ratio in basis points (e.g., 5000 = 50%)
-    uint16 forcedRebalanceThresholdBP;  // Threshold below reserve ratio triggering force rebalance
-    uint16 infraFeeBP;                  // Infrastructure fee in basis points
-    uint16 liquidityFeeBP;              // Liquidity fee in basis points
-    uint16 reservationFeeBP;            // Reservation fee in basis points
+    uint96 shareLimit;                  // Maximum stETH shares mintable
+    uint96 vaultIndex;                  // Index in vaults array (1-based, 0 = not connected)
+    uint48 disconnectInitiatedTs;       // Timestamp when disconnect started (max = connected)
+    uint16 reserveRatioBP;              // Reserve ratio (e.g., 30% = 3000)
+    uint16 forcedRebalanceThresholdBP;  // Health threshold for forced rebalance
+    uint16 infraFeeBP;                  // Infrastructure fee (basis points)
+    uint16 liquidityFeeBP;              // Liquidity fee (basis points)
+    uint16 reservationFeeBP;            // Reservation fee (basis points)
+    bool beaconChainDepositsPauseIntent; // Owner's intent to pause beacon deposits
 }
 ```
 
 ### VaultRecord
 
-Dynamic accounting state updated by oracle reports:
+Accounting record for a vault:
 
 ```solidity
 struct VaultRecord {
-    uint96 liabilityShares;         // stETH shares minted against this vault
-    uint96 totalValue;              // Total value of the vault (validators + available balance)
-    int96 inOutDelta;               // Cumulative funding minus withdrawals
-    uint40 reportTimestamp;         // Timestamp of the last applied report
-    uint96 cumulativeLidoFees;      // Accumulated Lido fees
-    uint96 maxLiabilityShares;      // Maximum liability shares from oracle report
-    uint96 slashingReserve;         // Reserved value for potential slashing
-    uint8 pauseIntentOwner;         // Owner's intent to pause (0 or 1)
-    uint8 pauseIntentNO;            // Node operator's intent to pause (0 or 1)
-    bool isPendingDisconnect;       // Whether vault is queued for disconnect
+    Report report;                                          // Latest oracle report
+    uint96 maxLiabilityShares;                              // Peak liability shares in current period
+    uint96 liabilityShares;                                 // Current liability shares
+    DoubleRefSlotCache.Int104WithCache[2] inOutDelta;       // Cumulative deposits - withdrawals
+    uint128 minimalReserve;                                 // min(CONNECT_DEPOSIT, slashingReserve)
+    uint128 redemptionShares;                               // Shares marked for Lido Core redemption
+    uint128 cumulativeLidoFees;                             // Total accrued Lido fees
+    uint128 settledLidoFees;                                // Total settled Lido fees
 }
 ```
 
 ### Report
 
-Oracle report data for a vault:
+Oracle report snapshot:
 
 ```solidity
 struct Report {
-    uint256 timestamp;           // Report timestamp
-    uint256 totalValue;          // Reported total value
-    int256 inOutDelta;           // Reported in/out delta
-    uint256 cumulativeLidoFees;  // Reported cumulative fees
-    uint256 liabilityShares;     // Reported liability shares
-    uint256 maxLiabilityShares;  // Reported max liability shares
-    uint256 slashingReserve;     // Reported slashing reserve
+    uint104 totalValue;    // Total vault value (ETH)
+    int104 inOutDelta;     // inOutDelta at report time
+    uint48 timestamp;      // Report timestamp
 }
 ```
 
-```mermaid
-graph LR;
-  F[VaultFactory]-->V[StakingVault];
-  F-->D[Dashboard];
-  D--connectVault-->H[VaultHub];
-  O[LazyOracle]--applyVaultReport-->H;
-  H--mint/burn shares-->L[Lido/stETH];
-  H--pause/resume deposits-->V;
-  D--fund/withdraw/rebalance-->H;
-```
+## Obligations mechanism
+
+Vaults have obligations that must be covered before withdrawals:
+
+1. **Health restoration**: Shares to burn/rebalance to restore health ratio
+2. **Redemptions**: Shares marked as `redemptionShares` for Lido Core
+3. **Fee settlement**: Accrued but unsettled Lido fees (≥1 ETH triggers deposit pause)
+
+The `obligations()` view returns `(sharesToBurn, feesToSettle)`. If sharesToBurn is `type(uint256).max`, the vault has bad debt.
+
+### Beacon chain deposits auto-pause
+
+Deposits are automatically paused when:
+
+- Vault is unhealthy (health shortfall > 0)
+- Vault has redemption shares to cover
+- Unsettled Lido fees ≥ `MIN_BEACON_DEPOSIT` (1 ETH)
+
+Once obligations are cleared and owner hasn't set manual pause intent, deposits resume automatically.
 
 ## View methods
 
@@ -101,151 +140,151 @@ graph LR;
 function vaultsCount() external view returns (uint256)
 ```
 
-Returns the number of connected vaults.
+Returns the number of vaults connected to the hub.
 
-### vaultByIndex(uint256 _index)
+### vaultByIndex(uint256 \_index)
 
 ```solidity
 function vaultByIndex(uint256 _index) external view returns (address)
 ```
 
-Returns vault address by index.
+Returns vault address by 1-based index. Indexes are not stable across transactions.
 
-### vaultConnection(address _vault)
+### vaultConnection(address \_vault)
 
 ```solidity
 function vaultConnection(address _vault) external view returns (VaultConnection memory)
 ```
 
-Returns static connection parameters for a vault.
+Returns connection parameters for a vault. Returns empty struct if not connected.
 
-### vaultRecord(address _vault)
+### vaultRecord(address \_vault)
 
 ```solidity
 function vaultRecord(address _vault) external view returns (VaultRecord memory)
 ```
 
-Returns stored accounting record for a vault.
+Returns accounting record for a vault. Returns empty struct if not connected.
 
-### isVaultConnected(address _vault)
+### isVaultConnected(address \_vault)
 
 ```solidity
 function isVaultConnected(address _vault) external view returns (bool)
 ```
 
-Returns whether a vault is connected.
+Returns true if vault is connected (or pending disconnect).
 
-### isPendingDisconnect(address _vault)
+### isPendingDisconnect(address \_vault)
 
 ```solidity
 function isPendingDisconnect(address _vault) external view returns (bool)
 ```
 
-Returns whether a vault is queued for disconnect.
+Returns true if vault disconnect has been initiated and awaiting completion.
 
-### totalValue(address _vault)
+### totalValue(address \_vault)
 
 ```solidity
 function totalValue(address _vault) external view returns (uint256)
 ```
 
-Returns the vault total value used for collateralization.
+Returns current total value of the vault (report value + inOutDelta changes).
 
-### liabilityShares(address _vault)
+### liabilityShares(address \_vault)
 
 ```solidity
 function liabilityShares(address _vault) external view returns (uint256)
 ```
 
-Returns stETH shares minted against the vault.
+Returns current liability shares (minted stETH) of the vault.
 
-### locked(address _vault)
+### locked(address \_vault)
 
 ```solidity
 function locked(address _vault) external view returns (uint256)
 ```
 
-Returns ETH amount locked as collateral (liability + reserve).
+Returns amount of ETH locked on the vault based on current liability and reserve ratio.
 
-### maxLockableValue(address _vault)
+### maxLockableValue(address \_vault)
 
 ```solidity
 function maxLockableValue(address _vault) external view returns (uint256)
 ```
 
-Returns the maximum value that can be locked for the vault at current parameters.
+Returns maximum ETH that can be locked given current total value.
 
-### totalMintingCapacityShares(address _vault, int256 _deltaValue)
+### totalMintingCapacityShares(address \_vault, int256 \_deltaValue)
 
 ```solidity
 function totalMintingCapacityShares(address _vault, int256 _deltaValue) external view returns (uint256)
 ```
 
-Returns total minting capacity in stETH shares with a value delta.
+Returns total shares that can be minted, accounting for reserve ratio, minimal reserve, and operator grid limits. `_deltaValue` allows simulating value changes.
 
-### withdrawableValue(address _vault)
+### withdrawableValue(address \_vault)
 
 ```solidity
 function withdrawableValue(address _vault) external view returns (uint256)
 ```
 
-Returns ETH amount currently withdrawable.
+Returns ETH instantly withdrawable from the vault (accounts for locked value, redemptions, and unsettled fees).
 
-### latestReport(address _vault)
+### latestReport(address \_vault)
 
 ```solidity
 function latestReport(address _vault) external view returns (Report memory)
 ```
 
-Returns the last applied oracle report for a vault.
+Returns the latest oracle report for the vault.
 
-### isReportFresh(address _vault)
+### isReportFresh(address \_vault)
 
 ```solidity
 function isReportFresh(address _vault) external view returns (bool)
 ```
 
-Returns whether the latest report is within the freshness window.
+Returns true if the vault's report is considered fresh (within `REPORT_FRESHNESS_DELTA` of latest oracle report).
 
-### isVaultHealthy(address _vault)
+### isVaultHealthy(address \_vault)
 
 ```solidity
 function isVaultHealthy(address _vault) external view returns (bool)
 ```
 
-Returns whether the vault meets health thresholds.
+Returns true if vault's total value meets the forced rebalance threshold.
 
-### healthShortfallShares(address _vault)
+### healthShortfallShares(address \_vault)
 
 ```solidity
 function healthShortfallShares(address _vault) external view returns (uint256)
 ```
 
-Returns shares needed to restore health.
+Returns shares needed to restore vault health. Returns `type(uint256).max` if bad debt (impossible to fix via rebalance).
 
-### obligationsShortfallValue(address _vault)
+### obligationsShortfallValue(address \_vault)
 
 ```solidity
 function obligationsShortfallValue(address _vault) external view returns (uint256)
 ```
 
-Returns ETH shortfall for obligations.
+Returns ETH shortfall needed to cover all obligations.
 
-### obligations(address _vault)
+### obligations(address \_vault)
 
 ```solidity
 function obligations(address _vault) external view returns (uint256 sharesToBurn, uint256 feesToSettle)
 ```
 
-Returns current obligations (shares to burn and fees to settle).
+Returns the vault's current obligations: shares to burn/rebalance and fees to settle.
 
-### settleableLidoFeesValue(address _vault)
+### settleableLidoFeesValue(address \_vault)
 
 ```solidity
 function settleableLidoFeesValue(address _vault) external view returns (uint256)
 ```
 
-Returns the amount of Lido fees currently settleable.
+Returns Lido fees that can currently be settled (limited by available withdrawable funds).
 
 ### badDebtToInternalize()
 
@@ -253,7 +292,7 @@ Returns the amount of Lido fees currently settleable.
 function badDebtToInternalize() external view returns (uint256)
 ```
 
-Returns aggregate bad debt queued for internalization.
+Returns bad debt shares pending internalization as protocol loss.
 
 ### badDebtToInternalizeForLastRefSlot()
 
@@ -261,33 +300,56 @@ Returns aggregate bad debt queued for internalization.
 function badDebtToInternalizeForLastRefSlot() external view returns (uint256)
 ```
 
-Returns bad debt amount computed for the last reference slot.
+Returns bad debt shares that were pending at the last reference slot (for oracle accounting).
 
 ## Methods
 
-### initialize(address _admin)
+### initialize(address \_admin)
 
 ```solidity
 function initialize(address _admin) external initializer
 ```
 
-Initializes the contract and sets the admin.
+Initializes the VaultHub with admin address.
 
-### connectVault(address _vault)
+### connectVault(address \_vault)
 
 ```solidity
 function connectVault(address _vault) external whenResumed
 ```
 
-Connects a vault to VaultHub and escrows the connect deposit.
+Connects a vault to the hub permissionlessly. Vault must:
 
-### setLiabilitySharesTarget(address _vault, uint256 _liabilitySharesTarget)
+- Be deployed by a valid factory
+- Have `msg.sender` as current owner
+- Have `VaultHub` as pending owner
+- Not be ossified
+- Have PDG as depositor
+- Have staged balance matching pending activations × 31 ETH
+- Have at least `CONNECT_DEPOSIT` (1 ETH) available balance
+
+Connection parameters are fetched from OperatorGrid based on the vault's tier.
+
+### voluntaryDisconnect(address \_vault)
 
 ```solidity
-function setLiabilitySharesTarget(address _vault, uint256 _liabilitySharesTarget) external onlyRole(REDEMPTION_MASTER_ROLE)
+function voluntaryDisconnect(address _vault) external whenResumed
 ```
 
-Sets a liability shares target used for redemptions.
+Initiates voluntary disconnect. Requires:
+
+- `msg.sender` is vault owner
+- Fresh report
+- Zero liability shares
+- Full fee settlement (if funds available)
+
+### disconnect(address \_vault)
+
+```solidity
+function disconnect(address _vault) external onlyRole(VAULT_MASTER_ROLE)
+```
+
+Governance-initiated disconnect. Same requirements as voluntary disconnect but allows partial fee settlement.
 
 ### updateConnection(...)
 
@@ -303,15 +365,167 @@ function updateConnection(
 ) external
 ```
 
-Updates vault connection parameters.
+Updates vault connection parameters. Only callable by OperatorGrid. Requires fresh report and validates new parameters don't breach minting capacity.
 
-### disconnect(address _vault)
+### fund(address \_vault)
 
 ```solidity
-function disconnect(address _vault) external onlyRole(VAULT_MASTER_ROLE)
+function fund(address _vault) external payable whenResumed
 ```
 
-Disconnects a vault and releases ownership.
+Funds the vault with ETH. Only callable by vault owner.
+
+### withdraw(address \_vault, address \_recipient, uint256 \_ether)
+
+```solidity
+function withdraw(address _vault, address _recipient, uint256 _ether) external whenResumed
+```
+
+Withdraws ETH from vault. Only callable by vault owner. Requires fresh report and respects withdrawable limits.
+
+### mintShares(address \_vault, address \_recipient, uint256 \_amountOfShares)
+
+```solidity
+function mintShares(address _vault, address _recipient, uint256 _amountOfShares) external whenResumed
+```
+
+Mints stETH shares backed by vault collateral. Only callable by vault owner. Requires fresh report.
+
+### burnShares(address \_vault, uint256 \_amountOfShares)
+
+```solidity
+function burnShares(address _vault, uint256 _amountOfShares) public whenResumed
+```
+
+Burns stETH shares from VaultHub balance to reduce liability. Only callable by vault owner.
+
+### transferAndBurnShares(address \_vault, uint256 \_amountOfShares)
+
+```solidity
+function transferAndBurnShares(address _vault, uint256 _amountOfShares) external
+```
+
+Transfers shares from `msg.sender` to VaultHub and burns them. For EOA vault owners.
+
+### rebalance(address \_vault, uint256 \_shares)
+
+```solidity
+function rebalance(address _vault, uint256 _shares) external whenResumed
+```
+
+Voluntary rebalance by vault owner. Withdraws ETH and burns corresponding shares.
+
+### forceRebalance(address \_vault)
+
+```solidity
+function forceRebalance(address _vault) external
+```
+
+Permissionless forced rebalance for unhealthy vaults. Uses all available balance to cover obligations.
+
+### settleLidoFees(address \_vault)
+
+```solidity
+function settleLidoFees(address _vault) external
+```
+
+Permissionless fee settlement. Sends unsettled fees to treasury.
+
+### setLiabilitySharesTarget(address \_vault, uint256 \_liabilitySharesTarget)
+
+```solidity
+function setLiabilitySharesTarget(address _vault, uint256 _liabilitySharesTarget) external onlyRole(REDEMPTION_MASTER_ROLE)
+```
+
+Sets target liability, marking excess as redemption shares. Used for Lido Core redemptions.
+
+### transferVaultOwnership(address \_vault, address \_newOwner)
+
+```solidity
+function transferVaultOwnership(address _vault, address _newOwner) external
+```
+
+Transfers vault ownership within VaultHub without disconnecting.
+
+### pauseBeaconChainDeposits(address \_vault)
+
+```solidity
+function pauseBeaconChainDeposits(address _vault) external
+```
+
+Owner sets intent to pause beacon chain deposits.
+
+### resumeBeaconChainDeposits(address \_vault)
+
+```solidity
+function resumeBeaconChainDeposits(address _vault) external
+```
+
+Owner clears pause intent. Deposits may remain paused if obligations exist.
+
+### requestValidatorExit(address \_vault, bytes calldata \_pubkeys)
+
+```solidity
+function requestValidatorExit(address _vault, bytes calldata _pubkeys) external
+```
+
+Emits exit request events for node operator. Only callable by vault owner.
+
+### triggerValidatorWithdrawals(...)
+
+```solidity
+function triggerValidatorWithdrawals(
+    address _vault,
+    bytes calldata _pubkeys,
+    uint64[] calldata _amountsInGwei,
+    address _refundRecipient
+) external payable
+```
+
+Triggers EIP-7002 validator withdrawals. Partial withdrawals require fresh report and sufficient amount to cover obligations shortfall.
+
+### forceValidatorExit(address \_vault, bytes calldata \_pubkeys, address \_refundRecipient)
+
+```solidity
+function forceValidatorExit(
+    address _vault,
+    bytes calldata _pubkeys,
+    address _refundRecipient
+) external payable onlyRole(VALIDATOR_EXIT_ROLE)
+```
+
+Forces full validator exits for vaults with obligations shortfall.
+
+### socializeBadDebt(address \_badDebtVault, address \_vaultAcceptor, uint256 \_maxSharesToSocialize)
+
+```solidity
+function socializeBadDebt(
+    address _badDebtVault,
+    address _vaultAcceptor,
+    uint256 _maxSharesToSocialize
+) external onlyRole(BAD_DEBT_MASTER_ROLE) returns (uint256)
+```
+
+Transfers bad debt to another vault of the same node operator. Requires fresh reports for both vaults.
+
+### internalizeBadDebt(address \_badDebtVault, uint256 \_maxSharesToInternalize)
+
+```solidity
+function internalizeBadDebt(
+    address _badDebtVault,
+    uint256 _maxSharesToInternalize
+) external onlyRole(BAD_DEBT_MASTER_ROLE) returns (uint256)
+```
+
+Internalizes bad debt as protocol loss. Requires fresh report.
+
+### decreaseInternalizedBadDebt(uint256 \_amountOfShares)
+
+```solidity
+function decreaseInternalizedBadDebt(uint256 _amountOfShares) external
+```
+
+Called by Accounting contract to clear internalized bad debt after settlement.
 
 ### applyVaultReport(...)
 
@@ -328,169 +542,9 @@ function applyVaultReport(
 ) external whenResumed
 ```
 
-Applies a per-vault oracle report.
+Applies oracle report to vault. Only callable by LazyOracle. Updates vault record and may complete pending disconnect.
 
-### socializeBadDebt(...)
-
-```solidity
-function socializeBadDebt(
-    address _badDebtVault,
-    address _vaultAcceptor,
-    uint256 _maxSharesToSocialize
-) external onlyRole(BAD_DEBT_MASTER_ROLE) returns (uint256)
-```
-
-Socializes bad debt between vaults.
-
-### internalizeBadDebt(...)
-
-```solidity
-function internalizeBadDebt(
-    address _badDebtVault,
-    uint256 _maxSharesToInternalize
-) external onlyRole(BAD_DEBT_MASTER_ROLE) returns (uint256)
-```
-
-Internalizes bad debt into Lido Core.
-
-### decreaseInternalizedBadDebt(uint256 _amountOfShares)
-
-```solidity
-function decreaseInternalizedBadDebt(uint256 _amountOfShares) external
-```
-
-Decreases internalized bad debt counter after settlement.
-
-### transferVaultOwnership(address _vault, address _newOwner)
-
-```solidity
-function transferVaultOwnership(address _vault, address _newOwner) external
-```
-
-Transfers the vault's factual owner stored in VaultHub.
-
-### voluntaryDisconnect(address _vault)
-
-```solidity
-function voluntaryDisconnect(address _vault) external whenResumed
-```
-
-Disconnects a vault via owner-initiated flow.
-
-### fund(address _vault)
-
-```solidity
-function fund(address _vault) external payable whenResumed
-```
-
-Forwards ETH funding to a vault.
-
-### withdraw(address _vault, address _recipient, uint256 _ether)
-
-```solidity
-function withdraw(address _vault, address _recipient, uint256 _ether) external whenResumed
-```
-
-Withdraws ETH from a vault to a recipient.
-
-### rebalance(address _vault, uint256 _shares)
-
-```solidity
-function rebalance(address _vault, uint256 _shares) external whenResumed
-```
-
-Burns shares to restore health and unlock collateral.
-
-### mintShares(address _vault, address _recipient, uint256 _amountOfShares)
-
-```solidity
-function mintShares(address _vault, address _recipient, uint256 _amountOfShares) external whenResumed
-```
-
-Mints stETH shares against the vault.
-
-### burnShares(address _vault, uint256 _amountOfShares)
-
-```solidity
-function burnShares(address _vault, uint256 _amountOfShares) public whenResumed
-```
-
-Burns stETH shares against the vault liability.
-
-### transferAndBurnShares(address _vault, uint256 _amountOfShares)
-
-```solidity
-function transferAndBurnShares(address _vault, uint256 _amountOfShares) external
-```
-
-Transfers stETH shares from caller then burns them.
-
-### pauseBeaconChainDeposits(address _vault)
-
-```solidity
-function pauseBeaconChainDeposits(address _vault) external
-```
-
-Sets pause intent and pauses vault deposits if allowed.
-
-### resumeBeaconChainDeposits(address _vault)
-
-```solidity
-function resumeBeaconChainDeposits(address _vault) external
-```
-
-Clears pause intent and resumes deposits if healthy.
-
-### requestValidatorExit(address _vault, bytes _pubkeys)
-
-```solidity
-function requestValidatorExit(address _vault, bytes calldata _pubkeys) external
-```
-
-Requests validator exits for a vault.
-
-### triggerValidatorWithdrawals(...)
-
-```solidity
-function triggerValidatorWithdrawals(
-    address _vault,
-    bytes calldata _pubkeys,
-    uint64[] calldata _amountsInGwei,
-    address _refundRecipient
-) external payable
-```
-
-Triggers EL withdrawals via EIP-7002.
-
-### forceValidatorExit(...)
-
-```solidity
-function forceValidatorExit(
-    address _vault,
-    bytes calldata _pubkeys,
-    address _refundRecipient
-) external payable onlyRole(VALIDATOR_EXIT_ROLE)
-```
-
-Forces exits by role.
-
-### forceRebalance(address _vault)
-
-```solidity
-function forceRebalance(address _vault) external
-```
-
-Permissionless force rebalance for unhealthy vaults.
-
-### settleLidoFees(address _vault)
-
-```solidity
-function settleLidoFees(address _vault) external
-```
-
-Settles accrued Lido fees from the vault.
-
-### proveUnknownValidatorToPDG(...)
+### proveUnknownValidatorToPDG(address \_vault, IPredepositGuarantee.ValidatorWitness calldata \_witness)
 
 ```solidity
 function proveUnknownValidatorToPDG(
@@ -499,9 +553,9 @@ function proveUnknownValidatorToPDG(
 ) external
 ```
 
-Proves a validator to PDG on behalf of a vault.
+Proves unknown validators to PDG. Only callable by vault owner.
 
-### collectERC20FromVault(...)
+### collectERC20FromVault(address \_vault, address \_token, address \_recipient, uint256 \_amount)
 
 ```solidity
 function collectERC20FromVault(
@@ -512,22 +566,71 @@ function collectERC20FromVault(
 ) external
 ```
 
-Collects ERC-20 tokens from a vault.
+Recovers ERC-20 tokens from vault. Only callable by vault owner.
 
-## Permissions
+## Events
 
-VaultHub uses `AccessControl` with these key roles:
+```solidity
+event VaultConnected(
+    address indexed vault,
+    uint256 shareLimit,
+    uint256 reserveRatioBP,
+    uint256 forcedRebalanceThresholdBP,
+    uint256 infraFeeBP,
+    uint256 liquidityFeeBP,
+    uint256 reservationFeeBP
+);
 
-- `DEFAULT_ADMIN_ROLE` for governance/admin actions
-- `VAULT_MASTER_ROLE` for connect/disconnect control
-- `REDEMPTION_MASTER_ROLE` for liability targets
-- `BAD_DEBT_MASTER_ROLE` for bad debt operations
-- `VALIDATOR_EXIT_ROLE` for forced exits
+event VaultConnectionUpdated(
+    address indexed vault,
+    address indexed nodeOperator,
+    uint256 shareLimit,
+    uint256 reserveRatioBP,
+    uint256 forcedRebalanceThresholdBP
+);
+
+event VaultFeesUpdated(
+    address indexed vault,
+    uint256 preInfraFeeBP,
+    uint256 preLiquidityFeeBP,
+    uint256 preReservationFeeBP,
+    uint256 infraFeeBP,
+    uint256 liquidityFeeBP,
+    uint256 reservationFeeBP
+);
+
+event VaultDisconnectInitiated(address indexed vault);
+event VaultDisconnectCompleted(address indexed vault);
+event VaultDisconnectAborted(address indexed vault, uint256 slashingReserve);
+
+event VaultReportApplied(
+    address indexed vault,
+    uint256 reportTimestamp,
+    uint256 reportTotalValue,
+    int256 reportInOutDelta,
+    uint256 reportCumulativeLidoFees,
+    uint256 reportLiabilityShares,
+    uint256 reportMaxLiabilityShares,
+    uint256 reportSlashingReserve
+);
+
+event MintedSharesOnVault(address indexed vault, uint256 amountOfShares, uint256 lockedAmount);
+event BurnedSharesOnVault(address indexed vault, uint256 amountOfShares);
+event VaultRebalanced(address indexed vault, uint256 sharesBurned, uint256 etherWithdrawn);
+event VaultInOutDeltaUpdated(address indexed vault, int256 inOutDelta);
+event ForcedValidatorExitTriggered(address indexed vault, bytes pubkeys, address refundRecipient);
+event VaultOwnershipTransferred(address indexed vault, address indexed newOwner, address indexed oldOwner);
+event LidoFeesSettled(address indexed vault, uint256 transferred, uint256 cumulativeLidoFees, uint256 settledLidoFees);
+event VaultRedemptionSharesUpdated(address indexed vault, uint256 redemptionShares);
+event BeaconChainDepositsPauseIntentSet(address indexed vault, bool pauseIntent);
+event BadDebtSocialized(address indexed vaultDonor, address indexed vaultAcceptor, uint256 badDebtShares);
+event BadDebtWrittenOffToBeInternalized(address indexed vault, uint256 badDebtShares);
+```
 
 ## Related
 
 - [StakingVault](/contracts/staking-vault)
-- [OperatorGrid](/contracts/operator-grid)
 - [LazyOracle](/contracts/lazy-oracle)
+- [OperatorGrid](/contracts/operator-grid)
+- [Dashboard](/contracts/dashboard)
 - [PredepositGuarantee](/contracts/predeposit-guarantee)
-- [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

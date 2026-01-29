@@ -21,8 +21,8 @@ The contract acts as the central point for all accounting operations, replacing 
 ## How it works
 
 1. `AccountingOracle` submits a report via `handleOracleReport()`.
-2. Accounting snapshots current protocol state (CL validators, balances, shares).
-3. Calculates all state changes (withdrawals, fees, burns).
+2. Accounting snapshots current protocol state (CL validators, balances, shares, external shares/ether, bad debt to internalize).
+3. Calculates all state changes (withdrawals, fees, burns) accounting for both internal and external ether/shares.
 4. Runs sanity checks via `OracleReportSanityChecker`.
 5. Applies changes: internalizes bad debt, updates CL state, collects rewards, finalizes withdrawals, distributes fees.
 6. Emits token rebase event and notifies observers.
@@ -41,7 +41,7 @@ graph LR;
 
 ### ReportValues
 
-Oracle report input data:
+Oracle report input data (defined in `contracts/common/interfaces/ReportValues.sol`):
 
 ```solidity
 struct ReportValues {
@@ -54,6 +54,23 @@ struct ReportValues {
     uint256 sharesRequestedToBurn;            // stETH shares marked for burning via Burner
     uint256[] withdrawalFinalizationBatches;  // Sorted array of withdrawal request IDs
     uint256 simulatedShareRate;               // Projected share rate value
+}
+```
+
+### PreReportState
+
+Snapshot of protocol state before report processing (internal struct):
+
+```solidity
+struct PreReportState {
+    uint256 clValidators;           // Number of CL validators before report
+    uint256 clBalance;              // CL balance before report
+    uint256 totalPooledEther;       // Total pooled ether before report
+    uint256 totalShares;            // Total shares before report
+    uint256 depositedValidators;    // Number of deposited validators
+    uint256 externalShares;         // Shares backed by external vaults
+    uint256 externalEther;          // Ether in external vaults
+    uint256 badDebtToInternalize;   // Bad debt amount to internalize this report
 }
 ```
 
@@ -96,7 +113,7 @@ struct FeeDistribution {
 
 ## View methods
 
-### simulateOracleReport(ReportValues _report)
+### simulateOracleReport(ReportValues \_report)
 
 ```solidity
 function simulateOracleReport(
@@ -106,9 +123,11 @@ function simulateOracleReport(
 
 Simulates an oracle report without applying changes. Returns calculated state changes that would result from the report. Used by oracle daemons to compute the simulated share rate before submitting.
 
+Note: For simulation, uses `vaultHub.badDebtToInternalize()` to fetch the current bad debt value, whereas actual reports use `badDebtToInternalizeForLastRefSlot()`.
+
 ## Methods
 
-### handleOracleReport(ReportValues _report)
+### handleOracleReport(ReportValues \_report)
 
 ```solidity
 function handleOracleReport(ReportValues calldata _report) external
@@ -117,14 +136,16 @@ function handleOracleReport(ReportValues calldata _report) external
 Handles an oracle report and applies all calculated state changes to the protocol. Can only be called by the `AccountingOracle` contract.
 
 The method performs these operations in order:
-1. Internalizes bad debt from stVaults
-2. Updates consensus layer state on Lido
-3. Collects EL rewards and processes withdrawals
-4. Finalizes withdrawal queue requests
-5. Commits shares to burn
-6. Distributes protocol fees to modules and treasury
-7. Emits token rebase event
-8. Notifies rebase observers
+
+1. Runs sanity checks on report data
+2. Requests burn of shares for withdrawal queue finalization (if applicable)
+3. Updates consensus layer state on Lido via `processClStateUpdate()`
+4. Internalizes bad debt (calls `vaultHub.decreaseInternalizedBadDebt()` and `lido.internalizeExternalBadDebt()`)
+5. Commits shares to burn via Burner
+6. Collects EL rewards and processes withdrawals via `collectRewardsAndProcessWithdrawals()`
+7. Distributes protocol fees to modules and treasury
+8. Notifies rebase observers via `handlePostTokenRebase()`
+9. Emits token rebase event via `emitTokenRebase()`
 
 ## Errors
 
