@@ -309,7 +309,7 @@ Applies a per-vault update with a Merkle proof. Permissionless - anyone can call
 3. Dynamic total value calculation must not underflow
 4. Cumulative Lido fees must be monotonically increasing
 5. Cumulative Lido fees increase must not exceed max rate
-6. `maxLiabilityShares` must be >= `liabilityShares` and <= on-chain value
+6. `maxLiabilityShares` must be >= `liabilityShares` and &lt;= on-chain value
 
 ### removeVaultQuarantine(address \_vault)
 
