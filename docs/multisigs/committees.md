@@ -361,8 +361,6 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
-**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreigppizx235i7didunpw3ruq6xg74auew6l4qkbnooud3pwxbrf3gu)
-
 **Quorum:** 3/6 (4/7 on Unichain)
 
 **Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
@@ -395,6 +393,9 @@ Additional signer of Unichain multisig:
 | Linea | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) |
 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreigppizx235i7didunpw3ruq6xg74auew6l4qkbnooud3pwxbrf3gu)
+
 
 ### 2.8.3 Liquidity Observation Lab Committee (Polygon)
 
@@ -972,7 +973,7 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 **Quorum:** 4/7
 
 **Forum topic:**\
-[stVaults Committee Proposal](https://research.lido.fi/t/stvaults-committee-proposal/10608)\
+[stVaults Committee Proposal](https://research.lido.fi/t/stvaults-committee-proposal/10608)
 
 **Snapshot:** [Establish the stVaults Committee](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0e8b53944051321d2cedf8881b546427bc6a22c9fe16f7d150af62fd837ff7da)
 
