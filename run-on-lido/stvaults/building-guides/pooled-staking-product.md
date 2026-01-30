@@ -65,7 +65,8 @@ DeFi Wrapper supports three product archetypes:
   <TabItem value="testnet" label="Testnet">
     <ul>
       <li><strong>CLI:</strong> <a href="https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration">Configuration guide</a></li>
-      <li><strong>DeFi Wrapper Factory (Testnet-5):</strong> <a href="https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code">0xFA97…1f38</a></li>
+      <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/
+        0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xFA97…1f38</a></li>
       <li><strong>UI template:</strong> <a href="https://github.com/lidofinance/defi-wrapper-widget">defi-wrapper-widget</a></li>
       <li><strong>Latest development branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
       <li><strong>Etherscan:</strong> <a href="https://hoodi.etherscan.io/">hoodi.etherscan.io</a></li>
@@ -119,7 +120,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the
 
 Start the deployment like:
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
+yarn start defi-wrapper contracts factory w create-pool-stv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -140,7 +141,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` f
 
 Start the deployment like:
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
+yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -169,7 +170,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the
 Start the deployment like:
 
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
+yarn start defi-wrapper contracts factory w create-pool-ggv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
