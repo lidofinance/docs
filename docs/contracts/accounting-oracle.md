@@ -1,8 +1,8 @@
 # AccountingOracle
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/AccountingOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
-- Inherits [BaseOracle](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/oracle/BaseOracle.sol)
+- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
 It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
@@ -11,6 +11,8 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 ## What is AccountingOracle
 
 AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
+
+The report is applied by the [Accounting](/contracts/accounting) contract, which performs the core state updates and rebase calculations.
 
 ## Report cycle
 
@@ -41,15 +43,17 @@ The [submission](/contracts/accounting-oracle#submitreportdata) of the main repo
 
 1. Update exited validators counts for each StakingModule in StakingRouter;
 2. Update bunker mode status for WithdrawalQueue;
-3. Handle function on the Lido contract which performs the main protocol state change.
-4. Store information about ExtraData
+3. Call `Accounting.handleOracleReport` to apply the report and rebase stETH.
+4. Update the stVaults report root in `LazyOracle`.
+5. Store information about ExtraData
 
 The diagram shows the interaction with contracts.
 
 ```mermaid
 graph LR;
-  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->LegacyOracle;
-  AccountingOracle--handleOracleReport-->Lido--handlePostTokenRebase-->LegacyOracle
+  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->Accounting;
+  AccountingOracle--updateReportData-->LazyOracle;
+  AccountingOracle--handleOracleReport-->Accounting-->Lido;
   AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
   AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
   AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
@@ -74,6 +78,8 @@ struct ReportData {
     uint256[] withdrawalFinalizationBatches;
     uint256 simulatedShareRate;
     bool isBunkerMode;
+    bytes32 vaultsDataTreeRoot;
+    string vaultsDataTreeCid;
     uint256 extraDataFormat;
     bytes32 extraDataHash;
     uint256 extraDataItemsCount;
@@ -106,7 +112,7 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 **Withdrawals finalization decision**
 
 - `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
-- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` one should perform a view call [Lido.handleOracleReport](/contracts/lido#handleoraclereport) directly via [`eth_call`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call) JSON-RPC API and calculate as follows:
+- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` use the view method `Accounting.simulateOracleReport` and calculate as follows:
 
 ```solidity
 _simulatedShareRate = (postTotalPooledEther * 10**27) / postTotalShares
@@ -115,6 +121,11 @@ _simulatedShareRate = (postTotalPooledEther * 10**27) / postTotalShares
 where `postTotalPooledEther` and `postTotalShares` were retrieved as return values from the performed view call
 
 - `isBunkerMode` — Whether, based on the state observed at the reference slot, the protocol must be in the bunker mode or the turbo (regular) mode.
+
+**Staking Vaults**
+
+- `vaultsDataTreeRoot` — Merkle Tree root of the stVaults data.
+- `vaultsDataTreeCid` — CID of the published Merkle tree of the vault data.
 
 :::note
 
@@ -149,7 +160,7 @@ where `itemSortingKey` calculation depends on the item's type (see below).
 
 ---------------------------------------------------------------------------------------
 
-**`itemType=1`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
+**`itemType=2`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
 
 The `itemPayload` field has the following format:
 
@@ -173,7 +184,7 @@ The `itemPayload` field has the following format:
 
     byteLength(exitedValidatorsCounts) = nodeOpsCount * 16
 
-`nodeOpsCount` must not be greater than `maxItemsPerExtraDataTransaction` specified
+`nodeOpsCount` must not be greater than `maxNodeOperatorsPerExtraDataItem` specified
     in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
     with total exited validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
@@ -183,6 +194,10 @@ Item sorting key is a compound key consisting of the module id and the first rep
     node operator's id:
 
     itemSortingKey = (moduleId, nodeOperatorIds[0:8])
+
+---------------------------------------------------------------------------------------
+
+**Deprecated: `itemType=1`** (`EXTRA_DATA_TYPE_STUCK_VALIDATORS`): This type was deprecated in the Triggerable Withdrawals update. The mechanism for handling stuck validator keys is no longer supported. Submitting this type will revert with `DeprecatedExtraDataType`.
 
 ---------------------------------------------------------------------------------------
 
@@ -201,18 +216,10 @@ Extra data array can be passed in different formats, see below.
 ## Access and permissions
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Constants
-
-### LIDO()
-
-Returns an address of the [Lido](/contracts/lido) contract
-
-```solidity
-address public immutable LIDO;
-```
 
 ### LOCATOR()
 
@@ -220,14 +227,6 @@ Returns an address of the [LidoLocator](/contracts/lido-locator) contract
 
 ```solidity
 ILidoLocator public immutable LOCATOR;
-```
-
-### LEGACY_ORACLE()
-
-Returns an address of the [LegacyOracle](/contracts/legacy-oracle) contract
-
-```solidity
-address public immutable LEGACY_ORACLE;
 ```
 
 ### SECONDS_PER_SLOT()
@@ -252,6 +251,14 @@ always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https:
 
 ```solidity
 uint256 public immutable GENESIS_TIME;
+```
+
+### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
+
+**Deprecated.** This type was previously used for stuck validators but is no longer supported. Submitting this type will revert.
+
+```solidity
+uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1;
 ```
 
 ### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
@@ -609,10 +616,11 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
 - Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if  `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
 - Reverts with `InvalidExitedValidatorsData()` if provided exited validators data doesn't meet safety checks.
+- Reverts with `DeprecatedExtraDataType(itemIndex, itemType)` if extra data contains the deprecated `EXTRA_DATA_TYPE_STUCK_VALIDATORS` type.
 
 #### OracleReportSanityChecker
 
-- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker.md#checkextradataitemscountpertransaction)
+- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker#checkextradataitemscountpertransaction)
 - Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
 
 #### StakingRouter
@@ -621,4 +629,4 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `ExitedValidatorsCountCannotDecrease()` if provided exited validators data doesn't meet safety checks. (StakingRouter)
 - Reverts with `ReportedExitedValidatorsExceedDeposited(uint256 reportedExitedValidatorsCount,uint256 depositedValidatorsCount)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
 
-Other reverts on `Lido.handleOracleReport()`
+Other reverts on `Accounting.handleOracleReport()`

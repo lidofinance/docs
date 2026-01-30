@@ -1,6 +1,6 @@
 # Lido
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 Liquid staking pool and a related [ERC-20](https://eips.ethereum.org/EIPS/eip-20)
@@ -26,27 +26,30 @@ validation extensions.
 
 Other contracts are bound to the core and have the following responsibilities:
 
-- [`LidoLocator`](/contracts/lido-locator.md): protocol-wide address book which contains
+- [`LidoLocator`](/contracts/lido-locator): protocol-wide address book which contains
 references to all meaningful parts of the Lido protocol on-chain
-- [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md): a withdrawal requests
+- [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721): a withdrawal requests
 FIFO queue and a respective NFT (unstETH)
-- [`StakingRouter`](/contracts/staking-router.md): hub, which manages staking modules and
+- [`StakingRouter`](/contracts/staking-router): hub, which manages staking modules and
 distributes the stake among them
-- [`NodeOperatorsRegistry`](/contracts/node-operators-registry.md): original module,
+- [`NodeOperatorsRegistry`](/contracts/node-operators-registry): original module,
 responsible for managing the curated set of node operators
-- [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker.md): helper for
+- [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker): helper for
 validation of oracle report parameters and smoothening token rebases
-- [`Burner`](/contracts/burner.md): vault to contain `stETH` that ought to be burned on
+- [`Burner`](/contracts/burner): vault to contain `stETH` that ought to be burned on
 oracle report
-- [`WithdrawalVault`](/contracts/withdrawal-vault.md): vault to collect partial and full
+- [`WithdrawalVault`](/contracts/withdrawal-vault): vault to collect partial and full
 withdrawals coming from the Beacon Chain
-- [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault.md):
+- [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault):
 vault to collect priority fees and MEV rewards coming from validators of the pool
-- [`DepositSecurityModule`](/contracts/deposit-security-module.md): protection from
+- [`DepositSecurityModule`](/contracts/deposit-security-module): protection from
 deposit frontrunning vulnerability
-- [`AccountingOracle`](/contracts/accounting-oracle.md): oracle committee, which gathers
+- [`AccountingOracle`](/contracts/accounting-oracle): oracle committee, which gathers
 an accounting report for the protocol
-- [`EIP712StETH`](/contracts/eip712-steth.md): ad-hoc helper to implement ERC-2612 permit
+- [`Accounting`](/contracts/accounting): applies oracle reports and distributes rewards
+- [`VaultHub`](/contracts/vault-hub): stVaults coordination and external share accounting
+- [`PredepositGuarantee`](/contracts/predeposit-guarantee): predeposit protection for stVaults
+- [`EIP712StETH`](/contracts/eip712-steth): ad-hoc helper to implement ERC-2612 permit
 for Solidity 0.4.24 Lido contract
 
 ## Submit
@@ -55,18 +58,18 @@ Lido contract is a main entry point for stakers. To take part in the pool, a
 user can send some ETH to the contract address and the same amount of `stETH`
 tokens will be minted to the sender address. Submitted ether is accumulated in
 the buffer and can be passed further to
-[`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md) to fulfill withdrawal
-requests or to [`StakingRouter`](/contracts/staking-router.md) to deposit as a new
+[`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) to fulfill withdrawal
+requests or to [`StakingRouter`](/contracts/staking-router) to deposit as a new
 validator stake.
 
-To withdraw the underlying ETH back, a user may use the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md) contract or swap the token on the secondary market (it may be a cheaper and faster alternative).
+To withdraw the underlying ETH back, a user may use the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) contract or swap the token on the secondary market (it may be a cheaper and faster alternative).
 
 ## Deposit
 
 User-submitted ether is stored in the buffer and can be later used for
-withdrawals or passed further to [`StakingRouter`](/contracts/staking-router.md) to be
+withdrawals or passed further to [`StakingRouter`](/contracts/staking-router) to be
 used as validator's deposits. It happens asynchronously and uses
-[`DepositSecurityModule`](/contracts/deposit-security-module.md) as a guard to prevent
+[`DepositSecurityModule`](/contracts/deposit-security-module) as a guard to prevent
 deposit frontrunning vulnerability.
 
 ```mermaid
@@ -77,7 +80,7 @@ graph LR;
 ## Redeem
 
 The token might be redeemed for ether through the protocol using
-the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md) contract leveraging [staking withdrawals](https://ethereum.org/en/staking/withdrawals/)
+the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) contract leveraging [staking withdrawals](https://ethereum.org/en/staking/withdrawals/)
 enabled with the Shanghai/Capella (aka "Shapella") Ethereum hardfork.
 
 ## Rebase
@@ -110,6 +113,19 @@ balanceOf(account) = shares[account] * totalPooledEther / totalShares
   - beacon balance - the total amount of ether on validator accounts. This value
   is reported by oracles and makes the strongest impact on stETH total supply
   change
+
+### External shares (stVaults)
+
+Lido V3 introduces **external shares**, which represent stETH minted against
+stVault collateral. These shares are tracked separately from core pool shares
+to keep the core pool solvent while allowing overcollateralized minting.
+
+- `getExternalShares()` returns total external shares outstanding.
+- `getExternalEther()` returns the ETH amount backing external shares.
+- `getMaxExternalRatioBP()` caps external shares as a ratio of total shares.
+
+Accounting uses internal (core pool) ether/shares for rebase calculations and
+applies external share accounting separately through `VaultHub`.
 
 For example, assume that we have:
 
@@ -175,20 +191,24 @@ withdrawal requests.
 
 Oracle report is processed in 9 simple steps:
 
+AccountingOracle submits the report to the `Accounting` contract, which
+simulates and applies the report, then calls into Lido to update pooled ether
+and rebase observers.
+
 1. Memorize the pre-state that will be required for incremental updates of the
 protocol balance
-2. Validate the report data using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker.md)
-3. Calculate the amount of ether to be locked on [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721.md)
-and move the respective amount of shares to be burnt to [`Burner`](/contracts/burner.md)
-4. Using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker.md)
+2. Validate the report data using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker)
+3. Calculate the amount of ether to be locked on [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
+and move the respective amount of shares to be burnt to [`Burner`](/contracts/burner)
+4. Using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker)
 calculate the amounts of ether that can be withdrawn from
-[`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault.md) and
-[`WithdrawalVault`](/contracts/withdrawal-vault.md) as well as the number of shares that
-can be burnt from [`Burner`](/contracts/burner.md) to avoid the rebase that can be easily
+[`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) and
+[`WithdrawalVault`](/contracts/withdrawal-vault) as well as the number of shares that
+can be burnt from [`Burner`](/contracts/burner) to avoid the rebase that can be easily
 frontrun.
 5. Collect the calculated amounts of ether from vaults and proceed with
-withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](/contracts/withdrawal-queue-erc721.md)
-6. Burn the previously requested shares from [`Burner`](/contracts/burner.md) for
+withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](/contracts/withdrawal-queue-erc721)
+6. Burn the previously requested shares from [`Burner`](/contracts/burner) for
 withdrawals or coverage application
 7. Distribute rewards and protocol fees minting new stETH for the respective
 parties
@@ -328,7 +348,7 @@ function getStakeLimitFullInfo() view returns (
 
 Deposit buffered ether to the StakingRouter's module with the id of `_stakingModuleId`.
 
-Can be called only by [DepositSecurityModule](/contracts/deposit-security-module.md) contract.
+Can be called only by [DepositSecurityModule](/contracts/deposit-security-module) contract.
 
 ```sol
 function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositCalldata)
@@ -358,47 +378,7 @@ function canDeposit() view returns (bool)
 
 ## Accounting-related methods
 
-### handleOracleReport()
-
-Updates accounting stats, collects EL rewards and distributes collected rewards
-if beacon balance increased, performs withdrawal requests finalization.
-
-Can be called only by [AccountingOracle](/contracts/accounting-oracle.md) contract.
-
-```sol
-function handleOracleReport(
-    uint256 _reportTimestamp,
-    uint256 _timeElapsed,
-    uint256 _clValidators,
-    uint256 _clBalance,
-    uint256 _withdrawalVaultBalance,
-    uint256 _elRewardsVaultBalance,
-    uint256 _sharesRequestedToBurn,
-    uint256[] _withdrawalFinalizationBatches,
-    uint256 _simulatedShareRate
-) returns (uint256[4] postRebaseAmounts)
-```
-
-| Parameter                        | Type       | Description                                                       |
-| -------------------------------- | ---------- | ----------------------------------------------------------------- |
-| `_reportTimestamp`               | `uint256`  | The moment of the oracle report calculation                       |
-| `_timeElapsed`                   | `uint256`  | Seconds elapsed since the previous report calculation             |
-| `_clValidators`                  | `uint256`  | Number of Lido validators on Consensus Layer                      |
-| `_clBalance`                     | `uint256`  | Sum of all Lido validators' balances on Consensus Layer           |
-| `_withdrawalVaultBalance`        | `uint256`  | Withdrawal vault balance on Execution Layer                       |
-| `_elRewardsVaultBalance`         | `uint256`  | elRewards vault balance on Execution Layer                        |
-| `_sharesRequestedToBurn`         | `uint256`  | shares requested to burn through Burner                           |
-| `_withdrawalFinalizationBatches` | `uint256[]`| the ascendingly-sorted array of withdrawal request IDs to finalize|
-| `_simulatedShareRate`            | `uint256`  | share rate simulated by oracle when (1e27 precision)              |
-
-Returns a fixed array of 4 values that represents changes made during the report
-
-| Name                  | Type      | Description                                                 |
-| --------------------- | --------- | ----------------------------------------------------------- |
-| `postRebaseAmounts[0]`| `uint256` | `postTotalPooledEther` amount of ether in the protocol      |
-| `postRebaseAmounts[1]`| `uint256` | `postTotalShares` amount of shares in the protocol          |
-| `postRebaseAmounts[2]`| `uint256` | `withdrawals` withdrawn from the withdrawals vault          |
-| `postRebaseAmounts[3]`| `uint256` | `elRewards` withdrawn from the execution layer rewards vault|
+Accounting and report application are handled by the [`Accounting`](/contracts/accounting) contract, which is called by `AccountingOracle` and updates Lido state during the report cycle.
 
 ### getTotalPooledEther()
 
@@ -411,6 +391,30 @@ function getTotalPooledEther() view returns (uint256)
 :::note
 The sum of all ETH balances in the protocol, equals to the total supply of `stETH`.
 :::
+
+### getExternalEther()
+
+Returns the amount of ether backing external shares (stVaults).
+
+```sol
+function getExternalEther() view returns (uint256)
+```
+
+### getExternalShares()
+
+Returns total external shares minted against stVault collateral.
+
+```sol
+function getExternalShares() view returns (uint256)
+```
+
+### getMaxExternalRatioBP()
+
+Returns the maximum ratio of external shares to total shares (basis points).
+
+```sol
+function getMaxExternalRatioBP() view returns (uint256)
+```
 
 ### getTotalELRewardsCollected()
 
@@ -446,7 +450,7 @@ function getBeaconStat() view returns (
 ### receiveELRewards()
 
 A payable function for execution layer rewards.
-Can be called only by the [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault.md) contract.
+Can be called only by the [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) contract.
 
 ```sol
 function receiveELRewards() payable
@@ -454,7 +458,7 @@ function receiveELRewards() payable
 
 ### receiveWithdrawals()
 
-A payable function for withdrawals acquisition. Can be called only by [`WithdrawalVault`](/contracts/withdrawal-vault.md).
+A payable function for withdrawals acquisition. Can be called only by [`WithdrawalVault`](/contracts/withdrawal-vault).
 
 ```sol
 function receiveWithdrawals() payable
@@ -558,6 +562,20 @@ Can be called only by the bearer of `STAKING_CONTROL_ROLE`
 ```sol
 function removeStakingLimit()
 ```
+
+### setMaxExternalRatioBP()
+
+Sets the maximum ratio of external shares to total shares (basis points).
+
+Can be called only by the bearer of `STAKING_CONTROL_ROLE`
+
+```sol
+function setMaxExternalRatioBP(uint256 _maxExternalRatioBP)
+```
+
+| Parameter            | Type      | Description                                              |
+| -------------------- | --------- | -------------------------------------------------------- |
+| `_maxExternalRatioBP`| `uint256` | Max external shares ratio in basis points (0-10000)      |
 
 ### unsafeChangeDepositedValidators()
 
@@ -947,7 +965,7 @@ function eip712Domain() view returns (
 
 ### getLidoLocator()
 
-Returns the address of [LidoLocator](/contracts/lido-locator.md).
+Returns the address of [LidoLocator](/contracts/lido-locator).
 
 ```sol
 function getLidoLocator() view returns (address)
@@ -962,7 +980,7 @@ function getContractVersion() view returns (uint256)
 ```
 
 :::note
-Always returns `2`.
+Always returns `3`.
 :::
 
 ### transferToVault()

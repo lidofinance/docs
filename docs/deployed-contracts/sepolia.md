@@ -46,7 +46,6 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
   - HashConsensus: [`0x098a952BD200005382aEb3229e38ae39A7616F56`](https://sepolia.etherscan.io/address/0x098a952BD200005382aEb3229e38ae39A7616F56)
 - OracleReportSanityChecker: [`0x69CBE6A06a450f2a2b8942b1091D53490b5A7A15`](https://sepolia.etherscan.io/address/0x69CBE6A06a450f2a2b8942b1091D53490b5A7A15)
 - OracleDaemonConfig: [`0x7bC76076b0f3879b4A750450C0Ccf02c6Ca11220`](https://sepolia.etherscan.io/address/0x7bC76076b0f3879b4A750450C0Ccf02c6Ca11220)
-- Legacy Oracle (Lido Oracle before V2, obsolete): [`0x3483c140EF7F2716460198Ff831a8e53F05F1606`](https://sepolia.etherscan.io/address/0x3483c140EF7F2716460198Ff831a8e53F05F1606) (proxy)
 
 ## DAO contracts
 
