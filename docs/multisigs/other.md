@@ -1,10 +1,12 @@
 # Other
 
-## 6.1 Community Lifeguards Multisig
+## 4.1 Community Lifeguards Multisig
 
 **Address:** [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/home?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
 
 **Purpose of the multisig:** the multisig is intended to receive and distribute grants from the LEGO Committee multisig for the Lido Community Lifeguards Initiative operations.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreiaoz2ihxq2bxa3r6hkcwz4c6m3dfyac7xoy3pjgwiextm2piguimm)
 
 **Quorum:** 3/5
 
