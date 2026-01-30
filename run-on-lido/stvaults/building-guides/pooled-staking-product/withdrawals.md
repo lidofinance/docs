@@ -104,6 +104,10 @@ yarn start defi-wrapper contracts wq w finalize <withdrawalQueue> <maxRequests> 
 - `maxRequests`: finalize up to N requests in one transaction (the function stops earlier if it hits a limiting condition).
 - `gasCostCoverageRecipient`: where the gas cost coverage (if any) is paid; if you pass `0x000...0`, the contract uses `msg.sender`.
 
+## After finalization
+
+Users are able to claim their assets for the finalized requests (`WithdrawalQueue` contract calls `claimWithdrawal` or `claimWithdrawalBatch`)
+
 ## What is `gasCostCoverage`
 
 `gasCostCoverage` is a per-request ETH amount that can be paid out during finalization to compensate the finalizer for gas costs (bounded by the on-chain constant `MAX_GAS_COST_COVERAGE`).
@@ -126,4 +130,3 @@ yarn start defi-wrapper contracts wq r MAX_GAS_COST_COVERAGE <withdrawalQueue>
 **How to change it**
 
 The on-chain method is `setFinalizationGasCostCoverage(uint256)`, which requires `FINALIZE_ROLE`.
-
