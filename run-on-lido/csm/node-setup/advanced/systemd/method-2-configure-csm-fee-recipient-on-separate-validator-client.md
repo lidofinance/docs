@@ -511,7 +511,7 @@ WantedBy=multi-user.target
 
 Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand and review your configuration summary below, and amend if needed.
 
-:::important
+:::info
 Recall that you will have to use designated fee recipient addresses as a CSM operator.
 - Mainnet: [0x388C818CA8B9251b393131C08a736A67ccB19297](https://etherscan.io/address/0x388c818ca8b9251b393131c08a736a67ccb19297)
 - Hoodi: [0x9b108015fe433F173696Af3Aa0CF7CDb3E104258](https://hoodi.etherscan.io/address/0x9b108015fe433f173696af3aa0cf7cdb3e104258)

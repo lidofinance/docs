@@ -4,11 +4,11 @@ sidebar_position: 0
 
 # 📊 Beginner: CSM Widget, MigaLabs, Beaconcha.in
 
-To get rewards on your CSM validators, their performance must be above the average performance of the network minus 5% during the monitoring frame of 28 days. That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
+To get Node Operator rewards on your CSM validators, their performance must be above the average performance of the network minus 3% (5% for ICS's first 150 keys) during the monitoring frame of 28 days. That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
 
 ## Snapshot Performance
 
-Go to the [monitoring](https://csm.lido.fi/monitoring) tab in the CSM UI to see the overall performance of your Node Operator. Note that only keys above the threshold will receive rewards at the end of the frame.
+Go to the [monitoring](https://csm.lido.fi/monitoring) tab in the CSM UI to see the overall performance of your Node Operator. Note that only keys above the threshold will receive Node Operator rewards at the end of the frame.
 
 ![Snapshot Performance](/img/csm-guide/beginner-1.png)
 

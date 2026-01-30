@@ -7,7 +7,7 @@ sidebar_position: 4
 CSM has two roles to interact with your Node Operator: **Manager** and **Rewards**. When you first create your operator, both roles are assigned to the wallet you used at creation (unless you are explicitly specifying custom addresses), but both can be changed later. Let's see what each role can do and how to change the wallet:
 
 :::warning
-You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Reward address.
+You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Rewards address.
 
 You can work around this by using the Extended mode explained [here](#extended-mode). **Note**: you can only do this when creating the Node Operator.
 :::
@@ -26,15 +26,15 @@ The Manager can perform the following actions:
 
 As it has limited access, you can set the Manager as a hot wallet for more convenient management of your Node Operator within CSM.
 
-### Reward address
+### Rewards address
 
 The Reward can do the following:
 
 * Claim rewards
-* Propose a new Reward address
-* Reset the Manager to make it equal to the current Reward address
+* Propose a new Rewards address
+* Reset the Manager to make it equal to the current Rewards address
 
-Given the Reward address is the recipient of funds, it is recommended to be set to a [cold wallet](https://www.coinbase.com/en-es/learn/wallet/hot-vs-cold-crypto-wallet-what-is-the-difference).
+Given the Rewards address is the recipient of funds, it is recommended to be set to a [cold wallet](https://www.coinbase.com/en-es/learn/wallet/hot-vs-cold-crypto-wallet-what-is-the-difference).
 
 ### Permissionless operations
 On top of the permissions above, there's several methods that can be called by any Ethereum address:
@@ -46,11 +46,11 @@ On top of the permissions above, there's several methods that can be called by a
 
 ## Change roles
 
-To change the roles for either the Manager or Reward address, navigate to the [Roles tab](https://csm.lido.fi/roles/).
+To change the roles for either the Manager or Rewards address, navigate to the [Roles tab](https://csm.lido.fi/roles/).
 
 ![Roles Tab](/img/csm-guide/roles-1.png)
 
-Select the role you want to change—remember the Manager can only change itself, and the Reward can change itself and reset the Manager.
+Select the role you want to change - remember the Manager can only change itself, and the Rewards address can change itself and reset the Manager.
 
 Put the new address in the textbox, and confirm the changes.
 
@@ -66,7 +66,7 @@ The other wallet will then have to sign a transaction accepting the request.
 The extended mode can only be set upon the creation of the Node Operator and can't be changed later.
 :::
 
-If you need to use a wallet that can't sign arbitrary transactions as the Reward address (e.g., Obol clusters using Splitter contracts), you can select **Extended mode** which gives the manager the ability to change the Reward address as well.
+If you need to use a wallet that can't sign arbitrary transactions as the Rewards address (e.g., Obol clusters using Splitter contracts), you can select **Extended mode** which gives the Manager address the ability to change the Rewards address as well.
 
 Find it at the bottom of the Lido CSM Widget during operator creation.
 
