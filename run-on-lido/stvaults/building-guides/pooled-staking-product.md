@@ -49,7 +49,7 @@ DeFi Wrapper supports three product archetypes:
 
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy, increasing the amount of ETH on validators. The product lets the Node Operator attract more ETH for validation than end users deposit.
 
-#### 3.2. DeFi strategy (GGV or custom)
+#### 3.2. DeFi strategy (custom)
 
 ![Boosted APR via DeFi strategy](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 
@@ -163,35 +163,6 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
-#### Deployment of `StvGGV` (pool with GGV strategy)
-
-Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the description of the required GGV pool parameters.
-
-Start the deployment like:
-
-```bash
-yarn start defi-wrapper contracts factory w create-pool-ggv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
-  --nodeOperator 0x0000000000000000000000000000000000000001 \
-  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
-  --nodeOperatorFeeRate 10 \
-  --confirmExpiry 86400 \
-  --minDelaySeconds 3600 \
-  --minWithdrawalDelayTime 3600 \
-  --name "Debug GGV Pool" \
-  --symbol STV \
-  --proposer 0x0000000000000000000000000000000000000003 \
-  --executor 0x0000000000000000000000000000000000000004 \
-  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
-  --reserveRatioGapBP 250
-```
-
-:::info
-
-Note that for `StvGGV` pools, the allowlist is not configurable: the only address allowed to deposit is the GGV strategy contract itself.
-
-Users do not deposit via the pool directly — they supply to the strategy.
-
-:::
 
 ### 2. Create Web UI
 
