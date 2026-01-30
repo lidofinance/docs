@@ -40,10 +40,10 @@ Key levers on the core pool contract ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE
 
 | Lever | Mutators | Role | Holder |
 |-------|----------|------|--------|
-| Pause/Resume protocol | `stop()`, `resume()` | `PAUSE_ROLE`, `RESUME_ROLE` | DAO Agent + GateSeal |
-| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | DAO Agent |
-| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | DAO Agent |
-| Withdrawal credentials | `setWithdrawalCredentials()` | `MANAGE_WITHDRAWAL_KEY_ROLE` | DAO Agent |
+| Pause/Resume protocol | `stop()`, `resume()` | `PAUSE_ROLE`, `RESUME_ROLE` | Unassigned |
+| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | Unassigned |
+| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | Unassigned |
+| Withdrawal credentials | `setWithdrawalCredentials()` | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | Unassigned |
 
 ### Emergency pause
 
