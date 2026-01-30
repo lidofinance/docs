@@ -66,7 +66,7 @@ and cover application-induced rebase, which can be done as follows:
 
 ## Constants
 
-### LOCATOR
+### LOCATOR()
 
 Returns the address of the [LidoLocator](/contracts/lido-locator) contract.
 
@@ -74,7 +74,7 @@ Returns the address of the [LidoLocator](/contracts/lido-locator) contract.
 ILidoLocator public immutable LOCATOR;
 ```
 
-### LIDO
+### LIDO()
 
 Returns the address of the [Lido](/contracts/lido) (stETH) contract.
 
@@ -84,7 +84,7 @@ ILido public immutable LIDO;
 
 ## Roles
 
-### REQUEST_BURN_MY_STETH_ROLE
+### REQUEST_BURN_MY_STETH_ROLE()
 
 An ACL role granting the permission to burn caller's own stETH.
 
@@ -92,7 +92,7 @@ An ACL role granting the permission to burn caller's own stETH.
 bytes32 public constant REQUEST_BURN_MY_STETH_ROLE = keccak256("REQUEST_BURN_MY_STETH_ROLE");
 ```
 
-### REQUEST_BURN_SHARES_ROLE
+### REQUEST_BURN_SHARES_ROLE()
 
 An ACL role granting the permission to burn stETH shares on behalf of others.
 
