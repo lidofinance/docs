@@ -980,7 +980,7 @@ function getContractVersion() view returns (uint256)
 ```
 
 :::note
-Always returns `2`.
+Always returns `3`.
 :::
 
 ### transferToVault()

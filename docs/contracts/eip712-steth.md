@@ -70,7 +70,7 @@ function eip712Domain(address _stETH) returns (
 Provided the correct `_stETH` [deployed](/deployed-contracts) address, it returns:
 
 - ("Liquid staked Ether 2.0", "2", 1, 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) for Mainnet.
-- ("Liquid staked Ether 2.0", "2", 5, 0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) for Görli.
+- ("Liquid staked Ether 2.0", "2", 560048, 0x3508A952176b3c15387C97BE809eaffB1982176a) for Hoodi.
 :::
 
 This method facilitates domain separator construction on the client's side, such as in a wallet or widget:

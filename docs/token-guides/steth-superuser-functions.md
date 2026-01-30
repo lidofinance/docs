@@ -33,10 +33,10 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 **When paused**: Token transfers, approvals, and rebases are disabled. Core protocol entry points (staking, withdrawals) revert.
 
-| Role | Holder | Address |
-|------|--------|---------|
-| `PAUSE_ROLE` | DAO Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
-| `RESUME_ROLE` | DAO Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
+| Role | Holder |
+|------|--------|
+| `PAUSE_ROLE` | Unassigned |
+| `RESUME_ROLE` | Unassigned |
 
 **Mutators**: `stop()`, `resume()` on [Lido](/contracts/lido)
 
@@ -55,8 +55,8 @@ Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c5275
 
 | Role | Purpose | Holder |
 |------|---------|--------|
-| `REQUEST_BURN_SHARES_ROLE` | Request burns on behalf of others | Lido contract, VaultHub |
-| `REQUEST_BURN_MY_STETH_ROLE` | Burn caller's own stETH | DAO Agent |
+| `REQUEST_BURN_SHARES_ROLE` | Request burns on behalf of others | Accounting, CSAccounting |
+| `REQUEST_BURN_MY_STETH_ROLE` | Burn caller's own stETH | Unassigned |
 
 **Used for**:
 - Withdrawal finalization (burning stETH to release ETH)
@@ -69,7 +69,7 @@ Controls the maximum ETH that can be staked per transaction or in total.
 
 | Role | Holder |
 |------|--------|
-| `STAKING_CONTROL_ROLE` | DAO Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+| `STAKING_CONTROL_ROLE` | Unassigned |
 
 **Mutators**: `setStakingLimit()`, `removeStakingLimit()`, `pauseStaking()`, `resumeStaking()`
 
@@ -79,7 +79,7 @@ External shares are stETH minted by stVaults against overcollateralized ETH. The
 
 | Role | Holder |
 |------|--------|
-| `STAKING_CONTROL_ROLE` | DAO Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+| `STAKING_CONTROL_ROLE` | Unassigned |
 
 **Mutator**: `setMaxExternalRatioBP()` on [Lido](/contracts/lido)
 
@@ -96,7 +96,7 @@ Controls the Ethereum withdrawal credentials for new validators deposited by the
 
 | Role | Holder |
 |------|--------|
-| `MANAGE_WITHDRAWAL_KEY_ROLE` | DAO Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+| `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | Unassigned |
 
 **Mutator**: `setWithdrawalCredentials()`
 

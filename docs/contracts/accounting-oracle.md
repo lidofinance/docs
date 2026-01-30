@@ -78,6 +78,8 @@ struct ReportData {
     uint256[] withdrawalFinalizationBatches;
     uint256 simulatedShareRate;
     bool isBunkerMode;
+    bytes32 vaultsDataTreeRoot;
+    string vaultsDataTreeCid;
     uint256 extraDataFormat;
     bytes32 extraDataHash;
     uint256 extraDataItemsCount;
@@ -120,6 +122,11 @@ where `postTotalPooledEther` and `postTotalShares` were retrieved as return valu
 
 - `isBunkerMode` — Whether, based on the state observed at the reference slot, the protocol must be in the bunker mode or the turbo (regular) mode.
 
+**Staking Vaults**
+
+- `vaultsDataTreeRoot` — Merkle Tree root of the stVaults data.
+- `vaultsDataTreeCid` — CID of the published Merkle tree of the vault data.
+
 :::note
 
 ##### Extra data
@@ -153,7 +160,7 @@ where `itemSortingKey` calculation depends on the item's type (see below).
 
 ---------------------------------------------------------------------------------------
 
-**`itemType=1`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
+**`itemType=2`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
 
 The `itemPayload` field has the following format:
 
@@ -177,7 +184,7 @@ The `itemPayload` field has the following format:
 
     byteLength(exitedValidatorsCounts) = nodeOpsCount * 16
 
-`nodeOpsCount` must not be greater than `maxItemsPerExtraDataTransaction` specified
+`nodeOpsCount` must not be greater than `maxNodeOperatorsPerExtraDataItem` specified
     in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
     with total exited validators counts changed compared to the staking module smart contract
     storage (as observed at the reference slot), reporting for that module should be split
@@ -187,6 +194,10 @@ Item sorting key is a compound key consisting of the module id and the first rep
     node operator's id:
 
     itemSortingKey = (moduleId, nodeOperatorIds[0:8])
+
+---------------------------------------------------------------------------------------
+
+**Deprecated: `itemType=1`** (`EXTRA_DATA_TYPE_STUCK_VALIDATORS`): This type was deprecated in the Triggerable Withdrawals update. The mechanism for handling stuck validator keys is no longer supported. Submitting this type will revert with `DeprecatedExtraDataType`.
 
 ---------------------------------------------------------------------------------------
 
@@ -209,14 +220,6 @@ Access to lever methods is restricted using the functionality of the
 contract and a bunch of [granular roles](#permissions).
 
 ## Constants
-
-### LIDO()
-
-Returns an address of the [Lido](/contracts/lido) contract
-
-```solidity
-address public immutable LIDO;
-```
 
 ### LOCATOR()
 
@@ -248,6 +251,14 @@ always returns 1606824023 (December 1, 2020, 12:00:23pm UTC) on [Mainnet](https:
 
 ```solidity
 uint256 public immutable GENESIS_TIME;
+```
+
+### EXTRA_DATA_TYPE_STUCK_VALIDATORS()
+
+**Deprecated.** This type was previously used for stuck validators but is no longer supported. Submitting this type will revert.
+
+```solidity
+uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1;
 ```
 
 ### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
@@ -605,6 +616,7 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
 - Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if  `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
 - Reverts with `InvalidExitedValidatorsData()` if provided exited validators data doesn't meet safety checks.
+- Reverts with `DeprecatedExtraDataType(itemIndex, itemType)` if extra data contains the deprecated `EXTRA_DATA_TYPE_STUCK_VALIDATORS` type.
 
 #### OracleReportSanityChecker
 
