@@ -303,8 +303,8 @@ Evaluates the following amounts during Lido's oracle report processing:
 
 ```solidity
 function smoothenTokenRebase(
-    uint256 _preTotalPooledEther,
-    uint256 _preTotalShares,
+    uint256 _preInternalEther,
+    uint256 _preInternalShares,
     uint256 _preCLBalance,
     uint256 _postCLBalance,
     uint256 _withdrawalVaultBalance,
@@ -315,28 +315,28 @@ function smoothenTokenRebase(
 ) returns (
     uint256 withdrawals,
     uint256 elRewards,
-    uint256 simulatedSharesToBurn,
+    uint256 sharesFromWQToBurn,
     uint256 sharesToBurn
 )
 ```
 
 #### Arguments
 
-- **`_preTotalPooledEther`** — total amount of ETH controlled by the protocol
-- **`_preTotalShares`** — total amount of minted stETH shares
+- **`_preInternalEther`** — amount of internal ETH controlled by the protocol
+- **`_preInternalShares`** — number of internal shares
 - **`_preCLBalance`** — sum of all Lido validators' balances on the Consensus Layer before the current oracle report
 - **`_postCLBalance`** — sum of all Lido validators' balances on the Consensus Layer after the current oracle report
 - **`_withdrawalVaultBalance`** — withdrawal vault balance on Execution Layer for the report calculation moment
 - **`_elRewardsVaultBalance`** — elRewards vault balance on Execution Layer for the report calculation moment
 - **`_sharesRequestedToBurn`** — shares requested to burn through Burner for the report calculation moment
 - **`_etherToLockForWithdrawals`** — ether to lock on withdrawals queue contract
-- **`_newSharesToBurnForWithdrawals`** — new shares to burn due to withdrawal requests finalization
+- **`_newSharesToBurnForWithdrawals`** — new shares to burn due to withdrawal request finalization
 
 #### Returns
 
 - **`withdrawals`** — ETH amount allowed to be taken from the withdrawals vault
 - **`elRewards`** — ETH amount allowed to be taken from the EL rewards vault
-- **`simulatedSharesToBurn`** — simulated amount of shares to be burnt (if no ether locked on withdrawals)
+- **`sharesFromWQToBurn`** — amount of shares from Burner that should be burned due to WQ finalization
 - **`sharesToBurn`** — amount of shares to be burnt (accounting for withdrawals finalization)
 
 ## Lever Methods
