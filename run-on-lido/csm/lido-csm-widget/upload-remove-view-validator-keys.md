@@ -81,7 +81,7 @@ More details [here](https://operatorportal.lido.fi/modules/community-staking-mod
 Once your keys have been removed, the associated bond amounts that you deposited earlier will be available for claiming under the **Bond & Rewards** tab. You can learn more at the [Rewards & Bonds page of this guide](/run-on-lido/csm/lido-csm-widget/rewards-and-bonds).
 
 :::warning
-Keys that have been deposited cannot be removed and can only be manually exited from the Consensus Layer or rejected via triggerable withdrawal requests to the protocol.
+Keys that have been deposited cannot be removed and can only be manually exited from the Consensus Layer or ejected via triggerable withdrawal requests to the protocol.
 :::
 
 ## Eject keys
