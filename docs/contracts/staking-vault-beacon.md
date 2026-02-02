@@ -10,7 +10,7 @@ OpenZeppelin UpgradeableBeacon used as the StakingVault beacon. It stores the cu
 UpgradeableBeacon is a beacon proxy controller:
 
 - holds the current implementation address
-- allows the owner to upgrade the implementation
+- allows the Lido DAO to upgrade the implementation if vaults are not ossified
 - is referenced by all `PinnedBeaconProxy` vaults created by `VaultFactory`
 
 ## Ownership and upgrades
@@ -75,5 +75,5 @@ Renounces ownership of the beacon.
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault)
-- [Staking Vault Factory](/contracts/staking-vault-factory)
+- [StakingVault](/contracts/staking-vault.md)
+- [Staking Vault Factory](/contracts/staking-vault-factory.md)

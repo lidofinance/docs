@@ -47,7 +47,7 @@ deposit frontrunning vulnerability
 - [`AccountingOracle`](/contracts/accounting-oracle): oracle committee, which gathers
 an accounting report for the protocol
 - [`Accounting`](/contracts/accounting): applies oracle reports and distributes rewards
-- [`VaultHub`](/contracts/vault-hub): stVaults coordination and external share accounting
+- [`VaultHub`](/contracts/vault-hub.md): stVaults coordination and external share accounting
 - [`PredepositGuarantee`](/contracts/predeposit-guarantee): predeposit protection for stVaults
 - [`EIP712StETH`](/contracts/eip712-steth): ad-hoc helper to implement ERC-2612 permit
 for Solidity 0.4.24 Lido contract

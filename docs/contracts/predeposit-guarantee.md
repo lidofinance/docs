@@ -1,9 +1,9 @@
 # PredepositGuarantee
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol)
 - [Deployed contract](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3)
 
-PredepositGuarantee (PDG) mitigates deposit frontrunning by requiring a node operator guarantee and validator proofs (EIP-4788) before activating staged deposits.
+PredepositGuarantee (PDG) mitigates deposit frontrunning by requiring a node operator guarantee and validator withdrawal credentials proofs (EIP-4788) before activating staged deposits.
 
 :::warning
 On mainnet PDG is deployed but paused during Phase 1 (soft-launch). It becomes active in Phase 2.
@@ -365,7 +365,7 @@ PDG inherits from `PausableUntilWithRoles`. All state-changing methods require t
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault)
-- [VaultHub](/contracts/vault-hub)
-- [Dashboard](/contracts/dashboard)
+- [StakingVault](/contracts/staking-vault.md)
+- [VaultHub](/contracts/vault-hub.md)
+- [Dashboard](/contracts/dashboard.md)
 - [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg)

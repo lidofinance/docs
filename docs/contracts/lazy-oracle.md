@@ -1,6 +1,6 @@
 # LazyOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/LazyOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/LazyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c)
 
 Oracle adapter for stVaults. Stores per-vault reports, applies sanity checks, and forwards vault updates to VaultHub.
@@ -14,6 +14,8 @@ LazyOracle is a lightweight oracle for stVaults:
 - applies per-vault accounting updates to VaultHub
 - quarantines vaults with suspicious value deltas
 
+It is called **lazy** because it stores only the report root and metadata each round; per-vault data is expanded on-demand via Merkle proofs only when a vault operation needs it.
+
 ## How it works
 
 1. `AccountingOracle` publishes a report root and metadata via `updateReportData()`.
@@ -23,10 +25,6 @@ LazyOracle is a lightweight oracle for stVaults:
 
 Per-vault report submissions are **permissionless**: any account can call `updateVaultData`
 with a valid Merkle proof from the latest report root.
-
-### Report freshness
-
-A vault report freshness is determined by VaultHub based on the report timestamp stored in LazyOracle. When stale, the vault cannot perform operations like withdrawals, mints, beacon chain deposits or disconnect.
 
 ### Quarantine mechanics
 
@@ -328,8 +326,8 @@ Removes quarantine for a vault. Only callable by `VaultHub`.
 
 ## Related
 
-- [VaultHub](/contracts/vault-hub)
-- [AccountingOracle](/contracts/accounting-oracle)
-- [OperatorGrid](/contracts/operator-grid)
-- [PredepositGuarantee](/contracts/predeposit-guarantee)
+- [VaultHub](/contracts/vault-hub.md)
+- [AccountingOracle](/contracts/accounting-oracle.md)
+- [OperatorGrid](/contracts/operator-grid.md)
+- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
 - [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

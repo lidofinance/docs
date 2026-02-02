@@ -1,6 +1,6 @@
 # ValidatorConsolidationRequests
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/ValidatorConsolidationRequests.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/ValidatorConsolidationRequests.sol)
 - [Deployed contract](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
 
 Helper contract that builds calldata for validator consolidation requests (EIP-7251) into stVaults and exposes the current consolidation fee.
@@ -97,10 +97,10 @@ Call this function via the Vault CLI using WalletConnect signing. The CLI perfor
 function getConsolidationRequestFee() external view returns (uint256)
 ```
 
-Returns the current EIP-7251 consolidation request fee. Note: fee is only valid for the current block and may change in subsequent blocks.
+Returns the current EIP-7251 consolidation request fee. This value is used by the CLI when building the fee-exemption flow for Dashboard. Note: the fee is only valid for the current block and may change in subsequent blocks.
 
 ## Related
 
 - [Consolidations guide](/run-on-lido/stvaults/tech-documentation/consolidation)
-- [Dashboard](/contracts/dashboard)
+- [Dashboard](/contracts/dashboard.md)
 - [NodeOperatorFee](/contracts/dashboard#node-operator-fee-accounting)
