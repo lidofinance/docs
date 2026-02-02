@@ -41,23 +41,33 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
 
-1. Update exited validators counts for each StakingModule in StakingRouter;
-2. Update bunker mode status for WithdrawalQueue;
-3. Call `Accounting.handleOracleReport` to apply the report and rebase stETH.
+1. Perform sanity checks via `OracleReportSanityChecker`.
+2. Update exited validators counts for each StakingModule in StakingRouter.
+3. Call `Accounting.handleOracleReport` to apply the report, which performs:
+   - Updates consensus layer state on Lido
+   - Internalizes bad debt
+   - Commits shares to burn
+   - Finalizes withdrawal queue requests
+   - Distributes protocol fees to modules and treasury
+   - Notifies rebase observers
+   - Emits `TokenRebased` on Lido
 4. Update the stVaults report root in `LazyOracle`.
-5. Store information about ExtraData
+5. Store information about ExtraData.
 
 The diagram shows the interaction with contracts.
 
 ```mermaid
-graph LR;
-  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->Accounting;
-  AccountingOracle--updateReportData-->LazyOracle;
-  AccountingOracle--handleOracleReport-->Accounting-->Lido;
-  AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
-  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
-  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
-  AccountingOracle--'onOracleReport'-->WithdrawalQueue;
+graph TD;
+  A[/submitReportData/] --> B[AccountingOracle];
+  B --> C[OracleReportSanityChecker];
+  B --> D[StakingRouter];
+  B --> E[Accounting];
+  E --> F[Lido (consensus state + TokenRebased)];
+  E --> G[Burner];
+  E --> H[WithdrawalQueue];
+  E --> I[Fee distribution];
+  B --> J[LazyOracle];
+  B --> K[ExtraData];
 ```
 
 ## Report data

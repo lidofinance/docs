@@ -19,25 +19,35 @@ Lido V3 governance controls a set of configurable parameters across core pool, o
 
 All protocol proxy admins are set to the **Lido DAO Agent** ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)). Upgrades require a successful DAO vote.
 
-Core upgradeable contracts:
+Core protocol contracts (mainnet):
 
-| Contract | Proxy Address |
-|----------|---------------|
+| Contract | Address |
+|----------|---------|
 | [LidoLocator](/contracts/lido-locator) | [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) |
 | [Lido](/contracts/lido) | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
 | [Accounting](/contracts/accounting) | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) |
-| [AccountingOracle](/contracts/accounting-oracle) | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
-| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) |
+| [wstETH](/contracts/wsteth) | [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0) |
+| [wstETH Referral Staker](/contracts/wsteth-staker) | [`0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d) |
+| [EIP-712 helper for stETH](/contracts/eip712-steth) | [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7) |
 | [StakingRouter](/contracts/staking-router) | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) |
+| [DepositSecurityModule](/contracts/deposit-security-module) | [`0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd) |
+| [ExecutionLayerRewardsVault](/contracts/lido-execution-layer-rewards-vault) | [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297) |
 | [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) | [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) |
 | [WithdrawalVault](/contracts/withdrawal-vault) | [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) |
 | [Burner](/contracts/burner) | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) |
+| [MEV Boost Relay Allowed List](/contracts/mev-boost-relays-allowed-list) | [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e) |
+| Min First Allocation Strategy | [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) |
+| [TriggerableWithdrawalsGateway](/contracts/triggerable-withdrawals-gateway) | [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B) |
+| [ValidatorExitDelayVerifier](/contracts/validator-exit-delay-verifier) | [`0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f`](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f) |
 | [VaultHub](/contracts/vault-hub) | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) |
 | [PredepositGuarantee](/contracts/predeposit-guarantee) | [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) |
 | [OperatorGrid](/contracts/operator-grid) | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
 | [LazyOracle](/contracts/lazy-oracle) | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
-
-This list is not exhaustive; see [Deployed contracts (mainnet)](/deployed-contracts#core-protocol), [Oracle contracts](/deployed-contracts#oracle-contracts), and [Staking modules](/deployed-contracts#staking-modules).
+| [StakingVaultFactory](/contracts/staking-vault-factory) | [`0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A`](https://etherscan.io/address/0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A) |
+| [StakingVaultBeacon](/contracts/staking-vault-beacon) | [`0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789`](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789) |
+| [StakingVault](/contracts/staking-vault) | [`0x06A56487494aa080deC7Bf69128EdA9225784553`](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553) |
+| [Dashboard](/contracts/dashboard) | [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3) |
+| [ValidatorConsolidationRequests](/contracts/validator-consolidation-requests) | [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018) |
 
 ## Lido (core pool)
 
