@@ -46,10 +46,10 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days), after which the DAO must vote to resume or extend.
 
-| GateSeal         | Address                                      | Protects                     |
-| ---------------- | -------------------------------------------- | ---------------------------- |
-| Withdrawal Queue | `0x8A854C4E750CDf24f138f34A9061b2f556066912` | WithdrawalQueueERC721        |
-| VaultHub and PDG | `0x881dAd714679A6FeaA636446A0499101375A365c` | VaultHub,PredepositGuarantee |
+| GateSeal         | Address                                                                                                                 | Protects                      |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721         |
+| VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee |
 
 ## Burning stETH
 
