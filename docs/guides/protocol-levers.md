@@ -45,10 +45,10 @@ Key levers on the core pool contract [Lido](/contracts/lido) ([`0xae7ab96520DE3A
 
 | Lever | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | ---- | ------------- | ---------- | ------ |
-| Pause protocol | `stop()` | `PAUSE_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
-| Resume protocol | `resume()` | `RESUME_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
-| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
-| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
+| Pause protocol | `stop()` | `PAUSE_ROLE` | Aragon ACL | Aragon Agent | Unassigned |
+| Resume protocol | `resume()` | `RESUME_ROLE` | Aragon ACL | Aragon Agent | Unassigned |
+| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | Aragon ACL | Aragon Agent | Unassigned |
+| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | Aragon ACL | Aragon Agent | Unassigned |
 
 Roles marked as unassigned are intentionally left without holders. The DAO can assign them later through Aragon ACL governance; see the [permissions transition guide](https://github.com/lidofinance/dual-governance/blob/main/docs/permissions-transition/permissions-transition-mainnet.md) for design context (prepared pre-V3 but still applicable on principles).
 
