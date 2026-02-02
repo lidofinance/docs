@@ -11,14 +11,14 @@ This guide describes the stETH control surface in Lido V3 and the roles that can
 
 ## Key contracts
 
-| Contract      | Address                                                                                                                 | Purpose                                                      |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| Lido          | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) | Core stETH token and staking pool                            |
-| Accounting    | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) | Oracle report handling and rebases                           |
-| StakingRouter | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) | Staking module routing and withdrawal credentials management |
-| Burner        | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) | stETH burning for withdrawals                                |
-| VaultHub      | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | External share minting for stVaults                          |
-| Aragon ACL    | [`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb) | Permission registry for AragonApp-based access control       |
+| Contract                                   | Address                                                                                                                 | Purpose                                                      |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [Lido](/contracts/lido)                    | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) | Core stETH token and staking pool                            |
+| [Accounting](/contracts/accounting)        | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) | Oracle report handling and rebases                           |
+| [StakingRouter](/contracts/staking-router) | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) | Staking module routing and withdrawal credentials management |
+| [Burner](/contracts/burner)                | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) | stETH burning for withdrawals                                |
+| [VaultHub](/contracts/vault-hub)           | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | External share minting for stVaults                          |
+| Aragon ACL                                 | [`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb) | Permission registry for AragonApp-based access control       |
 
 ## Who controls stETH behavior
 
@@ -35,10 +35,10 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 **When paused**: Token transfers, approvals, and rebases are disabled. Core protocol entry points (staking, withdrawals) revert.
 
-| Contract | Role          | Role registry | Role admin | Holder     | Purpose         |
-| -------- | ------------- | ------------- | ---------- | ---------- | --------------- |
-| Lido     | `PAUSE_ROLE`  | Aragon ACL    | DAO Agent  | Unassigned | Pause protocol  |
-| Lido     | `RESUME_ROLE` | Aragon ACL    | DAO Agent  | Unassigned | Resume protocol |
+| Contract                | Role          | Role registry | Role admin | Holder     | Purpose         |
+| ----------------------- | ------------- | ------------- | ---------- | ---------- | --------------- |
+| [Lido](/contracts/lido) | `PAUSE_ROLE`  | Aragon ACL    | DAO Agent  | Unassigned | Pause protocol  |
+| [Lido](/contracts/lido) | `RESUME_ROLE` | Aragon ACL    | DAO Agent  | Unassigned | Resume protocol |
 
 **Mutators**: `stop()`, `resume()` on [Lido](/contracts/lido)
 
@@ -46,19 +46,19 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days), after which the DAO must vote to resume or extend.
 
-| GateSeal         | Address                                                                                                                 | Protects                      |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721         |
-| VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee |
+| Contract                         | Address                                                                                                                 | Protects                      |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| [GateSeal](/contracts/gate-seal) | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721         |
+| [GateSeal](/contracts/gate-seal) | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee |
 
 ## Burning stETH
 
 Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)).
 
-| Contract | Role                         | Role registry | Role admin | Holder                   | Purpose                           |
-| -------- | ---------------------------- | ------------- | ---------- | ------------------------ | --------------------------------- |
-| Burner   | `REQUEST_BURN_SHARES_ROLE`   | Burner        | DAO Agent  | Accounting, CSAccounting | Request burns on behalf of others |
-| Burner   | `REQUEST_BURN_MY_STETH_ROLE` | Burner        | DAO Agent  | Unassigned               | Burn caller's own stETH           |
+| Contract                    | Role                         | Role registry | Role admin | Holder                   | Purpose                           |
+| --------------------------- | ---------------------------- | ------------- | ---------- | ------------------------ | --------------------------------- |
+| [Burner](/contracts/burner) | `REQUEST_BURN_SHARES_ROLE`   | Burner        | DAO Agent  | Accounting, CSAccounting | Request burns on behalf of others |
+| [Burner](/contracts/burner) | `REQUEST_BURN_MY_STETH_ROLE` | Burner        | DAO Agent  | Unassigned               | Burn caller's own stETH           |
 
 **Used for**:
 
@@ -70,9 +70,9 @@ Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c5275
 
 Controls the maximum ETH that can be staked per transaction or in total.
 
-| Contract | Role                   | Role registry | Role admin | Holder     | Purpose               |
-| -------- | ---------------------- | ------------- | ---------- | ---------- | --------------------- |
-| Lido     | `STAKING_CONTROL_ROLE` | Aragon ACL    | DAO Agent  | Unassigned | Adjust staking limits |
+| Contract                | Role                   | Role registry | Role admin | Holder     | Purpose               |
+| ----------------------- | ---------------------- | ------------- | ---------- | ---------- | --------------------- |
+| [Lido](/contracts/lido) | `STAKING_CONTROL_ROLE` | Aragon ACL    | DAO Agent  | Unassigned | Adjust staking limits |
 
 **Mutators**: `setStakingLimit()`, `removeStakingLimit()`, `pauseStaking()`, `resumeStaking()`
 
@@ -80,9 +80,9 @@ Controls the maximum ETH that can be staked per transaction or in total.
 
 External shares are stETH minted by stVaults against overcollateralized ETH. The cap limits how much stETH can be minted externally relative to the core pool.
 
-| Contract | Role                   | Role registry | Role admin | Holder     | Purpose                 |
-| -------- | ---------------------- | ------------- | ---------- | ---------- | ----------------------- |
-| Lido     | `STAKING_CONTROL_ROLE` | Aragon ACL    | DAO Agent  | Unassigned | Set external shares cap |
+| Contract                | Role                   | Role registry | Role admin | Holder     | Purpose                 |
+| ----------------------- | ---------------------- | ------------- | ---------- | ---------- | ----------------------- |
+| [Lido](/contracts/lido) | `STAKING_CONTROL_ROLE` | Aragon ACL    | DAO Agent  | Unassigned | Set external shares cap |
 
 **Mutator**: `setMaxExternalRatioBP()` on [Lido](/contracts/lido)
 
@@ -98,9 +98,9 @@ External shares are stETH minted by stVaults against overcollateralized ETH. The
 
 Controls the Ethereum withdrawal credentials for new validators deposited by the protocol.
 
-| Contract      | Role                                 | Role registry | Role admin | Holder     | Purpose                    |
-| ------------- | ------------------------------------ | ------------- | ---------- | ---------- | -------------------------- |
-| StakingRouter | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | StakingRouter | DAO Agent  | Unassigned | Set withdrawal credentials |
+| Contract                                   | Role                                 | Role registry | Role admin | Holder     | Purpose                    |
+| ------------------------------------------ | ------------------------------------ | ------------- | ---------- | ---------- | -------------------------- |
+| [StakingRouter](/contracts/staking-router) | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | StakingRouter | DAO Agent  | Unassigned | Set withdrawal credentials |
 
 **Mutator**: `setWithdrawalCredentials()`
 
@@ -130,8 +130,8 @@ graph LR;
   L--TokenRebased event-->Observers;
 ```
 
-1. Oracle committee members submit reports to HashConsensus ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
-2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) triggers the report
+1. Oracle committee members submit reports to [HashConsensus](/contracts/hash-consensus.md)
+2. When quorum is reached, [AccountingOracle](/contracts/accounting-oracle.md) triggers the report
 3. [Accounting](/contracts/accounting) applies the report and updates Lido state
 4. Token rebases are emitted via `TokenRebased` event
 
