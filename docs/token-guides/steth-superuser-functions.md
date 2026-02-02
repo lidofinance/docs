@@ -55,10 +55,10 @@ The GateSeal mechanism allows emergency pausing without a full DAO vote. The Gat
 
 Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)).
 
-| Contract | Role                         | Role registry | Role admin | Holder                  | Purpose                           |
-| -------- | ---------------------------- | ------------- | ---------- | ----------------------- | --------------------------------- |
-| Burner   | `REQUEST_BURN_SHARES_ROLE`   | Burner        | DAO Agent  | Accounting,CSAccounting | Request burns on behalf of others |
-| Burner   | `REQUEST_BURN_MY_STETH_ROLE` | Burner        | DAO Agent  | Unassigned              | Burn caller's own stETH           |
+| Contract | Role                         | Role registry | Role admin | Holder                   | Purpose                           |
+| -------- | ---------------------------- | ------------- | ---------- | ------------------------ | --------------------------------- |
+| Burner   | `REQUEST_BURN_SHARES_ROLE`   | Burner        | DAO Agent  | Accounting, CSAccounting | Request burns on behalf of others |
+| Burner   | `REQUEST_BURN_MY_STETH_ROLE` | Burner        | DAO Agent  | Unassigned               | Burn caller's own stETH           |
 
 **Used for**:
 
