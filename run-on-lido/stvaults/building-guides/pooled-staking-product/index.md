@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## Intro
 
-**The DeFi Wrapper** is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
+**The DeFi Wrapper** is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops or any custom stETH-based yield module.
 
 This guide walks through the concepts and practical steps to launch such a product without deep protocol knowledge.
 
@@ -54,7 +54,7 @@ DeFi Wrapper supports three product archetypes:
 ![Boosted APR via DeFi strategy](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 
 - Users stake ETH with the same Node Operator.
-- stETH is minted automatically and deposited into the connected DeFi strategy (leveraged staking, GGV, or any custom stETH-based module).
+- stETH is minted automatically and deposited into the connected DeFi strategy (leveraged staking or any custom stETH-based module).
 - Users receive APR from validator performance + strategy APR.
 
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated DeFi strategy, making the product more attractive for end users.

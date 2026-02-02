@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 🧩 DeFi Wrapper roles and permissions
+# 🔐 DeFi Wrapper roles and permissions
 
 This page describes **DeFi Wrapper-specific roles** for pooled staking products. For **stVaults roles**, see [stVaults Roles and permissions](../../features-and-mechanics/roles-and-permissions).
 
@@ -40,7 +40,7 @@ The Pool is an ERC20 share token contract (`StvPool` / `StvStETHPool`) where use
 ### Allowlist specifics
 
 - If allowlist is enabled for `StvPool` / `StvStETHPool`, the address is granted `ALLOW_LIST_MANAGER_ROLE`.
-- For strategy pools (e.g. `StvGGV`) the Strategy contract is added to the allowlist during deployment, and **users are expected to supply via the Strategy** (not via the Pool directly).
+- For strategy pools the Strategy contract is added to the allowlist during deployment, and **users are expected to supply via the Strategy** (not via the Pool directly).
 
 ## Withdrawal Queue roles
 
