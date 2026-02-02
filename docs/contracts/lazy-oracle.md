@@ -1,6 +1,6 @@
 # LazyOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/LazyOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/LazyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c)
 
 Oracle adapter for stVaults. Stores per-vault reports, applies sanity checks, and forwards vault updates to VaultHub.
@@ -13,6 +13,8 @@ LazyOracle is a lightweight oracle for stVaults:
 - validates vault proofs against a report tree root
 - applies per-vault accounting updates to VaultHub
 - quarantines vaults with suspicious value deltas
+
+It is called **lazy** because it stores only the report root and metadata each round; per-vault data is expanded on-demand via Merkle proofs only when a vault operation needs it.
 
 ## How it works
 
