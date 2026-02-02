@@ -49,7 +49,7 @@ DeFi Wrapper supports three product archetypes:
 
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated looping strategy, increasing the amount of ETH on validators. The product lets the Node Operator attract more ETH for validation than end users deposit.
 
-#### 3.2. DeFi strategy (GGV or custom)
+#### 3.2. DeFi strategy (custom)
 
 ![Boosted APR via DeFi strategy](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 
@@ -65,7 +65,7 @@ DeFi Wrapper supports three product archetypes:
   <TabItem value="testnet" label="Testnet">
     <ul>
       <li><strong>CLI:</strong> <a href="https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration">Configuration guide</a></li>
-      <li><strong>DeFi Wrapper Factory (Testnet-5):</strong> <a href="https://hoodi.etherscan.io/address/0xFA97c482E2F586a35576c3aa5b56430129bF1f38#code">0xFA97…1f38</a></li>
+      <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xd05e...b4d9</a></li>
       <li><strong>UI template:</strong> <a href="https://github.com/lidofinance/defi-wrapper-widget">defi-wrapper-widget</a></li>
       <li><strong>Latest development branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
       <li><strong>Etherscan:</strong> <a href="https://hoodi.etherscan.io/">hoodi.etherscan.io</a></li>
@@ -119,7 +119,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the
 
 Start the deployment like:
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-stv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
+yarn start defi-wrapper contracts factory w create-pool-stv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -140,7 +140,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` f
 
 Start the deployment like:
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
+yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRate 10 \
@@ -162,35 +162,6 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
-#### Deployment of `StvGGV` (pool with GGV strategy)
-
-Run `yarn start defi-wrapper contracts factory write create-pool-ggv -h` for the description of the required GGV pool parameters.
-
-Start the deployment like:
-
-```bash
-yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a35576c3aa5b56430129bF1f38 \
-  --nodeOperator 0x0000000000000000000000000000000000000001 \
-  --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
-  --nodeOperatorFeeRate 10 \
-  --confirmExpiry 86400 \
-  --minDelaySeconds 3600 \
-  --minWithdrawalDelayTime 3600 \
-  --name "Debug GGV Pool" \
-  --symbol STV \
-  --proposer 0x0000000000000000000000000000000000000003 \
-  --executor 0x0000000000000000000000000000000000000004 \
-  --emergencyCommittee 0x0000000000000000000000000000000000000005 \
-  --reserveRatioGapBP 250
-```
-
-:::info
-
-Note that for `StvGGV` pools, the allowlist is not configurable: the only address allowed to deposit is the GGV strategy contract itself.
-
-Users do not deposit via the pool directly — they supply to the strategy.
-
-:::
 
 ### 2. Create Web UI
 
