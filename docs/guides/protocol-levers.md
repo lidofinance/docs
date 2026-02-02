@@ -73,11 +73,7 @@ Roles marked as unassigned are intentionally left without holders. The DAO can a
 
 The GateSeal mechanism allows emergency pausing without a full DAO vote. GateSeal contracts can temporarily pause protected apps, while the Reseal Manager holds both the `PAUSE_ROLE` and `RESUME_ROLE` for pause extension.
 
-| GateSeal         | Address                                                                                                                 | Sealable Contracts                                     |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| VEB and TWG      | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | ValidatorsExitBusOracle, TriggerableWithdrawalsGateway |
-| Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721                                  |
-| VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee                          |
+For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal).
 
 GateSeal pauses are time-limited; the Reseal Manager can extend a seal window, and resuming requires a DAO vote that unpauses the app.
 

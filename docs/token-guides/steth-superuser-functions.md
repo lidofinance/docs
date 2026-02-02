@@ -60,11 +60,7 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days). The Reseal Manager holds both the pause and resume role for GateSeal-paused contracts to effectively prolong the pause if needed under certain DualGovernance veto conditions.
 
-| GateSeal         | Address                                                                                                                 | Protects                                               |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| VEB and TWG      | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | ValidatorsExitBusOracle, TriggerableWithdrawalsGateway |
-| Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721                                  |
-| VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee                          |
+For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal).
 
 ## Burning stETH
 
@@ -150,9 +146,9 @@ graph TD;
   C --> J[Emit TokenRebased event on Lido];
 ```
 
-1. Oracle committee members submit reports to HashConsensus ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
-2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) performs sanity checks
-3. AccountingOracle updates consensus layer state on [Lido](/contracts/lido) via [Accounting](/contracts/accounting)
+1. Oracle committee members submit reports to [HashConsensus](/contracts/hash-consensus) ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
+2. When quorum is reached, [AccountingOracle](/contracts/accounting-oracle) ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) performs sanity checks
+3. AccountingOracle updates consensus layer state on [Lido](/contracts/lido) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)) via [Accounting](/contracts/accounting) ([`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf))
 4. [Accounting](/contracts/accounting) internalizes bad debt
 5. [Accounting](/contracts/accounting) commits shares to burn via [Burner](/contracts/burner)
 6. [Accounting](/contracts/accounting) finalizes withdrawal queue requests
