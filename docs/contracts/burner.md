@@ -1,7 +1,7 @@
 # Burner
 
-- [Source Code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Burner.sol)
-- [Deployed Contract](https://etherscan.io/address/0xE76c0BeF4b758Bf975Bb49B545f6E2dB67c573a)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/Burner.sol)
+- [Deployed Contract](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)
 
 The contract provides a way for Lido protocol to burn stETH token shares as a means to finalize withdrawals,
 penalize untimely exiting node operators, and, possibly, cover losses in staking.
@@ -27,7 +27,7 @@ additional fluctuations of the existing stETH token rebase period (~24h).
 We also distinguish two types of shares burn requests:
 
 - request to **cover** a slashing event (e.g. decreasing of the total pooled ETH amount
-between the two consecutive oracle reports);
+  between the two consecutive oracle reports);
 - request to burn shares for any other cases (**non-cover**).
 
 The contract has two separate counters for the burnt shares: cover and non-cover ones. The contract is
@@ -193,7 +193,7 @@ Reverts if any of the following is true:
 
 | Name                  | Type      | Description                                     |
 | --------------------- | --------- | ----------------------------------------------- |
-|        `_from`        | `address` |         address to transfer shares from         |
+| `_from`               | `address` | address to transfer shares from                 |
 | `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
 
 ### requestBurnMyShares()
@@ -278,7 +278,7 @@ Reverts if any of the following is true:
 
 | Name                  | Type      | Description                                     |
 | --------------------- | --------- | ----------------------------------------------- |
-|        `_from`        | `address` |         address to transfer shares from         |
+| `_from`               | `address` | address to transfer shares from                 |
 | `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
 
 ### recoverExcessStETH()
@@ -313,10 +313,10 @@ Reverts if any of the following is true:
 
 #### Parameters
 
-| Name      | Type      | Description                                 |
-| --------- | --------- | ------------------------------------------- |
-| `_token`  | `address` | ERC20-compatible token address to recover   |
-| `_amount` | `uint256` | Amount to recover                           |
+| Name      | Type      | Description                               |
+| --------- | --------- | ----------------------------------------- |
+| `_token`  | `address` | ERC20-compatible token address to recover |
+| `_amount` | `uint256` | Amount to recover                         |
 
 ### recoverERC721()
 
@@ -337,10 +337,10 @@ Reverts if any of the following is true:
 
 #### Parameters
 
-| Name       | Type      | Description                                 |
-| ---------- | --------- | ------------------------------------------- |
-| `_token`   | `address` | ERC721-compatible token address to recover  |
-| `_tokenId` | `uint256` | Token id to recover                         |
+| Name       | Type      | Description                                |
+| ---------- | --------- | ------------------------------------------ |
+| `_token`   | `address` | ERC721-compatible token address to recover |
+| `_tokenId` | `uint256` | Token id to recover                        |
 
 ### commitSharesToBurn()
 
@@ -380,10 +380,10 @@ function initialize(address _admin, bool _isMigrationAllowed) external
 
 #### Parameters
 
-| Name                   | Type      | Description                                         |
-| ---------------------- | --------- | --------------------------------------------------- |
-| `_admin`               | `address` | Address to be granted the DEFAULT_ADMIN_ROLE        |
-| `_isMigrationAllowed`  | `bool`    | Whether migration from old Burner is allowed        |
+| Name                  | Type      | Description                                  |
+| --------------------- | --------- | -------------------------------------------- |
+| `_admin`              | `address` | Address to be granted the DEFAULT_ADMIN_ROLE |
+| `_isMigrationAllowed` | `bool`    | Whether migration from old Burner is allowed |
 
 ### migrate()
 
@@ -395,9 +395,9 @@ function migrate(address _oldBurner) external
 
 #### Parameters
 
-| Name         | Type      | Description                          |
-| ------------ | --------- | ------------------------------------ |
-| `_oldBurner` | `address` | Address of the old Burner contract   |
+| Name         | Type      | Description                        |
+| ------------ | --------- | ---------------------------------- |
+| `_oldBurner` | `address` | Address of the old Burner contract |
 
 ## Events
 

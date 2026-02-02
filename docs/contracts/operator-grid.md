@@ -1,6 +1,6 @@
 # OperatorGrid
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/OperatorGrid.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/OperatorGrid.sol)
 - [Deployed contract](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d)
 
 Registry for node operators, groups, and tier parameters that define share limits, reserve ratios, and fee schedules for stVaults.
@@ -48,10 +48,10 @@ Vaults in the default tier only count against the default tier's share limit, no
 
 ### Tier changes
 
-Changing a vault's tier requires **multi-confirmation** from both parties:
+Changing a vault's tier requires **multi-confirmation** from both parties. Either side can initiate:
 
-1. Vault owner requests the tier change via Dashboard's `changeTier()`
-2. Node operator confirms by also calling `changeTier()` with the same parameters
+1. Vault owner requests the tier change via Dashboard's `changeTier()` **or** the node operator requests it via OperatorGrid
+2. The other party confirms by calling `changeTier()` with the same parameters
 3. Once both confirm within the `confirmExpiry` window, the change is applied
 
 **Important constraints:**

@@ -33,13 +33,13 @@ The latter is a part of the [phased Oracle report flow](/docs/guides/oracle-oper
 `HashConsensus` doesn't expect any specific behavior from a report processor, and guarantees the following:
 
 1. `HashConsensus` won't submit reports via `IReportAsyncProcessor.submitConsensusReport` or ask to discard
-reports via `IReportAsyncProcessor.discardConsensusReport` for any slot up to (and including)
-the slot returned from `IReportAsyncProcessor.getLastProcessingRefSlot`.
+   reports via `IReportAsyncProcessor.discardConsensusReport` for any slot up to (and including)
+   the slot returned from `IReportAsyncProcessor.getLastProcessingRefSlot`.
 
 2. `HashConsensus` won't accept member reports (and thus won't include such reports in calculating the consensus)
-that have `consensusVersion` argument of the `HashConsensus.submitReport` call holding a diff.
-value than the one returned from `IReportAsyncProcessor.getConsensusVersion`
-at the moment of the `HashConsensus.submitReport` call.
+   that have `consensusVersion` argument of the `HashConsensus.submitReport` call holding a diff.
+   value than the one returned from `IReportAsyncProcessor.getConsensusVersion`
+   at the moment of the `HashConsensus.submitReport` call.
 
 There are two core protocol contracts that implements this interface:
 
@@ -78,11 +78,11 @@ function getChainConfig() external view returns (
 
 #### Returns
 
-| Name             | Type      | Description                                                |
-| ---------------- | --------- | ---------------------------------------------------------- |
-| `slotsPerEpoch`  | `uint256` | Number of slots per epoch, `32` by default                 |
-| `secondsPerSlot` | `uint256` | The time allocated for each slot, `12` by default          |
-| `genesisTime`    | `uint256` | Consensus Layer genesis time, `1606824023` on [Mainnet](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21)          |
+| Name             | Type      | Description                                                                                                           |
+| ---------------- | --------- | --------------------------------------------------------------------------------------------------------------------- |
+| `slotsPerEpoch`  | `uint256` | Number of slots per epoch, `32` by default                                                                            |
+| `secondsPerSlot` | `uint256` | The time allocated for each slot, `12` by default                                                                     |
+| `genesisTime`    | `uint256` | Consensus Layer genesis time, `1606824023` on [Mainnet](https://blog.ethereum.org/2020/11/27/eth2-quick-update-no-21) |
 
 ### getFrameConfig()
 
@@ -98,11 +98,11 @@ function getFrameConfig() external view returns (
 
 #### Returns
 
-| Name                  | Type      | Description                                                           |
-| --------------------- | --------- | --------------------------------------------------------------------- |
-| `initialEpoch`        | `uint256` | Epoch of the frame with zero index                                    |
-| `epochsPerFrame`      | `uint256` | Length of a frame in epochs                                           |
-| `fastLaneLengthSlots` | `uint256` | Length of the fast lane interval in slots; see `getIsFastLaneMember`  |
+| Name                  | Type      | Description                                                          |
+| --------------------- | --------- | -------------------------------------------------------------------- |
+| `initialEpoch`        | `uint256` | Epoch of the frame with zero index                                   |
+| `epochsPerFrame`      | `uint256` | Length of a frame in epochs                                          |
+| `fastLaneLengthSlots` | `uint256` | Length of the fast lane interval in slots; see `getIsFastLaneMember` |
 
 ### getCurrentFrame()
 
@@ -117,10 +117,10 @@ function getCurrentFrame() external view returns (
 
 #### Returns
 
-| Name                           | Type      | Description                                                                          |
-| ------------------------------ | --------- | ------------------------------------------------------------------------------------ |
+| Name                           | Type      | Description                                                                                                                                                                                                                                                   |
+| ------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refSlot`                      | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. If the slot contains a block, the state should include all changes from that block. |
-| `reportProcessingDeadlineSlot` | `uint256` | The last slot at which the report can be processed by the report processor contract. |
+| `reportProcessingDeadlineSlot` | `uint256` | The last slot at which the report can be processed by the report processor contract.                                                                                                                                                                          |
 
 ### getInitialRefSlot()
 
@@ -200,10 +200,10 @@ function getConsensusState() external view returns (
 
 Returns info about the current frame and consensus state in that frame.
 
-| Name                 | Type      | Description                                                           |
-| -------------------- | --------- | --------------------------------------------------------------------- |
-| `refSlot`            | `uint256` | Reference slot of the current reporting frame.                        |
-| `consensusReport`    | `bytes32` | Consensus report for the current frame, if any. Zero bytes otherwise. |
+| Name                 | Type      | Description                                                                                                                  |
+| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `refSlot`            | `uint256` | Reference slot of the current reporting frame.                                                                               |
+| `consensusReport`    | `bytes32` | Consensus report for the current frame, if any. Zero bytes otherwise.                                                        |
 | `isReportProcessing` | `bool`    | If consensus report for the current frame is already being processed. Consensus can be changed before the processing starts. |
 
 ### getReportVariants()
@@ -316,8 +316,8 @@ function setFastLaneLengthSlots(uint256 fastLaneLengthSlots) external
 
 #### Parameters
 
-| Name                  | Type      | Description                                                           |
-| --------------------- | --------- | --------------------------------------------------------------------- |
+| Name                  | Type      | Description                                                                                                                                                                                                                |
+| --------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fastLaneLengthSlots` | `uint256` | The length of the fast lane reporting interval in slots. Setting it to zero disables the fast lane subset, allowing any oracle to report starting from the first slot of a frame and until the frame's reporting deadline. |
 
 ### addMember()
@@ -334,7 +334,7 @@ function addMember(address addr, uint256 quorum) external
 
 - Reverts with `DuplicateMember()` if `addr` address is already the member of consensus.
 - Reverts with `AddressCannotBeZero()` if `addr` address is zero.
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2 (`quorum <= total members / 2`)
 
 ### removeMember()
 
@@ -349,7 +349,7 @@ function removeMember(address addr, uint256 quorum) external
 ```
 
 - Reverts with `NonMember()` if `addr` address doesn't exists
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2 (`quorum <= total members / 2`)
 
 ### setQuorum()
 
@@ -363,7 +363,7 @@ Can only be called by users with `MANAGE_MEMBERS_AND_QUORUM_ROLE` role if `quoru
 function setQuorum(uint256 quorum) external
 ```
 
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2 (`quorum <= total members / 2`)
 
 ### disableConsensus()
 
@@ -375,7 +375,7 @@ Can only be called by users with `DISABLE_CONSENSUS_ROLE`
 function disableConsensus() external
 ```
 
-- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2  (`quorum <= total members / 2`)
+- Reverts with `QuorumTooSmall(uint256 minQuorum, uint256 receivedQuorum)` if `quorum` less or equal than total members of consensus divided by 2 (`quorum <= total members / 2`)
 
 ### setReportProcessor()
 
@@ -400,10 +400,10 @@ function submitReport(uint256 slot, bytes32 report, uint256 consensusVersion) ex
 
 #### Parameters
 
-| Name               | Type      | Description                                                           |
-| ------------------ | --------- | --------------------------------------------------------------------- |
-| `slot`             | `uint256` | The reference slot the data was calculated for. Reverts if doesn't match the current reference slot.                                         |
-| `report`           | `bytes32` | Hash of the data calculated for the given reference slot. |
+| Name               | Type      | Description                                                                                                                                                                  |
+| ------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `slot`             | `uint256` | The reference slot the data was calculated for. Reverts if doesn't match the current reference slot.                                                                         |
+| `report`           | `bytes32` | Hash of the data calculated for the given reference slot.                                                                                                                    |
 | `consensusVersion` | `uint256` | Version of the oracle consensus rules. Reverts if doesn't match the version returned by the currently set consensus report processor, or zero if no report processor is set. |
 
 #### Reverts

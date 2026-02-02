@@ -44,7 +44,7 @@ function getExitRequestLimitFullInfo() external view;
 **Returns:**
 
 | Name                        | Type      | Description                                                                               |
-|-----------------------------|-----------|-------------------------------------------------------------------------------------------|
+| --------------------------- | --------- | ----------------------------------------------------------------------------------------- |
 | `_maxExitRequestsLimit`     | `uint256` | Maximum exit requests limit                                                               |
 | `_exitsPerFrame`            | `uint256` | The number of exits that can be restored per frame                                        |
 | `_frameDurationInSec`       | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored |
@@ -66,7 +66,7 @@ function setExitRequestLimit(
 **Parameters:**
 
 | Name                   | Type      | Description                                                                                |
-|------------------------|-----------|--------------------------------------------------------------------------------------------|
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------ |
 | `maxExitRequestsLimit` | `uint256` | The maximum number of exit requests.                                                       |
 | `exitsPerFrame`        | `uint256` | The number of exits that can be restored per frame.                                        |
 | `frameDurationInSec`   | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored. |
@@ -84,6 +84,7 @@ function triggerFullWithdrawals(
 ```
 
 **Structures**:
+
 ```solidity
 struct ValidatorExitData {
   uint256 stakingModuleId;
@@ -95,7 +96,7 @@ struct ValidatorExitData {
 **Parameters:**
 
 | Name              | Type                  | Description                                                                                                              |
-|-------------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------|
+| ----------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `validatorsData`  | `ValidatorExitData[]` | An array of `ValidatorExitData` structs, each representing a validator for which a withdrawal request will be submitted. |
 | `refundRecipient` | `address`             | The address that will receive any excess ETH sent for fees.                                                              |
 | `exitType`        | `uint256`             | A parameter indicating the type of exit, passed to the Staking Module.                                                   |

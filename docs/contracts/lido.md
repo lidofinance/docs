@@ -27,30 +27,30 @@ validation extensions.
 Other contracts are bound to the core and have the following responsibilities:
 
 - [`LidoLocator`](/contracts/lido-locator): protocol-wide address book which contains
-references to all meaningful parts of the Lido protocol on-chain
+  references to all meaningful parts of the Lido protocol on-chain
 - [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721): a withdrawal requests
-FIFO queue and a respective NFT (unstETH)
+  FIFO queue and a respective NFT (unstETH)
 - [`StakingRouter`](/contracts/staking-router): hub, which manages staking modules and
-distributes the stake among them
+  distributes the stake among them
 - [`NodeOperatorsRegistry`](/contracts/node-operators-registry): original module,
-responsible for managing the curated set of node operators
+  responsible for managing the curated set of node operators
 - [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker): helper for
-validation of oracle report parameters and smoothening token rebases
+  validation of oracle report parameters and smoothening token rebases
 - [`Burner`](/contracts/burner): vault to contain `stETH` that ought to be burned on
-oracle report
+  oracle report
 - [`WithdrawalVault`](/contracts/withdrawal-vault): vault to collect partial and full
-withdrawals coming from the Beacon Chain
+  withdrawals coming from the Beacon Chain
 - [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault):
-vault to collect priority fees and MEV rewards coming from validators of the pool
+  vault to collect priority fees and MEV rewards coming from validators of the pool
 - [`DepositSecurityModule`](/contracts/deposit-security-module): protection from
-deposit frontrunning vulnerability
+  deposit frontrunning vulnerability
 - [`AccountingOracle`](/contracts/accounting-oracle): oracle committee, which gathers
-an accounting report for the protocol
+  an accounting report for the protocol
 - [`Accounting`](/contracts/accounting): applies oracle reports and distributes rewards
 - [`VaultHub`](/contracts/vault-hub): stVaults coordination and external share accounting
 - [`PredepositGuarantee`](/contracts/predeposit-guarantee): predeposit protection for stVaults
 - [`EIP712StETH`](/contracts/eip712-steth): ad-hoc helper to implement ERC-2612 permit
-for Solidity 0.4.24 Lido contract
+  for Solidity 0.4.24 Lido contract
 
 ## Submit
 
@@ -102,17 +102,17 @@ balanceOf(account) = shares[account] * totalPooledEther / totalShares
 ```
 
 - `shares` - map of user account shares. Every time a user deposits ether, it is
- converted to shares and added to the current user shares amount.
+  converted to shares and added to the current user shares amount.
 - `totalShares` - the sum of shares of all accounts in the `shares` map
 - `totalPooledEther` - a sum of three types of ether owned by protocol:
 
   - buffered balance - ether stored on contract and hasn't been deposited or
-  locked for withdrawals yet
+    locked for withdrawals yet
   - transient balance - ether submitted to the official Deposit contract but not
-   yet visible in the beacon state
+    yet visible in the beacon state
   - beacon balance - the total amount of ether on validator accounts. This value
-  is reported by oracles and makes the strongest impact on stETH total supply
-  change
+    is reported by oracles and makes the strongest impact on stETH total supply
+    change
 
 ### External shares (stVaults)
 
@@ -196,24 +196,24 @@ simulates and applies the report, then calls into Lido to update pooled ether
 and rebase observers.
 
 1. Memorize the pre-state that will be required for incremental updates of the
-protocol balance
+   protocol balance
 2. Validate the report data using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker)
 3. Calculate the amount of ether to be locked on [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721)
-and move the respective amount of shares to be burnt to [`Burner`](/contracts/burner)
+   and move the respective amount of shares to be burnt to [`Burner`](/contracts/burner)
 4. Using [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker)
-calculate the amounts of ether that can be withdrawn from
-[`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) and
-[`WithdrawalVault`](/contracts/withdrawal-vault) as well as the number of shares that
-can be burnt from [`Burner`](/contracts/burner) to avoid the rebase that can be easily
-frontrun.
+   calculate the amounts of ether that can be withdrawn from
+   [`LidoExecutionLayerRewardsVault`](/contracts/lido-execution-layer-rewards-vault) and
+   [`WithdrawalVault`](/contracts/withdrawal-vault) as well as the number of shares that
+   can be burnt from [`Burner`](/contracts/burner) to avoid the rebase that can be easily
+   frontrun.
 5. Collect the calculated amounts of ether from vaults and proceed with
-withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](/contracts/withdrawal-queue-erc721)
+   withdrawal requests finalization: send requested ether to [`WithdrawalQueue`](/contracts/withdrawal-queue-erc721)
 6. Burn the previously requested shares from [`Burner`](/contracts/burner) for
-withdrawals or coverage application
+   withdrawals or coverage application
 7. Distribute rewards and protocol fees minting new stETH for the respective
-parties
+   parties
 8. Complete token rebase by informing observers (emit an event and call the
-external receivers if any)
+   external receivers if any)
 9. Post-report sanity check for share rate provided with the report
 
 ```mermaid
@@ -340,7 +340,7 @@ function getStakeLimitFullInfo() view returns (
 | `maxStakeLimit`             | `uint256` | Max stake limit                                                         |
 | `maxStakeLimitGrowthBlocks` | `uint256` | Blocks needed to restore max stake limit from the fully exhausted state |
 | `prevStakeLimit`            | `uint256` | Previously reached stake limit                                          |
-| `prevStakeBlockNumber`      | `uint256` | Previously seen block number
+| `prevStakeBlockNumber`      | `uint256` | Previously seen block number                                            |
 
 ## Deposit-related methods
 
@@ -354,11 +354,11 @@ Can be called only by [DepositSecurityModule](/contracts/deposit-security-module
 function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositCalldata)
 ```
 
-| Parameter         | Type      | Description                              |
-| ----------------- | --------- | ---------------------------------------- |
-| `_maxDeposits`    | `uint256` | Number of max deposit calls              |
-| `_stakingModuleId`| `uint256` | Id of the staking module to be deposited |
-| `_depositCalldata`| `bytes`   | module calldata
+| Parameter          | Type      | Description                              |
+| ------------------ | --------- | ---------------------------------------- |
+| `_maxDeposits`     | `uint256` | Number of max deposit calls              |
+| `_stakingModuleId` | `uint256` | Id of the staking module to be deposited |
+| `_depositCalldata` | `bytes`   | module calldata                          |
 
 ### getDepositableEther()
 
@@ -445,7 +445,7 @@ function getBeaconStat() view returns (
 :::note
 `depositedValidators` is always greater or equal to `beaconValidators`
 :::
-                                           |
+|
 
 ### receiveELRewards()
 
@@ -573,9 +573,9 @@ Can be called only by the bearer of `STAKING_CONTROL_ROLE`
 function setMaxExternalRatioBP(uint256 _maxExternalRatioBP)
 ```
 
-| Parameter            | Type      | Description                                              |
-| -------------------- | --------- | -------------------------------------------------------- |
-| `_maxExternalRatioBP`| `uint256` | Max external shares ratio in basis points (0-10000)      |
+| Parameter             | Type      | Description                                         |
+| --------------------- | --------- | --------------------------------------------------- |
+| `_maxExternalRatioBP` | `uint256` | Max external shares ratio in basis points (0-10000) |
 
 ### unsafeChangeDepositedValidators()
 
@@ -586,9 +586,9 @@ Can be required when onboarding external validators to Lido (i.e., had deposited
 
 Can be called only by the bearer of `UNSAFE_CHANGE_DEPOSITED_VALIDATORS_ROLE`
 
-| Parameter                 | Type      | Description                                   |
-| ------------------------- | --------- | ----------------------------------------------|
-| `_newDepositedValidators` | `uint256` | New value for the deposited validators counter|
+| Parameter                 | Type      | Description                                    |
+| ------------------------- | --------- | ---------------------------------------------- |
+| `_newDepositedValidators` | `uint256` | New value for the deposited validators counter |
 
 :::warning
 The method might break the internal protocol state if applied incorrectly
@@ -878,11 +878,11 @@ function transferSharesFrom(
 ) returns (uint256)
 ```
 
-| Parameter      | Type      | Description          |
-| -------------- | --------- | -------------------- |
-| `_sender`      | `address` | Address of spender   |
-| `_recipient`   | `address` | Address of recipient |
-| `_sharesAmount`| `uint256` | Amount of shares     |
+| Parameter       | Type      | Description          |
+| --------------- | --------- | -------------------- |
+| `_sender`       | `address` | Address of spender   |
+| `_recipient`    | `address` | Address of recipient |
+| `_sharesAmount` | `uint256` | Amount of shares     |
 
 Returns the number of transferred tokens.
 
@@ -926,7 +926,7 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 ```
 
 | Parameter  | Type      | Description                    |
-| ---------- | --------- | -------------------------------|
+| ---------- | --------- | ------------------------------ |
 | `owner`    | `address` | Address of spender             |
 | `spender`  | `address` | Address of recipient           |
 | `value`    | `uint256` | Allowance to set               |
@@ -941,7 +941,7 @@ Requirements:
 - `spender` cannot be the zero address.
 - `deadline` must be a timestamp in the future.
 - `v`, `r` and `s` must be a valid `secp256k1` signature from `owner`
-over the EIP712-formatted function arguments.
+  over the EIP712-formatted function arguments.
 - the signature must use `owner`'s current nonce (see `nonces`).
 
 :::
@@ -991,9 +991,9 @@ Overrides default AragonApp behavior to disallow recovery.
 function transferToVault(address _token)
 ```
 
-| Parameter| Type      | Description                        |
-| -------- | --------- | ---------------------------------- |
-| `_token` | `address` | Token to be sent to recovery vault |
+| Parameter | Type      | Description                        |
+| --------- | --------- | ---------------------------------- |
+| `_token`  | `address` | Token to be sent to recovery vault |
 
 :::note
 Always reverts with `NOT_SUPPORTED` reason

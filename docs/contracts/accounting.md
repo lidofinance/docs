@@ -1,6 +1,6 @@
 # Accounting
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/Accounting.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/Accounting.sol)
 - [Deployed contract](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf)
 
 Handles oracle reports and calculates protocol state changes including rebases, fee distribution, and stVault bad debt internalization.

@@ -1,6 +1,6 @@
 # StakingVault
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/StakingVault.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/StakingVault.sol)
 - [Implementation](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
 - [Beacon](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
 

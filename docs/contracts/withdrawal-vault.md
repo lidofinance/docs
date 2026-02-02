@@ -46,7 +46,6 @@ currently belonging to the vault contract address to the Lido treasury address.
 
 Emits a `ERC20Recovered` event.
 
-
 ```sol
 function recoverERC20(address _token, uint256 _amount) external
 ```
@@ -54,7 +53,7 @@ function recoverERC20(address _token, uint256 _amount) external
 #### Parameters:
 
 | Name      | Type      | Description             |
-|-----------|-----------|-------------------------|
+| --------- | --------- | ----------------------- |
 | `_token`  | `address` | ERC20-compatible token  |
 | `_amount` | `uint256` | token amount to recover |
 
@@ -72,10 +71,9 @@ function recoverERC721(address _token, uint256 _tokenId) external
 #### Parameters:
 
 | Name       | Type      | Description             |
-|------------|-----------|-------------------------|
+| ---------- | --------- | ----------------------- |
 | `_token`   | `address` | ERC721-compatible token |
 | `_tokenId` | `uint256` | minted token id         |
-
 
 ### getWithdrawalRequestFee
 
@@ -88,5 +86,5 @@ function getWithdrawalRequestFee() public view returns (uint256);
 #### Returns:
 
 | Name                   | Type      | Description                     |
-|------------------------|-----------|---------------------------------|
+| ---------------------- | --------- | ------------------------------- |
 | `withdrawalRequestFee` | `uint256` | Current withdrawal request fee. |

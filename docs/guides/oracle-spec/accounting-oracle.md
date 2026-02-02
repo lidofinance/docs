@@ -18,7 +18,7 @@ It's important to note that the redemption rate at the finalization step may be 
 
 One can put any number of withdrawal requests in the queue. While there is an upper limit on the size of a particular request, there is no effective limit as the requestor can submit multiple withdrawal requests. There's a minimal request size threshold of `100 wei` required as well due to [rounding error issues](https://github.com/lidofinance/lido-dao/issues/442).
 
-A withdrawal request could be finalized only when the protocol has enough ether to fulfill it completely.  Partial fulfillments are not possible, however, one can accomplish similar behavior by splitting a bigger request into a few smaller ones.
+A withdrawal request could be finalized only when the protocol has enough ether to fulfill it completely. Partial fulfillments are not possible, however, one can accomplish similar behavior by splitting a bigger request into a few smaller ones.
 
 For UX reasons, the withdrawal request is transferable being a non-fungible [ERC-721](https://ethereum.org/ru/developers/docs/standards/tokens/erc-721/) compatible token.
 
@@ -170,7 +170,7 @@ With the amount of available ETH, share rate and safe border, the oracle calls `
 The value of a request after finalization can be:
 
 - `nominal` (when the amount of eth locked for this request are equal to the request's stETH)
-- `discounted` (when the amount of eth will be lower, because the protocol share rate dropped before request is finalized, so it will be equal to `request's shares` * `protocol share rate`)
+- `discounted` (when the amount of eth will be lower, because the protocol share rate dropped before request is finalized, so it will be equal to `request's shares` \* `protocol share rate`)
 
 **Batches** - array of ending request id. Each batch consist of the requests that all have the share rate below the `_maxShareRate` or above it (nominal or discounted).
 
@@ -233,10 +233,10 @@ The first condition is when there is a new or ongoing mass slashing that may cau
 
 #### Condition 2. Negative CL rebase in the current frame
 
-The second condition is when a negative CL rebase is detected in the current frame. The "bunker mode" is activated, and there is a limit on the maximum delay for withdrawal requests finalization that is set to 2 * gov_reaction_time (~10 days) if there are no associated slashings.
+The second condition is when a negative CL rebase is detected in the current frame. The "bunker mode" is activated, and there is a limit on the maximum delay for withdrawal requests finalization that is set to 2 \* gov_reaction_time (~10 days) if there are no associated slashings.
 
 #### Condition 3. Lower than expected CL rebase in the current frame and a negative CL rebase at the end of the frame
 
-The third condition is when there is a lower-than-expected CL rebase in the current frame and a negative CL rebase at the end of the frame. The "bunker mode" is activated when the Oracle detects this condition. The limit on the maximum delay for withdrawal requests finalization is set to 2 * gov_reaction_time + 1 (~11 days) if there are no associated slashings.
+The third condition is when there is a lower-than-expected CL rebase in the current frame and a negative CL rebase at the end of the frame. The "bunker mode" is activated when the Oracle detects this condition. The limit on the maximum delay for withdrawal requests finalization is set to 2 \* gov_reaction_time + 1 (~11 days) if there are no associated slashings.
 
 For more details, see [“Bunker mode”: what it is and how it works](https://docs.google.com/document/d/1NoJ3rbVZ1OJfByjibHPA91Ghqk487tT0djAf6PFu8s8/)

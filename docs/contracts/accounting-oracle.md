@@ -41,23 +41,41 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
 
-1. Update exited validators counts for each StakingModule in StakingRouter;
-2. Update bunker mode status for WithdrawalQueue;
-3. Call `Accounting.handleOracleReport` to apply the report and rebase stETH.
-4. Update the stVaults report root in `LazyOracle`.
-5. Store information about ExtraData
+1. `Accounting._sanityChecks` (via `OracleReportSanityChecker`).
+2. `StakingRouter.updateExitedValidatorsCountByStakingModule`.
+3. `Accounting.handleOracleReport`, which applies `_applyOracleReportContext` in this exact order:
+   - `IBurner.requestBurnShares(withdrawalQueue, sharesToFinalizeWQ)` (if `sharesToFinalizeWQ > 0`)
+   - `Lido.processClStateUpdate`
+   - `VaultHub.decreaseInternalizedBadDebt` and `Lido.internalizeExternalBadDebt` (if `badDebtToInternalize > 0`)
+   - `IBurner.commitSharesToBurn` (if `totalSharesToBurn > 0`)
+   - `Lido.collectRewardsAndProcessWithdrawals` (finalizes withdrawal queue requests and updates vault transfers)
+   - `Lido.mintShares` (if `sharesToMintAsFees > 0`)
+   - `Accounting._distributeFee` (if `sharesToMintAsFees > 0`)
+   - `StakingRouter.reportRewardsMinted` (if `sharesToMintAsFees > 0`)
+   - `Accounting._notifyRebaseObserver` (emits `TokenRebased` on Lido)
+4. `LazyOracle.updateReportData` (stVaults data root).
+5. Store extra data (if present).
 
 The diagram shows the interaction with contracts.
 
 ```mermaid
-graph LR;
-  A[/  \]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->Accounting;
-  AccountingOracle--updateReportData-->LazyOracle;
-  AccountingOracle--handleOracleReport-->Accounting-->Lido;
-  AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
-  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
-  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
-  AccountingOracle--'onOracleReport'-->WithdrawalQueue;
+graph TD;
+  A[/submitReportData/] --> B[AccountingOracle];
+  B --> C[OracleReportSanityChecker];
+  B --> D[StakingRouter.updateExitedValidatorsCountByStakingModule];
+  B --> E[Accounting.handleOracleReport];
+  E --> F[Burner.requestBurnShares];
+  E --> G[Lido.processClStateUpdate];
+  E --> H[VaultHub.decreaseInternalizedBadDebt];
+  E --> I[Lido.internalizeExternalBadDebt];
+  E --> J[Burner.commitSharesToBurn];
+  E --> K[Lido.collectRewardsAndProcessWithdrawals];
+  E --> L[Lido.mintShares];
+  E --> M[Accounting._distributeFee];
+  E --> N[StakingRouter.reportRewardsMinted];
+  E --> O[Accounting._notifyRebaseObserver (TokenRebased)];
+  B --> P[LazyOracle.updateReportData];
+  B --> Q[ExtraData];
 ```
 
 ## Report data
@@ -132,11 +150,11 @@ where `postTotalPooledEther` and `postTotalShares` were retrieved as return valu
 ##### Extra data
 
 Extra data — the oracle information that allows asynchronous processing, potentially in
-    chunks, after the main data is processed. The oracle doesn't enforce that extra data
-    attached to the same data report is processed in full before the processing deadline expires
-    or a new data report starts being processed, but enforces that no processing of extra
-    data for a report is possible after its processing deadline passes or a new data report
-    arrives.
+chunks, after the main data is processed. The oracle doesn't enforce that extra data
+attached to the same data report is processed in full before the processing deadline expires
+or a new data report starts being processed, but enforces that no processing of extra
+data for a report is possible after its processing deadline passes or a new data report
+arrives.
 
 Depending on the size of the extra data, the processing might need to be split into
 multiple transactions. Each transaction contains a chunk of report data (an array of items)
@@ -144,7 +162,7 @@ and the hash of the next transaction. The last transaction will contain ZERO_HAS
 as the next transaction hash.
 
       32 bytes      array of items
-    | nextHash |         ...    
+    | nextHash |         ...
 
 Extra data is an array of items, each item being encoded as follows:
 
@@ -158,7 +176,7 @@ Extra data is an array of items, each item being encoded as follows:
 Items must be sorted ascendingly by the `(itemType, ...itemSortingKey)` compound key
 where `itemSortingKey` calculation depends on the item's type (see below).
 
----------------------------------------------------------------------------------------
+---
 
 **`itemType=2`** (`EXTRA_DATA_TYPE_EXITED_VALIDATORS`): exited validators by node operators.
 
@@ -170,46 +188,46 @@ The `itemPayload` field has the following format:
 `moduleId` is the staking module for which exited keys counts are being reported.
 
 `nodeOperatorIds` contains an array of ids of node operators that have total exited
-    validators counts changed compared to the staking module smart contract storage as
-    observed at the reference slot. Each id is a 8-byte uint, ids are packed tightly.
+validators counts changed compared to the staking module smart contract storage as
+observed at the reference slot. Each id is a 8-byte uint, ids are packed tightly.
 
 `nodeOpsCount` contains the number of node operator ids contained in the nodeOperatorIds
-    array. Thus,
+array. Thus,
 
     nodeOpsCount = byteLength(nodeOperatorIds) / 8
 
 `exitedValidatorsCounts` contains an array of exited validators total counts, as observed at
-    the reference slot, for the node operators from the nodeOperatorIds array, in the same
-    order. Each count is a 16-byte uint, counts are packed tightly. Thus,
+the reference slot, for the node operators from the nodeOperatorIds array, in the same
+order. Each count is a 16-byte uint, counts are packed tightly. Thus,
 
     byteLength(exitedValidatorsCounts) = nodeOpsCount * 16
 
 `nodeOpsCount` must not be greater than `maxNodeOperatorsPerExtraDataItem` specified
-    in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
-    with total exited validators counts changed compared to the staking module smart contract
-    storage (as observed at the reference slot), reporting for that module should be split
-    into multiple items.
+in the [`OracleReportSanityChecker`](./oracle-report-sanity-checker) contract. If a staking module has more node operators
+with total exited validators counts changed compared to the staking module smart contract
+storage (as observed at the reference slot), reporting for that module should be split
+into multiple items.
 
 Item sorting key is a compound key consisting of the module id and the first reported
-    node operator's id:
+node operator's id:
 
     itemSortingKey = (moduleId, nodeOperatorIds[0:8])
 
----------------------------------------------------------------------------------------
+---
 
 **Deprecated: `itemType=1`** (`EXTRA_DATA_TYPE_STUCK_VALIDATORS`): This type was deprecated in the Triggerable Withdrawals update. The mechanism for handling stuck validator keys is no longer supported. Submitting this type will revert with `DeprecatedExtraDataType`.
 
----------------------------------------------------------------------------------------
+---
 
 The oracle daemon must report exited validators counts ONLY for those
-    `(moduleId, nodeOperatorId)` pairs that contain outdated counts in the staking
-    module smart contract as observed at the reference slot.
+`(moduleId, nodeOperatorId)` pairs that contain outdated counts in the staking
+module smart contract as observed at the reference slot.
 
 Extra data array can be passed in different formats, see below.
 
 :::
 
-- `extraDataFormat` -  Format of the extra data. Currently, only the `EXTRA_DATA_FORMAT_EMPTY=0` and `EXTRA_DATA_FORMAT_LIST=1` formats are supported. See the constant defining a specific data format for more info.
+- `extraDataFormat` - Format of the extra data. Currently, only the `EXTRA_DATA_FORMAT_EMPTY=0` and `EXTRA_DATA_FORMAT_LIST=1` formats are supported. See the constant defining a specific data format for more info.
 - `extraDataHash` - Hash of the extra data. See the constant defining a specific extra data format for the info on how to calculate the hash. Must be set to a zero hash if the oracle report contains no extra data.
 - `extraDataItemsCount` - Number of the extra data items. Must be set to zero if the oracle report contains no extra data.
 
@@ -284,7 +302,7 @@ uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0;
 ### EXTRA_DATA_FORMAT_LIST()
 
 The list format for the extra data array. Used when all extra data processing
- fits into a single transaction.
+fits into a single transaction.
 
 Extra data is passed within a single transaction as a bytearray containing all data items
 packed tightly.
@@ -346,12 +364,12 @@ function getConsensusReport() external view returns (
 
 #### Returns
 
-| Name                     | Type      | Description                                                |
-| ------------------------ | --------- | ---------------------------------------------------------- |
-| `hash`                   | `bytes32` | The last reported hash                 |
-| `refSlot`                | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. The state being reported must include all state changes resulting from all blocks up to this reference slot (inclusive).                 |
-| `processingDeadlineTime` | `uint256` | Timestamp of the last slot at which a report can be reported and processed |
-| `processingStarted`      | `bool`    | Has the processing of the report been started or not                       |
+| Name                     | Type      | Description                                                                                                                                                                                                                                                                                        |
+| ------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hash`                   | `bytes32` | The last reported hash                                                                                                                                                                                                                                                                             |
+| `refSlot`                | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. The state being reported must include all state changes resulting from all blocks up to this reference slot (inclusive). |
+| `processingDeadlineTime` | `uint256` | Timestamp of the last slot at which a report can be reported and processed                                                                                                                                                                                                                         |
+| `processingStarted`      | `bool`    | Has the processing of the report been started or not                                                                                                                                                                                                                                               |
 
 ### getConsensusVersion()
 
@@ -359,7 +377,7 @@ Returns the current consensus version expected by the oracle contract.
 
 :::note
 Consensus version must change every time consensus rules change, meaning that
- an oracle looking at the same reference slot would calculate a different hash.
+an oracle looking at the same reference slot would calculate a different hash.
 :::
 
 ```solidity
@@ -402,10 +420,10 @@ function submitReportData(ReportData calldata data, uint256 contractVersion);
 
 #### Parameters
 
-| Name              | Type          | Description                                                  |
-| ------------------ | ------------ | ------------------------------------------------------------ |
-| `data`             | `ReportData` | The data. See the [ReportData](/contracts/accounting-oracle#report-data) structure's docs for details. |
-| `contractVersion`  | `uint256`    | Expected version of the oracle contract.                     |
+| Name              | Type         | Description                                                                                            |
+| ----------------- | ------------ | ------------------------------------------------------------------------------------------------------ |
+| `data`            | `ReportData` | The data. See the [ReportData](/contracts/accounting-oracle#report-data) structure's docs for details. |
+| `contractVersion` | `uint256`    | Expected version of the oracle contract.                                                               |
 
 #### Reverts
 
@@ -433,8 +451,8 @@ function submitReportExtraDataList(bytes calldata items)
 
 #### Parameters
 
-| Name    | Type    | Description                                                  |
-| ------- | ------- | ------------------------------------------------------------ |
+| Name    | Type    | Description                                                                                                         |
+| ------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
 | `items` | `bytes` | The extra data items list. See docs for the [EXTRA_DATA_FORMAT_LIST](#extra_data_format_list) constant for details. |
 
 #### Reverts
@@ -447,10 +465,10 @@ Called by [AccountingOracle HashConsensus](/contracts/hash-consensus) contract t
 
 :::note
 Note that submitting the report doesn't require the processor to start processing it right
- away, this can happen later (see [`getLastProcessingRefSlot`](#getlastprocessingrefslot)). Until processing is started,
- HashConsensus is free to reach consensus on another report for the same reporting frame an
- submit it using this same function, or to lose the consensus on the submitted report,
- notifying the processor via `discardConsensusReport`.
+away, this can happen later (see [`getLastProcessingRefSlot`](#getlastprocessingrefslot)). Until processing is started,
+HashConsensus is free to reach consensus on another report for the same reporting frame an
+submit it using this same function, or to lose the consensus on the submitted report,
+notifying the processor via `discardConsensusReport`.
 :::
 
 ```solidity
@@ -459,17 +477,17 @@ function submitConsensusReport(bytes32 reportHash, uint256 refSlot, uint256 dead
 
 #### Parameters
 
-| Name              | Type          | Description                                                  |
-| ------------------ | ------------ | ------------------------------------------------------------ |
-| `reportHash` | `bytes32` | Hash of the data calculated for the given reference slot. |
-| `refSlot`    | `uint256` | The reference slot the data was calculated for. Reverts if doesn't match the current reference slot.                     |
-| `deadline`   | `uint256` | The timestamp of the last slot at which the report can be processed by the report processor contract.                     |
+| Name         | Type      | Description                                                                                           |
+| ------------ | --------- | ----------------------------------------------------------------------------------------------------- |
+| `reportHash` | `bytes32` | Hash of the data calculated for the given reference slot.                                             |
+| `refSlot`    | `uint256` | The reference slot the data was calculated for. Reverts if doesn't match the current reference slot.  |
+| `deadline`   | `uint256` | The timestamp of the last slot at which the report can be processed by the report processor contract. |
 
 ### discardConsensusReport()
 
 Called by HashConsensus contract to notify that the report for the given ref. slot
- is not a consensus report anymore and should be discarded. This can happen when a member
- changes their report, is removed from the set, or when the quorum value gets increased.
+is not a consensus report anymore and should be discarded. This can happen when a member
+changes their report, is removed from the set, or when the quorum value gets increased.
 
 Only called when, for the given reference slot:
 
@@ -614,7 +632,7 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `UnexpectedExtraDataItemsCount(0, data.extraDataItemsCount)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataItemsCount` is not 0
 - Reverts with `UnsupportedExtraDataFormat(data.extraDataFormat)` if `data.extraDataFormat` is not `EXTRA_DATA_FORMAT_EMPTY` and not `EXTRA_DATA_FORMAT_LIST`
 - Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
-- Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if  `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
+- Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
 - Reverts with `InvalidExitedValidatorsData()` if provided exited validators data doesn't meet safety checks.
 - Reverts with `DeprecatedExtraDataType(itemIndex, itemType)` if extra data contains the deprecated `EXTRA_DATA_TYPE_STUCK_VALIDATORS` type.
 

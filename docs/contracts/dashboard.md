@@ -1,6 +1,6 @@
 # Dashboard
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/dashboard/Dashboard.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/dashboard/Dashboard.sol)
 - [Implementation](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 
 Management contract for stVaults. Provides role-based control for vault operations and convenience wrappers for minting/burning stETH and wstETH. Individual Dashboard instances are deployed as proxies by [VaultFactory](/contracts/staking-vault-factory).
@@ -245,6 +245,22 @@ function confirmingRoles() public pure returns (bytes32[] memory roles)
 
 Returns the roles that must confirm critical parameter changes (`DEFAULT_ADMIN_ROLE` and `NODE_OPERATOR_MANAGER_ROLE`).
 
+### confirmExpiry()
+
+```solidity
+function confirmExpiry() external view returns (uint256)
+```
+
+Returns the confirmation expiry period in seconds.
+
+### confirmation(bytes \_callData, bytes32 \_role)
+
+```solidity
+function confirmation(bytes memory _callData, bytes32 _role) external view returns (uint256)
+```
+
+Returns the expiry timestamp for a confirmation from `_role` for the given call data.
+
 ## Methods
 
 ### initialize(...)
@@ -260,22 +276,6 @@ function initialize(
 ```
 
 Initializes the dashboard with admin roles, fee settings, and confirmation expiry.
-
-### wrap(uint256 \_stETHAmount)
-
-```solidity
-function wrap(uint256 _stETHAmount) external returns (uint256)
-```
-
-Wraps stETH into wstETH.
-
-### unwrap(uint256 \_wstETHAmount)
-
-```solidity
-function unwrap(uint256 _wstETHAmount) external returns (uint256)
-```
-
-Unwraps wstETH into stETH.
 
 ### transferVaultOwnership(address \_newOwner)
 
@@ -340,6 +340,14 @@ function fund() external payable
 ```
 
 Funds the vault with sent ETH.
+
+### receive()
+
+```solidity
+receive() external payable
+```
+
+Automatically calls `fund()` when fund-on-receive is enabled.
 
 ### withdraw(address \_recipient, uint256 \_ether)
 

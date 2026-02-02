@@ -116,10 +116,12 @@ The service is helpful for stakers, providing insights from the moment of withdr
 See the [detailed explanation](https://github.com/lidofinance/withdrawals-api/blob/develop/how-estimation-works.md).
 
 ### Use Cases
+
 - Estimation before request: users can estimate the waiting time before placing a withdrawal request.
 - Tracking the existing request: users can track the estimated waiting time for the already placed request.
 
 ### Calculates time to withdrawals requests:
+
 ```
 https://wq-api.lido.fi/v2/request-time?ids=1&ids=2
 ```
@@ -127,11 +129,13 @@ https://wq-api.lido.fi/v2/request-time?ids=1&ids=2
 Response schema and examples are available in the [Swagger API documentation](https://wq-api.lido.fi/api#/Request%20Time/RequestTimeController_requestsTime)
 
 ### Calculate time to withdrawal current queue:
+
 ```
 https://wq-api.lido.fi/v2/request-time/calculate
 ```
 
 ### Calculates time to withdrawal amount of stETH:
+
 ```
 https://wq-api.lido.fi/v2/request-time/calculate?amount=32
 ```
@@ -143,4 +147,5 @@ Response schema and examples are available in the [Swagger API documentation](ht
 ```
 https://wq-api-hoodi.testnet.fi/v2/request-time?ids=1&ids=2
 ```
+
 Response schema and examples are available in the [Swagger API documentation](https://wq-api-hoodi.testnet.fi/api#/Request%20Time/RequestTimeController_requestsTime)

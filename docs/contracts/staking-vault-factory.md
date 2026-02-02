@@ -1,6 +1,6 @@
 # VaultFactory
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/VaultFactory.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/VaultFactory.sol)
 - [Deployed contract](https://etherscan.io/address/0x02Ca7772FF14a9F6c1a08aF385aA96bb1b34175A)
 
 Factory for deploying `StakingVault` + `Dashboard` pairs using a beacon proxy.

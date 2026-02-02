@@ -12,7 +12,7 @@ In contrast to [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-che
 
 ## View methods
 
-### get(string calldata _key)
+### get(string calldata \_key)
 
 Retrieves the value corresponding to the provided key.
 
@@ -24,7 +24,7 @@ function get(string calldata _key) external view returns (bytes memory)
 Reverts if value is missing.
 :::
 
-### getList(string[] calldata _keys)
+### getList(string[] calldata \_keys)
 
 Retrieves a list of values corresponding to the provided keys.
 
@@ -38,7 +38,7 @@ Reverts if any value for a specific key is missing.
 
 ## Methods
 
-### set(string calldata _key, bytes calldata _value)
+### set(string calldata \_key, bytes calldata \_value)
 
 Sets the value for the provided key. Can only be called by users with `CONFIG_MANAGER_ROLE`.
 
@@ -48,12 +48,13 @@ function set(string calldata _key, bytes calldata _value) external
 
 :::note
 Reverts if any of the following is true:
+
 - value with provided key already exists
 - value is empty
 - called by someone who doesn't have `CONFIG_MANAGER_ROLE` role
-:::
+  :::
 
-### update(string calldata _key, bytes calldata _value)
+### update(string calldata \_key, bytes calldata \_value)
 
 Updates the value for the provided key. Can only be called by users with `CONFIG_MANAGER_ROLE`.
 
@@ -63,13 +64,14 @@ function update(string calldata _key, bytes calldata _value) external
 
 :::note
 Reverts if any of the following is true:
+
 - value with provided key doesn't exist
 - value is the same with the one already set
 - value is empty
 - called by someone who doesn't have `CONFIG_MANAGER_ROLE` role
-:::
+  :::
 
-### unset(string calldata _key)
+### unset(string calldata \_key)
 
 Removes the value of the provided key. Can only be called by users with `CONFIG_MANAGER_ROLE`.
 
@@ -79,9 +81,10 @@ function unset(string calldata _key) external
 
 :::note
 Reverts if any of the following is true:
+
 - value with provided key doesn't exist
 - called by someone who doesn't have `CONFIG_MANAGER_ROLE` role
-:::
+  :::
 
 ## Events
 
