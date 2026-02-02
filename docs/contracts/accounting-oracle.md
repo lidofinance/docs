@@ -41,18 +41,20 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
 
-1. Perform sanity checks via `OracleReportSanityChecker`.
-2. Update exited validators counts for each StakingModule in StakingRouter.
-3. Call `Accounting.handleOracleReport` to apply the report, which performs:
-   - Updates consensus layer state on Lido
-   - Internalizes bad debt
-   - Commits shares to burn
-   - Finalizes withdrawal queue requests
-   - Distributes protocol fees to modules and treasury
-   - Notifies rebase observers
-   - Emits `TokenRebased` on Lido
-4. Update the stVaults report root in `LazyOracle`.
-5. Store information about ExtraData.
+1. `Accounting._sanityChecks` (via `OracleReportSanityChecker`).
+2. `StakingRouter.updateExitedValidatorsCountByStakingModule`.
+3. `Accounting.handleOracleReport`, which applies `_applyOracleReportContext` in this exact order:
+   - `IBurner.requestBurnShares(withdrawalQueue, sharesToFinalizeWQ)` (if `sharesToFinalizeWQ > 0`)
+   - `Lido.processClStateUpdate`
+   - `VaultHub.decreaseInternalizedBadDebt` and `Lido.internalizeExternalBadDebt` (if `badDebtToInternalize > 0`)
+   - `IBurner.commitSharesToBurn` (if `totalSharesToBurn > 0`)
+   - `Lido.collectRewardsAndProcessWithdrawals` (finalizes withdrawal queue requests and updates vault transfers)
+   - `Lido.mintShares` (if `sharesToMintAsFees > 0`)
+   - `Accounting._distributeFee` (if `sharesToMintAsFees > 0`)
+   - `StakingRouter.reportRewardsMinted` (if `sharesToMintAsFees > 0`)
+   - `Accounting._notifyRebaseObserver` (emits `TokenRebased` on Lido)
+4. `LazyOracle.updateReportData` (stVaults data root).
+5. Store extra data (if present).
 
 The diagram shows the interaction with contracts.
 
@@ -60,14 +62,20 @@ The diagram shows the interaction with contracts.
 graph TD;
   A[/submitReportData/] --> B[AccountingOracle];
   B --> C[OracleReportSanityChecker];
-  B --> D[StakingRouter];
-  B --> E[Accounting];
-  E --> F[Lido (consensus state + TokenRebased)];
-  E --> G[Burner];
-  E --> H[WithdrawalQueue];
-  E --> I[Fee distribution];
-  B --> J[LazyOracle];
-  B --> K[ExtraData];
+  B --> D[StakingRouter.updateExitedValidatorsCountByStakingModule];
+  B --> E[Accounting.handleOracleReport];
+  E --> F[Burner.requestBurnShares];
+  E --> G[Lido.processClStateUpdate];
+  E --> H[VaultHub.decreaseInternalizedBadDebt];
+  E --> I[Lido.internalizeExternalBadDebt];
+  E --> J[Burner.commitSharesToBurn];
+  E --> K[Lido.collectRewardsAndProcessWithdrawals];
+  E --> L[Lido.mintShares];
+  E --> M[Accounting._distributeFee];
+  E --> N[StakingRouter.reportRewardsMinted];
+  E --> O[Accounting._notifyRebaseObserver (TokenRebased)];
+  B --> P[LazyOracle.updateReportData];
+  B --> Q[ExtraData];
 ```
 
 ## Report data
