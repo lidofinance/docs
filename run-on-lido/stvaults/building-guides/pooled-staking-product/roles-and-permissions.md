@@ -12,9 +12,13 @@ DeFi Wrapper is deployed as a set of on-chain contracts (Pool, Withdrawal Queue,
 - **Role-based access control** (`AccessControl` roles on Pool/WithdrawalQueue/Distributor/Dashboard)
 - **Emergency Committee** (fast “pause” capabilities)
 
-## `TimelockController` roles (governance)
+## TimelockController roles (governance)
 
 `TimelockController` is deployed together with the pool and becomes the admin for most DeFi Wrapper components. It is **self-administered**, meaning role changes and privileged actions should go through timelocked proposals.
+
+**Proposer** – the entity responsible for proposing an upgrade. By default, this actor is the Vault owner.
+
+**Executor** – the entity responsible for accepting the upgrade. This may be a committee of independent security experts trusted by both the vault owner and its users.
 
 | Role | Where | Permissions |
 | --- | --- | --- |
