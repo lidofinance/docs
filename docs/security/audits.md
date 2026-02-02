@@ -1,6 +1,6 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (89 reports)
+## Lido on Ethereum (91 reports)
 
 ### 01-2026 Sigma Prime Lido BLS Library Security Audit
 
@@ -22,6 +22,28 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Sigma%20Prime%
 - Low Issues: 1 (1 Acknowledged)
 
 See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20CSM%20Performance%20Oracle%20Security%20Audit%20Report%2001-26.pdf) for more details.
+
+### 01-2026 MixBytes Lido DeFi Wrapper Security Audit Report
+
+- Total Issues: 24 (14 Fixed, 10 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 2 (1 Fixed, 1 Acknowledged)
+- Low Issues: 22 (13 Fixed, 9 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20DeFi%20Wrapper%20Security%20Audit%20Report%2001-2026.pdf) for more details.
+
+### 01-2026 Ackee Blockchain Vault Wrapper Report
+
+- Total Issues: 14 (13 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 2 (2 Fixed)
+- Warnings: 3 (3 Fixed)
+- Info Issues: 9 (8 Fixed, 1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Vault%20Wrapper%20Report%2001-2026.pdf) for more details.
 
 ### 12-2025 Certora Lido V3 Security Audit
 
