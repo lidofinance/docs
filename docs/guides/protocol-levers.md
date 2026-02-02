@@ -2,6 +2,13 @@
 
 Lido V3 governance controls a set of configurable parameters across core pool, oracle, withdrawals, and stVaults. This page summarizes the primary on-chain levers, who can operate them, and provides concrete addresses for role holders.
 
+**Sources and verification (as of February 2, 2026):**
+
+- Lido V3 post-phase-2 mainnet config (roles, constants, addresses)
+- Deployed contracts list on docs.lido.fi
+- On-chain permission snapshot from `tests/regression/test_permissions.py`
+- DAO votes 170–198 (role and executor changes)
+
 ## Governance structure
 
 | Entity                        | Address                                                                                                                 | Description                                                                                        |

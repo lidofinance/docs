@@ -237,6 +237,62 @@ function accruedFee() public view returns (uint256 fee)
 
 Returns the current node operator fee amount in ETH.
 
+### feeRate()
+
+```solidity
+function feeRate() external view returns (uint16)
+```
+
+Returns the node operator fee rate in basis points.
+
+### feeRecipient()
+
+```solidity
+function feeRecipient() external view returns (address)
+```
+
+Returns the node operator fee recipient address.
+
+### feeLeftover()
+
+```solidity
+function feeLeftover() external view returns (uint128)
+```
+
+Returns the fee amount held by the dashboard after a voluntary disconnect.
+
+### settledGrowth()
+
+```solidity
+function settledGrowth() external view returns (int128)
+```
+
+Returns the current high-water mark used for fee calculations.
+
+### latestCorrectionTimestamp()
+
+```solidity
+function latestCorrectionTimestamp() external view returns (uint64)
+```
+
+Returns the timestamp of the most recent settled growth correction.
+
+### pdgPolicy()
+
+```solidity
+function pdgPolicy() external view returns (uint8)
+```
+
+Returns the current PDG policy enum value.
+
+### initialized()
+
+```solidity
+function initialized() external view returns (bool)
+```
+
+Returns whether the dashboard has been initialized.
+
 ### confirmingRoles()
 
 ```solidity
@@ -245,10 +301,10 @@ function confirmingRoles() public pure returns (bytes32[] memory roles)
 
 Returns the roles that must confirm critical parameter changes (`DEFAULT_ADMIN_ROLE` and `NODE_OPERATOR_MANAGER_ROLE`).
 
-### confirmExpiry()
+### getConfirmExpiry()
 
 ```solidity
-function confirmExpiry() external view returns (uint256)
+function getConfirmExpiry() external view returns (uint256)
 ```
 
 Returns the confirmation expiry period in seconds.
@@ -260,6 +316,54 @@ function confirmation(bytes memory _callData, bytes32 _role) external view retur
 ```
 
 Returns the expiry timestamp for a confirmation from `_role` for the given call data.
+
+### hasRole(bytes32 \_role, address \_account)
+
+```solidity
+function hasRole(bytes32 _role, address _account) external view returns (bool)
+```
+
+Returns whether `_account` has `_role`.
+
+### getRoleAdmin(bytes32 \_role)
+
+```solidity
+function getRoleAdmin(bytes32 _role) external view returns (bytes32)
+```
+
+Returns the admin role for `_role`.
+
+### getRoleMember(bytes32 \_role, uint256 \_index)
+
+```solidity
+function getRoleMember(bytes32 _role, uint256 _index) external view returns (address)
+```
+
+Returns the role member at `_index` (AccessControlEnumerable).
+
+### getRoleMemberCount(bytes32 \_role)
+
+```solidity
+function getRoleMemberCount(bytes32 _role) external view returns (uint256)
+```
+
+Returns the number of members for `_role`.
+
+### getRoleMembers(bytes32 \_role)
+
+```solidity
+function getRoleMembers(bytes32 _role) external view returns (address[] memory)
+```
+
+Returns all members for `_role` (may be expensive on-chain).
+
+### supportsInterface(bytes4 \_interfaceId)
+
+```solidity
+function supportsInterface(bytes4 _interfaceId) public view returns (bool)
+```
+
+Returns true if the interface is supported (ERC-165).
 
 ## Methods
 
@@ -602,6 +706,30 @@ function revokeRoles(RoleAssignment[] calldata _assignments) external
 ```
 
 Mass-revokes multiple roles.
+
+### grantRole(bytes32 \_role, address \_account)
+
+```solidity
+function grantRole(bytes32 _role, address _account) external
+```
+
+Grants a role using AccessControl (admin role required).
+
+### revokeRole(bytes32 \_role, address \_account)
+
+```solidity
+function revokeRole(bytes32 _role, address _account) external
+```
+
+Revokes a role using AccessControl (admin role required).
+
+### renounceRole(bytes32 \_role, address \_account)
+
+```solidity
+function renounceRole(bytes32 _role, address _account) external
+```
+
+Renounces a role held by `_account` (caller must be `_account`).
 
 ## Related
 

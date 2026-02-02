@@ -22,19 +22,24 @@ The contract acts as the central point for all accounting operations, replacing 
 
 1. `AccountingOracle` submits a report via `handleOracleReport()`.
 2. Accounting snapshots current protocol state (CL validators, balances, shares, external shares/ether, bad debt to internalize).
-3. Calculates all state changes (withdrawals, fees, burns) accounting for both internal and external ether/shares.
+3. Calculates state changes (withdrawals, fees, burns) accounting for both internal and external ether/shares.
 4. Runs sanity checks via `OracleReportSanityChecker`.
-5. Applies changes: internalizes bad debt, updates CL state, collects rewards, finalizes withdrawals, distributes fees.
-6. Emits token rebase event and notifies observers.
+5. Requests `Burner` to lock shares for withdrawal finalization (if needed).
+6. Updates consensus layer state on `Lido` via `processClStateUpdate()`.
+7. Internalizes bad debt via `VaultHub.decreaseInternalizedBadDebt()` and `Lido.internalizeExternalBadDebt()`.
+8. Commits shares to burn via `Burner.commitSharesToBurn()` (if needed).
+9. Collects rewards and processes withdrawals via `Lido.collectRewardsAndProcessWithdrawals()` (finalizes withdrawal queue).
+10. Distributes protocol fees and notifies modules via `StakingRouter.reportRewardsMinted()`.
+11. Notifies post-rebase observers and emits the token rebase event.
 
 ```mermaid
 graph LR;
   AO[AccountingOracle]--handleOracleReport-->A[Accounting];
-  A--collectRewardsAndProcessWithdrawals-->L[Lido];
-  A--finalize-->WQ[WithdrawalQueue];
-  A--internalizeBadDebt-->VH[VaultHub];
-  A--reportModuleRewards-->SR[StakingRouter];
-  A--sanityChecks-->SC[OracleReportSanityChecker];
+  A--processClStateUpdate/collectRewardsAndProcessWithdrawals/emitTokenRebase-->L[Lido];
+  A--requestBurnShares/commitSharesToBurn-->B[Burner];
+  A--decreaseInternalizedBadDebt-->VH[VaultHub];
+  A--reportRewardsMinted-->SR[StakingRouter];
+  A--checkAccountingOracleReport-->SC[OracleReportSanityChecker];
 ```
 
 ## Structs
@@ -127,6 +132,14 @@ Note: For simulation, uses `vaultHub.badDebtToInternalize()` to fetch the curren
 
 ## Methods
 
+### constructor(ILidoLocator \_lidoLocator, ILido \_lido)
+
+```solidity
+constructor(ILidoLocator _lidoLocator, ILido _lido)
+```
+
+Initializes immutable references to the Lido Locator and Lido contracts.
+
 ### handleOracleReport(ReportValues \_report)
 
 ```solidity
@@ -138,12 +151,12 @@ Handles an oracle report and applies all calculated state changes to the protoco
 The method performs these operations in order:
 
 1. Runs sanity checks on report data
-2. Requests burn of shares for withdrawal queue finalization (if applicable)
+2. Requests `Burner.requestBurnShares()` for withdrawal queue finalization (if applicable)
 3. Updates consensus layer state on Lido via `processClStateUpdate()`
-4. Internalizes bad debt (calls `vaultHub.decreaseInternalizedBadDebt()` and `lido.internalizeExternalBadDebt()`)
-5. Commits shares to burn via Burner
-6. Collects EL rewards and processes withdrawals via `collectRewardsAndProcessWithdrawals()`
-7. Distributes protocol fees to modules and treasury
+4. Internalizes bad debt (calls `VaultHub.decreaseInternalizedBadDebt()` and `Lido.internalizeExternalBadDebt()`)
+5. Commits shares to burn via `Burner.commitSharesToBurn()`
+6. Collects EL rewards and processes withdrawals via `Lido.collectRewardsAndProcessWithdrawals()`
+7. Distributes protocol fees, then reports module rewards via `StakingRouter.reportRewardsMinted()`
 8. Notifies rebase observers via `handlePostTokenRebase()`
 9. Emits token rebase event via `emitTokenRebase()`
 

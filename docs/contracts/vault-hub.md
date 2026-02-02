@@ -17,6 +17,8 @@ VaultHub is the coordinator between individual StakingVaults and the Lido protoc
 - **Connect deposit lock**: VaultHub enforces the 1 ETH connect deposit as minimal reserve
 - **Beacon chain deposits auto-pause**: deposits are automatically paused when vaults have outstanding obligations
 
+VaultHub (not Dashboard) is the escrow holder for the connect deposit and other reserve amounts.
+
 ## Inherits
 
 - [PausableUntilWithRoles](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/utils/PausableUntilWithRoles.sol)

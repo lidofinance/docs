@@ -28,7 +28,16 @@ with a valid Merkle proof from the latest report root.
 
 ### Report freshness
 
-A vault report freshness is determined by VaultHub based on the report timestamp stored in LazyOracle. When stale, the vault cannot perform operations like withdrawals, mints, beacon chain deposits or disconnect.
+LazyOracle stores the report timestamp, while VaultHub enforces freshness checks using that timestamp.
+If a report is stale, VaultHub blocks operations such as withdrawals, minting, beacon chain deposits, or disconnect.
+
+## Constants
+
+| Constant                       | Value  | Description                                 |
+| ------------------------------ | ------ | ------------------------------------------- |
+| `MAX_QUARANTINE_PERIOD`        | 30 days| Upper bound for quarantine duration         |
+| `MAX_REWARD_RATIO`             | 65535  | Upper bound for reward ratio (basis points) |
+| `MAX_LIDO_FEE_RATE_PER_SECOND` | 1e19   | Upper bound for Lido fee rate per second    |
 
 ### Quarantine mechanics
 
