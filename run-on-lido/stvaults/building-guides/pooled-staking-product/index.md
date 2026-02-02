@@ -61,22 +61,21 @@ DeFi Wrapper supports three product archetypes:
 
 ## Environments
 
+- [CLI](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration)
+- [UI template](https://github.com/lidofinance/defi-wrapper-widget)
+
 <Tabs>
   <TabItem value="testnet" label="Testnet">
     <ul>
-      <li><strong>CLI:</strong> <a href="https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration">Configuration guide</a></li>
       <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xd05e...b4d9</a></li>
-      <li><strong>UI template:</strong> <a href="https://github.com/lidofinance/defi-wrapper-widget">defi-wrapper-widget</a></li>
-      <li><strong>Latest development branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
-      <li><strong>Etherscan:</strong> <a href="https://hoodi.etherscan.io/">hoodi.etherscan.io</a></li>
+      <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
     </ul>
   </TabItem>
   <TabItem value="mainnet" label="Mainnet">
-
-:::info Coming soon
-*Coming this Winter*
-:::
-
+    <ul>
+      <li><strong>DeFi Wrapper Factory:</strong> <a href="https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587#code">0x3f22…1587</a></li>
+      <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (v1.0.0)</a></li>
+    </ul>
   </TabItem>
 </Tabs>
 
@@ -162,6 +161,11 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
+#### Deployment of `StvStETHPool` with a custom strategy
+
+To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy).
+
+The guide covers both deploying a new pool with a strategy from scratch and upgrading an existing `StvStETHPool` to a strategy pool.
 
 ### 2. Create Web UI
 

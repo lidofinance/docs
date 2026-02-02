@@ -126,7 +126,7 @@ Continue with [Post-deployment steps](/run-on-lido/stvaults/building-guides/pool
 
 ## Path B: Upgrade an existing pool to a strategy pool
 
-Use this path when you have a running [`StvStETHPool`](/run-on-lido/stvaults/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) (Wrapper-B) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
+Use this path when you have a running [`StvStETHPool`](/run-on-lido/stvaults/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
 
 :::info
 This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/proxy/OssifiableProxy.sol) pattern. The pool contract is a proxy whose implementation can be swapped by its admin (the `TimelockController`). Storage (user balances, roles, parameters) lives in the proxy and is preserved across implementation changes.
@@ -134,8 +134,8 @@ This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/va
 
 ### What changes during the upgrade
 
-| Aspect | Before (Wrapper-B) | After (Wrapper-C) |
-|--------|--------------------|--------------------|
+| Aspect | Before (`StvStETHPool`) | After (`StvStETHPool` with strategy) |
+|--------|------------------------|--------------------------------------|
 | Pool type | `STV_STETH_POOL_TYPE` | `STRATEGY_POOL_TYPE` |
 | Allowlist | Disabled | Enabled (only strategy can deposit) |
 | Strategy | None | Your custom strategy contract |
@@ -206,7 +206,7 @@ The exact number and content of operations depends on the current pool configura
 | 6 | `revokeRole(DEPOSITS_PAUSE_ROLE, nodeOperator)` | Adjust pause roles for the new setup |
 | 7 | `revokeRole(MINTING_PAUSE_ROLE, nodeOperator)` | Adjust pause roles for the new setup |
 | 8 | `grantRole(MINTING_RESUME_ROLE, timelock)` | Temporarily grant minting resume capability |
-| 9 | `resumeMinting()` | Re-enable minting (needed if paused in Wrapper-B) |
+| 9 | `resumeMinting()` | Re-enable minting (needed if paused in the original pool) |
 | 10 | `revokeRole(MINTING_RESUME_ROLE, timelock)` | Remove temporary minting resume capability |
 
 :::info
@@ -263,9 +263,7 @@ PAYLOAD_10=$(cast calldata "revokeRole(bytes32,address)" $MINTING_RESUME_ROLE <T
 <details>
   <summary>Step 2: Schedule the batch (Proposer)</summary>
 
-Call `TimelockController.scheduleBatch` on the Timelock contract. This can be done via **Etherscan**, `cast`, or using the **CLI** `propose-*` commands for individual operations.
-
-For a batch call via `cast`:
+Call `TimelockController.scheduleBatch` on the Timelock contract. This can be done via **Etherscan** or `cast`:
 
 ```bash
 POOL=<POOL_ADDRESS>
@@ -286,21 +284,6 @@ cast send <TIMELOCK> \
 ```
 
 Note the **operation ID** from the `CallScheduled` event in the transaction logs.
-
-Alternatively, individual operations can be proposed via CLI (each as a separate timelock operation):
-
-```bash
-# Propose proxy upgrade
-yarn start dw use-cases timelock-governance proxy w propose-upgrade-to-and-call <TIMELOCK> <POOL> <NEW_POOL_IMPL> 0x
-
-# Propose role changes
-yarn start dw use-cases timelock-governance pool w propose-grant-role <TIMELOCK> <POOL> <ROLE> <ACCOUNT>
-yarn start dw use-cases timelock-governance pool w propose-revoke-role <TIMELOCK> <POOL> <ROLE> <ACCOUNT>
-```
-
-:::warning
-CLI propose commands schedule individual timelock operations (not a batch). This means each operation requires a separate propose → wait → execute cycle and they are **not atomic**. Use `scheduleBatch` via `cast` or Etherscan if atomicity is required.
-:::
 
 </details>
 
@@ -356,14 +339,14 @@ Study them to understand the complete pattern, including:
 - How to implement cancel/replace flows for pending exit requests
 - How the proxy upgrade preserves all user state
 
-The [upgrade integration test](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol) demonstrates the complete Wrapper-B → Wrapper-C upgrade flow.
+The [upgrade integration test](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol) demonstrates the complete `StvStETHPool` → strategy pool upgrade flow.
 
 ## Useful links
 
 - [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
 - [IStrategy interface](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/interfaces/IStrategy.sol)
 - [IStrategyFactory interface](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/interfaces/IStrategyFactory.sol)
-- [Upgrade integration test (Wrapper-B → C)](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol)
+- [Upgrade integration test (StvStETHPool → strategy pool)](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol)
 - [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
 - [stVaults Roles and Permissions](../../features-and-mechanics/roles-and-permissions)
 - [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)
