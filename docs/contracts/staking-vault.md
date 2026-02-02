@@ -340,8 +340,8 @@ The contract has a `receive()` function allowing direct ETH transfers, but the p
 
 ## Related
 
-- [VaultHub](/contracts/vault-hub.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
-- [Staking Vault Beacon](/contracts/staking-vault-beacon.md)
-- [Staking Vault Factory](/contracts/staking-vault-factory.md)
+- [VaultHub](/contracts/vault-hub)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
+- [Staking Vault Beacon](/contracts/staking-vault-beacon)
+- [Staking Vault Factory](/contracts/staking-vault-factory)
 - [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

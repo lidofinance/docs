@@ -151,7 +151,7 @@ event DashboardCreated(address indexed dashboard, address indexed vault, address
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
-- [Staking Vault Beacon](/contracts/staking-vault-beacon.md)
-- [Dashboard](/contracts/dashboard.md)
-- [VaultHub](/contracts/vault-hub.md)
+- [StakingVault](/contracts/staking-vault)
+- [Staking Vault Beacon](/contracts/staking-vault-beacon)
+- [Dashboard](/contracts/dashboard)
+- [VaultHub](/contracts/vault-hub)

@@ -75,5 +75,5 @@ Renounces ownership of the beacon.
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
-- [Staking Vault Factory](/contracts/staking-vault-factory.md)
+- [StakingVault](/contracts/staking-vault)
+- [Staking Vault Factory](/contracts/staking-vault-factory)
