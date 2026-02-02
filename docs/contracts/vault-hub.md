@@ -1,7 +1,7 @@
 # VaultHub
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/VaultHub.sol)
-- [Deployed contract](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/VaultHub.sol)
+- [Deployed contract](https://etherscan.io/address/0x5eccbf9eb4f16de4e09a40e1e71a66f9993ec5b8)
 
 Central registry and lifecycle manager for StakingVaults connected to the Lido protocol. Handles vault connection, minting/burning stETH against vault collateral, rebalancing, fee settlement, and bad debt management.
 
@@ -14,14 +14,11 @@ VaultHub is the coordinator between individual StakingVaults and the Lido protoc
 - **Rebalancing**: when vaults become unhealthy, anyone can trigger forced rebalancing using available vault funds
 - **Fee settlement**: Lido fees accrue on vaults and can be settled permissionlessly
 - **Bad debt handling**: governance can socialize bad debt to other vaults or internalize it as protocol loss
-- **Connect deposit lock**: VaultHub enforces the 1 ETH connect deposit as minimal reserve
 - **Beacon chain deposits auto-pause**: deposits are automatically paused when vaults have outstanding obligations
-
-VaultHub (not Dashboard) is the escrow holder for the connect deposit and other reserve amounts.
 
 ## Inherits
 
-- [PausableUntilWithRoles](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/utils/PausableUntilWithRoles.sol)
+- [PausableUntilWithRoles](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/utils/PausableUntilWithRoles.sol)
 
 ## Constants
 
@@ -134,13 +131,6 @@ Deposits are automatically paused when:
 - Unsettled Lido fees ≥ `MIN_BEACON_DEPOSIT` (1 ETH)
 
 Once obligations are cleared and owner hasn't set manual pause intent, deposits resume automatically.
-
-### Manual pause intent
-
-Vault owners can explicitly pause or resume beacon chain deposits via `pauseBeaconChainDeposits()` and `resumeBeaconChainDeposits()` (typically through Dashboard). This toggles `beaconChainDepositsPauseIntent`:
-
-- If pause intent is set, deposits stay paused regardless of obligations.
-- If pause intent is cleared, deposits still remain paused until obligations are covered.
 
 ## View methods
 

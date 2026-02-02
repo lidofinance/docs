@@ -6,7 +6,6 @@
 PredepositGuarantee (PDG) mitigates deposit frontrunning by requiring a node operator guarantee and validator withdrawal credentials proofs (EIP-4788) before activating staged deposits.
 
 :::warning
-On mainnet PDG is deployed but paused during Phase 1 (soft-launch). It becomes active in Phase 2.
 :::
 
 ## What is PredepositGuarantee?

@@ -117,6 +117,37 @@ The following operations require confirmation from both `DEFAULT_ADMIN_ROLE` and
 
 ## View methods
 
+### Role and constant getters
+
+Public constants exposed by the contract (all are `view` getters in the ABI):
+
+| Getter | Returns |
+| --- | --- |
+| `DEFAULT_ADMIN_ROLE()` | `bytes32` |
+| `NODE_OPERATOR_MANAGER_ROLE()` | `bytes32` |
+| `FUND_ROLE()` | `bytes32` |
+| `WITHDRAW_ROLE()` | `bytes32` |
+| `MINT_ROLE()` | `bytes32` |
+| `BURN_ROLE()` | `bytes32` |
+| `REBALANCE_ROLE()` | `bytes32` |
+| `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE()` | `bytes32` |
+| `RESUME_BEACON_CHAIN_DEPOSITS_ROLE()` | `bytes32` |
+| `REQUEST_VALIDATOR_EXIT_ROLE()` | `bytes32` |
+| `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE()` | `bytes32` |
+| `VOLUNTARY_DISCONNECT_ROLE()` | `bytes32` |
+| `VAULT_CONFIGURATION_ROLE()` | `bytes32` |
+| `COLLECT_VAULT_ERC20_ROLE()` | `bytes32` |
+| `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE()` | `bytes32` |
+| `NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE()` | `bytes32` |
+| `NODE_OPERATOR_FEE_EXEMPT_ROLE()` | `bytes32` |
+| `STETH()` | `address` |
+| `WSTETH()` | `address` |
+| `VAULT_HUB()` | `address` |
+| `LIDO_LOCATOR()` | `address` |
+| `MIN_CONFIRM_EXPIRY()` | `uint256` |
+| `MAX_CONFIRM_EXPIRY()` | `uint256` |
+| `FUND_ON_RECEIVE_FLAG_SLOT()` | `bytes32` |
+
 ### stakingVault()
 
 ```solidity

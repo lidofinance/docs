@@ -1,6 +1,6 @@
 # LazyOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/LazyOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/vaults/LazyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c)
 
 Oracle adapter for stVaults. Stores per-vault reports, applies sanity checks, and forwards vault updates to VaultHub.
@@ -14,8 +14,6 @@ LazyOracle is a lightweight oracle for stVaults:
 - applies per-vault accounting updates to VaultHub
 - quarantines vaults with suspicious value deltas
 
-It is called **lazy** because it stores only the report root and metadata each round; per-vault data is expanded on-demand via Merkle proofs only when a vault operation needs it.
-
 ## How it works
 
 1. `AccountingOracle` publishes a report root and metadata via `updateReportData()`.
@@ -28,16 +26,7 @@ with a valid Merkle proof from the latest report root.
 
 ### Report freshness
 
-LazyOracle stores the report timestamp, while VaultHub enforces freshness checks using that timestamp.
-If a report is stale, VaultHub blocks operations such as withdrawals, minting, beacon chain deposits, or disconnect.
-
-## Constants
-
-| Constant                       | Value  | Description                                 |
-| ------------------------------ | ------ | ------------------------------------------- |
-| `MAX_QUARANTINE_PERIOD`        | 30 days| Upper bound for quarantine duration         |
-| `MAX_REWARD_RATIO`             | 65535  | Upper bound for reward ratio (basis points) |
-| `MAX_LIDO_FEE_RATE_PER_SECOND` | 1e19   | Upper bound for Lido fee rate per second    |
+A vault report freshness is determined by VaultHub based on the report timestamp stored in LazyOracle. When stale, the vault cannot perform operations like withdrawals, mints, beacon chain deposits or disconnect.
 
 ### Quarantine mechanics
 
