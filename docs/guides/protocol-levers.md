@@ -13,7 +13,7 @@ Lido V3 governance controls a set of configurable parameters across core pool, o
 | Easy Track EVMScript Executor | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977) | Executes Easy Track motions |
 | Vaults Adapter | [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) | stVaults adapter that holds VaultHub/OperatorGrid roles |
 | GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer for GateSeal contracts |
-| Reseal Manager | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension and resume authority for GateSeal-paused contracts |
+| Reseal Manager | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension authority for GateSeal-paused contracts under DualGovernance veto escalated states |
 
 ## Upgradeability
 

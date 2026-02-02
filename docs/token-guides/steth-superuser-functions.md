@@ -28,7 +28,7 @@ Control is governed by the Lido DAO. Roles are assigned to DAO-owned contracts o
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | DAO Agent          | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)        | Holds most admin roles; executes DAO votes |
 | GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)        | Emergency pause signer for GateSeal        |
-| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)        | Pause extension authority for GateSeal-paused apps  |
+| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)        | Pause extension authority for GateSeal-paused apps under DualGovernance veto escalations |
 
 All protocol proxy admins are set to the Lido DAO Agent.
 
@@ -59,7 +59,7 @@ Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c5275
 
 | Contract | Role | Role registry / owner contract | Current holder(s) | Purpose |
 | -------- | ---- | ------------------------------ | ----------------- | ------- |
-| [Burner](/contracts/burner) | `REQUEST_BURN_SHARES_ROLE` | Burner ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)) | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf), [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) | Request burns on behalf of others |
+| [Burner](/contracts/burner) | `REQUEST_BURN_SHARES_ROLE` | Burner ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)) | Accounting ([`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf)), CSAccounting ([`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da)) | Request burns on behalf of others |
 | [Burner](/contracts/burner) | `REQUEST_BURN_MY_STETH_ROLE` | Burner ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)) | Unassigned | Burn caller's own stETH |
 
 **Used for**:
@@ -113,7 +113,7 @@ This is a sensitive operation that should only occur during protocol setup or ma
 | Lever | Role / permission | Role registry / owner contract | Current holder(s) |
 | ----- | ----------------- | ------------------------------ | ----------------- |
 | Protocol fee (total) | Aragon ACL permissions on Lido | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned |
-| Module fee splits | `STAKING_MODULE_MANAGE_ROLE` | StakingRouter ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)) | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
+| Module fee splits | `STAKING_MODULE_MANAGE_ROLE` | StakingRouter ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
 | Treasury address | Aragon ACL permissions on Lido | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned |
 
 **Contracts**: [Lido](/contracts/lido) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)), [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999))
@@ -125,20 +125,27 @@ Protocol fee and treasury permissions are intentionally unassigned today. The DA
 ## Oracle and accounting flow
 
 ```mermaid
-graph LR;
-  A[/  \\]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->Accounting;
-  AccountingOracle--updateReportData-->LazyOracle;
-  AccountingOracle--handleOracleReport-->Accounting-->Lido;
-  AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
-  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
-  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
-  AccountingOracle--'onOracleReport'-->WithdrawalQueue;
+graph TD;
+  A[AccountingOracle] --> B[Sanity checks (OracleReportSanityChecker)];
+  A --> C[Apply report (Accounting)];
+  C --> D[Update consensus layer state on Lido];
+  C --> E[Internalize bad debt];
+  C --> F[Commit shares to burn (Burner)];
+  C --> G[Finalize withdrawal queue requests];
+  C --> H[Distribute protocol fees (modules + treasury)];
+  C --> I[Notify rebase observers];
+  C --> J[Emit TokenRebased event on Lido];
 ```
 
 1. Oracle committee members submit reports to HashConsensus ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
-2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) processes the report
-3. [Accounting](/contracts/accounting) applies the report and updates Lido state
-4. Token rebases are emitted via `TokenRebased` event on [Lido](/contracts/lido)
+2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) performs sanity checks
+3. AccountingOracle updates consensus layer state on [Lido](/contracts/lido) via [Accounting](/contracts/accounting)
+4. [Accounting](/contracts/accounting) internalizes bad debt
+5. [Accounting](/contracts/accounting) commits shares to burn via [Burner](/contracts/burner)
+6. [Accounting](/contracts/accounting) finalizes withdrawal queue requests
+7. [Accounting](/contracts/accounting) distributes protocol fees to modules and treasury
+8. [Accounting](/contracts/accounting) notifies rebase observers
+9. [Lido](/contracts/lido) emits `TokenRebased`
 
 ## On-chain verification
 
