@@ -20,6 +20,7 @@ Returns the current `owner`.
 function owner() public view returns (address);
 ```
 
+
 ### renounceOwnership()
 
 Reverts always.
@@ -28,12 +29,12 @@ Reverts always.
 function renounceOwnership() public pure override;
 ```
 
+
 ## Methods
 
 ### transferERC1155()
 
 Transfer a single ERC1155 token with the specified id in the specified amount to an entity from the contract balance. A contract recipient must implement `ERC1155TokenReceiver` in accordance to [EIP-1155](https://eips.ethereum.org/EIPS/eip-1155) in order to safely receive tokens.
-
 - reverts if `msg.sender` is not `owner`;
 - reverts if `_recipient` is zero address;
 - reverts if the contract balance is insufficient;
@@ -45,13 +46,13 @@ function transferERC1155(address _token, address _recipient, uint256 _tokenId, u
 
 #### Parameters
 
-| Name         | Type      | Description                                |
-| ------------ | --------- | ------------------------------------------ |
-| `_token`     | `address` | an ERC1155 token                           |
-| `_recipient` | `address` | recipient entity                           |
-| `_tokenId`   | `uint256` | token identifier                           |
-| `_amount`    | `uint256` | transfer amount                            |
-| `_data`      | `bytes`   | byte sequence for `onERC1155Received` hook |
+| Name         | Type      | Description      |
+| ------------ | --------- | ---------------- |
+| `_token`     | `address` | an ERC1155 token  |
+| `_recipient` | `address` | recipient entity |
+| `_tokenId`   | `uint256` | token identifier |
+| `_amount`    | `uint256` | transfer amount  |
+| `_data`      | `bytes`   | byte sequence for `onERC1155Received` hook  |
 
 :::info
 Note: `transferERC1155` does not support multi-token batch transfers.
@@ -60,7 +61,6 @@ Note: `transferERC1155` does not support multi-token batch transfers.
 ### transferERC20()
 
 Transfer an ERC20 token to an entity in the specified amount from the contract balance.
-
 - reverts if `msg.sender` is not `owner`;
 - reverts if `_recipient` is zero address;
 - reverts if the contract balance is insufficient;
@@ -81,7 +81,6 @@ function transferERC20(address _token, address _recipient, uint256 _amount) exte
 ### transferERC721()
 
 Transfer a single ERC721 token with the specified id to an entity from the contract balance. A contract recipient must implement `ERC721TokenReceiver` in accordance to [EIP-721](https://eips.ethereum.org/EIPS/eip-721) in order to safely receive tokens.
-
 - reverts if `msg.sender` is not `owner`;
 - reverts if `_recipient` is zero address;
 - emits `ERC721Transferred(address indexed _token, address indexed _recipient, uint256 _tokenId, bytes _data)`.
@@ -92,17 +91,16 @@ function transferERC721(address _token, address _recipient, uint256 _tokenId, by
 
 #### Parameters
 
-| Name         | Type      | Description                               |
-| ------------ | --------- | ----------------------------------------- |
-| `_token`     | `address` | an ERC721 token                           |
-| `_recipient` | `address` | recipient entity                          |
-| `_tokenId`   | `uint256` | token identifier                          |
-| `_data`      | `bytes`   | byte sequence for `onERC721Received` hook |
+| Name         | Type      | Description      |
+| ------------ | --------- | ---------------- |
+| `_token`     | `address` | an ERC721 token  |
+| `_recipient` | `address` | recipient entity |
+| `_tokenId`   | `uint256` | token identifier |
+| `_data`      | `bytes`   | byte sequence for `onERC721Received` hook  |
 
 ### transferEther()
 
 Transfers ether to an entity from the contract balance.
-
 - reverts if `msg.sender` is not `owner`;
 - reverts if `_recipient` is zero address;
 - reverts if the contract balance is insufficient;
@@ -118,7 +116,7 @@ function transferEther(address _recipient, uint256 _amount) external;
 | Name         | Type      | Description      |
 | ------------ | --------- | ---------------- |
 | `_recipient` | `address` | recipient entity |
-| `_amount`    | `uint256` | transfer amount  |
+| `_amount`    | `uint256` | transfer amount |
 
 ### transferOwnership()
 
@@ -134,6 +132,6 @@ function transferOwnership(address newOwner) public;
 
 #### Parameters
 
-| Name       | Type      | Description                                                    |
-| ---------- | --------- | -------------------------------------------------------------- |
+| Name       | Type      | Description |
+| --------   | --------  | -------- |
 | `newOwner` | `address` | entity which will have access to all state-mutating operations |

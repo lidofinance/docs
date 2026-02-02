@@ -64,14 +64,14 @@ def deploy_vesting_contract(
 
 ##### Parameters
 
-| Name                 | Type      | Description                                      |
-| -------------------- | --------- | ------------------------------------------------ |
-| `amount`             | `uint256` | Amount of the tokens to be controlled by vesting |
-| `recipient`          | `address` | Recipient of the vested funds                    |
-| `vesting_duration`   | `uint256` | Vesting duration in seconds                      |
-| `vesting_start`      | `uint256` | Vesting start time in seconds (unix time in sec) |
-| `cliff_length`       | `uint256` | Cliff duration in seconds                        |
-| `is_fully_revokable` | `bool`    | Flag that enables `revoke_all` method            |
+| Name                 | Type                        | Description                                                |
+|----------------------|-----------------------------|------------------------------------------------------------|
+| `amount`             | `uint256`                   | Amount of the tokens to be controlled by vesting           |
+| `recipient`          | `address`                   | Recipient of the vested funds                              |
+| `vesting_duration`   | `uint256`                   | Vesting duration in seconds                                |
+| `vesting_start`      | `uint256`                   | Vesting start time in seconds (unix time in sec)           |
+| `cliff_length`       | `uint256`                   | Cliff duration in seconds                                  |
+| `is_fully_revokable` | `bool`                      | Flag that enables `revoke_all` method                      |
 
 :::note
 Reverts if any of the following is true:
@@ -80,7 +80,7 @@ Reverts if any of the following is true:
 - `cliff_length >= vesting_duration`
 - token transfer from caller to factory fails
 - approve of the tokens to the actual vesting fails
-  :::
+:::
 
 #### recover_erc20()
 
@@ -96,16 +96,16 @@ def recover_erc20(
 
 ##### Parameters
 
-| Name     | Type      | Description                       |
-| -------- | --------- | --------------------------------- |
-| `token`  | `address` | Address of ERC20 token to recover |
-| `amount` | `uint256` | Amount of the tokens to recover   |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `token`        | `address`                   | Address of ERC20 token to recover                          |
+| `amount`       | `uint256`                   | Amount of the tokens to recover                            |
 
 :::note
 Reverts if:
 
 - tokens transfer to `owner` fails
-  :::
+:::
 
 #### recover_ether()
 
@@ -120,7 +120,7 @@ def recover_ether()
 Reverts if:
 
 - Ether transfer to `owner` fails
-  :::
+:::
 
 #### update_voting_adapter()
 
@@ -135,15 +135,15 @@ def update_voting_adapter(
 
 ##### Parameters
 
-| Name             | Type      | Description        |
-| ---------------- | --------- | ------------------ |
-| `voting_adapter` | `address` | New voting adapter |
+| Name             | Type                        | Description                                                |
+|------------------|-----------------------------|------------------------------------------------------------|
+| `voting_adapter` | `address`                   | New voting adapter                                         |
 
 :::note
 Reverts if:
 
 - called by anyone except `VestingEscrowFactory` owner
-  :::
+:::
 
 #### change_owner()
 
@@ -158,16 +158,16 @@ def change_owner(
 
 ##### Parameters
 
-| Name    | Type      | Description         |
-| ------- | --------- | ------------------- |
-| `owner` | `address` | New `owner` address |
+| Name             | Type                        | Description                                                |
+|------------------|-----------------------------|------------------------------------------------------------|
+| `owner`          | `address`                   | New `owner` address                                          |
 
 :::note
 Reverts if:
 
 - called by anyone except `VestingEscrowFactory` owner
 - arg `owner` is empty address
-  :::
+:::
 
 #### change_manager()
 
@@ -182,15 +182,15 @@ def change_manager(
 
 ##### Parameters
 
-| Name      | Type      | Description           |
-| --------- | --------- | --------------------- |
-| `manager` | `address` | New `manager` address |
+| Name             | Type                        | Description                                                |
+|------------------|-----------------------------|------------------------------------------------------------|
+| `manager`        | `address`                   | New `manager` address                                        |
 
 :::note
 Reverts if:
 
 - called by anyone except `VestingEscrowFactory` owner
-  :::
+:::
 
 ## VestingEscrow
 
@@ -249,17 +249,17 @@ def claim(
 
 ##### Parameters
 
-| Name          | Type      | Description                   |
-| ------------- | --------- | ----------------------------- |
-| `beneficiary` | `address` | Address to claim tokens to    |
-| `amount`      | `uint256` | Amount of the tokens to claim |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `beneficiary`  | `address`                   | Address to claim tokens to                                 |
+| `amount`       | `uint256`                   | Amount of the tokens to claim                              |
 
 :::note
 Reverts if:
 
 - called by anyone except vesting `recipient`
 - tokens transfer to `beneficiary` fails
-  :::
+:::
 
 #### revoke_unvested()
 
@@ -275,7 +275,7 @@ Reverts if:
 
 - called by anyone except `VestingEscrowFactory` owner or manager
 - tokens transfer to `VestingEscrowFactory.owner()` fails
-  :::
+:::
 
 #### revoke_all()
 
@@ -292,7 +292,7 @@ Reverts if:
 - `is_fully_revocable` param of the `VestingEscrow` is not True
 - called by anyone except `VestingEscrowFactory` owner
 - tokens transfer to `VestingEscrowFactory.owner` fails
-  :::
+:::
 
 #### recover_erc20()
 
@@ -308,16 +308,16 @@ def recover_erc20(
 
 ##### Parameters
 
-| Name     | Type      | Description                       |
-| -------- | --------- | --------------------------------- |
-| `token`  | `address` | Address of ERC20 token to recover |
-| `amount` | `uint256` | Amount of the tokens to recover   |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `token`        | `address`                   | Address of ERC20 token to recover                          |
+| `amount`       | `uint256`                   | Amount of the tokens to recover                            |
 
 :::note
 Reverts if:
 
 - tokens transfer to `recipient` fails
-  :::
+:::
 
 #### recover_ether()
 
@@ -332,7 +332,7 @@ def recover_ether()
 Reverts if:
 
 - Ether transfer to `recipient` fails
-  :::
+:::
 
 #### aragon_vote()
 
@@ -347,15 +347,15 @@ def aragon_vote(
 
 ##### Parameters
 
-| Name                 | Type          | Description                                                                                                      |
-| -------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `abi_encoded_params` | `Bytes[1000]` | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_aragon_vote_calldata` |
+| Name                 | Type                        | Description                                                                                                      |
+|----------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------|
+| `abi_encoded_params` | `Bytes[1000]`               | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_aragon_vote_calldata` |
 
 :::note
 Reverts if:
 
 - called by anyone except vesting `recipient`
-  :::
+:::
 
 #### snapshot_set_delegate()
 
@@ -370,15 +370,15 @@ def snapshot_set_delegate(
 
 ##### Parameters
 
-| Name                 | Type          | Description                                                                                                                    |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `abi_encoded_params` | `Bytes[1000]` | ABI encoded params for the `delegate` method call. can be compiled using `VotingAdapter.encode_snapshot_set_delegate_calldata` |
+| Name                 | Type                        | Description                                                                                                                |
+|----------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `abi_encoded_params` | `Bytes[1000]`               | ABI encoded params for the `delegate` method call. can be compiled using `VotingAdapter.encode_snapshot_set_delegate_calldata` |
 
 :::note
 Reverts if:
 
 - called by anyone except vesting `recipient`
-  :::
+:::
 
 #### delegate()
 
@@ -397,15 +397,15 @@ def delegate(
 
 ##### Parameters
 
-| Name                 | Type          | Description                                                                                                   |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| `abi_encoded_params` | `Bytes[1000]` | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_delegate_calldata` |
+| Name                 | Type                        | Description                                                                                                   |
+|----------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------|
+| `abi_encoded_params` | `Bytes[1000]`               | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_delegate_calldata` |
 
 :::note
 Reverts if:
 
 - called by anyone except vesting `recipient`
-  :::
+:::
 
 ## VotingAdapter
 
@@ -430,10 +430,10 @@ def encode_aragon_vote_calldata(
 
 ##### Parameters
 
-| Name     | Type      | Description                                    |
-| -------- | --------- | ---------------------------------------------- |
-| `voteId` | `uint256` | Aragon vote id                                 |
-| `amount` | `bool`    | Supports flag. `True` - for, `False` - against |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `voteId`       | `uint256`                   | Aragon vote id                                             |
+| `amount`       | `bool`                      | Supports flag. `True` - for, `False` - against             |
 
 #### encode_snapshot_set_delegate_calldata()
 
@@ -449,9 +449,9 @@ def encode_snapshot_set_delegate_calldata(
 
 ##### Parameters
 
-| Name       | Type      | Description                                  |
-| ---------- | --------- | -------------------------------------------- |
-| `delegate` | `address` | Address to delegate snapshot voting power to |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `delegate`     | `address`                   | Address to delegate snapshot voting power to               |
 
 #### encode_delegate_calldata()
 
@@ -467,9 +467,9 @@ def encode_delegate_calldata(
 
 ##### Parameters
 
-| Name       | Type      | Description                         |
-| ---------- | --------- | ----------------------------------- |
-| `delegate` | `address` | Address to delegate voting power to |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `delegate`     | `address`                   | Address to delegate voting power to                        |
 
 ### Methods
 
@@ -486,15 +486,15 @@ def aragon_vote(
 
 ##### Parameters
 
-| Name                 | Type          | Description                                                                                                      |
-| -------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `abi_encoded_params` | `Bytes[1000]` | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_aragon_vote_calldata` |
+| Name                 | Type                        | Description                                                                                                      |
+|----------------------|-----------------------------|------------------------------------------------------------------------------------------------------------------|
+| `abi_encoded_params` | `Bytes[1000]`               | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_aragon_vote_calldata` |
 
 :::note
 Reverts if:
 
 - called by anyone except vesting `recipient`
-  :::
+:::
 
 #### snapshot_set_delegate()
 
@@ -509,15 +509,15 @@ def snapshot_set_delegate(
 
 ##### Parameters
 
-| Name                 | Type          | Description                                                                                                                    |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `abi_encoded_params` | `Bytes[1000]` | ABI encoded params for the `delegate` method call. can be compiled using `VotingAdapter.encode_snapshot_set_delegate_calldata` |
+| Name                 | Type                        | Description                                                                                                                |
+|----------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `abi_encoded_params` | `Bytes[1000]`               | ABI encoded params for the `delegate` method call. can be compiled using `VotingAdapter.encode_snapshot_set_delegate_calldata` |
 
 :::note
 Reverts if:
 
 - called by anyone except vesting `recipient`
-  :::
+:::
 
 #### delegate()
 
@@ -536,9 +536,9 @@ def delegate(
 
 ##### Parameters
 
-| Name                 | Type          | Description                                                                                                   |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| `abi_encoded_params` | `Bytes[1000]` | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_delegate_calldata` |
+| Name                 | Type                        | Description                                                                                                   |
+|----------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------|
+| `abi_encoded_params` | `Bytes[1000]`               | ABI encoded params for the `vote` method call. can be compiled using `VotingAdapter.encode_delegate_calldata` |
 
 :::note
 Always reverts
@@ -558,16 +558,16 @@ def recover_erc20(
 
 ##### Parameters
 
-| Name     | Type      | Description                       |
-| -------- | --------- | --------------------------------- |
-| `token`  | `address` | Address of ERC20 token to recover |
-| `amount` | `uint256` | Amount of the tokens to recover   |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `token`        | `address`                   | Address of ERC20 token to recover                          |
+| `amount`       | `uint256`                   | Amount of the tokens to recover                            |
 
 :::note
 Reverts if:
 
 - tokens transfer to `owner` fails
-  :::
+:::
 
 #### recover_ether()
 
@@ -582,7 +582,7 @@ def recover_ether()
 Reverts if:
 
 - Ether transfer to `owner` fails
-  :::
+:::
 
 #### change_owner()
 
@@ -597,13 +597,13 @@ def change_owner(
 
 ##### Parameters
 
-| Name    | Type      | Description         |
-| ------- | --------- | ------------------- |
-| `owner` | `address` | New `owner` address |
+| Name           | Type                        | Description                                                |
+|----------------|-----------------------------|------------------------------------------------------------|
+| `owner`        | `address`                   | New `owner` address                                        |
 
 :::note
 Reverts if:
 
 - called by anyone except `VotingAdapter` owner
 - arg `owner` is empty address
-  :::
+:::

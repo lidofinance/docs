@@ -51,7 +51,6 @@ Traditionally, staking in Proof-of-Stake (PoS) protocol based projects has been 
 ### Solution
 
 Liquid staking allows using the `st[token]` in other trading opportunities to let the user get the best of both worlds - a reward on your staked tokens, as well as the returns from new trading opportunities. Liquid staking introduces various fundamental benefits by:
-
 - Making staking process simple - no need to worry about hardware setup and maintenance;
 - Making it possible to get rewards on as small a deposit as users want (i.e, Ethereum requires minimum 32 `ETH` staked);
 - Providing the `st[token]` a building block for other applications and protocols (e.g., as collateral in lending or other trading DeFi solutions). Liquid staking gives an opportunity to maximize the potential while having the best of both worlds;
@@ -68,12 +67,12 @@ Alternatively, it may be possible to produce staking through **centralised excha
 Through the use of a **liquid staking** solution such as Lido, users can eliminate these inconveniences and benefit from non-custodial staking backed by the actively maintained validators set. Liquid staking is unlocking the potential of PoS by giving users the ability to not only stake their tokens, but have the liquidity to use those tokens in DeFi projects that way not only increasing rewards for the individual, but growing the staking participation in general.
 
 ## Lido on Ethereum APR
-
 :::note
-APR provides only the current estimation of the rewards without any upfront forecasts.
+ APR provides only the current estimation of the rewards without any upfront forecasts.
 :::
 
-> User's APR (Lido staking APR) = Protocol APR \* (1 - Protocol fee)
+> User's APR (Lido staking APR) = Protocol APR * (1 - Protocol fee)
+
 
 ### Protocol APR
 
@@ -96,19 +95,18 @@ A penalty is a form of reducing the validator’s stake, which is not online or 
 Being slashed means that the misbehaving validator is forced to exit the beacon chain at a point in the future, receiving a [number of penalties until it leaves](https://docs.prylabs.network/docs/how-prysm-works/validator-lifecycle#slashing-state). As a result of it, APR can also reduce.
 
 > **Performance of Lido validators**
-> The better the underlying operator sets are, the more robust, resilient, and performant the underlying protocol. Check [Operator Statistics and Metrics](https://operatorportal.lido.fi/operator-statistics-and-metrics).
+The better the underlying operator sets are, the more robust, resilient, and performant the underlying protocol. Check [Operator Statistics and Metrics](https://operatorportal.lido.fi/operator-statistics-and-metrics).
 
 Learn more about rewards and penalties - [ethereum.org](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/rewards-and-penalties/)
 
 ### Execution Layer
-
 Validators began to receive EL rewards after [the Merge](https://ethereum.org/en/roadmap/merge/). EL rewards consist of four parts:
 
 - **Priority fee**
-  Priority fee refers to optional additional fees (for example it may refer to EIP-1559) paid directly to validators in order to incentivize them to include the given transaction in a block. Also it depends on network demand: as higher network demand, as higher could be priority fee.
+Priority fee refers to optional additional fees (for example it may refer to EIP-1559) paid directly to validators in order to incentivize them to include the given transaction in a block. Also it depends on network demand: as higher network demand, as higher could be priority fee.
 
 - **Maximal Extractable Value (MEV) rewards**
-  MEV refers to the maximum value that can be extracted by the validator from block production in excess of the standard block reward and gas fees by including, excluding, and changing the order of transactions in a block.
+MEV refers to the maximum value that can be extracted by the validator from block production in excess of the standard block reward and gas fees by including, excluding, and changing the order of transactions in a block.
 
 ### Rewards socialization model
 
@@ -132,6 +130,6 @@ The security of Lido is highest priority beginning at the time of its initial de
 - Allowing staking across multiple validators (i.e. current Ethereum staking mechanism only allows to choose only a single validator)
 - Using of non-custodial staking service to eliminate counterparty risk.
 
-In the [scorecard](https://scorecard.lido.fi/) you may find an outlined set of attributes that we think are important for the decentralisation of the protocol, and how Lido is faring against these targets.
+In the [scorecard](https://scorecard.lido.fi/) you may find an  outlined set of attributes that we think are important for the decentralisation of the protocol, and how Lido is faring against these targets.
 
 > 📝 As for now, scorecard has only Ethereum related content.

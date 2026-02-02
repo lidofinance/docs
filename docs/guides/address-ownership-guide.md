@@ -43,16 +43,15 @@ To verify the shared signature one can use Etherscan or MyEtherWallet UIs.
 1. Go to https://www.myetherwallet.com/tools?tool=verify.
 2. Encode the message text as hex string (use the tool like https://appdevtools.com/text-hex-converter).
 3. Enter json & click `Verify`:
-
-```
-{
-  "address": "0x...",
-  "msg": "0x...",
-  "sig": "signature_hash"
-}
-```
-
-Note that "msg" is hex text starting with `0x` (add `0x` before the hex encoded string if necessary). 4. See whether the signature provided is valid.
+  ```
+  {
+    "address": "0x...",
+    "msg": "0x...",
+    "sig": "signature_hash"
+  }
+  ```
+  Note that "msg" is hex text starting with `0x` (add `0x` before the hex encoded string if necessary).
+4. See whether the signature provided is valid.
 
 ### Publishing the signature on Etherscan
 

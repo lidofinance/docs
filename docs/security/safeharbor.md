@@ -26,21 +26,21 @@ On-chain Safe Harbor Agreement Contract can be found at **0xe19f54e8322214839a87
 **Bounty Terms,** predetermined rewards for successful Whitehats that recover protocol funds (for more information, review the [Safe Harbor](https://frameworks.securityalliance.org/safe-harbor/scope-terms)):
 
 - **Percentage**: 10.0% of the recovered amount
-- **Bounty Cap (USD)**: $2,000,000 (_the maximum bounty amount for a single Whitehat)_
-- **Aggregate Cap (USD)**: $2,000,000 (_the maximum total bounty payout across all Whitehats for a single incident; bounties will be distributed pro rata)_
-- **Retainable**: False (_Whitehats are required to return all recovered funds to the protocol, which will then pay out the bounty after verification)._
-  The compensation for Whitehats will be distributed via a dedicated Lido DAO governance vote, once the vulnerability is resolved and malicious actions are stopped.
-  It’s recommended to issue such payout using Insurance Fund assets.
-- **Identity**: Anonymous (_by default, Whitehats are allowed to remain anonymous and are not required to provide any information about themselves to the protocol, except in cases where we reasonably expect that a Whitehat might be in breach of the Diligence Requirements, see the Diligence Requirements section below)._
+- **Bounty Cap (USD)**: $2,000,000 (*the maximum bounty amount for a single Whitehat)*
+- **Aggregate Cap (USD)**: $2,000,000 (*the maximum total bounty payout across all Whitehats for a single incident; bounties will be distributed pro rata)*
+- **Retainable**: False (*Whitehats are required to return all recovered funds to the protocol, which will then pay out the bounty after verification).*
+    The compensation for Whitehats will be distributed via a dedicated Lido DAO governance vote, once the vulnerability is resolved and malicious actions are stopped.
+    It’s recommended to issue such payout using Insurance Fund assets.
+- **Identity**: Anonymous (*by default, Whitehats are allowed to remain anonymous and are not required to provide any information about themselves to the protocol, except in cases where we reasonably expect that a Whitehat might be in breach of the Diligence Requirements, see the Diligence Requirements section below).*
 - **Diligence Requirements:**
-  As a condition to eligibility for any bounty under the Safe Harbor program, a Whitehat represents, warrants, and covenants that they:
+    As a condition to eligibility for any bounty under the Safe Harbor program, a Whitehat represents, warrants, and covenants that they:
 
-  - are at least 18 or the age of majority in their jurisdiction (whichever is higher) and have full legal capacity;
-  - are not (i) a citizen or resident of, located, incorporated, or otherwise established in any jurisdiction that is the subject of comprehensive sanctions or an embargo administered or enforced by the United States, United Kingdom, European Union, or United Nations, or (ii) a person that is, or that is owned or controlled by, or acting on behalf of, any person that is the subject of any sanctions administered or enforced by any of those authorities;
-  - are not (and for the prior 12 months have not been) an employee, contractor, or service provider of any Lido Labs or Lido Ecosystem or any other person or entity that directly or indirectly develops, maintains, or operates the Lido protocol or Lido Smart Contract Systems, nor an immediate family member of such a person, and are not acting on behalf of or sharing any Bounty with any such person in connection with any Exploit or Eligible Funds Rescue, and are not acting on their behalf or receiving any advice from the said persons;
-  - The Whitehat further acknowledges that the Lido Labs, acting solely in its diligence-support capacity, may require additional information (including information relating to their identity and jurisdiction) and may provide Lido DAO with all information gathered as a result of this diligence check and an assessment of whether making such payment would violate, or would present an undue risk of violating, any applicable law or regulation (including sanctions, anti–money laundering, or anti–terrorist–financing laws). Lido Labs will not make any payment determinations, which remain exclusively within the authority of Lido DAO.
+    - are at least 18 or the age of majority in their jurisdiction (whichever is higher) and have full legal capacity;
+    - are not (i) a citizen or resident of, located, incorporated, or otherwise established in any jurisdiction that is the subject of comprehensive sanctions or an embargo administered or enforced by the United States, United Kingdom, European Union, or United Nations, or (ii) a person that is, or that is owned or controlled by, or acting on behalf of, any person that is the subject of any sanctions administered or enforced by any of those authorities;
+    - are not (and for the prior 12 months have not been) an employee, contractor, or service provider of any Lido Labs or Lido Ecosystem or any other person or entity that directly or indirectly develops, maintains, or operates the Lido protocol or Lido Smart Contract Systems, nor an immediate family member of such a person, and are not acting on behalf of or sharing any Bounty with any such person in connection with any Exploit or Eligible Funds Rescue, and are not acting on their behalf or receiving any advice from the said persons;
+    - The Whitehat further acknowledges that the Lido Labs, acting solely in its diligence-support capacity, may require additional information (including information relating to their identity and jurisdiction) and may provide Lido DAO with all information gathered as a result of this diligence check and an assessment of whether making such payment would violate, or would present an undue risk of violating, any applicable law or regulation (including sanctions, anti–money laundering, or anti–terrorist–financing laws). Lido Labs will not make any payment determinations, which remain exclusively within the authority of Lido DAO.
 
-  These representations, warranties, and acknowledgements are continuing and are conditions precedent to eligibility for any bounty.
+    These representations, warranties, and acknowledgements are continuing and are conditions precedent to eligibility for any bounty.
 
 **Relationship with Lido’s Bug Bounty Program**
 
@@ -51,11 +51,11 @@ Safe Harbor is distinct from [Lido’s existing Bug Bounty program on Immunefi]
 
 Safe Harbor and the Bug Bounty program are mutually exclusive from a rewards perspective. A Whitehat rewarded via the Bug Bounty program cannot receive a reward for the same exploit under Safe Harbor, even if Safe Harbor’s legal protections apply.
 
-**Contact Details** (_designated security contact for the protocol, whom Whitehats will contact following a Safe Harbor recovery_):
+**Contact Details** (*designated security contact for the protocol, whom Whitehats will contact following a Safe Harbor recovery*):
 
 Security Team, [safeharbor@lido.fi](mailto:safeharbor@lido.fi)
 
-**Chains & Asset Recovery Addresses** (_addresses controlled by the protocol that recovered protocol funds will be returned to by the Whitehat_):
+**Chains & Asset Recovery Addresses** (*addresses controlled by the protocol that recovered protocol funds will be returned to by the Whitehat*):
 
 Aragon Voting, [0x2e59A20f205bB85a89C53f1936454680651E618e](https://docs.lido.fi/deployed-contracts/#dao-contracts)
 
@@ -63,7 +63,7 @@ Aragon Voting was chosen because it provides a predictable, resilient, and timel
 
 **Accounts**
 
-Chain: eip155:1 (_Ethereum Mainnet_)
+Chain: eip155:1 (*Ethereum Mainnet*)
 
 Initial list of all on-chain assets owned by the protocol protected under Safe Harbor can be found in an [associated Snapshot proposal](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x0188ab77d59b11ce589d88c350093faffdb07b3a9c9ba4d8af12755d4b2178c0).
 
@@ -71,7 +71,7 @@ As the protocol evolves, new contracts will be reviewed and added to the Safe Ha
 
 An up-to-date list of contracts under the scope of the program can be found in a **Safe Harbor Agreement Contract** ([etherscan](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87#readContract), [blockscout](https://eth.blockscout.com/address/0xE19F54E8322214839A87408f084aA14eBEfe9E87?tab=read_contract#0xfbbf93a0)).
 
-ChildContractScope: all (_all child contracts created by the contracts from the list, whether created before or after calling `adoptSafeHarbor`, are in scope for Eligible Funds Rescues and will automatically fall under Safe Harbor protections and will not require a separate vote_)
+ChildContractScope: all (*all child contracts created by the contracts from the list, whether created before or after calling `adoptSafeHarbor`, are in scope for Eligible Funds Rescues and will automatically fall under Safe Harbor protections and will not require a separate vote*)
 
 ## Important Disclaimers
 

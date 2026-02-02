@@ -44,7 +44,7 @@ At the first stage, the oracles operators collect a report for a certain `refSlo
 
 The diagram below shows:
 `ReportProcessor` - `AccountingOracle` or `ValidatorsExitBusOracle` contract.
-`HashConsensus` - a contract which manages oracle members committee and allows the members to reach consensus on the particular data hash for each reporting frame.
+`HashConsensus` -  a contract which manages oracle members committee and allows the members to reach consensus on the particular data hash for each reporting frame.
 
 You can read more about HashConsensus [here](/contracts/hash-consensus).
 
@@ -105,7 +105,7 @@ graph LR;
 The current Oracle set consists of 9 participants with a quorum of 5. This means that report finalization can only occur when there are 5 identical reports from 5 different oracle members.
 
 The actual list of Oracle participants list can be fetched from the HashConsensus contract using the [`getMembers`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16) method.
-_Hoodi Oracle participants' addresses can be found [here](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16)_
+*Hoodi Oracle participants' addresses can be found [here](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16)*
 
 The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post.
 
@@ -115,26 +115,26 @@ The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set
 
 To prepare reports, the Oracle might fetch a few months' worth of old events. It also makes historical requests for balance data and simulates reports on historical blocks. This requires an [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) execution node.
 
-| Client                                          | Tested | Notes                                                                                                                                                     |
-| ----------------------------------------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Geth](https://geth.ethereum.org/)              |   🟢   | `--gcmode=archive` <br/> `--syncmode=snap` <br/><br/>OR<br/><br/>`--gcmode=archive`<br/>`--syncmode=full`                                                 |
-| [Nethermind](https://nethermind.io/)            |   🔴   | Not tested yet                                                                                                                                            |
-| [Besu](https://besu.hyperledger.org/en/stable/) |   🔴   | Recent changes require FULL sync                                                                                                                          |
-| [Erigon](https://github.com/ledgerwatch/erigon) |   🟢   | Use<br/> `--prune=rhtc`<br/> `--prune.r.before=324000`<br/> `--prune.h.before=324000`<br/> `--prune.t.before=256`<br/> `--prune.c.before=256`<br/> params |
-| [Reth](https://reth.rs/)                        |   🔴   | Not tested yet                                                                                                                                            |
+| Client                                          | Tested | Notes                                                                                                                                                                                 |
+|-------------------------------------------------|:------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Geth](https://geth.ethereum.org/)              |   🟢   | `--gcmode=archive` <br/> `--syncmode=snap` <br/><br/>OR<br/><br/>`--gcmode=archive`<br/>`--syncmode=full`                                                                             |
+| [Nethermind](https://nethermind.io/)            |   🔴   | Not tested yet                                                                                                                                                                        |
+| [Besu](https://besu.hyperledger.org/en/stable/) |   🔴   | Recent changes require FULL sync                                                                                                                                                      |
+| [Erigon](https://github.com/ledgerwatch/erigon) |   🟢   | Use<br/> `--prune=rhtc`<br/> `--prune.r.before=324000`<br/> `--prune.h.before=324000`<br/> `--prune.t.before=256`<br/> `--prune.c.before=256`<br/> params                             |
+| [Reth](https://reth.rs/)                        |   🔴   | Not tested yet                                                                                                                                                                        |
 
 ### Consensus Client Node
 
 To calculate some metrics for bunker mode Oracle needs [archive](https://ethereum.org/en/developers/docs/nodes-and-clients/#archive-node) consensus node.
 
-| Client                                          | Tested | Notes                                                                                                                                               |
-| ----------------------------------------------- | :----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Lighthouse](https://lighthouse.sigmaprime.io/) |   🟢   | Use `--reconstruct-historic-states` param                                                                                                           |
-| [Lodestar](https://nethermind.io/)              |   🔴   | Not tested yet                                                                                                                                      |
-| [Nimbus](https://nimbus.guide/quick-start.html) |   🔴   | Not tested yet                                                                                                                                      |
-| [Prysm](https://github.com/ledgerwatch/erigon)  |   🟢   | Use <br/> `--grpc-max-msg-size=104857600` <br/> `--enable-historical-state-representation=true` <br/> `--slots-per-archive-point=1024` <br/> params |
-| [Teku](https://docs.teku.consensys.net)         |   🟢   | Use <br/> `--data-storage-mode=archive` <br/>`--data-storage-archive-frequency=1024`<br/> `--reconstruct-historic-states=true`<br/> params          |
-| [Grandine](https://grandine.io/)                |   🔴   | Not tested yet                                                                                                                                      |
+| Client                                            | Tested | Notes                                                                                                                                               |
+|---------------------------------------------------|:------:|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Lighthouse](https://lighthouse.sigmaprime.io/)   |   🟢   | Use `--reconstruct-historic-states` param                                                                                                           |
+| [Lodestar](https://nethermind.io/)                |   🔴   | Not tested yet                                                                                                                                      |
+| [Nimbus](https://nimbus.guide/quick-start.html)   |   🔴   | Not tested yet                                                                                                                                      |
+| [Prysm](https://github.com/ledgerwatch/erigon)    |   🟢   | Use <br/> `--grpc-max-msg-size=104857600` <br/> `--enable-historical-state-representation=true` <br/> `--slots-per-archive-point=1024` <br/> params |
+| [Teku](https://docs.teku.consensys.net)           |   🟢   | Use <br/> `--data-storage-mode=archive` <br/>`--data-storage-archive-frequency=1024`<br/> `--reconstruct-historic-states=true`<br/> params          |
+| [Grandine](https://grandine.io/)                  |   🔴   | Not tested yet                                                                                                                                      |
 
 ### Keys API Service
 
@@ -185,7 +185,7 @@ Full list could be found [here](https://github.com/lidofinance/lido-oracle#env-v
 **[0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb)**
 
 **Hoodi**
-**[0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8 ](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8)**
+**[0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8 ](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8 )**
 
 ### Running the daemon
 

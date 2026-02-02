@@ -1,3 +1,4 @@
+
 # How to Vote, Override, Delegate with Etherscan
 
 This guide will walk you through how to vote, override your delegate's vote, and delegate your voting power using Etherscan. If the [Voting UI](https://vote.lido.fi/) is unavailable or you prefer to vote via Etherscan, follow these simple steps.
@@ -9,9 +10,8 @@ Obtain the address of the Lido DAO `Aragon Voting` contract from the [Deployed C
 ## Voting
 
 ### Step 1: Find the Voting ID
-
 - Go to the **Contract** tab.
-  ![](/img/etherscan-voting/Contract_6.png)
+![](/img/etherscan-voting/Contract_6.png)
 - Go to the **Read as Proxy** tab of the Aragon Voting contract.
 - Locate the `votesLength` method (number 29) to get the current vote ID.
 
@@ -37,9 +37,9 @@ The number you see here is the ID of the current vote. For example, if it shows 
 ![](/img/etherscan-voting/vote_4.png)
 
 - Fill in the parameters `_voteId`, `_supports`, and `_executesIfDecided` and send the transaction:
-  - `_voteId` is the vote ID from Step 1.
-  - `_supports` indicates whether you support (`true`) or oppose (`false`) the vote.
-  - `_executesIfDecided` should be set to `false`.
+    - `_voteId` is the vote ID from Step 1.
+    - `_supports` indicates whether you support (`true`) or oppose (`false`) the vote.
+    - `_executesIfDecided` should be set to `false`.
 
 ### Step 4: Sign the Transaction
 
@@ -48,15 +48,14 @@ Sign the transaction to cast your vote. That's it! 🎉
 ## Overriding
 
 ### Step 1: Check Delegate's Vote
-
-- Go to the **Contract** tab.
-  ![](/img/etherscan-voting/Contract_6.png)
+-  Go to the **Contract** tab.
+![](/img/etherscan-voting/Contract_6.png)
 - Go to the **Read as Proxy** tab of the Aragon Voting contract.
 - Use the `getVoterState` method (number 7).
 
 ![](/img/etherscan-voting/getVoterState_5.png)
 
-Enter the vote ID and your address to see how your delegate voted.
+Enter the vote ID and your address to see how your delegate voted. 
 
 ### Step 2: Vote Yourself
 
@@ -65,9 +64,8 @@ If you disagree with the delegate's choice and wish to vote yourself, follow the
 ## Delegating Through Etherscan
 
 ### Assign a Delegate
-
 1. Go to the **Contract** tab.
-   ![](/img/etherscan-voting/Contract_6.png)
+![](/img/etherscan-voting/Contract_6.png)
 2. Go to the **Write as Proxy** tab.
 3. Use the `assignDelegate` method (number 1).
 4. Click **Connect to Web3** and connect your address. The indicator should turn green.
@@ -76,9 +74,8 @@ If you disagree with the delegate's choice and wish to vote yourself, follow the
 That's it! Your delegate is assigned.
 
 ### Remove a Delegate
-
 1. Go to the **Contract** tab.
-   ![](/img/etherscan-voting/Contract_6.png)
+![](/img/etherscan-voting/Contract_6.png)
 2. Go to the **Write as Proxy** tab.
 3. Use the `unassignDelegate` method (number 2).
 4. Click **Connect to Web3** and connect your address. The indicator should turn green.

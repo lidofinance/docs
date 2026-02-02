@@ -127,7 +127,6 @@ For submitting sources for verification on explorer, please use standard JSON in
 To speed up the process and make it more robust, please provide the artifacts (i.e., open Pull Requests) for the automated tools:
 
 - verify the sources via [diffyscan](https://github.com/lidofinance/diffyscan), examples:
-
   - [wstETH on Scroll](https://github.com/lidofinance/diffyscan/pull/35)
   - [wstETH on Linea](https://github.com/lidofinance/diffyscan/pull/29)
   - [wstETH on Mode](https://github.com/lidofinance/diffyscan/pull/41)
@@ -208,7 +207,6 @@ To provide the capability to react fast and reduce losses in case of a security 
 The bridge endpoint contracts should have the ability to set the resume and pause roles holders on a case-by-case basis. For the pause role, there should be at least two holders possible to be able to assign the dedicated Emergency Multisig which is [ratified by the Lido DAO](https://snapshot.org/#/lido-snapshot.eth/proposal/0xfe2a6a6506a642b616118363bc29aa83dd9ef2ec80447bb607a8f52c0a96aed0) as the second role holder.
 
 To curb the multisig's power, it is proposed to use the "Gate Seals" mechanic. The mechanic limits the pause duration and restricts the capability to pause to a single use. To grant the capability repeatedly, the Lido DAO vote is required. The mechanic has been implemented, e.g., for withdrawals in the Lido protocol on Ethereum in two parts:
-
 - one-time disposable pauser contact [Gate Seals](https://github.com/lidofinance/gate-seals);
 - [PausableUntil](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/PausableUntil.sol) contract (inherited by [WithdrawalQueue](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/WithdrawalQueue.sol)).
 
@@ -319,69 +317,66 @@ Notation used:
 - `Emergency Brakes L2 Multisig` - Emergency Multisig on L2 (the same participants but using the L2 Safe instance).
 
 **L1 Custom Bridge Endpoint**
-
 - Upgradeable
-  - Proxy admin is `Lido Agent`
+	- Proxy admin is `Lido Agent`
 - Admin is `Lido Agent`
 - Deposits pausable by
-  - `Lido Agent`
-  - `Emergency Brakes Multisig`
+	- `Lido Agent`
+	- `Emergency Brakes Multisig`
 - Deposits resumable by
-  - `Lido Agent`
+	- `Lido Agent`
 - Withdrawals pausable by
-  - `Lido Agent`
-  - `Emergency Brakes Multisig`
+	- `Lido Agent`
+	- `Emergency Brakes Multisig`
 - Withdrawals resumable by
-  - `Lido Agent`
+	- `Lido Agent`
 
 **L2 Governance Executor**
 
 - The only allow-listed L1 execution sender is `Lido Agent`
 
 **L2 Custom Bridge Endpoint**
-
 - Upgradeable
-  - Proxy admin is `L2 Governance Executor`
+	- Proxy admin is `L2 Governance Executor`
 - Admin is `L2 Governance Executor`
 - Deposits pausable by
-  - `L2 Governance Executor`
-  - `Emergency Brakes Multisig`
+	- `L2 Governance Executor`
+	- `Emergency Brakes Multisig`
 - Deposits resumable by
-  - `L2 Governance Executor`
+	- `L2 Governance Executor`
 - Withdrawals pausable by
-  - `L2 Governance Executor`
-  - `Emergency Brakes Multisig`
+	- `L2 Governance Executor`
+	- `Emergency Brakes Multisig`
 - Withdrawals resumable by
-  - `L2 Governance Executor`
+	- `L2 Governance Executor`
 
 **L2 Token Bridged**
-
 - Upgradeable
-  - Proxy admin is `L2 Governance Executor`
+	- Proxy admin is `L2 Governance Executor`
 - Mint is allowed only by `L2 Custom Bridge`
 - Optionally applicable (if `L2 Custom Bridge` doesn't support these)
   - Admin is `L2 Governance Executor`
   - Withdrawals pausable by
-    - `L2 Governance Executor`
-    - `Emergency Brakes Multisig`
+      - `L2 Governance Executor`
+      - `Emergency Brakes Multisig`
   - Withdrawals resumable by
-    - `L2 Governance Executor`
+      - `L2 Governance Executor`
   - Deposits pausable by
-    - `L2 Governance Executor`
-    - `Emergency Brakes Multisig`
+      - `L2 Governance Executor`
+      - `Emergency Brakes Multisig`
   - Deposits resumable by
-    - `L2 Governance Executor`
+      - `L2 Governance Executor`
 
 ### Mainnet proposed configuration
 
 - `wstETH` - the wstETH token on L1
-  - `0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0`
+	- `0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0`
 - `Lido Agent` - Lido DAO Aragon Agent
-  - `0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`
+	- `0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`
 - `Emergency Brakes L1 Multisig`
-  - `0x73b047fe6337183A454c5217241D780a932777bD`
+	- `0x73b047fe6337183A454c5217241D780a932777bD`
 - `Emergency Brakes L2 Multisig`
-  - ask the NEC for the address (the deployed Safe instance would be needed)
+	- ask the NEC for the address (the deployed Safe instance would be needed)
 
 ### Testnet Holesky proposed configuration
 
@@ -390,24 +385,24 @@ Please, deploy to Holešky if possible because it has better long-term exposure 
 :::
 
 - `wstETH` - the wstETH token on L1
-  - `0x8d09a4502Cc8Cf1547aD300E066060D043f6982D`
+	- `0x8d09a4502Cc8Cf1547aD300E066060D043f6982D`
 - `Lido Agent` - Lido DAO Aragon Agent
-  - `0xE92329EC7ddB11D25e25b3c21eeBf11f15eB325d`
+	- `0xE92329EC7ddB11D25e25b3c21eeBf11f15eB325d`
 - `Emergency Brakes L1 Multisig`
-  - `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
+	- `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
 - `Emergency Brakes L2 Multisig`
-  - `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
+	- `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
 
 ### Testnet Sepolia proposed configuration
 
 - `wstETH` - the wstETH token on L1
-  - `0xB82381A3fBD3FaFA77B3a7bE693342618240067b`
+	- `0xB82381A3fBD3FaFA77B3a7bE693342618240067b`
 - `Lido Agent` - Lido DAO Aragon Agent
-  - `0x32A0E5828B62AAb932362a4816ae03b860b65e83`
+	- `0x32A0E5828B62AAb932362a4816ae03b860b65e83`
 - `Emergency Brakes L1 Multisig`
-  - `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
+	- `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
 - `Emergency Brakes L2 Multisig`
-  - `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
+	- `0xa5F1d7D49F581136Cf6e58B32cBE9a2039C48bA1` (EOA)
 
 ### Other questions
 
@@ -455,6 +450,8 @@ graph TD;
   A-- No -->C
   B-- No -->D
 ```
+
+
 
 ## References
 

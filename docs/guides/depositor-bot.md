@@ -47,20 +47,20 @@ maxPriorityFeePerGas = priority
 Required variables are(mainnet):
 
 | Variable                          | Default                                    | Description                                                                                                              |
-| --------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+|-----------------------------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | WEB3_RPC_ENDPOINTS                | -                                          | List of EL rpc endpoints that will be used to send requests comma separated (`,`)                                        |
 | WALLET_PRIVATE_KEY                | -                                          | Account private key                                                                                                      |
 | CREATE_TRANSACTIONS               | false                                      | If true then tx will be send to blockchain                                                                               |
-| LIDO_LOCATOR                      | 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb | Lido Locator address. Mainnet by default. Other networks can be found [here](https://docs.lido.fi/deployed-contracts/)   |
+| LIDO_LOCATOR                      | 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb | Lido Locator address. Mainnet by default. Other networks can be found [here](https://docs.lido.fi/deployed-contracts/) |
 | DEPOSIT_CONTRACT                  | 0x00000000219ab540356cBB839Cbe05303d7705Fa | Ethereum deposit contract address                                                                                        |
 | DEPOSIT_MODULES_WHITELIST         | 1                                          | List of staking module's ids in which the depositor bot will make deposits                                               |
-| ---                               | ---                                        | ---                                                                                                                      |
+| ---                               | ---	                                       | ---                                                                                                                      |
 | MESSAGE_TRANSPORTS                | -                                          | Transports used in bot. Set: onchain_transport                                                                           |
 | ONCHAIN_TRANSPORT_RPC_ENDPOINTS   | -                                          | List of databus(Gnosis) rpc endpoints that will be used for reading data bus contract, comma separated (`,`).            |
 | ONCHAIN_TRANSPORT_ADDRESS         | -                                          | Data bus contract address.                                                                                               |
 | MIN_PRIORITY_FEE                  | 50 mwei                                    | Min priority fee that will be used in tx                                                                                 |
 | MAX_PRIORITY_FEE                  | 10 gwei                                    | Max priority fee that will be used in tx                                                                                 |
-| MAX_GAS_FEE                       | 100 gwei                                   | Bot will wait for a lower price. Threshold for gas_fee                                                                   |
+| MAX_GAS_FEE                       | 100 gwei                                   | Bot will wait for a lower price. Threshold for gas_fee                                                                    |
 | CONTRACT_GAS_LIMIT                | 15000000                                   | Default transaction gas limit                                                                                            |
 | GAS_FEE_PERCENTILE_1              | 20                                         | Percentile for first recommended fee calculation                                                                         |
 | GAS_FEE_PERCENTILE_DAYS_HISTORY_1 | 1                                          | Percentile for first recommended calculates from N days of the fee history                                               |
@@ -73,24 +73,24 @@ Optional variables can be found [here](https://github.com/lidofinance/depositor-
 ### Source Code
 
 1. Clone repository and install requirements:
-   ```bash
-   git clone git@github.com:lidofinance/depositor-bot.git
-   cd depositor-bot
-   ```
+    ```bash
+    git clone git@github.com:lidofinance/depositor-bot.git
+    cd depositor-bot
+    ```
 2. Install requirements
-   ```bash
-   poetry install
-   ```
+    ```bash
+    poetry install
+    ```
 3. Run depositor bot
-   ```bash
-   poetry run python src/depositor.py
-   ```
+    ```bash
+    poetry run python src/depositor.py
+    ```
 4. Verify in logs that depositor bot is performing validations, you should see logs of a kind:
-   ```
-   {"name": "bots.depositor", "levelname": "INFO", "funcName": "execute", "lineno": 121, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Do deposit to module with id: 1."}
-   {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 210, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Checks failed. Skip deposit."}
-   {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 194, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Calculations deposit recommendations.", "value": false, "is_mellow": false}
-   ```
+    ```
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "execute", "lineno": 121, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Do deposit to module with id: 1."}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 210, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Checks failed. Skip deposit."}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 194, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Calculations deposit recommendations.", "value": false, "is_mellow": false}
+    ```
 
 If you are facing problems, check what environment variables depositor bot is using, find a log
 line `"msg": "Bot env variables"`

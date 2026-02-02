@@ -39,12 +39,11 @@ ID of the [StakingRouter](https://github.com/lidofinance/core/blob/master/contra
 Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/lidofinance/core/blob/master/contracts/0.4.24/nos/NodeOperatorsRegistry.sol)), it's id is `1`.
 
 ### Oracle Allowlist
-
 The oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle ) contract on-chain, directly from the contract using Etherscan.
-| network | Contract Call |
+| network  | Contract Call |
 | -------- | ------------- |
-| Mainnet | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
-| Hoodi | [getMembers()](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c#readContract#F16) |
+| Mainnet  | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
+| Hoodi    | [getMembers()](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c#readContract#F16) |
 
 ## Example Infra Setup
 

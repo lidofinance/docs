@@ -1,23 +1,18 @@
 # Join CSM
-
 ![join-csm-1](../../../static/img/csm/join-csm-1.png)
 
 :::info
-
 - [🧪 Try CSM on Testnet 🧪](https://csm.testnet.fi)
 - [✅ Join CSM on Mainnet ✅](https://csm.lido.fi)
-  :::
+:::
 
 ## Node Operator creation
-
 To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one [`validator pubkey`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#validator), corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding [bond](./join-csm#bond) amount should be provided.
 
 ## Deposit data preparation and upload
-
 CSM accepts deposit data in the same [format](/contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the [Curated module](/contracts/node-operators-registry.md). The main difference is that the bond must be submitted prior to or alongside the deposit data upload.
 
 [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata) **must** sign the root of the `(deposit_message, domain)`. Where a `domain` is used to identify the chain, and `deposit_message` has the form of the following tuple:
-
 - `validator pubkey`;
 - `withdrawal_credentials` with the actual [`Lido Withdrawal Vault contract`](/contracts/withdrawal-vault) address. Should be retrieved from [Staking Router](/contracts/staking-router.md#getwithdrawalcredentials);
 - `32 ETH amount`;
@@ -43,7 +38,6 @@ There might be several [bond](./join-csm#bond) curves. Typically a default curve
 Existing Node Operators can top-up [bond](./join-csm#bond) without uploading deposit data to compensate for the penalties or to have [bond](./join-csm#bond) tokens uploaded upfront.
 
 ### Unbonded validators
-
 The term "unbonded" is introduced to refer to the validators for which the [bond](./join-csm#bond) does not fully cover this validator. Taking into account the approach when the [bond](./join-csm#bond) is common for all Node Operator's validators, unbonded validators can be determined in a way illustrated below. In the example, validator N+1 is unbonded.
 
 ![join-csm-4](../../../static/img/csm/join-csm-4.png)
@@ -53,23 +47,19 @@ Any unbonded validators are requested to exit. Unbonded but not deposited keys a
 :::
 
 ### Possible negative stETH rebase consequences
-
 With the [bond](./join-csm#bond) being stored in stETH, there is a risk of a reduction in the [bond](./join-csm#bond) amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual [bond](./join-csm#bond) being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [insurance fund](/contracts/insurance) at the Lido DAO's disposal for possible use as cover.
 
 ## Deposit data validation and invalidation (aka vetting and unvetting)
-
 CSM utilizes an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls [`decreaseVettedSigningKeysCount`](/staking-modules/csm/contracts/CSModule.md#decreasevettedsigningkeyscount) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
 
 ## Depositable keys
-
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
-
 - If `targetLimit` is not set => `depositableKeys = min(vettedKeys - depositedKeys, max(addedKeys - depositedKeys - unbondedKeys, 0))`
 - If `targetLimit` is set => `depositableKeys = min(vettedKeys - depositedKeys, max(addedKeys - depositedKeys - unbondedKeys, 0), max(targetLimit - (depositedKeys - withdrawnKeys), 0))`
 
 ## Stake allocation queue
 
-The stake allocation queue in CSM is a traditional [FIFO](<https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)>) (first in, first out) queue. Node Operators occupy places in the queue with the `{noId, keysCount}` batches and wait for their turn.
+The stake allocation queue in CSM is a traditional [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) (first in, first out) queue. Node Operators occupy places in the queue with the `{noId, keysCount}` batches and wait for their turn.
 
 ![join-csm-5](../../../static/img/csm/join-csm-5.png)
 
@@ -92,7 +82,6 @@ Each priority queue operates in a FIFO manner as described above. The priority q
 More on the priority queues can be found in the [dedicated section of CSM v2 features](https://hackmd.io/@lido/csm-v2-tech#Priority-Queues) document.
 
 ## Deposit data deletion
-
 The Node Operator might delete uploaded deposit data voluntarily if it has not been deposited yet. The `keyRemovalCharge` is confiscated from the Node Operator's [bond](./join-csm#bond) on each deleted key to cover the maximum possible operational costs associated with the queue processing. Deposit data can be deleted in continuous batches (ex., from index 5 to 10).
 
 If the protocol has already deposited the validator related to the deposit data, the Node Operator cannot delete the deposit data. The only way to stop validation duties is to exit the validator on the CL. Once the validator is fully withdrawn, the Node Operator can claim the excess [bond](./join-csm#bond).
@@ -102,7 +91,6 @@ If the protocol has already deposited the validator related to the deposit data,
 Node Operators can have different types, which define the Node Operator's properties. The type is set during the Node Operator creation and can be changed later. The Node Operator type is defined by the bond curve assigned to the Node Operator.
 
 The following parameters can be set for each Node Operator type:
-
 - `keyRemovalCharge` - a fee charged for each deleted deposit data record;
 - `elRewardsStealingAdditionalFine` - an additional fine charged for each validator that has stolen EL rewards;
 - `keysLimit` - a limit on the number of active keys for the Node Operator;

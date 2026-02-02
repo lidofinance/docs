@@ -26,25 +26,25 @@ The multisig enables the receipt of LDO and other allowed tokens (listed in the 
 
 **Easy Track contracts and roles:**
 
-| Factory          | Contract name          | Contract address                                                                                                        | Multisig role |
-| ---------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| LEGO LDO         | TopUpAllowedRecipients | [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458) | trustedcaller |
-| LEGO Stablecoins | TopUpAllowedRecipients | [`0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c`](https://etherscan.io/address/0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c) | trustedcaller |
+| Factory          | Contract name           | Contract address | Multisig role |
+|------------------|-------------------------|-----------------|---------------|
+| LEGO LDO         | TopUpAllowedRecipients  | [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)| trustedcaller |
+| LEGO Stablecoins | TopUpAllowedRecipients  | [`0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c`](https://etherscan.io/address/0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c)| trustedcaller |
 
 The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
-| Name      | Address                                    | Verification                                                                                                                                   | Public verification                                                                   | Adding proposal                                                                                             |
-| --------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Alex L    | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754                               |
-| Izzy      | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775                                                                                                           | https://twitter.com/IsdrsP/status/1602973286534680577                                 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127                        |
-| kadmil    | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | -                                                                                                                                              | -                                                                                     | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476                                  |
-| Florian   | 0xb3F9998BD84cE884CaFF8f0D803c0EDbb6fEC37C | -                                                                                                                                              | -                                                                                     | https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/2                              |
-| kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702                                                                                                           | -                                                                                     | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476                                  |
-| vshvsh    | 0x4A7489a3e94eFc8f4C4ee266ED297d3031f123A7 | -                                                                                                                                              | -                                                                                     | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476                                  |
-| Eric Siu  | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363                                                                                                          | https://warpcast.com/randomishwalk/0x7b35f539                                         | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2                          |
-| zuzu_eeka | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297048                                                                                                          | https://x.com/zuzu_eeka/status/1994316105997746385                                    | https://research.lido.fi/t/lido-ecosystem-grants-organization-lego-framework-update-1-october-2025/10836/11 |
+| Name | Address | Verification | Public verification | Adding proposal |
+| -- | --- | -- | -- | -- |
+| Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
+| Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
+| kadmil | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
+| Florian | 0xb3F9998BD84cE884CaFF8f0D803c0EDbb6fEC37C | - | - | https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/2 |
+| kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
+| vshvsh | 0x4A7489a3e94eFc8f4C4ee266ED297d3031f123A7 | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
+| Eric Siu | 0xA47aE447A2A0487C228de1ac7fDA83030d4cF2C5 | https://etherscan.io/verifySig/265363 | https://warpcast.com/randomishwalk/0x7b35f539 | https://research.lido.fi/t/lego-proposal-to-replace-tim-beiko-with-eric-siu/9327/2 |
+| zuzu_eeka | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297048 | https://x.com/zuzu_eeka/status/1994316105997746385 | https://research.lido.fi/t/lido-ecosystem-grants-organization-lego-framework-update-1-october-2025/10836/11 |
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
@@ -67,24 +67,24 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Easy Track contracts and roles:**
 
-| Factory             | Contract name          | Contract address                                                                                                        | Multisig role |
-| ------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Rewards Share stETH | AddAllowedRecipient    | [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6) | trustedcaller |
+| Factory | Contract name        | Contract address                                                                                                        | Multisig role |
+|---------|----------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| Rewards Share stETH | AddAllowedRecipient  | [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6) | trustedcaller |
 | Rewards Share stETH | RemoveAllowedRecipient | [`0xd30Dc38EdEfc21875257e8A3123503075226E14B`](https://etherscan.io/address/0xd30Dc38EdEfc21875257e8A3123503075226E14B) | trustedcaller |
 | Rewards Share stETH | TopUpAllowedRecipients | [`0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea`](https://etherscan.io/address/0xbD08f9D6BF1D25Cc7407E4855dF1d46C2043B3Ea) | trustedcaller |
 
 **List of signers:**
 
-| Name        | Address                                    | Verification                                                                                                                                   | Public verification                                                                    |
-| ----------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| K_G         | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465                                                                                                          | https://x.com/Kean_Gilbert/status/1829481809970594270                                  |
-| robingop    | 0xf2374BCb265505002055942D070459a4d2011012 | Sig hash: 0x89523e02d087de609003a33b091bde12e6f1b733336d4f1ea2e5de7a7faf990b39f593dd46cf993f4b5d5d2185ae00c19ff65013da549914d9445b432582393701 | https://twitter.com/robingop/status/1750498068976291883                                |
-| Alex_L      | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671                                                                                                           | https://x.com/Al_lykov/status/1829368876699681203                                      |
-| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203                                                                                                          | https://x.com/adcv_/status/1815411719952621755                                         |
-| zuzu_eeka   | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
-| Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027                                                                                                           | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| skelneko    | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493                                                                                                          | https://x.com/skelneko/status/1930219472591434005                                      |
-| Angelina_L  | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395                                                                                                          | https://x.com/helterswellter/status/1929818306233414023                                |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
+| robingop | 0xf2374BCb265505002055942D070459a4d2011012 | Sig hash: 0x89523e02d087de609003a33b091bde12e6f1b733336d4f1ea2e5de7a7faf990b39f593dd46cf993f4b5d5d2185ae00c19ff65013da549914d9445b432582393701 | https://twitter.com/robingop/status/1750498068976291883|
+| Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
+| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
+| Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ## 2.3 Relay Maintenance Committee
 
@@ -102,21 +102,21 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Contracts and roles:**
 
-| Contract name            | Contract address                                                                                                        | Multisig role |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| MEVBoostRelayAllowedList | [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xF95f069F9AD107938F6ba802a3da87892298610E) | manager       |
+| Contract name           | Contract address | Multisig role |
+|-------------------------|-----------------|---------------|
+| MEVBoostRelayAllowedList  | [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xF95f069F9AD107938F6ba802a3da87892298610E) | manager |
 
 **List of signers:**
 
-| Name         | Address                                    | Verification                                                                                                                                   | Public verification                                                                    |
-| ------------ | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| George       | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866                                                                                                           | https://twitter.com/george_avs/status/1602229253696790528                              |
-| eliasimos    | 0x4981a4775983e947b12d0982021bea8697175f4a | Sig hash: 0x67291ff9224b8ebfd217ff00d5f1eefceacdd1fe2916b0b1a2157169d813ac9c099ce5d926c2b16252abc89fc7df21d1efa07e1e0b1d7497f454ff340920d23e01 | https://twitter.com/eliasimos/status/1602924642645282816?s=20&t=_dSkjtTQhkyjM2kVdpEZbA |
-| michaelsprou | 0x6B29132ea388a308578c1d3Be068D0e4fc9915a2 | https://gist.github.com/michaelsproul/677cf9abb2789e61973662868f8bd29d                                                                         | https://twitter.com/sproulM_/status/1602519592026382337                                |
-| philknows    | 0x0ef5c6Ab0C44b2b042606215530437809eFE54c8 | https://etherscan.io/verifySig/12760                                                                                                           | https://twitter.com/philngo_/status/1602781428114411520?s=20&t=Q2XjlHIwayyTdVNoKQshig  |
-| Dharmendra   | 0x2d0669db84f11a9ead41e57ce2f242d92111a58f | https://etherscan.io/verifySig/17652                                                                                                           | https://twitter.com/DharmendraKari3/status/1653844633921916931?s=20                    |
-| Sven         | 0x215b5f40b6507d8398a23af4d92a1aeeb6457901 | https://etherscan.io/verifySig/279163                                                                                                          | https://x.com/SvenBrekelmans/status/1961034505671561229                                |
-| Mario        | 0xBC621E0fAd141CD1b14f34f7954695E6C3322472 | https://etherscan.io/verifySig/279564                                                                                                          | https://x.com/Mario782674/status/1963207911531843615                                   |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1602229253696790528 |
+| eliasimos | 0x4981a4775983e947b12d0982021bea8697175f4a | Sig hash: 0x67291ff9224b8ebfd217ff00d5f1eefceacdd1fe2916b0b1a2157169d813ac9c099ce5d926c2b16252abc89fc7df21d1efa07e1e0b1d7497f454ff340920d23e01 | https://twitter.com/eliasimos/status/1602924642645282816?s=20&t=_dSkjtTQhkyjM2kVdpEZbA |
+| michaelsprou | 0x6B29132ea388a308578c1d3Be068D0e4fc9915a2 | https://gist.github.com/michaelsproul/677cf9abb2789e61973662868f8bd29d | https://twitter.com/sproulM_/status/1602519592026382337 |
+| philknows | 0x0ef5c6Ab0C44b2b042606215530437809eFE54c8 | https://etherscan.io/verifySig/12760 | https://twitter.com/philngo_/status/1602781428114411520?s=20&t=Q2XjlHIwayyTdVNoKQshig |
+| Dharmendra | 0x2d0669db84f11a9ead41e57ce2f242d92111a58f | https://etherscan.io/verifySig/17652 | https://twitter.com/DharmendraKari3/status/1653844633921916931?s=20 |
+| Sven | 0x215b5f40b6507d8398a23af4d92a1aeeb6457901 | https://etherscan.io/verifySig/279163 | https://x.com/SvenBrekelmans/status/1961034505671561229 |
+| Mario | 0xBC621E0fAd141CD1b14f34f7954695E6C3322472 | https://etherscan.io/verifySig/279564 | https://x.com/Mario782674/status/1963207911531843615 |
 
 ## 2.4 Token Reward Program (TRP) Association Multisig
 
@@ -138,22 +138,22 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Contracts and roles:**
 
-| Contract name                     | Contract address                                                                                                        | Multisig role |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| TRP VestingEscrowFactory          | [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0) | manager       |
+| Contract name                     | Contract address | Multisig role |
+|-----------------------------------|-----------------|---------------|
+| TRP VestingEscrowFactory          | [`0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0`](https://etherscan.io/address/0xDA1DF6442aFD2EC36aBEa91029794B9b2156ADD0) | manager |
 | Easy Track TopUpAllowedRecipients | [`0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C`](https://etherscan.io/address/0xBd2b6dC189EefD51B273F5cb2d99BA1ce565fb8C) | trustedcaller |
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                                                         |
-| ---------- | ------------------------------------------ | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Alex_L     | 0xF3d5Fdb50154B1b3047F311485780Baa1D770492 | https://etherscan.io/verifySig/14259  | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/9  |
-| adcv       | 0x5157CeE5ee585A8331C936e838591FaeBf9123D4 | https://etherscan.io/verifySig/14301  | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/13 |
-| irina      | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/14300  | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/12 |
-| dgusakov   | 0x806cAC2126F2a74ba04D712bA64Bd0792FE811d5 | https://etherscan.io/verifySig/14263  | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/10 |
-| George     | 0xAF0e81325a05a9F123907983F3F1a48864947127 | https://etherscan.io/verifySig/14296  | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/11 |
-| Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/1989274615194227170                                                                     |
-| Elena_S    | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/296381 | https://x.com/Elen0sh/status/1989387508875219258                                                                            |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Alex_L | 0xF3d5Fdb50154B1b3047F311485780Baa1D770492 | https://etherscan.io/verifySig/14259 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/9 |
+| adcv | 0x5157CeE5ee585A8331C936e838591FaeBf9123D4 | https://etherscan.io/verifySig/14301 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/13 |
+| irina | 0x8CeD94df9ddba8E38b6cb36639B6635F19Eb25C6 | https://etherscan.io/verifySig/14300 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/12 |
+| dgusakov | 0x806cAC2126F2a74ba04D712bA64Bd0792FE811d5 | https://etherscan.io/verifySig/14263 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/10 |
+| George | 0xAF0e81325a05a9F123907983F3F1a48864947127 | https://etherscan.io/verifySig/14296 | https://research.lido.fi/t/request-to-authorise-a-22m-ldo-ceiling-for-a-four-year-contributor-token-reward-plan-trp/3833/11 |
+| Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/1989274615194227170 |
+| Elena_S | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/296381 | https://x.com/Elen0sh/status/1989387508875219258 |
 
 ## 2.5 Treasury Management Committee
 
@@ -178,24 +178,24 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Easy Track contracts and roles:**
 
-| Factory            | Type of swap             | Contract name          | Contract address                                                                                                        | Multisig role |
-| ------------------ | ------------------------ | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Stonks stETH       | stETH to stablecoin      | TopUpAllowedRecipients | [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69) | trustedcaller |
+| Factory | Type of swap | Contract name          | Contract address | Multisig role |
+|---------|--------------|------------------------|------------------|---------------|
+| Stonks stETH | stETH to stablecoin | TopUpAllowedRecipients | [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69) | trustedcaller |
 | Stonks stablecoins | stablecoin to stablecoin | TopUpAllowedRecipients | [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6) | trustedcaller |
 
 The complete list of Lido Stonks contracts is available [here](https://docs.lido.fi/deployed-contracts/#lido-stonks-contracts).
 
 **List of signers:**
 
-| Name        | Address                                    | Verification                          | Public verification                                                                    |
-| ----------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------------------------------------- |
-| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698  | https://twitter.com/adcv_/status/1587404360476237829                                   |
-| pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027  | https://twitter.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
-| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026  | https://twitter.com/sabrychiaa/status/1648049357608960000                              |
-| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085  | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20                        |
-| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851  | https://twitter.com/kadmil_eth/status/1647996307942899713                              |
-| zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582                                     |
-| 0xasot      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309                                        |
+| Name        | Address | Verification | Public verification |
+|-------------| --- | --- | --- |
+| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
+| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
+| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
+| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
+| zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582 |
+| 0xasot | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309 |
 
 ## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
@@ -218,21 +218,22 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **Easy Track contracts and roles:**
 
-| Factory          | Contract name          | Contract address                                                                                                        | Multisig role |
-| ---------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Gas Supply stETH | AddAllowedRecipient    | [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252) | trustedcaller |
+| Factory | Contract name | Contract address | Multisig role |
+|---------|---------------|------------------|---------------|
+| Gas Supply stETH | AddAllowedRecipient | [`0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252`](https://etherscan.io/address/0x48c135Ff690C2Aa7F5B11C539104B5855A4f9252) | trustedcaller |
 | Gas Supply stETH | RemoveAllowedRecipient | [`0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7`](https://etherscan.io/address/0x7E8eFfAb3083fB26aCE6832bFcA4C377905F97d7) | trustedcaller |
 | Gas Supply stETH | TopUpAllowedRecipients | [`0x200dA0b6a9905A377CF8D469664C65dB267009d1`](https://etherscan.io/address/0x200dA0b6a9905A377CF8D469664C65dB267009d1) | trustedcaller |
 
 **List of signers:**
 
-| Name             | Address                                    | Verification                                                                                                                                   | Public verification                                                                     |
-| ---------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| zuzu_eeka        | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/14255                                                                                                           | https://twitter.com/zuzu_eeka/status/1625030303453442049                                |
-| Raman            | 0x56aAaF3e07507C3f2554c4087b0f3ECC61F78a9e | Sig hash: 0x8555fbae4fee1b4adedc05d20525c097c29d75df13470a5f4cd0e2db98575b5e5a89d7b477e43d7ee5315448ab73861b4b87c61cd46e1e77e404bc8e105a5fa100 | https://twitter.com/RSiamionau/status/1623708249236156417?s=20&t=y-o2_ey7po8qeejNd2KmBQ |
-| George           | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866                                                                                                           | https://twitter.com/george_avs/status/1587788184410267649                               |
-| Kate_Alekseeva   | 0xB2cB98A7764b01CB628e87455b3E8f46DC40987E | https://etherscan.io/verifySig/296760                                                                                                          | https://x.com/KateAleksseeva/status/1991798186563055871                                 |
-| chasing.rainbows | 0x00517B8D167a50Bb07e282cea7b2f9273055d30C | https://etherscan.io/verifySig/297387                                                                                                          | https://x.com/chsngrnbows/status/1996227779436712075                                    |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/14255 | https://twitter.com/zuzu_eeka/status/1625030303453442049 |
+| Raman | 0x56aAaF3e07507C3f2554c4087b0f3ECC61F78a9e | Sig hash: 0x8555fbae4fee1b4adedc05d20525c097c29d75df13470a5f4cd0e2db98575b5e5a89d7b477e43d7ee5315448ab73861b4b87c61cd46e1e77e404bc8e105a5fa100 | https://twitter.com/RSiamionau/status/1623708249236156417?s=20&t=y-o2_ey7po8qeejNd2KmBQ |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1587788184410267649 |
+| Kate_Alekseeva | 0xB2cB98A7764b01CB628e87455b3E8f46DC40987E | https://etherscan.io/verifySig/296760 | https://x.com/KateAleksseeva/status/1991798186563055871 |
+| chasing.rainbows | 0x00517B8D167a50Bb07e282cea7b2f9273055d30C | https://etherscan.io/verifySig/297387 | https://x.com/chsngrnbows/status/1996227779436712075 |
+
 
 ## 2.7 Simple DVT Module Committee
 
@@ -254,28 +255,28 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **Easy Track Simple DVT staking module contracts and roles:**
 
-| Contract name                  | Contract address                                                                                                        | Multisig role |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| AddNodeOperators               | [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639) | trustedcaller |
-| ActivateNodeOperators          | [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8) | trustedcaller |
-| DeactivateNodeOperators        | [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7) | trustedcaller |
-| SetVettedValidatorsLimits      | [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D) | trustedcaller |
-| SetNodeOperatorNames           | [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4) | trustedcaller |
+| Contract name          | Contract address | Multisig role |
+|------------------------|-----------------|---------------|
+| AddNodeOperators | [`0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639`](https://etherscan.io/address/0xcAa3AF7460E83E665EEFeC73a7a542E5005C9639) | trustedcaller |
+| ActivateNodeOperators | [`0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8`](https://etherscan.io/address/0xCBb418F6f9BFd3525CE6aADe8F74ECFEfe2DB5C8) | trustedcaller |
+| DeactivateNodeOperators | [`0x8B82C1546D47330335a48406cc3a50Da732672E7`](https://etherscan.io/address/0x8B82C1546D47330335a48406cc3a50Da732672E7) | trustedcaller |
+| SetVettedValidatorsLimits | [`0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D`](https://etherscan.io/address/0xD75778b855886Fc5e1eA7D6bFADA9EB68b35C19D) | trustedcaller |
+| SetNodeOperatorNames | [`0x7d509BFF310d9460b1F613e4e40d342201a83Ae4`](https://etherscan.io/address/0x7d509BFF310d9460b1F613e4e40d342201a83Ae4) | trustedcaller |
 | SetNodeOperatorRewardAddresses | [`0x589e298964b9181D9938B84bB034C3BB9024E2C0`](https://etherscan.io/address/0x589e298964b9181D9938B84bB034C3BB9024E2C0) | trustedcaller |
-| UpdateTargetValidatorLimits    | [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b) | trustedcaller |
-| ChangeNodeOperatorManager      | [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D) | trustedcaller |
+| UpdateTargetValidatorLimits | [`0x161a4552a625844c822954c5acbac928ee0f399b`](https://etherscan.io/address/0x161a4552a625844c822954c5acbac928ee0f399b) | trustedcaller |
+| ChangeNodeOperatorManager | [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D) | trustedcaller |
 
 **List of signers:**
 
-| Name      | Address                                    | Verification                         | Public verification                                         |
-| --------- | ------------------------------------------ | ------------------------------------ | ----------------------------------------------------------- |
-| syncnode  | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/35529 | https://twitter.com/syncn0de/status/1752374013119049981     |
-| Andrew    | 0xBc1cFd2BeC23a0cDc555AE8D31EEa06BE3B5186A | https://etherscan.io/verifySig/35236 | https://twitter.com/KukisGlobal/status/1752363059308302687  |
-| Francesco | 0x62CeDec8B7c81bEe91d97725c9a14dC23C3227E2 | https://etherscan.io/verifySig/35234 | https://twitter.com/cremonafran/status/1752369978257322020  |
-| Thomas    | 0x7962cFa46B15BAb1aE798d927FAE83CC73a0E64D | https://etherscan.io/verifySig/35235 | https://twitter.com/_Cryptoma/status/1752592959533400257    |
-| Eridian   | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://twitter.com/EridianAlpha/status/1752363981409288478 |
-| George A  | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/35156 | https://twitter.com/george_avs/status/1752380380282314889   |
-| Will      | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157 | https://twitter.com/KimonSh/status/1752382287721927062      |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| syncnode | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/35529| https://twitter.com/syncn0de/status/1752374013119049981 |
+| Andrew | 0xBc1cFd2BeC23a0cDc555AE8D31EEa06BE3B5186A | https://etherscan.io/verifySig/35236| https://twitter.com/KukisGlobal/status/1752363059308302687 |
+| Francesco| 0x62CeDec8B7c81bEe91d97725c9a14dC23C3227E2 | https://etherscan.io/verifySig/35234|https://twitter.com/cremonafran/status/1752369978257322020|
+| Thomas | 0x7962cFa46B15BAb1aE798d927FAE83CC73a0E64D | https://etherscan.io/verifySig/35235 | https://twitter.com/_Cryptoma/status/1752592959533400257|
+| Eridian | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://twitter.com/EridianAlpha/status/1752363981409288478|
+| George A | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/35156 | https://twitter.com/george_avs/status/1752380380282314889|
+| Will | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157| https://twitter.com/KimonSh/status/1752382287721927062 |
 
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
 
@@ -302,40 +303,40 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Easy Track contracts and roles:**
 
-| Factory   | Contract name          | Contract address                                                                                                        | Multisig role |
-| --------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| LOL stETH | AddAllowedRecipient    | [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77) | trustedcaller |
+|  Factory                                       | Contract name          | Contract address | Multisig role |
+|----------------------------------------------------------|------------------------|----------------|---------------|
+| LOL stETH | AddAllowedRecipient | [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77) | trustedcaller |
 | LOL stETH | RemoveAllowedRecipient | [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b) | trustedcaller |
-| LOL stETH | TopUpAllowedRecipients | [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E) | trustedcaller |
+| LOL  stETH | TopUpAllowedRecipients | [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E) | trustedcaller |
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                   |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733  | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433                                       |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698  | https://twitter.com/adcv_/status/1587404360476237829                                  |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179  | https://twitter.com/Al_lykov/status/1668625635810615297?s=20                          |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550                             |
-| Olga_K     | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180                                |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172                                      |
-| skelneko   | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005                                     |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023                               |
+| Name       | Address | Verification | Public verification |
+|------------| --- | --- | --- |
+| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Olga_K     | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
+| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
 **Addresses:**
 
-| №     | Name                      | Address                                                                                                                                    |
-| ----- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2.8.2 | Optimism                  | oeth:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)     |
-| 2.8.3 | Arbitrum                  | arb1:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)     |
-| 2.8.4 | Base                      | base:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)     |
-| 2.8.5 | ZKSync                    | zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) |
-| 2.8.6 | Binance Smart Chain (BSC) | bnb:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)       |
-| 2.8.7 | Linea                     | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6)   |
-| 2.8.8 | Mantle                    | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6)    |
-| 2.8.9 | Scroll                    | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD)    |
+| № | Name | Address |
+| --- | --- | --- |
+| 2.8.2 | Optimism | oeth:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)|
+| 2.8.3 | Arbitrum | arb1:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)|
+| 2.8.4 | Base | base:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
+| 2.8.5 | ZKSync | zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) |
+| 2.8.6 | Binance Smart Chain (BSC) | bnb:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
+| 2.8.7 | Linea | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) |
+| 2.8.8 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
+| 2.8.9 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
 
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
@@ -343,14 +344,14 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                   |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733  | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179  | https://twitter.com/Al_lykov/status/1668625635810615297?s=20                          |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698  | https://twitter.com/adcv_/status/1587404360476237829                                  |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550                             |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172                                      |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023                               |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.10 Liquidity Observation Lab Committee (Polygon)
 
@@ -364,11 +365,11 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name      | Address                                    | Verification                         | Public verification                                                                   |
-| --------- | ------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------- |
-| kadmil    | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242                             |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Marin     | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000                               |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 
 ### 2.8.11 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
@@ -384,14 +385,14 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers (same on every network):**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                   |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733  | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179  | https://twitter.com/Al_lykov/status/1668625635810615297?s=20                          |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698  | https://twitter.com/adcv_/status/1587404360476237829                                  |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550                             |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172                                      |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023                               |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.12 Liquidity Observation Lab Committee OP Token Multisig
 
@@ -403,16 +404,17 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                   |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179  | https://twitter.com/Al_lykov/status/1668625635810615297?s=20                          |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550                             |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733  | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433                                       |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698  | https://twitter.com/adcv_/status/1587404360476237829                                  |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172                                      |
-| skelneko   | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005                                     |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023                               |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
+
 
 ### 2.8.13 Liquidity Observation Lab Committee ARB Token Multisig
 
@@ -428,16 +430,16 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                   |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179  | https://twitter.com/Al_lykov/status/1668625635810615297?s=20                          |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550                             |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733  | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433                                       |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd               | https://twitter.com/adcv_/status/1587404360476237829                                  |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172                                      |
-| skelneko   | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005                                     |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023                               |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.14 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
@@ -453,13 +455,13 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                       |
-| ---------- | ------------------------------------------ | ------------------------------------- | --------------------------------------------------------- |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550 |
-| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433           |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd               | https://twitter.com/adcv_/status/1587404360476237829      |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172          |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023   |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 ### 2.8.15 Liquidity Observation Lab Committee ZK Token Multisig
 
@@ -475,16 +477,17 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                                   |
-| ---------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------- |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179  | https://twitter.com/Al_lykov/status/1668625635810615297?s=20                          |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273  | https://twitter.com/grstepanov/status/1468933222923116550                             |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733  | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433                                       |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd               | https://twitter.com/adcv_/status/1587404360476237829                                  |
-| Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172                                      |
-| skelneko   | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005                                     |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023                               |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
+
 
 ## 2.9 Community Staking Module Committee
 
@@ -509,7 +512,6 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 [Omnibus vote #192 (items 1.34-1.59)](https://vote.lido.fi/vote/192) (upgrade to CSM v2)
 
 **Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
-
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
 - `SET_BOND_CURVE_ROLE`: [0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565](https://etherscan.io/tx/0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565)
 - `RESET_BOND_CURVE_ROLE`: [0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b](https://etherscan.io/tx/0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b)
@@ -517,20 +519,21 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 
 **List of related contracts and roles:**
 
-| Contract name                         | Contract address                                                                                                        | Multisig role     |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller     |
+| Contract name                         | Contract address                                                                                                        | Multisig role |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
 | CS GateSeal                           | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | sealing_committee |
+
 
 **List of signers:**
 
-| Name      | Address                                    | Verification                          | Public verification                                   |
-| --------- | ------------------------------------------ | ------------------------------------- | ----------------------------------------------------- |
-| madlabman | 0xdac96e602fbb38De089DaB03f7a37B70C4234221 | https://etherscan.io/verifySig/257503 | https://x.com/chtotonet/status/1841049313574531238    |
-| Remus     | 0x83eeccaf434ac9da6132ab1124afb755a2ea9266 | https://etherscan.io/verifySig/257515 | https://x.com/nameisremus/status/1840671350014218291  |
-| enti      | 0xfcfbafa0d5f5512c65dbb4c073fe4ee6dc3c4779 | https://etherscan.io/verifySig/257511 | https://x.com/entigdd/status/1840691285180449003      |
-| lanski    | 0x6ac2df117c82f51bfdef1a249672b9a9ca6b3d86 | https://etherscan.io/verifySig/257500 | https://x.com/Pol_Lanski/status/1840659602083324379   |
-| Eridian   | 0x7afd3c7f16fdbb3adf331fcc20a585d768ecf60d | https://etherscan.io/verifySig/257510 | https://x.com/EridianAlpha/status/1840661871516332220 |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| madlabman | 0xdac96e602fbb38De089DaB03f7a37B70C4234221 | https://etherscan.io/verifySig/257503 | https://x.com/chtotonet/status/1841049313574531238 |
+| Remus | 0x83eeccaf434ac9da6132ab1124afb755a2ea9266 | https://etherscan.io/verifySig/257515 | https://x.com/nameisremus/status/1840671350014218291 |
+| enti| 0xfcfbafa0d5f5512c65dbb4c073fe4ee6dc3c4779 | https://etherscan.io/verifySig/257511| https://x.com/entigdd/status/1840691285180449003 |
+| lanski | 0x6ac2df117c82f51bfdef1a249672b9a9ca6b3d86 | https://etherscan.io/verifySig/257500 | https://x.com/Pol_Lanski/status/1840659602083324379 |
+| Eridian | 0x7afd3c7f16fdbb3adf331fcc20a585d768ecf60d | https://etherscan.io/verifySig/257510| https://x.com/EridianAlpha/status/1840661871516332220 |
 | POSTHUMAN | 0xcbc39c37ee315e4a504cc1ad0d7956a76e20d90d | https://etherscan.io/verifySig/257507 | https://x.com/ponimajushij/status/1833486702062493757 |
 
 ## 2.10 Delegate Oversight Committee
@@ -547,13 +550,13 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 
 **List of signers:**
 
-| Name    | Address                                    | Verification                          | Public verification                                                             |
-| ------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------- |
-| JanyaK  | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
-| Olga K  | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046                          |
-| Marcela | 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716 | https://x.com/0xMarcela/status/1869171438630174818                              |
-| kadmil  | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385                             |
-| Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 | https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036                           |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
+| Olga K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
+| Marcela| 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716| https://x.com/0xMarcela/status/1869171438630174818 |
+| kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
+| Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 |https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036 |
 
 ## 2.11 Network Expansion Committee
 
@@ -573,12 +576,12 @@ A Committee without multisig.
 
 **List of committee members:**
 
-| Name          | Role    |
-| ------------- | ------- |
-| vtrush        | QA      |
-| arwer13       | Tech    |
+| Name | Role |
+| --- | --- |
+| vtrush | QA |
+| arwer13 | Tech |
 | Mariya_Muzyko | Product |
-| nikita.p      | DAO Ops |
+| nikita.p | DAO Ops |
 
 ## 2.12 Lido Labs BORG Foundation
 
@@ -602,34 +605,35 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 
 **Easy Track contracts and roles:**
 
-| Factory                                            | Contract name          | Contract address                                                                                                        | Multisig role |
-| -------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Labs BORG Foundation operational funds stablecoins | TopUpAllowedRecipients | [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780) | trustedcaller |
+| Factory | Contract name           | Contract address | Multisig role |
+|-------------------|-------------------------|-----------------|---------------|
+| Labs BORG Foundation operational funds stablecoins | TopUpAllowedRecipients  | [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)| trustedcaller |
 
 The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
-| Name          | Address                                    | Verification                          | Public verification                                     |
-| ------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------- |
-| Olga_K        | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/266532 | https://x.com/itmamuramgk28/status/1886706479673065738  |
-| Angelina_L    | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/266535 | https://x.com/helterswellter/status/1886725128693731410 |
-| dgusakov      | 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/266612 | https://x.com/d_gusakov/status/1887037067001020872      |
-| Juan          | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/266672 | https://x.com/juanbugeth/status/1887267565807845481     |
-| krogla        | 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/267077 | https://x.com/_krogla/status/1890331086091141171        |
-| Alex_L        | 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/267399 | https://x.com/Al_lykov/status/1892928521825059308       |
-| UniteTheClans | 0x81ca68f085282434d15c09619360d6513710a979 | https://etherscan.io/verifySig/274605 | https://x.com/0xeferium_m8/status/1930605132573515936   |
-| GrStepanov    | 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/278586 | https://x.com/shalfeyshur/status/1957736329296437494    |
-| Elena_S       | 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/279001 | https://x.com/Elen0sh/status/1960254652479414583        |
+| Name | Address | Verification | Public verification                                    |
+| --- | --- | -- |--------------------------------------------------------|
+| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/266532 | https://x.com/itmamuramgk28/status/1886706479673065738 |
+| Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/266535 | https://x.com/helterswellter/status/1886725128693731410  |
+| dgusakov | 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/266612 | https://x.com/d_gusakov/status/1887037067001020872         |
+| Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/266672 | https://x.com/juanbugeth/status/1887267565807845481       |
+| krogla | 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/267077 | https://x.com/_krogla/status/1890331086091141171 |
+| Alex_L | 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/267399 | https://x.com/Al_lykov/status/1892928521825059308 |
+| UniteTheClans | 0x81ca68f085282434d15c09619360d6513710a979 | https://etherscan.io/verifySig/274605 | https://x.com/0xeferium_m8/status/1930605132573515936 |
+| GrStepanov | 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/278586 |  https://x.com/shalfeyshur/status/1957736329296437494 |
+| Elena_S | 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/279001 | https://x.com/Elen0sh/status/1960254652479414583 |
 
 **Original List of Signers:**\
 https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6lsqyxjkg7hvii
 
 **Lido Labs BORG Foundation Key Documents:**
 
-- [Bylaws - describes operational processes](https://lido.mypinata.cloud/ipfs/bafybeiai3w76yf2mzswnt3azpwvpwhjqjnrukzo4qs43qoca5czzlfn4mm);
-- [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeibx47kkyzi56fojbhbndppbqmn6gwtrgcyynj2dy4tocgufkazqxq);
-- [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeidurwhooxckhgkiuf7z2at6l26yvdidnarbgk3jtcsyxywmwzxixy).
+* [Bylaws - describes operational processes](https://lido.mypinata.cloud/ipfs/bafybeiai3w76yf2mzswnt3azpwvpwhjqjnrukzo4qs43qoca5czzlfn4mm);
+* [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeibx47kkyzi56fojbhbndppbqmn6gwtrgcyynj2dy4tocgufkazqxq);
+* [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeidurwhooxckhgkiuf7z2at6l26yvdidnarbgk3jtcsyxywmwzxixy).
+
 
 ## 2.13 Lido Ecosystem BORG Foundation
 
@@ -653,32 +657,32 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 
 **Easy Track contracts and roles:**
 
-| Factory                                                 | Contract name          | Contract address                                                                                                        | Multisig role |
-| ------------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Ecosystem BORG Foundation operational funds stablecoins | TopUpAllowedRecipients | [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477) | trustedcaller |
+| Factory | Contract name           | Contract address | Multisig role |
+|-------------------|-------------------------|-----------------|---------------|
+| Ecosystem BORG Foundation operational funds stablecoins | TopUpAllowedRecipients  | [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)| trustedcaller |
 
 The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **Current List of signers:**
 
-| Name        | Address                                    | Verification                          | Public verification                                      |
-| ----------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------- |
-| Olga_K      | 0x85029FB6393416c54ea8Fb04f2bf2BBe3cA16E23 | https://etherscan.io/verifySig/266533 | https://x.com/itmamuramgk28/status/1886711010263749099   |
-| Elena_S     | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/266617 | https://x.com/Elen0sh/status/1887061240549126642         |
-| Mol_Eliza   | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/266655 | https://x.com/MaxMolEliza/status/1887170206675468338     |
+| Name | Address | Verification | Public verification                                    |
+| --- | --- | -- |--------------------------------------------------------|
+| Olga_K | 0x85029FB6393416c54ea8Fb04f2bf2BBe3cA16E23 | https://etherscan.io/verifySig/266533 | https://x.com/itmamuramgk28/status/1886711010263749099 |
+| Elena_S | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/266617 | https://x.com/Elen0sh/status/1887061240549126642  |
+| Mol_Eliza | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/266655 | https://x.com/MaxMolEliza/status/1887170206675468338        |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/266776 | https://x.com/ppclunghe/status/1887785137024176411       |
-| zuzu_eeka   | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/266954 | https://x.com/zuzu_eeka/status/1889316339350659472       |
-| Susanna_MV  | 0x27a3fc3d99eace1fdca71900a72079f6c3a4b4f8 | https://etherscan.io/verifySig/267541 | https://x.com/MamenSusan87135/status/1894315942991335668 |
-| adcv        | 0xcc692077c65dd464caa7e7ae614328914f8469b3 | https://etherscan.io/verifySig/268854 | https://x.com/adcv_/status/1901924468043260399           |
+| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/266954 | https://x.com/zuzu_eeka/status/1889316339350659472 |
+| Susanna_MV | 0x27a3fc3d99eace1fdca71900a72079f6c3a4b4f8 | https://etherscan.io/verifySig/267541 | https://x.com/MamenSusan87135/status/1894315942991335668 |
+| adcv | 0xcc692077c65dd464caa7e7ae614328914f8469b3 | https://etherscan.io/verifySig/268854 | https://x.com/adcv_/status/1901924468043260399 |
 
 **Original List of Signers:**\
 https://lido.mypinata.cloud/ipfs/bafkreigan3ankyy6cfzbpakpiitjnmh6jw3lhtomb4zjm27wcgjdhdtvci
 
 **Lido Ecosystem BORG Foundation Key Documents:**
 
-- [Bylaws - describes operational processes](https://ipfs.io/ipfs/bafybeih22pbr7joo7br2q5ygdg52uvy45dpo5knae5kg5qqfhsxllboenm);
-- [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeihry3mfaxirlzrbnnwzk3vfo25hetlgcoyllnc3jstgtwru3l6lbq);
-- [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeieoowqqkwomdtcjaneyofxgib5qmbag7g4asdnkolvjecdu3uba6q).
+* [Bylaws - describes operational processes](https://ipfs.io/ipfs/bafybeih22pbr7joo7br2q5ygdg52uvy45dpo5knae5kg5qqfhsxllboenm);
+* [Memorandum and Articles of Association](https://ipfs.io/ipfs/bafybeihry3mfaxirlzrbnnwzk3vfo25hetlgcoyllnc3jstgtwru3l6lbq);
+* [Multisignature Participation Agreement](https://ipfs.io/ipfs/bafybeieoowqqkwomdtcjaneyofxgib5qmbag7g4asdnkolvjecdu3uba6q).
 
 ## 2.14 Auxiliary Proposer Mechanisms Committee
 
@@ -701,8 +705,8 @@ Each committee decision is publicly disclosed on the Lido Research Forum, along 
 **List of committee members:**
 
 | Name               | Role                                        |
-| ------------------ | ------------------------------------------- |
-| Gabriella Sofia    | Lido NOM contributor                        |
+|--------------------|---------------------------------------------|
+| Gabriella Sofia	   | Lido NOM contributor                        |
 | Ivan Metrikin      | Lido Tech contributor                       |
 | Drew Van der Werff | Commit-Boost and Fabric steward             |
 | Fredrik Svantes    | security expert                             |
@@ -710,7 +714,6 @@ Each committee decision is publicly disclosed on the Lido Research Forum, along 
 | Kam Benbrik        | representing Chorus One, Lido Node Operator |
 
 Additionally, the committee also includes consulting participant, which abstain from voting:
-
 - Justin Traglia - Ethereum Foundation
 
 ## 2.15 Dual Governance Committees
@@ -730,20 +733,19 @@ Additionally, the committee also includes consulting participant, which abstain 
 **Contracts and Roles:**
 
 ###### EmergencyProtectedTimelock :[`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
-
-- EmergencyActivationCommiittee
+* EmergencyActivationCommiittee
 
 **List of signers:**
 
-| Name                                                    | Address                                    | Verification                          | Public verification                                      |
-| ------------------------------------------------------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------- |
-| [isaacpatka](https://research.lido.fi/u/isaacpatka)     | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945      |
-| [Shelly](https://research.lido.fi/u/shelly/)            | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562      |
-| [DZahar0v](https://research.lido.fi/u/dzahar0v)         | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
-| [tamtamchik](https://research.lido.fi/u/tamtamchik)     | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454      |
-| [Josef_Ackee](https://research.lido.fi/u/josef_ackee)   | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893    |
-| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188     |
-| [infloop](https://research.lido.fi/u/infloop)           | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353  |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945 |
+| [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454 |
+| [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893 |
+| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
+| [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353 |
 
 ### 2.15.2 Dual Governance Emergency Execution Committee: Ethereum
 
@@ -762,20 +764,19 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 **Contracts and Roles:**
 
 ###### EmergencyProtectedTimelock :[`0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316`](https://etherscan.io/address/0xCE0425301C85c5Ea2A0873A2dEe44d78E02D2316)
-
-- EmergencyExecutionCommiittee
+* EmergencyExecutionCommiittee
 
 **List of signers:**
 
-| Name                                                    | Address                                    | Verification                          | Public verification                                      |
-| ------------------------------------------------------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------- |
-| [isaacpatka](https://research.lido.fi/u/isaacpatka)     | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945      |
-| [Shelly](https://research.lido.fi/u/shelly/)            | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562      |
-| [DZahar0v](https://research.lido.fi/u/dzahar0v)         | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
-| [tamtamchik](https://research.lido.fi/u/tamtamchik)     | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454      |
-| [Josef_Ackee](https://research.lido.fi/u/josef_ackee)   | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893    |
-| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188     |
-| [infloop](https://research.lido.fi/u/infloop)           | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353  |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945 |
+| [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454 |
+| [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893 |
+| [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
+| [infloop](https://research.lido.fi/u/infloop) | 0xAe0E06b1B5ecB80f157A7DB8A7c9E83fC1720711 | https://etherscan.io/verifySig/273328 | https://x.com/Infinitum_loop/status/1924481479691608353 |
 
 ### 2.15.3 Dual Governance Reseal Committee: Ethereum
 
@@ -793,19 +794,18 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 **Contracts and Roles:**
 
 ###### Dual Governance :[`0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db`](https://etherscan.io/address/0xcdF49b058D606AD34c5789FD8c3BF8B3E54bA2db)
-
-- resealCommittee
+* resealCommittee
 
 **List of signers:**
 
-| Name     | Address                                    | Verification                                                                                                                                   | Public verification                                             |
-| -------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| ajbeal   | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://twitter.com/ajbeal/status/1655876306771365888?s=20      |
-| eboadom  | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877                                                                                                           | https://twitter.com/eboadom/status/1656002911854292993          |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| ajbeal | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://twitter.com/ajbeal/status/1655876306771365888?s=20 |
+| eboadom | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877 | https://twitter.com/eboadom/status/1656002911854292993 |
 | michwill | 0xFe45baf0F18c207152A807c1b05926583CFE2e4b | Sig Hash: 0x44fc2bce69486ea826e1aaeb40878f9a8b038d5f0c8bd0ea9038fee7fca553005adfcd9d64172cacd2e7f1c11dc7e9b36c0f18916ed731e56ffa89feb95c8ae500 | https://twitter.com/newmichwill/status/1656597340780625920?s=20 |
-| thedzhon | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382                                                                                                           | https://twitter.com/e330acid/status/1778451429172080726         |
-| George   | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866                                                                                                           | https://twitter.com/george_avs/status/1655919930749976578       |
-| kadmil   | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851                                                                                                           | https://twitter.com/kadmil_eth/status/1655865828544266242       |
+| thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://twitter.com/e330acid/status/1778451429172080726 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1655919930749976578 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
 
 ### 2.15.4 Dual Governance Tiebreaker Committees: Ethereum
 
@@ -815,8 +815,8 @@ The Tiebreaker Committee includes three subcommittees covering different interes
 
 The committee gains its power only under the specific conditions of the deadlock (see below), and can only perform the following actions:
 
-- Execute any pending proposal submitted by the DAO to DG (i.e. bypass the DG dynamic timelock).
-- Unpause any of the paused protocol contracts.
+ - Execute any pending proposal submitted by the DAO to DG (i.e. bypass the DG dynamic timelock).
+ - Unpause any of the paused protocol contracts.
 
 The Tiebreaker committee can perform the above actions, subject to a timelock of TiebreakerExecutionTimelock days, if any of the following two conditions is true:
 
@@ -827,8 +827,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 **Contracts and Roles:**
 
 ###### Dual Governance :[`0xC1db28B3301331277e307FDCfF8DE28242A4486E`](https://etherscan.io/address/0xC1db28B3301331277e307FDCfF8DE28242A4486E)
-
-- tiebreakerCommittee
+* tiebreakerCommittee
 
 ### 2.15.4.1 Dual Governance Tiebreaker Committees. Ethereum Ecosystem Subcommittee: Ethereum
 
@@ -842,13 +841,13 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **List of signers:**
 
-| Name                | Address                                    | Verification                                                                                                                                  | Public verification                                     |
-| ------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Jorge of Nethermind | 0x80B2D9FA613c35Ec52B0dA5D84e6A819bcc5e369 | https://etherscan.io/verifySig/273436                                                                                                         | https://x.com/0xjorgeth/status/1925082175931593179      |
-| Sigma Prime         | 0xEC7ABf73f339361ecCA951E1746C90a3e6205BFC | https://etherscan.io/verifySig/273315                                                                                                         | https://x.com/sigp_io/status/1924440542076883107        |
-| mteam               | 0xb04b6fb471e766d7f21a6aa0e4e25b2aea0a75ab | https://etherscan.io/verifySig/273429                                                                                                         | https://x.com/mteamisloading/status/1925023188481646982 |
-| Michael_Ippolito    | 0x60BDa95a40d5536303BFcf84D679ca461A23398d | sigHash: 0x55228d86025525135644be0b1fb9ba06db7a665a0be7c2a35a1129b031086d1d37a24d59ab71ede3f0a0d98f9770eca6acc2904f3cda4d3b0f4e5f923dd9e45e1c |                                                         |
-| polar               | 0x5d60F5d653Cc318d1f0ABacd83eD4feeAa6e5804 | https://etherscan.io/verifySig/273447                                                                                                         | https://farcaster.xyz/polar/0x663dcaad                  |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Jorge of Nethermind | 0x80B2D9FA613c35Ec52B0dA5D84e6A819bcc5e369 | https://etherscan.io/verifySig/273436 | https://x.com/0xjorgeth/status/1925082175931593179 |
+| Sigma Prime | 0xEC7ABf73f339361ecCA951E1746C90a3e6205BFC | https://etherscan.io/verifySig/273315 | https://x.com/sigp_io/status/1924440542076883107 |
+| mteam | 0xb04b6fb471e766d7f21a6aa0e4e25b2aea0a75ab | https://etherscan.io/verifySig/273429 | https://x.com/mteamisloading/status/1925023188481646982 |
+| Michael_Ippolito  | 0x60BDa95a40d5536303BFcf84D679ca461A23398d | sigHash: 0x55228d86025525135644be0b1fb9ba06db7a665a0be7c2a35a1129b031086d1d37a24d59ab71ede3f0a0d98f9770eca6acc2904f3cda4d3b0f4e5f923dd9e45e1c |  |
+| polar | 0x5d60F5d653Cc318d1f0ABacd83eD4feeAa6e5804 | https://etherscan.io/verifySig/273447 | https://farcaster.xyz/polar/0x663dcaad |
 
 ### 2.15.4.2 Dual Governance Tiebreaker Committees. Builders Subcommittee: Ethereum
 
@@ -862,13 +861,13 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **List of signers:**
 
-| Name            | Address                                    | Verification                                                                                                                                | Public verification                                    |
-| --------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| andy_koz        | 0x805fa0f79dc0ddcd73dcbc23487d2d5bd77de598 | sigHash: 778925c21cea7d3fda14bdc7cb68a67cfc7317ed1223f4782707a6c6b8f4a4e004ca4bf55c482a511414597a1e483f07d6c9d2942d5b9c8fe43bcbf180ae88ad1c | https://x.com/andy_koz/status/1923300897746030788      |
-| dennisonbertram | 0x49769c3443c74f144991ca560ba5f635581b8176 | sigHash: c074644bac4f5335441618c3f77b868c505e032baf172d8c24f373e48c4d575e37523bfa79406724315a26dd31a9ada7e630729cf3cc9207e09086b925bfe3631b |                                                        |
-| koeppelmann     | 0x9A921867EbB579D137184b397E7D087f1ae716fd | sigHash: 000b2074661792990ca4b7c3b17b5b5e70660f883d3a1e723334d1d29cf658866cbab193707f2cecb3e0913efb523fc5bc08800877e8ef349868cb6c15d0881a1b | https://x.com/koeppelmann/status/1924570381181989239   |
-| BogdanHabic     | 0x81000e270B4f66B8666544E8FEc073e0a23FFf00 | sigHash: f70a5b5d9029475464b35ff4b9b9c25102e1055c3a4660cd9b866df9ae1e44172fa2f67b86aa39a4e29f30e1a16deeb6044e77827ec859d995748f8861e4c8441c | https://x.com/BogdanHabic/status/1924586022974722286   |
-| Leuts           | 0xD8a9072D82a28307279aC0aD3c97Cb61bEe67952 | https://etherscan.io/verifySig/273483                                                                                                       | https://x.com/A_Leutenegger/status/1924882733014110396 |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| andy_koz | 0x805fa0f79dc0ddcd73dcbc23487d2d5bd77de598 | sigHash: 778925c21cea7d3fda14bdc7cb68a67cfc7317ed1223f4782707a6c6b8f4a4e004ca4bf55c482a511414597a1e483f07d6c9d2942d5b9c8fe43bcbf180ae88ad1c | https://x.com/andy_koz/status/1923300897746030788 |
+| dennisonbertram | 0x49769c3443c74f144991ca560ba5f635581b8176 | sigHash: c074644bac4f5335441618c3f77b868c505e032baf172d8c24f373e48c4d575e37523bfa79406724315a26dd31a9ada7e630729cf3cc9207e09086b925bfe3631b |  |
+| koeppelmann | 0x9A921867EbB579D137184b397E7D087f1ae716fd | sigHash: 000b2074661792990ca4b7c3b17b5b5e70660f883d3a1e723334d1d29cf658866cbab193707f2cecb3e0913efb523fc5bc08800877e8ef349868cb6c15d0881a1b | https://x.com/koeppelmann/status/1924570381181989239 |
+| BogdanHabic  | 0x81000e270B4f66B8666544E8FEc073e0a23FFf00 | sigHash: f70a5b5d9029475464b35ff4b9b9c25102e1055c3a4660cd9b866df9ae1e44172fa2f67b86aa39a4e29f30e1a16deeb6044e77827ec859d995748f8861e4c8441c | https://x.com/BogdanHabic/status/1924586022974722286 |
+| Leuts | 0xD8a9072D82a28307279aC0aD3c97Cb61bEe67952 | https://etherscan.io/verifySig/273483 | https://x.com/A_Leutenegger/status/1924882733014110396 |
 
 ### 2.15.4.3 Dual Governance Tiebreaker Committees. Node Operators Subcommittee: Ethereum
 
@@ -882,22 +881,22 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 
 **List of signers:**
 
-| Name                       | Address                                    | Verification                                                                               | Public verification                                      |
-| -------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
-| Launchnodes                | 0x9837b0Db0b733DED04D96a0A25Ba1E414A6C4c08 | https://etherscan.io/verifySig/273475                                                      | https://x.com/launchnodes/status/1923359338384547912     |
-| Florian Staking Facilities | 0xDBD124e898839ec8C829d806C0328f069d1bB810 | https://etherscan.io/verifySig/273214                                                      | https://x.com/MangoLissBNassi/status/1923378667930943609 |
-| linuxcity Gateway.fm       | 0xf8Bfa395744Cb25fa4368Ffe2344Dc35546092d9 | https://etherscan.io/tx/0xb9e18899b57134cd8eca6c4d733112f9ef5fe30390b330e2f9f10fa178044157 | https://x.com/linuxcity/status/1924185313766781084       |
-| Chorus One                 | 0x8103E9eDC04d87F6DA24A3a0c7778daE689E9D63 | https://etherscan.io/verifySig/273414                                                      | https://x.com/ChorusOne/status/1924905920963785171       |
-| Morten Nansen              | 0xfcd02c040cea45dc6cec3e24f1d3946fce7077b0 | https://etherscan.io/verifySig/273439                                                      | https://x.com/mrfylkesnes/status/1925095334797308243     |
-| DSRV                       | 0xD7cABE01709c7E36e9D1fb3248A19b525578a1Fc | https://etherscan.io/verifySig/273446                                                      | https://x.com/hyungkyu_hqueue/status/1925152842907807861 |
-| P2P                        | 0x8ed4dfd3A610CCF1FB45e797bf5D8e0f93084F22 | https://etherscan.io/verifySig/273444                                                      | https://x.com/P2Pvalidator/status/1925197289389261218    |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Launchnodes | 0x9837b0Db0b733DED04D96a0A25Ba1E414A6C4c08 | https://etherscan.io/verifySig/273475 | https://x.com/launchnodes/status/1923359338384547912 |
+| Florian Staking Facilities | 0xDBD124e898839ec8C829d806C0328f069d1bB810 | https://etherscan.io/verifySig/273214 | https://x.com/MangoLissBNassi/status/1923378667930943609 |
+| linuxcity Gateway.fm | 0xf8Bfa395744Cb25fa4368Ffe2344Dc35546092d9 | https://etherscan.io/tx/0xb9e18899b57134cd8eca6c4d733112f9ef5fe30390b330e2f9f10fa178044157 | https://x.com/linuxcity/status/1924185313766781084 |
+| Chorus One  | 0x8103E9eDC04d87F6DA24A3a0c7778daE689E9D63 | https://etherscan.io/verifySig/273414 | https://x.com/ChorusOne/status/1924905920963785171 |
+| Morten Nansen | 0xfcd02c040cea45dc6cec3e24f1d3946fce7077b0 | https://etherscan.io/verifySig/273439 | https://x.com/mrfylkesnes/status/1925095334797308243 |
+| DSRV | 0xD7cABE01709c7E36e9D1fb3248A19b525578a1Fc | https://etherscan.io/verifySig/273446 | https://x.com/hyungkyu_hqueue/status/1925152842907807861 |
+| P2P | 0x8ed4dfd3A610CCF1FB45e797bf5D8e0f93084F22 | https://etherscan.io/verifySig/273444 | https://x.com/P2Pvalidator/status/1925197289389261218 |
 
 ## 2.16 stVaults Committee
 
 **Address:** [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/settings/setup?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF)
 
 **Purpose of the multisig:** The committee is established to ensure protocol security and resilience, and enable stake growth and DAO fee efficiency under the stVault risk framework.
-Committee's multisig is designated to configure stVaults and/or Node Operator Tiers, within the confines of the Easy Track optimistic governance process: set the reserve ratio for specific tiers or vaults, define the default and custom tier grids for node operators, set DAO fee values for specific vaults and for tiers within a given node operator’s grid, manage bad debt compensation between vaults/tiers in complex cases like mass slashing.
+Committee's multisig is designated to configure stVaults and/or Node Operator Tiers, within the confines of the Easy Track optimistic governance process: set the reserve ratio for specific tiers or vaults, define the default and custom tier grids for node operators, set DAO fee values for specific vaults and for tiers within a given node operator’s grid, manage bad debt compensation  between vaults/tiers in complex cases like mass slashing.
 
 **Quorum:** 4/7
 
@@ -905,15 +904,15 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 
 **List of signers:**
 
-| Name           | Address                                    | Verification                          | Public verification                                             |
-| -------------- | ------------------------------------------ | ------------------------------------- | --------------------------------------------------------------- |
-| dmitrii_v      | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | https://research.lido.fi/t/stvaults-committee-proposal/10608/9  |
-| KimonSh        | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | https://research.lido.fi/t/stvaults-committee-proposal/10608/14 |
-| Willem         | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | https://research.lido.fi/t/stvaults-committee-proposal/10608/10 |
-| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | https://research.lido.fi/t/stvaults-committee-proposal/10608/8  |
-| Mol_Eliza      | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
-| mikgur         | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | https://research.lido.fi/t/stvaults-committee-proposal/10608/11 |
-| AlexDry        | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | https://research.lido.fi/t/stvaults-committee-proposal/10608/12 |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | https://research.lido.fi/t/stvaults-committee-proposal/10608/9 |
+| KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | https://research.lido.fi/t/stvaults-committee-proposal/10608/14 |
+| Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | https://research.lido.fi/t/stvaults-committee-proposal/10608/10 |
+| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | https://research.lido.fi/t/stvaults-committee-proposal/10608/8 |
+| Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
+| mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | https://research.lido.fi/t/stvaults-committee-proposal/10608/11 |
+| AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | https://research.lido.fi/t/stvaults-committee-proposal/10608/12 |
 
 ## 2.17 Bridging Security Committee
 
@@ -931,12 +930,12 @@ A Committee without multisig.
 
 **List of committee members:**
 
-| Name       | Role    |
-| ---------- | ------- |
-| TheDZhon   | Tech    |
-| tamtamchik | Tech    |
-| psirex     | Tech    |
-| zuzu_eeka  | DAO Ops |
+| Name | Role |
+| --- | --- |
+| TheDZhon | Tech |
+| tamtamchik | Tech |
+| psirex | Tech |
+| zuzu_eeka | DAO Ops |
 
 ## 2.18 Safe Harbor Management Committee
 
@@ -950,12 +949,12 @@ A Committee without multisig.
 
 **List of signers:**
 
-| Name       | Address                                    | Verification                          | Public verification                                                              |
-| ---------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------------------------------- |
-| TheDZhon   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/297455 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/9 |
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| TheDZhon | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/297455 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/9 |
 | tamtamchik | 0x9777af8c6727d57f74f7d381ad47eb4a65f042ff | https://etherscan.io/verifySig/297408 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/6 |
-| n0guest    | 0x235750Acd5F02A88be3cBF96BB9635DAeB22B203 | https://etherscan.io/verifySig/297452 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/8 |
-| Nikita_K   | 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/297389 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/4 |
-| George     | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/297421 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/7 |
+| n0guest | 0x235750Acd5F02A88be3cBF96BB9635DAeB22B203 | https://etherscan.io/verifySig/297452 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/8 |
+| Nikita_K | 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/297389 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/4 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/297421 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/7 |
 
 **Lifespan**: The committee will be dissolved immediately once ownership is transferred to the Aragon Voting or Safe Harbor is decommissioned, followed by a notification on the Research Forum.
