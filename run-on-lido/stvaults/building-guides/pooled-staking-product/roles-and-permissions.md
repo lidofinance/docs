@@ -69,6 +69,6 @@ During deployment, the Factory grants the DeFi Wrapper contracts the minimum req
 | Role | Default assignment |
 | --- | --- |
 | `DEFAULT_ADMIN_ROLE`| TimelockController contract on the Dashboard contract |
-| `FUND_ROLE` / `REBALANCE_ROLE` / `MINT_ROLE` / `BURN_ROLE`| StvPool/StvStethPool contract |
+| `FUND_ROLE` / `REBALANCE_ROLE` / `MINT_ROLE` / `BURN_ROLE`| StvPool/StvStETHPool contract |
 | `WITHDRAW_ROLE` | Withdrawal Queue contract |
 | `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` | Emergency Committee  |

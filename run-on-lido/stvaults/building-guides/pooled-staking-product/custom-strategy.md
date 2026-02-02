@@ -80,7 +80,7 @@ The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT`
 
 | Parameter | Description |
 |-----------|-------------|
-| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](./#environments)) |
+| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
 | `--nodeOperator` | Address of the Node Operator managing validators |
 | `--nodeOperatorManager` | Address authorized to manage Node Operator settings |
 | `--nodeOperatorFeeRateBP` | Node Operator fee in basis points (10 = 0.1%) |
@@ -126,7 +126,7 @@ Continue with [Post-deployment steps](/run-on-lido/stvaults/building-guides/pool
 
 ## Path B: Upgrade an existing pool to a strategy pool
 
-Use this path when you have a running [`StvStETHPool`](http://localhost:3000/run-on-lido/stvaults/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) (Wrapper-B) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
+Use this path when you have a running [`StvStETHPool`](/run-on-lido/stvaults/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) (Wrapper-B) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
 
 :::info
 This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/proxy/OssifiableProxy.sol) pattern. The pool contract is a proxy whose implementation can be swapped by its admin (the `TimelockController`). Storage (user balances, roles, parameters) lives in the proxy and is preserved across implementation changes.
@@ -178,7 +178,7 @@ Note the deployed **new pool implementation address**.
 #### Deploy strategy implementation and proxy
 
 
-Deploy your strategy, you can use `forge create` or `case send` for example
+Deploy your strategy, you can use `forge create` or `cast send` for example
 
 Note the deployed **strategy proxy address**.
 
@@ -263,7 +263,9 @@ PAYLOAD_10=$(cast calldata "revokeRole(bytes32,address)" $MINTING_RESUME_ROLE <T
 <details>
   <summary>Step 2: Schedule the batch (Proposer)</summary>
 
-Call `TimelockController.scheduleBatch` on the Timelock contract. This can be done via **Etherscan** or `cast`:
+Call `TimelockController.scheduleBatch` on the Timelock contract. This can be done via **Etherscan**, `cast`, or using the **CLI** `propose-*` commands for individual operations.
+
+For a batch call via `cast`:
 
 ```bash
 POOL=<POOL_ADDRESS>
@@ -284,6 +286,21 @@ cast send <TIMELOCK> \
 ```
 
 Note the **operation ID** from the `CallScheduled` event in the transaction logs.
+
+Alternatively, individual operations can be proposed via CLI (each as a separate timelock operation):
+
+```bash
+# Propose proxy upgrade
+yarn start dw use-cases timelock-governance proxy w propose-upgrade-to-and-call <TIMELOCK> <POOL> <NEW_POOL_IMPL> 0x
+
+# Propose role changes
+yarn start dw use-cases timelock-governance pool w propose-grant-role <TIMELOCK> <POOL> <ROLE> <ACCOUNT>
+yarn start dw use-cases timelock-governance pool w propose-revoke-role <TIMELOCK> <POOL> <ROLE> <ACCOUNT>
+```
+
+:::warning
+CLI propose commands schedule individual timelock operations (not a batch). This means each operation requires a separate propose → wait → execute cycle and they are **not atomic**. Use `scheduleBatch` via `cast` or Etherscan if atomicity is required.
+:::
 
 </details>
 
@@ -311,7 +328,7 @@ cast call <TIMELOCK> "isOperationReady(bytes32)(bool)" <OPERATION_ID> --rpc-url 
 
 </details>
 
-### Verify the upgrade vi CLI
+### Verify the upgrade via CLI
 
 ```bash
 yarn start defi-wrapper contracts pool r info <POOL_ADDRESS>

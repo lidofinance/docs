@@ -106,7 +106,7 @@ yarn start defi-wrapper contracts wq w finalize <withdrawalQueue> <maxRequests> 
 
 ## After finalization
 
-Users are able to claim their assets for the finalized requests (`WithdrawalQueue` contract calls `claimWithdrawal` or `claimWithdrawalBatch`)
+Users are able to claim their assets for the finalized requests by calling `claimWithdrawal` or `claimWithdrawalBatch` on the `WithdrawalQueue` contract.
 
 ## What is `gasCostCoverage`
 
