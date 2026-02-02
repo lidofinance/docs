@@ -5,6 +5,12 @@ import TabItem from '@theme/TabItem';
 
 **Note:** You will have to import your CSM validator keystores into your validator client first. Refer to the key import steps in the **Method 2** section if you are unsure about how to proceed.
 
+:::info
+Recall that you will have to use the designated fee recipient address (i.e. LIDO_EXECUTION_LAYER_REWARDS_VAULT) on CSM validator keys.
+- Mainnet: [0x388C818CA8B9251b393131C08a736A67ccB19297](https://etherscan.io/address/0x388c818ca8b9251b393131c08a736a67ccb19297)
+- Hoodi: [0x9b108015fe433F173696Af3Aa0CF7CDb3E104258](https://hoodi.etherscan.io/address/0x9b108015fe433f173696af3aa0cf7cdb3e104258)
+:::
+
 ## Validator Clients
 
 <Tabs>
@@ -47,7 +53,7 @@ Paste:
 }
 ```
 
-Replace `YOUR_PUBKEY_*`, `YOUR_WALLET_ADDRESS`, and `LIDO_EXECUTION_LAYER_REWARDS_VAULT` (e.g. `0x388C818CA8B9251b393131C08a736A67ccB19297` for Mainnet).
+Replace `YOUR_PUBKEY_*`, `YOUR_WALLET_ADDRESS`, and `LIDO_EXECUTION_LAYER_REWARDS_VAULT`.
 
 Save (Ctrl+O, Enter) and exit (Ctrl+X).
 

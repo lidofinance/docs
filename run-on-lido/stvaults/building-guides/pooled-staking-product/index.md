@@ -1,15 +1,15 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 🌊 Pooled staking product powered by stVaults
+# 🌊 End-user staking product by DeFi Wrapper
 
 ## Intro
 
-The DeFi Wrapper is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
+**The DeFi Wrapper** is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
 
 This guide walks through the concepts and practical steps to launch such a product without deep protocol knowledge.
 
@@ -73,9 +73,9 @@ DeFi Wrapper supports three product archetypes:
   </TabItem>
   <TabItem value="mainnet" label="Mainnet">
 
-::::info Coming soon
+:::info Coming soon
 *Coming this Winter*
-::::
+:::
 
   </TabItem>
 </Tabs>
@@ -93,25 +93,25 @@ To start:
 - Set up the CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md).
 - Prepare a valid CLI configuration — see the [configuration tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
 
-::::info
+:::info
 
 The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the vault upon connection to Lido `VaultHub`.
 
 The newly created staking vault is automatically connected to Lido `VaultHub` and placed into the default tier. Placement into non-default tiers right upon deployment is not supported.
 
-::::
+:::
 
 To list the available pool types and creation commands, run:
 ```bash
 yarn start defi-wrapper contracts factory write -h
 ```
 
-::::info
+:::info
 
 For each pool type, the CLI prints the environment variables required for the UI setup.
 Keep this output if you plan to set up the UI.
 
-::::
+:::
 
 #### Deployment of `StvPool` (pool without stETH minting)
 
@@ -156,11 +156,11 @@ yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xFA97c482E2F5
   --allowList false
 ```
 
-::::warning
+:::warning
 
 The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is expected to be sufficient to absorb enough of the vault's performance volatility to keep users' positions healthy in most cases.
 
-::::
+:::
 
 #### Deployment of `StvGGV` (pool with GGV strategy)
 
@@ -184,13 +184,13 @@ yarn start defi-wrapper contracts factory w create-pool-ggv 0xFA97c482E2F586a355
   --reserveRatioGapBP 250
 ```
 
-::::info
+:::info
 
 Note that for `StvGGV` pools, the allowlist is not configurable: the only address allowed to deposit is the GGV strategy contract itself.
 
 Users do not deposit via the pool directly — they supply to the strategy.
 
-::::
+:::
 
 ### 2. Create Web UI
 
@@ -215,13 +215,13 @@ Thus, changing tier for a pooled vault is a three-step process:
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
 3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
-::::info
+:::info
 Confirming a tier change request requires applying a fresh report to the vault.
-::::
+:::
 
-::::warning
+:::warning
 CLI does not yet support operations with TimelockController contract and steps 1 and 2 must be performed via manual contract calls, e.g. via Etherscan.
-::::
+:::
 
 **Parameters needed for this step:**
 
@@ -299,10 +299,6 @@ CLI does not yet support operations with TimelockController contract and steps 1
 Supplying ETH to the stVault increases its balance. The Node Operator can then deposit ETH from this balance into validators.
 
 **The Predeposit Guarantee (PDG)** contract, as part of the stVaults platform, helps prevent deposit frontrunning caused by the vulnerabilities described in [LIP-5](https://research.lido.fi/t/lip-5-mitigations-for-deposit-front-running-vulnerability/1269). PDG secures the Vault Owner’s ETH deposits to validators from being front-run by the Node Operator.
-
-::::warning
-According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is **active on the Hoodi Testnet**. However, PDG is currently **paused on Mainnet** as we are in Phase 1 (soft-launch). PDG will become available with Phase 2 (Full Launch Mode), expected in late January 2026.
-::::
 
 One of the key benefits of using PDG is the avoidance of commingling: it keeps the finances of the Vault Owner and the Node Operator strictly separated.
 

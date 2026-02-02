@@ -21,7 +21,7 @@ If the guide seems too complicated, make sure to check out a community-developed
 ## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
 
 - [Mainnet](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
-- [Hoodi](https://hoodi.cloud.blockscout.com/address/0x8664d394C2B3278F26A1B44B967aEf99707eeAB2)
+- [Hoodi](https://hoodi.etherscan.io/address/0x8664d394C2B3278F26A1B44B967aEf99707eeAB2)
 
 ### ValidatorExitRequest
 `ValidatorExitRequest` is the most important event for key management. It requires sending a voluntary exit request using the key specified in the event.
@@ -45,7 +45,7 @@ This event can be tracked using [Ejector](https://github.com/lidofinance/validat
 ## Contract: CSM
 
 - [Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
-- [Hoodi](https://hoodi.cloud.blockscout.com/address/0x79CEf36D84743222f37765204Bec41E92a93E59d)
+- [Hoodi](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d)
 
 
 ### ELRewardsStealingPenaltyReported
@@ -106,7 +106,7 @@ event DepositedSigningKeysCountChanged(
 ## Contract: CSFeeDistributor
 
 - [Mainnet](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
-- [Hoodi](https://hoodi.cloud.blockscout.com/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582)
+- [Hoodi](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582)
 
 ### DistributionDataUpdated
 Notify when rewards for the current frame are available to claim

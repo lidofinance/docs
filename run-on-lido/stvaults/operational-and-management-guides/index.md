@@ -11,4 +11,3 @@ Day-to-day guidance for running and maintaining stVaults safely, including healt
 - [Health Monitoring Guide](./health-monitoring-guide.md)
 - [Health Emergency Guide](./health-emergency-guide.md)
 - [Identified Node Operators](./node-operators-identification.md)
-- [V3 Soft Launch](./v3-soft-launch.md)

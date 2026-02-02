@@ -12,7 +12,7 @@ sidebar_position: 2
 4. Only SSH into your server using a trusted network connection - e.g. home, office. Some examples to avoid are public WiFi network at cafes.
 5. Disable root account logins.
 6. Only open necessary ports and close them when they are no longer in use.
-7. Configure automatic system updates to stay up to date with the latest security patches continuously
+7. Configure automatic system updates to stay up to date with the latest security patches continuously.
 8. Configure brute force protection.
 9. Verify the checksums of all downloaded zipped files before executing them.
 10. Consider using a good VPN (e.g. NordVPN) to mask your IP address.
