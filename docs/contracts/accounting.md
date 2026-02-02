@@ -20,21 +20,34 @@ The contract acts as the central point for all accounting operations, replacing 
 
 ## How it works
 
-1. `AccountingOracle` submits a report via `handleOracleReport()`.
-2. Accounting snapshots current protocol state (CL validators, balances, shares, external shares/ether, bad debt to internalize).
-3. Calculates all state changes (withdrawals, fees, burns) accounting for both internal and external ether/shares.
-4. Runs sanity checks via `OracleReportSanityChecker`.
-5. Applies changes: internalizes bad debt, updates CL state, collects rewards, finalizes withdrawals, distributes fees.
-6. Emits token rebase event and notifies observers.
+1. `HashConsensus` reaches consensus on the accounting report hash.
+2. `AccountingOracle.submitReportData()` validates the sender, contract version, consensus version, and report hash.
+3. `AccountingOracle` reports exited validator counts to `StakingRouter`.
+4. `AccountingOracle` calls `WithdrawalQueue.onOracleReport()` to update bunker mode and timing bounds.
+5. `AccountingOracle` calls `Accounting.handleOracleReport()`.
+6. Accounting snapshots pre-report state and simulates the report (including `WithdrawalQueue.prefinalize()` and `OracleReportSanityChecker.smoothenTokenRebase()`).
+7. Accounting runs sanity checks via `OracleReportSanityChecker.checkAccountingOracleReport()`.
+8. Accounting calls `Burner.requestBurnShares()` to lock shares for withdrawal finalization (if needed).
+9. Accounting updates CL state via `Lido.processClStateUpdate()`.
+10. Accounting internalizes bad debt via `VaultHub.decreaseInternalizedBadDebt()` and `Lido.internalizeExternalBadDebt()`.
+11. Accounting calls `Burner.commitSharesToBurn()` (if needed).
+12. Accounting calls `Lido.collectRewardsAndProcessWithdrawals()` to process withdrawals and rewards.
+13. If fees are due, Accounting mints fee shares, distributes them, and calls `StakingRouter.reportRewardsMinted()`.
+14. Accounting notifies the post-rebase receiver and calls `Lido.emitTokenRebase()`.
+15. `AccountingOracle` updates `LazyOracle.updateReportData()` and stores extra-data processing state.
 
 ```mermaid
-graph LR;
-  AO[AccountingOracle]--handleOracleReport-->A[Accounting];
-  A--collectRewardsAndProcessWithdrawals-->L[Lido];
-  A--finalize-->WQ[WithdrawalQueue];
-  A--internalizeBadDebt-->VH[VaultHub];
-  A--reportModuleRewards-->SR[StakingRouter];
-  A--sanityChecks-->SC[OracleReportSanityChecker];
+graph TB;
+  HC[HashConsensus]-->AO[AccountingOracle];
+  AO-->SR[StakingRouter: reportExitedValidators];
+  AO-->WQ[WithdrawalQueue: onOracleReport];
+  AO-->A[Accounting: handleOracleReport];
+  A-->SC[OracleReportSanityChecker];
+  A-->B[Burner: requestBurnShares/commitSharesToBurn];
+  A-->L[Lido: processClStateUpdate/collectRewardsAndProcessWithdrawals/emitTokenRebase];
+  A-->VH[VaultHub: decreaseInternalizedBadDebt];
+  A-->SR;
+  AO-->LO[LazyOracle: updateReportData];
 ```
 
 ## Structs
@@ -137,15 +150,15 @@ Handles an oracle report and applies all calculated state changes to the protoco
 
 The method performs these operations in order:
 
-1. Runs sanity checks on report data
-2. Requests burn of shares for withdrawal queue finalization (if applicable)
-3. Updates consensus layer state on Lido via `processClStateUpdate()`
-4. Internalizes bad debt (calls `vaultHub.decreaseInternalizedBadDebt()` and `lido.internalizeExternalBadDebt()`)
-5. Commits shares to burn via Burner
-6. Collects EL rewards and processes withdrawals via `collectRewardsAndProcessWithdrawals()`
-7. Distributes protocol fees to modules and treasury
-8. Notifies rebase observers via `handlePostTokenRebase()`
-9. Emits token rebase event via `emitTokenRebase()`
+1. Runs sanity checks on report data.
+2. Requests `Burner.requestBurnShares()` for withdrawal queue finalization (if applicable).
+3. Updates consensus layer state on Lido via `processClStateUpdate()`.
+4. Internalizes bad debt (calls `VaultHub.decreaseInternalizedBadDebt()` and `Lido.internalizeExternalBadDebt()`).
+5. Commits shares to burn via `Burner.commitSharesToBurn()`.
+6. Collects EL rewards and processes withdrawals via `Lido.collectRewardsAndProcessWithdrawals()`.
+7. If fees are due: mints fee shares, distributes fees, then calls `StakingRouter.reportRewardsMinted()`.
+8. Notifies rebase observers via `handlePostTokenRebase()`.
+9. Emits token rebase event via `emitTokenRebase()`.
 
 ## Errors
 

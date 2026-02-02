@@ -1,13 +1,25 @@
 # stETH superuser functions
 
-This guide describes the stETH control surface in Lido V3 and the roles that can change protocol behavior. It provides concrete addresses for role holders and explains the operational implications of each capability.
+This guide describes the stETH control surface in Lido V3, the roles that can change protocol behavior, and the current role holders on mainnet. It focuses on the minimal set of contracts that can mint, burn, or pause stETH supply.
 
 ## What stETH is in Lido V3
 
 - stETH is the rebasing token representing pooled ETH in the core Lido pool
 - stVaults can mint stETH as **external shares** against overcollateralized collateral
-- Rebases are driven by oracle reports applied through the [Accounting](/contracts/accounting) contract
+- Rebases are driven by oracle reports applied through [Accounting](/contracts/accounting)
 - Total supply = internal shares (core pool) + external shares (stVaults)
+
+## Control surfaces (first principles)
+
+The supply of stETH can change only through the following paths:
+
+| Surface | Contract | Mutators | Notes |
+| --- | --- | --- | --- |
+| Oracle report | [Accounting](/contracts/accounting) | `handleOracleReport()` | Applies protocol rebase and fee minting |
+| External shares | [VaultHub](/contracts/vault-hub) | `mintShares()`, `burnShares()` | Mints/burns external shares for stVaults |
+| Burn queue | [Burner](/contracts/burner) | `requestBurnShares()`, `commitSharesToBurn()` | Withdrawal finalization and penalties |
+| Module rewards | [StakingRouter](/contracts/staking-router) | `reportRewardsMinted()` | Distributes minted shares to modules |
+| Emergency pause | [Lido](/contracts/lido) | `stop()`, `resume()` | Pauses core stETH operations |
 
 ## Key contracts
 
