@@ -66,7 +66,7 @@ DeFi Wrapper supports three product archetypes:
     <ul>
       <li><strong>CLI:</strong> <a href="https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration">Configuration guide</a></li>
       <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/
-        0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xFA97…1f38</a></li>
+        0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xd05e...b4d9</a></li>
       <li><strong>UI template:</strong> <a href="https://github.com/lidofinance/defi-wrapper-widget">defi-wrapper-widget</a></li>
       <li><strong>Latest development branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
       <li><strong>Etherscan:</strong> <a href="https://hoodi.etherscan.io/">hoodi.etherscan.io</a></li>
