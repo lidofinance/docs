@@ -12,13 +12,17 @@ Learn about the next evolution of Lido staking with **stVaults** — user-define
 
 :::info **Production Lido Protocol Deployment**
 
-This page lists production contract addresses on Mainnets — including Ethereum and other networks, where the protocol and its parts/extensions are deployed.
+This page lists production contract addresses on mainnets, including Ethereum and other networks where the protocol and its components are deployed.
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v3.0.0`**](https://github.com/lidofinance/core/releases/tag/v3.0.0)
-  - Lido V3 version line features stVaults architecture with overcollateralized stETH minting — see [Technical Paper](/lido-v3-whitepaper)
+- ⚓ Lido protocol version: [**`v3.0.1`**](https://github.com/lidofinance/core/releases/tag/v3.0.1)
+- 🌐 Network: Ethereum Mainnet (Chain ID: `1`)
 - ✅ Status: Active and maintained
+
+**Key Resources on Lido V3:**
+
+- 🔌 [stVaults Documentation Center](/run-on-lido/stvaults/)
 
 :::
 
@@ -124,6 +128,10 @@ This page lists production contract addresses on Mainnets — including Ethereum
 - DataBus on Base: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://basescan.org/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - DataBus on Optimism: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://optimistic.etherscan.io/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
 - DataBus on Polygon PoS: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://polygonscan.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
+
+## 🔄 Post Token Rebase Receiver {#post-token-rebase-receiver}
+
+- Token Rate Notifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
 
 ## 🧩 Staking Modules {#staking-modules}
 
