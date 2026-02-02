@@ -108,13 +108,13 @@ This is a sensitive operation that should only occur during protocol setup or ma
 
 ## Fees and treasury configuration
 
-| Lever                | Role                         | Holder    |
-| -------------------- | ---------------------------- | --------- |
-| Protocol fee (total) | Aragon permissions           | DAO Agent |
-| Module fee splits    | `STAKING_MODULE_MANAGE_ROLE` | DAO Agent |
-| Treasury address     | Aragon permissions           | DAO Agent |
+| Contract                                   | Role                         | Role registry     | Role admin | Holder    | Purpose                                    |
+| ------------------------------------------ | ---------------------------- | ----------------- | ---------- | --------- | ------------------------------------------ |
+| [StakingRouter](/contracts/staking-router) | `STAKING_MODULE_MANAGE_ROLE` | StakingRouter     | DAO Agent  | DAO Agent | Set treasury fee for a staking module      |
+| [StakingRouter](/contracts/staking-router) | `STAKING_MODULE_MANAGE_ROLE` | StakingRouter     | DAO Agent  | DAO Agent | Set module fee splits for a staking module |
+| [LidoLocator](/contracts/lido-locator)     | Proxy admin                  | LidoLocator Proxy | DAO Agent  | DAO Agent | Update treasury address                    |
 
-**Contracts**: [Lido](/contracts/lido), [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999))
+**Contracts**: [Lido](/contracts/lido), [StakingRouter](/contracts/staking-router)
 
 Fee parameters are set on-chain and can change via DAO decisions. For current values, see [StakingRouter](/contracts/staking-router) and related module parameters.
 
