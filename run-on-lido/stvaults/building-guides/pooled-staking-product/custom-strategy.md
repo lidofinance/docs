@@ -134,7 +134,7 @@ This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/va
 
 ### What changes during the upgrade
 
-| Aspect | Before (`StvStETHPool`) | After (`StvStETHPool` with strategy) |
+| Aspect | Before (`StvStETHPool`) | After (`StvStrategyPool`) |
 |--------|------------------------|--------------------------------------|
 | Pool type | `STV_STETH_POOL_TYPE` | `STRATEGY_POOL_TYPE` |
 | Allowlist | Disabled | Enabled (only strategy can deposit) |
