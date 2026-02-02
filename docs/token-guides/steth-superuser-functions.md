@@ -28,7 +28,7 @@ Control is governed by the Lido DAO. Roles are assigned to DAO-owned contracts o
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
 | DAO Agent          | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)        | Holds most admin roles; executes DAO votes |
 | GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)        | Emergency pause signer for GateSeal        |
-| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)        | Resume authority for GateSeal-paused apps  |
+| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)        | Pause extension authority for GateSeal-paused apps  |
 
 All protocol proxy admins are set to the Lido DAO Agent.
 
@@ -45,10 +45,11 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 ### Emergency pause via GateSeal
 
-The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days). The Reseal Manager holds the resume role for GateSeal-paused contracts.
+The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days). The Reseal Manager holds both the pause and resume role for GateSeal-paused contracts to effectively prolong the pause if needed under certain DualGovernance veto conditions.
 
 | GateSeal         | Address                                                                                                                        | Protects                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
+| VEB and TWG | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)        | ValidatorsExitBusOracle, TriggerableWithdrawalsGateway |
 | Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)        | WithdrawalQueueERC721        |
 | VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)        | VaultHub, PredepositGuarantee |
 
@@ -125,28 +126,28 @@ Protocol fee and treasury permissions are intentionally unassigned today. The DA
 
 ```mermaid
 graph LR;
-  HC[HashConsensus]--quorum reached-->AO[AccountingOracle];
-  AO--handleOracleReport-->A[Accounting];
-  A--processClStateUpdate-->L[Lido/stETH];
-  A--collectRewardsAndProcessWithdrawals-->L;
-  A--decreaseInternalizedBadDebt-->VH[VaultHub];
-  L--WithdrawalQueue finalization-->WQ[WithdrawalQueue];
-  L--TokenRebased event-->Observers;
+  A[/  \\]--submitReportData-->AccountingOracle--handleConsensusLayerReport--->Accounting;
+  AccountingOracle--updateReportData-->LazyOracle;
+  AccountingOracle--handleOracleReport-->Accounting-->Lido;
+  AccountingOracle--checkExtraDataItemsCountPerTransaction-->OracleReportSanityChecker;
+  AccountingOracle--updateExitedValidatorsCountByStakingModule-->StakingRouter;
+  AccountingOracle--checkExitedValidatorsRatePerDay-->OracleReportSanityChecker;
+  AccountingOracle--'onOracleReport'-->WithdrawalQueue;
 ```
 
 1. Oracle committee members submit reports to HashConsensus ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
-2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) triggers the report
+2. When quorum is reached, AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) processes the report
 3. [Accounting](/contracts/accounting) applies the report and updates Lido state
-4. Token rebases are emitted via `TokenRebased` event
+4. Token rebases are emitted via `TokenRebased` event on [Lido](/contracts/lido)
 
 ## On-chain verification
 
 **Aragon ACL roles (Lido, Voting, Agent, etc.)**
 
 - Use the ACL contract ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) `hasPermission(entity, app, role)` for a specific entity.
-- Aragon ACL cannot enumerate role members on-chain. To prove a role is not granted to any contract, you must index historical `SetPermission` events off-chain (the `tests/regression/test_permissions.py` script in `lidofinance/scripts` does this).
+- Aragon ACL cannot enumerate role members on-chain. To prove a role is not granted to any contract, you must index historical `SetPermission` events off-chain (see `tests/regression/test_permissions.py` in `lidofinance/scripts`: https://github.com/lidofinance/scripts and https://github.com/lidofinance/scripts/blob/master/tests/regression/test_permissions.py).
 
-**AccessControl roles (Burner, VaultHub, OperatorGrid, LazyOracle, PredepositGuarantee, StakingRouter)**
+**AccessControlEnumerable roles (Burner, VaultHub, OperatorGrid, LazyOracle, PredepositGuarantee, StakingRouter)**
 
 - Use `getRoleMemberCount` / `getRoleMember` (if available) or `hasRole` to verify role holders on-chain.
 
@@ -160,7 +161,7 @@ graph LR;
 | Approvals       | `approve()` calls revert                                         |
 | Staking         | `submit()` reverts;no new ETH can be staked                      |
 | Withdrawals     | Withdrawal requests revert                                       |
-| Rebases         | Oracle report processing and rebases may be blocked while paused |
+| Rebases         | AccountingOracle processing (via Accounting) can be blocked while Lido is paused |
 
 ### External shares cap effects
 

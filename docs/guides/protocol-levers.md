@@ -7,13 +7,13 @@ Lido V3 governance controls a set of configurable parameters across core pool, o
 | Entity | Address | Description |
 |--------|---------|-------------|
 | Aragon Voting | [`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e) | LDO token voting for protocol governance |
-| Aragon Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) | DAO execution agent; holds most admin roles |
+| Aragon Agent | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) | Aragon DAO execution agent |
 | Aragon ACL | [`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb) | Aragon permission registry for AragonApp roles |
 | Easy Track | [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea) | Optimistic governance for routine operations |
-| Easy Track EVMScript Executor | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977) | Executes Easy Track motions; role holder for some stVaults ops |
+| Easy Track EVMScript Executor | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977) | Executes Easy Track motions |
 | Vaults Adapter | [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) | stVaults adapter that holds VaultHub/OperatorGrid roles |
 | GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer for GateSeal contracts |
-| Reseal Manager | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Resume authority for GateSeal-paused contracts |
+| Reseal Manager | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension and resume authority for GateSeal-paused contracts |
 
 ## Upgradeability
 
@@ -22,7 +22,7 @@ All protocol proxy admins are set to the **Lido DAO Agent** ([`0x3e40D73EB977Dc6
 Core upgradeable contracts:
 
 | Contract | Proxy Address |
-| -------- | ------------- |
+|----------|---------------|
 | [LidoLocator](/contracts/lido-locator) | [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) |
 | [Lido](/contracts/lido) | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
 | [Accounting](/contracts/accounting) | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) |
@@ -37,22 +37,24 @@ Core upgradeable contracts:
 | [OperatorGrid](/contracts/operator-grid) | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
 | [LazyOracle](/contracts/lazy-oracle) | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
 
+This list is not exhaustive; see [Deployed contracts (mainnet)](/deployed-contracts#core-protocol), [Oracle contracts](/deployed-contracts#oracle-contracts), and [Staking modules](/deployed-contracts#staking-modules).
+
 ## Lido (core pool)
 
 Key levers on the core pool contract [Lido](/contracts/lido) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)):
 
 | Lever | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | ---- | ------------- | ---------- | ------ |
-| Pause protocol | `stop()` | `PAUSE_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Aragon Voting ([`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e)) | Unassigned |
-| Resume protocol | `resume()` | `RESUME_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Aragon Voting ([`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e)) | Unassigned |
-| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Aragon Voting ([`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e)) | Unassigned |
-| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Aragon Voting ([`0x2e59A20f205bB85a89C53f1936454680651E618e`](https://etherscan.io/address/0x2e59A20f205bB85a89C53f1936454680651E618e)) | Unassigned |
+| Pause protocol | `stop()` | `PAUSE_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
+| Resume protocol | `resume()` | `RESUME_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
+| Staking limits | `setStakingLimit()`, `removeStakingLimit()` | `STAKING_CONTROL_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
+| External shares cap | `setMaxExternalRatioBP()` | `STAKING_CONTROL_ROLE` | Aragon ACL | Aragon Voting | Unassigned |
 
 Roles marked as unassigned are intentionally left without holders. The DAO can assign them later through Aragon ACL governance; see the [permissions transition guide](https://github.com/lidofinance/dual-governance/blob/main/docs/permissions-transition/permissions-transition-mainnet.md) for design context (prepared pre-V3 but still applicable on principles).
 
 ### Emergency pause
 
-The GateSeal mechanism allows emergency pausing without a full DAO vote. GateSeal contracts can pause protected apps, while the Reseal Manager holds the `RESUME_ROLE` for unpausing.
+The GateSeal mechanism allows emergency pausing without a full DAO vote. GateSeal contracts can temporarily pause protected apps, while the Reseal Manager holds both the `PAUSE_ROLE` and `RESUME_ROLE` for pause extension.
 
 | GateSeal | Address | Sealable Contracts |
 |----------|---------|-------------------|
@@ -60,17 +62,17 @@ The GateSeal mechanism allows emergency pausing without a full DAO vote. GateSea
 | Withdrawal Queue | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | WithdrawalQueueERC721 |
 | VaultHub and PDG | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | VaultHub, PredepositGuarantee |
 
-GateSeal pauses are time-limited; the Reseal Manager can extend a seal window, and resuming requires the `RESUME_ROLE` holder or a DAO vote that unpauses the app.
+GateSeal pauses are time-limited; the Reseal Manager can extend a seal window, and resuming requires a DAO vote that unpauses the app.
 
 ## Accounting and oracles
 
 | Lever | Contract | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | -------- | ---- | ------------- | ---------- | ------ |
-| Consensus settings | [AccountingOracle](/contracts/accounting-oracle) | `setConsensusVersion()`, `setConsensusContract()` | `MANAGE_CONSENSUS_VERSION_ROLE`, `MANAGE_CONSENSUS_CONTRACT_ROLE` | [AccountingOracle](/contracts/accounting-oracle) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| Oracle report bounds | [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker) | Various limit setters | `ALL_LIMITS_MANAGER_ROLE` | [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| LazyOracle sanity | [LazyOracle](/contracts/lazy-oracle) | `updateSanityParams()` | `UPDATE_SANITY_PARAMS_ROLE` | [LazyOracle](/contracts/lazy-oracle) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| Oracle daemon config | [OracleDaemonConfig](/contracts/oracle-daemon-config) | `setConfig()` | `CONFIG_MANAGER_ROLE` | [OracleDaemonConfig](/contracts/oracle-daemon-config) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| VEB report data submission | [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | `submitReportData()` | `SUBMIT_DATA_ROLE` | [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
+| Consensus settings | [AccountingOracle](/contracts/accounting-oracle) | `setConsensusVersion()`, `setConsensusContract()` | `MANAGE_CONSENSUS_VERSION_ROLE`, `MANAGE_CONSENSUS_CONTRACT_ROLE` | AccountingOracle | Aragon Agent | Unassigned |
+| Oracle report bounds | [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker) | Various limit setters | `ALL_LIMITS_MANAGER_ROLE` | OracleReportSanityChecker | Aragon Agent | Unassigned |
+| LazyOracle sanity | [LazyOracle](/contracts/lazy-oracle) | `updateSanityParams()` | `UPDATE_SANITY_PARAMS_ROLE` | LazyOracle | Aragon Agent | Unassigned |
+| Oracle daemon config | [OracleDaemonConfig](/contracts/oracle-daemon-config) | `setConfig()` | `CONFIG_MANAGER_ROLE` | OracleDaemonConfig | Aragon Agent | Unassigned |
+| VEB report data submission | [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | `submitReportData()` | `SUBMIT_DATA_ROLE` | ValidatorsExitBusOracle | Aragon Agent | Unassigned |
 
 ### Oracle consensus
 
@@ -78,8 +80,8 @@ Oracle reports are submitted through HashConsensus contracts:
 
 | Oracle | HashConsensus Address |
 |--------|----------------------|
-| AccountingOracle | [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288) |
-| ValidatorsExitBusOracle | [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a) |
+| [AccountingOracle](/contracts/accounting-oracle) | [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288) |
+| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a) |
 
 ## StakingRouter and modules
 
@@ -87,10 +89,10 @@ Key levers on [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621
 
 | Lever | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | ---- | ------------- | ---------- | ------ |
-| Module registry | `addStakingModule()`, `updateStakingModule()`, `setStakingModuleStatus()` | `STAKING_MODULE_MANAGE_ROLE` | [StakingRouter](/contracts/staking-router) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
-| Module fees | `setStakingModuleFees()` | `STAKING_MODULE_MANAGE_ROLE` | [StakingRouter](/contracts/staking-router) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
-| Withdrawal credentials | `setWithdrawalCredentials()` | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | [StakingRouter](/contracts/staking-router) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| Module unvetting | `decreaseStakingModuleVettedKeysCountByNodeOperator()` | `STAKING_MODULE_UNVETTING_ROLE` | [StakingRouter](/contracts/staking-router) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD`](https://etherscan.io/address/0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD) |
+| Module registry | `addStakingModule()`, `updateStakingModule()`, `setStakingModuleStatus()` | `STAKING_MODULE_MANAGE_ROLE` | StakingRouter | Aragon Agent | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+| Module fees | `setStakingModuleFees()` | `STAKING_MODULE_MANAGE_ROLE` | StakingRouter | Aragon Agent | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+| Withdrawal credentials | `setWithdrawalCredentials()` | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | StakingRouter | Aragon Agent | Unassigned |
+| Module unvetting | `decreaseStakingModuleVettedKeysCountByNodeOperator()` | `STAKING_MODULE_UNVETTING_ROLE` | StakingRouter | Aragon Agent | [DepositSecurityModule](/contracts/deposit-security-module) ([`0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD`](https://etherscan.io/address/0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD)) |
 
 ### Active staking modules
 
@@ -106,9 +108,9 @@ Key levers on [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) ([`0x8
 
 | Lever | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | ---- | ------------- | ---------- | ------ |
-| Pause | `pauseFor()` | `PAUSE_ROLE` | [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912), [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) |
-| Resume | `resume()` | `RESUME_ROLE` | [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) |
-| Bunker mode | `setBunkerMode()` | Internally managed | — | — | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
+| Pause | `pauseFor()` | `PAUSE_ROLE` | WithdrawalQueueERC721 | Aragon Agent | GateSeal Withdrawal Queue ([`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)), Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
+| Resume | `resume()` | `RESUME_ROLE` | WithdrawalQueueERC721 | Aragon Agent | Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
+| Bunker mode | `onOracleReport()` | `ORACLE_ROLE` | WithdrawalQueueERC721 | Aragon Agent | AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) |
 
 ## stVaults (VaultHub + OperatorGrid)
 
@@ -118,12 +120,12 @@ Key levers on [VaultHub](/contracts/vault-hub) ([`0x1d201BE093d847f6446530Efb0E8
 
 | Lever | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | ---- | ------------- | ---------- | ------ |
-| Vault connections | `connectVault()`, `updateConnection()`, `disconnect()` | `VAULT_MASTER_ROLE` | [VaultHub](/contracts/vault-hub) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| Redemptions | `setLiabilitySharesTarget()` | `REDEMPTION_MASTER_ROLE` | [VaultHub](/contracts/vault-hub) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | Unassigned |
-| Bad debt handling | `socializeBadDebt()`, `internalizeBadDebt()` | `BAD_DEBT_MASTER_ROLE` | [VaultHub](/contracts/vault-hub) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) |
-| Forced exits | `forceValidatorExit()` | `VALIDATOR_EXIT_ROLE` | [VaultHub](/contracts/vault-hub) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) |
-| Pause | `pauseFor()` | `PAUSE_ROLE` | [VaultHub](/contracts/vault-hub) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c), [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) |
-| Resume | `resume()` | `RESUME_ROLE` | [VaultHub](/contracts/vault-hub) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) |
+| Vault connections | `connectVault()`, `updateConnection()`, `disconnect()` | `VAULT_MASTER_ROLE` | VaultHub | Aragon Agent | Unassigned |
+| Redemptions | `setLiabilitySharesTarget()` | `REDEMPTION_MASTER_ROLE` | VaultHub | Aragon Agent | Unassigned |
+| Bad debt handling | `socializeBadDebt()`, `internalizeBadDebt()` | `BAD_DEBT_MASTER_ROLE` | VaultHub | Aragon Agent | Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)) |
+| Forced exits | `forceValidatorExit()` | `VALIDATOR_EXIT_ROLE` | VaultHub | Aragon Agent | Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)) |
+| Pause | `pauseFor()` | `PAUSE_ROLE` | VaultHub | Aragon Agent | GateSeal VaultHub+PDG ([`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)), Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
+| Resume | `resume()` | `RESUME_ROLE` | VaultHub | Aragon Agent | Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
 
 ### OperatorGrid
 
@@ -131,10 +133,10 @@ Key levers on [OperatorGrid](/contracts/operator-grid) ([`0xC69685E89Cefc327b43B
 
 | Lever | Mutators | Role | Role registry | Role admin | Holder |
 | ----- | -------- | ---- | ------------- | ---------- | ------ |
-| Group registration | `registerGroup()`, `updateGroupShareLimit()` | `REGISTRY_ROLE` | [OperatorGrid](/contracts/operator-grid) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977), [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) |
-| Tier management | `registerTiers()`, `alterTiers()` | `REGISTRY_ROLE` | [OperatorGrid](/contracts/operator-grid) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977), [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) |
-| Vault fees | `updateVaultFees()` | `REGISTRY_ROLE` | [OperatorGrid](/contracts/operator-grid) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977), [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) |
-| Jail status | `setVaultJailStatus()` | `REGISTRY_ROLE` | [OperatorGrid](/contracts/operator-grid) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977), [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) |
+| Group registration | `registerGroup()`, `updateGroupShareLimit()` | `REGISTRY_ROLE` | OperatorGrid | Aragon Agent | Easy Track EVMScript Executor ([`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)), Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)) |
+| Tier management | `registerTiers()`, `alterTiers()` | `REGISTRY_ROLE` | OperatorGrid | Aragon Agent | Easy Track EVMScript Executor ([`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)), Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)) |
+| Vault fees | `updateVaultFees()` | `REGISTRY_ROLE` | OperatorGrid | Aragon Agent | Easy Track EVMScript Executor ([`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)), Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)) |
+| Jail status | `setVaultJailStatus()` | `REGISTRY_ROLE` | OperatorGrid | Aragon Agent | Easy Track EVMScript Executor ([`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)), Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27)) |
 ## Dual Governance
 
 Lido V3 includes a Dual Governance system allowing stETH holders to veto DAO decisions:
