@@ -14,7 +14,7 @@ VaultHub is the coordinator between individual StakingVaults and the Lido protoc
 - **Rebalancing**: when vaults become unhealthy, anyone can trigger forced rebalancing using available vault funds
 - **Fee settlement**: Lido fees accrue on vaults and can be settled permissionlessly
 - **Bad debt handling**: governance can socialize bad debt to other vaults or internalize it as protocol loss
-- **Connect deposit lock**: VaultHub enforces the 1 ETH connect deposit as minimal reserve (Dashboard does not escrow funds)
+- **Connect deposit lock**: VaultHub enforces the 1 ETH connect deposit as minimal reserve
 - **Beacon chain deposits auto-pause**: deposits are automatically paused when vaults have outstanding obligations
 
 ## Inherits
@@ -637,8 +637,8 @@ event BadDebtWrittenOffToBeInternalized(address indexed vault, uint256 badDebtSh
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
-- [LazyOracle](/contracts/lazy-oracle.md)
-- [OperatorGrid](/contracts/operator-grid.md)
-- [Dashboard](/contracts/dashboard.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
+- [StakingVault](/contracts/staking-vault)
+- [LazyOracle](/contracts/lazy-oracle)
+- [OperatorGrid](/contracts/operator-grid)
+- [Dashboard](/contracts/dashboard)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
