@@ -363,7 +363,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Quorum:** 3/6 (4/7 on Unichain)
 
-**Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
+**Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/30)
 
 **List of signers:**
 
@@ -650,7 +650,7 @@ A Committee without multisig.
 **Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget.
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
-**Initial list of signers (as of Feb 10, 2025):** [IPFS](https://ipfs.io/ipfs/QmQnaVbozzBwnskfGbZqKWsckkEWN9QZqT8uqrJNUQysJ6)
+**Initial list of signers (as of Mar 11, 2025):** [IPFS](https://ipfs.io/ipfs/QmQnaVbozzBwnskfGbZqKWsckkEWN9QZqT8uqrJNUQysJ6)
 
 **Quorum:** 5/9
 
@@ -701,7 +701,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 **Purpose of the multisig:** The Lido Ecosystem BORG Foundation utilizes this multisig to hold and manage the Lido Ecosystem BORG’s operational budget.
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
-**Initial list of signers (as of Feb 10, 2025):** [IPFS](https://ipfs.io/ipfs/QmfCmQEcv1qsWAv8qhZcHtydPYU6RENzwU4CfmXo5rud3E)
+**Initial list of signers (as of Mar 19, 2025):** [IPFS](https://ipfs.io/ipfs/QmfCmQEcv1qsWAv8qhZcHtydPYU6RENzwU4CfmXo5rud3E)
 
 **Quorum:** 4/7
 
@@ -968,7 +968,7 @@ Tiebreaker Condition B: the last time governance exited Normal or Veto Cooldown 
 **Purpose of the multisig:** The committee is established to ensure protocol security and resilience, and enable stake growth and DAO fee efficiency under the stVault risk framework.
 Committee's multisig is designated to configure stVaults and/or Node Operator Tiers, within the confines of the Easy Track optimistic governance process: set the reserve ratio for specific tiers or vaults, define the default and custom tier grids for node operators, set DAO fee values for specific vaults and for tiers within a given node operator’s grid, manage bad debt compensation  between vaults/tiers in complex cases like mass slashing.
 
-**Initial list of signers (as of Sep 16, 2025):** [IPFS](https://ipfs.io/ipfs/QmXPbAoZQjnPSrPVwZj5SMgfQBEBeFp5Pf2UmHHY7eQzRy)
+**Initial list of signers (as of Sep 22, 2025):** [IPFS](https://ipfs.io/ipfs/QmXPbAoZQjnPSrPVwZj5SMgfQBEBeFp5Pf2UmHHY7eQzRy)
 
 **Quorum:** 4/7
 
