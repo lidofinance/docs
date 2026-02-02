@@ -5,9 +5,6 @@
 
 PredepositGuarantee (PDG) mitigates deposit frontrunning by requiring a node operator guarantee and validator withdrawal credentials proofs (EIP-4788) before activating staged deposits.
 
-:::warning
-:::
-
 ## What is PredepositGuarantee?
 
 PDG enables trust-minimized deposits for stVaults:
