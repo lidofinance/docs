@@ -6,7 +6,6 @@
 
 MEV-Boost relay allowed list is a simple contract storing a list of relays that have been approved by DAO for use in [MEV-Boost](https://github.com/flashbots/mev-boost) setups. The data from the contract is used to generate a configuration file that contains a list of relays that should be connected to by the Node Operators participating in Lido.
 
-
 ## View methods
 
 ### get_owner()
@@ -48,6 +47,7 @@ Retrieves all of the currently allowed relays.
 @external
 def get_relays() -> DynArray[Relay, MAX_NUM_RELAYS]
 ```
+
 ### get_relay_by_uri()
 
 Retrieves the relay with the provided uri.
@@ -61,7 +61,7 @@ def get_relay_by_uri(relay_uri: String[MAX_STRING_LENGTH]) -> bool
 #### Parameters:
 
 | Name        | Type                        | Description      |
-|-------------|-----------------------------|------------------|
+| ----------- | --------------------------- | ---------------- |
 | `relay_uri` | `String[MAX_STRING_LENGTH]` | URI of the relay |
 
 :::note
@@ -98,7 +98,7 @@ def add_relay(
 #### Parameters:
 
 | Name           | Type                        | Description                                                |
-|----------------|-----------------------------|------------------------------------------------------------|
+| -------------- | --------------------------- | ---------------------------------------------------------- |
 | `uri`          | `String[MAX_STRING_LENGTH]` | URI of the relay                                           |
 | `operator`     | `String[MAX_STRING_LENGTH]` | Name of the relay operator                                 |
 | `is_mandatory` | `bool`                      | If the relay is mandatory for usage for Lido Node Operator |
@@ -106,10 +106,11 @@ def add_relay(
 
 :::note
 Reverts if any of the following is true:
+
 - called by anyone except the owner or manager
 - relay with provided `uri` already allowed
 - `uri` is empty
-:::
+  :::
 
 ### remove_relay()
 
@@ -123,17 +124,17 @@ def remove_relay(uri: String[MAX_STRING_LENGTH]):
 
 #### Parameters:
 
-|  Name  |   Type                      | Description      |
-|--------|-----------------------------|------------------|
-| `uri`  | `String[MAX_STRING_LENGTH]` | URI of the relay |
+| Name  | Type                        | Description      |
+| ----- | --------------------------- | ---------------- |
+| `uri` | `String[MAX_STRING_LENGTH]` | URI of the relay |
 
 :::note
 Reverts if any of the following is true:
+
 - called by anyone except the owner or manager
 - if relay with provided `uri` is not allowed
 - `uri` is empty
-:::
-
+  :::
 
 ### change_owner()
 
@@ -146,16 +147,17 @@ def change_owner(owner: address)
 
 #### Parameters:
 
-|  Name   |   Type    | Description              |
-|---------|-----------|--------------------------|
+| Name    | Type      | Description              |
+| ------- | --------- | ------------------------ |
 | `owner` | `address` | Address of the new owner |
 
 :::note
 Reverts if any of the following is true:
+
 - called by anyone except the current owner
 - `owner` is the current owner
 - `owner` is zero address
-:::
+  :::
 
 ### set_manager()
 
@@ -169,15 +171,16 @@ def set_manager(manager: address)
 #### Parameters:
 
 | Name    | Type    | Description                |
-|---------|---------|----------------------------|
+| ------- | ------- | -------------------------- |
 | manager | address | Address of the new manager |
 
 :::note
 Reverts if any of the following is true:
+
 - called by anyone except the current owner
 - `manager` is equal to the previously set value
 - `manager` is zero address
-:::
+  :::
 
 ### dismiss_manager()
 
@@ -190,10 +193,10 @@ def dismiss_manager()
 
 :::note
 Reverts if any of the following is true:
+
 - called by anyone except the current owner
 - no `manager` was set previously
-:::
-
+  :::
 
 ### recover_erc20()
 
@@ -206,7 +209,8 @@ def recover_erc20(token: address, amount: uint256, recipient: address)
 
 :::note
 Reverts if any of the following is true:
+
 - called by anyone except the owner
 - ERC20 transfer reverted
 - `recipient` is zero address
-:::
+  :::

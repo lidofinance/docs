@@ -61,7 +61,7 @@ struct ReportData {
 **Requests data**
 
 - `requestsCount` — Total number of validator exit requests in this report. Must not be greater
-         than the limit enforced by `OracleReportSanityChecker.checkExitBusOracleReport`.
+  than the limit enforced by `OracleReportSanityChecker.checkExitBusOracleReport`.
 - `dataFormat` — Format of the validator exit requests data. Currently, only the `DATA_FORMAT_LIST=1` value is supported.
 - `data` — Validator exit requests data. Can differ based on the data format, see the constant defining a specific data format [here](#data_format_list) for more info.
 
@@ -80,9 +80,9 @@ Each validator exit request is described by the following 64-byte array:
     |  moduleId  |  nodeOpId  |  validatorIndex  | validatorPubkey |
 ```
 
- All requests are tightly packed into a byte array where requests follow
- one another without any separator or padding, and passed to the `data`
- field of the report structure.
+All requests are tightly packed into a byte array where requests follow
+one another without any separator or padding, and passed to the `data`
+field of the report structure.
 
 Requests must be sorted in the ascending order by the following compound
 key: `(moduleId, nodeOpId, validatorIndex)`.
@@ -215,7 +215,7 @@ Returns the current consensus version expected by the oracle contract.
 
 :::note
 Consensus version must change every time consensus rules change, meaning that
- an oracle looking at the same reference slot would calculate a different hash.
+an oracle looking at the same reference slot would calculate a different hash.
 :::
 
 ```solidity
@@ -240,12 +240,12 @@ function getLastProcessingRefSlot() external view returns (uint256);
 
 #### Returns
 
-| Name                     | Type      | Description                                                |
-| ------------------------ | --------- | ---------------------------------------------------------- |
-| `hash`                   | `bytes32` | The last reported hash                 |
-| `refSlot`                | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. If the slot contains a block, the state should include all changes from that block.                 |
-| `processingDeadlineTime` | `uint256` | Timestamp of the last slot at which a report can be reported and processed |
-| `processingStarted`      | `bool`    | Has the processing of the report been started or not                       |
+| Name                     | Type      | Description                                                                                                                                                                                                                                                   |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hash`                   | `bytes32` | The last reported hash                                                                                                                                                                                                                                        |
+| `refSlot`                | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. If the slot contains a block, the state should include all changes from that block. |
+| `processingDeadlineTime` | `uint256` | Timestamp of the last slot at which a report can be reported and processed                                                                                                                                                                                    |
+| `processingStarted`      | `bool`    | Has the processing of the report been started or not                                                                                                                                                                                                          |
 
 ### getResumeSinceTimestamp()
 
@@ -279,10 +279,10 @@ function submitReportData(ReportData calldata data, uint256 contractVersion) ext
 
 #### Parameters
 
-| Name        | Type      | Description                                                           |
-| ----------- | --------- | --------------------------------------------------------------------- |
+| Name              | Type         | Description                                                    |
+| ----------------- | ------------ | -------------------------------------------------------------- |
 | `data`            | `ReportData` | The report data. See [`ReportData`](#report-data) for details. |
-| `contractVersion` | `uint256`    | Expected version of the oracle contract.                     |
+| `contractVersion` | `uint256`    | Expected version of the oracle contract.                       |
 
 #### Reverts
 
@@ -298,11 +298,11 @@ function submitReportData(ReportData calldata data, uint256 contractVersion) ext
 - Reverts with `UnexpectedRequestsDataLength()` if the length of the provided packed data is not equal `data.requestsCount`
 - Reverts with `InvalidRequestsDataSortOrder` when the provided data is not sorted
 - Reverts with `NodeOpValidatorIndexMustIncrease(
-        uint256 moduleId,
-        uint256 nodeOpId,
-        uint256 prevRequestedValidatorIndex,
-        uint256 requestedValidatorIndex
-    )` if `requested validator index <= last requested index` from the same module
+      uint256 moduleId,
+      uint256 nodeOpId,
+      uint256 prevRequestedValidatorIndex,
+      uint256 requestedValidatorIndex
+  )` if `requested validator index <= last requested index` from the same module
 
 ### pauseFor()
 
@@ -334,8 +334,8 @@ function pauseUntil(uint256 _pauseUntilInclusive) external;
 
 #### Parameters
 
-| Name                   | Type      | Description                    |
-| ---------------------- | --------- | ------------------------------ |
+| Name                   | Type      | Description                                |
+| ---------------------- | --------- | ------------------------------------------ |
 | `_pauseUntilInclusive` | `uint256` | the last second to pause until (inclusive) |
 
 #### Reverts
@@ -443,7 +443,6 @@ Emits when the contract is resumed by the `resume` call.
 event Resumed();
 ```
 
-
 ### setMaxValidatorsPerReport()
 
 Sets the hard cap for the number of validator exit requests that can be processed in a single report. This cap is applied on top of the OracleReportSanityChecker limits.
@@ -451,10 +450,11 @@ Sets the hard cap for the number of validator exit requests that can be processe
 ```solidity
 function setMaxValidatorsPerReport(uint256 maxValidatorsPerReport) external;
 ```
+
 **Parameters**
 
 | Name                     | Type      | Description                                                                     |
-|--------------------------|-----------|---------------------------------------------------------------------------------|
+| ------------------------ | --------- | ------------------------------------------------------------------------------- |
 | `maxValidatorsPerReport` | `uint256` | The maximum number of exit requests allowed per report. Must be greater than 0. |
 
 ### getMaxValidatorsPerReport()
@@ -468,14 +468,12 @@ function getMaxValidatorsPerReport() external view returns (uint256);
 **Response**
 
 | Name                     | Type      | Description                                                                     |
-|--------------------------|-----------|---------------------------------------------------------------------------------|
+| ------------------------ | --------- | ------------------------------------------------------------------------------- |
 | `maxValidatorsPerReport` | `uint256` | The maximum number of exit requests allowed per report. Must be greater than 0. |
-
 
 ### triggerExits()
 
 Triggers exits for the specified validators requested to exit by VEBO or other permissioned sources.
-
 
 ```solidity
 function triggerExits(
@@ -488,7 +486,7 @@ function triggerExits(
 **Parameters**
 
 | Name              | Type               | Description                                                          |
-|-------------------|--------------------|----------------------------------------------------------------------|
+| ----------------- | ------------------ | -------------------------------------------------------------------- |
 | `exitsData`       | `ExitRequestsData` | Tightly packed list of exit requests in the DATA_FORMAT_LIST format. |
 | `exitDataIndexes` | `uint256[]`        | Item indexes in `exitData` array to be exited via Trigger Exit.      |
 | `refundRecipient` | `address`          | Refund recipient for exceed fees for 7002 contract.                  |
@@ -504,7 +502,7 @@ function submitExitRequestsHash(bytes32 exitRequestsHash, uint256 contractVersio
 **Parameters**
 
 | Name               | Type      | Description                                                                                                |
-|--------------------|-----------|------------------------------------------------------------------------------------------------------------|
+| ------------------ | --------- | ---------------------------------------------------------------------------------------------------------- |
 | `exitRequestsHash` | `bytes32` | keccak256 hash of the ABI-encoded exit requests payload to be submitted later via `submitExitRequestsData` |
 
 ### submitExitRequestsData()
@@ -512,6 +510,7 @@ function submitExitRequestsHash(bytes32 exitRequestsHash, uint256 contractVersio
 Submits the actual exit requests payload previously pre-committed by submitExitRequestsHash. Verifies the hash, validates, applies limits and emits exit events.
 
 Structure:
+
 ```solidity
 struct ExitRequestsData {
   bytes data;
@@ -526,7 +525,7 @@ function submitExitRequestsData(ExitRequestsData calldata request) external;
 **Parameters**
 
 | Name         | Type      | Description                                                          |
-|--------------|-----------|----------------------------------------------------------------------|
+| ------------ | --------- | -------------------------------------------------------------------- |
 | `data`       | `bytes`   | Tightly packed list of exit requests in the DATA_FORMAT_LIST format. |
 | `dataFormat` | `uint256` | Data format. Currently must be equal to DATA_FORMAT_LIST (1)         |
 
@@ -541,7 +540,7 @@ function getExitRequestLimitFullInfo() external view;
 **Returns:**
 
 | Name                        | Type      | Description                                                                               |
-|-----------------------------|-----------|-------------------------------------------------------------------------------------------|
+| --------------------------- | --------- | ----------------------------------------------------------------------------------------- |
 | `_maxExitRequestsLimit`     | `uint256` | Maximum exit requests limit                                                               |
 | `_exitsPerFrame`            | `uint256` | The number of exits that can be restored per frame                                        |
 | `_frameDurationInSec`       | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored |
@@ -563,7 +562,7 @@ function setExitRequestLimit(
 **Parameters:**
 
 | Name                   | Type      | Description                                                                                |
-|------------------------|-----------|--------------------------------------------------------------------------------------------|
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------ |
 | `maxExitRequestsLimit` | `uint256` | The maximum number of exit requests.                                                       |
 | `exitsPerFrame`        | `uint256` | The number of exits that can be restored per frame.                                        |
 | `frameDurationInSec`   | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored. |

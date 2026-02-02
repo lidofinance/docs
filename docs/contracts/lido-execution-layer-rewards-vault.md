@@ -35,9 +35,9 @@ function withdrawRewards(uint256 _maxAmount) external returns (uint256 amount)
 
 #### Parameters:
 
-| Name         | Type      | Description                            |
-| ------------ | --------- | -------------------------------------- |
-| `_maxAmount` | `uint256` | Max amount of ETH to withdraw          |
+| Name         | Type      | Description                   |
+| ------------ | --------- | ----------------------------- |
+| `_maxAmount` | `uint256` | Max amount of ETH to withdraw |
 
 ### recoverERC20()
 
@@ -46,17 +46,16 @@ currently belonging to the vault contract address to the Lido treasury address.
 
 Emits the `ERC20Recovered` event.
 
-
 ```sol
 function recoverERC20(address _token, uint256 _amount) external
 ```
 
 #### Parameters:
 
-| Name       | Type      | Description             |
-| ---------- | --------- | ----------------------- |
-| `_token`   | `address` | ERC20-compatible token  |
-| `_amount`  | `uint256` | token amount to recover |
+| Name      | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| `_token`  | `address` | ERC20-compatible token  |
+| `_amount` | `uint256` | token amount to recover |
 
 ### recoverERC721()
 

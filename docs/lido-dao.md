@@ -15,6 +15,7 @@ The DAO will accumulate service fees from Lido, which is funnelled into the insu
 ## Functions
 
 Lido is managed by the Lido DAO. The DAO members govern Lido to ensure its efficiency and stability. The Lido DAO should do the following:
+
 - Build, deploy, update and decide on key parameters of liquid staking protocols, approve incentives for parties that contribute towards DAO’s goals
 - Node operators management. Assign initial DAO-vetted node operators, scout and qualify new node operators and penalise the existing ones slashed by chains rules
 - Approve LEGO grants to support different research and so initiatives protocol guilds
@@ -22,10 +23,9 @@ Lido is managed by the Lido DAO. The DAO members govern Lido to ensure its effic
 - Bug bounty program, respond to emergency
 - Accumulation of service fees from Lido, which can be funnelled into the insurance and development funds, distributed by the DAO.
 
-
 ## Governance
 
-The `LDO` token governs all Lido DAO governance and network decisions to ensure its prolonged stability and decentralised decision-making to facilitate the growth of fair, and transparent liquid staking.  The `LDO` contract address - [`0x5a98fcbea516cf06857215779fd812ca3bef1b32`](https://etherscan.io/address/0x5a98fcbea516cf06857215779fd812ca3bef1b32).
+The `LDO` token governs all Lido DAO governance and network decisions to ensure its prolonged stability and decentralised decision-making to facilitate the growth of fair, and transparent liquid staking. The `LDO` contract address - [`0x5a98fcbea516cf06857215779fd812ca3bef1b32`](https://etherscan.io/address/0x5a98fcbea516cf06857215779fd812ca3bef1b32).
 
 > 📝 For more detailed information about governance, please, check out the [Governance](https://lido.fi/governance) page.
 

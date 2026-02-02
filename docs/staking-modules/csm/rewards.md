@@ -3,6 +3,7 @@
 ![rewards-1](../../../static/img/csm/rewards-1.png)
 
 There are two types of rewards for CSM Node Operators:
+
 - **Node Operator rewards**
 - **Bond rewards**
 
@@ -18,7 +19,7 @@ Node Operator rewards come from the LoE protocol's share of the Consensus and Ex
 
 ![rewards-2](../../../static/img/csm/rewards-2.png)
 
-The overall equation for the total rewards is as follows: totalRewards = validatorEffectiveBalance * networkAPR * moduleFee + bondAmount * shareRateChange. The [supplementary post](https://research.lido.fi/t/bond-and-staking-fee-napkin-math/5999) provides more details.
+The overall equation for the total rewards is as follows: totalRewards = validatorEffectiveBalance _ networkAPR _ moduleFee + bondAmount \* shareRateChange. The [supplementary post](https://research.lido.fi/t/bond-and-staking-fee-napkin-math/5999) provides more details.
 
 A meaningful part of total rewards comes from [bond](./join-csm#bond) rebase. The [bond](./join-csm#bond) and the Node Operator rewards are combined before the claim. The final amount of rewards available for claiming is calculated as `totalBond + nodeOperatorRewards - bondRequired`. This approach also ensures that any missing [bond](./join-csm#bond) will be recouped by the protocol prior to a rewards claim.
 
@@ -28,8 +29,8 @@ Also, any excess [bond](./join-csm#bond) will be treated as a reward.
 
 ![rewards-4](../../../static/img/csm/rewards-4.png)
 
-
 ## Performance Oracle
+
 The Performance Oracle creates a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) with the allocation of the Node Operator rewards and delivers the root on-chain. To make the original tree available to users, it is published on [IPFS](https://ipfs.tech/) and [GitHub](https://github.com/lidofinance/csm-rewards). Instead of storing multiple roots, each new tree consists of all Node Operator rewards ever acquired by CSM Node Operators. Hence, only the latest tree is required to determine the reward allocation at any moment of time. The amount of rewards available for claiming can be calculated as `totalAcquiredRewards - claimedRewards`. `claimedRewards` are stored for each Node Operator in the `CSAccounting` contract to ensure correct accounting.
 
 The Performance Oracle calculates validators performance based on their **attestation, block proposal, and sync committee participation effectiveness**. The exact formulas for performance calculation can be found [here](https://hackmd.io/@lido/csm-v2-tech#Updated-CSM-Performance-Oracle-metric).

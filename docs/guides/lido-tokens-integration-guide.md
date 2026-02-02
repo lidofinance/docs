@@ -25,7 +25,6 @@ For easier DeFi integrations, `stETH` has a non-rebasable, value-accruing counte
 
 stETH (and therefore wstETH) can be obtained not only via direct staking in Lido Core and wrapping, but also via **Lido V3 stVaults (Staking Vaults)**: vault owners can mint `stETH` or `wstETH` backed by an stVault. **stETH minted via stVaults is the same canonical stETH token** as stETH minted via Lido Core. See [/run-on-lido/stvaults/](/run-on-lido/stvaults/) (especially the [integration overview](/run-on-lido/stvaults/tech-documentation/integration-overview)).
 
-
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
 
 - The most important on-chain [liquidity venues](https://dune.com/lido/wsteth-liquidity) include:
@@ -69,16 +68,15 @@ For an up-to-date list of networks and feed addresses, see [/deployed-contracts/
 - [BNB Chain](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645)
 - [Polygon PoS](https://data.chain.link/feeds/polygon/mainnet/wsteth-steth)
 - [zkSync Era](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
-:::note
-The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
-:::
+  :::note
+  The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
+  :::
 
 These feeds might be used to compose a target feed, e.g., for the `wstETH/USD` pair, see the following examples of AAVE v3 markets:
 
 - [Ethereum Mainnet `WstETHSynchronicityPriceAdapter`](https://etherscan.io/address/0x8b6851156023f4f5a66f68bea80851c3d905ac93#code)
 - [Optimism `CLSynchronicityPriceAdapterPegToBase`](https://optimistic.etherscan.io/address/0x80f2c02224a2e548fc67c0bf705ebfa825dd5439)
 - [Arbitrum `CLSynchronicityPriceAdapterPegToBase`](https://arbiscan.io/address/0x945fd405773973d286de54e44649cc0d9e264f78)
-
 
 ### LDO
 
@@ -143,7 +141,7 @@ The `share` is a basic unit representing the stETH holder's share in the total a
 Shares balance by stETH balance can be calculated by this formula:
 
 ```js
-shares[account] = balanceOf(account) * totalShares / totalPooledEther
+shares[account] = (balanceOf(account) * totalShares) / totalPooledEther
 ```
 
 #### 1-2 wei corner case
@@ -172,10 +170,10 @@ Any operation on stETH can be performed on shares directly, with no difference b
 
 The preferred way of operating stETH should be:
 
-1) get stETH token balance;
-2) convert stETH balance into shares balance and use it as a primary balance unit in your dApp;
-3) when any operation on the balance should be done, do it on the shares balance;
-4) when users interact with stETH, convert the shares balance back to stETH token balance.
+1. get stETH token balance;
+2. convert stETH balance into shares balance and use it as a primary balance unit in your dApp;
+3. when any operation on the balance should be done, do it on the shares balance;
+4. when users interact with stETH, convert the shares balance back to stETH token balance.
 
 Please note that 10% APR on shares balance and 10% APR on stETH token balance will ultimately result in different output values over time, because shares balance is stable, while stETH token balance changes eventually.
 
@@ -346,7 +344,7 @@ failure paths inside both `transfer` and `transferFrom` methods returning the `f
 It's critical to check the return status for external integrations as the ERC-20 token standard [requires](https://eips.ethereum.org/EIPS/eip-20#methods) to prevent various attack vectors (e.g. token deposits in vaults):
 
 > Callers MUST handle `false` from `returns (bool success)`. Callers MUST NOT assume that `false` is never returned!
-:::
+> :::
 
 ## ERC20Permit
 
@@ -475,7 +473,7 @@ Any other viable approach for mitigation might be used as well. As one more exam
     }
 ```
 
->NOTE: Since stETH is an essential token if the user requests a withdrawal using wstETH directly, the amount will be nominated in stETH on request creation.
+> NOTE: Since stETH is an essential token if the user requests a withdrawal using wstETH directly, the amount will be nominated in stETH on request creation.
 
 You can call `getClaimableEther(uint256[] _requestIds, uint256[] _hints)` to get the exact amount of eth that is reserved for the requests, where `_hints` can be found by calling `findCheckpointHints(__requestIds, 1, getLastCheckpointIndex())`. It will return a non-zero value only if the request is claimable (`isFinalized && !isClaimed`)
 
@@ -541,12 +539,14 @@ There exist a number of potential risks when staking using liquid staking protoc
 
 ### Smart contract security
 
-  There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-source, audited, and covered by an extensive bug bounty program to minimize this risk. To mitigate smart contract risks, all of the core Lido contracts are audited. Audit reports can be found [here](https://github.com/lidofinance/audits). Besides, Lido is covered with a massive Immunefi bug bounty program.
+There is an inherent risk that Lido could contain a smart contract vulnerability or bug. The Lido code is open-source, audited, and covered by an extensive bug bounty program to minimize this risk. To mitigate smart contract risks, all of the core Lido contracts are audited. Audit reports can be found [here](https://github.com/lidofinance/audits). Besides, Lido is covered with a massive Immunefi bug bounty program.
 
 ### Slashing risk
-  Validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimize this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
+
+Validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimize this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
 
 ### stToken price risk
-  Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
+
+Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
 
 The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist.

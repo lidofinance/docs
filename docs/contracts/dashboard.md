@@ -253,7 +253,7 @@ function confirmExpiry() external view returns (uint256)
 
 Returns the confirmation expiry period in seconds.
 
-### confirmation(bytes _callData, bytes32 _role)
+### confirmation(bytes \_callData, bytes32 \_role)
 
 ```solidity
 function confirmation(bytes memory _callData, bytes32 _role) external view returns (uint256)

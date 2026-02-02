@@ -99,7 +99,6 @@ Example below:
         💡 In Safe `0x6c9a6c4a39284e37ed1cf53d337577d14212a4870fb976a4366c693b939918d5` storage slot by default is used to store [fallback handler address](https://etherscan.io/address/0xf48f2B2d2a534e402487b3ee7C18c33Aec0Fe5e4), you can read more about it [here](https://help.safe.global/en/articles/40838-what-is-a-fallback-handler-and-how-does-it-relate-to-safe) and find this address in the [official documentation](https://docs.safe.global/advanced/smart-account-supported-networks/v1.3.0#ethereum-mainnet).
         :::
 
-
 ### Next Steps if a Suspicious Multisig is Found
 
 If your analysis reveals suspicious activity within a multisig, follow these steps to ensure security:
@@ -110,8 +109,9 @@ If your analysis reveals suspicious activity within a multisig, follow these ste
 2. **Investigate**. Conduct a thorough investigation into the source of the multisig and those who proposed its use
 
 **For Existing Multisigs**:
+
 1. **Migrate to a new multisig**.
-    If a currently used multisig is found to be suspicious, create a new multisig with the same set of public signers and transfer all assets to it
+   If a currently used multisig is found to be suspicious, create a new multisig with the same set of public signers and transfer all assets to it
 
 2. **Identify malicious actors**. Investigate and identify any individuals responsible for the malicious transactions
 

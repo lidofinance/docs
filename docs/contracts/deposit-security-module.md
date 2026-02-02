@@ -14,7 +14,7 @@ To make a deposit, we propose to collect a quorum of 4/6 of the signatures of th
 
 The guardian himself, or anyone else who has a signed pause message, can call `pauseDeposits` that pauses `DepositSecurityModule`.
 
-To prevent a replay attack, the guardians sign the block number when  malicious predeposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
+To prevent a replay attack, the guardians sign the block number when malicious predeposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
 Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
 
@@ -62,9 +62,9 @@ function isGuardian(address addr) external view returns (bool);
 
 #### Parameters
 
-| Name   | Type      | Description                        |
-| ------ | --------- | ---------------------------------- |
-| `addr` | `address` | Valid ETH-1 address                |
+| Name   | Type      | Description         |
+| ------ | --------- | ------------------- |
+| `addr` | `address` | Valid ETH-1 address |
 
 ### getGuardianIndex()
 
@@ -76,9 +76,9 @@ function getGuardianIndex(address addr) external view returns (int256);
 
 #### Parameters
 
-| Name   | Type      | Description                        |
-| ------ | --------- | ---------------------------------- |
-| `addr` | `address` | Valid ETH-1 address                |
+| Name   | Type      | Description         |
+| ------ | --------- | ------------------- |
+| `addr` | `address` | Valid ETH-1 address |
 
 ### canDeposit()
 
@@ -111,7 +111,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `newValue` is zero address.
-:::
+  :::
 
 #### Parameters
 
@@ -132,7 +132,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `newValue` is 0 (zero).
-:::
+  :::
 
 #### Parameters
 
@@ -152,13 +152,13 @@ function setGuardianQuorum(uint256 newValue) external;
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
-:::
+  :::
 
 #### Parameters
 
-| Name        | Type      | Description      |
-| ----------- | --------- | ---------------- |
-| `newValue`  | `uint256` | New quorum value |
+| Name       | Type      | Description      |
+| ---------- | --------- | ---------------- |
+| `newValue` | `uint256` | New quorum value |
 
 ### addGuardian()
 
@@ -173,7 +173,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `addr` is already a guardian.
-:::
+  :::
 
 #### Parameters
 
@@ -195,11 +195,11 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - any of the `addresses` is already a guardian.
-:::
+  :::
 
 #### Parameters
 
-| Name        | Type        | Description                                          |
+| Name        | Type        | Description                 |
 | ----------- | ----------- | --------------------------- |
 | `addresses` | `address[]` | Array of Guardian addresses |
 | `newQuorum` | `uint256`   | New Quorum value            |
@@ -217,7 +217,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `addr` is not a guardian.
-:::
+  :::
 
 #### Parameters
 
@@ -231,13 +231,13 @@ Reverts if any of the following is true:
 Pauses deposits if both conditions are satisfied (reverts otherwise):
 
 1. The function is called by the guardian with index guardianIndex OR sig
-      is a valid signature by the guardian with index guardianIndex of the data
-      defined below.
+   is a valid signature by the guardian with index guardianIndex of the data
+   defined below.
 
 2. `block.number - blockNumber <= pauseIntentValidityPeriodBlocks`
 
- The signature, if present, must be produced for keccak256 hash of the following
- message (each component taking 32 bytes):
+The signature, if present, must be produced for keccak256 hash of the following
+message (each component taking 32 bytes):
 
 | PAUSE_MESSAGE_PREFIX | blockNumber |
 
@@ -252,10 +252,10 @@ function pauseDeposits(uint256 blockNumber, Signature memory sig) external;
 
 #### Parameters
 
-| Name              | Type        | Description                                                                          |
-| ----------------- | ----------- | ------------------------------------------------------------------------------------ |
-| `blockNumber`     | `uint256`   | Block number with malicious predeposits have been observed by the guardian           |
-| `sig`             | `Signature` | Short ECDSA guardian signature as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
+| Name          | Type        | Description                                                                                      |
+| ------------- | ----------- | ------------------------------------------------------------------------------------------------ |
+| `blockNumber` | `uint256`   | Block number with malicious predeposits have been observed by the guardian                       |
+| `sig`         | `Signature` | Short ECDSA guardian signature as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unpauseDeposits()
 
@@ -270,7 +270,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner.
 - Deposits not paused.
-:::
+  :::
 
 ### depositBufferedEther()
 
@@ -285,7 +285,7 @@ Reverts if any of the following is true:
 4. An invalid or non-guardian signature received;
 5. block.number - StakingModule.getLastDepositBlock() < minDepositBlockDistance;
 6. blockhash(blockNumber) != blockHash.
-:::
+   :::
 
 Signatures must be sorted in ascending order by the index of the guardian. Each signature must
 be produced for the keccak256 hash of the following message (each component taking 32 bytes):
@@ -307,7 +307,7 @@ function depositBufferedEther(
 #### Parameters
 
 | Name                       | Type          | Description                                                                                        |
-|----------------------------|---------------|----------------------------------------------------------------------------------------------------|
+| -------------------------- | ------------- | -------------------------------------------------------------------------------------------------- |
 | `blockNumber`              | `uint256`     | Number of the current deposit block                                                                |
 | `blockHash`                | `bytes32`     | Hash of the current deposit block                                                                  |
 | `depositRoot`              | `bytes32`     | Deposit root of the Ethereum DepositContract                                                       |
@@ -315,7 +315,6 @@ function depositBufferedEther(
 | `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                                      |
 | `depositCalldata`          | `bytes`       | Staking module deposit calldata                                                                    |
 | `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
-
 
 ### unvetSigningKeys()
 
@@ -330,7 +329,7 @@ Reverts if any of the following is true:
 4. the number of node operators is greater than maxOperatorsPerUnvetting;
 5. the signature is invalid or the signer is not a guardian;
 6. blockHash is zero or not equal to the blockhash(blockNumber).
-:::
+   :::
 
 The signature, if present, must be produced for the keccak256 hash of the following message:
 | UNVET_MESSAGE_PREFIX | blockNumber | blockHash | stakingModuleId | nonce | nodeOperatorIds | vettedSigningKeysCounts |
@@ -350,7 +349,7 @@ function unvetSigningKeys(
 #### Parameters
 
 | Name                      | Type        | Description                                                                                        |
-|---------------------------|-------------|----------------------------------------------------------------------------------------------------|
+| ------------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
 | `blockNumber`             | `uint256`   | Number of the current deposit block                                                                |
 | `blockHash`               | `bytes32`   | Hash of the current deposit block                                                                  |
 | `stakingModuleId`         | `uint256`   | Id of the staking module to deposit with                                                           |

@@ -25,10 +25,10 @@ function verifyValidatorExitDelay(
 
 #### Parameters
 
-| Name                 | Type                        | Description                                                                    |
-|----------------------|-----------------------------|--------------------------------------------------------------------------------|
-| `beaconBlock`        | `ProvableBeaconBlockHeader` | Header of the beacon block root with block timestamp                           |
-| `validatorWitnesses` | `ValidatorWitness[]`        | Validators' state at the specified slot with proofs from the EL and CL        |
+| Name                 | Type                        | Description                                                                        |
+| -------------------- | --------------------------- | ---------------------------------------------------------------------------------- |
+| `beaconBlock`        | `ProvableBeaconBlockHeader` | Header of the beacon block root with block timestamp                               |
+| `validatorWitnesses` | `ValidatorWitness[]`        | Validators' state at the specified slot with proofs from the EL and CL             |
 | `exitRequests`       | `ExitRequestData`           | Data submitted to the VEB. Used to verify that the validator was requested to exit |
 
 ### verifyHistoricalValidatorExitDelay
@@ -45,9 +45,9 @@ function verifyHistoricalValidatorExitDelay(
 ) external;
 ```
 
-| Name                 | Type                        | Description                                                                         |
-|----------------------|-----------------------------|-------------------------------------------------------------------------------------|
-| `beaconBlock`        | `ProvableBeaconBlockHeader` | Header of the beacon block root with block timestamp                                |
-| `oldBlock`           | `HistoricalHeaderWitness`   | Historical block header witness data and its proof                                   |
+| Name                 | Type                        | Description                                                                              |
+| -------------------- | --------------------------- | ---------------------------------------------------------------------------------------- |
+| `beaconBlock`        | `ProvableBeaconBlockHeader` | Header of the beacon block root with block timestamp                                     |
+| `oldBlock`           | `HistoricalHeaderWitness`   | Historical block header witness data and its proof                                       |
 | `validatorWitnesses` | `ValidatorWitness[]`        | Array of validator witnesses confirming they have not yet exited in `beaconBlock.header` |
-| `exitRequests`       | `ExitRequestData`           | Data submitted to the VEB. Used to verify that validator was requested to exit      |
+| `exitRequests`       | `ExitRequestData`           | Data submitted to the VEB. Used to verify that validator was requested to exit           |

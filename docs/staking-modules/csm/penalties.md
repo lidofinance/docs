@@ -1,10 +1,12 @@
 # Penalties
 
 ## Reasons
+
 There are several reasons for the CSM Node Operator's [bond](./join-csm#bond) to be penalized:
+
 1. **The operator has stolen EL rewards (MEV).** Penalty amount = `amount stolen + fixed stealing fine` (can be applied across multiple NO validators);
 2. **The validator's withdrawal balance is less than `DEPOSIT_AMOUNT` (32 ETH).** Covers cases of a meaningful downtime and slashing. Penalty amount = `DEPOSIT_AMOUNT - validator's withdrawal balance`;
-3. **The operator has not exited the validators in time.**  Penalty amount = `exitDelayPenalty` (a fixed amount set by the DAO);
+3. **The operator has not exited the validators in time.** Penalty amount = `exitDelayPenalty` (a fixed amount set by the DAO);
 4. **The validator has been ejected via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) due to an excessive number of strikes.** Penalty amount = `badPerformancePenalty` (a fixed amount set by the DAO);
 5. **Force ejection via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) was triggered for the validator.** Penalty amount = `min(actual TW fee paid, maxWithdrawalRequestFee)`.
 
@@ -15,7 +17,9 @@ The second penalty type is calculated using the validator withdrawal balance (ac
 Penalties from the third to fifth types are applied upon validator withdrawal reporting to avoid double penalization.
 
 ## Immediate and delayed
+
 The following penalization schemes are introduced:
+
 1. **Immediate penalization**. For penalties that are unambiguous and can be assessed via trustless proofs;
 2. **Delayed penalty with challenge period**. For cases where false positives may occur or investigation might be needed;
 3. **Delayed penalty without a challenge period**. For cases where the penalty is recorded immediately but applied upon the validator withdrawal reporting.
@@ -29,6 +33,7 @@ The second role is called "settler". Members of this role can finalize (settle) 
 Separating these two roles ensures that a penalty can only be applied when two independent actors agree.
 
 ## Mechanics
+
 There are two mechanics related to Node Operator [bond](./join-csm#bond) penalization.
 
 The first one is burning stETH shares using the [Burner](/contracts/burner) contract. Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
@@ -38,6 +43,7 @@ The second mechanic is transferring confiscated stETH to the [Lido DAO Treasury]
 Penalized funds are burned for most of the reasons described in the previous section. At the moment, there are two penalties transferred to the Treasury: `keyRemovalCharge` and `triggerableWithdrawalRequestFee`.
 
 ## Insufficient bond
+
 If, after penalties have been applied, a Node Operator's [bond](./join-csm#bond) is less than required to cover the current Node Operator's validators, all new rewards will be used to replenish the NO [bond](./join-csm#bond) until it is back to the required level. Node Operators can also "top-up" the [bond](./join-csm#bond) themselves (by submitting the required difference) to be able to claim new rewards.
 
 :::info
@@ -59,6 +65,7 @@ It is crucial to note that strikes are not a penalty but an indicator of bad per
 :::
 
 ### Ejection due to strikes
+
 Once the number of strikes reaches the `strikesThreshold` (ex. 3 strikes in 6 months), the permissionless method can trigger exit for the validator and record that a `badPerformancePenalty` should be confiscated from the Node Operator's bond upon validator withdrawal reporting.
 
 :::warning
@@ -66,7 +73,6 @@ Ejection parameters are subject to the Lido DAO decision
 :::
 
 Validator ejection via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) comes with a price. This price should be confiscated from the Node Operator's bond and transferred to the Lido DAO treasury to cover corresponding operational expenses.
-
 
 ## Useful links
 

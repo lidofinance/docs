@@ -1,7 +1,9 @@
 # Permissions in CSM
+
 CSM contracts are designed to ensure appropriate permissions for validator operation, [bond](./join-csm#bond) and key management, and module management.
 
 ## Node Operator permissions
+
 CSM Node Operators have the following permissions and controls:
 
 - Node Operator is **the ultimate owner** of the validators' private keys;
@@ -15,6 +17,7 @@ CSM Node Operators have the following permissions and controls:
 - Node Operator can compensate for the reported EL rewards stealing penalty to avoid benefits reset and validator exit requests for the unbonded validators;
 
 ## Lido DAO permissions
+
 Lido DAO has the following permissions and controls via on-chain Aragon voting:
 
 - Lido DAO can update the module contracts code;
@@ -25,6 +28,7 @@ Lido DAO has the following permissions and controls via on-chain Aragon voting:
 - Lido DAO can change role members for the module contracts;
 
 ## CSM Committee permissions
+
 [CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) has the following permissions and controls:
 
 - Report facts of MEV and EL rewards stealing committed by CSM Node Operators;

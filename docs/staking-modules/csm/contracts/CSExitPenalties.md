@@ -4,6 +4,7 @@
 - [Deployed contract](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
 
 `CSExitPenalties.sol` is a supplementary contract responsible for processing and storing information about exit-related penalties, namely:
+
 - Delayed exit penalty;
 - Bad performance ejection penalty (see `CSStrikes`);
 - TE fee paid in case of a forced exit.
@@ -13,12 +14,12 @@
 The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
+
 ### MODULE
 
 ```solidity
 ICSModule public immutable MODULE;
 ```
-
 
 ### PARAMETERS_REGISTRY
 
@@ -26,13 +27,11 @@ ICSModule public immutable MODULE;
 ICSParametersRegistry public immutable PARAMETERS_REGISTRY;
 ```
 
-
 ### ACCOUNTING
 
 ```solidity
 ICSAccounting public immutable ACCOUNTING;
 ```
-
 
 ### STRIKES
 
@@ -46,7 +45,6 @@ address public immutable STRIKES;
 uint8 public constant VOLUNTARY_EXIT_TYPE_ID = 0;
 ```
 
-
 ### STRIKES_EXIT_TYPE_ID
 
 ```solidity
@@ -59,27 +57,25 @@ uint8 public constant STRIKES_EXIT_TYPE_ID = 1;
 
 Handles tracking and penalization logic for a validator that remains active beyond its eligible exit window.
 
-*see IStakingModule.reportValidatorExitDelay for details*
-
+_see IStakingModule.reportValidatorExitDelay for details_
 
 ```solidity
 function processExitDelayReport(uint256 nodeOperatorId, bytes calldata publicKey, uint256 eligibleToExitInSec)
     external
     onlyModule;
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|The ID of the node operator whose validator's status is being delivered.|
-|`publicKey`|`bytes`|The public key of the validator being reported.|
-|`eligibleToExitInSec`|`uint256`|The duration (in seconds) indicating how long the validator has been eligible to exit but has not exited.|
-
+| Name                  | Type      | Description                                                                                               |
+| --------------------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| `nodeOperatorId`      | `uint256` | The ID of the node operator whose validator's status is being delivered.                                  |
+| `publicKey`           | `bytes`   | The public key of the validator being reported.                                                           |
+| `eligibleToExitInSec` | `uint256` | The duration (in seconds) indicating how long the validator has been eligible to exit but has not exited. |
 
 ### processTriggeredExit
 
 Process the triggered exit report
-
 
 ```solidity
 function processTriggeredExit(
@@ -89,40 +85,38 @@ function processTriggeredExit(
     uint256 exitType
 ) external onlyModule;
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`publicKey`|`bytes`|Public key of the validator|
-|`withdrawalRequestPaidFee`|`uint256`|The fee paid for the withdrawal request|
-|`exitType`|`uint256`|The type of the exit (0 - direct exit, 1 - forced exit)|
-
+| Name                       | Type      | Description                                             |
+| -------------------------- | --------- | ------------------------------------------------------- |
+| `nodeOperatorId`           | `uint256` | ID of the Node Operator                                 |
+| `publicKey`                | `bytes`   | Public key of the validator                             |
+| `withdrawalRequestPaidFee` | `uint256` | The fee paid for the withdrawal request                 |
+| `exitType`                 | `uint256` | The type of the exit (0 - direct exit, 1 - forced exit) |
 
 ### processStrikesReport
 
 Process the strikes report
 
-
 ```solidity
 function processStrikesReport(uint256 nodeOperatorId, bytes calldata publicKey) external onlyStrikes;
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`publicKey`|`bytes`|Public key of the validator|
-
+| Name             | Type      | Description                 |
+| ---------------- | --------- | --------------------------- |
+| `nodeOperatorId` | `uint256` | ID of the Node Operator     |
+| `publicKey`      | `bytes`   | Public key of the validator |
 
 ### isValidatorExitDelayPenaltyApplicable
 
 Determines whether a validator exit status should be updated and will have affect on Node Operator.
 
-*there is a `onlyModule` modifier to prevent using it from outside
+_there is a `onlyModule` modifier to prevent using it from outside
 as it gives a false-positive information for non-existent node operators.
-use `isValidatorExitDelayPenaltyApplicable` in the CSModule.sol instead*
-
+use `isValidatorExitDelayPenaltyApplicable` in the CSModule.sol instead_
 
 ```solidity
 function isValidatorExitDelayPenaltyApplicable(
@@ -131,25 +125,24 @@ function isValidatorExitDelayPenaltyApplicable(
     uint256 eligibleToExitInSec
 ) external view onlyModule returns (bool);
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|The ID of the node operator.|
-|`publicKey`|`bytes`|Validator's public key.|
-|`eligibleToExitInSec`|`uint256`|The number of seconds the validator was eligible to exit but did not.|
+| Name                  | Type      | Description                                                           |
+| --------------------- | --------- | --------------------------------------------------------------------- |
+| `nodeOperatorId`      | `uint256` | The ID of the node operator.                                          |
+| `publicKey`           | `bytes`   | Validator's public key.                                               |
+| `eligibleToExitInSec` | `uint256` | The number of seconds the validator was eligible to exit but did not. |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`bool`|bool Returns true if contract should receive updated validator's status.|
-
+| Name     | Type   | Description                                                              |
+| -------- | ------ | ------------------------------------------------------------------------ |
+| `<none>` | `bool` | bool Returns true if contract should receive updated validator's status. |
 
 ### getExitPenaltyInfo
 
 get delayed exit penalty info for the given Node Operator
-
 
 ```solidity
 function getExitPenaltyInfo(uint256 nodeOperatorId, bytes calldata publicKey)
@@ -157,20 +150,22 @@ function getExitPenaltyInfo(uint256 nodeOperatorId, bytes calldata publicKey)
     view
     returns (ExitPenaltyInfo memory);
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`publicKey`|`bytes`|Public key of the validator|
+| Name             | Type      | Description                 |
+| ---------------- | --------- | --------------------------- |
+| `nodeOperatorId` | `uint256` | ID of the Node Operator     |
+| `publicKey`      | `bytes`   | Public key of the validator |
 
 **Returns**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`<none>`|`ExitPenaltyInfo`|penaltyInfo Delayed exit penalty info|
+| Name     | Type              | Description                           |
+| -------- | ----------------- | ------------------------------------- |
+| `<none>` | `ExitPenaltyInfo` | penaltyInfo Delayed exit penalty info |
 
 ## Events
+
 ### ValidatorExitDelayProcessed
 
 ```solidity

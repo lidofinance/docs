@@ -1,7 +1,7 @@
 # AIP
 
-| title                | status   | author              | shortDescription                                         | discussion                                                        | created    |
-| -------------------- | -------- | ------------------- | -------------------------------------------------------- | ----------------------------------------------------------------- | ---------- |
+| title                | status   | author              | shortDescription                                         | discussion                                                                                               | created    |
+| -------------------- | -------- | ------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
 | Add stETH to AAVE v2 | Proposed | @jbeezy @grstepanov | AAVE governance proposal to enable stETH as a base token | [arc-add-support-for-steth-lido/5793](https://governance.aave.com/t/arc-add-support-for-steth-lido/5793) | 2022-04-02 |
 
 ### Simple Summary
@@ -171,7 +171,7 @@ The current implementation doesn't support borrowing, neither with variable nor 
 - [variableDebtSTETH](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24)
 - [stableDebtSTETH](https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9)
 - [DefaultReserveInterestRateStrategy](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
-Steps the proposal will execute: start a vote to add stETH as a new token.
+  Steps the proposal will execute: start a vote to add stETH as a new token.
 
 #### Security Considerations
 

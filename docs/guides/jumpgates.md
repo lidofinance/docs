@@ -8,7 +8,7 @@ Jumpgates are a class of contracts that facilitate cross-chain token transfers u
 
 In this step we will be making sure that the jumpgate is correctly configured. You will only need to do this once because jumpgates are non-upgradeable contracts.
 
-Go to [Etherscan](https://etherscan.io/)  and open the Jumpgate page. Click the "Contract" tab, the green check mark confirms that the source code is verified. Check the parameters:
+Go to [Etherscan](https://etherscan.io/) and open the Jumpgate page. Click the "Contract" tab, the green check mark confirms that the source code is verified. Check the parameters:
 
 - `arbiterFee` is always 0;
 - `bridge` is the address of the bridge. Currently, all jumpgates use only Wormhole Token bridge at [`0x3ee18B2214AFF97000D974cf647E7C347E8fa585`](https://etherscan.io/address/0x3ee18B2214AFF97000D974cf647E7C347E8fa585), and you can check the address against the [Wormhole docs](https://book.wormhole.com/reference/contracts.html);

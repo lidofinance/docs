@@ -31,10 +31,10 @@ function hashTypedDataV4(address _stETH, bytes32 _structHash) returns (bytes32)
 
 #### Parameters
 
-| Name         | Type      | Description                           |
-| ------------ | --------- | ------------------------------------- |
-| `_stETH`     | `address` | Address of the deployed `stETH` token |
-| `_structHash`| `bytes32` | Hash of the data structure            |
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `_stETH`      | `address` | Address of the deployed `stETH` token |
+| `_structHash` | `bytes32` | Hash of the data structure            |
 
 For a specific use case, see the [StETHPermit.permit()](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/StETHPermit.sol#L99-L112) implementation.
 
@@ -59,19 +59,19 @@ function eip712Domain(address _stETH) returns (
 
 #### Returns
 
-| Name              | Type       | Description                   |
-| ----------------- | ---------- | ----------------------------- |
-| `name`            | `string`   | Name of the token            |
-| `version`         | `string`   | Version of the token         |
-| `chainId`         | `uint256`  | Chain identifier             |
-| `verifyingContract`| `address` | Address of the token contract |
+| Name                | Type      | Description                   |
+| ------------------- | --------- | ----------------------------- |
+| `name`              | `string`  | Name of the token             |
+| `version`           | `string`  | Version of the token          |
+| `chainId`           | `uint256` | Chain identifier              |
+| `verifyingContract` | `address` | Address of the token contract |
 
 :::note
 Provided the correct `_stETH` [deployed](/deployed-contracts) address, it returns:
 
 - ("Liquid staked Ether 2.0", "2", 1, 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) for Mainnet.
 - ("Liquid staked Ether 2.0", "2", 560048, 0x3508A952176b3c15387C97BE809eaffB1982176a) for Hoodi.
-:::
+  :::
 
 This method facilitates domain separator construction on the client's side, such as in a wallet or widget:
 
@@ -86,8 +86,8 @@ function makeDomainSeparator(name, version, chainId, verifyingContract) {
         web3.utils.keccak256(version),
         chainId,
         verifyingContract,
-      ]
-    )
+      ],
+    ),
   )
 }
 ```

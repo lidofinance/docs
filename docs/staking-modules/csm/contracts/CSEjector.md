@@ -10,12 +10,12 @@
 The contract is immutable.
 
 ## State Variables
+
 ### PAUSE_ROLE
 
 ```solidity
 bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE");
 ```
-
 
 ### RESUME_ROLE
 
@@ -23,13 +23,11 @@ bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE");
 bytes32 public constant RESUME_ROLE = keccak256("RESUME_ROLE");
 ```
 
-
 ### RECOVERER_ROLE
 
 ```solidity
 bytes32 public constant RECOVERER_ROLE = keccak256("RECOVERER_ROLE");
 ```
-
 
 ### STAKING_MODULE_ID
 
@@ -37,13 +35,11 @@ bytes32 public constant RECOVERER_ROLE = keccak256("RECOVERER_ROLE");
 uint256 public immutable STAKING_MODULE_ID;
 ```
 
-
 ### MODULE
 
 ```solidity
 ICSModule public immutable MODULE;
 ```
-
 
 ### STRIKES
 
@@ -51,13 +47,11 @@ ICSModule public immutable MODULE;
 address public immutable STRIKES;
 ```
 
-
 ## Functions
 
 ### resume
 
 Resume ejection methods calls
-
 
 ```solidity
 function resume() external onlyRole(RESUME_ROLE);
@@ -67,21 +61,19 @@ function resume() external onlyRole(RESUME_ROLE);
 
 Pause ejection methods calls
 
-
 ```solidity
 function pauseFor(uint256 duration) external onlyRole(PAUSE_ROLE);
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`duration`|`uint256`|Duration of the pause in seconds|
-
+| Name       | Type      | Description                      |
+| ---------- | --------- | -------------------------------- |
+| `duration` | `uint256` | Duration of the pause in seconds |
 
 ### voluntaryEject
 
 Withdraw the validator key from the Node Operator
-
 
 ```solidity
 function voluntaryEject(uint256 nodeOperatorId, uint256 startFrom, uint256 keysCount, address refundRecipient)
@@ -89,23 +81,22 @@ function voluntaryEject(uint256 nodeOperatorId, uint256 startFrom, uint256 keysC
     payable
     whenResumed;
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`startFrom`|`uint256`|Index of the first key to withdraw|
-|`keysCount`|`uint256`|Number of keys to withdraw|
-|`refundRecipient`|`address`|Address to send the refund to|
-
+| Name              | Type      | Description                        |
+| ----------------- | --------- | ---------------------------------- |
+| `nodeOperatorId`  | `uint256` | ID of the Node Operator            |
+| `startFrom`       | `uint256` | Index of the first key to withdraw |
+| `keysCount`       | `uint256` | Number of keys to withdraw         |
+| `refundRecipient` | `address` | Address to send the refund to      |
 
 ### voluntaryEjectByArray
 
 Withdraw the validator key from the Node Operator
 
-*Additional method for non-sequential keys to save gas and decrease fee amount compared
-to separate transactions.*
-
+_Additional method for non-sequential keys to save gas and decrease fee amount compared
+to separate transactions._
 
 ```solidity
 function voluntaryEjectByArray(uint256 nodeOperatorId, uint256[] calldata keyIndices, address refundRecipient)
@@ -113,19 +104,18 @@ function voluntaryEjectByArray(uint256 nodeOperatorId, uint256[] calldata keyInd
     payable
     whenResumed;
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`keyIndices`|`uint256[]`|Array of indices of the keys to withdraw|
-|`refundRecipient`|`address`|Address to send the refund to|
-
+| Name              | Type        | Description                              |
+| ----------------- | ----------- | ---------------------------------------- |
+| `nodeOperatorId`  | `uint256`   | ID of the Node Operator                  |
+| `keyIndices`      | `uint256[]` | Array of indices of the keys to withdraw |
+| `refundRecipient` | `address`   | Address to send the refund to            |
 
 ### ejectBadPerformer
 
 Eject Node Operator's key as a bad performer
-
 
 ```solidity
 function ejectBadPerformer(uint256 nodeOperatorId, uint256 keyIndex, address refundRecipient)
@@ -134,19 +124,18 @@ function ejectBadPerformer(uint256 nodeOperatorId, uint256 keyIndex, address ref
     whenResumed
     onlyStrikes;
 ```
+
 **Parameters**
 
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`keyIndex`|`uint256`|index of deposited key to eject|
-|`refundRecipient`|`address`|Address to send the refund to|
-
+| Name              | Type      | Description                     |
+| ----------------- | --------- | ------------------------------- |
+| `nodeOperatorId`  | `uint256` | ID of the Node Operator         |
+| `keyIndex`        | `uint256` | index of deposited key to eject |
+| `refundRecipient` | `address` | Address to send the refund to   |
 
 ### triggerableWithdrawalsGateway
 
 TriggerableWithdrawalsGateway implementation used by the contract.
-
 
 ```solidity
 function triggerableWithdrawalsGateway() public view returns (ITriggerableWithdrawalsGateway);

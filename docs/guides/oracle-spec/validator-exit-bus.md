@@ -93,7 +93,7 @@ Statistics for each node operator, which are needed for sorting their validators
 
 - validators count that are not yet in CL
 - validators that are in CL and are not yet requested to exit and not on exit
-- validators that are in CL and requested to exit but not on exit and not requested to exit recently 
+- validators that are in CL and requested to exit but not on exit and not requested to exit recently
 - target type (soft/boosted) and target validators count
 - checks whether the target limit mode is set
 
@@ -104,8 +104,8 @@ NB: A validator can not be considered as delayed if it was requested to exit in 
 The [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) contract stores the index of the last validator that was requested to exit. Since validators are requested in strict order from the lowest `validatorIndex` to the highest, the indexes help find all the previously requested validators without fetching all events.
 
 Returns the latest validator indices that were requested to exit for the given
-        `operator_indexes` in the given `module`. For node operators that were never requested to exit
-        any validator yet, index is set to `-1`.
+`operator_indexes` in the given `module`. For node operators that were never requested to exit
+any validator yet, index is set to `-1`.
 
 ```
 ValidatorsExitBusOracle.getLastRequestedValidatorIndices(
@@ -168,8 +168,8 @@ Predicts the average epochs of the sweep cycle. In the spec: [get expected withd
 
 ##### Withdrawable validators
 
-- Check if `validator` has the eth1 withdrawal credentials prefixed with 0x01 *OR* 'compound' withdrawal credentials' prefixed with 0x02, *and*
-- Check if `validator` is partially withdrawable, *or*
+- Check if `validator` has the eth1 withdrawal credentials prefixed with 0x01 _OR_ 'compound' withdrawal credentials' prefixed with 0x02, _and_
+- Check if `validator` is partially withdrawable, _or_
 - Check if `validator` is fully withdrawable
 
 [source](https://github.com/lidofinance/lido-oracle/blob/master/src/modules/ejector/ejector.py#L342)

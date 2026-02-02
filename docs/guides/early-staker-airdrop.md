@@ -1,4 +1,5 @@
 # How to claim Lido early stakers airdrop
+
 This is how to claim Lido early stakers airdrop with Etherscan UI
 
 ## Introduction
@@ -20,7 +21,8 @@ Find your address [here](https://github.com/lidofinance/airdrop-data/blob/main/e
 If there is no your address [here](https://github.com/lidofinance/airdrop-data/blob/main/early_stakers_airdrop.csv) you are not eligible to claim airdrop.
 
 ### 2. Check if you haven’t already claimed your airdrop
-2.1 Go to [Etherscan](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b) (contract address  - [0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b))
+
+2.1 Go to [Etherscan](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b) (contract address - [0x4b3EDb22952Fb4A70140E39FB1adD05A6B49622B](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b))
 
 2.2 Paste your index on `isClaimed` method (1 row on [“Contract/Read contract”](https://etherscan.io/address/0x4b3edb22952fb4a70140e39fb1add05a6b49622b#readContract) tab)
 
@@ -40,19 +42,19 @@ if you get `true` as a result of this step, it means that this reward was claime
 3.2 Connect your wallet to Etherscan with either MetaMask or WalletConnect
 
 3.3 Fill-in `Claim` method fields with data from [here](https://github.com/lidofinance/airdrop-data/blob/main/early_stakers_airdrop.csv)
+
 - index (uint256)
 - account (address)
 - amount (uint256)
 - merkleProof (bytes32[])
 
-3.4 Press the “Write” button and confirm the transaction in your wallet
+  3.4 Press the “Write” button and confirm the transaction in your wallet
 
-3.5 Wait for the transaction to succeed
+  3.5 Wait for the transaction to succeed
 
 :::note
 in case of invalid input transaction can be reverted
 
 :::
-
 
 That's it! 💪🎉🏝

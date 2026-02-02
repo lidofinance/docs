@@ -50,13 +50,13 @@ where
 
 - **`amountOfStETH`** — the number of `stETH` tokens transferred to the contract upon request
 - **`amountOfShares`** — the number of underlying shares corresponding to transferred `stETH` tokens.
-See [Lido rebasing chapter](lido.md#rebase) to learn about the shares mechanic
+  See [Lido rebasing chapter](lido.md#rebase) to learn about the shares mechanic
 - **`owner`** — the owner's address for this request. The owner is also a holder of the `unstETH` NFT
-and can transfer the ownership and claim the underlying ether once finalized
+  and can transfer the ownership and claim the underlying ether once finalized
 - **`timestamp`** — the creation time of the request
 - **`isFinalized`** — finalization status of the request; finalized requests are available to claim
 - **`isClaimed`** — the claim status of the request. Once claimed, NFT is burned, and
-the request is not available to claim again
+  the request is not available to claim again
 
 :::note
 
@@ -72,13 +72,13 @@ After filing a withdrawal request, one can only claim it once finalization occur
 choosing the `_maxShareRate` and the size of the batch taking in account following factors:
 
 - If there is enough ether to fulfill the request. Ether can be obtained from the Lido buffer, which is filled
-from the new users' stake, Beacon chain partial and full withdrawals, protocol tips, and MEV rewards.
-Withdrawals are prioritized over deposits, so ether can't be deposited to the Beacon chain if some withdrawal requests
-can be fulfilled.
+  from the new users' stake, Beacon chain partial and full withdrawals, protocol tips, and MEV rewards.
+  Withdrawals are prioritized over deposits, so ether can't be deposited to the Beacon chain if some withdrawal requests
+  can be fulfilled.
 - if enough time has passed since the withdrawal request was placed in the queue (timelock)
 - If there was some massive loss for the protocol on the Beacon Chain side since the withdrawal request was filed.
-It can lead to finalization by the rate lower than 1:1 if the loss will be high enough to be not covered
-with daily rewards (never happened before)
+  It can lead to finalization by the rate lower than 1:1 if the loss will be high enough to be not covered
+  with daily rewards (never happened before)
 
 :::note
 
@@ -180,9 +180,7 @@ function ownerOf(uint256 _requestId) view returns (address owner)
 
 :::note
 
-Requirements:
-    - `_requestId` request must exist.
-    - `_requestId` request must not be claimed.
+Requirements: - `_requestId` request must exist. - `_requestId` request must not be claimed.
 
 :::
 
@@ -199,10 +197,7 @@ function approve(address _to, uint256 _requestId)
 
 :::note
 
-Requirements:
-    - The caller must own the token or be an approved operator.
-    - `_requestId` must exist.
-    - `_to` must not be the owner
+Requirements: - The caller must own the token or be an approved operator. - `_requestId` must exist. - `_to` must not be the owner
 
 :::
 
@@ -290,7 +285,7 @@ Requirements:
 - `_to` cannot be the zero address.
 - `_requestId` token must be owned by `_from`.
 - If the caller is not `_from`, it must be approved to move this token by either `approve()` or `setApprovalForAll()`.
-:::
+  :::
 
 ### getBaseUri()
 
@@ -371,8 +366,8 @@ Requirements:
 - withdrawals must not be paused
 - `wstETH` balance of `msg.sender` must be greater than or equal to the sum of all `_amounts`
 - there must be approval from the `msg.sender` to this contract address for the overall amount of `wstETH` token transfer
-- each amount in `_amounts` must have `getPooledEthByShares(amount)` being greater than  `MIN_STETH_WITHDRAWAL_AMOUNT`
-and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+- each amount in `_amounts` must have `getPooledEthByShares(amount)` being greater than `MIN_STETH_WITHDRAWAL_AMOUNT`
+  and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
 
 :::
 
@@ -450,8 +445,8 @@ Requirements:
 - withdrawals must not be paused
 - `wstETH` balance of `msg.sender` must be greater than or equal to the sum of all `_amounts`
 - permit must have a valid signature, `value` greater than the sum of all `_amounts`, and the `deadline` not expired
-- each amount in `_amounts` must have `getPooledEthByShares(amount)` being greater than  `MIN_STETH_WITHDRAWAL_AMOUNT`
-and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
+- each amount in `_amounts` must have `getPooledEthByShares(amount)` being greater than `MIN_STETH_WITHDRAWAL_AMOUNT`
+  and lower than `MAX_STETH_WITHDRAWAL_AMOUNT`
 
 :::
 
@@ -499,13 +494,13 @@ where
 
 - **`amountOfStETH`** — the number of `stETH` tokens transferred to the contract upon request
 - **`amountOfShares`** — the number of underlying shares corresponding to transferred `stETH` tokens.
-See [Lido rebasing chapter](lido.md#rebase) to learn about the shares mechanic
+  See [Lido rebasing chapter](lido.md#rebase) to learn about the shares mechanic
 - **`owner`** — the owner's address for this request. The owner is also a holder of the `unstETH` NFT
-and can transfer the ownership and claim the underlying ether once finalized
+  and can transfer the ownership and claim the underlying ether once finalized
 - **`timestamp`** — the creation time of the request
 - **`isFinalized`** — finalization status of the request; finalized requests are available to claim
 - **`isClaimed`** — the claim status of the request. Once claimed, NFT is burned, and the request
-is not available to claim again
+  is not available to claim again
 
 ### getClaimableEther()
 
@@ -598,7 +593,7 @@ Requirements:
 ### findCheckpointHints()
 
 Returns an array of hints for the given `_requestIds` searching among the checkpoints with indices
-in the range  `[_firstIndex, _lastIndex]`.
+in the range `[_firstIndex, _lastIndex]`.
 
 ```sol
 function findCheckpointHints(uint256[] _requestIds, uint256 _firstIndex, uint256 _lastIndex)
@@ -613,7 +608,7 @@ Requirements:
 - Array of request ids must be sorted
 - `_firstIndex` must be greater than 0, because checkpoint list is 1-based array
 - `_lastIndex` must be less than or equal to [`getLastCheckpointIndex()`](#getlastcheckpointindex)
-:::
+  :::
 
 ### isBunkerModeActive()
 
@@ -743,7 +738,7 @@ where
   ```
 
   - **`remainingEthBudget`** — the currently remaining amount of ether. It must be set into the whole budget of
-  the finalization at the first call
+    the finalization at the first call
   - **`finished`** — the flag that is set to `true` if all requests are iterated on
   - **`batches`** — the resulting array of batches, each represented by the id of the last request in the batch
   - **`batchesLength`** — the length of the filled part of the `batches` array
@@ -786,9 +781,9 @@ Returns
 - **PAUSE_ROLE** — role to pause the withdrawal on the protocol
 - **RESUME_ROLE** — role to resume the withdrawal after being paused
 - **ORACLE_ROLE** — role to provide required oracle-related data as the last report timestamp
-and if the protocol is in the bunker mode
+  and if the protocol is in the bunker mode
 - **MANAGE_TOKEN_URI_ROLE** — role to set the parameters for constructing the token URI: the base URI
-or `NFTDescriptor` address
+  or `NFTDescriptor` address
 
 ### finalize()
 
@@ -956,7 +951,7 @@ function setNFTDescriptorAddress(address _nftDescriptorAddress) onlyRole(MANAGE_
 where
 
 - **`_nftDescriptorAddress`** — is the address of `NFTDescriptor` contract,
-which must support the `INFTDescriptor` interface:
+  which must support the `INFTDescriptor` interface:
 
 ```sol
 interface INFTDescriptor {

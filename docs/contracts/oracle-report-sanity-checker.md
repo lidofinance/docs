@@ -39,7 +39,7 @@ struct LimitsList {
 }
 ```
 
-- **`exitedValidatorsPerDayLimit`  ∈ [0, 65535]** — the max possible number of validators that might be reported as exited per single day, _**exited**_ are reported according to the
+- **`exitedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might be reported as exited per single day, _**exited**_ are reported according to the
   [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#get_validator_churn_limit).
 - **`appearedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
   intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
@@ -555,7 +555,7 @@ Sets the new value for the Second Opinion Oracle and `LimitsList.clBalanceOracle
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
 - Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.
-:::
+  :::
 
 ```solidity
 function setSecondOpinionOracleAndCLBalanceUpperMargin(ISecondOpinionOracle _secondOpinionOracle, uint256 _clBalanceOraclesErrorUpperBPLimit)
@@ -575,7 +575,7 @@ Sets the new value for the `LimitsList.initialSlashingAmountPWei` and `LimitsLis
 - Requires `INITIAL_SLASHING_AND_PENALTIES_MANAGER_ROLE` to be granted to the caller.
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
-:::
+  :::
 
 ```solidity
 function setInitialSlashingAndPenaltiesAmount(uint256 _initialSlashingAmountPWei, uint256 _inactivityPenaltiesAmountPWei)
