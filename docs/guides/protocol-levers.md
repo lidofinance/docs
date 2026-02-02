@@ -33,7 +33,28 @@ Upgradeable core protocol proxies (mainnet):
 | [VaultHub](/contracts/vault-hub) | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) |
 | [PredepositGuarantee](/contracts/predeposit-guarantee) | [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) |
 | [OperatorGrid](/contracts/operator-grid) | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
+
+Upgradeable oracle proxies (mainnet):
+
+| Contract | Address |
+|----------|---------|
+| [AccountingOracle](/contracts/accounting-oracle) | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
+| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) |
 | [LazyOracle](/contracts/lazy-oracle) | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
+
+Upgradeable staking module proxies (mainnet):
+
+| Contract | Address |
+|----------|---------|
+| Curated Node Operators Registry | [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) |
+| Simple DVT Node Operators Registry | [`0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433`](https://etherscan.io/address/0xaE7B191A31f627b4eB1d4DaC64eaB9976995b433) |
+| Community Staking Module | [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) |
+| Community Staking Accounting | [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) |
+| Community Staking Parameters Registry | [`0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428`](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428) |
+| Community Staking Fee Distributor | [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) |
+| Community Staking Fee Oracle | [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) |
+| Community Staking Strikes | [`0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f`](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f) |
+| Community Staking Exit Penalties | [`0x06cd61045f958A209a0f8D746e103eCc625f4193`](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193) |
 
 ## Lido (core pool)
 
