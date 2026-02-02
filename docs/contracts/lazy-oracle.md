@@ -26,6 +26,10 @@ It is called **lazy** because it stores only the report root and metadata each r
 Per-vault report submissions are **permissionless**: any account can call `updateVaultData`
 with a valid Merkle proof from the latest report root.
 
+### Report freshness
+
+A vault report freshness is determined by VaultHub based on the report timestamp stored in LazyOracle. When stale, the vault cannot perform operations like withdrawals, mints, beacon chain deposits or disconnect.
+
 ### Quarantine mechanics
 
 LazyOracle applies a quarantine buffer for sudden total value jumps that cannot be
@@ -326,8 +330,8 @@ Removes quarantine for a vault. Only callable by `VaultHub`.
 
 ## Related
 
-- [VaultHub](/contracts/vault-hub.md)
-- [AccountingOracle](/contracts/accounting-oracle.md)
-- [OperatorGrid](/contracts/operator-grid.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
+- [VaultHub](/contracts/vault-hub)
+- [AccountingOracle](/contracts/accounting-oracle)
+- [OperatorGrid](/contracts/operator-grid)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
 - [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)

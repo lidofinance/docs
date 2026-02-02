@@ -3,7 +3,7 @@
 - [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/dashboard/Dashboard.sol)
 - [Implementation](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 
-Management contract for stVaults. Provides role-based control for vault operations and convenience wrappers for minting/burning stETH and wstETH. Individual Dashboard instances are deployed as proxies by [VaultFactory](/contracts/staking-vault-factory.md).
+Management contract for stVaults. Provides role-based control for vault operations and convenience wrappers for minting/burning stETH and wstETH. Individual Dashboard instances are deployed as proxies by [VaultFactory](/contracts/staking-vault-factory).
 
 ## What is Dashboard?
 
@@ -89,7 +89,7 @@ Dashboard implements a **high-water mark** approach for node operator fees based
 
 ### Safety threshold
 
-An **abnormally high fee threshold** (1% of total value, defined as `ABNORMALLY_HIGH_FEE_THRESHOLD_BP = 100`) exists as a safety mechanism. If calculated fees exceed this threshold, the fee can only be disbursed by `DEFAULT_ADMIN_ROLE` via `disburseAbnormallyHighFee()`.
+An **abnormally high fee threshold** (1% of total value, defined as `ABNORMALLY_HIGH_FEE_THRESHOLD_BP = 100`) exists as a safety mechanism. If calculated fees exceed this threshold, fee disbursement requires explicit action via `disburseAbnormallyHighFee()` by `DEFAULT_ADMIN_ROLE` rather than permissionless `disburseFee()`.
 
 ### Fee leftover on disconnect
 
@@ -605,8 +605,8 @@ Mass-revokes multiple roles.
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault.md)
-- [VaultHub](/contracts/vault-hub.md)
-- [OperatorGrid](/contracts/operator-grid.md)
-- [PredepositGuarantee](/contracts/predeposit-guarantee.md)
+- [StakingVault](/contracts/staking-vault)
+- [VaultHub](/contracts/vault-hub)
+- [OperatorGrid](/contracts/operator-grid)
+- [PredepositGuarantee](/contracts/predeposit-guarantee)
 - [stVaults Integration Overview](/run-on-lido/stvaults/tech-documentation/integration-overview)

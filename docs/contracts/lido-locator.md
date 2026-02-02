@@ -162,7 +162,7 @@ function wstETH() view returns(address);
 
 ### vaultHub()
 
-Returns an address of the [VaultHub contract](/contracts/vault-hub.md)
+Returns an address of the [VaultHub contract](/contracts/vault-hub)
 
 ```sol
 function vaultHub() view returns(address);
