@@ -4,10 +4,10 @@ This guide describes the stETH control surface in Lido V3, the roles that can ch
 
 ## What stETH is in Lido V3
 
-- stETH is the rebasing token representing pooled ETH in the core Lido pool
+- stETH is the rebasing token representing pooled ETH in the Core Lido pool
 - stVaults can mint stETH as **external shares** against overcollateralized collateral
 - Rebases are driven by oracle reports applied through [Accounting](/contracts/accounting)
-- Total supply = internal shares (core pool) + external shares (stVaults)
+- Total supply = internal shares (Lido Core pool) + external shares (stVaults)
 
 ## Control surfaces (first principles)
 
@@ -85,7 +85,7 @@ Controls the maximum ETH that can be staked per transaction or in total.
 | ----------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------- |
 | [Lido](/contracts/lido) | `STAKING_CONTROL_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Adjust staking limits |
 
-**Mutators (on Lido)**: `setStakingLimit()`, `removeStakingLimit()`, `pauseStaking()`, `resumeStaking()`
+**Mutators**: `setStakingLimit()`, `removeStakingLimit()`, `pauseStaking()`, `resumeStaking()` on [Lido](/contracts/lido)
 
 ## External shares cap (stVaults)
 
