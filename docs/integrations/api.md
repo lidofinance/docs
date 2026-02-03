@@ -28,11 +28,9 @@ https://eth-api-hoodi.testnet.fi/v1/protocol/steth/apr/sma
 
 ### Last Lido APR for stETH
 
-The latest staking APR value. For legacy deployments, APR values were collected by periodically fetching oracle report events. For Lido V2+ the value is calculated based on [rebase events](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/Lido.sol#L232).
+The latest staking APR value. For legacy deployments, APR values were collected by periodically fetching oracle report events. For Lido V2+ the value is calculated based on [rebase events](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/Lido.sol#L163-L171) using the following algorithm:
 
-V2 APR calculation:
-
-```
+```solidity
 // Emits when token rebased (total supply and/or total shares were changed)
 event TokenRebased(
     uint256 indexed reportTimestamp,
