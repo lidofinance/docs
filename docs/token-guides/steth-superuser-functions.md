@@ -54,7 +54,7 @@ All protocol proxy admins are set to the Lido DAO Agent.
 | [Lido](/contracts/lido) | `PAUSE_ROLE`  | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Pause protocol  |
 | [Lido](/contracts/lido) | `RESUME_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Resume protocol |
 
-**Mutators (on Lido)**: `stop()`, `resume()`
+**Mutators**: `stop()`, `resume()` on [Lido](/contracts/lido)
 
 ### Emergency pause via GateSeal
 
@@ -113,7 +113,7 @@ Controls the Ethereum withdrawal credentials for new validators deposited by the
 | ------------------------------------------ | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- |
 | [StakingRouter](/contracts/staking-router) | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | StakingRouter ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)) | Unassigned        | Set withdrawal credentials |
 
-**Mutator**: `setWithdrawalCredentials()`
+**Mutator**: `setWithdrawalCredentials()` on [StakingRouter](/contracts/staking-router) 
 
 This is a sensitive operation that should only occur during protocol setup or major upgrades.
 
