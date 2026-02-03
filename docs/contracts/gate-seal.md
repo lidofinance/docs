@@ -2,12 +2,12 @@
 
 A one-time panic button for pausable contracts.
 
-| Active GateSeals | Expiration date (UTC) |
-|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| [ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG)](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | 12 Sep 2026, 09:59:47 |
-| [WithdrawalQueue](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)                                            | 12 Sep 2026, 09:59:47 |
-| [CSM](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)                                                        | 17 Sep 2026, 12:31:23 |
-| [VaultHub and PredepositGuarantee (PDG)](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)                     | 03 Dec 2026, 12:54:59 |
+| Active GateSeals                                               | Address                                                                                                                 | Expiration date (UTC) |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG) | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | 12 Sep 2026, 09:59:47 |
+| WithdrawalQueue                                                | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | 12 Sep 2026, 09:59:47 |
+| CSM                                                            | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | 17 Sep 2026, 12:31:23 |
+| VaultHub and PredepositGuarantee (PDG)                         | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | 03 Dec 2026, 12:54:59 |
 
 ## What is a GateSeal?
 
