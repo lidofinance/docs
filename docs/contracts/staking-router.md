@@ -1,6 +1,6 @@
 # StakingRouter
 
-- [Source code](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/StakingRouter.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/StakingRouter.sol)
 - [Deployed contract](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)
 
 StakingRouter is a registry of staking modules, each encapsulating a certain validator subset, e.g. the Lido DAO-curated staking module. The contract allocates stake to modules, distributes protocol fees, and tracks relevant information.
@@ -10,6 +10,7 @@ StakingRouter is a registry of staking modules, each encapsulating a certain val
 StakingRouter is a top-level controller contract for staking modules. Each staking module is a contract that, in turn, manages its own subset of validators, e.g. the [Curated](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) staking module is a set of Lido DAO-vetted node operators. Such modular design opens the opportunity for anyone to build a staking module and join the Lido staking platform, including permissionless community stakers, DVT-enabled validators or any other validator subset, technology or mechanics.
 
 StakingRouter performs a number of functions, including:
+
 - maintaining a registry of staking modules,
 - allocating stake to modules, and
 - distributing protocol fees.
@@ -21,6 +22,7 @@ StakingRouter performs a number of functions, including:
 Modules are registered with StakingRouter through the Lido DAO voting process. To be considered by the governance, the applying module contract should implement the appropriate module interface, meet security requirements, and have a fee structure aligned with the Lido protocol sustainability. Once voted in, the module starts receiving stake and protocol fees.
 
 Staking modules are registered using the `addStakingModule` function, providing details such as:
+
 - the module's name: a human-readable name;
 - address of the deployed staking module contract;
 - target share, a relative hard cap on deposits within Lido;
@@ -30,6 +32,7 @@ Staking modules are registered using the `addStakingModule` function, providing 
 ### Pausing modules
 
 Each staking module has a status: a state that determines whether the module can perform deposits and receive rewards:
+
 - `Active`, can make deposits and receives rewards,
 - `DepositsPaused`, deposits are not allowed but receives rewards,
 - `Stopped`, cannot make deposits and does not receive rewards.
@@ -45,6 +48,7 @@ enum StakingModuleStatus {
 ### Exited validators
 
 When the withdrawal requests demand exceed buffered ether sitting in Lido together with projected rewards, the protocol signals to node operators to start exiting validators to cover the withdrawals. In this connection, StakingRouter distinguishes two types of validator states:
+
 - [exited](https://hackmd.io/zHYFZr4eRGm3Ju9_vkcSgQ?view) validators,
 - and late validators, meaning those validators which were requested to exit that failed to exit in a specified timeframe.
 
@@ -66,7 +70,7 @@ The `deposit` function begins by verifying the sender's identity and checking th
 
 The algorithm used for the allocation process is designed to consider various factors, including the limit of deposits per transaction, the quantity of ether ready for deposit, the active and available keys within each module, and each module's target share. It then estimates the maximum deposit based on these parameters. The algorithm also identifies the key limits for all modules, and initiates the allocation of keys, starting with the module that has the least active keys. This continues until there is no more ether to allocate or when all the modules have reached their capacity. At the end of the process, any remaining ether is returned.
 
-The allocation function uses the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/lido-dao/blob/master/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm to allocate new deposits among different staking modules.
+The allocation function uses the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/core/blob/v3.0.1/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm to allocate new deposits among different staking modules.
 
 Here is a breakdown of the process:
 
@@ -78,21 +82,20 @@ Here is a breakdown of the process:
 
 4. If there are staking modules available (`stakingModulesCount > 0`), the function goes into the allocation process:
 
-    a. It calculates a new estimated total of active validators, adding the new deposits to the total active validators (`totalActiveValidators += _depositsToAllocate`).
+   a. It calculates a new estimated total of active validators, adding the new deposits to the total active validators (`totalActiveValidators += _depositsToAllocate`).
 
-    b. It creates a `capacities` array of the same size as the number of staking modules. Each entry in this array represents the maximum capacity of a particular staking module, i.e., the maximum number of validators that module can have. This is calculated as the minimum of either:
+   b. It creates a `capacities` array of the same size as the number of staking modules. Each entry in this array represents the maximum capacity of a particular staking module, i.e., the maximum number of validators that module can have. This is calculated as the minimum of either:
 
-    - The target number of validators for a module, which is based on a desired target share (`stakingModulesCache[i].stakeShareLimit * totalActiveValidators / TOTAL_BASIS_POINTS`), or
-    - The sum of the current active validators and the available validators in the module (`stakingModulesCache[i].activeValidatorsCount + stakingModulesCache[i].availableValidatorsCount`).
+   - The target number of validators for a module, which is based on a desired target share (`stakingModulesCache[i].stakeShareLimit * totalActiveValidators / TOTAL_BASIS_POINTS`), or
+   - The sum of the current active validators and the available validators in the module (`stakingModulesCache[i].activeValidatorsCount + stakingModulesCache[i].availableValidatorsCount`).
 
-    c. Finally, it calls the `allocate` function from `MinFirstAllocationStrategy`, passing in the `allocations`, `capacities`, and `_depositsToAllocate`. The amount successfully allocated is stored in `allocated`.
-
+   c. Finally, it calls the `allocate` function from `MinFirstAllocationStrategy`, passing in the `allocations`, `capacities`, and `_depositsToAllocate`. The amount successfully allocated is stored in `allocated`.
 
 To sum up, this function is using the `MinFirstAllocationStrategy` algorithm to distribute new deposits (validators) across different staking modules in a way that prioritizes filling the least populated modules, while taking into account each module's target share and capacity. The resulting allocations and total allocated amount are then returned for further use.
 
 ## Fee distribution
 
-The fee structure is set independently in each module. There are two components to the fee structure: the module fee and the treasury fee, both specified as percentages (basis points). For example, a 5% (500 basis points) module fee split between node operators in the module and a 5% (500 basis points) treasury fee sent to the treasury. Additionally, `StakingRouter` utilizes a precision factor of 100 * 10^18 for fees that prevents arithmetic operations from truncating the fees of small modules.
+The fee structure is set independently in each module. There are two components to the fee structure: the module fee and the treasury fee, both specified as percentages (basis points). For example, a 5% (500 basis points) module fee split between node operators in the module and a 5% (500 basis points) treasury fee sent to the treasury. Additionally, `StakingRouter` utilizes a precision factor of 100 \* 10^18 for fees that prevents arithmetic operations from truncating the fees of small modules.
 
 Because the protocol does not currently account for per-validator performance, the protocol fee is distributed between modules proportionally to active validators and the specified module fee. For example, a module with 75% of all validators in the protocol and a 5% module fee will receive 3.75% of the total rewards across the protocol. This means that if the modules' fee and treasury fee do not exceed 10%, the total protocol fee will not either, no matter how many modules there are. There is also an edge case where the module is stopped for emergency while its validators are still active. In this case the module fee will be transferred to the treasury and once the module is back online, the rewards will be returned back to the module from the treasury.
 
@@ -106,10 +109,11 @@ The distribution function itself works as follows:
 
 4. Then it loops through each staking module. For each module that has at least one active validator, it:
 
-    - Stores the module ID and recipient address in the respective arrays.
-    - Calculates the `stakingModuleValidatorsShare`, which is the proportion of total active validators that are part of this staking module.
-    - Calculates the `stakingModuleFee` as the product of `stakingModuleValidatorsShare` and the fee of the staking module divided by `TOTAL_BASIS_POINTS` (i.e., the proportion of the staking module's fee to the total possible fees). If the module is not stopped, this fee is stored in the `stakingModuleFees` array.
-    - Adds to `totalFee` the sum of the staking module's fee and a fee going to the treasury (calculated similarly to `stakingModuleFee`), where the treasury is a central pool of funds.
+   - Stores the module ID and recipient address in the respective arrays.
+   - Calculates the `stakingModuleValidatorsShare`, which is the proportion of total active validators that are part of this staking module.
+   - Calculates the `stakingModuleFee` as the product of `stakingModuleValidatorsShare` and the fee of the staking module divided by `TOTAL_BASIS_POINTS` (i.e., the proportion of the staking module's fee to the total possible fees). If the module is not stopped, this fee is stored in the `stakingModuleFees` array.
+   - Adds to `totalFee` the sum of the staking module's fee and a fee going to the treasury (calculated similarly to `stakingModuleFee`), where the treasury is a central pool of funds.
+
 5. After looping through all modules, it makes an assertion that `totalFee` doesn't exceed 100% (represented by `precisionPoints`).
 
 6. If there are staking modules with no active validators, it shrinks the `stakingModuleIds`, `recipients`, and `stakingModuleFees` arrays to exclude those modules.
@@ -121,7 +125,6 @@ Finally, the function returns five arrays/values: `recipients`, `stakingModuleId
 - [Staking Router ADR](https://hackmd.io/f1wvHzpjTIq41-GCrdaMjw?view)
 - [Staking Router LIP](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-20.md)
 - Lido on Ethereum Validator Exits SNOP 3.0 ([IPFS](https://ipfs.io/ipfs/QmW9kE61zC61PcuikCQRwn82aoTCj9yPuENGNPML9QLkSM), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md))
-
 
 ## View methods
 
@@ -162,7 +165,7 @@ function getStakingModules() external view returns (StakingModule[] memory res);
 **Returns:**
 
 | Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
+| ----- | ----------------- | ------------------------------------------------- |
 | `res` | `StakingModule[]` | list of structs of all registered staking modules |
 
 ### `getStakingModuleIds`
@@ -175,8 +178,8 @@ function getStakingModuleIds() public view returns (uint256[] memory stakingModu
 
 **Returns:**
 
-| Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
+| Name               | Type        | Description                       |
+| ------------------ | ----------- | --------------------------------- |
 | `stakingModuleIds` | `uint256[]` | list of id of all staking modules |
 
 ### `getStakingModule`
@@ -189,15 +192,15 @@ function getStakingModule(uint256 _stakingModuleId) public view returns (Staking
 
 **Parameters:**
 
-| Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
-| `_stakingModuleId`| `uint256` | staking module id |
+| Name               | Type      | Description       |
+| ------------------ | --------- | ----------------- |
+| `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
-| Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
-|  | `StakingModule` | staking module information |
+| Name | Type            | Description                |
+| ---- | --------------- | -------------------------- |
+|      | `StakingModule` | staking module information |
 
 ### `getStakingModulesCount`
 
@@ -218,7 +221,7 @@ function hasStakingModule(uint256 _stakingModuleId) external view returns (bool)
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 ### `getStakingModuleStatus`
@@ -232,15 +235,14 @@ function getStakingModuleStatus(uint256 _stakingModuleId) public view returns (S
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type                  | Description                  |
-|------|-----------------------|------------------------------|
+| ---- | --------------------- | ---------------------------- |
 |      | `StakingModuleStatus` | status of the staking module |
-
 
 ### `getStakingModuleSummary`
 
@@ -261,13 +263,13 @@ function getStakingModuleSummary(uint256 _stakingModuleId) public view returns (
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type                   | Description                                |
-|------|------------------------|--------------------------------------------|
+| ---- | ---------------------- | ------------------------------------------ |
 |      | `StakingModuleSummary` | summary of the staking module's validators |
 
 ### `getNodeOperatorSummary`
@@ -297,14 +299,14 @@ function getNodeOperatorSummary(
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 | `_nodeOperatorId`  | `uint256` | node operator id  |
 
 **Returns:**
 
 | Name | Type                  | Description                  |
-|------|-----------------------|------------------------------|
+| ---- | --------------------- | ---------------------------- |
 |      | `NodeOperatorSummary` | summary of the node operator |
 
 ### `getAllStakingModuleDigests`
@@ -327,9 +329,8 @@ function getAllStakingModuleDigests() external view returns (StakingModuleDigest
 **Returns:**
 
 | Name | Type                    | Description                     |
-|------|-------------------------|---------------------------------|
+| ---- | ----------------------- | ------------------------------- |
 |      | `StakingModuleDigest[]` | array of staking module digests |
-
 
 ### `getStakingModuleDigests`
 
@@ -342,13 +343,13 @@ function getStakingModuleDigests(uint256[] memory _stakingModuleIds) public view
 **Parameters:**
 
 | Name                | Type        | Description                 |
-|---------------------|-------------|-----------------------------|
+| ------------------- | ----------- | --------------------------- |
 | `_stakingModuleIds` | `uint256[]` | array of staking module ids |
 
 **Returns:**
 
 | Name | Type                    | Description                     |
-|------|-------------------------|---------------------------------|
+| ---- | ----------------------- | ------------------------------- |
 |      | `StakingModuleDigest[]` | array of staking module digests |
 
 ### `getAllNodeOperatorDigests`
@@ -369,15 +370,15 @@ function getAllNodeOperatorDigests(uint256 _stakingModuleId) external view retur
 
 **Parameters:**
 
-| Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
-| `_stakingModuleId`| `uint256` | staking module id |
+| Name               | Type      | Description       |
+| ------------------ | --------- | ----------------- |
+| `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
-| Name  | Type              | Description                                       |
-|-------|-------------------|---------------------------------------------------|
-|  | `NodeOperatorDigest[]` | array of node operator digests |
+| Name | Type                   | Description                    |
+| ---- | ---------------------- | ------------------------------ |
+|      | `NodeOperatorDigest[]` | array of node operator digests |
 
 ### `getNodeOperatorDigests`
 
@@ -390,16 +391,15 @@ function getNodeOperatorDigests(uint256 _stakingModuleId, uint256[] memory _node
 **Parameters:**
 
 | Name               | Type        | Description                |
-|--------------------|-------------|----------------------------|
+| ------------------ | ----------- | -------------------------- |
 | `_stakingModuleId` | `uint256`   | staking module id          |
 | `_nodeOperatorIds` | `uint256[]` | array of node operator ids |
 
 **Returns:**
 
 | Name | Type                   | Description                    |
-|------|------------------------|--------------------------------|
+| ---- | ---------------------- | ------------------------------ |
 |      | `NodeOperatorDigest[]` | array of node operator digests |
-
 
 ### `getStakingModuleIsStopped`
 
@@ -412,13 +412,13 @@ function getStakingModuleIsStopped(uint256 _stakingModuleId) external view retur
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type   | Description                                            |
-|------|--------|--------------------------------------------------------|
+| ---- | ------ | ------------------------------------------------------ |
 |      | `bool` | true if the staking module is stopped, false otherwise |
 
 ### `getStakingModuleIsDepositsPaused`
@@ -432,13 +432,13 @@ function getStakingModuleIsDepositsPaused(uint256 _stakingModuleId) external vie
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type   | Description                                                         |
-|------|--------|---------------------------------------------------------------------|
+| ---- | ------ | ------------------------------------------------------------------- |
 |      | `bool` | true if deposits are paused for the staking module, false otherwise |
 
 ### `getStakingModuleIsActive`
@@ -452,13 +452,13 @@ function getStakingModuleIsActive(uint256 _stakingModuleId) external view return
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type   | Description                                           |
-|------|--------|-------------------------------------------------------|
+| ---- | ------ | ----------------------------------------------------- |
 |      | `bool` | true if the staking module is active, false otherwise |
 
 ### `getStakingModuleNonce`
@@ -472,13 +472,13 @@ function getStakingModuleNonce(uint256 _stakingModuleId) external view returns (
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type      | Description                 |
-|------|-----------|-----------------------------|
+| ---- | --------- | --------------------------- |
 |      | `uint256` | nonce of the staking module |
 
 ### `getStakingModuleLastDepositBlock`
@@ -492,13 +492,13 @@ function getStakingModuleLastDepositBlock(uint256 _stakingModuleId) external vie
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type      | Description                      |
-|------|-----------|----------------------------------|
+| ---- | --------- | -------------------------------- |
 |      | `uint256` | block number of the last deposit |
 
 ### `getStakingModuleMinDepositBlockDistance`
@@ -512,13 +512,13 @@ function getStakingModuleMinDepositBlockDistance(uint256 _stakingModuleId) exter
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type      | Description                                       |
-|------|-----------|---------------------------------------------------|
+| ---- | --------- | ------------------------------------------------- |
 |      | `uint256` | min deposit block distance for the staking module |
 
 ### `getStakingModuleMaxDepositsPerBlock`
@@ -532,15 +532,14 @@ function getStakingModuleMaxDepositsPerBlock(uint256 _stakingModuleId) external 
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type      | Description                                         |
-|------|-----------|-----------------------------------------------------|
+| ---- | --------- | --------------------------------------------------- |
 |      | `uint256` | Max deposits count per block for the staking module |
-
 
 ### `getStakingModuleActiveValidatorsCount`
 
@@ -553,13 +552,13 @@ function getStakingModuleActiveValidatorsCount(uint256 _stakingModuleId) externa
 **Parameters:**
 
 | Name               | Type      | Description       |
-|--------------------|-----------|-------------------|
+| ------------------ | --------- | ----------------- |
 | `_stakingModuleId` | `uint256` | staking module id |
 
 **Returns:**
 
 | Name | Type      | Description                 |
-|------|-----------|-----------------------------|
+| ---- | --------- | --------------------------- |
 |      | `uint256` | number of active validators |
 
 ### `getStakingModuleMaxDepositsCount`
@@ -576,14 +575,14 @@ function getStakingModuleMaxDepositsCount(
 **Parameters:**
 
 | Name                | Type      | Description                                             |
-|---------------------|-----------|---------------------------------------------------------|
+| ------------------- | --------- | ------------------------------------------------------- |
 | `_stakingModuleId`  | `uint256` | staking module id                                       |
 | `_maxDepositsValue` | `uint256` | maximum amount of deposits based on the available ether |
 
 **Returns:**
 
 | Name | Type      | Description                                                                |
-|------|-----------|----------------------------------------------------------------------------|
+| ---- | --------- | -------------------------------------------------------------------------- |
 |      | `uint256` | maximum number of deposits that can be made using the given staking module |
 
 ### `getStakingFeeAggregateDistribution`
@@ -601,7 +600,7 @@ function getStakingFeeAggregateDistribution() public view returns (
 **Returns:**
 
 | Name            | Type      | Description                                                  |
-|-----------------|-----------|--------------------------------------------------------------|
+| --------------- | --------- | ------------------------------------------------------------ |
 | `modulesFee`    | `uint96`  | total fees for all staking modules                           |
 | `treasuryFee`   | `uint96`  | total fee for the treasury                                   |
 | `basePrecision` | `uint256` | base precision number, a value corresponding to the full fee |
@@ -623,7 +622,7 @@ function getStakingRewardsDistribution() public view returns (
 **Returns:**
 
 | Name                | Type        | Description                                                  |
-|---------------------|-------------|--------------------------------------------------------------|
+| ------------------- | ----------- | ------------------------------------------------------------ |
 | `recipients`        | `address[]` | total staking module addresses                               |
 | `stakingModuleIds`  | `uint256[]` | staking module ids                                           |
 | `stakingModuleFees` | `uint96[]`  | staking module fees                                          |
@@ -643,13 +642,13 @@ function getDepositsAllocation(uint256 _depositsCount) external view returns (
 **Parameters:**
 
 | Name             | Type      | Description                                  |
-|------------------|-----------|----------------------------------------------|
+| ---------------- | --------- | -------------------------------------------- |
 | `_depositsCount` | `uint256` | deposits to allocate between staking modules |
 
 **Returns:**
 
 | Name          | Type        | Description                                         |
-|---------------|-------------|-----------------------------------------------------|
+| ------------- | ----------- | --------------------------------------------------- |
 | `allocated`   | `uint256`   | total staking module addresses                      |
 | `allocations` | `uint256[]` | array of new total deposits between staking modules |
 
@@ -664,7 +663,7 @@ function getWithdrawalCredentials() public view returns (bytes32);
 **Returns:**
 
 | Name | Type      | Description            |
-|------|-----------|------------------------|
+| ---- | --------- | ---------------------- |
 |      | `bytes32` | withdrawal credentials |
 
 ## Write methods
@@ -689,7 +688,7 @@ function addStakingModule(
 **Parameters:**
 
 | Name                          | Type      | Description                                                          |
-|-------------------------------|-----------|----------------------------------------------------------------------|
+| ----------------------------- | --------- | -------------------------------------------------------------------- |
 | `_name`                       | `string`  | human-readable name of the module                                    |
 | `_stakingModuleAddress`       | `address` | Address of the module contract                                       |
 | `_stakeShareLimit`            | `uint256` | maximum share that can be allocated to a module                      |
@@ -718,7 +717,7 @@ function updateStakingModule(
 **Parameters:**
 
 | Name                          | Type      | Description                                                          |
-|-------------------------------|-----------|----------------------------------------------------------------------|
+| ----------------------------- | --------- | -------------------------------------------------------------------- |
 | `_stakingModuleId`            | `uint256` | id of the module                                                     |
 | `_stakeShareLimit`            | `uint256` | maximum share that can be allocated to a module                      |
 | `_priorityExitShareThreshold` | `uint256` | Module's priority exit share threshold                               |
@@ -743,7 +742,7 @@ function updateTargetValidatorsLimits(
 **Parameters:**
 
 | Name               | Type      | Description                                             |
-|--------------------|-----------|---------------------------------------------------------|
+| ------------------ | --------- | ------------------------------------------------------- |
 | `_stakingModuleId` | `uint256` | id of the module                                        |
 | `_nodeOperatorId`  | `uint256` | id of the node operator                                 |
 | `_targetLimitMode` | `uint256` | target limit mode (0 = disabled, 1 = soft, 2 = boosted) |
@@ -764,7 +763,7 @@ function updateRefundedValidatorsCount(
 **Parameters:**
 
 | Name                       | Type      | Description                                            |
-|----------------------------|-----------|--------------------------------------------------------|
+| -------------------------- | --------- | ------------------------------------------------------ |
 | `_stakingModuleId`         | `uint256` | id of the module                                       |
 | `_nodeOperatorId`          | `uint256` | id of the node operator                                |
 | `_refundedValidatorsCount` | `uint256` | new number of refunded validators of the node operator |
@@ -783,7 +782,7 @@ function reportRewardsMinted(
 **Parameters:**
 
 | Name                | Type        | Description                                      |
-|---------------------|-------------|--------------------------------------------------|
+| ------------------- | ----------- | ------------------------------------------------ |
 | `_stakingModuleIds` | `uint256[]` | list of the reported staking module ids          |
 | `_totalShares`      | `uint256[]` | total shares minted to the given staking modules |
 
@@ -801,7 +800,7 @@ function reportRewardsMinted(
 **Parameters:**
 
 | Name                      | Type        | Description                                                       |
-|---------------------------|-------------|-------------------------------------------------------------------|
+| ------------------------- | ----------- | ----------------------------------------------------------------- |
 | `_stakingModuleIds`       | `uint256[]` | list of the reported staking module ids                           |
 | `_exitedValidatorsCounts` | `uint256[]` | new counts of exited validators for the specified staking modules |
 
@@ -820,7 +819,7 @@ function reportStakingModuleExitedValidatorsCountByNodeOperator(
 **Parameters:**
 
 | Name                      | Type      | Description                                                      |
-|---------------------------|-----------|------------------------------------------------------------------|
+| ------------------------- | --------- | ---------------------------------------------------------------- |
 | `_stakingModuleId`        | `uint256` | staking module id                                                |
 | `_nodeOperatorIds`        | `bytes`   | ids of the node operators                                        |
 | `_exitedValidatorsCounts` | `bytes`   | new counts of exited validators for the specified node operators |
@@ -860,11 +859,10 @@ struct ValidatorsCountsCorrection {
 }
 ```
 
-
 **Parameters:**
 
 | Name                   | Type                         | Description                                                                                         |
-|------------------------|------------------------------|-----------------------------------------------------------------------------------------------------|
+| ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------- |
 | `_stakingModuleId`     | `uint256`                    | staking module id                                                                                   |
 | `_nodeOperatorIds`     | `bytes`                      | ids of the node operators                                                                           |
 | `_triggerUpdateFinish` | `bool`                       | flag to call `onExitedAndStuckValidatorsCountsUpdated` on the module after applying the corrections |
@@ -885,7 +883,7 @@ function reportStakingModuleStuckValidatorsCountByNodeOperator(
 **Parameters:**
 
 | Name                     | Type      | Description                                                     |
-|--------------------------|-----------|-----------------------------------------------------------------|
+| ------------------------ | --------- | --------------------------------------------------------------- |
 | `_stakingModuleId`       | `uint256` | staking module id                                               |
 | `_nodeOperatorIds`       | `bytes`   | ids of the node operators                                       |
 | `_stuckValidatorsCounts` | `bytes`   | new counts of stuck validators for the specified node operators |
@@ -913,7 +911,7 @@ function decreaseStakingModuleVettedKeysCountByNodeOperator(
 **Parameters:**
 
 | Name                       | Type      | Description                                                         |
-|----------------------------|-----------|---------------------------------------------------------------------|
+| -------------------------- | --------- | ------------------------------------------------------------------- |
 | `_stakingModuleId`         | `uint256` | staking module id                                                   |
 | `_nodeOperatorIds`         | `bytes`   | ids of the node operators                                           |
 | `_vettedSigningKeysCounts` | `bytes`   | new counts of vetted signing keys for the specified node operators. |
@@ -937,7 +935,7 @@ function reportValidatorExitDelay(
 Parameters:
 
 | Name                   | Type      | Description                                                              |
-|------------------------|-----------|--------------------------------------------------------------------------|
+| ---------------------- | --------- | ------------------------------------------------------------------------ |
 | `_stakingModuleId`     | `uint256` | Staking module id                                                        |
 | `_nodeOperatorId`      | `uint256` | Node operator id within the specified staking module                     |
 | `_proofSlotTimestamp`  | `uint256` | Beacon slot timestamp used as a proof reference for the validator status |
@@ -963,7 +961,7 @@ function onValidatorExitTriggered(
 Parameters:
 
 | Name                        | Type      | Description                                                                |
-|-----------------------------|-----------|----------------------------------------------------------------------------|
+| --------------------------- | --------- | -------------------------------------------------------------------------- |
 | `_stakingModuleId`          | `uint256` | Staking module id                                                          |
 | `_nodeOperatorId`           | `uint256` | Node operator id within the specified staking module                       |
 | `_publicKey`                | `bytes`   | Validator BLS public key                                                   |

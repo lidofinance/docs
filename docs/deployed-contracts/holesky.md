@@ -31,7 +31,6 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
   - HashConsensus: [`0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f`](https://holesky.etherscan.io/address/0xe77Cf1A027d7C10Ee6bb7Ede5E922a181FF40E8f)
 - OracleReportSanityChecker: [`0x80D1B1fF6E84134404abA18A628347960c38ccA7`](https://holesky.etherscan.io/address/0x80D1B1fF6E84134404abA18A628347960c38ccA7)
 - OracleDaemonConfig: [`0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7`](https://holesky.etherscan.io/address/0xC01fC1F2787687Bc656EAc0356ba9Db6e6b7afb7)
-- Legacy Oracle (Lido Oracle before V2, obsolete): [`0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019`](https://holesky.etherscan.io/address/0x072f72BE3AcFE2c52715829F2CD9061A6C8fF019) (proxy)
 
 ## DAO contracts
 
@@ -47,7 +46,6 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 - Finance Repo: [`0x0df65b7c78Dc42a872010d031D3601C284D8fE71`](https://holesky.etherscan.io/address/0x0df65b7c78Dc42a872010d031D3601C284D8fE71) (proxy)
 - Agent Repo: [`0xe7b4567913AaF2bD54A26E742cec22727D8109eA`](https://holesky.etherscan.io/address/0xe7b4567913AaF2bD54A26E742cec22727D8109eA) (proxy)
 - Lido App Repo: [`0xA37fb4C41e7D30af5172618a863BBB0f9042c604`](https://holesky.etherscan.io/address/0xA37fb4C41e7D30af5172618a863BBB0f9042c604) (proxy)
-- Lido Oracle (Legacy Oracle) Repo: [`0xB3d74c319C0C792522705fFD3097f873eEc71764`](https://holesky.etherscan.io/address/0xB3d74c319C0C792522705fFD3097f873eEc71764) (proxy)
 - Node Operators Registry Repo: [`0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF`](https://holesky.etherscan.io/address/0x4E8970d148CB38460bE9b6ddaab20aE2A74879AF) (proxy)
 - Simple DVT Repo: [`0x889dB59baf032E1dfD4fCA720e0833c24f1404C6`](https://holesky.etherscan.io/address/0x889dB59baf032E1dfD4fCA720e0833c24f1404C6) (proxy)
 - EVMScriptRegistry: [`0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0`](https://holesky.etherscan.io/address/0xE1200ae048163B67D69Bc0492bF5FddC3a2899C0) (proxy)
@@ -102,7 +100,6 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 - HashConsensus: [`0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37`](https://holesky.etherscan.io/address/0xbF38618Ea09B503c1dED867156A0ea276Ca1AE37)
 - GateSeal: [`0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a`](https://holesky.etherscan.io/address/0xf1C03536dbC77B1bD493a2D1C0b1831Ea78B540a)
 
-
 ## DAO Ops contracts & addresses
 
 - Token Reward Program (TRP) VestingEscrowFactory: [`0x586f0b51d46ac8ac6058702d99cd066ae514e96b`](https://holesky.etherscan.io/address/0x586f0b51d46ac8ac6058702d99cd066ae514e96b)
@@ -131,6 +128,7 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
   - CSMSettleElStealingPenalty: [`0x07696EA8A5b53C3E35d9cce10cc62c6c79C4691D`](https://holesky.etherscan.io/address/0x07696EA8A5b53C3E35d9cce10cc62c6c79C4691D)
 
 ### Easy Track factories for token transfers
+
 - **LOL (ex.reWARDS) stETH** (committee ms [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915))
   - AllowedRecipientsRegistry: [`0x55B304a585D540421F1fD3579Ef12Abab7304492`](https://holesky.etherscan.io/address/0x55B304a585D540421F1fD3579Ef12Abab7304492)
   - AddAllowedRecipient: [`0xf0968B9bE18282dD23bbbC79a1c9C8996CE6984D`](https://holesky.etherscan.io/address/0xf0968B9bE18282dD23bbbC79a1c9C8996CE6984D)
@@ -203,13 +201,15 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
   - BokkyPooBah's DateTime Library: [`0xd6237FecDF9C1D9b023A5205C17549E3037EeEec`](https://holesky.etherscan.io/address/0xd6237FecDF9C1D9b023A5205C17549E3037EeEec)
 
 ## Testnet DAO Multisigs & EOA
-  - QA & DAO Ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
-    - QA testnet EOA: [`0x1580881349e214Bab9f1E533bF97351271DB95a9`](https://holesky.etherscan.io/address/0x1580881349e214Bab9f1E533bF97351271DB95a9)
-    - DAO Ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
-  - Testnet GateSeal Committee: [`0x6165267E76D609465640bffc158aff7905D47B46`](https://holesky-safe.protofire.io/home?safe=holesky:0x6165267E76D609465640bffc158aff7905D47B46)
-  - CSM Development Team EOA: [`0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164`](https://holesky.etherscan.io/address/0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164)
+
+- QA & DAO Ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
+  - QA testnet EOA: [`0x1580881349e214Bab9f1E533bF97351271DB95a9`](https://holesky.etherscan.io/address/0x1580881349e214Bab9f1E533bF97351271DB95a9)
+  - DAO Ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
+- Testnet GateSeal Committee: [`0x6165267E76D609465640bffc158aff7905D47B46`](https://holesky-safe.protofire.io/home?safe=holesky:0x6165267E76D609465640bffc158aff7905D47B46)
+- CSM Development Team EOA: [`0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164`](https://holesky.etherscan.io/address/0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164)
 
 ## Testnet Stablecoins
-  - USDC: [`0x9715b2786f1053294fc8952df923b95cab9aac42`](https://holesky.etherscan.io/address/0x9715b2786f1053294fc8952df923b95cab9aac42)
-  - USDT: [`0x86f6c353a0965eb069cd7f4f91c1afef8c725551`](https://holesky.etherscan.io/address/0x86f6c353a0965eb069cd7f4f91c1afef8c725551)
-  - DAI: [`0x2eb8e9198e647f80ccf62a5e291bcd4a5a3ca68c`](https://holesky.etherscan.io/address/0x2eb8e9198e647f80ccf62a5e291bcd4a5a3ca68c)
+
+- USDC: [`0x9715b2786f1053294fc8952df923b95cab9aac42`](https://holesky.etherscan.io/address/0x9715b2786f1053294fc8952df923b95cab9aac42)
+- USDT: [`0x86f6c353a0965eb069cd7f4f91c1afef8c725551`](https://holesky.etherscan.io/address/0x86f6c353a0965eb069cd7f4f91c1afef8c725551)
+- DAI: [`0x2eb8e9198e647f80ccf62a5e291bcd4a5a3ca68c`](https://holesky.etherscan.io/address/0x2eb8e9198e647f80ccf62a5e291bcd4a5a3ca68c)

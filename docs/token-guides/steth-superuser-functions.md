@@ -1,53 +1,203 @@
 # stETH superuser functions
 
-<!--  -->
+This guide describes the stETH control surface in Lido V3, the roles that can change protocol behavior, and the current role holders on mainnet. It focuses on the minimal set of contracts that can mint, burn, or pause stETH supply.
 
-## Superuser privileges and accounts
+## What stETH is in Lido V3
 
-StETH token is the upgradable contract behind `AppProxyUpgradeable` proxy at [https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84). Lido DAO can change the implementation with the successful DAO vote.
+- stETH is the rebasing token representing pooled ETH in the Core Lido pool
+- stVaults can mint stETH as **external shares** against overcollateralized collateral
+- Rebases are driven by oracle reports applied through [Accounting](/contracts/accounting)
+- Total supply = internal shares (Lido Core pool) + external shares (stVaults)
 
-StETH can be stopped by the DAO vote. No operations changing stETH balances can be performed on the stopped contract:
+## Control surfaces (first principles)
 
-1. `transfer` call reverts;
-2. No mints or burns can be performed. Note that StETH contract can mint stETH only in two cases: user deposits (tokens are minted to the depositor's address) or fee distribution (where tokens are minted in accordance to fee calculations to the addresses set in the contract — namely the DAO treasury, the insurance fund and the Node Operator's reward addresses);
-3. Users can't submit their ETH to the Lido;
-4. Oracle can't push updates on the Consensus Layer staking state;
-5. No ETH buffered in Lido can be sent to the Ethereum deposit contract;
-6. Staking withdrawals can't be performed.
+The supply of stETH can change only through the following paths:
 
-## Superuser roles
+| Surface | Contract | Mutators | Notes |
+| --- | --- | --- | --- |
+| Oracle report | [Accounting](/contracts/accounting) | `handleOracleReport()` | Applies protocol rebase and fee minting |
+| External shares | [VaultHub](/contracts/vault-hub) | `mintShares()`, `burnShares()` | Mints/burns external shares for stVaults |
+| Burn queue | [Burner](/contracts/burner) | `requestBurnShares()`, `commitSharesToBurn()` | Withdrawal finalization and penalties |
+| Module rewards | [StakingRouter](/contracts/staking-router) | `reportRewardsMinted()` | Distributes minted shares to modules |
+| Emergency pause | [Lido](/contracts/lido) | `stop()`, `resume()` | Pauses core stETH operations |
 
-TODO: Outdated `BURN_ROLE`
+## Key contracts
 
-StETH contract specifies PAUSE_ROLE (address can pause the protocol) and BURN_ROLE (address can burn stETH tokens):
+| Contract                                   | Address                                                                                                                 | Purpose                                                      |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [Lido](/contracts/lido)                    | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) | Core stETH token and staking pool                            |
+| [Accounting](/contracts/accounting)        | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) | Oracle report handling and rebases                           |
+| [StakingRouter](/contracts/staking-router) | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) | Staking module routing and withdrawal credentials management |
+| [Burner](/contracts/burner)                | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) | stETH burning for withdrawals                                |
+| [VaultHub](/contracts/vault-hub)           | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | External share minting for stVaults                          |
+| [HashConsensus](/contracts/hash-consensus) | [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288) | AccountingOracle consensus contract                          |
+| Aragon ACL                                 | [`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb) | Permission registry for AragonApp-based access control       |
 
-* The `PAUSE_ROLE` assigned only to the DAO Voting contract [https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e](https://etherscan.io/address/0x2e59a20f205bb85a89c53f1936454680651e618e)
-* The `BURN_ROLE` assigned to the [`Burner`](/contracts/burner) contract with additional ACL parameters effectively allowing to burn stETH tokens only from the contract own balance. Tokens could be requested to burn only by direct request from the DAO Voting.
+## Who controls stETH behavior
 
-Note that there are other roles for DAO management, but they don't affect the token actions. These roles are MANAGE_FEE (set staking fee amount), MANAGE_WITHDRAWAL_KEY (set withdrawal credentials of the protocol), MANAGE_PROTOCOL_CONTRACTS_ROLE (set oracle contract address, set DAO treasury address to send fee to, set DAO insurance address to send fee to). The roles and addresses are listed in the following independent [report](https://github.com/lidofinance/audits/?tab=readme-ov-file#10-2023-statemind-lido-roles-analysis) as of end of 2023.
+Control is governed by the Lido DAO. Roles are assigned to DAO-owned contracts or protocol components.
 
-## Oracle rebasing reports
+| Entity             | Address                                                                                                                 | Description                                                                              |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| DAO Agent          | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) | Holds most admin roles; executes DAO votes                                               |
+| GateSeal Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer for GateSeal                                                      |
+| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension authority for GateSeal-paused apps under DualGovernance veto escalations |
 
-StETH is a rebasable token. It receives reports from the Oracle contract (`handleOracleReport` method) with the state of the protocol's Consensus Layer validators balances, and updates all the balances of stETH holders distributing the protocol's total staking rewards and penalties. The protocol employs distributed Oracle reporting: there are five Oracle daemons running by the Lido Node operators, and the Oracle smart contract formats beacon report on the consensus of three of five daemon reports. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total Consensus Layer balance or rewards with higher-than-possible APY. Current Oracle contract is [https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb](https://etherscan.io/address/0x442af784A788A5bd6F42A01Ebe9F287a871243fb). Note that: 1) DAO can set another address for the Oracle contract via vote; 2) Oracle implementation can change via vote.
+All protocol proxy admins are set to the Lido DAO Agent.
 
-## Superuser privileges decentralization
+## Pause and resume
 
-The superuser privileges are managed by the Lido DAO's governance system. To enact any change the DAO has to have a successful vote.
+**When paused**: Token transfers, approvals, and rebases are disabled. Core protocol entry points (staking, withdrawals) revert.
 
-Oracles are: 1) limited in impact 2) distributed - there are five of them, all top-tier professional node operators.
+| Contract                | Role          | Role registry / owner contract                                                                                                       | Current holder(s) | Purpose         |
+| ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------- |
+| [Lido](/contracts/lido) | `PAUSE_ROLE`  | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Pause protocol  |
+| [Lido](/contracts/lido) | `RESUME_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Resume protocol |
 
-## Superuser actions thresholds
+**Mutators**: `stop()`, `resume()` on [Lido](/contracts/lido)
 
-The "superuser actions" with the StETH token are performed via DAO votes. The votes are managed by the Aragon voting. Voting power is proportional to the addresses' LDO token balance ([https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32](https://etherscan.io/token/0x5a98fcbea516cf06857215779fd812ca3bef1b32)). For the voting to pass successfully, it should: 1) get at least 5% of the total LDOs to be cast "for" the vote; 2) get at least 50% of votes cast "for" the vote. The voting duration is 120 hours.
+### Emergency pause via GateSeal
 
-There are five Oracle daemons running by the Lido Node operators, with 3 of 5 needed to agree on the data they provide. On top of the consensus mechanics, there are sanity checks for reports with sudden drops in total Consensus Layer balance or rewards with higher-than-possible APY.
+The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days). The Reseal Manager holds both the pause and resume role for GateSeal-paused contracts to effectively prolong the pause if needed under certain DualGovernance veto conditions.
 
-## Superuser keys management
+For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal).
 
-Token management roles belong to smart contracts, and any changes in roles must pass through the successful DAO vote.
+## Burning stETH
 
-Oracle operators are: Stakefish, Certus One, Chorus One, Staking Facilities, P2P Validator.
+Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)).
 
-## Superuser keys generation procedure
+| Contract                    | Role                         | Role registry / owner contract                                                                                                   | Current holder(s)                                                                                                                                                                                                                                                            | Purpose                           |
+| --------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| [Burner](/contracts/burner) | `REQUEST_BURN_SHARES_ROLE`   | Burner ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)) | Accounting ([`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf)), CSAccounting ([`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da)) | Request burns on behalf of others |
+| [Burner](/contracts/burner) | `REQUEST_BURN_MY_STETH_ROLE` | Burner ([`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)) | Unassigned                                                                                                                                                                                                                                                                   | Burn caller's own stETH           |
 
-There was no special keygen ceremony, as the permissions are managed by smart contracts. The votes can be cast by the EOAs and smart contracts with the voting power proportional to the addresses' LDO balance.
+**Used for**:
+
+- Withdrawal finalization (burning stETH to release ETH)
+- Covering slashing penalties
+- DAO-directed burns (e.g., insurance fund operations)
+
+## Staking limits
+
+Controls the maximum ETH that can be staked per transaction or in total.
+
+| Contract                | Role                   | Role registry / owner contract                                                                                                       | Current holder(s) | Purpose               |
+| ----------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------- |
+| [Lido](/contracts/lido) | `STAKING_CONTROL_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Adjust staking limits |
+
+**Mutators**: `setStakingLimit()`, `removeStakingLimit()`, `pauseStaking()`, `resumeStaking()` on [Lido](/contracts/lido)
+
+## External shares cap (stVaults)
+
+External shares are stETH minted by stVaults against overcollateralized ETH. The cap limits how much stETH can be minted externally relative to the core pool.
+
+| Contract                | Role                   | Role registry / owner contract                                                                                                       | Current holder(s) | Purpose                 |
+| ----------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----------------------- |
+| [Lido](/contracts/lido) | `STAKING_CONTROL_ROLE` | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) | Unassigned        | Set external shares cap |
+
+**Mutator**: `setMaxExternalRatioBP()` on [Lido](/contracts/lido)
+
+**Current behavior**: External shares are capped as a basis point ratio of total shares. For example, if the cap is 1000 BP (10%), and total internal shares are 9M stETH, external shares cannot exceed 1M stETH.
+
+**View methods**:
+
+- `getExternalShares()` - Returns total external shares
+- `getExternalEther()` - Returns ETH backing external shares
+- `getMaxExternalRatioBP()` - Returns current cap in basis points
+
+## Withdrawal credentials
+
+Controls the Ethereum withdrawal credentials for new validators deposited by the protocol.
+
+| Contract                                   | Role                                 | Role registry / owner contract                                                                                                          | Current holder(s) | Purpose                    |
+| ------------------------------------------ | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------- |
+| [StakingRouter](/contracts/staking-router) | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | StakingRouter ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)) | Unassigned        | Set withdrawal credentials |
+
+**Mutator**: `setWithdrawalCredentials()` on [StakingRouter](/contracts/staking-router) 
+
+This is a sensitive operation that should only occur during protocol setup or major upgrades.
+
+## Fees and treasury configuration
+
+| Lever                | Role / permission              | Role registry / owner contract                                                                                                          | Current holder(s)                                                                                                                      |
+| -------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Protocol fee (total) | Aragon ACL permissions on Lido | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb))    | Unassigned                                                                                                                             |
+| Module fee splits    | `STAKING_MODULE_MANAGE_ROLE`   | StakingRouter ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)) | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c)) |
+| Treasury address     | Aragon ACL permissions on Lido | Aragon ACL ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb))    | Unassigned                                                                                                                             |
+
+**Contracts**: [Lido](/contracts/lido) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)), [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999))
+
+Fee parameters are set on-chain and can change via DAO decisions. For current values, see [StakingRouter](/contracts/staking-router) and related module parameters.
+
+Protocol fee and treasury permissions are intentionally unassigned today. The DAO can assign them later through Aragon ACL governance; see the [permissions transition guide](https://github.com/lidofinance/dual-governance/blob/main/docs/permissions-transition/permissions-transition-mainnet.md) for design context (prepared pre-V3 but still relevant on principles).
+
+## Oracle and accounting flow
+
+```mermaid
+graph TD;
+  A[AccountingOracle] --> B["Sanity checks (OracleReportSanityChecker)"];
+  A --> C["Apply report (Accounting)"];
+  C --> D["Update consensus layer state on Lido"];
+  C --> E["Internalize bad debt"];
+  C --> F["Commit shares to burn (Burner)"];
+  C --> G["Finalize withdrawal queue requests"];
+  C --> H["Distribute protocol fees (modules + treasury)"];
+  C --> I["Notify rebase observers"];
+  C --> J["Emit TokenRebased event on Lido"];
+```
+
+1. Oracle committee members submit reports to [HashConsensus](/contracts/hash-consensus) ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))
+2. When quorum is reached, [AccountingOracle](/contracts/accounting-oracle) ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)) performs sanity checks
+3. AccountingOracle updates consensus layer state on [Lido](/contracts/lido) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)) via [Accounting](/contracts/accounting) ([`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf))
+4. [Accounting](/contracts/accounting) internalizes bad debt
+5. [Accounting](/contracts/accounting) commits shares to burn via [Burner](/contracts/burner)
+6. [Accounting](/contracts/accounting) finalizes withdrawal queue requests
+7. [Accounting](/contracts/accounting) distributes protocol fees to modules and treasury
+8. [Accounting](/contracts/accounting) notifies rebase observers
+9. [Lido](/contracts/lido) emits `TokenRebased`
+
+## On-chain verification
+
+**Aragon ACL roles (Lido, Voting, Agent, etc.)**
+
+- Use the ACL contract ([`0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb`](https://etherscan.io/address/0x9895f0f17cc1d1891b6f18ee0b483b6f221b37bb)) `hasPermission(entity, app, role)` for a specific entity.
+- Aragon ACL cannot enumerate role members on-chain. To prove a role is not granted to any contract, you must index historical `SetPermission` events off-chain (see `tests/regression/test_permissions.py` in `lidofinance/scripts`: https://github.com/lidofinance/scripts and https://github.com/lidofinance/scripts/blob/master/tests/regression/test_permissions.py).
+
+**AccessControlEnumerable roles (Burner, VaultHub, OperatorGrid, LazyOracle, PredepositGuarantee, StakingRouter)**
+
+- Use `getRoleMemberCount` / `getRoleMember` (if available) or `hasRole` to verify role holders on-chain.
+
+## Operational implications
+
+### Pausing effects
+
+| When paused...  | Effect                                                                           |
+| --------------- | -------------------------------------------------------------------------------- |
+| Token transfers | All `transfer()` and `transferFrom()` calls revert                               |
+| Approvals       | `approve()` calls revert                                                         |
+| Staking         | `submit()` reverts;no new ETH can be staked                                      |
+| Withdrawals     | Withdrawal requests revert                                                       |
+| Rebases         | AccountingOracle processing (via Accounting) can be blocked while Lido is paused |
+
+### External shares cap effects
+
+| Cap reached...    | Effect                                           |
+| ----------------- | ------------------------------------------------ |
+| stVault minting   | New `mintShares()` calls from VaultHub revert    |
+| Core pool staking | Unaffected;internal shares can still grow        |
+| Existing stVaults | Existing minted shares unaffected;can still burn |
+
+### Fee configuration effects
+
+| Change                  | Effect                                         |
+| ----------------------- | ---------------------------------------------- |
+| Increase protocol fee   | More staking rewards go to protocol vs stakers |
+| Change module splits    | Affects node operator vs treasury distribution |
+| Treasury address change | Future fee distributions go to new address     |
+
+## Governance references
+
+- [Lido DAO Voting](https://vote.lido.fi/)
+- [Protocol levers](/guides/protocol-levers)
+- [Emergency Brakes Multisigs](/multisigs/emergency-brakes)
+- [Deployed contracts (mainnet)](/deployed-contracts)

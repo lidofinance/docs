@@ -1,6 +1,6 @@
 # TriggerableWithdrawalsGateway
 
-- [Source code](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/TriggerableWithdrawalsGateway.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/TriggerableWithdrawalsGateway.sol)
 - [Deployed contract](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Specification basis: [LIP-30 — Triggerable withdrawals](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md)
 
@@ -11,7 +11,7 @@ TriggerableWithdrawalsGateway (TWG) is a gateway contract introducing an validat
 ## Roles and access control
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 To engage Emergency Brakes and unpause if required, it inherits from `PausableContract` (see [GateSeals](https://docs.lido.fi/contracts/gate-seal)).
 
@@ -44,7 +44,7 @@ function getExitRequestLimitFullInfo() external view;
 **Returns:**
 
 | Name                        | Type      | Description                                                                               |
-|-----------------------------|-----------|-------------------------------------------------------------------------------------------|
+| --------------------------- | --------- | ----------------------------------------------------------------------------------------- |
 | `_maxExitRequestsLimit`     | `uint256` | Maximum exit requests limit                                                               |
 | `_exitsPerFrame`            | `uint256` | The number of exits that can be restored per frame                                        |
 | `_frameDurationInSec`       | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored |
@@ -66,7 +66,7 @@ function setExitRequestLimit(
 **Parameters:**
 
 | Name                   | Type      | Description                                                                                |
-|------------------------|-----------|--------------------------------------------------------------------------------------------|
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------ |
 | `maxExitRequestsLimit` | `uint256` | The maximum number of exit requests.                                                       |
 | `exitsPerFrame`        | `uint256` | The number of exits that can be restored per frame.                                        |
 | `frameDurationInSec`   | `uint256` | The duration of each frame, in seconds, after which `exitsPerFrame` exits can be restored. |
@@ -84,6 +84,7 @@ function triggerFullWithdrawals(
 ```
 
 **Structures**:
+
 ```solidity
 struct ValidatorExitData {
   uint256 stakingModuleId;
@@ -95,7 +96,7 @@ struct ValidatorExitData {
 **Parameters:**
 
 | Name              | Type                  | Description                                                                                                              |
-|-------------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------|
+| ----------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `validatorsData`  | `ValidatorExitData[]` | An array of `ValidatorExitData` structs, each representing a validator for which a withdrawal request will be submitted. |
 | `refundRecipient` | `address`             | The address that will receive any excess ETH sent for fees.                                                              |
 | `exitType`        | `uint256`             | A parameter indicating the type of exit, passed to the Staking Module.                                                   |

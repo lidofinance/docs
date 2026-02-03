@@ -1,6 +1,6 @@
 # EIP712StETH
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/EIP712StETH.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/EIP712StETH.sol)
 - [Deployed contract](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 
 `EIP712StETH` serves as a dedicated helper contract for `stETH`, crucial for the complete support of [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
@@ -31,12 +31,12 @@ function hashTypedDataV4(address _stETH, bytes32 _structHash) returns (bytes32)
 
 #### Parameters
 
-| Name         | Type      | Description                           |
-| ------------ | --------- | ------------------------------------- |
-| `_stETH`     | `address` | Address of the deployed `stETH` token |
-| `_structHash`| `bytes32` | Hash of the data structure            |
+| Name          | Type      | Description                           |
+| ------------- | --------- | ------------------------------------- |
+| `_stETH`      | `address` | Address of the deployed `stETH` token |
+| `_structHash` | `bytes32` | Hash of the data structure            |
 
-For a specific use case, see the [StETHPermit.permit()](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/StETHPermit.sol#L99-L112) implementation.
+For a specific use case, see the [StETHPermit.permit()](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.4.24/StETHPermit.sol#L99-L112) implementation.
 
 ### eip712Domain()
 
@@ -59,19 +59,19 @@ function eip712Domain(address _stETH) returns (
 
 #### Returns
 
-| Name              | Type       | Description                   |
-| ----------------- | ---------- | ----------------------------- |
-| `name`            | `string`   | Name of the token            |
-| `version`         | `string`   | Version of the token         |
-| `chainId`         | `uint256`  | Chain identifier             |
-| `verifyingContract`| `address` | Address of the token contract |
+| Name                | Type      | Description                   |
+| ------------------- | --------- | ----------------------------- |
+| `name`              | `string`  | Name of the token             |
+| `version`           | `string`  | Version of the token          |
+| `chainId`           | `uint256` | Chain identifier              |
+| `verifyingContract` | `address` | Address of the token contract |
 
 :::note
 Provided the correct `_stETH` [deployed](/deployed-contracts) address, it returns:
 
 - ("Liquid staked Ether 2.0", "2", 1, 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) for Mainnet.
-- ("Liquid staked Ether 2.0", "2", 5, 0x1643E812aE58766192Cf7D2Cf9567dF2C37e9B7F) for Görli.
-:::
+- ("Liquid staked Ether 2.0", "2", 560048, 0x3508A952176b3c15387C97BE809eaffB1982176a) for Hoodi.
+  :::
 
 This method facilitates domain separator construction on the client's side, such as in a wallet or widget:
 
@@ -86,8 +86,8 @@ function makeDomainSeparator(name, version, chainId, verifyingContract) {
         web3.utils.keccak256(version),
         chainId,
         verifyingContract,
-      ]
-    )
+      ],
+    ),
   )
 }
 ```

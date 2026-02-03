@@ -1,10 +1,10 @@
 # OracleReportSanityChecker
 
-- [Source code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
-- [Deployed contract](https://etherscan.io/address/0x6232397ebac4f5772e53285b26c47914e9461e75)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
+- [Deployed contract](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
-[`AccountingOracle`](/contracts/accounting-oracle.md), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md).
+[`AccountingOracle`](/contracts/accounting-oracle), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle).
 Due to the high impact of data provided by the Oracles on the state of the protocol, each Oracle's
 report passes a set of onchain
 [sanity checks](https://en.wikipedia.org/wiki/Sanity_check).
@@ -15,7 +15,7 @@ Besides the validation methods, the `OracleReportSanityChecker` contract contain
 used during the report validation process.
 To configure the limits values contract provides the lever methods described in the [standalone section](#lever-methods).
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Limits List
@@ -39,7 +39,7 @@ struct LimitsList {
 }
 ```
 
-- **`exitedValidatorsPerDayLimit`  ∈ [0, 65535]** — the max possible number of validators that might be reported as exited per single day, _**exited**_ are reported according to the
+- **`exitedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might be reported as exited per single day, _**exited**_ are reported according to the
   [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#get_validator_churn_limit).
 - **`appearedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
   intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
@@ -234,13 +234,13 @@ function checkSimulatedShareRate(
 - **`_postTotalShares`** — total shares after report applied
 - **`_etherLockedOnWithdrawalQueue`** — ether locked on withdrawal queue for the current oracle report
 - **`_sharesBurntDueToWithdrawals`** — shares burnt due to withdrawals finalization
-- **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via off-chain "eth_call")
+- **`_simulatedShareRate`** — share rate provided with the oracle report (simulated via `Accounting.simulateOracleReport`)
 
 ## View Methods
 
 ### getLidoLocator()
 
-Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator.md) instance.
+Returns the address of the protocol-wide [LidoLocator](/contracts/lido-locator) instance.
 
 ```solidity
 function getLidoLocator() returns (address)
@@ -279,7 +279,7 @@ stETH balance for the `account` defined as:
         shares[account] * totalPooledEther / totalShares = shares[account] * shareRate
 ```
 
-Suppose shareRate changes when oracle reports (see `handleOracleReport`)
+Suppose shareRate changes when oracle reports (see `Accounting.handleOracleReport`)
 which means that token rebase happens:
 
 ```solidity
@@ -303,8 +303,8 @@ Evaluates the following amounts during Lido's oracle report processing:
 
 ```solidity
 function smoothenTokenRebase(
-    uint256 _preTotalPooledEther,
-    uint256 _preTotalShares,
+    uint256 _preInternalEther,
+    uint256 _preInternalShares,
     uint256 _preCLBalance,
     uint256 _postCLBalance,
     uint256 _withdrawalVaultBalance,
@@ -315,28 +315,28 @@ function smoothenTokenRebase(
 ) returns (
     uint256 withdrawals,
     uint256 elRewards,
-    uint256 simulatedSharesToBurn,
+    uint256 sharesFromWQToBurn,
     uint256 sharesToBurn
 )
 ```
 
 #### Arguments
 
-- **`_preTotalPooledEther`** — total amount of ETH controlled by the protocol
-- **`_preTotalShares`** — total amount of minted stETH shares
+- **`_preInternalEther`** — amount of internal ETH controlled by the protocol
+- **`_preInternalShares`** — number of internal shares
 - **`_preCLBalance`** — sum of all Lido validators' balances on the Consensus Layer before the current oracle report
 - **`_postCLBalance`** — sum of all Lido validators' balances on the Consensus Layer after the current oracle report
 - **`_withdrawalVaultBalance`** — withdrawal vault balance on Execution Layer for the report calculation moment
 - **`_elRewardsVaultBalance`** — elRewards vault balance on Execution Layer for the report calculation moment
 - **`_sharesRequestedToBurn`** — shares requested to burn through Burner for the report calculation moment
 - **`_etherToLockForWithdrawals`** — ether to lock on withdrawals queue contract
-- **`_newSharesToBurnForWithdrawals`** — new shares to burn due to withdrawal requests finalization
+- **`_newSharesToBurnForWithdrawals`** — new shares to burn due to withdrawal request finalization
 
 #### Returns
 
 - **`withdrawals`** — ETH amount allowed to be taken from the withdrawals vault
 - **`elRewards`** — ETH amount allowed to be taken from the EL rewards vault
-- **`simulatedSharesToBurn`** — simulated amount of shares to be burnt (if no ether locked on withdrawals)
+- **`sharesFromWQToBurn`** — amount of shares from Burner that should be burned due to WQ finalization
 - **`sharesToBurn`** — amount of shares to be burnt (accounting for withdrawals finalization)
 
 ## Lever Methods
@@ -555,7 +555,7 @@ Sets the new value for the Second Opinion Oracle and `LimitsList.clBalanceOracle
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
 - Emits `SecondOpinionOracleChanged(ISecondOpinionOracle indexed secondOpinionOracle)` in case of change for the second opinion oracle.
-:::
+  :::
 
 ```solidity
 function setSecondOpinionOracleAndCLBalanceUpperMargin(ISecondOpinionOracle _secondOpinionOracle, uint256 _clBalanceOraclesErrorUpperBPLimit)
@@ -575,7 +575,7 @@ Sets the new value for the `LimitsList.initialSlashingAmountPWei` and `LimitsLis
 - Requires `INITIAL_SLASHING_AND_PENALTIES_MANAGER_ROLE` to be granted to the caller.
 - Reverts with `IncorrectLimitValue()` error when the passed value is out of the allowed range.
   See [Limits List](#limits-list) section for details.
-:::
+  :::
 
 ```solidity
 function setInitialSlashingAndPenaltiesAmount(uint256 _initialSlashingAmountPWei, uint256 _inactivityPenaltiesAmountPWei)
