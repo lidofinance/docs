@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## Intro
 
-**The DeFi Wrapper** is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops, GGV, or any custom stETH-based yield module.
+**The DeFi Wrapper** is a no-/low-code toolkit that lets builders, Node Operators, and platforms launch customized user-facing staking products powered by stVaults — with optional automated APR-boosting strategies such as leverage loops or any custom stETH-based yield module.
 
 This guide walks through the concepts and practical steps to launch such a product without deep protocol knowledge.
 
@@ -54,29 +54,28 @@ DeFi Wrapper supports three product archetypes:
 ![Boosted APR via DeFi strategy](/img/stvaults/guide-pooled-staking-product/wrapped_products_defi.png)
 
 - Users stake ETH with the same Node Operator.
-- stETH is minted automatically and deposited into the connected DeFi strategy (leveraged staking, GGV, or any custom stETH-based module).
+- stETH is minted automatically and deposited into the connected DeFi strategy (leveraged staking or any custom stETH-based module).
 - Users receive APR from validator performance + strategy APR.
 
 **Use case:** End-user staking product with higher risk/yield profile through the connected curated DeFi strategy, making the product more attractive for end users.
 
 ## Environments
 
+- [CLI](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration)
+- [UI template](https://github.com/lidofinance/defi-wrapper-widget)
+
 <Tabs>
   <TabItem value="testnet" label="Testnet">
     <ul>
-      <li><strong>CLI:</strong> <a href="https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration">Configuration guide</a></li>
       <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xd05e...b4d9</a></li>
-      <li><strong>UI template:</strong> <a href="https://github.com/lidofinance/defi-wrapper-widget">defi-wrapper-widget</a></li>
-      <li><strong>Latest development branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
-      <li><strong>Etherscan:</strong> <a href="https://hoodi.etherscan.io/">hoodi.etherscan.io</a></li>
+      <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
     </ul>
   </TabItem>
   <TabItem value="mainnet" label="Mainnet">
-
-:::info Coming soon
-*Coming this Winter*
-:::
-
+    <ul>
+      <li><strong>DeFi Wrapper Factory:</strong> <a href="https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587#code">0x3f22…1587</a></li>
+      <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/releases/tag/v1.0.0">vaults-wrapper (v1.0.0)</a></li>
+    </ul>
   </TabItem>
 </Tabs>
 
@@ -162,6 +161,11 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
+#### Deployment of `StvStrategyPool` (pool with a custom strategy)
+
+To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy).
+
+The guide covers both deploying a new pool with a strategy from scratch and upgrading an existing `StvStETHPool` to a strategy pool.
 
 ### 2. Create Web UI
 
@@ -176,7 +180,7 @@ Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/deve
 
 By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed identification and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
-For more information about stVault tiers please see [Adjust stETH minting parameters](./basic-stvault#adjust-steth-minting-parameters).
+For more information about stVault tiers please see [Adjust stETH minting parameters](../basic-stvault#adjust-steth-minting-parameters).
 
 For pooled vaults the process of changing tier is a bit different because the Vault Owner role is assigned to the Timelock contract. The Timelock contract itself implements a two-step process for performing an on-chain action. First, the holder of its proposer role creates a proposed on-chain action; second, after a time period, the holder of the executor role executes it.
 
@@ -275,8 +279,8 @@ One of the key benefits of using PDG is the avoidance of commingling: it keeps t
 
 PDG enables three main use cases:
 
-- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../tech-documentation/pdg#full-cycle-trustless-path-through-pdg).
-- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../tech-documentation/pdg#pdg-shortcut).
+- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../../tech-documentation/pdg#full-cycle-trustless-path-through-pdg).
+- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../../tech-documentation/pdg#pdg-shortcut).
 - **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case.
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
@@ -285,12 +289,12 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../features-and-mechanics/parameters-and-metrics)
-- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../features-and-mechanics/parameters-and-metrics)
+- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../../features-and-mechanics/parameters-and-metrics)
+- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../../features-and-mechanics/parameters-and-metrics)
 
 Read more:
-- [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
-- [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
+- [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)
+- [Health Emergency Guide](../../operational-and-management-guides/health-emergency-guide.md)
 
 The Health Factor metric may decrease as a result of validator underperformance, penalties, or a slashing event.
 
@@ -333,10 +337,19 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
       6. Receive the result right under the submit button.
 </details>
 
+## DeFi Wrapper roles and permissions
+
+For DeFi Wrapper-specific roles (Pool, Withdrawal Queue, Distributor, Strategy, Timelock), see [DeFi Wrapper roles and permissions](./roles-and-permissions).
+
+For operating withdrawals (queue monitoring, liquidity, finalization), see [Withdrawals operations](./withdrawals).
+
+For stVaults roles (Vault/Dashboard/PDG), see [stVaults Roles and permissions](../../features-and-mechanics/roles-and-permissions).
+
 ## Useful links
 
 - [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
-- [stVaults Roles](../features-and-mechanics/roles-and-permissions)
-- [stVaults Metrics](../features-and-mechanics/parameters-and-metrics)
-- [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
-- [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
+- [stVaults Roles](../../features-and-mechanics/roles-and-permissions)
+- [stVaults Metrics](../../features-and-mechanics/parameters-and-metrics)
+- [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)
+- [Health Emergency Guide](../../operational-and-management-guides/health-emergency-guide.md)
+
