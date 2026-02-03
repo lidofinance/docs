@@ -11,3 +11,4 @@ Day-to-day guidance for running and maintaining stVaults safely, including healt
 - [Health Monitoring Guide](./health-monitoring-guide.md)
 - [Health Emergency Guide](./health-emergency-guide.md)
 - [Identified Node Operators](./node-operators-identification.md)
+- [stVaults Economy Examples](./stvaults-economy-examples.mdx)
