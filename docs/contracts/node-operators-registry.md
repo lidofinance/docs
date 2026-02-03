@@ -4,7 +4,7 @@
 - [Deployed Contract](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5)
 
 The `NodeOperatorsRegistry` contract acts as a registry of Node Operators selected by the Lido DAO.
-Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](/contracts/staking-router) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/interfaces/IStakingModule.sol).
+Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](/contracts/staking-router) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/interfaces/IStakingModule.sol).
 
 `NodeOperatorsRegistry` keeps track of various Node Operators data, in particular limits of the allowed stake, reward addresses, penalty information, public keys of the Node Operators' validators. It defines order in which the Node Operators get the ether deposited and reward distribution between the node operators.
 

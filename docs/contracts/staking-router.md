@@ -1,6 +1,6 @@
 # StakingRouter
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/StakingRouter.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/StakingRouter.sol)
 - [Deployed contract](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)
 
 StakingRouter is a registry of staking modules, each encapsulating a certain validator subset, e.g. the Lido DAO-curated staking module. The contract allocates stake to modules, distributes protocol fees, and tracks relevant information.
@@ -70,7 +70,7 @@ The `deposit` function begins by verifying the sender's identity and checking th
 
 The algorithm used for the allocation process is designed to consider various factors, including the limit of deposits per transaction, the quantity of ether ready for deposit, the active and available keys within each module, and each module's target share. It then estimates the maximum deposit based on these parameters. The algorithm also identifies the key limits for all modules, and initiates the allocation of keys, starting with the module that has the least active keys. This continues until there is no more ether to allocate or when all the modules have reached their capacity. At the end of the process, any remaining ether is returned.
 
-The allocation function uses the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/core/blob/v3.0.0/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm to allocate new deposits among different staking modules.
+The allocation function uses the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/core/blob/v3.0.1/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm to allocate new deposits among different staking modules.
 
 Here is a breakdown of the process:
 

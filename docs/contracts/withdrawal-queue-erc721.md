@@ -1,12 +1,12 @@
 # WithdrawalQueueERC721
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/WithdrawalQueueERC721.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/WithdrawalQueueERC721.sol)
 - [Deployed contract](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1)
 
 A FIFO queue for `stETH` withdrawal requests and an `unstETH` NFT implementation representing the position in the queue.
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#roles).
 
 ## What is WithdrawalQueueERC721?

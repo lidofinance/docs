@@ -1,8 +1,8 @@
 # AccountingOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/AccountingOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
-- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/oracle/BaseOracle.sol)
+- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
 It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
@@ -234,7 +234,7 @@ Extra data array can be passed in different formats, see below.
 ## Access and permissions
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Constants

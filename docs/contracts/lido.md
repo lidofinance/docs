@@ -1,6 +1,6 @@
 # Lido
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/Lido.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 Liquid staking pool and a related [ERC-20](https://eips.ethereum.org/EIPS/eip-20)

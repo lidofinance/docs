@@ -1,6 +1,6 @@
 # wstETH
 
-- [Source Code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.6.12/WstETH.sol)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.6.12/WstETH.sol)
 - [Deployed Contract](https://etherscan.io/token/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 
 ## What is wrapped stETH (wstETH)?

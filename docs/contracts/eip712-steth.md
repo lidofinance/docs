@@ -1,6 +1,6 @@
 # EIP712StETH
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/EIP712StETH.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/EIP712StETH.sol)
 - [Deployed contract](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 
 `EIP712StETH` serves as a dedicated helper contract for `stETH`, crucial for the complete support of [ERC-2612 compliant signed approvals](https://eips.ethereum.org/EIPS/eip-2612).
@@ -36,7 +36,7 @@ function hashTypedDataV4(address _stETH, bytes32 _structHash) returns (bytes32)
 | `_stETH`      | `address` | Address of the deployed `stETH` token |
 | `_structHash` | `bytes32` | Hash of the data structure            |
 
-For a specific use case, see the [StETHPermit.permit()](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.4.24/StETHPermit.sol#L99-L112) implementation.
+For a specific use case, see the [StETHPermit.permit()](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.4.24/StETHPermit.sol#L99-L112) implementation.
 
 ### eip712Domain()
 

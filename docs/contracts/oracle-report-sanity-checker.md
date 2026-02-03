@@ -1,6 +1,6 @@
 # OracleReportSanityChecker
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
 - [Deployed contract](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
@@ -15,7 +15,7 @@ Besides the validation methods, the `OracleReportSanityChecker` contract contain
 used during the report validation process.
 To configure the limits values contract provides the lever methods described in the [standalone section](#lever-methods).
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Limits List

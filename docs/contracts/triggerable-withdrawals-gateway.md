@@ -1,6 +1,6 @@
 # TriggerableWithdrawalsGateway
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/TriggerableWithdrawalsGateway.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/TriggerableWithdrawalsGateway.sol)
 - [Deployed contract](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Specification basis: [LIP-30 — Triggerable withdrawals](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md)
 
@@ -11,7 +11,7 @@ TriggerableWithdrawalsGateway (TWG) is a gateway contract introducing an validat
 ## Roles and access control
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 To engage Emergency Brakes and unpause if required, it inherits from `PausableContract` (see [GateSeals](https://docs.lido.fi/contracts/gate-seal)).
 

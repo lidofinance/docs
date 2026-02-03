@@ -1,6 +1,6 @@
 # ValidatorExitDelayVerifier
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.0/contracts/0.8.25/ValidatorExitDelayVerifier.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/ValidatorExitDelayVerifier.sol)
 - [Deployed contract](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f)
 
 ## What is ValidatorExitDelayVerifier
