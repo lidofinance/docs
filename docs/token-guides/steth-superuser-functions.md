@@ -135,15 +135,15 @@ Protocol fee and treasury permissions are intentionally unassigned today. The DA
 
 ```mermaid
 graph TD;
-  A[AccountingOracle] --> B[Sanity checks (OracleReportSanityChecker)];
-  A --> C[Apply report (Accounting)];
-  C --> D[Update consensus layer state on Lido];
-  C --> E[Internalize bad debt];
-  C --> F[Commit shares to burn (Burner)];
-  C --> G[Finalize withdrawal queue requests];
-  C --> H[Distribute protocol fees (modules + treasury)];
-  C --> I[Notify rebase observers];
-  C --> J[Emit TokenRebased event on Lido];
+  A[AccountingOracle] --> B["Sanity checks (OracleReportSanityChecker)"];
+  A --> C["Apply report (Accounting)"];
+  C --> D["Update consensus layer state on Lido"];
+  C --> E["Internalize bad debt"];
+  C --> F["Commit shares to burn (Burner)"];
+  C --> G["Finalize withdrawal queue requests"];
+  C --> H["Distribute protocol fees (modules + treasury)"];
+  C --> I["Notify rebase observers"];
+  C --> J["Emit TokenRebased event on Lido"];
 ```
 
 1. Oracle committee members submit reports to [HashConsensus](/contracts/hash-consensus) ([`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288))

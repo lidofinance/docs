@@ -73,7 +73,7 @@ graph TD;
   E --> L[Lido.mintShares];
   E --> M[Accounting._distributeFee];
   E --> N[StakingRouter.reportRewardsMinted];
-  E --> O[Accounting._notifyRebaseObserver (TokenRebased)];
+  E --> O["Accounting._notifyRebaseObserver (TokenRebased)"];
   B --> P[LazyOracle.updateReportData];
   B --> Q[ExtraData];
 ```
