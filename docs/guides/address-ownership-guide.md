@@ -1,4 +1,4 @@
-# Verifying address ownership for Lido DAO operational multisigs
+# Multisig Signer Address Verification
 
 Using EOA across Lido DAO operational multisigs or protocol contracts requires providing a public "proof of ownership". Main use-cases here are using address as a signer in Lido DAO operational multisigs or using EOAs for offchain tooling where specific rights might be required.
 

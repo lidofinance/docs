@@ -1,4 +1,4 @@
-# Identifying Shadow Owners in Safe Multisig
+# Shadow Owner Detection in Safe
 
 Guide based on [**bartek.eth**](https://x.com/bkiepuszewski) X threads: [1](https://x.com/bkiepuszewski/status/1722287321997779427), [2](https://x.com/bkiepuszewski/status/1722914827113312584), [3](https://x.com/bkiepuszewski/status/1727437292309192949)
 
