@@ -161,7 +161,7 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
-#### Deployment of `StvStETHPool` (pool with a custom strategy)
+#### Deployment of `StvStrategyPool` (pool with a custom strategy)
 
 To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy).
 
