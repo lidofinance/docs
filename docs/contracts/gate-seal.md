@@ -2,7 +2,7 @@
 
 A one-time panic button for pausable contracts.
 
-| Active GateSeals                                               | Address                                                                                                                 | Expiration date (UTC) |
+| Active GateSeal                                                | Address                                                                                                                 | Expiration date (UTC) |
 |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG) | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | 12 Sep 2026, 09:59:47 |
 | WithdrawalQueue                                                | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | 12 Sep 2026, 09:59:47 |
