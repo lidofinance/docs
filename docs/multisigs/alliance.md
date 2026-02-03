@@ -1,14 +1,12 @@
 # Alliance
 
-## 3.1. Lido Alliance BORG Operational
+## 5.1. Lido Alliance BORG Operational
 
 **Address:** [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 
 **Purpose of the multisig:**
 The Lido Alliance BORG Foundation utilizes this multisig to hold and manage the Lido Alliance BORG’s operational budget. 
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
-
-**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
 
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
