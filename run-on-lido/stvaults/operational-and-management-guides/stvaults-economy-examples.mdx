@@ -32,7 +32,7 @@ These simplified models are designed to clearly highlight the key metrics and fa
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Node Operator Fee</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>– 0.096 ETH</strong></span>
+    <span className="value"><strong>- 0.096 ETH</strong></span>
   </div>
 
   Set per stVault through consensus between the Vault Owner and the Node Operator.
@@ -41,13 +41,13 @@ These simplified models are designed to clearly highlight the key metrics and fa
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Lido Fee</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>– 0.1728 ETH</strong></span>
+    <span className="value"><strong>- 0.1728 ETH</strong></span>
   </div>
 
   In this example, the annual Lido Fee approximately equals to 6% of the Lido Core Gross APR and can be calculated by
   the equation:
   Lido Fee = 6% * 3.2% Lido Core Gross APR * 90 stETH = 0.1728 ETH;
-  e.g., Lido v2 Gross APR ~ 3.2%.
+  e.g., Lido Core Gross APR ~ 3.2%.
 
   <h4 style={{fontSize: '1.1rem', lineHeight: 1.45, margin: '0.75rem 0 0.25rem', fontWeight: 700}}>stETH Liability
     Growth</h4>
@@ -60,9 +60,9 @@ These simplified models are designed to clearly highlight the key metrics and fa
 
   The stVault’s liquidity is provided in stETH, a rebasing token — its balance updates daily to reflect accrued staking
   rewards.
-  To ensure the Staker’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
+  To ensure the Vault Owner’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
   line with stETH’s rebasing mechanics.
-  This is primarily a technical adjustment, as the liability increase is offset by the rewards the Staker earns as a
+  This is primarily a technical adjustment, as the liability increase is offset by the rewards the Vault Owner earns as a
   holder of stETH.
   e.g., stETH APR ~ 2.88%.
 
@@ -136,10 +136,10 @@ These simplified models are designed to clearly highlight the key metrics and fa
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>- 0.1728 ETH</strong></span>
   </div>
-  In this example, the annual Lido Fee approximately equals to 6% of the Lido Core Gross APR and can be calculated by
+  In this example, the annual Lido Fee approximately equals 6% of the Lido Core Gross APR and can be calculated by
   the equation:
   Lido Fee = 6% * 3.2% Lido Core Gross APR * 90 stETH = 0.1728 ETH;
-  e.g., Lido v2 Gross APR ~ 3.2%.
+  e.g., Lido Core Gross APR ~ 3.2%.
 
   <h4 style={{fontSize: '1.1rem', lineHeight: 1.45, margin: '0.75rem 0 0.25rem', fontWeight: 700}}>stETH Liability
     Growth</h4>
@@ -151,9 +151,9 @@ These simplified models are designed to clearly highlight the key metrics and fa
   </div>
   The stVault’s liquidity is provided in stETH, a rebasing token — its balance updates daily to reflect accrued staking
   rewards.
-  To ensure the Staker’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
+  To ensure the Vault Owner’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
   line with stETH’s rebasing mechanics.
-  This is primarily a technical adjustment, as the liability increase is offset by the rewards the Staker earns as a
+  This is primarily a technical adjustment, as the liability increase is offset by the rewards the Vault Owner earns as a
   holder of stETH.
   e.g., stETH APR ~ 2.88%.
 
@@ -229,7 +229,7 @@ These simplified models are designed to clearly highlight the key metrics and fa
     <span className="value">794.85 ETH;</span>
   </div>
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0 1rem'}}>
-    <span className="label">Staker Principal ETH:</span>
+    <span className="label">Vault Owner's Principal ETH:</span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value">only the initial 100 ETH.</span>
   </div>
@@ -261,10 +261,10 @@ These simplified models are designed to clearly highlight the key metrics and fa
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>- 1.6322 ETH</strong></span>
   </div>
-  In this example, the annual Lido Fee approximately equals to 6% of the Lido Core Gross APR and can be calculated by
+  In this example, the annual Lido Fee approximately equals 6% of the Lido Core Gross APR and can be calculated by
   the equation:
   Lido Fee = 6% * 3.2% Lido Core Gross APR * 850.11 stETH = 1.6322 ETH;
-  e.g., Lido v2 Gross APR ~ 3.2%.
+  e.g., Lido Core Gross APR ~ 3.2%.
 
   <h4 style={{fontSize: '1.1rem', lineHeight: 1.45, margin: '0.75rem 0 0.25rem', fontWeight: 700}}>stETH Liability
     Growth</h4>
@@ -276,9 +276,9 @@ These simplified models are designed to clearly highlight the key metrics and fa
   </div>
   The stVault’s liquidity is provided in stETH, a rebasing token — its balance updates daily to reflect accrued staking
   rewards.
-  To ensure the Staker’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
+  To ensure the Vault Owner’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
   line with stETH’s rebasing mechanics.
-  This is primarily a technical adjustment, as the liability increase is offset by the rewards the Staker earns as a
+  This is primarily a technical adjustment, as the liability increase is offset by the rewards the Vault Owner earns as a
   holder of stETH.
   e.g., stETH APR ~ 2.88%.
 
@@ -300,7 +300,7 @@ These simplified models are designed to clearly highlight the key metrics and fa
 
   ### stETH Usage Outside the stVault
 
-  The Staker used the minted stETH to loop through a lending market in order to amplify staking rewards.
+  The Vault Owner used the minted stETH to loop through a lending market in order to amplify staking rewards.
   Additional income and expenses from the lending market:
   - **+ 24.4832 stETH** — rebase rewards from stETH used as collateral on the lending market
   - **+ 2.5503 stETH** — supply-side rewards from the lending market
@@ -317,7 +317,7 @@ These simplified models are designed to clearly highlight the key metrics and fa
     <span className="value"><strong>8.983%</strong></span>
   </div>
 
-  Total APR is normalized to the Staker’s initial 100 ETH.
+  Total APR is normalized to the Vault Owner’s initial 100 ETH.
 
   (!) Note: All lending market parameters are illustrative. Actual values depend on the specific product and prevailing
   market conditions. (!)

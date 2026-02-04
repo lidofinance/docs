@@ -53,7 +53,7 @@ The standard way to reduce stETH Liability is to acquire stETH and repay it back
 
 `stETH to Repay = stETH Liability`
 
-For example stVault with 1000 ETH Total Value and 400 stETH minted: acquire and repay **400 stETH**.
+For example, an stVault with 1000 ETH Total Value and 400 stETH minted: acquire and repay **400 stETH**.
 
 After repaying, the stVault has 1,000 ETH with zero liability — all of it is withdrawable (once validators are exited and ETH is back in stVault balance, and a fresh Oracle report is applied to the stVault).
 
