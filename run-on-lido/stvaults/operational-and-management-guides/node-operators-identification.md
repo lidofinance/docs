@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # 📝 Identified Node Operators
@@ -8,7 +8,7 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 
 ## Why become Identified
 
-- **stVaults are permissionless**, meaning **anyone can create and run an stVault**. However, if the stVault is created by an *unidentified* Node Operator, it will be assigned to the *Default tier* with a Reserve Ratio = **50%**. During the [V3 secure rollout](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665#p-22926-rollout-plan-9), stETH minting in the *Default tier* will be restricted in the first two phases, which will be lifted later during “Phase 3: Permissionless Mode”.
+- **stVaults are permissionless**, meaning **anyone can create and run an stVault**. However, if the stVault is created by an _unidentified_ Node Operator, it will be assigned to the _Default tier_ with a Reserve Ratio = **50%**. During the [V3 secure rollout](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665#p-22926-rollout-plan-9), stETH minting in the _Default tier_ will be restricted in the first two phases, which will be lifted later during “Phase 3: Permissionless Mode”.
 - **Better economics vs. permissionless defaults.** The risk framework for V3 sets default RR and caps, and allows improved terms for identified Node Operators. The default terms are: **Unidentified = 50% RR**, **Identified ≈ 3–5% RR** (illustrative; final terms are case-by-case).
 - **A clear governance path** exists to approve non-default terms and monitor performance via the **[stVaults Committee](https://research.lido.fi/t/stvaults-committee-proposal/10608)**.
 
@@ -24,6 +24,7 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 ### Categories and tiers
 
 #### Default Tier for Unidentified Node Operators (permissionless)
+
 This is a common tier shared by all stVaults operated by Unidentified Node Operators, meaning a single stETH minting limit applies to all stVaults within this tier.
 | Reserve Ratio | Tier stETH limit |
 | --- | --- |
@@ -185,60 +186,59 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
 1. **Public Identification Request on Lido Research Forum**
 
-    Post your baseline request and summary on the Lido Research Forum – it is the formal trigger for consideration to be moved from *Unidentified* to *Identified*.
+   Post your baseline request and summary on the Lido Research Forum – it is the formal trigger for consideration to be moved from _Unidentified_ to _Identified_.
 
-    🔗 [Lido Research Forum](https://research.lido.fi/c/node-operators/stvaults-identification/24)
+   🔗 [Lido Research Forum](https://research.lido.fi/c/node-operators/stvaults-identification/24)
 
-    What information to provide:
+   What information to provide:
 
-    - Who you are; **request** (become Identified; apply for a Category or for a Category change; any non-default requests).
-    - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
-    - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
-    - **Links**: site/docs/audits/certifications/insurance (if any).
-    - Publish your post under the “**Node Operators > stVaults Identification**” category.
+   - Who you are; **request** (become Identified; apply for a Category or for a Category change; any non-default requests).
+   - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
+   - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
+   - **Links**: site/docs/audits/certifications/insurance (if any).
+   - Publish your post under the “**Node Operators > stVaults Identification**” category.
 
 2. **Node Operator Questionnaires (private)**
 
-    You are also asked to provide technical and business detailed information. This step is required only during the initial identification process and category assignment.
+   You are also asked to provide technical and business detailed information. This step is required only during the initial identification process and category assignment.
 
-    2.1. To complete the identification process and obtain the **"Basic"** category, please fill out this form:
+   2.1. To complete the identification process and obtain the **"Basic"** category, please fill out this form:
 
-    🔗 [Basic stVaults Identification form](https://tally.so/r/3xk45o).
+   🔗 [Basic stVaults Identification form](https://tally.so/r/3xk45o).
 
-    What information you will be asked to fill in the form:
-    - **KYC(B)** (entity, jurisdictions, contacts).
-    - Data for your card on the Node Operators Overview page.
+   What information you will be asked to fill in the form:
 
-    2.2. To obtain better stETH minting terms under the **stVault Professional Operator** category (and **stVault Professional Trusted Operator** later on), please also fill out this form:
+   - **KYC(B)** (entity, jurisdictions, contacts).
+   - Data for your card on the Node Operators Overview page.
 
-    🔗 [Extended stVaults Category Application](https://tally.so/r/npjNdq).
+     2.2. To obtain better stETH minting terms under the **stVault Professional Operator** category (and **stVault Professional Trusted Operator** later on), please also fill out this form:
 
-    What information you will be asked to fill in the form:
-        - **Business plan** (ETH sourcing, channels, audience, timing).
-        - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.).
-        - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
+   🔗 [Extended stVaults Category Application](https://tally.so/r/npjNdq).
+
+   What information you will be asked to fill in the form: - **Business plan** (ETH sourcing, channels, audience, timing). - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.). - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
 
 3. **Assessment & scoring**
 
-    You are evaluated across three main areas by the stVaults Committee: **Operational Capabilities, Decentralization & Infrastructure Distribution, and Business Case with an emphasis on proposed business cases.**
+   You are evaluated across three main areas by the stVaults Committee: **Operational Capabilities, Decentralization & Infrastructure Distribution, and Business Case with an emphasis on proposed business cases.**
 
 4. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
 
-    The stVaults Committee assigns your **category** (Basic identified, stVault Professional Operator), defines your **tiers grid**, and then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
+   The stVaults Committee assigns your **category** (Basic identified, stVault Professional Operator), defines your **tiers grid**, and then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
 
 5. **Node Operator card creation**
 
-    The stVaults Committee creates your Node Operator card (name/logo, links, geo/jurisdiction, infra/DVT/relays, certifications/audits/insurance/bug-bounty). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value.
+   The stVaults Committee creates your Node Operator card (name/logo, links, geo/jurisdiction, infra/DVT/relays, certifications/audits/insurance/bug-bounty). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value.
 
-    *The Node Operators Overview page will follow in a later release after stVaults Mainnet.*
+   _The Node Operators Overview page will follow in a later release after stVaults Mainnet._
 
 6. **Communication & listing**
 
-    Your card and tiers grid are set, and you can now continue as an Identified Node Operator. Additionally, every Identified Node Operator will have a direct communication channel with the stVaults Committee representatives in a shared Telegram group. Questions and discussions can also always be raised on the Lido Research Forum.
+   Your card and tiers grid are set, and you can now continue as an Identified Node Operator. Additionally, every Identified Node Operator will have a direct communication channel with the stVaults Committee representatives in a shared Telegram group. Questions and discussions can also always be raised on the Lido Research Forum.
 
 ### DVT Cluster identification and assessment
 
 Each individual Node Operator participating in the DVT Cluster must pass the identification process [as described above](#individual-node-operators-identification-and-assessment):
+
 1. Post an identification request on the Lido Research Forum (mandatory).
 2. Complete the stVaults Identification Form (mandatory).
 3. Complete the extended stVaults Node Operator Category Application (optional).
@@ -247,49 +247,48 @@ After that, there are the following actions required from a representative of th
 
 1. **Public Request on Lido Research Forum**
 
-    As a DVT Cluster, post your request and summary on the Lido Research Forum.
+   As a DVT Cluster, post your request and summary on the Lido Research Forum.
 
-    🔗 [Lido Research Forum](https://research.lido.fi/c/node-operators/stvaults-identification/24)
+   🔗 [Lido Research Forum](https://research.lido.fi/c/node-operators/stvaults-identification/24)
 
-    What information to provide:
+   What information to provide:
 
-    - **Who you are**; list of Node Operators in the Cluster; Probably your name/brand.
-    - **Request** (become Identified DVT Cluster; any non-default requests).
-    - **Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
-    - **DVT Technology**: Obol / SSV / smth else.
-    - **Links**: site/docs/audits/certifications/insurance (if any).
-    - Publish your post under the “*Node Operators > stVaults Identification*” category.
+   - **Who you are**; list of Node Operators in the Cluster; Probably your name/brand.
+   - **Request** (become Identified DVT Cluster; any non-default requests).
+   - **Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
+   - **DVT Technology**: Obol / SSV / smth else.
+   - **Links**: site/docs/audits/certifications/insurance (if any).
+   - Publish your post under the “_Node Operators > stVaults Identification_” category.
 
 2. **DVT Cluster Questionnaire (private)**
 
-    You are also asked to provide technical and business detailed information.
-    🔗 [DVT Cluster Identification form](https://tally.so/r/wAoAkW).
+   You are also asked to provide technical and business detailed information.
+   🔗 [DVT Cluster Identification form](https://tally.so/r/wAoAkW).
 
-    What information you will be asked to fill in the form:
-    - **KYC(B)** (entities, contacts).
-    - How you manage your keys generating process (DKG ceremony).
-    - Data for your card on the Node Operators Overview page.
-    - **Business plan** (ETH sourcing, channels, audience, timing).
+   What information you will be asked to fill in the form:
 
+   - **KYC(B)** (entities, contacts).
+   - How you manage your keys generating process (DKG ceremony).
+   - Data for your card on the Node Operators Overview page.
+   - **Business plan** (ETH sourcing, channels, audience, timing).
 
 3. **Assessment & scoring**
 
-    You are evaluated by the stVaults Committee.
+   You are evaluated by the stVaults Committee.
 
 4. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
 
-    In case of a positive decision, the stVaults Committee defines your **tier grid** and submits the updates through **Easy Track**. The Committee also publishes the reasoning behind its decision by replying to the original post-request submitted by the DVT Cluster representative.
-
+   In case of a positive decision, the stVaults Committee defines your **tier grid** and submits the updates through **Easy Track**. The Committee also publishes the reasoning behind its decision by replying to the original post-request submitted by the DVT Cluster representative.
 
 5. **Node Operator card creation**
 
-    The stVaults Committee creates your DVT Cluster card (name/logo, links, geo/jurisdiction, etc.). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value.
+   The stVaults Committee creates your DVT Cluster card (name/logo, links, geo/jurisdiction, etc.). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value.
 
-    *The Node Operators Overview page will follow in a later release after stVaults Mainnet.*
+   _The Node Operators Overview page will follow in a later release after stVaults Mainnet._
 
 6. **Communication & listing**
 
-    Your card and tiers grid are set, and you can now continue as an Identified DVT Cluster. Additionally, every Cluster will have a direct communication channel with the stVaults Committee representatives in a shared Telegram group. Questions and discussions can also always be raised on the Lido Research Forum.
+   Your card and tiers grid are set, and you can now continue as an Identified DVT Cluster. Additionally, every Cluster will have a direct communication channel with the stVaults Committee representatives in a shared Telegram group. Questions and discussions can also always be raised on the Lido Research Forum.
 
 ---
 
@@ -300,6 +299,7 @@ After that, there are the following actions required from a representative of th
 The [Lido V3 risk assessment framework](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504) aims to balance growth opportunities with protection against major risks such as correlated slashing and centralization. It does this by linking qualitative signals (like operational and decentralization metrics) with quantitative ones (like stake volumes). Together, these determine how **stETH minting limits** and **Reserve Ratios** scale with each operator’s overall risk profile. Default parameters ensure protocol safety, while categories allow well-earned flexibility.
 
 A **Category** represents a classification of Node Operators:
+
 - Each Category has an associated **tier grid**, which serves as a baseline configuration for Node Operators within that Category.
 - When a Node Operator is assigned to a Category based on its unique performance and characteristics, it receives tiers (with defined RRs and stETH limits) according to that Category and the Node Operator’s total stETH minting limit.
 
