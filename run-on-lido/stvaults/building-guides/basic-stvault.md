@@ -84,7 +84,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 <details>
   <summary>by Command-line Interface</summary>
@@ -116,7 +116,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
 - `currentSettledGrowth`: the amount of unaccounted growth accrued on the vault while it was disconnected; 0 for newly created vaults via the create-without-connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
 
@@ -214,7 +214,7 @@ Confirming tier change request requires applying fresh report to vault. [Read mo
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -378,6 +378,8 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
 - Repay (burn) stETH tokens: `yarn start vo w burn-steth <amount>`
 - Repay (burn) wrapped stETH tokens: `yarn start vo w burn-wsteth <amount>`
 
+[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+
 </details>
 <details>
   <summary>using Etherscan UI</summary>
@@ -401,6 +403,8 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
       7. Click **View your transaction** and wait for it to be executed.
 
       To repay (burn) shares, stETH or wstETH you must first grant approval to the vault's Dashboard contract. Go to the stETH or wstETH token contract and execute the `approve()` method for the amount (in wei) you want to set as allowance. Only after the approval is confirmed you can proceed with the repay (burn) operation. Please also note that if you are trying to mint shares (instead of stETH or wstETH), in that case you may need to approve slightly different amount of stETH then you are trying to mint. Please find the contracts' addresses on the **Contracts** page in accordance with your [environment](#environments).
+
+   [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 </details>
 
