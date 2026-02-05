@@ -89,6 +89,7 @@ It's a command-line tool for managing both staking vaults and DeFi Wrapper pools
 The CLI performs the deployment in two transactions to stay within the current 16M transaction gas limit.
 
 To start:
+
 - Set up the CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md).
 - Prepare a valid CLI configuration — see the [configuration tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
 
@@ -101,6 +102,7 @@ The newly created staking vault is automatically connected to Lido `VaultHub` an
 :::
 
 To list the available pool types and creation commands, run:
+
 ```bash
 yarn start defi-wrapper contracts factory write -h
 ```
@@ -117,6 +119,7 @@ Keep this output if you plan to set up the UI.
 Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
 
 Start the deployment like:
+
 ```bash
 yarn start defi-wrapper contracts factory w create-pool-stv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
@@ -138,6 +141,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv 0xd05ebf24a340ece8b8
 Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` for the description of the required STV pool parameters.
 
 Start the deployment like:
+
 ```bash
 yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
@@ -192,10 +196,6 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../operational-and-management-guides/applying-report-guide)
 
-:::warning
-CLI does not yet support operations with TimelockController contract and steps 1 and 2 must be performed via manual contract calls, e.g. via Etherscan.
-:::
-
 **Parameters needed for this step:**
 
 - `VaultAddress`: the address of the `Vault` contract.
@@ -207,63 +207,95 @@ CLI does not yet support operations with TimelockController contract and steps 1
 <details>
   <summary>Step 1: Schedule the tier change (Proposer)</summary>
 
-  1. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
-  2. Go to the **Contract** tab → **Write Contract**.
-  3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
-  4. Find the `schedule` method in the list and fill out the fields:
-     - `target`: the `OperatorGrid` contract address.
-     - `value`: `0` (no ETH is sent with this call).
-     - `data`: the ABI-encoded call to `changeTier(address vault, uint256 tierId, uint256 requestedShareLimit)`. You can generate this using tools like [ABI Encoder](https://abi.hashex.org/) or cast from Foundry:
-       ```bash
-       cast calldata "changeTier(address,uint256,uint256)" <VaultAddress> <TierID> <RequestedShareLimit>
-       ```
-     - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000` (no predecessor required).
-     - `salt`: `0x0000000000000000000000000000000000000000000000000000000000000000` (or any unique value if you need to differentiate identical operations).
-     - `delay`: the delay in seconds (must be at least the `minDelaySeconds` configured during pool deployment).
-  5. Click **Write** and sign the transaction in your wallet.
-  6. Click **View your transaction** and wait for it to be executed.
-  7. Note down the **operation ID** from the `CallScheduled` event in the transaction logs — you will need it to verify the operation status before execution.
+#### CLI
+
+Use `--wallet-connect` option for all commands or provide private key to CLI `.env`
+
+1. Get addresses of your contracts:
+2. Get address of your timelock contract: `yarn start defi-wrapper use-cases timelock-governance common get-timelock-address <poolAddress>`
+3. Connect wallet that holds the proposer role to CLI
+4. `yarn start defi-wrapper use-cases timelock-governance dashboard write propose-change-tier [timelockAddress] [dashboard] [tierId] [shareLimit]`
+
+#### Etherscan
+
+1. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+2. Go to the **Contract** tab → **Write Contract**.
+3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
+4. Find the `schedule` method in the list and fill out the fields:
+   - `target`: the `OperatorGrid` contract address.
+   - `value`: `0` (no ETH is sent with this call).
+   - `data`: the ABI-encoded call to `changeTier(address vault, uint256 tierId, uint256 requestedShareLimit)`. You can generate this using tools like [ABI Encoder](https://abi.hashex.org/) or cast from Foundry:
+     ```bash
+     cast calldata "changeTier(address,uint256,uint256)" <VaultAddress> <TierID> <RequestedShareLimit>
+     ```
+   - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000` (no predecessor required).
+   - `salt`: `0x0000000000000000000000000000000000000000000000000000000000000000` (or any unique value if you need to differentiate identical operations).
+   - `delay`: the delay in seconds (must be at least the `minDelaySeconds` configured during pool deployment).
+5. Click **Write** and sign the transaction in your wallet.
+6. Click **View your transaction** and wait for it to be executed.
+7. Note down the **operation ID** from the `CallScheduled` event in the transaction logs — you will need it to verify the operation status before execution.
 
 </details>
 
 <details>
   <summary>Step 2: Execute the scheduled tier change (Executor)</summary>
 
-  1. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
-  2. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
-  3. Go to the **Contract** tab → **Write Contract**.
-  4. Click **Connect to Web3** and connect the wallet that holds the **executor role**.
-  5. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
-     - `target`: the `OperatorGrid` contract address.
-     - `value`: `0`.
-     - `payload`: the same ABI-encoded call data used in step 1.
-     - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000`.
-     - `salt`: the same salt value used in step 1.
-  6. Click **Write** and sign the transaction in your wallet.
-  7. Click **View your transaction** and wait for it to be executed.
+#### CLI
+
+1. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `yarn start defi-wrapper use-cases timelock-governance common read get-last-operations [timelock]`
+1. Connect wallet that holds the executor role to CLI
+1. `yarn start defi-wrapper use-cases timelock-governance dashboard write execute-change-tier [timelock] [dashboard] [tierId] [shareLimit]`
+
+#### Etherscan
+
+1. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
+2. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+3. Go to the **Contract** tab → **Write Contract**.
+4. Click **Connect to Web3** and connect the wallet that holds the **executor role**.
+5. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
+   - `target`: the `OperatorGrid` contract address.
+   - `value`: `0`.
+   - `payload`: the same ABI-encoded call data used in step 1.
+   - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000`.
+   - `salt`: the same salt value used in step 1.
+6. Click **Write** and sign the transaction in your wallet.
+7. Click **View your transaction** and wait for it to be executed.
 
 </details>
 
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-  Within the confirmation time window period (default 24 hours) after step 2, the Node Operator must confirm the tier change:
+Within the confirmation time window period (default 24 hours) after step 2, the Node Operator must confirm the tier change:
 
-  1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
-  2. Since this contract is a proxy, complete the verification steps once (if not done before):
-     - Go to **Contract → Code**.
-     - Click **More options**.
-     - Select **Is this a proxy?**.
-     - Click **Verify** in the dialog.
-     - Return to the contract details page.
-  3. Open the **Contract** tab → **Write as Proxy**.
-  4. Click **Connect to Web3** and connect the wallet registered as the **Node Operator**.
-  5. Find the `changeTier` method in the list and fill out the fields with the **same values** used in steps 1 and 2:
-     - `vault`: the `Vault` contract address.
-     - `tierId`: the tier ID.
-     - `requestedShareLimit`: the requested share limit.
-  6. Click **Write** and sign the transaction in your wallet.
-  7. Click **View your transaction** and wait for it to be executed.
+#### stVaults UI
+
+1. Go to `https://stvaults.lido.fi/vaults/[vaultAdress]/settings/tier`
+2. Connect wallet that has Node operator address
+3. Follow UI to confirm tier change
+
+#### CLI
+
+1. Connect wallet that has Node operator address to CLI
+2. `yarn start vo w change-tier-by-no -v <vaultAddress> -r <requestedShareLimit> <tierId>`
+
+#### Etherscan
+
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+2. Since this contract is a proxy, complete the verification steps once (if not done before):
+   - Go to **Contract → Code**.
+   - Click **More options**.
+   - Select **Is this a proxy?**.
+   - Click **Verify** in the dialog.
+   - Return to the contract details page.
+3. Open the **Contract** tab → **Write as Proxy**.
+4. Click **Connect to Web3** and connect the wallet registered as the **Node Operator**.
+5. Find the `changeTier` method in the list and fill out the fields with the **same values** used in steps 1 and 2:
+   - `vault`: the `Vault` contract address.
+   - `tierId`: the tier ID.
+   - `requestedShareLimit`: the requested share limit.
+6. Click **Write** and sign the transaction in your wallet.
+7. Click **View your transaction** and wait for it to be executed.
 
 </details>
 
@@ -291,6 +323,7 @@ The key stVault metrics that the Vault Owner should monitor and control are:
 - **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../../features-and-mechanics/parameters-and-metrics)
 
 Read more:
+
 - [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)
 - [Health Emergency Guide](../../operational-and-management-guides/health-emergency-guide.md)
 
@@ -350,4 +383,3 @@ For stVaults roles (Vault/Dashboard/PDG), see [stVaults Roles and permissions](.
 - [stVaults Metrics](../../features-and-mechanics/parameters-and-metrics)
 - [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)
 - [Health Emergency Guide](../../operational-and-management-guides/health-emergency-guide.md)
-
