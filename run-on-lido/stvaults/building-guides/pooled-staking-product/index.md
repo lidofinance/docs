@@ -176,7 +176,7 @@ Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/deve
 - Adjust titles, logos, texts, and color scheme to your liking
 - Deploy the dApp
 
-### 3. (optional) Adjust stETH minting parameters
+### 3. Adjust stETH minting parameters
 
 By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed identification and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
@@ -190,9 +190,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
 3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
-:::info
-Confirming a tier change request requires applying a fresh report to the vault.
-:::
+Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../operational-and-management-guides/applying-report-guide)
 
 :::warning
 CLI does not yet support operations with TimelockController contract and steps 1 and 2 must be performed via manual contract calls, e.g. via Etherscan.
