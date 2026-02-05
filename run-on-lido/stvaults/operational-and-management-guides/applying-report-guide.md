@@ -49,8 +49,9 @@ This is a **permissionless operation** — anyone can apply a report to any vaul
 
       Apply the latest report to your vault:
 
-      `yarn start report w submit -v <vaultAddress>`
-
+      ```bash
+      yarn start report w submit -v <vaultAddress>
+      ```
       The CLI automatically:
 
       - fetches the latest report CID from LazyOracle,
@@ -67,7 +68,7 @@ This is a **permissionless operation** — anyone can apply a report to any vaul
       1. Query the **LazyOracle** contract's `latestReportData()` method to get the current `reportCid`.
       2. Fetch the Merkle tree JSON from IPFS using the CID: `https://ipfs.io/ipfs/<reportCid>`
       3. Locate your vault's entry in the tree and copy the data.
-      4. Open **Etherscan** and navigate to the **LazyOracle** contract by its address (available in the stVaults contract addresses list, see [Basic stVault with optional liquidity: Enviroments](../building-guides/basic-stvault#environments)).
+      4. Open **Etherscan** and navigate to the **LazyOracle** contract by its address (available in the stVaults contract addresses list, see [Basic stVault with optional liquidity: Environments](../building-guides/basic-stvault#environments)).
       5. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.
@@ -89,8 +90,9 @@ You can check when your vault's report was last updated:
 <details>
   <summary>using Command-line Interface</summary>
 
-      `yarn start vo r info -v <vaultAddress>`
-
+      ```bash
+      yarn start vo r info -v <vaultAddress>
+      ```
       This displays the vault's current metrics including the last report timestamp.
 
 </details>

@@ -211,11 +211,15 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
    - **KYC(B)** (entity, jurisdictions, contacts).
    - Data for your card on the Node Operators Overview page.
 
-     2.2. To obtain better stETH minting terms under the **stVault Professional Operator** category (and **stVault Professional Trusted Operator** later on), please also fill out this form:
+   2.2. To obtain better stETH minting terms under the **stVault Professional Operator** category (and **stVault Professional Trusted Operator** later on), please also fill out this form:
 
    🔗 [Extended stVaults Category Application](https://tally.so/r/npjNdq).
 
-   What information you will be asked to fill in the form: - **Business plan** (ETH sourcing, channels, audience, timing). - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.). - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
+   What information you will be asked to fill in the form:
+   
+   - **Business plan** (ETH sourcing, channels, audience, timing).
+   - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.).
+   - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
 
 3. **Assessment & scoring**
 
