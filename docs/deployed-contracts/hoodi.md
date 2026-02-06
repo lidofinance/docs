@@ -237,7 +237,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
   - Force Validator Exits: [`0x820e9924C2059d37871acd6eccB578e4a3B15c30`](https://hoodi.etherscan.io/address/0x820e9924C2059d37871acd6eccB578e4a3B15c30)
   - Socialize Bad Debt: [`0x01C9dB53D7a87c3e47D537c925921fB735bEe6c9`](https://hoodi.etherscan.io/address/0x01C9dB53D7a87c3e47D537c925921fB735bEe6c9)
-  - Set Liability Shares Target: [`0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40`](https://hoodi.etherscan.io/address/0xc5dCd2A9642ceA9B71A632BF5b8ff52424Ea1B40)
+  - Set Liability Shares Target: [`0xaccaE3755d63EeaAF2e525E780aEeA8D58700Ab9`](https://hoodi.etherscan.io/address/0xaccaE3755d63EeaAF2e525E780aEeA8D58700Ab9)
 - VaultsAdapter: [`0x854CF0D7446Faa7AdDFE557cc8aa9FA9b7017910`](https://hoodi.etherscan.io/address/0x854CF0D7446Faa7AdDFE557cc8aa9FA9b7017910)
 
 ## 💵 Testnet Stablecoins {#testnet-stablecoins}
