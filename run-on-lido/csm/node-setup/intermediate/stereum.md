@@ -97,7 +97,7 @@ After import, you’ll see your validator in the UI:
 
 ## Generate Validator Keys
 
-Follow the [Generating Validator Keys guide](../../generating-validator-keys/) and ensure you set the correct withdrawal address.
+Follow the [Generating Validator Keys guide](/run-on-lido/csm/generating-validator-keys/) and ensure you set the correct withdrawal address.
 
 ### Keep your clients up to date
 To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).

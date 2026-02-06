@@ -24,7 +24,7 @@ Next, type and enter `ethpillar` to launch the terminal UI and:
 
 1. Sync an execution client and a consensus + validator client. The MEV Boost service is installed with pre-configured relays. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#ethpillar).
 2. **\[For Testnet only]** select **Generate validator keys**, choose how many to generate, set a password, and save your 24-word mnemonic.
-3. **\[For Mainnet]** select **No** for key generation here (use a secure process in the [Key Generation for Mainnet guide](../../generating-validator-keys/key-generation-for-mainnet/)).
+3. **\[For Mainnet]** select **No** for key generation here (use a secure process in the [Key Generation for Mainnet guide](/run-on-lido/csm/generating-validator-keys/key-generation-for-mainnet/)).
 4. Verify the fee recipient and withdrawal address below or on the [CSM Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module).
 5. Import the generated validator keys into your validator client.
 
