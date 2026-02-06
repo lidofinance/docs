@@ -66,7 +66,7 @@ Then copy deposit data for the CSM widget:
 cat ~/sedge-data/keystore/deposit_data.json
 ```
 
-If you're ready to set up your validators on **Mainnet**, use a secure workflow in the [Key Generation for Mainnet guide](../../generating-validator-keys/key-generation-for-mainnet/).
+If you're ready to set up your validators on **Mainnet**, use a secure workflow in the [Key Generation for Mainnet guide](/run-on-lido/csm/generating-validator-keys/key-generation-for-mainnet/).
 
 To import the keys, run:
 

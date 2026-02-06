@@ -191,7 +191,7 @@ Go to **Stakers → Ethereum** in Dappnode UI, click **Upload Keystores**.
 Import your keystores and enter passwords.
 Tag them “Lido”; fee recipient set to `0x388C818CA8B9251b393131C08a736A67ccB19297`.
 
-[Import guide →](../../lido-csm-widget/upload-remove-view-validator-keys)
+[Import guide →](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys)
 
   </TabItem>
   <TabItem value="ethpillar" label="EthPillar">
@@ -239,7 +239,7 @@ ethd keys import
 
 Refer to **Advanced → Systemd → Method 2** for systemd instructions:
 
-[Systemd Method 2 Guide](../../node-setup/advanced/systemd/method-2-configure-csm-fee-recipient-on-separate-validator-client)
+[Systemd Method 2 Guide](/run-on-lido/csm/node-setup/advanced/systemd/method-2-configure-csm-fee-recipient-on-separate-validator-client)
 
   </TabItem>
 </Tabs>
