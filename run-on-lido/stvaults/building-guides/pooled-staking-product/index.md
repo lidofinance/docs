@@ -211,10 +211,10 @@ Confirming tier change request requires applying fresh report to vault. [Read mo
 
 Use `--wallet-connect` option for all commands or provide private key to CLI `.env`
 
-1. Get addresses of your contracts:
+1. Get addresses of your contracts: `yarn start defi-wrapper use-cases wrapper-operations read info <poolAddress>`
 2. Get address of your timelock contract: `yarn start defi-wrapper use-cases timelock-governance common get-timelock-address <poolAddress>`
 3. Connect wallet that holds the proposer role to CLI
-4. `yarn start defi-wrapper use-cases timelock-governance dashboard write propose-change-tier [timelockAddress] [dashboard] [tierId] [shareLimit]`
+4. `yarn start defi-wrapper use-cases timelock-governance dashboard write propose-change-tier <timelockAddress> <dashboard> <tierId> ,<shareLimit>`
 
 #### Etherscan
 
@@ -242,9 +242,9 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 #### CLI
 
-1. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `yarn start defi-wrapper use-cases timelock-governance common read get-last-operations [timelock]`
+1. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `yarn start defi-wrapper use-cases timelock-governance common read get-last-operations <timelock>`
 1. Connect wallet that holds the executor role to CLI
-1. `yarn start defi-wrapper use-cases timelock-governance dashboard write execute-change-tier [timelock] [dashboard] [tierId] [shareLimit]`
+1. `yarn start defi-wrapper use-cases timelock-governance dashboard write execute-change-tier <timelock> <dashboard> <tierId> <shareLimit>`
 
 #### Etherscan
 
@@ -270,7 +270,7 @@ Within the confirmation time window period (default 24 hours) after step 2, the 
 
 #### stVaults UI
 
-1. Go to `https://stvaults.lido.fi/vaults/[vaultAdress]/settings/tier`
+1. Go to `https://stvaults.lido.fi/vaults/[vaultAddress]/settings/tier`
 2. Connect wallet that has Node operator address
 3. Follow UI to confirm tier change
 

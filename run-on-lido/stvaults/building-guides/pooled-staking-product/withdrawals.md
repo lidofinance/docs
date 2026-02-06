@@ -16,7 +16,7 @@ This page explains how to operate withdrawals for a pooled staking product (DeFi
 
 ## Automation
 
-You can use CLI to automatically submit reports and finalize(if possible) withdrawals for the pool. Finalization requires private key of address holding `FINALIZE_ROLE`. This command will exit on errors and needs to be run with a process manager (missed reports will be checked on start)
+You can use CLI to automatically submit reports and finalize (if possible) withdrawals for the pool. Finalization requires private key of address holding `FINALIZE_ROLE`. This command will exit on errors and needs to be run with a process manager (missed reports will be checked on start)
 
 ```bash
 # Check --help for extra configuration and HTTP callbacks

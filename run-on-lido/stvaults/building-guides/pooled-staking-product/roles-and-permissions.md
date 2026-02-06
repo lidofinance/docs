@@ -15,7 +15,7 @@ DeFi Wrapper is deployed as a set of on-chain contracts (Pool, Withdrawal Queue,
 ## TimelockController roles (governance)
 
 :::info
-Use CLI `yarn start defi-wrapper use-cases timelock-governance --help` to get list of commands to operate TimelockController. There are shortcut commands for governing roles and other common operations for the DeFi wrapper.  
+Use CLI `yarn start defi-wrapper use-cases timelock-governance --help` to get list of commands to operate TimelockController. There are shortcut commands for governing roles and other common operations for the DeFi wrapper.
 :::
 
 `TimelockController` is deployed together with the pool and becomes the admin for most DeFi Wrapper components. It is **self-administered**, meaning role changes and privileged actions should go through timelocked proposals.
