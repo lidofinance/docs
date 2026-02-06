@@ -14,11 +14,29 @@ This page explains how to operate withdrawals for a pooled staking product (DeFi
 4. A finalizer calls `WithdrawalQueue.finalize()` to **lock ETH** for claimable requests (and optionally rebalance stETH shares).
 5. Users (or anyone on their behalf) call `claimWithdrawal()` to transfer locked ETH to the recipient.
 
-## Monitor the Withdrawal Queue
+## Automation
 
-### Quick queue snapshot
+You can use CLI to automatically submit reports and finalize (if possible) withdrawals for the pool. Finalization requires private key of address holding `FINALIZE_ROLE`. This command will exit on errors and needs to be run with a process manager (missed reports will be checked on start)
 
 ```bash
+# Check --help for extra configuration and HTTP callbacks
+yarn start defi-wrapper use-cases wrapper-operations w auto-report <poolAddress>
+```
+
+## Monitor the Withdrawal Queue
+
+```bash
+# Status of withdrawal queue for the pool, including finalization availability and CL ETH needed for withdrawals
+yarn start defi-wrapper use-cases wrapper-operations r withdrawal-status <poolAddress>
+```
+
+### In detail
+
+```bash
+#
+# Quick queue snapshot
+#
+
 # Base info (includes addresses, flags, and parameters)
 yarn start defi-wrapper contracts wq r info <withdrawalQueue>
 
@@ -33,9 +51,10 @@ yarn start defi-wrapper contracts wq r unfinal-stv <withdrawalQueue>
 yarn start defi-wrapper contracts wq r unfinalizedStethShares <withdrawalQueue>
 ```
 
-### Identify the “backlog” range
+#### Identify the “backlog” range
 
 ```bash
+
 # Last request ever created
 yarn start defi-wrapper contracts wq r last-request-id <withdrawalQueue>
 
@@ -47,7 +66,7 @@ The unfinalized request IDs are typically in the range:
 
 - `lastFinalizedRequestId + 1 ... lastRequestId`
 
-### Inspect a specific request
+#### Inspect a specific request
 
 ```bash
 # Status for a single request id
@@ -57,19 +76,20 @@ yarn start defi-wrapper contracts wq r w-status <withdrawalQueue> <requestId>
 yarn start defi-wrapper contracts wq r get-claimable-ether <withdrawalQueue> <requestId>
 ```
 
-## Ensure there is enough liquidity to finalize
-
-Finalization requires enough ETH to be available for withdrawals (and for gas cost coverage, see below). If `finalize` reverts, the usual cause is **insufficient available balance** on the underlying staking vault.
-
-### Check available vault balance
+#### Check available vault balance
 
 ```bash
+
 # ETH that is available for withdrawal (excludes staged balances for activations)
 yarn start contracts vault r available-balance <vault>
 
 # How much ETH is staged for validator activations
 yarn start contracts vault r staged-balance <vault>
 ```
+
+## Ensure there is enough liquidity to finalize
+
+Finalization requires enough ETH to be available for withdrawals (and for gas cost coverage, see below). If `finalize` reverts, the usual cause is **insufficient available balance** on the underlying staking vault.
 
 ### If liquidity is not enough: return ETH from validators
 
@@ -98,11 +118,13 @@ For role/permission boundaries between Vault Owner vs Node Operator actions, see
 Finalization is performed by an account with `FINALIZE_ROLE` on the Withdrawal Queue (in DeFi Wrapper deployments, this is typically the `nodeOperator`).
 
 ```bash
-yarn start defi-wrapper contracts wq w finalize <withdrawalQueue> <maxRequests> <gasCostCoverageRecipient>
+yarn start defi-wrapper use-cases wrapper-operations w finalize-withdrawals <poolAddress>
 ```
 
-- `maxRequests`: finalize up to N requests in one transaction (the function stops earlier if it hits a limiting condition).
-- `gasCostCoverageRecipient`: where the gas cost coverage (if any) is paid; if you pass `0x000...0`, the contract uses `msg.sender`.
+Options:
+
+- `--max-requests <maxRequestCount>`: default 1000, finalize up to maxRequestCount requests in one transaction (the function stops earlier if it hits a limiting condition).
+- `--gas-coverage-recipient <gasCoverageRecipient>`: defaults to tx sender, where the gas cost coverage (if any) is paid
 
 ## After finalization
 
@@ -130,3 +152,8 @@ yarn start defi-wrapper contracts wq r MAX_GAS_COST_COVERAGE <withdrawalQueue>
 **How to change it**
 
 The on-chain method is `setFinalizationGasCostCoverage(uint256)`, which requires `FINALIZE_ROLE`.
+
+```bash
+# Requires FINALIZE_ROLE for used account
+yarn start defi-wrapper use-cases wrapper-operations w set-finalization-gas-cost-coverage <poolAddress> <gasCostCoverageWei>
+```
