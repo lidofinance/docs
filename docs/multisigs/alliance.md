@@ -1,12 +1,14 @@
 # Alliance
 
-## 5.1. Lido Alliance BORG Operational
+## 3.1. Lido Alliance BORG Operational
 
 **Address:** [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 
 **Purpose of the multisig:**
 The Lido Alliance BORG Foundation utilizes this multisig to hold and manage the Lido Alliance BORG’s operational budget. 
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
 
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
@@ -32,19 +34,21 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification                            |
-| --- | --- | -- |------------------------------------------------|
+| Name         | Address | Verification | Public verification                            |
+|--------------| --- | -- |------------------------------------------------|
 | Shaun Musuka | 0xeD85C7Bd46DDE10E1C48bbd78E9fa63076c5736C | https://etherscan.io/verifySig/257042 | https://x.com/dzidzoh/status/1828479578353914163 |
-| shik_happens | 0x734a30ABE434012FD413666b2210a4D1aca6ec7B | https://etherscan.io/verifySig/257077 | https://x.com/shik_happens/status/1828815318556533136 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665 |
-| Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
-| Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
+| adcv         | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665 |
+| Olga_K       | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
+| Nemo         | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
+| Elena_S      | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/279003 | https://x.com/Elen0sh/status/1960259150459306293 |
 
-## 5.2 Lido Alliance BORG Allies/Partners
+## 3.2 Lido Alliance BORG Allies/Partners
 
 **Address:** [`0x92ABC000698374B44206148596AcD8a934687E66`](https://app.safe.global/settings/setup?safe=eth:0x92ABC000698374B44206148596AcD8a934687E66)
 
 **Purpose of the multisig:** The multisig is used to hold all tokens contributed by Lido Allies.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreiczu2tjmbsmz33up6qqnvkpmuewnu2lvocxigpyotousvaxsokql4)
 
 **Quorum:** 4/7
 
@@ -71,11 +75,13 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Aleksandr_Lukin | 0x1EAF931aabbB02Ca8A416040cF5b35C73Fff2A8a | https://etherscan.io/verifySig/257034 | https://twitter.com/alexanderlukin9/status/1828449516950892650 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
-## 5.3. Lido Alliance BORG Drop
+## 3.3. Lido Alliance BORG Drop
 
 **Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
 **Purpose of the multisig:** The multisig is used to receive and hold Drop's token contribution in accordance to the [snapshot](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b).
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreicgvjh5rrepfnlkjom5npn2gyejqxvzoop2fqgnmp5yuugc5drw5q)
 
 **Quorum:** 4/7
 
