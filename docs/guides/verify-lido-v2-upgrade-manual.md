@@ -1,9 +1,5 @@
 # Lido V2 mainnet parameters validation
 
-## Tests setup configuration
-
-Tests setup based upon parameters specified in [this config file](https://github.com/lidofinance/scripts/blob/master/configs/config_mainnet.py) . This document can be used to validate the values.
-
 ## Mainnet addresses
 
 Some of the proposed addresses are listed in this section, but for the full list see [this document](/deployed-contracts/).
