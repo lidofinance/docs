@@ -15,7 +15,7 @@ Before starting the disconnection process, make sure:
 3. **The vault has sufficient balance to cover all unsettled fees.** Both Lido protocol fees and accrued Node Operator fees are settled from the vault balance during the initiation step. If the vault balance is insufficient to cover them, the transaction will revert.
 
 :::info
-Once completed, the vault is removed from Lido Protocol. However, the same vault can be reconnected later unless it has been ossified.
+Once completed, the vault is removed from Lido protocol. However, the same vault can be reconnected later unless it has been ossified.
 :::
 
 ## Step 1. Initiate voluntary disconnect
