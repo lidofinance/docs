@@ -12,7 +12,7 @@ Before starting the disconnection process, make sure:
 
 1. **All minted stETH is repaid.** Your vault must have zero liability shares. If you have outstanding stETH minted against the vault, [repay it first](./voluntary-rebalancing-and-vault-closure.md).
 2. **Your vault has a fresh oracle report.** The disconnect will revert if the report is stale. [Apply a fresh report](./applying-report-guide.md) if needed.
-3. **The vault has sufficient balance to cover all unsettled Lido fees.** Any outstanding protocol fees will be automatically settled during the initiation step. If the vault balance is insufficient to cover them, the transaction will revert.
+3. **The vault has sufficient balance to cover all unsettled fees.** Both Lido protocol fees and accrued Node Operator fees are settled from the vault balance during the initiation step. If the vault balance is insufficient to cover them, the transaction will revert.
 
 :::info
 Once completed, the vault is removed from Lido Protocol. However, the same vault can be reconnected later unless it has been ossified.
@@ -24,7 +24,7 @@ The disconnection process starts by calling `Dashboard.voluntaryDisconnect()`. T
 
 This call:
 
-- Collects any accrued Node Operator fees (stored as `feeLeftover` on the Dashboard for later recovery).
+- Collects any accrued Node Operator fees and **transfers them to the Dashboard contract** as `feeLeftover`, for later recovery (see [Step 6](#step-6-recover-node-operator-fees)).
 - Stops further fee accrual.
 - Settles all outstanding Lido protocol fees from the vault balance to the Lido treasury.
 - Marks the vault as **pending disconnection** in VaultHub.
@@ -218,6 +218,38 @@ yarn start contracts vault w withdraw <vaultAddress> <recipientAddress> <amountI
    - `_recipient`: the address to receive the ETH.
    - `_ether`: the amount in wei (e.g., `1000000000000000000` for 1 ETH).
 6. Click **Write** and sign the transaction in your wallet.
+7. Click **View your transaction** and wait for it to be executed.
+
+</details>
+
+## Step 6. Recover Node Operator fees
+
+During Step 1, accrued Node Operator fees were withdrawn from the vault and stored on the Dashboard contract as `feeLeftover` rather than sent directly to the `feeRecipient`. This is intentional: if the `feeRecipient` were a contract that rejects ETH transfers, sending fees directly would revert and block the disconnect.
+
+To send the stored fees to the configured `feeRecipient`, call `Dashboard.recoverFeeLeftover()`. This is a **permissionless operation**, anyone can call it, and the fees will be sent to the `feeRecipient` address configured on the Dashboard.
+
+<details>
+  <summary>using Command-line Interface</summary>
+
+```bash
+yarn start contracts dashboard w recover-fee-leftover <dashboardAddress>
+```
+
+</details>
+<details>
+  <summary>using Etherscan UI</summary>
+
+1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+2. Since this contract is a proxy, complete the verification steps once (if not done before):
+   - Go to **Contract → Code**.
+   - Click **More options**.
+   - Select **Is this a proxy?**.
+   - Click **Verify** in the dialog.
+   - Return to the contract details page.
+3. Open the **Contract** tab → **Write as Proxy**.
+4. Click **Connect to Web3** and connect your wallet in the dialog window.
+5. Find the `recoverFeeLeftover` method in the list and click **Write**.
+6. Sign the transaction in your wallet.
 7. Click **View your transaction** and wait for it to be executed.
 
 </details>
