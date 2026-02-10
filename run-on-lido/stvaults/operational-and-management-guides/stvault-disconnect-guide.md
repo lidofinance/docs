@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# 🔌 StVault Disconnect Guide
+# 🔌 stVault Disconnect Guide
 
 This guide walks you through the process of disconnecting your stVault from Lido protocol. Disconnecting is a multi-step process that involves initiating the disconnect, waiting for an oracle report, abandoning the Dashboard, and accepting ownership on your EOA. Each step must be completed in order.
 
