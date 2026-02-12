@@ -6,4 +6,4 @@ In this directory, you will find a detailed per-contract overview of the "Permis
 - [Verifier](./verifier)
 - [BitmaskVerifier](./bitmaskverifier)
 - [Consensus](./consensus)
-- [Protocols](./protocols/)
+- [Protocols](./protocols)
