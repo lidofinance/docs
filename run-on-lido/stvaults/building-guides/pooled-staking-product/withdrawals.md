@@ -111,7 +111,7 @@ yarn start contracts vault w eject-validators <vault> <pubkeys> <refundRecipient
 yarn start contracts vault w trigger-v-w <vault> <pubkeys> <amounts> <refundRecipient>
 ```
 
-For role/permission boundaries between Vault Owner vs Node Operator actions, see [stVaults Roles and permissions](../../features-and-mechanics/roles-and-permissions).
+For role/permission boundaries between Vault Owner vs Node Operator actions, see [stVaults Roles and permissions](/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions).
 
 ## Finalize requests
 
