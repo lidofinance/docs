@@ -21,10 +21,6 @@ Users can withdraw wsETH in two steps (request + claim) with a typical withdrawa
 - Veda - https://veda.tech/
 - Edge Capital - https://edgecapital.xyz/
 
-:::note
-Detailed information regarding the architecture, infrastructure, and management configurations of Lido Earn ETH could be found [here](https://metavaults.mellow.finance/architecture).
-:::
-
 ## Lido Earn USD
 
 Lido Earn USD facilitates saving opportunities for stablecoin users by utilising highly liquid and diverse DeFi opportunities through a security-first risk framework, split between a conservative subVault, and a smaller, capped, experimental subVault designed to improve risk-adjusted rewards.
@@ -50,6 +46,3 @@ Users can withdraw wsETH in two steps (request + claim) with a typical withdrawa
 - Steakhouse - https://www.steakhouse.financial/
 - Edge Capital - https://edgecapital.xyz/
 
-:::note
-Detailed information regarding the architecture, infrastructure, and management configurations of Lido Earn USD could be found [here](https://metavaults.mellow.finance/architecture).
-:::
