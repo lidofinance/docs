@@ -13,6 +13,10 @@ To use Stereum your machine must be running Ubuntu. Follow the official installa
 ### Video Guide
 <iframe width="800" height="450" src="https://www.youtube.com/embed/v5k1nlDajyI?si=wAM35LSC_Wk7I7RQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
+:::warning
+For Testnet setups, replace all Holesky references with Hoodi.
+:::
+
 ### Configure Passwordless Sudo
 
 Stereum requires passwordless `sudo` access to function properly. Follow these steps:
@@ -54,7 +58,7 @@ Select **Ethereum** → **CSM** as your use case (we recommend testing on a test
 
 ![Select Use Case](/img/csm-guide/stereum-4.png)
 
-Next, pick execution, consensus, and validator clients, as well as a sync mode (Checkpoint Sync is recommended) and MEV-Boost relays from the [Lido-vetted relay list](https://enchanted-direction-844.notion.site/6d369eb33f664487800b0dedfe32171e?v=d255247c822c409f99c498aeb6a4e51d):
+Next, pick execution, consensus, and validator clients, as well as a sync mode (Checkpoint Sync is recommended) and MEV-Boost relays (Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#stereum)):
 
 ![Services Installation Options](/img/csm-guide/stereum-5.png)
 
@@ -93,7 +97,7 @@ After import, you’ll see your validator in the UI:
 
 ## Generate Validator Keys
 
-Follow the [Generating Validator Keys guide](../../generating-validator-keys/) and ensure you set the correct withdrawal address.
+Follow the [Generating Validator Keys guide](/run-on-lido/csm/generating-validator-keys/) and ensure you set the correct withdrawal address.
 
 ### Keep your clients up to date
 To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).

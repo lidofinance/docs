@@ -1,6 +1,49 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (87 reports)
+## Lido on Ethereum (91 reports)
+
+### 01-2026 Sigma Prime Lido BLS Library Security Audit
+
+- Total Issues: 6 (6 Fixed)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Fixed)
+- Info Issues: 5 (5 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Sigma%20Prime%20-%20Lido%20BLS%20Library%20Security%20Assessment%20Report%20v2.0%20-%2001-2026.pdf) for more details.
+
+### 01-2026 MixBytes CSM Performance Oracle Security Audit
+
+- Total Issues: 1 (1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20CSM%20Performance%20Oracle%20Security%20Audit%20Report%2001-26.pdf) for more details.
+
+### 01-2026 MixBytes Lido DeFi Wrapper Security Audit Report
+
+- Total Issues: 24 (14 Fixed, 10 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 2 (1 Fixed, 1 Acknowledged)
+- Low Issues: 22 (13 Fixed, 9 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20DeFi%20Wrapper%20Security%20Audit%20Report%2001-2026.pdf) for more details.
+
+### 01-2026 Ackee Blockchain Vault Wrapper Report
+
+- Total Issues: 14 (13 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 2 (2 Fixed)
+- Warnings: 3 (3 Fixed)
+- Info Issues: 9 (8 Fixed, 1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockchain%20Vault%20Wrapper%20Report%2001-2026.pdf) for more details.
 
 ### 12-2025 Certora Lido V3 Security Audit
 
@@ -11,7 +54,7 @@
 - Low Issues: 21 (13 Fixed, 8 Acknowledged)
 - Info Issues: 13 (11 Fixed, 2 Acknowledged)
 
-See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Audit%20Report%20-%2012-2025.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Audit%20Report%20-%2012-2025.pdf) for more details. The report has been updated on 01-2026 with the latest commit taking into account the changes made to the BLS library.
 
 ### 12-2025 Certora Lido V3 Formal Verification
 
@@ -43,7 +86,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido
 - Medium Issues: 5 (1 Fixed, 4 Acknowledged)
 - Low Issues: 13 (7 Fixed, 6 Acknowledged)
 
-See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20V3%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20V3%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details. The report has been updated on 01-2026 with the latest commit taking into account the changes made to the BLS library.
 
 ### 12-2025 MixBytes Lido V3 Easy Track Security Audit
 
@@ -53,7 +96,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lid
 - Medium Issues: 0
 - Low Issues: 4 (2 Fixed, 2 Acknowledged)
 
-See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20V3%20Easy%20Track%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20V3%20Easy%20Track%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details. The report was updated in 01-2026 to include the latest changes from phase 2 of the Lido V3 release, specifically for the Easy Track stVaults-related factories.
 
 ### 12-2025 Consensys Diligence Lido V3 Security Audit
 
@@ -64,7 +107,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lid
 - Minor Issues: 9 (5 Fixed, 4 Acknowledged)
 - Info Issues: 14 (8 Fixed, 6 Acknowledged)
 
-See [full report](https://github.com/lidofinance/audits/blob/main/Consensys%20Diligence%20Lido%20V3%20Security%20Audit%20-%2011-2025.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/Consensys%20Diligence%20Lido%20V3%20Security%20Audit%20-%2011-2025.pdf) for more details. The report has been updated on 01-2026 with the latest commit taking into account the changes made to the BLS library.
 
 ### 12-2025 Composable Security Lido V3 Oracle v7 Security Audit
 

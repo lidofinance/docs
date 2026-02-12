@@ -16,7 +16,7 @@ There are 2 reasons why CSM operators can receive exit request from the Lido Pro
 
 If the operator does not exit their validators after the protocol request, the following will be applied:
 1. Exclude the Node Operator from the CSM deposit queue until the issue is resolved.
-2. Exclude the Node Operator from the staking rewards allocation cycle.
+2. Exclude the Node Operator from the Node Operator rewards allocation cycle.
 
 You can read more about exits [here](/staking-modules/csm/validator-exits).
 
@@ -56,6 +56,6 @@ The 32 ETH deposited to activate each validator key will return to the Lido Pr
 **Penalties of having `Stuck Keys` include:**
 
 1. New validator keys of the CSM operator will not be deposited
-2. New staking rewards stop accruing for the CSM operator
+2. New Node Operator rewards stop accruing for the CSM operator
 
 Penalties are lifted when there are no more `Stuck Keys`. More details [here](https://operatorportal.lido.fi/modules/community-staking-module#block-0ed61a4c0a5a439bbb4be20e814b4e38).

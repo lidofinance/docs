@@ -1,7 +1,7 @@
 # AIP
 
-| title                | status   | author              | shortDescription                                         | discussion                                                        | created    |
-| -------------------- | -------- | ------------------- | -------------------------------------------------------- | ----------------------------------------------------------------- | ---------- |
+| title                | status   | author              | shortDescription                                         | discussion                                                                                               | created    |
+| -------------------- | -------- | ------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------- |
 | Add stETH to AAVE v2 | Proposed | @jbeezy @grstepanov | AAVE governance proposal to enable stETH as a base token | [arc-add-support-for-steth-lido/5793](https://governance.aave.com/t/arc-add-support-for-steth-lido/5793) | 2022-04-02 |
 
 ### Simple Summary
@@ -13,7 +13,7 @@ We propose listing stETH to AAVE v2 market. This would allow users to borrow aga
 
 - Website: [lido.fi](https://lido.fi/)
 - [Document portal](https://docs.lido.fi/)
-- [Source code for the system(s) that interact with the proposed token](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.4.24/Lido.sol)
+- [Source code for the system(s) that interact with the proposed token](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.4.24/Lido.sol)
 - [Ethereum addresses contracts](/deployed-contracts)
 - [ChainLink Oracle](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
 - [Audits](https://github.com/lidofinance/audits)
@@ -171,7 +171,7 @@ The current implementation doesn't support borrowing, neither with variable nor 
 - [variableDebtSTETH](https://etherscan.io/address/0xde2c414b671d2db93617d1592f0490c13674de24)
 - [stableDebtSTETH](https://etherscan.io/address/0x8180949ac41ef18e844ff8dafe604a195d86aea9)
 - [DefaultReserveInterestRateStrategy](https://etherscan.io/address/0xff04ed5f7a6C3a0F1e5Ea20617F8C6f513D5A77c)
-Steps the proposal will execute: start a vote to add stETH as a new token.
+  Steps the proposal will execute: start a vote to add stETH as a new token.
 
 #### Security Considerations
 

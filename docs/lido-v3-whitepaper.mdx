@@ -6,8 +6,8 @@ sidebar_position: 0.5
 hide_title: true
 ---
 
-import Link from '@docusaurus/Link';
-import PdfViewer from '@site/src/components/PdfViewer';
+import Link from '@docusaurus/Link'
+import PdfViewer from '@site/src/components/PdfViewer'
 
 <div className="v3-hero-banner">
   <div className="v3-hero-content">
@@ -23,11 +23,15 @@ import PdfViewer from '@site/src/components/PdfViewer';
     <div className="v3-hero-meta">
       <div className="v3-hero-meta-item">
         <span>📄</span>
-        <span><strong>Authors:</strong> Eugene Pshenichnyy, Eugene Mamin, Max Merkulov, Alexey Potapkin</span>
+        <span>
+          <strong>Authors:</strong> Eugene Pshenichnyy, Eugene Mamin, Max Merkulov, Alexey Potapkin
+        </span>
       </div>
       <div className="v3-hero-meta-item">
         <span>📅</span>
-        <span><strong>Published:</strong> December 2025</span>
+        <span>
+          <strong>Published:</strong> December 2025
+        </span>
       </div>
     </div>
   </div>
@@ -53,23 +57,23 @@ stVaults are non-custodial smart contracts that delegate ETH to chosen Node Oper
     </div>
   </div>
 
-  <div className="v3-concept-card">
-    <div className="v3-concept-icon">💧</div>
-    <h3 className="v3-concept-title">stETH Liquidity Layer</h3>
-    <div className="v3-concept-description">
-      Two ways to mint stETH: Core Pool (1:1 ratio) and stVaults (overcollateralized).
-      Maintains fungibility while enabling diverse staking setups.
-    </div>
+<div className="v3-concept-card">
+  <div className="v3-concept-icon">💧</div>
+  <h3 className="v3-concept-title">stETH Liquidity Layer</h3>
+  <div className="v3-concept-description">
+    Two ways to mint stETH: Core Pool (1:1 ratio) and stVaults (overcollateralized). Maintains fungibility while
+    enabling diverse staking setups.
   </div>
+</div>
 
-  <div className="v3-concept-card">
-    <div className="v3-concept-icon">🔒</div>
-    <h3 className="v3-concept-title">Overcollateralization</h3>
-    <div className="v3-concept-description">
-      Part of the stake is held back to mitigate slashing risk and preserve stETH fungibility.
-      Health Factor and Reserve Ratio ensure protocol stability.
-    </div>
+<div className="v3-concept-card">
+  <div className="v3-concept-icon">🔒</div>
+  <h3 className="v3-concept-title">Overcollateralization</h3>
+  <div className="v3-concept-description">
+    Part of the stake is held back to mitigate slashing risk and preserve stETH fungibility. Health Factor and Reserve
+    Ratio ensure protocol stability.
   </div>
+</div>
 
   <div className="v3-concept-card">
     <div className="v3-concept-icon">⚡</div>
@@ -85,12 +89,12 @@ stVaults are non-custodial smart contracts that delegate ETH to chosen Node Oper
 
 The stVault architecture enables a wide range of staking strategies:
 
-| Use Case | Description |
-|----------|-------------|
-| **Delegation Liquid Staking** | Node Operators attract stake directly and launch their own stVaults with stETH liquidity |
-| **Custom Staking Strategies & LRTs** | Build custom portfolios, integrate restaking (Symbiotic), wrap stVaults (Mellow) |
-| **Leverage Staking** | Mint stETH, borrow more ETH, stake again — capital-efficient loops |
-| **Institutional Staking** | ETFs, ETPs, custodians maintain validator control without idle liquidity buffers |
+| Use Case                             | Description                                                                              |
+| ------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Delegation Liquid Staking**        | Node Operators attract stake directly and launch their own stVaults with stETH liquidity |
+| **Custom Staking Strategies & LRTs** | Build custom portfolios, integrate restaking (Symbiotic), wrap stVaults (Mellow)         |
+| **Leverage Staking**                 | Mint stETH, borrow more ETH, stake again — capital-efficient loops                       |
+| **Institutional Staking**            | ETFs, ETPs, custodians maintain validator control without idle liquidity buffers         |
 
 ## Quick Links
 
@@ -101,7 +105,12 @@ The stVault architecture enables a wide range of staking strategies:
   <Link to="/deployed-contracts/" className="v3-quick-link">
     📋 Deployed Contracts
   </Link>
-  <a href="https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665" className="v3-quick-link" target="_blank" rel="noopener noreferrer">
+  <a
+    href="https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665"
+    className="v3-quick-link"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     💬 Research Forum
   </a>
   <Link to="/run-on-lido/stvaults/building-guides/basic-stvault" className="v3-quick-link">
@@ -142,6 +151,7 @@ The technical paper includes the following sections:
 For implementation guides and technical details, see:
 
 - [stVaults Doc Center](/run-on-lido/stvaults/) — Building guides and knowledge base
-- [stVaults Integration Overview](/run-on-lido/stvaults/integration-overview) — Technical integration details
+- [stVaults Integration Overview](/run-on-lido/stvaults/tech-documentation/integration-overview) — Technical integration details
+- [stVaults Contracts Reference](/contracts/vault-hub) — Per-contract APIs and addresses
 - [Deployed Contracts](/deployed-contracts/) — Production and testnet contract addresses
-- [Predeposit Guarantee (PDG)](/run-on-lido/stvaults/pdg) — Validator deposit security mechanism
+- [Predeposit Guarantee (PDG)](/run-on-lido/stvaults/tech-documentation/pdg) — Validator deposit security mechanism

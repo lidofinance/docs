@@ -4,15 +4,15 @@
 - [Deployed Contract](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5)
 
 The `NodeOperatorsRegistry` contract acts as a registry of Node Operators selected by the Lido DAO.
-Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](/contracts/staking-router.md) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/interfaces/IStakingModule.sol).
+Since [Lido V2 upgrade](https://blog.lido.fi/introducing-lido-v2/) `NodeOperatorsRegistry` contract became a module of [`StakingRouter`](/contracts/staking-router) and got the second name **Curated staking module** as part of the general Lido staking infrastructure. As a staking module, `NodeOperatorsRegistry` implements [StakingModule interface](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/interfaces/IStakingModule.sol).
 
 `NodeOperatorsRegistry` keeps track of various Node Operators data, in particular limits of the allowed stake, reward addresses, penalty information, public keys of the Node Operators' validators. It defines order in which the Node Operators get the ether deposited and reward distribution between the node operators.
 
-The Lido DAO obliges a curated node operator to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by the [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) contract. If a NO doesn't fulfil the request timely, it will be reported onchain and sanctions may be applied by the DAO.
+The Lido DAO obliges a curated node operator to exit its validators timely if requested by the Lido protocol. The exit request is formed on-chain by the [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle) contract. If a NO doesn't fulfil the request timely, it will be reported onchain and sanctions may be applied by the DAO.
 
 The Lido DAO can also:
 
-- set a target validator limit for the NO, as well as the priority exit mode. If the current active number of validators is above the target, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](/docs/contracts/withdrawal-queue-erc721.md#finalization). Allocation of deposits above the target value is prohibited.
+- set a target validator limit for the NO, as well as the priority exit mode. If the current active number of validators is above the target, the excess ones will be requested to exit in a prioritized manner when required to [finalize withdrawal requests](/contracts/withdrawal-queue-erc721#finalization). Allocation of deposits above the target value is prohibited.
 - deactivate misbehaving operators by `deactivateNodeOperator()`. A deactivated node operator does not receive rewards or new deposits.
 
 ## Glossary
@@ -37,7 +37,7 @@ In the context of these terms "signing key", "key", "validator key", "validator"
 
 **used (active)** (signing key). Deposited but not yet exited.
 
-**late** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle.md) by Lido protocol.
+**late** (validator). Not exited in proper time after an exit request from [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle) by Lido protocol.
 
 **refunded** (stuck validator). Compensated by the NO for being stuck. For more information on handling of NO misbehavior see Lido on Ethereum Validator Exits SNOP 3.0 ([IPFS](https://ipfs.io/ipfs/QmW9kE61zC61PcuikCQRwn82aoTCj9yPuENGNPML9QLkSM), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md)).
 
@@ -54,15 +54,15 @@ For each NO the contract keeps a record of at least these values:
 - `totalDepositedValidators: uint64` incremental counter of all deposited validators for the NO so far
 - `targetValidatorsCount: uint256` target value for the number of validators for the NO. If the current active number of validators is above the value, the excess ones will be requested to exit. Allocation of deposits above the target value is prohibited. The exiting works only if `targetLimitMode` is non-zero. The `0` value will cause exit requests issued for all deposited validators of the NO. (see [VEBO](https://docs.lido.fi/guides/oracle-spec/validator-exit-bus) for details)
 - `targetLimitMode: uint256` NO's target limitation mode value (0 = disabled, 1 = smooth exit mode, 2 = boosted exit mode), determines whether the number of NO validators is target-limited, and if so, which exit mode will be applied on the [VEBO](https://docs.lido.fi/guides/oracle-spec/validator-exit-bus) side (see also `targetValidatorsCount`)
-- `stuckValidatorsCount: uint256` *deprecated* number of stuck validators. Always returns 0.
-- `refundedValidatorsCount: uint256` *deprecated* number of refunded validators. Always returns 0.
+- `stuckValidatorsCount: uint256` _deprecated_ number of stuck validators. Always returns 0.
+- `refundedValidatorsCount: uint256` _deprecated_ number of refunded validators. Always returns 0.
 - `depositableValidatorsCount: uint256` number of depositable validators
 
 The values can be viewed by means of `getNodeOperator()` and `getNodeOperatorSummary()`.
 
-Except for the functions listed below, the contract has methods accessible only by [`StakingRouter`](/contracts/staking-router.md)
+Except for the functions listed below, the contract has methods accessible only by [`StakingRouter`](/contracts/staking-router)
 (holder of `STAKING_ROUTER_ROLE`). These functions are called internally in the course of
-[`AccountingOracle`](/contracts/accounting-oracle.md) report.
+[`AccountingOracle`](/contracts/accounting-oracle) report.
 
 ## View Methods
 
@@ -79,7 +79,7 @@ function getRewardsDistribution(uint256 _totalRewardShares) returns (
 ```
 
 | Name                 | Type      | Description                                 |
-|----------------------|-----------|---------------------------------------------|
+| -------------------- | --------- | ------------------------------------------- |
 | `_totalRewardShares` | `uint256` | Total amount of reward shares to distribute |
 
 ### getActiveNodeOperatorsCount()
@@ -107,7 +107,7 @@ function getNodeOperator(uint256 _nodeOperatorId, bool _fullInfo) returns (
 ```
 
 | Name              | Type      | Description                            |
-|-------------------|-----------|----------------------------------------|
+| ----------------- | --------- | -------------------------------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id                       |
 | `_fullInfo`       | `bool`    | If true, name will be returned as well |
 
@@ -120,7 +120,7 @@ function getTotalSigningKeyCount(uint256 _nodeOperatorId) returns (uint256);
 ```
 
 | Name              | Type      | Description      |
-|-------------------|-----------|------------------|
+| ----------------- | --------- | ---------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### getUnusedSigningKeyCount()
@@ -132,7 +132,7 @@ function getUnusedSigningKeyCount(uint256 _nodeOperatorId) returns (uint256);
 ```
 
 | Name              | Type      | Description      |
-|-------------------|-----------|------------------|
+| ----------------- | --------- | ---------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### getSigningKey()
@@ -148,14 +148,14 @@ function getSigningKey(uint256 _nodeOperatorId, uint256 _index) returns (
 ```
 
 | Name              | Type      | Description                       |
-|-------------------|-----------|-----------------------------------|
+| ----------------- | --------- | --------------------------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id                  |
 | `_index`          | `uint256` | Index of the key, starting with 0 |
 
 Returns:
 
 | Name               | Type    | Description                                           |
-|--------------------|---------|-------------------------------------------------------|
+| ------------------ | ------- | ----------------------------------------------------- |
 | `key`              | `bytes` | Key                                                   |
 | `depositSignature` | `bytes` | Signature needed for a `depositContract.deposit` call |
 | `used`             | `bool`  | Flag indicating whether the key was used for staking  |
@@ -174,7 +174,7 @@ function getSigningKeys(uint256 _nodeOperatorId, uint256 _offset, uint256 _limit
 ```
 
 | Name              | Type      | Description                                                                                 |
-|-------------------|-----------|---------------------------------------------------------------------------------------------|
+| ----------------- | --------- | ------------------------------------------------------------------------------------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id                                                                            |
 | `_offset`         | `uint256` | Offset of the key in the array of all NO keys (`0` means the first key, `1` the second, etc |
 | `_limit`          | `uint256` | Number of keys to return                                                                    |
@@ -182,7 +182,7 @@ function getSigningKeys(uint256 _nodeOperatorId, uint256 _offset, uint256 _limit
 Returns:
 
 | Name         | Type     | Description                                                                                               |
-|--------------|----------|-----------------------------------------------------------------------------------------------------------|
+| ------------ | -------- | --------------------------------------------------------------------------------------------------------- |
 | `pubkeys`    | `bytes`  | Keys concatenated into the bytes batch: `[ 48 bytes key \| 48 bytes key \| ... ]`                         |
 | `signatures` | `bytes`  | Signatures needed for a `depositContract.deposit` call, concatenated as `[ 96 bytes \| 96 bytes \| ... ]` |
 | `used`       | `bool[]` | Array of flags indicating whether the key was used for staking                                            |
@@ -233,7 +233,7 @@ function getStakingModuleSummary() view returns (
 ```
 
 | Name                         | Type      | Description                                 |
-|------------------------------|-----------|---------------------------------------------|
+| ---------------------------- | --------- | ------------------------------------------- |
 | `totalExitedValidators`      | `uint256` | Total number of exited validators           |
 | `totalDepositedValidators`   | `uint256` | Total number of deposited validators        |
 | `depositableValidatorsCount` | `uint256` | Number of validators which can be deposited |
@@ -247,7 +247,7 @@ function getNodeOperatorIsActive(uint256 _nodeOperatorId) view returns (bool);
 ```
 
 | Name              | Type      | Description      |
-|-------------------|-----------|------------------|
+| ----------------- | --------- | ---------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### getNodeOperatorIds()
@@ -260,7 +260,7 @@ function getNodeOperatorIds(uint256 _offset, uint256 _limit) view
 ```
 
 | Name      | Type      | Description                              |
-|-----------|-----------|------------------------------------------|
+| --------- | --------- | ---------------------------------------- |
 | `_offset` | `uint256` | Offset of the first element of the range |
 | `_limit`  | `uint256` | Max number of NO ids to return           |
 
@@ -282,19 +282,19 @@ function getNodeOperatorSummary(uint256 _nodeOperatorId) view returns (
 ```
 
 | Name                         | Type      | Description                                                                                      |
-|------------------------------|-----------|--------------------------------------------------------------------------------------------------|
+| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------ |
 | `targetLimitMode`            | `uint256` | Current target limit mode applied to the NO (0 = disabled, 1 = soft, 2 = boosted)                |
 | `targetValidatorsCount`      | `uint256` | Target validators count for full description see [parameters section](#node-operator-parameters) |
-| `stuckValidatorsCount`       | `uint256` | *deprecated* Number of stuck keys from oracle report                                             |
-| `refundedValidatorsCount`    | `uint256` | *deprecated* Number of refunded keys                                                             |
-| `stuckPenaltyEndTimestamp`   | `uint256` | *deprecated* Extra penalty time after stuck keys refunded                                        |
+| `stuckValidatorsCount`       | `uint256` | _deprecated_ Number of stuck keys from oracle report                                             |
+| `refundedValidatorsCount`    | `uint256` | _deprecated_ Number of refunded keys                                                             |
+| `stuckPenaltyEndTimestamp`   | `uint256` | _deprecated_ Extra penalty time after stuck keys refunded                                        |
 | `totalExitedValidators`      | `uint256` | Number of keys in the EXITED state of the NO for all time                                        |
 | `totalDepositedValidators`   | `uint256` | Number of keys of the NO which were in DEPOSITED state for all time                              |
 | `depositableValidatorsCount` | `uint256` | Number of validators which can be deposited                                                      |
 
 ### getStuckPenaltyDelay()
 
-*Deprecated*
+_Deprecated_
 
 Returns value of the stuck penalty delay (in seconds).
 This parameter defines how long a penalized NO stays in penalty state after the stuck keys were refunded.
@@ -305,7 +305,7 @@ function getStuckPenaltyDelay() view returns (uint256);
 
 ### isOperatorPenalized()
 
-*Deprecated*
+_Deprecated_
 
 Returns flag whether the NO is penalized.
 
@@ -315,7 +315,7 @@ function isOperatorPenalized(uint256 _nodeOperatorId) view returns (bool)
 
 ### isOperatorPenaltyCleared()
 
-*Deprecated*
+_Deprecated_
 
 Returns whether the NO penalty is cleared.
 
@@ -325,7 +325,7 @@ function isOperatorPenaltyCleared(uint256 _nodeOperatorId) view returns (bool)
 
 ### getLocator()
 
-Returns the address of [`LidoLocator`](/contracts/lido-locator.md).
+Returns the address of [`LidoLocator`](/contracts/lido-locator).
 
 ```solidity
 function getLocator() view returns (ILidoLocator)
@@ -349,9 +349,9 @@ function getRewardDistributionState() public view returns (RewardDistributionSta
 
 **Returns:**
 
-| Name   | Type                    | Description                         |
-|--------|-------------------------|-------------------------------------|
-| state  | RewardDistributionState | Current reward distribution state   |
+| Name  | Type                    | Description                       |
+| ----- | ----------------------- | --------------------------------- |
+| state | RewardDistributionState | Current reward distribution state |
 
 ## Methods
 
@@ -369,14 +369,14 @@ function addNodeOperator(
 ```
 
 | Name             | Type      | Description                                            |
-|------------------|-----------|--------------------------------------------------------|
+| ---------------- | --------- | ------------------------------------------------------ |
 | `_name`          | `string`  | Human-readable name                                    |
 | `_rewardAddress` | `address` | Address which receives stETH rewards for this operator |
 
 Returns:
 
 | Name | Type      | Description                        |
-|------|-----------|------------------------------------|
+| ---- | --------- | ---------------------------------- |
 | `id` | `uint256` | A unique key of the added operator |
 
 ### activateNodeOperator()
@@ -394,7 +394,7 @@ function activateNodeOperator(uint256 _nodeOperatorId);
 ```
 
 | Name              | Type      | Description      |
-|-------------------|-----------|------------------|
+| ----------------- | --------- | ---------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### deactivateNodeOperator()
@@ -412,7 +412,7 @@ function deactivateNodeOperator(uint256 _nodeOperatorId);
 ```
 
 | Name              | Type      | Description      |
-|-------------------|-----------|------------------|
+| ----------------- | --------- | ---------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id |
 
 ### setNodeOperatorName()
@@ -426,7 +426,7 @@ function setNodeOperatorName(uint256 _nodeOperatorId, string _name);
 ```
 
 | Name              | Type      | Description         |
-|-------------------|-----------|---------------------|
+| ----------------- | --------- | ------------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id    |
 | `_name`           | `string`  | Human-readable name |
 
@@ -441,7 +441,7 @@ function setNodeOperatorRewardAddress(uint256 _nodeOperatorId, address _rewardAd
 ```
 
 | Name              | Type      | Description        |
-|-------------------|-----------|--------------------|
+| ----------------- | --------- | ------------------ |
 | `_nodeOperatorId` | `uint256` | Node operator id   |
 | `_rewardAddress`  | `address` | New reward address |
 
@@ -467,7 +467,7 @@ function setNodeOperatorStakingLimit(uint256 _nodeOperatorId, uint64 _vettedSign
 ```
 
 | Name                      | Type      | Description                               |
-|---------------------------|-----------|-------------------------------------------|
+| ------------------------- | --------- | ----------------------------------------- |
 | `_nodeOperatorId`         | `uint256` | Node operator id to set staking limit for |
 | `_vettedSigningKeysCount` | `uint64`  | New staking limit of the node operator    |
 
@@ -498,7 +498,7 @@ function addSigningKeys(
 ```
 
 | Name              | Type      | Description                                                                                         |
-|-------------------|-----------|-----------------------------------------------------------------------------------------------------|
+| ----------------- | --------- | --------------------------------------------------------------------------------------------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id                                                                                    |
 | `_keysCount`      | `uint256` | Number of signing keys provided                                                                     |
 | `_publicKeys`     | `bytes`   | Several concatenated validator signing public keys                                                  |
@@ -523,7 +523,7 @@ function removeSigningKeys(uint256 _nodeOperatorId, uint256 _fromIndex, uint256 
 ```
 
 | Name              | Type      | Description                       |
-|-------------------|-----------|-----------------------------------|
+| ----------------- | --------- | --------------------------------- |
 | `_nodeOperatorId` | `uint256` | Node operator id                  |
 | `_fromIndex`      | `uint256` | Index of the key, starting with 0 |
 | `_keysCount`      | `uint256` | Number of keys to remove          |
@@ -538,7 +538,7 @@ function invalidateReadyToDepositKeysRange(uint256 _indexFrom, uint256 _indexTo)
 ```
 
 | Name         | Type      | Description                                                  |
-|--------------|-----------|--------------------------------------------------------------|
+| ------------ | --------- | ------------------------------------------------------------ |
 | `_indexFrom` | `uint256` | The first index (inclusive) of the NO to invalidate keys for |
 | `_indexTo`   | `uint256` | The last index (inclusive) of the NO to invalidate keys for  |
 
@@ -578,7 +578,7 @@ function reportValidatorExitDelay(
 ```
 
 | Name                   | Type      | Description                                                              |
-|------------------------|-----------|--------------------------------------------------------------------------|
+| ---------------------- | --------- | ------------------------------------------------------------------------ |
 | `_nodeOperatorId`      | `uint256` | Node operator id                                                         |
 | `_proofSlotTimestamp`  | `uint256` | Beacon slot timestamp used as a proof reference for the validator status |
 | `_publicKey`           | `bytes`   | Validator BLS public key                                                 |
@@ -600,7 +600,7 @@ function onValidatorExitTriggered(
 ```
 
 | Name                        | Type      | Description                                                                |
-|-----------------------------|-----------|----------------------------------------------------------------------------|
+| --------------------------- | --------- | -------------------------------------------------------------------------- |
 | `_nodeOperatorId`           | `uint256` | Node operator id                                                           |
 | `_publicKey`                | `bytes`   | Validator BLS public key                                                   |
 | `_withdrawalRequestPaidFee` | `uint256` | Fee paid to submit the withdrawal/exit request (units as defined by SR/WQ) |
@@ -622,7 +622,7 @@ function isValidatorExitDelayPenaltyApplicable(
 ```
 
 | Name                   | Type      | Description                                              |
-|------------------------|-----------|----------------------------------------------------------|
+| ---------------------- | --------- | -------------------------------------------------------- |
 | `_nodeOperatorId`      | `uint256` | Node operator id                                         |
 | `_proofSlotTimestamp`  | `uint256` | Beacon slot timestamp reference                          |
 | `_publicKey`           | `bytes`   | Validator BLS public key                                 |
@@ -631,7 +631,7 @@ function isValidatorExitDelayPenaltyApplicable(
 Returns:
 
 | Name                  | Type   | Description                                                               |
-|-----------------------|--------|---------------------------------------------------------------------------|
+| --------------------- | ------ | ------------------------------------------------------------------------- |
 | `isPenaltyApplicable` | `bool` | True if the exit-delay update should be accepted and may affect penalties |
 
 ## exitDeadlineThreshold()
@@ -642,14 +642,14 @@ Returns the number of seconds after which a validator is considered late for a s
 function exitDeadlineThreshold(uint256 _nodeOperatorId) external view returns (uint256);
 ```
 
-| Name              | Type      | Description       |
-|-------------------|-----------|-------------------|
-| `_nodeOperatorId` | `uint256` | Node operator id  |
+| Name              | Type      | Description      |
+| ----------------- | --------- | ---------------- |
+| `_nodeOperatorId` | `uint256` | Node operator id |
 
 Returns:
 
 | Name                | Type      | Description                                         |
-|---------------------|-----------|-----------------------------------------------------|
+| ------------------- | --------- | --------------------------------------------------- |
 | `deadlineInSeconds` | `uint256` | Exit deadline threshold in seconds for specified NO |
 
 ## isValidatorExitingKeyReported()
@@ -661,12 +661,12 @@ function isValidatorExitingKeyReported(uint256 _nodeOperatorId, bytes _publicKey
 ```
 
 | Name              | Type      | Description              |
-|-------------------|-----------|--------------------------|
+| ----------------- | --------- | ------------------------ |
 | `_nodeOperatorId` | `uint256` | Node operator id         |
 | `_publicKey`      | `bytes`   | Validator BLS public key |
 
 Returns:
 
 | Name            | Type   | Description                                   |
-|-----------------|--------|-----------------------------------------------|
+| --------------- | ------ | --------------------------------------------- |
 | `isKeyReported` | `bool` | True if the validator exit delay was reported |

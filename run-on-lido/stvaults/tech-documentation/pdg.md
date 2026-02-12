@@ -1,14 +1,8 @@
 ---
-sidebar_position: 7
+sidebar_position: 4
 ---
 
-# Predeposit Guarantee
-
-:::warning
-According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft-launch in late December 2025.
-
-Phase 2 (Full Launch Mode), including the fully functional PDG, is expected in late January 2026.
-:::
+# 🛡️ Predeposit Guarantee
 
 This user guide explains how to use the Predeposit Guarantee contract as part of the stVaults staking infrastructure.
 
@@ -39,15 +33,21 @@ Additional deposits may be made in any amount up to the validator’s remaining 
 You can use this tool for generating deposit data: [Depositor](https://github.com/tamtamchik/depositor)
 :::
 
-## Use cases
+## PDG Flows
 
 ### Full-cycle trustless path through PDG
 
 Advantages:
 
-- The PDG enables a **non-custodial depositing mechanism** by using a Node Operator's (or its guarantor's) provided ether guarantee as collateral.
-- **Separation of ether funds** between the Vault Owner and the Node Operator.
-- This approach enables spawning validators without impacting key stVault metrics: Total Value, stETH minting capacity, Health Factor, etc.
+- **Non-custodial depositing mechanism** using the Node Operator’s (or guarantor’s) provided ETH guarantee as collateral.
+- **Separation of ETH funds** between the Vault Owner and the Node Operator.
+- A depositing mechanism **that does not affect key stVaults metrics** — Total Value, stETH minting capacity, or Health Factor. This means ETH can be deposited to validators through PDG even when the stETH minting capacity is fully utilized.
+
+Use cases enabled by the full-cycle trustless path through PDG:
+
+- Direct top-ups of proved validators with ETH from the stVault Balance.
+- Keys rotation even when the stETH minting capacity utilization is close to 100%.
+- Leveraged staking through lending markets using a flash loan.
 
 ![Full-cycle trustless](/img/stvaults/pdg_main_flow.png)
 
@@ -90,7 +90,7 @@ Steps:
    - 7.2. 31 ETH is deposited to validator from the amount that was Staged on the stVault balance.
    - 7.3 (Optional) extra ETH is deposited on validator, if extra top up was selected.
 
-8. **(Optional)** The `Guarantor` withdraws the 1 ETH from the PDG contract or retains it for reuse with future validators.  
+8. **(Optional)** The `Guarantor` withdraws the 1 ETH from the PDG contract or retains it for reuse with future validators.
    Method called: `PredepositGuarantee.withdrawNodeOperatorBalance(nodeOperator, amount, recipient)`.
    - Caller must be the `Guarantor` in the PredepositGuarantee contract.
 9. The `Depositor` makes a top-up deposit of the remaining 2016 ETH from the vault balance to the validator through the PDG.

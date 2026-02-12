@@ -1,19 +1,22 @@
 # GateSeal
 
-- [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
-- [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
-- ([proposed](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665)) [GateSeal (VaultHub and PredepositGuarantee (PDG))](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
-- [GateSeal (ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG))](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
-- [GateSeal (WithdrawalQueue)](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)
-- [GateSeal (CSM)](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)
-- [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
-- [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
-
 A one-time panic button for pausable contracts.
+
+| Active GateSeal                                                | Address                                                                                                                 | Expiration date (UTC) |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| ValidatorExitBus (VEB) and TriggerableWithdrawalsGateway (TWG) | [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1) | 12 Sep 2026, 09:59:47 |
+| WithdrawalQueue                                                | [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) | 12 Sep 2026, 09:59:47 |
+| CSM                                                            | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | 17 Sep 2026, 12:31:23 |
+| VaultHub and PredepositGuarantee (PDG)                         | [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c) | 03 Dec 2026, 12:54:59 |
 
 ## What is a GateSeal?
 
 A GateSeal is a contract that allows the designated account to instantly put a set of contracts on pause (i.e., seal) for a limited duration. GateSeals are meant to be used as a panic button for crucial contracts in case of an emergency. Each GateSeal is one-time use only and immediately becomes unusable once activated. If the seal is never triggered, the GateSeal will still eventually expire after a set period.
+
+- [Source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSeal.vy)
+- [Factory source code](https://github.com/lidofinance/gate-seals/blob/main/contracts/GateSealFactory.vy)
+- [Deployed factory contract](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
+- [Deployed blueprint contract](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
 
 ## Why use a GateSeal?
 
@@ -41,6 +44,14 @@ A GateSeal is set up with an immutable configuration at the time of construction
 - the expiry period, a period after which the GateSeal becomes unusable.
 
 It is important to note that GateSeals do not bypass the access control settings for pausable contracts, which is why GateSeals must be given the appropriate permissions beforehand. If and when an emergency arises, the sealing committee simply calls the seal function and puts the contracts on pause for the set duration.
+
+## GateSeal and Dual Governance
+
+When combined with Dual Governance, the time required for the DAO to reach and execute a decision may exceed the fixed safety window provided by an ephemeral GateSeal pause. To ensure that a protocol component remains paused for as long as governance requires, an additional mechanism is introduced in the form of the ResealManager. 
+
+Working together with GateSeal, the ResealManager can extend an existing temporary pause by converting it into a governance-controlled pause that remains in effect until the governance explicitly unpauses the contract. This action is only permitted when the protocol is in a non-Normal governance phase, which ties the extended pause strictly to governance state rather than to committee control.
+
+> For this setup to function correctly, the ResealManager must be authorized to pause/resume target contracts via `PAUSE_ROLE`/`RESUME_ROLE`.
 
 ## How are GateSeals created?
 

@@ -98,8 +98,43 @@ module.exports = async function createConfigAsync() {
               from: '/guides/stvaults/',
             },
             {
-              to: '/run-on-lido/stvaults/pdg',
-              from: '/guides/stvaults/pdg',
+              to: '/run-on-lido/stvaults/tech-documentation/pdg',
+              from: [
+                '/guides/stvaults/pdg',
+                '/run-on-lido/stvaults/pdg',
+              ],
+            },
+            {
+              to: '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
+              from: '/run-on-lido/stvaults/health-monitoring-guide',
+            },
+            {
+              to: '/run-on-lido/stvaults/operational-and-management-guides/health-emergency-guide',
+              from: '/run-on-lido/stvaults/health-emergency-guide',
+            },
+            {
+              to: '/run-on-lido/stvaults/operational-and-management-guides/node-operators-identification',
+              from: '/run-on-lido/stvaults/node-operators-identification',
+            },
+            {
+              to: '/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions',
+              from: '/run-on-lido/stvaults/roles-and-permissions',
+            },
+            {
+              to: '/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics',
+              from: '/run-on-lido/stvaults/parameters-and-metrics',
+            },
+            {
+              to: '/run-on-lido/stvaults/tech-documentation/integration-overview',
+              from: '/run-on-lido/stvaults/integration-overview',
+            },
+            {
+              to: '/run-on-lido/stvaults/tech-documentation/tech-design',
+              from: '/run-on-lido/stvaults/tech-design',
+            },
+            {
+              to: '/run-on-lido/stvaults/tech-documentation/consolidation',
+              from: '/run-on-lido/stvaults/consolidation',
             },
             {
               to: '/multisigs/emergency-brakes',

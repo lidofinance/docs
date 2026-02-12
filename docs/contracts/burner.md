@@ -1,7 +1,7 @@
 # Burner
 
-- [Source Code](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/Burner.sol)
-- [Deployed Contract](https://etherscan.io/address/0xD15a672319Cf0352560eE76d9e89eAB0889046D3)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.9/Burner.sol)
+- [Deployed Contract](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a)
 
 The contract provides a way for Lido protocol to burn stETH token shares as a means to finalize withdrawals,
 penalize untimely exiting node operators, and, possibly, cover losses in staking.
@@ -21,13 +21,13 @@ decreasing `totalShares` that can be correctly handled by 3rd party protocols in
 - Locking **caller-provided** stETH with the `REQUEST_BURN_MY_STETH_ROLE` assigned role.
 
 Those burn requests are initially set by the contract to a pending state.
-Actual burning happens as part of an oracle ([`AccountingOracle`](/contracts/accounting-oracle)) report handling by [`Lido`](/contracts/lido) to prevent
+Actual burning happens as part of an oracle ([`AccountingOracle`](/contracts/accounting-oracle)) report handling by [`Accounting`](/contracts/accounting) to prevent
 additional fluctuations of the existing stETH token rebase period (~24h).
 
 We also distinguish two types of shares burn requests:
 
 - request to **cover** a slashing event (e.g. decreasing of the total pooled ETH amount
-between the two consecutive oracle reports);
+  between the two consecutive oracle reports);
 - request to burn shares for any other cases (**non-cover**).
 
 The contract has two separate counters for the burnt shares: cover and non-cover ones. The contract is
@@ -64,6 +64,42 @@ and cover application-induced rebase, which can be done as follows:
    nonRewardSharePriceIncrease = newSharePrice - prevSharePrice - rewardPerShare;
    ```
 
+## Constants
+
+### LOCATOR()
+
+Returns the address of the [LidoLocator](/contracts/lido-locator) contract.
+
+```sol
+ILidoLocator public immutable LOCATOR;
+```
+
+### LIDO()
+
+Returns the address of the [Lido](/contracts/lido) (stETH) contract.
+
+```sol
+ILido public immutable LIDO;
+```
+
+## Roles
+
+### REQUEST_BURN_MY_STETH_ROLE()
+
+An ACL role granting the permission to burn caller's own stETH.
+
+```sol
+bytes32 public constant REQUEST_BURN_MY_STETH_ROLE = keccak256("REQUEST_BURN_MY_STETH_ROLE");
+```
+
+### REQUEST_BURN_SHARES_ROLE()
+
+An ACL role granting the permission to burn stETH shares on behalf of others.
+
+```sol
+bytes32 public constant REQUEST_BURN_SHARES_ROLE = keccak256("REQUEST_BURN_SHARES_ROLE");
+```
+
 ## View methods
 
 ### getCoverSharesBurnt()
@@ -96,6 +132,14 @@ Returns numbers of cover and non-cover shares requested to burn.
 
 ```sol
 function getSharesRequestedToBurn() external view returns (uint256 coverShares, uint256 nonCoverShares)
+```
+
+### isMigrationAllowed()
+
+Returns whether migration from the old Burner is allowed. Used during V3 upgrade only.
+
+```sol
+function isMigrationAllowed() external view returns (bool)
 ```
 
 ## Methods
@@ -149,10 +193,40 @@ Reverts if any of the following is true:
 
 | Name                  | Type      | Description                                     |
 | --------------------- | --------- | ----------------------------------------------- |
-|        `_from`        | `address` |         address to transfer shares from         |
+| `_from`               | `address` | address to transfer shares from                 |
+| `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
+
+### requestBurnMyShares()
+
+Transfers stETH shares from the message sender and irreversibly locks these on the burner contract address.
+Marks the shares amount for non-cover backed burning by increasing the internal `nonCoverSharesBurnRequested` counter.
+
+This is the **preferred method** for burning non-cover shares as it prevents dust accumulation.
+
+```sol
+function requestBurnMyShares(uint256 _sharesAmountToBurn) external
+```
+
+:::note
+Reverts if any of the following is true:
+
+- `msg.sender` is not a holder of the `REQUEST_BURN_MY_STETH_ROLE` role;
+- no stETH shares provided (`_sharesAmountToBurn == 0`);
+- no stETH shares transferred (allowance exceeded).
+
+:::
+
+#### Parameters
+
+| Name                  | Type      | Description                                     |
+| --------------------- | --------- | ----------------------------------------------- |
 | `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
 
 ### requestBurnMyStETH()
+
+:::warning
+**DEPRECATED**: Use `requestBurnMyShares` instead to prevent dust accumulation.
+:::
 
 Transfers stETH tokens from the message sender and irreversibly locks these on the burner contract address.
 Internally converts tokens amount into underlying shares amount and marks the converted amount for
@@ -204,7 +278,7 @@ Reverts if any of the following is true:
 
 | Name                  | Type      | Description                                     |
 | --------------------- | --------- | ----------------------------------------------- |
-|        `_from`        | `address` |         address to transfer shares from         |
+| `_from`               | `address` | address to transfer shares from                 |
 | `_sharesAmountToBurn` | `uint256` | shares amount (not stETH tokens amount) to burn |
 
 ### recoverExcessStETH()
@@ -239,10 +313,10 @@ Reverts if any of the following is true:
 
 #### Parameters
 
-| Name      | Type      | Description                                 |
-| --------- | --------- | ------------------------------------------- |
-| `_token`  | `address` | ERC20-compatible token address to recover   |
-| `_amount` | `uint256` | Amount to recover                           |
+| Name      | Type      | Description                               |
+| --------- | --------- | ----------------------------------------- |
+| `_token`  | `address` | ERC20-compatible token address to recover |
+| `_amount` | `uint256` | Amount to recover                         |
 
 ### recoverERC721()
 
@@ -263,17 +337,18 @@ Reverts if any of the following is true:
 
 #### Parameters
 
-| Name       | Type      | Description                                 |
-| ---------- | --------- | ------------------------------------------- |
-| `_token`   | `address` | ERC721-compatible token address to recover  |
-| `_tokenId` | `uint256` | Token id to recover                         |
+| Name       | Type      | Description                                |
+| ---------- | --------- | ------------------------------------------ |
+| `_token`   | `address` | ERC721-compatible token address to recover |
+| `_tokenId` | `uint256` | Token id to recover                        |
 
 ### commitSharesToBurn()
 
 Marks previously requested to burn cover and non-cover share as burnt.
 Emits `StETHBurnt` event for the cover and non-cover shares marked as burnt.
+Performs the actual shares burning by calling `LIDO.burnShares()`.
 
-This function is called by the `Lido` contract together with (i.e., the same tx) performing the actual shares burning.
+This function is called by the [`Accounting`](/contracts/accounting) contract as part of oracle report handling.
 
 If `_sharesToBurn` is 0 does nothing.
 
@@ -284,7 +359,7 @@ function commitSharesToBurn(uint256 _sharesToBurn) external
 :::note
 Reverts if any of the following is true:
 
-- `msg.sender` address is NOT equal to the `stETH` address;
+- `msg.sender` address is NOT equal to the `Accounting` contract address (via `LOCATOR.accounting()`);
 - `_sharesToBurn` is greater than the cover plus non-cover shares requested to burn.
 
 :::
@@ -294,3 +369,79 @@ Reverts if any of the following is true:
 | Name            | Type      | Description                                            |
 | --------------- | --------- | ------------------------------------------------------ |
 | `_sharesToBurn` | `uint256` | Amount of cover plus non-cover shares to mark as burnt |
+
+### initialize()
+
+Initializes the contract by setting up roles and migration allowance. Should be called only once during deployment.
+
+```sol
+function initialize(address _admin, bool _isMigrationAllowed) external
+```
+
+#### Parameters
+
+| Name                  | Type      | Description                                  |
+| --------------------- | --------- | -------------------------------------------- |
+| `_admin`              | `address` | Address to be granted the DEFAULT_ADMIN_ROLE |
+| `_isMigrationAllowed` | `bool`    | Whether migration from old Burner is allowed |
+
+### migrate()
+
+Migrates state from the old Burner contract. Can be called only by the Lido contract and only once.
+
+```sol
+function migrate(address _oldBurner) external
+```
+
+#### Parameters
+
+| Name         | Type      | Description                        |
+| ------------ | --------- | ---------------------------------- |
+| `_oldBurner` | `address` | Address of the old Burner contract |
+
+## Events
+
+### StETHBurnRequested
+
+Emitted when a new stETH burning request is added.
+
+```sol
+event StETHBurnRequested(
+    bool indexed isCover,
+    address indexed requestedBy,
+    uint256 amountOfStETH,
+    uint256 amountOfShares
+)
+```
+
+### StETHBurnt
+
+Emitted when stETH is burnt.
+
+```sol
+event StETHBurnt(bool indexed isCover, uint256 amountOfStETH, uint256 amountOfShares)
+```
+
+### ExcessStETHRecovered
+
+Emitted when excess stETH is recovered to the treasury.
+
+```sol
+event ExcessStETHRecovered(address indexed requestedBy, uint256 amountOfStETH, uint256 amountOfShares)
+```
+
+### ERC20Recovered
+
+Emitted when ERC20 tokens are recovered to the treasury.
+
+```sol
+event ERC20Recovered(address indexed requestedBy, address indexed token, uint256 amount)
+```
+
+### ERC721Recovered
+
+Emitted when ERC721 NFTs are recovered to the treasury.
+
+```sol
+event ERC721Recovered(address indexed requestedBy, address indexed token, uint256 tokenId)
+```

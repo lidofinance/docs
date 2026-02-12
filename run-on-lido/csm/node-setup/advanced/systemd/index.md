@@ -1,10 +1,14 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Systemd
 
 This section of the guide focuses on helping CSM Operators run CSM validator keys on their existing validator node setup.
+
+:::info
+Your relay configuration must comply with [CSM requirements](/run-on-lido/csm/troubleshooting/mev-install#systemd).
+:::
 
 For an end-to-end setup of your validator node from scratch, refer to these community guides:
 

@@ -264,7 +264,7 @@ set to --network hoodi if running on Testnet.
 sudo chown -R csm_lighthouse_validator:csm_lighthouse_validator /var/lib/csm_lighthouse_validator
 sudo chmod 700 /var/lib/csm_lighthouse_validator
 ```
-  
+
   </TabItem>
   <TabItem value="prysm" label="Prysm">
 #### Prepare the validator data directory
@@ -335,20 +335,11 @@ ExecStart=/usr/local/bin/teku/bin/teku vc \
   --validators-graffiti="<your_graffiti>" \
   --metrics-enabled=true \
   --metrics-port=8108 \
-  --doppelganger-detection-enabled=true 
+  --doppelganger-detection-enabled=true
 
 [Install]
 WantedBy=multi-user.target
 ```
-
-Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand and review your configuration summary below, and amend if needed.
-
-:::important
-Recall that you will have to use designated fee recipient addresses as a CSM operator.
-- Mainnet: 0x388C818CA8B9251b393131C08a736A67ccB19297 
-- Hoodi:  0x9b108015fe433F173696Af3Aa0CF7CDb3E104258
-:::
-
   </TabItem>
   <TabItem value="nimbus" label="Nimbus">
 Create a systemd configuration file for the Nimbus Validator Client service to run in the background.
@@ -384,18 +375,9 @@ ExecStart=/usr/local/bin/nimbus_validator_client \
 [Install]
 WantedBy=multi-user.target
 ```
-
-Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand and review your configuration summary below, and amend if needed.
-
-:::important
-Recall that you will have to use designated fee recipient addresses as a CSM operator.
-Mainnet: 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f 
-Hoodi:  0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
-:::
-  
   </TabItem>
     <TabItem value="lodestar" label="Lodestar">
-Create a new folder for the CSM Lodestar validator client. 
+Create a new folder for the CSM Lodestar validator client.
 
 ```bash
 cd
@@ -448,15 +430,6 @@ services:
     ports:
       - "5064:5064"
 ```
-
-Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand and review your configuration summary below, and amend if needed.
-
-:::important
-Recall that you will have to use designated fee recipient addresses as a CSM operator.
-Mainnet: 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f 
-Hoodi:  0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
-:::
-  
   </TabItem>
   <TabItem value="lighthouse" label="Lighthouse">
 Create a systemd configuration file for the Lighthouse Validator Client service to run in the background.
@@ -494,15 +467,6 @@ ExecStart=/usr/local/bin/lighthouse vc \
 [Install]
 WantedBy=multi-user.target
 ```
-
-Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand and review your configuration summary below, and amend if needed.
-
-:::important
-Recall that you will have to use designated fee recipient addresses as a CSM operator.
-Mainnet: 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f 
-Hoodi:  0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
-:::
-
   </TabItem>
     <TabItem value="prysm" label="Prysm">
 Create a systemd configuration file for the Prysm Validator Client service to run in the background.
@@ -542,17 +506,16 @@ ExecStart=/usr/local/bin/prysmvalidator \
 [Install]
 WantedBy=multi-user.target
 ```
+  </TabItem>
+</Tabs>
 
 Once you're done, save with Ctrl+O and Enter, then exit with Ctrl+X. Understand and review your configuration summary below, and amend if needed.
 
-:::important
+:::info
 Recall that you will have to use designated fee recipient addresses as a CSM operator.
-Mainnet: 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f 
-Hoodi:  0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
+- Mainnet: [0x388C818CA8B9251b393131C08a736A67ccB19297](https://etherscan.io/address/0x388c818ca8b9251b393131c08a736a67ccb19297)
+- Hoodi: [0x9b108015fe433F173696Af3Aa0CF7CDb3E104258](https://hoodi.etherscan.io/address/0x9b108015fe433f173696af3aa0cf7cdb3e104258)
 :::
-
-  </TabItem>
-</Tabs>
 
 ---
 ### Start the CSM Validator Client
@@ -632,7 +595,7 @@ To prevent configuration mistakes leading to double signing in the future, remov
 ```bash
 sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
 ```
-  
+
   </TabItem>
     <TabItem value="lodestar" label="Lodestar">
 1. Make sure you are in the same folder as the docker-compose.yml file you created earlier.

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Integration overview
+# 🔌 Integration overview
 
 stVaults are Lido staking building blocks that allow creating custom staking solutions while still accessing unmatched stETH liquidity. This guide provides instructions for **managing** and **integrating** Staking Vaults (stVaults). It covers various interaction levels, from direct contract calls to using CLI tools and web interfaces, depending on requirements and preferred methods of fine-grained control.
 
@@ -26,7 +26,9 @@ stVaults consist of the following components:
 - **[Predeposit Guarantee (PDG)](#predeposit-guarantee-pdg)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows the Vault Owner and Node Operators to deposit validators with the vault's funds in a trustless manner.
 - **Off-chain monitoring tools (can be used by the Node Operator):**
   - **[Ethereum Validators Monitoring (EVM)](#ethereum-validators-monitoring-evm)**: Consensus layer validators monitoring bot that fetches Lido or Custom Users Node Operators keys from the Execution layer and checks their performance on the Consensus layer by the balance delta, attestations, proposes, sync committee participation.
-  - **[Ethereum Head Watcher](#ethereum-head-watcher)**: Bot that watches Ethereum head block, handles validator-related "events", and sends notifications through Alertmanager to a Discord channel.
+- **[Ethereum Head Watcher](#ethereum-head-watcher)**: Bot that watches Ethereum head block, handles validator-related "events", and sends notifications through Alertmanager to a Discord channel.
+
+For contract APIs and addresses, see the [stVaults contracts reference](/contracts/vault-hub).
 
 ## Integration and interacting layers
 

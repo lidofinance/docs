@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Basic stVault with optional liquidity
+# 🧱 Basic stVault with optional liquidity
 
 ## Intro
 
@@ -84,7 +84,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 <details>
   <summary>by Command-line Interface</summary>
@@ -110,13 +110,13 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 ##### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as collateral for connection to Lido Core, and initiates the connection to Lido Core.
 
-This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
+This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
 
 **Parameters and addresses needed for this step:**
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
 - `currentSettledGrowth`: the amount of unaccounted growth accrued on the vault while it was disconnected; 0 for newly created vaults via the create-without-connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
 
@@ -203,20 +203,18 @@ Tier changes are performed via a multi-role confirmation mechanism, where the No
 
 Both parties must submit the request with identical parameters within the confirmation lifetime of 24 hours for the change to take effect.
 
-Addresses performing this operation must have the following roles ([Read more about roles](../roles-and-permissions)):
+Addresses performing this operation must have the following roles ([Read more about roles](../features-and-mechanics/roles-and-permissions)):
 
 - From the Vault Owner: Vault Owner (Admin DEFAULT_ADMIN_ROLE, or delegated VAULT_CONFIGURATION_ROLE).
 - From the Node Operator: Node Operator (registered in the `OperatorGrid` contract).
 
-:::info
-Confirming tier change request requires applying fresh report to vault.
-:::
+Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../operational-and-management-guides/applying-report-guide)
 
 **Parameters and addresses needed for this step (for CLI and Smart contracts):**
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit.
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -295,7 +293,13 @@ Confirming tier change request requires applying fresh report to vault.
 
 ### Supply and withdraw ETH
 
-Supply and Withdraw ETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple are supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
+Supply and Withdraw ETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple are supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
+
+Before withdrawing ETH or performing other operations that depend on current vault state, ensure that a fresh report for your vault is applied. [Read more about applying reports](../operational-and-management-guides/applying-report-guide)
+
+Withdrawable ETH is defined by ([Read more about stVaults metrics](../features-and-mechanics/parameters-and-metrics)):
+- stVault Balance - ETH that is not staked on validators.
+- Total lock — collateral reserved for stETH liability, the mandatory 1 ETH minimal reserve for connecting the stVault to Lido Core, and protocol and Node Operator fee obligations.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -340,21 +344,16 @@ yarn start vo w withdraw <amount>
       7. Click **View your transaction** and wait for it to be executed.
 </details>
 
-:::info
-Withdrawable ETH is defined by:
-
-- stVault Balance - ETH that is not staked on validators.
-- Total lock — collateral reserved for stETH liability, the mandatory 1 ETH minimal reserve for connecting the stVault to Lido Core, and protocol and Node Operator fee obligations.
-
-[Read more about stVaults metrics](../parameters-and-metrics)
-:::
-
 ### Mint and repay stETH
 
 When ETH is supplied to an stVault, the Vault Owner can mint stETH on demand.
-Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](../parameters-and-metrics#total-steth-minting-capacity).
+Unlike Lido Core, stVaults allow stETH minting only within the defined [stETH minting capacity](../features-and-mechanics/parameters-and-metrics#total-steth-minting-capacity).
 
-Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../roles-and-permissions).
+Mint and Repay stETH are permissioned operations. By default, these permissions belong to the Vault Owner, who can delegate them to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
+
+Before minting stETH or performing other operations that depend on current vault state, ensure that a fresh report for your vault is applied. [Read more about applying reports](../operational-and-management-guides/applying-report-guide)
+
+After stETH is repaid, the corresponding ETH is unlocked once the upcoming Oracle report confirms the repaid amount.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -378,6 +377,8 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
 - Repay (burn) vault shares: `yarn start vo w burn <amount>`
 - Repay (burn) stETH tokens: `yarn start vo w burn-steth <amount>`
 - Repay (burn) wrapped stETH tokens: `yarn start vo w burn-wsteth <amount>`
+
+[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 </details>
 <details>
@@ -403,11 +404,9 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
 
       To repay (burn) shares, stETH or wstETH you must first grant approval to the vault's Dashboard contract. Go to the stETH or wstETH token contract and execute the `approve()` method for the amount (in wei) you want to set as allowance. Only after the approval is confirmed you can proceed with the repay (burn) operation. Please also note that if you are trying to mint shares (instead of stETH or wstETH), in that case you may need to approve slightly different amount of stETH then you are trying to mint. Please find the contracts' addresses on the **Contracts** page in accordance with your [environment](#environments).
 
-</details>
+   [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
-:::info
-After stETH is repaid, the corresponding ETH is unlocked once the upcoming Oracle report confirms the repaid amount.
-:::
+</details>
 
 ### Deposit ETH to validators
 
@@ -415,19 +414,12 @@ Supplying ETH to the stVault increases its balance. The Node Operator can then d
 
 **The Predeposit Guarantee (PDG)** contract, as part of the stVaults platform, helps prevent deposit frontrunning caused by the vulnerabilities described in [LIP-5](https://research.lido.fi/t/lip-5-mitigations-for-deposit-front-running-vulnerability/1269). PDG secures the Vault Owner’s ETH deposits to validators from being front-run by the Node Operator.
 
-:::warning
-According to the [updated V3 rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8), the Predeposit Guarantee (PDG) contract is now paused on the Hoodi Testnet and will also be paused on Mainnet during the soft-launch in late December 2025.
-
-Phase 2 (Full Launch Mode), including the fully functional PDG, is expected in late January 2026.
-:::
-
-
 One of the key benefits of using PDG is the avoidance of commingling: it keeps the finances of the Vault Owner and the Node Operator strictly separated.
 
 PDG enables three main use cases:
 
-- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../pdg/#full-cycle-trustless-path-through-pdg).
-- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../pdg/#pdg-shortcut).
+- **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../tech-documentation/pdg#full-cycle-trustless-path-through-pdg).
+- **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../tech-documentation/pdg#pdg-shortcut).
 - **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case.
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
@@ -436,12 +428,12 @@ Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essen
 
 The key stVault metrics that the Vault Owner should monitor and control are:
 
-- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../parameters-and-metrics)
-- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../parameters-and-metrics)
+- **Utilization ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../features-and-mechanics/parameters-and-metrics)
+- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../features-and-mechanics/parameters-and-metrics)
 
 Read more:
-- [Health Monitoring Guide](../health-monitoring-guide.md)
-- [Health Emergency Guide](../health-emergency-guide.md)
+- [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
+- [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
 
 The Health Factor metric may decrease as a result of validator underperformance, penalties, or a slashing event.
 
@@ -486,7 +478,8 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 
 ## Useful links
 
-- [stVaults Roles](../roles-and-permissions)
-- [stVaults Metrics](../parameters-and-metrics)
-- [Health Monitoring Guide](../health-monitoring-guide.md)
-- [Health Emergency Guide](../health-emergency-guide.md)
+- [stVaults Roles](../features-and-mechanics/roles-and-permissions)
+- [stVaults Metrics](../features-and-mechanics/parameters-and-metrics)
+- [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
+- [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
+- [Applying Report Guide](../operational-and-management-guides/applying-report-guide)

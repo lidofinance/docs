@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
-# Parameters and metrics
+# 📊 Parameters and metrics
 :::warning
 This document covers metric calculations intended for stVaults on mainnet. The implementation on deployed testnet contracts may vary.
 :::
