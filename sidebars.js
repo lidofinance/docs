@@ -84,7 +84,7 @@ module.exports = {
           label: 'Archived',
           items: [
             'guides/multisig-deployment',
-            'guides/checking-aragon-vote'
+            'guides/checking-aragon-vote',
           ],
         },
       ],

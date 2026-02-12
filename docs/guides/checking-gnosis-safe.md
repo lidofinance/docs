@@ -8,4 +8,4 @@ Gnosis multisig contracts are usually deployed from the Gnosis factory contracts
 2. Open the safe address in network explorer
 3. Find the safe creation tx (should be the oldest one in "Internal Transactions" tab & have "Contract Creation" note)
 4. Get the address the safe creation tx went to — should be a factory contract
-5. Open the corresponding version's folder on github https://github.com/safe-global/safe-deployments/tree/main/src/assets, open `proxy_factory.json` file & find the address in the list of deployed addresses
+5. Open the corresponding version's folder on GitHub https://github.com/safe-global/safe-deployments/tree/main/src/assets, open `proxy_factory.json` file & find the address in the list of deployed addresses
