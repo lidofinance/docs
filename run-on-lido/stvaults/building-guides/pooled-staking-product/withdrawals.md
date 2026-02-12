@@ -155,5 +155,5 @@ The on-chain method is `setFinalizationGasCostCoverage(uint256)`, which requires
 
 ```bash
 # Requires FINALIZE_ROLE for used account
-yarn start defi-wrapper use-cases wrapper-operations w set-finalization-gas-cost-coverage <poolAddress> <gasCostCoverageWei>
+yarn start defi-wrapper use-cases wrapper-operations w set-finalization-gas-cost-coverage <withdrawalQueue> <gasCostCoverageWei>
 ```
