@@ -1,4 +1,4 @@
-# stETH on Optimism parameters validation
+# stETH on Optimism Parameters Validation
 
 ## Deployment scope
 
