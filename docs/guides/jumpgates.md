@@ -1,4 +1,4 @@
-# How to Bridge Tokens through Jumpgate
+# Bridge Tokens via Jumpgate
 
 Jumpgates are a class of contracts that facilitate cross-chain token transfers under DAO operations. Each jumpgate is set up to work with a particular token and a pre-defined recipient. Below is the procedure of transferring tokens using a jumpgate.
 

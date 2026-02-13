@@ -1,4 +1,4 @@
-# How to claim Lido early stakers airdrop
+# Lido Early Stakers Airdrop Claim
 This is how to claim Lido early stakers airdrop with Etherscan UI
 
 ## Introduction
