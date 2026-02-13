@@ -113,6 +113,11 @@
   color: #f0f6fc;
 }
 
+.earn-nowrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 /* Key concepts grid */
 .v3-concepts-grid {
   display: grid;
@@ -272,6 +277,34 @@
 .navbar__item--v3:hover {
   background: linear-gradient(135deg, rgba(0, 163, 255, 0.25) 0%, rgba(139, 92, 246, 0.15) 100%);
   border-color: rgba(0, 163, 255, 0.5);
+}
+
+/* Navbar mid-width layout tuning (keep desktop layout before mobile breakpoint) */
+@media (max-width: 1200px) and (min-width: 997px) {
+  .navbar__inner {
+    flex-wrap: nowrap;
+  }
+
+  .navbar__items {
+    gap: 0.25rem;
+  }
+
+  .navbar__item {
+    padding: 0.25rem 0.45rem;
+  }
+
+  .navbar__link {
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .navbar__brand {
+    margin-right: 0.5rem;
+  }
+
+  .navbar__item--v3 {
+    padding: 0.3rem 0.6rem !important;
+  }
 }
 
 /* Sidebar V3 highlight */
