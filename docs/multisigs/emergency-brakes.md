@@ -6,6 +6,8 @@
 
 **Purpose of the multisig:** The GateSeal Committee is authorized to trigger designated GateSeal contracts to pause selected core protocol sealable smart contracts for a limited period. The pause right is single-use and automatically expires on the respective GateSeal expiration date. The full list of GateSeal contracts is provided [here](/contracts/gate-seal).
 
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreialaemgk7qcl2my74gxlxqs77ujhg5uhhgqtsqguongtendb3kkx4)
+
 **Quorum:** 3/6
 
 **Forum topic:**\
@@ -43,6 +45,8 @@
 **Purpose of the multisig:** The multisig is used to disable deposits & withdrawals for wstETH bridging to other chains (Arbitrum, Optimism, Base, Scroll, Mantle, ZKSync, Binance Smart Chain, Mode) in case of an emergency on Ethereum mainnet or the counterpart chain, and can pause Easy Track pipeline.
 
 **Quorum:** 3/5
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreicb2pqufmsrv3ppcdcn4hszf6zlimun3kg7brj37zbitygwybmdnq)
 
 **Forum topics:**\
 [Emergency Brakes MS for Easy Tracks](https://research.lido.fi/t/lip-3-easy-track-release/1406)\
@@ -120,6 +124,8 @@
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Optimism side in case of emergency.
 
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreidn2yixvblthztm737c2knynwzsci7fez3le2732mimhq4ftgawdq)
+
 **Quorum:** 3/5
 
 **Forum topics:**\
@@ -152,6 +158,8 @@
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Arbitrum side in case of an emergency.
 
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreihsduw6mqm23vcqya6rzvgcnusxcfudwlybusq6ks3urcmu3thvji)
+
 **Quorum:** 3/5
 
 **Forum topic:** [First launches of Lido on L2](https://research.lido.fi/t/lido-on-l2-first-launches/2786)
@@ -180,6 +188,8 @@
 **Address:** base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Base side in case of emergency.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreifdqagz52lwcymbagosmot327kcqdurpaj6whw5eljacejaguctza)
 
 **Quorum:** 3/5
 
@@ -210,6 +220,8 @@
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Mantle side in case of emergency.
 
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreib5fzjgmj55d453e7zbnwipqsercui2nabwldqcceyrletyqexrfi)
+
 **Quorum:** 3/5
 
 **Forum topic:** [wstETH Deployment on Mantle](https://research.lido.fi/t/wsteth-deployment-on-mantle/5991)
@@ -237,6 +249,8 @@
 **Address:** zksync: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync:0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on zkSync side in case of emergency.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreie2blv5lmhcramo7wrtlznl6suisvjb2ti56fc27oej3iwox23wsu)
 
 **Quorum:** 3/5
 
@@ -267,6 +281,8 @@
 
 **Purpose of the multisig:** The multisig is used to disable deposits and/or withdrawals for wstETH token bridge on Scroll side in case of an emergency.
 
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreih6kaobo3kptstk3ctk2vcvvww6dstuvtr756woonzt7ocfxgukjy)
+
 **Quorum:** 3/5
 
 **Forum topic:** [wstETH Deployment on Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
@@ -296,6 +312,8 @@
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Mode side in case of emergency.
 
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreihojz5k3pfh2t2el7eofgvr36iwqtgzh5ethimjhwlk2mlzojrnoy)
+
 **Quorum:** 3/5
 
 **Forum topic:** [wstETH Deployment on Mode](https://research.lido.fi/t/wsteth-deployment-on-mode/7365)
@@ -324,6 +342,8 @@
 **Address:** BSC: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 **Purpose of the multisig:** The multisig is used to pause deposits and withdrawals for wstETH token bridge on BSC side in case of emergency.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreibknml3dkhtt5axwkxm75fglzplvpq55ydzrcoysvzsqkngccr6vi)
 
 **Quorum:** 3/5
 
@@ -357,6 +377,8 @@
 **Address:** Zircuit: [`0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d`](https://safe.zircuit.com/settings/setup?safe=zircuit-mainnet:0x9Bff79BF7226cB5C16d0Cca9c1dc60450feE560d)
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Zircuit side in case of emergency.
+
+**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreierd5vmciqmrfy5te2ymsfr6kjzg2igmllslkxb4ysqevou3hplay)
 
 **Quorum:** 3/5
 
