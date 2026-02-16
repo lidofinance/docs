@@ -2,7 +2,7 @@
 
 ## Overview
 
-`BaseModule` is an abstract contract that acts as a foundational layer for modules within the system. It integrates shared logic such as initializer protection, reentrancy guard, IERC721Receiver compliance and low level storage access.
+`BaseModule` is an abstract contract that acts as a foundational layer for modules within the system. It integrates shared logic such as initializer protection, reentrancy guard, IERC721Receiver compliance and low-level storage access.
 
 This module is intended to be inherited and extended by other functional modules.
 

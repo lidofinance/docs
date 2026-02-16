@@ -177,7 +177,7 @@ The Subvault contract is a vault component designed to manage delegated asset st
 - BaseModule: Implements different auxiliary interfaces such as `onERC721Received`, `getStorageAt` and `receive` callback.
 - SubvaultModule: Represents an isolated child vault within a modular vault system, responsible for securely holding and releasing assets upon authenticated requests.
 - VerifierModule: is an abstract extension of the Base Module designed to provide standardized access to a Verifier contract.
-- CallModule: Enables arbitrary low level calls to external contracts (used by curator of the vault), and verification through a verifier module.
+- CallModule: Enables arbitrary low-level calls to external contracts (used by curator of the vault), and verification through a verifier module.
 
 ### Verifier
 

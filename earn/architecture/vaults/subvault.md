@@ -14,7 +14,7 @@ contract Subvault is IFactoryEntity, CallModule, SubvaultModule
 
 The `Subvault` inherits:
 
-- `CallModule`: Enables arbitrary low level calls to external contracts (used by curator of the vault), and verification through a verifier module.
+- `CallModule`: Enables arbitrary low-level calls to external contracts (used by curator of the vault), and verification through a verifier module.
 - `SubvaultModule`: Handles vault linkage and liquidity handling.
 - `IFactoryEntity`: Standard initialization interface for factory deployment compatibility.
 

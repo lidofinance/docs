@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The `BitmaskVerifier` is a customizable, low level verifier module that enables selective call authorization using bitmask based hashing. It allows a contract to validate whether a function call (defined by `who`, `where`, `value`, and `data`) conforms to a pre authorized pattern.
+The `BitmaskVerifier` is a customizable, low-level verifier module that enables selective call authorization using bitmask based hashing. It allows a contract to validate whether a function call (defined by `who`, `where`, `value`, and `data`) conforms to a pre authorized pattern.
 
 It supports:
 
