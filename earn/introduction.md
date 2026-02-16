@@ -43,6 +43,5 @@ Users can withdraw wsETH in two steps (request + claim) with a typical withdrawa
 
 ### Curators
 
-- Steakhouse - https://www.steakhouse.financial/
 - Edge Capital - https://edgecapital.xyz/
 
