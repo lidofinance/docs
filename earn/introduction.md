@@ -19,7 +19,7 @@ Users can withdraw wsETH in two steps (request + claim) with a typical withdrawa
 ### Curators
 
 - Veda - https://veda.tech/
-- Edge Capital - https://edgecapital.xyz/
+- UltraYield by Edge - https://ultrayield.app/
 
 ## Lido Earn USD
 
@@ -43,5 +43,5 @@ Users can withdraw wstETH in two steps (request + claim) with a typical withdraw
 
 ### Curators
 
-- Edge Capital - https://edgecapital.xyz/
+- UltraYield by Edge - https://ultrayield.app/
 
