@@ -50,7 +50,7 @@ Deposit flow:
    - Deposits are validated via optional Merkle whitelist logic (using `merkleProof`) or onchain mapping (if `hasWhitelist` flag is set).
    - If a previous request exists, it must be claimed or canceled before creating a new one.
    - The deposited amount and timestamp is stored in the `DepositQueue` contract.
-1. Step 2: Oracle Report
+2. Step 2: Oracle Report
    - Oracle report is propagated via the `handleReport(priceD18, timestamp)` method.
    - The queue validates the report:
      - It must be called by the `Vault`.
@@ -60,7 +60,7 @@ Deposit flow:
    - The contract stores a `(timestamp, reducedByDepositFeePriceD18)` pair in the `prices` array. This value is used to convert accumulated assets into shares based on the user's request timestamp. The `reducedByDepositFeePriceD18` is derived by applying the deposit fee to the actual reported `priceD18`.
    - The corresponding shares are allocated but not yet minted.
    - Emits the `ReportHandled` event.
-1. Step 3: User Claims
+3. Step 3: User Claims
    - A user calls `claim(account)` (or `claimShares(account)` in the `Vault`) to mint and receive previously allocated shares.
    - The number of shares is computed as:
 
@@ -76,15 +76,15 @@ Deposit flow:
 
    Each user may have at most one unprocessed deposit request. New deposits are blocked until the previous request is claimed. If the pending request is already claimable, the claim will be automatically processed during the next deposit.
 
-1. Delayed Execution
+2. Delayed Execution
 
    Deposit processing requires an Oracle report submitted after a configured `depositInterval`.
 
-1. Lazy Claiming
+3. Lazy Claiming
 
    Deposits are converted into shares during oracle processing, but users must call the claim function (in `ShareModule`, `ShareManager` or in each `DepositQueue` separately) to receive them. However, even without explicitly claiming, the user's full share balance - including all claimable shares across all deposit queues - is accurately reflected in `shareManager.sharesOf(user)`.
 
-1. Whitelist Enforcement
+4. Whitelist Enforcement
 
    Deposits may require Merkle proof for depositor whitelisting.
 
@@ -95,7 +95,7 @@ Serving as the counterpart to the Deposit Queue, it manages withdrawal requests.
 Redemptions are processed in two phases:
 
 1. Oracle pricing - reports are processed in batches, with each batch assigned a specific conversion price derived from its corresponding Oracle report.
-1. Liquidity settlement - Vault liquidity is pulled asynchronously, allowing the curator to finalize withdrawals and perform asset swaps before processing user redemption requests.
+2. Liquidity settlement - Vault liquidity is pulled asynchronously, allowing the curator to finalize withdrawals and perform asset swaps before processing user redemption requests.
 
 This separation allows asynchronous liquidity management, gas efficiency, and protection against griefing. Unlike deposit requests, withdrawal requests in the Redeem Queue cannot be canceled to prevent yield griefing.
 
@@ -106,11 +106,11 @@ Redeem flow:
 1. Step 1: User redeems
    - User submits `redeem` request, vault shares are immediately burned.
    - The vault curator monitors and manages liquidity across connected Subvaults, pulling funds and swapping assets as needed to fulfill redemption requests.
-1. Step 2: Oracle report
+2. Step 2: Oracle report
    - Valid and non suspicious `Oracle` report arrives.
    - The vault curator invokes `handleBatches(n)` on the `RedeemQueue`.
    - This triggers the movement of required assets from the vault (and associated subvaults) to process redemption requests.
-1. Step 3: User claims
+3. Step 3: User claims
    - Users call `claim(receiver, timestamps)` to withdraw assets.
 
 #### Assumptions & Properties
@@ -119,11 +119,11 @@ Redeem flow:
 
    Prevents griefing where a user requests redemption, causing curator to pull liquidity, then cancels.
 
-1. Time sensitive request handling
+2. Time sensitive request handling
 
    Oracle reports can only process a redemption request if at least `redeemInterval` seconds have passed since the request was submitted - i.e., `report.timestamp` must be greater than or equal to `request.timestamp + redeemInterval`.
 
-1. Asynchronous Fulfillment
+3. Asynchronous Fulfillment
 
    Liquidity can be managed independently of oracle report submission.
 
@@ -146,7 +146,7 @@ Signature Queue flow:
 
 1. Step 1: Offchain signing
    - Offchain consensus actors (operators, curators, admins) generate signed `Order` messages.
-1. Step 2: Onchain execution
+2. Step 2: Onchain execution
    - A user submits this order to the `SignatureQueue` contract for execution.
    - The queue:
      - Verifies the order signature
@@ -234,7 +234,7 @@ Reporting flow:
      - `maxRelative` -> flagged `isSuspicious`
    - If the report is valid and non suspicious (deviation < suspicious && deviation < max), it is immediately accepted
    - If the report is suspicious it will be accepted only after validation from the Admin (ACCEPT_REPORT_ROLE holder)
-1. Step 2: Accepted report propagation:
+2. Step 2: Accepted report propagation:
    - Triggers `vault.handleReport(...)`, processing deposit requests and pending redeem requests
    - Emits `ReportsSubmitted`
 
@@ -339,7 +339,7 @@ This module is responsible for:
 
 All vault and subvault level limits are treated as approximate and computed using the most recent Oracle report available at the time of the state update (on Subvault pull or push event or Deposit or Redeem operations).
 
-If actual balances deviate significantly from the stored `balance` values due to oracle drift, delayed execution, or protocol side changes, a trusted actor can apply a corrections to mitigate the difference:
+If actual balances deviate significantly from the stored `balance` values due to oracle drift, delayed execution, or protocol side changes, a trusted actor can apply corrections to mitigate the difference:
 
 - `modifyVaultBalance` for the Vault, or
 - `modifySubvaultBalance` for individual Subvaults.
@@ -388,9 +388,9 @@ Prerequisites:
 The flow occurs within a Core Vault under the following conditions:
 
 1. Two subvaults representing different yield sources: a delta neutral trading strategy and restaking
-1. Liquidity is evenly allocated 50% 50% between the subvaults
-1. 1% management fee and 15% performance fee
-1. Annual Percentage Rate (APR) of 10%
+2. Liquidity is evenly allocated 50% 50% between the subvaults
+3. 1% management fee and 15% performance fee
+4. Annual Percentage Rate (APR) of 10%
 
 Initial Action:
 
@@ -399,18 +399,18 @@ A Liquidity Provider (LP) deposits 1,000,000 USDC into the Mellow Core Vault.
 Process Flow:
 
 1. Deposits are processed and transferred into the vault after passing through the time buffered Deposit Queue.
-1. The LP receives receipt tokens representing the 1,000,000 USDC position.
-1. The LP can use these receipt tokens as collateral in various DeFi protocols to generate additional yield, such as leverage looping on Gearbox.
-1. Liquidity is allocated from the Vault to the Subvaults according to the limit based rules.
-1. 50% of unallocated funds are pulled into a Subvault 1 by a Curator.
-1. 50% of unallocated funds are pulled into a Subvault 2 by a Curator.
-1. The Curator allocates funds from Subvault 1 to the delta neutral strategy through integrated centralized exchanges.
-1. Funds from Subvault 2 are allocated to the restaking strategy via Symbiotic.
-1. After 12 months, the LP requests a full withdrawal.
-1. Throughout the holding period, Protocol and Performance Fees are automatically accrued with each Oracle update, resulting in a management fee of 10,000 USDC and a performance fee of 15,000 USDC - both paid in vault receipt tokens.
-1. The withdrawal request is queued and detected onchain.
-1. At the end of the withdrawal interval, the Curator transfers 1,075,000 USDC (principal plus accrued yield) from the Subvaults back to the Core Vault Contract.
-1. The LP redeems the full amount directly from the Redeem Queue.
+2. The LP receives receipt tokens representing the 1,000,000 USDC position.
+3. The LP can use these receipt tokens as collateral in various DeFi protocols to generate additional yield, such as leverage looping on Gearbox.
+4. Liquidity is allocated from the Vault to the Subvaults according to the limit based rules.
+5. 50% of unallocated funds are pulled into a Subvault 1 by a Curator.
+6. 50% of unallocated funds are pulled into a Subvault 2 by a Curator.
+7. The Curator allocates funds from Subvault 1 to the delta neutral strategy through integrated centralized exchanges.
+8. Funds from Subvault 2 are allocated to the restaking strategy via Symbiotic.
+9. After 12 months, the LP requests a full withdrawal.
+10. Throughout the holding period, Protocol and Performance Fees are automatically accrued with each Oracle update, resulting in a management fee of 10,000 USDC and a performance fee of 15,000 USDC - both paid in vault receipt tokens.
+11. The withdrawal request is queued and detected onchain.
+12. At the end of the withdrawal interval, the Curator transfers 1,075,000 USDC (principal plus accrued yield) from the Subvaults back to the Core Vault Contract.
+13. The LP redeems the full amount directly from the Redeem Queue.
 
 Process Flow for Curator Allocation:
 
@@ -419,8 +419,8 @@ Process Flow for Curator Allocation:
 1. Curator asks Admin to add 2 subvaults with correct verifier configs:
    - First one allowing liquidity transfer into a Copper or Ceffu account
    - Second one allowing deposits, withdrawals, withdrawal claims and reward claims & swaps from Symbiotic
-1. Curator pushes unallocated funds: `Vault.pushAssets(USDC, 500000)`.
-1. Allocates assets in Subvault 1 (Delta Neutral strategy on ByBit via Copper ClearLoop).
+2. Curator pushes unallocated funds: `Vault.pushAssets(USDC, 500000)`.
+3. Allocates assets in Subvault 1 (Delta Neutral strategy on ByBit via Copper ClearLoop).
    - In UI, Curator clicks New Call -> sets target to Copper Subvault -> selects USDC asset and Bybit ClearLoop as destination.
    - Generate `VerificationPayload` via Mellow API.
    - Executes call:
@@ -430,7 +430,7 @@ Process Flow for Curator Allocation:
        asset,                          // address of the asset (USDC) to be sent to the Copper account
        0,                              // eth value
        abi.encodeCall(
-         IERC20.tranfer,               // transfer call encoding
+         IERC20.transfer,               // transfer call encoding
          (copperAccountAddress, 5e11)  // (recipient, amount)
        ),
        verificationPayload             // extra data for Verifer contract
@@ -438,7 +438,7 @@ Process Flow for Curator Allocation:
      ```
 
    - Inside Bybit UI, strategy is realized by the Curator, with settlements occurring every few hours in the Copper Clearloop.
-1. Allocate to Subvault 2 (Symbiotic Restaking).
+4. Allocate to Subvault 2 (Symbiotic Restaking).
    - Pushes unallocated funds to the second subvault: `vault.pushAssets(subvault2, asset, 5e11)`.
    - Clicks New Call -> target = Restaking Subvault -> calls `deposit(subvault, 5e11)`.
    - Gets the verification result and `VerificationPayload` from the Mellow API for this call.
@@ -456,5 +456,5 @@ Process Flow for Curator Allocation:
      )
      ```
 
-1. Curator regularly claims rewards from Symbiotic Restaking and swaps them into assets before depositing them using `subvault2.call`.
-1. Curator monitors Performance & Exit upon user request by repeating New Call steps to withdraw according to net returns.
+5. Curator regularly claims rewards from Symbiotic Restaking and swaps them into assets before depositing them using `subvault2.call`.
+6. Curator monitors Performance & Exit upon user request by repeating New Call steps to withdraw according to net returns.

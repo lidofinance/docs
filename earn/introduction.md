@@ -39,7 +39,7 @@ Users can withdraw USDC in two steps (request + claim) with a typical withdrawal
 
 ### How withdrawals work
 
-Users can withdraw wsETH in two steps (request + claim) with a typical withdrawals waiting time ~3 days.
+Users can withdraw wstETH in two steps (request + claim) with a typical withdrawals waiting time ~3 days.
 
 ### Curators
 

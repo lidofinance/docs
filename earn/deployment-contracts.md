@@ -46,7 +46,7 @@
 - Timelock controller: [`0xB72aaB45C796f6dc7f72Eda6Ba7F1111f12884CE`](https://etherscan.io/address/0xB72aaB45C796f6dc7f72Eda6Ba7F1111f12884CE)
 - OracleSubmitter: [`0xEF3C091458fc6C9B979fF856aA1c93EAbF6467eE`](https://etherscan.io/address/0xEF3C091458fc6C9B979fF856aA1c93EAbF6467eE)
 
-## Lido Earn USDC (subvault) Experimental earnUSD (earnUSDe) {#lido-earn-usde-subvault}
+## Lido Earn USDC (subvault) Experimental earnUSD (earnUSDc) {#lido-earn-usdc-subvault}
 
 ### Actors
 
@@ -77,7 +77,7 @@
 - TimelockController: [`0xf58221ea16b0D914aC7BdD8554b399f5918b704e`](https://etherscan.io/address/0xf58221ea16b0D914aC7BdD8554b399f5918b704e)
 - OracleSubmitter: [`0xD5eeBFc70143ee7A76758c8A80bD5A5939FAc6FC`](https://etherscan.io/address/0xD5eeBFc70143ee7A76758c8A80bD5A5939FAc6FC)
 
-## Lido Earn USDE (subvault) Conservative earnUSD (earnUSDc) {#lido-earn-usdc-subvault}
+## Lido Earn USDE (subvault) Conservative earnUSD (earnUSDe) {#lido-earn-usde-subvault}
 
 ### Actors
 
