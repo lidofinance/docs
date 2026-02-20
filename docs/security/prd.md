@@ -1,6 +1,6 @@
 # Public Risk Disclosure (PRD)
 
-**Last updated:** \[20 February 2026\]
+**Last updated:** 20 February 2026
 
 This Public Risk Disclosure (“PRD”) is published and maintained to provide users, integrators, and stakeholders with a consolidated overview of key risks associated with the Lido protocol and liquid staking tokens. Where this PRD refers to actions or outcomes (e.g., “Lido protocol uses…”, “assets may be…”), such statements describe how the protocol is programmed to function and what may occur when users and other participants interact with it. The Lido protocol is decentralized infrastructure and does not have independent agency.
 
