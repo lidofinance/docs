@@ -8,7 +8,7 @@
 The Lido Alliance BORG Foundation utilizes this multisig to hold and manage the Lido Alliance BORG’s operational budget. 
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
-**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
+**Initial list of signers (as of Mar 24, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreibstxqylm4xe5qjxxodcp4i3nji2vwaqh2adeazkweudvl3zyksju)
 
 **Forum topics:**\
 [Lido Alliance: An Ethereum-Aligned Ecosystem](https://research.lido.fi/t/lido-alliance-an-ethereum-aligned-ecosystem/7475)\
@@ -48,7 +48,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Purpose of the multisig:** The multisig is used to hold all tokens contributed by Lido Allies.
 
-**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreiczu2tjmbsmz33up6qqnvkpmuewnu2lvocxigpyotousvaxsokql4)
+**Initial list of signers (as of Mar 24, 2025):** [IPFS](https://ipfs.io/ipfs/QmQsoCvJE5MGidZjDWQJtCrW7LuT6bisDWPn5ayCQbVwrp)
 
 **Quorum:** 4/7
 
@@ -81,7 +81,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 **Purpose of the multisig:** The multisig is used to receive and hold Drop's token contribution in accordance to the [snapshot](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b).
 
-**Initial list of signers (as of Mar 17, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreicgvjh5rrepfnlkjom5npn2gyejqxvzoop2fqgnmp5yuugc5drw5q)
+**Initial list of signers (as of Mar 24, 2025):** [IPFS](https://lido.mypinata.cloud/ipfs/bafkreicgvjh5rrepfnlkjom5npn2gyejqxvzoop2fqgnmp5yuugc5drw5q)
 
 **Quorum:** 4/7
 
