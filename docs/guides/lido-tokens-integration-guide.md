@@ -549,5 +549,5 @@ There exist a number of potential risks when staking using liquid staking protoc
 ### stToken price risk
   Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
 
-You can find other risks in our [Public Risk Disclosure](https://docs.lido.fi/security/prd).
+You can find other risks in our [Public Risk Disclosure](/security/prd).
 The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist.
