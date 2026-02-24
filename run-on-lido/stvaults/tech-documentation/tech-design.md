@@ -702,7 +702,7 @@ Stakers and ecosystem participants are advised to carefully consider these risks
    - Oracle failures and data manipulation: The oracle may affect the protocol's accounting state by providing malformed data; the risk is mitigated with consensus mechanisms for the oracle committee and smart contract safety nets.
    - Correlated in-protocol mass-slashing: In case of mass-slashing events in Lido Core, the bunker mode activates to socialize conversion rate losses among stETH holders.
    - Governance risks: The protocol is maintained and upgraded by the LDO tokenholders. The mitigation of governance risks includes a two-phase voting system, a public delegate voting platform, and an anticipated 2025 H1 Dual Governance activation.
-3. Other risks. Regulatory and other risks could be found in [Public Risk Disclosure](/prd).
+3. Other risks. Regulatory and other risks can be found in [Public Risk Disclosure](/prd).
 
 ## 6. Useful Links
 
