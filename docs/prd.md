@@ -47,7 +47,7 @@ Staking rewards are variable and may be lower than expected or zero. In addition
 
 ### 4.1 Smart Contract Vulnerabilities
 
-The Lido protocol is implemented through smart contracts deployed on the Ethereum blockchain together with certain off-chain components that support protocol operations and integrations, operated in a decentralized manner by independent participants..Smart contracts may contain bugs, vulnerabilities, or design limitations that could result in loss of funds or unexpected behavior. While parallel independent audits, formal verification, extensive testing and security reviews are conducted, no smart contract system is entirely risk-free.
+The Lido protocol is implemented through smart contracts deployed on the Ethereum blockchain together with certain off-chain components that support protocol operations and integrations, operated in a decentralized manner by independent participants. Smart contracts may contain bugs, vulnerabilities, or design limitations that could result in loss of funds or unexpected behavior. While parallel independent audits, formal verification, extensive testing and security reviews are conducted, no smart contract system is entirely risk-free.
 
 ### 4.2 Dependency Risk
 
