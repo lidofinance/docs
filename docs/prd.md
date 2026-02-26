@@ -10,7 +10,7 @@ This document is intended to support transparency and informed decision-making. 
 
 ### 1.1 Regulatory Variability & Uncertainty
 
-The legal and regulatory treatment of digital assets, staking, liquid staking, and derivative or representative tokens varies significantly by jurisdiction and is evolving. Activities involving Lido may be restricted, require licensing, or be subject to regulatory enforcement in certain jurisdictions.
+The legal and regulatory treatment of digital assets, staking, liquid staking, and derivative or representative tokens varies significantly by jurisdiction and is evolving. Activities involving Lido protocol may be restricted, require licensing, or be subject to regulatory enforcement in certain jurisdictions.
 
 Users and integrators are solely responsible for determining whether their use of the Lido protocol and related tools complies with applicable laws, regulations, and regulatory guidance.
 
