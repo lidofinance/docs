@@ -1,6 +1,6 @@
 # Deployment contracts {#deployment-contracts}
 
-## Lido Earn ETH {#lido-earn-eth}
+## EarnETH {#lido-earn-eth}
 
 - Vault: [`0x6a37725ca7f4CE81c004c955f7280d5C704a249e`](https://etherscan.io/address/0x6a37725ca7f4CE81c004c955f7280d5C704a249e)
 - DepositQueue (ETH): [`0x1db7094Ef0D994B0b62f6Cd67dB801ad194999A8`](https://etherscan.io/address/0x1db7094Ef0D994B0b62f6Cd67dB801ad194999A8)
@@ -27,7 +27,7 @@
 - Timelock controller: [`0x363Ba8843d06BA5968f55C26aB055162eDd62189`](https://etherscan.io/address/0x363Ba8843d06BA5968f55C26aB055162eDd62189)
 - OracleSubmitter: [`0xFbD83f7C531D35D99392a5A20bb5F1e75E97076e`](https://etherscan.io/address/0xFbD83f7C531D35D99392a5A20bb5F1e75E97076e)
 
-## Lido Earn USD {#lido-earn-usd}
+## EarnUSD {#lido-earn-usd}
 
 - Vault: [`0x8FFa4D9FBa523044429D2E51aC055726959942d8`](https://etherscan.io/address/0x8FFa4D9FBa523044429D2E51aC055726959942d8)
 - DepositQueue (USDC): [`0xC6Ff9F9E3Fd2eBDD57EEA6f9300b6391185e92AA`](https://etherscan.io/address/0xC6Ff9F9E3Fd2eBDD57EEA6f9300b6391185e92AA)
@@ -46,7 +46,7 @@
 - Timelock controller: [`0xB72aaB45C796f6dc7f72Eda6Ba7F1111f12884CE`](https://etherscan.io/address/0xB72aaB45C796f6dc7f72Eda6Ba7F1111f12884CE)
 - OracleSubmitter: [`0xEF3C091458fc6C9B979fF856aA1c93EAbF6467eE`](https://etherscan.io/address/0xEF3C091458fc6C9B979fF856aA1c93EAbF6467eE)
 
-## Lido Earn USDC (subvault) Experimental earnUSD (earnUSDc) {#lido-earn-usdc-subvault}
+## EarnUSDC (subvault) Experimental earnUSD (earnUSDc) {#lido-earn-usdc-subvault}
 
 ### Actors
 
@@ -77,7 +77,7 @@
 - TimelockController: [`0xf58221ea16b0D914aC7BdD8554b399f5918b704e`](https://etherscan.io/address/0xf58221ea16b0D914aC7BdD8554b399f5918b704e)
 - OracleSubmitter: [`0xD5eeBFc70143ee7A76758c8A80bD5A5939FAc6FC`](https://etherscan.io/address/0xD5eeBFc70143ee7A76758c8A80bD5A5939FAc6FC)
 
-## Lido Earn USDE (subvault) Conservative earnUSD (earnUSDe) {#lido-earn-usde-subvault}
+## EarnUSDE (subvault) Conservative earnUSD (earnUSDc) {#lido-earn-usde-subvault}
 
 ### Actors
 

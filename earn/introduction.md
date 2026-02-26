@@ -1,12 +1,12 @@
 # Introduction
 
-## Lido Earn ETH
+## EarnETH
 
-Lido Earn ETH is Meta Vault, an aggregation layer where deposited ETH based assets are distributed across multiple managed strategies for optimized returns and best in class user experience.
+EarnETH provides on-chain access to strategies involving ETH-denominated digital assets. It uses defined asset selection and risk controls, supported by transparent reporting.
 
 ### How it works
 
-Deposited tokens are allocated across yield-generating protocols through subVaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor's share and performance. Currently there're two subVaults, managed by Veda and Edge Capital respectively.
+Deposited tokens are allocated across yield-generating protocols through subVaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor's share and performance. Currently there're two subVaults, managed by Veda and UltraYield by Edge respectively.
 
 ### How deposits work
 
@@ -21,9 +21,13 @@ Users can withdraw wsETH in two steps (request + claim) with a typical withdrawa
 - Veda - https://veda.tech/
 - UltraYield by Edge - https://ultrayield.app/
 
-## Lido Earn USD
+:::note
+Detailed information regarding the architecture, infrastructure, and management configurations of EarnETH could be found [here](https://metavaults.mellow.finance/architecture)
+:::
 
-Lido Earn USD facilitates saving opportunities for stablecoin users by utilising highly liquid and diverse DeFi opportunities through a security-first risk framework, split between a conservative subVault, and a smaller, capped, experimental subVault designed to improve risk-adjusted rewards.
+## EarnUSD
+
+EarnUSD provides on-chain access to strategies involving USD-denominated digital assets. It uses defined asset selection and risk controls, supported by transparent reporting.
 
 ### How it works
 
@@ -45,3 +49,6 @@ Users can withdraw wstETH in two steps (request + claim) with a typical withdraw
 
 - UltraYield by Edge - https://ultrayield.app/
 
+:::note
+Detailed information regarding the architecture, infrastructure, and management configurations of EarnUSD could be found [here](https://metavaults.mellow.finance/architecture)
+:::

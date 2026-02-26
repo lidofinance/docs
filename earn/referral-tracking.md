@@ -1,6 +1,6 @@
 # Referral tracking
 
-Meta Vault deposits can include additional parameters embedded directly in the onchain transaction, enabling reliable attribution and access control without relying on offchain tracking.
+MetaVaults deposits can include additional parameters embedded directly in the onchain transaction, enabling reliable attribution and access control without relying on offchain tracking.
 
 ## Deposit parameters
 
