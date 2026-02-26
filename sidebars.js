@@ -9,6 +9,7 @@ module.exports = {
     'lido-dao',
     'lips',
     'guides/lido-tokens-integration-guide',
+    'prd',
     {
       type: 'category',
       label: 'Guides',

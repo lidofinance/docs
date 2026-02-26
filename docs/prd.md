@@ -36,6 +36,7 @@ Users should seek independent professional advice before engaging in staking or 
 ### 3.1 Indicative and Variable Returns
 
 Any displayed APR or APY figures are estimates based on historical data, current network conditions, and prevailing market factors. They are **not guaranteed** and may fluctuate due to factors including validator performance, network or market conditions, protocol changes, slashing events, fees, and vault-specific dynamics.
+
 ### 3.2 No Guarantee of Rewards; Risk of Loss
 
 Staking rewards are variable and may be lower than expected or zero. In addition, users may experience losses, including loss of staked assets or loss of value of liquid staking tokens under extreme network slashing or other penalty conditions on the Ethereum network involving validators participating in Lido.

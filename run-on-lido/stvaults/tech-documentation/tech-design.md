@@ -713,4 +713,3 @@ Stakers and ecosystem participants are advised to carefully consider these risks
 - [LIP-5 "Mitigations for deposit frontrunning vulnerability"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md)
 - [LIP-31 "Expanding stETH liquidity layer with over-collateralized minting"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-31.md)
 - [LIP-32 "Sanity Checks for stVaults"](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-32.md)
-- [Public Risk Disclosure](/prd)
