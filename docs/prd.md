@@ -22,7 +22,7 @@ Users should not assume that the Lido protocol or related liquid staking tokens 
 
 ## 2\. No Investment, Legal, or Tax Advice
 
-All information provided by the Foundation, including documentation, interfaces, and this PRD, is for informational purposes only. Nothing herein constitutes: 
+All information provided by the Lido Foundation (referred later as Foundation), including documentation, interfaces, and this PRD, is for informational purposes only. Nothing herein constitutes: 
 
 * investment or financial advice;   
 * legal advice;   
