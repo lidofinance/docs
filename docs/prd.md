@@ -181,4 +181,4 @@ By accessing or using the Lido protocol, tokens, interfaces, or documentation, u
 
 ## 11\. Updates and Maintenance
 
-This PRD may be updated from time to time to reflect protocol changes, regulatory developments, or evolving risk factors. Users are encouraged to review the latest version at: https://docs.lido.fi/prd
+This PRD may be updated from time to time to reflect protocol changes, regulatory developments, or evolving risk factors.
