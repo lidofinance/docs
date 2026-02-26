@@ -169,11 +169,9 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
   - NOAddresses: [`0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc`](https://hoodi.etherscan.io/address/0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc)
   - QueueLib: [`0x6eff460627b6798c2907409ea2fdfb287eaa2e55`](https://hoodi.etherscan.io/address/0x6eff460627b6798c2907409ea2fdfb287eaa2e55)
 
-<!--
-## DAO-ops contracts & addresses
 
-==TODO==
--->
+## DAO-ops contracts & addresses
+- Token Reward Program (TRP) VestingEscrowFactory: [`0xB50880Fe9aC6f8875de551D4C621024Bd7587259`](https://hoodi.etherscan.io/address/0xB50880Fe9aC6f8875de551D4C621024Bd7587259)
 
 ## ⚡ Easy Track {#easy-track}
 
