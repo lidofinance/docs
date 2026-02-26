@@ -120,7 +120,7 @@ Certain functions of the Lido protocol use decentralized oracle subsystems to re
 
 If incorrect or stale data is accepted by quorum, it may lead to inaccurate accounting updates (including reward accrual and exchange-rate calculations), delays in accounting finality, or other unintended protocol behavior. Protocol safeguards exist which apply on-chain validity and sanity checks designed to constrain the magnitude and/or rate of certain accounting changes, which may mitigate—but do not eliminate—the risk of adverse outcomes.
 
-Token accounting, particularly the tracking of rewards and the resulting exchange rates for liquid staking tokens, is based on complex, protocol-defined formulas. While open source, transparent and based on extensively audited smart contracts, these formulas may yet contain implementation bugs or design flaws (including newly appeared as a result of the Ethereum network specification upgrade implemented as a network “hardfork”) that lead to incorrect balances or value representation over time.
+Token accounting, particularly the tracking of rewards and the resulting exchange rates for liquid staking tokens, is based on complex, protocol-defined formulas. While open source, transparent and based on extensively audited smart contracts, these formulas may yet contain implementation bugs or design flaws (including those newly arised as a result of the Ethereum network specification upgrade implemented as a network “hardfork”) that lead to incorrect balances or value representation over time.
 
 Any failure in these systems means the representation of token balances or exchange rates to  be inaccurate.
 
