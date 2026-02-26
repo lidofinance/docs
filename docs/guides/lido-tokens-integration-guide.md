@@ -547,7 +547,6 @@ There exist a number of potential risks when staking using liquid staking protoc
   Validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimize this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
 
 ### stToken price risk
-  Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
+Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
 
-You can find other risks in our [Public Risk Disclosure](/prd).
-The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist.
+You can find an extensive [Public Risk Disclosure](/prd) on a dedicated documentation page.
