@@ -32,7 +32,7 @@ To interact with the [native stVaults Web UI](https://stvaults.lido.fi/), the cu
 Support may vary by jurisdiction, entity, and onboarding scope. Clients should confirm details directly with their custodian.
 :::
 
-| Custodian | stETH Support | wstETH Support | stVaults integration  | Official website |
+| Custodian | stETH Support | wstETH Support | Native stVaults Web UI integration | Official website |
 | --- | --- | --- | --- | --- |
 | [Fireblocks](./fireblocks.md) | ✅ | ✅ | WalletConnect | https://www.fireblocks.com/ |
 | Copper | ✅ | ✅ | CopperConnect Browser Extension | https://copper.co/ |
