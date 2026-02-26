@@ -53,7 +53,7 @@ If Ethereum experiences congestion, reorgs, forks, client bugs, consensus failur
 
 ### 4.3 Governance and Upgrade Risk
 
-Protocol upgrades, parameter changes, or governance decisions may alter protocol behavior, reward mechanics, or token functionality. Such changes may occur with limited notice but are always a subject of the DAO on-chain vote, having duration of 9 days from the vote start until it’s executed with exceptions on non-severe parameters changes as a part of shortened vote (5 days) or Easy Track system (3 days).
+Protocol upgrades, parameter changes, or governance decisions may alter protocol behavior, reward mechanics, or token functionality. Such changes may occur with limited notice but are always a subject of the DAO on-chain vote, having duration of 9 days from the vote start until it’s executed with exceptions for non-severe parameter changes as a part of shortened vote (5 days) or Easy Track system (3 days).
 
 ## 5\. Validator, Slashing, and Network Risks
 
