@@ -8,7 +8,9 @@ We've prepared a CLI in Solido to simplify your workflow. You'll need to:
 Follow the instructions at [Rust Installation](https://www.rust-lang.org/tools/install).
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh source "$HOME/.cargo/env"rustup override set 1.60.0
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+rustup override set 1.60.0
 ```
 
 2. **Install Solana CLI v1.13.7**:
@@ -16,6 +18,7 @@ Visit [Solana CLI Installation](https://solana.com/docs/intro/installation).
 
 ```bash
 sh -c "$(curl -sSfL https://release.solana.com/v1.13.7/install)"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 ```
 
 3. **Install Solido CLI v2.1.0** from the official GitHub repository:
@@ -26,6 +29,31 @@ git clone --recurse-submodules -b V2.1 https://github.com/lidofinance/solido sol
 cd solido_v2
 cargo build --release
 ```
+
+:::warning Compilation error with anchor-lang
+If the build fails due to a broken submodule in the `anchor-lang` dependency, you need to create a fork with the fix:
+
+```bash
+git clone -b solana-1.9.28 https://github.com/AnchorLang/anchor-solana1.9.28.git
+cd anchor-solana1.9.28
+
+git submodule deinit -f examples/cfo/deps/stake || true
+git rm -f examples/cfo/deps/stake || true
+rm -rf .git/modules/examples/cfo/deps/stake || true
+
+git commit -m "Remove broken stake submodule"
+git remote set-url origin https://github.com/YOUR_GITHUB_USERNAME/anchor-solana1.9.28.git
+git push origin solana-1.9.28
+```
+
+Then update `Cargo.toml` in the `solido_v2` directory, replacing the `anchor-lang` dependency with your fork:
+
+```toml
+anchor-lang = { git = "https://github.com/YOUR_GITHUB_USERNAME/anchor-solana1.9.28", branch = "solana-1.9.28" }
+```
+
+After that, re-run `cargo build --release`.
+:::
 
 ## 2. Transfer stSOL to Local Account
 
@@ -44,17 +72,25 @@ solana-keygen new --outfile ./local-keypair.json
 
 Remember the **`KEYPAIR_FILE`** path and **`SOL_ACCOUNT_PUBKEY`** from the output.
 
-2. **Verify the new account with `SOL_ACCOUNT_PUBKEY`**:
+2. **Configure RPC endpoint**:
+
+The default Solana RPC endpoint may not work reliably for mainnet operations. Set a dedicated RPC URL (e.g., from [Helius](https://www.helius.dev/)):
+
+```bash
+solana config set --url https://mainnet.helius-rpc.com/?api-key=YOUR_API_KEY
+```
+
+3. **Verify the new account with `SOL_ACCOUNT_PUBKEY`**:
 
 ```bash
 solana balance SOL_ACCOUNT_PUBKEY
 ```
 
-3. **Transfer stSOL to the local account using `SOL_ACCOUNT_PUBKEY`** and **note the transaction signature**.
+4. **Transfer stSOL to the local account using `SOL_ACCOUNT_PUBKEY`** and **note the transaction signature**.
 
-4. **Identify `STSOL_ACCOUNT_PUBKEY`**:
+5. **Identify `STSOL_ACCOUNT_PUBKEY`**:
 
-⚠️ After transferring stSOL, a child account for stSOL is created under your local account. To proceed, locate this address by searching your **transaction signature** on [Solscan](https://solscan.io/) and saving the **Destination** pubkey found under **Instruction Details →#3 - Token Transfer**.
+⚠️ After transferring stSOL, a child account for stSOL is created under your local account. To proceed, locate this address by searching your **transaction signature** on [Solscan](https://solscan.io/) and saving the **Destination** pubkey found under **Token Program: TransferChecked** in the instruction details.
 
 ![STSOL_ACCOUNT_PUBKEY](./images/stsol_account_pubkey.png)
 
