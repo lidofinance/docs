@@ -122,7 +122,7 @@ If incorrect or stale data is accepted by quorum, it may lead to inaccurate acco
 
 Token accounting, particularly the tracking of rewards and the resulting exchange rates for liquid staking tokens, is based on complex, protocol-defined formulas. While open source, transparent and based on extensively audited smart contracts, these formulas may yet contain implementation bugs or design flaws (including those newly arised as a result of the Ethereum network specification upgrade implemented as a network “hardfork”) that lead to incorrect balances or value representation over time.
 
-Any failure in these systems means the representation of token balances or exchange rates to  be inaccurate.
+Any failure in these systems means the representation of token balances or exchange rates may be inaccurate.
 
 ## 7\. Wrapping, Withdrawal, and Bridging Risks
 
