@@ -60,6 +60,11 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 6. [Deposit validators through Predeposit Guarantee](./tech-documentation/pdg.md)
 7. [stVaults contracts reference](/contracts/vault-hub)
 
+### 🏛️ Qualified Custodians Supporting stVaults
+
+1. [Overview Qualified Custoduans supporting stVaults](./qualified-custodians/index.md)
+2. [Fireblocks user guide](./qualified-custodians/fireblocks.md)
+
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
 Please share your thoughts through **[the short form](https://tally.so/r/3X9vYe)**.

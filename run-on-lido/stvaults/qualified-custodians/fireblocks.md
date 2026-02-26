@@ -5,7 +5,7 @@ sidebar_position: 1
 # Fireblocks
 ## stVaults user flow for Fireblocks customers
 
-This guide explains how Fireblocks clients can connect to the stVaults Web UI and interact with stVault smart contracts using institutional approval workflows.
+This guide explains how Fireblocks clients can connect to the stVaults Web UI and interact with stVaults smart contracts using institutional approval workflows.
 
 ## Connection Fireblocks to the stVaults Web UI
 ### 1. In the stVaults Web UI:
