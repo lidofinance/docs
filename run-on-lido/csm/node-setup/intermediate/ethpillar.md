@@ -14,7 +14,7 @@ For Testnet setups, replace all Holesky references with Hoodi.
 
 ### Download EthPillar
 
-Go to the [Coincashew website](https://www.coincashew.com/coins/overview-eth/ethpillar) and copy the latest install script, then run:
+Review EthPillar's homepage at [Coincashew website](https://docs.coincashew.com/ethpillar), then run:
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/coincashew/EthPillar/main/install.sh)"
@@ -48,13 +48,13 @@ Next, type and enter `ethpillar` to launch the terminal UI and:
 Copy your deposit data for the CSM widget:
 
 ```sh
-cat ~/staking-deposit-cli/validator_keys*/deposit*json
+cat ~/ethstaker_deposit-cli/validator_keys*/deposit*json
 ```
 
 **Interfaces:**
 
-* Mainnet: [https://csm.lido.fi/](https://csm.lido.fi/)
-* Hoodi: [https://csm.testnet.fi/](https://csm.testnet.fi/)
+* Mainnet: [https://csm.lido.fi/](https://csm.lido.fi/?ref=ethpillar)
+* Hoodi: [https://csm.testnet.fi/](https://csm.testnet.fi/?ref=ethpillar)
 
 ## ETHPillar Terminal-UI Navigation
 
