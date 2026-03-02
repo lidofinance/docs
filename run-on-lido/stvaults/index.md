@@ -28,9 +28,8 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 ### Essentials
 
 1. [📘 **Lido V3 Technical Paper**](/lido-v3-whitepaper) — Complete technical specification with PDF preview
-2. [[RFC] stVaults Whitepaper](https://hackmd.io/@lido/B1NuB15-gx)
-3. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
-4. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
+2. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
+3. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
 
 ### 🔧 Tools
 
@@ -59,6 +58,11 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 5. [Migrate validators to stVault through consolidation](./tech-documentation/consolidation.md)
 6. [Deposit validators through Predeposit Guarantee](./tech-documentation/pdg.md)
 7. [stVaults contracts reference](/contracts/vault-hub)
+
+### 🏛️ Qualified Custodians Supporting stVaults
+
+1. [Overview Qualified Custoduans supporting stVaults](./qualified-custodians/index.md)
+2. [Fireblocks user guide](./qualified-custodians/fireblocks.md)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
