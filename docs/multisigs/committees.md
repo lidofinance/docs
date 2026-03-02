@@ -282,9 +282,9 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
 
-### 2.8.1 Liquidity Observation Lab Committee (Ethereum)
-
 This committee operates as part of the [Growth Committee](https://research.lido.fi/t/rationalizing-liquidity-observation-lab-rewards-share-committee-growth-committee/10133), alongside the [Rewards Share committee](/multisigs/committees.md#22-rewards-share-committee-prev-referral-program-committee).
+
+### 2.8.1 Liquidity Observation Lab Committee (Ethereum)
 
 **Address:** [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
