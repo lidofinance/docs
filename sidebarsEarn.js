@@ -1,0 +1,110 @@
+module.exports = {
+  earnSidebar: [
+    'introduction',
+    'deployment-contracts',
+    {
+      type: 'category',
+      label: 'Architecture',
+      link: { type: 'doc', id: 'architecture/index' },
+      items: [
+        {
+          type: 'category',
+          label: 'Modules',
+          link: { type: 'doc', id: 'architecture/modules/index' },
+          items: [
+            'architecture/modules/basemodule',
+            'architecture/modules/verifiermodule',
+            'architecture/modules/aclmodule',
+            'architecture/modules/callmodule',
+            'architecture/modules/sharemodule',
+            'architecture/modules/vaultmodule',
+            'architecture/modules/subvaultmodule',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Permissions',
+          link: { type: 'doc', id: 'architecture/permissions/index' },
+          items: [
+            'architecture/permissions/mellowacl',
+            'architecture/permissions/verifier',
+            'architecture/permissions/bitmaskverifier',
+            'architecture/permissions/consensus',
+            {
+              type: 'category',
+              label: 'Protocols',
+              link: { type: 'doc', id: 'architecture/permissions/protocols/index' },
+              items: [
+                'architecture/permissions/protocols/ownedcustomverifier',
+                'architecture/permissions/protocols/erc20verifier',
+                'architecture/permissions/protocols/symbioticverifier',
+                'architecture/permissions/protocols/eigenlayerverifier',
+              ],
+            },
+          ],
+        },
+        'architecture/oracle',
+        {
+          type: 'category',
+          label: 'Queues',
+          link: { type: 'doc', id: 'architecture/queues/index' },
+          items: [
+            'architecture/queues/queue',
+            'architecture/queues/depositqueue',
+            'architecture/queues/redeemqueue',
+            'architecture/queues/signaturequeue',
+            'architecture/queues/signaturedepositqueue',
+            'architecture/queues/signatureredeemqueue',
+          ],
+        },
+        'architecture/factory',
+        {
+          type: 'category',
+          label: 'Hooks',
+          link: { type: 'doc', id: 'architecture/hooks/index' },
+          items: [
+            'architecture/hooks/basicredeemhook',
+            'architecture/hooks/lidodeposithook',
+            'architecture/hooks/redirectingdeposithook',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Libraries',
+          link: { type: 'doc', id: 'architecture/libraries/index' },
+          items: [
+            'architecture/libraries/fenwicktreelibrary',
+            'architecture/libraries/sharemanagerlibrary',
+            'architecture/libraries/slotlibrary',
+            'architecture/libraries/transferlibrary',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Managers',
+          link: { type: 'doc', id: 'architecture/managers/index' },
+          items: [
+            'architecture/managers/feemanager',
+            'architecture/managers/riskmanager',
+            'architecture/managers/sharemanager',
+            'architecture/managers/basicsharemanager',
+            'architecture/managers/tokenizedsharemanager',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Vaults',
+          link: { type: 'doc', id: 'architecture/vaults/index' },
+          items: [
+            'architecture/vaults/vault',
+            'architecture/vaults/subvault',
+            'architecture/vaults/vaultconfigurator',
+          ],
+        },
+      ],
+    },
+    'embedding-the-earn-widget',
+    'referral-tracking',
+    'audits',
+  ],
+};

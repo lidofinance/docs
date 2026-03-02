@@ -52,6 +52,13 @@ module.exports = async function createConfigAsync() {
             position: 'left',
           },
           {
+            type: 'doc',
+            docsPluginId: 'earn',
+            docId: 'introduction',
+            label: 'Earn',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/lidofinance',
             label: 'GitHub',
             position: 'right',
@@ -150,6 +157,17 @@ module.exports = async function createConfigAsync() {
           path: 'run-on-lido',
           routeBasePath: 'run-on-lido',
           sidebarPath: require.resolve('./sidebarsRunOnLido.js'),
+          remarkPlugins: [(await import('remark-math')).default],
+          rehypePlugins: [(await import('rehype-katex')).default],
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'earn',
+          path: 'earn',
+          routeBasePath: 'earn',
+          sidebarPath: require.resolve('./sidebarsEarn.js'),
           remarkPlugins: [(await import('remark-math')).default],
           rehypePlugins: [(await import('rehype-katex')).default],
         },
