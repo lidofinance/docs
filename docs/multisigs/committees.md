@@ -59,7 +59,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 **Forum topics:**\
 [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
 [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)\
-[Rewards Share Program & Committee Updates ](https://research.lido.fi/t/rewards-share-program-committee-updates/11107)
+[Rewards Share Program & Committee Updates](https://research.lido.fi/t/rewards-share-program-committee-updates/11107)
 
 **Snapshot:**\
 [Tiered Rewards Share Program: A Sustainable Approach to stETH Growth](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)\
@@ -80,7 +80,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 **List of signers:**
 
 | Name | Address | Verification | Public verification |
-| --- | --- | --- | -- |
+| --- | --- | --- | --- |
 | K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
 | Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
