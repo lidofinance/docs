@@ -61,7 +61,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 ### 🏛️ Qualified Custodians Supporting stVaults
 
-1. [Overview Qualified Custoduans supporting stVaults](./qualified-custodians/index.md)
+1. [Overview of qualified custodians supporting stVaults](./qualified-custodians/index.md)
 2. [Fireblocks user guide](./qualified-custodians/fireblocks.md)
 
 :::tip 📣 **Leave feedback**
