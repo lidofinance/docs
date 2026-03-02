@@ -48,6 +48,8 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
+This committee operates as part of the [Growth Committee](https://research.lido.fi/t/rationalizing-liquidity-observation-lab-rewards-share-committee-growth-committee/10133), alongside the [Liquidity Observation Lab (LOL) committee](/multisigs/committees#281-liquidity-observation-lab-committee-ethereum).
+
 **Address:** [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/settings/setup?safe=eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
@@ -281,6 +283,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
 
 ### 2.8.1 Liquidity Observation Lab Committee (Ethereum)
+
+This committee operates as part of the [Growth Committee](https://research.lido.fi/t/rationalizing-liquidity-observation-lab-rewards-share-committee-growth-committee/10133), alongside the [Rewards Share committee](/multisigs/committees#22-rewards-share-committee-prev-referral-program-committee).
 
 **Address:** [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
