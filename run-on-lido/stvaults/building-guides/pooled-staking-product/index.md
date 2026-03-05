@@ -124,7 +124,7 @@ Start the deployment like:
 yarn start defi-wrapper contracts factory w create-pool-stv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
-  --nodeOperatorFeeRate 10 \
+  --nodeOperatorFeeRateBP 10 \
   --confirmExpiry 86400 \
   --minDelaySeconds 3600 \
   --minWithdrawalDelayTime 3600 \
@@ -146,7 +146,7 @@ Start the deployment like:
 yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
-  --nodeOperatorFeeRate 10 \
+  --nodeOperatorFeeRateBP 10 \
   --confirmExpiry 86400 \
   --minDelaySeconds 3600 \
   --minWithdrawalDelayTime 3600 \
@@ -312,12 +312,12 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 2. Wait for the timelock delay period to pass. You can verify the operation is ready by calling
    ```bash
-   yarn start defi-wrapper use-cases timelock-governance common read get-last-operations <timelock>
+   yarn start defi-wrapper use-cases timelock-governance common read get-last-operations <timelockAddress>
    ```
 3. Connect wallet that holds the executor role to CLI
 4. Execute change tier
    ```bash
-   yarn start defi-wrapper use-cases timelock-governance dashboard write execute-change-tier <timelock> <dashboard> <tierId> <shareLimit>
+   yarn start defi-wrapper use-cases timelock-governance dashboard write execute-change-tier <timelockAddress> <dashboard> <tierId> <shareLimit>
    ```
 
 #### Etherscan
@@ -328,17 +328,18 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
    - Find the `getMinDelay` method and click **Query** to see the minimum delay in seconds.
 
 2. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
-3. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
-3. Go to the **Contract** tab → **Write Contract**.
-4. Click **Connect to Web3** and connect the wallet that holds the **executor role**.
-5. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
+3. Execute change tier, connect the wallet:
+   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Go to the **Contract** tab → **Write Contract**.
+   - Click **Connect to Web3** and connect the wallet that holds the **executor role**.Click **Connect to Web3** and connect the wallet that holds the **executor role**.
+4. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
    - `target`: the `OperatorGrid` contract address.
    - `value`: `0`.
    - `payload`: the same ABI-encoded call data used in step 1.
    - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000`.
    - `salt`: the same salt value used in step 1.
-6. Click **Write** and sign the transaction in your wallet.
-7. Click **View your transaction** and wait for it to be executed.
+5. Click **Write** and sign the transaction in your wallet.
+6. Click **View your transaction** and wait for it to be executed.
 
 </details>
 
