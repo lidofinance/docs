@@ -1,4 +1,4 @@
-# Solana manual withdraw with CLI
+# Solana manual withdrawal with CLI
 
 ## 1. Environment Setup
 
@@ -102,16 +102,16 @@ solana balance SOL_ACCOUNT_PUBKEY
 ./target/release/solido --config ./solido_config.json --keypair-path KEYPAIR_FILE withdraw --amount-st-sol STSOL_AMOUNT
 ```
 
-⚠️ **Note**: if you're seeing the following error:
+⚠️ **Note**: If you're seeing the following error:
 
 ```bash
 Program log: The exchange rate is outdated, it was last computed in epoch 644, but now it is epoch 646.
 ```
 
-Execute the following command to update the exchange rate
+Execute the following command to update the exchange rate:
 
 ```bash
-./target/release/solido --config solido_config.json --keypair-path KEYPAIR_FILE perform-maintenance
+./target/release/solido --config ./solido_config.json --keypair-path KEYPAIR_FILE perform-maintenance
 ```
 
 If you get an RPC response error, such as -32002, simply re-run the command.
