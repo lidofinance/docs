@@ -20,7 +20,7 @@ Before creating a cluster:
 
 1. **Appoint a cluster leader** to coordinate setup.  
 2. Collect wallet addresses of all cluster members.  
-3. Create a Safe multi-sig wallet (`4/7` or `5/7` threshold) → [safe.global](https://safe.global/).  
+3. Create a Safe multi-sig wallet (`4/7` or `5/7` threshold) → [safe.global](https://app.safe.global/).  
 4. Create a Splitter contract with all members → [splits.org](https://splits.org/).  
 5. Each operator generates an Obol Ethereum Node Record (**ENR**) and backs it up securely.  
 6. Decide how many validator keys to run based on available **ETH bond** for Lido CSM.  
