@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Exit Validators
+# ⬇️ Exit Validators
 
 Different stVault participants have specific permissions to initiate validator exits or withdrawals from the Consensus Layer.
 
