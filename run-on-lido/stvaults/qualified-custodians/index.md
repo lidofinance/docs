@@ -35,9 +35,8 @@ Support may vary by jurisdiction, entity, and onboarding scope. Clients should c
 | Custodian | stETH Support | wstETH Support | Native stVaults Web UI integration | Official website |
 | --- | --- | --- | --- | --- |
 | [Fireblocks](./fireblocks.md) | ✅ | ✅ | WalletConnect | https://www.fireblocks.com/ |
-| Copper | ✅ | ✅ | CopperConnect Browser Extension | https://copper.co/ |
+| [Copper](./copper.md) | ✅ | ✅ | CopperConnect Browser Extension | https://copper.co/ |
 | BitGo | ✅ | ✅ | WalletConnect | https://www.bitgo.com/ |
 | Anchorage |  | ✅ | WalletConnect | https://www.anchorage.com/ |
 | Komainu | ✅ | ✅ | WalletConnect | https://komainu.com/ |
 | Hex Trust | ✅ | ✅ | WalletConnect | https://www.hextrust.com/ |
-
