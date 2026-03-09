@@ -24,7 +24,7 @@ Make sure that you've installed and configured the CopperConnect browser extensi
 #### 2.1 Open stVaults Web UI https://stvaults.lido.fi/ and click "Connect wallet"
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/copper/copper_4.png" />
 
-#### 2.2. Click "Browser” button in the dialog window.
+#### 2.2. Click "Browser" button in the dialog window.
 <img alt="stVaults Web UI: Connect wallet" src="/img/stvaults/custodians/copper/copper_5.png" />
 
 #### 2.3. Connection established.
