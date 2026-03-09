@@ -348,5 +348,5 @@ The [upgrade integration test](https://github.com/lidofinance/vaults-wrapper/blo
 - [IStrategyFactory interface](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/interfaces/IStrategyFactory.sol)
 - [Upgrade integration test (StvStETHPool → strategy pool)](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol)
 - [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
-- [stVaults Roles and Permissions](../../features-and-mechanics/roles-and-permissions)
+- [stVaults Roles and Permissions](/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions)
 - [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)

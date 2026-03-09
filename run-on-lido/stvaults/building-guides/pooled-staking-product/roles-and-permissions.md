@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 🔐 DeFi Wrapper roles and permissions
 
-This page describes **DeFi Wrapper-specific roles** for pooled staking products. For **stVaults roles**, see [stVaults Roles and permissions](../../features-and-mechanics/roles-and-permissions).
+This page describes **DeFi Wrapper-specific roles** for pooled staking products. For **stVaults roles**, see [stVaults Roles and permissions](/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions).
 
 DeFi Wrapper is deployed as a set of on-chain contracts (Pool, Withdrawal Queue, Distributor, optional Strategy) connected to a stVault (Vault + Dashboard). Access is controlled by a combination of:
 
