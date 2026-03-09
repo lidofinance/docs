@@ -8,9 +8,10 @@ Day-to-day guidance for running and maintaining stVaults safely, including healt
 
 ## In this section
 
-- [Health Monitoring Guide](./health-monitoring-guide.md)
-- [Health Emergency Guide](./health-emergency-guide.md)
-- [Voluntary Rebalancing and Vault Closure](./voluntary-rebalancing-and-vault-closure.md)
-- [stVault Disconnect Guide](./stvault-disconnect-guide.md)
+- [Health Monitoring guide](./health-monitoring-guide.md)
+- [Health Emergency guide](./health-emergency-guide.md)
 - [stVaults Economy Examples](./stvaults-economy-examples.mdx)
-- [Identified Node Operators](./node-operators-identification.md)
+- [Volunteering Rebalancing and Vault Closure](./voluntary-rebalancing-and-vault-closure.md)
+- [Applying Report Guide](./applying-report-guide.md)
+- [stVault Disconnect Guide](./stvault-disconnect-guide.md)
+- [Become an Identified Node Operator and get tiers, or request changes](./node-operators-identification.md)
