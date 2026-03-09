@@ -10,3 +10,4 @@ Core mechanics and configuration details for stVaults, including roles, permissi
 
 - [Roles and permissions](./roles-and-permissions.md)
 - [Parameters and metrics](./parameters-and-metrics.md)
+- [Exit Validators](./exit-validators.md)
