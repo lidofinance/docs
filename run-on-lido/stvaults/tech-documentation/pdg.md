@@ -59,7 +59,6 @@ Steps:
    - Method called: `Dashboard.fund()` with ETH transfer (`payable`).
    - Caller must have the `FUND_ROLE` role.
 
-
    <details>
    <summary>using Command-line Interface</summary>
 
@@ -78,7 +77,8 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start deposits write set-no-guarantor
+   yarn start deposits write set-no-guarantor <new_guarantor_address>
+   # where <new_guarantor_address> is the address that will act as the Guarantor
    ```
 
    </details>
@@ -88,12 +88,12 @@ Steps:
    - Method called: `PredepositGuarantee.setNodeOperatorDepositor(newDepositor)`.
    - Caller must be the `StakingVault.nodeOperator` address.
 
-
    <details>
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start deposits write set-no-depositor
+   yarn start deposits write set-no-depositor <depositor_address>
+   # where <depositor_address> is the address that will act as the Depositor
    ```
 
    </details>
@@ -107,6 +107,7 @@ Steps:
 
    ```bash
    yarn start deposits write top-up-no 1 -v <vault_address>
+   # The node operator address is derived from the vault contract
    ```
 
    </details>
@@ -190,7 +191,7 @@ Steps:
 
    - 7.1. Upon successful verification, 1 ETH of the Node Operator's guarantee collateral is unlocked from the PDG balance — making it available for withdrawal or reuse for the next validator predeposit.
    - 7.2. 31 ETH is deposited to validator from the amount that was Staged on the stVault balance.
-   - 7.3 (Optional) extra ETH is deposited on validator, if extra top up was selected.
+   - 7.3. (Optional) extra ETH is deposited on validator, if extra top up was selected.
 
    <details>
    <summary>using Command-line Interface</summary>
@@ -206,7 +207,7 @@ Steps:
    </details>
 
 8. **(Optional)** The `Guarantor` withdraws the 1 ETH from the PDG contract or retains it for reuse with future validators.
-   Method called: `PredepositGuarantee.withdrawNodeOperatorBalance(nodeOperator, amount, recipient)`.
+   - Method called: `PredepositGuarantee.withdrawNodeOperatorBalance(nodeOperator, amount, recipient)`.
    - Caller must be the `Guarantor` in the PredepositGuarantee contract.
 
    <details>
@@ -214,6 +215,7 @@ Steps:
 
    ```bash
    yarn start deposits write withdraw-no-balance 1 -v <vault_address> -r <recipient_address>
+   # The node operator address is derived from the vault contract
    ```
 
    </details>
@@ -322,6 +324,10 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
+   # Runs interactively and will prompt for the role and the recipient account address.
+   # Roles to grant to the Depositor:
+   #   - NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE
+   #   - NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE
    yarn start vo write role-grant -v <vault_address>
    ```
 
@@ -336,7 +342,8 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start deposits write set-no-depositor
+   yarn start deposits write set-no-depositor <depositor_address>
+   # where <depositor_address> is the address that will act as the Depositor
    ```
 
    </details>
@@ -420,6 +427,7 @@ Steps:
    # Check validator index if needed:
    yarn start pdg-helpers validator-info <validator_pubkey>
 
+   # The CLI fetches the beacon state witness for the given validator index automatically
    yarn start contracts dashboard write prove-unknown-validators-to-pdg <dashboard_address> <validator_index>
    ```
 
