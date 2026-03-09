@@ -9,10 +9,10 @@ This guide explains how Fireblocks clients can connect to the stVaults Web UI an
 
 ## Connecting Fireblocks to the stVaults Web UI
 ### 1. In the stVaults Web UI:
-#### 1.1 Open stVaults Web UI https://stvaults.lido.fi/
+#### 1.1 Open stVaults Web UI https://stvaults.lido.fi/ and click "Connect wallet"
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/fireblocks/fb_1.png" />
 
-#### 1.2. Click “Connect Wallet”.
+#### 1.2. Click "WalletConnect” button in the dialog window.
 <img alt="stVaults Web UI: Connect wallet" src="/img/stvaults/custodians/fireblocks/fb_2.png" />
 
 #### 1.3. You will see a QR code.
