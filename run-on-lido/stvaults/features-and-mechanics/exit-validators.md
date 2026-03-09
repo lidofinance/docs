@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Exit Validators
 
 Different stVault participants have specific permissions to initiate validator exits or withdrawals from the Consensus Layer.
@@ -23,7 +27,7 @@ A Vault Owner can do direct and indirect withdrawals:
 The stVaults Committee can trigger a **forced validator exit**, but only if the vault has outstanding **Obligations**:
 
 - **Health Factor < 100%**.
-- **Unsettled Lido fees ≥ 1 ETH**..
+- **Unsettled Lido fees ≥ 1 ETH**.
 - **Redemptions** (currently deactivated on Mainnet).
 
 ## Lido DAO
@@ -31,5 +35,5 @@ The stVaults Committee can trigger a **forced validator exit**, but only if the 
 The DAO can also trigger a **forced validator exit**, but only if the vault has obligations:
 
 - **Health Factor < 100%**.
-- **Lido fee ≥ 1 ETH**.
+- **Unsettled Lido fees ≥ 1 ETH**.
 - **Redemptions** — currently deactivated on Mainnet, but can be activated within the same DAO vote.
