@@ -1,19 +1,19 @@
-# Tooling Overview
+# Off-chain Components Overview
 
-Summary of tooling used in Lido: Oracle, Validator Ejector, Council Daemon, and Keys API.
+Overview of core infrastructure components used in the Lido protocol.
 
 ## Oracle
 
 Oracle daemon for Lido decentralized staking service.
 
-- **Version**: 6.0.2
-- **Docker image**: sha256:1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098, [lidofinance/oracle@sha256-1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098](https://hub.docker.com/layers/lidofinance/oracle/6.0.2/images/sha256-1b0501724c9c3e00dc6c03b663dfccc5af545a8bacc9543bbc5456d408d6f098)
-- **Commit hash**: [lidofinance/lido-oracle@1070513](https://github.com/lidofinance/lido-oracle/commit/10705137a8be0c4b9f4fb52bfdb8ece12d77cb69)
-- **Last update date**: 30 September, 2025
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/6.0.2)
+- **Version**: 7.1.0
+- **Docker image**: sha256:3dffe7e885a01961777d3cdebe1d8d0bdb988e90a14e44d18ae33b6ccb230993, [lidofinance/oracle@sha256-3dffe7e885a01961777d3cdebe1d8d0bdb988e90a14e44d18ae33b6ccb230993](https://hub.docker.com/layers/lidofinance/oracle/7.1.0/images/sha256-3dffe7e885a01961777d3cdebe1d8d0bdb988e90a14e44d18ae33b6ccb230993)
+- **Commit hash**: [lidofinance/lido-oracle@b2e9296](https://github.com/lidofinance/lido-oracle/commit/b2e92969fd35b2a1838667a290ded649ca33fbf5)
+- **Last update date**: 10 March 2026
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/7.1.0)
 - [**Documentation**](/guides/oracle-operator-manual)
-- [**Audit Report for v6**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6%20Audit%20Report.pdf)
-- [**Audit Report for v6.0.2**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V6_0_2%20Audit%20Report.pdf)
+- [**Audit Report for v7**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7%20Audit%20Report.pdf)
+- [**Audit Report for v7.1**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7_1%20Audit%20Report.pdf)
 
 ## Oracle V7 (AccountingOracle)
 
