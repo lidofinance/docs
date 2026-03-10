@@ -23,7 +23,7 @@ Upon receiving an oracle report at `reportTimestamp`, the system processes all r
 timestamp <= reportTimestamp - redeemInterval
 ```
 
-On the next step these vault shares are converted to assets at the price specified in the oracle report in this step.
+In the next step, these vault shares are converted to assets at the price specified in the oracle report.
 
 ## Liquidity Processing (Two-Stage)
 

@@ -19,7 +19,7 @@ Each vault is associated with:
 
 - `baseAsset`: Reference token used for performance fee calculation.
 - `minPriceD18`: Minimum price recorded (used for performance fee calculation).
-- `timestamps`: Last update timestamp for time based fee accrual.
+- `timestamps`: Last update timestamp for time-based fee accrual.
 
 ## Fee Calculation Logic
 
@@ -36,7 +36,7 @@ Computes a linear fee as `shares * redeemFeeD6 / 1e6`.
 Calculates the total fee to be charged based on performance and protocol components.
 
 - Performance: If current `priceD18` below `minPriceD18`, applies `performanceFeeD6` as `(minPriceD18 - priceD18) * performanceFeeD6 * totalShares / 1e24`.
-- Protocol: time weighted fee based on `block.timestamp - timestamps[vault]`, computed as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`.
+- Protocol: time-weighted fee based on `block.timestamp - timestamps[vault]`, computed as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`.
 
 All fees are paid in shares of the vault (not assets).
 

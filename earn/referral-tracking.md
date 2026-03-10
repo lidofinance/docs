@@ -4,7 +4,7 @@ MetaVaults deposits can include additional parameters embedded directly in the o
 
 ## Deposit parameters
 
-Two optional fields may be provided during deposit:
+The following optional fields may be provided during deposit:
 
 - **assets**: The quantity of tokens being deposited, expressed in the token's smallest unit. For example, a deposit of 1 wstETH is represented as `1e18`.
 - **referral**: A tracking code used to attribute the source of the deposit (for example partner, campaign, or distribution channel).

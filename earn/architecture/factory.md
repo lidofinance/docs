@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `Factory` contract is a generalized deployment mechanism for creating upgradeable proxy instances of pre-approved implementations. It tracks multiple implementation versions, proposal workflows, blacklisting for security, and ownership based access control.
+The `Factory` contract is a generalized deployment mechanism for creating upgradeable proxy instances of pre-approved implementations. It tracks multiple implementation versions, proposal workflows, blacklisting for security, and ownership-based access control.
 
 It conforms to the `IFactory` interface and supports deploying any `IFactoryEntity` compliant contracts via `TransparentUpgradeableProxy`, using `initialize()` for configuration.
 

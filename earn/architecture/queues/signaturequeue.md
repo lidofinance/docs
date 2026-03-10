@@ -2,16 +2,16 @@
 
 ## Purpose
 
-The `SignatureQueue` enables instant user deposits or redemptions using off-chain signed approvals from a trusted consensus group. This queue type bypasses the normal time-delayed queuing mechanism (for example `DepositQueue` and `RedeemQueue`) by verifying orders via EIP-712 or EIP-1271 signatures, offering fast lane access for users while preserving oracle bound price safety.
+The `SignatureQueue` enables instant user deposits or redemptions using off-chain signed approvals from a trusted consensus group. This queue type bypasses the normal time-delayed queuing mechanism (for example `DepositQueue` and `RedeemQueue`) by verifying orders via [EIP-712](https://eips.ethereum.org/EIPS/eip-712) or [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) signatures, offering fast lane access for users while preserving oracle bound price safety.
 
 ## Key Features
 
 - Instant execution without waiting for oracle price reports.
 - Nonce based signature protection to prevent replay attacks.
-- EIP-712 and EIP-1271 compatible signed orders.
+- [EIP-712](https://eips.ethereum.org/EIPS/eip-712) and [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) compatible signed orders.
 - Oracle price validation enforced on-chain.
 - Stateless and removable (does not accumulate shares or process claims).
-- Fee bypassed: no `depositFee` or `redeemFee` is charged for actions via this queue.
+- Fee bypass: no `depositFee` or `redeemFee` is charged for actions via this queue.
 
 ## High Level Workflow
 
@@ -41,7 +41,7 @@ struct Order {
 ## Signature Validation
 
 - Orders are signed by a quorum of validators registered in the `Consensus` contract.
-- Signatures can conform to EIP-712 (structured message hashing) or EIP-1271 (smart contract based signature schemes).
+- Signatures can conform to [EIP-712](https://eips.ethereum.org/EIPS/eip-712) (structured message hashing) or [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) (smart contract based signature schemes).
 
 The order hash is computed via:
 

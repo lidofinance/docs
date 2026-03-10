@@ -2,14 +2,14 @@
 
 ## Purpose
 
-`SignatureDepositQueue` extends `SignatureQueue` to enable instant deposit of assets into a vault, bypassing the standard on-chain `DepositQueue` mechanism. It leverages off-chain approvals signed by a trusted consensus group, using EIP-712 or EIP-1271 compliant signatures, to authorize asset inflows and minting of vault shares.
+`SignatureDepositQueue` extends `SignatureQueue` to enable instant deposit of assets into a vault, bypassing the standard on-chain `DepositQueue` mechanism. It leverages off-chain approvals signed by a trusted consensus group, using [EIP-712](https://eips.ethereum.org/EIPS/eip-712) or [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) compliant signatures, to authorize asset inflows and minting of vault shares.
 
 This contract is optimized for high-trust environments requiring immediate asset onboarding while maintaining on-chain price safety guarantees.
 
 ## Key Features
 
 - Instant deposit execution with no queuing delay.
-- EIP-712 signed orders with nonce based replay protection.
+- [EIP-712](https://eips.ethereum.org/EIPS/eip-712) signed orders with nonce based replay protection.
 - Vault share minting at off-chain pre-agreed price.
 - Fully integrated with vault accounting and share manager.
 - No deposit fee applied (unlike possible fees in `DepositQueue`).

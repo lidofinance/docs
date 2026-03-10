@@ -27,7 +27,7 @@ Utilizes a deterministic storage slot computed via `SlotLibrary.getSlot("RiskMan
 
 ## Roles and Permissions
 
-The contract uses fine grained access roles:
+The contract uses fine-grained access roles:
 
 - `SET_VAULT_LIMIT_ROLE`: Can modify global vault capacity.
 - `SET_SUBVAULT_LIMIT_ROLE`: Can change limits on individual subvaults.

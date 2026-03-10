@@ -57,7 +57,7 @@ The system tracks all deposit requests and prices using the following structures
 
 ## Scalability Challenge
 
-Vaults may face thousands of deposit requests daily. Processing each one individually leads to significant gas costs or out of gas. To optimize:
+Vaults may face thousands of deposit requests daily. Processing each one individually leads to significant gas costs or out-of-gas. To optimize:
 
 A Fenwick Tree (Binary Indexed Tree) is used to efficiently manage aggregate deposit data by timestamp.
 

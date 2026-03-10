@@ -14,7 +14,7 @@ It ensures that all components are correctly wired together by setting appropria
 
 ## Purpose
 
-This contract is designed to be used by an actor that need to deploy and configure fully functional vaults in a deterministic and upgradeable way, using versioned module factories.
+This contract is designed to be used by an actor that needs to deploy and configure fully functional vaults in a deterministic and upgradeable way, using versioned module factories.
 
 ## Contract Structure
 

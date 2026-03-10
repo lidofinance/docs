@@ -4,7 +4,7 @@ This utility abstracts away the differences between transferring native ETH and 
 
 ## ETH Representation
 
-The constant `ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` (EIP-7528) is used as a sentinel value to distinguish native ETH from ERC20 tokens.
+The constant `ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` ([EIP-7528](https://eips.ethereum.org/EIPS/eip-7528)) is used as a sentinel value to distinguish native ETH from ERC20 tokens.
 
 ## Errors
 

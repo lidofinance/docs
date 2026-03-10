@@ -2,22 +2,22 @@
 
 ## Purpose
 
-`VaultModule` is a core component of the modular vault architecture. It manages liquidity routing between the Vault and its connected Subvaults, enabling flexible strategy composition and modular upgrades. It supports hot swapping of subvault contracts and ensures robust control over asset movement.
+`VaultModule` is a core component of the modular vault architecture. It manages liquidity routing between the Vault and its connected Subvaults, enabling flexible strategy composition and modular upgrades. It supports hot swapping of Subvault contracts and ensures robust control over asset movement.
 
 ## Responsibilities
 
-- Orchestrate liquidity push and pull operations between the vault and subvaults.
-- Create, disconnect, and reconnect subvaults.
+- Orchestrate liquidity push and pull operations between the vault and Subvaults.
+- Create, disconnect, and reconnect Subvaults.
 - Verify creations, removals, and reconnections using external factory contracts and local state.
 - Track and update risk exposure via `RiskManager`.
 
 ## Roles
 
-- `CREATE_SUBVAULT_ROLE`: Allows creation of new subvaults.
-- `DISCONNECT_SUBVAULT_ROLE`: Allows disconnection of active subvaults.
-- `RECONNECT_SUBVAULT_ROLE`: Allows reattachment of disconnected or new properly configured subvaults.
-- `PULL_LIQUIDITY_ROLE`: Grants permission to pull assets from subvaults.
-- `PUSH_LIQUIDITY_ROLE`: Grants permission to send assets to subvaults.
+- `CREATE_SUBVAULT_ROLE`: Allows creation of new Subvaults.
+- `DISCONNECT_SUBVAULT_ROLE`: Allows disconnection of active Subvaults.
+- `RECONNECT_SUBVAULT_ROLE`: Allows reattachment of disconnected or new properly configured Subvaults.
+- `PULL_LIQUIDITY_ROLE`: Grants permission to pull assets from Subvaults.
+- `PUSH_LIQUIDITY_ROLE`: Grants permission to send assets to Subvaults.
 
 ## Storage Layout (`VaultModuleStorage`)
 
@@ -28,25 +28,25 @@ struct VaultModuleStorage {
 }
 ```
 
-- `riskManager`: Module used to track and limit exposure per asset and subvault.
-- `subvaults`: Enumerable set of currently connected subvaults.
+- `riskManager`: Module used to track and limit exposure per asset and Subvault.
+- `subvaults`: Enumerable set of currently connected Subvaults.
 
 ## View Functions
 
-- `subvaultFactory()`: Returns `IFactory` used to deploy and check deployed subvaults.
+- `subvaultFactory()`: Returns `IFactory` used to deploy and check deployed Subvaults.
 - `verifierFactory()`: Returns `IFactory` used to deploy and check deployed verifiers.
-- `subvaults()`: Returns the total number of connected subvaults.
-- `subvaultAt(index)`: Returns the subvault address at a specific index.
-- `hasSubvault(address)`: Checks if a given address is an active subvault.
+- `subvaults()`: Returns the total number of connected Subvaults.
+- `subvaultAt(index)`: Returns the Subvault address at a specific index.
+- `hasSubvault(address)`: Checks if a given address is an active Subvault.
 - `riskManager()`: Returns the address of the risk manager.
 
 ## Mutable Functions
 
 ### Subvault Management
 
-- `createSubvault(version, owner, verifier)`: Deploys a new subvault via `subvaultFactory`, links it to the provided `verifier`, adds it to the vault's subvault list, and emits `SubvaultCreated`.
-- `disconnectSubvault(subvault)`: Removes a subvault from the vault registry, emits `SubvaultDisconnected`, and reverts with `NotConnected` if not already linked.
-- `reconnectSubvault(subvault)`: Re-adds a subvault to the vault registry, validates via `subvaultFactory` and `verifierFactory`, emits `SubvaultReconnected`, and reverts with `InvalidSubvault`, `NotEntity`, or `AlreadyConnected` if checks fail.
+- `createSubvault(version, owner, verifier)`: Deploys a new Subvault via `subvaultFactory`, links it to the provided `verifier`, adds it to the vault's Subvault list, and emits `SubvaultCreated`.
+- `disconnectSubvault(subvault)`: Removes a Subvault from the vault registry, emits `SubvaultDisconnected`, and reverts with `NotConnected` if not already linked.
+- `reconnectSubvault(subvault)`: Re-adds a Subvault to the vault registry, validates via `subvaultFactory` and `verifierFactory`, emits `SubvaultReconnected`, and reverts with `InvalidSubvault`, `NotEntity`, or `AlreadyConnected` if checks fail.
 
 ### Liquidity Movement
 

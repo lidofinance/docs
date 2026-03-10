@@ -6,7 +6,7 @@ Designed for the `ShareManager` component to control:
 
 - Whether minting, burning, or transfers are paused.
 - Whether deposit or transfer whitelists are active.
-- How long global or user specific lockups last.
+- How long global or user-specific lockups last.
 
 All data is packed into a single `uint256` using bit level encoding for optimal storage and gas efficiency.
 

@@ -2,7 +2,7 @@
 
 ## Purpose
 
-`SignatureRedeemQueue` extends `SignatureQueue` to enable instant share redemption from a vault without the usual delay of on-chain oracle processing. It leverages off-chain consensus signatures conforming to EIP-712 or EIP-1271 to authorize redemptions, allowing trusted users to convert shares to assets in a fast and secure manner.
+`SignatureRedeemQueue` extends `SignatureQueue` to enable instant share redemption from a vault without the usual delay of on-chain oracle processing. It leverages off-chain consensus signatures conforming to [EIP-712](https://eips.ethereum.org/EIPS/eip-712) or [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) to authorize redemptions, allowing trusted users to convert shares to assets in a fast and secure manner.
 
 This module provides a low latency redemption path under stronger trust assumptions, useful in environments where responsiveness is critical and participants are whitelisted by a governance consensus.
 
@@ -10,7 +10,7 @@ This module provides a low latency redemption path under stronger trust assumpti
 
 - Off-chain authorized redemptions using signed `Order` messages.
 - Oracle bound price validation to prevent manipulation.
-- EIP-712 structured data signature verification.
+- [EIP-712](https://eips.ethereum.org/EIPS/eip-712) structured data signature verification.
 - Direct burning of shares and asset pulling from the vault and payout.
 - Nonce based replay protection.
 - Vault hook execution and balance tracking.

@@ -50,7 +50,7 @@ Passes the `name_` and `version_` arguments into the constructors of `VerifierMo
 function initialize(bytes calldata initParams) external initializer
 ```
 
-Initializes the subvault contract. This function can only be called once due to the `initializer` modifier.
+Initializes the Subvault contract. This function can only be called once due to the `initializer` modifier.
 
 ### Parameters
 
@@ -60,7 +60,7 @@ Initializes the subvault contract. This function can only be called once due to 
 
 1. Decodes `verifier_` and `vault_` from the calldata.
 2. Calls `__VerifierModule_init(verifier_)` to link the external verifier (used for strategy proof or access control).
-3. Calls `__SubvaultModule_init(vault_)` to register this subvault with the parent vault.
+3. Calls `__SubvaultModule_init(vault_)` to register this Subvault with the parent vault.
 4. Emits the `Initialized(initParams)` event for transparency.
 
 ## Design Notes

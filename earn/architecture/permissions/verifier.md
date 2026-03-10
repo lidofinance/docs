@@ -2,10 +2,10 @@
 
 ## Purpose
 
-The `Verifier` contract is a multi mode permissioning module for verifying and enforcing call level access control across vault connected modules. It supports:
+The `Verifier` contract is a multi mode permissioning module for verifying and enforcing call-level access control across vault connected modules. It supports:
 
 - Onchain allowlists using hashed shortened calls (`CompactCall`)
-- Merkle tree based validation for compact merkle, extended merkle and custom verifier verification types
+- Merkle tree based validation for compact Merkle, extended Merkle and custom verifier verification types
 - Delegated verification logic through external custom verifiers (`ICustomVerifier`)
 
 This contract enables secure and modular delegation of operational permissions.

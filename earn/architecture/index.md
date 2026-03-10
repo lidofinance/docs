@@ -6,13 +6,13 @@ From Core Vaults to Meta Vaults
 
 ### Abstract
 
-Meta Vaults are built on top of the Core Vaults architecture and inherit its fundamental design principles, execution model, and security guarantees. Rather than introducing a separate vault system, Meta Vaults utilizes the existing Core Vault framework to enable aggregation and orchestration of multiple strategies under a single vault abstraction.
+Meta Vaults are built on top of the Core Vaults architecture and inherit its fundamental design principles, execution model, and security guarantees. Rather than introducing a separate vault system, Meta Vaults utilize the existing Core Vault framework to enable aggregation and orchestration of multiple strategies under a single vault abstraction.
 
-This means that all core mechanics, including liquidity handling, accounting, permissioning, and execution constraints, follow the same proven architectural patterns, while Meta Vault specific logic focuses on coordinating allocations across multiple onchain destinations.
+This means that all core mechanics, including liquidity handling, accounting, permissioning, and execution constraints, follow the same proven architectural patterns, while Meta-Vault-specific logic focuses on coordinating allocations across multiple onchain destinations.
 
 ### Vaults Architecture
 
-Core Vaults are built around a modular architecture that orchestrates interactions across both DeFi protocols and centralized exchanges. It enables trustless execution of complex, institutional grade strategies while maintaining full composability and transparency.
+Core Vaults are built around a modular architecture that orchestrates interactions across both DeFi protocols and centralized exchanges. It enables trustless execution of complex, institutional-grade strategies while maintaining full composability and transparency.
 
 No matter how diverse or sophisticated the underlying strategies become, the vault framework remains stable and predictable - providing a unified, programmable setup for managing assets, risks, and logic.
 
@@ -28,7 +28,7 @@ The result is infrastructure that supports scalable, curated access to onchain y
 - Reward distribution engine
 - Receipt token distribution infrastructure
 - Smart contract safeguards
-- Granular role based control
+- Granular role-based control
 - Access to external apps and protocols
 
 #### Vault system architecture overview
@@ -37,7 +37,7 @@ The result is infrastructure that supports scalable, curated access to onchain y
 
 ### Deposit Queue
 
-Manages user deposits through a time buffered queuing system. This delay helps prevent front running and price manipulation by ensuring deposits are not executed based on stale or externally influenced oracle price data.
+Manages user deposits through a time-buffered queuing system. This delay helps prevent front-running and price manipulation by ensuring deposits are not executed based on stale or externally influenced oracle price data.
 
 The deposit queue is also responsible for issuing receipt tokens.
 
@@ -49,13 +49,13 @@ Deposit flow:
    - A user submits a deposit request via `deposit(assets, referral, merkleProof)`.
    - Deposits are validated via optional Merkle whitelist logic (using `merkleProof`) or onchain mapping (if `hasWhitelist` flag is set).
    - If a previous request exists, it must be claimed or canceled before creating a new one.
-   - The deposited amount and timestamp is stored in the `DepositQueue` contract.
+   - The deposited amount and timestamp are stored in the `DepositQueue` contract.
 2. Step 2: Oracle Report
    - Oracle report is propagated via the `handleReport(priceD18, timestamp)` method.
    - The queue validates the report:
      - It must be called by the `Vault`.
-     - Provided `timestamp` must be in the past (usually `request.timestamp - depositInterval`).
-     - `priceD18` must be non zero.
+     - The provided `timestamp` must be in the past (usually `request.timestamp - depositInterval`).
+     - `priceD18` must be non-zero.
    - The queue handles deposit requests that are pending for at least `depositInterval` seconds (the interval is specified in the oracle's security parameters).
    - The contract stores a `(timestamp, reducedByDepositFeePriceD18)` pair in the `prices` array. This value is used to convert accumulated assets into shares based on the user's request timestamp. The `reducedByDepositFeePriceD18` is derived by applying the deposit fee to the actual reported `priceD18`.
    - The corresponding shares are allocated but not yet minted.
@@ -107,19 +107,19 @@ Redeem flow:
    - User submits `redeem` request, vault shares are immediately burned.
    - The vault curator monitors and manages liquidity across connected Subvaults, pulling funds and swapping assets as needed to fulfill redemption requests.
 2. Step 2: Oracle report
-   - Valid and non suspicious `Oracle` report arrives.
+   - Valid and non-suspicious `Oracle` report arrives.
    - The vault curator invokes `handleBatches(n)` on the `RedeemQueue`.
-   - This triggers the movement of required assets from the vault (and associated subvaults) to process redemption requests.
+   - This triggers the movement of required assets from the vault (and associated Subvaults) to process redemption requests.
 3. Step 3: User claims
    - Users call `claim(receiver, timestamps)` to withdraw assets.
 
 #### Assumptions & Properties
 
-1. Non Cancellable Requests
+1. Non-Cancellable Requests
 
    Prevents griefing where a user requests redemption, causing curator to pull liquidity, then cancels.
 
-2. Time sensitive request handling
+2. Time-Sensitive Request Handling
 
    Oracle reports can only process a redemption request if at least `redeemInterval` seconds have passed since the request was submitted - i.e., `report.timestamp` must be greater than or equal to `request.timestamp + redeemInterval`.
 
@@ -129,12 +129,12 @@ Redeem flow:
 
 ### Signature Deposit and Redeem Queues
 
-Signature Queues allow deposits and redemptions to be processed instantly, bypassing the standard time buffered flow. That happens when a trusted consensus group issues offchain signed approvals.
+Signature Queues allow deposits and redemptions to be processed instantly, bypassing the standard time-buffered flow. That happens when a trusted consensus group issues offchain signed approvals.
 
 Key Features:
 
 - Instant execution without waiting for Oracle price reports
-- Nonce based signature protection to prevent replay attacks
+- Nonce-based signature protection to prevent replay attacks
 - EIP 712 and EIP 1271 compatible signed orders
 - Oracle price validation enforced onchain
 - Stateless and removable (does not accumulate shares or process claims)
@@ -157,7 +157,7 @@ Signature Queue flow:
 #### Assumptions & Properties
 
 - Only trusted offchain actors (consensus group) are authorized to sign orders.
-- Price quotes must be valid and non suspicious.
+- Price quotes must be valid and non-suspicious.
 - Users cannot reuse old signatures due to nonce tracking.
 - Orders must be executed before `deadline`.
 
@@ -166,9 +166,9 @@ Signature Queue flow:
 The Vault contract serves as the central entry point into the Core Vault system. It is configured by four internal modules:
 
 - BaseModule: Implements different auxiliary interfaces such as `onERC721Received`, `getStorageAt` and `receive` callback
-- ACLModule: Role based access control for system components
+- ACLModule: Role-based access control for system components
 - ShareModule: Management of shares, fees, deposit and redeem queues lifecycle, `Oracle` report handling
-- VaultModule: Subvaults management, pushing and pulling of assets in subvaults
+- VaultModule: Subvaults management, pushing and pulling of assets in Subvaults
 
 ### Subvault
 
@@ -181,7 +181,7 @@ The Subvault contract is a vault component designed to manage delegated asset st
 
 ### Verifier
 
-Each Subvault is paired with a Verifier contract, which validates function calls and ensures only pre approved actions from valid actors are permitted across vault connected modules.
+Each Subvault is paired with a Verifier contract, which validates function calls and ensures only pre-approved actions from valid actors are permitted across vault-connected modules.
 
 While each Subvault is expected to have its own dedicated Verifier contract, it is still possible for the same Verifier to be shared across multiple Subvaults.
 
@@ -194,7 +194,7 @@ Verifier allows multiple types of verification:
 - MERKLE_EXTENDED: Verifies Merkle proof of `ExtendedCall` (who | where | value | callData) hash
 - CUSTOM_VERIFIER: Delegates full verification to an external verifier
 
-Two admin owned parameters are saved in the state of the Verifier contract:
+Two admin-owned parameters are saved in the state of the Verifier contract:
 
 - `compactCallHashes` that defines all allowed calls for ONCHAIN_COMPACT verification type
 - `compactCalls` is an optional mapping for reverse lookup of call metadata by hash
@@ -202,7 +202,7 @@ Two admin owned parameters are saved in the state of the Verifier contract:
 
 ### Oracle
 
-The Oracle contract handles secure and configurable price reporting for supported assets. Closely integrated with the `ShareModule`, it provides price validation, deviation monitoring, and time restricted report submissions.
+The Oracle contract handles secure and configurable price reporting for supported assets. Closely integrated with the `ShareModule`, it provides price validation, deviation monitoring, and time-restricted report submissions.
 
 It enforces strict guarantees around report timing and trust minimization using role permissions and deviation thresholds. This oracle ensures consistent pricing across all queue, share, and limit related calculations.
 
@@ -232,7 +232,7 @@ Reporting flow:
    - Price is compared against previous:
      - `maxAbsolute` -> revert `InvalidPrice`
      - `maxRelative` -> flagged `isSuspicious`
-   - If the report is valid and non suspicious (deviation < suspicious && deviation < max), it is immediately accepted
+   - If the report is valid and non-suspicious (deviation < suspicious && deviation < max), it is immediately accepted
    - If the report is suspicious it will be accepted only after validation from the Admin (ACCEPT_REPORT_ROLE holder)
 2. Step 2: Accepted report propagation:
    - Triggers `vault.handleReport(...)`, processing deposit requests and pending redeem requests
@@ -297,7 +297,7 @@ The Fee Manager oversees the calculation and management of multiple fee types wi
 - Deposit Fee: Charged on asset deposits
 - Redeem Fee: Applied on share redemptions
 - Performance Fee: Based on decreases in share price (assets x price = shares)
-- Protocol Fee: Time based fee accrued per vault
+- Protocol Fee: Time-based fee accrued per vault
 
 All fees are paid in vault shares rather than the underlying assets.
 
@@ -320,24 +320,24 @@ Performance and Protocol fees are activated by a fresh Oracle report on the base
 
 ### Risk Manager
 
-The Risk Manager contract defines and enforces asset deposit limits across the Vault and its associated Subvaults. It maintains internal accounting of balances, limits, and approved assets for each subvault.
+The Risk Manager contract defines and enforces asset deposit limits across the Vault and its associated Subvaults. It maintains internal accounting of balances, limits, and approved assets for each Subvault.
 
 This module is responsible for:
 
-- Setting and enforcing share limits (practically representing approximate deposit limits) at both vault and subvault levels
+- Setting and enforcing share limits (practically representing approximate deposit limits) at both vault and Subvault levels
 - Permitting or restricting specific assets to be pulled into the Subvaults
-- Tracking pending balances for Deposits that are not yet finalized
+- Tracking pending balances for deposits that are not yet finalized
 - Validating limits using Oracle price reports
 
 #### Technical details
 
 - Vault Limit: Global cap across all assets managed by the vault (in shares).
-- Subvault Limit: Individual cap per subvault, enforced independently (in shares).
-- Allowed Assets: Only explicitly allowlisted assets are permitted for push and pull operations in a given subvault.
+- Subvault Limit: Individual cap per Subvault, enforced independently (in shares).
+- Allowed Assets: Only explicitly allowlisted assets are permitted for push and pull operations in a given Subvault.
 - Pending Assets: Temporarily tracked assets, e.g., during deposit queueing
 - Shares Conversion: All balances are internally tracked in shares, calculated using latest report in the `Oracle` contract.
 
-All vault and subvault level limits are treated as approximate and computed using the most recent Oracle report available at the time of the state update (on Subvault pull or push event or Deposit or Redeem operations).
+All vault and Subvault level limits are treated as approximate and computed using the most recent Oracle report available at the time of the state update (on Subvault pull or push event or Deposit or Redeem operations).
 
 If actual balances deviate significantly from the stored `balance` values due to oracle drift, delayed execution, or protocol side changes, a trusted actor can apply corrections to mitigate the difference:
 
@@ -359,7 +359,7 @@ Responsibilities include:
 
 ### Supported protocols and integrations
 
-Core Vaults architecture supports integration with a wide range of apps, including both DeFi protocols and centralized exchanges. Most of the protocol integrations can work out of the box. Below is a brief example of potential connections to subvaults.
+Core Vaults architecture supports integration with a wide range of apps, including both DeFi protocols and centralized exchanges. Most of the protocol integrations can work out of the box. Below is a brief example of potential connections to Subvaults.
 
 #### Major protocols:
 
@@ -387,8 +387,8 @@ Prerequisites:
 
 The flow occurs within a Core Vault under the following conditions:
 
-1. Two subvaults representing different yield sources: a delta neutral trading strategy and restaking
-2. Liquidity is evenly allocated 50% 50% between the subvaults
+1. Two Subvaults representing different yield sources: a delta neutral trading strategy and restaking
+2. Liquidity is evenly allocated 50%/50% between the Subvaults
 3. 1% management fee and 15% performance fee
 4. Annual Percentage Rate (APR) of 10%
 
@@ -398,10 +398,10 @@ A Liquidity Provider (LP) deposits 1,000,000 USDC into the Mellow Core Vault.
 
 Process Flow:
 
-1. Deposits are processed and transferred into the vault after passing through the time buffered Deposit Queue.
+1. Deposits are processed and transferred into the vault after passing through the time-buffered Deposit Queue.
 2. The LP receives receipt tokens representing the 1,000,000 USDC position.
 3. The LP can use these receipt tokens as collateral in various DeFi protocols to generate additional yield, such as leverage looping on Gearbox.
-4. Liquidity is allocated from the Vault to the Subvaults according to the limit based rules.
+4. Liquidity is allocated from the Vault to the Subvaults according to the limit-based rules.
 5. 50% of unallocated funds are pulled into a Subvault 1 by a Curator.
 6. 50% of unallocated funds are pulled into a Subvault 2 by a Curator.
 7. The Curator allocates funds from Subvault 1 to the delta neutral strategy through integrated centralized exchanges.
@@ -416,7 +416,7 @@ Process Flow for Curator Allocation:
 
 ![Process flow for curator allocation](/img/earn/process-flow-scheme.jpg)
 
-1. Curator asks Admin to add 2 subvaults with correct verifier configs:
+1. Curator asks Admin to add 2 Subvaults with correct verifier configs:
    - First one allowing liquidity transfer into a Copper or Ceffu account
    - Second one allowing deposits, withdrawals, withdrawal claims and reward claims & swaps from Symbiotic
 2. Curator pushes unallocated funds: `Vault.pushAssets(USDC, 500000)`.
@@ -433,13 +433,13 @@ Process Flow for Curator Allocation:
          IERC20.transfer,               // transfer call encoding
          (copperAccountAddress, 5e11)  // (recipient, amount)
        ),
-       verificationPayload             // extra data for Verifer contract
+       verificationPayload             // extra data for Verifier contract
      )
      ```
 
    - Inside Bybit UI, strategy is realized by the Curator, with settlements occurring every few hours in the Copper Clearloop.
 4. Allocate to Subvault 2 (Symbiotic Restaking).
-   - Pushes unallocated funds to the second subvault: `vault.pushAssets(subvault2, asset, 5e11)`.
+   - Pushes unallocated funds to the second Subvault: `vault.pushAssets(subvault2, asset, 5e11)`.
    - Clicks New Call -> target = Restaking Subvault -> calls `deposit(subvault, 5e11)`.
    - Gets the verification result and `VerificationPayload` from the Mellow API for this call.
    - Executes call:
@@ -452,7 +452,7 @@ Process Flow for Curator Allocation:
          ISymbioticVault.deposit, // deposit call encoding
          (subvault, 5e11)         // (onBehalfOf, amount)
        ),
-       verificationPayload        // extra data for Verifer contract
+       verificationPayload        // extra data for Verifier contract
      )
      ```
 

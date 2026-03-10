@@ -2,7 +2,7 @@
 
 ## Overview
 
-`EigenLayerVerifier` is a custom `ICustomVerifier` implementation tailored to securely authorize calls to EigenLayer contracts like `DelegationManager`, `StrategyManager`, and `RewardsCoordinator`. It uses strict role based gating, exact calldata matching, and entity specific validation to ensure that only authorized vaults and bots can interact with EigenLayer staking, delegation, withdrawal, and rewards workflows.
+`EigenLayerVerifier` is a custom `ICustomVerifier` implementation tailored to securely authorize calls to EigenLayer contracts like `DelegationManager`, `StrategyManager`, and `RewardsCoordinator`. It uses strict role-based gating, exact calldata matching, and entity specific validation to ensure that only authorized vaults and bots can interact with EigenLayer staking, delegation, withdrawal, and rewards workflows.
 
 ## Purpose
 

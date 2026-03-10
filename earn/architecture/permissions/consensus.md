@@ -2,11 +2,11 @@
 
 ## Purpose
 
-The `Consensus` contract manages a permissioned set of signers and enforces multi signature validation logic using either EIP 712 or EIP 1271 signatures. It is a lightweight module designed for verifying offchain consensus before executing critical actions such as deposits and redemptions via SignatureQueues.
+The `Consensus` contract manages a permissioned set of signers and enforces multi-signature validation logic using either EIP 712 or EIP 1271 signatures. It is a lightweight module designed for verifying offchain consensus before executing critical actions such as deposits and redemptions via SignatureQueues.
 
 It supports:
 
-- Threshold based consensus.
+- Threshold-based consensus.
 - Two signature modes: EIP 712 (EOA) and EIP 1271 (contract based).
 - Dynamic signer set management.
 - Stateless, reusable verification interface.

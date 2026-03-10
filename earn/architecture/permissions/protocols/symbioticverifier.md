@@ -2,7 +2,7 @@
 
 ## Overview
 
-`SymbioticVerifier` is a custom `ICustomVerifier` implementation used to authorize interactions with the Symbiotic protocol. It restricts access to `deposit`, `withdraw`, `claim`, and `claimRewards` calls across Symbiotic vaults and farm contracts. All permissions are tightly scoped using role based access control via `MellowACL`.
+`SymbioticVerifier` is a custom `ICustomVerifier` implementation used to authorize interactions with the Symbiotic protocol. It restricts access to `deposit`, `withdraw`, `claim`, and `claimRewards` calls across Symbiotic vaults and farm contracts. All permissions are tightly scoped using role-based access control via `MellowACL`.
 
 This verifier ensures that only allowed addresses (typically curators) can perform specific actions within the Symbiotic ecosystem.
 

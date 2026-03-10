@@ -4,7 +4,7 @@ This library generates unique and collision resistant storage slots for use in u
 
 ## Storage Slot Strategy
 
-- Based on EIP-7201.
+- Based on [EIP-7201](https://eips.ethereum.org/EIPS/eip-7201).
 - Inputs include contract name (`contractName`), human readable name (`name`), and version number (`version`).
 
 Final slot:

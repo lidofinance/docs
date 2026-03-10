@@ -9,7 +9,7 @@ This hook helps distribute liquidity optimally during deposit flows.
 ## Purpose
 
 - Automatically forwards newly deposited assets from the main vault into eligible subvaults.
-- Delegates decision making to the vault's configured `RiskManager`, which determines per-subvault deposit limits.
+- Delegates decision-making to the vault's configured `RiskManager`, which determines per-subvault deposit limits.
 - Ensures that subvaults do not exceed their capacity constraints.
 
 ## Key Function

@@ -2,9 +2,9 @@
 
 ## Overview
 
-`ERC20Verifier` is a role driven `ICustomVerifier` implementation that enforces strict, granular permissioning over ERC20 `approve` and `transfer` function calls. It builds upon `OwnedCustomVerifier`, using `MellowACL` style roles to validate the caller, target asset, and recipient of each operation.
+`ERC20Verifier` is a role-driven `ICustomVerifier` implementation that enforces strict, granular permissioning over ERC20 `approve` and `transfer` function calls. It builds upon `OwnedCustomVerifier`, using `MellowACL` style roles to validate the caller, target asset, and recipient of each operation.
 
-This verifier is designed for use in modular vaults such as `SubVault` where only specific ERC20 operations should be allowed through a customizable permission matrix.
+This verifier is designed for use in modular vaults such as `Subvault` where only specific ERC20 operations should be allowed through a customizable permission matrix.
 
 ## Purpose
 

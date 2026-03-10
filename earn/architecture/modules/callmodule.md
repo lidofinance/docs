@@ -2,7 +2,7 @@
 
 ## Overview
 
-Abstract contract extending `VerifierModule`, implementing low-level contract calls with verification via a pluggable verifier.
+CallModule is an abstract contract that extends `VerifierModule` and implements low-level contract calls with verification via a pluggable verifier.
 
 ## `call`
 

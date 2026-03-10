@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `Queue` contract provides a shared foundation for time gated asset processing in systems like `DepositQueue` and `RedeemQueue`. It tracks user requests via timestamped checkpoints and processes them using oracle based pricing.
+The `Queue` contract provides a shared foundation for time-gated asset processing in systems like `DepositQueue` and `RedeemQueue`. It tracks user requests via timestamped checkpoints and processes them using oracle-based pricing.
 
 This abstract module is not directly deployable but is designed to be extended by concrete implementations, which define the behavior of `_handleReport` and allowed user actions (deposit and redeem functions).
 

@@ -64,5 +64,5 @@ Reverts if:
 - This module deliberately avoids exposing the ERC20 interface, preventing unintended external transfers or integrations.
 - It is intended for internal share accounting within vault systems, where shares are tracked but not tokenized on-chain.
 - All permissioning logic, including minting, burning, whitelisting, and lockup enforcement, is delegated to the inherited `ShareManager`.
-- This implementation is ideal when the vault owner requires non transferable shares for internal logic, without compliance to ERC20 or ERC4626 standards.
-- It is not appropriate for setups where shares must be externally transferable, interoperable with third party protocols, or conform to token standards.
+- This implementation is ideal when the vault owner requires non-transferable shares for internal logic, without compliance to ERC20 or ERC4626 standards.
+- It is not appropriate for setups where shares must be externally transferable, interoperable with third-party protocols, or conform to token standards.
