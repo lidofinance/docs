@@ -12,19 +12,9 @@ Oracle daemon for Lido decentralized staking service.
 - **Last update date**: 10 March 2026
 - [**Repository**](https://github.com/lidofinance/lido-oracle/tree/7.1.0)
 - [**Documentation**](/guides/oracle-operator-manual)
-- [**Audit Report for v7**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7%20Audit%20Report.pdf)
-- [**Audit Report for v7.1**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7_1%20Audit%20Report.pdf)
-
-## Oracle V7 (AccountingOracle)
-
-- **Version**: 7.0.0
-- **Docker image**: sha256:d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60, [lidofinance/oracle@sha256-d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60](https://hub.docker.com/layers/lidofinance/oracle/7.0.0/images/sha256-d131169b163831daeed94d88280d8a6ee4e3509dd4798c2acdc47e3dc1de7f60)
-- **Commit hash**: [lidofinance/lido-oracle@b6e546b](https://github.com/lidofinance/lido-oracle/commit/b6e546bd38e73f23fa4e3edd9502e34ec5eb62ae)
-- **Last update date**: 16 December 2025
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/7.0.0)
-- [**Documentation**](/guides/oracle-operator-manual)
-- [**Composable Security Audit Report**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
-- [**Certora Audit Report**](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
+- [**Audit Report for v7.0.0 (Certora)**](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
+- [**Audit Report for v7.0.0 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
+- [**Audit Report for v7.1.0 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7_1%20Audit%20Report.pdf)
 
 ## Validator Ejector
 
