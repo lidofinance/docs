@@ -6,13 +6,15 @@ module.exports = async function createConfigAsync() {
     url: 'https://docs.lido.fi',
     baseUrl: '/',
     onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'throw',
     onBrokenAnchors: 'throw',
     favicon: 'img/favicon-32x32.png',
     organizationName: 'lidofinance',
     projectName: 'docs',
     markdown: {
       mermaid: true,
+      hooks: {
+        onBrokenMarkdownLinks: 'throw',
+      },
     },
     themes: ['@docusaurus/theme-mermaid'],
     stylesheets: [
