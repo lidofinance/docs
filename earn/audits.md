@@ -1,14 +1,28 @@
 # Security
 
-## Audits
-- [Security Review Report NM-0812 MELLOW REDEEM QUEUE](https://2485622279-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FPyujKH9RYkVLASDhGflO%2Fuploads%2FvwoxwrTHDzp1SP4vuqAQ%2FNM0812-FINAL_Mellow.pdf?alt=media&token=36783721-3620-440a-910c-7768fb6477a7)
-- [Security Review Report NM-0798 Mellow-Finance](https://2485622279-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FPyujKH9RYkVLASDhGflO%2Fuploads%2FToldbYducTDKDXp5StW0%2FNM0798-FINAL_MELLOW.pdf?alt=media&token=b2d3aa08-13fa-4ff7-b2c4-8209526ef536)
-- [Security Review Report NM-0758 Mellow-SyncDepositQueue](https://2485622279-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FPyujKH9RYkVLASDhGflO%2Fuploads%2FlvIKALRuL6PivhcRiDmT%2FNM0758-FINAL_Mellow.pdf?alt=media&token=e2dbbcaf-48b3-4d41-a324-cb4f2f14b352)
-- [Security Review Report NM-0735 - MELLOW - SWAP MODULE SECURITY REVIEW](https://2485622279-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FPyujKH9RYkVLASDhGflO%2Fuploads%2F94D4jfwY0sg6wqvzFv0k%2FNM0735-FINAL_MELLOW.pdf?alt=media&token=eff33960-bf02-4dc8-ac4c-f6192c02718a)
-- [Security Review Report NM-0703 MELLOW - ORACLE SUBMITTER SECURITY REVIEW](https://2485622279-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FPyujKH9RYkVLASDhGflO%2Fuploads%2F05XOVYZahxrONlOXqMSl%2FNM0703-FINAL_MELLOW.pdf?alt=media&token=138d8d38-b12d-4e94-b2e0-23775a6d1d09)
-- [Security Review Report NM-0682 - Mellow Finance](https://2485622279-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FPyujKH9RYkVLASDhGflO%2Fuploads%2FIwJC09qdFEzbThtj5y49%2FNM0682-FINAL_Mellow.pdf?alt=media&token=2048acc3-147f-484c-9b7c-f10a8c47b354)
-- [Security Review Report NM-0587 Mellow Protocol](https://content.gitbook.com/content/PyujKH9RYkVLASDhGflO/blobs/15Q3SGxZgZ9VEWqXueO2/Nethermind_Mellow-Core-Vaults_20250903.pdf)
-- [Security Review For Mellow Protocol](https://content.gitbook.com/content/PyujKH9RYkVLASDhGflO/blobs/8UGXj60JHxYAbUghrx0Z/Sherlock_Mellow-Core-Vaults_20250728.pdf)
+## Core Protocol Audits
+
+Full security reviews of the Mellow MetaVaults core architecture, including Vault, Subvault, queues, Oracle, Verifier, ShareManager, FeeManager, and RiskManager.
+
+| Report | Auditor | Date | Scope | Commit |
+| ------ | ------- | ---- | ----- | ------ |
+| [Mellow Core Vaults](/audits/mellow/2025-07-28_Sherlock_Mellow-Core-Vaults.pdf) | Sherlock | 2025-07-28 | Modular vault infrastructure for institutional-grade asset management on EVM chains | [`c2d66f3`](https://github.com/mellow-finance/flexible-vaults/commit/c2d66f36333d9f29457399fa54ddc68079d7b0a9) |
+| [Mellow Core Vaults](/audits/mellow/2025-09-03_Nethermind_Mellow-Core-Vaults.pdf) | Nethermind | 2025-09-03 | Core protocol contracts: Vault, Subvault, queues, Oracle, Verifier, and managers | [`69413d5`](https://github.com/mellow-finance/flexible-vaults/commit/69413d545f788c0ad4ff7fe08085fb55589c5c61) |
+
+## Module and Incremental Audits
+
+Focused reviews of individual modules and contract updates.
+
+| Report | Auditor | Date | Scope | Commit |
+| ------ | ------- | ---- | ----- | ------ |
+| [NM-0682 Migrator](/audits/mellow/2025-10-15_Nethermind_NM-0682_Mellow.pdf) | Nethermind | 2025-10-15 | Migrator contract for migrating MultiVault instances into new core vaults | [`a04e285`](https://github.com/mellow-finance/flexible-vaults/commit/a04e285fe859dcd720e8b827628a98d0cc46c02c) |
+| [NM-0703 Oracle Submitter](/audits/mellow/2025-11-17_Nethermind_NM-0703_Mellow.pdf) | Nethermind | 2025-11-17 | OracleSubmitter — Chainlink-compatible price feed adapter for oracle price reports | [`d3bf393`](https://github.com/mellow-finance/flexible-vaults/commit/d3bf393) |
+| [NM-0735 Swap Module](/audits/mellow/2025-11-19_Nethermind_NM-0735_Mellow.pdf) | Nethermind | 2025-11-19 | SwapModule for permissioned token swaps via DEX aggregators and CoW Protocol | [`688382e`](https://github.com/mellow-finance/flexible-vaults/commit/688382e) |
+| [NM-0758 SyncDepositQueue](/audits/mellow/2025-12-09_Nethermind_NM-0758_Mellow.pdf) | Nethermind | 2025-12-09 | SyncDepositQueue for instant synchronous deposits with oracle-price-based adjustment | [`f4c311b`](https://github.com/mellow-finance/flexible-vaults/commit/f4c311b73c3b2eaae01e8e668f6df2fef6aee048) |
+| [NM-0798 BurnableTokenizedShareManager](/audits/mellow/2026-01-07_Nethermind_NM-0798_Mellow.pdf) | Nethermind | 2026-01-07 | BurnableTokenizedShareManager enabling public ERC20 burn/burnFrom for vault shares | [`09d8155`](https://github.com/mellow-finance/flexible-vaults/commit/09d81553d719f38ace8a646551d6b043c345df8a) |
+| [NM-0812 Redeem Queue Fee Fix](/audits/mellow/2026-01-21_Nethermind_NM-0812_Mellow.pdf) | Nethermind | 2026-01-21 | Fee transfer fix from ShareManager to feeRecipient via burn and mint | [`685be83`](https://github.com/mellow-finance/flexible-vaults/commit/685be83) |
+| [NM-0758 SyncDepositQueue](/audits/mellow/2026-03-02_Nethermind_NM-0758_Mellow.pdf) | Nethermind | 2026-03-02 | Updated review of SyncDepositQueue reflecting a fix identified on Feb 27, 2026 | [`c9c7181`](https://github.com/mellow-finance/flexible-vaults/commit/c9c71818f0a8bead183f9860db3b8bbceb7b8f37) |
 
 ## Bug Bounty
-[Mellow Core Vaults Bug Bounty](https://audits.sherlock.xyz/bug-bounties/125) is a live bug bounty on the Sherlock platform, inviting security researchers to find and report vulnerabilities in the Mellow Core Vaults system. The program offers up to 100,000 USDC in rewards for valid findings and is part of Sherlock’s ongoing post-deployment security incentives.
+
+[Mellow Core Vaults Bug Bounty](https://audits.sherlock.xyz/bug-bounties/125) is a live bug bounty on the Sherlock platform, inviting security researchers to find and report vulnerabilities in the Mellow Core Vaults system. The program offers up to 100,000 USDC in rewards for valid findings and is part of Sherlock's ongoing post-deployment security incentives.
