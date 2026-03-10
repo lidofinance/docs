@@ -6,7 +6,7 @@ EarnETH provides on-chain access to strategies involving ETH-denominated digital
 
 ### How it works
 
-Deposited tokens are allocated across yield-generating protocols through subVaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor's share and performance. Currently there're two subVaults, managed by Veda and UltraYield by Edge respectively.
+EarnETH consists of two subVaults, each subVault specializes in its respective strategy, and combining their strengths aims to deliver sustainable, risk-adjusted rewards for EarnETH users’ assets. Mellow is appointed to provide curation services for subVaults — stRATEGY and GGV.
 
 ### How deposits work
 
@@ -18,8 +18,7 @@ Users can withdraw wsETH in two steps (request + claim) with a typical withdrawa
 
 ### Curators
 
-- Veda - https://veda.tech/
-- UltraYield by Edge - https://ultrayield.app/
+- Mellow - https://mellow.finance/
 
 :::note
 Detailed information regarding the architecture, infrastructure, and management configurations of EarnETH could be found [here](https://metavaults.mellow.finance/architecture)
@@ -31,7 +30,7 @@ EarnUSD provides on-chain access to strategies involving USD-denominated digital
 
 ### How it works
 
-Deposited tokens are allocated across yield-generating protocols through subVaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor's share and performance. Currently there're two subVaults, managed by UltraYield (by Edge Capital).
+Deposited tokens are allocated across yield-generating protocols through subVaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor’s share and performance. Currently there is one subVault, curated by Mellow.
 
 ### How deposits work
 
