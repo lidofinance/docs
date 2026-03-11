@@ -62,10 +62,10 @@ For a full example, click [here](https://github.com/lidofinance/referral-program
 
 The ETH Staking Widget’s Earn page lets users deposit ETH, WETH, stETH, or wstETH into vaults seeking extra rewards on top of staking.
 
-The Earn page is **enabled by default**. Use the `earn` URL query parameter to disable it:
+The Earn page is **enabled by default**. Use the `earn` URL query parameter to control which vaults are visible:
 
 - `earn=disabled` — hide the Earn page entirely
-- `earn=<vault1>,<vault2>,...` — hide specific vaults (`eth`, `usd`, `ggv`, `dvv`, `strategy`)
+- `earn=<vault1>,<vault2>,...` — show **only** the listed vaults; all others are hidden. Available vault names: `eth`, `usd`, `ggv`, `dvv`, `strategy`
 
 #### Example of disabling the Earn page using iframe
 
@@ -78,9 +78,10 @@ The Earn page is **enabled by default**. Use the `earn` URL query parameter to d
 />
 ```
 
-#### Example of disabling specific vaults
+#### Example of showing only specific vaults
 
 ```html
+<!-- Shows only the ETH and USD vaults; all other vaults are hidden -->
 <iframe
     src="https://stake.lido.fi/?earn=eth,usd"
     title="Lido Staking App"
