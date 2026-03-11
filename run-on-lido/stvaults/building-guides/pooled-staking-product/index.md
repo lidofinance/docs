@@ -75,7 +75,7 @@ DeFi Wrapper supports three product archetypes:
   <TabItem value="mainnet" label="Mainnet">
     <ul>
       <li><strong>DeFi Wrapper Factory:</strong> <a href="https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587#code">0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587</a></li>
-      <li><strong>Lido Earn Strategy Factory:</strong> TBD</li>
+      <li><strong>Lido Earn Strategy Factory:</strong>TBD</li>
       <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/releases/tag/v1.0.0">vaults-wrapper (v1.0.0)</a></li>
     </ul>
   </TabItem>
@@ -167,15 +167,15 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
-#### Deployment of `StvStrategyPool` (pool with a custom strategy)
+#### Deployment of `StvStrategyPool` with a custom strategy
 
-To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy).
+To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy). The guide covers both deploying a new pool with a strategy from scratch and upgrading an existing `StvStETHPool` to a strategy pool.
 
-The guide covers both deploying a new pool with a strategy from scratch and upgrading an existing `StvStETHPool` to a strategy pool.
+#### Deployment of `StvStrategyPool` with the `Lido Earn ETH` strategy
 
-#### Deployment of `Lido Earn Strategy` (pool with Mellow Vault integration)
+The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earh ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
 
-To deploy a pool with the Lido Earn strategy, use the `create-pool-custom` command with `--strategyFactory` and `--strategyFactoryDeployBytes` parameters. The factory addresses for each network are listed in the [Environments](#environments) section. The full parameter reference is available below.
+To deploy this pool, use the `create-pool-custom` command with `--strategyFactory` and `--strategyFactoryDeployBytes` parameters. The factory addresses for each network are listed in the [Environments](#environments) section. The full parameter reference is available below.
 
 Start the deployment like:
 
@@ -187,8 +187,8 @@ yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FAC
   --confirmExpiry 86400 \
   --minDelaySeconds 3600 \
   --minWithdrawalDelayTime 3600 \
-  --name "Staked ETH Mellow Pool" \
-  --symbol mSTV \
+  --name "Staked Earn ETH Pool" \
+  --symbol STV \
   --proposer <PROPOSER_ADDRESS> \
   --executor <EXECUTOR_ADDRESS> \
   --emergencyCommittee <EMERGENCY_COMMITTEE_ADDRESS> \
@@ -196,7 +196,7 @@ yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FAC
   --mintingEnabled true \
   --allowList true \
   --allowListManager <ALLOW_LIST_MANAGER_ADDRESS> \
-  --strategyFactory <MELLOW_STRATEGY_FACTORY_ADDRESS> \
+  --strategyFactory <STRATEGY_FACTORY_ADDRESS> \
   --strategyFactoryDeployBytes <ENCODED_ALLOW_LIST_ENABLED>
 ```
 
@@ -209,7 +209,7 @@ cast abi-encode "x(bool)" true
 ```
 
 :::warning
-Both `--mintingEnabled true` and `--allowList true` are **required** for the Lido Earn strategy. The allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Mellow Vault.
+Both `--mintingEnabled true` and `--allowList true` are **required** for the Lido Earn ETH strategy. The allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault.
 :::
 
 <details>
