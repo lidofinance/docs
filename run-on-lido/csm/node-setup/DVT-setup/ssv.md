@@ -18,7 +18,7 @@ Before creating your SSV cluster:
 2. **Decide your operator economics** for each member’s operator:
    - **Exclusive for this cluster**: set the **operator fee to 0 $SSV** and **whitelist the cluster multisig address** so only your cluster can use the operator.
    - **Open mode**: allow others to use your operator and set a **fair SSV fee** that can be covered by your CSM operations. Ideally, **use CSM operator rewards to pay SSV fees** so your operators keep running sustainably.
-3. Create a Safe multi-sig wallet (`4/7` or `5/7` threshold recommended) → [safe.global](https://app.safe.global/).  
+3. Create a Safe multi-sig wallet (`4/7` or `5/7` threshold recommended) → [app.safe.global](https://app.safe.global).  
 4. Create a Splitter contract for rewards distribution → [splits.org](https://splits.org/).  
 5. Decide how many validator keys to run based on available **ETH bond** for Lido CSM.  
 6. You’ll still need **full Ethereum node connectivity** (EL+CL) and **MEV-Boost with Lido-vetted relays** as required by Lido CSM. See [Node Setup](/run-on-lido/csm/node-setup/).
