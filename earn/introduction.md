@@ -6,15 +6,15 @@ earnETH provides on-chain access to strategies involving ETH-denominated digital
 
 ### How it works
 
-earnETH consists of two subVaults, each subVault specializes in its respective strategy, and combining their strengths aims to deliver sustainable, risk-adjusted rewards for earnETH users’ assets. Mellow is appointed to provide curation services for subVaults — stRATEGY and GGV.
+earnETH consists of two subvaults. Each subvault specializes in its respective strategy, and combined, they aim to deliver sustainable, risk-adjusted rewards for earnETH users' assets. Mellow is appointed to provide curation services for subvaults — stRATEGY and GGV.
 
 ### How deposits work
 
-Users can deposit ETH, wETH, wstETH, GG or strETH with up to a 24-hour depositing waiting period and receive the share token earnETH.
+Users can deposit ETH, wETH, wstETH, GG, or strETH with up to a 24-hour deposit waiting period and receive the share token earnETH.
 
 ### How withdrawals work
 
-Users can withdraw wsETH in two steps (request + claim) with a typical withdrawal waiting time of ~3 days.
+Users can withdraw wstETH in two steps (request + claim) with a typical withdrawal waiting time of ~3 days.
 
 ### Curators
 
@@ -30,7 +30,7 @@ earnUSD provides on-chain access to strategies involving USD-denominated digital
 
 ### How it works
 
-Deposited tokens are allocated across yield-generating protocols through subVaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor’s share and performance. Currently there is one subVault, curated by Mellow.
+Deposited tokens are allocated across yield-generating protocols through subvaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor's share and performance. Currently there is one subvault, curated by Mellow.
 
 ### How deposits work
 
@@ -42,7 +42,7 @@ Users can withdraw USDC in two steps (request + claim) with a typical withdrawal
 
 ### Curators
 
-- UltraYield by Edge - https://ultrayield.app/
+- Mellow - https://mellow.finance/
 
 :::note
 Detailed information regarding the architecture, infrastructure, and management configurations of earnUSD can be found [here](https://metavaults.mellow.finance/architecture).
