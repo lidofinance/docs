@@ -1,6 +1,6 @@
 # Embedding the Earn widget
 
-When embedding the Lido Stake widget via an `iframe`, the Earn page is disabled by default, but it can be explicitly enabled or customized using URL query parameters.
+When embedding the Lido Stake widget via an `iframe`, the Earn page is **enabled by default**. Use URL query parameters only if you need to hide the page or restrict the set of visible vaults.
 
 ## Base URL structure
 
@@ -15,25 +15,21 @@ Control the visibility of the Earn page using the `earn` query parameter in the 
 
 | Mode | Query parameter | Description |
 | --- | --- | --- |
-| Enable full access | `?earn=enabled` | Required for iframes. Enables the Earn page with all available vaults. |
-| Enable specific vaults | <code className="earn-nowrap">?earn=vault1,vault2</code> | Enables the Earn page but restricts the list to specific vaults only. |
-| Disable Earn | `?earn=disabled` | Explicitly disables the Earn page (useful if using the default URL outside of an iframe context). |
-
-:::note
-If no parameter is provided in an iframe context, the Earn page will remain disabled.
-:::
+| Show all vaults (default) | *(no parameter)* | Earn page is fully enabled with all available vaults. |
+| Show only specific vaults | <code className="earn-nowrap">?earn=vault1,vault2</code> | Shows **only** the listed vaults; all others are hidden. Available vault names: `eth`, `usd`, `ggv`, `dvv`, `strategy`. |
+| Disable Earn | `?earn=disabled` | Hides the Earn page entirely. |
 
 ## Integration examples
 
-### Enable full Earn dashboard
+### Disable the Earn page
 
-This example embeds the widget with the Earn page fully enabled, showing all available vaults.
+This example hides the Earn page entirely, leaving only the standard staking interface.
 
 ```html
 <html>
   <body>
     <iframe
-      src="https://stake.lido.fi/earn?earn=enabled"
+      src="https://stake.lido.fi?earn=disabled"
       frameborder="0"
       width="100%"
       height="100%"
@@ -42,15 +38,15 @@ This example embeds the widget with the Earn page fully enabled, showing all ava
 </html>
 ```
 
-### Enable specific vaults only
+### Show only specific vaults
 
-This example enables the Earn page but limits the visible options to specific vaults (for example `ggv` and `dvv`).
+This example limits the visible vaults to a specific subset (for example `eth` and `usd`). All other vaults are hidden.
 
 ```html
 <html>
   <body>
     <iframe
-      src="https://stake.lido.fi/earn?earn=ggv,dvv"
+      src="https://stake.lido.fi/earn?earn=eth,usd"
       frameborder="0"
       width="100%"
       height="100%"
@@ -61,13 +57,13 @@ This example enables the Earn page but limits the visible options to specific va
 
 ### Link to a specific vault
 
-This example links directly to the deposit page of a specific vault (for example `ggv`). Include `earn=enabled` or the specific vault ID to ensure the feature is active in the iframe.
+This example links directly to the deposit page of a specific vault (for example `eth`).
 
 ```html
 <html>
   <body>
     <iframe
-      src="https://stake.lido.fi/earn/ggv/deposit?earn=enabled"
+      src="https://stake.lido.fi/earn/eth/deposit"
       frameborder="0"
       width="100%"
       height="100%"
