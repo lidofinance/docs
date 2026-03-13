@@ -28,18 +28,18 @@ Because the data is embedded in the transaction itself, this method provides det
 You can set up referral attribution by sharing a vault link with a personalized web parameter that includes your wallet address as the referral ID.
 
 1. Copy your wallet address. This address acts as your unique referral identifier.
-2. Add it to the vault link by attaching `?referral=YOUR_WALLET_ADDRESS`.
+2. Add it to the vault link by attaching `?ref=YOUR_WALLET_ADDRESS`.
 3. Share the link. When someone opens your link and deposits through the interface, your wallet address is recorded onchain as the referral source.
 
 Example:
 
 ```
-https://app.mellow.finance/vaults/earneth?referral=0xAbC123...
+https://stake.lido.fi/earn/eth/deposit?ref=YOUR_WALLET_ADDRESS
 ```
 
 ## Limitations of URL-based referrals
 
-Web referrals passed via URL parameters (for example `?referral={code}`) are technically possible but not fully reliable in the crypto space.
+Web referrals passed via URL parameters (for example `?ref={code}`) are technically possible but not fully reliable in the crypto space.
 
 Many users interact through:
 

@@ -71,7 +71,7 @@ The Earn page is **enabled by default**. Use the `earn` URL query parameter to c
 
 ```html
 <iframe
-    src="https://stake.lido.fi/?earn=disabled"
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&earn=disabled"
     title="Lido Staking App"
     height="500"
     width="100%"
@@ -83,7 +83,7 @@ The Earn page is **enabled by default**. Use the `earn` URL query parameter to c
 ```html
 <!-- Shows only the ETH and USD vaults; all other vaults are hidden -->
 <iframe
-    src="https://stake.lido.fi/?earn=eth,usd"
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&earn=eth,usd"
     title="Lido Staking App"
     height="500"
     width="100%"
@@ -119,7 +119,7 @@ When delegation is enabled, withdrawals are executed via **batched transactions*
 
 ```html
 <iframe
-  src="https://stake.lido.fi/?forceAllowance=enabled"
+  src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&forceAllowance=enabled"
   title="Lido Staking App"
   height="500"
   width="100%"
