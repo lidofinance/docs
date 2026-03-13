@@ -175,15 +175,52 @@ Parameters:
 
 Note the deployed **new pool implementation address**.
 
-#### Deploy strategy implementation and proxy
+#### Deploy strategy implementation
 
+Deploy the strategy implementation contract. For example:
 
-Deploy your strategy, you can use `forge create` or `cast send` for example
+```bash
+forge create src/strategy/MyStrategy.sol:MyStrategy \
+  --rpc-url $RPC_URL \
+  --private-key $DEPLOYER_KEY \
+  --broadcast \
+  --constructor-args <CONSTRUCTOR_ARGS>
+```
 
-Note the deployed **strategy proxy address**.
+Note the deployed **strategy implementation address**.
+
+#### Deploy strategy proxy
+
+The strategy must be deployed behind an [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/proxy/OssifiableProxy.sol). The proxy is created with three parameters:
+
+- `implementation_` — the strategy implementation address from the previous step
+- `admin_` — the pool's `TimelockController` address (proxy admin who can upgrade the implementation)
+- `data_` — the ABI-encoded `initialize` calldata to be executed on the implementation during proxy creation
+
+First, encode the `initialize` calldata:
+
+```bash
+INITIALIZE_CALLDATA=$(cast calldata "initialize(address,address)" <TIMELOCK> <EMERGENCY_COMMITTEE>)
+```
+
+Where:
+- `<TIMELOCK>` — the pool's TimelockController address (will receive `DEFAULT_ADMIN_ROLE` on the strategy)
+- `<EMERGENCY_COMMITTEE>` — address that will receive the initial pause role (e.g., `SUPPLY_PAUSE_ROLE`)
+
+Then deploy the proxy:
+
+```bash
+forge create src/proxy/OssifiableProxy.sol:OssifiableProxy \
+  --rpc-url $RPC_URL \
+  --private-key $DEPLOYER_KEY \
+  --broadcast \
+  --constructor-args <STRATEGY_IMPL> <TIMELOCK> $INITIALIZE_CALLDATA
+```
+
+Note the deployed **strategy proxy address** — this is the address you will use in the TimelockController batch below.
 
 :::warning
-The strategy proxy admin must be the pool's `TimelockController` address. The `initialize` call sets the Timelock as the strategy's `DEFAULT_ADMIN_ROLE` holder.
+The proxy admin must be the pool's `TimelockController` address. The `initialize` call sets the Timelock as the strategy's `DEFAULT_ADMIN_ROLE` holder.
 :::
 
 ### Execute the upgrade via TimelockController batch

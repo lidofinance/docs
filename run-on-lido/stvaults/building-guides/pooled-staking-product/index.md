@@ -67,13 +67,15 @@ DeFi Wrapper supports three product archetypes:
 <Tabs>
   <TabItem value="testnet" label="Testnet">
     <ul>
-      <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xd05e...b4d9</a></li>
+      <li><strong>DeFi Wrapper Factory (Testnet-9):</strong> <a href="https://hoodi.etherscan.io/address/0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9#code">0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9</a></li>
+      <li><strong>Lido Earn Strategy Factory (Testnet):</strong> <a href="https://hoodi.etherscan.io/address/0x0b860bfFDA72D214Dc8aC98bEcd8D1cd55307561#code">0x0b860bfFDA72D214Dc8aC98bEcd8D1cd55307561</a></li>
       <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/tree/develop">vaults-wrapper (develop)</a></li>
     </ul>
   </TabItem>
   <TabItem value="mainnet" label="Mainnet">
     <ul>
-      <li><strong>DeFi Wrapper Factory:</strong> <a href="https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587#code">0x3f22…1587</a></li>
+      <li><strong>DeFi Wrapper Factory:</strong> <a href="https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587#code">0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587</a></li>
+      <li><strong>Lido Earn Strategy Factory:</strong>TBD</li>
       <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/releases/tag/v1.0.0">vaults-wrapper (v1.0.0)</a></li>
     </ul>
   </TabItem>
@@ -121,7 +123,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the
 Start the deployment like:
 
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-stv 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
+yarn start defi-wrapper contracts factory w create-pool-stv <DEFI_WRAPPER_FACTORY> \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRateBP 10 \
@@ -143,7 +145,7 @@ Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` f
 Start the deployment like:
 
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-stv-steth 0xd05ebf24a340ece8b8fb53a170f1171dcd02b4d9 \
+yarn start defi-wrapper contracts factory w create-pool-stv-steth <DEFI_WRAPPER_FACTORY> \
   --nodeOperator 0x0000000000000000000000000000000000000001 \
   --nodeOperatorManager 0x0000000000000000000000000000000000000002 \
   --nodeOperatorFeeRateBP 10 \
@@ -165,35 +167,59 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 :::
 
-#### Deployment of `StvStrategyPool` (pool with a custom strategy)
+#### Deployment of `StvStrategyPool` with a custom strategy
 
-To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy).
+To deploy a pool integrated with a custom DeFi strategy see the dedicated guide: [Pool with a custom strategy](./custom-strategy). The guide covers both deploying a new pool with a strategy from scratch and upgrading an existing `StvStETHPool` to a strategy pool.
 
-The guide covers both deploying a new pool with a strategy from scratch and upgrading an existing `StvStETHPool` to a strategy pool.
+#### Deployment of `StvStrategyPool` with the `Lido Earn ETH` strategy
+
+The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earh ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
+
+To deploy this pool, use the `create-strategy-pool-lido-earn-eth`. The factory addresses for each network are listed in the [Environments](#environments) section. The full parameter reference is available below.
+
+Start the deployment like:
+
+```bash
+yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FACTORY> <STRATEGY_FACTORY_ADDRESS> \
+  --nodeOperator <NODE_OPERATOR_ADDRESS> \
+  --nodeOperatorManager <NODE_OPERATOR_MANAGER_ADDRESS> \
+  --nodeOperatorFeeRateBP 10 \
+  --confirmExpiry 86400 \
+  --minDelaySeconds 3600 \
+  --minWithdrawalDelayTime 3600 \
+  --name "Staked Earn ETH Pool" \
+  --symbol STV \
+  --proposer <PROPOSER_ADDRESS> \
+  --executor <EXECUTOR_ADDRESS> \
+  --emergencyCommittee <EMERGENCY_COMMITTEE_ADDRESS> \
+  --reserveRatioGapBP 250 \
+```
+
+You can use `--allowList true` to enable the deposit allowlist for this strategy. AllowList Manager role on Strategy must be set separately by TimeLock governance.
+
+:::warning
+AllowList will be always enabled on StvStethPool contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has it's own allow list.
+:::
 
 <details>
   <summary>Parameter reference</summary>
 
-| Parameter | Description |
-|-----------|-------------|
-| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
-| `--nodeOperator` | Address of the Node Operator managing validators |
-| `--nodeOperatorManager` | Address authorized to manage Node Operator settings |
-| `--nodeOperatorFeeRateBP` | Node Operator fee in basis points (10 = 0.1%) |
-| `--confirmExpiry` | Confirmation timeout in seconds |
-| `--minDelaySeconds` | TimeLock minimum delay before execution |
-| `--minWithdrawalDelayTime` | Minimum delay before withdrawals can be finalized |
-| `--name` | ERC-20 pool share token name |
-| `--symbol` | ERC-20 pool share token symbol |
-| `--proposer` | Address authorized to propose TimeLock operations |
-| `--executor` | Address authorized to execute TimeLock operations |
-| `--emergencyCommittee` | Address that can pause pool operations |
-| `--reserveRatioGapBP` | Reserve ratio gap in basis points (recommended min: 250) |
-| `--mintingEnabled` | Enable stETH minting (`true` / `false`) |
-| `--allowList` | Enable deposit allowlist (`true` / `false`) |
-| `--allowListManager` | Address managing the allowlist |
-| `--strategyFactory` | Your deployed strategy factory address |
-| `--strategyFactoryDeployBytes` | Optional hex-encoded bytes passed to your factory's `deploy()` |
+| Parameter                    | Description                                                                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `<DEFI_WRAPPER_FACTORY>`     | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments))           |
+| `<STRATEGY_FACTORY_ADDRESS>` | Lido Earn ETH Strategy Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
+| `--nodeOperator`             | Address of the Node Operator managing validators                                                                                                 |
+| `--nodeOperatorManager`      | Address authorized to manage Node Operator settings                                                                                              |
+| `--nodeOperatorFeeRateBP`    | Node Operator fee in basis points (10 = 0.1%)                                                                                                    |
+| `--confirmExpiry`            | Confirmation timeout in seconds                                                                                                                  |
+| `--minDelaySeconds`          | TimeLock minimum delay before execution                                                                                                          |
+| `--minWithdrawalDelayTime`   | Minimum delay before withdrawals can be finalized                                                                                                |
+| `--name`                     | ERC-20 pool share token name                                                                                                                     |
+| `--symbol`                   | ERC-20 pool share token symbol                                                                                                                   |
+| `--proposer`                 | Address authorized to propose TimeLock operations                                                                                                |
+| `--executor`                 | Address authorized to execute TimeLock operations                                                                                                |
+| `--emergencyCommittee`       | Address that can pause pool operations                                                                                                           |
+| `--reserveRatioGapBP`        | Reserve ratio gap in basis points (recommended min: 250)                                                                                         |
 
 </details>
 
@@ -236,6 +262,7 @@ Confirming tier change request requires applying fresh report to vault. [Read mo
 To find out which tier IDs are available for your Node Operator, you can use:
 
 **CLI:**
+
 ```bash
 # Get group information for your Node Operator (shows all available tier IDs)
 yarn start contracts operator-grid r group <nodeOperatorAddress>
@@ -245,12 +272,14 @@ yarn start contracts operator-grid r tier <tierId>
 ```
 
 **Contract call (Etherscan):**
+
 - Navigate to the `OperatorGrid` contract address
 - Go to **Contract** → **Read Contract**
 - Call `group(nodeOperatorAddress)` to get the `Group` struct, which includes the `tierIds` array
 - Call `tier(tierId)` to get details about a specific tier
 
 The `group` method returns a struct containing:
+
 - `operator`: Node operator address
 - `shareLimit`: Maximum liability shares across all group vaults
 - `liabilityShares`: Current liability shares in the group
@@ -265,7 +294,7 @@ The `group` method returns a struct containing:
 
 Use `--wallet-connect` option for all commands or provide private key to CLI `.env`
 
-1. Get address of your timelock contract: 
+1. Get address of your timelock contract:
    ```bash
    yarn start defi-wrapper use-cases timelock-governance common read get-timelock-address <poolAddress>
    ```
@@ -299,13 +328,14 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 2: Execute the scheduled tier change (Executor)</summary>
 
-#### CLI                                                                                
+#### CLI
 
 1. Check the timelock delay period:
+
    ```bash
    # Get timelock address
    yarn start defi-wrapper use-cases timelock-governance common read get-timelock-address <poolAddress>
-   
+
    # Then get the minimum delay (replace <timelockAddress> with the address from previous command)
    yarn start defi-wrapper use-cases timelock-governance common read get-min-delay <timelockAddress>
    ```
@@ -323,6 +353,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 #### Etherscan
 
 1. Check the timelock delay period:
+
    - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
    - Go to the **Contract** tab → **Read Contract**.
    - Find the `getMinDelay` method and click **Query** to see the minimum delay in seconds.
