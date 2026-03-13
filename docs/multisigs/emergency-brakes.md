@@ -2,7 +2,7 @@
 
 ## 1.1 GateSeal Committee
 
-**Address:** [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/transactions/queue?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
+**Address:** [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/settings/setup?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 
 **Purpose of the multisig:** The GateSeal Committee is authorized to trigger designated GateSeal contracts to pause selected core protocol sealable smart contracts for a limited period. The pause right is single-use and automatically expires on the respective GateSeal expiration date. The full list of GateSeal contracts is provided [here](/contracts/gate-seal).
 
@@ -38,7 +38,7 @@
 
 ## 1.2 Emergency Brakes: Ethereum
 
-**Address:** [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/transactions/queue?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
+**Address:** [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/settings/setup?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
 
 **Purpose of the multisig:** The multisig is used to disable deposits & withdrawals for wstETH bridging to other chains (Arbitrum, Optimism, Base, Scroll, Mantle, ZKSync, Binance Smart Chain, Mode) in case of an emergency on Ethereum mainnet or the counterpart chain, and can pause Easy Track pipeline.
 
@@ -177,7 +177,7 @@
 
 ## 1.5 Emergency Brakes: Base
 
-**Address:** base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/home?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
+**Address:** base: [`0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725`](https://app.safe.global/settings/setup?safe=base:0x0F9A0e7071B7B21bc7a8514DA2cd251bc1FF0725)
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on Base side in case of emergency.
 
@@ -234,7 +234,7 @@
 
 ## 1.7 Emergency Brakes: ZKSync
 
-**Address:** zksync: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/home?safe=zksync:0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
+**Address:** zksync: [`0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94`](https://app.safe.global/settings/setup?safe=zksync:0x0D7F0A811978B3B62CbfF4EF6149B5909EAcfE94)
 
 **Purpose of the multisig:** The multisig is used to disable deposits or withdrawals or both deposits and withdrawals for wstETH token bridge on zkSync side in case of emergency.
 
@@ -321,7 +321,7 @@
 
 ## 1.10 Emergency Brakes: Binance Smart Chain (BSC)
 
-**Address:** BSC: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/home?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
+**Address:** BSC: [`0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f`](https://app.safe.global/settings/setup?safe=bnb:0xC2b778fCc3FF311Cf1abBF4E53880277bfD14C8f)
 
 **Purpose of the multisig:** The multisig is used to pause deposits and withdrawals for wstETH token bridge on BSC side in case of emergency.
 

@@ -3,9 +3,6 @@ sidebar_position: 2
 ---
 
 # 📊 Parameters and metrics
-:::warning
-This document covers metric calculations intended for stVaults on mainnet. The implementation on deployed testnet contracts may vary.
-:::
 ## stVaults parameters
 
 ### Reserve Ratio
