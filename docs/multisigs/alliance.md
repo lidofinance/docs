@@ -83,7 +83,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 [Proposal: Onboard Drop to the Lido Alliance](https://research.lido.fi/t/proposal-onboard-drop-to-the-lido-alliance/7556)\
 [Organize the Lido Alliance Program as a Lido-DAO-Adjacent BORG](https://research.lido.fi/t/organize-the-lido-alliance-program-as-a-lido-dao-adjacent-borg/8173/32)
 
-**Snapshots:**\
+**Snapshot:**\
 [Lido Alliance application: Drop](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x946c9498e76cde24a1475dd786cb119bbfab2b3b5ce95b5177c0818bed91e20b)
 
 **List of signers:**

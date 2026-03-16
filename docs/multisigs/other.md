@@ -24,5 +24,5 @@
 | enti (CLI lead) | 0xfcfbafa0d5f5512C65DbB4C073fE4Ee6Dc3c4779 | https://etherscan.io/verifySig/41824 | [Research forum message](https://research.lido.fi/t/egg-establishing-the-community-lifeguards-initiative-cli-sub-committee/7527/14) |
 | dgusakov | 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/253349 | [Research forum message](https://research.lido.fi/t/egg-establishing-the-community-lifeguards-initiative-cli-sub-committee/7527/10) |
 | Aleksandra_G | 0x9795d01Aa9F4F80E95828049921B179fBA2Fe6b5 | https://etherscan.io/verifySig/253841 | [Research forum message](https://research.lido.fi/t/egg-establishing-the-community-lifeguards-initiative-cli-sub-committee/7527/11) |
-| Stakesaurus | 0x0fb6215099f48d723cfb89434c2cb887357bc871 | https://etherscan.io/verifySig/302868 | [Research forum message](https://research.lido.fi/t/community-lifeguards-initiative-cli-reform-proposal/11216/5) |
 | remus | 0x8d556744a53f8811ae30c6ebb257c7bfe4ed5a41 | https://etherscan.io/verifySig/302705 | [Research forum message](https://research.lido.fi/t/community-lifeguards-initiative-cli-reform-proposal/11216/4) |
+| Stakesaurus | 0x0fb6215099f48d723cfb89434c2cb887357bc871 | https://etherscan.io/verifySig/302868 | [Research forum message](https://research.lido.fi/t/community-lifeguards-initiative-cli-reform-proposal/11216/5) |
