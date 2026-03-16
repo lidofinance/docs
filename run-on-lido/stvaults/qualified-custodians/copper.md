@@ -14,7 +14,8 @@ CopperConnect is a browser extension that works like one of the popular hot wall
 Make sure that you've installed and configured the CopperConnect browser extension.
 
 #### 1.1. Open browser extension UI:
-<img alt="CopperConnect UI" src="/img/stvaults/custodians/copper/copper_1.png" width="300" />
+<img alt="CopperConnect UI: Login" src="/img/stvaults/custodians/copper/copper_0.png" width="300" />
+<img alt="CopperConnect UI: Main screen" src="/img/stvaults/custodians/copper/copper_1.png" width="300" />
 
 #### 1.2. Select Organization and Account to connect:
 <img alt="CopperConnect UI: Organization" src="/img/stvaults/custodians/copper/copper_2.png" width="300" />
