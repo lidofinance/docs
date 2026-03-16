@@ -345,3 +345,36 @@
 .v3-callout-content a:hover {
   color: #79c0ff;
 }
+
+/* Search highlight — target doc page (fades out) */
+.search-highlight {
+  background-color: rgba(255, 213, 0, 0.4);
+  border-radius: 2px;
+  padding: 0 1px;
+  transition: background-color 1s ease-out;
+}
+
+[data-theme='dark'] .search-highlight {
+  background-color: rgba(255, 213, 0, 0.3);
+}
+
+.search-highlight--fade {
+  background-color: transparent;
+}
+
+/* Remove Algolia's default italic on search results — yellow highlight only */
+[class*='searchResultItem'] em {
+  font-style: normal;
+  background-color: rgba(255, 213, 0, 0.3);
+}
+
+/* Suppress first-result active highlight until user navigates via arrows/tab/mouse */
+.no-initial-selection .DocSearch-Hit[aria-selected='true'] a {
+  background-color: var(--docsearch-hit-background);
+}
+
+.no-initial-selection
+  .DocSearch-Hit[aria-selected='true']
+  .DocSearch-Hit-Select-Icon {
+  display: none;
+}

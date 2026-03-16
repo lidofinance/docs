@@ -15,6 +15,10 @@ module.exports = async function createConfigAsync() {
       mermaid: true,
     },
     themes: ['@docusaurus/theme-mermaid'],
+    clientModules: [
+      './src/clientModules/searchHighlight.js',
+      './src/clientModules/searchQueryPersist.js',
+    ],
     stylesheets: [
       {
         href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
@@ -58,6 +62,21 @@ module.exports = async function createConfigAsync() {
           }
         ],
       },
+      algolia: {
+        appId: 'A2HCNXVT4O',
+        // TODO: put your own api key
+        apiKey: '',
+        indexName: 'dev_LIDO_DOCS',
+        contextualSearch: false,
+        searchPagePath: 'search',
+        searchParameters: {
+          distinct: 3,
+          exactOnSingleWordQuery: 'none',
+          removeWordsIfNoResults: 'lastWords',
+          ignorePlurals: true,
+          queryLanguages: ['en'],
+        },
+      },
     },
     presets: [
       [
@@ -77,10 +96,10 @@ module.exports = async function createConfigAsync() {
       ],
     ],
     plugins: [
-      [
-        require.resolve('@easyops-cn/docusaurus-search-local'),
-        { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
-      ],
+      // [
+      //   require.resolve('@easyops-cn/docusaurus-search-local'),
+      //   { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
+      // ],
       [
         '@docusaurus/plugin-client-redirects',
         {
