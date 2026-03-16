@@ -327,24 +327,31 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.2 - 2.8.9 Liquidity Observation Lab Committee Assets Distribution Multisigs
+### 2.8.2 Liquidity Observation Lab Committee Assets Distribution Multisigs
 
-**Addresses:**
-
-| № | Name | Address |
-| --- | --- | --- |
-| 2.8.2 | Optimism | oeth:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)|
-| 2.8.3 | Arbitrum | arb1:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)|
-| 2.8.4 | Base | base:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
-| 2.8.5 | ZKSync | zksync:[`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) |
-| 2.8.6 | Binance Smart Chain (BSC) | bnb:[`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) |
-| 2.8.7 | Linea | linea:[`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) |
-| 2.8.8 | Mantle | mantle:[`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) |
-| 2.8.9 | Scroll | scroll:[`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD`](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD) |
+**Addresses:**\
+`0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6` - 
+[Ethereum](https://app.safe.global/home?safe=eth:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Arbitrum](https://app.safe.global/home?safe=arb1:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Base](https://app.safe.global/home?safe=base:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[BNB](https://app.safe.global/home?safe=bnb:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Gnosis](https://app.safe.global/home?safe=gno:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Ink](https://app.safe.global/settings/setup?safe=ink:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Linea](https://app.safe.global/home?safe=linea:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Mantle](https://app.safe.global/home?safe=mnt:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Monad](https://app.safe.global/settings/setup?safe=monad:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Optimism](https://app.safe.global/home?safe=oeth:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Plasma](https://app.safe.global/home?safe=plasma:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Polygon](https://app.safe.global/home?safe=matic:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Scroll](https://app.safe.global/home?safe=scr:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Unichain](https://app.safe.global/home?safe=unichain:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6)\
+`0x65B05f4fCa066316383b0FE196C76C873a4dFD02` - [ZKSync](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02)
 
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
-**Quorum:** 3/6
+**Quorum:** 3/6 (4/7 on Unichain)
+
+**Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/30)
 
 **List of signers:**
 
@@ -354,10 +361,26 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| Armin | 0x8ecd93982FfbB2f937ADa6c6e50d1950974081C0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.10 Liquidity Observation Lab Committee (Polygon)
+Additional signer of Unichain multisig:
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Olga_K | 0x397eE87383787812fe0828Ead2BCAda6AE8FAc6F | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
+
+**Archived multisigs:**\
+`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61` - 
+[Arbitrum](https://app.safe.global/home?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), 
+[Base](https://app.safe.global/home?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), 
+[BNB](https://app.safe.global/home?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), 
+[Optimism](https://app.safe.global/home?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)\
+`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6` - [Linea](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6)\
+`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6` - [Mantle](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6)\
+`0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD` - [Scroll](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD)
+
+### 2.8.3 Liquidity Observation Lab Committee (Polygon)
 
 **Address:** matic:[`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
@@ -375,7 +398,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
 
-### 2.8.11 Liquidity Observation Lab Committee multisigs for incentives on AAVE
+### 2.8.4 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
 **Addresses:**\
 `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` - [Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022)\
@@ -398,7 +421,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.12 Liquidity Observation Lab Committee OP Token Multisig
+### 2.8.5 Liquidity Observation Lab Committee OP Token Multisig
 
 **Address:** oeth:[`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/settings/setup?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A)
 
@@ -420,7 +443,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 
-### 2.8.13 Liquidity Observation Lab Committee ARB Token Multisig
+### 2.8.6 Liquidity Observation Lab Committee ARB Token Multisig
 
 **Address:** arb1:[`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/settings/setup?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56)
 
@@ -445,7 +468,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.14 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
+### 2.8.7 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
 **Address:** arb1:[`0xD97221065E826167A2cFE3307972c0D42200fDB4`](https://app.safe.global/home?safe=arb1:0xD97221065E826167A2cFE3307972c0D42200fDB4)
 
@@ -467,7 +490,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.15 Liquidity Observation Lab Committee ZK Token Multisig
+### 2.8.8 Liquidity Observation Lab Committee ZK Token Multisig
 
 **Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
 
