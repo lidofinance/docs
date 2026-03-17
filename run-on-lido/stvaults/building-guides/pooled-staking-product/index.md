@@ -198,7 +198,7 @@ yarn start defi-wrapper contracts factory w create-strategy-pool-lido-earn-eth <
 You can use `--allowList true` to enable the deposit allowlist for this strategy. AllowList Manager role on Strategy must be set separately by TimeLock governance.
 
 :::warning
-AllowList will be always enabled on StvStethPool contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has it's own allow list.
+AllowList will be always enabled on StvStethPool contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has its own allow list.
 :::
 
 <details>
