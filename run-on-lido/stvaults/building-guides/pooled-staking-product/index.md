@@ -192,7 +192,7 @@ yarn start defi-wrapper contracts factory w create-strategy-pool-lido-earn-eth <
   --proposer <PROPOSER_ADDRESS> \
   --executor <EXECUTOR_ADDRESS> \
   --emergencyCommittee <EMERGENCY_COMMITTEE_ADDRESS> \
-  --reserveRatioGapBP 250 \
+  --reserveRatioGapBP 250
 ```
 
 You can use `--allowList true` to enable the deposit allowlist for this strategy. AllowList Manager role on Strategy must be set separately by TimeLock governance.
