@@ -173,7 +173,7 @@ To deploy a pool integrated with a custom DeFi strategy see the dedicated guide:
 
 #### Deployment of `StvStrategyPool` with the `Lido Earn ETH` strategy
 
-The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earh ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
+The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earn ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
 
 To deploy this pool, use the `create-strategy-pool-lido-earn-eth`. The factory addresses for each network are listed in the [Environments](#environments) section. The full parameter reference is available below.
 
@@ -198,7 +198,7 @@ yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FAC
 You can use `--allowList true` to enable the deposit allowlist for this strategy. AllowList Manager role on Strategy must be set separately by TimeLock governance.
 
 :::warning
-AllowList will be always enabled on StvStethPool contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has it's own allow list.
+AllowList will be always enabled on StvStethPool contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has its own allow list.
 :::
 
 <details>
