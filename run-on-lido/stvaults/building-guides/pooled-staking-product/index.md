@@ -173,14 +173,14 @@ To deploy a pool integrated with a custom DeFi strategy see the dedicated guide:
 
 #### Deployment of `StvStrategyPool` with the `Lido Earn ETH` strategy
 
-The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earh ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
+The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earn ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
 
 To deploy this pool, use the `create-strategy-pool-lido-earn-eth`. The factory addresses for each network are listed in the [Environments](#environments) section. The full parameter reference is available below.
 
 Start the deployment like:
 
 ```bash
-yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FACTORY> <STRATEGY_FACTORY_ADDRESS> \
+yarn start defi-wrapper contracts factory w create-strategy-pool-lido-earn-eth <DEFI_WRAPPER_FACTORY> <STRATEGY_FACTORY_ADDRESS> \
   --nodeOperator <NODE_OPERATOR_ADDRESS> \
   --nodeOperatorManager <NODE_OPERATOR_MANAGER_ADDRESS> \
   --nodeOperatorFeeRateBP 10 \
