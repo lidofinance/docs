@@ -212,7 +212,7 @@ The CLI provides a single command that handles the entire distribution flow:
 5. Sets the Merkle root and CID on-chain.
 
 ```bash
-yarn start dw uc distributor w distribute <poolAddress> <wstethAddress>:<amount> \
+yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
   --upload <ipfsPinningServiceUrl> \
   --output-path ./distribution.json
 ```
@@ -233,7 +233,7 @@ yarn start dw uc distributor w distribute <poolAddress> <wstethAddress>:<amount>
 Since tokens were already transferred in step 7.3, use `--skip-transfer` to avoid a duplicate transfer:
 
 ```bash
-yarn start dw uc distributor w distribute <poolAddress> <wstethAddress>:<amount> \
+yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
   --skip-transfer \
   --upload <ipfsPinningServiceUrl>
 ```
