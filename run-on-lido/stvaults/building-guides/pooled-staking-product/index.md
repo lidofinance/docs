@@ -75,7 +75,7 @@ DeFi Wrapper supports three product archetypes:
   <TabItem value="mainnet" label="Mainnet">
     <ul>
       <li><strong>DeFi Wrapper Factory:</strong> <a href="https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587#code">0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587</a></li>
-      <li><strong>Lido Earn Strategy Factory:</strong>TBD</li>
+      <li><strong>Lido Earn Strategy Factory:</strong><a href="https://etherscan.io/address/0x8Fac09FD82F031D390B94622E2E4baBf16Fd2236">0x8Fac09FD82F031D390B94622E2E4baBf16Fd2236</a></li>
       <li><strong>Latest branch:</strong> <a href="https://github.com/lidofinance/vaults-wrapper/releases/tag/v1.0.0">vaults-wrapper (v1.0.0)</a></li>
     </ul>
   </TabItem>
