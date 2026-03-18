@@ -135,7 +135,7 @@ Once a consolidation request is processed on the consensus layer:
 2. **Source validator exits** — at `exit_epoch`, the source validator is excluded from active duties (attestations, block proposals). The source validator **stops earning rewards**.
 3. **Withdrawability delay** — the source validator waits `MIN_VALIDATOR_WITHDRAWABILITY_DELAY` (256 epochs, ~27 hours). **No rewards are earned** on this balance during the delay.
 4. **Balance transfer** — the source validator's effective balance is moved to the target validator. Any excess above the effective balance is withdrawn to the source validator's withdrawal credentials. The target validator **starts earning rewards** on the combined balance.
-   :::
+:::
 
 ## 5. Post-consolidation checks
 
