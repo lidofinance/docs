@@ -331,21 +331,21 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Addresses:**\
 `0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6` - 
-[Ethereum](https://app.safe.global/home?safe=eth:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Arbitrum](https://app.safe.global/home?safe=arb1:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Base](https://app.safe.global/home?safe=base:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[BNB](https://app.safe.global/home?safe=bnb:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Gnosis](https://app.safe.global/home?safe=gno:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Ethereum](https://app.safe.global/settings?safe=eth:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Arbitrum](https://app.safe.global/settings?safe=arb1:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Base](https://app.safe.global/settings?safe=base:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[BNB](https://app.safe.global/settings?safe=bnb:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Gnosis](https://app.safe.global/settings?safe=gno:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
 [Ink](https://app.safe.global/settings/setup?safe=ink:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Linea](https://app.safe.global/home?safe=linea:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Mantle](https://app.safe.global/home?safe=mnt:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Linea](https://app.safe.global/settings?safe=linea:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Mantle](https://app.safe.global/settings?safe=mnt:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
 [Monad](https://app.safe.global/settings/setup?safe=monad:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Optimism](https://app.safe.global/home?safe=oeth:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Plasma](https://app.safe.global/home?safe=plasma:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Polygon](https://app.safe.global/home?safe=matic:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Scroll](https://app.safe.global/home?safe=scr:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
-[Unichain](https://app.safe.global/home?safe=unichain:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6)\
-`0x65B05f4fCa066316383b0FE196C76C873a4dFD02` - [ZKSync](https://app.safe.global/home?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02)
+[Optimism](https://app.safe.global/settings?safe=oeth:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Plasma](https://app.safe.global/settings?safe=plasma:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Polygon](https://app.safe.global/settings?safe=matic:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Scroll](https://app.safe.global/settings?safe=scr:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6),
+[Unichain](https://app.safe.global/settings?safe=unichain:0xFc832dA3D688352C0aB1A32136c7fABbB16d66E6)\
+`0x65B05f4fCa066316383b0FE196C76C873a4dFD02` - [ZKSync](https://app.safe.global/settings?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02)
 
 **Purpose of the multisigs:** The multisigs are set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
 
