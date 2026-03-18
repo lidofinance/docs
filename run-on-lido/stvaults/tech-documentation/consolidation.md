@@ -131,14 +131,11 @@ yarn start consolidation write consolidate-validators <dashboard> \
 :::info[What happens after the request]
 Once a consolidation request is processed on the consensus layer:
 
-1. **Exit is scheduled** — the source validator's `exit_epoch` is set immediately. If many validators are exiting network-wide, the churn limit may delay the actual exit epoch. During this wait, the source validator **remains active and continues earning rewards**.
-2. **Source validator exits** — once the `exit_epoch` arrives, the source validator is excluded from active duties (attestations, block proposals) and **stops earning rewards**.
-3. **Withdrawal delay** — after exiting, the source validator waits for `MIN_VALIDATOR_WITHDRAWABILITY_DELAY` (~256 epochs / ~27 hours) before becoming withdrawable.
-4. **Pending consolidation queue** — the consolidation enters the `pending_consolidations` queue. The consensus layer processes a limited number of pending consolidations per epoch (`MAX_PENDING_CONSOLIDATIONS`). If the queue is large, there may be additional delay at this stage.
-5. **Balance lands on target** — once processed, the source validator's effective balance is added to the target validator. Any excess above the effective balance is withdrawn to the source validator's withdrawal credentials. The target validator can now attest with the increased balance.
-
-The source validator stops earning rewards at step 2, but the balance arrives at the target only at step 5. During steps 3–4, the ETH is idle — not earning rewards on either validator. If the pending consolidation queue is large, this idle period can extend significantly (e.g., days), resulting in missed rewards.
-:::
+1. **Exit is scheduled** — the source validator's `exit_epoch` is set. If many validators are exiting network-wide, the churn limit may delay the actual exit epoch. The source validator **earns rewards** while waiting.
+2. **Source validator exits** — at `exit_epoch`, the source validator is excluded from active duties (attestations, block proposals). The source validator **stops earning rewards**.
+3. **Withdrawability delay** — the source validator waits `MIN_VALIDATOR_WITHDRAWABILITY_DELAY` (256 epochs, ~27 hours). **No rewards are earned** on this balance during the delay.
+4. **Balance transfer** — the source validator's effective balance is moved to the target validator. Any excess above the effective balance is withdrawn to the source validator's withdrawal credentials. The target validator **starts earning rewards** on the combined balance.
+   :::
 
 ## 5. Post-consolidation checks
 
