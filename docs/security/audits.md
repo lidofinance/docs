@@ -1,6 +1,6 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (94 reports)
+## Lido on Ethereum (93 reports)
 
 ### 03-2026 Composable Security Lido Oracle v7.1 Security Audit
 
