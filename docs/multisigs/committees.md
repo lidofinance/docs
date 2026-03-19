@@ -357,7 +357,7 @@ Additional signer of Unichain multisig:
 | Olga_K | 0x397eE87383787812fe0828Ead2BCAda6AE8FAc6F | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
 
 **Archived multisigs:**\
-`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61` - [Arbitrum](https://app.safe.global/settings/setup?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), [Base](https://app.safe.global/settings/setup?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), [BNB](https://app.safe.global/settings/setup?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), [Optimism](app.safe.global/settings/setup?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)\
+`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61` - [Arbitrum](https://app.safe.global/settings/setup?safe=arb1:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), [Base](https://app.safe.global/settings/setup?safe=base:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), [BNB](https://app.safe.global/settings/setup?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61), [Optimism](https://app.safe.global/settings/setup?safe=oeth:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61)\
 `0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6` - [Linea](https://app.safe.global/home?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6)\
 `0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6` - [Mantle](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6)\
 `0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD` - [Scroll](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD)
