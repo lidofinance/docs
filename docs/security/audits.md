@@ -1,6 +1,23 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (91 reports)
+## Lido on Ethereum (94 reports)
+
+### 03-2026 Composable Security Lido Oracle v7.1 Security Audit
+
+- Total Issues: 1 (1 Fixed)
+- Info Issues: 1 (1 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7_1%20Audit%20Report.pdf) for more details.
+
+### 03-2026 MixBytes Lido DeFi Wrapper MellowStrategyAdapter Security Audit Report 03-2026
+
+- Total Issues: 9 (7 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 2 (2 Fixed)
+- Low Issues: 7 (5 Fixed, 2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20DeFi%20Wrapper%20MellowStrategyAdapter%20Security%20Audit%20Report%2003-2026.pdf) for more details.
 
 ### 01-2026 Sigma Prime Lido BLS Library Security Audit
 
