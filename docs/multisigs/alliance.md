@@ -1,6 +1,6 @@
 # Alliance
 
-## 3.1. Lido Alliance BORG Operational
+## 3.1 Lido Alliance BORG Operational
 
 **Address:** [`0x606f77BF3dd6Ed9790D9771C7003f269a385D942`](https://app.safe.global/settings/setup?safe=eth:0x606f77BF3dd6Ed9790D9771C7003f269a385D942)
 
@@ -71,7 +71,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Aleksandr_Lukin | 0x1EAF931aabbB02Ca8A416040cF5b35C73Fff2A8a | https://etherscan.io/verifySig/257034 | https://twitter.com/alexanderlukin9/status/1828449516950892650 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
-## 3.3. Lido Alliance BORG Drop
+## 3.3 Lido Alliance BORG Drop
 
 **Address:** [`neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr`](https://daodao.zone/dao/neutron1fdjng7sdfrn22xlyl923v5fngyvzhllvjkrewv2e932qf54fs79srz0jfr)
 
