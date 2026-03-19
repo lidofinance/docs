@@ -28,33 +28,33 @@ Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) 
 <details>
   <summary>using Command-line Interface</summary>
 
-  First, discover the role hash:
+First, discover the role hash:
 
-  ```bash
-  yarn start vo r roles
-  ```
+```bash
+yarn start vo r roles
+```
 
-  Then grant the role:
+Then grant the role:
 
-  ```bash
-  yarn start vo w role-grant --roleAssignments '[{"account": "<withdrawal_credentials>", "role": "<node_operator_fee_exempt_role_in_hex>"}]'
-  ```
+```bash
+yarn start vo w role-grant --roleAssignments '[{"account": "<withdrawal_credentials>", "role": "<node_operator_fee_exempt_role_in_hex>"}]'
+```
 
-  You can also use interactive mode:
+You can also use interactive mode:
 
-  ```bash
-  yarn start vo w role-grant
-  ```
+```bash
+yarn start vo w role-grant
+```
 
-  For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-grant).
+For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-grant).
 
 </details>
 <details>
   <summary>using stVaults Web UI</summary>
 
-  1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/settings/permissions`.
-  2. Navigate to the "Node Operator Manager Permissions" section, "Node operator's sub-role for fee exemptions" item.
-  3. Add the address of your original validator's withdrawal credentials.
+1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/settings/permissions`.
+2. Navigate to the "Node Operator Manager Permissions" section, "Node operator's sub-role for fee exemptions" item.
+3. Add the address of your original validator's withdrawal credentials.
 
 </details>
 
@@ -126,16 +126,19 @@ yarn start consolidation write consolidate-validators <dashboard> \
   --target_pubkeys "target_pubkey_first target_pubkey_second" \
   --wallet-connect
 ```
+
 :::
 
 :::info[What happens after the request]
 Once a consolidation request is processed on the consensus layer:
 
 1. **Exit is scheduled** — the source validator's `exit_epoch` is set. If many validators are exiting network-wide, the churn limit may delay the actual exit epoch. The source validator **earns rewards** while waiting.
-2. **Source validator exits** — at `exit_epoch`, the source validator is excluded from active duties (attestations, block proposals). The source validator **stops earning rewards**.
+2. **Source validator exits** — at `exit_epoch`, the source validator is excluded from active duties (attestations, block proposals)[^1]. The source validator **stops earning rewards**.
+
+[^1]: In rare cases, exited validators [may still be called for sync committee duties](https://ethresear.ch/t/sync-committees-exited-validators-participating-in-sync-committee/15634) if they were assigned before exit. Such validators should remain active for up to 256 epochs (`SHARD_COMMITTEE_PERIOD`) after exit to fulfill these duties.
 3. **Withdrawability delay** — the source validator waits `MIN_VALIDATOR_WITHDRAWABILITY_DELAY` (256 epochs, ~27 hours). **No rewards are earned** on this balance during the delay.
 4. **Balance transfer** — the source validator's effective balance is moved to the target validator. Any excess above the effective balance is withdrawn to the source validator's withdrawal credentials. The target validator **starts earning rewards** on the combined balance.
-:::
+   :::
 
 ## 5. Post-consolidation checks
 
@@ -151,25 +154,25 @@ Consolidation request transactions may succeed on the execution layer but fail o
 <details>
   <summary>using Command-line Interface</summary>
 
-  ```bash
-  yarn start vo w role-revoke --roleAssignments '[{"account": "<withdrawal_credentials>", "role": "<node_operator_fee_exempt_role_in_hex>"}]'
-  ```
+```bash
+yarn start vo w role-revoke --roleAssignments '[{"account": "<withdrawal_credentials>", "role": "<node_operator_fee_exempt_role_in_hex>"}]'
+```
 
-  You can also use interactive mode:
+You can also use interactive mode:
 
-  ```bash
-  yarn start vo w role-revoke
-  ```
+```bash
+yarn start vo w role-revoke
+```
 
-  For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-revoke).
+For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-revoke).
 
 </details>
 <details>
   <summary>using stVaults Web UI</summary>
 
-  1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/settings/permissions`.
-  2. Navigate to the "Node Operator Manager Permissions" section, "Node operator's sub-role for fee exemptions" item.
-  3. Remove the withdrawal credentials address.
+1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/settings/permissions`.
+2. Navigate to the "Node Operator Manager Permissions" section, "Node operator's sub-role for fee exemptions" item.
+3. Remove the withdrawal credentials address.
 
 </details>
 
