@@ -1,10 +1,13 @@
 # Guide to Easy Track
 
-This guide provides information about Easy Track, voting rules, use cases, step-by-step instructions and helpful tips for initiating new motions.
+This guide provides information about Easy Track, voting rules, step-by-step instructions and helpful tips for initiating new motions.
 
 This guide is intended for those who use Easy Track to initiate new motions, including committee members, node operators, and others with the ability to execute their governance functions through Easy Track.
 
 The guide consists of two sections: [General overview](#general-overview) and [Operations HOWTO](#operations-howto). If you’re here for the technical details of interacting with Easy Track, please skip to the latter.
+
+You can read more about Easy Track functionality in the [LIP-3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-3.md).
+For more in-depth technical description, please read through the full project [specification](https://github.com/lidofinance/easy-track/blob/master/specification.md).
 
 ## General overview
 
@@ -20,19 +23,6 @@ To prevent motion spam, only up to 20 active motions can exist simultaneously.
 Initially, the Lido DAO governance used to rely on Aragon voting model. The DAO approved or rejected proposals by direct governance token voting. Though transparent and reliable, it is not a convenient way to make decisions only affecting small groups of Lido DAO members. Besides, direct token voting didn’t exactly reflect all the decision-making processes within the Lido DAO and was often used only to adopt an existing consensus. Votings on such decisions often struggled to attract wider DAO attention and thus, to pass.
 Easy Track has been developed as a solution to the problem of the DAO getting tired of governance.
 
-### Easy Track use cases
-
-The main types of votes periodically initiated by the Lido DAO via Easy Track motions are listed below:
-- the Lido Node Operator increases its staking limit within the Lido protocol;
-- the Simple DVT Module Committee member manages clusters, including adding new clusters, activating or deactivating existing ones, setting cluster key limits, and updating cluster manager and reward addresses;
-- the Community Staking Module (CSM) Committee member updates penalties for MEV stealing;
-- the Lido Ecosystem Grants Organisation (LEGO) member requests fund allocations to the LEGO program;
-- the Lido Liquidity Observation Lab (LOL) member requests fund allocations to ongoing reward programs or adjusts the list of active reward programs;
-- the Rewards Share Program Committee member requests fund allocations to the program or updates the participant whitelist;
-- the Resourcing and Compensation Committee (RCC), Pool Maintenance Labs Ltd. (PML), or Argo Technology Consulting Ltd. (ATC) member requests grants for further allocation following their respective policies;
-- the TRP Multisig Committee member requests funding for TRP-related payments;
-- the Gas Rebates Multisig member requests funding to cover gas compensation expenses;
-- the Treasury Management Committee member requests tokens for swaps executed via Stonks orders.
 
 ### Possible motion outcomes
 
@@ -45,10 +35,6 @@ In case the minimum objections threshold of 0.5% of the total LDO supply has bee
 3. **Motion canceled.**
 In case you find out you have made a mistake when starting the motion, you can cancel the motion at any moment before it has been enacted. To do so, click on the motion to see the detailed motion view and press the 'Cancel' motion button top right. Please note, that this is on-chain action, and you will have to sign a transaction to complete it (gas costs apply).
 
-### Links
-
-You can read more about Easy Track functionality in the [LIP-3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-3.md).
-For more in-depth technical description, please read through the full project [specification](https://github.com/lidofinance/easy-track/blob/master/specification.md).
 
 ## Operations HOWTO
 - [Basic guide to Easy Track](#basic-guide-to-easy-track)
@@ -102,11 +88,11 @@ To verify the transaction, follow these steps:
   - To initiate a new motion, select **Increase Node Operator Staking Limit** as the motion type.
 
 **How to complete the form for a new motion:**
-- Use your Node Operator ID, which can be found in the Node Operators Dashboard on [holešky](https://operators-holesky.testnet.fi/) or [mainnet](https://operators.lido.fi/) (it is the number displayed to the right of your node operator name with the # prefix).
+- Use your Node Operator ID, which can be found in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/) (it is the number displayed to the right of your node operator name with the # prefix).
 - Enter the desired staking limit in the ‘New Limit’ field.
 
 **Other key considerations:**
-1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the Node Operators Dashboard on [holešky](https://operators-holesky.testnet.fi/) or [mainnet](https://operators.lido.fi/)).
+1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/)).
 2. **A single motion can only address the staking limit of a single node operator.** It is not possible to increase limits for multiple node operators in one motion.
 3. **The total amount of a node operator's signing keys must be greater than or equal to the new staking limit.** Make sure you have submitted enough valid signing keys before starting a motion.
 
