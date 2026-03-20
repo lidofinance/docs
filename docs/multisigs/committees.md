@@ -337,7 +337,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Quorum:** 3/6, 4/7 on Unichain
 
-**Forum topic:** [Liquidity Observation Lab (LOL): Liquidity Strategy and application to Curve stETH:ETH Pool](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/30)
+**Forum topic:** [Liquidity Observation Lab (LOL): Harmonizing L2 Multisigs](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/30)
 
 **List of signers:**
 
