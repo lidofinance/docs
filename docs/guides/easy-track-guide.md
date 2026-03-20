@@ -92,7 +92,7 @@ To verify the transaction, follow these steps:
 - Enter the desired staking limit in the ‘New Limit’ field.
 
 **Other key considerations:**
-1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/)).
+1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/).
 2. **A single motion can only address the staking limit of a single node operator.** It is not possible to increase limits for multiple node operators in one motion.
 3. **The total amount of a node operator's signing keys must be greater than or equal to the new staking limit.** Make sure you have submitted enough valid signing keys before starting a motion.
 
