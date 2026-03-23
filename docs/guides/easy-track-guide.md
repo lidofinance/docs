@@ -88,8 +88,8 @@ To verify the transaction, follow these steps:
   - To initiate a new motion, select **Increase Node Operator Staking Limit** as the motion type.
 
 **How to complete the form for a new motion:**
-- Use your Node Operator ID, which can be found in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/) (it is the number displayed to the right of your node operator name with the # prefix).
-- Enter the desired staking limit in the ‘New Limit’ field.
+  - Use your Node Operator ID, which can be found in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/) (it is the number displayed to the right of your node operator name with the # prefix).
+  - Enter the desired staking limit in the ‘New Limit’ field.
 
 **Other key considerations:**
 1. **Node operators can only increase staking limits for themselves.** Before initiating a motion, ensure that you have access to the address associated with the correct node operator in the Lido Node Operators Registry. You can find the correct address in the [Node Operators Dashboard on mainnet](https://operators.lido.fi/).
