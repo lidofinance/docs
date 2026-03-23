@@ -1,6 +1,6 @@
 # Security Disclosures
 
-A chronological record of security-related disclosures and post-mortem reports published by Lido. For details on impact, root cause, and resolution, refer to the linked reports. Dates reflect when the report was published. Disclosures and outage reports related to node operators can be found on [research.lido.fi](https://research.lido.fi).
+A reverse-chronological (most recent first) record of security-related disclosures and post-mortem reports published by Lido. For details on impact, root cause, and resolution, refer to the linked reports. Dates reflect when the report was published. Disclosures and outage reports related to node operators can be found on [research.lido.fi](https://research.lido.fi).
 
 | Date | Title | Links |
 | ---------- | --------------------------------------------------- | ----- |
