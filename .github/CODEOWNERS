@@ -6,6 +6,7 @@ docs/guides @lidofinance/lido-dao-ops-team
 docs/guides/lido-tokens-integration-guide.md @lidofinance/lido-eth-protocol
 docs/multisigs @lidofinance/lido-dao-ops-team
 docs/staking-modules/csm @lidofinance/community-staking
+docs/security @lidofinance/secops
 run-on-lido/ @lidofinance/lido-eth-protocol
 run-on-lido/csm @lidofinance/community-staking
-docs/security @lidofinance/secops
+
