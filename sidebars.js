@@ -160,7 +160,7 @@ module.exports = {
         'security/bugbounty',
         'security/audits',
         'security/safeharbor',
-        'security/incidents',
+        'security/disclosures',
       ],
     },
     {
