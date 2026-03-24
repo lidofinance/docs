@@ -24,3 +24,4 @@ yarn-error.log*
 .cursor
 .vscode
 .idea
+.claude
