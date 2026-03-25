@@ -1,12 +1,12 @@
 # Guide to Dual Governance
 
-[The Dual Governance interface](https://dg.lido.fi/) provides stETH holders with tools to monitor the governance state, escrow tokens for Veto Signaling, manage them during Veto Signaling and withdraw after a Rage Quit.
+[The Dual Governance interface](https://dao.lido.fi/dg/) provides stETH holders with tools to monitor the governance state, escrow tokens for Veto Signaling, manage them during Veto Signaling and withdraw after a Rage Quit.
 
 For more information about Dual Governance [visit the blog](https://blog.lido.fi/dual-governance-101-explainer/) or check [the specification](https://github.com/lidofinance/dual-governance/blob/3e0f1ae5740ef8410e928f6cc106e3a5f45a5a75/docs/specification.md).
 
 ## Understanding Governance State
 
-1. Visit [https://dg.lido.fi](https://dg.lido.fi/)
+1. Visit [https://dao.lido.fi/dg](https://dao.lido.fi/dg/)
 2. Ongoing proposals and their status are listed on the right side of the block. To learn more about the proposals, scroll down and click for more details.
 ![](/img/dg-guide/state_00.png)
     
@@ -45,7 +45,7 @@ For more information about Dual Governance [visit the blog](https://blog.lido.fi
 
 **Step 1: Connect your wallet**
 
-1. Go to Dual Governance page [https://dg.lido.fi](https://dg.lido.fi/)
+1. Go to Dual Governance page [https://dao.lido.fi/dg](https://dao.lido.fi/dg/)
 2. Click `Connect wallet` button in the upper right corner or under the proposal listing block
     
     ![](/img/dg-guide/veto_01.png)

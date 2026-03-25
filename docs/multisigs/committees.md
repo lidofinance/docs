@@ -20,7 +20,7 @@ The multisig enables the receipt of LDO and other allowed tokens (listed in the 
 [Lido Ecosystem Grants Organization (LEGO) — Framework Update 1 October 2025](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0xc87e56b48594d0a5560a959ac32252f86464966a5a9d6ea86ef189d842d9328a)
 
 **Aragon:**\
-[Omnibus vote #147 (items 4,5)](https://vote.lido.fi/vote/147)
+[Omnibus vote #147 (items 4,5)](https://dao.lido.fi/vote/147)
 
 **Quorum:** 4/8
 
@@ -67,7 +67,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 [Rewards Share Committee Reform](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0xb4a35720b03f4c888c2fb41ab66ed324262d7a5b4696ffc3ee20bb35ebb0df6f)
 
 **Aragon:**\
-[Omnibus vote #162](https://vote.lido.fi/vote/162)
+[Omnibus vote #162](https://dao.lido.fi/vote/162)
 
 **Easy Track contracts and roles:**
 
@@ -100,7 +100,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 
 **Snapshot:** [Lido on Ethereum Block Proposer Rewards Policy 2.0 and Relay Maintenance Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0x7ac2431dc0eddcad4a02ba220a19f451ab6b064a0eaef961ed386dc573722a7f)
 
-**Aragon:** [Omnibus vote #149 (item 6)](https://vote.lido.fi/vote/149)
+**Aragon:** [Omnibus vote #149 (item 6)](https://dao.lido.fi/vote/149)
 
 **Contracts and roles:**
 
@@ -136,7 +136,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 [Proposal to form TRP Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xc00b48275e268f26b6cebf82322f281a44acaf679f6381dd612e278174671daf)\
 [Transfer TRP to Lido Labs Foundation and Amend TRP Terms](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x16ecb51631d67213d44629444fcc6275bc2abe4d7e955bebaf15c60a42cba471)
 
-**Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://vote.lido.fi/vote/152)
+**Aragon:** [Omnibus vote #152 to set up LDO Easy Track](https://dao.lido.fi/vote/152)
 
 **Contracts and roles:**
 
@@ -175,8 +175,8 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 [Conversion of Treasury Stablecoins into sUSDS or TMMFs](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x4dd947f5e73377b074fd393148b377558179f22ea923d584dd3c718f3bab0687)
 
 **Aragon:**\
-[Omnibus vote #173](https://vote.lido.fi/vote/173)\
-[Omnibus vote #195](https://vote.lido.fi/vote/195)
+[Omnibus vote #173](https://dao.lido.fi/vote/173)\
+[Omnibus vote #195](https://dao.lido.fi/vote/195)
 
 **Easy Track contracts and roles:**
 
@@ -215,8 +215,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 [Nominate the Gas Supply Committee as a supervisor for gas expenditure](https://snapshot.org/#/lido-snapshot.eth/proposal/0xbfecc75c45bca53d3c5786f099d46559ac597bc3fae802d5f599b60f10b4bd4a)
 
 **Aragon:**\
-[Omnibus vote #156](https://vote.lido.fi/vote/156)\
-[Omnibus vote #160 (items 6-8)](https://vote.lido.fi/vote/160)
+[Omnibus vote #156](https://dao.lido.fi/vote/156)\
+[Omnibus vote #160 (items 6-8)](https://dao.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
@@ -253,7 +253,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 [Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
 
 **Aragon:**\
-[Omnibus vote #172 (items 7-18)](https://vote.lido.fi/vote/172)
+[Omnibus vote #172 (items 7-18)](https://dao.lido.fi/vote/172)
 
 **Easy Track Simple DVT staking module contracts and roles:**
 
@@ -303,7 +303,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 [Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **Aragon:**\
-[Omnibus vote #160 (items 9-14)](https://vote.lido.fi/vote/160)
+[Omnibus vote #160 (items 9-14)](https://dao.lido.fi/vote/160)
 
 **Easy Track contracts and roles:**
 
@@ -512,8 +512,8 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 [CSM v2 Final Rollout](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xc3f92bcdf8926cfa7528ca6a979c0fdce1e4d0cfaaa72dd6410a76a2e1e55766)
 
 **Aragon:**\
-[Omnibus vote #180 (items 20-26)](https://vote.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
-[Omnibus vote #192 (items 1.34-1.59)](https://vote.lido.fi/vote/192) (upgrade to CSM v2)
+[Omnibus vote #180 (items 20-26)](https://dao.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
+[Omnibus vote #192 (items 1.34-1.59)](https://dao.lido.fi/vote/192) (upgrade to CSM v2)
 
 **Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
@@ -605,7 +605,7 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 [[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
 
 **Aragon:**\
-[Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
+[Omnibus vote #184, item 2](https://dao.lido.fi/vote/184)
 
 **Easy Track contracts and roles:**
 
@@ -657,7 +657,7 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 [[EGG] Lido Ecosystem BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x90e2f9926e37867d2ef319a8ef7a0257bb5695086b64b88b43b43f00959a0047)
 
 **Aragon:**\
-[Omnibus vote #184, item 2](https://vote.lido.fi/vote/184)
+[Omnibus vote #184, item 2](https://dao.lido.fi/vote/184)
 
 **Easy Track contracts and roles:**
 

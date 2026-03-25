@@ -197,7 +197,7 @@ graph TD;
 
 ## Governance references
 
-- [Lido DAO Voting](https://vote.lido.fi/)
+- [Lido DAO Voting](https://dao.lido.fi/vote/dashboard)
 - [Protocol levers](/guides/protocol-levers)
 - [Emergency Brakes Multisigs](/multisigs/emergency-brakes)
 - [Deployed contracts (mainnet)](/deployed-contracts)

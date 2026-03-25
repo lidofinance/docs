@@ -60,7 +60,7 @@ For more in-depth technical description, please read through the full project [s
 
 #### Starting a new Easy Track motion
 To create a new Easy Track motion, follow these steps:
-1. proceed to the [Easy Track UI](https://easytrack.lido.fi);
+1. proceed to the [Easy Track UI](https://dao.lido.fi/easy-track/motions);
 2. click the ‘Connect' button top right;
 3. make sure the checkbox next to 'Terms of Use' and 'Privacy Notice' is selected;
 4. select the app you want to use to connect your wallet, make sure to use an address with permission to launch motions;
