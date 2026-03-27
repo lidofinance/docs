@@ -28,15 +28,15 @@ Steps 1–5 are DeFi Wrapper-specific and covered below. Step 6 follows the stan
 
 The disconnect process requires multiple roles across the Pool, Withdrawal Queue, and Dashboard contracts. Grant these roles to a trusted actor via the Timelock Controller.
 
-| Role | Contract | Purpose |
-| --- | --- | --- |
-| `LOSS_SOCIALIZER_ROLE` | Pool | Force rebalance undercollateralized users |
-| `DEPOSITS_PAUSE_ROLE` | Pool | Pause new deposits |
-| `MINTING_PAUSE_ROLE` | Pool | Pause stETH minting |
-| `WITHDRAWALS_PAUSE_ROLE` | Withdrawal Queue | Pause new withdrawal requests |
-| `FINALIZE_ROLE` | Withdrawal Queue | Finalize pending withdrawal requests |
-| `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` | Dashboard | Force validator exits |
-| `REBALANCE_ROLE` | Dashboard | Rebalance the vault |
+| Role                                | Contract         | Purpose                                   |
+| ----------------------------------- | ---------------- | ----------------------------------------- |
+| `LOSS_SOCIALIZER_ROLE`              | Pool             | Force rebalance undercollateralized users |
+| `DEPOSITS_PAUSE_ROLE`               | Pool             | Pause new deposits                        |
+| `MINTING_PAUSE_ROLE`                | Pool             | Pause stETH minting                       |
+| `WITHDRAWALS_PAUSE_ROLE`            | Withdrawal Queue | Pause new withdrawal requests             |
+| `FINALIZE_ROLE`                     | Withdrawal Queue | Finalize pending withdrawal requests      |
+| `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` | Dashboard        | Force validator exits                     |
+| `REBALANCE_ROLE`                    | Dashboard        | Rebalance the vault                       |
 
 Schedule and execute a batch transaction through the Timelock Controller to grant all roles at once:
 
@@ -211,29 +211,29 @@ yarn start dw uc distributor w add-token <poolAddress> <wstethAddress>
 
 The CLI provides a single command that handles the entire distribution flow:
 
-1. Calculates each user's share based on their time-weighted pool token balance.
+1. Calculates each user's share based on their balance at the time of distribution.
 2. Builds a Merkle tree mapping each user to their cumulative claimable amount.
 3. Transfers tokens to the Distributor contract (if not already transferred).
-4. Uploads the Merkle tree to IPFS (optional, via `--upload`).
-5. Sets the Merkle root and CID on-chain.
+4. Sets the Merkle root and CID on-chain.
+5. Saves file locally so you can upload and pin to IPFS provider of choice
 
 ```bash
 yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
-  --upload <ipfsPinningServiceUrl> \
+  --mode=snapshot \
   --output-path ./distribution.json
 ```
 
 **Options:**
 
-| Option | Description |
-| --- | --- |
-| `--blacklist <addresses>` | Addresses to exclude from distribution |
-| `--from-block <block>` / `--to-block <block>` | Block range for processing transfer events |
-| `--output-path <path>` | Path to save the distribution JSON |
-| `--upload [pinningUrl]` | Upload the Merkle tree to an IPFS pinning service |
-| `--skip-transfer` | Skip transferring tokens to the Distributor (if already done in step 7.3) |
-| `--skip-set-root` | Generate the tree without setting the root on-chain |
-| `--skip-write` | Skip writing the distribution JSON to file |
+| Option                                        | Description                                                               |
+| --------------------------------------------- | ------------------------------------------------------------------------- |
+| `--blacklist <addresses>`                     | Addresses to exclude from distribution                                    |
+| `--from-block <block>` / `--to-block <block>` | Block range for processing transfer events                                |
+| `--output-path <path>`                        | Path to save the distribution JSON                                        |
+| `--upload [pinningUrl]`                       | Upload the Merkle tree to an IPFS pinning service                         |
+| `--skip-transfer`                             | Skip transferring tokens to the Distributor (if already done in step 7.3) |
+| `--skip-set-root`                             | Generate the tree without setting the root on-chain                       |
+| `--skip-write`                                | Skip writing the distribution JSON to file                                |
 
 :::info
 Since tokens were already transferred in step 7.3, use `--skip-transfer` to avoid a duplicate transfer:
@@ -241,8 +241,9 @@ Since tokens were already transferred in step 7.3, use `--skip-transfer` to avoi
 ```bash
 yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
   --skip-transfer \
-  --upload <ipfsPinningServiceUrl>
+  --mode=snapshot \
 ```
+
 :::
 
 The caller must have `MANAGER_ROLE` on the Distributor contract.
@@ -256,39 +257,50 @@ yarn start dw uc distributor r state <poolAddress>
 ```
 
 Verify the following fields in the output:
+
 - **Merkle Root** — must be a non-zero value, indicating the Merkle tree has been set
 - **CID** — must contain a valid IPFS CID, confirming the distribution data was uploaded to IPFS. You can open the CID via an IPFS gateway to inspect which tokens and amounts were distributed
 - **Last Processed Block** — shows the block number at which the distribution was made
+
+### 7.7 Upload distribution to IPFS and pin the file
+
+When uploading the distribution to IPFS it's important to set CID to v0 format.
 
 ---
 
 ## User: claiming funds
 
-After the operator has distributed assets and published the Merkle tree, users can claim their share.
+After the operator has distributed assets and published the Merkle tree, users can claim their share on the UI.
 
-### Claiming from the Distributor
+:::info
+For `stvStrategyPool` users must perform first step of withdrawal via UI to request funds back from underlying DeFi-strategy to proxy balance.
+:::
 
-Users claim their wstETH allocation by providing a Merkle proof. The proof can be obtained from the Merkle tree published on IPFS (referenced by the CID on the Distributor contract).
+### Claiming with UI
 
-Preview the claimable amount:
+Even when vault is disconnected users will be able to use UI:
 
-```bash
-yarn start dw c distributor r previewClaim <distributorAddress> <recipientAddress> <wstethAddress> <cumulativeAmount> <merkleProof>
-```
+- request and claim withdrawals from underlying strategy vaults
+- claim any previous claimable withdrawals from pool's `WithdrawalQueue`
+- claim any distributed funds. In case of `stvStrategyPool` token are distributed to proxies but funds can be claimed via UI
+
+### Claiming with CLI
+
+If you want you can claim funds on behalf of the users via CLI, but this will produce 1 transaction per user per token(batch transactions are supported via CLI and WalletConnect)
 
 Claim:
 
 ```bash
-yarn start dw c distributor w claim <distributorAddress> <recipientAddress> <wstethAddress> <cumulativeAmount> <merkleProof>
+yarn start dw uc distributor w claim <poolAddress>
 ```
 
-Check already claimed amounts:
+You can adjust command with options:
 
-```bash
-yarn start dw c distributor r claimed <distributorAddress> <accountAddress> <wstethAddress>
-```
+- `--recipients [addresses...]` - listing only specific address to claim for
+- `--tokens [addresses...]` - listing only specific tokens to claim
+- `--print-only` - only print planned claim
 
-### Claiming ETH from previously requested withdrawals
+### Claiming ETH from previously requested withdrawals with CLI
 
 If the user had requested withdrawals before the disconnect, those requests were finalized by the operator during [Step 3](#step-3-pause-withdrawals-and-finalize-pending-requests). The ETH is ready but still held by the Withdrawal Queue — the user must explicitly claim it to receive it in their wallet:
 
