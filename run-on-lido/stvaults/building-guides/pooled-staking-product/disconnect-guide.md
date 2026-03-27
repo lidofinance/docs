@@ -187,7 +187,13 @@ Make sure you account for the Initial Connect Deposit (1 ETH) that was unlocked 
 
 ### 7.3. Transfer wstETH to the Distributor
 
-Send the wstETH from the vault to the Distributor contract using `collectERC20`:
+First, retrieve the wstETH balance of the vault:
+
+```bash
+yarn start account r info <vaultAddress>
+```
+
+Then send the wstETH from the vault to the Distributor contract using `collectERC20`, passing the retrieved `<wstethAmount>`:
 
 ```bash
 yarn start contracts vault w collect-erc20 <vaultAddress> <wstethAddress> <distributorAddress> <wstethAmount>
@@ -243,11 +249,16 @@ The caller must have `MANAGER_ROLE` on the Distributor contract.
 
 ### 7.6. Verify the distribution
 
-Check the Distributor state:
+Check the Distributor state to confirm the distribution was successful:
 
 ```bash
 yarn start dw uc distributor r state <poolAddress>
 ```
+
+Verify the following fields in the output:
+- **Merkle Root** — must be a non-zero value, indicating the Merkle tree has been set
+- **CID** — must contain a valid IPFS CID, confirming the distribution data was uploaded to IPFS. You can open the CID via an IPFS gateway to inspect which tokens and amounts were distributed
+- **Last Processed Block** — shows the block number at which the distribution was made
 
 ---
 
