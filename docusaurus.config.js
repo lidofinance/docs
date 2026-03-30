@@ -148,6 +148,10 @@ module.exports = async function createConfigAsync() {
             {
               to: '/multisigs/emergency-brakes',
               from: '/multisigs/emergency-breaks',
+            },
+            {
+              to: '/earn',
+              from: '/earn/introduction',
             }
           ],
         },
