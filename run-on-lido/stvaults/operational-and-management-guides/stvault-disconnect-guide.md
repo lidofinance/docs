@@ -11,7 +11,7 @@ This guide walks you through the process of disconnecting your stVault from Lido
 
 ## Why disconnect an stVault and what changes after
 
-Disconnecting an stVault is a deliberate action fully controlled by the Vault Owner. It allows the Vault Owner to remove the connection of stVault from the Lido protocol and operate it independently.
+Disconnecting an stVault is a deliberate action fully controlled by the Vault Owner. It allows the Vault Owner to remove the stVault’s connection to the Lido protocol and operate it independently.
 
 ### Why disconnect?
 
@@ -25,7 +25,7 @@ A Vault Owner may choose to disconnect for several reasons:
 
 - **Make the stVault irrevocably independent (ossification)**  
   The stVault can be ossified to prevent any future upgrades or changes, effectively removing any potential influence from Lido DAO.
-
+  Disconnection does not imply ossification: ossification is an optional, separate action available after disconnection.
 ### What stops working after disconnection
 
 After disconnection, all integrations with Lido protocol components are disabled.
@@ -36,19 +36,19 @@ After disconnection, all integrations with Lido protocol components are disabled
 - Node Operator fee distribution stops.
 
 :::warning
-Node Operators should independently monitor disconnection events, as validation continues after disconnection but rewards are no longer distributed via Lido mechanisms.
+Node Operators should independently monitor disconnection events, as validation continues after disconnection but new rewards are no longer accounted in Dashboard.
 :::
 
 **No connection to VaultHub:**
 - All stETH-related operations are disabled: Minting, Repayment, Rebalancing.  
 
-**No Oracles reports:**
+**No oracles reports:**
 - No accounting updates are performed, including Total Value updates and any oracle-driven state changes.
 - No Lido fees are charged.
 
 ### What remains functional after disconnection
 
-Despite the disconnection, the stVault continues to operate at the protocol and validator level.
+stVault disconnection from VaultHub does not affect validators.
 
 The following functionality remains available **at the smart contract / CLI level:**
 - Supplying ETH to the stVault.
