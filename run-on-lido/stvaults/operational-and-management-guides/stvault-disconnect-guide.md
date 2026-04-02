@@ -36,7 +36,7 @@ After disconnection, all integrations with Lido protocol components are disabled
 - Node Operator fee distribution stops.
 
 :::warning
-Node Operators should independently monitor disconnection events, as validation continues after disconnection but new rewards are no longer accounted in Dashboard.
+Node Operators must independently monitor disconnection events, as validation continues after disconnection, but Node Operator fees are no longer accrued. Disconnection can be detected by monitoring the VaultDisconnectInitiated(address **indexed** vault) event emitted by the VaultHub contract on-chain.
 :::
 
 **No connection to VaultHub:**
