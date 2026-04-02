@@ -44,7 +44,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Triggerable Withdrawals Gateway: [`0x6679090D92b08a2a686eF8614feECD8cDFE209db`](https://hoodi.etherscan.io/address/0x6679090D92b08a2a686eF8614feECD8cDFE209db)
 - Validator Exit Delay Verifier: [`0xa5F5A9360275390fF9728262a29384399f38d2f0`](https://hoodi.etherscan.io/address/0xa5F5A9360275390fF9728262a29384399f38d2f0)
 - Vault Hub: [`0x4C9fFC325392090F789255b9948Ab1659b797964`](https://hoodi.etherscan.io/address/0x4C9fFC325392090F789255b9948Ab1659b797964) (proxy)
-- Vault Hub: [`0x4300a0FA4BAD3243b5952db16dB93Db8E3752E23`](https://hoodi.etherscan.io/address/0x4300a0FA4BAD3243b5952db16dB93Db8E3752E23) (impl)
+- Vault Hub: [`0xAd2C869FE66Ff4c0E347A0824Af92D2B7C91288A`](https://hoodi.etherscan.io/address/0xAd2C869FE66Ff4c0E347A0824Af92D2B7C91288A) (impl)
 - Predeposit Guarantee: [`0xa5F55f3402beA2B14AE15Dae1b6811457D43581d`](https://hoodi.etherscan.io/address/0xa5F55f3402beA2B14AE15Dae1b6811457D43581d) (proxy)
 - Operator Grid: [`0x501e678182bB5dF3f733281521D3f3D1aDe69917`](https://hoodi.etherscan.io/address/0x501e678182bB5dF3f733281521D3f3D1aDe69917) (proxy)
 
