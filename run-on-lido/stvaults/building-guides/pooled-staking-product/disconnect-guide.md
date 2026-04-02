@@ -107,7 +107,7 @@ After finalization, verify all requests are processed — `unfinalizedRequestsNu
 Call `Pool.pauseDeposits()` from an account with `DEPOSITS_PAUSE_ROLE`:
 
 ```bash
-yarn start dw c stv w pause-deposits <poolAddress>
+yarn start dw c stv-steth w pause-deposits <poolAddress>
 ```
 
 ### 4.2. Pause minting
@@ -115,7 +115,7 @@ yarn start dw c stv w pause-deposits <poolAddress>
 Call `Pool.pauseMinting()` from an account with `MINTING_PAUSE_ROLE`:
 
 ```bash
-yarn start dw c stv w pause-minting <poolAddress>
+yarn start dw c stv-steth w pause-minting <poolAddress>
 ```
 
 After pausing, any attempts to deposit ETH, mint stETH shares, or mint wstETH will revert.
