@@ -139,7 +139,7 @@ yarn start contracts dashboard r liability-shares <dashboardAddress>
 Call `Dashboard.rebalanceVaultWithShares(liabilityShares)` from an account with `REBALANCE_ROLE`, passing the full `liabilityShares` amount to bring the liability to zero:
 
 ```bash
-yarn start contracts dashboard w rebalance-vault-with-shares <dashboardAddress> <liabilityShares>
+yarn start contracts dashboard w rebalance-shares <dashboardAddress> <liabilityShares>
 ```
 
 :::warning
@@ -173,6 +173,12 @@ yarn start dw c stv r DISTRIBUTOR <poolAddress>
 
 The Distributor contract does not accept raw ETH, so the vault balance must be converted to wstETH first.
 
+First, retrieve the available balance of the vault:
+
+```bash
+yarn start contracts vault r available-balance <vaultAddress>
+```
+
 Call `StakingVault.withdraw(recipient, amount)` with the **wstETH contract address** as the recipient. The wstETH contract has a `receive()` function that automatically stakes incoming ETH into stETH and mints wstETH back to the sender (the vault):
 
 ```bash
@@ -196,7 +202,7 @@ yarn start account r info <vaultAddress>
 Then send the wstETH from the vault to the Distributor contract using `collectERC20`, passing the retrieved `<wstethAmount>`:
 
 ```bash
-yarn start contracts vault w collect-erc20 <vaultAddress> <wstethAddress> <distributorAddress> <wstethAmount>
+yarn start contracts vault w collect-erc20 <vaultAddress> <wstethAddress> <wstethAmount> <distributorAddress>
 ```
 
 ### 7.4. Add wstETH as a supported distribution token
@@ -242,6 +248,7 @@ Since tokens were already transferred in step 7.3, use `--skip-transfer` to avoi
 yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
   --skip-transfer \
   --mode=snapshot \
+  --output-path=<path>
 ```
 
 :::
@@ -302,7 +309,15 @@ You can adjust command with options:
 
 ### Claiming ETH from previously requested withdrawals with CLI
 
-If the user had requested withdrawals before the disconnect, those requests were finalized by the operator during [Step 3](#step-3-pause-withdrawals-and-finalize-pending-requests). The ETH is ready but still held by the Withdrawal Queue — the user must explicitly claim it to receive it in their wallet:
+If the user had requested withdrawals before the disconnect, those requests were finalized by the operator during [Step 3](#step-3-pause-withdrawals-and-finalize-pending-requests). The ETH is ready but still held by the Withdrawal Queue — the user must explicitly claim it to receive it in their wallet.
+
+First, retrieve the user's withdrawal request IDs:
+
+```bash
+yarn start dw c wq r withdrawalRequestsOf <withdrawalQueueAddress> <ownerAddress>
+```
+
+Then claim the withdrawal(s):
 
 ```bash
 # Claim a single request
