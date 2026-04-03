@@ -44,6 +44,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Triggerable Withdrawals Gateway: [`0x6679090D92b08a2a686eF8614feECD8cDFE209db`](https://hoodi.etherscan.io/address/0x6679090D92b08a2a686eF8614feECD8cDFE209db)
 - Validator Exit Delay Verifier: [`0xa5F5A9360275390fF9728262a29384399f38d2f0`](https://hoodi.etherscan.io/address/0xa5F5A9360275390fF9728262a29384399f38d2f0)
 - Vault Hub: [`0x4C9fFC325392090F789255b9948Ab1659b797964`](https://hoodi.etherscan.io/address/0x4C9fFC325392090F789255b9948Ab1659b797964) (proxy)
+- Vault Hub: [`0xAd2C869FE66Ff4c0E347A0824Af92D2B7C91288A`](https://hoodi.etherscan.io/address/0xAd2C869FE66Ff4c0E347A0824Af92D2B7C91288A) (impl)
 - Predeposit Guarantee: [`0xa5F55f3402beA2B14AE15Dae1b6811457D43581d`](https://hoodi.etherscan.io/address/0xa5F55f3402beA2B14AE15Dae1b6811457D43581d) (proxy)
 - Operator Grid: [`0x501e678182bB5dF3f733281521D3f3D1aDe69917`](https://hoodi.etherscan.io/address/0x501e678182bB5dF3f733281521D3f3D1aDe69917) (proxy)
 
@@ -69,6 +70,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - OracleReportSanityChecker: [`0x53417BA942bC86492bAF46FAbA8769f246422388`](https://hoodi.etherscan.io/address/0x53417BA942bC86492bAF46FAbA8769f246422388)
 - OracleDaemonConfig: [`0x2a833402e3F46fFC1ecAb3598c599147a78731a9`](https://hoodi.etherscan.io/address/0x2a833402e3F46fFC1ecAb3598c599147a78731a9)
 - Lazy Oracle: [`0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`](https://hoodi.etherscan.io/address/0xf41491C79C30e8f4862d3F4A5b790171adB8e04A) (proxy)
+- Lazy Oracle: [`0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82`](https://hoodi.etherscan.io/address/0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82) (impl)
 
 ## 🗳️ DAO & Aragon Apps {#dao-contracts}
 
