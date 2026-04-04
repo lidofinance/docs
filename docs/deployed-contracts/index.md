@@ -51,7 +51,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Triggerable Withdrawals Gateway: [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Validator Exit Delay Verifier: [`0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f`](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f)
 - Vault Hub: [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) (proxy)
-  - Vault Hub: [`0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70`](https://etherscan.io/address/0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70) (impl)
+  - **(proposed to remove)** Vault Hub: [`0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50`](https://etherscan.io/address/0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50) (impl)
+  - **(proposed)** Vault Hub: [`0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70`](https://etherscan.io/address/0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70) (impl)
 - Predeposit Guarantee: [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) (proxy)
   - Predeposit Guarantee: [`0xE78717192C45736DF0E4be55c0219Ee7f9aDdd0D`](https://etherscan.io/address/0xE78717192C45736DF0E4be55c0219Ee7f9aDdd0D) (impl)
 - Operator Grid: [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) (proxy)
@@ -76,7 +77,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
-  - Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
+  - **(proposed to remove)** Lazy Oracle: [`0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B`](https://etherscan.io/address/0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B) (impl)
+  - **(proposed)** Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
 
 ## 🗳️ DAO Contracts {#dao-contracts}
 
@@ -337,10 +339,13 @@ for the rate and price feeds recommended approaches.
 ### 🔨 Easy Track Factories for stVaults Management {#easy-track-factories-for-stvaults-management}
 
 - **Operator Grid:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/settings/setup?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
-  - Register Groups: [`0x17305dB55c908e84C58BbDCa57258A7D1f7eEa7c`](https://etherscan.io/address/0x17305dB55c908e84C58BbDCa57258A7D1f7eEa7c)
+  - **(proposed to remove)** Register Groups: [`0xE73842AEbEC99Dacf2aAEec61409fD01A033f478`](https://etherscan.io/address/0xE73842AEbEC99Dacf2aAEec61409fD01A033f478)
+  - **(proposed)** Register Groups: [`0x17305dB55c908e84C58BbDCa57258A7D1f7eEa7c`](https://etherscan.io/address/0x17305dB55c908e84C58BbDCa57258A7D1f7eEa7c)
   - Update Groups Share Limit: [`0xf23559De8ab37fF7a154384B0822dA867Cfa7Eac`](https://etherscan.io/address/0xf23559De8ab37fF7a154384B0822dA867Cfa7Eac)
-  - Register Tiers: [`0x6b535F441F95046562406F4E2518D9AD7Db2dc0D`](https://etherscan.io/address/0x6b535F441F95046562406F4E2518D9AD7Db2dc0D)
-  - Alter Tiers: [`0x37d9B09EDA477a84E3913fCB4d032EFb0BF9B62E`](https://etherscan.io/address/0x37d9B09EDA477a84E3913fCB4d032EFb0BF9B62E)
+  - **(proposed to remove)** Register Tiers: [`0x5292A1284e4695B95C0840CF8ea25A818751C17F`](https://etherscan.io/address/0x5292A1284e4695B95C0840CF8ea25A818751C17F)
+  - **(proposed)** Register Tiers: [`0x6b535F441F95046562406F4E2518D9AD7Db2dc0D`](https://etherscan.io/address/0x6b535F441F95046562406F4E2518D9AD7Db2dc0D)
+  - **(proposed to remove)** Alter Tiers: [`0x73f80240ad9363d5d3C5C3626953C351cA36Bfe9`](https://etherscan.io/address/0x73f80240ad9363d5d3C5C3626953C351cA36Bfe9)
+  - **(proposed)** Alter Tiers: [`0x37d9B09EDA477a84E3913fCB4d032EFb0BF9B62E`](https://etherscan.io/address/0x37d9B09EDA477a84E3913fCB4d032EFb0BF9B62E)
   - Set Jail Status: [`0x6a4f33F05E7412A11100353724Bb6a152Cf0D305`](https://etherscan.io/address/0x6a4f33F05E7412A11100353724Bb6a152Cf0D305)
   - Update Vaults Fees: [`0xDfA0bc38113B6d53c2881573FD764CEEFf468610`](https://etherscan.io/address/0xDfA0bc38113B6d53c2881573FD764CEEFf468610)
 - **Vault Hub:** (trusted caller is stVaults Committee ms [`0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF`](https://app.safe.global/settings/setup?safe=eth:0x18A1065c81b0Cc356F1b1C843ddd5E14e4AefffF))
