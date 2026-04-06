@@ -203,7 +203,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **Address:** [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://app.safe.global/settings/setup?safe=eth:0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 
-**Purpose of the multisig:** Multisig operationally funds the gas rebates for some operations in Lido on X protocols under the specified [budget of 1000 stETH per year](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724/4).
+**Purpose of the multisig:** Multisig operationally funds the gas rebates for some operations in Lido protocol under the [**proposed** Easy Track limit of 150 stETH per year](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724/14).
 
 **Quorum:** 3/5
 
