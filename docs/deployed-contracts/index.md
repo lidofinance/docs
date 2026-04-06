@@ -501,7 +501,8 @@ for the rate and price feeds recommended approaches.
 - L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
 - L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
 - L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
-- L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
+- **(proposed to remove)** L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
+- **(proposed)** L1ERC20Bridge: [`0x43a66b32c9adca1a59b273e69b61da5197c21ccd`](https://etherscan.io/address/0x43a66b32c9adca1a59b273e69b61da5197c21ccd) (impl)
 
 #### 🧵 ZKSync part {#zksync-part}
 
