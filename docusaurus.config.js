@@ -15,10 +15,7 @@ module.exports = async function createConfigAsync() {
       mermaid: true,
     },
     themes: ['@docusaurus/theme-mermaid'],
-    clientModules: [
-      './src/clientModules/searchHighlight.js',
-      './src/clientModules/searchQueryPersist.js',
-    ],
+    clientModules: ['./src/clientModules/searchHighlight.js', './src/clientModules/searchQueryPersist.js'],
     stylesheets: [
       {
         href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
@@ -59,14 +56,13 @@ module.exports = async function createConfigAsync() {
             href: 'https://github.com/lidofinance',
             label: 'GitHub',
             position: 'right',
-          }
+          },
         ],
       },
       algolia: {
-        appId: 'A2HCNXVT4O',
-        // TODO: put your own api key
-        apiKey: '',
-        indexName: 'dev_LIDO_DOCS',
+        appId: process.env.ALGOLIA_APP_ID || 'A2HCNXVT4O',
+        apiKey: process.env.ALGOLIA_API_KEY || '',
+        indexName: process.env.ALGOLIA_INDEX_NAME || 'dev_LIDO_DOCS',
         contextualSearch: false,
         searchPagePath: 'search',
         searchParameters: {
@@ -118,10 +114,7 @@ module.exports = async function createConfigAsync() {
             },
             {
               to: '/run-on-lido/stvaults/tech-documentation/pdg',
-              from: [
-                '/guides/stvaults/pdg',
-                '/run-on-lido/stvaults/pdg',
-              ],
+              from: ['/guides/stvaults/pdg', '/run-on-lido/stvaults/pdg'],
             },
             {
               to: '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
@@ -158,7 +151,7 @@ module.exports = async function createConfigAsync() {
             {
               to: '/multisigs/emergency-brakes',
               from: '/multisigs/emergency-breaks',
-            }
+            },
           ],
         },
       ],
@@ -174,5 +167,5 @@ module.exports = async function createConfigAsync() {
         },
       ],
     ],
-  };
-};
+  }
+}

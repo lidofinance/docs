@@ -26,9 +26,7 @@ if (typeof window !== 'undefined') {
 
       userNavigated = false
       firstArrowHandled = false
-      document
-        .querySelector('.DocSearch-Modal')
-        ?.classList.add('no-initial-selection')
+      document.querySelector('.DocSearch-Modal')?.classList.add('no-initial-selection')
     },
     true,
   )
@@ -99,9 +97,7 @@ if (typeof window !== 'undefined') {
         const query = input?.value?.trim()
         if (!query) return
         sessionStorage.setItem('search-highlight-query', query)
-        const hit = modal.querySelector(
-          '.DocSearch-Hit[aria-selected="true"] a',
-        )
+        const hit = modal.querySelector('.DocSearch-Hit[aria-selected="true"] a')
         if (!hit) return
         sessionStorage.setItem(PERSIST_KEY, query)
         sessionStorage.setItem(
@@ -123,9 +119,7 @@ if (typeof window !== 'undefined') {
       if (e.target.closest?.('.DocSearch-Hit')) {
         userNavigated = true
         firstArrowHandled = true
-        document
-          .querySelector('.DocSearch-Modal')
-          ?.classList.remove('no-initial-selection')
+        document.querySelector('.DocSearch-Modal')?.classList.remove('no-initial-selection')
       }
     },
     true,
@@ -154,10 +148,7 @@ if (typeof window !== 'undefined') {
       }
       if (!query) return
 
-      const set = Object.getOwnPropertyDescriptor(
-        HTMLInputElement.prototype,
-        'value',
-      )?.set
+      const set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')?.set
       set?.call(input, query)
       input.dispatchEvent(new Event('input', { bubbles: true }))
     }
@@ -183,10 +174,7 @@ export function onRouteDidUpdate({ location, previousLocation }) {
       const q = new URLSearchParams(previousLocation.search).get('q')?.trim()
       if (q) {
         sessionStorage.setItem(PERSIST_KEY, q)
-        sessionStorage.setItem(
-          CONTEXT_KEY,
-          JSON.stringify({ resultUrl: curr, originUrl: prev }),
-        )
+        sessionStorage.setItem(CONTEXT_KEY, JSON.stringify({ resultUrl: curr, originUrl: prev }))
         return
       }
     }

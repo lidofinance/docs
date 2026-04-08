@@ -195,6 +195,21 @@ The `onRouteDidUpdate` lifecycle hook clears storage when the user navigates awa
 
 ---
 
+### Rule 17: CamelCase contract names are searchable as separate words
+
+**In plain terms:** A search for "staking router" (two words) should match the page titled "StakingRouter" (one camelCase word). Without this, content paragraphs containing "staking" and "router" as separate words would outrank the actual page title.
+
+**Configuration:** `camelCaseAttributes` in Algolia Dashboard:
+```
+hierarchy.lvl0, hierarchy.lvl1, hierarchy.lvl2, hierarchy.lvl3
+```
+
+**Where:** Algolia Dashboard → Index Configuration → Language → camelCaseAttributes
+
+**Why it works:** Algolia splits camelCase tokens into component words at indexing time. "StakingRouter" becomes searchable as "Staking" + "Router" while keeping the original display. The `attribute` ranking criterion then correctly identifies the title record as matching in lvl1 (highest priority).
+
+---
+
 ### Rule 18: Enter in search modal opens the search page
 
 **In plain terms:** When typing in the search modal, pressing Enter navigates to the `/search?q=...` page (like Google). If the user first selects a specific result using arrow keys, Tab, or mouse hover, then Enter navigates to that result instead. The first ArrowDown/ArrowUp/Tab press highlights the first result without skipping to the second.
@@ -220,21 +235,6 @@ The `onRouteDidUpdate` lifecycle hook clears storage when the user navigates awa
 On route change (`onRouteDidUpdate`), the module walks `<article>` text nodes with `TreeWalker`, wraps case-insensitive matches in `<mark class="search-highlight">` elements. Skips `pre`, `code`, `.search-highlight`, and `nav` elements. Scrolls to the first match unless the URL has a hash anchor (in which case the anchor takes priority). After 5 seconds, adds `.search-highlight--fade` (CSS transition to transparent), then after 1 more second removes `<mark>` elements entirely.
 
 **Where:** `src/clientModules/searchHighlight.js` + `src/css/custom.css` (`.search-highlight`, `.search-highlight--fade`)
-
----
-
-### Rule 17: CamelCase contract names are searchable as separate words
-
-**In plain terms:** A search for "staking router" (two words) should match the page titled "StakingRouter" (one camelCase word). Without this, content paragraphs containing "staking" and "router" as separate words would outrank the actual page title.
-
-**Configuration:** `camelCaseAttributes` in Algolia Dashboard:
-```
-hierarchy.lvl0, hierarchy.lvl1, hierarchy.lvl2, hierarchy.lvl3
-```
-
-**Where:** Algolia Dashboard → Index Configuration → Language → camelCaseAttributes
-
-**Why it works:** Algolia splits camelCase tokens into component words at indexing time. "StakingRouter" becomes searchable as "Staking" + "Router" while keeping the original display. The `attribute` ranking criterion then correctly identifies the title record as matching in lvl1 (highest priority).
 
 ---
 
@@ -350,6 +350,11 @@ Test queries to verify each rule works correctly after changes. Run in both the 
 **Action 6 (keyboard navigation):** Open Ctrl+K → type "PDG" → press ArrowDown → press Enter → navigate to target page → open Ctrl+K.
 **Check:** "PDG" is still in the input.
 
+### Rule 17: CamelCase search
+
+**Query:** `staking router`
+**Check:** Page titled "StakingRouter" appears as first result (requires `camelCaseAttributes` enabled in Dashboard).
+
 ### Rule 18: Enter in search modal opens search page
 
 **Action 1 (Enter → search page):** Open Ctrl+K → type "staking" → press Enter.
@@ -377,11 +382,6 @@ Test queries to verify each rule works correctly after changes. Run in both the 
 
 **Action 4 (hash anchor):** Search a term → click a result that links to a specific heading (#anchor).
 **Check:** Page scrolls to the anchor, NOT to the first highlight. Highlights still appear but don't override the anchor scroll.
-
-### Rule 17: CamelCase search
-
-**Query:** `staking router`
-**Check:** Page titled "StakingRouter" appears as first result (requires `camelCaseAttributes` enabled in Dashboard).
 
 ---
 

@@ -11,7 +11,7 @@ const cheerio = require('cheerio')
 
 const BUILD_DIR = path.join(__dirname, '..', 'build')
 const OUTPUT_FILE = path.join(__dirname, '..', 'algolia-records.json')
-const BASE_URL = 'https://docs.lido.fi'
+const BASE_URL = process.env.DOCS_BASE_URL || 'https://docs.lido.fi'
 
 // Pages to skip (not real doc content)
 const SKIP_PATHS = ['/404', '/search', '/assets/', '/img/']
@@ -33,16 +33,19 @@ function loadSidebarOrders() {
       if (!file.startsWith('site-') || !file.endsWith('.json')) continue
       try {
         const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf-8'))
-        if (data.permalink && data.sidebar)
-          pages.set(data.permalink.replace(/\/$/, '') || '/', data)
+        if (data.permalink && data.sidebar) pages.set(data.permalink.replace(/\/$/, '') || '/', data)
       } catch {}
     }
     let head = null
     for (const data of pages.values()) {
-      if (!data.previous) { head = data; break }
+      if (!data.previous) {
+        head = data
+        break
+      }
     }
     if (!head) continue
-    let pos = 0, current = head
+    let pos = 0,
+      current = head
     while (current) {
       const key = current.permalink.replace(/\/$/, '') || '/'
       if (orders.has(key)) break // cycle guard
@@ -61,8 +64,7 @@ function loadSidebarOrders() {
 function getLvl0(urlPath) {
   if (urlPath.startsWith('/run-on-lido/stvaults')) return 'stVaults'
   if (urlPath.startsWith('/run-on-lido/csm')) return 'Community Staking Module'
-  if (urlPath.startsWith('/run-on-lido/node-operators'))
-    return 'Node Operators'
+  if (urlPath.startsWith('/run-on-lido/node-operators')) return 'Node Operators'
   if (urlPath.startsWith('/run-on-lido')) return 'Run on Lido'
   if (urlPath.startsWith('/contracts')) return 'Contracts'
   if (urlPath.startsWith('/guides')) return 'Guides'
@@ -147,8 +149,7 @@ function processHtmlFile(filePath) {
   const records = []
   const relativePath = path.relative(BUILD_DIR, filePath)
   // Convert file path to URL path: "contracts/lido/index.html" -> "/contracts/lido"
-  let urlPath =
-    '/' + relativePath.replace(/\\/g, '/').replace(/\/index\.html$/, '')
+  let urlPath = '/' + relativePath.replace(/\\/g, '/').replace(/\/index\.html$/, '')
   if (urlPath === '/index') urlPath = '/'
   // remove trailing .html for non-index files
   urlPath = urlPath.replace(/\.html$/, '')
@@ -199,7 +200,7 @@ function processHtmlFile(filePath) {
       lvl4: null,
       lvl5: null,
       lvl6: null,
-    })
+    }),
   )
 
   // Walk through the article content after h1
@@ -224,13 +225,15 @@ function processHtmlFile(filePath) {
       currentH3Anchor = null
 
       records.push(
-        makeRecord(
-          'lvl2',
-          currentH2Anchor,
-          currentH2Anchor ? `${fullUrl}#${currentH2Anchor}` : fullUrl,
-          null,
-          { lvl0, lvl1: pageTitle, lvl2: currentH2, lvl3: null, lvl4: null, lvl5: null, lvl6: null }
-        )
+        makeRecord('lvl2', currentH2Anchor, currentH2Anchor ? `${fullUrl}#${currentH2Anchor}` : fullUrl, null, {
+          lvl0,
+          lvl1: pageTitle,
+          lvl2: currentH2,
+          lvl3: null,
+          lvl4: null,
+          lvl5: null,
+          lvl6: null,
+        }),
       )
       return
     }
@@ -240,13 +243,15 @@ function processHtmlFile(filePath) {
       currentH3Anchor = $el.attr('id') || null
 
       records.push(
-        makeRecord(
-          'lvl3',
-          currentH3Anchor,
-          currentH3Anchor ? `${fullUrl}#${currentH3Anchor}` : fullUrl,
-          null,
-          { lvl0, lvl1: pageTitle, lvl2: currentH2, lvl3: currentH3, lvl4: null, lvl5: null, lvl6: null }
-        )
+        makeRecord('lvl3', currentH3Anchor, currentH3Anchor ? `${fullUrl}#${currentH3Anchor}` : fullUrl, null, {
+          lvl0,
+          lvl1: pageTitle,
+          lvl2: currentH2,
+          lvl3: currentH3,
+          lvl4: null,
+          lvl5: null,
+          lvl6: null,
+        }),
       )
       return
     }
@@ -261,8 +266,14 @@ function processHtmlFile(filePath) {
 
       records.push(
         makeRecord('content', anchor, url, text.slice(0, 2000), {
-          lvl0, lvl1: pageTitle, lvl2: currentH2, lvl3: currentH3, lvl4: null, lvl5: null, lvl6: null,
-        })
+          lvl0,
+          lvl1: pageTitle,
+          lvl2: currentH2,
+          lvl3: currentH3,
+          lvl4: null,
+          lvl5: null,
+          lvl6: null,
+        }),
       )
     }
   })
