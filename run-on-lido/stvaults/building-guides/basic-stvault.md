@@ -60,7 +60,7 @@ Creating an stVault is a permissionless operation, but in this two-step process 
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create-without-connecting --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create-without-connecting --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
       ```
       Note down the addresses of the created **Vault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
 </details>
@@ -120,7 +120,6 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
 - `currentSettledGrowth`: the amount of unaccounted growth accrued on the vault while it was disconnected; 0 for newly created vaults via the create-without-connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
 
-
 <details>
   <summary>using stVaults Web UI</summary>
       1. Open the stVaults mainpage (see [#Environments](#environments))
@@ -134,6 +133,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
       4. Review parameters and click "Approve and supply 1 ETH".
 
       5. Sign transaction in the wallet.
+
 </details>
 <details>
   <summary>by Command-line Interface</summary>
@@ -173,11 +173,12 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 
       4. Fill out the form and click "Continue".
       5. Sign transaction in the wallet.
+
 </details>
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
       ```
 </details>
 <details>
@@ -298,6 +299,7 @@ Supply and Withdraw ETH are permissioned operations. By default, these permissio
 Before withdrawing ETH or performing other operations that depend on current vault state, ensure that a fresh report for your vault is applied. [Read more about applying reports](../operational-and-management-guides/applying-report-guide)
 
 Withdrawable ETH is defined by ([Read more about stVaults metrics](../features-and-mechanics/parameters-and-metrics)):
+
 - stVault Balance - ETH that is not staked on validators.
 - Total lock — collateral reserved for stETH liability, the mandatory 1 ETH minimal reserve for connecting the stVault to Lido Core, and protocol and Node Operator fee obligations.
 
@@ -404,7 +406,7 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
 
       To repay (burn) shares, stETH or wstETH you must first grant approval to the vault's Dashboard contract. Go to the stETH or wstETH token contract and execute the `approve()` method for the amount (in wei) you want to set as allowance. Only after the approval is confirmed you can proceed with the repay (burn) operation. Please also note that if you are trying to mint shares (instead of stETH or wstETH), in that case you may need to approve slightly different amount of stETH then you are trying to mint. Please find the contracts' addresses on the **Contracts** page in accordance with your [environment](#environments).
 
-   [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 
 </details>
 
@@ -420,7 +422,7 @@ PDG enables three main use cases:
 
 - **Full-cycle proof of validators.** Enables a non-custodial deposit mechanism by using guarantee ETH as collateral. [Follow the main guide](../tech-documentation/pdg#full-cycle-trustless-path-through-pdg).
 - **PDG shortcut.** Allows skipping the pre-deposit steps and depositing directly to a validator without using PDG initially. The validator can later be associated with the vault by proving it through PDG. This path is applicable when there is unconditional trust between the Node Operator and the Vault Owner. [Follow the shortcut guide](../tech-documentation/pdg#pdg-shortcut).
-- **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case.
+- **Adding existing validators.** Lets you connect an existing validator from external staking infrastructure to an stVault as an advanced integration use case. [Consolidations guide](../tech-documentation/consolidation)
 
 Read more: [Technical details](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee); [GitHub Repository](https://github.com/lidofinance/core/blob/feat/vaults/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol).
 
@@ -432,6 +434,7 @@ The key stVault metrics that the Vault Owner should monitor and control are:
 - **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../features-and-mechanics/parameters-and-metrics)
 
 Read more:
+
 - [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
 - [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
 

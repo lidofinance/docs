@@ -701,7 +701,8 @@ Stakers and ecosystem participants are advised to carefully consider these risks
    - Smart Contract Security: There is an inherent risk that Lido could contain a smart contract vulnerability or bug; to minimize this risk, the Lido protocol codebase remains open-source, reviewed, audited, rolled out on testnets, and covered by extensive tests and a bug bounty program.
    - Oracle failures and data manipulation: The oracle may affect the protocol's accounting state by providing malformed data; the risk is mitigated with consensus mechanisms for the oracle committee and smart contract safety nets.
    - Correlated in-protocol mass-slashing: In case of mass-slashing events in Lido Core, the bunker mode activates to socialize conversion rate losses among stETH holders.
-   - Governance risks: The protocol is maintained and upgraded by the LDO tokenholders. The mitigation of governance risks includes a two-phase voting system, a public delegate voting platform, and an anticipated 2025 H1 Dual Governance activation.
+   - Governance risks: The protocol is maintained and upgraded by the LDO tokenholders. The mitigation of governance risks includes a two-phase voting system, a public delegate voting platform, and Dual Governance dynamic time-lock with a veto process.
+3. Other risks. Regulatory and other risks can be found in [Public Risk Disclosure](/prd).
 
 ## 6. Useful Links
 

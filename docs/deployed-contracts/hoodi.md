@@ -44,6 +44,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Triggerable Withdrawals Gateway: [`0x6679090D92b08a2a686eF8614feECD8cDFE209db`](https://hoodi.etherscan.io/address/0x6679090D92b08a2a686eF8614feECD8cDFE209db)
 - Validator Exit Delay Verifier: [`0xa5F5A9360275390fF9728262a29384399f38d2f0`](https://hoodi.etherscan.io/address/0xa5F5A9360275390fF9728262a29384399f38d2f0)
 - Vault Hub: [`0x4C9fFC325392090F789255b9948Ab1659b797964`](https://hoodi.etherscan.io/address/0x4C9fFC325392090F789255b9948Ab1659b797964) (proxy)
+- Vault Hub: [`0xAd2C869FE66Ff4c0E347A0824Af92D2B7C91288A`](https://hoodi.etherscan.io/address/0xAd2C869FE66Ff4c0E347A0824Af92D2B7C91288A) (impl)
 - Predeposit Guarantee: [`0xa5F55f3402beA2B14AE15Dae1b6811457D43581d`](https://hoodi.etherscan.io/address/0xa5F55f3402beA2B14AE15Dae1b6811457D43581d) (proxy)
 - Operator Grid: [`0x501e678182bB5dF3f733281521D3f3D1aDe69917`](https://hoodi.etherscan.io/address/0x501e678182bB5dF3f733281521D3f3D1aDe69917) (proxy)
 
@@ -69,6 +70,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - OracleReportSanityChecker: [`0x53417BA942bC86492bAF46FAbA8769f246422388`](https://hoodi.etherscan.io/address/0x53417BA942bC86492bAF46FAbA8769f246422388)
 - OracleDaemonConfig: [`0x2a833402e3F46fFC1ecAb3598c599147a78731a9`](https://hoodi.etherscan.io/address/0x2a833402e3F46fFC1ecAb3598c599147a78731a9)
 - Lazy Oracle: [`0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`](https://hoodi.etherscan.io/address/0xf41491C79C30e8f4862d3F4A5b790171adB8e04A) (proxy)
+- Lazy Oracle: [`0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82`](https://hoodi.etherscan.io/address/0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82) (impl)
 
 ## 🗳️ DAO & Aragon Apps {#dao-contracts}
 
@@ -228,10 +230,10 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 ### 🔨 Easy Track Factories for stVaults Management {#easy-track-factories-for-stvaults-management}
 
 - **Operator Grid:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))
-  - Register Groups: [`0x6e8D6e23A46AD61967CDD5C220B67645F46A2D7c`](https://hoodi.etherscan.io/address/0x6e8D6e23A46AD61967CDD5C220B67645F46A2D7c)
+  - Register Groups: [`0x50ffc44FF526405dBA3e5a4833B003D93301dDDd`](https://hoodi.etherscan.io/address/0x50ffc44FF526405dBA3e5a4833B003D93301dDDd)
   - Update Groups Share Limit: [`0x99a645A4137ea171Ce4D43c22d30A71251D6Ed7d`](https://hoodi.etherscan.io/address/0x99a645A4137ea171Ce4D43c22d30A71251D6Ed7d)
-  - Register Tiers: [`0x4DF806111AC58e93d90E6D2fBE8522a76be6F499`](https://hoodi.etherscan.io/address/0x4DF806111AC58e93d90E6D2fBE8522a76be6F499)
-  - Alter Tiers: [`0x1e71B8E60e0491A212999f3104A06913b77f438e`](https://hoodi.etherscan.io/address/0x1e71B8E60e0491A212999f3104A06913b77f438e)
+  - Register Tiers: [`0x8182E168f858514328C06b5C21eec975E105D494`](https://hoodi.etherscan.io/address/0x8182E168f858514328C06b5C21eec975E105D494)
+  - Alter Tiers: [`0x9A3Fe18BcD5e7657f6a78Ab895aF125Cacae2c36`](https://hoodi.etherscan.io/address/0x9A3Fe18BcD5e7657f6a78Ab895aF125Cacae2c36)
   - Set Jail Status: [`0x395E6AF61B6Ba3EC0E72E168A2Ec8204589F357c`](https://hoodi.etherscan.io/address/0x395E6AF61B6Ba3EC0E72E168A2Ec8204589F357c)
   - Update Vaults Fees: [`0x2D5b8B082d618A8d5DeFE3f4c2b2869e3f1C1a3D`](https://hoodi.etherscan.io/address/0x2D5b8B082d618A8d5DeFE3f4c2b2869e3f1C1a3D)
 - **Vault Hub:** (trusted caller is Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a))

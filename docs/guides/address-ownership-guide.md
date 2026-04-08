@@ -1,4 +1,4 @@
-# Verifying address ownership for Lido DAO operational multisigs
+# Multisig Signer Address Verification
 
 Using EOA across Lido DAO operational multisigs or protocol contracts requires providing a public "proof of ownership". Main use-cases here are using address as a signer in Lido DAO operational multisigs or using EOAs for offchain tooling where specific rights might be required.
 
@@ -6,12 +6,21 @@ Using EOA across Lido DAO operational multisigs or protocol contracts requires p
 
 ### In case of using externally owned account (EOA)
 
-1. Sign the message along the lines of `@my_social_handle is looking to join X Lido DAO multisig with address 0x...` with the private key you're looking to use as signing key. One of the options is going using MyEtherWallet web UI:
-   1. Connect your wallet to https://www.myetherwallet.com/wallet/access.
+1. Sign the message along the lines of `@my_social_handle is looking to join X Lido DAO multisig with address 0x...` with the private key you're looking to use as signing key. Use one of the following options:
+
+   ### Etherscan UI (primary option)
+   1. Go to https://etherscan.io/verifiedSignatures and click "Sign Message" button.
+   2. Connect your wallet to Etherscan in the popped up window (approve the connection in your wallet app if needed).
+   3. Enter the message, click "Sign Message" and sign the message on the wallet.
+   4. Click on "Publish" button to get a link to your public verification to be used in next steps.
+
+   ### MyEtherWallet (backup option)
+   1. Connect your wallet to https://www.myetherwallet.com/wallet/access.   
    2. Go to https://www.myetherwallet.com/wallet/sign (UI link is under "Message" dropdown on the left).
    3. Enter the message, click "sign" and sign the message on the wallet.
    4. The `sig` field in the result json is the signature hash.
-2. Publish the message along with the signature hash on twitter or other easily accessible social media.
+   
+2. Publish the message along with the Etherescan link (or signature hash in case of MyEtherWallet) on X.com (formerly Twitter) or other easily accessible social media.
 3. Share the link to the post as a comment at the relevant [Lido DAO forum](https://research.lido.fi) post.
 4. Make sure to follow the [general rules of thumb](/guides/multisig-signer-manual) for being a signer in Lido DAO operational multisigs.
 
@@ -52,12 +61,6 @@ To verify the shared signature one can use Etherscan or MyEtherWallet UIs.
   ```
   Note that "msg" is hex text starting with `0x` (add `0x` before the hex encoded string if necessary).
 4. See whether the signature provided is valid.
-
-### Publishing the signature on Etherscan
-
-1. Go to https://etherscan.io/verifiedSignatures and click "Verify Signature".
-2. Enter address, plain text message (not hex version MyEtherWallet will give!) & the signature (with `0x` prefix), choose "Verify & publish" option & click "Continue".
-3. After the signature is verified you'll get the link for sharing.
 
 ### In case of using Safe multisig
 

@@ -28,14 +28,13 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 ### Essentials
 
 1. [📘 **Lido V3 Technical Paper**](/lido-v3-whitepaper) — Complete technical specification with PDF preview
-2. [[RFC] stVaults Whitepaper](https://hackmd.io/@lido/B1NuB15-gx)
-3. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
-4. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
+2. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
+3. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
 
 ### 🔧 Tools
 
 1. [stVaults Web UI on Hoodi Testnet](https://stvaults-hoodi.testnet.fi/)
-2. [stVaults Web UI on Mainnet](https://stvaults.lido.fi/) (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
+2. [stVaults Web UI on Mainnet](https://stvaults.lido.fi/)
 3. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
 4. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
 
@@ -43,12 +42,17 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 1. [Health Monitoring guide](./operational-and-management-guides/health-monitoring-guide.md)
 2. [Health Emergency guide](./operational-and-management-guides/health-emergency-guide.md)
-3. [Become an Identified Node Operator and get tiers, or request changes](./operational-and-management-guides/node-operators-identification.md)
+3. [stVaults Economy Examples](./operational-and-management-guides/stvaults-economy-examples.mdx)
+4. [Voluntary Rebalancing and Vault Closure](./operational-and-management-guides/voluntary-rebalancing-and-vault-closure.md)
+5. [Applying Report Guide](./operational-and-management-guides/applying-report-guide.md)
+6. [stVault Disconnect Guide](./operational-and-management-guides/stvault-disconnect-guide.md)
+7. [Become an Identified Node Operator and get tiers, or request changes](./operational-and-management-guides/node-operators-identification.md)
 
 ### 🔍 stVaults Features and Mechanics
 
 1. [stVaults Roles](./features-and-mechanics/roles-and-permissions.md)
 2. [stVaults Parameters and Metrics](./features-and-mechanics/parameters-and-metrics.md)
+3. [Exit Validators](./features-and-mechanics/exit-validators.md)
 
 ### 📚 Tech Documentation
 
@@ -59,6 +63,11 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 5. [Migrate validators to stVault through consolidation](./tech-documentation/consolidation.md)
 6. [Deposit validators through Predeposit Guarantee](./tech-documentation/pdg.md)
 7. [stVaults contracts reference](/contracts/vault-hub)
+
+### 🏛️ Qualified Custodians Supporting stVaults
+
+1. [Overview of qualified custodians supporting stVaults](./qualified-custodians/index.md)
+2. [Fireblocks user guide](./qualified-custodians/fireblocks.md)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?

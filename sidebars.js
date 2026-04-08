@@ -9,6 +9,7 @@ module.exports = {
     'lido-dao',
     'lips',
     'guides/lido-tokens-integration-guide',
+    'prd',
     {
       type: 'category',
       label: 'Guides',
@@ -46,6 +47,25 @@ module.exports = {
         'guides/deposit-security-manual',
         {
           type: 'category',
+          label: 'Governance and Voting',
+          items: [
+            'guides/etherscan-voting',
+            'guides/dg-guide',
+            'guides/easy-track-guide',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Multisig Operations',
+          items: [
+            'guides/address-ownership-guide',
+            'guides/multisig-signer-manual',
+            'guides/multisig-shadow-owners',
+            'guides/checking-gnosis-safe',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Tooling',
           items: [
             'guides/tooling',
@@ -55,20 +75,19 @@ module.exports = {
             'guides/depositor-bot',
           ],
         },
-        'guides/multisig-deployment',
         'guides/protocol-levers',
-        'guides/etherscan-voting',
-        'guides/dg-guide',
-        'guides/easy-track-guide',
-        'guides/address-ownership-guide',
-        'guides/multisig-signer-manual',
-        'guides/multisig-shadow-owners',
-        'guides/checking-aragon-vote',
-        'guides/checking-gnosis-safe',
         'guides/1inch-pool-rewards',
         'guides/early-staker-airdrop',
         'guides/jumpgates',
-        'guides/verify-steth-on-optimism-upgrade-manual'
+        'guides/verify-steth-on-optimism-upgrade-manual',
+        {
+          type: 'category',
+          label: 'Archived',
+          items: [
+            'guides/multisig-deployment',
+            'guides/checking-aragon-vote',
+          ],
+        },
       ],
     },
     {
@@ -141,6 +160,7 @@ module.exports = {
         'security/bugbounty',
         'security/audits',
         'security/safeharbor',
+        'security/disclosures',
       ],
     },
     {

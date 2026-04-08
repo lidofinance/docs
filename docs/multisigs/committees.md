@@ -48,19 +48,23 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 
 ## 2.2 Rewards Share Committee (prev. Referral Program Committee)
 
+This committee operates as part of the [Growth Committee](https://research.lido.fi/t/rationalizing-liquidity-observation-lab-rewards-share-committee-growth-committee/10133), alongside the [Liquidity Observation Lab (LOL) committee](/multisigs/committees.md#281-liquidity-observation-lab-committee-ethereum).
+
 **Address:** [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/settings/setup?safe=eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C)
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
-**Quorum:** 4/8
+**Quorum:** 3/6
 
 **Forum topics:**\
 [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
-[Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)
+[Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)\
+[Rewards Share Program & Committee Updates](https://research.lido.fi/t/rewards-share-program-committee-updates/11107)
 
 **Snapshot:**\
 [Tiered Rewards Share Program: A Sustainable Approach to stETH Growth](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)\
-[Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)
+[Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)\
+[Rewards Share Committee Reform](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0xb4a35720b03f4c888c2fb41ab66ed324262d7a5b4696ffc3ee20bb35ebb0df6f)
 
 **Aragon:**\
 [Omnibus vote #162](https://vote.lido.fi/vote/162)
@@ -78,13 +82,11 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
-| robingop | 0xf2374BCb265505002055942D070459a4d2011012 | Sig hash: 0x89523e02d087de609003a33b091bde12e6f1b733336d4f1ea2e5de7a7faf990b39f593dd46cf993f4b5d5d2185ae00c19ff65013da549914d9445b432582393701 | https://twitter.com/robingop/status/1750498068976291883|
 | Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
-| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | Sig hash: 0x180f82306e49719efa8d599f0ec46f2373157ae369d90c544ce64ab2f5dafe0260ed220bf3d52d8e6165cd9bf2378920c805acad9a144dc7619fe04ae298cfc101 | https://twitter.com/zuzu_eeka/status/1516028538863992834?t=_MujKbaavo1NXvjWr9iiqw&s=09 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
-| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
+| Armin | 0x8ecd93982FfbB2f937ADa6c6e50d1950974081C0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| Willem H | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/297055 | https://x.com/0xWillem/status/1993272885733986451 |
 
 ## 2.3 Relay Maintenance Committee
 
@@ -201,7 +203,7 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **Address:** [`0x5181d5D56Af4f823b96FE05f062D7a09761a5a53`](https://app.safe.global/settings/setup?safe=eth:0x5181d5D56Af4f823b96FE05f062D7a09761a5a53)
 
-**Purpose of the multisig:** Multisig operationally funds the gas rebates for some operations in Lido on X protocols under the specified [budget of 1000 stETH per year](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724/4).
+**Purpose of the multisig:** Multisig operationally funds the gas rebates for some operations in Lido protocol under the [**proposed** Easy Track limit of 150 stETH per year](https://research.lido.fi/t/nominate-the-gas-supply-committee-as-a-supervisor-for-gas-expenditure/4724/14).
 
 **Quorum:** 3/5
 
@@ -279,6 +281,8 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 | Will | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157| https://twitter.com/KimonSh/status/1752382287721927062 |
 
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
+
+This committee operates as part of the [Growth Committee](https://research.lido.fi/t/rationalizing-liquidity-observation-lab-rewards-share-committee-growth-committee/10133), alongside the [Rewards Share committee](/multisigs/committees.md#22-rewards-share-committee-prev-referral-program-committee).
 
 ### 2.8.1 Liquidity Observation Lab Committee (Ethereum)
 
@@ -958,3 +962,28 @@ A Committee without multisig.
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/297421 | https://research.lido.fi/t/proposal-adopt-the-seal-safe-harbor-agreement/10940/7 |
 
 **Lifespan**: The committee will be dissolved immediately once ownership is transferred to the Aragon Voting or Safe Harbor is decommissioned, followed by a notification on the Research Forum.
+
+## 2.19 Bug Bounty Reserve Multisig
+
+**Address:** [`0x9Eb81629245C5248A8f4FfCDf11A73E0D0C74071`](https://app.safe.global/settings/setup?safe=eth:0x9Eb81629245C5248A8f4FfCDf11A73E0D0C74071)
+
+**Purpose of the multisig:** The multisig has been established to manage a dedicated reserve for the [Lido Bug Bounty Program](https://immunefi.com/bug-bounty/lido/information/).
+
+**Quorum:** 5/9
+
+**Forum post:** [Establishment of a Dedicated Bug Bounty Reserve Multisig](https://research.lido.fi/t/establishment-of-a-dedicated-bug-bounty-reserve-multisig/10974)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | - |
+|	Olga_K	| 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/297971 | https://x.com/itmamuramgk28/status/2000930785755586581 |
+|	Angelina_L	| 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/2003804133615456344 |
+|	dgusakov	| 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/297986 | https://x.com/d_gusakov/status/2000951850158391359 |
+|	Juan	| 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/298319 | |
+|	krogla	| 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/298804 | https://x.com/_krogla/status/2003385873572987224 |
+|	Alex_L	| 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/297970 | https://x.com/Al_lykov/status/2000924606174220308 |
+|	Nick K	| 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/299001 | |
+|	GrStepanov	| 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/298318 | https://x.com/shalfeyshur/status/2001963106801754378 |
+|	Elena_S	| 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/298084 | https://x.com/Elen0sh/status/2001050147371860293 |
+

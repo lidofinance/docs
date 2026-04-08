@@ -6,13 +6,15 @@ module.exports = async function createConfigAsync() {
     url: 'https://docs.lido.fi',
     baseUrl: '/',
     onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'throw',
     onBrokenAnchors: 'throw',
     favicon: 'img/favicon-32x32.png',
     organizationName: 'lidofinance',
     projectName: 'docs',
     markdown: {
       mermaid: true,
+      hooks: {
+        onBrokenMarkdownLinks: 'throw',
+      },
     },
     themes: ['@docusaurus/theme-mermaid'],
     clientModules: ['./src/clientModules/searchHighlight.js', './src/clientModules/searchQueryPersist.js'],
@@ -50,6 +52,13 @@ module.exports = async function createConfigAsync() {
             docsPluginId: 'runOnLido',
             docId: 'intro',
             label: 'Run on Lido',
+            position: 'left',
+          },
+          {
+            type: 'doc',
+            docsPluginId: 'earn',
+            docId: 'introduction',
+            label: 'Earn',
             position: 'left',
           },
           {
@@ -152,6 +161,10 @@ module.exports = async function createConfigAsync() {
               to: '/multisigs/emergency-brakes',
               from: '/multisigs/emergency-breaks',
             },
+            {
+              to: '/earn',
+              from: '/earn/introduction',
+            }
           ],
         },
       ],
@@ -162,6 +175,17 @@ module.exports = async function createConfigAsync() {
           path: 'run-on-lido',
           routeBasePath: 'run-on-lido',
           sidebarPath: require.resolve('./sidebarsRunOnLido.js'),
+          remarkPlugins: [(await import('remark-math')).default],
+          rehypePlugins: [(await import('rehype-katex')).default],
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'earn',
+          path: 'earn',
+          routeBasePath: 'earn',
+          sidebarPath: require.resolve('./sidebarsEarn.js'),
           remarkPlugins: [(await import('remark-math')).default],
           rehypePlugins: [(await import('rehype-katex')).default],
         },
