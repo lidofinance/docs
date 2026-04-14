@@ -562,7 +562,7 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 | JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
 | Olga K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
 | kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
-| nikita.p | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | https://etherscan.io/verifySig/302952 | https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858/84 |
+| nikita.p | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | https://etherscan.io/verifySig/302952 | https://x.com/nikitizer/status/2027351882084057261 |
 | Kate_Alekseeva | 0xdf87a36f6c753e85f06e3a7a595dbd3f9bcd4937 | https://etherscan.io/verifySig/302998 | https://x.com/KateAleksseeva/status/2028432297830084616 |
 
 
