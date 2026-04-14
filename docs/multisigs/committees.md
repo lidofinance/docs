@@ -548,9 +548,12 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 
 **Quorum:** 3/5
 
-**Forum topic:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858)
+**Forum topic:**\
+[Establish a Public Delegate Platform and Delegate Incentivization Program](https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858)
 
-**Snapshot:** [Establish a Public Delegate Platform and Delegate Incentivization Program](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa502cf80451192672313911ce558e74799626da3b3b66130e21c6cd19707e584)
+**Snapshots:**\
+[Establish a Public Delegate Platform and Delegate Incentivization Program](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa502cf80451192672313911ce558e74799626da3b3b66130e21c6cd19707e584)\
+[Delegate Incentivization Program 2.0](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x7f28fddde63f492de5c9dce4f992b6e0565328f258f27aa769e50520dfd1be0b)
 
 **List of signers:**
 
@@ -558,9 +561,10 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 | --- | --- | --- | --- |
 | JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/262371 | https://x.com/tariquin/status/1867250911367901391?s=46&t=7kM2xidXSXA93Mqt0Ezzmg |
 | Olga K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
-| Marcela| 0x55a38242cc8d3E1a2276585146f036b64CBC4A45 | https://etherscan.io/verifySig/262716| https://x.com/0xMarcela/status/1869171438630174818 |
 | kadmil | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/262920 | https://x.com/kadmil_eth/status/1870068912122966385 |
-| Charlie | 0x9f89273A038c2B134713dE41b1947217a8d21464 |https://etherscan.io/verifySig/263010 | https://x.com/charliecfeng/status/1870966714353271036 |
+| nikita.p | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | https://etherscan.io/verifySig/302952 | https://research.lido.fi/t/establish-a-public-delegate-platform-and-delegate-incentivization-program/7858/84 |
+| Kate_Alekseeva | 0xdf87a36f6c753e85f06e3a7a595dbd3f9bcd4937 | https://etherscan.io/verifySig/302998 | https://x.com/KateAleksseeva/status/2028432297830084616 |
+
 
 ## 2.11 Network Expansion Committee
 
