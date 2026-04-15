@@ -24,10 +24,6 @@ Users can withdraw wstETH in two steps (request + claim) with a typical withdraw
 
 - Mellow - https://mellow.finance/
 
-:::note
-Detailed information regarding the architecture, infrastructure, and management configurations of earnETH can be found [here](https://metavaults.mellow.finance/architecture).
-:::
-
 ## earnUSD
 
 earnUSD provides on-chain access to strategies involving USD-denominated digital assets. It uses defined asset selection and risk controls, supported by transparent reporting.
@@ -48,6 +44,3 @@ Users can withdraw USDC in two steps (request + claim) with a typical withdrawal
 
 - Mellow - https://mellow.finance/
 
-:::note
-Detailed information regarding the architecture, infrastructure, and management configurations of earnUSD can be found [here](https://metavaults.mellow.finance/architecture).
-:::
