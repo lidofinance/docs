@@ -85,8 +85,9 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 | Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
-| Armin | 0x8ecd93982FfbB2f937ADa6c6e50d1950974081C0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | Willem H | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/297055 | https://x.com/0xWillem/status/1993272885733986451 |
+| Samuel_C | 0x0fb6215099f48d723cfb89434c2cb887357bc871 | https://etherscan.io/verifySig/304805 | https://x.com/stakesaurus/status/2036845084491342196 |
+
 
 ## 2.3 Relay Maintenance Committee
 
