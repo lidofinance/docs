@@ -271,15 +271,16 @@ The complete list of Lido Stonks contracts is available [here](https://docs.lido
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| syncnode | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/35529| https://twitter.com/syncn0de/status/1752374013119049981 |
-| Andrew | 0xBc1cFd2BeC23a0cDc555AE8D31EEa06BE3B5186A | https://etherscan.io/verifySig/35236| https://twitter.com/KukisGlobal/status/1752363059308302687 |
-| Francesco| 0x62CeDec8B7c81bEe91d97725c9a14dC23C3227E2 | https://etherscan.io/verifySig/35234|https://twitter.com/cremonafran/status/1752369978257322020|
-| Thomas | 0x7962cFa46B15BAb1aE798d927FAE83CC73a0E64D | https://etherscan.io/verifySig/35235 | https://twitter.com/_Cryptoma/status/1752592959533400257|
-| Eridian | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://twitter.com/EridianAlpha/status/1752363981409288478|
-| George A | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/35156 | https://twitter.com/george_avs/status/1752380380282314889|
-| Will | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157| https://twitter.com/KimonSh/status/1752382287721927062 |
+| Name      | Address | Verification | Public verification |
+|-----------| --- | --- | --- |
+| syncnode  | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/35529 | https://twitter.com/syncn0de/status/1752374013119049981 |
+| Andrew    | 0xBc1cFd2BeC23a0cDc555AE8D31EEa06BE3B5186A | https://etherscan.io/verifySig/35236 | https://twitter.com/KukisGlobal/status/1752363059308302687 |
+| Francesco | 0x62CeDec8B7c81bEe91d97725c9a14dC23C3227E2 | https://etherscan.io/verifySig/35234 | https://twitter.com/cremonafran/status/1752369978257322020 |
+| Thomas    | 0x7962cFa46B15BAb1aE798d927FAE83CC73a0E64D | https://etherscan.io/verifySig/35235 | https://twitter.com/_Cryptoma/status/1752592959533400257 |
+| Eridian   | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://twitter.com/EridianAlpha/status/1752363981409288478 |
+| Will      | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157 | https://twitter.com/KimonSh/status/1752382287721927062 |
+| Remus     | 0xb7bec8e0e05965b54d0c40cf306d464e3bc32386 | https://etherscan.io/verifySig/296615 | https://x.com/nameisremus/status/1990718780180209664 |
+
 
 ## 2.8 Liquidity Observation Lab (LOL) Multisigs (prev. reWARDS)
 
