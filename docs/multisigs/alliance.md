@@ -38,7 +38,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665 |
 | Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
-| Elena_S | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/279003 | https://x.com/Elen0sh/status/1960259150459306293 |
+| Elena_S | 0xB95fdA03A90290Bd5853C79796a768E37130d193 | https://etherscan.io/verifySig/279003 | - |
 
 ## 3.2 Lido Alliance BORG Allies/Partners
 
