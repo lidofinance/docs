@@ -51,8 +51,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Triggerable Withdrawals Gateway: [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - Validator Exit Delay Verifier: [`0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f`](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f)
 - Vault Hub: [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) (proxy)
-  - **(proposed to remove)** Vault Hub: [`0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50`](https://etherscan.io/address/0x7c7d957D0752AB732E73400624C4a1eb1cb6CF50) (impl)
-  - **(proposed)** Vault Hub: [`0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70`](https://etherscan.io/address/0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70) (impl)
+  - Vault Hub: [`0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70`](https://etherscan.io/address/0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70) (impl)
 - Predeposit Guarantee: [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) (proxy)
   - Predeposit Guarantee: [`0xE78717192C45736DF0E4be55c0219Ee7f9aDdd0D`](https://etherscan.io/address/0xE78717192C45736DF0E4be55c0219Ee7f9aDdd0D) (impl)
 - Operator Grid: [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) (proxy)
@@ -77,8 +76,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
-  - **(proposed to remove)** Lazy Oracle: [`0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B`](https://etherscan.io/address/0x47f3a6b1E70F7Ec7dBC3CB510B1fdB948C863a5B) (impl)
-  - **(proposed)** Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
+  - Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
 
 ## 🗳️ DAO Contracts {#dao-contracts}
 
@@ -496,10 +494,9 @@ for the rate and price feeds recommended approaches.
 #### 🧱 Ethereum part {#ethereum-part-zksync}
 
 - L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
-- L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
+  - L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
 - L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
-- **(proposed to remove)** L1ERC20Bridge: [`0x9a810469F4a451Ebb7ef53672142053b4971587c`](https://etherscan.io/address/0x9a810469F4a451Ebb7ef53672142053b4971587c) (impl)
-- **(proposed)** L1ERC20Bridge: [`0x43a66b32c9adca1a59b273e69b61da5197c21ccd`](https://etherscan.io/address/0x43a66b32c9adca1a59b273e69b61da5197c21ccd) (impl)
+  - L1ERC20Bridge: [`0x43a66b32c9adca1a59b273e69b61da5197c21ccd`](https://etherscan.io/address/0x43a66b32c9adca1a59b273e69b61da5197c21ccd) (impl)
 
 #### 🧵 ZKSync part {#zksync-part}
 
