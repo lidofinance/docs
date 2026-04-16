@@ -3,9 +3,6 @@ sidebar_position: 1
 ---
 
 # 🔐 Roles and permissions
-:::warning
-This document covers roles and permissions intended for stVaults on mainnet. The implementation on deployed testnet contracts may vary.
-:::
 ## Vault contract role
 
 **Node Operator** provides validation service for the vault: handles depositing ETH from the vault balance to validators and exiting validators if necessary. Address of the Node Operator can’t be changed after the vault is created.
