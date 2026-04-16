@@ -113,7 +113,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
   - Developers Sub Committee 2: [`0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794`](https://hoodi.etherscan.io/address/0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794)
   - Developers Sub Committee 3: [`0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d`](https://hoodi.etherscan.io/address/0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d)
 
-## 🔌 Circuit Breaker {#circuit-breaker}
+## 🔌 CircuitBreaker {#circuit-breaker}
 
 - CircuitBreaker: [`0x44a5789dFeDa59cD176Ab5709ec2F4829dE4d555`](https://hoodi.etherscan.io/address/0x44a5789dFeDa59cD176Ab5709ec2F4829dE4d555)
 
