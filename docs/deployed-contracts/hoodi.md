@@ -93,11 +93,6 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - CallsScript: [`0xfB3cB48d81eC8c7f2013a8dc9fA46D2D48112c3A`](https://hoodi.etherscan.io/address/0xfB3cB48d81eC8c7f2013a8dc9fA46D2D48112c3A)
 - Lido APMRegistry: [`0x15EBf349e1ee9Cd949049fD9352D0c94De046d7b`](https://hoodi.etherscan.io/address/0x15EBf349e1ee9Cd949049fD9352D0c94De046d7b) (proxy)
 - Aragon APMRegistry: [`0x948ffB5fDA2961C60ED3Eb84c7a31aae42EbEdCC`](https://hoodi.etherscan.io/address/0x948ffB5fDA2961C60ED3Eb84c7a31aae42EbEdCC) (proxy)
-- Gate Seal Blueprint: [`0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7`](https://hoodi.etherscan.io/address/0x8685Ca0311E4aBd846ee1b5b8B09299E990523F7)
-- Gate Seal Factory: [`0xA402349F560D45310D301E92B1AA4DeCABe147B3`](https://hoodi.etherscan.io/address/0xA402349F560D45310D301E92B1AA4DeCABe147B3)
-- GateSeal (VEB and TWG): [`0x368f2fcb593170823cc844F1B29e75E3d26879A1`](https://hoodi.etherscan.io/address/0x368f2fcb593170823cc844F1B29e75E3d26879A1)
-- GateSeal (Withdrawal Queue): [`0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D`](https://hoodi.etherscan.io/address/0x73d76Bd3D589B2b2185c402da82cdAfbc18b958D)
-- GateSeal (Vaulthub and PredepositGuarantee): [`0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32`](https://hoodi.etherscan.io/address/0x2291496c76CC2e9368DbE9d4977ED2623cbDfb32)
 
 ### 🧬 Dual Governance {#dual-governance}
 
@@ -117,6 +112,28 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
   - Developers Sub Committee 1: [`0xEd27F0d08630685A0cEFb1040596Cb264cf79f14`](https://hoodi.etherscan.io/address/0xEd27F0d08630685A0cEFb1040596Cb264cf79f14)
   - Developers Sub Committee 2: [`0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794`](https://hoodi.etherscan.io/address/0xE3e3c67997A4Db7d47ac7fa8ef81B677daBe5794)
   - Developers Sub Committee 3: [`0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d`](https://hoodi.etherscan.io/address/0xF4F16CB3B9E7a076E55c508035f25E606913Cc9d)
+
+## 🔌 CircuitBreaker {#circuit-breaker}
+
+- CircuitBreaker: [`0x44a5789dFeDa59cD176Ab5709ec2F4829dE4d555`](https://hoodi.etherscan.io/address/0x44a5789dFeDa59cD176Ab5709ec2F4829dE4d555)
+
+### Covered pausables and their pausers
+
+Each pausable contract below is covered by the CircuitBreaker and has a designated pauser authorized to trigger a pause.
+
+| Pausable | Pauser |
+| --- | --- |
+| [Withdrawal Queue ERC721](https://hoodi.etherscan.io/address/0xfe56573178f1bcdf53F01A6E9977670dcBBD9186) | [`0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102`](https://hoodi.etherscan.io/address/0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102) |
+| [Validators Exit Bus Oracle](https://hoodi.etherscan.io/address/0x8664d394C2B3278F26A1B44B967aEf99707eeAB2) | [`0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102`](https://hoodi.etherscan.io/address/0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102) |
+| [Triggerable Withdrawals Gateway](https://hoodi.etherscan.io/address/0x6679090D92b08a2a686eF8614feECD8cDFE209db) | [`0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102`](https://hoodi.etherscan.io/address/0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102) |
+| [Vault Hub](https://hoodi.etherscan.io/address/0x4C9fFC325392090F789255b9948Ab1659b797964) | [`0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102`](https://hoodi.etherscan.io/address/0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102) |
+| [Predeposit Guarantee](https://hoodi.etherscan.io/address/0xa5F55f3402beA2B14AE15Dae1b6811457D43581d) | [`0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102`](https://hoodi.etherscan.io/address/0x83BCE68B4e8b7071b2a664a26e6D3Bc17eEe3102) |
+| [CSModule](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d) | [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53) |
+| [CSAccounting](https://hoodi.etherscan.io/address/0xA54b90BA34C5f326BC1485054080994e38FB4C60) | [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53) |
+| [CSFeeOracle](https://hoodi.etherscan.io/address/0xe7314f561B2e72f9543F1004e741bab6Fc51028B) | [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53) |
+| [CSVerifier](https://hoodi.etherscan.io/address/0x1773b2Ff99A030F6000554Cb8A5Ec93145650cbA) | [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53) |
+| [CSEjector](https://hoodi.etherscan.io/address/0x777bd76326E4aDcD353b03AD45b33BAF41048476) | [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53) |
+| [VettedGate (IdentifiedCommunityStakersGate)](https://hoodi.etherscan.io/address/0x10a254E724fe2b7f305F76f3F116a3969c53845f) | [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53) |
 
 ## 📊 Data Bus {#data-bus}
 
@@ -157,7 +174,6 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - CSParametersRegistry: [`0xA4aD5236963f9Fe4229864712269D8d79B65C5Ad`](https://hoodi.etherscan.io/address/0xA4aD5236963f9Fe4229864712269D8d79B65C5Ad) (proxy)
 - CSFeeDistributor: [`0xaCd9820b0A2229a82dc1A0770307ce5522FF3582`](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582) (proxy)
 - CSVerifier: [`0x1773b2Ff99A030F6000554Cb8A5Ec93145650cbA`](https://hoodi.etherscan.io/address/0x1773b2Ff99A030F6000554Cb8A5Ec93145650cbA)
-- GateSeal: [`0x725166f143DdcD9EC1b96dfb70f16E3f44968A65`](https://hoodi.etherscan.io/address/0x725166f143DdcD9EC1b96dfb70f16E3f44968A65)
 - CSFeeOracle:
   - CSFeeOracle: [`0xe7314f561B2e72f9543F1004e741bab6Fc51028B`](https://hoodi.etherscan.io/address/0xe7314f561B2e72f9543F1004e741bab6Fc51028B) (proxy)
   - HashConsensus: [`0x54f74a10e4397dDeF85C4854d9dfcA129D72C637`](https://hoodi.etherscan.io/address/0x54f74a10e4397dDeF85C4854d9dfcA129D72C637)
