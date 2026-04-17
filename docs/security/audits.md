@@ -1,6 +1,6 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (93 reports)
+## Lido on Ethereum (97 reports)
 
 ### 03-2026 Composable Security Lido Oracle v7.1 Security Audit
 
@@ -18,6 +18,47 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20S
 - Low Issues: 7 (5 Fixed, 2 Acknowledged)
 
 See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20DeFi%20Wrapper%20MellowStrategyAdapter%20Security%20Audit%20Report%2003-2026.pdf) for more details.
+
+### 03-2026 MixBytes Triggerable Withdrawals Easy Track Security Audit Report
+
+An updated report for [the previously audited Triggerable Withdrawals Easy Tracks](#09-2025-mixbytes-lido-triggerable-withdrawals-easy-track-security-audit).
+The update includes mitigations for a vulnerability that allowed unauthorized access to the withdrawal process by duplicating keys not owned by the Node Operator.
+
+No addition issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Easy%20Track%20Security%20Audit%20Report%2003-26.pdf) for more details.
+
+### 03-2026 Certora Lido V3 Security Assessment Fix Review
+
+A fix review for [the previously audited Lido V3 contracts](#12-2025-certora-lido-v3-security-audit).
+The review covered fixes to VaultHub's partial withdrawal prohibition for unhealthy vaults and related components.
+
+- Total Issues: 3 (2 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Fixed)
+- Info Issues: 2 (1 Fixed, 1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Smart%20Contracts%20Security%20Assessment%20Report%20fix%20review%2003-26.pdf) for more details.
+
+### 03-2026 MixBytes Lido V3 Security Audit
+
+An updated report for [the previously audited Lido V3 contracts](#12-2025-mixbytes-lido-v3-security-audit).
+The review covered fixes to LazyOracle's sanity checks and VaultHub's partial withdrawal handling for vaults with obligations shortfall.
+
+No issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20v3%20Security%20Audit%20Report%2003-26.pdf) for more details.
+
+### 03-2026 MixBytes Lido EasyTrack stVaults Security Audit
+
+An updated report for [the previously audited Lido V3 Easy Track contracts](#12-2025-mixbytes-lido-v3-easy-track-security-audit).
+The review covered changes to tier shareLimit validation in OperatorGrid EVMScript factories, decoupling it from the on-chain group shareLimit in favor of a hardcoded constant.
+
+No issues were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Easy%20Track%20stVaults%20Security%20Audit%20Report%2003-26.pdf) for more details.
 
 ### 01-2026 Sigma Prime Lido BLS Library Security Audit
 
@@ -126,17 +167,6 @@ See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lid
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Consensys%20Diligence%20Lido%20V3%20Security%20Audit%20-%2011-2025.pdf) for more details. The report has been updated on 01-2026 with the latest commit taking into account the changes made to the BLS library.
 
-### 12-2025 Composable Security Lido V3 Oracle v7 Security Audit
-
-- Total Issues: 6 (4 Fixed, 2 Acknowledged)
-- Critical Issues: 0
-- High Issues: 1 (1 Fixed)
-- Medium Issues: 2 (2 Fixed)
-- Low Issues: 0
-- Info Issues: 3 (1 Fixed, 2 Acknowledged)
-
-See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf) for more details.
-
 ### 12-2025 Ackee Blockchain Stonks 2.0 Audit
 
 - Total Issues: 17 (17 Fixed)
@@ -158,6 +188,17 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Ackee%20Blockc
 - Low Issues: 1 (1 Acknowledged)
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Lido%20LDO%20Revesting%20Security%20Audit%20Report%20-%2012-2025.pdf) for more details.
+
+### 12-2025 Composable Security Lido Oracle v7 Security Audit
+
+- Total Issues: 6 (4 Fixed, 2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Fixed)
+- Medium Issues: 2 (2 Fixed)
+- Low Issues: 0
+- Info Issues: 3 (1 Fixed, 2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf) for more details.
 
 ### 09-2025 MixBytes Lido Triggerable Withdrawals Easy Track Security Audit
 
@@ -1044,7 +1085,15 @@ See [full report](https://github.com/lidofinance/audits/blob/main/L2/Governance-
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Lido-L2-2022-07-Oxorio-Smart-Contracts-Security-Audit-Report.pdf) for more details.
 
-## Lido on Polygon PoS (2 reports)
+## Lido on Polygon PoS (3 reports)
+
+### 03-2026 Cantina zkSync Lido Bridge PR-85 Fix Review
+
+Review of fixes implemented for the zkSync L1ERC20Bridge (follow-up to the [August 2023 Cantina audit](https://github.com/lidofinance/audits/blob/main/L2/zkSync-2023-10-Cantina-Audit-Report.pdf)). No additional issues were identified.
+
+- Total Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/zkSync-2026-03-05-Cantina-PR-85-fix-report.pdf) for more details.
 
 ### 08-2022 Oxorio Lido on Polygon V2
 
