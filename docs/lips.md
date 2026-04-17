@@ -8,13 +8,20 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
+| [34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md) | CircuitBreaker — Programmable panic layer | Azat Serikov | TBD |
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
+
+## Proposed
+
+| LIP&nbsp;# | Title | Author | Discussions&#8209;to |
+|------------|-------|--------|----------------|
+| [33](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-33.md) | Community Staking Module v3 and Curated Module v2 | Dmitry Gusakov (@dgusakov), Sergey Khomutinin (@skhomuti), Dmitry Chernukhin (@madlabman), Vladimir Gorkavenko (@vgorkavenko) | [Link 1](https://research.lido.fi/t/community-staking-module/5917), [Link 2](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929) |
 
 ## Implemented
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
-| [32](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-32.md) | Sanity Checks for stVaults | Alexandr Drygin, Greg Shestakov, Victor Petrenko | [Link](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665) |
+| [32](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-32.md) | Sanity Checks for stVaults | Alexander Drygin, Greg Shestakov, Victor Petrenko | [Link](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665) |
 | [31](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-31.md) | Expanding stETH liquidity layer with over-collateralized minting | Alexei Potapkin, Eugene Mamin, Eugene Pshenichnyy, Max Merkulov | [Link](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665) |
 | [30](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-30.md) | Triggerable Withdrawals Framework | Raman Siamionau, Evgeniy Pirogov | [Link](https://research.lido.fi/t/triggerable-withdrawals-framework-in-the-lido-protocol/10299) |
 | [29](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-29.md) | Community Staking Module v2 | Dmitry Gusakov, Sergey Khomutinin, Dmitry Chernukhin, Vladimir Gorkavenko | [Link](https://research.lido.fi/t/community-staking-module/5917) |
