@@ -8,7 +8,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
-| [34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md) | CircuitBreaker — Programmable panic layer | Azat Serikov | [Link](TBD) |
+| [34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md) | CircuitBreaker — Programmable panic layer | Azat Serikov | TBD |
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
 
 ## Proposed
