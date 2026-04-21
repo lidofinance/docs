@@ -228,6 +228,7 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 Due to design the allow list for `StvStrategyPool` is always on and is limited only to the strategies contracts attached to the pool. The strategy contract(if enabled by `--allowList true`) has it's own allow list. To manage the Strategy allow list, use the following CLI commands:
 
 - `yarn start defi-wrapper use-cases wrapper-operations read info <poolAddress>` to check the current strategy address attached to the pool
+- `yarn start defi-wrapper use-cases tinmelock-governance common read get-timelock-address <poolAddress>` to get the timelock address for the pool
 - `yarn start defi-wrapper use-cases wrapper-operations read allow-list <strategyAddress>` to check the current allow list state for the strategy
 - `yarn start defi-wrapper use-cases timelock-governance strategy write propose-grant-role <timelockAddress> <strategyAddress> ALLOW_LIST_MANAGER_ROLE <managerAddress>` AS PROPOSER to propose adding a manager to the strategy allow list
 - `yarn start defi-wrapper use-cases timelock-governance strategy write execute-grant-role <timelockAddress> <strategyAddress> ALLOW_LIST_MANAGER_ROLE <managerAddress>` AS EXECUTOR to execute adding a manager to the strategy allow list after the timelock delay has passed
