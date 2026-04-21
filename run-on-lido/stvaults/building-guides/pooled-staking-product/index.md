@@ -223,6 +223,17 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 
 </details>
 
+##### Managing AllowList for `StvStrategyPool` with `Lido Earn ETH` strategy
+
+Due to design the allow list for `StvStrategyPool` is always on and is limited only to the strategies contracts attached to the pool. The strategy contract(if enabled by `--allowList true`) has it's own allow list. To manage the Strategy allow list, use the following CLI commands:
+
+- `yarn start defi-wrapper use-cases wrapper-operations read info <poolAddress>` to check the current strategy address attached to the pool
+- `yarn start defi-wrapper use-cases wrapper-operations read allow-list <strategyAddress>` to check the current allow list state for the strategy
+- `yarn start defi-wrapper use-cases timelock-governance strategy write propose-grant-role <timelockAddress> <strategyAddress> ALLOW_LIST_MANAGER_ROLE <managerAddress>` AS PROPOSER to propose adding a manager to the strategy allow list
+- `yarn start defi-wrapper use-cases timelock-governance strategy write execute-grant-role <timelockAddress> <strategyAddress> ALLOW_LIST_MANAGER_ROLE <managerAddress>` AS EXECUTOR to execute adding a manager to the strategy allow list after the timelock delay has passed
+- `yarn start defi-wrapper use-cases wrapper-operations read allow-list <strategyAddress>` to verify that state was updated
+- `yarn start defi-wrapper use-cases wrapper-operations write allow-list-add/allow-list-remove <strategyAddress> <addressesToAddOrRemove>` as holder of ALLOW_LIST_MANAGER_ROLE to add or remove an address from the strategy allow list
+
 ### 2. Create Web UI
 
 Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
