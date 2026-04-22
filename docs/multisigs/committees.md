@@ -998,3 +998,28 @@ A Committee without multisig.
 |	GrStepanov	| 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/298318 | https://x.com/shalfeyshur/status/2001963106801754378 |
 |	Elena_S	| 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/298084 | https://x.com/Elen0sh/status/2001050147371860293 |
 
+## 2.20 Curated Module Committee (CMC)
+
+**Address:** [`0x2570e0b22AD904501dfB0d49575991ACB801dD91`](https://app.safe.global/settings/setup?safe=eth:0x2570e0b22AD904501dfB0d49575991ACB801dD91)
+
+**Purpose of the multisig:** The сommittee is established to manage the day-to-day technical and operational functioning of Lido’s Curated Modules (CMv1, CMv2, and SDVTM).
+
+**Quorum:** 5/9
+
+**Forum post:** [Proposal: Transition the LNOSG into the CMC](https://research.lido.fi/t/proposal-transition-the-lnosg-into-the-cmc/11341)
+
+**Snapshot:** [From LNOSG to CMC: Evolving Curated Staking Modules Governance](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x1c929502f12c61a510c71965d7a7f82dcc76b5d812e2f52796f6bacd6f66e32b)
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| dgusakov | 0xe8E5503242896efeBE3AAC55e4Ce614b0f3aF259 | https://etherscan.io/verifySig/306868 | https://x.com/d_gusakov/status/2045113137142063508 |
+| Edouard_Stakin | 0x08F21e00D9eE3D082cC2a7CcC9C2a5770666e7c2 | https://etherscan.io/verifySig/306869 | https://x.com/EdouardL/status/2045119011009048966 |
+| Sven | 0x75b2219e1d68788f0c6f0fda07d1d3ab550cfe18 | https://etherscan.io/verifySig/306762 | https://x.com/SvenBrekelmans/status/2045119178416218202 |
+| iicc | 0xfd660518dc1b52d9f67facd42bbba962b06b8e54 | https://etherscan.io/verifySig/306871 | https://x.com/iicc_eth/status/2045125997972910442 |
+| AlexMov | 0x7FfFE46F9aB8288c5D7aC3e63722f3DE8e3743E3 | https://etherscan.io/verifySig/306872 | https://x.com/Alexandr_M/status/2045130245716795670 |
+| syncnode | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/306873 | https://x.com/syncn0de/status/2045133942739615989 |
+| Aleksandra_G | 0x6B70C69A2b6c54C3525dA5e5b241aC7437D672CB | https://etherscan.io/verifySig/307022 | https://x.com/sasha__gusakova/status/2046151244717146452 |
+| sabrychiaa | 0x3F3C4146F597d2b1d9bC51Ad56E084cfd77Ebd9a | https://etherscan.io/verifySig/307024 | https://x.com/sabrychiaa/status/2046166468748878214 |
+| KimonSh | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/307081 | https://x.com/KimonSh/status/2046588325864058934 |
