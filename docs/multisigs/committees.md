@@ -1002,7 +1002,7 @@ A Committee without multisig.
 
 **Address:** [`0x2570e0b22AD904501dfB0d49575991ACB801dD91`](https://app.safe.global/settings/setup?safe=eth:0x2570e0b22AD904501dfB0d49575991ACB801dD91)
 
-**Purpose of the multisig:** The сommittee is established to manage the day-to-day technical and operational functioning of Lido’s Curated Modules (CMv1, CMv2, and SDVTM).
+**Purpose of the multisig:** The committee is established to manage the day-to-day technical and operational functioning of Lido’s Curated Modules (CMv1, CMv2, and SDVTM).
 
 **Quorum:** 5/9
 
