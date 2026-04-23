@@ -1,6 +1,6 @@
 # LazyOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/LazyOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/vaults/LazyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c)
 
 Oracle adapter for stVaults. Stores per-vault reports, applies sanity checks, and forwards vault updates to VaultHub.

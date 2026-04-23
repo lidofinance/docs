@@ -1,6 +1,6 @@
 # VaultHub
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/VaultHub.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/vaults/VaultHub.sol)
 - [Deployed contract](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)
 
 Central registry and lifecycle manager for StakingVaults connected to the Lido protocol. Handles vault connection, minting/burning stETH against vault collateral, rebalancing, fee settlement, and bad debt management.
@@ -19,7 +19,7 @@ VaultHub is the coordinator between individual StakingVaults and the Lido protoc
 
 ## Inherits
 
-- [PausableUntilWithRoles](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/utils/PausableUntilWithRoles.sol)
+- [PausableUntilWithRoles](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/utils/PausableUntilWithRoles.sol)
 
 ## Constants
 

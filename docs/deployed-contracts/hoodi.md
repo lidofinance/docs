@@ -12,9 +12,9 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 
 **Deployment Information:**
 
-- ⚓ **Lido protocol version**: [**`v3.0.1`**](https://github.com/lidofinance/core/releases/tag/v3.0.1) (Lido V3 with stVaults — see [Technical Paper](/lido-v3-whitepaper))
-- 🌐 **Network**: Ethereum Hoodi (Chain ID: `560048`)
-- ✅ **Status**: Active and maintained
+- ⚓ Lido protocol version: [**`v3.0.2`**](https://github.com/lidofinance/core/releases/tag/v3.0.2)
+- 🌐 Network: Ethereum Hoodi (Chain ID: `560048`)
+- ✅ Status: Active and maintained
 
 **Key Resources on Lido V3:**
 
