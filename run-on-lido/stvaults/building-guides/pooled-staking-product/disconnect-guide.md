@@ -29,7 +29,7 @@ Steps 1–5 are DeFi Wrapper-specific and covered below. Step 6 follows the stan
 To view all contract addresses for your pool at once:
 
 ```bash
-yarn start dw info <poolAddress>
+yarn start dw uc wo r info <poolAddress>
 ```
 
 This prints the Vault, Dashboard, WithdrawalQueue, Distributor, and other addresses in a single command. You will need these addresses throughout the guide.
