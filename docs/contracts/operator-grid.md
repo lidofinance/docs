@@ -1,6 +1,6 @@
 # OperatorGrid
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/OperatorGrid.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/vaults/OperatorGrid.sol)
 - [Deployed contract](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d)
 
 Registry for node operators, groups, and tier parameters that define share limits, reserve ratios, and fee schedules for stVaults.

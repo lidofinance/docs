@@ -1,6 +1,6 @@
 # Dashboard
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.1/contracts/0.8.25/vaults/dashboard/Dashboard.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/vaults/dashboard/Dashboard.sol)
 - [Implementation](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 
 Management contract for stVaults. Provides role-based control for vault operations and convenience wrappers for minting/burning stETH and wstETH. Individual Dashboard instances are deployed as proxies by [VaultFactory](/contracts/staking-vault-factory).
