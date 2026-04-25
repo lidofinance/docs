@@ -119,7 +119,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 | philknows | 0x0ef5c6Ab0C44b2b042606215530437809eFE54c8 | https://etherscan.io/verifySig/12760 | https://twitter.com/philngo_/status/1602781428114411520?s=20&t=Q2XjlHIwayyTdVNoKQshig |
 | Dharmendra | 0x2d0669db84f11a9ead41e57ce2f242d92111a58f | https://etherscan.io/verifySig/17652 | https://twitter.com/DharmendraKari3/status/1653844633921916931?s=20 |
 | Sven | 0x215b5f40b6507d8398a23af4d92a1aeeb6457901 | https://etherscan.io/verifySig/279163 | https://x.com/SvenBrekelmans/status/1961034505671561229 |
-| Mario | 0xBC621E0fAd141CD1b14f34f7954695E6C3322472 | https://etherscan.io/verifySig/279564 | https://x.com/Mario782674/status/1963207911531843615 |
+| Tony | 0x0dcd2cB5230177F6BC13a604bA1d815F7578E36D | https://etherscan.io/verifySig/306247 | https://x.com/0xa11e/status/2041890994447175879 |
 
 ## 2.4 Token Reward Program (TRP) Association Multisig
 
