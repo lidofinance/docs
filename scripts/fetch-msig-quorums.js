@@ -19,17 +19,29 @@ const DOC_DIRS = ['docs', 'earn', 'run-on-lido'];
 // Safe URL chain prefix → ordered list of public JSON-RPC endpoints. Each is
 // tried in turn on transient failures (5xx/4xx/network).
 const CHAIN_RPCS = {
-  eth:    ['https://eth.drpc.org', 'https://ethereum-rpc.publicnode.com', 'https://eth.llamarpc.com'],
-  base:   ['https://base.drpc.org', 'https://base-rpc.publicnode.com', 'https://base.llamarpc.com'],
-  arb1:   ['https://arbitrum.drpc.org', 'https://arbitrum-one-rpc.publicnode.com', 'https://arb1.arbitrum.io/rpc'],
-  oeth:   ['https://optimism.drpc.org', 'https://optimism-rpc.publicnode.com', 'https://mainnet.optimism.io'],
-  matic:  ['https://polygon.drpc.org', 'https://polygon-bor-rpc.publicnode.com', 'https://polygon-rpc.com'],
-  bnb:    ['https://bsc.drpc.org', 'https://bsc-rpc.publicnode.com', 'https://binance.llamarpc.com'],
-  zksync: ['https://zksync.drpc.org', 'https://mainnet.era.zksync.io'],
-  gno:    ['https://gnosis.drpc.org', 'https://gnosis-rpc.publicnode.com', 'https://rpc.gnosischain.com'],
-  avax:   ['https://avalanche.drpc.org', 'https://avalanche-c-chain-rpc.publicnode.com'],
-  celo:   ['https://celo.drpc.org', 'https://forno.celo.org'],
-  sep:    ['https://sepolia.drpc.org', 'https://ethereum-sepolia-rpc.publicnode.com'],
+  eth:      ['https://eth.drpc.org', 'https://ethereum-rpc.publicnode.com', 'https://eth.llamarpc.com'],
+  base:     ['https://base.drpc.org', 'https://base-rpc.publicnode.com', 'https://base.llamarpc.com'],
+  arb1:     ['https://arbitrum.drpc.org', 'https://arbitrum-one-rpc.publicnode.com', 'https://arb1.arbitrum.io/rpc'],
+  oeth:     ['https://optimism.drpc.org', 'https://optimism-rpc.publicnode.com', 'https://mainnet.optimism.io'],
+  matic:    ['https://polygon.drpc.org', 'https://polygon-bor-rpc.publicnode.com', 'https://polygon-rpc.com'],
+  bnb:      ['https://bsc.drpc.org', 'https://bsc-rpc.publicnode.com', 'https://binance.llamarpc.com'],
+  zksync:   ['https://zksync.drpc.org', 'https://mainnet.era.zksync.io'],
+  gno:      ['https://gnosis.drpc.org', 'https://gnosis-rpc.publicnode.com', 'https://rpc.gnosischain.com'],
+  avax:     ['https://avalanche.drpc.org', 'https://avalanche-c-chain-rpc.publicnode.com'],
+  celo:     ['https://celo.drpc.org', 'https://forno.celo.org'],
+  scr:      ['https://scroll.drpc.org', 'https://rpc.scroll.io'],
+  linea:    ['https://linea.drpc.org', 'https://rpc.linea.build'],
+  mnt:      ['https://mantle.drpc.org', 'https://rpc.mantle.xyz'],
+  mantle:   ['https://mantle.drpc.org', 'https://rpc.mantle.xyz'],
+  unichain: ['https://unichain.drpc.org', 'https://mainnet.unichain.org'],
+  ink:      ['https://ink.drpc.org', 'https://rpc-gel.inkonchain.com'],
+  lisk:     ['https://lisk.drpc.org', 'https://rpc.api.lisk.com'],
+  mode:     ['https://mode.drpc.org', 'https://mainnet.mode.network'],
+  soneium:  ['https://soneium.drpc.org', 'https://rpc.soneium.org'],
+  plasma:   ['https://plasma.drpc.org', 'https://rpc.plasma.to'],
+  sep:      ['https://sepolia.drpc.org', 'https://ethereum-sepolia-rpc.publicnode.com'],
+  holesky:  ['https://holesky.drpc.org', 'https://ethereum-holesky-rpc.publicnode.com'],
+  hoe:      ['https://hoodi.drpc.org', 'https://ethereum-hoodi-rpc.publicnode.com'],
 };
 
 const CONCURRENCY = 4;
@@ -73,7 +85,16 @@ const quorumCache = new Map();
 
 function fetchQuorum(chain, address) {
   const key = `${chain}:${address.toLowerCase()}`;
-  if (!quorumCache.has(key)) quorumCache.set(key, limit(() => resolveQuorum(chain, address)));
+  if (!quorumCache.has(key)) {
+    // Evict on rejection so a later reference to the same Safe within this
+    // run gets a fresh attempt against the fallback RPCs instead of inheriting
+    // a cached failure.
+    const promise = limit(() => resolveQuorum(chain, address)).catch((err) => {
+      if (quorumCache.get(key) === promise) quorumCache.delete(key);
+      throw err;
+    });
+    quorumCache.set(key, promise);
+  }
   return quorumCache.get(key);
 }
 
