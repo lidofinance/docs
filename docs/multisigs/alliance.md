@@ -18,7 +18,7 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 [Lido Alliance BORG – Amendment of Bylaws to Enable GOOSE-3 Execution](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x5e087c8d53509dd9b55441f9ee6180da21ee5cf8fe68fab9d852b75b35a44a18)
 
 **Aragon:**\
-[Omnibus vote #179, item 6](https://vote.lido.fi/vote/179)
+[Omnibus vote #179, item 6](https://dao.lido.fi/vote/179)
 
 **Quorum:** 3/5
 

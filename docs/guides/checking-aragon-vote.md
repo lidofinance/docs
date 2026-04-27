@@ -26,5 +26,5 @@ That's it! 💪🎉🏝
 
 ## How to check the Replit itself
 
-- One can compare the parsing results for already passed votes with descriptions on the Voting UI ([vote #172](https://vote.lido.fi/vote/172) may be a cool example)
+- One can compare the parsing results for already passed votes with descriptions on the Voting UI ([vote #172](https://dao.lido.fi/vote/172) may be a cool example)
 - The Replit code is available under the `Show files` button on the left; it's heavily based on the scripts & tooling from the [scripts](https://github.com/lidofinance/scripts) repo

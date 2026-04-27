@@ -1,7 +1,7 @@
 
 # How to Vote, Override, Delegate with Etherscan
 
-This guide will walk you through how to vote, override your delegate's vote, and delegate your voting power using Etherscan. If the [Voting UI](https://vote.lido.fi/) is unavailable or you prefer to vote via Etherscan, follow these simple steps.
+This guide will walk you through how to vote, override your delegate's vote, and delegate your voting power using Etherscan. If the [Voting UI](https://dao.lido.fi/vote/dashboard) is unavailable or you prefer to vote via Etherscan, follow these simple steps.
 
 ## Getting Started
 

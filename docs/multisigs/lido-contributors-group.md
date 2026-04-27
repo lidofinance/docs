@@ -2,7 +2,7 @@
 
 **Disclaimer:** The following multisigs belong to independent third parties not affiliated with the Lido DAO and are managed by them. They are included in the list solely because they can access Easy Track motions.
 
-## 4.1 Pool Maintenance Labs Ltd. (PML), [obsolete](https://vote.lido.fi/vote/190)
+## 4.1 Pool Maintenance Labs Ltd. (PML), [obsolete](https://dao.lido.fi/vote/190)
 
 **Address:** [`0x17F6b2C738a63a8D3A113a228cfd0b373244633D`](https://app.safe.global/settings/setup?safe=eth:0x17F6b2C738a63a8D3A113a228cfd0b373244633D)
 
@@ -21,7 +21,7 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **On-chain:**\
-[Omnibus vote #147 to set up Easy Track Factory (item 10)](https://vote.lido.fi/vote/147) 
+[Omnibus vote #147 to set up Easy Track Factory (item 10)](https://dao.lido.fi/vote/147) 
 
 **Easy Track contracts and roles:**
 
@@ -45,7 +45,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Susanna_MV | 0x27a3Fc3D99EACE1FdCA71900A72079F6c3a4b4F8 | https://etherscan.io/verifySig/262411 | https://x.com/MamenSusan87135/status/1877337266621747297 |
 
 
-## 4.2 Argo Technology Consulting Ltd. (ATC), [obsolete](https://vote.lido.fi/vote/190)
+## 4.2 Argo Technology Consulting Ltd. (ATC), [obsolete](https://dao.lido.fi/vote/190)
 
 **Address**: [`0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956`](https://app.safe.global/settings/setup?safe=eth:0x9B1cebF7616f2BC73b47D226f90b01a7c9F86956)
 
@@ -64,7 +64,7 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **On-chain:**\
-[Omnibus vote #147 to set up Easy Track (item 11)](https://vote.lido.fi/vote/147)
+[Omnibus vote #147 to set up Easy Track (item 11)](https://dao.lido.fi/vote/147)
 
 **Easy Track contracts and roles:**
 
@@ -87,7 +87,7 @@ The full list of related contracts is available [here](https://docs.lido.fi/depl
 | Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/246897 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/29 |
 | Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/260858 | https://research.lido.fi/t/lido-1-november-1-2022-april-30-2023-lido-ongoing-funding-request/3133/35 |
 
-## 4.3 Resourcing and Compensation Committee (RCC), [obsolete](https://vote.lido.fi/vote/190)
+## 4.3 Resourcing and Compensation Committee (RCC), [obsolete](https://dao.lido.fi/vote/190)
 
 **Address:** [0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437](https://app.safe.global/settings/setup?safe=eth:0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)[](https://etherscan.io/address/0xDE06d17Db9295Fa8c4082D4f73Ff81592A3aC437)
 
@@ -108,7 +108,7 @@ It can create Easy Track motions to request grants from the DAO Treasury in stab
 [[LIDO-v2] May 1, 2023 - December 31, 2023 | Lido Ongoing Grant Request](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
 
 **On-chain:**\
-[Omnibus vote #147 to set up Easy Track (item 9)](https://vote.lido.fi/vote/147)
+[Omnibus vote #147 to set up Easy Track (item 9)](https://dao.lido.fi/vote/147)
 
 **Easy Track contracts and roles:**
 

@@ -17,8 +17,8 @@
 [Extend On-Chain Voting Duration + GateSeal renewal and duration extension](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa58da73cc4257837ae981d8ad861252f4cbbda7a173a577702f8f93561f57825)
 
 **Aragon:**\
-[Vote #156](https://vote.lido.fi/vote/156)\
-[Vote #174](https://vote.lido.fi/vote/174)
+[Vote #156](https://dao.lido.fi/vote/156)\
+[Vote #174](https://dao.lido.fi/vote/174)
 
 **Contracts and Roles:**
 
