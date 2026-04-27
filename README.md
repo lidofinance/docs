@@ -71,7 +71,7 @@ module.exports = {
 }
 ```
 
-Additional information about sidebar and ways to modify it can be found [here](https://docusaurus.io/docs/sidebar)
+Additional information about the sidebar and ways to modify it can be found [here](https://docusaurus.io/docs/sidebar)
 
 ## Build
 
