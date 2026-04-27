@@ -154,14 +154,16 @@ toc_max_heading_level: 3
 
 Roles governing the vaults. Addresses are shared across all chains.
 
-| Role                                  | Address                                                                                                                         | Quorum |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| PROXY_ADMIN                           | [`0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0`](https://app.safe.global/home?safe=eth:0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0) | 5/8    |
-| LAZY_VAULT_ADMIN                      | [`0x0Dd73341d6158a72b4D224541f1094188f57076E`](https://app.safe.global/home?safe=eth:0x0Dd73341d6158a72b4D224541f1094188f57076E) | 5/8    |
-| ACTIVE_VAULT_ADMIN                    | [`0x982aB69785f5329BB59c36B19CBd4865353fEf10`](https://app.safe.global/home?safe=eth:0x982aB69785f5329BB59c36B19CBd4865353fEf10) | 3/8    |
-| CURATOR (Lido — earn vaults)          | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/5    |
-| CURATOR (Mellow — operational vaults) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
-| ORACLE_UPDATER                        | [`0x93a797643d74fC81e7A51F3f84a9D78F930435D1`](https://app.safe.global/home?safe=eth:0x93a797643d74fC81e7A51F3f84a9D78F930435D1) | 3/8    |
-| TREASURY                              | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) | 4/7    |
-| LIDO_PAUSER                           | [`0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd`](https://app.safe.global/home?safe=eth:0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd) | 3/5    |
-| MELLOW_PAUSER                         | [`0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638`](https://app.safe.global/home?safe=eth:0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638) | 1/8    |
+| Role                         | Multisig                                                                                                                         | Quorum |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| Proxy Admin                  | [`0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0`](https://app.safe.global/home?safe=eth:0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0) | 5/8    |
+| Lazy Vault Admin             | [`0x0Dd73341d6158a72b4D224541f1094188f57076E`](https://app.safe.global/home?safe=eth:0x0Dd73341d6158a72b4D224541f1094188f57076E) | 5/8    |
+| Active Vault Admin           | [`0x982aB69785f5329BB59c36B19CBd4865353fEf10`](https://app.safe.global/home?safe=eth:0x982aB69785f5329BB59c36B19CBd4865353fEf10) | 3/8    |
+| Curator (earnETH, earnUSD)   | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/5    |
+| Curator (earnUSDс, earnUSDe) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
+| Curator (stRATEGY)           | [`0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5`](https://app.safe.global/home?safe=eth:0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5) | 5/8    |
+| Curator (GGV)                | [`0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F`](https://app.safe.global/home?safe=eth:0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F) | 3/5    |
+| Oracle Updater               | [`0x93a797643d74fC81e7A51F3f84a9D78F930435D1`](https://app.safe.global/home?safe=eth:0x93a797643d74fC81e7A51F3f84a9D78F930435D1) | 3/8    |
+| Treasury                     | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) | 4/7    |
+| Lido Pauser                  | [`0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd`](https://app.safe.global/home?safe=eth:0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd) | 3/5    |
+| Mellow Pauser                | [`0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638`](https://app.safe.global/home?safe=eth:0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638) | 1/8    |
