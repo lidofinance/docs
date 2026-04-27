@@ -1,6 +1,4 @@
 ---
-# Limit TOC to h2 only — prevents repetitive subheadings
-# from cluttering the right-side navigation menu
 toc_max_heading_level: 3
 ---
 
