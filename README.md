@@ -1,4 +1,4 @@
-# Lido Docs
+# Lido Docs!
 
 Lido documentation is built using [Docusaurus 3](https://docusaurus.io/). The resulting version of documentation hosted via GitHub Pages from the `gh-pages` branch of this repository.
 
