@@ -2,11 +2,10 @@
 // Walks markdown files, finds every Safe multisig with a recorded `Quorum`
 // (either as a `Quorum` table column or an inline `**Quorum:** M/N` line next
 // to a Safe address), reads the multisig's threshold and owner count directly
-// from the contract via JSON-RPC, and compares it with the doc value.
-// Reports drift; writes the on-chain value back with `--write`.
+// from the contract via JSON-RPC, and rewrites cells where the doc value
+// drifted from the on-chain value.
 //
-//   node scripts/update-msig-quorums.js          # check, exit 1 on drift
-//   node scripts/update-msig-quorums.js --write  # apply changes
+//   node scripts/fetch-msig-quorums.js
 
 const fs = require('fs');
 const path = require('path');
@@ -39,8 +38,6 @@ const TABLE_SEP_CELL_RE = /^:?-{3,}:?$/;
 const QUORUM_HEADER_RE = /^quorum$/i;
 const INLINE_QUORUM_RE = /^\s*\*\*Quorum(?:\*\*:|:\*\*)\s*(\d+\s*\/\s*\d+)\s*$/;
 const HEADING_RE = /^#{1,6}\s/;
-
-const WRITE = process.argv.includes('--write');
 
 // ---------------------------------------------------------------------------
 // Concurrency limiter
@@ -292,19 +289,14 @@ async function main() {
   const results = await Promise.all(files.map((f) => processFile(f, onFileDone)));
 
   for (const { rel, content, original } of results) {
-    if (WRITE && content !== original) fs.writeFileSync(path.join(ROOT, rel), content);
+    if (content !== original) fs.writeFileSync(path.join(ROOT, rel), content);
   }
 
   const total = totals.ok + totals.drift + totals.error;
   console.log(`\n${total} checked: ${totals.ok} ok, ${totals.drift} drift, ${totals.error} error`);
-
-  if (totals.drift === 0) return 0;
-  if (WRITE) { console.log('Updated files written.'); return 0; }
-  console.log('Run with --write to apply changes.');
-  return 1;
 }
 
-main().then((code) => process.exit(code)).catch((err) => {
+main().catch((err) => {
   console.error(err);
-  process.exit(2);
+  process.exit(1);
 });
