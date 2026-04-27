@@ -1,6 +1,4 @@
 ---
-# Limit TOC to h2 only — prevents repetitive subheadings
-# from cluttering the right-side navigation menu
 toc_max_heading_level: 3
 ---
 
@@ -156,15 +154,14 @@ toc_max_heading_level: 3
 
 Roles governing the vaults. Addresses are shared across all chains.
 
-| Role                                  | Address                                      |
-| ------------------------------------- | -------------------------------------------- |
-| PROXY_ADMIN                           | `0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0` |
-| LAZY_VAULT_ADMIN                      | `0x0Dd73341d6158a72b4D224541f1094188f57076E` |
-| ACTIVE_VAULT_ADMIN                    | `0x982aB69785f5329BB59c36B19CBd4865353fEf10` |
-| CURATOR (Lido — earn vaults)          | `0xe5abcc40196174Ae0d12153dE286F0D8E401769d` |
-| CURATOR (Mellow — operational vaults) | `0x9745F161b0160a99924845BeFCE1d7b9Daee6899` |
-| ORACLE_UPDATER                        | `0x93a797643d74fC81e7A51F3f84a9D78F930435D1` |
-| ORACLE_ACCEPTER                       | `0x0Dd73341d6158a72b4D224541f1094188f57076E` |
-| TREASURY                              | `0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85` |
-| LIDO_PAUSER                           | `0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd` |
-| MELLOW_PAUSER                         | `0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638` |
+| Role                                  | Address                                                                                                                       |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| PROXY_ADMIN                           | [`0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0`](https://app.safe.global/home?safe=eth:0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0) |
+| LAZY_VAULT_ADMIN                      | [`0x0Dd73341d6158a72b4D224541f1094188f57076E`](https://app.safe.global/home?safe=eth:0x0Dd73341d6158a72b4D224541f1094188f57076E) |
+| ACTIVE_VAULT_ADMIN                    | [`0x982aB69785f5329BB59c36B19CBd4865353fEf10`](https://app.safe.global/home?safe=eth:0x982aB69785f5329BB59c36B19CBd4865353fEf10) |
+| CURATOR (Lido — earn vaults)          | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) |
+| CURATOR (Mellow — operational vaults) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) |
+| ORACLE_UPDATER                        | [`0x93a797643d74fC81e7A51F3f84a9D78F930435D1`](https://app.safe.global/home?safe=eth:0x93a797643d74fC81e7A51F3f84a9D78F930435D1) |
+| TREASURY                              | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) |
+| LIDO_PAUSER                           | [`0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd`](https://app.safe.global/home?safe=eth:0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd) |
+| MELLOW_PAUSER                         | [`0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638`](https://app.safe.global/home?safe=eth:0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638) |
