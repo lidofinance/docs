@@ -45,10 +45,16 @@ const CHAIN_RPCS = {
 };
 
 const CONCURRENCY = 4;
-const SAFE_LINK_RE = /app\.safe\.global\/[^)]*[?&]safe=([a-z0-9]+):(0x[0-9a-fA-F]{40})/;
+const FETCH_TIMEOUT_MS = 15_000;
+// Match any URL/text containing a Safe `safe=<chain>:<address>` query param,
+// independent of the host/path (e.g. app.safe.global, safe.scroll.xyz,
+// multisig.mantle.xyz, …). Unsupported chain prefixes will surface as
+// `unsupported chain: <chain>` errors so coverage stays visible.
+const SAFE_LINK_RE = /[?&]safe=([a-z0-9]+):(0x[0-9a-fA-F]{40})/i;
 const TABLE_SEP_CELL_RE = /^:?-{3,}:?$/;
 const QUORUM_HEADER_RE = /^quorum$/i;
 const INLINE_QUORUM_RE = /^\s*\*\*Quorum(?:\*\*:|:\*\*)\s*(\d+\s*\/\s*\d+)\s*$/;
+const INLINE_QUORUM_REPLACE_RE = /(\*\*Quorum(?:\*\*:|:\*\*)\s*)\d+\s*\/\s*\d+/;
 const HEADING_RE = /^#{1,6}\s/;
 
 // ---------------------------------------------------------------------------
@@ -105,6 +111,9 @@ async function resolveQuorum(chain, address) {
     rpcCallWithFallback(rpcs, address, SELECTOR_GET_THRESHOLD).then(decodeUint),
     rpcCallWithFallback(rpcs, address, SELECTOR_GET_OWNERS).then(decodeArrayLength),
   ]);
+  if (!(threshold > 0 && threshold <= owners)) {
+    throw new Error(`invalid quorum: ${threshold}/${owners}`);
+  }
   return `${threshold}/${owners}`;
 }
 
@@ -122,10 +131,15 @@ async function rpcCallWithFallback(rpcs, to, data) {
 
 async function rpcCall(rpcUrl, to, data) {
   const body = JSON.stringify({ jsonrpc: '2.0', method: 'eth_call', params: [{ to, data }, 'latest'], id: 1 });
-  const res = await fetch(rpcUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+  const res = await fetch(rpcUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body,
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
   if (!res.ok) throw new Error(`rpc HTTP ${res.status}`);
   const json = await res.json();
-  if (json.error) throw new Error(json.error.message);
+  if (json.error) throw new Error(json.error.message ?? JSON.stringify(json.error));
   return json.result;
 }
 
@@ -136,7 +150,10 @@ function decodeUint(hex) {
 
 function decodeArrayLength(hex) {
   // ABI-encoded address[]: offset(32) + length(32) + entries...
+  // For a single-arg dynamic return, the offset word is always 0x20.
   if (!hex || hex.length < 2 + 128) throw new Error('not an address[] response');
+  const offset = parseInt(hex.slice(2, 2 + 64), 16);
+  if (offset !== 0x20) throw new Error(`unexpected address[] offset: 0x${offset.toString(16)}`);
   return parseInt(hex.slice(2 + 64, 2 + 128), 16);
 }
 
@@ -210,12 +227,15 @@ function* scanInline(lines) {
     const m = line.match(INLINE_QUORUM_RE);
     if (m && pending) {
       const lineNo = i;
-      const matched = m[1];
       yield {
         lineNo,
         ...pending,
-        current: matched.replace(/\s+/g, ''),
-        write: (value) => { lines[lineNo] = lines[lineNo].replace(matched, value); },
+        current: m[1].replace(/\s+/g, ''),
+        // Tie the replacement to the `**Quorum:**` label so an unrelated `M/N`
+        // elsewhere on the line cannot be clobbered.
+        write: (value) => {
+          lines[lineNo] = lines[lineNo].replace(INLINE_QUORUM_REPLACE_RE, `$1${value}`);
+        },
       };
     }
   }
@@ -292,10 +312,10 @@ function formatCheck(c, refWidth) {
 
 async function main() {
   const totals = { ok: 0, drift: 0, error: 0 };
-  // Reserve enough width for the longest possible `chain:0x…` reference so
-  // columns align even when a short matic vs longer zksync prefix mix on a
-  // single page.
-  const REF_WIDTH = 'zksync:0x0000000000000000000000000000000000000000'.length;
+  // Reserve enough width for the longest configured `chain:0x…` reference so
+  // columns align even when short and long prefixes mix on a single page.
+  const longestChain = Object.keys(CHAIN_RPCS).reduce((a, b) => (b.length > a.length ? b : a), '');
+  const REF_WIDTH = `${longestChain}:0x${'0'.repeat(40)}`.length;
 
   const onFileDone = ({ rel, checks }) => {
     if (checks.length === 0) return;
