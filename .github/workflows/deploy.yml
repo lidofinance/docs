@@ -43,6 +43,10 @@ jobs:
 
       - name: Build Project
         run: npm run build
+        env:
+          ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

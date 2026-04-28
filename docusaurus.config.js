@@ -17,6 +17,7 @@ module.exports = async function createConfigAsync() {
       },
     },
     themes: ['@docusaurus/theme-mermaid'],
+    clientModules: ['./src/clientModules/searchHighlight.js', './src/clientModules/searchQueryPersist.js'],
     stylesheets: [
       {
         href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
@@ -64,8 +65,22 @@ module.exports = async function createConfigAsync() {
             href: 'https://github.com/lidofinance',
             label: 'GitHub',
             position: 'right',
-          }
+          },
         ],
+      },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID || 'A2HCNXVT4O',
+        apiKey: process.env.ALGOLIA_API_KEY || '',
+        indexName: process.env.ALGOLIA_INDEX_NAME || 'dev_LIDO_DOCS',
+        contextualSearch: false,
+        searchPagePath: 'search',
+        searchParameters: {
+          distinct: 3,
+          exactOnSingleWordQuery: 'none',
+          removeWordsIfNoResults: 'lastWords',
+          ignorePlurals: true,
+          queryLanguages: ['en'],
+        },
       },
     },
     presets: [
@@ -86,10 +101,10 @@ module.exports = async function createConfigAsync() {
       ],
     ],
     plugins: [
-      [
-        require.resolve('@easyops-cn/docusaurus-search-local'),
-        { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
-      ],
+      // [
+      //   require.resolve('@easyops-cn/docusaurus-search-local'),
+      //   { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
+      // ],
       [
         '@docusaurus/plugin-client-redirects',
         {
@@ -108,10 +123,7 @@ module.exports = async function createConfigAsync() {
             },
             {
               to: '/run-on-lido/stvaults/tech-documentation/pdg',
-              from: [
-                '/guides/stvaults/pdg',
-                '/run-on-lido/stvaults/pdg',
-              ],
+              from: ['/guides/stvaults/pdg', '/run-on-lido/stvaults/pdg'],
             },
             {
               to: '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
@@ -179,5 +191,5 @@ module.exports = async function createConfigAsync() {
         },
       ],
     ],
-  };
-};
+  }
+}
