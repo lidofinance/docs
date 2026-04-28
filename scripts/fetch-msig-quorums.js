@@ -144,7 +144,9 @@ async function rpcCall(rpcUrl, to, data) {
 }
 
 function decodeUint(hex) {
-  if (!hex || hex.length < 2) throw new Error('empty rpc result');
+  // Some RPCs (notably zkSync) return `0x` for calls to nonexistent contracts
+  // instead of erroring; guard explicitly so we never write `NaN/N` into docs.
+  if (!hex || hex.length < 2 + 64) throw new Error(`empty rpc result: ${hex}`);
   return parseInt(hex.slice(2), 16);
 }
 
@@ -227,9 +229,13 @@ function* scanInline(lines) {
     const m = line.match(INLINE_QUORUM_RE);
     if (m && pending) {
       const lineNo = i;
+      const safe = pending;
+      // Consume the pairing — a later orphan `**Quorum:**` must require its own
+      // Safe link rather than re-pairing with this one.
+      pending = null;
       yield {
         lineNo,
-        ...pending,
+        ...safe,
         current: m[1].replace(/\s+/g, ''),
         // Tie the replacement to the `**Quorum:**` label so an unrelated `M/N`
         // elsewhere on the line cannot be clobbered.
