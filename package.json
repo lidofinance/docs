@@ -15,7 +15,8 @@
     "format": "prettier --write docs/",
     "fetch-audits": "node scripts/fetch-audits.js",
     "fetch-external": "node scripts/fetch-external.js",
-    "fetch-lips": "node scripts/fetch-lips.js"
+    "fetch-lips": "node scripts/fetch-lips.js",
+    "fetch-msig-quorums": "node scripts/fetch-msig-quorums.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
