@@ -7,7 +7,7 @@ sidebar_position: 3
 This page provides a quick-reference glossary for all the terms related to Curated Module v2 (CMv2).
 
 :::warning
-CMv2 parameters are subject to change before mainnet. Bond amounts and fee caps shown in this documentation reflect the current Hoodi testnet deployment.
+CMv2 parameters are subject to change before Mainnet. Bond amounts and fee caps shown in this documentation reflect the current Hoodi testnet deployment.
 :::
 
 ---
@@ -16,7 +16,9 @@ CMv2 parameters are subject to change before mainnet. Bond amounts and fee caps 
 
 ### Operator Group
 
-The technical unit that represents an operator entity in CMv2. It is a weighted grouping stored in `MetaRegistry.sol` that determines how stake is distributed among sub-NOs. Each group also references external operators (e.g. from CMv1) whose stake is accounted for when calculating allocation targets. A sub-operator can belong to only one Operator Group.
+The technical unit that represents an operator entity in CMv2. It is a weighted grouping stored in `MetaRegistry.sol` that determines how stake is distributed among sub-NOs. Each group also references external operators (e.g. from CMv1) whose stake is accounted for in both allocation and exit calculations across modules.
+
+A sub-operator can belong to only one Operator Group.
 
 ### Node Operator (NO) / Sub-Node Operator (sub-NO)
 
@@ -24,11 +26,11 @@ In CMv2, these two terms refer to the same thing. Every Node Operator is a disti
 
 ### Node Operator Type
 
-A Node Operator Type defines the parameter set applied to a sub-Node Operator and its keys. This can include bond requirements, fee caps, allocation weight, performance tolerance, and other parameters.
+A Node Operator Type defines the parameter set applied to a sub-Node Operator and its keys. This can include bond requirements, fee caps, allocation weight, and other parameters.
 
 ### 0x02 withdrawal credentials
 
-CMv2 exclusively supports 0x02 validators. These validators can hold effective balances up to 2,048 ETH and receive deposits in two steps: an initial 32 ETH deposit, followed by top-up deposits that increase the validator's balance up to 2,048 ETH. 0x01 credentials are no longer accepted.
+CMv2 exclusively supports `0x02` validators. These validators can hold effective balances up to 2,048 ETH and receive deposits in two steps: an initial 32 ETH deposit, followed by top-up deposits that increase the validator's balance up to 2,048 ETH. `0x01` credentials are no longer accepted.
 
 ### Bond
 
@@ -36,15 +38,15 @@ stETH-denominated collateral tracked per sub-NO in `Accounting.sol`. It can be u
 
 ### Curated Gate
 
-A permissioned entry-point contract for Node Operator creation. Each instance represents a different operator type and maps to a specific `bondCurveId` (Node Operator type) in `Accounting.sol`. An allowlisted address can use a gate once to create a new operator.
+A permissioned entry-point contract for Node Operator creation. Each instance represents a different operator type and maps to a specific `bondCurveId` (Node Operator type) in `Accounting.sol`. An allowlisted address can use a certain gate once to create a new operator.
 
-### Curated Module Committee (CMC)
+### [Curated Module Committee (CMC)](https://docs.lido.fi/multisigs/committees#220-curated-module-committee-cmc)
 
 An off-chain multisig committee responsible for overseeing CMv2 operations, including adding Operator Groups to the registry (via Easy Track), setting operator name, description, and actioning certain penalty flows (via Easy Track as well).
 
 ### Easy Track (ET) motion
 
-A lightweight governance mechanism that lets DAO-approved addresses, including the CMC, execute routine operations without a full DAO vote. When a motion is proposed, it becomes executable after 72 hours unless challenged, and can then be executed permissionlessly. Note it may still be challenged until it's executed.
+An optimistic governance mechanism that lets DAO-approved addresses, including the CMC, execute routine operations without explicit DAO approval (ET motions can be objected to, but do not require explicit support). When a motion is proposed, it becomes executable after 72 hours unless challenged, and can then be executed permissionlessly. Note, it may still be challenged until it's executed.
 
 It's used in CMv2 for operator onboarding, type assignments, penalty management, consolidations, and similar operational actions.
 
@@ -70,13 +72,13 @@ An operator outside CMv2 that is referenced from an Operator Group so its active
 
 In Phase 1 of CMv2, only CMv1 operators are taken as External Operators.
 
-### Triggerable Withdrawals / EIP-7002
+### Triggerable Withdrawals / [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002)
 
 EIP-7002 enables on-chain triggerable validator exits without requiring the validator's signing key. CMv2 operators can use this to exit the validator in emergency situations.
 
 ### Strike
 
-In Phase 2 of CMv2, there will be a strike-based accountability system. Unlike in [CSM](https://docs.lido.fi/staking-modules/csm/penalties#bad-performance-strikes), where strikes are applied per key, CMv2 will apply strikes at the sub-NO level. They serve as a long-term disincentive by reducing allocation weight, instead of relying solely on immediate penalties.
+In Phase 2 of CMv2, there will be a strike-based accountability system. Unlike in [CSM](/staking-modules/csm/penalties#bad-performance-strikes), where strikes are applied per key, CMv2 will apply strikes at the sub-NO level. They serve as a long-term disincentive by reducing allocation weight, instead of relying solely on immediate penalties.
 
 ### Phase 1 / Phase 2
 

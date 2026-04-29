@@ -12,23 +12,23 @@ This page covers how to create a Node Operator, what happens immediately after c
 
 ![Confirm NO creation](/img/cm-guide/no-create-confirm.png)
 
-You create NOs through the CM staking widget. Each one has a type assigned at creation which can only be changed via a full on-chain vote. It affects your bond requirement, reward share, and stake allocation weight.
+You create NOs through the CM widget. Each one has a type assigned at creation which can only be changed via a full on-chain vote. It affects your bond requirement, reward share, and stake allocation weight.
 
 The creation flow has four steps:
 
-1. **Select your NO type.** Choose from the list of NO types previously set by the CMC. See [Node Operator Types](./node-operator-types) for details on each type.
+1. **Select your NO type.** Choose from the list of NO types previously set by the CMC. See [Node Operator Types](/run-on-lido/cm-v2/node-operator-types) for details on each type.
 2. **Set a Manager Address and a Rewards Address.** These are separate addresses. The manager address handles key uploads, operational actions, and can change rewards address. The rewards address receives your earned rewards.
 
 :::warning
 We recommend both Manager and Rewards Addresses to be highly secure, and preferably multi-signature wallets. Compromise of either address can result in loss of funds and, in the case of the Manager Address, loss of operational control over the Node Operator.
 :::
 
-3. **Add a name and description.** The name identifies your sNO in the dashboard and in the Operator Group view. These can be edited later.
+3. **Add a name and description.** The name identifies your sub-Node Operator in the dashboard and in the Operator Group view. These can be edited later.
 4. **Review and confirm.** Check all details before submitting.
 
 ### After creation
 
-After your transaction is confirmed, the CMC adds your NO to an Operator Group via an Easy Track motion, which can take up to 3 days to be enacted if there are no objections, and assigns a share allocation weight within the group.
+After your transaction is confirmed, the CMC adds your NO to an Operator Group via an Easy Track motion, which takes at least 3 days to be enacted if there are no objections, and assigns a share allocation weight within the group.
 
 Your operator type is set at creation and can only be changed through a DAO vote. The type is written into the on-chain record at the moment the CuratedGate transaction is submitted.
 
@@ -36,17 +36,17 @@ Your operator type is set at creation and can only be changed through a DAO vote
 
 ### The dashboard
 
-Once your NO is active, you manage it through the operator dashboard. The dashboard is organized into tabs in the left sidebar, each covering a different area of your operator.
+Once your NO is active, connect your Manager Address to [cm.lido.fi](https://cm.lido.fi) to access the operator dashboard. The dashboard is organized into tabs in the left sidebar, each covering a different area of your operator.
 
 ![CM dashboard](/img/cm-guide/no-dashboard.png)
 
 The sidebar tabs are:
 
 - **Dashboard**: overview of your NO with stake & key information (active, depositable and potential capacity), bond balance, claimable rewards, role addresses, and links to external monitoring tools.
-- **[Keys](./bond-and-key-management)**: upload new deposit data and view the current status of all your keys.
-- **Monitoring**: links to external monitoring tools.
-- **[Bond & Rewards](./rewards)**: detailed view of your bond balance, claimable rewards, rewards splitter and claim history.
-- **[Roles](./roles)**: update your manager address, rewards address, rewards claimer, and survey submitter.
+- **[Keys](/run-on-lido/cm-v2/bond-and-key-management)**: upload new deposit data and view the current status of all your keys.
+- **External Resources**: links to external monitoring tools.
+- **[Bond & Rewards](/run-on-lido/cm-v2/rewards)**: detailed view of your bond balance, claimable rewards, rewards splitter and claim history.
+- **[Roles](/run-on-lido/cm-v2/roles)**: update your manager address, rewards address, rewards claimer, and survey submitter.
 - **Surveys**: periodic infrastructure setup & configuration surveys. Responses are used in the [VaNOM reports](https://app.hex.tech/8dedcd99-17f4-49d8-944e-4857a355b90a/app/VaNOM-Lido-on-Ethereum-Validator-Node-metrics-1vnpSDa7PtbyA6HX0bVNj1/latest).
 
 ### Managing multiple sub-NOs

@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # 🔄 Consolidations & Migration
 
-CMv2 runs only 0x02 validators with balances up to 2,048 ETH. If you are migrating from CMv1, your existing 32 ETH (0x01) validators should be consolidated into new 0x02 validators.
+CMv2 runs only `0x02` validators with balances up to 2,048 ETH. If you are migrating from CMv1, your existing 32 ETH (`0x01`) validators should be consolidated into new `0x02` validators.
 
 This is a one-way process. CMv1 validators are not exited and redeposited, they are consolidated at the Ethereum protocol level. Currently, we only support consolidations between the CMv1 and CMv2 modules.
 
@@ -12,13 +12,13 @@ This is a one-way process. CMv1 validators are not exited and redeposited, they 
 
 ## What consolidation means
 
-Consolidation is an Ethereum-native mechanism that moves stake from a source validator with 0x01 credentials into a 0x02 target validator. The source validator exits and its balance merges into the target. The process is handled at the protocol level and cannot be reversed.
+Consolidation is an Ethereum-native mechanism that moves stake from a source validator into a `0x02` target validator. The source validator exits and its balance merges into the target. The process is handled at the Ethereum protocol level and cannot be reversed.
 
 Each consolidation request enters a consolidation-exclusive queue on the consensus layer. Please note that while queued, both source and target validators must remain healthy.
 
 Total time from submission to completion depends on queue depth at the time of submission and cannot be predicted in advance. A 256 epoch (~27 hour) withdrawable period exists between the exit of the validator and the consolidation of its value into the target, and rewards do not accumulate during that period.
 
-During periods of high migration activity across the network, waits may extend to several days.
+During periods of high migration activity across the network, waits may extend to several days or weeks.
 
 ---
 
@@ -39,13 +39,13 @@ Node Operators are expected to migrate one by one, according to a migration sche
 Before starting, ensure the following:
 
 - Confirm you can post the required bond for your intended CMv2 footprint.
-- Validator clients, signers, and monitoring support 0x02 validators and consolidation events.
+- Validator clients, signers, and monitoring support `0x02` validators and consolidation events.
 - Current CMv1 validators are mapped to infrastructure, so you know which clusters to retire first.
 
 ### Step 1: CMv2 setup and initial seeding
 
-1. **Create CMv2 Node Operators** in the CMv2 widget (see [Creating & Managing Node Operators](./creating-and-managing-node-operators)). Set a manager address, rewards address, and confirm operator type. All Node Operators are expected to create at least two sub-Node Operators. This is an administrative step and does not touch validator infrastructure yet.
-2. **Generate 0x02 validator keys** using your standard key management tooling.
+1. **Create CMv2 Node Operators** in the CMv2 widget (see [Creating & Managing Node Operators](/run-on-lido/cm-v2/creating-and-managing-node-operators)), set a manager address, rewards address, and confirm operator type. This is an administrative step and does not touch validator infrastructure yet.
+2. **Generate `0x02` validator keys** using your standard key management tooling.
 3. **Upload keys and post bond.** Post bond either before or during key upload so validators can receive initial deposits.
 4. **Bring CMv2 validators live.** Configure validator clients, fee recipient (Lido EL Rewards Vault), MEV-boost, ejector settings, and monitoring.
 5. **Wait for your new validators to be deposited** (32 ETH) and become active.
@@ -77,7 +77,7 @@ A single Node Operator can run multiple sub-Node Operators, each with its own ty
 
 All bonding, fees, and parameter enforcement apply at the sub-Node Operator level.
 
-Creating a new sub-Node Operator is permissioned and requires DAO approval via the [CMC onboarding process](./creating-and-managing-node-operators).
+Creating a new sub-Node Operator is permissioned and requires DAO approval via the [CMC onboarding process](/run-on-lido/cm-v2/creating-and-managing-node-operators).
 
 ---
 
@@ -85,4 +85,4 @@ Creating a new sub-Node Operator is permissioned and requires DAO approval via t
 
 Bond must be posted at the sub-Node Operator level before validators can receive initial deposits. It can be posted ahead of time or during key upload.
 
-Mainnet bond amounts depend on operator type, see [Bond & Key Management](./bond-and-key-management) for details.
+Mainnet bond amounts depend on operator type, see [Bond & Key Management](/run-on-lido/cm-v2/bond-and-key-management) for details.

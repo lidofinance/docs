@@ -8,6 +8,10 @@ The Curated Module classifies each Node Operator into one of 6 types based on it
 
 Each NO type determines your bond requirement, your reward share, and base stake allocation weight.
 
+:::warning
+CMv2 parameters are subject to change before Mainnet. Bond amounts and fee caps shown in this documentation reflect the current Hoodi testnet deployment.
+:::
+
 ## All Node Operator types
 
 ### Professional Operator (PO)
@@ -61,7 +65,7 @@ The table below summarizes the key parameters for each type.
 | **Type** | **Bond** | **Reward share** | **Keys limit** | **ValMart weight** |
 | --- | --- | --- | --- | --- |
 | PTO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 3.5% | 500 | 1 |
-| PO | 11 ETH first key, 1 ETH subsequent | 2.5% | 80 | 0.7 |
+| PO | 11 ETH first key, 1 ETH subsequent | 2.5% | 80 | 0.5 |
 | PGO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 4% | 500 | 1 |
 | DO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 4% | 500 | 1 |
 | EEO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 4% | 500 | 1 |

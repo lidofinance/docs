@@ -14,7 +14,7 @@ This page covers how to upload and manage your validator keys, and how bond work
 
 ![Upload keys](/img/cm-guide/bond-upload-keys.png)
 
-To upload keys, go to the keys tab in cm.lido.fi, and drag and drop the `deposit-data.json` file from your keys. The widget will tell you how much bond is required for the amount of keys submitted.
+To upload keys, go to the keys tab in [cm.lido.fi](https://cm.lido.fi), and drag and drop the `deposit-data.json` file from your keys. The widget will tell you how much bond is required for the number of keys submitted.
 
 ### How deposits work
 
@@ -23,9 +23,11 @@ After valid keys are uploaded, they become eligible for deposits. Deposits in CM
 - **Initial deposit:** a validator first receives its initial 32 ETH deposit to get activated.
 - **Top-ups:** after activation, the same validator can receive additional deposits over time.
 
-CMv2 does not deposit validators in simple upload order. New 0x02 keys are deposited 32 ETH to get activated and then the protocol will deposit into them until they reach 2,048 ETH.
+CMv2 does not deposit validators in simple upload order. New `0x02` keys are deposited 32 ETH to get activated and then the protocol will deposit into them until they reach 2,048 ETH.
 
 These top-ups are determined by the module's weighted allocation algorithm, which prioritizes Node Operators that are furthest below their target stake allocation.
+
+For information on key validation errors and how to resolve them, see [Key statuses](#key-statuses) below.
 
 ### Key statuses
 
@@ -49,13 +51,13 @@ Each key inside your Node Operator has one of the following statuses.
 
 Operators in the Curated Module can exit their keys through the following options:
 
-**Removing keys before getting deposits**
+#### Removing keys before getting deposits
 
 You can remove keys that have not yet received the 32 ETH initial deposit.
 
 To remove them, go to the Keys section in the CMv2 widget and open the Remove tab.
 
-**Voluntary exit**
+#### Voluntary exit
 
 Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](https://docs.lido.fi/contracts/validators-exit-bus-oracle) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
 
@@ -63,7 +65,7 @@ Please note this can't be done in the CMv2 widget, it can only be done through y
 
 Exiting validators outside of a protocol-requested exit is discouraged. If you plan to exit validators without a prior exit request, notify the Lido community in advance via the research forum.
 
-**Ejection (triggerable withdrawals)**
+#### Ejection (triggerable withdrawals)
 
 Through the CMv2 widget, you can force-exit an active validator directly from the Execution Layer using EIP-7002 triggerable withdrawals. This is an emergency measure. It is recommended to use voluntary exits broadcast via CL in normal operations.
 
@@ -104,21 +106,21 @@ These are Hoodi testnet confirmed values. Mainnet values will be confirmed befor
 
 ![Locked bond](/img/cm-guide/bond-locked.png)
 
-When a [penalty](./penalties) is reported to your operator, the equivalent of the penalty plus a fee enters a **locked** state.
+When a **General Delayed Penalty** is reported against your operator, the penalty amount plus a fixed fee is immediately locked in `Accounting.sol`.
 
 You can compensate the penalty from your excess bond. If needed, top up your bond first so there is enough excess to cover the penalty, then compensate it through the interface.
 
 If no further action is taken by the Curated Module Committee, the Node Operator can do a transaction to unlock it after the lock period of 60 days ends.
 
-You can also see previous penalties in the history toggle with penalties including:
-
-- Late Exit Penalty
-- General delayed Penalty
-- Compensation (shown when you have already compensated a previous penalty)
-
 :::warning
 If you do not compensate a locked bond before the EasyTrack motion executes, those funds are **permanently burned**. In Phase 2, this will also result in a strike being assigned to the sub-Node Operator.
 :::
+
+---
+
+### Penalty history
+
+The CM interface also includes a penalty history section where you can review past penalties and actions recorded against your operator. For details on penalty types and how they are applied, see [Penalties](/run-on-lido/cm-v2/penalties).
 
 ---
 

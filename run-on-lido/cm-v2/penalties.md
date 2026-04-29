@@ -10,7 +10,7 @@ CMv2 uses a bond-based penalty system. When your validators underperform or viol
 
 ### General delayed penalty
 
-Applied manually by the CMC in case of EL stealing (MEV, priority fees), underperformance, or in other cases of protocol rule violations that are not reported automatically.
+Reported manually by the CMC in case of EL stealing (MEV, priority fees), underperformance, or in other cases of protocol rule violations that are not reported automatically.
 
 A **General delayed penalty** consists of the charge to cover for the violation, and a fixed additional fine charged at withdrawal. The fixed fine is 0.1 ETH for the PO type and 0.05 ETH for all the others.
 
@@ -34,11 +34,9 @@ Applied manually by the CMC when one of your validators is slashed on the consen
 
 Most penalties are applied at the time of validator withdrawal. This means your bond is not reduced the moment a penalty is recorded. The deduction happens when the validator exits.
 
-The only exception is the General Delayed Penalty. Once reported and confirmed through an Easy Track motion, the penalty amount plus a fixed fee is immediately locked in `Accounting.sol`.
+The only exception is the General Delayed Penalty. Once reported, the penalty amount plus a fixed fee is immediately locked in `Accounting.sol`. If not compensated before the EasyTrack motion executes, the locked bond is burned permanently. If available bond is insufficient, the uncovered amount is recorded as bond debt.
 
-To unlock locked bond, go to [Bond & Rewards](./bond-and-key-management) → Unlock Bond tab.
-
-If you do not compensate, an EasyTrack motion will be started to confirm the penalty. Once enacted, the locked funds are burned permanently. If available bond is insufficient to cover penalties, the uncovered amount is recorded as bond debt.
+To unlock locked bond, go to [Bond & Rewards](/run-on-lido/cm-v2/bond-and-key-management) → Unlock Bond tab.
 
 ## Strike system
 
@@ -46,7 +44,7 @@ If you do not compensate, an EasyTrack motion will be started to confirm the pen
 The strike system is planned for Phase 2 (expected Q4 2026) and is not active in Phase 1.
 :::
 
-- CMv2 Phase 2 will introduce a strike-based accountability system.
+- CMv2 Phase 2 will introduce a strike-based accountability system. Strikes apply at the sub-Node Operator level, not per key as in [CSM](/staking-modules/csm/penalties#bad-performance-strikes).
 - Strikes are recorded for repeated misbehavior: poor performance, repeated delayed exits, and policy violations.
 - Accumulated strikes progressively reduce your allocation weight.
 - Enough strikes can result in ejection from the Curated Module.

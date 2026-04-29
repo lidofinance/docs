@@ -23,10 +23,10 @@ CMv2 introduces significant changes from CMv1 and CSM. The table below summarize
 | Feature | CMv1 | CSM | CMv2 |
 | --- | --- | --- | --- |
 | **Stake allocation** | MinFirst allocation | FIFO queue | Weighted stake allocation with respect to sub-operators |
-| **Validator type** | 0x01 only | 0x01 only | 0x02 only |
+| **Validator type** | `0x01` only | `0x01` only | `0x02` only |
 | **Deposit flow** | Single 32 ETH deposits | Single 32 ETH deposits | Two-phased: initial 32 ETH + top-ups up to 2048 ETH validator balance |
 | **Operator creation** | Via governance | Permissionless | Via Curated Gate contracts controlled by governance |
-| **Bond** | No bond; reputation-based model | Per validator | Bond required per 0x02 key at the sub-NO level |
+| **Bond** | No bond; reputation-based model | Per validator | Bond required per `0x02` key at the sub-NO level |
 | **Rewards** | Push-based | Pull-based | Pull-based |
 | **Address management** | Governance | Operator-controlled | Operator-controlled + governance fallback |
 
@@ -39,22 +39,22 @@ CMv2 is being rolled out in two distinct phases. Understanding which features ar
 ### Phase 1
 
 :::note
-Live on Hoodi, targeted Q3 2026 for mainnet
+Live on Hoodi, targeted Q3 2026 for Mainnet
 :::
 
-- Introduction of [**bond**](./bond-and-key-management) and [**penalties**](./penalties) to Curated Module operators
+- Introduction of [**bond**](/run-on-lido/cm-v2/bond-and-key-management) and [**penalties**](/run-on-lido/cm-v2/penalties) to Curated Module operators
 - Address management by Node Operators
-- Operator types with type-specific bonds and fixed fee
+- [Operator types](/run-on-lido/cm-v2/node-operator-types) with type-specific bonds, fee caps, stake allocation weights, and other parameters
 - Weighted stake allocation
 - Two-phase deposits (initial 32 ETH + top-ups)
-- [Consolidations from CMv1 validators](./consolidations-and-migration)
+- [Consolidations from CMv1 validators](/run-on-lido/cm-v2/consolidations-and-migration)
 - Pull-based reward claims with FeeSplit support
 - Node Operator creation method and mapping into Operator Groups representing the entity
 
 ### Phase 2
 
 :::note
-Targeted Q4 2026 for mainnet
+Targeted Q4 2026 for Mainnet
 :::
 
 - Validator Market (ValMart), a dynamic allocation mechanism balancing multiple parameters like fees, risk profiles, additional bond reserves or LDO locking and delegation

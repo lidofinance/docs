@@ -8,7 +8,7 @@ This section of the Lido documentation is for users who want to run any of the L
 
 &emsp;📘 Read the [Lido V3 Technical Paper](/lido-v3-whitepaper) — the vision and architecture of stVaults
 
-&emsp;🏛️ Read the documentation for the [Curated Module v2](/run-on-lido/curated-module/)
+&emsp;🏛️ Read the documentation for the [Curated Module v2](/run-on-lido/cm-v2/)
 
 &emsp;🖥️ Learn how to set up a CSM Operator with the [Community Staking Module](/run-on-lido/csm/)  
 
