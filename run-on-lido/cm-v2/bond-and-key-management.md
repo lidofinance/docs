@@ -16,6 +16,10 @@ This page covers how to upload and manage your validator keys, and how bond work
 
 To upload keys, go to the keys tab in [cm.lido.fi](https://cm.lido.fi), and drag and drop the `deposit-data.json` file from your keys. The widget will tell you how much bond is required for the number of keys submitted.
 
+Your keys will be considered invalid if they have an invalid signature, or if they have been uploaded to Lido or already used on the Beacon Chain. In that case, you’ll have to remove the invalid key(s) and resubmit them correctly.
+
+The [Key statuses](#key-statuses) section below provides more information on all the possible states of your keys.
+
 ### How deposits work
 
 After valid keys are uploaded, they become eligible for deposits. Deposits in CMv2 happen in two stages:
@@ -26,8 +30,6 @@ After valid keys are uploaded, they become eligible for deposits. Deposits in CM
 CMv2 does not deposit validators in simple upload order. New `0x02` keys are deposited 32 ETH to get activated and then the protocol will deposit into them until they reach 2,048 ETH.
 
 These top-ups are determined by the module's weighted allocation algorithm, which prioritizes Node Operators that are furthest below their target stake allocation.
-
-For information on key validation errors and how to resolve them, see [Key statuses](#key-statuses) below.
 
 ### Key statuses
 

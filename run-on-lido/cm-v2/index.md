@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 🏛️ Curated Module v2
+# Curated Module v2
 
 :::warning
 CMv2 is currently deployed on the Hoodi testnet. Specific parameters such as bond amounts, fee caps, and penalty thresholds may change before Mainnet launch. Mainnet migration is targeted for Q3 2026. Treat all values in this documentation as current testnet unless a Mainnet figure is explicitly noted.
