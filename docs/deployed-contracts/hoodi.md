@@ -40,6 +40,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Withdrawal Vault: [`0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`](https://hoodi.etherscan.io/address/0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2) (proxy)
 - Withdrawal Vault: [`0xB97e67CC20bd2970E30341c0ECc7497d8A5b7342`](https://hoodi.etherscan.io/address/0xB97e67CC20bd2970E30341c0ECc7497d8A5b7342) (impl)
 - Accounting: [`0x9b5b78D1C9A3238bF24662067e34c57c83E8c354`](https://hoodi.etherscan.io/address/0x9b5b78D1C9A3238bF24662067e34c57c83E8c354) (proxy)
+- Accounting: [`0xDB47544d5813f15116bf95c1cF2ff4dEdb2226fD`](https://hoodi.etherscan.io/address/0xDB47544d5813f15116bf95c1cF2ff4dEdb2226fD) (impl)
 - Burner: [`0xb2c99cd38a2636a6281a849C8de938B3eF4A7C3D`](https://hoodi.etherscan.io/address/0xb2c99cd38a2636a6281a849C8de938B3eF4A7C3D) (proxy)
 - Min First Allocation Strategy: [`0x8E6FDB231D7CE30C2459319c0d4c4Eb4B681f9C9`](https://hoodi.etherscan.io/address/0x8E6FDB231D7CE30C2459319c0d4c4Eb4B681f9C9) (external lib)
 - MEV Boost Relay Allowed List: [`0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf`](https://hoodi.etherscan.io/address/0x279d3A456212a1294DaEd0faEE98675a52E8A4Bf)
