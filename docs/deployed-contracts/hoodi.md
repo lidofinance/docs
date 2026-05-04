@@ -33,6 +33,8 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Staking Router: [`0xCc820558B39ee15C7C45B59390B503b83fb499A8`](https://hoodi.etherscan.io/address/0xCc820558B39ee15C7C45B59390B503b83fb499A8) (proxy)
 - Staking Router: [`0x44d0b2B95d2C2bDF73FE4f5cD7E3A930494E5B1f`](https://hoodi.etherscan.io/address/0x44d0b2B95d2C2bDF73FE4f5cD7E3A930494E5B1f) (impl)
 - Deposit Security Module: [`0x1a629bB7C0563650e46406Eb6764A2ba207a0eFE`](https://hoodi.etherscan.io/address/0x1a629bB7C0563650e46406Eb6764A2ba207a0eFE)
+- TopUp Gateway: [`0x10DBEb3367876826d00D21718D1d893e0fbD2956`](https://hoodi.etherscan.io/address/0x10DBEb3367876826d00D21718D1d893e0fbD2956) (proxy)
+- TopUp Gateway: [`0xFd1b63657dda65C4E6fDEF9d1f37064D078e9B49`](https://hoodi.etherscan.io/address/0xFd1b63657dda65C4E6fDEF9d1f37064D078e9B49) (impl)
 - Execution Layer Rewards Vault: [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258)
 - Withdrawal Queue ERC721: [`0xfe56573178f1bcdf53F01A6E9977670dcBBD9186`](https://hoodi.etherscan.io/address/0xfe56573178f1bcdf53F01A6E9977670dcBBD9186) (proxy)
 - Withdrawal Vault: [`0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`](https://hoodi.etherscan.io/address/0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2) (proxy)
