@@ -57,6 +57,14 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Dashboard Implementation: [`0x38131D5548Be57A34937521fe427a23f49e1e2d4`](https://hoodi.etherscan.io/address/0x38131D5548Be57A34937521fe427a23f49e1e2d4)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
+### 🔗 Consolidation Flow {#consolidation-flow}
+
+- Consolidation Migrator: [`0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8`](https://hoodi.etherscan.io/address/0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8) (proxy)
+- Consolidation Migrator: [`0x2A8585201BFD6830944f0bf008B774e7e32b380d`](https://hoodi.etherscan.io/address/0x2A8585201BFD6830944f0bf008B774e7e32b380d) (impl)
+- Consolidation Bus: [`0xe09fBcE63826468867eE66Eda491E444829E022A`](https://hoodi.etherscan.io/address/0xe09fBcE63826468867eE66Eda491E444829E022A) (proxy)
+- Consolidation Bus: [`0x27Ff16a465c1A00a727dd3Dbd479c5F3De275a1f`](https://hoodi.etherscan.io/address/0x27Ff16a465c1A00a727dd3Dbd479c5F3De275a1f) (impl)
+- Consolidation Gateway: [`0xC9991Bb865d025364BCbBd99f36e85889Fb68e69`](https://hoodi.etherscan.io/address/0xC9991Bb865d025364BCbBd99f36e85889Fb68e69)
+
 ## 🔮 Oracle Contracts {#oracle-contracts}
 
 - Accounting Oracle:
