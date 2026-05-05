@@ -36,7 +36,7 @@ Your operator type is set at creation and can only be changed through a DAO vote
 
 ### The dashboard
 
-Once your NO is active, connect your Manager Address to [cm.lido.fi](https://cm.lido.fi) to access the operator dashboard. The dashboard is organized into tabs in the left sidebar, each covering a different area of your operator.
+Once your NO is active, connect your Manager Address to [cm.testnet.fi](https://cm.testnet.fi) to access the operator dashboard. The dashboard is organized into tabs in the left sidebar, each covering a different area of your operator.
 
 ![CM dashboard](/img/cm-guide/no-dashboard.png)
 

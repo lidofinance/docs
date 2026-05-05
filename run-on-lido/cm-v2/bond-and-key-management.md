@@ -16,7 +16,7 @@ This page covers how to upload and manage your validator keys, and how bond work
 
 Before uploading keys, generate your validator keys and deposit data using a tool such as the [EthStaker Deposit CLI](https://github.com/eth-educators/ethstaker-deposit-cli) or your organization's standard key-generation process. Please make sure the generated keys use `0x02` withdrawal credentials and point to the [Lido Execution Layer Withdrawal Vault](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f).
 
-To upload the keys, go to the Keys tab in [cm.lido.fi](https://cm.lido.fi), and drag and drop the `deposit-data.json` file. The widget will tell you how much bond is required for the number of keys submitted.
+To upload the keys, go to the Keys tab in [cm.testnet.fi](https://cm.testnet.fi), and drag and drop the `deposit-data.json` file. The widget will tell you how much bond is required for the number of keys submitted.
 
 Keys with invalid signatures must be removed and re-uploaded with valid signatures. If a key has already been uploaded to Lido or used on the Beacon Chain, it is treated as duplicated and should be removed.
 

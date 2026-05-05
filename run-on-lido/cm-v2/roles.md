@@ -17,7 +17,7 @@ You also can optionally configure a Rewards Claimer and a Rewards Splitter.
 ## Roles overview
 
 :::info
-The DAO holds a separate role (`OPERATOR_ADDRESSES_ADMIN_ROLE`) that can override your manager and reward addresses. It exists only for emergencies where your key is compromised and you can't recover it yourself. If that ever happens, the DAO can step in through a full Aragon vote to restore access on your behalf.
+There's a separate role (`OPERATOR_ADDRESSES_ADMIN_ROLE`) that can override your manager and reward addresses. It exists only for emergencies where your key is compromised and you can't recover it yourself. If that ever happens, the DAO can step in through a full Aragon vote to restore access on your behalf.
 :::
 
 | **Role** | **Required** | **What it controls** | **Change mechanism** |
