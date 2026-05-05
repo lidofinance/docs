@@ -6,7 +6,8 @@ sidebar_position: 10
 
 CMv2 runs only `0x02` validators with balances up to 2,048 ETH. If you are migrating from CMv1, your existing 32 ETH (`0x01`) validators should be consolidated into new `0x02` validators.
 
-This is a one-way process. CMv1 validators are not exited and redeposited, they are consolidated at the Ethereum protocol level. Currently, we only support consolidations between the CMv1 and CMv2 modules.
+**This is a one-way process** from CMv1 source validators to CMv2 target validators. CMv1 validators are not exited and redeposited; they are consolidated at the Ethereum protocol level. Operators that do not complete the CMv2 migration requirements, such as providing bond and keys, will have their CMv1 validators exited eventually.
+
 
 ---
 
@@ -14,11 +15,13 @@ This is a one-way process. CMv1 validators are not exited and redeposited, they 
 
 Consolidation is an Ethereum-native mechanism that moves stake from a source validator into a `0x02` target validator. The source validator exits and its balance merges into the target. The process is handled at the Ethereum protocol level and cannot be reversed.
 
-Each consolidation request enters a consolidation-exclusive queue on the consensus layer. Please note that while queued, both source and target validators must remain healthy.
+Each consolidation request enters a consolidation-exclusive queue on the consensus layer. Please note that while queued, **both source and target validators must remain active and healthy**.
 
 Total time from submission to completion depends on queue depth at the time of submission and cannot be predicted in advance. A 256 epoch (~27 hour) withdrawable period exists between the exit of the validator and the consolidation of its value into the target, and rewards do not accumulate during that period.
 
 During periods of high migration activity across the network, waits may extend to several days or weeks.
+
+You can monitor the consolidation queue using external services such as [Validator Queue](https://www.validatorqueue.com/), [Pectrified](https://pectrified.com/mainnet), or [Miga Labs](https://www.migalabs.io/consolidations).
 
 ---
 
@@ -27,12 +30,12 @@ During periods of high migration activity across the network, waits may extend t
 :::info
 Migrations on Mainnet have not started yet.
 
-They are expected to initiate around Q2–Q3 2026, following a successful Hoodi testnet migration. Exact timing depends on the outcome of testnet results and DAO coordination.
+They are expected to initiate around Q3 2026, following a successful Hoodi testnet migration. Exact timing depends on the outcome of testnet results and DAO coordination.
 :::
 
 Migrating from CMv1 to CMv2 is a two-step process: first set up your CMv2 footprint, then consolidate validators into it.
 
-Node Operators are expected to migrate one by one, according to a migration schedule coordinated by NOM.
+Node Operators are expected to migrate one by one, according to a migration schedule coordinated by NOM. Operators that miss their migration window will not be consolidated.
 
 ### Preparation
 

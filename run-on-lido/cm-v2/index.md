@@ -64,4 +64,4 @@ Tools and dashboards that support CMv2 operations.
 
 ## Contact
 
-For questions please reach out through the dedicated chat with NOM contributors.
+For questions please reach out through the dedicated chat with NOM contributors and your organization, or via the Lido Validators chat.

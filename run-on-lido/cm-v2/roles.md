@@ -4,16 +4,20 @@ sidebar_position: 9
 
 # 🔑 Roles
 
-Every Node Operator has two required addresses: a Manager Address and a Rewards Address. Both are set during creation and can be changed later using the Manager Address for both or via DAO vote, while the Rewards Address can also propose a new Rewards Address.
+Every Node Operator has two required addresses: a Manager Address and a Rewards Address. Both are set during creation and can be changed later through their respective role-change flows. The current Manager Address can propose a new Manager Address or directly change the Rewards Address, while the Rewards Address can also propose its own replacement.
 
-You also can optionally configure a Rewards Claimer and a Rewards Splitter as well.
+:::warning
+Use highly secure addresses for roles that control funds or operator configuration. Multisig wallets are strongly recommended for Manager and Rewards Addresses.
+:::
+
+You also can optionally configure a Rewards Claimer and a Rewards Splitter.
 
 ![Roles overview](/img/cm-guide/roles-overview.png)
 
 ## Roles overview
 
 :::info
-The DAO holds a separate role (`OPERATOR_ADDRESSES_ADMIN_ROLE`) that can override your manager and reward addresses. It exists only for emergencies where your key is compromised and you can't recover it yourself. If that ever happens, the DAO can step in through on-chain voting to restore access on your behalf.
+The DAO holds a separate role (`OPERATOR_ADDRESSES_ADMIN_ROLE`) that can override your manager and reward addresses. It exists only for emergencies where your key is compromised and you can't recover it yourself. If that ever happens, the DAO can step in through a full Aragon vote to restore access on your behalf.
 :::
 
 | **Role** | **Required** | **What it controls** | **Change mechanism** |
@@ -66,8 +70,13 @@ The **Rewards Splitter** lets you distribute your Node Operator rewards across u
 
 How it works:
 
-- The primary Rewards Address always receives the remaining share (total minus all additional shares)
-- Claiming is permissionless. Anyone can execute the claim transaction but funds are sent only to the split recipients, not the NO's Reward Address.
-- The addresses of the Fee Splitter can only be set or changed when there are no claimable rewards.
+- Split recipients receive their configured shares first.
+- When the sub-NO claims rewards through the standard flow, the primary Rewards Address receives the remaining share after split recipients are paid.
+- If the claim is executed permissionlessly, the remaining share is sent to the sub-NO's bond balance.
+- Rewards Splitter addresses can only be set or changed when there are no claimable rewards.
 - The initial split configuration can only be changed after the first reward distribution.
-- Fee splits apply to Node Operator rewards only, not to bond rebase.
+- Reward splits apply to Node Operator rewards only, not to bond rebase.
+
+:::warning
+Review split recipient addresses carefully before the first distribution. A misconfigured initial split can route rewards to the wrong addresses before the configuration can be changed.
+:::

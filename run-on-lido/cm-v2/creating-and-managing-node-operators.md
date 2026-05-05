@@ -42,9 +42,9 @@ Once your NO is active, connect your Manager Address to [cm.lido.fi](https://cm.
 
 The sidebar tabs are:
 
-- **Dashboard**: overview of your NO with stake & key information (active, depositable and potential capacity), bond balance, claimable rewards, role addresses, and links to external monitoring tools.
+- **Dashboard**: overview of your NO with stake & key information (active, depositable and potential capacity), bond balance, claimable rewards, role addresses, and key operational status.
 - **[Keys](/run-on-lido/cm-v2/bond-and-key-management)**: upload new deposit data and view the current status of all your keys.
-- **External Resources**: links to external monitoring tools.
+- **External Resources**: links to external monitoring tools and dashboards.
 - **[Bond & Rewards](/run-on-lido/cm-v2/rewards)**: detailed view of your bond balance, claimable rewards, rewards splitter and claim history.
 - **[Roles](/run-on-lido/cm-v2/roles)**: update your manager address, rewards address, rewards claimer, and survey submitter.
 - **Surveys**: periodic infrastructure setup & configuration surveys. Responses are used in the [VaNOM reports](https://app.hex.tech/8dedcd99-17f4-49d8-944e-4857a355b90a/app/VaNOM-Lido-on-Ethereum-Validator-Node-metrics-1vnpSDa7PtbyA6HX0bVNj1/latest).

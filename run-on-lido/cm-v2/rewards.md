@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # 🎁 Rewards
 
-As a Node Operator in CMv2, you earn rewards from two separate streams: a protocol fee paid per active validator key, and staking returns that accrue on your bond balance.
+As a Node Operator in CMv2, you earn rewards from two separate streams: a share of Lido's 10% protocol fee distributed based on your active validator keys, and staking returns that accrue on your bond balance.
 
 ---
 
@@ -32,7 +32,7 @@ As a Node Operator in CMv2, you earn rewards from two separate streams: a protoc
 - To claim, the protocol verifies your share of the rewards tree using a `cumulativeFeeShares` proof
 - `Accounting.sol` pulls your portion of fees from `FeeDistributor.sol`, combines it with your bond balance, and calculates the final claimable amount
 - Everything above the required bond for your current active keys is claimable
-- Please note that if you have set up the Rewards Splitter, the recipients will receive the rewards first
+- If you have set up the Rewards Splitter, rewards are routed to split recipients first; the remaining share goes to the Rewards Address in the standard claim flow or to the sub-NO's bond balance if claimed through the permissionless method
 
 You can also transfer staking rewards directly into your bond balance instead of claiming to your Rewards Address. This is useful in cases such as if you want to accumulate bond for new keys without a separate top-up transaction, or if you prefer to defer regular reward claiming to your Reward Address.
 
@@ -40,16 +40,16 @@ Alternatively, a **Rewards Claimer** address can be configured. It's a separate 
 
 ---
 
-## Fee Splitter
+## Rewards Splitter
 
 CMv2 includes an optional built-in Rewards Splitter that lets Node Operators route their rewards to multiple recipients.
 
-- You can configure up to 10 fee split recipients
+- You can configure up to 10 split recipients
 - Each recipient gets a pre-defined share of your Node Operator rewards **in stETH only**
-- Fee splits apply to Node Operator rewards only, not to bond rebase.
-- The addresses of the Fee Splitter can only be changed when there are no claimable rewards.
+- Reward splits apply to Node Operator rewards only, not to bond rebase.
+- Rewards Splitter addresses can only be changed when there are no claimable rewards.
 - The initial split configuration can only be changed after the first reward distribution.
 
-:::info
-Fee split configuration is optional. If you don't set any recipients, all rewards flow to your rewards address as normal.
+:::warning
+Rewards Splitter configuration is optional. If you configure it, review split recipient addresses carefully before the first distribution: a misconfigured initial split can route rewards to the wrong addresses before the configuration can be changed. If you don't set any recipients, all rewards flow to your rewards address as normal.
 :::

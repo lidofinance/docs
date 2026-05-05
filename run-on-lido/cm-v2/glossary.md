@@ -46,13 +46,13 @@ An off-chain multisig committee responsible for overseeing CMv2 operations, incl
 
 ### Easy Track (ET) motion
 
-An optimistic governance mechanism that lets DAO-approved addresses, including the CMC, execute routine operations without explicit DAO approval (ET motions can be objected to, but do not require explicit support). When a motion is proposed, it becomes executable after 72 hours unless challenged, and can then be executed permissionlessly. Note, it may still be challenged until it's executed.
+An optimistic governance mechanism that lets DAO-approved addresses, including the CMC, execute routine operations without explicit DAO approval (ET motions can be objected to, but do not require explicit support). When a motion is proposed, it becomes executable after 72 hours unless challenged, and can then be executed permissionlessly.
 
 It's used in CMv2 for operator onboarding, type assignments, penalty management, consolidations, and similar operational actions.
 
-### Reward Splitter
+### Rewards Splitter
 
-A mechanism that automatically splits a portion of Node Operator staking rewards to the designated addresses when rewards are claimed. Up to 10 FeeSplitRecipients can be configured per operator.
+A mechanism that automatically splits a portion of Node Operator staking rewards to the designated addresses when rewards are claimed. Up to 10 split recipients can be configured per operator.
 
 This enables rewards splits for inter-operator DVT clusters, or if node operators want to segment some rewards towards secondary recipients (e.g. public goods funding).
 
@@ -86,4 +86,4 @@ CMv2 is deployed in two phases.
 
 Phase 1 covers operator types, bonding, consolidations from CMv1, and the initial allocation strategy.
 
-Phase 2 introduces direct deposits, the ValMart allocation mechanism, and dynamic fees.
+Phase 2 is expected to introduce Validator Market (ValMart) for more dynamic stake allocation and the strike system for sub-NO-level accountability.

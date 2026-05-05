@@ -8,7 +8,7 @@ sidebar_position: 2
 
 The **Curated Module v2 (CMv2)** is the successor to the existing Curated Module v1 (CMv1).
 
-It's a permissioned module designed for professional operators that introduces bond requirements, operator classification, and a governance committee to handle routine operations without full DAO votes. It reuses components from the latest version of CSM, adapted for a permissioned setting.
+It's a permissioned module designed for professional operators that introduces bond requirements, operator classification, and a governance committee to handle routine operations without full DAO votes. It reuses architecture and components from the latest version of CSM, adapted for a permissioned setting.
 
 A new Operator Group model is also introduced allowing each entity in CMv2 to manage multiple Node Operators (also referred to as sub-NOs) with different configurations.
 
@@ -45,7 +45,7 @@ Live on Hoodi, targeted Q3 2026 for Mainnet
 - Introduction of [**bond**](/run-on-lido/cm-v2/bond-and-key-management) and [**penalties**](/run-on-lido/cm-v2/penalties) to Curated Module operators
 - Address management by Node Operators
 - [Operator types](/run-on-lido/cm-v2/node-operator-types) with type-specific bonds, fee caps, stake allocation weights, and other parameters
-- Weighted stake allocation
+- [Weighted stake allocation](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-33.md#allocation-strategy)
 - Two-phase deposits (initial 32 ETH + top-ups)
 - [Consolidations from CMv1 validators](/run-on-lido/cm-v2/consolidations-and-migration)
 - Pull-based reward claims with FeeSplit support
@@ -57,5 +57,5 @@ Live on Hoodi, targeted Q3 2026 for Mainnet
 Targeted Q4 2026 for Mainnet
 :::
 
-- Validator Market (ValMart), a dynamic allocation mechanism balancing multiple parameters like fees, risk profiles, additional bond reserves or LDO locking and delegation
-- Strike system, where repeated misbehavior reduces allocation weight and can eventually lead to full Node Operator ejection
+- Validator Market (ValMart), a dynamic allocation mechanism that can factor in parameters such as operator fees, risk profiles, additional bond reserves, and LDO locking or delegation
+- Strike system, a sub-NO-level accountability mechanism where repeated misbehavior reduces allocation weight and can eventually lead to full Node Operator ejection

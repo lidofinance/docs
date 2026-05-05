@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # 🔐 Bond & Key Management
 
-This page covers how to upload and manage your validator keys, and how bond works in CMv2. Bond is collateral you post to back your keys. The amount required depends on your Node Operator type and number of keys.
+This page covers how to upload and manage your validator keys, and how bond works in CMv2. Bond is collateral you post to activate new validators from keys provided and back them. The amount required depends on your Node Operator type and number of keys.
 
 ---
 
@@ -14,9 +14,11 @@ This page covers how to upload and manage your validator keys, and how bond work
 
 ![Upload keys](/img/cm-guide/bond-upload-keys.png)
 
-To upload keys, go to the keys tab in [cm.lido.fi](https://cm.lido.fi), and drag and drop the `deposit-data.json` file from your keys. The widget will tell you how much bond is required for the number of keys submitted.
+Before uploading keys, generate your validator keys and deposit data using a tool such as the [EthStaker Deposit CLI](https://github.com/eth-educators/ethstaker-deposit-cli) or your organization's standard key-generation process. Please make sure the generated keys use `0x02` withdrawal credentials and point to the [Lido Execution Layer Withdrawal Vault](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f).
 
-Your keys will be considered invalid if they have an invalid signature, or if they have been uploaded to Lido or already used on the Beacon Chain. In that case, you’ll have to remove the invalid key(s) and resubmit them correctly.
+To upload the keys, go to the Keys tab in [cm.lido.fi](https://cm.lido.fi), and drag and drop the `deposit-data.json` file. The widget will tell you how much bond is required for the number of keys submitted.
+
+Keys with invalid signatures must be removed and re-uploaded with valid signatures. If a key has already been uploaded to Lido or used on the Beacon Chain, it is treated as duplicated and should be removed.
 
 The [Key statuses](#key-statuses) section below provides more information on all the possible states of your keys.
 
@@ -25,9 +27,9 @@ The [Key statuses](#key-statuses) section below provides more information on all
 After valid keys are uploaded, they become eligible for deposits. Deposits in CMv2 happen in two stages:
 
 - **Initial deposit:** a validator first receives its initial 32 ETH deposit to get activated.
-- **Top-ups:** after activation, the same validator can receive additional deposits over time.
+- **Top-ups:** after activation, the same validator may later receive top-ups, up to a maximum balance of 2,048 ETH.
 
-CMv2 does not deposit validators in simple upload order. New `0x02` keys are deposited 32 ETH to get activated and then the protocol will deposit into them until they reach 2,048 ETH.
+CMv2 does not deposit validators in simple upload order. When new `0x02` keys are available, incoming ETH first goes to cover the 32 ETH initial deposits needed to activate them; the rest is used for top-ups. Active validators may receive top-ups over time until they reach 2,048 ETH.
 
 These top-ups are determined by the module's weighted allocation algorithm, which prioritizes Node Operators that are furthest below their target stake allocation.
 
@@ -51,6 +53,10 @@ Each key inside your Node Operator has one of the following statuses.
 
 ![Exit keys](/img/cm-guide/bond-exit-keys.png)
 
+:::info
+Read the [Lido Standard Node Operator Protocol (SNOP) for Validator Exits](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md) before exiting any validator. It covers exit order, your obligations when processing requests, and what happens if you don't follow it.
+:::
+
 Operators in the Curated Module can exit their keys through the following options:
 
 #### Removing keys before getting deposits
@@ -65,15 +71,11 @@ Voluntary exits are appropriate when the protocol has requested an exit via the 
 
 Please note this can't be done in the CMv2 widget, it can only be done through your validator client.
 
-Exiting validators outside of a protocol-requested exit is discouraged. If you plan to exit validators without a prior exit request, notify the Lido community in advance via the research forum.
+Exiting validators outside of a protocol-requested exit is discouraged. If you plan to exit validators without a prior exit request, notify the CMC and the community in advance using the [Node Operators](https://research.lido.fi/c/node-operators/12) category of the Lido Research Forum.
 
 #### Ejection (triggerable withdrawals)
 
 Through the CMv2 widget, you can force-exit an active validator directly from the Execution Layer using EIP-7002 triggerable withdrawals. This is an emergency measure. It is recommended to use voluntary exits broadcast via CL in normal operations.
-
-:::info
-Read the [Lido Standard Node Operator Protocol (SNOP) for Validator Exits](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md) before exiting any validator. It covers exit order, your obligations when processing requests, and what happens if you don't follow it.
-:::
 
 ---
 
@@ -81,7 +83,7 @@ Read the [Lido Standard Node Operator Protocol (SNOP) for Validator Exits](https
 
 Curated Module v2 introduces a bond for sub-NOs. Every new key requires a certain amount of bond (described in the section below), and it's used to cover certain losses from the NO. The amount depends on the Node Operator type and number of keys.
 
-Because the bond is staked, it generates staking rewards which can be claimed if they exceed the minimum required for the amount of keys submitted.
+Because the bond is staked (represented as stETH), it generates staking rewards which can be claimed if they exceed the minimum required for the amount of keys submitted.
 
 ---
 
@@ -128,6 +130,6 @@ The CM interface also includes a penalty history section where you can review pa
 
 ### Unbonded keys
 
-If your bond falls below the required minimum, some of your keys become **Unbonded** and will not be deposited to, or will be requested to exit in case the deposited or active key is unbonded.
+If your bond falls below the required minimum, some of your keys become **Unbonded** and will not receive new deposits; if the key was already deposited or active, an exit will be requested.
 
 To solve this you can either top up the bond, or exit the key.
