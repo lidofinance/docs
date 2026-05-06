@@ -325,6 +325,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 
 - QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
 - CMC ms [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9)
+- CSM admin (Staking Modules team EOA) [`0x4af43ee34a6fcd1feca1e1f832124c763561da53`](https://hoodi.etherscan.io/address/0x4af43ee34a6fcd1feca1e1f832124c763561da53)
 
 ---
 
