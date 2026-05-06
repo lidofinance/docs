@@ -321,7 +321,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - DAI: [`0x17fc691f6EF57D2CA719d30b8fe040123d4ee319`](https://hoodi.etherscan.io/address/0x17fc691f6EF57D2CA719d30b8fe040123d4ee319)
 - sUSDS: [`0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70`](https://hoodi.etherscan.io/address/0xDaE6a7669f9aB8b2C4E52464AA6FB7F9402aDc70)
 
-## 🔐 Testnet DAO Multisigs {#testnet-dao-multisigs}
+## 🔐 Testnet DAO Multisigs/EOAs {#testnet-dao-multisigs}
 
 - QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
 - CMC ms [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9)
