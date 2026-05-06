@@ -273,14 +273,14 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - ReportWithdrawalsForSlashedValidators: [`0x4EaB04775837A6F0218750A10454119f349258FE`](https://hoodi.etherscan.io/address/0x4EaB04775837A6F0218750A10454119f349258FE)
   - SettleGeneralDelayedPenalty: [`0xd0c38B2F0C1F760976dA010C1c35D828331Ff9E2`](https://hoodi.etherscan.io/address/0xd0c38B2F0C1F760976dA010C1c35D828331Ff9E2)
   - UpdateStakingModuleShareLimits: [`0xD63cf25df1bA6144db27A81A98120Dfc53dE4540`](https://hoodi.etherscan.io/address/0xD63cf25df1bA6144db27A81A98120Dfc53dE4540)
-- **Curated Module v2** (module: [`0x87EB69Ae51317405FD285efD2326a4a11f6173b9`](https://hoodi.etherscan.io/address/0x87EB69Ae51317405FD285efD2326a4a11f6173b9), committee ms [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9))
+- **Curated Module v2** (module: [`0x87EB69Ae51317405FD285efD2326a4a11f6173b9`](https://hoodi.etherscan.io/address/0x87EB69Ae51317405FD285efD2326a4a11f6173b9), trusted caller [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9))
   - SetMerkleGateTree: [`0x5194cC02B6F477B4a23DFA422fFC238c8B5b1736`](https://hoodi.etherscan.io/address/0x5194cC02B6F477B4a23DFA422fFC238c8B5b1736)
   - ReportWithdrawalsForSlashedValidators: [`0x6E40FED7c28bAA93a798cA10f8A93965a19eC52e`](https://hoodi.etherscan.io/address/0x6E40FED7c28bAA93a798cA10f8A93965a19eC52e)
   - SettleGeneralDelayedPenalty: [`0x3486B872768D361309e405A046C4BF995c21CC6c`](https://hoodi.etherscan.io/address/0x3486B872768D361309e405A046C4BF995c21CC6c)
   - CreateOrUpdateOperatorGroup: [`0x44D9b39bBdc2182Aa1af6f16f8F55E0eA038294d`](https://hoodi.etherscan.io/address/0x44D9b39bBdc2182Aa1af6f16f8F55E0eA038294d)
 - **Staking Router** (router: [`0xCc820558B39ee15C7C45B59390B503b83fb499A8`](https://hoodi.etherscan.io/address/0xCc820558B39ee15C7C45B59390B503b83fb499A8))
   - AllowConsolidationPair: [`0x22D36e7616F541A527989C5652fDA4d527bB461C`](https://hoodi.etherscan.io/address/0x22D36e7616F541A527989C5652fDA4d527bB461C)
-- **Simple DVT staking module** (registry: [`0x0B5236BECA68004DB89434462DfC3BB074d2c830`](https://hoodi.etherscan.io/address/0x0B5236BECA68004DB89434462DfC3BB074d2c830), committee ms [`0xbB958292042c604855d23F8db458855d20e16996`](https://app.safe.protofire.io/home?safe=hoe:0xbB958292042c604855d23F8db458855d20e16996))
+- **Simple DVT staking module** (registry: [`0x0B5236BECA68004DB89434462DfC3BB074d2c830`](https://hoodi.etherscan.io/address/0x0B5236BECA68004DB89434462DfC3BB074d2c830), trusted caller [`0xbB958292042c604855d23F8db458855d20e16996`](https://app.safe.protofire.io/home?safe=hoe:0xbB958292042c604855d23F8db458855d20e16996))
   - AddNodeOperators: [`0x42f2532ab3d41dfD6030db1EC2fF3DBC8DCdf89a`](https://hoodi.etherscan.io/address/0x42f2532ab3d41dfD6030db1EC2fF3DBC8DCdf89a)
   - ActivateNodeOperators: [`0xfA3B3EE204E1f0f165379326768667300992530e`](https://hoodi.etherscan.io/address/0xfA3B3EE204E1f0f165379326768667300992530e)
   - DeactivateNodeOperators: [`0x3114bEbC222Faec27DF8AB7f9bD8dF2063d7fc77`](https://hoodi.etherscan.io/address/0x3114bEbC222Faec27DF8AB7f9bD8dF2063d7fc77)
@@ -342,7 +342,9 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 ## 🔐 Testnet DAO Multisigs/EOAs {#testnet-dao-multisigs}
 
 - QA & DAO Ops ms: [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A)
-- CMC ms [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9)
+- Curated Module Committee (CMC) ms [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9)
+- Simple DVT committee ms [`0xbB958292042c604855d23F8db458855d20e16996`](https://app.safe.protofire.io/home?safe=hoe:0xbB958292042c604855d23F8db458855d20e16996)
+- Testnet stVaults Committee ms [`0xeBe5948787Bb3a565F67ccD93cb85A91960c472a`](https://app.safe.protofire.io/home?safe=hoe:0xeBe5948787Bb3a565F67ccD93cb85A91960c472a)
 - CSM admin (Staking Modules team EOA) [`0x4af43ee34a6fcd1feca1e1f832124c763561da53`](https://hoodi.etherscan.io/address/0x4af43ee34a6fcd1feca1e1f832124c763561da53)
 
 ---
