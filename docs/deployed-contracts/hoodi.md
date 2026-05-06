@@ -197,6 +197,16 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - ExitPenalties: [`0xf38A3DA25B417D83182EEDD30d00557d78c35C96`](https://hoodi.etherscan.io/address/0xf38A3DA25B417D83182EEDD30d00557d78c35C96) (impl)
 - Factories:
   - VettedGateFactory: [`0x276C1dc9Cf1f793Fe703a5C4674A27076aE45335`](https://hoodi.etherscan.io/address/0x276C1dc9Cf1f793Fe703a5C4674A27076aE45335)
+- External libraries:
+  - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://hoodi.etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
+  - BondCurvesLib: [`0x7f691D625998b71A311eb2411A331CD05F675566`](https://hoodi.etherscan.io/address/0x7f691D625998b71A311eb2411A331CD05F675566)
+  - DepositQueueOps: [`0x801d20af9f77C8A5030f70070AB4e81cAE0A0bcE`](https://hoodi.etherscan.io/address/0x801d20af9f77C8A5030f70070AB4e81cAE0A0bcE)
+  - GeneralPenaltyLib: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://hoodi.etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
+  - NOAddresses: [`0x8ABa1E4a05026599DF8A3233594F4153CDE5F6a4`](https://hoodi.etherscan.io/address/0x8ABa1E4a05026599DF8A3233594F4153CDE5F6a4)
+  - NodeOperatorOps: [`0x88e5DAFe5Aeafcb35612d9A3f8FF971ea89Ffd36`](https://hoodi.etherscan.io/address/0x88e5DAFe5Aeafcb35612d9A3f8FF971ea89Ffd36)
+  - StakeTracker: [`0x61979De8742542C8F79A656F878bb3BfdA21093A`](https://hoodi.etherscan.io/address/0x61979De8742542C8F79A656F878bb3BfdA21093A)
+  - TopUpQueueOps: [`0x9B8a37e5fDD5b07ad0C11eE179179Cd26C3F812e`](https://hoodi.etherscan.io/address/0x9B8a37e5fDD5b07ad0C11eE179179Cd26C3F812e)
+  - WithdrawnValidatorLib: [`0x067937EA5aA29784E6b26de566981B95Eadf5D8c`](https://hoodi.etherscan.io/address/0x067937EA5aA29784E6b26de566981B95Eadf5D8c)
 
 ### 🛡️ Curated Module v2
 
@@ -231,6 +241,14 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - ExitPenalties: [`0xBed0DC3db54ff9cc0B5C1B17292d85681783b029`](https://hoodi.etherscan.io/address/0xBed0DC3db54ff9cc0B5C1B17292d85681783b029) (impl)
 - Factories:
   - GateFactory: [`0x1EE26Ac6c9942196b55F91EEF63f390f51c48293`](https://hoodi.etherscan.io/address/0x1EE26Ac6c9942196b55F91EEF63f390f51c48293)
+- External libraries:
+  - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://hoodi.etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
+  - BondCurvesLib: [`0x7f691D625998b71A311eb2411A331CD05F675566`](https://hoodi.etherscan.io/address/0x7f691D625998b71A311eb2411A331CD05F675566)
+  - GeneralPenaltyLib: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://hoodi.etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
+  - NOAddresses: [`0x8ABa1E4a05026599DF8A3233594F4153CDE5F6a4`](https://hoodi.etherscan.io/address/0x8ABa1E4a05026599DF8A3233594F4153CDE5F6a4)
+  - NodeOperatorOps: [`0x88e5DAFe5Aeafcb35612d9A3f8FF971ea89Ffd36`](https://hoodi.etherscan.io/address/0x88e5DAFe5Aeafcb35612d9A3f8FF971ea89Ffd36)
+  - StakeTracker: [`0x61979De8742542C8F79A656F878bb3BfdA21093A`](https://hoodi.etherscan.io/address/0x61979De8742542C8F79A656F878bb3BfdA21093A)
+  - WithdrawnValidatorLib: [`0x067937EA5aA29784E6b26de566981B95Eadf5D8c`](https://hoodi.etherscan.io/address/0x067937EA5aA29784E6b26de566981B95Eadf5D8c)
 
 <!--
 ## DAO-ops contracts & addresses
