@@ -267,8 +267,6 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - IncreaseNodeOperatorStakingLimit: [`0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323`](https://hoodi.etherscan.io/address/0x0f121e4069e17a2Dc5bAbF39d769313a1e20f323)
   - CuratedSubmitExitRequestHashes: [`0x397206ecdbdcb1A55A75e60Fc4D054feC72E5f63`](https://hoodi.etherscan.io/address/0x397206ecdbdcb1A55A75e60Fc4D054feC72E5f63)
 - **Community Staking Module** (module: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d), trusted caller [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53))
-  - CSMSettleElStealingPenalty: [`0x5c0af5b9f96921d3F61503e1006CF0ab9867279E`](https://hoodi.etherscan.io/address/0x5c0af5b9f96921d3F61503e1006CF0ab9867279E)
-  - CSMSetVettedGateTree: [`0xa890fc73e1b771Ee6073e2402E631c312FF92Cd9`](https://hoodi.etherscan.io/address/0xa890fc73e1b771Ee6073e2402E631c312FF92Cd9)
   - SetMerkleGateTree: [`0xf71fcB20B9FB8468653Bcb24E31F39bc069D5995`](https://hoodi.etherscan.io/address/0xf71fcB20B9FB8468653Bcb24E31F39bc069D5995)
   - ReportWithdrawalsForSlashedValidators: [`0x4EaB04775837A6F0218750A10454119f349258FE`](https://hoodi.etherscan.io/address/0x4EaB04775837A6F0218750A10454119f349258FE)
   - SettleGeneralDelayedPenalty: [`0xd0c38B2F0C1F760976dA010C1c35D828331Ff9E2`](https://hoodi.etherscan.io/address/0xd0c38B2F0C1F760976dA010C1c35D828331Ff9E2)
@@ -436,6 +434,8 @@ stETH obtained on this network **has no real ETH backing** and **cannot** be bri
   - UpdateGroupsShareLimitInOperatorGrid: [`0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab`](https://hoodi.etherscan.io/address/0x34086e861a46F378AA89a53DCA8fF6eB03d4a0Ab)
   - RegisterTiersInOperatorGrid: [`0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854`](https://hoodi.etherscan.io/address/0xB824727CA93C7f2C7749ce4F3FaCB138EbB46854)
   - AlterTiersInOperatorGrid:[`0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4`](https://hoodi.etherscan.io/address/0xD4aF3d17efd18DF0D6a84b8111b9Cd71A039E4a4)
+  - CSMSettleElStealingPenalty: [`0x5c0af5b9f96921d3F61503e1006CF0ab9867279E`](https://hoodi.etherscan.io/address/0x5c0af5b9f96921d3F61503e1006CF0ab9867279E)
+  - CSMSetVettedGateTree: [`0xa890fc73e1b771Ee6073e2402E631c312FF92Cd9`](https://hoodi.etherscan.io/address/0xa890fc73e1b771Ee6073e2402E631c312FF92Cd9)
 - Adapters:
   - VaultHubAdapter: [`0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4`](https://hoodi.etherscan.io/address/0xb4A1E35cdE96A9E36542bDC3aDb276542a2378b4)
 
