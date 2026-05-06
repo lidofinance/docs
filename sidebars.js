@@ -149,6 +149,7 @@ module.exports = {
         'contracts/mev-boost-relays-allowed-list',
         'contracts/trp-vesting-escrow',
         'contracts/gate-seal',
+        'contracts/circuit-breaker',
         'contracts/insurance',
         'contracts/ossifiable-proxy'
       ],
