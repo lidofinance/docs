@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Copper
+# 🔐 Copper
 ## stVaults user flow for Copper customers
 
 This guide explains how Copper clients can connect to the stVaults Web UI and interact with stVaults smart contracts using CopperConnect.
@@ -22,7 +22,10 @@ Make sure that you've installed and configured the CopperConnect browser extensi
 <img alt="CopperConnect UI: Account" src="/img/stvaults/custodians/copper/copper_3.png" width="300" />
 
 ### 2. In the stVaults Web UI:
-#### 2.1 Open stVaults Web UI https://stvaults.lido.fi/ and click "Connect wallet"
+#### 2.1 Open stVaults Web UI and click "Connect wallet"
+- Mainnnet: https://stvaults.lido.fi/
+- Hoodi testnet: https://stvaults-hoodi.testnet.fi/
+
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/copper/copper_4.png" />
 
 #### 2.2. Click "Browser" button in the dialog window.
@@ -31,6 +34,11 @@ Make sure that you've installed and configured the CopperConnect browser extensi
 #### 2.3. Connection established.
 Your CopperConnect wallet address will now appear as connected, and you can create and manage stVaults.
 <img alt="stVaults Web UI: Connection established" src="/img/stvaults/custodians/copper/copper_6.png" />
+
+## Whitelisting smart contract addresses
+To use the stVaults infrastructure, the stVaults smart contracts must be whitelisted for interaction. Please ask your administrator to add the required stVaults contract addresses to the whitelist.
+
+You can find the addresses required for whitelisting in the [Custodians overview list](./index.md#whitelisting-smart-contract-addresses).
 
 ## Useful guides
 - [Create a Basic stVault with optional liquidity](../building-guides/basic-stvault.md)

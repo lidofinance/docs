@@ -68,6 +68,8 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 1. [Overview of qualified custodians supporting stVaults](./qualified-custodians/index.md)
 2. [Fireblocks user guide](./qualified-custodians/fireblocks.md)
+3. [Copper user guide](./qualified-custodians/copper.md)
+4. [Cactus Custody user guide](./qualified-custodians/cactus.md)
 
 :::tip 📣 **Leave feedback**
 Trying to integrate with Lido V3 and stVaults?
