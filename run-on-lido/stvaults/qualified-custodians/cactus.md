@@ -9,8 +9,10 @@ This guide explains how Cactus Custody clients can connect to the stVaults Web U
 
 Cactus Link is a browser extension that works like one of the popular hot wallets.
 
-## Connecting CopperConnect to the stVaults Web UI
+## Connecting Cactus Link to the stVaults Web UI
 ### 1. In your browser:
+Ensure that the [Cactus Link](https://chromewebstore.google.com/detail/cactus-link/chiilpgkfmcopocdffapngjcbggdehmj) browser extension is installed in [Chrome](https://www.google.com/chrome). Please confirm with your Administrator that the required permissions have been configured to connect your DeFi account to Cactus Link. For more details, refer to the [Cactus Link guide](https://manual.mycactus.com/defi/cactus-link).
+
 Make sure that you've installed and configured the Cactus Link browser extension. To do so, plesae contact your Adminstrator, or Cactus Custory Support team.
 
 #### 1.1. Open browser extension UI:
@@ -24,7 +26,7 @@ Make sure that you've installed and configured the Cactus Link browser extension
 
 ### 2. In the stVaults Web UI:
 #### 2.1 Open stVaults Web UI and click "Connect wallet"
-- Mainnnet: https://stvaults.lido.fi/
+- Mainnet: https://stvaults.lido.fi/
 - Hoodi testnet: https://stvaults-hoodi.testnet.fi/
 
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/cactus/cactus_5.png" />
@@ -33,7 +35,7 @@ Make sure that you've installed and configured the Cactus Link browser extension
 <img alt="stVaults Web UI: Connect wallet" src="/img/stvaults/custodians/cactus/cactus_6.png" />
 
 #### 2.3. Connection established.
-Your CopperConnect wallet address will now appear as connected, and you can create and manage stVaults.
+Your Cactus Link wallet address will now appear as connected, and you can create and manage stVaults.
 <img alt="stVaults Web UI: Connection established" src="/img/stvaults/custodians/cactus/cactus_7.png" />
 
 ## Whitelisting smart contract addresses

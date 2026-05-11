@@ -23,7 +23,7 @@ Make sure that you've installed and configured the CopperConnect browser extensi
 
 ### 2. In the stVaults Web UI:
 #### 2.1 Open stVaults Web UI and click "Connect wallet"
-- Mainnnet: https://stvaults.lido.fi/
+- Mainnet: https://stvaults.lido.fi/
 - Hoodi testnet: https://stvaults-hoodi.testnet.fi/
 
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/copper/copper_4.png" />

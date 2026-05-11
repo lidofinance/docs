@@ -10,7 +10,7 @@ This guide explains how Fireblocks clients can connect to the stVaults Web UI an
 ## Connecting Fireblocks to the stVaults Web UI
 ### 1. In the stVaults Web UI:
 #### 1.1 Open stVaults Web UI and click "Connect wallet"
-- Mainnnet: https://stvaults.lido.fi/
+- Mainnet: https://stvaults.lido.fi/
 - Hoodi testnet: https://stvaults-hoodi.testnet.fi/
 
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/fireblocks/fb_1.png" />

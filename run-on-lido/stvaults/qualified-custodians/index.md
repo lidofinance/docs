@@ -63,7 +63,7 @@ Some addresses must be whitelisted before creating your first vault, while vault
 | `LazyOracle` | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) | Oracle adapter for stVaults. Stores per-vault reports, applies sanity checks, and forwards vault updates to VaultHub. [Learn more](/contracts/lazy-oracle/) |
 | `OperatorGrid` | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) | Registry for node operators, groups, and tier parameters that define share limits, reserve ratios, and fee schedules for stVaults. [Learn more](/contracts/operator-grid/) |
 </TabItem>
-<TabItem value="hoodi-testnet" label="Hoodi Testnet addresses" default>
+<TabItem value="hoodi-testnet" label="Hoodi Testnet addresses">
 | Smart Contract | Address | Description |
 | -------- | -------- | -------- |
 | `VaultFactory` | [`0x7Ba269a03eeD86f2f54CB04CA3b4b7626636Df4E`](https://hoodi.etherscan.io/address/0x7Ba269a03eeD86f2f54CB04CA3b4b7626636Df4E) | Factory for deploying `StakingVault` + `Dashboard` pairs using a beacon proxy. [Learn more](/contracts/staking-vault-factory/) |
