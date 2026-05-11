@@ -15,6 +15,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
+| [36](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-36.md) | NEST — Automated LDO Buyback and Liquidity Provisioning System | Vasiliy Shapovalov, Vitaly Galaichuk, Jen Kopytina, Alexander Belokon, adcv | [Link](https://research.lido.fi/t/liquid-buybacks-nest-execution-with-ldo-wsteth-liquidity/10894) |
 | [33](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-33.md) | Community Staking Module v3 and Curated Module v2 | Dmitry Gusakov (@dgusakov), Sergey Khomutinin (@skhomuti), Dmitry Chernukhin (@madlabman), Vladimir Gorkavenko (@vgorkavenko) | [Link 1](https://research.lido.fi/t/community-staking-module/5917), [Link 2](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929) |
 
 ## Implemented
