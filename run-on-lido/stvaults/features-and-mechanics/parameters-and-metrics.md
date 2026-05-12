@@ -94,8 +94,8 @@ The amount of accumulated but not yet disbursed Node Operator Fee. This amount o
 ### Unsettled Lido fees
 The amount of accumulated but not yet settled Lido fees. This amount of ETH increases the total locked ETH.
 
- The Lido fee consists of the following components and is calculated daily:
- 
+The Lido fee consists of the following components and is calculated daily:
+
 - Infrastructure fee
 - Liquidity fee
 - Reservation liquidity fee

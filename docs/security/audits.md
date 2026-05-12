@@ -1,6 +1,36 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (97 reports)
+## Lido on Ethereum (99 reports)
+
+### 04-2026 Cyfrin Lido CircuitBreaker Security Audit and Formal Verification
+
+An audit and Certora Prover formal verification of the CircuitBreaker emergency pause manager.
+
+- Total Issues: 5 (3 Resolved, 2 Acknowledged)
+- Critical Risk Issues: 0
+- High Risk Issues: 0
+- Medium Risk Issues: 0
+- Low Risk Issues: 0
+- Informational Issues: 2 (1 Resolved, 1 Acknowledged)
+- Gas Optimizations: 3 (2 Resolved, 1 Acknowledged)
+
+See [audit report](https://github.com/lidofinance/audits/blob/main/Cyfrin%20CircuitBreaker%20Audit%20Report%2004-2026.pdf).
+
+The formal verification covered 41 properties (10 invariants, 11 parametric rules, 4 access control rules, 6 revert condition rules, 7 integrity rules, 3 reachability rules). 38 of 41 properties were verified; 3 known limitations were verified by manual analysis and across all other code paths.
+
+See [formal verification report](https://github.com/lidofinance/audits/blob/main/Cyfrin%20CircuitBreaker%20Formal%20Verification%20Report%2004-2026.pdf) for more details.
+
+### 04-2026 MixBytes Lido CircuitBreaker Security Audit
+
+An audit of the CircuitBreaker emergency pause manager.
+
+- Total Issues: 1 (1 Fixed)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20CircuitBreaker%20Audit%20Report%2004-2026.pdf) for more details.
 
 ### 03-2026 Composable Security Lido Oracle v7.1 Security Audit
 
