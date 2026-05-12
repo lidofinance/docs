@@ -59,7 +59,7 @@ The mainnet 21-day initial pause duration is sized to cover the worst-case gover
 
 Each pauser has its own heartbeat expiry timestamp. The pauser is considered *live* while their expiry timestamp is in the future. While live, the pauser can pause any of its assigned contracts and can extend its expiry by sending a heartbeat. Once the expiry passes, the pauser is no longer considered live and can neither pause nor extend expiry.
 
-A heartbeat is a drill transaction that updates the caller's heartbeat. An expired pauser cannot revive itself, so the pauser must renew their heartebat before it expires.
+A heartbeat is a drill transaction that updates the caller's heartbeat. An expired pauser cannot revive itself, so the pauser must renew their heartbeat before it expires.
 
 The expiry is also updated on registration and pause:
 
