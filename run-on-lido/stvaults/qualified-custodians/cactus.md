@@ -13,8 +13,6 @@ Cactus Link is a browser extension that works like one of the popular hot wallet
 ### 1. In your browser:
 Ensure that the [Cactus Link](https://chromewebstore.google.com/detail/cactus-link/chiilpgkfmcopocdffapngjcbggdehmj) browser extension is installed in [Chrome](https://www.google.com/chrome). Please confirm with your Administrator that the required permissions have been configured to connect your DeFi account to Cactus Link. For more details, refer to the [Cactus Link guide](https://manual.mycactus.com/defi/cactus-link).
 
-Make sure that you've installed and configured the Cactus Link browser extension. To do so, plesae contact your Adminstrator, or Cactus Custory Support team.
-
 #### 1.1. Open browser extension UI:
 <img alt="Cactus Link UI: Locked screen" src="/img/stvaults/custodians/cactus/cactus_0.png" width="300" />
 <img alt="Cactus Link UI: Main screen" src="/img/stvaults/custodians/cactus/cactus_1.png" width="300" />
