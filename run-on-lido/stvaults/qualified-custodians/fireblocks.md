@@ -2,14 +2,17 @@
 sidebar_position: 1
 ---
 
-# Fireblocks
+# 🔐 Fireblocks
 ## stVaults user flow for Fireblocks customers
 
 This guide explains how Fireblocks clients can connect to the stVaults Web UI and interact with stVaults smart contracts using institutional approval workflows.
 
 ## Connecting Fireblocks to the stVaults Web UI
 ### 1. In the stVaults Web UI:
-#### 1.1. Open stVaults Web UI https://stvaults.lido.fi/ and click "Connect wallet"
+#### 1.1 Open stVaults Web UI and click "Connect wallet"
+- Mainnet: https://stvaults.lido.fi/
+- Hoodi testnet: https://stvaults-hoodi.testnet.fi/
+
 <img alt="stVaults Web UI" src="/img/stvaults/custodians/fireblocks/fb_1.png" />
 
 #### 1.2. Click "WalletConnect" button in the dialog window.
@@ -38,6 +41,11 @@ This guide explains how Fireblocks clients can connect to the stVaults Web UI an
 ### 3. In the stVaults Web UI:
 Your Fireblocks wallet address will now appear as connected, and you can create and manage stVaults.
  <img alt="stVaults Web UI: Fireblocks wallet is connected" src="/img/stvaults/custodians/fireblocks/fb_8.png" />
+
+## Whitelisting smart contract addresses
+To use the stVaults infrastructure, the stVaults smart contracts must be whitelisted for interaction. Please ask your administrator to add the required stVaults contract addresses to the whitelist.
+
+You can find the addresses required for whitelisting in the [Custodians overview list](./index.md#whitelisting-smart-contract-addresses).
 
 ## Useful guides
 - [Create a Basic stVault with optional liquidity](../building-guides/basic-stvault.md)
