@@ -18,7 +18,7 @@ module.exports = function markdownSourcePlugin(_context, options) {
 
         for (const file of files) {
           const doc = loadDoc(file, collectionPath, collection.routeBasePath)
-          if (doc.frontmatter.draft) continue
+          if (doc.frontmatter.draft || doc.frontmatter.unlisted === true) continue
 
           const targetPath = resolveTargetPath(outDir, doc.permalink)
           if (seen.has(targetPath)) {

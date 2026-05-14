@@ -1,3 +1,9 @@
+const aiArtifactsCollections = [
+  { path: 'docs', routeBasePath: '/', label: 'Main Docs' },
+  { path: 'run-on-lido', routeBasePath: 'run-on-lido', label: 'Run on Lido' },
+  { path: 'earn', routeBasePath: 'earn', label: 'Earn' },
+]
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = async function createConfigAsync() {
   return {
@@ -64,7 +70,7 @@ module.exports = async function createConfigAsync() {
             href: 'https://github.com/lidofinance',
             label: 'GitHub',
             position: 'right',
-          }
+          },
         ],
       },
     },
@@ -96,21 +102,13 @@ module.exports = async function createConfigAsync() {
           siteTitle: 'Lido Documentation',
           siteDescription:
             'Documentation for the Lido liquid staking protocol on Ethereum and L2s. Covers protocol contracts, integrations, node operator guides, CSM, stVaults, and the Earn product.',
-          collections: [
-            { path: 'docs', routeBasePath: '/', label: 'Main Docs' },
-            { path: 'run-on-lido', routeBasePath: 'run-on-lido', label: 'Run on Lido' },
-            { path: 'earn', routeBasePath: 'earn', label: 'Earn' },
-          ],
+          collections: aiArtifactsCollections,
         },
       ],
       [
         require.resolve('./src/plugins/markdown-source'),
         {
-          collections: [
-            { path: 'docs', routeBasePath: '/' },
-            { path: 'run-on-lido', routeBasePath: 'run-on-lido' },
-            { path: 'earn', routeBasePath: 'earn' },
-          ],
+          collections: aiArtifactsCollections,
         },
       ],
       [
@@ -172,7 +170,7 @@ module.exports = async function createConfigAsync() {
             {
               to: '/earn',
               from: '/earn/introduction',
-            }
+            },
           ],
         },
       ],
@@ -199,5 +197,5 @@ module.exports = async function createConfigAsync() {
         },
       ],
     ],
-  };
-};
+  }
+}
