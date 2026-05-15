@@ -166,7 +166,7 @@ _Diagram. Vault totalValue breakdown_
 
 Unlike Lido Core, which mints stETH at a 1:1 ratio to supplied ether, Lido Vaults mints stETH at a more conservative ratio. A lower ratio effectively means that the StakingVault must maintain a reserve margin (**Reserve Ratio** or **RR**) determined by risk parameters and limits.
 
-Upon minting stETH, the corresponding amount of ether (plus some reserve due to RR) is **locked** as collateral on the StakingVault, i.e. cannot be withdrawn. The system tracks [stETH shares](https://docs.lido.fi/guides/lido-tokens-integration-guide#steth-internals-share-mechanics) (**liabilityShares**) minted for each StakingVault and updates the **locked** amount (denominated in ether) on the StakingVault according to the stETH rebase. To unlock ether for withdrawal, the StakingVault must burn the outstanding amount of stETH (i.e., repay stETH).
+Upon minting stETH, the corresponding amount of ether (plus some reserve due to RR) is **locked** as collateral on the StakingVault, i.e. cannot be withdrawn. The system tracks [stETH shares](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics) (**liabilityShares**) minted for each StakingVault and updates the **locked** amount (denominated in ether) on the StakingVault according to the stETH rebase. To unlock ether for withdrawal, the StakingVault must burn the outstanding amount of stETH (i.e., repay stETH).
 
 ##### Example
 
@@ -608,7 +608,7 @@ Other scenarios—such as validator consolidation or direct deposits made to the
 - The minting capacity is limited by current `totalValue`, `liabilityShares`, `shareLimit`, and `reserveRatio`.
 
 :::note
-Minting against a stVault is subject to the protocol-wide minting [rate limits](https://docs.lido.fi/guides/lido-tokens-integration-guide#staking-rate-limits).
+Minting against a stVault is subject to the protocol-wide minting [rate limits](/guides/lido-tokens-integration-guide#staking-rate-limits).
 :::
 
 2. **Burning**

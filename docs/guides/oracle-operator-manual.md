@@ -250,7 +250,7 @@ chown -R 33:33 /path/to/cache/on/host
 ```
 
 **Latest image hash**
-[https://docs.lido.fi/guides/tooling/#oracle](https://docs.lido.fi/guides/tooling/#oracle)
+[/guides/tooling/#oracle](/guides/tooling/#oracle)
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
 

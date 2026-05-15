@@ -19,7 +19,7 @@ https://github.com/lidofinance/lido-keys-api/blob/main/sample.env
 
 ## How to Run
 
-For running `Keys Api`, please use a stable version's image hash, [available here](https://docs.lido.fi/guides/tooling/).
+For running `Keys Api`, please use a stable version's image hash, [available here](/guides/tooling/).
 
 Below you can find a docker-compose example for running the service with a database.
 

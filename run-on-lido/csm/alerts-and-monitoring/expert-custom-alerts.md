@@ -49,7 +49,7 @@ This event can be tracked using [Ejector](https://github.com/lidofinance/validat
 
 
 ### ELRewardsStealingPenaltyReported
-The [CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
+The [CSM Committee](https://research.lido.fi/t/community-staking-module-committee/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
 ```solidity
 event ELRewardsStealingPenaltyReported(
     uint256 indexed nodeOperatorId,

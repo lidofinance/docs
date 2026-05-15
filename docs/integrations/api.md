@@ -108,7 +108,7 @@ Response schema and examples are available in the [Swagger API documentation](ht
 
 ## Withdrawals API
 
-The Withdrawals API service offers an utility for estimating the waiting time for [withdrawals](https://docs.lido.fi/contracts/withdrawal-queue-erc721) within the Lido on Ethereum protocol.
+The Withdrawals API service offers an utility for estimating the waiting time for [withdrawals](/contracts/withdrawal-queue-erc721) within the Lido on Ethereum protocol.
 The service is helpful for stakers, providing insights from the moment of withdrawal request placement to its finalization when the request becomes claimable.
 
 See the [detailed explanation](https://github.com/lidofinance/withdrawals-api/blob/develop/how-estimation-works.md).

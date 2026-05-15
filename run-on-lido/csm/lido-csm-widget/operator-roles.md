@@ -46,7 +46,7 @@ On top of the permissions above, there's several methods that can be called by a
 
 ## Change roles
 
-To change the roles for either the Manager or Rewards address, navigate to the [Roles tab](https://csm.lido.fi/roles/).
+To change the roles for either the Manager or Rewards address, navigate to the [Roles tab](https://csm.lido.fi/roles).
 
 ![Roles Tab](/img/csm-guide/roles-1.png)
 

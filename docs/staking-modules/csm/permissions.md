@@ -25,7 +25,7 @@ Lido DAO has the following permissions and controls via on-chain Aragon voting:
 - Lido DAO can change role members for the module contracts;
 
 ## CSM Committee permissions
-[CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) has the following permissions and controls:
+[CSM Committee](https://research.lido.fi/t/community-staking-module-committee/8333) has the following permissions and controls:
 
 - Report facts of MEV and EL rewards stealing committed by CSM Node Operators;
 - Cancel MEV stealing penalty if needed;

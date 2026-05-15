@@ -12,7 +12,7 @@ We propose listing stETH to AAVE v2 market. This would allow users to borrow aga
 ### References
 
 - Website: [lido.fi](https://lido.fi/)
-- [Document portal](https://docs.lido.fi/)
+- [Document portal](/)
 - [Source code for the system(s) that interact with the proposed token](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.4.24/Lido.sol)
 - [Ethereum addresses contracts](/deployed-contracts)
 - [ChainLink Oracle](https://etherscan.io/address/0x86392dC19c0b719886221c78AB11eb8Cf5c52812)
@@ -203,7 +203,7 @@ Lido faces smart contract risks. To mitigate these, Lido has been audited multip
 
 Lido is a DAO. Decisions in the Lido DAO are made through proposals and votes - community members manage protocol parameters, node operators, oracle members, and more. The Lido staking infrastructure for stETH consists of 22 node operators, with a focus on decentralization.
 Lido relies on a set of oracles to report staking rewards to the smart contracts. Their maximum possible impact is limited by the [recent upgrade](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-2.md#sanity-checks-the-oracles-reports-by-configurable-values) (limit oracles report change by 10% APR increase in stake and 5% decrease in stake), and the operators of oracles are all well-known entities: Stakefish, Certus One, Chorus One, Staking Facilities, DSRV, Blockscape, Everstake, SkillZ, RockX, Allnodes, P2P Validator, and others.
-Read further in Lido [documentation](https://docs.lido.fi/token-guides/steth-superuser-functions/).
+Read further in Lido [documentation](/token-guides/steth-superuser-functions/).
 
 **Market risk**
 

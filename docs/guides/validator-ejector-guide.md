@@ -148,7 +148,7 @@ Address of the Consensus Node.
 
 ### LOCATOR_ADDRESS
 
-Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Holešky](https://docs.lido.fi/deployed-contracts/holesky) / [Mainnet](https://docs.lido.fi/deployed-contracts/)
+Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Holešky](/deployed-contracts/holesky) / [Mainnet](/deployed-contracts/)
 
 ### STAKING_MODULE_ID
 

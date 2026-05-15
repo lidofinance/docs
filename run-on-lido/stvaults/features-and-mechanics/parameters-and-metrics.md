@@ -60,7 +60,7 @@ Also, it can be limited by:
 - Tier remaining capacity;
 - Node Operator remaining capacity;
 - Total stVaults remaining capacity;
-- Lido Core staking rate limits ([learn more](https://docs.lido.fi/guides/lido-tokens-integration-guide/#staking-rate-limits)).
+- Lido Core staking rate limits ([learn more](/guides/lido-tokens-integration-guide/#staking-rate-limits)).
 
 
 ### stETH Liability

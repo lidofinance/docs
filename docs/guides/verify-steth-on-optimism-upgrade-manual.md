@@ -2,7 +2,7 @@
 
 ## Deployment scope
 
-The full list of the contracts in scope is provided in the Lido Multichain section for [Optimism](https://docs.lido.fi/deployed-contracts/#optimism).
+The full list of the contracts in scope is provided in the Lido Multichain section for [Optimism](/deployed-contracts/#optimism).
 
 :::note
 Levers and access control lists for L1 and L2 bridge endpoints stay the same and correspond to the [reference architecture and permissions setup](/token-guides/cross-chain-tokens-guide.md#reference-wsteth-rollup-architecture-and-permissions-setup).
@@ -15,7 +15,7 @@ This document covers incremental changes proposed with the stETH on Optimism dep
 ### LidoLocator
 
 :::info
-A new implementation containing the address of a new `TokenRateNotifier` instance for [`postTokenRebaseReceiver`](https://docs.lido.fi/contracts/lido-locator#posttokenrebasereceiver)
+A new implementation containing the address of a new `TokenRateNotifier` instance for [`postTokenRebaseReceiver`](/contracts/lido-locator#posttokenrebasereceiver)
 :::
 
 ### TokenRateNotifier
@@ -45,7 +45,7 @@ MAX_OBSERVERS_COUNT=32
 observersLength=1
 
 # The initially added `OpStackTokenRatePusher` observer for Optimism
-# see https://docs.lido.fi/deployed-contracts/#optimism
+# see /deployed-contracts/#optimism
 observers[0]=0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE
 ```
 
