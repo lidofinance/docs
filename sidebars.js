@@ -185,6 +185,14 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Holders',
+      items: [
+        'holders/lido-oracle',
+        'holders/lido-council-daemon',
+      ],
+    },
+    {
+      type: 'category',
       label: 'IPFS',
       items: [
         'ipfs/about',
