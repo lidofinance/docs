@@ -133,7 +133,7 @@ At the same time, Tenderly has some limitations:
 
 See corresponding docs for set up guide:
 - [Tenderly - Intro into Alerts](https://docs.tenderly.co/alerts/intro-to-alerts)
-- [OpenZeppelin - Monitor](https://docs.openzeppelin.com/defender/v2/module/monitor)
+- [OpenZeppelin - Monitor](https://docs.openzeppelin.com/defender/module/monitor)
 
 ## Other guides
 ### Stakesaurus' Telegram Bot
