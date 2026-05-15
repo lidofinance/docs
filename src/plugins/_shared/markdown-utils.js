@@ -111,12 +111,15 @@ function extractDescription(fm, body) {
       return true
     })
   if (!paragraph) return ''
-  const text = sanitizeMdx(paragraph).replace(/\s+/g, ' ').trim()
+  const text = sanitizeMdx(paragraph)
+    .replace(/`([^`\n]+)`/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim()
   return text.length > 200 ? `${text.slice(0, 197)}...` : text
 }
 
 function stripCodeFences(body) {
-  return body.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]+`/g, '')
+  return body.replace(/```[\s\S]*?```/g, '')
 }
 
 function sanitizeMdx(content) {
@@ -137,8 +140,7 @@ function sanitizeMdx(content) {
 
   out = stripJsxAttributes(out)
 
-  out = out.replace(/<([A-Z][A-Za-z0-9]*)\b[^>]*\/>/g, '')
-  out = out.replace(/<([A-Z][A-Za-z0-9]*)\b[^>]*>([\s\S]*?)<\/\1>/g, '$2')
+  out = stripUppercaseJsxComponents(out)
 
   out = out.replace(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi, (_, level, text) => {
     const hashes = '#'.repeat(Number(level))
@@ -170,6 +172,19 @@ function stripJsxAttributes(content) {
     cleaned = cleaned.replace(/\s+[a-zA-Z][a-zA-Z0-9-]*=\{[^}]*\}/g, '')
     return `<${tag}${cleaned}>`
   })
+}
+
+function stripUppercaseJsxComponents(content) {
+  let previous
+  let out = content
+
+  do {
+    previous = out
+    out = out.replace(/<([A-Z][A-Za-z0-9]*)\b[^>]*\/>/g, '')
+    out = out.replace(/<([A-Z][A-Za-z0-9]*)\b[^>]*>([\s\S]*?)<\/\1>/g, '$2')
+  } while (out !== previous)
+
+  return out
 }
 
 function escapeMarkdown(text) {
