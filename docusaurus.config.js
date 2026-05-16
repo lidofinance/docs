@@ -86,6 +86,7 @@ module.exports = async function createConfigAsync() {
       ],
     ],
     plugins: [
+      'docusaurus-plugin-copy-page-button',
       [
         require.resolve('@easyops-cn/docusaurus-search-local'),
         { indexBlog: false, docsRouteBasePath: '/', indexPages: true },
