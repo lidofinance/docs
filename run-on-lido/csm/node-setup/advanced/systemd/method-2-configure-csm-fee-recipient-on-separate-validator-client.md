@@ -87,8 +87,8 @@ Download and verify Prysm:
 
 ```bash
 cd
-curl -LO https://github.com/prysmaticlabs/prysm/releases/download/v5.1.2/beacon-chain-v5.1.2-linux-amd64
-curl -LO https://github.com/prysmaticlabs/prysm/releases/download/v5.1.2/beacon-chain-v5.1.2-linux-amd64.sha256
+curl -LO https://github.com/OffchainLabs/prysm/releases/download/v5.1.2/beacon-chain-v5.1.2-linux-amd64
+curl -LO https://github.com/OffchainLabs/prysm/releases/download/v5.1.2/beacon-chain-v5.1.2-linux-amd64.sha256
 sha256sum --check beacon-chain-v5.1.2-linux-amd64.sha256
 ```
 
@@ -709,6 +709,6 @@ sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in 
 
 * Teku: [Releases](https://github.com/Consensys/teku/releases), [Documentation](https://docs.teku.consensys.io/introduction) & [Discord](https://discord.gg/consensys) (Select the Teku channel)
 * Nimbus: [Releases](https://github.com/status-im/nimbus-eth2/releases), [Documentation](https://nimbus.guide/install.html) & [Discord](https://discord.gg/BWKx5Xta)
-* Lodestar: [Git Repository](https://github.com/ChainSafe/lodestar-quickstart.git), [Documentation](https://chainsafe.github.io/lodestar/) & [Discord](https://discord.gg/7Gdb4nFh)
+* Lodestar: [Git Repository](https://github.com/ChainSafe/lodestar-quickstart), [Documentation](https://chainsafe.github.io/lodestar/) & [Discord](https://discord.gg/7Gdb4nFh)
 * Lighthouse: [Releases](https://github.com/sigp/lighthouse/releases), [Documentation](https://lighthouse-book.sigmaprime.io/intro.html) & [Discord](https://discord.com/invite/TX7HKfgJN3)
-* Prysm: [Releases](https://github.com/prysmaticlabs/prysm/releases), [Documentation](https://docs.prylabs.network/docs/getting-started) & [Discord](https://discord.gg/prysmaticlabs)
+* Prysm: [Releases](https://github.com/OffchainLabs/prysm/releases), [Documentation](https://prysm.offchainlabs.com/docs/) & [Discord](https://discord.gg/prysmaticlabs)

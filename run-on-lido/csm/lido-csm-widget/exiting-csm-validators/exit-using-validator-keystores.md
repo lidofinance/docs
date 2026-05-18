@@ -161,8 +161,8 @@ Download `prysmctl` binaries:
 
 ```sh
 cd
-curl -LO https://github.com/prysmaticlabs/prysm/releases/download/v5.3.0/prysmctl-v5.3.0-linux-amd64
-curl -LO https://github.com/prysmaticlabs/prysm/releases/download/v5.3.0/prysmctl-v5.3.0-linux-amd64.sha256
+curl -LO https://github.com/OffchainLabs/prysm/releases/download/v5.3.0/prysmctl-v5.3.0-linux-amd64
+curl -LO https://github.com/OffchainLabs/prysm/releases/download/v5.3.0/prysmctl-v5.3.0-linux-amd64.sha256
 sha256sum --check prysmctl-v5.3.0-linux-amd64.sha256
 ```
 
@@ -175,7 +175,7 @@ Run the exit command:
 
 **Replace** wallet directory as needed.
 
-**Reference**: [Prysm Exit Guide](https://docs.prylabs.network/docs/wallet/exiting-a-validator)
+**Reference**: [Prysm Exit Guide](https://prysm.offchainlabs.com/docs/manage-validator/exiting-a-validator/)
 
   </TabItem>
 </Tabs>

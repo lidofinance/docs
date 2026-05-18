@@ -19,10 +19,10 @@ For Testnet setups, replace all Holesky options with Hoodi.
 
 ### Download & configure ETH Docker
 
-Go to the [ETH Docker repository](https://github.com/eth-educators/eth-docker) and to get and run the installation commands.
+Go to the [ETH Docker repository](https://github.com/ethstaker/eth-docker) and to get and run the installation commands.
 
 ```bash
-cd ~ && git clone https://github.com/eth-educators/eth-docker.git && cd eth-docker
+cd ~ && git clone https://github.com/ethstaker/eth-docker.git && cd eth-docker
 sudo usermod -aG sudo $USER
 ```
 

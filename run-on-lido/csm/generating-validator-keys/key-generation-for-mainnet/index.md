@@ -41,7 +41,7 @@ On your working laptop, get the latest [release](https://github.com/ethstaker/et
 ```bash
 cd ~
 # change the URL to the actual URL (right-click & copy link URL)
-curl -LO https://github.com/eth-educators/ethstaker-deposit-cli/releases/download/v1.2.2/ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz
+curl -LO https://github.com/ethstaker/ethstaker-deposit-cli/releases/download/v1.2.2/ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz
 # change the sha256 checksum to the actual checksum
 echo "04af3f4fd2fdccf4ae060abde47637622a31114d9f2e53e62722a694a4d5b206 ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz" | sha256sum --check
 ```

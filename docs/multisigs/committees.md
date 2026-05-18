@@ -511,7 +511,7 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 **Quorum:** 4/6
 
 **Forum topics:**\
-[Community Staking Module Committee](https://research.lido.fi/t/csm-committee-creation/8333)\
+[Community Staking Module Committee](https://research.lido.fi/t/community-staking-module-committee/8333)\
 [Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
 
 **Snapshot:**\

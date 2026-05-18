@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 [Ethereum on ARM](https://ethereum-on-arm-documentation.readthedocs.io/) offers a custom Linux image for ARM64 devices (Raspberry Pi 5, Rock 5B, NanoPC T6, and Orange Pi 5 Plus) that comes pre-configured for running Ethereum nodes. It includes a specific package `ls-lido` to simplify setting up Lido CSM validators.
 
 :::info
-This guide assumes you have a supported ARM64 device with the [Ethereum on ARM image](https://ethereum-on-arm-documentation.readthedocs.io/en/latest/installation.html) already installed and running.
+This guide assumes you have a supported ARM64 device with the [Ethereum on ARM image](https://ethereum-on-arm-documentation.readthedocs.io/en/latest/getting-started/installation.html) already installed and running.
 :::
 
 ## Prerequisites

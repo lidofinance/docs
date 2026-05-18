@@ -437,7 +437,7 @@ Only validators that have been activated on the beacon chain can be proven to PD
 _Diagram. Proving unknown validator to PDG_
 ![image](/img/stvaults/tech-design/proving-unknown-validator.png)
 
-**PredepositGuarantee source code**: https://github.com/lidofinance/core/blob/predeposit-guardian/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol
+**PredepositGuarantee source code**: https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol
 
 ### 3.7 Dashboard
 
