@@ -6,7 +6,7 @@ This smart contract address can also be retrieved by [querying the `elRewardsVau
 
 The address is also available in the [Deployed Contracts] docs page, labeled as `Execution Layer Rewards Vault`.
 
-[deployed contracts]: /deployed-contracts
+[Deployed contracts](/deployed-contracts)
 
 ## Fee recipient options for various Beacon Chain clients
 

@@ -455,7 +455,7 @@ graph TD;
 
 ## References
 
-- Deployed contracts addresses /deployed-contracts/#lido-multichain
+- [Deployed contracts addresses](/deployed-contracts/#lido-multichain)
 - LOL (Liquidity Observation Labs) https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335
 - Lido L2 reference bridging contracts (Arbitrum and Optimism) https://github.com/lidofinance/lido-l2
 - Unofficial guidelines (like the 1st iteration of the guide) https://research.lido.fi/t/unofficial-guidelines-for-bridging-solutions-network-expansion-workgroup/5790
