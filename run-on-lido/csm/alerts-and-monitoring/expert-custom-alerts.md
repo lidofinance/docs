@@ -142,4 +142,4 @@ See corresponding docs for set up guide:
 
 ### Eridian's Pager Duty Setup
 
-[Eridian Alerting and Monitoring Docs](https://docs.eridian.xyz/infrastructure-docs/alerting-and-monitoring)
+[Eridian Alerting and Monitoring Docs](https://docs.eridian.xyz/ethereum-dev/infrastructure/alerting-and-monitoring)
