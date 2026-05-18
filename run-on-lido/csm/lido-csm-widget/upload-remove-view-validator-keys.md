@@ -115,4 +115,4 @@ You can also view the status of the keys pertaining to your uploaded deposit dat
 | <span style={{color: 'red'}}><strong>Invalid</strong></span>             | Uploaded key has an invalid signature                                                         | Remove key                                                                                       |
 | <span style={{color: 'red'}}><strong>Stuck</strong></span>               | Exit request for Active Key was not fulfilled within 96 hours                                 | Exit key                                                                                        |
 
-[beacon chain]: https://holesky.beaconcha.in/
+[beacon chain]: https://beaconcha.in/

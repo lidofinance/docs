@@ -31,7 +31,7 @@ The multisig enables the receipt of LDO and other allowed tokens (listed in the 
 | LEGO LDO         | TopUpAllowedRecipients  | [`0x00caAeF11EC545B192f16313F53912E453c91458`](https://etherscan.io/address/0x00caAeF11EC545B192f16313F53912E453c91458)| trustedcaller |
 | LEGO Stablecoins | TopUpAllowedRecipients  | [`0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c`](https://etherscan.io/address/0x6AB39a8Be67D9305799c3F8FdFc95Caf3150d17c)| trustedcaller |
 
-The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
+The full list of related contracts is available [here](/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
@@ -186,7 +186,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 | Stonks stETH | stETH to stablecoin | TopUpAllowedRecipients | [`0x6e04aED774B7c89BB43721AcDD7D03C872a51B69`](https://etherscan.io/address/0x6e04aED774B7c89BB43721AcDD7D03C872a51B69) | trustedcaller |
 | Stonks stablecoins | stablecoin to stablecoin | TopUpAllowedRecipients | [`0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6`](https://etherscan.io/address/0x0d2aefA542aFa8d9D1Ec35376068B88042FEF5f6) | trustedcaller |
 
-The complete list of Lido Stonks contracts is available [here](https://docs.lido.fi/deployed-contracts/#lido-stonks-contracts).
+The complete list of Lido Stonks contracts is available [here](/deployed-contracts/#lido-stonks-contracts).
 
 **List of signers:**
 
@@ -624,7 +624,7 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 |-------------------|-------------------------|-----------------|---------------|
 | Labs BORG Foundation operational funds stablecoins | TopUpAllowedRecipients  | [`0xE1f6BaBb445F809B97e3505Ea91749461050F780`](https://etherscan.io/address/0xE1f6BaBb445F809B97e3505Ea91749461050F780)| trustedcaller |
 
-The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
+The full list of related contracts is available [here](/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 
@@ -676,7 +676,7 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 |-------------------|-------------------------|-----------------|---------------|
 | Ecosystem BORG Foundation operational funds stablecoins | TopUpAllowedRecipients  | [`0xf2476f967C826722F5505eDfc4b2561A34033477`](https://etherscan.io/address/0xf2476f967C826722F5505eDfc4b2561A34033477)| trustedcaller |
 
-The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
+The full list of related contracts is available [here](/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **Current List of signers:**
 
@@ -956,7 +956,7 @@ A Committee without multisig.
 
 **Address:** [`0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd`](https://app.safe.global/settings/setup?safe=eth:0xA1E2CD361e17ba10DCfAe3aA33f463DcB53a2Ffd)
 
-**Purpose of the multisig:** A short-lived, DAO-mandated working group established solely to manage the [Safe Harbor](https://docs.lido.fi/security/safeharbor) Agreement Details during the audit and rollout, ensuring changes to the allowlist are aligned with DAO intent. This committee will maintain the list by making necessary additions and updates to the set of contracts in scope for Safe Harbor until ownership is handed over to Lido DAO governance. The committee will not manage or custody any funds.
+**Purpose of the multisig:** A short-lived, DAO-mandated working group established solely to manage the [Safe Harbor](/security/safeharbor) Agreement Details during the audit and rollout, ensuring changes to the allowlist are aligned with DAO intent. This committee will maintain the list by making necessary additions and updates to the set of contracts in scope for Safe Harbor until ownership is handed over to Lido DAO governance. The committee will not manage or custody any funds.
 
 **Quorum:** 4/5
 

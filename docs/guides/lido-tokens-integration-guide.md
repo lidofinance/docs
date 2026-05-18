@@ -58,7 +58,7 @@ More in depth analysis is available [here](https://www.comp.xyz/t/franklin-dao-r
 
 There are following `wstETH/stETH` rate feeds available to use in conjunction with (w)stETH:
 
-For an up-to-date list of networks and feed addresses, see [/deployed-contracts/#price-feeds](/deployed-contracts/#price-feeds).
+For an up-to-date list of networks and feed addresses, see [deployed contracts](/deployed-contracts/#price-feeds).
 
 - [Ethereum Mainnet](https://etherscan.io/address/0x94336dF517036f2Bf5c620a1BC75a73A37b7bb16#readContract)
 - [Arbitrum](https://data.chain.link/feeds/arbitrum/mainnet/wsteth-steth%20exchangerate)
@@ -218,7 +218,7 @@ shares2mint = --------------------------------------------------------------
 
 ### How to get APR?
 
-Please refer to [this page](https://docs.lido.fi/integrations/api/#last-lido-apr-for-steth) for the correct Lido V2 APR calculation.
+Please refer to [this page](/integrations/api/#last-lido-apr-for-steth) for the correct Lido V2 APR calculation.
 
 It is worth noting that with withdrawals enabled, the APR calculation method for Lido has changed significantly.
 When Lido V2 protocol finalizes withdrawal requests, the Lido contract excludes funds from TVL and assigns to burn underlying locked requests’ stETH shares in return. In other words, withdrawal finalization decreases both TVL and total shares.
@@ -284,7 +284,7 @@ Sepolia is deprecated and no longer used for Lido token testing. Use Hoodi for t
 
 #### wstETH
 
-Currently, wstETH token is present on multiple networks (see [/deployed-contracts/#lido-multichain](/deployed-contracts/#lido-multichain)):
+Currently, wstETH token is present on multiple networks (see [deployed contracts](/deployed-contracts/#lido-multichain)):
 
 - [Arbitrum](https://arbiscan.io/address/0x5979D7b546E38E414F7E9822514be443A4800529)
 - [Optimism](https://optimistic.etherscan.io/address/0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb)
@@ -313,7 +313,7 @@ Use the [wstETH/stETH rate feeds](#integration-utilities-rate-and-price-feeds) l
 
 #### stETH (OP Stack networks)
 
-stETH is available on some OP Stack networks alongside wstETH (see [/deployed-contracts/#lido-multichain](/deployed-contracts/#lido-multichain)).
+stETH is available on some OP Stack networks alongside wstETH (see [deployed contracts](/deployed-contracts/#lido-multichain)).
 The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) architecture approach.
 
 - Optimism:

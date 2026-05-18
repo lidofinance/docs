@@ -148,7 +148,7 @@ Address of the Consensus Node.
 
 ### LOCATOR_ADDRESS
 
-Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Holešky](https://docs.lido.fi/deployed-contracts/holesky) / [Mainnet](https://docs.lido.fi/deployed-contracts/)
+Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Hoodi](/deployed-contracts/hoodi) / [Mainnet](/deployed-contracts/)
 
 ### STAKING_MODULE_ID
 
@@ -196,7 +196,7 @@ On the endpoint, JSON will be POSTed with the following structure:
 
 JSON array of Lido Oracle addresses, from which only report transactions will be accepted.
 
-You can get a list from Etherscan on [Holešky](https://holesky.etherscan.io/address/0xa067FC95c22D51c3bC35fd4BE37414Ee8cc890d2#readContract#F16) or [Mainnet](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16)
+You can get a list from Etherscan on [Hoodi](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16) or [Mainnet](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16)
 
 Format:
 

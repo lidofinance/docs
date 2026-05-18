@@ -40,7 +40,7 @@ struct LimitsList {
 ```
 
 - **`exitedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might be reported as exited per single day, _**exited**_ are reported according to the
-  [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#get_validator_churn_limit).
+  [Consensus Layer churn limit](https://github.com/ethereum/consensus-specs/blob/master/specs/phase0/beacon-chain.md#get_validator_churn_limit).
 - **`appearedValidatorsPerDayLimit` ∈ [0, 65535]** — the max possible number of validators that might been reported as _**appeared**_ during a single day. [`AccountingOracle`](./accounting-oracle.md) reports validators as _**appeared**_ once them become _**pending**_ (might be not _**activated**_ yet). Thus, this limit should be high enough for such cases because Consensus Layer has no
   intrinsic churn limit for the amount of _**pending**_ validators (only for _**activated**_ instead).
   For Lido it's limited by the max daily deposits via [`DepositSecurityModule`](./deposit-security-module.md).

@@ -14,7 +14,7 @@ For **Hoodi Testnet** users:
 Use [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258) instead of [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297) in the guides below.
 :::
 
-Failure to do so may result in [MEV stealing penalties](https://docs.lido.fi/run-on-lido/csm/troubleshooting/mev-stealing), including:
+Failure to do so may result in [MEV stealing penalties](/run-on-lido/csm/troubleshooting/mev-stealing), including:
 
 - A **penalty** equal to the stolen execution layer rewards plus a fixed fine  
 - Your **bond being locked** until the full penalty amount is returned
@@ -22,7 +22,7 @@ Failure to do so may result in [MEV stealing penalties](https://docs.lido.fi/run
 This guide shows you how to correctly set the fee recipient on various platforms. It does not cover how to set up or run a validator node from scratch.
 
 :::success
-You can verify the fee recipient address on the [Lido Deployed Contracts](https://docs.lido.fi/deployed-contracts/) page.
+You can verify the fee recipient address on the [Lido Deployed Contracts](/deployed-contracts) page.
 :::
 
 ---
