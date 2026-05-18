@@ -186,7 +186,7 @@ Non-rollup examples:
 [a.DI (Aave Delivery Infrastructure)](https://github.com/lidofinance/aave-delivery-infrastructure). It was used to bridge governance to Binance Smart Chain (BSC).
 See forum post [Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3) for more details.
 
-For more rollup examples, see Governance Bridge Executors at /deployed-contracts/#lido-multichain. The contracts originate from [Aave Governance Cross-Chain Bridges](https://github.com/aave/governance-crosschain-bridges) and can be found at https://github.com/lidofinance/governance-crosschain-bridges and [PRs](https://github.com/lidofinance/governance-crosschain-bridges/pulls).
+For more rollup examples, see [Governance Bridge Executors](/deployed-contracts/#lido-multichain). The contracts originate from [Aave Governance Cross-Chain Bridges](https://github.com/aave/governance-crosschain-bridges) and can be found at https://github.com/lidofinance/governance-crosschain-bridges and [PRs](https://github.com/lidofinance/governance-crosschain-bridges/pulls).
 
 ### R-6-transient: Pre bridging L1 Lido DAO decisions
 

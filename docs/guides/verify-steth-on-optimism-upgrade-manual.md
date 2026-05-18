@@ -45,7 +45,7 @@ MAX_OBSERVERS_COUNT=32
 observersLength=1
 
 # The initially added `OpStackTokenRatePusher` observer for Optimism
-# see /deployed-contracts/#optimism
+# see https://docs.lido.fi/deployed-contracts/#optimism
 observers[0]=0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE
 ```
 

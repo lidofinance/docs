@@ -249,8 +249,7 @@ Make sure the correct permissions are set up for the mounted directory. The UID 
 chown -R 33:33 /path/to/cache/on/host
 ```
 
-**Latest image hash**
-[/guides/tooling/#oracle](/guides/tooling/#oracle)
+**Latest image hash - [link](/guides/tooling/#oracle)**
 
 This will start the oracle in daemon mode. You can also run it in a one-off mode, for example if you’d prefer to trigger oracle execution as a `cron` job. In this case, set the `DAEMON` environment variable to 0.
 
