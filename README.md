@@ -91,6 +91,16 @@ To build the documentation locally and push the built version to the `gh-pages` 
 GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy
 ```
 
+## AI-friendly outputs
+
+The build produces three artifacts for AI agents and assistants:
+
+- `/llms.txt` — a [llmstxt.org](https://llmstxt.org)-compliant index of every doc page across `docs/`, `run-on-lido/`, and `earn/` with short descriptions
+- `/llms-full.txt` — concatenated markdown of the entire documentation, ready to drop into an LLM context window
+- `/<page-path>.md` — every doc page is also available as a raw markdown URL (append `.md` to any docs URL, e.g. `https://docs.lido.fi/contracts/lido.md`)
+
+Generation lives in [`src/plugins`](src/plugins/README.md) — see that README for plugin details, config, and customization.
+
 ## Fetch and refresh external content
 
 Fetch external markdown files to build an up-to-date version.
