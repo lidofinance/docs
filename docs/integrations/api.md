@@ -98,7 +98,7 @@ skip: 200, limit: 100 = 3 page
 
 ### Hoodi
 
-Reward History Backend is also available on Holešky:
+Reward History Backend is also available on Hoodi testnet:
 
 ```
 http://reward-history-backend-hoodi.testnet.fi/?address=0x12345
