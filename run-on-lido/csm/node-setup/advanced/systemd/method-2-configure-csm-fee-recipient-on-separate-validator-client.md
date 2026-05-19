@@ -708,7 +708,7 @@ sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in 
 ### Resources
 
 * Teku: [Releases](https://github.com/Consensys/teku/releases), [Documentation](https://docs.teku.consensys.io/introduction) & [Discord](https://discord.com/invite/consensys) (Select the Teku channel)
-* Nimbus: [Releases](https://github.com/status-im/nimbus-eth2/releases), [Documentation](https://nimbus.guide/install.html) & [Discord](https://discord.com/invite/BWKx5Xta)
-* Lodestar: [Git Repository](https://github.com/ChainSafe/lodestar-quickstart), [Documentation](https://chainsafe.github.io/lodestar/) & [Discord](https://discord.com/invite/7Gdb4nFh)
+* Nimbus: [Releases](https://github.com/status-im/nimbus-eth2/releases), [Documentation](https://nimbus.guide/install.html) & [Discord](https://discord.com/invite/EP8DZnXu9y)
+* Lodestar: [Git Repository](https://github.com/ChainSafe/lodestar-quickstart), [Documentation](https://chainsafe.github.io/lodestar/) & [Discord](https://discord.com/invite/642wB3XC3Q)
 * Lighthouse: [Releases](https://github.com/sigp/lighthouse/releases), [Documentation](https://lighthouse-book.sigmaprime.io/intro.html) & [Discord](https://discord.com/invite/TX7HKfgJN3)
-* Prysm: [Releases](https://github.com/OffchainLabs/prysm/releases), [Documentation](https://prysm.offchainlabs.com/docs/) & [Discord](https://discord.com/invite/prysmaticlabs)
+* Prysm: [Releases](https://github.com/OffchainLabs/prysm/releases), [Documentation](https://prysm.offchainlabs.com/docs/) & [Discord](https://discord.com/invite/qEZK94mFXP)

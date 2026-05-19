@@ -20,7 +20,7 @@ We propose listing stETH to AAVE v2 market. This would allow users to borrow aga
 - Community
   - [Governance forum](https://research.lido.fi/)
   - [Twitter](https://twitter.com/lidofinance)
-  - [Discord](https://discord.gg/vgdPfhZ)
+  - [Discord](https://discord.com/invite/lido)
   - [Telegram](https://t.me/lidofinance)
   - [Reddit](https://www.reddit.com/r/LidoFinance)
 
@@ -135,7 +135,7 @@ Volume (24h): $5,7M
 
 9. **Social channels data**
 
-[Discord](https://discord.gg/vgdPfhZ) - 7400 members
+[Discord](https://discord.com/invite/lido) - 7400 members
 [Twitter](https://twitter.com/LidoFinance) - 60K followers
 [GitHub](https://github.com/lidofinance) - Active and managed
 
