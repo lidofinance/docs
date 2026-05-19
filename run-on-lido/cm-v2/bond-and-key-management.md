@@ -77,7 +77,9 @@ Exiting validators outside of a protocol-requested exit is discouraged. If you p
 
 #### Ejection (triggerable withdrawals)
 
-Through the CMv2 widget, you can force-exit an active validator directly from the Execution Layer using EIP-7002 triggerable withdrawals. This is an emergency measure. It is recommended to use voluntary exits broadcast via CL in normal operations.
+Through the CMv2 widget, you can force-exit an active validator directly from the Execution Layer using EIP-7002 triggerable withdrawals. This is an emergency measure and incurs ejection fees.
+
+It is recommended to use voluntary exits broadcast via CL in normal operations.
 
 ---
 

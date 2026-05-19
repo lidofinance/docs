@@ -23,6 +23,8 @@ To run your validators in the Curated Module, you will need to set the correct [
 | **Hoodi** | [`0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`](https://hoodi.etherscan.io/address/0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2) | [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258) |
 | **Mainnet** | [`0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f`](https://etherscan.io/address/0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f) | [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297) |
 
+You can verify these and other protocol contracts on the [Deployed Contracts](https://docs.lido.fi/deployed-contracts/) page.
+
 Please note that the Withdrawal Address is set at generation. If you need to change it, you must re-generate the deposit data with the correct address before uploading. Once a validator is deposited its Withdrawal Address cannot be changed.
 
 Similarly, blocks proposed with the incorrect Fee Recipient may result in a [**General Delayed Penalty**](/run-on-lido/cm-v2/penalties#general-delayed-penalty) being applied.
@@ -31,10 +33,10 @@ Similarly, blocks proposed with the incorrect Fee Recipient may result in a [**G
 
 ## Generating keys with EthStaker Deposit CLI
 
-:::warning Security
+:::warning
 - Generate your keys on a secure, ideally air-gapped machine.
-- Back up your mnemonic on paper or steel. If lost and no withdrawal address is set, funds cannot be recovered.
 - Never share your keystores or mnemonic.
+- Back up your mnemonic on paper or steel. It is the only way to recover your keystore or generate additional keys. If you lose your keystores, you can still exit validators via [Triggerable Withdrawals](/run-on-lido/cm-v2/bond-and-key-management#ejection-triggerable-withdrawals).
 :::
 
 The steps below will help you create `0x02` keys **for the Hoodi testnet**.
