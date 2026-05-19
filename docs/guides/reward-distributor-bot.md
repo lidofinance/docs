@@ -2,8 +2,8 @@
 
 ## Introduction
 
-Permissionless reward distribution bot for Lido staking modules. Operates with smart contract based on the [Node Operator Registry](/contracts/node-operators-registry) smart contract. 
-After the [Accounting Oracle](/guides/oracle-spec/accounting-oracle) completes the third phase, anyone can initiate reward distribution to allocate rewards among Node Operators in the Staking Module, unless the oracle sends the next frame report.
+Permissionless reward distribution bot for Lido staking modules. Operates with smart contract based on the [Node Operator Registry](/contracts/node-operators-registry/) smart contract. 
+After the [Accounting Oracle](/guides/oracle-spec/accounting-oracle/) completes the third phase, anyone can initiate reward distribution to allocate rewards among Node Operators in the Staking Module, unless the oracle sends the next frame report.
 
 ## Requirements
 
@@ -20,8 +20,8 @@ After the [Accounting Oracle](/guides/oracle-spec/accounting-oracle) completes t
 
 Every epoch daemon checks the staking modules provided in environment. If a module has a non-distributed rewards, the bot pulls the trigger and distributes rewards between Node Operators inside this module.
 
-Basically bot is watching [RewardDistributionState](/contracts/node-operators-registry#getrewarddistributionstate) of module. 
-If module has `ReadyForDistribution` state, bot triggers [distributeReward](/contracts/node-operators-registry#distributereward) method to distribute rewards.
+Basically bot is watching [RewardDistributionState](/contracts/node-operators-registry/#getrewarddistributionstate) of module. 
+If module has `ReadyForDistribution` state, bot triggers [distributeReward](/contracts/node-operators-registry/#distributereward) method to distribute rewards.
 
 ### Envs
 
@@ -55,7 +55,7 @@ poetry run python src/main.py
 
 ### Docker
 
-Docker image could be found [here](https://docs.lido.fi/guides/tooling#reward-distribution-bot).
+Docker image could be found [here](https://docs.lido.fi/guides/tooling/#reward-distribution-bot).
 
 ## Monitoring
 

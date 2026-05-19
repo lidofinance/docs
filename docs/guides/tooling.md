@@ -11,7 +11,7 @@ Oracle daemon for Lido decentralized staking service.
 - **Commit hash**: [lidofinance/lido-oracle@b2e9296](https://github.com/lidofinance/lido-oracle/commit/b2e92969fd35b2a1838667a290ded649ca33fbf5)
 - **Last update date**: 10 March 2026
 - [**Repository**](https://github.com/lidofinance/lido-oracle/tree/7.1.0)
-- [**Documentation**](/guides/oracle-operator-manual)
+- [**Documentation**](/guides/oracle-operator-manual/)
 - [**Audit Report for v7.0.0 (Certora)**](https://github.com/lidofinance/audits/blob/main/Certora%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
 - [**Audit Report for v7.0.0 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20V3%20Oracle%20V7%20Audit%20Report%20-%2012-2025.pdf)
 - [**Audit Report for v7.1.0 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V7_1%20Audit%20Report.pdf)
@@ -25,7 +25,7 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 - **Commit hash**: [lidofinance/validator-ejector@28ae303](https://github.com/lidofinance/validator-ejector/commit/28ae303c3306fa9808b3bcfb8ec6a8ab6af06d02)
 - **Last update date**: 21 Aug, 2025
 - [**Repository**](https://github.com/lidofinance/validator-ejector/tree/1.9.0#readme)
-- [**Documentation**](/guides/validator-ejector-guide)
+- [**Documentation**](/guides/validator-ejector-guide/)
 
 ## Council daemon
 
@@ -36,7 +36,7 @@ The Lido Council Daemon monitors deposit contract keys.
 - Commit hash: [lidofinance/lido-council-daemon@03f4325d](https://github.com/lidofinance/lido-council-daemon/commit/3f4325d6ecd95b54ab3db730878be2ff288e33bc)
 - **Last update date**: 2 April, 2026
 - [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.7.0)
-- [**Documentation**](/guides/deposit-security-manual)
+- [**Documentation**](/guides/deposit-security-manual/)
 
 ## Keys API
 
@@ -47,4 +47,4 @@ Lido keys HTTP API.
 - **Commit hash**: [lidofinance/lido-keys-api@99d4d4d](https://github.com/lidofinance/lido-keys-api/commit/99d4d4d99878a192028bb391251976d7fce53ba8)
 - **Last update date**: 1 April, 2025
 - [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/2.2.1)
-- [**Documentation**](/guides/kapi-guide)
+- [**Documentation**](/guides/kapi-guide/)

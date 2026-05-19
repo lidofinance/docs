@@ -1,7 +1,7 @@
 # Accounting oracle
 
 :::info
-It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
+It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual/#intro) before
 :::
 
 ## Withdrawal stage

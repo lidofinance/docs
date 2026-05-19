@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Depositor bot is a part of [Deposit Security Module](/contracts/deposit-security-module).
+Depositor bot is a part of [Deposit Security Module](/contracts/deposit-security-module/).
 
 The Depositor Bot obtains signed deposit messages from Council Daemons. Once a sufficient number of messages is
 collected to constitute a quorum, the bot proceeds to initiate a deposit into the designated staking module. This
 deposit is executed using
-the [depositBufferedEther](https://docs.lido.fi/contracts/deposit-security-module#depositbufferedether) function within
-the [DepositSecurityModule](https://docs.lido.fi/contracts/deposit-security-module) smart contract.
+the [depositBufferedEther](https://docs.lido.fi/contracts/deposit-security-module/#depositbufferedether) function within
+the [DepositSecurityModule](https://docs.lido.fi/contracts/deposit-security-module/) smart contract.
 
 ## Requirements
 
@@ -97,7 +97,7 @@ line `"msg": "Bot env variables"`
 
 ### Docker
 
-Docker image can be found [here](https://docs.lido.fi/guides/tooling#depositor-bot).
+Docker image can be found [here](https://docs.lido.fi/guides/tooling/#depositor-bot).
 
 ## Monitoring
 

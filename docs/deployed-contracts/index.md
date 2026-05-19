@@ -6,7 +6,7 @@ pagination_next: deployed-contracts/hoodi
 
 :::tip 📘 **Lido V3 Technical Paper**
 
-Learn about the next evolution of Lido staking with **stVaults** — user-defined validator setups with optional stETH liquidity. Read the complete [**Lido V3 Technical Paper**](/lido-v3-whitepaper) for architecture details, mechanisms, and implementation specifics.
+Learn about the next evolution of Lido staking with **stVaults** — user-defined validator setups with optional stETH liquidity. Read the complete [**Lido V3 Technical Paper**](/lido-v3-whitepaper/) for architecture details, mechanisms, and implementation specifics.
 
 :::
 
