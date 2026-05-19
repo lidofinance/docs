@@ -6,7 +6,7 @@ sidebar_position: 0
 
 This section of the Lido documentation is for users who want to run any of the Lido products, whether Node Operators, Vault owners, or Oracle Operators.
 
-&emsp;📘 Read the [Lido V3 Technical Paper](/lido-v3-whitepaper) — the vision and architecture of stVaults
+&emsp;📘 Read the [Lido V3 Technical Paper](/lido-v3-whitepaper/) — the vision and architecture of stVaults
 
 &emsp;🏛️ Read the documentation for the [Curated Module v2](/run-on-lido/cm-v2/)
 

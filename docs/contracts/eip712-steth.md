@@ -7,7 +7,7 @@
 
 ## Why This Helper Is Needed
 
-The original [`Lido/StETH`](/contracts/lido) contract is implemented in Solidity `0.4.24`, while this helper is implemented in Solidity `0.8.9`. The newer compiler version enables access to the current network's chain id via the globally available variable [`block.chainid`](https://docs.soliditylang.org/en/v0.8.9/units-and-global-variables.html#block-and-transaction-properties). The chain id is mandatory for signature inclusion as per [EIP-155](https://eips.ethereum.org/EIPS/eip-155) to prevent replay attacks, wherein an attacker intercepts a valid network transmission and then rebroadcasts it on another network fork. Consequently, `EIP-155` compliance is critical for securing [`ERC-2612`](https://eips.ethereum.org/EIPS/eip-2612) signed approvals.
+The original [`Lido/StETH`](/contracts/lido/) contract is implemented in Solidity `0.4.24`, while this helper is implemented in Solidity `0.8.9`. The newer compiler version enables access to the current network's chain id via the globally available variable [`block.chainid`](https://docs.soliditylang.org/en/v0.8.9/units-and-global-variables.html#block-and-transaction-properties). The chain id is mandatory for signature inclusion as per [EIP-155](https://eips.ethereum.org/EIPS/eip-155) to prevent replay attacks, wherein an attacker intercepts a valid network transmission and then rebroadcasts it on another network fork. Consequently, `EIP-155` compliance is critical for securing [`ERC-2612`](https://eips.ethereum.org/EIPS/eip-2612) signed approvals.
 
 ## View Methods
 
@@ -19,7 +19,7 @@ This method returns the `EIP712`-compatible hashed [domain separator](https://ei
 function domainSeparatorV4(address _stETH) returns (bytes32)
 ```
 
-Also, consider the [`eip712Domain()`](/contracts/eip712-steth#eip712domain) method that can construct a domain separator from `StETH`-specific fields on the client's side, such as within a dApp or a wallet. For instance, Metamask relies on [`eth_signTypedData_v4`](https://docs.metamask.io/wallet/how-to/sign-data/#use-eth_signtypeddata_v4), which requires a non-hashed domain separator being provided.
+Also, consider the [`eip712Domain()`](/contracts/eip712-steth/#eip712domain) method that can construct a domain separator from `StETH`-specific fields on the client's side, such as within a dApp or a wallet. For instance, Metamask relies on [`eth_signTypedData_v4`](https://docs.metamask.io/wallet/how-to/sign-data/#use-eth_signtypeddata_v4), which requires a non-hashed domain separator being provided.
 
 ### hashTypedDataV4()
 
@@ -67,7 +67,7 @@ function eip712Domain(address _stETH) returns (
 | `verifyingContract` | `address` | Address of the token contract |
 
 :::note
-Provided the correct `_stETH` [deployed](/deployed-contracts) address, it returns:
+Provided the correct `_stETH` [deployed](/deployed-contracts/) address, it returns:
 
 - ("Liquid staked Ether 2.0", "2", 1, 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) for Mainnet.
 - ("Liquid staked Ether 2.0", "2", 560048, 0x3508A952176b3c15387C97BE809eaffB1982176a) for Hoodi.

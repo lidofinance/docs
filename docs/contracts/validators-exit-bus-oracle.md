@@ -6,7 +6,7 @@
 - Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
-It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
+It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual/#intro) before
 :::
 
 ## What is ValidatorsExitBusOracle
@@ -14,7 +14,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 A contract that implements an on-chain "source of truth" message bus between the protocol's off-chain oracle and off-chain observers,
 with the main goal of delivering validator exit requests to the Lido-participating node operators.
 
-The oracle report determines which validators should be requested to exit to satisfy withdrawal queue demand, following the policy and prioritization rules described in the [Validator Exits and Penalties](/guides/oracle-spec/penalties) page.
+The oracle report determines which validators should be requested to exit to satisfy withdrawal queue demand, following the policy and prioritization rules described in the [Validator Exits and Penalties](/guides/oracle-spec/penalties/) page.
 
 :::note
 Placed exit requests via `ValidatorsExitBusOracle` should be processed timely according to the ratified Lido on Ethereum Validator Exits SNOP 3.0 ([IPFS](https://ipfs.io/ipfs/QmW9kE61zC61PcuikCQRwn82aoTCj9yPuENGNPML9QLkSM), [GitHub](https://github.com/lidofinance/documents-and-policies/blob/main/Lido%20on%20Ethereum%20Standard%20Node%20Operator%20Protocol%20-%20Validator%20Exits.md)).
@@ -30,14 +30,14 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-It's worth noting that frame length [can be changed](/contracts/hash-consensus#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
+It's worth noting that frame length [can be changed](/contracts/hash-consensus/#setframeconfig). And if oracle report is delayed it does not extend the report period, unless it's missed. In this case, the next report will have the report period increased.
 
 The frame includes these stages:
 
-- **Waiting** - oracle starts as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate it with the expected reference slot;
+- **Waiting** - oracle starts as a [daemon](/guides/oracle-operator-manual/#the-oracle-daemon) and wakes up every 12 seconds (by default) in order to find the last finalized slot, trying to collate it with the expected reference slot;
 - **Data collection**: oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
-- **Hash consensus**: oracles analyze the report data, compile the report and submit its hash to the [HashConsensus](/contracts/hash-consensus) smart contract;
-- **Core update report**: once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `ValidatorsExitBusOracle` contract, which triggers a chain of the [`ValidatorExitRequest`](#validatorexitrequest) events containing details about the next validators to be ejected (to initiate a voluntary exit from the Ethereum Consensus Layer side).
+- **Hash consensus**: oracles analyze the report data, compile the report and submit its hash to the [HashConsensus](/contracts/hash-consensus/) smart contract;
+- **Core update report**: once the [quorum](/contracts/hash-consensus/#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `ValidatorsExitBusOracle` contract, which triggers a chain of the [`ValidatorExitRequest`](#validatorexitrequest) events containing details about the next validators to be ejected (to initiate a voluntary exit from the Ethereum Consensus Layer side).
 
 ## Report data
 
@@ -190,7 +190,7 @@ function getProcessingState() external view returns (ProcessingState memory resu
 
 ### getConsensusContract()
 
-Returns the address of the [HashConsensus](/contracts/hash-consensus) contract instance used by `ValidatorsExitBusOracle`.
+Returns the address of the [HashConsensus](/contracts/hash-consensus/) contract instance used by `ValidatorsExitBusOracle`.
 
 ```solidity
 function getConsensusContract() external view returns (address);

@@ -6,12 +6,12 @@
 The contract provides a way for Lido protocol to burn stETH token shares as a means to finalize withdrawals,
 penalize untimely exiting node operators, and, possibly, cover losses in staking.
 
-It relies on the [rebasing](/contracts/lido#rebase) nature of stETH. The `Lido` contract calculates
+It relies on the [rebasing](/contracts/lido/#rebase) nature of stETH. The `Lido` contract calculates
 user balance using the following equation:
 `balanceOf(account) = shares[account] * totalPooledEther / totalShares`.
 Therefore, burning shares (e.g. decreasing the `totalShares` amount) increases stETH holders' balances.
 
-It's presumed that actual shares burning happens inside the [`Lido`](/contracts/lido) contract as a part of the [`AccountingOracle`](/contracts/accounting-oracle) report.
+It's presumed that actual shares burning happens inside the [`Lido`](/contracts/lido/) contract as a part of the [`AccountingOracle`](/contracts/accounting-oracle/) report.
 `Burner` provides a safe and deterministic way to incur a positive stETH token rebase by gradually
 decreasing `totalShares` that can be correctly handled by 3rd party protocols integrated with stETH.
 
@@ -21,7 +21,7 @@ decreasing `totalShares` that can be correctly handled by 3rd party protocols in
 - Locking **caller-provided** stETH with the `REQUEST_BURN_MY_STETH_ROLE` assigned role.
 
 Those burn requests are initially set by the contract to a pending state.
-Actual burning happens as part of an oracle ([`AccountingOracle`](/contracts/accounting-oracle)) report handling by [`Accounting`](/contracts/accounting) to prevent
+Actual burning happens as part of an oracle ([`AccountingOracle`](/contracts/accounting-oracle/)) report handling by [`Accounting`](/contracts/accounting/) to prevent
 additional fluctuations of the existing stETH token rebase period (~24h).
 
 We also distinguish two types of shares burn requests:
@@ -31,7 +31,7 @@ We also distinguish two types of shares burn requests:
 - request to burn shares for any other cases (**non-cover**).
 
 The contract has two separate counters for the burnt shares: cover and non-cover ones. The contract is
-exclusively responsible for the stETH shares burning by [`Lido`](/contracts/lido) and burning allowed only from the contract's
+exclusively responsible for the stETH shares burning by [`Lido`](/contracts/lido/) and burning allowed only from the contract's
 own balance only.
 
 ## Shares burnt counters
@@ -68,7 +68,7 @@ and cover application-induced rebase, which can be done as follows:
 
 ### LOCATOR()
 
-Returns the address of the [LidoLocator](/contracts/lido-locator) contract.
+Returns the address of the [LidoLocator](/contracts/lido-locator/) contract.
 
 ```sol
 ILidoLocator public immutable LOCATOR;
@@ -76,7 +76,7 @@ ILidoLocator public immutable LOCATOR;
 
 ### LIDO()
 
-Returns the address of the [Lido](/contracts/lido) (stETH) contract.
+Returns the address of the [Lido](/contracts/lido/) (stETH) contract.
 
 ```sol
 ILido public immutable LIDO;
@@ -257,9 +257,9 @@ Transfers stETH shares from `_from` and irreversibly locks these on the burner c
 Internally marks the shares amount for non-cover backed burning by increasing the internal `nonCoverSharesBurnRequested` counter.
 
 Can be called only by a holder of the `REQUEST_BURN_SHARES_ROLE` role which after
-Lido V2 upgrade is either [`Lido`](/contracts/lido) or [`NodeOperatorsRegistry`](/contracts/node-operators-registry).
-[`Lido`](/contracts/lido) needs this to request shares locked on the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) and
-[`NodeOperatorsRegistry`](/contracts/node-operators-registry) needs it to request burning shares to penalize the rewards of misbehaving node operators.
+Lido V2 upgrade is either [`Lido`](/contracts/lido/) or [`NodeOperatorsRegistry`](/contracts/node-operators-registry/).
+[`Lido`](/contracts/lido/) needs this to request shares locked on the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721/) and
+[`NodeOperatorsRegistry`](/contracts/node-operators-registry/) needs it to request burning shares to penalize the rewards of misbehaving node operators.
 
 ```sol
 function requestBurnShares(address _from, uint256 _sharesAmountToBurn)
@@ -348,7 +348,7 @@ Marks previously requested to burn cover and non-cover share as burnt.
 Emits `StETHBurnt` event for the cover and non-cover shares marked as burnt.
 Performs the actual shares burning by calling `LIDO.burnShares()`.
 
-This function is called by the [`Accounting`](/contracts/accounting) contract as part of oracle report handling.
+This function is called by the [`Accounting`](/contracts/accounting/) contract as part of oracle report handling.
 
 If `_sharesToBurn` is 0 does nothing.
 

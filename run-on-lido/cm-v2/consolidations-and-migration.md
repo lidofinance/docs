@@ -47,7 +47,7 @@ Before starting, ensure the following:
 
 ### Step 1: CMv2 setup and initial seeding
 
-1. **Create CMv2 Node Operators** in the CMv2 widget (see [Creating & Managing Node Operators](/run-on-lido/cm-v2/creating-and-managing-node-operators)), set a manager address, rewards address, and confirm operator type. This is an administrative step and does not touch validator infrastructure yet.
+1. **Create CMv2 Node Operators** in the CMv2 widget (see [Creating & Managing Node Operators](/run-on-lido/cm-v2/creating-and-managing-node-operators/)), set a manager address, rewards address, and confirm operator type. This is an administrative step and does not touch validator infrastructure yet.
 2. **Generate `0x02` validator keys** using your standard key management tooling.
 3. **Upload keys and post bond.** Post bond either before or during key upload so validators can receive initial deposits.
 4. **Bring CMv2 validators live.** Configure validator clients, fee recipient (Lido EL Rewards Vault), MEV-boost, ejector settings, and monitoring.
@@ -80,7 +80,7 @@ A single Node Operator can run multiple sub-Node Operators, each with its own ty
 
 All bonding, fees, and parameter enforcement apply at the sub-Node Operator level.
 
-Creating a new sub-Node Operator is permissioned and requires DAO approval via the [CMC onboarding process](/run-on-lido/cm-v2/creating-and-managing-node-operators).
+Creating a new sub-Node Operator is permissioned and requires DAO approval via the [CMC onboarding process](/run-on-lido/cm-v2/creating-and-managing-node-operators/).
 
 ---
 
@@ -88,4 +88,4 @@ Creating a new sub-Node Operator is permissioned and requires DAO approval via t
 
 Bond must be posted at the sub-Node Operator level before validators can receive initial deposits. It can be posted ahead of time or during key upload.
 
-Mainnet bond amounts depend on operator type, see [Bond & Key Management](/run-on-lido/cm-v2/bond-and-key-management) for details.
+Mainnet bond amounts depend on operator type, see [Bond & Key Management](/run-on-lido/cm-v2/bond-and-key-management/) for details.

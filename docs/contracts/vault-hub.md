@@ -637,8 +637,8 @@ event BadDebtWrittenOffToBeInternalized(address indexed vault, uint256 badDebtSh
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault)
-- [LazyOracle](/contracts/lazy-oracle)
-- [OperatorGrid](/contracts/operator-grid)
-- [Dashboard](/contracts/dashboard)
-- [PredepositGuarantee](/contracts/predeposit-guarantee)
+- [StakingVault](/contracts/staking-vault/)
+- [LazyOracle](/contracts/lazy-oracle/)
+- [OperatorGrid](/contracts/operator-grid/)
+- [Dashboard](/contracts/dashboard/)
+- [PredepositGuarantee](/contracts/predeposit-guarantee/)

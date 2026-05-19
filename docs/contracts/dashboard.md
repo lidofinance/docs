@@ -3,7 +3,7 @@
 - [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.25/vaults/dashboard/Dashboard.sol)
 - [Implementation](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 
-Management contract for stVaults. Provides role-based control for vault operations and convenience wrappers for minting/burning stETH and wstETH. Individual Dashboard instances are deployed as proxies by [VaultFactory](/contracts/staking-vault-factory).
+Management contract for stVaults. Provides role-based control for vault operations and convenience wrappers for minting/burning stETH and wstETH. Individual Dashboard instances are deployed as proxies by [VaultFactory](/contracts/staking-vault-factory/).
 
 ## What is Dashboard?
 
@@ -733,8 +733,8 @@ Renounces a role held by `_account` (caller must be `_account`).
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault)
-- [VaultHub](/contracts/vault-hub)
-- [OperatorGrid](/contracts/operator-grid)
-- [PredepositGuarantee](/contracts/predeposit-guarantee)
-- [stVaults Integration Overview](/run-on-lido/stvaults/tech-documentation/integration-overview)
+- [StakingVault](/contracts/staking-vault/)
+- [VaultHub](/contracts/vault-hub/)
+- [OperatorGrid](/contracts/operator-grid/)
+- [PredepositGuarantee](/contracts/predeposit-guarantee/)
+- [stVaults Integration Overview](/run-on-lido/stvaults/tech-documentation/integration-overview/)

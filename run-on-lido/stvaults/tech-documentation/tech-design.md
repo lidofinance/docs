@@ -45,7 +45,7 @@ The Lido Vaults platform comprises the following contracts:
 - **VaultFactory**: Deploys verified (allowed to be connected to VaultHub) vault instances.
 - **Dashboard**: An optional contract that provides node operator fee accounting and a UX-friendly interface for a StakingVault.
 
-See the [stVaults contracts reference](/contracts/vault-hub) for per-contract APIs.
+See the [stVaults contracts reference](/contracts/vault-hub/) for per-contract APIs.
 
 
 ### 3.1 StakingVault
@@ -166,7 +166,7 @@ _Diagram. Vault totalValue breakdown_
 
 Unlike Lido Core, which mints stETH at a 1:1 ratio to supplied ether, Lido Vaults mints stETH at a more conservative ratio. A lower ratio effectively means that the StakingVault must maintain a reserve margin (**Reserve Ratio** or **RR**) determined by risk parameters and limits.
 
-Upon minting stETH, the corresponding amount of ether (plus some reserve due to RR) is **locked** as collateral on the StakingVault, i.e. cannot be withdrawn. The system tracks [stETH shares](https://docs.lido.fi/guides/lido-tokens-integration-guide#steth-internals-share-mechanics) (**liabilityShares**) minted for each StakingVault and updates the **locked** amount (denominated in ether) on the StakingVault according to the stETH rebase. To unlock ether for withdrawal, the StakingVault must burn the outstanding amount of stETH (i.e., repay stETH).
+Upon minting stETH, the corresponding amount of ether (plus some reserve due to RR) is **locked** as collateral on the StakingVault, i.e. cannot be withdrawn. The system tracks [stETH shares](https://docs.lido.fi/guides/lido-tokens-integration-guide/#steth-internals-share-mechanics) (**liabilityShares**) minted for each StakingVault and updates the **locked** amount (denominated in ether) on the StakingVault according to the stETH rebase. To unlock ether for withdrawal, the StakingVault must burn the outstanding amount of stETH (i.e., repay stETH).
 
 ##### Example
 
@@ -608,7 +608,7 @@ Other scenarios—such as validator consolidation or direct deposits made to the
 - The minting capacity is limited by current `totalValue`, `liabilityShares`, `shareLimit`, and `reserveRatio`.
 
 :::note
-Minting against a stVault is subject to the protocol-wide minting [rate limits](https://docs.lido.fi/guides/lido-tokens-integration-guide#staking-rate-limits).
+Minting against a stVault is subject to the protocol-wide minting [rate limits](https://docs.lido.fi/guides/lido-tokens-integration-guide/#staking-rate-limits).
 :::
 
 2. **Burning**
@@ -702,7 +702,7 @@ Stakers and ecosystem participants are advised to carefully consider these risks
    - Oracle failures and data manipulation: The oracle may affect the protocol's accounting state by providing malformed data; the risk is mitigated with consensus mechanisms for the oracle committee and smart contract safety nets.
    - Correlated in-protocol mass-slashing: In case of mass-slashing events in Lido Core, the bunker mode activates to socialize conversion rate losses among stETH holders.
    - Governance risks: The protocol is maintained and upgraded by the LDO tokenholders. The mitigation of governance risks includes a two-phase voting system, a public delegate voting platform, and Dual Governance dynamic time-lock with a veto process.
-3. Other risks. Regulatory and other risks can be found in [Public Risk Disclosure](/prd).
+3. Other risks. Regulatory and other risks can be found in [Public Risk Disclosure](/prd/).
 
 ## 6. Useful Links
 

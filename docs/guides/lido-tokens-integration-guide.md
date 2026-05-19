@@ -23,7 +23,7 @@ The user's stETH balance represents the amount of ether withdrawable directly fr
 For easier DeFi integrations, `stETH` has a non-rebasable, value-accruing counterpart called ['wrapped stETH'](#wsteth)
 (or just `wstETH`).
 
-stETH (and therefore wstETH) can be obtained not only via direct staking in Lido Core and wrapping, but also via **Lido V3 stVaults (Staking Vaults)**: vault owners can mint `stETH` or `wstETH` backed by an stVault. **stETH minted via stVaults is the same canonical stETH token** as stETH minted via Lido Core. See [/run-on-lido/stvaults/](/run-on-lido/stvaults/) (especially the [integration overview](/run-on-lido/stvaults/tech-documentation/integration-overview)).
+stETH (and therefore wstETH) can be obtained not only via direct staking in Lido Core and wrapping, but also via **Lido V3 stVaults (Staking Vaults)**: vault owners can mint `stETH` or `wstETH` backed by an stVault. **stETH minted via stVaults is the same canonical stETH token** as stETH minted via Lido Core. See [/run-on-lido/stvaults/](/run-on-lido/stvaults/) (especially the [integration overview](/run-on-lido/stvaults/tech-documentation/integration-overview/)).
 
 
 Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosystem:
@@ -87,7 +87,7 @@ Thus, LDO holder balances are queryable for an arbitrary block number, an essent
 
 ### unstETH
 
-A non-fungible token (NFT) is used to represent a withdrawal request position [in the protocol-level withdrawals queue](/contracts/withdrawal-queue-erc721) when a stToken holder decides to redeem it for ether via the protocol.
+A non-fungible token (NFT) is used to represent a withdrawal request position [in the protocol-level withdrawals queue](/contracts/withdrawal-queue-erc721/) when a stToken holder decides to redeem it for ether via the protocol.
 
 :::note
 Unlike the other Lido's tokens (`stETH`, `wstETH`, and `LDO`), [unstETH](#withdrawals-unsteth) is non-fungible,
@@ -260,7 +260,7 @@ If you need to stake ETH into Lido and receive `wstETH` in **one transaction** (
 Do not send ETH or tokens directly to `wstETHReferralStaker`. Use its payable `stakeETH(address _referral)` method.
 ::::
 
-See: [`wstETHReferralStaker`](/contracts/wsteth-staker).
+See: [`wstETHReferralStaker`](/contracts/wsteth-staker/).
 
 ### Rewards accounting
 
@@ -274,7 +274,7 @@ Since wstETH represents the holder's share in the total amount of Lido-controlle
 
 ### Hoodi wstETH for testing
 
-The most recent testnet version of the Lido protocol lives on the Hoodi testnet (see the full list of contracts [here](/deployed-contracts/hoodi)). Just like on mainnet, Hoodi wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Hoodi, and then calling `wrap` method on it. The corresponding amount of Hoodi stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Hoodi ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Hoodi ether to WstETH contract on Hoodi, and the corresponding amount of wstETH will be minted to your account.
+The most recent testnet version of the Lido protocol lives on the Hoodi testnet (see the full list of contracts [here](/deployed-contracts/hoodi/)). Just like on mainnet, Hoodi wstETH for testing purposes can be obtained by approving the desired amount of stETH to the WstETH contract on Hoodi, and then calling `wrap` method on it. The corresponding amount of Hoodi stETH will be locked on the WstETH contract, and the wstETH tokens will be minted to your account. Hoodi ether can also be converted to wstETH directly using the [wstETH shortcut](#wsteth-shortcut) – just send your Hoodi ether to WstETH contract on Hoodi, and the corresponding amount of wstETH will be minted to your account.
 
 ::::note
 Sepolia is deprecated and no longer used for Lido token testing. Use Hoodi for testnet integrations.
@@ -549,4 +549,4 @@ There exist a number of potential risks when staking using liquid staking protoc
 ### stToken price risk
 Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
 
-You can find an extensive [Public Risk Disclosure](/prd) on a dedicated documentation page.
+You can find an extensive [Public Risk Disclosure](/prd/) on a dedicated documentation page.

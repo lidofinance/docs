@@ -8,7 +8,7 @@ It follows the well-known [service locator](https://en.wikipedia.org/wiki/Servic
 
 ## Upgradability
 
-The contract uses [OssifiableProxy](/contracts/ossifiable-proxy) for upgradability and
+The contract uses [OssifiableProxy](/contracts/ossifiable-proxy/) for upgradability and
 does not use storage for the address book. Instead, all addresses are embedded into
 the implementation's bytecode as immutables for gas efficiency, allowing one to
 update them along with a proxy implementation.
@@ -17,7 +17,7 @@ update them along with a proxy implementation.
 
 ### accountingOracle()
 
-Returns an address of the [AccountingOracle contract](/contracts/accounting-oracle)
+Returns an address of the [AccountingOracle contract](/contracts/accounting-oracle/)
 
 ```sol
 function accountingOracle() view returns(address);
@@ -25,7 +25,7 @@ function accountingOracle() view returns(address);
 
 ### accounting()
 
-Returns an address of the [Accounting contract](/contracts/accounting).
+Returns an address of the [Accounting contract](/contracts/accounting/).
 
 ```sol
 function accounting() view returns(address);
@@ -33,7 +33,7 @@ function accounting() view returns(address);
 
 ### depositSecurityModule()
 
-Returns an address of the [DepositSecurityModule contract](/contracts/deposit-security-module)
+Returns an address of the [DepositSecurityModule contract](/contracts/deposit-security-module/)
 
 ```sol
 function depositSecurityModule() view returns(address);
@@ -41,7 +41,7 @@ function depositSecurityModule() view returns(address);
 
 ### elRewardsVault()
 
-Returns an address of the [LidoExecutionLayerRewardsVault contract](/contracts/lido-execution-layer-rewards-vault)
+Returns an address of the [LidoExecutionLayerRewardsVault contract](/contracts/lido-execution-layer-rewards-vault/)
 
 ```sol
 function elRewardsVault() view returns(address);
@@ -49,7 +49,7 @@ function elRewardsVault() view returns(address);
 
 ### lido()
 
-Returns an address of the [Lido contract](/contracts/lido)
+Returns an address of the [Lido contract](/contracts/lido/)
 
 ```sol
 function lido() external view returns(address);
@@ -57,7 +57,7 @@ function lido() external view returns(address);
 
 ### oracleReportSanityChecker()
 
-Returns an address of the [OracleReportSanityChecker contract](/contracts/oracle-report-sanity-checker)
+Returns an address of the [OracleReportSanityChecker contract](/contracts/oracle-report-sanity-checker/)
 
 ```sol
 function oracleReportSanityChecker() view returns(address);
@@ -65,7 +65,7 @@ function oracleReportSanityChecker() view returns(address);
 
 ### burner()
 
-Returns an address of the [Burner contract](/contracts/burner)
+Returns an address of the [Burner contract](/contracts/burner/)
 
 ```sol
 function burner() view returns(address);
@@ -73,7 +73,7 @@ function burner() view returns(address);
 
 ### stakingRouter()
 
-Returns an address of the [StakingRouter contract](/contracts/staking-router)
+Returns an address of the [StakingRouter contract](/contracts/staking-router/)
 
 ```sol
 function stakingRouter() view returns(address);
@@ -89,7 +89,7 @@ function treasury() view returns(address);
 
 ### validatorsExitBusOracle()
 
-Returns an address of the [ValidatorsExitBusOracle contract](/contracts/validators-exit-bus-oracle)
+Returns an address of the [ValidatorsExitBusOracle contract](/contracts/validators-exit-bus-oracle/)
 
 ```sol
 function validatorsExitBusOracle() external view returns(address);
@@ -97,7 +97,7 @@ function validatorsExitBusOracle() external view returns(address);
 
 ### withdrawalQueue()
 
-Returns an address of the [WithdrawalQueueERC721 contract](/contracts/withdrawal-queue-erc721)
+Returns an address of the [WithdrawalQueueERC721 contract](/contracts/withdrawal-queue-erc721/)
 
 ```sol
 function withdrawalQueue() view returns(address);
@@ -105,7 +105,7 @@ function withdrawalQueue() view returns(address);
 
 ### withdrawalVault()
 
-Returns an address of the [WithdrawalVault contract](/contracts/withdrawal-vault)
+Returns an address of the [WithdrawalVault contract](/contracts/withdrawal-vault/)
 
 ```sol
 function withdrawalVault() view returns(address);
@@ -122,7 +122,7 @@ function postTokenRebaseReceiver() view returns(address);
 
 ### oracleDaemonConfig()
 
-Returns an address of the [OracleDaemonConfig contract](/contracts/oracle-daemon-config)
+Returns an address of the [OracleDaemonConfig contract](/contracts/oracle-daemon-config/)
 
 ```sol
 function oracleDaemonConfig() view returns(address);
@@ -130,7 +130,7 @@ function oracleDaemonConfig() view returns(address);
 
 ### triggerableWithdrawalsGateway()
 
-Returns an address of the [TriggerableWithdrawalsGateway contract](/contracts/triggerable-withdrawals-gateway)
+Returns an address of the [TriggerableWithdrawalsGateway contract](/contracts/triggerable-withdrawals-gateway/)
 
 ```sol
 function triggerableWithdrawalsGateway() view returns(address);
@@ -138,7 +138,7 @@ function triggerableWithdrawalsGateway() view returns(address);
 
 ### validatorExitDelayVerifier()
 
-Returns an address of the [ValidatorExitDelayVerifier contract](/contracts/validator-exit-delay-verifier)
+Returns an address of the [ValidatorExitDelayVerifier contract](/contracts/validator-exit-delay-verifier/)
 
 ```sol
 function validatorExitDelayVerifier() view returns(address);
@@ -146,7 +146,7 @@ function validatorExitDelayVerifier() view returns(address);
 
 ### predepositGuarantee()
 
-Returns an address of the [PredepositGuarantee contract](/contracts/predeposit-guarantee)
+Returns an address of the [PredepositGuarantee contract](/contracts/predeposit-guarantee/)
 
 ```sol
 function predepositGuarantee() view returns(address);
@@ -154,7 +154,7 @@ function predepositGuarantee() view returns(address);
 
 ### wstETH()
 
-Returns an address of the [wstETH contract](/contracts/wsteth)
+Returns an address of the [wstETH contract](/contracts/wsteth/)
 
 ```sol
 function wstETH() view returns(address);
@@ -162,7 +162,7 @@ function wstETH() view returns(address);
 
 ### vaultHub()
 
-Returns an address of the [VaultHub contract](/contracts/vault-hub)
+Returns an address of the [VaultHub contract](/contracts/vault-hub/)
 
 ```sol
 function vaultHub() view returns(address);
@@ -170,7 +170,7 @@ function vaultHub() view returns(address);
 
 ### vaultFactory()
 
-Returns an address of the [VaultFactory contract](/contracts/staking-vault-factory)
+Returns an address of the [VaultFactory contract](/contracts/staking-vault-factory/)
 
 ```sol
 function vaultFactory() view returns(address);
@@ -178,7 +178,7 @@ function vaultFactory() view returns(address);
 
 ### lazyOracle()
 
-Returns an address of the [LazyOracle contract](/contracts/lazy-oracle)
+Returns an address of the [LazyOracle contract](/contracts/lazy-oracle/)
 
 ```sol
 function lazyOracle() view returns(address);
@@ -186,7 +186,7 @@ function lazyOracle() view returns(address);
 
 ### operatorGrid()
 
-Returns an address of the [OperatorGrid contract](/contracts/operator-grid)
+Returns an address of the [OperatorGrid contract](/contracts/operator-grid/)
 
 ```sol
 function operatorGrid() view returns(address);

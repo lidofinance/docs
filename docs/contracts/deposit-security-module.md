@@ -16,7 +16,7 @@ The guardian himself, or anyone else who has a signed pause message, can call `p
 
 To prevent a replay attack, the guardians sign the block number when malicious predeposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
-Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
+Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker/). These parameters are set in the StakingRouter contract independently for each module.
 
 ## View Methods
 

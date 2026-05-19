@@ -4,7 +4,7 @@
 - [Implementation](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
 - [Beacon](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
 
-Isolated staking position with 0x02 withdrawal credentials. Holds validator funds and supports minting stETH through VaultHub while preserving non-custodial ownership. Individual vaults are deployed as beacon proxies by [VaultFactory](/contracts/staking-vault-factory).
+Isolated staking position with 0x02 withdrawal credentials. Holds validator funds and supports minting stETH through VaultHub while preserving non-custodial ownership. Individual vaults are deployed as beacon proxies by [VaultFactory](/contracts/staking-vault-factory/).
 
 ## What is StakingVault?
 
@@ -340,8 +340,8 @@ The contract has a `receive()` function allowing direct ETH transfers, but the p
 
 ## Related
 
-- [VaultHub](/contracts/vault-hub)
-- [PredepositGuarantee](/contracts/predeposit-guarantee)
-- [Staking Vault Beacon](/contracts/staking-vault-beacon)
-- [Staking Vault Factory](/contracts/staking-vault-factory)
-- [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)
+- [VaultHub](/contracts/vault-hub/)
+- [PredepositGuarantee](/contracts/predeposit-guarantee/)
+- [Staking Vault Beacon](/contracts/staking-vault-beacon/)
+- [Staking Vault Factory](/contracts/staking-vault-factory/)
+- [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design/)

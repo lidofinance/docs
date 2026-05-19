@@ -54,7 +54,7 @@ sequenceDiagram
   P-->>G: unlock guarantee
 ```
 
-See the [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg) for step-by-step flows.
+See the [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg/) for step-by-step flows.
 
 ## Constants
 
@@ -361,7 +361,7 @@ PDG inherits from `PausableUntilWithRoles`. All state-changing methods require t
 
 ## Related
 
-- [StakingVault](/contracts/staking-vault)
-- [VaultHub](/contracts/vault-hub)
-- [Dashboard](/contracts/dashboard)
-- [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg)
+- [StakingVault](/contracts/staking-vault/)
+- [VaultHub](/contracts/vault-hub/)
+- [Dashboard](/contracts/dashboard/)
+- [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg/)
