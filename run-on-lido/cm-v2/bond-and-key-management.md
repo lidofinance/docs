@@ -47,7 +47,7 @@ Each key inside your Node Operator has one of the following statuses.
 | **Exited** | Key has been exited | — |
 | **Withdrawn** | Key has been exited and ETH has been returned to the protocol | — |
 | **Unbonded** | Bond is insufficient for this key, which can be Active or otherwise | Top up bond or remove/exit the key |
-| **Exit requested** | An exit has been requested by [VEBO](https://docs.lido.fi/contracts/validators-exit-bus-oracle/) but the validator has not yet exited | Exit the validator as soon as possible to avoid a Late exit penalty |
+| **Exit requested** | An exit has been requested by [VEBO](/contracts/validators-exit-bus-oracle/) but the validator has not yet exited | Exit the validator as soon as possible to avoid a Late exit penalty |
 | **Duplicated** | Key has been uploaded twice either to the Lido protocol or Ethereum CL | Remove duplicate key |
 | **Invalid** | Uploaded key has an invalid signature | Remove key and re-upload it with the valid signature |
 
@@ -69,7 +69,7 @@ To remove them, go to the Keys section in the CMv2 widget and open the Remove ta
 
 #### Voluntary exit
 
-Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](https://docs.lido.fi/contracts/validators-exit-bus-oracle) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
+Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](/contracts/validators-exit-bus-oracle) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
 
 Please note this can't be done in the CMv2 widget, it can only be done through your validator client.
 
