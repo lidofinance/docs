@@ -68,7 +68,7 @@ The full list of related contracts is available [here](/deployed-contracts/#easy
 | Jenya_K | 0x30E317df005B5599e372400bf360895A027120dc | https://etherscan.io/verifySig/256648 | https://x.com/tariquin/status/1828794385544434144 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 |https://etherscan.io/verifySig/257079 | https://x.com/adcv_/status/1828824711159222665 |
 | Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/256953 | https://x.com/itmamuramgk28/status/1828435441617350862 |
-| Aleksandr_Lukin | 0x1EAF931aabbB02Ca8A416040cF5b35C73Fff2A8a | https://etherscan.io/verifySig/257034 | https://twitter.com/alexanderlukin9/status/1828449516950892650 |
+| Aleksandr_Lukin | 0x1EAF931aabbB02Ca8A416040cF5b35C73Fff2A8a | https://etherscan.io/verifySig/257034 | https://x.com/alexanderlukin9/status/1828449516950892650 |
 | Nemo | 0xC8b73076df04d1938f7c4900f17808b76Fe15e8B | https://etherscan.io/verifySig/267461 | https://x.com/ncerovac/status/1893638899395695096 |
 
 ## 3.3 Lido Alliance BORG Drop

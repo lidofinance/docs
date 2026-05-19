@@ -37,8 +37,8 @@ The full list of related contracts is available [here](/deployed-contracts/#easy
 
 | Name | Address | Verification | Public verification | Adding proposal |
 | -- | --- | -- | -- | -- |
-| Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://twitter.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
-| Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://twitter.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
+| Alex L | 0x3786C091Ed68d5B58EFAE5193e54c043Bde3b8f6 | Sig hash: 0xea1fb76e4b10d2700d3ff1cb2d8f2c672107abdf6e667f47a2095cbcce5b132138eaa9506b7ec97d203236f44b074fcbef7d4f2d5a6a87faf472ad6f85b17c3800 | https://x.com/Al_lykov/status/1557051652322037760?s=20&t=uzuxoMRgLwWuZLDKItN0vw | https://research.lido.fi/t/lego-expand-lego-council-by-adding-alex-lykov/2754 |
+| Izzy | 0x783EA934d543CD1ccfd920639A7539a0BD3895e2 | https://etherscan.io/verifySig/12775 | https://x.com/IsdrsP/status/1602973286534680577 | https://research.lido.fi/t/lego-expand-lego-council-by-adding-isidoros-passadis/2127 |
 | kadmil | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
 | Florian | 0xb3F9998BD84cE884CaFF8f0D803c0EDbb6fEC37C | - | - | https://research.lido.fi/t/lego-a-proposal-to-continue-lego-for-q1-2022/1568/2 |
 | kethfinex | 0x639e084095020E1E85a857eb12b2219292a5B979 | https://etherscan.io/verifySig/11702 | - | https://research.lido.fi/t/lego-proposal-members-open-initiatives-cont/476 |
@@ -84,7 +84,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 | K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
 | Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
-| Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
+| Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://x.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
 | Willem H | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/297055 | https://x.com/0xWillem/status/1993272885733986451 |
 | Samuel_C | 0x0fb6215099f48d723cfb89434c2cb887357bc871 | https://etherscan.io/verifySig/304805 | https://x.com/stakesaurus/status/2036845084491342196 |
 
@@ -113,11 +113,11 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1602229253696790528 |
-| eliasimos | 0x4981a4775983e947b12d0982021bea8697175f4a | Sig hash: 0x67291ff9224b8ebfd217ff00d5f1eefceacdd1fe2916b0b1a2157169d813ac9c099ce5d926c2b16252abc89fc7df21d1efa07e1e0b1d7497f454ff340920d23e01 | https://twitter.com/eliasimos/status/1602924642645282816?s=20&t=_dSkjtTQhkyjM2kVdpEZbA |
-| michaelsprou | 0x6B29132ea388a308578c1d3Be068D0e4fc9915a2 | https://gist.github.com/michaelsproul/677cf9abb2789e61973662868f8bd29d | https://twitter.com/sproulM_/status/1602519592026382337 |
-| philknows | 0x0ef5c6Ab0C44b2b042606215530437809eFE54c8 | https://etherscan.io/verifySig/12760 | https://twitter.com/philngo_/status/1602781428114411520?s=20&t=Q2XjlHIwayyTdVNoKQshig |
-| Dharmendra | 0x2d0669db84f11a9ead41e57ce2f242d92111a58f | https://etherscan.io/verifySig/17652 | https://twitter.com/DharmendraKari3/status/1653844633921916931?s=20 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://x.com/george_avs/status/1602229253696790528 |
+| eliasimos | 0x4981a4775983e947b12d0982021bea8697175f4a | Sig hash: 0x67291ff9224b8ebfd217ff00d5f1eefceacdd1fe2916b0b1a2157169d813ac9c099ce5d926c2b16252abc89fc7df21d1efa07e1e0b1d7497f454ff340920d23e01 | https://x.com/eliasimos/status/1602924642645282816?s=20&t=_dSkjtTQhkyjM2kVdpEZbA |
+| michaelsprou | 0x6B29132ea388a308578c1d3Be068D0e4fc9915a2 | https://gist.github.com/michaelsproul/677cf9abb2789e61973662868f8bd29d | https://x.com/sproulM_/status/1602519592026382337 |
+| philknows | 0x0ef5c6Ab0C44b2b042606215530437809eFE54c8 | https://etherscan.io/verifySig/12760 | https://x.com/philngo_/status/1602781428114411520?s=20&t=Q2XjlHIwayyTdVNoKQshig |
+| Dharmendra | 0x2d0669db84f11a9ead41e57ce2f242d92111a58f | https://etherscan.io/verifySig/17652 | https://x.com/DharmendraKari3/status/1653844633921916931?s=20 |
 | Sven | 0x215b5f40b6507d8398a23af4d92a1aeeb6457901 | https://etherscan.io/verifySig/279163 | https://x.com/SvenBrekelmans/status/1961034505671561229 |
 | Tony | 0x0dcd2cB5230177F6BC13a604bA1d815F7578E36D | https://etherscan.io/verifySig/306247 | https://x.com/0xa11e/status/2041890994447175879 |
 
@@ -192,11 +192,11 @@ The complete list of Lido Stonks contracts is available [here](/deployed-contrac
 
 | Name        | Address | Verification | Public verification |
 |-------------| --- | --- | --- |
-| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://twitter.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
-| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://twitter.com/sabrychiaa/status/1648049357608960000 |
-| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://twitter.com/MaxMolEliza/status/1648959823260659714?s=20 |
-| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1647996307942899713 |
+| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://x.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
+| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://x.com/sabrychiaa/status/1648049357608960000 |
+| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://x.com/MaxMolEliza/status/1648959823260659714?s=20 |
+| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1647996307942899713 |
 | zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582 |
 | 0xasot | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309 |
 
@@ -231,9 +231,9 @@ The complete list of Lido Stonks contracts is available [here](/deployed-contrac
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/14255 | https://twitter.com/zuzu_eeka/status/1625030303453442049 |
-| Raman | 0x56aAaF3e07507C3f2554c4087b0f3ECC61F78a9e | Sig hash: 0x8555fbae4fee1b4adedc05d20525c097c29d75df13470a5f4cd0e2db98575b5e5a89d7b477e43d7ee5315448ab73861b4b87c61cd46e1e77e404bc8e105a5fa100 | https://twitter.com/RSiamionau/status/1623708249236156417?s=20&t=y-o2_ey7po8qeejNd2KmBQ |
-| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1587788184410267649 |
+| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/14255 | https://x.com/zuzu_eeka/status/1625030303453442049 |
+| Raman | 0x56aAaF3e07507C3f2554c4087b0f3ECC61F78a9e | Sig hash: 0x8555fbae4fee1b4adedc05d20525c097c29d75df13470a5f4cd0e2db98575b5e5a89d7b477e43d7ee5315448ab73861b4b87c61cd46e1e77e404bc8e105a5fa100 | https://x.com/RSiamionau/status/1623708249236156417?s=20&t=y-o2_ey7po8qeejNd2KmBQ |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://x.com/george_avs/status/1587788184410267649 |
 | Kate_Alekseeva | 0xB2cB98A7764b01CB628e87455b3E8f46DC40987E | https://etherscan.io/verifySig/296760 | https://x.com/KateAleksseeva/status/1991798186563055871 |
 | chasing.rainbows | 0x00517B8D167a50Bb07e282cea7b2f9273055d30C | https://etherscan.io/verifySig/297387 | https://x.com/chsngrnbows/status/1996227779436712075 |
 
@@ -273,12 +273,12 @@ The complete list of Lido Stonks contracts is available [here](/deployed-contrac
 
 | Name      | Address | Verification | Public verification |
 |-----------| --- | --- | --- |
-| syncnode  | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/35529 | https://twitter.com/syncn0de/status/1752374013119049981 |
-| Andrew    | 0xBc1cFd2BeC23a0cDc555AE8D31EEa06BE3B5186A | https://etherscan.io/verifySig/35236 | https://twitter.com/KukisGlobal/status/1752363059308302687 |
-| Francesco | 0x62CeDec8B7c81bEe91d97725c9a14dC23C3227E2 | https://etherscan.io/verifySig/35234 | https://twitter.com/cremonafran/status/1752369978257322020 |
-| Thomas    | 0x7962cFa46B15BAb1aE798d927FAE83CC73a0E64D | https://etherscan.io/verifySig/35235 | https://twitter.com/_Cryptoma/status/1752592959533400257 |
-| Eridian   | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://twitter.com/EridianAlpha/status/1752363981409288478 |
-| Will      | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157 | https://twitter.com/KimonSh/status/1752382287721927062 |
+| syncnode  | 0x19aC7c69e5F1AC95b8d49b30Cbb79e81f1ab0dba | https://etherscan.io/verifySig/35529 | https://x.com/syncn0de/status/1752374013119049981 |
+| Andrew    | 0xBc1cFd2BeC23a0cDc555AE8D31EEa06BE3B5186A | https://etherscan.io/verifySig/35236 | https://x.com/KukisGlobal/status/1752363059308302687 |
+| Francesco | 0x62CeDec8B7c81bEe91d97725c9a14dC23C3227E2 | https://etherscan.io/verifySig/35234 | https://x.com/cremonafran/status/1752369978257322020 |
+| Thomas    | 0x7962cFa46B15BAb1aE798d927FAE83CC73a0E64D | https://etherscan.io/verifySig/35235 | https://x.com/_Cryptoma/status/1752592959533400257 |
+| Eridian   | 0xE3e34FA93575AF41BEF3476236E1A3CDb3F60B85 | https://etherscan.io/verifySig/35148 | https://x.com/EridianAlpha/status/1752363981409288478 |
+| Will      | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/35157 | https://x.com/KimonSh/status/1752382287721927062 |
 | Remus     | 0xb7bec8e0e05965b54d0c40cf306d464e3bc32386 | https://etherscan.io/verifySig/296615 | https://x.com/nameisremus/status/1990718780180209664 |
 
 
@@ -319,11 +319,11 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 | Name       | Address | Verification | Public verification |
 |------------| --- | --- | --- |
-| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
-| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Olga_K     | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
 | Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
@@ -345,10 +345,10 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Armin | 0x8ecd93982FfbB2f937ADa6c6e50d1950974081C0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
@@ -378,9 +378,9 @@ Additional signer of Unichain multisig:
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://twitter.com/tvrmarin/status/1619812143326720000 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1655865828544266242 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://x.com/tvrmarin/status/1619812143326720000 |
 
 ### 2.8.4 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
@@ -398,10 +398,10 @@ Additional signer of Unichain multisig:
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
@@ -417,11 +417,11 @@ Additional signer of Unichain multisig:
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://twitter.com/adcv_/status/1587404360476237829 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
@@ -443,11 +443,11 @@ Additional signer of Unichain multisig:
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://x.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
@@ -468,9 +468,9 @@ Additional signer of Unichain multisig:
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://x.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
@@ -490,11 +490,11 @@ Additional signer of Unichain multisig:
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://twitter.com/Al_lykov/status/1668625635810615297?s=20 |
-| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://twitter.com/grstepanov/status/1468933222923116550 |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://twitter.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://twitter.com/adcv_/status/1587404360476237829 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://t.co/jCurYA9chd | https://x.com/adcv_/status/1587404360476237829 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
@@ -815,12 +815,12 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| ajbeal | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://twitter.com/ajbeal/status/1655876306771365888?s=20 |
-| eboadom | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877 | https://twitter.com/eboadom/status/1656002911854292993 |
-| michwill | 0xFe45baf0F18c207152A807c1b05926583CFE2e4b | Sig Hash: 0x44fc2bce69486ea826e1aaeb40878f9a8b038d5f0c8bd0ea9038fee7fca553005adfcd9d64172cacd2e7f1c11dc7e9b36c0f18916ed731e56ffa89feb95c8ae500 | https://twitter.com/newmichwill/status/1656597340780625920?s=20 |
-| thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://twitter.com/e330acid/status/1778451429172080726 |
-| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://twitter.com/george_avs/status/1655919930749976578 |
-| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://twitter.com/kadmil_eth/status/1655865828544266242 |
+| ajbeal | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://x.com/ajbeal/status/1655876306771365888?s=20 |
+| eboadom | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877 | https://x.com/eboadom/status/1656002911854292993 |
+| michwill | 0xFe45baf0F18c207152A807c1b05926583CFE2e4b | Sig Hash: 0x44fc2bce69486ea826e1aaeb40878f9a8b038d5f0c8bd0ea9038fee7fca553005adfcd9d64172cacd2e7f1c11dc7e9b36c0f18916ed731e56ffa89feb95c8ae500 | https://x.com/newmichwill/status/1656597340780625920?s=20 |
+| thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://x.com/e330acid/status/1778451429172080726 |
+| George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://x.com/george_avs/status/1655919930749976578 |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1655865828544266242 |
 
 ### 2.15.4 Dual Governance Tiebreaker Committees: Ethereum
 
