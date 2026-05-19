@@ -115,10 +115,10 @@ Execution & consensus clients will sync. Charon + validator client will wait for
 ## 8. Upload keys
 To upload keys to Lido CSM as an Obol DV cluster, do the following:
 
-1. **Create a Node Operator** in the Lido CSM Widget using **Extended Mode** (as described [here](/run-on-lido/csm/lido-csm-widget/operator-roles#extended-mode)).  
+1. **Create a Node Operator** in the Lido CSM Widget using **Extended Mode** (as described [here](/run-on-lido/csm/lido-csm-widget/operator-roles/#extended-mode)).  
    - **Manager Address** → your **Safe** multi-sig  
    - **Rewards Address** → your **Splitter** contract
-2. **Upload `deposit_data.json`** for the validators and provide the required **bond** as described [in this section of the guide](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys#upload-keys).
+2. **Upload `deposit_data.json`** for the validators and provide the required **bond** as described [in this section of the guide](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys/#upload-keys).
 
 ## 9. Exit Validators
 If you want to exit one or all of the validators in the cluster, the majority of the cluster needs to run the following commands:

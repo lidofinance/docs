@@ -18,7 +18,7 @@ If the operator does not exit their validators after the protocol request, the f
 1. Exclude the Node Operator from the CSM deposit queue until the issue is resolved.
 2. Exclude the Node Operator from the Node Operator rewards allocation cycle.
 
-You can read more about exits [here](/staking-modules/csm/validator-exits).
+You can read more about exits [here](/staking-modules/csm/validator-exits/).
 
 ### Notifications for exit requests
 

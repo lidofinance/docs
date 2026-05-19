@@ -54,7 +54,7 @@ Follow the terminal UI prompts to:
 5. Use default **Checkpoint Sync** and **No** for **expose all ports**.
 6. Choose **Create** for **JWT Source** and **yes** for the monitoring stack.
 
-The MEV-Boost service is configured with designated relays. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#sedge).
+The MEV-Boost service is configured with designated relays. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install/#sedge).
 
 ### Generate & Import Validator Keys
 
@@ -134,4 +134,4 @@ sedge monitoring init lido --node-operator-id <id> --network <mainnet or hoodi>
 This will install Grafana, Prometheus, Node Exporter, and Lido Exporter with CSM dashboards. Access at `INTERNAL_IP:3000`.
 
 ### Keep your clients up to date
-To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).
+To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates/).

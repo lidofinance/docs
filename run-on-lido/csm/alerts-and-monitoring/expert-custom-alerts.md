@@ -18,7 +18,7 @@ So, what exactly are the events that the operator has to follow?
 If the guide seems too complicated, make sure to check out a community-developed tool: [CSM Sentinel](https://github.com/skhomuti/csm-sentinel). This is a Telegram bot that you can run on your own or use one of the community-supported instances. Note that community-supported instances come with no guarantee!
 :::
 
-## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
+## Contract: [VEBO](/contracts/validators-exit-bus-oracle/)
 
 - [Mainnet](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)
 - [Hoodi](https://hoodi.etherscan.io/address/0x8664d394C2B3278F26A1B44B967aEf99707eeAB2)

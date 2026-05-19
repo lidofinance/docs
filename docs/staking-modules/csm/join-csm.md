@@ -10,11 +10,11 @@
 To become a Node Operator in CSM or register new validators for an existing Node Operator, at least one [`validator pubkey`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#validator), corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding [bond](./join-csm#bond) amount should be provided.
 
 ## Deposit data preparation and upload
-CSM accepts deposit data in the same [format](/contracts/node-operators-registry#addsigningkeys) (`validator pubkey` + `deposit signature`) as the [Curated module](/contracts/node-operators-registry.md). The main difference is that the bond must be submitted prior to or alongside the deposit data upload.
+CSM accepts deposit data in the same [format](/contracts/node-operators-registry/#addsigningkeys) (`validator pubkey` + `deposit signature`) as the [Curated module](/contracts/node-operators-registry.md). The main difference is that the bond must be submitted prior to or alongside the deposit data upload.
 
 [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata) **must** sign the root of the `(deposit_message, domain)`. Where a `domain` is used to identify the chain, and `deposit_message` has the form of the following tuple:
 - `validator pubkey`;
-- `withdrawal_credentials` with the actual [`Lido Withdrawal Vault contract`](/contracts/withdrawal-vault) address. Should be retrieved from [Staking Router](/contracts/staking-router.md#getwithdrawalcredentials);
+- `withdrawal_credentials` with the actual [`Lido Withdrawal Vault contract`](/contracts/withdrawal-vault/) address. Should be retrieved from [Staking Router](/contracts/staking-router.md#getwithdrawalcredentials);
 - `32 ETH amount`;
 
 ## Bond
@@ -47,7 +47,7 @@ Any unbonded validators are requested to exit. Unbonded but not deposited keys a
 :::
 
 ### Possible negative stETH rebase consequences
-With the [bond](./join-csm#bond) being stored in stETH, there is a risk of a reduction in the [bond](./join-csm#bond) amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual [bond](./join-csm#bond) being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [insurance fund](/contracts/insurance) at the Lido DAO's disposal for possible use as cover.
+With the [bond](./join-csm#bond) being stored in stETH, there is a risk of a reduction in the [bond](./join-csm#bond) amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual [bond](./join-csm#bond) being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required for CSM due to the low probability of the negative stETH rebase and a dedicated [insurance fund](/contracts/insurance/) at the Lido DAO's disposal for possible use as cover.
 
 ## Deposit data validation and invalidation (aka vetting and unvetting)
 CSM utilizes an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls [`decreaseVettedSigningKeysCount`](/staking-modules/csm/contracts/CSModule.md#decreasevettedsigningkeyscount) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.

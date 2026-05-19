@@ -31,7 +31,7 @@ Separating these two roles ensures that a penalty can only be applied when two i
 ## Mechanics
 There are two mechanics related to Node Operator [bond](./join-csm#bond) penalization.
 
-The first one is burning stETH shares using the [Burner](/contracts/burner) contract. Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
+The first one is burning stETH shares using the [Burner](/contracts/burner/) contract. Once confiscated shares are burnt, the total amount of stETH shares decreases. Hence, `shareRate` increases, effectively distributing all burned stETH value between other stETH holders.
 
 The second mechanic is transferring confiscated stETH to the [Lido DAO Treasury](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c). This approach is applied to penalties that are used to address protocol operational costs (e.g., `keyRemovalCharge`).
 

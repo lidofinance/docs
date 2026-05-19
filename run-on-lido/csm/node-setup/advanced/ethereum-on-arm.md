@@ -105,7 +105,7 @@ You need to run a Full or Archive Ethereum node. This follows the standard proce
    </Tabs>
 
    :::warning
-   Ensure you use the service name with the `-mev` suffix (e.g., `lighthouse-beacon-mev`, `prysm-beacon-mev`, `teku-beacon-mev`) to enable MEV, which is required for running CSM validators. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#ethereum-on-arm).
+   Ensure you use the service name with the `-mev` suffix (e.g., `lighthouse-beacon-mev`, `prysm-beacon-mev`, `teku-beacon-mev`) to enable MEV, which is required for running CSM validators. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install/#ethereum-on-arm).
    :::
 
 3. **Start MEV Boost**:
@@ -211,7 +211,7 @@ For more details on importing keys, refer to the [Ethereum on ARM Validator Clie
 
 ## Create and Activate the CSM Validator
 
-For instructions on how to upload your deposit data and activate your validator, please refer to the [CSM Activation](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys) guide.
+For instructions on how to upload your deposit data and activate your validator, please refer to the [CSM Activation](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys/) guide.
 
 ## Running CSM on Hoodi Testnet
 
@@ -293,7 +293,7 @@ You can test the setup on the Hoodi testnet as well. The process is the same, yo
    ```
 
 2. **Generate Keys for Hoodi**:
-   Follow the testnet instructions in the [Key Generation guide](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet) (selecting Hoodi network).
+   Follow the testnet instructions in the [Key Generation guide](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet/) (selecting Hoodi network).
 
 3. **Import and Start on Testnet**:
 

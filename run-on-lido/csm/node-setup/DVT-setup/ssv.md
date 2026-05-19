@@ -97,7 +97,7 @@ Then start the service
 docker compose --profile dkg up -d
 ```
 
-To complete the DKG setup make sure to open the port `3030` and edit your operator metadata with the DKG endpoint as shown [here](https://docs.ssv.network/operators/operator-management/setting-operator-metadata).
+To complete the DKG setup make sure to open the port `3030` and edit your operator metadata with the DKG endpoint as shown [here](https://docs.ssv.network/operators/operator-management/setting-operator-metadata/).
 
 ---
 ## 5. Create the Cluster Management Contracts
@@ -132,10 +132,10 @@ Once all the members have registered their operators and activated DKG we can pr
 
 To use your SSV validator(s) with Lido CSM:
 
-1. **Create a Node Operator** in the Lido CSM Widget using **Extended Mode** (as described [here](/run-on-lido/csm/lido-csm-widget/operator-roles#extended-mode)).  
+1. **Create a Node Operator** in the Lido CSM Widget using **Extended Mode** (as described [here](/run-on-lido/csm/lido-csm-widget/operator-roles/#extended-mode)).  
    - **Manager Address** → your **Safe** multi-sig  
    - **Rewards Address** → your **Splitter** contract
-2. **Upload `deposit_data.json`** for the validators and provide the required **bond** as described [in this section of the guide](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys#upload-keys).
+2. **Upload `deposit_data.json`** for the validators and provide the required **bond** as described [in this section of the guide](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys/#upload-keys).
 
 ---
 
