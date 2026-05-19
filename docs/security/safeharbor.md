@@ -23,7 +23,7 @@ Adoption of the agreement complements audits and the ongoing Immunefi Lido bug b
 
 On-chain Safe Harbor Agreement Contract can be found at **0xe19f54e8322214839a87408f084aa14ebefe9e87** ([etherscan](https://etherscan.io/address/0xe19f54e8322214839a87408f084aa14ebefe9e87), [blockscout](https://eth.blockscout.com/address/0xE19F54E8322214839A87408f084aA14eBEfe9E87)).
 
-**Bounty Terms,** predetermined rewards for successful Whitehats that recover protocol funds (for more information, review the [Safe Harbor](https://frameworks.securityalliance.org/safe-harbor/scope-terms)):
+**Bounty Terms,** predetermined rewards for successful Whitehats that recover protocol funds (for more information, review the [Safe Harbor](https://frameworks.securityalliance.org/safe-harbor/scope-terms/)):
 
 - **Percentage**: 10.0% of the recovered amount
 - **Bounty Cap (USD)**: $2,000,000 (*the maximum bounty amount for a single Whitehat)*
