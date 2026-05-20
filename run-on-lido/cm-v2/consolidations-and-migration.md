@@ -56,11 +56,11 @@ Before starting, ensure the following:
 ### Step 2: Consolidation
 
 1. **Initiate via EasyTrack.** Submit a motion specifying the source CMv1 operator, the target CMv2 sub-Node Operator(s), and a consolidation manager address. Once enacted, stake transfers from the CMv1 entity to its corresponding CMv2 entity are permitted.
-2. **Submit consolidation batches** using the Consolidations UI, specifying which CMv1 source validators consolidate into which CMv2 target validators.
+2. **Submit consolidation batches** using the [Consolidations interface on Hoodi](https://consolidation-ui-hoodi.testnet.fi/), specifying which CMv1 source validators consolidate into which CMv2 target validators.
 
     ![Submit consolidation batches](/img/cm-guide/consolidation-submit.png)
 
-3. **Monitor progress.** Track queued, in-progress, and completed consolidations in the Consolidations UI. Operators are expected to stay aware of their own operations.
+3. **Monitor progress.** Track queued, in-progress, and completed consolidations in the [Consolidations interface on Hoodi](https://consolidation-ui-hoodi.testnet.fi/). Operators are expected to stay aware of their own operations.
 
     ![Monitor consolidation progress](/img/cm-guide/consolidation-monitor.png)
 

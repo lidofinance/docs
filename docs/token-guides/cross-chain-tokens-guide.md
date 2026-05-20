@@ -419,7 +419,7 @@ Now, after establishing the [NEC](https://snapshot.org/#/s:lido-snapshot.eth/pro
 If the bridged token endpoints are recognized, in general, it means:
 
 - the integration is highlighted on the frontend pages: [landing](https://lido.fi/lido-multichain), [widget](https://stake.lido.fi/), and [ecosystem pages](https://lido.fi/lido-ecosystem);
-- the newly appeared integration announcement is published in the Lido's [blog](https://blog.lido.fi/category/l2/) and [twitter](https://twitter.com/LidoFinance);
+- the newly appeared integration announcement is published in the Lido's [blog](https://blog.lido.fi/category/l2/) and [X/Twitter](https://x.com/LidoFinance);
 - the endpoint contracts get monitored by means of [Lido alerting system](https://github.com/lidofinance/alerting-forta/);
 - the opportunity for obtaining extra support, potentially from [LEGO](https://lido.fi/lego) or [Liquidity observation Labs](https://lido.fi/governance#liquidity-observation-labs), becomes available. For the details one should [reach out to ProRel](https://tally.so/r/waeRLX).
 - the endpoint contracts are under the Lido's [bug bounty program](https://immunefi.com/bug-bounty/lido/);

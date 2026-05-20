@@ -32,6 +32,7 @@
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.0",
     "gray-matter": "^4.0.3",
+    "katex": "^0.16.38",
     "prism-react-renderer": "^2.4.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
