@@ -58,6 +58,7 @@ How existing Curated Module (v1) operators transition to CMv2, the consolidation
 
 Tools and dashboards that support CMv2 operations.
 
+- [Key Generation & Fee Recipient](/run-on-lido/cm-v2/useful-tools/key-generation)
 - [CM Prover Tool](/run-on-lido/cm-v2/useful-tools/cm-prover-tool)
 
 ---
