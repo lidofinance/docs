@@ -24,8 +24,8 @@ For Testnet setups, replace all Holesky references with Hoodi.
 Dappnode sells ready-to-use machines, like the [Lido edition](https://dappnode.com/collections/frontpage/products/home-lido).  
 For a DIY install, you can either:
 
-- Use the [ISO installer](https://docs.dappnode.io/docs/user/install/iso) (Debian + Dappnode bundled).  
-- Install Debian manually and run the [Dappnode install script](https://docs.dappnode.io/docs/user/install/script).
+- Use the [ISO installer](https://docs.dappnode.io/docs/user/install/iso/) (Debian + Dappnode bundled).  
+- Install Debian manually and run the [Dappnode install script](https://docs.dappnode.io/docs/user/install/script/).
 
 You’ll manage Dappnode via its web UI. To access it remotely, set up a VPN:
 
@@ -36,7 +36,7 @@ You’ll manage Dappnode via its web UI. To access it remotely, set up a VPN:
 
 ### Setting up the Full Node
 
-With your VPN active, visit [http://my.dappnode/](http://my.dappnode/) → **Stakers** tab. Then select your network (Mainnet or Hoodi), pick execution & consensus clients, enable Web3signer, and choose MEV-Boost relays. Learn more about [CSM relay requirements](/run-on-lido/csm/troubleshooting/mev-install#dappnode).
+With your VPN active, visit [http://my.dappnode/](http://my.dappnode/) → **Stakers** tab. Then select your network (Mainnet or Hoodi), pick execution & consensus clients, enable Web3signer, and choose MEV-Boost relays. Learn more about [CSM relay requirements](/run-on-lido/csm/troubleshooting/mev-install/#dappnode).
 
 ![Chain syncing on Dashboard](/img/csm-guide/dappnode-1.png)
 
@@ -57,4 +57,4 @@ This gives you the local CSM widget plus extra features:
 - Configure Telegram alerts in Notifications.
 
 ### Keep your clients up to date
-To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).
+To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates/).

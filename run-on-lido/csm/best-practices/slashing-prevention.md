@@ -37,7 +37,7 @@ A typical total slashing penalty is **~0.3 ETH**
 
 ## What are the consequences of slashing for the CSM validators?
 
-Once the slashing period has ended and the validator is reported as withdrawn the **difference between the withdrawal balance and 32 ETH is [confiscated](/staking-modules/csm/penalties#reasons) from the Node Operator's bond.**
+Once the slashing period has ended and the validator is reported as withdrawn the **difference between the withdrawal balance and 32 ETH is [confiscated](/staking-modules/csm/penalties/#reasons) from the Node Operator's bond.**
 
 So, **CSM will confiscate all slashing-related penalties from the Node Operator's bond.**
 
