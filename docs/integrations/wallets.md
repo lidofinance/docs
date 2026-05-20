@@ -184,6 +184,6 @@ In case you wish to track on-chain submits, you need to subscribe to the followi
 - `Transfer (address from, address to, uint256 value)`,
 - `TransferShares (address from, address to, uint256 sharesValue)`.
 
-See [Deployed Contracts](/deployed-contracts) for Lido addresses on Mainnet.
+See [Deployed Contracts](/deployed-contracts/) for Lido addresses on Mainnet.
 
-For token integrations, see [Lido tokens integration guide](/guides/lido-tokens-integration-guide).
+For token integrations, see [Lido tokens integration guide](/guides/lido-tokens-integration-guide/).

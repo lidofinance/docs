@@ -11,7 +11,7 @@ Cactus Link is a browser extension that works like one of the popular hot wallet
 
 ## Connecting Cactus Link to the stVaults Web UI
 ### 1. In your browser:
-Ensure that the [Cactus Link](https://chromewebstore.google.com/detail/cactus-link/chiilpgkfmcopocdffapngjcbggdehmj) browser extension is installed in [Chrome](https://www.google.com/chrome). Please confirm with your Administrator that the required permissions have been configured to connect your DeFi account to Cactus Link. For more details, refer to the [Cactus Link guide](https://manual.mycactus.com/defi/cactus-link).
+Ensure that the [Cactus Link](https://chromewebstore.google.com/detail/cactus-link/chiilpgkfmcopocdffapngjcbggdehmj) browser extension is installed in [Chrome](https://www.google.com/chrome/). Please confirm with your Administrator that the required permissions have been configured to connect your DeFi account to Cactus Link. For more details, refer to the [Cactus Link guide](https://manual.mycactus.com/defi/cactus-link).
 
 #### 1.1. Open browser extension UI:
 <img alt="Cactus Link UI: Locked screen" src="/img/stvaults/custodians/cactus/cactus_0.png" width="300" />

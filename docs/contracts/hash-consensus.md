@@ -6,7 +6,7 @@
 - [Deployed instance for CSFeeOracle](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
 
 :::info
-It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
+It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual/#intro) before
 :::
 
 ## What is HashConsensus
@@ -22,7 +22,7 @@ Note that all state changes a report processing could entail are guaranteed to b
 Consensus members rotate within one time into two subsets:
 
 - Non-fast-lane members
-- [Fast-lane members](/contracts/hash-consensus#fast-lane-members)
+- [Fast-lane members](/contracts/hash-consensus/#fast-lane-members)
 
 Once the consensus is gathered, a [Report processor](#report-processor-ireportasyncprocessor) would allow submitting and processing the actual report data.
 The latter is a part of the [phased Oracle report flow](/docs/guides/oracle-operator-manual.md#oracle-phases).
@@ -43,8 +43,8 @@ The latter is a part of the [phased Oracle report flow](/docs/guides/oracle-oper
 
 There are two core protocol contracts that implements this interface:
 
-- [AccountingOracle](/contracts/accounting-oracle)
-- [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle)
+- [AccountingOracle](/contracts/accounting-oracle/)
+- [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle/)
 
 ## Fast-lane members
 

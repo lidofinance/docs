@@ -21,14 +21,14 @@ ETH is deposited to validators and generates staking rewards; stETH is minted on
 ### Testnet
 
 - UI: https://stvaults-hoodi.testnet.fi/
-- CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
+- CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration/
 - Contracts: https://docs.lido.fi/deployed-contracts/hoodi/
 - Etherscan: https://hoodi.etherscan.io/
 
 ### Mainnet
 
 - UI: https://stvaults.lido.fi/ (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
-- CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
+- CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration/
 - Contracts: https://docs.lido.fi/deployed-contracts/
 - Etherscan: https://etherscan.io/
 
@@ -84,7 +84,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide/#steth-internals-share-mechanics).
 
 <details>
   <summary>by Command-line Interface</summary>
@@ -116,7 +116,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide/#steth-internals-share-mechanics).
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
 - `currentSettledGrowth`: the amount of unaccounted growth accrued on the vault while it was disconnected; 0 for newly created vaults via the create-without-connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
 
@@ -215,7 +215,7 @@ Confirming tier change request requires applying fresh report to vault. [Read mo
 
 - `VaultAddress`: the address of the `Vault` contract.
 - `TierID`: the ID of the tier to which the stVault will be connected.
-- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+- `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide/#steth-internals-share-mechanics).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -315,13 +315,13 @@ Withdrawable ETH is defined by ([Read more about stVaults metrics](../features-a
 <details>
   <summary>by Command-line Interface</summary>
 
-Supply (fund) ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal#fund-vault)):
+Supply (fund) ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal/#fund-vault)):
 
 ```bash
 yarn start vo w fund <amount>
 ```
 
-Withdraw ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal#withdraw-from-vault)):
+Withdraw ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal/#withdraw-from-vault)):
 
 ```bash
 yarn start vo w withdraw <amount>
@@ -368,19 +368,19 @@ After stETH is repaid, the corresponding ETH is unlocked once the upcoming Oracl
 <details>
   <summary>by Command-line Interface</summary>
 
-Mint ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/mint-burn#mint-operations)):
+Mint ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/mint-burn/#mint-operations)):
 
 - Mint Shares `yarn start vo w mint-shares <amount>`
 - Mint stETH tokens (rebasing): `yarn start vo w mint-steth <amount>`
 - Mint wrapped stETH tokens (non-rebasing): `yarn start vo w mint-wsteth <amount>`
 
-Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/mint-burn#burn-operations)):
+Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/mint-burn/#burn-operations)):
 
 - Repay (burn) vault shares: `yarn start vo w burn <amount>`
 - Repay (burn) stETH tokens: `yarn start vo w burn-steth <amount>`
 - Repay (burn) wrapped stETH tokens: `yarn start vo w burn-wsteth <amount>`
 
-[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide/#steth-internals-share-mechanics).
 
 </details>
 <details>
@@ -406,7 +406,7 @@ Repay (burn) ([details and examples](https://lidofinance.github.io/lido-staking-
 
       To repay (burn) shares, stETH or wstETH you must first grant approval to the vault's Dashboard contract. Go to the stETH or wstETH token contract and execute the `approve()` method for the amount (in wei) you want to set as allowance. Only after the approval is confirmed you can proceed with the repay (burn) operation. Please also note that if you are trying to mint shares (instead of stETH or wstETH), in that case you may need to approve slightly different amount of stETH then you are trying to mint. Please find the contracts' addresses on the **Contracts** page in accordance with your [environment](#environments).
 
-[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
+[Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide/#steth-internals-share-mechanics).
 
 </details>
 

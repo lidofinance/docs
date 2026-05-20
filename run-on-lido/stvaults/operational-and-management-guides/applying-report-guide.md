@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # 📊 Applying Report Guide
 
-Before minting stETH or performing other operations that depend on current vault state, the protocol needs to ensure that you are working with the latest available data. [LazyOracle](/contracts/lazy-oracle) allows anyone to apply the latest report to a specific vault on demand.
+Before minting stETH or performing other operations that depend on current vault state, the protocol needs to ensure that you are working with the latest available data. [LazyOracle](/contracts/lazy-oracle/) allows anyone to apply the latest report to a specific vault on demand.
 
 ## Why apply a fresh report?
 
@@ -25,10 +25,10 @@ Many vault operations (except funding and burning shares) will revert if the rep
 
 ## How it works
 
-1. The [AccountingOracle](/contracts/accounting-oracle) publishes a Merkle tree root containing data for all vaults
+1. The [AccountingOracle](/contracts/accounting-oracle/) publishes a Merkle tree root containing data for all vaults
 2. You get your vault's data and proof from IPFS using the published CID
-3. You submit the data and proof to the [LazyOracle](/contracts/lazy-oracle) contract
-4. [LazyOracle](/contracts/lazy-oracle) verifies the proof and updates your vault's state in [VaultHub](/contracts/vault-hub).
+3. You submit the data and proof to the [LazyOracle](/contracts/lazy-oracle/) contract
+4. [LazyOracle](/contracts/lazy-oracle/) verifies the proof and updates your vault's state in [VaultHub](/contracts/vault-hub/).
 
 This is a **permissionless operation** — anyone can apply a report to any vault.
 

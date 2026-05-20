@@ -171,8 +171,8 @@ error InternalSharesCantBeZero();
 
 ## Related
 
-- [AccountingOracle](/contracts/accounting-oracle)
-- [Lido](/contracts/lido)
-- [VaultHub](/contracts/vault-hub)
-- [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker)
-- [WithdrawalQueue](/contracts/withdrawal-queue-erc721)
+- [AccountingOracle](/contracts/accounting-oracle/)
+- [Lido](/contracts/lido/)
+- [VaultHub](/contracts/vault-hub/)
+- [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker/)
+- [WithdrawalQueue](/contracts/withdrawal-queue-erc721/)

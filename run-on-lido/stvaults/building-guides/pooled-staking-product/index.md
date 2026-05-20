@@ -61,7 +61,7 @@ DeFi Wrapper supports three product archetypes:
 
 ## Environments
 
-- [CLI](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration)
+- [CLI](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration/)
 - [UI template](https://github.com/lidofinance/defi-wrapper-widget)
 
 <Tabs>
@@ -85,7 +85,7 @@ DeFi Wrapper supports three product archetypes:
 
 ### 1. Create a tokenized staking vault (pool)
 
-The easiest way to create a tokenized staking vault (pool) is to use the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli).
+The easiest way to create a tokenized staking vault (pool) is to use the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli/).
 It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
 
 The CLI performs the deployment in two transactions to stay within the current 16M transaction gas limit.
@@ -93,7 +93,7 @@ The CLI performs the deployment in two transactions to stay within the current 1
 To start:
 
 - Set up the CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md).
-- Prepare a valid CLI configuration — see the [configuration tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
+- Prepare a valid CLI configuration — see the [configuration tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration/).
 
 :::info
 

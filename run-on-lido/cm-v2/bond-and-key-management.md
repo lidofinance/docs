@@ -69,7 +69,7 @@ To remove them, go to the Keys section in the CMv2 widget and open the Remove ta
 
 #### Voluntary exit
 
-Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](/contracts/validators-exit-bus-oracle) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
+Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](/contracts/validators-exit-bus-oracle/) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
 
 Please note this can't be done in the CMv2 widget, it can only be done through your validator client.
 
@@ -128,7 +128,7 @@ If you do not compensate a locked bond before the EasyTrack motion executes, tho
 
 ### Penalty history
 
-The CM interface also includes a penalty history section where you can review past penalties and actions recorded against your operator. For details on penalty types and how they are applied, see [Penalties](/run-on-lido/cm-v2/penalties).
+The CM interface also includes a penalty history section where you can review past penalties and actions recorded against your operator. For details on penalty types and how they are applied, see [Penalties](/run-on-lido/cm-v2/penalties/).
 
 ---
 

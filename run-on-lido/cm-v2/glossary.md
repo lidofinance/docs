@@ -40,7 +40,7 @@ stETH-denominated collateral tracked per sub-NO in `Accounting.sol`. It can be u
 
 A permissioned entry-point contract for Node Operator creation. Each instance represents a different operator type and maps to a specific `bondCurveId` (Node Operator type) in `Accounting.sol`. An allowlisted address can use a certain gate once to create a new operator.
 
-### [Curated Module Committee (CMC)](https://docs.lido.fi/multisigs/committees#220-curated-module-committee-cmc)
+### [Curated Module Committee (CMC)](https://docs.lido.fi/multisigs/committees/#220-curated-module-committee-cmc)
 
 An off-chain multisig committee responsible for overseeing CMv2 operations, including adding Operator Groups to the registry (via Easy Track), setting operator name, description, and actioning certain penalty flows (via Easy Track as well).
 
@@ -78,7 +78,7 @@ EIP-7002 enables on-chain triggerable validator exits without requiring the vali
 
 ### Strike
 
-In Phase 2 of CMv2, there will be a strike-based accountability system. Unlike in [CSM](/staking-modules/csm/penalties#bad-performance-strikes), where strikes are applied per key, CMv2 will apply strikes at the sub-NO level. They serve as a long-term disincentive by reducing allocation weight, instead of relying solely on immediate penalties.
+In Phase 2 of CMv2, there will be a strike-based accountability system. Unlike in [CSM](/staking-modules/csm/penalties/#bad-performance-strikes), where strikes are applied per key, CMv2 will apply strikes at the sub-NO level. They serve as a long-term disincentive by reducing allocation weight, instead of relying solely on immediate penalties.
 
 ### Phase 1 / Phase 2
 

@@ -7,7 +7,7 @@ OracleDaemonConfig acts as a parameters registry for the Lido oracle daemon.
 The full list of params is tracked in the OracleDaemonConfig contract on mainnet.
 
 :::note
-In contrast to [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker), the stored values aren't enforced by the protocol on-chain code.
+In contrast to [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker/), the stored values aren't enforced by the protocol on-chain code.
 :::
 
 ## View methods

@@ -6,7 +6,7 @@ sidebar_position: 4
 
 This user guide explains how to use the Predeposit Guarantee contract as part of the stVaults staking infrastructure.
 
-The Predeposit Guarantee (PDG) contract mitigates deposit frontrunning vulnerabilities outlined in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It disincentivizes frontrunning by having the Node Operator post an economic guarantee of honest behavior, which is proven/disproven via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788). This mechanism is distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) used by Lido Core.
+The Predeposit Guarantee (PDG) contract mitigates deposit frontrunning vulnerabilities outlined in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It disincentivizes frontrunning by having the Node Operator post an economic guarantee of honest behavior, which is proven/disproven via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788). This mechanism is distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module/) used by Lido Core.
 
 The PDG enables Node Operators to deposit validators using vault funds in a trustless manner.
 

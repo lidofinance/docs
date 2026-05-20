@@ -3,7 +3,7 @@
 - [Source Code](https://github.com/lidofinance/data-bus/blob/main/contracts/DataBus.sol)
 
 :::info
-The contract is posted at `0x37De961D6bb5865867aDd416be07189D2Dd960e6` and is available in [the test environment](/deployed-contracts/holesky#data-bus) and [the production environment](/deployed-contracts/#data-bus)
+The contract is posted at `0x37De961D6bb5865867aDd416be07189D2Dd960e6` and is available in [the test environment](/deployed-contracts/holesky/#data-bus) and [the production environment](/deployed-contracts/#data-bus)
 :::
 
 ## What is Data Bus?

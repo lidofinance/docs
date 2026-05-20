@@ -46,7 +46,7 @@ You can also use interactive mode:
 yarn start vo w role-grant
 ```
 
-For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-grant).
+For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations/#role-grant).
 
 </details>
 <details>
@@ -76,22 +76,22 @@ You can check a validator's credentials or state at [beaconcha.in](https://beaco
 
 - A list of source pubkeys of validators that you want to consolidate from.
 - A list of target pubkeys of validators that you want to consolidate to.
-- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. You can discover it via CLI:
+- The [Dashboard](/contracts/dashboard/) contract address used to control the stVault. You can discover it via CLI:
   ```bash
   yarn start helpers find-dashboard-by-vault <vault_address>
   ```
-  For more details, see [additional helpers documentation](https://lidofinance.github.io/lido-staking-vault-cli/get-started/additional-helpers#find-dashboard-by-vault).
-- To cover the consolidation fee costs, you'll need some amount of ETH. The exact amount depends on the number of public keys and the current state of the blockchain. You can determine the fee for a single consolidation request by calling the view function [`getConsolidationRequestFee`](/contracts/validator-consolidation-requests#getconsolidationrequestfee) on the [`ValidatorConsolidationRequests`](/contracts/validator-consolidation-requests) contract. The total amount required will be calculated as the number of consolidations multiplied by the fee per request.
+  For more details, see [additional helpers documentation](https://lidofinance.github.io/lido-staking-vault-cli/get-started/additional-helpers/#find-dashboard-by-vault).
+- To cover the consolidation fee costs, you'll need some amount of ETH. The exact amount depends on the number of public keys and the current state of the blockchain. You can determine the fee for a single consolidation request by calling the view function [`getConsolidationRequestFee`](/contracts/validator-consolidation-requests/#getconsolidationrequestfee) on the [`ValidatorConsolidationRequests`](/contracts/validator-consolidation-requests/) contract. The total amount required will be calculated as the number of consolidations multiplied by the fee per request.
 
 ## 4. Run consolidation command
 
-All input data for consolidation requests undergoes two checks: off-chain in CLI and on-chain by our audited contract [`ValidatorConsolidationRequests`](/contracts/validator-consolidation-requests). Additionally, the calldata for the final request is formed on-chain, which brings an additional level of security.
+All input data for consolidation requests undergoes two checks: off-chain in CLI and on-chain by our audited contract [`ValidatorConsolidationRequests`](/contracts/validator-consolidation-requests/). Additionally, the calldata for the final request is formed on-chain, which brings an additional level of security.
 
 ---
 
 ### Steps
 
-1. Configure WalletConnect [by the instruction](https://lidofinance.github.io/lido-staking-vault-cli/get-started/wallet-connect).
+1. Configure WalletConnect [by the instruction](https://lidofinance.github.io/lido-staking-vault-cli/get-started/wallet-connect/).
 2. Create a JSON file with pubkeys in the following format:
 
 ```json
@@ -115,7 +115,7 @@ yarn start consolidation write consolidate-validators <dashboard> --file <path-t
 The CLI automatically filters out inactive validators from the consolidation list and displays a warning for any removed validators.
 :::
 
-For detailed information about consolidation command options, requirements, and error handling, see the [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/consolidation#consolidate-validators-consolidate).
+For detailed information about consolidation command options, requirements, and error handling, see the [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/consolidation/#consolidate-validators-consolidate).
 
 :::note
 Alternatively, you can list pubkeys directly in the command as parameters:
@@ -164,7 +164,7 @@ You can also use interactive mode:
 yarn start vo w role-revoke
 ```
 
-For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-revoke).
+For detailed CLI options, see [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations/#role-revoke).
 
 </details>
 <details>
@@ -178,10 +178,10 @@ For detailed CLI options, see [vault operations documentation](https://lidofinan
 
 ## Useful links
 
-- [ValidatorConsolidationRequests contract](/contracts/validator-consolidation-requests)
-- [Dashboard contract](/contracts/dashboard)
+- [ValidatorConsolidationRequests contract](/contracts/validator-consolidation-requests/)
+- [Dashboard contract](/contracts/dashboard/)
 - [stVaults Roles and Permissions](../features-and-mechanics/roles-and-permissions)
 - [Applying Report Guide](../operational-and-management-guides/applying-report-guide)
 - [EIP-7251: Increase the MAX_EFFECTIVE_BALANCE](https://eips.ethereum.org/EIPS/eip-7251)
 - [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
-- [stVaults CLI consolidation command](https://lidofinance.github.io/lido-staking-vault-cli/commands/consolidation)
+- [stVaults CLI consolidation command](https://lidofinance.github.io/lido-staking-vault-cli/commands/consolidation/)

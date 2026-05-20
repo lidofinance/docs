@@ -5,14 +5,14 @@
 - Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
-It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
+It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual/#intro) before
 :::
 
 ## What is AccountingOracle
 
-AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
+AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault/) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault/) vaults); the number of [exited](/contracts/staking-router/#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721/#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
 
-The report is applied by the [Accounting](/contracts/accounting) contract, which performs the core state updates and rebase calculations.
+The report is applied by the [Accounting](/contracts/accounting/) contract, which performs the core state updates and rebase calculations.
 
 ## Report cycle
 
@@ -20,14 +20,14 @@ The oracle work is delineated by equal time periods called frames. In normal ope
 
 Reference slot for each frame is set to the last slot of the epoch preceding the frame's first epoch. The processing deadline is set to the last slot of the last epoch of the frame.
 
-Note: the frame length [can be changed](/contracts/hash-consensus#setframeconfig). If an oracle report is delayed, it does not extend the reporting period unless the report is missed; in that case, the next report will cover a longer period.
+Note: the frame length [can be changed](/contracts/hash-consensus/#setframeconfig). If an oracle report is delayed, it does not extend the reporting period unless the report is missed; in that case, the next report will cover a longer period.
 
 The frame includes these stages:
 
-- **Waiting:** the oracle runs as a [daemon](/guides/oracle-operator-manual#the-oracle-daemon) and wakes up every 12 seconds (by default) to find the last finalized slot, trying to align it with the expected reference slot;
+- **Waiting:** the oracle runs as a [daemon](/guides/oracle-operator-manual/#the-oracle-daemon) and wakes up every 12 seconds (by default) to find the last finalized slot, trying to align it with the expected reference slot;
 - **Data collection:** oracles monitor the state of both the execution and consensus layers and collect the data for the successfully arrived finalized reference slot;
-- **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the [`HashConsensus`](/contracts/hash-consensus) smart contract;
-- **Core update report:** once the [quorum](/contracts/hash-consensus#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract. This triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to enter bunker mode.
+- **Hash consensus:** oracles analyze the data, compile the report and submit its hash to the [`HashConsensus`](/contracts/hash-consensus/) smart contract;
+- **Core update report:** once the [quorum](/contracts/hash-consensus/#getquorum) of hashes is reached, meaning more than half of the oracles submitted the same hash (i.e., 5 of 9 oracle committee members at the moment of writing), one of the oracles chosen in turn submits the actual report to the `AccountingOracle` contract. This triggers the core protocol state update, including the token rebase, distribution of node operator rewards, finalization of withdrawal requests, and the protocol mode decision: whether to enter bunker mode.
 - **Extra data report:** an additional report carrying information that is not vital for the core update is submitted to AccountingOracle; it can be submitted in chunks (e.g., node operator key states and reward distribution data).
 
 :::note
@@ -39,7 +39,7 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 ## Report processing
 
-The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
+The [submission](/contracts/accounting-oracle/#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
 
 1. `Accounting._sanityChecks` (via `OracleReportSanityChecker`).
 2. `StakingRouter.updateExitedValidatorsCountByStakingModule`.
@@ -118,9 +118,9 @@ struct ReportData {
 
 **EL values**
 
-- `withdrawalVaultBalance` — Ether balance of the Lido [withdrawal vault](/contracts/withdrawal-vault) as observed at the reference slot.
-- `elRewardsVaultBalance` — Ether balance of the Lido [execution layer rewards vault](/contracts/lido-execution-layer-rewards-vault) as observed at the reference slot.
-- `sharesRequestedToBurn` — The shares amount requested to burn through [Burner](/contracts/burner) as observed at the reference slot. The value can be obtained in the following way:
+- `withdrawalVaultBalance` — Ether balance of the Lido [withdrawal vault](/contracts/withdrawal-vault/) as observed at the reference slot.
+- `elRewardsVaultBalance` — Ether balance of the Lido [execution layer rewards vault](/contracts/lido-execution-layer-rewards-vault/) as observed at the reference slot.
+- `sharesRequestedToBurn` — The shares amount requested to burn through [Burner](/contracts/burner/) as observed at the reference slot. The value can be obtained in the following way:
 
 ```solidity
 (coverSharesToBurn, nonCoverSharesToBurn) = IBurner(burner).getSharesRequestedToBurn()
@@ -129,8 +129,8 @@ sharesRequestedToBurn = coverSharesToBurn + nonCoverSharesToBurn
 
 **Withdrawals finalization decision**
 
-- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
-- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido#gettotalpooledether) divided by [total shares](/contracts/lido#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` use the view method `Accounting.simulateOracleReport` and calculate as follows:
+- `withdrawalFinalizationBatches` — The ascendingly-sorted array of withdrawal request IDs obtained by the oracle daemon on report gathering via calling [`WithdrawalQueue.calculateFinalizationBatches`](/contracts/withdrawal-queue-erc721/#calculatefinalizationbatches). An empty array means that no withdrawal requests to be finalized.
+- `simulatedShareRate` — The share rate (i.e., [total pooled ether](/contracts/lido/#gettotalpooledether) divided by [total shares](/contracts/lido/#gettotalshares)) with the 10^27 precision (i.e., multiplied by 10^27) that would be effective as the result of applying this oracle report at the reference slot, with `withdrawalFinalizationBatches` set to empty array and `simulatedShareRate` set to 0. To estimate `simulatedShareRate` use the view method `Accounting.simulateOracleReport` and calculate as follows:
 
 ```solidity
 _simulatedShareRate = (postTotalPooledEther * 10**27) / postTotalShares
@@ -241,7 +241,7 @@ contract and a bunch of [granular roles](#permissions).
 
 ### LOCATOR()
 
-Returns an address of the [LidoLocator](/contracts/lido-locator) contract
+Returns an address of the [LidoLocator](/contracts/lido-locator/) contract
 
 ```solidity
 ILidoLocator public immutable LOCATOR;
@@ -281,7 +281,7 @@ uint256 public constant EXTRA_DATA_TYPE_STUCK_VALIDATORS = 1;
 
 ### EXTRA_DATA_TYPE_EXITED_VALIDATORS()
 
-This type contains the details of [exited](/contracts/staking-router#exited-validators) validator(s).
+This type contains the details of [exited](/contracts/staking-router/#exited-validators) validator(s).
 
 ```solidity
 uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2;
@@ -289,11 +289,11 @@ uint256 public constant EXTRA_DATA_TYPE_EXITED_VALIDATORS = 2;
 
 ### EXTRA_DATA_FORMAT_EMPTY()
 
-The extra data format used to signify that the oracle report contains no [extra data](/contracts/accounting-oracle#extra-data).
+The extra data format used to signify that the oracle report contains no [extra data](/contracts/accounting-oracle/#extra-data).
 
-Sends as a part of the Oracle's [Phase 3](/guides/oracle-operator-manual#phase-3-submitting-a-report-extra-data).
+Sends as a part of the Oracle's [Phase 3](/guides/oracle-operator-manual/#phase-3-submitting-a-report-extra-data).
 
-This format uses when there are no new [exited](/contracts/staking-router#exited-validators) validators on report period.
+This format uses when there are no new [exited](/contracts/staking-router/#exited-validators) validators on report period.
 
 ```solidity
 uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0;
@@ -343,7 +343,7 @@ struct ProcessingState {
 
 ### getConsensusContract()
 
-Returns the address of the [HashConsensus](/contracts/hash-consensus) contract instance used by `AccountingOracle`.
+Returns the address of the [HashConsensus](/contracts/hash-consensus/) contract instance used by `AccountingOracle`.
 
 ```solidity
 function getConsensusContract() external view returns (address);
@@ -422,7 +422,7 @@ function submitReportData(ReportData calldata data, uint256 contractVersion);
 
 | Name              | Type         | Description                                                                                            |
 | ----------------- | ------------ | ------------------------------------------------------------------------------------------------------ |
-| `data`            | `ReportData` | The data. See the [ReportData](/contracts/accounting-oracle#report-data) structure's docs for details. |
+| `data`            | `ReportData` | The data. See the [ReportData](/contracts/accounting-oracle/#report-data) structure's docs for details. |
 | `contractVersion` | `uint256`    | Expected version of the oracle contract.                                                               |
 
 #### Reverts
@@ -461,7 +461,7 @@ function submitReportExtraDataList(bytes calldata items)
 
 ### submitConsensusReport()
 
-Called by [AccountingOracle HashConsensus](/contracts/hash-consensus) contract to push a consensus report for processing.
+Called by [AccountingOracle HashConsensus](/contracts/hash-consensus/) contract to push a consensus report for processing.
 
 :::note
 Note that submitting the report doesn't require the processor to start processing it right
@@ -638,7 +638,7 @@ To ensure that the reported data is within possible values, the handler function
 
 #### OracleReportSanityChecker
 
-- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker#checkextradataitemscountpertransaction)
+- Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker/#checkextradataitemscountpertransaction)
 - Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
 
 #### StakingRouter
