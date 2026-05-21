@@ -993,7 +993,7 @@ See the [full report](https://github.com/lidofinance/audits/blob/main/L2/Starkne
 
 ### 10-2024 Quantstamp wstETH on Zircuit Verification
 
-The deployed contracts are verified against the [wstETH on Optimism](https://github.com/lidofinance/lido-l2) and [Governance crosschain bridges](https://github.com/lidofinance/governance-crosschain-bridges) references together with the [proposed setup](https://docs.lido.fi/token-guides/wsteth-bridging-guide#the-proposed-configuration) initialization.
+The deployed contracts are verified against the [wstETH on Optimism](https://github.com/lidofinance/lido-l2) and [Governance crosschain bridges](https://github.com/lidofinance/governance-crosschain-bridges) references together with the [proposed setup](https://docs.lido.fi/token-guides/wsteth-bridging-guide/#the-proposed-configuration) initialization.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Zircuit_2024-10-02-Quantstamp-wstETH-deployment-verification.pdf) for more details.
 
