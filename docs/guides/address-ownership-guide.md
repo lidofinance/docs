@@ -22,7 +22,7 @@ Using EOA across Lido DAO operational multisigs or protocol contracts requires p
    
 2. Publish the message along with the Etherescan link (or signature hash in case of MyEtherWallet) on X.com (formerly Twitter) or other easily accessible social media.
 3. Share the link to the post as a comment at the relevant [Lido DAO forum](https://research.lido.fi) post.
-4. Make sure to follow the [general rules of thumb](/guides/multisig-signer-manual) for being a signer in Lido DAO operational multisigs.
+4. Make sure to follow the [general rules of thumb](/guides/multisig-signer-manual/) for being a signer in Lido DAO operational multisigs.
 
 ### In case of using Safe multisig
 
