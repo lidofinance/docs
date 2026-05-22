@@ -288,7 +288,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - SetMerkleGateTree: [`0x5194cC02B6F477B4a23DFA422fFC238c8B5b1736`](https://hoodi.etherscan.io/address/0x5194cC02B6F477B4a23DFA422fFC238c8B5b1736)
   - ReportWithdrawalsForSlashedValidators: [`0x6E40FED7c28bAA93a798cA10f8A93965a19eC52e`](https://hoodi.etherscan.io/address/0x6E40FED7c28bAA93a798cA10f8A93965a19eC52e)
   - SettleGeneralDelayedPenalty: [`0x3486B872768D361309e405A046C4BF995c21CC6c`](https://hoodi.etherscan.io/address/0x3486B872768D361309e405A046C4BF995c21CC6c)
-  - CreateOrUpdateOperatorGroup: [`0x44D9b39bBdc2182Aa1af6f16f8F55E0eA038294d`](https://hoodi.etherscan.io/address/0x44D9b39bBdc2182Aa1af6f16f8F55E0eA038294d)
+  - CreateOrUpdateOperatorGroup: [`0x47DA6206965CD722591e87f5eC43604812705e88`](https://hoodi.etherscan.io/address/0x47DA6206965CD722591e87f5eC43604812705e88)
 - **Staking Router** (router: [`0xCc820558B39ee15C7C45B59390B503b83fb499A8`](https://hoodi.etherscan.io/address/0xCc820558B39ee15C7C45B59390B503b83fb499A8))
   - AllowConsolidationPair: [`0x22D36e7616F541A527989C5652fDA4d527bB461C`](https://hoodi.etherscan.io/address/0x22D36e7616F541A527989C5652fDA4d527bB461C)
 - **Simple DVT staking module** (registry: [`0x0B5236BECA68004DB89434462DfC3BB074d2c830`](https://hoodi.etherscan.io/address/0x0B5236BECA68004DB89434462DfC3BB074d2c830), trusted caller [`0xbB958292042c604855d23F8db458855d20e16996`](https://app.safe.protofire.io/home?safe=hoe:0xbB958292042c604855d23F8db458855d20e16996))
