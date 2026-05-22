@@ -49,7 +49,7 @@ This event can be tracked using [Ejector](https://github.com/lidofinance/validat
 
 
 ### ELRewardsStealingPenaltyReported
-The [CSM Committee](https://research.lido.fi/t/csm-committee-creation/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
+The [CSM Committee](https://research.lido.fi/t/community-staking-module-committee/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
 ```solidity
 event ELRewardsStealingPenaltyReported(
     uint256 indexed nodeOperatorId,
@@ -133,7 +133,7 @@ At the same time, Tenderly has some limitations:
 
 See corresponding docs for set up guide:
 - [Tenderly - Intro into Alerts](https://docs.tenderly.co/alerts/intro-to-alerts)
-- [OpenZeppelin - Monitor](https://docs.openzeppelin.com/defender/v2/module/monitor)
+- [OpenZeppelin - Monitor](https://docs.openzeppelin.com/defender/module/monitor)
 
 ## Other guides
 ### Stakesaurus' Telegram Bot
@@ -142,4 +142,4 @@ See corresponding docs for set up guide:
 
 ### Eridian's Pager Duty Setup
 
-[Eridian Alerting and Monitoring Docs](https://docs.eridian.xyz/infrastructure-docs/alerting-and-monitoring)
+[Eridian Alerting and Monitoring Docs](https://docs.eridian.xyz/ethereum-dev/infrastructure/alerting-and-monitoring)

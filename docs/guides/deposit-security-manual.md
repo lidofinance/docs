@@ -4,7 +4,7 @@ This instruction has been prepared for the participants of the Deposit Security 
 
 ## TL;DR
 
-Before running in the mainnet all steps should be done in the Holešky testnet.
+Before running in the mainnet all steps should be done in the Hoodi testnet.
 
 1. Prepare an EOA account for signing data with a private key on hand (not in hardware wallet). It will be a moderately sensitive hot private key. Use different accounts for testnet and mainnet.
 2. Send the account address to Lido for submitting it to the smart contract.
@@ -36,7 +36,7 @@ Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIn
 
 ## Preparation steps
 
-Before running in the mainnet, all steps should be completed in the Holešky testnet.
+Before running in the mainnet, all steps should be completed in the Hoodi testnet.
 
 ### EOA account
 

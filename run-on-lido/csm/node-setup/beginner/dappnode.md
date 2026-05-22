@@ -21,7 +21,7 @@ For Testnet setups, replace all Holesky references with Hoodi.
 
 ## Installing Dappnode
 
-Dappnode sells ready-to-use machines, like the [Lido edition](https://dappnode.com/collections/frontpage/products/home-lido).  
+Dappnode sells ready-to-use machines, like the [Lido edition](https://dappnode.com/products/home-lido).  
 For a DIY install, you can either:
 
 - Use the [ISO installer](https://docs.dappnode.io/docs/user/install/iso) (Debian + Dappnode bundled).  

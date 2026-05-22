@@ -975,13 +975,13 @@ See [full report](https://github.com/lidofinance/audits/blob/main/L2/wstETH-on-L
 
 ### 02-2025 MixBytes stETH on Unichain Verification
 
-The deployed contracts are verified against the [stETH on Optimism](https://docs.lido.fi/deployed-contracts/#optimism) deployment.
+The deployed contracts are verified against the [stETH on Optimism](/deployed-contracts/#optimism) deployment.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Unichain-2025-02-MixBytes-deployment-verification.pdf) for more details.
 
 ### 01-2025 MixBytes stETH on Soneium Verification
 
-The deployed contracts are verified against the [stETH on Optimism](https://docs.lido.fi/deployed-contracts/#optimism) deployment.
+The deployed contracts are verified against the [stETH on Optimism](/deployed-contracts/#optimism) deployment.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Soneium-2025-01-MixBytes-deployment-verification.pdf) for more details.
 
@@ -993,7 +993,7 @@ See the [full report](https://github.com/lidofinance/audits/blob/main/L2/Starkne
 
 ### 10-2024 Quantstamp wstETH on Zircuit Verification
 
-The deployed contracts are verified against the [wstETH on Optimism](https://github.com/lidofinance/lido-l2) and [Governance crosschain bridges](https://github.com/lidofinance/governance-crosschain-bridges) references together with the [proposed setup](https://docs.lido.fi/token-guides/wsteth-bridging-guide/#the-proposed-configuration) initialization.
+The deployed contracts are verified against the [wstETH on Optimism](https://github.com/lidofinance/lido-l2) and [Governance crosschain bridges](https://github.com/lidofinance/governance-crosschain-bridges) references together with the [proposed setup](/token-guides/cross-chain-tokens-guide#mainnet-proposed-configuration) initialization.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Zircuit_2024-10-02-Quantstamp-wstETH-deployment-verification.pdf) for more details.
 
@@ -1005,7 +1005,7 @@ See full [initial](https://github.com/lidofinance/audits/blob/main/bsc/Lido-wstE
 
 ### 07-2024 Cantina wstETH on Mode Verification
 
-The deployed contracts are verified against the [wstETH on Base](https://docs.lido.fi/deployed-contracts/#base) deployment.
+The deployed contracts are verified against the [wstETH on Base](/deployed-contracts/#base) deployment.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Mode-2024-07-18-Cantina-wstETH-deployment-verification.pdf) for more details.
 

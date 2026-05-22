@@ -16,4 +16,4 @@ This section of the Lido documentation is for users who want to run any of the L
 
 &emsp;📄 See the protocol documentation, contracts and more in the [main section of the docs](/)  
 
-&emsp;🤝 Find support and community on [Discord](https://discord.gg/vgdPfhZ), [Telegram](https://t.me/lidofinance)
+&emsp;🤝 Find support and community on [Discord](https://discord.com/invite/lido), [Telegram](https://t.me/lidofinance)

@@ -57,7 +57,7 @@ Security Team, [safeharbor@lido.fi](mailto:safeharbor@lido.fi)
 
 **Chains & Asset Recovery Addresses** (*addresses controlled by the protocol that recovered protocol funds will be returned to by the Whitehat*):
 
-Aragon Voting, [0x2e59A20f205bB85a89C53f1936454680651E618e](https://docs.lido.fi/deployed-contracts/#dao-contracts)
+Aragon Voting, [0x2e59A20f205bB85a89C53f1936454680651E618e](/deployed-contracts/#dao-contracts)
 
 Aragon Voting was chosen because it provides a predictable, resilient, and timely decision-making framework for both routine operations and potential emergency scenarios. Its use enables Lido DAO to respond quickly, avoiding the extended governance delays that can arise under Dual Governance. By directing all recovered assets to the Aragon Voting contract, those assets remain fully under the control of the Lido DAO. Any subsequent action — such as redistribution, user compensation, or other follow-up steps — will therefore require explicit approval through Lido DAO governance. If a Whitehat needs to return ETH to the Recovery Address, the ETH must first be wrapped into wETH. As the initiative evolves, the implementation of a separate AssetRecoveryVault, similar to the InsuranceFund, may be considered.
 

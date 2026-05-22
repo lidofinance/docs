@@ -28,7 +28,7 @@ The multisig enables the receipt of allowed tokens (listed in the [AllowedTokens
 |-------------------|-------------------------|-----------------|---------------|
 | Alliance Ops stablecoins | TopUpAllowedRecipients  | [`0xe5656eEe7eeD02bdE009d77C88247BC8271e26Eb`](https://etherscan.io/address/0xe5656eEe7eeD02bdE009d77C88247BC8271e26Eb)| trustedcaller |
 
-The full list of related contracts is available [here](https://docs.lido.fi/deployed-contracts/#easy-track-factories-for-token-transfers).
+The full list of related contracts is available [here](/deployed-contracts/#easy-track-factories-for-token-transfers).
 
 **List of signers:**
 

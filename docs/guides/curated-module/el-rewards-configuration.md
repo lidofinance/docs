@@ -4,9 +4,7 @@ Node Operators who run validators for Lido are required to set the fee recipient
 
 This smart contract address can also be retrieved by [querying the `elRewardsVault()`](/contracts/lido-locator#elrewardsvault) method in the `LidoLocator` contract.
 
-The address is also available in the [Deployed Contracts] docs page, labeled as `Execution Layer Rewards Vault`.
-
-[deployed contracts]: /deployed-contracts
+The address is also available in the [Deployed Contracts](/deployed-contracts) docs page, labeled as `Execution Layer Rewards Vault`.
 
 ## Fee recipient options for various Beacon Chain clients
 

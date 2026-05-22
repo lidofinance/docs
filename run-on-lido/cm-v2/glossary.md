@@ -40,7 +40,7 @@ stETH-denominated collateral tracked per sub-NO in `Accounting.sol`. It can be u
 
 A permissioned entry-point contract for Node Operator creation. Each instance represents a different operator type and maps to a specific `bondCurveId` (Node Operator type) in `Accounting.sol`. An allowlisted address can use a certain gate once to create a new operator.
 
-### [Curated Module Committee (CMC)](https://docs.lido.fi/multisigs/committees#220-curated-module-committee-cmc)
+### [Curated Module Committee (CMC)](/multisigs/committees#220-curated-module-committee-cmc)
 
 An off-chain multisig committee responsible for overseeing CMv2 operations, including adding Operator Groups to the registry (via Easy Track), setting operator name, description, and actioning certain penalty flows (via Easy Track as well).
 

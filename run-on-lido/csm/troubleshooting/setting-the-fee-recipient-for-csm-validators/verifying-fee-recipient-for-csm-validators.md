@@ -39,7 +39,7 @@ Check your startup logs and confirm that the fee recipient is set to the **Lido 
 
 If you're running a validator client or using a custom setup not covered in this guide, and need help setting the correct fee recipient address, the **Lido Community Validator Specialists (Chimera)** are here to help.
 
-Join the [Lido Discord](https://discord.gg/lido) and tag:
+Join the [Lido Discord](https://discord.com/invite/lido) and tag:
 
 ```
 @community-validator-support
