@@ -173,36 +173,41 @@ If wrong, you must exit & recreate with the correct address.
 
 In your service file (e.g. `/etc/systemd/system/validator.service`), update the `ExecStart` line:
 
+#### [Lighthouse](https://lighthouse-book.sigmaprime.io/)
+
 ```bash
-# Lighthouse example
 ExecStart=/usr/local/bin/lighthouse vc \
   --suggested-fee-recipient=0x388C818CA8B9251b393131C08a736A67ccB19297 \
   [other flags...]
 ```
 
+#### [Prysm](https://docs.prylabs.network/)
+
 ```bash
-# Prysm example
 ExecStart=/usr/local/bin/validator \
   --suggested-fee-recipient=0x388C818CA8B9251b393131C08a736A67ccB19297 \
   [other flags...]
 ```
 
+#### [Teku](https://docs.teku.consensys.io/)
+
 ```bash
-# Teku example
 ExecStart=/usr/local/bin/teku/bin/teku validator-client \
   --validators-proposer-default-fee-recipient=0x388C818CA8B9251b393131C08a736A67ccB19297 \
   [other flags...]
 ```
 
+#### [Nimbus](https://nimbus.guide/)
+
 ```bash
-# Nimbus example
 ExecStart=/usr/local/bin/nimbus_validator_client \
   --suggested-fee-recipient=0x388C818CA8B9251b393131C08a736A67ccB19297 \
   [other flags...]
 ```
 
+#### [Lodestar](https://chainsafe.github.io/lodestar/)
+
 ```bash
-# Lodestar example
 ExecStart=/usr/bin/lodestar validator \
   --suggestedFeeRecipient=0x388C818CA8B9251b393131C08a736A67ccB19297 \
   [other flags...]

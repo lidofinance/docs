@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+# Uses non-standard `*` wildcard and `$` end-anchor (supported by Googlebot/Bingbot).
+# Spec-strict crawlers may ignore this and crawl .md endpoints.
+Disallow: /*.md$

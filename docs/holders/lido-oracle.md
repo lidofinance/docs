@@ -1,0 +1,25 @@
+# Lido Oracle
+
+[Lido Oracle](https://github.com/lidofinance/lido-oracle) is the off-chain daemon, run independently by each oracle member, that bridges Ethereum's Consensus and Execution layers for the Lido protocol. Members build reports off-chain and reach consensus on them via the on-chain `HashConsensus` contract; the agreed-upon report is then submitted on-chain and applied by Lido contracts.
+
+For a deep technical overview, see the [Oracle Operator Manual](/guides/oracle-operator-manual) and the [Oracle specification](/guides/oracle-spec/accounting-oracle).
+
+Onboarding of new oracle members and rotation of existing members is coordinated on the research forum in the [Expansion of Lido's Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) thread.
+
+## Mainnet members
+
+| Operator             | Address                                                                                                                 | Forum post                                                                                                       |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Chorus One (Bitwise) | [`0x8dB977C13CAA938BC58464bFD622DF0570564b78`](https://etherscan.io/address/0x8dB977C13CAA938BC58464bFD622DF0570564b78) | [address rotation](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/80)                    |
+| Staking Facilities   | [`0x404335BcE530400a5814375E7Ec1FB55fAff3eA2`](https://etherscan.io/address/0x404335BcE530400a5814375E7Ec1FB55fAff3eA2) | [post on x.com](https://x.com/StakingFac/status/1346557400057327616), [Lido post](https://x.com/LidoFinance/status/1346555154007470088) |
+| Stakefish            | [`0x042a9e5acCfa17e28300F1b5967f20891E973922`](https://etherscan.io/address/0x042a9e5acCfa17e28300F1b5967f20891E973922) | [address rotation](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/81)                    |
+| P2P                  | [`0x007DE4a5F7bc37E2F26c0cb2E8A95006EE9B89b5`](https://etherscan.io/address/0x007DE4a5F7bc37E2F26c0cb2E8A95006EE9B89b5) | [address declaration](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/68)                 |
+| bloXroute            | [`0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8`](https://etherscan.io/address/0x61c91ECd902EB56e314bB2D5c5C07785444Ea1c8) | [intent to join](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/29), [address declaration](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/54) |
+| Instadapp            | [`0x73181107c8D9ED4ce0bbeF7A0b4ccf3320C41d12`](https://etherscan.io/address/0x73181107c8D9ED4ce0bbeF7A0b4ccf3320C41d12) | [intent to join](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/30), [address declaration](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/71) |
+| Chainlayer           | [`0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf`](https://etherscan.io/address/0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf) | [intent to join](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/17), [replacing Jump Crypto](https://research.lido.fi/t/jump-crypto-replacement-in-the-oracle-set/5620/8) |
+| MatrixedLink         | [`0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9`](https://etherscan.io/address/0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9) | [intent to join (replacing Rated)](https://research.lido.fi/t/rated-labs-replacement-in-the-oracle-set/7850/2), [address declaration](https://research.lido.fi/t/rated-labs-replacement-in-the-oracle-set/7850/14) |
+| Caliber              | [`0x4118DAD7f348A4063bD15786c299De2f3B1333F3`](https://etherscan.io/address/0x4118DAD7f348A4063bD15786c299De2f3B1333F3) | [intent to join (replacing Kyber)](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/78)    |
+
+**Consensus quorum:** 5 out of 9 identical report hashes are required to finalize a report. The current value is enforced on-chain and is readable via [`getQuorum()`](/contracts/hash-consensus#getquorum) on each `HashConsensus` instance.
+
+The authoritative on-chain set is maintained by the [`HashConsensus`](/contracts/hash-consensus) contract; the values above can be cross-checked via [`getMembers()`](/contracts/hash-consensus#getmembers) on the `HashConsensus` instances bound to the [`AccountingOracle`](/contracts/accounting-oracle), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle) and [`CSFeeOracle`](/staking-modules/csm/contracts/CSFeeOracle).

@@ -17,3 +17,5 @@ Here you will find various tools that will make your experience with CSM as easy
 [**Advanced Networking →**](./advanced-networking)
 
 [**Automated Graceful Shutdown & Remote Wake →**](./automated-graceful-shutdown-and-remote-wake)
+
+[**CSM Prover Tool →**](./csm-prover-tool)
