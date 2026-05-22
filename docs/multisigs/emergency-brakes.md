@@ -31,10 +31,10 @@
 | --- | --- | --- | --- |
 | ajbeal | 0x5a409567bCa7459b3aC7e6E5a3F1a3C278071b71 | Sig Hash: 0x848f5174e88b653e9353f5a46c8dec871b2395a06be8b0b29c221c1ab4f43a8b5fc913c091d0389382879c49ff96750a86efd5806f7223797c31ca01868ec23c01 | https://x.com/ajbeal/status/1655876306771365888?s=20 |
 | eboadom | 0xA39a62304d8d43B35114ad7bd1258B0E50e139b3 | https://etherscan.io/verifySig/17877 | https://x.com/eboadom/status/1656002911854292993 |
-| michwill | 0xFe45baf0F18c207152A807c1b05926583CFE2e4b | Sig Hash: 0x44fc2bce69486ea826e1aaeb40878f9a8b038d5f0c8bd0ea9038fee7fca553005adfcd9d64172cacd2e7f1c11dc7e9b36c0f18916ed731e56ffa89feb95c8ae500 | https://x.com/newmichwill/status/1656597340780625920?s=20 |
+| Gusakov_dv | 0xC80C089d5151A7456aaeb116174CB5A8EcC94fF9 | Sig Hash: 0xe506dd1c3f15147af98ab343e20e3065e4db91cecb54953bdc8db1d52edc92a717415c5f05a5922c5efc38da8b50d22e4df036405cf6e2f5b9c33f4525416a1e1b | https://x.com/d_gusakov/status/2051579088884613258 |
 | thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://x.com/e330acid/status/1778451429172080726 |
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://x.com/george_avs/status/1655919930749976578 |
-| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1655865828544266242 |
+| drdr_zz | 0xA4cddAB88F16eA33dA1b0851ee2Beb6d2f5C91e4 | Sig Hash: 0x45a254ae2b27c973390eea44ead4e19006a6c109deb67371da1fefd5d4a249b13dc96cbd5ce03526b17586bbdb1b845a636cc68d1a27793983a4384842a9970a1c | https://x.com/drdr_zz/status/2052332554032722249 |
 
 ## 1.2 Emergency Brakes: Ethereum
 
