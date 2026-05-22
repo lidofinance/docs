@@ -189,7 +189,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - PermissionlessGate: [`0xd7bD8D2A9888D1414c770B35ACF55890B15de26a`](https://hoodi.etherscan.io/address/0xd7bD8D2A9888D1414c770B35ACF55890B15de26a)
   - VettedGate (IdentifiedCommunityStakersGate): [`0x10a254E724fe2b7f305F76f3F116a3969c53845f`](https://hoodi.etherscan.io/address/0x10a254E724fe2b7f305F76f3F116a3969c53845f) (proxy)
   - VettedGate (IdentifiedDVTClusterGate): [`0x887F8512F9998045f4b5993e6eaa6BCfE5F02A94`](https://hoodi.etherscan.io/address/0x887F8512F9998045f4b5993e6eaa6BCfE5F02A94) (proxy)
-  - VettedGate: [`0x3b834c6d043F4CE5C61d84723bA737D405B2e276`](https://hoodi.etherscan.io/address/0x3b834c6d043F4CE5C61d84723bA737D405B2e276) (impl, shared)
+  - VettedGate: [`0x5Dd9dDC953f2a4352D9C8C42B8D5E2bf535e602F`](https://hoodi.etherscan.io/address/0x5Dd9dDC953f2a4352D9C8C42B8D5E2bf535e602F) (impl, shared)
 - CSModule: [`0x79CEf36D84743222f37765204Bec41E92a93E59d`](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d) (proxy)
 - CSModule: [`0x161b1DAa658fD0D78a4603860edd8Ed06f98F4cA`](https://hoodi.etherscan.io/address/0x161b1DAa658fD0D78a4603860edd8Ed06f98F4cA) (impl)
 - Accounting: [`0xA54b90BA34C5f326BC1485054080994e38FB4C60`](https://hoodi.etherscan.io/address/0xA54b90BA34C5f326BC1485054080994e38FB4C60) (proxy)
@@ -209,7 +209,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - ExitPenalties: [`0xD259b31083Be841E5C85b2D481Cfc17C14276800`](https://hoodi.etherscan.io/address/0xD259b31083Be841E5C85b2D481Cfc17C14276800) (proxy)
 - ExitPenalties: [`0xf38A3DA25B417D83182EEDD30d00557d78c35C96`](https://hoodi.etherscan.io/address/0xf38A3DA25B417D83182EEDD30d00557d78c35C96) (impl)
 - Factories:
-  - VettedGateFactory: [`0x276C1dc9Cf1f793Fe703a5C4674A27076aE45335`](https://hoodi.etherscan.io/address/0x276C1dc9Cf1f793Fe703a5C4674A27076aE45335)
+  - VettedGateFactory: [`0x8B11fdbA811aeE889F8A55FF58CC0Bf0BbA800e1`](https://hoodi.etherscan.io/address/0x8B11fdbA811aeE889F8A55FF58CC0Bf0BbA800e1)
 - External libraries:
   - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://hoodi.etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
   - BondCurvesLib: [`0x7f691D625998b71A311eb2411A331CD05F675566`](https://hoodi.etherscan.io/address/0x7f691D625998b71A311eb2411A331CD05F675566)
@@ -231,7 +231,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - Extra Effort Operator Gate: [`0x5c063da03e3f21443716D75a2205EE16706e1153`](https://hoodi.etherscan.io/address/0x5c063da03e3f21443716D75a2205EE16706e1153) (proxy)
   - Intra-Operator DVT Cluster Gate: [`0x1cD655Ac53CfE8269DE0DBfc0140B074623C4A6B`](https://hoodi.etherscan.io/address/0x1cD655Ac53CfE8269DE0DBfc0140B074623C4A6B) (proxy)
   - Intra-Operator DVT Cluster Plus Gate: [`0x28518be9894C20135F280a9539617783b08a04c7`](https://hoodi.etherscan.io/address/0x28518be9894C20135F280a9539617783b08a04c7) (proxy)
-  - Gate: [`0x7531741520127Ae5D483875b4747D2A2e76Ac759`](https://hoodi.etherscan.io/address/0x7531741520127Ae5D483875b4747D2A2e76Ac759) (impl, shared)
+  - Gate: [`0xA8347dD3fe2f0c8d100B7e224E2B243dF99bA941`](https://hoodi.etherscan.io/address/0xA8347dD3fe2f0c8d100B7e224E2B243dF99bA941) (impl, shared)
 - CuratedModule: [`0x87EB69Ae51317405FD285efD2326a4a11f6173b9`](https://hoodi.etherscan.io/address/0x87EB69Ae51317405FD285efD2326a4a11f6173b9) (proxy)
 - CuratedModule: [`0x22C16D0511D919d5Ed756b8F8d1a35c32A7370C5`](https://hoodi.etherscan.io/address/0x22C16D0511D919d5Ed756b8F8d1a35c32A7370C5) (impl)
 - Accounting: [`0x7f7356D29aCd915F1934220956c3305808ceB235`](https://hoodi.etherscan.io/address/0x7f7356D29aCd915F1934220956c3305808ceB235) (proxy)
@@ -239,7 +239,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - ParametersRegistry: [`0xefb8e4091A75C4828826bf64595F392f87A07b37`](https://hoodi.etherscan.io/address/0xefb8e4091A75C4828826bf64595F392f87A07b37) (proxy)
 - ParametersRegistry: [`0x4F5C45d88Fa9fFd409b5a6D933BC41256a893cfb`](https://hoodi.etherscan.io/address/0x4F5C45d88Fa9fFd409b5a6D933BC41256a893cfb) (impl)
 - MetaRegistry: [`0x857289cCBFBc4C134Cc312022a104CD9b38d8AAE`](https://hoodi.etherscan.io/address/0x857289cCBFBc4C134Cc312022a104CD9b38d8AAE) (proxy)
-- MetaRegistry: [`0x6fAbAf8b179e1914F8D61Cd6911acA8F7eA0d90d`](https://hoodi.etherscan.io/address/0x6fAbAf8b179e1914F8D61Cd6911acA8F7eA0d90d) (impl)
+- MetaRegistry: [`0x775a73fBAFa783aC8c04764b6875FC23BAEA5815`](https://hoodi.etherscan.io/address/0x775a73fBAFa783aC8c04764b6875FC23BAEA5815) (impl)
 - FeeDistributor: [`0x0ced6de191E2A15f7BBAf9E32307626C9f6BD0Cd`](https://hoodi.etherscan.io/address/0x0ced6de191E2A15f7BBAf9E32307626C9f6BD0Cd) (proxy)
 - FeeDistributor: [`0x505113E2842726FF721634970EFE3f46dD239019`](https://hoodi.etherscan.io/address/0x505113E2842726FF721634970EFE3f46dD239019) (impl)
 - Verifier: [`0x209190Ebc2Be80367a15d05e626784Eb94d6A880`](https://hoodi.etherscan.io/address/0x209190Ebc2Be80367a15d05e626784Eb94d6A880)
@@ -253,7 +253,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - ExitPenalties: [`0xad79e1d3B380cEb1a0e188fBAB91f85A446E9E54`](https://hoodi.etherscan.io/address/0xad79e1d3B380cEb1a0e188fBAB91f85A446E9E54) (proxy)
 - ExitPenalties: [`0xBed0DC3db54ff9cc0B5C1B17292d85681783b029`](https://hoodi.etherscan.io/address/0xBed0DC3db54ff9cc0B5C1B17292d85681783b029) (impl)
 - Factories:
-  - GateFactory: [`0x1EE26Ac6c9942196b55F91EEF63f390f51c48293`](https://hoodi.etherscan.io/address/0x1EE26Ac6c9942196b55F91EEF63f390f51c48293)
+  - GateFactory: [`0x0e26d2cC3f0c2A17D2D784068cAAD34206B6804D`](https://hoodi.etherscan.io/address/0x0e26d2cC3f0c2A17D2D784068cAAD34206B6804D)
 - External libraries:
   - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://hoodi.etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
   - BondCurvesLib: [`0x7f691D625998b71A311eb2411A331CD05F675566`](https://hoodi.etherscan.io/address/0x7f691D625998b71A311eb2411A331CD05F675566)
