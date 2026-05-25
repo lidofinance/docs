@@ -97,7 +97,7 @@ line `"msg": "Bot env variables"`
 
 ### Docker
 
-Docker image can be found [here](/guides/tooling#/depositor-bot).
+Docker image can be found [here](/guides/tooling/#depositor-bot).
 
 ## Monitoring
 
