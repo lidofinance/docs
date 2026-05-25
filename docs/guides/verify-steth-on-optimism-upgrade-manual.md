@@ -15,13 +15,13 @@ This document covers incremental changes proposed with the stETH on Optimism dep
 ### LidoLocator
 
 :::info
-A new implementation containing the address of a new `TokenRateNotifier` instance for [`postTokenRebaseReceiver`](/contracts/lido-locator#posttokenrebasereceiver)
+A new implementation containing the address of a new `TokenRateNotifier` instance for [`postTokenRebaseReceiver`](/contracts/lido-locator/#posttokenrebasereceiver)
 :::
 
 ### TokenRateNotifier
 
 :::info
-A standalone (non-proxy) contract proposed to plug to the protocol as a new [token rebase receiver](/contracts/lido-locator#posttokenrebasereceiver).
+A standalone (non-proxy) contract proposed to plug to the protocol as a new [token rebase receiver](/contracts/lido-locator/#posttokenrebasereceiver).
 
 The contract maintains token rate observers that needs to be notified about token rate changes.
 
@@ -52,7 +52,7 @@ observers[0]=0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE
 ### OpStackTokenRatePusher
 
 :::info
-A standalone (non-proxy) contract to be a receiver for the `TokenRateNotifier` contract above, and allowing to push an up-to-date wstETH/stETH [token rate](/contracts/wsteth#stethpertoken) as a part of the `AccountingOracle` report [processing](/contracts/accounting-oracle#report-processing).
+A standalone (non-proxy) contract to be a receiver for the `TokenRateNotifier` contract above, and allowing to push an up-to-date wstETH/stETH [token rate](/contracts/wsteth/#stethpertoken) as a part of the `AccountingOracle` report [processing](/contracts/accounting-oracle/#report-processing).
 
 The rate gets pushed to an `TokenRateOracle` instance on Optimism.
 :::

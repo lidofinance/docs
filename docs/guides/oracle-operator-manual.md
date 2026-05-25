@@ -20,7 +20,7 @@ The Lido Oracle mechanism comprises three main components. The first component i
 
 Based on the update reports received from the oracles, the Lido smart contract performs state transitions such as updating user balances, processing withdrawal requests, and distributing rewards to node operators. Thus, the Lido Oracle mechanism acts as a synchronization device that bridges the protocol across the execution and consensus layers. It ensures that the protocol is updated in a timely and accurate manner and allows for smooth and efficient operation of the entire Lido system.
 
-The two core contracts in the Lido Oracle suite are called [AccountingOracle](/contracts/accounting-oracle) and [ValidatorsExitBus](/contracts/validators-exit-bus-oracle). Together, these contracts collect information submitted by oracles about the state of validators and their balances, the amount of funds accumulated on protocol vaults, the number of withdrawal requests the protocol is able to process, and the validators are expected to be voluntary exited to finalize more withdrawal requests. This information is then used for these crucial processes:
+The two core contracts in the Lido Oracle suite are called [AccountingOracle](/contracts/accounting-oracle/) and [ValidatorsExitBus](/contracts/validators-exit-bus-oracle/). Together, these contracts collect information submitted by oracles about the state of validators and their balances, the amount of funds accumulated on protocol vaults, the number of withdrawal requests the protocol is able to process, and the validators are expected to be voluntary exited to finalize more withdrawal requests. This information is then used for these crucial processes:
 
 - rebasing user balances,
 - distributing node operator rewards,
@@ -46,7 +46,7 @@ The diagram below shows:
 `ReportProcessor` - `AccountingOracle` or `ValidatorsExitBusOracle` contract.
 `HashConsensus` -  a contract which manages oracle members committee and allows the members to reach consensus on the particular data hash for each reporting frame.
 
-You can read more about HashConsensus [here](/contracts/hash-consensus).
+You can read more about HashConsensus [here](/contracts/hash-consensus/).
 
 ```mermaid
 graph LR;

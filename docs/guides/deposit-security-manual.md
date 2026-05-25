@@ -44,7 +44,7 @@ It might be any EOA account under the member's control. Send the address of its 
 
 ### Onchain Data Bus Communication
 
-For inter-service communication, an onchain data bus is utilized, based on EVM-based network and a simple smart contract. This smart contract allows for sending messages essential for the operation of the service. The current specification of these messages is outlined in [this file](https://github.com/lidofinance/lido-council-daemon/blob/main/src/abi/data-bus.abi.json). For more details on the smart contract, please refer to [the document](/contracts/data-bus).
+For inter-service communication, an onchain data bus is utilized, based on EVM-based network and a simple smart contract. This smart contract allows for sending messages essential for the operation of the service. The current specification of these messages is outlined in [this file](https://github.com/lidofinance/lido-council-daemon/blob/main/src/abi/data-bus.abi.json). For more details on the smart contract, please refer to [the document](/contracts/data-bus/).
 
 ### Run lido-council-daemon
 

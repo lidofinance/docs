@@ -1,10 +1,10 @@
 # Validators Exit Bus
 
 :::info
-It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
+It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual/#intro) before
 :::
 
-[Validators Exit Bus](/contracts/validators-exit-bus-oracle) is an oracle that ejects Lido validators when the protocol requires additional funds to process user withdrawals.
+[Validators Exit Bus](/contracts/validators-exit-bus-oracle/) is an oracle that ejects Lido validators when the protocol requires additional funds to process user withdrawals.
 
 There are two stages of selecting validators for exit: Covering Demand in WQ and Boosted Exits
 
@@ -118,16 +118,16 @@ ValidatorsExitBusOracle.getLastRequestedValidatorIndices(
 
 To find the next validators to exit, Validators Exit Bus Oracle collects the following state from both Ethereum Consensus and Execution layers.
 
-- From [OracleDaemonConfig](/contracts/oracle-daemon-config) contract:
+- From [OracleDaemonConfig](/contracts/oracle-daemon-config/) contract:
   - PREDICTION_DURATION_IN_SLOTS
   - VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS
-- From [Withdrawal Queue](/contracts/withdrawal-queue-erc721):
+- From [Withdrawal Queue](/contracts/withdrawal-queue-erc721/):
   - Get total unfinalized withdrawal request amount
-- From [Lido](/contracts/lido) contract:
+- From [Lido](/contracts/lido/) contract:
   - Recent postCLBalance/preCLBalance and withdrawals from Execution Layer Rewards and Withdrawal vaults via events
 - From Consensus Layer node:
   - All validators and their states on the reference slot
-- From [Staking Router](/contracts/staking-router):
+- From [Staking Router](/contracts/staking-router/):
   - Public keys of all Lido validators
   - Indices of the last requested validator to exit for each Node Operator
   - Validator keys statistics for each Node Operator
@@ -143,13 +143,13 @@ Collects the amount of stETH in the queue yet to be finalized from `WithdrawalQu
 
 #### Calculate average rewards speed per epoch
 
-Fetches `ETHDistributed` and `TokenRebased` events from the [`Lido`](/contracts/lido) contract and calculate average rewards amount per epoch. The rewards prediction period config fetches from the [OracleDaemonConfig](/contracts/oracle-daemon-config) contract.
+Fetches `ETHDistributed` and `TokenRebased` events from the [`Lido`](/contracts/lido/) contract and calculate average rewards amount per epoch. The rewards prediction period config fetches from the [OracleDaemonConfig](/contracts/oracle-daemon-config/) contract.
 
 To get events in past, addressing the cases where there can be slots with missed block, the next scheme is introduced:
 
 ![VEBO 6](../../../static/img/oracle-spec/vebo-6.png)
 
-- Get from [OracleDaemonConfig](/contracts/oracle-daemon-config) contract `PREDICTION_DURATION_IN_SLOTS` value
+- Get from [OracleDaemonConfig](/contracts/oracle-daemon-config/) contract `PREDICTION_DURATION_IN_SLOTS` value
 - Get `TokenRebased` events from Lido
 - Get `ETHDistributed` events from Lido
 - Group that events by transaction hash
@@ -207,7 +207,7 @@ epochs_required_to_exit_validators = (validators_to_eject_count - remain_exits_c
 withdrawal_epoch=max_exit_epoch_number + epochs_required_to_exit_validators + MIN_VALIDATOR_WITHDRAWABILITY_DELAY)
 ```
 
-MIN_VALIDATOR_WITHDRAWABILITY_DELAY [here](https://eth2book.info/altair/part3/config/configuration#min_validator_withdrawability_delay)
+MIN_VALIDATOR_WITHDRAWABILITY_DELAY [here](https://eth2book.info/altair/part3/config/configuration/#min_validator_withdrawability_delay)
 
 So now we can calculate what amount (and validators count) is needed to fully cover amount of non-finalized WithdrawQueue requests.
 

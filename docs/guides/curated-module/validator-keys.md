@@ -229,4 +229,4 @@ It is urgent to notify Lido team and other Node Operators as soon as possible. F
 
 Once new keys are present and valid, a motion can be proposed to increase the staking limit for the Node Operator.
 
-[Node Operators Guide to Easy Track](/guides/easy-track-guide#node-operators-guide-to-easy-track)
+[Node Operators Guide to Easy Track](/guides/easy-track-guide/#node-operators-guide-to-easy-track)

@@ -23,24 +23,24 @@ Upgradeable core protocol proxies (mainnet):
 
 | Contract                                                    | Address                                                                                                                 |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| [LidoLocator](/contracts/lido-locator)                      | [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) |
-| [Lido](/contracts/lido)                                     | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
-| [Accounting](/contracts/accounting)                         | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) |
-| [StakingRouter](/contracts/staking-router)                  | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) |
-| [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) | [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) |
-| [WithdrawalVault](/contracts/withdrawal-vault)              | [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) |
-| [Burner](/contracts/burner)                                 | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) |
-| [VaultHub](/contracts/vault-hub)                            | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) |
-| [PredepositGuarantee](/contracts/predeposit-guarantee)      | [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) |
-| [OperatorGrid](/contracts/operator-grid)                    | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
+| [LidoLocator](/contracts/lido-locator/)                      | [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) |
+| [Lido](/contracts/lido/)                                     | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
+| [Accounting](/contracts/accounting/)                         | [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) |
+| [StakingRouter](/contracts/staking-router/)                  | [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) |
+| [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721/) | [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) |
+| [WithdrawalVault](/contracts/withdrawal-vault/)              | [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) |
+| [Burner](/contracts/burner/)                                 | [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) |
+| [VaultHub](/contracts/vault-hub/)                            | [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) |
+| [PredepositGuarantee](/contracts/predeposit-guarantee/)      | [`0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3`](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) |
+| [OperatorGrid](/contracts/operator-grid/)                    | [`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d) |
 
 Upgradeable oracle proxies (mainnet):
 
 | Contract                                                         | Address                                                                                                                 |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| [AccountingOracle](/contracts/accounting-oracle)                 | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
-| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) |
-| [LazyOracle](/contracts/lazy-oracle)                             | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
+| [AccountingOracle](/contracts/accounting-oracle/)                 | [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) |
+| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle/) | [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) |
+| [LazyOracle](/contracts/lazy-oracle/)                             | [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) |
 
 Upgradeable staking module proxies (mainnet):
 
@@ -58,7 +58,7 @@ Upgradeable staking module proxies (mainnet):
 
 ## Lido (core pool)
 
-Key levers on the core pool contract [Lido](/contracts/lido) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)):
+Key levers on the core pool contract [Lido](/contracts/lido/) ([`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84)):
 
 | Lever               | Mutators                                    | Role                   | Role registry | Role admin   | Holder     |
 | ------------------- | ------------------------------------------- | ---------------------- | ------------- | ------------ | ---------- |
@@ -73,7 +73,7 @@ Roles marked as unassigned are intentionally left without holders. The DAO can a
 
 The GateSeal mechanism allows emergency pausing without a full DAO vote. GateSeal contracts can temporarily pause protected apps, while the Reseal Manager holds both the `PAUSE_ROLE` and `RESUME_ROLE` for pause extension.
 
-For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal).
+For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal/).
 
 GateSeal pauses are time-limited; the Reseal Manager can extend a seal window, and resuming requires a DAO vote that unpauses the app.
 
@@ -81,11 +81,11 @@ GateSeal pauses are time-limited; the Reseal Manager can extend a seal window, a
 
 | Lever                      | Contract                                                             | Mutators                                          | Role                                                              | Role registry             | Role admin   | Holder     |
 | -------------------------- | -------------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------- | ------------------------- | ------------ | ---------- |
-| Consensus settings         | [AccountingOracle](/contracts/accounting-oracle)                     | `setConsensusVersion()`, `setConsensusContract()` | `MANAGE_CONSENSUS_VERSION_ROLE`, `MANAGE_CONSENSUS_CONTRACT_ROLE` | AccountingOracle          | Aragon Agent | Unassigned |
-| Oracle report bounds       | [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker) | Various limit setters                             | `ALL_LIMITS_MANAGER_ROLE`                                         | OracleReportSanityChecker | Aragon Agent | Unassigned |
-| LazyOracle sanity          | [LazyOracle](/contracts/lazy-oracle)                                 | `updateSanityParams()`                            | `UPDATE_SANITY_PARAMS_ROLE`                                       | LazyOracle                | Aragon Agent | Unassigned |
-| Oracle daemon config       | [OracleDaemonConfig](/contracts/oracle-daemon-config)                | `setConfig()`                                     | `CONFIG_MANAGER_ROLE`                                             | OracleDaemonConfig        | Aragon Agent | Unassigned |
-| VEB report data submission | [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle)     | `submitReportData()`                              | `SUBMIT_DATA_ROLE`                                                | ValidatorsExitBusOracle   | Aragon Agent | Unassigned |
+| Consensus settings         | [AccountingOracle](/contracts/accounting-oracle/)                     | `setConsensusVersion()`, `setConsensusContract()` | `MANAGE_CONSENSUS_VERSION_ROLE`, `MANAGE_CONSENSUS_CONTRACT_ROLE` | AccountingOracle          | Aragon Agent | Unassigned |
+| Oracle report bounds       | [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker/) | Various limit setters                             | `ALL_LIMITS_MANAGER_ROLE`                                         | OracleReportSanityChecker | Aragon Agent | Unassigned |
+| LazyOracle sanity          | [LazyOracle](/contracts/lazy-oracle/)                                 | `updateSanityParams()`                            | `UPDATE_SANITY_PARAMS_ROLE`                                       | LazyOracle                | Aragon Agent | Unassigned |
+| Oracle daemon config       | [OracleDaemonConfig](/contracts/oracle-daemon-config/)                | `setConfig()`                                     | `CONFIG_MANAGER_ROLE`                                             | OracleDaemonConfig        | Aragon Agent | Unassigned |
+| VEB report data submission | [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle/)     | `submitReportData()`                              | `SUBMIT_DATA_ROLE`                                                | ValidatorsExitBusOracle   | Aragon Agent | Unassigned |
 
 ### Oracle consensus
 
@@ -93,19 +93,19 @@ Oracle reports are submitted through HashConsensus contracts:
 
 | Oracle                                                           | HashConsensus Address                                                                                                   |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| [AccountingOracle](/contracts/accounting-oracle)                 | [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288) |
-| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle) | [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a) |
+| [AccountingOracle](/contracts/accounting-oracle/)                 | [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288) |
+| [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle/) | [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a) |
 
 ## StakingRouter and modules
 
-Key levers on [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)):
+Key levers on [StakingRouter](/contracts/staking-router/) ([`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)):
 
 | Lever                  | Mutators                                                                  | Role                                 | Role registry | Role admin   | Holder                                                                                                                                                                                |
 | ---------------------- | ------------------------------------------------------------------------- | ------------------------------------ | ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Module registry        | `addStakingModule()`, `updateStakingModule()`, `setStakingModuleStatus()` | `STAKING_MODULE_MANAGE_ROLE`         | StakingRouter | Aragon Agent | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c))                                                |
 | Module fees            | `setStakingModuleFees()`                                                  | `STAKING_MODULE_MANAGE_ROLE`         | StakingRouter | Aragon Agent | Aragon Agent ([`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c))                                                |
 | Withdrawal credentials | `setWithdrawalCredentials()`                                              | `MANAGE_WITHDRAWAL_CREDENTIALS_ROLE` | StakingRouter | Aragon Agent | Unassigned                                                                                                                                                                            |
-| Module unvetting       | `decreaseStakingModuleVettedKeysCountByNodeOperator()`                    | `STAKING_MODULE_UNVETTING_ROLE`      | StakingRouter | Aragon Agent | [DepositSecurityModule](/contracts/deposit-security-module) ([`0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD`](https://etherscan.io/address/0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD)) |
+| Module unvetting       | `decreaseStakingModuleVettedKeysCountByNodeOperator()`                    | `STAKING_MODULE_UNVETTING_ROLE`      | StakingRouter | Aragon Agent | [DepositSecurityModule](/contracts/deposit-security-module/) ([`0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD`](https://etherscan.io/address/0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD)) |
 
 ### Active staking modules
 
@@ -117,7 +117,7 @@ Key levers on [StakingRouter](/contracts/staking-router) ([`0xFdDf38947aFB03C621
 
 ## Withdrawals
 
-Key levers on [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) ([`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1)):
+Key levers on [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721/) ([`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1)):
 
 | Lever       | Mutators           | Role          | Role registry         | Role admin   | Holder                                                                                                                                                                                                                                                                                        |
 | ----------- | ------------------ | ------------- | --------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -129,7 +129,7 @@ Key levers on [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721) ([`0x8
 
 ### VaultHub
 
-Key levers on [VaultHub](/contracts/vault-hub) ([`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)):
+Key levers on [VaultHub](/contracts/vault-hub/) ([`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)):
 
 | Lever             | Mutators                                               | Role                     | Role registry | Role admin   | Holder                                                                                                                                                                                                                                                                                    |
 | ----------------- | ------------------------------------------------------ | ------------------------ | ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -142,7 +142,7 @@ Key levers on [VaultHub](/contracts/vault-hub) ([`0x1d201BE093d847f6446530Efb0E8
 
 ### OperatorGrid
 
-Key levers on [OperatorGrid](/contracts/operator-grid) ([`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d)):
+Key levers on [OperatorGrid](/contracts/operator-grid/) ([`0xC69685E89Cefc327b43B7234AC646451B27c544d`](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d)):
 
 | Lever              | Mutators                                     | Role            | Role registry | Role admin   | Holder                                                                                                                                                                                                                                                                                            |
 | ------------------ | -------------------------------------------- | --------------- | ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -165,11 +165,11 @@ Lido V3 includes a Dual Governance system allowing stETH holders to veto DAO dec
 
 ## References
 
-- [Deployed contracts (mainnet)](/deployed-contracts)
-- [AccountingOracle](/contracts/accounting-oracle)
-- [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker)
-- [StakingRouter](/contracts/staking-router)
-- [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721)
-- [VaultHub](/contracts/vault-hub)
-- [OperatorGrid](/contracts/operator-grid)
-- [Emergency Brakes Multisigs](/multisigs/emergency-brakes)
+- [Deployed contracts (mainnet)](/deployed-contracts/)
+- [AccountingOracle](/contracts/accounting-oracle/)
+- [OracleReportSanityChecker](/contracts/oracle-report-sanity-checker/)
+- [StakingRouter](/contracts/staking-router/)
+- [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721/)
+- [VaultHub](/contracts/vault-hub/)
+- [OperatorGrid](/contracts/operator-grid/)
+- [Emergency Brakes Multisigs](/multisigs/emergency-brakes/)

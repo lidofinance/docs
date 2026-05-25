@@ -128,7 +128,7 @@ docker run \
 		node /app/dist/encryptor/encrypt.js
 ```
 
-You can find a recommended version's hash [here](/guides/tooling).
+You can find a recommended version's hash [here](/guides/tooling/).
 
 For platforms with a different architecture but with emulation/transpilation support eg macOS on M processors, additionally specify:
 
@@ -148,7 +148,7 @@ Address of the Consensus Node.
 
 ### LOCATOR_ADDRESS
 
-Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Hoodi](/deployed-contracts/hoodi) / [Mainnet](/deployed-contracts/)
+Address of the [LidoLocator](https://github.com/lidofinance/lido-dao/blob/feature/shapella-upgrade/contracts/0.8.9/LidoLocator.sol) contract: [Hoodi](/deployed-contracts/hoodi/) / [Mainnet](/deployed-contracts/)
 
 ### STAKING_MODULE_ID
 
