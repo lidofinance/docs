@@ -209,7 +209,7 @@ The bridge endpoint contracts should have the ability to set the resume and paus
 
 To curb the multisig's power, it is proposed to use the "Gate Seals" mechanic. The mechanic limits the pause duration and restricts the capability to pause to a single use. To grant the capability repeatedly, the Lido DAO vote is required. The mechanic has been implemented, e.g., for withdrawals in the Lido protocol on Ethereum in two parts:
 
-- one-time disposable pauser contact [Gate Seals](https://github.com/lidofinance/gate-seals);
+- one-time disposable pauser contract [Gate Seals](https://github.com/lidofinance/gate-seals);
 - [PausableUntil](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/PausableUntil.sol) contract (inherited by [WithdrawalQueue](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/WithdrawalQueue.sol)).
 
 ### R-8: The contracts state
@@ -325,12 +325,12 @@ Notation used:
 - Admin is `Lido Agent`
 - Deposits pausable by
   - `Lido Agent`
-  - `Emergency Brakes Multisig`
+  - `Emergency Brakes L1 Multisig`
 - Deposits resumable by
   - `Lido Agent`
 - Withdrawals pausable by
   - `Lido Agent`
-  - `Emergency Brakes Multisig`
+  - `Emergency Brakes L1 Multisig`
 - Withdrawals resumable by
   - `Lido Agent`
 
@@ -345,12 +345,12 @@ Notation used:
 - Admin is `L2 Governance Executor`
 - Deposits pausable by
   - `L2 Governance Executor`
-  - `Emergency Brakes Multisig`
+  - `Emergency Brakes L2 Multisig`
 - Deposits resumable by
   - `L2 Governance Executor`
 - Withdrawals pausable by
   - `L2 Governance Executor`
-  - `Emergency Brakes Multisig`
+  - `Emergency Brakes L2 Multisig`
 - Withdrawals resumable by
   - `L2 Governance Executor`
 
@@ -363,12 +363,12 @@ Notation used:
   - Admin is `L2 Governance Executor`
   - Withdrawals pausable by
     - `L2 Governance Executor`
-    - `Emergency Brakes Multisig`
+    - `Emergency Brakes L2 Multisig`
   - Withdrawals resumable by
     - `L2 Governance Executor`
   - Deposits pausable by
     - `L2 Governance Executor`
-    - `Emergency Brakes Multisig`
+    - `Emergency Brakes L2 Multisig`
   - Deposits resumable by
     - `L2 Governance Executor`
 
