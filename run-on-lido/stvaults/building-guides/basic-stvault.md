@@ -22,14 +22,14 @@ ETH is deposited to validators and generates staking rewards; stETH is minted on
 
 - UI: https://stvaults-hoodi.testnet.fi/
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- Contracts: https://docs.lido.fi/deployed-contracts/hoodi/
+- Contracts: [Hoodi Testnet](/deployed-contracts/hoodi)
 - Etherscan: https://hoodi.etherscan.io/
 
 ### Mainnet
 
 - UI: https://stvaults.lido.fi/ (will be available on [Phase 2 of the Rollout plan](https://research.lido.fi/t/lido-v3-design-implementation-proposal/10665/8))
 - CLI: https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration
-- Contracts: https://docs.lido.fi/deployed-contracts/
+- Contracts: [Mainnet](/deployed-contracts)
 - Etherscan: https://etherscan.io/
 
 ## Steps

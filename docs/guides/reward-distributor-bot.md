@@ -55,7 +55,7 @@ poetry run python src/main.py
 
 ### Docker
 
-Docker image could be found [here](https://docs.lido.fi/guides/tooling/#reward-distribution-bot).
+Docker image could be found [here](/guides/tooling/#reward-distribution-bot).
 
 ## Monitoring
 

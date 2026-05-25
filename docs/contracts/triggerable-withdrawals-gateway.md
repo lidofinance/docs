@@ -13,7 +13,7 @@ TriggerableWithdrawalsGateway (TWG) is a gateway contract introducing an validat
 Access to lever methods is restricted using the functionality of the
 [AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
-To engage Emergency Brakes and unpause if required, it inherits from `PausableContract` (see [GateSeals](https://docs.lido.fi/contracts/gate-seal)).
+To engage Emergency Brakes and unpause if required, it inherits from `PausableContract` (see [GateSeals](/contracts/gate-seal)).
 
 ## Methods
 

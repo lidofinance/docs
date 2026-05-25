@@ -23,7 +23,7 @@ stVaults consist of the following components:
 - **[CLI (Command Line Interface)](#command-line-interface)**: A command-line tool interacting directly with the `Dashboard` contract and other stVaults-related contracts offering advanced management capabilities (deposits, generating proofs, per-vault oracle reports, etc.). ([GitHub Repository](https://github.com/lidofinance/lido-staking-vault-cli), [Documentation](https://lidofinance.github.io/lido-staking-vault-cli/))
 - **[Dashboard contract](#dashboard-contract)**: A management contract deployed together with the `StakingVault` contract, and assigned as the owner of the `StakingVault` contract by default. It provides granular management capabilities and introduces roles and permissions, allowing different actions to be managed by distinct roles. It also provides utility functions for minting/burning, performing deposits, and collecting Node Operator fees.
 - **[StakingVault Contract](#stakingvault-contract)**: The core primitive contract representing the staking vault. Advanced use cases might include direct interaction with the `StakingVault` contract, which requires transferring ownership from the `Dashboard` contract.
-- **[Predeposit Guarantee (PDG)](#predeposit-guarantee-pdg)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](https://docs.lido.fi/contracts/deposit-security-module) adopted by **Lido Core**. It allows the Vault Owner and Node Operators to deposit validators with the vault's funds in a trustless manner.
+- **[Predeposit Guarantee (PDG)](#predeposit-guarantee-pdg)**: The contract that mitigates deposit frontrunning vulnerabilities described in [LIP-5](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md). It uses a mechanism distinct from the [Deposit Security Module](/contracts/deposit-security-module) adopted by **Lido Core**. It allows the Vault Owner and Node Operators to deposit validators with the vault's funds in a trustless manner.
 - **Off-chain monitoring tools (can be used by the Node Operator):**
   - **[Ethereum Validators Monitoring (EVM)](#ethereum-validators-monitoring-evm)**: Consensus layer validators monitoring bot that fetches Lido or Custom Users Node Operators keys from the Execution layer and checks their performance on the Consensus layer by the balance delta, attestations, proposes, sync committee participation.
 - **[Ethereum Head Watcher](#ethereum-head-watcher)**: Bot that watches Ethereum head block, handles validator-related "events", and sends notifications through Alertmanager to a Discord channel.
@@ -35,7 +35,7 @@ For contract APIs and addresses, see the [stVaults contracts reference](/contrac
 ### Web UI
 
 :::info
-The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](https://docs.lido.fi/deployed-contracts/hoodi/).
+The Web UI covers nearly all routine stVault tasks for [Lido V3 testnet on Hoodi](/deployed-contracts/hoodi/).
 For advanced or low-level features that haven’t yet been exposed in the interface, use the [CLI](#command-line-interface).
 :::
 

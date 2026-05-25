@@ -38,6 +38,28 @@ The Lido Council Daemon monitors deposit contract keys.
 - [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.7.0)
 - [**Documentation**](/guides/deposit-security-manual/)
 
+## Depositor Bot
+
+Bot that submits deposit transactions to the Lido protocol once the Deposit Security Committee quorum is reached.
+
+- **Version**: 5.5.1
+- **Docker image**: sha256:bbacf8afbbb2be8b14efcfa0d03b4e8b01a0abe4ba87793d1684eeff5b4eb1a8, [lidofinance/depositor-bot@sha256-bbacf8afbbb2be8b14efcfa0d03b4e8b01a0abe4ba87793d1684eeff5b4eb1a8](https://hub.docker.com/layers/lidofinance/depositor-bot/5.5.1/images/sha256-bbacf8afbbb2be8b14efcfa0d03b4e8b01a0abe4ba87793d1684eeff5b4eb1a8)
+- **Commit hash**: [lidofinance/depositor-bot@89fbbf8](https://github.com/lidofinance/depositor-bot/commit/89fbbf8deae2b93841f5b657b8865ff3d0c762d5)
+- **Last update date**: 21 April, 2026
+- [**Repository**](https://github.com/lidofinance/depositor-bot/tree/5.5.1)
+- [**Documentation**](/guides/depositor-bot)
+
+## Reward Distribution Bot
+
+Bot that distributes node-operator rewards in the Curated and Simple DVT staking modules.
+
+- **Version**: 1.1.0
+- **Docker image**: sha256:610609ad79a31bd4973299f3744170199732ad8456a18dccd19a9a5b5798977e, [lidofinance/nor-reward-distribution-bot@sha256-610609ad79a31bd4973299f3744170199732ad8456a18dccd19a9a5b5798977e](https://hub.docker.com/layers/lidofinance/nor-reward-distribution-bot/1.1.0/images/sha256-610609ad79a31bd4973299f3744170199732ad8456a18dccd19a9a5b5798977e)
+- **Commit hash**: [lidofinance/nor-reward-distribution-bot@1e37b0a](https://github.com/lidofinance/nor-reward-distribution-bot/commit/1e37b0abb72200cbfed6590704e0bdab3da789dc)
+- **Last update date**: 21 April, 2026
+- [**Repository**](https://github.com/lidofinance/nor-reward-distribution-bot/tree/1.1.0)
+- [**Documentation**](/guides/reward-distributor-bot)
+
 ## Keys API
 
 Lido keys HTTP API.

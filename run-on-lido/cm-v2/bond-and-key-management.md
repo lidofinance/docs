@@ -12,9 +12,11 @@ This page covers how to upload and manage your validator keys, and how bond work
 
 ### Uploading keys
 
-![Upload keys](/img/cm-guide/bond-upload-keys.png)
+Before uploading keys, generate your validator keys and deposit data using a tool such as the [EthStaker Deposit CLI](https://github.com/ethstaker/ethstaker-deposit-cli) or your organization's standard key-generation process. Keys must use `0x02` (compounding) withdrawal credentials and point to the [Lido Withdrawal Vault address](/run-on-lido/cm-v2/useful-tools/key-generation#key-addresses).
 
-Before uploading keys, generate your validator keys and deposit data using a tool such as the [EthStaker Deposit CLI](https://github.com/eth-educators/ethstaker-deposit-cli) or your organization's standard key-generation process. Please make sure the generated keys use `0x02` withdrawal credentials and point to the [Lido Execution Layer Withdrawal Vault](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f).
+See the [Key Generation & Fee Recipient](/run-on-lido/cm-v2/useful-tools/key-generation) guide for detailed steps and addresses.
+
+![Upload keys](/img/cm-guide/bond-upload-keys.png)
 
 To upload the keys, go to the Keys tab in [cm.testnet.fi](https://cm.testnet.fi), and drag and drop the `deposit-data.json` file. The widget will tell you how much bond is required for the number of keys submitted.
 
@@ -45,7 +47,7 @@ Each key inside your Node Operator has one of the following statuses.
 | **Exited** | Key has been exited | — |
 | **Withdrawn** | Key has been exited and ETH has been returned to the protocol | — |
 | **Unbonded** | Bond is insufficient for this key, which can be Active or otherwise | Top up bond or remove/exit the key |
-| **Exit requested** | An exit has been requested by [VEBO](https://docs.lido.fi/contracts/validators-exit-bus-oracle/) but the validator has not yet exited | Exit the validator as soon as possible to avoid a Late exit penalty |
+| **Exit requested** | An exit has been requested by [VEBO](/contracts/validators-exit-bus-oracle/) but the validator has not yet exited | Exit the validator as soon as possible to avoid a Late exit penalty |
 | **Duplicated** | Key has been uploaded twice either to the Lido protocol or Ethereum CL | Remove duplicate key |
 | **Invalid** | Uploaded key has an invalid signature | Remove key and re-upload it with the valid signature |
 
@@ -67,7 +69,7 @@ To remove them, go to the Keys section in the CMv2 widget and open the Remove ta
 
 #### Voluntary exit
 
-Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](https://docs.lido.fi/contracts/validators-exit-bus-oracle) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
+Voluntary exits are appropriate when the protocol has requested an exit via the [Validators Exit Bus Oracle](/contracts/validators-exit-bus-oracle) to fulfill stETH withdrawal requests, or when you have insufficient bond to cover this key.
 
 Please note this can't be done in the CMv2 widget, it can only be done through your validator client.
 
@@ -75,7 +77,9 @@ Exiting validators outside of a protocol-requested exit is discouraged. If you p
 
 #### Ejection (triggerable withdrawals)
 
-Through the CMv2 widget, you can force-exit an active validator directly from the Execution Layer using EIP-7002 triggerable withdrawals. This is an emergency measure. It is recommended to use voluntary exits broadcast via CL in normal operations.
+Through the CMv2 widget, you can force-exit an active validator directly from the Execution Layer using EIP-7002 triggerable withdrawals. This is an emergency measure and incurs ejection fees.
+
+It is recommended to use voluntary exits broadcast via CL in normal operations.
 
 ---
 

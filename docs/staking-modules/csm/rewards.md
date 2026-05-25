@@ -59,7 +59,7 @@ A frame performance assessment log aims to achieve more transparency on the rewa
 
 There's also additional data in the log; for a full definition, look at the following [typescript gist](https://github.com/lidofinance/community-staking-module/blob/51e140617e000a92e821f760444245a177d585af/gists/FramePerfLog.ts).
 
-One can inspect the file to ensure all the operators' `distributed` amounts are correct; for example, by using this [python gist](https://github.com/lidofinance/community-staking-module/blob/51e140617e000a92e821f760444245a177d585af/gists/check_frame_log.py). Interested persons can also check the attestations summaries for each validator in the log and report any discrepancies using the official Lido Discord.
+One can inspect the file to ensure all the operators' `distributed` amounts are correct; for example, by using this [python gist](https://github.com/lidofinance/community-staking-module/blob/51e140617e000a92e821f760444245a177d585af/gists/check_frame_log.py). Interested persons can also check the attestations summaries for each validator in the log and report any discrepancies using the official [Lido Discord](https://discord.com/invite/lido).
 
 If you want to learn more about the actual Performance Oracle algorithm, check out this [detailed doc](https://hackmd.io/@lido/BJclaWbi6).
 
