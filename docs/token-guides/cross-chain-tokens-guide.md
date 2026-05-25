@@ -2,7 +2,7 @@
 
 :::warning Outdated due to the Chainlink partnership
 
-Per the Lido DAO mandate, the Lido Ecosystem is working to establish [Chainlink CCIP as the official default cross-chain infrastructure for wstETH](https://research.lido.fi/t/announcing-strategic-partnership-with-chainlink-on-adopting-ccip-as-the-official-default-cross-chain-infrastructure-for-wsteth/10871). The bridging architecture and recommendations outlined here reflect the current pre-CCIP setup and will be revised as the integration is rolled out
+Per the [Lido DAO mandate](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423), the Lido Ecosystem is working to establish [Chainlink CCIP as the official default cross-chain infrastructure for wstETH](https://research.lido.fi/t/announcing-strategic-partnership-with-chainlink-on-adopting-ccip-as-the-official-default-cross-chain-infrastructure-for-wsteth/10871). The bridging architecture and recommendations outlined here reflect the current pre-CCIP setup and will be revised as the integration is rolled out.
 :::
 
 ## TL;DR
