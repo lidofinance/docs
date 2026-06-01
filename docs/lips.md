@@ -8,7 +8,6 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
-| [34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md) | CircuitBreaker — Programmable panic layer | Azat Serikov | TBD |
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
 
 ## Proposed
@@ -16,6 +15,8 @@ More details on the contribution process and LIPs statuses can be found [here](h
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
 | [36](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-36.md) | NEST — Automated LDO Buyback and Liquidity Provisioning System | Vasiliy Shapovalov, Vitaly Galaichuk, Jen Kopytina, Alexander Belokon, adcv | [Link](https://research.lido.fi/t/liquid-buybacks-nest-execution-with-ldo-wsteth-liquidity/10894) |
+| [35](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md) | Staking Router v3 | Maksim Kuraian (@mkurayan) , KRogLA (@KRogLA), Alexander Kolesnikov (@eddort), Anna Mukharram (@Amuhar) | TBA |
+| [34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md) | CircuitBreaker — Programmable panic layer | Azat Serikov | [Link](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400) |
 | [33](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-33.md) | Community Staking Module v3 and Curated Module v2 | Dmitry Gusakov (@dgusakov), Sergey Khomutinin (@skhomuti), Dmitry Chernukhin (@madlabman), Vladimir Gorkavenko (@vgorkavenko) | [Link 1](https://research.lido.fi/t/community-staking-module/5917), [Link 2](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929) |
 
 ## Implemented
