@@ -203,8 +203,8 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
    Complete KYB(C) screening via SumSub. This is required for all operators applying for any Identified category.
 
    🔗 [SumSub KYB(C) Form](https://in.sumsub.com/websdk/p/uni_nqzEH2qmLTS1PowL)
-
-   > **Note:** Operators already participating in the Lido Curated Set are exempt from this step, as they have completed equivalent compliance screening through that process.
+   
+   **Note:** Operators already participating in the Lido Curated Set are exempt from this SumSub step, having been onboarded and vetted through the Lido Curated Set governance process.
 
 3. **Node Operator Questionnaires (private)**
 
