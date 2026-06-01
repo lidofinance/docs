@@ -16,10 +16,10 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 
 ## The category → tiers model
 
-- **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, stVault Professional Operator, stVault Professional Trusted Operator).
+- **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, stVaults Professional Operator, stVaults Professional Trusted Operator).
 - **Each category contains multiple tiers.** **A tier** is a specific **minting configuration** that defines the **Reserve Ratio (RR)**, **stETH Minting Limit (cap)**, and corresponding **Lido fees**. Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers increase the allowed minting cap but decrease the Reserve Ratio.
 - Within the assigned category, **one Node Operator can hold multiple tiers** that the stVaults Committee can set or change based on the Node Operator’s requests, performance, slashing events, or market circumstances in accordance with the stVaults Risk Framework.
-- Categories **Basic**, **stVault Professional Operator**, and **DVT** can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **stVault Professional Trusted Operator** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
+- Categories **Basic**, **stVaults Professional Operator**, and **DVT** can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **stVaults Professional Trusted Operator** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
 
 ### Categories and tiers
 
@@ -37,8 +37,8 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
     <tr>
       <th></th>
       <th colSpan="2" style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
-      <th colSpan="2" style={{ backgroundColor: "#f3e5f5" }}>stVault Professional Operator</th>
-      <th colSpan="2" style={{ backgroundColor: "#fff3e0" }}>stVault Professional Trusted Operator</th>
+      <th colSpan="2" style={{ backgroundColor: "#f3e5f5" }}>stVaults Professional Operator</th>
+      <th colSpan="2" style={{ backgroundColor: "#fff3e0" }}>stVaults Professional Trusted Operator</th>
       <th colSpan="2" style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
     </tr>
     <tr>
@@ -131,19 +131,19 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
       <th>Category</th>
       <th style={{ backgroundColor: "#f5f5f5" }}>Unidentified (permissionless)</th>
       <th style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
-      <th style={{ backgroundColor: "#f3e5f5" }}>stVault Professional Operator</th>
-      <th style={{ backgroundColor: "#fff3e0" }}>stVault Professional Trusted Operator</th>
+      <th style={{ backgroundColor: "#f3e5f5" }}>stVaults Professional Operator</th>
+      <th style={{ backgroundColor: "#fff3e0" }}>stVaults Professional Trusted Operator</th>
       <th style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>KYC(B)</td>
-      <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>KYC(B)</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>KYC(B)</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>KYC(B)</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>KYC(B)</td>
+      <td>KYB(C)</td>
+      <td style={{ backgroundColor: "#f5f5f5" }}>Not required</td>
+      <td style={{ backgroundColor: "#e8f5e9" }}>Required</td>
+      <td style={{ backgroundColor: "#f3e5f5" }}>Required</td>
+      <td style={{ backgroundColor: "#fff3e0" }}>Required</td>
+      <td style={{ backgroundColor: "#e3f2fd" }}>Required for each independent Node Operator in the Cluster</td>
     </tr>
     <tr>
       <td>Infra requirements</td>
@@ -174,7 +174,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
       <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
       <td style={{ backgroundColor: "#e8f5e9" }}>-</td>
       <td style={{ backgroundColor: "#f3e5f5" }}>-</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>3+ months of successful validation as an stVault Professional Operator</td>
+      <td style={{ backgroundColor: "#fff3e0" }}>3+ months of successful validation as an stVaults Professional Operator</td>
       <td style={{ backgroundColor: "#e3f2fd" }}>-</td>
     </tr>
   </tbody>
@@ -192,26 +192,34 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
    What information to provide:
 
-   - Who you are; **request** (become Identified; apply for a Category or for a Category change; any non-default requests).
+   - Who you are; **request** (become Identified; apply for a Category change; any non-default requests).
    - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
    - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
    - **Links**: site/docs/audits/certifications/insurance (if any).
    - Publish your post under the “**Node Operators > stVaults Identification**” category.
 
-2. **Node Operator Questionnaires (private)**
+2. **KYB(C) Verification**
+
+   Complete KYB(C) screening via SumSub. This is required for all operators applying for any Identified category.
+
+   🔗 [SumSub KYB(C) Form](https://in.sumsub.com/websdk/p/uni_nqzEH2qmLTS1PowL)
+
+   > **Note:** Operators already participating in the Lido Curated Set are exempt from this step, as they have completed equivalent compliance screening through that process.
+
+3. **Node Operator Questionnaires (private)**
 
    You are also asked to provide technical and business detailed information. This step is required only during the initial identification process and category assignment.
 
-   2.1. To complete the identification process and obtain the **"Basic"** category, please fill out this form:
+   3.1. To complete the identification process and obtain the **"Basic"** category, please fill out this form:
 
    🔗 [Basic stVaults Identification form](https://tally.so/r/3xk45o).
 
    What information you will be asked to fill in the form:
 
-   - **KYC(B)** (entity, jurisdictions, contacts).
+   - Node operator details (entity, jurisdictions, contacts).
    - Data for your card on the Node Operators Overview page.
 
-   2.2. To obtain better stETH minting terms under the **stVault Professional Operator** category (and **stVault Professional Trusted Operator** later on), please also fill out this form:
+   3.2. To obtain better stETH minting terms under the **stVaults Professional Operator** category (and **stVaults Professional Trusted Operator** later on), please also fill out this form:
 
    🔗 [Extended stVaults Category Application](https://tally.so/r/npjNdq).
 
@@ -221,21 +229,21 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
    - **Infra** (clients’ set-ups, locations, server types, server providers, key generation & management, etc.).
    - **Ops** (monitoring/alerting, on-call, IR runbooks, insurance, bug-bounty).
 
-3. **Assessment & scoring**
+4. **Assessment & scoring**
 
-   You are evaluated across three main areas by the stVaults Committee: **Operational Capabilities, Decentralization & Infrastructure Distribution, and Business Case with an emphasis on proposed business cases.**
+   You are evaluated across three main areas by the stVaults Committee: **Operational Capabilities, Decentralization & Infrastructure Distribution, and Business Case.**
 
-4. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
+5. **Decision: Category and corresponding Tier Grid (RR & stETH minting limits)**
 
-   The stVaults Committee assigns your **category** (Basic identified, stVault Professional Operator), defines your **tiers grid**, and then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
+   The stVaults Committee assigns your **category** (Basic identified, stVaults Professional Operator), defines your **tiers grid**, and then pushes updates through **Easy Track**. The stVaults Committee publishes the reasoning behind its decision either in a post on the Lido Research Forum under the “Node Operators > stVaults Identification” category, or as a reply to the original post-request submitted by the Node Operator.
 
-5. **Node Operator card creation**
+6. **Node Operator card creation**
 
    The stVaults Committee creates your Node Operator card (name/logo, links, geo/jurisdiction, infra/DVT/relays, certifications/audits/insurance/bug-bounty). Your card will be displayed on the Node Operators Overview page when you have at least one stVault with at least 32 ETH of Total Value.
 
    _The Node Operators Overview page will follow in a later release after stVaults Mainnet._
 
-6. **Communication & listing**
+7. **Communication & listing**
 
    Your card and tiers grid are set, and you can now continue as an Identified Node Operator. Additionally, every Identified Node Operator will have a direct communication channel with the stVaults Committee representatives in a shared Telegram group. Questions and discussions can also always be raised on the Lido Research Forum.
 
@@ -244,8 +252,9 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 Each individual Node Operator participating in the DVT Cluster must pass the identification process [as described above](#individual-node-operators-identification-and-assessment):
 
 1. Post an identification request on the Lido Research Forum (mandatory).
-2. Complete the stVaults Identification Form (mandatory).
-3. Complete the extended stVaults Node Operator Category Application (optional).
+2. Complete the KYB(C) (mandatory).
+3. Complete the stVaults Identification Form (mandatory).
+4. Complete the extended stVaults Node Operator Category Application (required for stVaults Professional Operator category).
 
 After that, there are the following actions required from a representative of the DVT Cluster:
 
@@ -257,21 +266,22 @@ After that, there are the following actions required from a representative of th
 
    What information to provide:
 
-   - **Who you are**; list of Node Operators in the Cluster; Probably your name/brand.
+   - **Who you are**; list of Node Operators in the Cluster; your cluster name/brand.
    - **Request** (become Identified DVT Cluster; any non-default requests).
    - **Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
-   - **DVT Technology**: Obol / SSV / smth else.
+   - **DVT Technology**: Obol / SSV / or other.
    - **Links**: site/docs/audits/certifications/insurance (if any).
    - Publish your post under the “_Node Operators > stVaults Identification_” category.
 
 2. **DVT Cluster Questionnaire (private)**
 
-   You are also asked to provide technical and business detailed information.
+   You are also asked to provide technical and business detailed information. 
+
    🔗 [DVT Cluster Identification form](https://tally.so/r/wAoAkW).
 
    What information you will be asked to fill in the form:
 
-   - **KYC(B)** (entities, contacts).
+   - Node Operators creating the Cluster (entities, contacts).
    - How you manage your keys generating process (DKG ceremony).
    - Data for your card on the Node Operators Overview page.
    - **Business plan** (ETH sourcing, channels, audience, timing).
