@@ -192,7 +192,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
    What information to provide:
 
-   - Who you are; **request** (become Identified; apply for a Category change; any non-default requests).
+   - Who you are; **request** (become Identified; apply for an advanced Category; apply for a Category change; any non-default requests).
    - **[Concise] Business case**: ETH you can acquire — scales/market size, user segments, channels, partners, timelines, fee policy.
    - **[Concise] Ops & decentralization**: client mix/versions, infra footprint, geo/jurisdiction diversity, MEV posture.
    - **Links**: site/docs/audits/certifications/insurance (if any).
@@ -200,7 +200,7 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
 2. **KYB(C) Verification**
 
-   Complete KYB(C) screening via SumSub. This is required for all operators applying for any Identified category.
+   Complete KYB(C) (Know Your Business / Know Your Customer) screening via SumSub. This is required for all operators applying for any Identified category.
 
    🔗 [SumSub KYB(C) Form](https://in.sumsub.com/websdk/p/uni_nqzEH2qmLTS1PowL)
    
@@ -275,7 +275,7 @@ After that, there are the following actions required from a representative of th
 
 2. **DVT Cluster Questionnaire (private)**
 
-   You are also asked to provide technical and business detailed information. 
+   You are also asked to provide technical and business detailed information.
 
    🔗 [DVT Cluster Identification form](https://tally.so/r/wAoAkW).
 
