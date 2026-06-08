@@ -8,6 +8,7 @@ docs/multisigs @lidofinance/lido-dao-ops-team
 docs/staking-modules/csm @lidofinance/community-staking
 docs/security @lidofinance/secops
 docs/security/audits.md @lidofinance/lido-eth-protocol
+earn/ @lidofinance/lido-eth-protocol
 run-on-lido/ @lidofinance/lido-eth-protocol
 run-on-lido/csm @lidofinance/community-staking
 

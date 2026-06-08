@@ -45,12 +45,15 @@ toc_max_heading_level: 3
 | RedeemQueue (USDC)      | [`0x9e36A74FE278906a76e7615263e46a83fC40c47F`](https://etherscan.io/address/0x9e36A74FE278906a76e7615263e46a83fC40c47F) |
 | DepositQueue (USDT)     | [`0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73`](https://etherscan.io/address/0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73) |
 | SyncDepositQueue (USDT) | [`0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9`](https://etherscan.io/address/0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9) |
+| DepositQueue (USDe)     | [`0xeEc37568b01e0C4d5028501A49E024B475E2D7cA`](https://etherscan.io/address/0xeEc37568b01e0C4d5028501A49E024B475E2D7cA) |
 | Oracle                  | [`0x827044735c9708a2cf850e7Ea37EBa43bc786028`](https://etherscan.io/address/0x827044735c9708a2cf850e7Ea37EBa43bc786028) |
 | ShareManager            | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) |
 | FeeManager              | [`0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc`](https://etherscan.io/address/0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc) |
 | RiskManager             | [`0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4`](https://etherscan.io/address/0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4) |
 | Subvault 0              | [`0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd`](https://etherscan.io/address/0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd) |
 | Verifier 0              | [`0xB65A8E0937c77a76C3f4F86A1110f81A299CB481`](https://etherscan.io/address/0xB65A8E0937c77a76C3f4F86A1110f81A299CB481) |
+| Subvault 1              | [`0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242`](https://etherscan.io/address/0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242) |
+| Verifier 1              | [`0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36`](https://etherscan.io/address/0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36) |
 | Timelock Controller     | [`0xdA6Da82DFF8cD29D828e4775Cc003f504A968845`](https://etherscan.io/address/0xdA6Da82DFF8cD29D828e4775Cc003f504A968845) |
 | OracleSubmitter         | [`0xB105DaEeFEb1390ce49172c99E3e12C607367156`](https://etherscan.io/address/0xB105DaEeFEb1390ce49172c99E3e12C607367156) |
 
@@ -88,67 +91,58 @@ toc_max_heading_level: 3
 | Timelock Controller | [`0x0555306F5063f62a3A7896A9eaBA0754c1185a67`](https://basescan.org/address/0x0555306F5063f62a3A7896A9eaBA0754c1185a67) |
 | OracleSubmitter     | [`0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0`](https://basescan.org/address/0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0) |
 
-## [Proposed] earnUSDe – Operational Experimental
+## earnUSDe – Operational Experimental
 
 ### earnUSDe – Ethereum
 
 | Contract                | Address                                                                                                                 |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Vault                   | [`0x0E27abEF8C0390DB326be61Da660cEAb5D7A01c0`](https://etherscan.io/address/0x0E27abEF8C0390DB326be61Da660cEAb5D7A01c0) |
-| SyncDepositQueue (USDC) | [`0x0c48c1eA0Bb779F2B747d9a89EDEb4199000Fa90`](https://etherscan.io/address/0x0c48c1eA0Bb779F2B747d9a89EDEb4199000Fa90) |
-| RedeemQueue (USDC)      | [`0xAeF472489Ae2405c4B9ece09642e1ce7A9233446`](https://etherscan.io/address/0xAeF472489Ae2405c4B9ece09642e1ce7A9233446) |
-| SyncDepositQueue (USDT) | [`0xdbd555288BA3C789156718D7C94c568a0E4e0023`](https://etherscan.io/address/0xdbd555288BA3C789156718D7C94c568a0E4e0023) |
-| Oracle                  | [`0x248cA260BfecD194e9596aa7bf50f0E49a5fa43a`](https://etherscan.io/address/0x248cA260BfecD194e9596aa7bf50f0E49a5fa43a) |
-| ShareManager            | [`0x18bf9c3004da28bA2Ad4Dc676aF2091E38CcB414`](https://etherscan.io/address/0x18bf9c3004da28bA2Ad4Dc676aF2091E38CcB414) |
-| FeeManager              | [`0xeffE4750254e520b39E5bf872b821Aa5973B69eC`](https://etherscan.io/address/0xeffE4750254e520b39E5bf872b821Aa5973B69eC) |
-| RiskManager             | [`0xb48c3b3ed0D12fbFA0f2bD9c9E11AB44B8317BA3`](https://etherscan.io/address/0xb48c3b3ed0D12fbFA0f2bD9c9E11AB44B8317BA3) |
-| SwapModule 0            | [`0xe49f6A72476b58c4DDA7d1F2613ac660B11Fbc4c`](https://etherscan.io/address/0xe49f6A72476b58c4DDA7d1F2613ac660B11Fbc4c) |
-| Subvault 0              | [`0x6082A97Bbb2e51d5aa429DE7DAa5a7Cb04c1B17A`](https://etherscan.io/address/0x6082A97Bbb2e51d5aa429DE7DAa5a7Cb04c1B17A) |
-| Verifier 0              | [`0x6445DC7C182386997D894A8dA2872E0e0a002F8b`](https://etherscan.io/address/0x6445DC7C182386997D894A8dA2872E0e0a002F8b) |
-| Timelock Controller     | [`0xFf06E4D42Bc59Dc47DbE2CEBE4E05A0ddA27378A`](https://etherscan.io/address/0xFf06E4D42Bc59Dc47DbE2CEBE4E05A0ddA27378A) |
-| OracleSubmitter         | [`0xd114BCC2a5b683CF6568789d9B0B8702eD56948d`](https://etherscan.io/address/0xd114BCC2a5b683CF6568789d9B0B8702eD56948d) |
+| Vault                   | [`0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d`](https://etherscan.io/address/0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d) |
+| SyncDepositQueue (USDC) | [`0xBb647898e0CF0aE81Ac480d04A8a9973763eBD2D`](https://etherscan.io/address/0xBb647898e0CF0aE81Ac480d04A8a9973763eBD2D) |
+| RedeemQueue (USDC)      | [`0x8B857170F2a6C10Ce64ec8b920428ca977fb7710`](https://etherscan.io/address/0x8B857170F2a6C10Ce64ec8b920428ca977fb7710) |
+| SyncDepositQueue (USDT) | [`0xa01aEfeC7A3384C8440e99084458030BDbdD7404`](https://etherscan.io/address/0xa01aEfeC7A3384C8440e99084458030BDbdD7404) |
+| SyncDepositQueue (USDe) | [`0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947`](https://etherscan.io/address/0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947) |
+| Oracle                  | [`0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C`](https://etherscan.io/address/0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C) |
+| ShareManager            | [`0x3D561e1E0204d47b45C23B65356a4536c36d1AF6`](https://etherscan.io/address/0x3D561e1E0204d47b45C23B65356a4536c36d1AF6) |
+| FeeManager              | [`0xE90b8D7DfFB816b2895DE67307b4A8f9061CEF52`](https://etherscan.io/address/0xE90b8D7DfFB816b2895DE67307b4A8f9061CEF52) |
+| RiskManager             | [`0x5D7e237BD77d3671fFb33FC9bC8c37d49aAE6153`](https://etherscan.io/address/0x5D7e237BD77d3671fFb33FC9bC8c37d49aAE6153) |
+| SwapModule 0            | [`0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b`](https://etherscan.io/address/0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b) |
+| Subvault 0              | [`0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A`](https://etherscan.io/address/0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A) |
+| Verifier 0              | [`0x87631dbf0224234107B593c874f63f577e1336Da`](https://etherscan.io/address/0x87631dbf0224234107B593c874f63f577e1336Da) |
+| Timelock Controller     | [`0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF`](https://etherscan.io/address/0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF) |
+| OracleSubmitter         | [`0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59`](https://etherscan.io/address/0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59) |
 
 ### earnUSDe – Plasma
 
 | Contract            | Address                                                                                                                  |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Vault               | [`0x3Ce1F83E9c95fc8b60e7ab36B3238A8257710862`](https://plasmascan.to/address/0x3Ce1F83E9c95fc8b60e7ab36B3238A8257710862) |
-| Oracle              | [`0xE2aaefF18a0FA0389D6e5B64199727C21530b787`](https://plasmascan.to/address/0xE2aaefF18a0FA0389D6e5B64199727C21530b787) |
-| ShareManager        | [`0x134eA36E03b5e59dbddf2535084e342d84f2A043`](https://plasmascan.to/address/0x134eA36E03b5e59dbddf2535084e342d84f2A043) |
-| FeeManager          | [`0x038E3cc0FaE5092C92E87C6371d0Dc55357cd2E5`](https://plasmascan.to/address/0x038E3cc0FaE5092C92E87C6371d0Dc55357cd2E5) |
-| RiskManager         | [`0x9111E027ABB6269E7f1a10860b4DaA3f66054735`](https://plasmascan.to/address/0x9111E027ABB6269E7f1a10860b4DaA3f66054735) |
-| SwapModule 0        | [`0x1818D85D411938667AE13d34f32878F067793FeC`](https://plasmascan.to/address/0x1818D85D411938667AE13d34f32878F067793FeC) |
-| Subvault 0          | [`0xbd33C99D72BDfe71BE4eFD5b6B2A42d3Daf96e0f`](https://plasmascan.to/address/0xbd33C99D72BDfe71BE4eFD5b6B2A42d3Daf96e0f) |
-| Verifier 0          | [`0x96383b3120B4437FE679c21aCb75ae19429b446D`](https://plasmascan.to/address/0x96383b3120B4437FE679c21aCb75ae19429b446D) |
-| Timelock Controller | [`0x61fB5220a2bA26dF7a1635625e5b3305b333FD7f`](https://plasmascan.to/address/0x61fB5220a2bA26dF7a1635625e5b3305b333FD7f) |
-
-### earnUSDe – Arbitrum
-
-| Contract            | Address                                                                                                                |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Vault               | [`0xe5002a0e63B339a26eaebDcaaf8Bd54AbA941ef4`](https://arbiscan.io/address/0xe5002a0e63B339a26eaebDcaaf8Bd54AbA941ef4) |
-| Oracle              | [`0xE2aaefF18a0FA0389D6e5B64199727C21530b787`](https://arbiscan.io/address/0xE2aaefF18a0FA0389D6e5B64199727C21530b787) |
-| ShareManager        | [`0x134eA36E03b5e59dbddf2535084e342d84f2A043`](https://arbiscan.io/address/0x134eA36E03b5e59dbddf2535084e342d84f2A043) |
-| FeeManager          | [`0x038E3cc0FaE5092C92E87C6371d0Dc55357cd2E5`](https://arbiscan.io/address/0x038E3cc0FaE5092C92E87C6371d0Dc55357cd2E5) |
-| RiskManager         | [`0x9111E027ABB6269E7f1a10860b4DaA3f66054735`](https://arbiscan.io/address/0x9111E027ABB6269E7f1a10860b4DaA3f66054735) |
-| SwapModule 0        | [`0xCe50daADf0e3AaE397ad756Bf93650f9047818b4`](https://arbiscan.io/address/0xCe50daADf0e3AaE397ad756Bf93650f9047818b4) |
-| Subvault 0          | [`0x57B3997728bFa5c4D98937A234EB6005cdF68a60`](https://arbiscan.io/address/0x57B3997728bFa5c4D98937A234EB6005cdF68a60) |
-| Verifier 0          | [`0x7313484208310C60723ACB79739cb01121F00d03`](https://arbiscan.io/address/0x7313484208310C60723ACB79739cb01121F00d03) |
-| Timelock Controller | [`0xcA47d07A8044Bf93397fA0df7917c5E37968DFBD`](https://arbiscan.io/address/0xcA47d07A8044Bf93397fA0df7917c5E37968DFBD) |
+| Vault               | [`0x49DAb986A4288bE616f44733d56397d3410fD331`](https://plasmascan.to/address/0x49DAb986A4288bE616f44733d56397d3410fD331) |
+| Oracle              | [`0xdB8837c1946f28d9766d9CA7470160B663198DD9`](https://plasmascan.to/address/0xdB8837c1946f28d9766d9CA7470160B663198DD9) |
+| ShareManager        | [`0x906703a4e566D04828845b6C2918B1767E24752A`](https://plasmascan.to/address/0x906703a4e566D04828845b6C2918B1767E24752A) |
+| FeeManager          | [`0x4FD8e72bEA84dc3B947672E49734e457a196bbdb`](https://plasmascan.to/address/0x4FD8e72bEA84dc3B947672E49734e457a196bbdb) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://plasmascan.to/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| SwapModule 0        | [`0x351C5644D4d8502385b28Fe3Ef36B44C4b4cEb1c`](https://plasmascan.to/address/0x351C5644D4d8502385b28Fe3Ef36B44C4b4cEb1c) |
+| Subvault 0          | [`0xa11BE438F1961dB47F6660BDAF59b05C0200ADC5`](https://plasmascan.to/address/0xa11BE438F1961dB47F6660BDAF59b05C0200ADC5) |
+| Verifier 0          | [`0xeF886da65AA032ce51517a555540339d08effd83`](https://plasmascan.to/address/0xeF886da65AA032ce51517a555540339d08effd83) |
+| Subvault 1          | [`0xbaaE2F02d3a4f33eC164902e5A9E980Cb4c71afB`](https://plasmascan.to/address/0xbaaE2F02d3a4f33eC164902e5A9E980Cb4c71afB) |
+| Verifier 1          | [`0xDCa60DBDa06418dB843779486D61cc89208634DE`](https://plasmascan.to/address/0xDCa60DBDa06418dB843779486D61cc89208634DE) |
+| Timelock Controller | [`0xFC950F8C0064071a5D762783Cf726Fa0CC2722Fe`](https://plasmascan.to/address/0xFC950F8C0064071a5D762783Cf726Fa0CC2722Fe) |
+| OracleSubmitter     | [`0x9d84510ED5dA4adc6Be2726F6C27B3AD68fDAd92`](https://plasmascan.to/address/0x9d84510ED5dA4adc6Be2726F6C27B3AD68fDAd92) |
 
 ### earnUSDe – Mantle
 
 | Contract            | Address                                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Vault               | [`0x8e85760747F7280254575F4e911A7a2814Fc266E`](https://mantlescan.xyz/address/0x8e85760747F7280254575F4e911A7a2814Fc266E) |
-| Oracle              | [`0xE2aaefF18a0FA0389D6e5B64199727C21530b787`](https://mantlescan.xyz/address/0xE2aaefF18a0FA0389D6e5B64199727C21530b787) |
-| ShareManager        | [`0x134eA36E03b5e59dbddf2535084e342d84f2A043`](https://mantlescan.xyz/address/0x134eA36E03b5e59dbddf2535084e342d84f2A043) |
-| FeeManager          | [`0x038E3cc0FaE5092C92E87C6371d0Dc55357cd2E5`](https://mantlescan.xyz/address/0x038E3cc0FaE5092C92E87C6371d0Dc55357cd2E5) |
-| RiskManager         | [`0x9111E027ABB6269E7f1a10860b4DaA3f66054735`](https://mantlescan.xyz/address/0x9111E027ABB6269E7f1a10860b4DaA3f66054735) |
-| SwapModule 0        | [`0x8b3270b6bC2272126dD350944D17bcB23A32C624`](https://mantlescan.xyz/address/0x8b3270b6bC2272126dD350944D17bcB23A32C624) |
-| Subvault 0          | [`0xdF309792cb9feD4C453fA3B6aC0DDc5FBA8fa7f2`](https://mantlescan.xyz/address/0xdF309792cb9feD4C453fA3B6aC0DDc5FBA8fa7f2) |
-| Verifier 0          | [`0xcd0Aa7d031d37C85AB3b77478e2FF8A260a865a3`](https://mantlescan.xyz/address/0xcd0Aa7d031d37C85AB3b77478e2FF8A260a865a3) |
-| Timelock Controller | [`0xFb492a69ab7329a28180B55B0756b80d2f15c5b0`](https://mantlescan.xyz/address/0xFb492a69ab7329a28180B55B0756b80d2f15c5b0) |
+| Vault               | [`0xF9DD401ff0f806b71dE62a936c34B930d0876022`](https://mantlescan.xyz/address/0xF9DD401ff0f806b71dE62a936c34B930d0876022) |
+| Oracle              | [`0x6020b7dEa8df4C82Fe3EbD202FF76bcdbcBe12BA`](https://mantlescan.xyz/address/0x6020b7dEa8df4C82Fe3EbD202FF76bcdbcBe12BA) |
+| ShareManager        | [`0x266E1084a88c78D18D42152b6a29873F67F2B586`](https://mantlescan.xyz/address/0x266E1084a88c78D18D42152b6a29873F67F2B586) |
+| FeeManager          | [`0x25958e9965B76f0B3a7809FcCc934066Aa80A540`](https://mantlescan.xyz/address/0x25958e9965B76f0B3a7809FcCc934066Aa80A540) |
+| RiskManager         | [`0xc93f1B04CDEFB5C7F86f7F2f3df4CA26c5a098Ce`](https://mantlescan.xyz/address/0xc93f1B04CDEFB5C7F86f7F2f3df4CA26c5a098Ce) |
+| SwapModule 0        | [`0x72b4c5Dc7E7e26BD077d78D5417F0Bf5b86a00EA`](https://mantlescan.xyz/address/0x72b4c5Dc7E7e26BD077d78D5417F0Bf5b86a00EA) |
+| Subvault 0          | [`0x18b50CbAAf4C48855b29E548E4d0248C71A15392`](https://mantlescan.xyz/address/0x18b50CbAAf4C48855b29E548E4d0248C71A15392) |
+| Verifier 0          | [`0xd6d0cA0e4d5dE8df1BD3cb9c96E2ae1c473e9bf7`](https://mantlescan.xyz/address/0xd6d0cA0e4d5dE8df1BD3cb9c96E2ae1c473e9bf7) |
+| Timelock Controller | [`0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33`](https://mantlescan.xyz/address/0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33) |
+| OracleSubmitter     | [`0xbe580d9C5C24b0A06C19660c058937BB8434BBa5`](https://mantlescan.xyz/address/0xbe580d9C5C24b0A06C19660c058937BB8434BBa5) |
 
 ## Actors
 
