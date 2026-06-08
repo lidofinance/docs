@@ -52,6 +52,8 @@ toc_max_heading_level: 3
 | RiskManager             | [`0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4`](https://etherscan.io/address/0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4) |
 | Subvault 0              | [`0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd`](https://etherscan.io/address/0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd) |
 | Verifier 0              | [`0xB65A8E0937c77a76C3f4F86A1110f81A299CB481`](https://etherscan.io/address/0xB65A8E0937c77a76C3f4F86A1110f81A299CB481) |
+| Subvault 1              | [`0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242`](https://etherscan.io/address/0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242) |
+| Verifier 1              | [`0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36`](https://etherscan.io/address/0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36) |
 | Timelock Controller     | [`0xdA6Da82DFF8cD29D828e4775Cc003f504A968845`](https://etherscan.io/address/0xdA6Da82DFF8cD29D828e4775Cc003f504A968845) |
 | OracleSubmitter         | [`0xB105DaEeFEb1390ce49172c99E3e12C607367156`](https://etherscan.io/address/0xB105DaEeFEb1390ce49172c99E3e12C607367156) |
 
