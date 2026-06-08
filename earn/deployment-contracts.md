@@ -45,6 +45,7 @@ toc_max_heading_level: 3
 | RedeemQueue (USDC)      | [`0x9e36A74FE278906a76e7615263e46a83fC40c47F`](https://etherscan.io/address/0x9e36A74FE278906a76e7615263e46a83fC40c47F) |
 | DepositQueue (USDT)     | [`0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73`](https://etherscan.io/address/0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73) |
 | SyncDepositQueue (USDT) | [`0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9`](https://etherscan.io/address/0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9) |
+| DepositQueue (USDe)     | [`0xeEc37568b01e0C4d5028501A49E024B475E2D7cA`](https://etherscan.io/address/0xeEc37568b01e0C4d5028501A49E024B475E2D7cA) |
 | Oracle                  | [`0x827044735c9708a2cf850e7Ea37EBa43bc786028`](https://etherscan.io/address/0x827044735c9708a2cf850e7Ea37EBa43bc786028) |
 | ShareManager            | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) |
 | FeeManager              | [`0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc`](https://etherscan.io/address/0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc) |
