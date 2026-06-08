@@ -91,7 +91,7 @@ toc_max_heading_level: 3
 | Timelock Controller | [`0x0555306F5063f62a3A7896A9eaBA0754c1185a67`](https://basescan.org/address/0x0555306F5063f62a3A7896A9eaBA0754c1185a67) |
 | OracleSubmitter     | [`0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0`](https://basescan.org/address/0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0) |
 
-## [Proposed] earnUSDe – Operational Experimental
+## earnUSDe – Operational Experimental
 
 ### earnUSDe – Ethereum
 
