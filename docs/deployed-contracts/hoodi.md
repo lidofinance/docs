@@ -263,11 +263,9 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - StakeTracker: [`0x61979De8742542C8F79A656F878bb3BfdA21093A`](https://hoodi.etherscan.io/address/0x61979De8742542C8F79A656F878bb3BfdA21093A)
   - WithdrawnValidatorLib: [`0x067937EA5aA29784E6b26de566981B95Eadf5D8c`](https://hoodi.etherscan.io/address/0x067937EA5aA29784E6b26de566981B95Eadf5D8c)
 
-<!--
-## DAO-ops contracts & addresses
 
-==TODO==
--->
+## DAO-ops contracts & addresses
+- Token Reward Program (TRP) VestingEscrowFactory: [`0xB50880Fe9aC6f8875de551D4C621024Bd7587259`](https://hoodi.etherscan.io/address/0xB50880Fe9aC6f8875de551D4C621024Bd7587259)
 
 ## ⚡ Easy Track {#easy-track}
 
