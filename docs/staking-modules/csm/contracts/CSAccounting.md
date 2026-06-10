@@ -1,6 +1,6 @@
 # CSAccounting
 
-- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/CSAccounting.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v2.0/src/CSAccounting.sol)
 - [Deployed contract](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da)
 
 `CSAccounting.sol` is a supplementary contract responsible for the management of bond, rewards, and penalties. It stores bond tokens as `stETH` shares, provides information about the bond required, and provides interfaces for the penalties. Node Operators claim rewards and top-up bonds using this contract.
