@@ -121,6 +121,28 @@ This page lists production contract addresses on mainnets, including Ethereum an
   - Ethereum Ecosystem Sub Committee [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 - Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
 
+## 🔌 CircuitBreaker \[Proposed\] {#circuit-breaker}
+
+- CircuitBreaker: [`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7)
+
+### Covered pausables and their pausers
+
+Each pausable contract below is proposed to be covered by the CircuitBreaker, with a designated pauser authorized to trigger a pause. Pauser assignments are pending DAO approval ([LIP-34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md)); until then, the existing [GateSeals](#dao-contracts) remain the active emergency-pause mechanism. The proposed pausers are the same multisigs that currently operate the GateSeals: the **CircuitBreaker Committee** (listed as [GateSeal Committee](#emergency-brakes-multisigs) until the migration completes) for core protocol pausables, and the **CSM Committee** (listed as [Community Staking Module Committee](#committees)) for CSM pausables.
+
+| Pausable | Pauser |
+| --- | --- |
+| [Withdrawal Queue ERC721](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Validators Exit Bus Oracle](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Triggerable Withdrawals Gateway](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Vault Hub](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Predeposit Guarantee](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [CSModule](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSAccounting](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSFeeOracle](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSVerifier](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSEjector](https://etherscan.io/address/0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [VettedGate (IdentifiedCommunityStakersGate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+
 ## 📊 Data Bus {#data-bus}
 
 - DataBus on Gnosis Chain: [`0x37De961D6bb5865867aDd416be07189D2Dd960e6`](https://gnosis.blockscout.com/address/0x37De961D6bb5865867aDd416be07189D2Dd960e6)
