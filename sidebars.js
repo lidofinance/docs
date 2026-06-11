@@ -73,6 +73,8 @@ module.exports = {
             'guides/kapi-guide',
             'guides/reward-distributor-bot',
             'guides/depositor-bot',
+            'guides/late-prover-bot',
+            'guides/validator-exit-bot',
           ],
         },
         'guides/protocol-levers',
