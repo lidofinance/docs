@@ -309,7 +309,7 @@ function pause(address _pausable) external;
 The target must implement the minimal `IPausable` interface that CircuitBreaker calls into:
 
 ```solidity
-interface IPausable {
+interface IPausableUntil {
     function isPaused() external view returns (bool);
     function pauseFor(uint256 _duration) external;
 }
