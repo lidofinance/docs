@@ -32,7 +32,7 @@ It is operated by committees, multisig accounts authorized to pull the brake in 
 
 ### Roles
 
-- **`ADMIN`** — immutable address, the DAO Agent. Configures the registry and controls the pause duration and heartbeat interval.
+- **Admin** — an immutable address, the DAO Agent. Configures the registry and controls the pause duration and heartbeat interval.
 - **Pauser** — a multisig committee assigned to one or more pausables. Can pause any pausable it is registered for, and must periodically call `heartbeat()` to remain authorized.
 
 ### Immutable bounds and current values
