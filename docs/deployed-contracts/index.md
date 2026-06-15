@@ -641,13 +641,13 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
   - V3 Temporary Admin: [`0xf738A2C7d69694B618dbB547C1c5A152D7958f06`](https://etherscan.io/address/0xf738A2C7d69694B618dbB547C1c5A152D7958f06)
   - V3 Template: [`0x34E01ecFebd403370b0879C628f8A5319dDb8507`](https://etherscan.io/address/0x34E01ecFebd403370b0879C628f8A5319dDb8507)
   - V3 Vote Script: [`0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442`](https://etherscan.io/address/0xE1F4c16908fCE6935b5Ad38C6e3d58830fe86442)
-- ZkSync Era:
+- zkSync Era:
   - L1Executor: [`0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2`](https://etherscan.io/address/0xFf7F4d05e3247374e86A3f7231A2Ed1CA63647F2) (proxy)
   - L1Executor: [`0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B`](https://etherscan.io/address/0x06185d60eD72a91D1367Eb0733B9d20AE7336D3B) (impl)
   - L1ERC20Bridge: [`0x41527B2d03844dB6b0945f25702cB958b6d55989`](https://etherscan.io/address/0x41527B2d03844dB6b0945f25702cB958b6d55989) (proxy)
   - L1ERC20Bridge: [`0x43a66b32c9adca1a59b273e69b61da5197c21ccd`](https://etherscan.io/address/0x43a66b32c9adca1a59b273e69b61da5197c21ccd) (impl)
-  - ZkSync Governance Bridge Executor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
-  - ZkSync Governance Bridge Executor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
+  - zkSync Governance Bridge Executor: [`0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c`](https://explorer.zksync.io/address/0x139EE25DCad405d2a038E7A67f9ffdbf0f573f3c) (proxy)
+  - zkSync Governance Bridge Executor: [`0x13f46b59067f064c634fb17e207ed203916dccc8`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8) (impl)
   - L2ERC20Bridge: [`0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B`](https://explorer.zksync.io/address/0xE1D6A50E7101c8f8db77352897Ee3f1AC53f782B) (proxy)
   - L2ERC20Bridge: [`0x64Ee90B086c99fD3439354f382Fef25229A01F02`](https://explorer.zksync.io/address/0x64Ee90B086c99fD3439354f382Fef25229A01F02) (impl)
   - ERC20BridgedUpgradeable: [`0x703b52F2b28fEbcB60E1372858AF5b18849FE867`](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867) (proxy)
