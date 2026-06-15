@@ -86,7 +86,7 @@ CircuitBreaker does not verify at registration time that a pausable implements t
 
 The set of pausables and their assigned pausers is maintained by the DAO. See the deployed-contracts pages for the current registry on each network:
 
-- [Mainnet deployments](/deployed-contracts/) #TODO
+- [Mainnet deployments — CircuitBreaker](/deployed-contracts/#circuit-breaker)
 - [Hoodi deployments — CircuitBreaker](/deployed-contracts/hoodi#circuit-breaker)
 
 ## View Methods
