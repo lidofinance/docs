@@ -94,7 +94,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Node Operators Registry Repo: [`0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831`](https://etherscan.io/address/0x0D97E876ad14DB2b183CFeEB8aa1A5C788eB1831) (proxy)
 - Simple DVT Repo: [`0x2325b0a607808dE42D918DB07F925FFcCfBb2968`](https://etherscan.io/address/0x2325b0a607808dE42D918DB07F925FFcCfBb2968) (proxy)
 - Insurance Fund: [`0x8B3f33234ABD88493c0Cd28De33D583B70beDe35`](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
-- GateSeals:
+- GateSeals: \[[proposed to remove](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400)\]
   - Blueprint: [`0xEe06EA501f7d9DC6F4200385A8D910182D155d3e`](https://etherscan.io/address/0xEe06EA501f7d9DC6F4200385A8D910182D155d3e)
   - Factory: [`0x6c82877cac5a7a739f16ca0a89c0a328b8764a24`](https://etherscan.io/address/0x6c82877cac5a7a739f16ca0a89c0a328b8764a24)
   - GateSeal (VEB and TWG): [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1)
@@ -121,7 +121,9 @@ This page lists production contract addresses on mainnets, including Ethereum an
   - Ethereum Ecosystem Sub Committee [`0xBF048f2111497B6Df5E062811f5fC422804D4baE`](https://etherscan.io/address/0xBF048f2111497B6Df5E062811f5fC422804D4baE)
 - Time Constraints: [`0x2a30F5aC03187674553024296bed35Aa49749DDa`](https://etherscan.io/address/0x2a30F5aC03187674553024296bed35Aa49749DDa)
 
-## 🔌 CircuitBreaker \[Proposed\] {#circuit-breaker}
+## 🔌 CircuitBreaker {#circuit-breaker}
+
+[Proposed in CircuitBreaker: Programmable Panic Layer](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400).
 
 - CircuitBreaker: [`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7)
 
@@ -181,7 +183,7 @@ Each pausable contract below is proposed to be covered by the CircuitBreaker, wi
 - CSFeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
 - CSFeeDistributor: [`0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1`](https://etherscan.io/address/0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1) (impl)
 - CSVerifier: [`0xdC5FE1782B6943f318E05230d688713a560063DC`](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC)
-- CS GateSeal: [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3)
+- CS GateSeal: [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) \[[proposed to remove](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400)\]
 - CSFeeOracle:
   - CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
   - CSFeeOracle: [`0xe0B234f99E413E27D9Bc31aBba9A49A3e570Da97`](https://etherscan.io/address/0xe0B234f99E413E27D9Bc31aBba9A49A3e570Da97) (impl)
@@ -397,7 +399,7 @@ for the rate and price feeds recommended approaches.
 
 ### 🛑 Emergency Brakes Multisigs {#emergency-brakes-multisigs}
 
-- GateSeal Committee: [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/settings/setup?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
+- GateSeal Committee: [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/settings/setup?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) \[[proposed to rename to CircuitBreaker Committee](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400#p-24944-proposed-committees-6)\]
 - Ethereum: [`0x73b047fe6337183A454c5217241D780a932777bD`](https://app.safe.global/settings/setup?safe=eth:0x73b047fe6337183A454c5217241D780a932777bD)
 - Optimism: [`0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088`](https://app.safe.global/settings/setup?safe=oeth:0x4Cf8fE0A4c2539F7EFDD2047d8A5D46F14613088)
 - Arbitrum: [`0xfDCf209A213a0b3C403d543F87E74FCbcA11de34`](https://app.safe.global/settings/setup?safe=arb1:0xfDCf209A213a0b3C403d543F87E74FCbcA11de34)

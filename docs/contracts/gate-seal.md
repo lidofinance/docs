@@ -1,7 +1,7 @@
 # GateSeal
 
 :::warning
-GateSeals are proposed to be deprecated and replaced by [CircuitBreaker](/contracts/circuit-breaker) ([LIP-34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md)).
+GateSeals are proposed to be deprecated and replaced by [CircuitBreaker](/contracts/circuit-breaker) ([forum discussion](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400), [LIP-34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md)).
 :::
 
 A one-time panic button for pausable contracts.

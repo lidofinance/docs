@@ -1,5 +1,7 @@
 # CircuitBreaker
 
+[Proposed in CircuitBreaker: Programmable Panic Layer](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400).
+
 An emergency-pause layer for Lido protocol contracts.
 
 | Network | Address                                                                                                                       |
