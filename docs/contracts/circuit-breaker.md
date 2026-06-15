@@ -334,7 +334,7 @@ Reverts if any of the following is true:
 
 - caller is not the registered pauser of `_pausable` (`SenderNotPauser`)
 - caller's heartbeat has expired (`HeartbeatExpired`)
-- `pauseFor()` succeeded but the target does not report itself paused (`PauseFailed`)
+- the target does not report itself paused after `pauseFor()` call (`PauseFailed`)
 - the call reentered (`ReentrantCall`)
 :::
 
