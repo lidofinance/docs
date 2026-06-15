@@ -2,6 +2,8 @@
 
 ## 1.1 GateSeal Committee
 
+\[[proposed to rename to CircuitBreaker Committee](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400#p-24944-proposed-committees-6)\]
+
 **Address:** [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/settings/setup?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 
 **Purpose of the multisig:** The GateSeal Committee is authorized to trigger designated GateSeal contracts to pause selected core protocol sealable smart contracts for a limited period. The pause right is single-use and automatically expires on the respective GateSeal expiration date. The full list of GateSeal contracts is provided [here](/contracts/gate-seal/).
