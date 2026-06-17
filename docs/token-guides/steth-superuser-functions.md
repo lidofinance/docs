@@ -75,7 +75,7 @@ Burning is routed through the [Burner](/contracts/burner) contract ([`0xE76c5275
 
 - Withdrawal finalization (burning stETH to release ETH)
 - Covering slashing penalties
-- DAO-directed burns (e.g., insurance fund operations)
+- DAO-directed burns (e.g., reserve fund operations)
 
 ## Staking limits
 

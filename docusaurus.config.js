@@ -108,6 +108,10 @@ module.exports = async function createConfigAsync() {
         {
           redirects: [
             {
+              to: '/contracts/reserve',
+              from: '/contracts/insurance',
+            },
+            {
               to: '/guides/lido-tokens-integration-guide',
               from: '/guides/steth-integration-guide',
             },

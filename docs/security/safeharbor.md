@@ -30,7 +30,7 @@ On-chain Safe Harbor Agreement Contract can be found at **0xe19f54e8322214839a87
 - **Aggregate Cap (USD)**: $2,000,000 (*the maximum total bounty payout across all Whitehats for a single incident; bounties will be distributed pro rata)*
 - **Retainable**: False (*Whitehats are required to return all recovered funds to the protocol, which will then pay out the bounty after verification).*
     The compensation for Whitehats will be distributed via a dedicated Lido DAO governance vote, once the vulnerability is resolved and malicious actions are stopped.
-    It’s recommended to issue such payout using Insurance Fund assets.
+    It’s recommended to issue such payout using Reserve Fund assets.
 - **Identity**: Anonymous (*by default, Whitehats are allowed to remain anonymous and are not required to provide any information about themselves to the protocol, except in cases where we reasonably expect that a Whitehat might be in breach of the Diligence Requirements, see the Diligence Requirements section below).*
 - **Diligence Requirements:**
     As a condition to eligibility for any bounty under the Safe Harbor program, a Whitehat represents, warrants, and covenants that they:
