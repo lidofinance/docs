@@ -723,7 +723,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Statemind%20TR
 
 See [full report](https://github.com/lidofinance/audits/blob/main/Statemind%20MEV-Boost%20relay%20allowlist%20Security%20Audit%20Report%2009-2022.pdf) for more details.
 
-### 09-2022 Statemind Insurance Fund Audit Report
+### 09-2022 Statemind Reserve Fund Audit Report
 
 - Total Issues: 4 (1 Fixed, 3 Acknowledged)
 - Critical Issues: 0
@@ -731,7 +731,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Statemind%20ME
 - Medium Issues: 0
 - Informational Issues: 4 (1 Fixed, 3 Acknowledged)
 
-See [full report](https://github.com/lidofinance/audits/blob/main/Statemind%20Insurance%20Fund%20Audit%20Report%2009-2022.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/Statemind%20Reserve%20Fund%20Audit%20Report%2009-2022.pdf) for more details.
 
 ### 09-2022 Statemind Easy Track Payment Processor with limits
 

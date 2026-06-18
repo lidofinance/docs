@@ -260,7 +260,7 @@ Bad debt is resolved through an escalation path:
 
 1. **Vault replenishment**: Voluntary deposit of additional funds to cover the debt
 2. **Bad debt socialization**: DAO-initiated shifting of uncovered liability to other vaults operated by the same node operator. The accepting vault must have sufficient capacity to absorb the extra liability without breaching its own health threshold. This keeps the operator responsible for all their vaults rather than isolating losses
-3. **Self-coverage application**: DAO-initiated insurance or coverage application mechanisms
+3. **Self-coverage application**: DAO-initiated reserve or coverage application mechanisms
 4. **Bad debt internalization**: As a last resort, Lido DAO is able to write off the vault's remaining bad debt and accept losses to the protocol by decreasing stETH token rebase.
 
 ### 3.3 LazyOracle
