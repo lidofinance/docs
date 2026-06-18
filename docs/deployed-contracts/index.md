@@ -710,7 +710,7 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
   - Soneium Governance Bridge Executor: [`0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4`](https://soneium.blockscout.com/address/0xB0F7894b3740F68eAca6e3792B14d2C2c25eF5D4)
 - Polygon PoS:
   - ERC20Predicate: [`0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf`](https://etherscan.io/address/0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf) (proxy)
-  - ERC20Predicate: [`0xB1fd4ae726c64A793588001EB465c46BD1BdF1cB`](https://etherscan.io/address/0xB1fd4ae726c64A793588001EB465c46BD1BdF1cB) (impl)
+  - ERC20Predicate: [`0x1F4c1E0aFbeB5B5b86D7722549274434B29884F6`](https://etherscan.io/address/0x1F4c1E0aFbeB5B5b86D7722549274434B29884F6) (impl)
   - WstETH UChildERC20: [`0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD`](https://polygonscan.com/address/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd) (proxy)
   - WstETH UChildERC20: [`0x60991ccaE8f1420B43bf14937a2c9F69162BE21A`](https://polygonscan.com/address/0x60991ccaE8f1420B43bf14937a2c9F69162BE21A) (impl)
 - Lisk:
