@@ -150,7 +150,7 @@ module.exports = {
         'contracts/trp-vesting-escrow',
         'contracts/gate-seal',
         'contracts/circuit-breaker',
-        'contracts/insurance',
+        'contracts/reserve',
         'contracts/ossifiable-proxy'
       ],
     },

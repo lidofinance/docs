@@ -10,7 +10,7 @@ The DAO is the logical compromise between full centralization and decentralisati
 - DAO will be able to cover the costs of developing and upgrading the protocol from the DAO token treasury.
 - And other management activities as well if there is a technical ability
 
-The DAO will accumulate service fees from Lido, which is funnelled into the insurance and development funds, distributed by the DAO.
+The DAO will accumulate service fees from Lido, which is funnelled into the reserve and development funds, distributed by the DAO.
 
 ## Functions
 
@@ -20,7 +20,7 @@ Lido is managed by the Lido DAO. The DAO members govern Lido to ensure its effic
 - Approve LEGO grants to support different research and so initiatives protocol guilds
 - Payments to full-time contributors and other operational duties
 - Bug bounty program, respond to emergency
-- Accumulation of service fees from Lido, which can be funnelled into the insurance and development funds, distributed by the DAO.
+- Accumulation of service fees from Lido, which can be funnelled into the reserve and development funds, distributed by the DAO.
 
 
 ## Governance

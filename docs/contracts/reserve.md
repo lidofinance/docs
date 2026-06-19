@@ -1,14 +1,14 @@
-# InsuranceFund
+# ReserveFund
 
 - [Source code](https://github.com/lidofinance/insurance-fund/blob/main/contracts/InsuranceFund.sol)
 - [Deployed contract](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - [LIP-18](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-18.md)
 
-The Lido Insurance Fund is a vault contract that serves as a simple transparent store for funds allocated for self-insurance purposes.
+The Lido Reserve Fund is a vault contract that serves as a simple transparent store for funds allocated for self-cover purposes.
 
 ## Mechanics
 
-The Insurance Fund is a simple vault that inherits OpenZeppelin's [Ownable](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.7.3/contracts/access/Ownable.sol) and allows the owner to transfer ether, ERC20, ERC721, ERC1155 tokens from the contract. The owner, which will the Lido DAO Agent, can transfer ownership to another entity with an exception of [zero address](https://etherscan.io/address/0x0000000000000000000000000000000000000000).
+The Reserve Fund is a simple vault that inherits OpenZeppelin's [Ownable](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.7.3/contracts/access/Ownable.sol) and allows the owner to transfer ether, ERC20, ERC721, ERC1155 tokens from the contract. The owner, which will the Lido DAO Agent, can transfer ownership to another entity with an exception of [zero address](https://etherscan.io/address/0x0000000000000000000000000000000000000000).
 
 ## View methods
 
