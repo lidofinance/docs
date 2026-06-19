@@ -4,7 +4,7 @@
 - [Deployed contract](https://etherscan.io/address/0x8B3f33234ABD88493c0Cd28De33D583B70beDe35)
 - [LIP-18](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-18.md)
 
-The Lido Reserve Fund is a vault contract that serves as a simple transparent store for funds allocated for self-insurance purposes.
+The Lido Reserve Fund is a vault contract that serves as a simple transparent store for funds allocated for self-cover purposes.
 
 ## Mechanics
 
