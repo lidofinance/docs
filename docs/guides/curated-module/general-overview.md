@@ -62,8 +62,7 @@ protocol fee which is taken by [minting new stETH tokens] to the fee recipients.
 
 > For example, if the reward has increased the total amount of protocol-controlled ether by `10%`,
 > and the total protocol fee percentage is `10%`, then each token holder’s balance will grow by
-> approximately `9.09%`, and `10%` of the reward will be forwarded to the treasury, reserve fund
-> and Node Operators.
+> approximately `9.09%`, and `10%` of the reward will be forwarded to the Lido DAO treasury and Node Operators.
 
 One side effect of this is that you, as a Node Operator, will continue receiving the percentage
 of protocol rewards even after you stop actively validating, if you chose to hold stETH received
