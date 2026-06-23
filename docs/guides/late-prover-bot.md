@@ -31,19 +31,7 @@ Required variables are (mainnet):
 | `CL_API_URLS` | - | Comma-separated list of CL Beacon API endpoints |
 | `LIDO_LOCATOR_ADDRESS` | - | Lido Locator contract address. Addresses for each network can be found [here](/deployed-contracts/) |
 | `TX_SIGNER_PRIVATE_KEY` | - | Private key used to sign and submit transactions. Not required when `DRY_RUN=true` |
-| --- | --- | --- |
 | `DRY_RUN` | `false` | If `true`, proofs are generated but transactions are not sent |
-| `DAEMON_SLEEP_INTERVAL_MS` | `300000` | Sleep interval between daemon cycles (ms) |
-| `TX_GAS_LIMIT` | `2000000` | Hard gas limit for transactions. Increase if processing large batches |
-| `VALIDATOR_BATCH_SIZE` | `50` | Maximum number of validators per transaction |
-| `TX_MIN_GAS_PRIORITY_FEE` | `50000000` | Minimum priority fee (wei) |
-| `TX_MAX_GAS_PRIORITY_FEE` | `10000000000` | Maximum priority fee (wei) |
-| `TX_GAS_PRIORITY_FEE_PERCENTILE` | `25` | Priority fee percentile from the last block's fee history |
-| `TX_GAS_FEE_HISTORY_DAYS` | `1` | Days of gas fee history used for base fee estimation |
-| `TX_GAS_FEE_HISTORY_PERCENTILE` | `50` | Percentile for base fee estimation |
-| `HTTP_PORT` | `8080` | Port for health check and Prometheus metrics endpoints |
-| `LOG_LEVEL` | `info` | Log level: `debug`, `info`, `warn`, `error` |
-| `LOG_FORMAT` | `simple` | Log format: `simple` or `json` |
 
 Optional variables can be found [here](https://github.com/lidofinance/late-prover-bot#readme).
 
