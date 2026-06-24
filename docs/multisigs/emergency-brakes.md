@@ -1,16 +1,15 @@
 # Emergency Brakes
 
-## 1.1 GateSeal Committee
-
-\[[proposed to rename to CircuitBreaker Committee](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400#p-24944-proposed-committees-6)\]
+## 1.1 CircuitBreaker Committee
 
 **Address:** [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://app.safe.global/settings/setup?safe=eth:0x8772E3a2D86B9347A2688f9bc1808A6d8917760C)
 
-**Purpose of the multisig:** The GateSeal Committee is authorized to trigger designated GateSeal contracts to pause selected core protocol sealable smart contracts for a limited period. The pause right is single-use and automatically expires on the respective GateSeal expiration date. The full list of GateSeal contracts is provided [here](/contracts/gate-seal/).
+**Purpose of the multisig:** The CircuitBreaker Committee is a pauser registered on the [CircuitBreaker](/contracts/circuit-breaker), authorized to pause designated core protocol contracts for a bounded duration in an emergency, without waiting for a DAO vote. The pause right is single-use per contract: after a successful pause the committee is unregistered from that contract and must be re-assigned by a DAO vote. The committee must periodically send a heartbeat to remain authorized. The full list of contracts it can pause is provided under [CircuitBreaker covered pausables](/deployed-contracts/#circuit-breaker).
 
 **Quorum:** 3/6
 
 **Forum topic:**\
+[CircuitBreaker: Programmable Panic Layer](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400)\
 [Lido V2 GateSeal Committee](https://research.lido.fi/t/lido-v2-gateseal-committee/4561)
 
 **Snapshots:**\
@@ -24,8 +23,8 @@
 
 **Contracts and Roles:**
 
-###### GateSeal (ValidatorExitBus and TriggerableWithdrawalsGateway) [`0xA6BC802fAa064414AA62117B4a53D27fFfF741F1`](https://etherscan.io/address/0xA6BC802fAa064414AA62117B4a53D27fFfF741F1), GateSeal (WithdrawalQueue) [`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912) and GateSeal (VaultHub and PredepositGuarantee (PDG)) [`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)
-* Sealing Committee
+###### CircuitBreaker [`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7)
+* Pauser for [Withdrawal Queue ERC721](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1), [Validators Exit Bus Oracle](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e), [Triggerable Withdrawals Gateway](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B), [Vault Hub](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709), and [Predeposit Guarantee](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3)
 
 **List of signers:**
 

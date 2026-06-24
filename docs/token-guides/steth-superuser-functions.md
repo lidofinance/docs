@@ -40,8 +40,8 @@ Control is governed by the Lido DAO. Roles are assigned to DAO-owned contracts o
 | Entity             | Address                                                                                                                 | Description                                                                              |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | DAO Agent          | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) | Holds most admin roles; executes DAO votes                                               |
-| GateSeal Committee \[[proposed to rename to CircuitBreaker Committee](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400#p-24944-proposed-committees-6)\] | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer for GateSeal                                                      |
-| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension authority for GateSeal-paused apps under DualGovernance veto escalations |
+| CircuitBreaker Committee | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer via the CircuitBreaker                                                      |
+| Reseal Manager     | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension authority for CircuitBreaker-paused apps under DualGovernance veto escalations |
 
 All protocol proxy admins are set to the Lido DAO Agent.
 
@@ -56,11 +56,11 @@ All protocol proxy admins are set to the Lido DAO Agent.
 
 **Mutators**: `stop()`, `resume()` on [Lido](/contracts/lido)
 
-### Emergency pause via GateSeal
+### Emergency pause via CircuitBreaker
 
-The GateSeal mechanism allows emergency pausing without a full DAO vote. The GateSeal Committee can trigger a time-limited pause (up to 14 days). The Reseal Manager holds both the pause and resume role for GateSeal-paused contracts to effectively prolong the pause if needed under certain DualGovernance veto conditions.
+The [CircuitBreaker](/contracts/circuit-breaker) allows emergency pausing without a full DAO vote. The CircuitBreaker Committee can trigger a time-limited pause of designated core protocol contracts. The Reseal Manager holds both the pause and resume role for these contracts to effectively prolong the pause if needed under certain DualGovernance veto conditions.
 
-For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal).
+For the current set of covered contracts and their pausers, see the [CircuitBreaker covered pausables](/deployed-contracts/#circuit-breaker).
 
 ## Burning stETH
 
