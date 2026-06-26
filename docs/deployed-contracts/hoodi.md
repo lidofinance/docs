@@ -73,7 +73,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 
 - Accounting Oracle:
   - AccountingOracle: [`0xcb883B1bD0a41512b42D2dB267F2A2cd919FB216`](https://hoodi.etherscan.io/address/0xcb883B1bD0a41512b42D2dB267F2A2cd919FB216) (proxy)
-  - AccountingOracle: [`0xfdF72d92B55555B02e89D61177D5138B144815dE`](https://hoodi.etherscan.io/address/0xfdF72d92B55555B02e89D61177D5138B144815dE) (impl)
+  - AccountingOracle: [`0xD00dD90651f031ED3158Cf75AC6e4361B4CCcBD8`](https://hoodi.etherscan.io/address/0xD00dD90651f031ED3158Cf75AC6e4361B4CCcBD8) (impl)
   - HashConsensus: [`0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC`](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC)
 - Validators Exit Bus Oracle (Validator Exit Bus):
   - ValidatorsExitBusOracle: [`0x8664d394C2B3278F26A1B44B967aEf99707eeAB2`](https://hoodi.etherscan.io/address/0x8664d394C2B3278F26A1B44B967aEf99707eeAB2) (proxy)
