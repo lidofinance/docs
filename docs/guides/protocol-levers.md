@@ -12,8 +12,8 @@ Lido V3 governance controls a set of configurable parameters across core pool, o
 | Easy Track                    | [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea) | Optimistic governance for routine operations                                                       |
 | Easy Track EVMScript Executor | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977) | Executes Easy Track motions                                                                        |
 | Vaults Adapter                | [`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27) | stVaults adapter that holds VaultHub/OperatorGrid roles                                            |
-| GateSeal Committee            | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer for GateSeal contracts \[[proposed to rename to CircuitBreaker Committee](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400#p-24944-proposed-committees-6)\]                                                      |
-| Reseal Manager                | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension authority for GateSeal-paused contracts under DualGovernance veto escalated states |
+| CircuitBreaker Committee      | [`0x8772E3a2D86B9347A2688f9bc1808A6d8917760C`](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) | Emergency pause signer via the CircuitBreaker                                                      |
+| Reseal Manager                | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) | Pause extension authority for CircuitBreaker-paused contracts under DualGovernance veto escalated states |
 
 ## Upgradeability
 
@@ -71,11 +71,11 @@ Roles marked as unassigned are intentionally left without holders. The DAO can a
 
 ### Emergency pause
 
-The GateSeal mechanism allows emergency pausing without a full DAO vote. GateSeal contracts can temporarily pause protected apps, while the Reseal Manager holds both the `PAUSE_ROLE` and `RESUME_ROLE` for pause extension.
+The [CircuitBreaker](/contracts/circuit-breaker) allows emergency pausing without a full DAO vote. It can temporarily pause registered contracts, while the Reseal Manager holds both the `PAUSE_ROLE` and `RESUME_ROLE` for pause extension.
 
-For current GateSeal contracts and protected apps, see the [GateSeal registry](/contracts/gate-seal/).
+For the current set of covered contracts and their pausers, see the [CircuitBreaker covered pausables](/deployed-contracts/#circuit-breaker).
 
-GateSeal pauses are time-limited; the Reseal Manager can extend a seal window, and resuming requires a DAO vote that unpauses the app.
+CircuitBreaker pauses are time-limited; the Reseal Manager can extend a pause window, and resuming requires a DAO vote that unpauses the app.
 
 ## Accounting and oracles
 
@@ -121,7 +121,7 @@ Key levers on [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721/) ([`0x
 
 | Lever       | Mutators           | Role          | Role registry         | Role admin   | Holder                                                                                                                                                                                                                                                                                        |
 | ----------- | ------------------ | ------------- | --------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pause       | `pauseFor()`       | `PAUSE_ROLE`  | WithdrawalQueueERC721 | Aragon Agent | GateSeal Withdrawal Queue ([`0x8A854C4E750CDf24f138f34A9061b2f556066912`](https://etherscan.io/address/0x8A854C4E750CDf24f138f34A9061b2f556066912)), Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
+| Pause       | `pauseFor()`       | `PAUSE_ROLE`  | WithdrawalQueueERC721 | Aragon Agent | CircuitBreaker ([`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7)), Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
 | Resume      | `resume()`         | `RESUME_ROLE` | WithdrawalQueueERC721 | Aragon Agent | Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24))                                                                                                                                                      |
 | Bunker mode | `onOracleReport()` | `ORACLE_ROLE` | WithdrawalQueueERC721 | Aragon Agent | AccountingOracle ([`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee))                                                                                                                                                    |
 
@@ -137,7 +137,7 @@ Key levers on [VaultHub](/contracts/vault-hub/) ([`0x1d201BE093d847f6446530Efb0E
 | Redemptions       | `setLiabilitySharesTarget()`                           | `REDEMPTION_MASTER_ROLE` | VaultHub      | Aragon Agent | Unassigned                                                                                                                                                                                                                                                                                |
 | Bad debt handling | `socializeBadDebt()`, `internalizeBadDebt()`           | `BAD_DEBT_MASTER_ROLE`   | VaultHub      | Aragon Agent | Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27))                                                                                                                                                  |
 | Forced exits      | `forceValidatorExit()`                                 | `VALIDATOR_EXIT_ROLE`    | VaultHub      | Aragon Agent | Vaults Adapter ([`0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27`](https://etherscan.io/address/0x28F9Ac198C4E0FA6A9Ad2c2f97CB38F1A3120f27))                                                                                                                                                  |
-| Pause             | `pauseFor()`                                           | `PAUSE_ROLE`             | VaultHub      | Aragon Agent | GateSeal VaultHub+PDG ([`0x881dAd714679A6FeaA636446A0499101375A365c`](https://etherscan.io/address/0x881dAd714679A6FeaA636446A0499101375A365c)), Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
+| Pause             | `pauseFor()`                                           | `PAUSE_ROLE`             | VaultHub      | Aragon Agent | CircuitBreaker ([`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7)), Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24)) |
 | Resume            | `resume()`                                             | `RESUME_ROLE`            | VaultHub      | Aragon Agent | Reseal Manager ([`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24))                                                                                                                                                  |
 
 ### OperatorGrid

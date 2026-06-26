@@ -163,6 +163,10 @@ module.exports = async function createConfigAsync() {
               to: '/earn',
               from: '/earn/introduction',
             },
+            {
+              to: '/contracts/circuit-breaker',
+              from: '/contracts/gate-seal',
+            },
           ],
         },
       ],
