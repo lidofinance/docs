@@ -8,7 +8,7 @@
 
 **Quorum:** 3/6
 
-**Forum topic:**\
+**Forum topics:**\
 [CircuitBreaker: Programmable Panic Layer](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400)\
 [Lido V2 GateSeal Committee](https://research.lido.fi/t/lido-v2-gateseal-committee/4561)
 
