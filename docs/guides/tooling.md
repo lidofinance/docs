@@ -9,7 +9,7 @@ Oracle daemon for Lido decentralized staking service.
 - **Version**: 8.0.1
 - **Docker image**: sha256:2110bbd1de37b38ddb4be347b51e98868b144eb57c7e80c20b5a7f6270067c1d, [lidofinance/oracle@sha256-2110bbd1de37b38ddb4be347b51e98868b144eb57c7e80c20b5a7f6270067c1d](https://hub.docker.com/layers/lidofinance/oracle/8.0.1/images/sha256-2110bbd1de37b38ddb4be347b51e98868b144eb57c7e80c20b5a7f6270067c1d)
 - **Commit hash**: [lidofinance/lido-oracle@0da5606](https://github.com/lidofinance/lido-oracle/commit/0da56064d7f1a24d951e3f0c35b56443fb245742)
-- **Last update date**: 24 June 2026
+- **Last update date**: 24 June, 2026
 - [**Repository**](https://github.com/lidofinance/lido-oracle/tree/8.0.1)
 - [**Documentation**](/guides/oracle-operator-manual/)
 - [**Audit Report for v8.0.1 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8%20Audit%20Report.pdf)
