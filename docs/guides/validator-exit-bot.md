@@ -29,7 +29,7 @@ Required variables are (mainnet):
 | `WEB3_RPC_ENDPOINTS` | - | Comma-separated list of EL RPC endpoints |
 | `CONSENSUS_CLIENT_URL` | - | CL Beacon API endpoint |
 | `WALLET_PRIVATE_KEY` | - | Private key used to send transactions. Omit to run in dry mode (no transactions sent) |
-| `LIDO_LOCATOR` | `0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb` | Lido Locator address. Other networks can be found [here](/deployed-contracts/) |
+| `LIDO_LOCATOR` | `0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb` | Lido Locator address for Ethereum mainnet. Addresses for other supported networks can be found [here](/deployed-contracts/) |
 | `DRY_RUN` | `false` | If `true`, transactions are built but not submitted |
 
 Optional variables can be found [here](https://github.com/lidofinance/validator-exit-bot#readme).

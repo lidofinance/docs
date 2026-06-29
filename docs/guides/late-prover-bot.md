@@ -26,7 +26,7 @@ Required variables are (mainnet):
 
 | Variable | Default | Description |
 |---|---|---|
-| `CHAIN_ID` | - | Ethereum chain ID. `1` for mainnet, `17000` for Holesky |
+| `CHAIN_ID` | - | Ethereum chain ID. `1` for mainnet, `560048` for Hoodi |
 | `EL_RPC_URLS` | - | Comma-separated list of EL RPC endpoints |
 | `CL_API_URLS` | - | Comma-separated list of CL Beacon API endpoints |
 | `LIDO_LOCATOR_ADDRESS` | - | Lido Locator contract address. Addresses for each network can be found [here](/deployed-contracts/) |
