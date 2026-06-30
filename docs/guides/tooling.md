@@ -68,3 +68,25 @@ Lido keys HTTP API.
 - **Last update date**: 19 June, 2026
 - [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/4.0.0)
 - [**Documentation**](/guides/kapi-guide/)
+
+## Validator Exit Bot
+
+Bot that automates triggering exits for Lido validators that have missed their exit deadline using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) triggerable exits.
+
+- **Version**: 1.0.1
+- **Docker image**: sha256:0a649a5eff41a9c05ee82bc974ba4b40943ea2225c37568d52a9f3416f75f31c, [lidofinance/validator-exit-bot@sha256-0a649a5eff41a9c05ee82bc974ba4b40943ea2225c37568d52a9f3416f75f31c](https://hub.docker.com/layers/lidofinance/validator-exit-bot/1.0.1/images/sha256-0a649a5eff41a9c05ee82bc974ba4b40943ea2225c37568d52a9f3416f75f31c)
+- **Commit hash**: [lidofinance/validator-exit-bot@edf5daf](https://github.com/lidofinance/validator-exit-bot/commit/edf5daf684f48f8a2b989e49dde0f2afc72565f8)
+- **Last update date**: 9 February 2026
+- [**Repository**](https://github.com/lidofinance/validator-exit-bot/tree/1.0.1)
+- [**Documentation**](/guides/validator-exit-bot)
+
+## Late Prover Bot
+
+Bot that monitors the beacon chain for validators that missed their exit deadline and submits Merkle proofs of the delay to the `ValidatorExitDelayVerifier` contract.
+
+- **Version**: 1.0.5
+- **Docker image**: sha256:eb23b4fb757dcdc9d2c418941a2a29ce3513a3800d20e3fa162a594519b7f52c, [lidofinance/late-prover-bot@sha256-eb23b4fb757dcdc9d2c418941a2a29ce3513a3800d20e3fa162a594519b7f52c](https://hub.docker.com/layers/lidofinance/late-prover-bot/1.0.5/images/sha256-eb23b4fb757dcdc9d2c418941a2a29ce3513a3800d20e3fa162a594519b7f52c)
+- **Commit hash**: [lidofinance/late-prover-bot@59d102a](https://github.com/lidofinance/late-prover-bot/commit/59d102a25c096e21c76798d0bdae7cae0ba65f56)
+- **Last update date**: 28 April 2026
+- [**Repository**](https://github.com/lidofinance/late-prover-bot/tree/1.0.5)
+- [**Documentation**](/guides/late-prover-bot)
