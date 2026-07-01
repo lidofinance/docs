@@ -61,7 +61,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Dashboard Implementation: [`0x38131D5548Be57A34937521fe427a23f49e1e2d4`](https://hoodi.etherscan.io/address/0x38131D5548Be57A34937521fe427a23f49e1e2d4)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
-### 🔗 Consolidation Flow {#consolidation-flow}
+### 🔗 Consolidation Stack {#consolidation-stack}
 
 - Consolidation Migrator: [`0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8`](https://hoodi.etherscan.io/address/0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8) (proxy)
 - Consolidation Migrator: [`0x2A8585201BFD6830944f0bf008B774e7e32b380d`](https://hoodi.etherscan.io/address/0x2A8585201BFD6830944f0bf008B774e7e32b380d) (impl)
