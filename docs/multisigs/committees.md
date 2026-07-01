@@ -190,15 +190,15 @@ The complete list of Lido Stonks contracts is available [here](/deployed-contrac
 
 **List of signers:**
 
-| Name        | Address | Verification | Public verification |
-|-------------| --- | --- | --- |
-| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| Name      | Address | Verification | Public verification |
+|-----------| --- | --- | --- |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://x.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
-| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://x.com/sabrychiaa/status/1648049357608960000 |
-| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://x.com/MaxMolEliza/status/1648959823260659714?s=20 |
-| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1647996307942899713 |
-| zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582 |
+| sabrychiaa | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://x.com/sabrychiaa/status/1648049357608960000 |
+| Mol_Eliza | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://x.com/MaxMolEliza/status/1648959823260659714?s=20 |
 | 0xasot | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309 |
+| Alex L | 0xf3d5fdb50154b1b3047f311485780baa1d770492 | https://etherscan.io/verifySig/315910 | https://x.com/Al_lykov/status/2059610293991260287 |
+| dennis_sch | 0x8aA493BcD7f989caD67dd3CB48A4c2E6b40FeDB0 | https://etherscan.io/verifySig/315915 | https://x.com/desc_xyz/status/2059633488232415460 |
+| Nikita P | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | https://etherscan.io/verifySig/315932 | https://x.com/nikitizer/status/2059665723522273656 |
 
 ## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
