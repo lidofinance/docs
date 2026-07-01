@@ -205,7 +205,7 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 - QA & DAO Ops ms: [`0x96d2Ff1C4D30f592B91fd731E218247689a76915`](https://stg.holesky-safe.protofire.io/home?safe=holesky:0x96d2Ff1C4D30f592B91fd731E218247689a76915)
   - QA testnet EOA: [`0x1580881349e214Bab9f1E533bF97351271DB95a9`](https://holesky.etherscan.io/address/0x1580881349e214Bab9f1E533bF97351271DB95a9)
   - DAO Ops testnet EOA: [`0xd4090CA1134F8dE1450B8246916F73d212efdEf6`](https://holesky.etherscan.io/address/0xd4090CA1134F8dE1450B8246916F73d212efdEf6)
-- Testnet GateSeal Committee: [`0x6165267E76D609465640bffc158aff7905D47B46`](https://holesky-safe.protofire.io/home?safe=holesky:0x6165267E76D609465640bffc158aff7905D47B46)
+- Testnet GateSeal Committee: [`0x6165267E76D609465640bffc158aff7905D47B46`](https://holesky-safe.protofire.io/home?safe=holesky:0x6165267E76D609465640bffc158aff7905D47B46) \[[proposed to rename to CircuitBreaker Committee](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400#p-24944-proposed-committees-6)\]
 - CSM Development Team EOA: [`0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164`](https://holesky.etherscan.io/address/0xc4DAB3a3ef68C6DFd8614a870D64D475bA44F164)
 
 ## Testnet Stablecoins
