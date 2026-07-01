@@ -73,6 +73,8 @@ module.exports = {
             'guides/kapi-guide',
             'guides/reward-distributor-bot',
             'guides/depositor-bot',
+            'guides/late-prover-bot',
+            'guides/validator-exit-bot',
           ],
         },
         'guides/protocol-levers',
@@ -148,7 +150,6 @@ module.exports = {
         'contracts/lido-execution-layer-rewards-vault',
         'contracts/mev-boost-relays-allowed-list',
         'contracts/trp-vesting-escrow',
-        'contracts/gate-seal',
         'contracts/circuit-breaker',
         'contracts/reserve',
         'contracts/ossifiable-proxy'
