@@ -30,25 +30,36 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
   - Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Lido Locator: [`0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b`](https://etherscan.io/address/0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
   - Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Lido: [`0x028271E30a695c0527A0C50cA30603feD004cDb0`](https://etherscan.io/address/0x028271E30a695c0527A0C50cA30603feD004cDb0) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
   - Accounting: [`0xd43a3E984071F40d5d840f60708Af0e9526785df`](https://etherscan.io/address/0xd43a3E984071F40d5d840f60708Af0e9526785df) (impl)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Accounting: [`0x3aa937Ac2ab89CDd363EdC6b5A4d4A42dF5bc043`](https://etherscan.io/address/0x3aa937Ac2ab89CDd363EdC6b5A4d4A42dF5bc043) (impl)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - wstETH referral staker: [`0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
   - Staking Router: [`0x226f9265CBC37231882b7409658C18bB7738173A`](https://etherscan.io/address/0x226f9265CBC37231882b7409658C18bB7738173A) (impl)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Staking Router: [`0xDD76927045435C7605cf6f5F978cfb8CABDb5F80`](https://etherscan.io/address/0xDD76927045435C7605cf6f5F978cfb8CABDb5F80) (impl)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] SR Library: [`0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14`](https://etherscan.io/address/0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14) (external lib)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Beacon Chain Depositor: [`0xf98AC162eAB766bDB9507c3584c00C535B8F6216`](https://etherscan.io/address/0xf98AC162eAB766bDB9507c3584c00C535B8F6216)
 - Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
   - Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Withdrawal Vault: [`0xfB4521BD151BFB45DB6045D2d07e58e0f597e340`](https://etherscan.io/address/0xfB4521BD151BFB45DB6045D2d07e58e0f597e340) (impl)
 - Burner: [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) (proxy)
   - Burner: [`0xEe1E3B4f047122650086985f794f0dB5f10Ae49D`](https://etherscan.io/address/0xEe1E3B4f047122650086985f794f0dB5f10Ae49D) (impl)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
 - Min First Allocation Strategy: [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) (external lib)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Min First Allocation Strategy: [`0x98F1da239a199574A4F7f371fD8fc0a872022c73`](https://etherscan.io/address/0x98F1da239a199574A4F7f371fD8fc0a872022c73) (external lib)
 - Triggerable Withdrawals Gateway: [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Top Up Gateway: [`0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374`](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374) (proxy)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Top Up Gateway: [`0xb08dBc68C521cD7A4318dc4C807a42bEB20f1106`](https://etherscan.io/address/0xb08dBc68C521cD7A4318dc4C807a42bEB20f1106) (impl)
 - Validator Exit Delay Verifier: [`0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f`](https://etherscan.io/address/0xbDb567672c867DB533119C2dcD4FB9d8b44EC82f)
 - Vault Hub: [`0x1d201BE093d847f6446530Efb0E8Fb426d176709`](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) (proxy)
   - Vault Hub: [`0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70`](https://etherscan.io/address/0x6330fE7756FBE8649adfb9A541d61C5edB8B4D70) (impl)
@@ -65,15 +76,30 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 - Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
 
+### 🛠️ Staking Router V3 Upgrade (temporary) {#srv3-upgrade-temporary}
+
+- Upgrade Temporary Admin: [`0x57Cc953D3d27E7E8bAd04566bfd4Cd416c3B0855`](https://etherscan.io/address/0x57Cc953D3d27E7E8bAd04566bfd4Cd416c3B0855)
+
+### 🔗 Consolidation Stack {#consolidation-stack}
+
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Consolidation Migrator: [`0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7`](https://etherscan.io/address/0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7) (proxy)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Consolidation Migrator: [`0x6Fb4c152F092373dD71f0C07C83c1E77406599aB`](https://etherscan.io/address/0x6Fb4c152F092373dD71f0C07C83c1E77406599aB) (impl)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Consolidation Bus: [`0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8`](https://etherscan.io/address/0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8) (proxy)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Consolidation Bus: [`0xFfDe8Acab9D7037f29198Ad03ad6d05bac8B0a2E`](https://etherscan.io/address/0xFfDe8Acab9D7037f29198Ad03ad6d05bac8B0a2E) (impl)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Consolidation Gateway: [`0x17be979344f2c2cC806229a532D92f8742C10462`](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462)
+
 ## 🔮 Oracle Contracts {#oracle-contracts}
 
 - Accounting Oracle:
   - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] AccountingOracle: [`0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136`](https://etherscan.io/address/0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
   - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
+  - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] ValidatorsExitBusOracle: [`0x2C3386b39db89eef0F362A3BE0C05a6811E809E3`](https://etherscan.io/address/0x2C3386b39db89eef0F362A3BE0C05a6811E809E3) (impl)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
+- \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] OracleReportSanityChecker: [`0x147f8d3cf3004FAf9Bf94E88B54b6C06De507be9`](https://etherscan.io/address/0x147f8d3cf3004FAf9Bf94E88B54b6C06De507be9)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
   - Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
