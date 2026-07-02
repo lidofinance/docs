@@ -6,16 +6,12 @@ sidebar_position: 2
 
 # Subscribing to the important events
 
-:::info
-Check out the [video guide](https://youtu.be/ByRujrL501c) by one of the Lido contributors, which explains how to subscribe to the events.
-:::
-
 Some smart contract events in the CSM may occur on the protocol side, such as withdrawal requests, penalties, etc., which require specific actions from the Node Operator (NO).
 
 So, what exactly are the events that the operator has to follow?
 
 :::info
-If the guide seems too complicated, make sure to check out a community-developed tool: [CSM Sentinel](https://github.com/skhomuti/csm-sentinel). This is a Telegram bot that you can run on your own or use one of the community-supported instances. Note that community-supported instances come with no guarantee!
+If the guide seems too complicated, make sure to check out a tool: [SM Sentinel](https://github.com/lidofinance/sm-sentinel). This is a Telegram bot that you can run on your own or use one of the community-supported instances. Note that community-supported instances come with no guarantee!
 :::
 
 ## Contract: [VEBO](/contracts/validators-exit-bus-oracle)
@@ -120,20 +116,11 @@ event DistributionDataUpdated(
 
 ## 3rd party notification providers
 
-Operators can use [OZ Defender](https://www.openzeppelin.com/) or [Tenderly](https://tenderly.co/) as services ok that allow them to subscribe to the emitted events on the particular contracts
+Operators can use [Tenderly](https://tenderly.co/) as a service to subscribe to the emitted events on the particular contracts
 and notify in the Telegram, Discord, Email, etc.
 
-It is recommended to use OZ Defender - you can subscribe to all required events per contract in one `Monitor` using the free plan.
-
-At the same time, Tenderly has some limitations:
-- Not allowed to filter events by two or more fields, so you cannot subscribe to `ValidatorExitRequest` properly.
-- Batches events and sends them every 15 minutes on the free plan. This is not a problem for CSM events, but you have to visit the app in the case of batch events to see them all.
-- Max 3 alerts per account, so the recommended events are: `ELRewardsStealingPenaltyReported`, `DecreaseVettedSigningKeysCountReported` and `StuckSigningKeysCountChanged`
-
-
-See corresponding docs for set up guide:
+See corresponding doc for the set-up guide:
 - [Tenderly - Intro into Alerts](https://docs.tenderly.co/alerts/intro-to-alerts)
-- [OpenZeppelin - Monitor](https://docs.openzeppelin.com/defender/module/monitor)
 
 ## Other guides
 ### Stakesaurus' Telegram Bot
