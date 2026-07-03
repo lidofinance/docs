@@ -39,7 +39,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Execution Layer Rewards Vault: [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258)
 - Withdrawal Queue ERC721: [`0xfe56573178f1bcdf53F01A6E9977670dcBBD9186`](https://hoodi.etherscan.io/address/0xfe56573178f1bcdf53F01A6E9977670dcBBD9186) (proxy)
 - Withdrawal Vault: [`0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`](https://hoodi.etherscan.io/address/0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2) (proxy)
-- Withdrawal Vault: [`0xB97e67CC20bd2970E30341c0ECc7497d8A5b7342`](https://hoodi.etherscan.io/address/0xB97e67CC20bd2970E30341c0ECc7497d8A5b7342) (impl)
+- Withdrawal Vault: [`0x6724DaD16f7b05157dF72783F99cA6B813742330`](https://hoodi.etherscan.io/address/0x6724DaD16f7b05157dF72783F99cA6B813742330) (impl)
 - Accounting: [`0x9b5b78D1C9A3238bF24662067e34c57c83E8c354`](https://hoodi.etherscan.io/address/0x9b5b78D1C9A3238bF24662067e34c57c83E8c354) (proxy)
 - Accounting: [`0xA39fe063A6d1420E59d218d318d52D84Fbd9202F`](https://hoodi.etherscan.io/address/0xA39fe063A6d1420E59d218d318d52D84Fbd9202F) (impl)
 - Burner: [`0xb2c99cd38a2636a6281a849C8de938B3eF4A7C3D`](https://hoodi.etherscan.io/address/0xb2c99cd38a2636a6281a849C8de938B3eF4A7C3D) (proxy)
