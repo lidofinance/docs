@@ -29,33 +29,33 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Lido Locator: [`0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b`](https://etherscan.io/address/0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
-  - Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Lido: [`0x028271E30a695c0527A0C50cA30603feD004cDb0`](https://etherscan.io/address/0x028271E30a695c0527A0C50cA30603feD004cDb0) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
-  - Accounting: [`0xd43a3E984071F40d5d840f60708Af0e9526785df`](https://etherscan.io/address/0xd43a3E984071F40d5d840f60708Af0e9526785df) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Accounting: [`0xd43a3E984071F40d5d840f60708Af0e9526785df`](https://etherscan.io/address/0xd43a3E984071F40d5d840f60708Af0e9526785df) (impl)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Accounting: [`0x3aa937Ac2ab89CDd363EdC6b5A4d4A42dF5bc043`](https://etherscan.io/address/0x3aa937Ac2ab89CDd363EdC6b5A4d4A42dF5bc043) (impl)
 - wstETH token: [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0)
 - wstETH referral staker: [`0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d)
 - EIP-712 helper for stETH: [`0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7`](https://etherscan.io/address/0x8F73e4C2A6D852bb4ab2A45E6a9CF5715b3228B7)
 - Staking Router: [`0xFdDf38947aFB03C621C71b06C9C70bce73f12999`](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999) (proxy)
-  - Staking Router: [`0x226f9265CBC37231882b7409658C18bB7738173A`](https://etherscan.io/address/0x226f9265CBC37231882b7409658C18bB7738173A) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Staking Router: [`0x226f9265CBC37231882b7409658C18bB7738173A`](https://etherscan.io/address/0x226f9265CBC37231882b7409658C18bB7738173A) (impl)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Staking Router: [`0xDD76927045435C7605cf6f5F978cfb8CABDb5F80`](https://etherscan.io/address/0xDD76927045435C7605cf6f5F978cfb8CABDb5F80) (impl)
 - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] SR Library: [`0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14`](https://etherscan.io/address/0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14) (external lib)
 - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Beacon Chain Depositor: [`0xf98AC162eAB766bDB9507c3584c00C535B8F6216`](https://etherscan.io/address/0xf98AC162eAB766bDB9507c3584c00C535B8F6216)
-- Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Deposit Security Module: [`0xffa96d84def2ea035c7ab153d8b991128e3d72fd`](https://etherscan.io/address/0xffa96d84def2ea035c7ab153d8b991128e3d72fd)
 - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
-  - Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Withdrawal Vault: [`0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D`](https://etherscan.io/address/0x7D2BAa6094E1C4B60Da4cbAF4A77C3f4694fD53D) (impl)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Withdrawal Vault: [`0xfB4521BD151BFB45DB6045D2d07e58e0f597e340`](https://etherscan.io/address/0xfB4521BD151BFB45DB6045D2d07e58e0f597e340) (impl)
 - Burner: [`0xE76c52750019b80B43E36DF30bf4060EB73F573a`](https://etherscan.io/address/0xE76c52750019b80B43E36DF30bf4060EB73F573a) (proxy)
   - Burner: [`0xEe1E3B4f047122650086985f794f0dB5f10Ae49D`](https://etherscan.io/address/0xEe1E3B4f047122650086985f794f0dB5f10Ae49D) (impl)
 - MEV Boost Relay Allowed List: [`0xF95f069F9AD107938F6ba802a3da87892298610E`](https://etherscan.io/address/0xf95f069f9ad107938f6ba802a3da87892298610e)
-- Min First Allocation Strategy: [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) (external lib)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Min First Allocation Strategy: [`0x7e70De6D1877B3711b2bEDa7BA00013C7142d993`](https://etherscan.io/address/0x7e70De6D1877B3711b2bEDa7BA00013C7142d993) (external lib)
 - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Min First Allocation Strategy: [`0x98F1da239a199574A4F7f371fD8fc0a872022c73`](https://etherscan.io/address/0x98F1da239a199574A4F7f371fD8fc0a872022c73) (external lib)
 - Triggerable Withdrawals Gateway: [`0xDC00116a0D3E064427dA2600449cfD2566B3037B`](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)
 - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Top Up Gateway: [`0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374`](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374) (proxy)
@@ -91,14 +91,14 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🔮 Oracle Contracts {#oracle-contracts}
 
 - Accounting Oracle:
-  - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] AccountingOracle: [`0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136`](https://etherscan.io/address/0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
-  - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] ValidatorsExitBusOracle: [`0x2C3386b39db89eef0F362A3BE0C05a6811E809E3`](https://etherscan.io/address/0x2C3386b39db89eef0F362A3BE0C05a6811E809E3) (impl)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
-- OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
 - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] OracleReportSanityChecker: [`0x147f8d3cf3004FAf9Bf94E88B54b6C06De507be9`](https://etherscan.io/address/0x147f8d3cf3004FAf9Bf94E88B54b6C06De507be9)
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
@@ -147,7 +147,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 ### Covered pausables and their pausers
 
-Each pausable contract below is covered by the CircuitBreaker, with a designated pauser authorized to trigger a pause. The pausers are the **[CircuitBreaker Committee](#emergency-brakes-multisigs)** for core protocol pausables, and the **[CSM Committee](#committees)** for CSM pausables.
+Each pausable contract below is covered by the CircuitBreaker, with a designated pauser authorized to trigger a pause. The pausers are the **[CircuitBreaker Committee](#emergency-brakes-multisigs)** for core protocol pausables, the **[CSM Committee](#committees)** for CSM pausables, and the **[CMC Committee](#committees)** for CMv2 pausables.
 
 | Pausable | Pauser |
 | --- | --- |
@@ -156,12 +156,24 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 | [Triggerable Withdrawals Gateway](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
 | [Vault Hub](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
 | [Predeposit Guarantee](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [Consolidation Gateway](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [Top Up Gateway](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
 | [CSModule](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
-| [CSAccounting](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
-| [CSFeeOracle](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
-| [CSVerifier](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
-| [CSEjector](https://etherscan.io/address/0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
-| [VettedGate (IdentifiedCommunityStakersGate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM Accounting](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM FeeOracle](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [CSM Verifier](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [CSM Verifier](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [CSM Ejector](https://etherscan.io/address/0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [CSM Ejector](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [VettedGate (Identified Community Stakers Gate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [VettedGate (Identified DVT Cluster Gate)](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [CuratedModule](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [Curated Accounting](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [Curated FeeOracle](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [Curated Verifier](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] [Curated Ejector](https://etherscan.io/address/0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+
+
 
 ## 📊 Data Bus {#data-bus}
 
@@ -176,7 +188,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 
 ## 🧩 Staking Modules {#staking-modules}
 
-### 🔒 Curated Module {#curated-module}
+### 🔒 Curated Module v1 {#curated-module}
 
 - Node Operators Registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5) (proxy)
 - Node Operators Registry: [`0x6828b023e737f96B168aCd0b5c6351971a4F81aE`](https://etherscan.io/address/0x6828b023e737f96B168aCd0b5c6351971a4F81aE) (impl)
@@ -189,33 +201,102 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 ### 🕶️ Community Staking Module {#community-staking-module}
 
 - Entry Gates:
-  - PermissionlessGate: [`0xcF33a38111d0B1246A3F38a838fb41D626B454f0`](https://etherscan.io/address/0xcF33a38111d0B1246A3F38a838fb41D626B454f0)
-  - VettedGate (IdentifiedCommunityStakersGate): [`0xB314D4A76C457c93150d308787939063F4Cc67E0`](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) (proxy)
-  - VettedGate (IdentifiedCommunityStakersGate): [`0x65D4D92Cd0EabAa05cD5A46269C24b71C21cfdc4`](https://etherscan.io/address/0x65D4D92Cd0EabAa05cD5A46269C24b71C21cfdc4) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] PermissionlessGate: [`0xcF33a38111d0B1246A3F38a838fb41D626B454f0`](https://etherscan.io/address/0xcF33a38111d0B1246A3F38a838fb41D626B454f0)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] PermissionlessGate: [`0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8`](https://etherscan.io/address/0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8)
+  - VettedGate (Identified Community Stakers Gate): [`0xB314D4A76C457c93150d308787939063F4Cc67E0`](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) (proxy)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] VettedGate (Identified DVT Cluster Gate): [`0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8`](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8) (proxy)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] VettedGate (IdentifiedCommunityStakersGate): [`0x65D4D92Cd0EabAa05cD5A46269C24b71C21cfdc4`](https://etherscan.io/address/0x65D4D92Cd0EabAa05cD5A46269C24b71C21cfdc4) (impl)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] VettedGate implementation (for all gates): [`0x66ADb8b3F58d3DFdF6bAdB595E41f19e947E5c14`](https://etherscan.io/address/0x66ADb8b3F58d3DFdF6bAdB595E41f19e947E5c14)
 - CSModule: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) (proxy)
-- CSModule: [`0x1eB6d4da13ca9566c17F526aE0715325d7a07665`](https://etherscan.io/address/0x1eB6d4da13ca9566c17F526aE0715325d7a07665) (impl)
-- CSAccounting: [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) (proxy)
-- CSAccounting: [`0x6f09d2426c7405C5546413e6059F884D2D03f449`](https://etherscan.io/address/0x6f09d2426c7405C5546413e6059F884D2D03f449) (impl)
-- CSParametersRegistry: [`0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428`](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428) (proxy)
-- CSParametersRegistry: [`0x25fdC3BE9977CD4da679dF72A64C8B6Bd5216A78`](https://etherscan.io/address/0x25fdC3BE9977CD4da679dF72A64C8B6Bd5216A78) (impl)
-- CSFeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
-- CSFeeDistributor: [`0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1`](https://etherscan.io/address/0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1) (impl)
-- CSVerifier: [`0xdC5FE1782B6943f318E05230d688713a560063DC`](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC)
-- CSFeeOracle:
-  - CSFeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
-  - CSFeeOracle: [`0xe0B234f99E413E27D9Bc31aBba9A49A3e570Da97`](https://etherscan.io/address/0xe0B234f99E413E27D9Bc31aBba9A49A3e570Da97) (impl)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] CSModule: [`0x1eB6d4da13ca9566c17F526aE0715325d7a07665`](https://etherscan.io/address/0x1eB6d4da13ca9566c17F526aE0715325d7a07665) (impl)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] CSModule: [`0x63992a86f009fcC796a8369feEfB68880aef4e3a`](https://etherscan.io/address/0x63992a86f009fcC796a8369feEfB68880aef4e3a) (impl)
+- Accounting: [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) (proxy)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Accounting: [`0x6f09d2426c7405C5546413e6059F884D2D03f449`](https://etherscan.io/address/0x6f09d2426c7405C5546413e6059F884D2D03f449) (impl)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] Accounting: [`0xe768572cc5aE5C698345C59288d871a949Ea8bd3`](https://etherscan.io/address/0xe768572cc5aE5C698345C59288d871a949Ea8bd3) (impl)
+- ParametersRegistry: [`0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428`](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428) (proxy)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] ParametersRegistry: [`0x25fdC3BE9977CD4da679dF72A64C8B6Bd5216A78`](https://etherscan.io/address/0x25fdC3BE9977CD4da679dF72A64C8B6Bd5216A78) (impl)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] ParametersRegistry: [`0x107d287F178cD54792614d7D63C47D8242240BeD`](https://etherscan.io/address/0x107d287F178cD54792614d7D63C47D8242240BeD) (impl)
+- FeeDistributor: [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) (proxy)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] FeeDistributor: [`0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1`](https://etherscan.io/address/0x5DCF7cF7c6645E9E822a379dF046a8b0390251A1) (impl)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] FeeDistributor: [`0x936da7cDB7eed1084d294E23eA1d7Ad72DCcfE0E`](https://etherscan.io/address/0x936da7cDB7eed1084d294E23eA1d7Ad72DCcfE0E) (impl)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Verifier: [`0xdC5FE1782B6943f318E05230d688713a560063DC`](https://etherscan.io/address/0xdC5FE1782B6943f318E05230d688713a560063DC)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] Verifier: [`0xfce7aB839e55de77730716D05b3553e45ab3A5Ba`](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba)
+- FeeOracle:
+  - FeeOracle: [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) (proxy)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] FeeOracle: [`0xe0B234f99E413E27D9Bc31aBba9A49A3e570Da97`](https://etherscan.io/address/0xe0B234f99E413E27D9Bc31aBba9A49A3e570Da97) (impl)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] FeeOracle: [`0xecE6e0Cde61078F76b66Ef0C338a6875E5D01F79`](https://etherscan.io/address/0xecE6e0Cde61078F76b66Ef0C338a6875E5D01F79) (impl)
   - HashConsensus: [`0x71093efF8D8599b5fA340D665Ad60fA7C80688e4`](https://etherscan.io/address/0x71093efF8D8599b5fA340D665Ad60fA7C80688e4)
-- CSStrikes: [`0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f`](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f) (proxy)
-- CSStrikes: [`0x3E5021424c9e13FC853e523Cd68ebBec848956a0`](https://etherscan.io/address/0x3E5021424c9e13FC853e523Cd68ebBec848956a0) (impl)
-- CSEjector: [`0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C`](https://etherscan.io/address/0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C)
-- CSExitPenalties: [`0x06cd61045f958A209a0f8D746e103eCc625f4193`](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193) (proxy)
-- CSExitPenalties: [`0xDa22fA1CEa40d05Fe4CD536967afdD839586D546`](https://etherscan.io/address/0xDa22fA1CEa40d05Fe4CD536967afdD839586D546) (impl)
+- ValidatorStrikes: [`0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f`](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f) (proxy)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] ValidatorStrikes: [`0x3E5021424c9e13FC853e523Cd68ebBec848956a0`](https://etherscan.io/address/0x3E5021424c9e13FC853e523Cd68ebBec848956a0) (impl)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] ValidatorStrikes: [`0xd25E7C3923d2e68c325980b0e15eD20d62B2691F`](https://etherscan.io/address/0xd25E7C3923d2e68c325980b0e15eD20d62B2691F) (impl)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Ejector: [`0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C`](https://etherscan.io/address/0xc72b58aa02E0e98cF8A4a0E9Dce75e763800802C)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] Ejector: [`0x610B517D380f287c239C93F8eF6FfBd567AA4bA5`](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5)
+- ExitPenalties: [`0x06cd61045f958A209a0f8D746e103eCc625f4193`](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193) (proxy)
+- \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] ExitPenalties: [`0xDa22fA1CEa40d05Fe4CD536967afdD839586D546`](https://etherscan.io/address/0xDa22fA1CEa40d05Fe4CD536967afdD839586D546) (impl)
+- \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] ExitPenalties: [`0xA5b9e96E951089E629Ab0834AEaF242a81394EA0`](https://etherscan.io/address/0xA5b9e96E951089E629Ab0834AEaF242a81394EA0) (impl)
 - Factories:
-  - VettedGateFactory: [`0xFdab48c4D627e500207e9AF29c98579d90Ea0ad4`](https://etherscan.io/address/0xFdab48c4D627e500207e9AF29c98579d90Ea0ad4)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] VettedGateFactory: [`0xFdab48c4D627e500207e9AF29c98579d90Ea0ad4`](https://etherscan.io/address/0xFdab48c4D627e500207e9AF29c98579d90Ea0ad4)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] VettedGateFactory: [`0xc0f110Af6eA9119037a71C84D14506A22AE43DdE`](https://etherscan.io/address/0xc0f110Af6eA9119037a71C84D14506A22AE43DdE)
 - External libraries:
-  - AssetRecovererLib: [`0xa74528edc289b1a597Faf83fCfF7eFf871Cc01D9`](https://etherscan.io/address/0xa74528edc289b1a597Faf83fCfF7eFf871Cc01D9)
-  - NOAddresses: [`0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc`](https://etherscan.io/address/0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc)
-  - QueueLib: [`0x6eff460627b6798c2907409ea2fdfb287eaa2e55`](https://etherscan.io/address/0x6eff460627b6798c2907409ea2fdfb287eaa2e55)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] AssetRecovererLib: [`0xa74528edc289b1a597Faf83fCfF7eFf871Cc01D9`](https://etherscan.io/address/0xa74528edc289b1a597Faf83fCfF7eFf871Cc01D9)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] DepositQueueOps: [`0xb430AA6C70A352c2aaC9813AE049A210dB11aB41`](https://etherscan.io/address/0xb430AA6C70A352c2aaC9813AE049A210dB11aB41)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] GeneralPenalty: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] NOAddresses: [`0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc`](https://etherscan.io/address/0xe4d5a7be8d7c3db15755061053f5a49b6a67fffc)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606)
+  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/224)\] WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] QueueLib: [`0x6eff460627b6798c2907409ea2fdfb287eaa2e55`](https://etherscan.io/address/0x6eff460627b6798c2907409ea2fdfb287eaa2e55)
+
+#### 🛠️ Community Staking Module V3 Upgrade (temporary) {#csm3-upgrade-temporary}
+
+- Identified DVT Cluster Curve Setup: [`0x711985E069f4d702e0457C0dACAde3D3894Ce4E3`](https://etherscan.io/address/0x711985E069f4d702e0457C0dACAde3D3894Ce4E3)
+
+### 👔 Curated Module v2 {#curated-module-v2}
+
+- Entry Gates:
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Professional Operator Gate): [`0x6093EFA6B5E2FF3be54d1c895c9deA932805c49F`](https://etherscan.io/address/0x6093EFA6B5E2FF3be54d1c895c9deA932805c49F) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Professional Trusted Operator Gate): [`0x8c002c6eE10cf8adb78D1F9EB2e134FdaF8A7C1a`](https://etherscan.io/address/0x8c002c6eE10cf8adb78D1F9EB2e134FdaF8A7C1a) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Public Good Operator Gate): [`0x207798e6fD1aa7Ee8a63782A64c959cD6727b78C`](https://etherscan.io/address/0x207798e6fD1aa7Ee8a63782A64c959cD6727b78C) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Decentralization Operator Gate): [`0xeF273Ca4A21Ba7B414Ae3C9f9b443038cb133F72`](https://etherscan.io/address/0xeF273Ca4A21Ba7B414Ae3C9f9b443038cb133F72) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Extra Effort Operator Gate): [`0x3BbBb175f7F07954DE00052b20E1c5572223F24D`](https://etherscan.io/address/0x3BbBb175f7F07954DE00052b20E1c5572223F24D) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Intra-Operator DVT Cluster Gate): [`0x86A8d4E0db5938D21d98047544668FCCB1A9ADc8`](https://etherscan.io/address/0x86A8d4E0db5938D21d98047544668FCCB1A9ADc8) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate (Intra-Operator DVT Cluster Plus Gate): [`0x773933F9db8964A17d62fb808f2EC7A2de4247CC`](https://etherscan.io/address/0x773933F9db8964A17d62fb808f2EC7A2de4247CC) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGate implementation (for all gates): [`0x3cb948FD454ad6b20DE67633f25DcbDbEaa0e849`](https://etherscan.io/address/0x3cb948FD454ad6b20DE67633f25DcbDbEaa0e849)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedModule: [`0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1`](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedModule: [`0x959fC67FE53c8A6C7a1AEd73430Aa07a36eD9337`](https://etherscan.io/address/0x959fC67FE53c8A6C7a1AEd73430Aa07a36eD9337) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] MetaRegistry: [`0xA64b339eebD3dC3De848298B6a140955932901d8`](https://etherscan.io/address/0xA64b339eebD3dC3De848298B6a140955932901d8) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] MetaRegistry: [`0x6d852907463496622bb5FE5bc55cc30C4682E10e`](https://etherscan.io/address/0x6d852907463496622bb5FE5bc55cc30C4682E10e) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] Accounting: [`0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6`](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] Accounting: [`0xB41F5d2721906b3BE4fC7ae08261266C801076C2`](https://etherscan.io/address/0xB41F5d2721906b3BE4fC7ae08261266C801076C2) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] ParametersRegistry: [`0xffC1C5d59CeAC6F6c27E701F04a70cb50474607C`](https://etherscan.io/address/0xffC1C5d59CeAC6F6c27E701F04a70cb50474607C) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] ParametersRegistry: [`0xfF419BbBC5f44d46547079922a88d691886d192a`](https://etherscan.io/address/0xfF419BbBC5f44d46547079922a88d691886d192a) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] FeeDistributor: [`0x367d23c756599c20DCc8D6943F4976E8F88D60d7`](https://etherscan.io/address/0x367d23c756599c20DCc8D6943F4976E8F88D60d7) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] FeeDistributor: [`0x7C8FEE1dcC95Df60fC9b5BE7603c28Eb3af16753`](https://etherscan.io/address/0x7C8FEE1dcC95Df60fC9b5BE7603c28Eb3af16753) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] Verifier: [`0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3`](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)
+- FeeOracle:
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] FeeOracle: [`0x8EeFCdbD984c30E472BcbF545783D051CB5114e5`](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] FeeOracle: [`0x16804084408B6Caad10046F49aD421cBA56C0b5e`](https://etherscan.io/address/0x16804084408B6Caad10046F49aD421cBA56C0b5e) (impl)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] HashConsensus: [`0x902D64c93F6595339aA46105627a085591051aFb`](https://etherscan.io/address/0x902D64c93F6595339aA46105627a085591051aFb)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] ValidatorStrikes: [`0xf4618370a1fBf46905B16C10817c8CFaD924D6db`](https://etherscan.io/address/0xf4618370a1fBf46905B16C10817c8CFaD924D6db) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] ValidatorStrikes: [`0x239Ee6ab18fB06370ad53Ce05097B32208fB0a30`](https://etherscan.io/address/0x239Ee6ab18fB06370ad53Ce05097B32208fB0a30) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] Ejector: [`0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E`](https://etherscan.io/address/0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] ExitPenalties: [`0x004aFb7DAA7dEA20EbAaB75c9F4892C879FaCCe0`](https://etherscan.io/address/0x004aFb7DAA7dEA20EbAaB75c9F4892C879FaCCe0) (proxy)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] ExitPenalties: [`0x3766ABbA4635EE0fC3E6A7EB3EF169fe930df9c2`](https://etherscan.io/address/0x3766ABbA4635EE0fC3E6A7EB3EF169fe930df9c2) (impl)
+- Factories:
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedGateFactory: [`0xDdE99d63b352A665d04339D4792E6852Ce89d1B7`](https://etherscan.io/address/0xDdE99d63b352A665d04339D4792E6852Ce89d1B7)
+- External libraries:
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] GeneralPenalty: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/32)\] CuratedDepositAllocator: [`0xa4fCD4dDa0e4a847142E3592C97c77d8B9B3Cf5F`](https://etherscan.io/address/0xa4fCD4dDa0e4a847142E3592C97c77d8B9B3Cf5F)
 
 ## 💧 Liquidity Pools {#liquidity-pools}
 
@@ -312,8 +393,8 @@ for the rate and price feeds recommended approaches.
   - ChangeNodeOperatorManager: [`0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D`](https://etherscan.io/address/0xE31A0599A6772BCf9b2bFc9e25cf941e793c9a7D)
   - SDVTSubmitExitRequestHashes: [`0x58A59dDC6Aea9b1D5743D024E15DfA4badB56E37`](https://etherscan.io/address/0x58A59dDC6Aea9b1D5743D024E15DfA4badB56E37)
 - **Community Staking Module** (module: [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
-  - CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
-  - CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] CSMSettleElStealingPenalty: [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] CSMSetVettedGateTree: [`0xBc5642bDD6F2a54b01A75605aAe9143525D97308`](https://etherscan.io/address/0xBc5642bDD6F2a54b01A75605aAe9143525D97308)
 
 ### 💰 Easy Track Factories for Token Transfers {#easy-track-factories-for-token-transfers}
 
@@ -401,6 +482,7 @@ for the rate and price feeds recommended approaches.
 - Delegate Oversight Committee: [`0x13600b9AEE86f8254969918B1E9ae6ea091b8727`](https://app.safe.global/settings/setup?safe=eth:0x13600b9AEE86f8254969918B1E9ae6ea091b8727)
 - Simple DVT Module Committee: [`0x08637515E85A4633E23dfc7861e2A9f53af640f7`](https://app.safe.global/settings/setup?safe=eth:0x08637515E85A4633E23dfc7861e2A9f53af640f7)
 - Community Staking Module Committee: [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
+- Curated Module Committee: [`0x2570e0b22AD904501dfB0d49575991ACB801dD91`](https://app.safe.global/settings/setup?safe=eth:0x2570e0b22AD904501dfB0d49575991ACB801dD91)
 - Bug Bounty Reserve Multisig: [`0x9Eb81629245C5248A8f4FfCDf11A73E0D0C74071`](https://app.safe.global/settings/setup?safe=eth:0x9Eb81629245C5248A8f4FfCDf11A73E0D0C74071)
 
 ### 🤝 Alliance {#alliance}
