@@ -207,9 +207,9 @@ To provide the capability to react fast and reduce losses in case of a security 
 
 The bridge endpoint contracts should have the ability to set the resume and pause roles holders on a case-by-case basis. For the pause role, there should be at least two holders possible to be able to assign the dedicated Emergency Multisig which is [ratified by the Lido DAO](https://snapshot.org/#/lido-snapshot.eth/proposal/0xfe2a6a6506a642b616118363bc29aa83dd9ef2ec80447bb607a8f52c0a96aed0) as the second role holder.
 
-To curb the multisig's power, it is proposed to use the "Gate Seals" mechanic. The mechanic limits the pause duration and restricts the capability to pause to a single use. To grant the capability repeatedly, the Lido DAO vote is required. The mechanic has been implemented, e.g., for withdrawals in the Lido protocol on Ethereum in two parts:
+To curb the multisig's power, it is proposed to use the CircuitBreaker mechanic. The mechanic limits the pause duration and restricts the capability to pause to a single use. To grant the capability repeatedly, the Lido DAO vote is required. The mechanic has been implemented, e.g., for withdrawals in the Lido protocol on Ethereum in two parts:
 
-- one-time disposable pauser contract [Gate Seals](https://github.com/lidofinance/gate-seals);
+- pauser contract [CircuitBreaker](/contracts/circuit-breaker);
 - [PausableUntil](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/utils/PausableUntil.sol) contract (inherited by [WithdrawalQueue](https://github.com/lidofinance/lido-dao/blob/master/contracts/0.8.9/WithdrawalQueue.sol)).
 
 ### R-8: The contracts state

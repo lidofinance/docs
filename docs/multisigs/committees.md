@@ -190,15 +190,15 @@ The complete list of Lido Stonks contracts is available [here](/deployed-contrac
 
 **List of signers:**
 
-| Name        | Address | Verification | Public verification |
-|-------------| --- | --- | --- |
-| adcv        | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| Name      | Address | Verification | Public verification |
+|-----------| --- | --- | --- |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://x.com/ppclunghe/status/1648050514372841474?t=rKXVpeW-RC4f4uBV-eB07w&s=03 |
-| sabrychiaa  | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://x.com/sabrychiaa/status/1648049357608960000 |
-| Mol_Eliza   | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://x.com/MaxMolEliza/status/1648959823260659714?s=20 |
-| kadmil      | 0x9a3f38af97b791c85c043d46a64f56f87e0283d4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1647996307942899713 |
-| zuzu_eeka   | 0x004812da927b5dcd07e7329609edd75e25d2d295 | https://etherscan.io/verifySig/297287 | https://x.com/zuzu_eeka/status/1995786433487876582 |
+| sabrychiaa | 0x83a8b5c6990cbc78ffc45cbbfe5748b895973623 | https://etherscan.io/verifySig/17026 | https://x.com/sabrychiaa/status/1648049357608960000 |
+| Mol_Eliza | 0x620bD63538Bf10a87214b6187f5bc85926C2971f | https://etherscan.io/verifySig/17085 | https://x.com/MaxMolEliza/status/1648959823260659714?s=20 |
 | 0xasot | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/298332 | https://x.com/0xasot/status/2002013058030244309 |
+| Alex L | 0xf3d5fdb50154b1b3047f311485780baa1d770492 | https://etherscan.io/verifySig/315910 | https://x.com/Al_lykov/status/2059610293991260287 |
+| dennis_sch | 0x8aA493BcD7f989caD67dd3CB48A4c2E6b40FeDB0 | https://etherscan.io/verifySig/315915 | https://x.com/desc_xyz/status/2059633488232415460 |
+| Nikita P | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | https://etherscan.io/verifySig/315932 | https://x.com/nikitizer/status/2059665723522273656 |
 
 ## 2.6 Gas Supply Committee (prev. Depositor bot gas funding)
 
@@ -506,7 +506,7 @@ Additional signer of Unichain multisig:
 
 **Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
 cancel MEV stealing penalty if needed, start EasyTracks to settle MEV stealing penalty, switch the bond curve for the particular Node Operator or reset it to the default one,
-pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSeal.
+pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via the CircuitBreaker.
 
 **Quorum:** 4/6
 
@@ -526,14 +526,13 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via CS GateSe
 - `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
 - `SET_BOND_CURVE_ROLE`: [0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565](https://etherscan.io/tx/0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565)
 - `RESET_BOND_CURVE_ROLE`: [0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b](https://etherscan.io/tx/0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b)
-- GateSeal sealing committee: [0x4baee8cc782ca8ca90729ca3f3af45f2fe9ed6c207358d0b3186552f43f4d679](https://etherscan.io/tx/0x4baee8cc782ca8ca90729ca3f3af45f2fe9ed6c207358d0b3186552f43f4d679)
 
 **List of related contracts and roles:**
 
 | Contract name                         | Contract address                                                                                                        | Multisig role |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
 | Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
-| CS GateSeal                           | [`0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3`](https://etherscan.io/address/0xE1686C2E90eb41a48356c1cC7FaA17629af3ADB3) | sealing_committee |
+| CircuitBreaker                        | [`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7) | pauser |
 
 
 **List of signers:**
@@ -924,10 +923,10 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 | dmitrii_v | 0x512B58efaef534Af685F7638c177B927650eF995 | https://etherscan.io/verifySig/280008 | https://research.lido.fi/t/stvaults-committee-proposal/10608/9 |
 | KimonSh | 0xDbB7D7941d1340CB3ba862dF3A0f18084b5a69Ad | https://etherscan.io/verifySig/280390 | https://research.lido.fi/t/stvaults-committee-proposal/10608/14 |
 | Willem | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/296205 | https://research.lido.fi/t/stvaults-committee-proposal/10608/10 |
-| Kate_Alekseeva | 0xDf87A36f6c753E85f06E3A7a595DbD3f9bCd4937 | https://etherscan.io/verifySig/296673 | https://research.lido.fi/t/stvaults-committee-proposal/10608/8 |
 | Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
 | mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | https://research.lido.fi/t/stvaults-committee-proposal/10608/11 |
 | AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | https://research.lido.fi/t/stvaults-committee-proposal/10608/12 |
+| snk999 | 0x4d55af0756b43ee0c1052e585a185a47771b022e | https://etherscan.io/verifySig/317754 | https://research.lido.fi/t/stvaults-committee-proposal/10608/19 |
 
 ## 2.17 Bridging Security Committee
 

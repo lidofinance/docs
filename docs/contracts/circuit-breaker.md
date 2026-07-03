@@ -1,7 +1,5 @@
 # CircuitBreaker
 
-[Proposed in CircuitBreaker: Programmable Panic Layer](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400).
-
 An emergency-pause layer for Lido protocol contracts.
 
 | Network | Address                                                                                                                       |
@@ -11,7 +9,7 @@ An emergency-pause layer for Lido protocol contracts.
 
 ## What is CircuitBreaker?
 
-CircuitBreaker is a single, permanent contract that lets DAO-designated pauser committees instantly pause registered Lido contracts for a bounded duration without waiting for a governance vote. It is the successor to [GateSeal](/contracts/gate-seal): instead of single-use, expiring instances that must be redeployed every year, CircuitBreaker operates indefinitely.
+CircuitBreaker is a single, permanent contract that lets DAO-designated pauser committees instantly pause registered Lido contracts for a bounded duration without waiting for a governance vote. It is the successor to GateSeal: instead of single-use, expiring instances that must be redeployed every year, CircuitBreaker operates indefinitely.
 
 - [Source code](https://github.com/lidofinance/circuit-breaker/blob/main/src/CircuitBreaker.sol)
 - [Repository](https://github.com/lidofinance/circuit-breaker)

@@ -1,0 +1,66 @@
+# Late Prover Bot
+
+## Introduction
+
+Late Prover Bot monitors the beacon chain for validator exit requests that have passed their required deadline. When a validator fails to exit on time, the bot generates a cryptographic Merkle proof of the delay and submits it to the `ValidatorExitDelayVerifier` smart contract, enabling penalty enforcement on the responsible node operator.
+
+## Requirements
+
+### Hardware
+
+- 1-core CPU
+- 8GB RAM
+
+### Nodes
+
+- Ethereum EL RPC service
+- Ethereum CL API service (Beacon Node)
+
+## How to use
+
+The bot runs as a daemon, continuously processing finalized beacon chain roots. For each root, it discovers `ValidatorsExitBusOracle` events in the corresponding EL block range, groups validators by their exit deadline slot, and generates proofs for any that have exceeded their deadline. Proofs are submitted in batches via `verifyValidatorExitDelay()` (or `verifyHistoricalValidatorExitDelay()` for older roots).
+
+### Envs
+
+Required variables are (mainnet):
+
+| Variable | Default | Description |
+|---|---|---|
+| `CHAIN_ID` | - | Ethereum chain ID. `1` for mainnet, `560048` for Hoodi |
+| `EL_RPC_URLS` | - | Comma-separated list of EL RPC endpoints |
+| `CL_API_URLS` | - | Comma-separated list of CL Beacon API endpoints |
+| `LIDO_LOCATOR_ADDRESS` | - | Lido Locator contract address. Addresses for each network can be found [here](/deployed-contracts/) |
+| `TX_SIGNER_PRIVATE_KEY` | - | Private key used to sign and submit transactions. Not required when `DRY_RUN=true` |
+| `DRY_RUN` | `false` | If `true`, proofs are generated but transactions are not sent |
+
+Optional variables can be found [here](https://github.com/lidofinance/late-prover-bot#readme).
+
+## Running
+
+### Source Code
+
+1. Clone repository and install requirements:
+    ```bash
+    git clone git@github.com:lidofinance/late-prover-bot.git
+    cd late-prover-bot
+    ```
+2. Install dependencies:
+    ```bash
+    yarn install
+    yarn run typechain
+    yarn build
+    ```
+3. Run the bot:
+    ```bash
+    yarn run start:prod
+    ```
+
+### Docker
+
+Docker image can be found [here](/guides/tooling/#late-prover-bot).
+
+## Monitoring
+
+Prometheus metrics and health check are available on the same port:
+- `http://localhost:${HTTP_PORT}/metrics`
+- `http://localhost:${HTTP_PORT}/health`
