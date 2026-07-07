@@ -91,11 +91,13 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🔮 Oracle Contracts {#oracle-contracts}
 
 - Accounting Oracle:
-  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
+  - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy) 
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] AccountingOracle: [`0x1455B96780A93e08abFE41243Db92E2fCbb0141c`](https://etherscan.io/address/0x1455B96780A93e08abFE41243Db92E2fCbb0141c) (impl)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] AccountingOracle: [`0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136`](https://etherscan.io/address/0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
-  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
+  - ValidatorsExitBusOracle: [`0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e`](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) (proxy)
+  - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] ValidatorsExitBusOracle: [`0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94`](https://etherscan.io/address/0x905A211eD6830Cfc95643f0bE2ff64E7f3bf9b94) (proxy)
   - \[[proposed](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] ValidatorsExitBusOracle: [`0x2C3386b39db89eef0F362A3BE0C05a6811E809E3`](https://etherscan.io/address/0x2C3386b39db89eef0F362A3BE0C05a6811E809E3) (impl)
   - HashConsensus: [`0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a`](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a)
 - \[[proposed to remove](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] OracleReportSanityChecker: [`0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129`](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
