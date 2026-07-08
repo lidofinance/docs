@@ -265,6 +265,11 @@ for the rate and price feeds recommended approaches.
 - USDC→USDT [`0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7`](https://etherscan.io/address/0x278f7B6CBB3Cc37374e6a40bDFEBfff08f65A5C7)
 - USDC→DAI [`0x2B5a3944A654439379B206DE999639508bA2e850`](https://etherscan.io/address/0x2B5a3944A654439379B206DE999639508bA2e850)
 
+## 🪺 Lido NEST Contracts {#lido-nest-contracts}
+
+- OracleRouter [`0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31`](https://etherscan.io/address/0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31)
+- AmountConverter (ETH-anchored) [`0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d`](https://etherscan.io/address/0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d)
+
 ## ⚡ Easy Track {#easy-track}
 
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
