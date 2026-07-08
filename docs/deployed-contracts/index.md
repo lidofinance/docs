@@ -76,9 +76,11 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 - Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
 
-### 🛠️ Staking Router V3 Upgrade (temporary) {#srv3-upgrade-temporary}
+### 🛠️ SRv3 + CMv2 + CSM Upgrade (temporary) {#srv3-cmv2-csm-upgrade-temporary}
 
-- Upgrade Temporary Admin: [`0x57Cc953D3d27E7E8bAd04566bfd4Cd416c3B0855`](https://etherscan.io/address/0x57Cc953D3d27E7E8bAd04566bfd4Cd416c3B0855)
+- Upgrade Config: [`0xf94e7A95C559728AcA33bFa7136Ea5De40B0338E`](https://etherscan.io/address/0xf94e7A95C559728AcA33bFa7136Ea5De40B0338E)
+- Upgrade Template: [`0xD92b6303Ba39297Cb69a3a17A88b47586A6af14C`](https://etherscan.io/address/0xD92b6303Ba39297Cb69a3a17A88b47586A6af14C)
+- Upgrade Vote Script: [`0xE6530830A2cf90773cB232748b2c674c27b6E0CA`](https://etherscan.io/address/0xE6530830A2cf90773cB232748b2c674c27b6E0CA)
 
 ### 🔗 Consolidation Stack {#consolidation-stack}
 
