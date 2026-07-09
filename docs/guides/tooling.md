@@ -31,7 +31,7 @@ The Lido Council Daemon monitors deposit contract keys.
 
 - **Version**: 4.0.4
 - **Docker image**: sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02, [lidofinance/lido-council-daemon@sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02](https://hub.docker.com/layers/lidofinance/lido-council-daemon/4.0.4/images/sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02)
-- Commit hash: [lidofinance/lido-council-daemon@b02577ff193ea8fa96f5c16025292d044ebd70f3](https://github.com/lidofinance/lido-council-daemon/commit/b02577ff193ea8fa96f5c16025292d044ebd70f3)
+- Commit hash: [lidofinance/lido-council-daemon@b02577f](https://github.com/lidofinance/lido-council-daemon/commit/b02577ff193ea8fa96f5c16025292d044ebd70f3)
 - **Last update date**: 7 July, 2026
 - [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/4.0.4)
 - [**Documentation**](/guides/deposit-security-manual/)
