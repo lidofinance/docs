@@ -18,22 +18,22 @@ Oracle daemon for Lido decentralized staking service.
 
 Daemon service which loads LidoOracle events for validator exits and sends out exit messages when necessary.
 
-- **Version**: 1.9.0
-- **Docker image**: sha256:5346eb0c07557c567fed110c603a8cc35fe51ff1a7790922d03541c56b38da32, [lidofinance/validator-ejector@sha256-5346eb0c07557c567fed110c603a8cc35fe51ff1a7790922d03541c56b38da32](https://hub.docker.com/layers/lidofinance/validator-ejector/1.9.0/images/sha256-5346eb0c07557c567fed110c603a8cc35fe51ff1a7790922d03541c56b38da32)
-- **Commit hash**: [lidofinance/validator-ejector@28ae303](https://github.com/lidofinance/validator-ejector/commit/28ae303c3306fa9808b3bcfb8ec6a8ab6af06d02)
-- **Last update date**: 21 Aug, 2025
-- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/1.9.0#readme)
+- **Version**: 2.1.0
+- **Docker image**: sha256:8953a4107d99ab84ff0f2b02cb7dd13b7cd7e5a565cf04fbe36e7911df5983dc, [lidofinance/validator-ejector@sha256-8953a4107d99ab84ff0f2b02cb7dd13b7cd7e5a565cf04fbe36e7911df5983dc](https://hub.docker.com/layers/lidofinance/validator-ejector/2.1.0/images/sha256-8953a4107d99ab84ff0f2b02cb7dd13b7cd7e5a565cf04fbe36e7911df5983dc)
+- **Commit hash**: [lidofinance/validator-ejector@ec0992d](https://github.com/lidofinance/validator-ejector/commit/ec0992d9b4454425470b6608336755419ddb94ca)
+- **Last update date**: 26 May, 2026
+- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/2.1.0#readme)
 - [**Documentation**](/guides/validator-ejector-guide/)
 
 ## Council daemon
 
 The Lido Council Daemon monitors deposit contract keys.
 
-- **Version**: 3.7.0
-- **Docker image**: sha256:f68b31ee6d02c40dfaf471683e27aec3e5b27f20cd58e6588a6d34cab4ca59ed, [lidofinance/lido-council-daemon@sha256:f68b31ee6d02c40dfaf471683e27aec3e5b27f20cd58e6588a6d34cab4ca59ed](https://hub.docker.com/layers/lidofinance/lido-council-daemon/3.7.0/images/sha256-f68b31ee6d02c40dfaf471683e27aec3e5b27f20cd58e6588a6d34cab4ca59ed)
-- Commit hash: [lidofinance/lido-council-daemon@03f4325d](https://github.com/lidofinance/lido-council-daemon/commit/3f4325d6ecd95b54ab3db730878be2ff288e33bc)
-- **Last update date**: 2 April, 2026
-- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/3.7.0)
+- **Version**: 4.0.4
+- **Docker image**: sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02, [lidofinance/lido-council-daemon@sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb0](https://hub.docker.com/layers/lidofinance/lido-council-daemon/4.0.4/images/sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02)
+- Commit hash: [lidofinance/lido-council-daemon@b02577ff193ea8fa96f5c16025292d044ebd70f3](https://github.com/lidofinance/lido-council-daemon/commit/b02577ff193ea8fa96f5c16025292d044ebd70f3)
+- **Last update date**: 7 July, 2026
+- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/4.0.4)
 - [**Documentation**](/guides/deposit-security-manual/)
 
 ## Depositor Bot
@@ -62,11 +62,11 @@ Bot that distributes node-operator rewards in the Curated and Simple DVT staking
 
 Lido keys HTTP API.
 
-- **Version**: 4.0.0
-- **Docker image**: sha256:c7eab0cf4e21f4bceb86716e6de3c13f07ffe9df5becc3c7f7d72807c0227670, [lidofinance/lido-keys-api@sha256-c7eab0cf4e21f4bceb86716e6de3c13f07ffe9df5becc3c7f7d72807c0227670](https://hub.docker.com/layers/lidofinance/lido-keys-api/4.0.0/images/sha256-c7eab0cf4e21f4bceb86716e6de3c13f07ffe9df5becc3c7f7d72807c0227670)
-- **Commit hash**: [lidofinance/lido-keys-api@4033629](https://github.com/lidofinance/lido-keys-api/commit/403362973bcf6b98aad0bfe29029a2e19be06081)
-- **Last update date**: 19 June, 2026
-- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/4.0.0)
+- **Version**: 4.0.1
+- **Docker image**: sha256:7ea121b25b1b68f805cf2a7dd5094052be4a53c8dabdc7f3aa728c0318a90a1e, [lidofinance/lido-keys-api@sha256-7ea121b25b1b68f805cf2a7dd5094052be4a53c8dabdc7f3aa728c0318a90a1e](https://hub.docker.com/layers/lidofinance/lido-keys-api/4.0.1/images/sha256-7ea121b25b1b68f805cf2a7dd5094052be4a53c8dabdc7f3aa728c0318a90a1e)
+- **Commit hash**: [lidofinance/lido-keys-api@f347ed5](https://github.com/lidofinance/lido-keys-api/commit/f347ed570c74a90456c6302a8f3e2168ae900675)
+- **Last update date**: 8 July, 2026
+- [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/4.0.1)
 - [**Documentation**](/guides/kapi-guide/)
 
 ## Validator Exit Bot
