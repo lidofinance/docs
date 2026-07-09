@@ -11,7 +11,7 @@ Oracle daemon for Lido decentralized staking service.
 - **Commit hash**: [lidofinance/lido-oracle@0da5606](https://github.com/lidofinance/lido-oracle/commit/0da56064d7f1a24d951e3f0c35b56443fb245742)
 - **Last update date**: 24 June, 2026
 - [**Repository**](https://github.com/lidofinance/lido-oracle/tree/8.0.1)
-- [**Documentation**](/guides/oracle-operator-manual/)
+- [**Documentation**](/guides/oracle-operator-manual)
 - [**Audit Report for v8.0.1 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8%20Audit%20Report.pdf)
 
 ## Validator Ejector
@@ -22,19 +22,19 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 - **Docker image**: sha256:8953a4107d99ab84ff0f2b02cb7dd13b7cd7e5a565cf04fbe36e7911df5983dc, [lidofinance/validator-ejector@sha256-8953a4107d99ab84ff0f2b02cb7dd13b7cd7e5a565cf04fbe36e7911df5983dc](https://hub.docker.com/layers/lidofinance/validator-ejector/2.1.0/images/sha256-8953a4107d99ab84ff0f2b02cb7dd13b7cd7e5a565cf04fbe36e7911df5983dc)
 - **Commit hash**: [lidofinance/validator-ejector@ec0992d](https://github.com/lidofinance/validator-ejector/commit/ec0992d9b4454425470b6608336755419ddb94ca)
 - **Last update date**: 26 May, 2026
-- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/2.1.0#readme)
-- [**Documentation**](/guides/validator-ejector-guide/)
+- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/2.1.0)
+- [**Documentation**](/guides/validator-ejector-guide)
 
 ## Council daemon
 
 The Lido Council Daemon monitors deposit contract keys.
 
 - **Version**: 4.0.4
-- **Docker image**: sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02, [lidofinance/lido-council-daemon@sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02](https://hub.docker.com/layers/lidofinance/lido-council-daemon/4.0.4/images/sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02)
-- Commit hash: [lidofinance/lido-council-daemon@b02577f](https://github.com/lidofinance/lido-council-daemon/commit/b02577ff193ea8fa96f5c16025292d044ebd70f3)
+- **Docker image**: sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02, [lidofinance/lido-council-daemon@sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02](https://hub.docker.com/layers/lidofinance/lido-council-daemon/4.0.4/images/sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02)
+- **Commit hash**: [lidofinance/lido-council-daemon@b02577f](https://github.com/lidofinance/lido-council-daemon/commit/b02577ff193ea8fa96f5c16025292d044ebd70f3)
 - **Last update date**: 7 July, 2026
 - [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/4.0.4)
-- [**Documentation**](/guides/deposit-security-manual/)
+- [**Documentation**](/guides/deposit-security-manual)
 
 ## Depositor Bot
 
@@ -67,7 +67,7 @@ Lido keys HTTP API.
 - **Commit hash**: [lidofinance/lido-keys-api@f347ed5](https://github.com/lidofinance/lido-keys-api/commit/f347ed570c74a90456c6302a8f3e2168ae900675)
 - **Last update date**: 8 July, 2026
 - [**Repository**](https://github.com/lidofinance/lido-keys-api/tree/4.0.1)
-- [**Documentation**](/guides/kapi-guide/)
+- [**Documentation**](/guides/kapi-guide)
 
 ## Validator Exit Bot
 
@@ -76,7 +76,7 @@ Bot that automates triggering exits for Lido validators that have missed their e
 - **Version**: 1.0.1
 - **Docker image**: sha256:0a649a5eff41a9c05ee82bc974ba4b40943ea2225c37568d52a9f3416f75f31c, [lidofinance/validator-exit-bot@sha256-0a649a5eff41a9c05ee82bc974ba4b40943ea2225c37568d52a9f3416f75f31c](https://hub.docker.com/layers/lidofinance/validator-exit-bot/1.0.1/images/sha256-0a649a5eff41a9c05ee82bc974ba4b40943ea2225c37568d52a9f3416f75f31c)
 - **Commit hash**: [lidofinance/validator-exit-bot@edf5daf](https://github.com/lidofinance/validator-exit-bot/commit/edf5daf684f48f8a2b989e49dde0f2afc72565f8)
-- **Last update date**: 9 February 2026
+- **Last update date**: 9 February, 2026
 - [**Repository**](https://github.com/lidofinance/validator-exit-bot/tree/1.0.1)
 - [**Documentation**](/guides/validator-exit-bot)
 
@@ -87,6 +87,6 @@ Bot that monitors the beacon chain for validators that missed their exit deadlin
 - **Version**: 1.0.5
 - **Docker image**: sha256:eb23b4fb757dcdc9d2c418941a2a29ce3513a3800d20e3fa162a594519b7f52c, [lidofinance/late-prover-bot@sha256-eb23b4fb757dcdc9d2c418941a2a29ce3513a3800d20e3fa162a594519b7f52c](https://hub.docker.com/layers/lidofinance/late-prover-bot/1.0.5/images/sha256-eb23b4fb757dcdc9d2c418941a2a29ce3513a3800d20e3fa162a594519b7f52c)
 - **Commit hash**: [lidofinance/late-prover-bot@59d102a](https://github.com/lidofinance/late-prover-bot/commit/59d102a25c096e21c76798d0bdae7cae0ba65f56)
-- **Last update date**: 28 April 2026
+- **Last update date**: 28 April, 2026
 - [**Repository**](https://github.com/lidofinance/late-prover-bot/tree/1.0.5)
 - [**Documentation**](/guides/late-prover-bot)
