@@ -1,54 +1,51 @@
-# CSStrikes
+# ValidatorStrikes
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/v2.0/src/CSStrikes.sol)
-- [Deployed contract](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/ValidatorStrikes.sol)
+- [Deployed contract](https://etherscan.io/address/0xf4618370a1fBf46905B16C10817c8CFaD924D6db)
 
-`CSStrikes.sol` is a utility contract that stores information about strikes assigned to the CSM validators by CSM Performance Oracle. It has a permissionless method to prove that a particular validator should be ejected because the number of strikes is above the threshold for this validator. It calls `CSEjector.sol` to perform a strikes threshold check and eject the validator.
+`ValidatorStrikes` is a supplementary contract that stores the latest Merkle tree root and CID for validator-strike data reported by the [Performance Oracle](FeeOracle.md). Anyone can submit a valid Merkle multiproof showing that one or more validators have reached the strike threshold configured in [`ParametersRegistry`](ParametersRegistry.md) for their Node Operator type. For each qualifying validator, the contract records a bad-performance penalty through [`ExitPenalties`](ExitPenalties.md) and calls [`Ejector`](Ejector.md) to trigger the validator's exit.
 
-## Upgradability
-
-The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
 ### ORACLE
 
 ```solidity
-address public immutable ORACLE;
+address public immutable ORACLE
 ```
 
 
 ### MODULE
 
 ```solidity
-ICSModule public immutable MODULE;
+IBaseModule public immutable MODULE
 ```
 
 
 ### ACCOUNTING
 
 ```solidity
-ICSAccounting public immutable ACCOUNTING;
+IAccounting public immutable ACCOUNTING
 ```
 
 
 ### EXIT_PENALTIES
 
 ```solidity
-ICSExitPenalties public immutable EXIT_PENALTIES;
+IExitPenalties public immutable EXIT_PENALTIES
 ```
 
 
 ### PARAMETERS_REGISTRY
 
 ```solidity
-ICSParametersRegistry public immutable PARAMETERS_REGISTRY;
+IParametersRegistry public immutable PARAMETERS_REGISTRY
 ```
 
 
 ### ejector
 
 ```solidity
-ICSEjector public ejector;
+IEjector public ejector
 ```
 
 
@@ -57,7 +54,7 @@ The latest Merkle Tree root
 
 
 ```solidity
-bytes32 public treeRoot;
+bytes32 public treeRoot
 ```
 
 
@@ -66,11 +63,35 @@ CID of the last published Merkle tree
 
 
 ```solidity
-string public treeCid;
+string public treeCid
 ```
 
 
 ## Functions
+### onlyOracle
+
+
+```solidity
+modifier onlyOracle() ;
+```
+
+### constructor
+
+
+```solidity
+constructor(address module, address oracle) ;
+```
+
+### initialize
+
+Initialize contract from scratch. In case of a method call frontrun, the contract instance should be discarded.
+It is recommended to call this method in the same transaction as the deployment transaction
+and perform extensive deployment verification before using the contract instance.
+
+
+```solidity
+function initialize(address admin, address _ejector) external initializer;
+```
 
 ### setEjector
 
@@ -91,7 +112,7 @@ function setEjector(address _ejector) external onlyRole(DEFAULT_ADMIN_ROLE);
 
 Receive the data of the Merkle tree from the Oracle contract and process it
 
-*New tree might be empty and it is valid value because of `strikesLifetime`*
+New tree might be empty and it is valid value because of `strikesLifetime`
 
 
 ```solidity
@@ -102,12 +123,12 @@ function processOracleReport(bytes32 _treeRoot, string calldata _treeCid) extern
 |Name|Type|Description|
 |----|----|-----------|
 |`_treeRoot`|`bytes32`|Root of the Merkle tree|
-|`_treeCid`|`string`|an IPFS CID of the tree|
+|`_treeCid`|`string`|IPFS CID of the tree|
 
 
 ### processBadPerformanceProof
 
-Report multiple CSM keys as bad performing
+Report multiple keys as bad performing
 
 
 ```solidity
@@ -155,7 +176,7 @@ function verifyProof(
 |Name|Type|Description|
 |----|----|-----------|
 |`keyStrikesList`|`KeyStrikes[]`|List of KeyStrikes structs|
-|`pubkeys`|`bytes[]`||
+|`pubkeys`|`bytes[]`|Public keys corresponding to each entry in keyStrikesList|
 |`proof`|`bytes32[]`|Multi-proof of the strikes|
 |`proofFlags`|`bool[]`|Flags to process the multi-proof, see OZ `processMultiProof`|
 
@@ -163,14 +184,14 @@ function verifyProof(
 
 |Name|Type|Description|
 |----|----|-----------|
-|`<none>`|`bool`|bool True if proof is accepted|
+|`<none>`|`bool`|True if proof is accepted|
 
 
 ### hashLeaf
 
-Get a hash of a leaf a tree of strikes
+Get a hash of a leaf in a tree of strikes
 
-*Double hash the leaf to prevent second pre-image attacks*
+Double hash the leaf to prevent second pre-image attacks
 
 
 ```solidity
@@ -190,25 +211,28 @@ function hashLeaf(KeyStrikes calldata keyStrikes, bytes memory pubkey) public pu
 |`<none>`|`bytes32`|Hash of the leaf|
 
 
-## Events
-### StrikesDataUpdated
-*Emitted when strikes data is updated*
+### _setEjector
 
 
 ```solidity
-event StrikesDataUpdated(bytes32 treeRoot, string treeCid);
+function _setEjector(address _ejector) internal;
 ```
 
-### StrikesDataWiped
-*Emitted when strikes is updated from non-empty to empty*
+### _ejectByStrikes
 
 
 ```solidity
-event StrikesDataWiped();
+function _ejectByStrikes(
+    KeyStrikes calldata keyStrikes,
+    bytes memory pubkey,
+    uint256 value,
+    address refundRecipient
+) internal;
 ```
 
-### EjectorSet
+### _onlyOracle
+
 
 ```solidity
-event EjectorSet(address ejector);
+function _onlyOracle() internal view;
 ```

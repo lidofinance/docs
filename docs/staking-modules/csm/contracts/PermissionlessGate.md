@@ -1,47 +1,47 @@
 # PermissionlessGate
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/v2.0/src/PermissionlessGate.sol)
-- [Deployed contract](https://etherscan.io/address/0xcF33a38111d0B1246A3F38a838fb41D626B454f0)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/PermissionlessGate.sol)
+- [Deployed contract](https://etherscan.io/address/0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8)
 
-`PermissionlessGate.sol` is a supplementary contract that enables permissionless Node Operator creation in `CSModule.sol`, serving as an entry point.
+`PermissionlessGate.sol` is a supplementary contract that allows anyone to register as a Node Operator in the module. In a single transaction, it creates the Node Operator and submits the initial validator keys and bond in ETH, `stETH`, or `wstETH`. Node Operators created through this gate use the default bond curve.
 
 ## Upgradability
 
 The contract is immutable.
 
 ## State Variables
-### RECOVERER_ROLE
-
-```solidity
-bytes32 public constant RECOVERER_ROLE = keccak256("RECOVERER_ROLE");
-```
-
-
 ### CURVE_ID
-*Curve ID is the default bond curve ID from the accounting contract
-This immutable variable is kept here for consistency with the other gates*
+Curve ID is the default bond curve ID from the accounting contract
+This immutable variable is kept here for consistency with the other gates
 
 
 ```solidity
-uint256 public immutable CURVE_ID;
+uint256 public immutable CURVE_ID
 ```
 
 
 ### MODULE
-*Address of the Staking Module*
+Address of the Staking Module
 
 
 ```solidity
-ICSModule public immutable MODULE;
+IBaseModule public immutable MODULE
 ```
 
 
 ## Functions
+### constructor
+
+
+```solidity
+constructor(address module, address admin) ;
+```
 
 ### addNodeOperatorETH
 
 Add a new Node Operator using ETH as a bond.
-At least one deposit data and corresponding bond should be provided
+At least one deposit data and corresponding bond should be provided.
+Any excess msg.value will be sent to the bond and can be claimed from there.
 
 
 ```solidity
@@ -82,7 +82,7 @@ function addNodeOperatorStETH(
     bytes calldata publicKeys,
     bytes calldata signatures,
     NodeOperatorManagementProperties calldata managementProperties,
-    ICSAccounting.PermitInput calldata permit,
+    IAccounting.PermitInput calldata permit,
     address referrer
 ) external returns (uint256 nodeOperatorId);
 ```
@@ -94,7 +94,7 @@ function addNodeOperatorStETH(
 |`publicKeys`|`bytes`|Public keys to submit|
 |`signatures`|`bytes`|Signatures of `(deposit_message_root, domain)` tuples https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata|
 |`managementProperties`|`NodeOperatorManagementProperties`|Optional. Management properties to be used for the Node Operator. managerAddress: Used as `managerAddress` for the Node Operator. If not passed `msg.sender` will be used. rewardAddress: Used as `rewardAddress` for the Node Operator. If not passed `msg.sender` will be used. extendedManagerPermissions: Flag indicating that `managerAddress` will be able to change `rewardAddress`. If set to true `resetNodeOperatorManagerAddress` method will be disabled|
-|`permit`|`ICSAccounting.PermitInput`|Optional. Permit to use stETH as bond|
+|`permit`|`IAccounting.PermitInput`|Optional. Permit to use stETH as bond|
 |`referrer`|`address`|Optional. Referrer address. Should be passed when Node Operator is created using partners integration|
 
 **Returns**
@@ -116,7 +116,7 @@ function addNodeOperatorWstETH(
     bytes calldata publicKeys,
     bytes calldata signatures,
     NodeOperatorManagementProperties calldata managementProperties,
-    ICSAccounting.PermitInput calldata permit,
+    IAccounting.PermitInput calldata permit,
     address referrer
 ) external returns (uint256 nodeOperatorId);
 ```
@@ -128,7 +128,7 @@ function addNodeOperatorWstETH(
 |`publicKeys`|`bytes`|Public keys to submit|
 |`signatures`|`bytes`|Signatures of `(deposit_message_root, domain)` tuples https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata|
 |`managementProperties`|`NodeOperatorManagementProperties`|Optional. Management properties to be used for the Node Operator. managerAddress: Used as `managerAddress` for the Node Operator. If not passed `msg.sender` will be used. rewardAddress: Used as `rewardAddress` for the Node Operator. If not passed `msg.sender` will be used. extendedManagerPermissions: Flag indicating that `managerAddress` will be able to change `rewardAddress`. If set to true `resetNodeOperatorManagerAddress` method will be disabled|
-|`permit`|`ICSAccounting.PermitInput`|Optional. Permit to use wstETH as bond|
+|`permit`|`IAccounting.PermitInput`|Optional. Permit to use wstETH as bond|
 |`referrer`|`address`|Optional. Referrer address. Should be passed when Node Operator is created using partners integration|
 
 **Returns**
@@ -136,3 +136,11 @@ function addNodeOperatorWstETH(
 |Name|Type|Description|
 |----|----|-----------|
 |`nodeOperatorId`|`uint256`|Id of the created Node Operator|
+
+
+### _onlyRecoverer
+
+
+```solidity
+function _onlyRecoverer() internal view override;
+```

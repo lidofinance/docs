@@ -4,7 +4,7 @@
 ## Voluntary exits
 Given CSM's permissionless nature, NOs can voluntarily exit their validators at any moment by publishing an exit message to the Ethereum Consensus Layer.
 
-Should a Node Operator decide to exit their validators using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002), they can do so via the [CSEjector](./contracts/CSEjector.md) contract.
+Should a Node Operator decide to exit their validators using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002), they can do so via the [Ejector](./contracts/Ejector.md) contract.
 
 :::warning
 Exiting validators using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) is an emergency measure and should be used only in exceptional cases. It is recommended to exit validators using the standard method of publishing an exit message to the Ethereum Consensus Layer.
@@ -17,7 +17,7 @@ From the core protocol side, validator exit can be requested to cover withdrawal
 
 From CSM side, validator exits can be requested or triggered for:
 - Unbonded validators. These exits are requested automatically using the `targetLimitMode = 2` (forced mode);
-- Validators with an excessive number of [bad performance strikes](penalties.md#bad-performance-strikes). These exits are triggered via the permissionless method on the [CSStrikes](./contracts/CSStrikes.md) contract. 
+- Validators with an excessive number of [bad performance strikes](penalties.md#bad-performance-strikes). These exits are triggered via the permissionless method on the [ValidatorStrikes](./contracts/ValidatorStrikes.md) contract. 
 
 :::info
 `targetLimitMode = 2` (forced mode) was introduced within the updated version of [Staking Router](https://hackmd.io/@lido/BJXRTxMRp#Forced-Exit-Requests1). In short, it is similar to the existing `targetLimit` but exits for the validators above `targetLimit` with `targetLimitMode = 2` (forced mode) can be requested within the next [VEBO](/contracts/validators-exit-bus-oracle) report, even without a need to fulfill withdrawal requests from stETH holders.
@@ -31,7 +31,24 @@ Node Operators should follow [VEBO](/contracts/validators-exit-bus-oracle) event
 Also, in exceptional cases, Lido DAO can trigger exits for Node Operator's validators based on the DAO's decision.
 
 ## Withdrawal balance reporting
-The withdrawal balance of the validator is required to release the [bond](./join-csm#bond) and calculate the exit penalty, if any. This balance is reported permissionlessly using [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) by the CSM bot or the Node Operator themselves.
+
+The module settles a validator's exit after receiving a withdrawal report. Processing the report marks the validator as withdrawn and applies any exit-related [penalties and charges](./penalties.md).
+
+### Non-slashed validators
+
+After a full withdrawal is included in a beacon block, anyone can submit a proof through [`Verifier`](./contracts/Verifier.md). Reports are typically submitted by the prover bot or the Node Operator.
+
+`Verifier` validates the proof against a beacon block root obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and forwards the proof to the module to process.
+
+If the withdrawal amount is below the expected balance, the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Fixed exit penalties are [scaled with the validator's balance](./penalties.md#penalty-scaling-for-larger-validators).
+
+### Slashed validators
+
+Slashed validators use a separate permissioned flow because their full losses, including missed rewards, cannot always be determined from the withdrawal amount alone:
+
+1. Anyone can submit a valid proof of the validator's slashed status through [`Verifier.processSlashedProof`](./contracts/Verifier.md#processslashedproof). This records the slashing in the module but does not settle the withdrawal.
+2. A dedicated committee calculates the slashing loss off-chain and submits the validator's exit balance and explicit slashing penalty through an [Easy Track](/guides/easy-track-guide) motion.
+3. When the motion is enacted, the module applies the slashing penalty and any other recorded exit penalties or charges, marks the validator as withdrawn, and updates the Node Operator's required bond.
 
 ## Useful links
 

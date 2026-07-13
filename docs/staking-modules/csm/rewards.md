@@ -8,7 +8,9 @@ There are two types of rewards for CSM Node Operators:
 
 ## Node Operator rewards
 
-Node Operator rewards come from the LoE protocol's share of the Consensus and Execution layers' rewards. These rewards are calculated as a percentage of the rewards of a full 32 ETH validator. Node Operator rewards are distributed between all staking modules in the same [way](/contracts/staking-router#fee-distribution) (proportionally based on the number of active validators per module, where `active == deposited - exited`). Each [Accounting Oracle](/contracts/accounting-oracle.md) report allocates a new portion of staking rewards to CSM. Allocated rewards are stored on the module. Then, the allocation of the Node Operator rewards for CSM Node Operators using a Merkle tree is provided by [CSM Performance Oracle](#performance-oracle) once per `frame`, making a new portion of the rewards available for claim.
+Node Operator rewards are paid from the Lido on Ethereum protocol fees collected on Consensus and Execution Layer rewards. After an [Accounting Oracle](/contracts/accounting-oracle) report, [Staking Router](/contracts/staking-router#fee-distribution) mints the module fee allocated to CSM as `stETH` shares. The module transfers these shares to [`FeeDistributor`](./contracts/FeeDistributor.md), where they remain pending until the next [Performance Oracle](#performance-oracle) report.
+
+Once per `frame`, the Performance Oracle allocates the pending shares among Node Operators. A validator's contribution to the allocation depends on how long it was active during the frame, its effective balance, its performance, and the reward share configured for the Node Operator type and key number. This accounts for both standard `32 ETH` validators and `0x02` validators with effective balances of up to `2048 ETH`. The Oracle publishes the cumulative allocation in a Merkle tree, making the newly allocated rewards claimable. Any shares designated as a protocol rebate are transferred from `FeeDistributor` to the Lido treasury.
 
 ## Bond rewards
 
@@ -18,7 +20,7 @@ Node Operator rewards come from the LoE protocol's share of the Consensus and Ex
 
 ![rewards-2](../../../static/img/csm/rewards-2.png)
 
-The overall equation for the total rewards is as follows: totalRewards = validatorEffectiveBalance * networkAPR * moduleFee + bondAmount * shareRateChange. The [supplementary post](https://research.lido.fi/t/bond-and-staking-fee-napkin-math/5999) provides more details.
+The overall equation can be represented as `totalRewards = nodeOperatorRewards + bondRewards`, where Node Operator rewards are allocated by the Performance Oracle and `bondRewards = bondAmount * shareRateChange`. The [supplementary post](https://research.lido.fi/t/bond-and-staking-fee-napkin-math/5999) provides more details.
 
 A meaningful part of total rewards comes from [bond](./join-csm#bond) rebase. The [bond](./join-csm#bond) and the Node Operator rewards are combined before the claim. The final amount of rewards available for claiming is calculated as `totalBond + nodeOperatorRewards - bondRequired`. This approach also ensures that any missing [bond](./join-csm#bond) will be recouped by the protocol prior to a rewards claim.
 
@@ -29,12 +31,16 @@ Also, any excess [bond](./join-csm#bond) will be treated as a reward.
 ![rewards-4](../../../static/img/csm/rewards-4.png)
 
 
+## Reward splitters
+
+CSM v3 introduces an optional built-in fee splitter. When the Node Operator's portion of the staking fees is claimed, the configured shares are transferred to one or more `FeeSplitRecipients` (up to 10). This streamlines integration with infrastructure providers that charge a percentage of the staking rewards and can also be used for opt-in donations. Node Operators can also authorize another address to submit reward-claim transactions on their behalf. This address only triggers the claim; the claimed funds are always sent to the configured reward address.
+
 ## Performance Oracle
-The Performance Oracle creates a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) with the allocation of the Node Operator rewards and delivers the root on-chain. To make the original tree available to users, it is published on [IPFS](https://ipfs.tech/) and [GitHub](https://github.com/lidofinance/csm-rewards). Instead of storing multiple roots, each new tree consists of all Node Operator rewards ever acquired by CSM Node Operators. Hence, only the latest tree is required to determine the reward allocation at any moment of time. The amount of rewards available for claiming can be calculated as `totalAcquiredRewards - claimedRewards`. `claimedRewards` are stored for each Node Operator in the `CSAccounting` contract to ensure correct accounting.
+The Performance Oracle creates a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) with the allocation of the Node Operator rewards and delivers the root on-chain. To make the original tree available to users, it is published on [IPFS](https://ipfs.tech/) and [GitHub](https://github.com/lidofinance/csm-rewards). Instead of storing multiple roots, each new tree consists of all Node Operator rewards ever acquired by CSM Node Operators. Hence, only the latest tree is required to determine the reward allocation at any moment in time. The amount available for distribution can be calculated as `cumulativeFeeShares - distributedShares`. `FeeDistributor` stores `distributedShares` for each Node Operator to ensure correct accounting.
 
 The Performance Oracle calculates validators performance based on their **attestation, block proposal, and sync committee participation effectiveness**. The exact formulas for performance calculation can be found [here](https://hackmd.io/@lido/csm-v2-tech#Updated-CSM-Performance-Oracle-metric).
 
-A performance threshold is utilized to determine the allocation of the actual Node Operator rewards. Validators with performance above the threshold are included in the allocation pool, while the rest are not. Activation and exit events are accounted for during the Node Operator's share calculation. Once the allocation pool is formed, each validator gets a staking rewards part of `totalStakingRewardsAccumulated` proportional to its lifetime within a frame. This effectively means that all rewards acquired by the module will be allocated among well-performers. Then, validator shares are allocated to the corresponding Node Operators, and each Operator can claim rewards for all of their validators in one go.
+A performance threshold is used to determine which validators participate in the Node Operator reward allocation. Validators at or above the threshold are included, while the rest receive no Node Operator rewards for the frame. Activation and exit events determine how long a validator participated in the frame. Each eligible validator's allocation weight is then adjusted by its effective balance and configured reward share. The resulting validator allocations are aggregated for each Node Operator and published in the cumulative rewards tree.
 
 ![rewards-5](../../../static/img/csm/rewards-5.png)
 
@@ -46,7 +52,7 @@ The performance threshold is relative to the overall network attestation effecti
 
 Performance Oracle creates a few artifacts for each successful round of reward distribution: a dump of a Merkle Tree with Node Operators' cumulative rewards and a log of per-operator performance assessment data.
 
-Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashes of the files used to retrieve the content back from the IPFS network) are pushed on-chain. The [`CSFeeDistributor` contract](/staking-modules/csm/contracts/CSFeeDistributor.md) has two view functions to retrieve these CIDs: [**treeCid**](/staking-modules/csm/contracts/CSFeeDistributor.md#treecid) and [**logCid**](/staking-modules/csm/contracts/CSFeeDistributor.md#logcid).
+Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashes of the files used to retrieve the content back from the IPFS network) are pushed on-chain. The [`FeeDistributor` contract](/staking-modules/csm/contracts/FeeDistributor.md) has two view functions to retrieve these CIDs: [**treeCid**](/staking-modules/csm/contracts/FeeDistributor.md#treecid) and [**logCid**](/staking-modules/csm/contracts/FeeDistributor.md#logcid).
 
 The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. For pre-generated proofs, see the [csm-rewards](https://github.com/lidofinance/csm-rewards) GitHub repository. This repository also provides detailed instructions on how to generate proof and claim rewards manually via Etherscan.
 

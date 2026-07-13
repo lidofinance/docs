@@ -12,9 +12,9 @@ Deployed instances:
 - [AccountingOracle](/contracts/accounting-oracle)
 - [ValidatorsExitBusOracle](/contracts/validators-exit-bus-oracle)
 - [CSModule](/staking-modules/csm/contracts/CSModule)
-- [CSAccounting](/staking-modules/csm/contracts/CSAccounting)
-- [CSFeeDistributor](/staking-modules/csm/contracts/CSFeeDistributor)
-- [CSFeeOracle](/staking-modules/csm/contracts/CSFeeOracle)
+- [Accounting](/staking-modules/csm/contracts/Accounting)
+- [FeeDistributor](/staking-modules/csm/contracts/FeeDistributor)
+- [FeeOracle](/staking-modules/csm/contracts/FeeOracle)
 
 A common proxy contract that used for Lido non-Aragon upgradable contract deployments.
 Follows the [ERC1967](https://eips.ethereum.org/EIPS/eip-1967) proxy standard and allows ossification
