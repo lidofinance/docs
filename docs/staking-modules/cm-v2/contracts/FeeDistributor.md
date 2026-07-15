@@ -1,6 +1,6 @@
 # FeeDistributor
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/FeeDistributor.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/FeeDistributor.sol)
 - [Deployed contract](https://etherscan.io/address/0x367d23c756599c20DCc8D6943F4976E8F88D60d7)
 
 `FeeDistributor` is a supplementary contract that holds the module's `stETH` reward shares while they are unallocated or claimable by Node Operators. [`FeeOracle`](FeeOracle.md) reports the latest rewards-distribution Merkle root and CID, distribution log, newly claimable shares, and any rebate. The contract stores a history of these reports and transfers the reported rebate to the configured recipient.

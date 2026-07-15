@@ -1,6 +1,6 @@
 # MetaRegistry
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/MetaRegistry.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/MetaRegistry.sol)
 - [Deployed contract](https://etherscan.io/address/0xA64b339eebD3dC3De848298B6a140955932901d8)
 
 `MetaRegistry` is a supplementary contract that stores Node Operator metadata and defines operator groups used by [`CuratedModule`](CuratedModule.md) for weighted stake allocation. A group assigns shares to its module Node Operators and can reference operators in external staking modules. The registry calculates each grouped Node Operator's effective allocation weight from its [`Accounting`](Accounting.md) bond curve and its share within the group. Operators outside a group have zero allocation weight.

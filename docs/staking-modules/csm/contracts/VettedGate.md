@@ -1,6 +1,6 @@
 # VettedGate
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/VettedGate.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/VettedGate.sol)
 - Deployed contracts (deployed as multiple gate instances):
   - [Identified Community Stakers Gate](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0)
   - [Identified DVT Cluster Gate](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8)

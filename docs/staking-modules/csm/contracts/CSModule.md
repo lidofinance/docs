@@ -1,6 +1,6 @@
 # CSModule
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/CSModule.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/CSModule.sol)
 - [Deployed contract](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
 
 `CSModule.sol` is a core module contract conforming to the `IStakingModule` and `IStakingModuleV2` interfaces. The contract stores information about Node Operators and deposit data (DD) and is responsible for all interactions with the `StakingRouter`, including deposit data queue management. To support `0x02` validators, it also maintains a top-up queue used to fund validators beyond the initial `32 ETH` deposit up to `2048 ETH`.

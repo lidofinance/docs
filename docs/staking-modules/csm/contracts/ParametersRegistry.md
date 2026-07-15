@@ -1,6 +1,6 @@
 # ParametersRegistry
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/ParametersRegistry.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/ParametersRegistry.sol)
 - [Deployed contract](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428)
 
 `ParametersRegistry.sol` is a supplementary contract that stores parameters associated with Node Operator types. Other contracts in the module and off-chain tools, such as the Performance Oracle, retrieve these parameters from the registry. Each parameter must have a default value. If a custom value is configured for a particular Node Operator type, the registry returns it; otherwise, it returns the default value.

@@ -1,6 +1,6 @@
 # PermissionlessGate
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/PermissionlessGate.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/PermissionlessGate.sol)
 - [Deployed contract](https://etherscan.io/address/0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8)
 
 `PermissionlessGate.sol` is a supplementary contract that allows anyone to register as a Node Operator in the module. In a single transaction, it creates the Node Operator and submits the initial validator keys and bond in ETH, `stETH`, or `wstETH`. Node Operators created through this gate use the default bond curve.

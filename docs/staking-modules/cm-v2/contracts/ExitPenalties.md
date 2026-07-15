@@ -1,6 +1,6 @@
 # ExitPenalties
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/ExitPenalties.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/ExitPenalties.sol)
 - [Deployed contract](https://etherscan.io/address/0x004aFb7DAA7dEA20EbAaB75c9F4892C879FaCCe0)
 
 `ExitPenalties` is a supplementary contract that records exit-related penalties and charges for individual validators. It can track:

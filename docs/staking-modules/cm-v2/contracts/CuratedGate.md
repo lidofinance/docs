@@ -1,6 +1,6 @@
 # CuratedGate
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/CuratedGate.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/CuratedGate.sol)
 - [Deployed contract (implementation)](https://etherscan.io/address/0x3cb948FD454ad6b20DE67633f25DcbDbEaa0e849) — deployed as multiple gate instances (one per Node Operator type)
 
 `CuratedGate` is a supplementary contract that allows an address included in a gate instance's Merkle tree to create an empty Node Operator in [`CuratedModule`](CuratedModule.md). In the same transaction, the gate configures the manager and reward addresses, stores the operator's name and description in [`MetaRegistry`](MetaRegistry.md), and assigns the gate's bond curve through [`Accounting`](Accounting.md) when it differs from the default curve. Each address can use a given gate instance only once.

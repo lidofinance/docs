@@ -1,6 +1,6 @@
 # Verifier
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/Verifier.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Verifier.sol)
 - [Deployed contract](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)
 
 `Verifier` is an immutable supplementary contract that validates Consensus Layer data proofs against beacon block roots obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reports verified facts to [`CuratedModule`](CuratedModule.md). It supports validator-slashing proofs and both recent and historical proofs of validator withdrawals and balances. All proof-processing methods are permissionless, so anyone, typically a prover service or Node Operator, can submit a valid proof.

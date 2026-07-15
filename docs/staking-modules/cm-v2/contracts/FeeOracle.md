@@ -1,6 +1,6 @@
 # FeeOracle
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/FeeOracle.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/FeeOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5)
 
 `FeeOracle` is a supplementary contract that processes the module's Performance Oracle report after consensus has been reached. An authorized consensus member or account holding `SUBMIT_DATA_ROLE` submits the report data matching the consensus hash. The contract sends rewards-distribution data to [`FeeDistributor`](FeeDistributor.md) and the latest validator-strikes tree to [`ValidatorStrikes`](ValidatorStrikes.md).

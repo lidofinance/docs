@@ -1,6 +1,6 @@
 # FeeOracle
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/FeeOracle.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/FeeOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB)
 
 `FeeOracle.sol` is a supplementary contract responsible for the execution of the Performance Oracle report once consensus is reached in the `HashConsensus.sol` contract, namely, transforming non-distributed rewards into non-claimed rewards stored on the `FeeDistributor.sol` and reporting the latest root of the rewards distribution Merkle tree to the `FeeDistributor.sol`. Alongside rewards distribution, the contract manages strikes data delivery to `ValidatorStrikes.sol`. The contract inherits from [`BaseOracle.sol`](https://github.com/lidofinance/core/blob/master/contracts/0.8.9/oracle/BaseOracle.sol) from Lido on Ethereum (LoE) core.

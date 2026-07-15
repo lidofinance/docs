@@ -1,6 +1,6 @@
 # ValidatorStrikes
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/ValidatorStrikes.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/ValidatorStrikes.sol)
 - [Deployed contract](https://etherscan.io/address/0xf4618370a1fBf46905B16C10817c8CFaD924D6db)
 
 `ValidatorStrikes` is a supplementary contract that stores the latest Merkle tree root and CID for validator-strike data reported by the [Performance Oracle](FeeOracle.md). Anyone can submit a valid Merkle multiproof showing that one or more validators have reached the strike threshold configured in [`ParametersRegistry`](ParametersRegistry.md) for their Node Operator type. For each qualifying validator, the contract records a bad-performance penalty through [`ExitPenalties`](ExitPenalties.md) and calls [`Ejector`](Ejector.md) to trigger the validator's exit.

@@ -1,6 +1,6 @@
 # MerkleGateFactory
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/MerkleGateFactory.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/MerkleGateFactory.sol)
 - [Deployed contract](https://etherscan.io/address/0xDdE99d63b352A665d04339D4792E6852Ce89d1B7)
 
 `MerkleGateFactory` is an immutable supplementary contract that deploys and initializes [`CuratedGate`](CuratedGate.md) instances behind [OssifiableProxy](/contracts/ossifiable-proxy). Each new proxy is initialized with its bond curve, Merkle tree root and CID, name, and administrator.

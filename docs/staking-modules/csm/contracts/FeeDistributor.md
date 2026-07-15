@@ -1,6 +1,6 @@
 # FeeDistributor
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/FeeDistributor.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/FeeDistributor.sol)
 - [Deployed contract](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
 
 `FeeDistributor.sol` is a supplementary contract that stores non-claimed and non-distributed Node Operator rewards on its balance. This contract stores the latest root of a rewards distribution Merkle tree. It accepts calls from `Accounting.sol` with reward claim requests and stores data about already claimed rewards by the Node Operator. It receives non-distributed rewards from the module each time the `StakingRouter` mints the new portion of the module's rewards. This contract transfers excess rewards allocated by `StakingRouter` due to variable Node Operator reward share back to Lido treasury.

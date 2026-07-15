@@ -1,6 +1,6 @@
 # Ejector
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/Ejector.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Ejector.sol)
 - [Deployed contract](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5)
 
 `Ejector` is a supplementary contract that triggers validator exits through Lido's [`TriggerableWithdrawalsGateway`](/contracts/triggerable-withdrawals-gateway) (`TWG`) using EIP-7002 execution-layer withdrawal requests. It supports voluntary ejections initiated by Node Operators and forced ejections initiated by [`ValidatorStrikes`](ValidatorStrikes.md) for validators that have exceeded the strike threshold.

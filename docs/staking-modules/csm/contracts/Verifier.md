@@ -1,6 +1,6 @@
 # Verifier
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/Verifier.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Verifier.sol)
 - [Deployed contract](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba)
 
 `Verifier.sol` is a supplementary contract responsible for validating Consensus Layer (CL) data proofs against the beacon block root obtained via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reporting the verified facts to the module. All of its proof-processing methods are permissionless - anyone (typically the prover bot or the Node Operator) can submit a valid proof.

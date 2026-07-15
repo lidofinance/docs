@@ -1,6 +1,6 @@
 # CuratedModule
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/CuratedModule.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/CuratedModule.sol)
 - [Deployed contract](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1)
 
 `CuratedModule` is the core staking module contract. It stores Node Operator and validator deposit data, handles interactions with the Staking Router, and provides flows for key and operator-address management, rewards, penalties, validator balances, and validator exits. Bond operations are delegated to [`Accounting`](Accounting.md), while exit-related obligations are recorded by [`ExitPenalties`](ExitPenalties.md).

@@ -1,6 +1,6 @@
 # Accounting
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/Accounting.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Accounting.sol)
 - [Deployed contract](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da)
 
 `Accounting.sol` is a supplementary contract responsible for managing Node Operators' bond, rewards, penalties, and charges. It stores the bond as `stETH` shares and tracks the required bond using configurable bond curves associated with each Node Operator type. The contract also manages bond locks, records bond debt when the bond is insufficient to cover penalties, and integrates with the [`FeeDistributor`](FeeDistributor.md) to pull and split staking fee rewards.

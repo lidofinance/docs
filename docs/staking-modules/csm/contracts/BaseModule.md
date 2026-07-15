@@ -1,6 +1,6 @@
 # BaseModule
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/abstract/BaseModule.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/abstract/BaseModule.sol)
 
 `BaseModule.sol` is an abstract base contract implementing the functionality shared by the CSM and Curated modules, such as Node Operator and deposit data management, penalties, validator exit reporting and so on.
 

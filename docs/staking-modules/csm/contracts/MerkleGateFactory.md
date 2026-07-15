@@ -1,6 +1,6 @@
 # MerkleGateFactory
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/MerkleGateFactory.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/MerkleGateFactory.sol)
 - [Deployed contract](https://etherscan.io/address/0xc0f110Af6eA9119037a71C84D14506A22AE43DdE)
 
 `MerkleGateFactory.sol` is a supplementary contract that deploys and initializes Merkle-based gate instances, such as [`VettedGate`](VettedGate.md), behind [OssifiableProxy](contracts/ossifiable-proxy.md). A factory is bound to a single gate implementation at deployment. Each new instance is configured with its bond curve, initial Merkle tree root and CID, name, and administrator. The factory itself is immutable, while each deployed gate is upgradeable through its proxy.

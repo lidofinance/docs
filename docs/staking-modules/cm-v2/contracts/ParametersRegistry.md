@@ -1,6 +1,6 @@
 # ParametersRegistry
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/68bbef5148bb51c1967785a7c6ed6e168acccc0f/src/ParametersRegistry.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/ParametersRegistry.sol)
 - [Deployed contract](https://etherscan.io/address/0xffC1C5d59CeAC6F6c27E701F04a70cb50474607C)
 
 `ParametersRegistry` is a supplementary contract that stores configurable parameters associated with Node Operator types, represented by bond curve IDs. It provides defaults and optional per-curve overrides for key limits, reward shares, performance and strike settings, general penalties, and validator-exit parameters. Contracts including [`CuratedModule`](CuratedModule.md), [`ValidatorStrikes`](ValidatorStrikes.md), and [`ExitPenalties`](ExitPenalties.md) retrieve the custom value when one is configured and the default otherwise.
