@@ -36,6 +36,7 @@ Lido DAO governance acts through the Aragon Agent, which holds `DEFAULT_ADMIN_RO
 - Upgrade proxy-based contracts or change their proxy administration.
 - Pause and resume module contracts, effectively stopping or resuming the creation of new Node Operators, validator key uploads, and claims of rewards and excess bond.
 - Grant and revoke contract roles, including operational roles that are unassigned by default.
+- Use the emergency `OPERATOR_ADDRESSES_ADMIN_ROLE` to forcibly reset a Node Operator's manager and reward addresses.
 - Create and modify bond curves and configure Node Operator type parameters.
 - Manage Performance Oracle committee membership and quorum.
 - Change administrative settings such as the bond-lock period, charge recipient, reward-rebate recipient, and the `Ejector` used by `ValidatorStrikes`.
