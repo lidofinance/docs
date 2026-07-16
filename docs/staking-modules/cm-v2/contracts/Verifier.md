@@ -3,7 +3,35 @@
 - [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Verifier.sol)
 - [Deployed contract](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)
 
-`Verifier` is an immutable supplementary contract that validates Consensus Layer data proofs against beacon block roots obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reports verified facts to [`CuratedModule`](CuratedModule.md). It supports validator-slashing proofs and both recent and historical proofs of validator withdrawals and balances. All proof-processing methods are permissionless, so anyone, typically a prover service or Node Operator, can submit a valid proof.
+`Verifier.sol` is a supplementary contract responsible for validating Consensus Layer (CL) data proofs against the beacon block root obtained via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reporting the verified facts to the module. All of its proof-processing methods are permissionless - anyone (typically the prover bot or the Node Operator) can submit a valid proof.
+
+The following proof types are supported:
+
+- validator withdrawal (including historical);
+- validator balance (including historical);
+- validator slashing.
+
+## Hard-fork compatibility
+
+`Verifier` does not inspect the Consensus Layer fork version directly. Instead, it supports two sets of [SSZ generalized indices](https://github.com/ethereum/consensus-specs/blob/master/ssz/merkle-proofs.md#generalized-merkle-tree-index), separated by `PIVOT_SLOT`. Proofs for state slots before the pivot use one set of indices, while proofs for the pivot slot and later use the other.
+
+`FIRST_SUPPORTED_SLOT` is the deployment's lower acceptance boundary and should not be advanced merely because a new fork occurs. If a fork changes any relevant proof path, the immutable constructor values cannot be updated. A replacement `Verifier` must be deployed, tested with proofs from both sides of the fork boundary, and authorized on the module before activation. A changed leaf schema may also require contract code changes rather than new gindices alone.
+
+The Mainnet deployment sets both `FIRST_SUPPORTED_SLOT` and `PIVOT_SLOT` to the Electra activation slot and configures both sets of indices for the Electra layout. As a result, the deployment supports Electra and remains compatible with later hard forks while the relevant SSZ indices remain unchanged. A hard fork does not necessarily change these paths; nevertheless, the generalized indices must be revalidated against the finalized specification for each fork.
+
+The following values and assumptions must be tracked:
+
+| Value | Fork-sensitive assumptions to verify |
+| --- | --- |
+| `PIVOT_SLOT` | Activation slot at which the second set of proof paths becomes valid. |
+| `GI_*` | SSZ generalized indices for the corresponding fields used in proofs. |
+| `SLOTS_PER_EPOCH` | Epoch calculation used when checking validator withdrawability. |
+| `BEACON_ROOTS` | EIP-4788 system-contract address and lookup semantics. |
+| SSZ leaf schemas | Layouts of `BeaconBlockHeader`, `Validator`, and `Withdrawal`, whose roots are computed by the contract. |
+
+## Upgradability
+
+The contract is immutable.
 
 ## State Variables
 ### BEACON_ROOTS

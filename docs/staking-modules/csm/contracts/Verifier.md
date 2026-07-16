@@ -7,9 +7,27 @@
 
 The following proof types are supported:
 
-- validator widthdrawal (including historical);
+- validator withdrawal (including historical);
 - validator balance (including historical);
 - validator slashing.
+
+## Hard-fork compatibility
+
+`Verifier` does not inspect the Consensus Layer fork version directly. Instead, it supports two sets of [SSZ generalized indices](https://github.com/ethereum/consensus-specs/blob/master/ssz/merkle-proofs.md#generalized-merkle-tree-index), separated by `PIVOT_SLOT`. Proofs for state slots before the pivot use one set of indices, while proofs for the pivot slot and later use the other.
+
+`FIRST_SUPPORTED_SLOT` is the deployment's lower acceptance boundary and should not be advanced merely because a new fork occurs. If a fork changes any relevant proof path, the immutable constructor values cannot be updated. A replacement `Verifier` must be deployed, tested with proofs from both sides of the fork boundary, and authorized on the module before activation. A changed leaf schema may also require contract code changes rather than new gindices alone.
+
+The Mainnet deployment sets both `FIRST_SUPPORTED_SLOT` and `PIVOT_SLOT` to the Electra activation slot and configures both sets of indices for the Electra layout. As a result, the deployment supports Electra and remains compatible with later hard forks while the relevant SSZ indices remain unchanged. A hard fork does not necessarily change these paths; nevertheless, the generalized indices must be revalidated against the finalized specification for each fork.
+
+The following values and assumptions must be tracked:
+
+| Value | Fork-sensitive assumptions to verify |
+| --- | --- |
+| `PIVOT_SLOT` | Activation slot at which the second set of proof paths becomes valid. |
+| `GI_*` | SSZ generalized indices for the corresponding fields used in proofs. |
+| `SLOTS_PER_EPOCH` | Epoch calculation used when checking validator withdrawability. |
+| `BEACON_ROOTS` | EIP-4788 system-contract address and lookup semantics. |
+| SSZ leaf schemas | Layouts of `BeaconBlockHeader`, `Validator`, and `Withdrawal`, whose roots are computed by the contract. |
 
 ## Upgradability
 
