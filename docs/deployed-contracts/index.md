@@ -29,7 +29,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl)
+  - Lido Locator: [`0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d`](https://etherscan.io/address/0x2f8779042EFaEd4c53db2Ce293eB6B3f7096C72d) (impl) [proposed to remove]
+  - Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl) [proposed]
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
   - Lido: [`0x6ca84080381E43938476814be61B779A8bB6a600`](https://etherscan.io/address/0x6ca84080381E43938476814be61B779A8bB6a600) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
@@ -267,8 +268,15 @@ for the rate and price feeds recommended approaches.
 
 ## 🪺 Lido NEST Contracts {#lido-nest-contracts}
 
-- OracleRouter [`0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31`](https://etherscan.io/address/0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31)
-- AmountConverter (ETH-anchored) [`0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d`](https://etherscan.io/address/0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d)
+- [proposed] OracleRouter [`0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31`](https://etherscan.io/address/0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31)
+- [proposed] AmountConverter (ETH-anchored) [`0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d`](https://etherscan.io/address/0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d)
+- [proposed] StonksFactory [`0x632C0CCDca849eeD780FC685BBa9AbC3c7407Cb2`](https://etherscan.io/address/0x632C0CCDca849eeD780FC685BBa9AbC3c7407Cb2)
+  - [proposed] Order (sample) [`0x2569633AdB492ca9327cb7433277aa7c68D69e28`](https://etherscan.io/address/0x2569633AdB492ca9327cb7433277aa7c68D69e28)
+- [proposed] StakingRevenueSource [`0x6220212a33a87Ed7Cc386B67eB2c393974F28C38`](https://etherscan.io/address/0x6220212a33a87Ed7Cc386B67eB2c393974F28C38)
+- [proposed] BuybackExecutor [`0x6c213ca5A10Cc26548C742229569B4AeD2A9C9B7`](https://etherscan.io/address/0x6c213ca5A10Cc26548C742229569B4AeD2A9C9B7)
+- [proposed] BuybackAllocator [`0xAA568141c051f2D1132b110f8391F18D48E8D889`](https://etherscan.io/address/0xAA568141c051f2D1132b110f8391F18D48E8D889)
+- [proposed] Stonks (LP mode) [`0x8c595aA4AEc6F42B9e7D77F83179768D37CE3042`](https://etherscan.io/address/0x8c595aA4AEc6F42B9e7D77F83179768D37CE3042)
+- [proposed] Stonks (Treasury mode) [`0xb368586CB980895E51e1D82102E63b3F69d3F151`](https://etherscan.io/address/0xb368586CB980895E51e1D82102E63b3F69d3F151)
 
 ## ⚡ Easy Track {#easy-track}
 
@@ -463,7 +471,8 @@ for the rate and price feeds recommended approaches.
 
 #### 🧱 Ethereum part {#ethereum-part-optimism}
 
-- TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
+- TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9) [proposed to remove]
+- TokenRateNotifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b) [proposed]
 - OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
 - L1LidoTokensBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
