@@ -36,11 +36,11 @@ The module settles a validator's exit after receiving a withdrawal report. Proce
 
 ### Non-slashed validators
 
-After a full withdrawal is included in a beacon block, anyone can submit a proof through [`Verifier`](./contracts/Verifier.md). Reports are typically submitted by the prover bot or the Node Operator.
+After a full withdrawal is included in a beacon block, anyone can submit a [withdrawal proof](./contracts/Verifier.md#processwithdrawalproof) through [`Verifier`](./contracts/Verifier.md). Reports are typically submitted by the [prover bot](https://github.com/lidofinance/csm-prover-tool) or the Node Operator.
 
 `Verifier` validates the proof against a beacon block root obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and forwards the proof to the module to process.
 
-If the withdrawal amount is below the expected balance, the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Fixed exit penalties are [scaled with the validator's balance](./penalties.md#penalty-scaling-for-larger-validators).
+If the withdrawal amount is below the [confirmed expected balance](./intro.md#validator-balance-tracking), the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Fixed exit penalties are [scaled with the validator's balance](./penalties.md#penalty-scaling-for-larger-validators).
 
 ### Slashed validators
 

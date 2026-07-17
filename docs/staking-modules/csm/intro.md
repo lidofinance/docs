@@ -50,6 +50,24 @@ The top-up queue applies to CSM deployments serving [`0x02` validators](#0x02-va
 ### 0x02 validators support
 [CSM v3](https://github.com/lidofinance/staking-modules/releases/tag/v3.0) introduces native support for `0x02` validator withdrawal credentials. Each CSM deployment serves a single withdrawal-credential type, so the existing CSM continues to serve only `0x01` validators, while `0x02` validators would be served by a separate module conforming to the [`IStakingModuleV2`](https://github.com/lidofinance/core/blob/af095e48bbc1c3841c2c9936219c8461af01056b/contracts/common/interfaces/IStakingModuleV2.sol) interface. In such a module, each validator would first receive an initial `32 ETH` deposit and would later be topped up to `2048 ETH`.
 
+### Validator balance tracking
+The module keeps a **confirmed balance** for every deposited validator key: the highest balance ever proven on the Consensus Layer through [`Verifier`](./contracts/Verifier.md). Anyone can update it with a balance proof as the validator grows from CL rewards, settled [top-ups](#top-up-queue), consolidation inflows, or other CL activity. It never decreases while the validator is active, so it acts as a high-water mark capped at the validator MEB.
+
+It is used in three places:
+
+- [`Verifier`](./contracts/Verifier.md) checks it to confirm that a reported withdrawal is large enough to be treated as a full withdrawal.
+- The module uses it as the baseline for the [withdrawal-balance penalty](./penalties.md#reasons) applied when the validator is [withdrawn](./validator-exits.md#withdrawal-balance-reporting).
+- When the confirmed balance exceeds the validator's allocated amount, the module raises the allocated amount to match, so validator balance growth is reflected in the module's tracked stake and remaining [top-up](#top-up-queue) capacity. This keeps stake allocation fair.
+
+This approach has two important caveats:
+
+- **Stale balance proofs can cause under-penalization.** If proof delivery lags behind settled top-ups or balance growth, the confirmed balance can be lower than the validator's actual high-water mark, so a later loss is measured from an outdated baseline.
+- **Consensus Layer balance decreases are assessed without determining fault.** Any decrease from the confirmed high-water mark to the withdrawal balance is charged to the Node Operator, regardless of its cause, so losses from systemic network conditions are not distinguished from operator-caused ones.
+
+:::warning Prover bot
+Confirmed balances stay accurate only if balance proofs are delivered on time, so reliable operation of the [prover bot](https://github.com/lidofinance/csm-prover-tool) is more important to module health than in earlier versions.
+:::
+
 ### Node Operator structure
 The Node Operator data structure in CSM is similar to that of the [Curated module](/contracts/node-operators-registry.md), with several minor differences:
 - The `name` property is omitted as redundant for the permissionless module;
