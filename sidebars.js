@@ -224,7 +224,6 @@ module.exports = {
               label: 'Contracts',
               items: [
                 'staking-modules/csm/contracts/CSModule',
-                'staking-modules/csm/contracts/BaseModule',
                 'staking-modules/csm/contracts/Accounting',
                 'staking-modules/csm/contracts/FeeDistributor',
                 'staking-modules/csm/contracts/FeeOracle',
