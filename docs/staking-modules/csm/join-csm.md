@@ -81,6 +81,26 @@ Each priority queue operates in a FIFO manner as described above. The priority q
 
 More on the priority queues can be found in the [dedicated section of CSM v2 features](https://hackmd.io/@lido/csm-v2-tech#Priority-Queues) document.
 
+## Top-up queue
+
+:::info
+The top-up queue exists only for CSM deployments serving [`0x02` validators](./intro.md#0x02-validators-support). The existing `0x01` CSM does not use it.
+:::
+
+`0x02` validators are funded in two phases: an initial `32 ETH` deposit, followed by top-ups up to the `2048 ETH` maximum effective balance (MEB). The initial `32 ETH` deposit is allocated exactly like any other deposit, through the [stake allocation queue](#stake-allocation-queue) (including [priority queues](#priority-queues)). The subsequent top-ups are ordered by a separate **top-up queue**.
+
+Unlike the stake allocation queue, which stores `{noId, keysCount}` batches, the top-up queue stores individual `{noId, keyIndex}` items and is processed as a [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) queue. A key is appended to the top-up queue at the moment it receives its initial `32 ETH` deposit, so the order of the top-up queue mirrors the order in which the validators were initially deposited.
+
+![join-csm-8](../../../static/img/csm/topup-queue.png)
+
+The queue has a DAO-configured capacity limit (`topUpQueueLimit`). While the queue is at capacity, new initial `32 ETH` deposits are throttled (the depositable keys count is capped by the remaining capacity), so the number of validators awaiting top-ups stays bounded.
+
+When the protocol tops up validators, it walks the queue strictly from the head. Each key is topped up in steps (multiples of `2 ETH`) toward its remaining room up to `2048 ETH`, bounded by the amount available in the current round. A key is dequeued once it has been fully topped up; a key that still has room remains at the head and is served again in a later round. Because processing is strictly ordered, keys cannot be topped up out of turn.
+
+:::info
+If a key is skipped or dequeued prematurely (for example, due to incorrect pending-deposit data reported by the depositor bot), a permissioned service method can rewind the queue head back to that key so it can be topped up correctly. Keys that were already fully topped up are skipped on reprocessing, since their remaining top-up room is zero.
+:::
+
 ## Deposit data deletion
 The Node Operator might delete uploaded deposit data voluntarily if it has not been deposited yet. The `keyRemovalCharge` is confiscated from the Node Operator's [bond](./join-csm#bond) on each deleted key to cover the maximum possible operational costs associated with the queue processing. Deposit data can be deleted in continuous batches (ex., from index 5 to 10).
 
