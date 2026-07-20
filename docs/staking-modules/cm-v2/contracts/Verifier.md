@@ -68,7 +68,7 @@ uint64 public immutable SLOTS_PER_EPOCH
 ### SLOTS_PER_HISTORICAL_ROOT
 Count of historical roots per accumulator.
 
-See https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#time-parameters
+See https://github.com/ethereum/consensus-specs/blob/master/specs/phase0/beacon-chain.md#time-parameters
 
 
 ```solidity
