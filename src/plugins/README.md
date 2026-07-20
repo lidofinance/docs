@@ -27,8 +27,8 @@ Generates two files at the site root that follow the [llmstxt.org](https://llmst
 
 ## Main Docs
 
-- [Introduction](https://docs.lido.fi/): This documentation is intended to introduce...
-- [Accounting](https://docs.lido.fi/contracts/accounting): Handles oracle reports...
+- [Introduction](https://docs.lido.fi/index.md): This documentation is intended to introduce...
+- [Accounting](https://docs.lido.fi/contracts/accounting.md): Handles oracle reports...
 - ...
 
 ## Run on Lido
@@ -38,7 +38,7 @@ Generates two files at the site root that follow the [llmstxt.org](https://llmst
 - ...
 ```
 
-Designed to fit comfortably in a single LLM call. Each entry is `[title](absolute_url): short_description`. Title comes from frontmatter `title` or first `# H1` (with anchor suffixes like `{#mainnet}` and leading emoji stripped). Description comes from frontmatter `description`, falling back to the first meaningful paragraph (skips headings, lists, blockquotes, JSX blocks).
+Designed to fit comfortably in a single LLM call. Each entry is `[title](raw_markdown_url): short_description`. Title comes from frontmatter `title` or first `# H1` (with anchor suffixes like `{#mainnet}` and leading emoji stripped). Description comes from frontmatter `description`, falling back to the first meaningful paragraph (skips headings, lists, blockquotes, JSX blocks).
 
 **`/llms-full.txt`** — full corpus (~2.2 MB). Format:
 

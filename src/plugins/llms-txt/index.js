@@ -56,7 +56,8 @@ function renderIndex(sections, siteUrl, siteTitle, siteDescription) {
     lines.push(`## ${section.label || section.routeBasePath}`)
     lines.push('')
     for (const doc of section.docs) {
-      const url = `${siteUrl}${doc.permalink}`
+      const pathname = doc.permalink.replace(/\/+$/, '') || '/index'
+      const url = `${siteUrl}${pathname}.md`
       const desc = escapeMarkdown(doc.description)
       lines.push(desc ? `- [${doc.title}](${url}): ${desc}` : `- [${doc.title}](${url})`)
     }
