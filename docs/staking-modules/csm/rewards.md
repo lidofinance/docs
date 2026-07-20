@@ -56,16 +56,18 @@ Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashe
 
 The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. For pre-generated proofs, see the [csm-rewards](https://github.com/lidofinance/csm-rewards) GitHub repository. This repository also provides detailed instructions on how to generate proof and claim rewards manually via Etherscan.
 
-A frame performance assessment log aims to achieve more transparency on the rewards distribution made by Oracle. It's another JSON object that stores, among other things:
+A frame performance assessment log provides transparency into the rewards distribution performed by the Oracle. It stores, among other things:
 
-- The performance threshold for a given frame;
-- The total amount of shares distributable in the frame;
-- Attestation rates of validators as "assigned" and "included" pairs;
-- The amount of shares distributed to every operator in the frame.
+- The frame epochs and reference block;
+- The reward shares available for distribution, distributed in the frame, and rebated to the protocol;
+- The rewards distributed to each Node Operator and the performance coefficients configured for the Node Operator's type;
+- Each validator's performance, threshold, reward share, and effective balance multiplier used in the rewards calculation;
+- Each validator's slashing status and strikes;
+- Attestation, block proposal, and sync committee duty summaries for each validator.
 
-There's also additional data in the log; for a full definition, look at the following [typescript gist](https://github.com/lidofinance/staking-modules/blob/51e140617e000a92e821f760444245a177d585af/gists/FramePerfLog.ts).
+For the full definition, see the following [TypeScript gist](https://github.com/lidofinance/staking-modules/blob/7b005bfdb7f236a2fc8327ec9aa31bcb1be9b0a8/gists/FramePerfLog.ts).
 
-One can inspect the file to ensure all the operators' `distributed` amounts are correct; for example, by using this [python gist](https://github.com/lidofinance/staking-modules/blob/51e140617e000a92e821f760444245a177d585af/gists/check_frame_log.py). Interested persons can also check the attestations summaries for each validator in the log and report any discrepancies using the official [Lido Discord](https://discord.com/invite/lido).
+One can inspect the log to verify the rewards distributed to each Node Operator and the inputs used in the calculation. Interested persons can report discrepancies using the official [Lido Discord](https://discord.com/invite/lido).
 
 If you want to learn more about the actual Performance Oracle algorithm, check out this [detailed doc](https://hackmd.io/@lido/BJclaWbi6).
 
