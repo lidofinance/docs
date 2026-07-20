@@ -23,6 +23,7 @@ Focused reviews of individual modules and contract updates.
 | [NM-0812 Redeem Queue Fee Fix](/audits/mellow/2026-01-21_Nethermind_NM-0812_Mellow.pdf) | Nethermind | 2026-01-21 | Fee transfer fix from ShareManager to feeRecipient via burn and mint | [`685be83`](https://github.com/mellow-finance/flexible-vaults/commit/685be83) |
 | [NM-0758 SyncDepositQueue](/audits/mellow/2026-03-02_Nethermind_NM-0758_Mellow.pdf) | Nethermind | 2026-03-02 | Updated review of SyncDepositQueue reflecting a fix identified on Feb 27, 2026 | [`c9c7181`](https://github.com/mellow-finance/flexible-vaults/commit/c9c71818f0a8bead183f9860db3b8bbceb7b8f37) |
 | [NM-0891 PermissionedChainlinkOracle](/audits/mellow/2026-04-13_Nethermind_NM-0891_Mellow.pdf) | Nethermind | 2026-04-13 | PermissionedChainlinkOracle — administrative Chainlink-compatible price feed for exotic assets without native oracle support | [`bcf37ae`](https://github.com/mellow-finance/flexible-vaults/commit/bcf37aef95cefc45be9c4b8988126c5f7d3d6788) |
+| [SyncRedeemQueue](/audits/mellow/2026-07-15_MixBytes_Mellow-SyncRedeemQueue.pdf) | MixBytes | 2026-07-15 | SyncRedeemQueue for instant synchronous redemptions priced against the latest oracle report | [`69bbaf1`](https://github.com/mellow-finance/flexible-vaults/commit/69bbaf17530dc5127ecf9049cceaab141f516a1e) |
 
 ## Bug Bounty
 
