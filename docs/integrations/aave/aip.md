@@ -1,3 +1,7 @@
+---
+description: AAVE governance proposal to add stETH as collateral to the AAVE v2 market.
+---
+
 # AIP
 
 | title                | status   | author              | shortDescription                                         | discussion                                                                                               | created    |

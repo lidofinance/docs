@@ -1,5 +1,6 @@
 ---
 toc_max_heading_level: 3
+description: Deployment addresses for Lido Earn vaults and their supporting contracts.
 ---
 
 # Deployments
