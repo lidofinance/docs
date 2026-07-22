@@ -63,6 +63,11 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Dashboard Implementation: [`0x38131D5548Be57A34937521fe427a23f49e1e2d4`](https://hoodi.etherscan.io/address/0x38131D5548Be57A34937521fe427a23f49e1e2d4)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
 
+### 🌊 DeFi Wrapper {#defi-wrapper}
+
+- DeFi Wrapper Factory: [`0xd05ebF24A340ece8B8FB53a170F1171DCd02b4d9`](https://hoodi.etherscan.io/address/0xd05ebF24A340ece8B8FB53a170F1171DCd02b4d9)
+- Lido Earn Strategy Factory: [`0x0b860bfFDA72D214Dc8aC98bEcd8D1cd55307561`](https://hoodi.etherscan.io/address/0x0b860bfFDA72D214Dc8aC98bEcd8D1cd55307561)
+
 ### 🔗 Consolidation Stack {#consolidation-stack}
 
 - Consolidation Migrator: [`0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8`](https://hoodi.etherscan.io/address/0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8) (proxy)
