@@ -3,10 +3,6 @@
 - [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.25/TopUpGateway.sol)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
-:::note
-The deployed contract address will be added here after deployment.
-:::
-
 ## What is TopUpGateway
 
 TopUpGateway is the entry point for topping up `0x02`-type (compounding) Lido validators. For each validator it:
@@ -19,31 +15,93 @@ The per-validator top-up limit is `targetBalanceGwei − (effectiveBalance + pen
 
 `topUp` is permissioned (`TOP_UP_ROLE`, held by the Lido Depositor Bot). The contract inherits `CLValidatorVerifier`, `AccessControlEnumerableUpgradeable`, and `PausableUntil`, and is deployed behind an [OssifiableProxy](/contracts/ossifiable-proxy).
 
-## Roles and access control
+## State Variables
+### LOCATOR
 
-To engage Emergency Brakes and unpause if required, the contract inherits `PausableUntil` (see [GateSeal](/contracts/gate-seal)).
+```solidity
+ILidoLocator internal immutable LOCATOR
+```
 
-| Role                 | Holder                                              | Description                                      |
-| -------------------- | --------------------------------------------------- | ------------------------------------------------ |
-| `DEFAULT_ADMIN_ROLE` | Aragon Agent                                        | Manages all other roles.                         |
-| `TOP_UP_ROLE`        | Lido Depositor Bot                                  | Submits top-up transactions.                     |
-| `MANAGE_LIMITS_ROLE` | _unassigned_                                        | Manages top-up limit parameters.                 |
-| `PAUSE_ROLE`         | [CircuitBreaker](/contracts/circuit-breaker) + ResealManager | Pauses the contract.                    |
-| `RESUME_ROLE`        | ResealManager                                       | Resumes the contract.                            |
 
-The proxy admin is the Aragon Agent.
+### GATEWAY_STORAGE_POSITION
+Storage slot: keccak256(abi.encode(uint256(keccak256("lido.TopUpGateway.storage")) - 1)) & ~bytes32(uint256(0xff))
 
-## Constructor and initialization
 
-```sol
+```solidity
+bytes32 internal constant GATEWAY_STORAGE_POSITION =
+    0x22e512057841e2bc1e6d80030c8bb8b4935377af2e64ba9bf8e6a3e88fb32200
+```
+
+
+### PUBKEY_LENGTH
+
+```solidity
+uint256 internal constant PUBKEY_LENGTH = 48
+```
+
+
+### FAR_FUTURE_EPOCH
+
+```solidity
+uint256 internal constant FAR_FUTURE_EPOCH = type(uint64).max
+```
+
+
+### SLOTS_PER_EPOCH
+
+```solidity
+uint256 public immutable SLOTS_PER_EPOCH
+```
+
+
+### TOP_UP_ROLE
+
+```solidity
+bytes32 public constant TOP_UP_ROLE = keccak256("TOP_UP_ROLE")
+```
+
+
+### MANAGE_LIMITS_ROLE
+
+```solidity
+bytes32 public constant MANAGE_LIMITS_ROLE = keccak256("MANAGE_LIMITS_ROLE")
+```
+
+
+### PAUSE_ROLE
+
+```solidity
+bytes32 public constant PAUSE_ROLE = keccak256("PAUSE_ROLE")
+```
+
+
+### RESUME_ROLE
+
+```solidity
+bytes32 public constant RESUME_ROLE = keccak256("RESUME_ROLE")
+```
+
+
+## Functions
+### constructor
+
+
+```solidity
 constructor(
     address _lidoLocator,
     GIndex _gIFirstValidatorPrev,
     GIndex _gIFirstValidatorCurr,
     uint64 _pivotSlot,
     uint256 _slotsPerEpoch
-)
+) CLValidatorVerifier(_gIFirstValidatorPrev, _gIFirstValidatorCurr, _pivotSlot);
+```
 
+### initialize
+
+Initializes the TopUpGateway proxy with admin, rate limits, and top-up balance parameters.
+
+
+```solidity
 function initialize(
     address _admin,
     uint256 _maxValidatorsPerTopUp,
@@ -51,211 +109,447 @@ function initialize(
     uint256 _maxRootAgeSec,
     uint256 _targetBalanceGwei,
     uint256 _minTopUpGwei
-) external
+) external initializer;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_admin`|`address`|Address to receive DEFAULT_ADMIN_ROLE|
+|`_maxValidatorsPerTopUp`|`uint256`|Maximum number of validators per single topUp call|
+|`_minTopUpBlockDistance`|`uint256`|Minimum blocks between topUp calls|
+|`_maxRootAgeSec`|`uint256`|Maximum age (seconds) of beacon root relative to block.timestamp|
+|`_targetBalanceGwei`|`uint256`|Target validator balance ceiling after top-up (in Gwei). Top-up amount = targetBalance - currentTotal.|
+|`_minTopUpGwei`|`uint256`|Minimum top-up that can be performed (in Gwei). If calculated top-up < minTopUp, returns 0. Must be <= _targetBalanceGwei.|
+
+
+### resume
+
+Resume the contract
+
+Reverts if contracts is not paused
+
+Reverts if sender has no `RESUME_ROLE`
+
+
+```solidity
+function resume() external onlyRole(RESUME_ROLE);
 ```
 
-| Parameter                | Type      | Description                                                                                       |
-| ------------------------ | --------- | ------------------------------------------------------------------------------------------------- |
-| `_lidoLocator`           | `address` | The [LidoLocator](/contracts/lido-locator) address.                                               |
-| `_gIFirstValidatorPrev`  | `GIndex`  | Generalized index of the first validator before the pivot slot (proof verification).              |
-| `_gIFirstValidatorCurr`  | `GIndex`  | Generalized index of the first validator at/after the pivot slot (proof verification).            |
-| `_pivotSlot`             | `uint64`  | Slot at which the generalized index changes.                                                      |
-| `_slotsPerEpoch`         | `uint256` | Slots per epoch (initial value: `32`), stored in the `SLOTS_PER_EPOCH` immutable.                 |
-| `_admin`                 | `address` | Receives `DEFAULT_ADMIN_ROLE`. Reverts `ZeroArgument` if zero.                                     |
-| `_maxValidatorsPerTopUp` | `uint256` | Maximum validators per single `topUp` call (initial value: `32`).                                 |
-| `_minTopUpBlockDistance` | `uint256` | Minimum blocks between `topUp` calls (initial value: `75`).                                        |
-| `_maxRootAgeSec`         | `uint256` | Maximum age of the beacon root relative to `block.timestamp`, in seconds (initial value: `600`).  |
-| `_targetBalanceGwei`     | `uint256` | Target validator balance ceiling after top-up, in Gwei (initial value: `2046.75 ETH`).            |
-| `_minTopUpGwei`          | `uint256` | Minimum top-up that can be performed, in Gwei (initial value: `2 ETH`). Must be `<= _targetBalanceGwei`. |
+### pauseFor
 
-## Constants and immutables
+Pause the contract for a specified period
 
-| Name              | Description                                                  |
-| ----------------- | ----------------------------------------------------------- |
-| `SLOTS_PER_EPOCH` | Immutable slots-per-epoch value used to derive epochs from slots. |
+Reverts if contract is already paused
 
-## Methods
+Reverts if sender has no `PAUSE_ROLE`
 
-### `TOP_UP_ROLE`
+Reverts if zero duration is passed
 
-An ACL role granting the permission to submit top-up transactions.
 
-```sol
-bytes32 public constant TOP_UP_ROLE = keccak256("TOP_UP_ROLE");
+```solidity
+function pauseFor(uint256 _duration) external onlyRole(PAUSE_ROLE);
 ```
+**Parameters**
 
-### `MANAGE_LIMITS_ROLE`
+|Name|Type|Description|
+|----|----|-----------|
+|`_duration`|`uint256`|pause duration in seconds (use `PAUSE_INFINITELY` for unlimited)|
 
-An ACL role granting the permission to modify top-up limit parameters.
 
-```sol
-bytes32 public constant MANAGE_LIMITS_ROLE = keccak256("MANAGE_LIMITS_ROLE");
+### pauseUntil
+
+Pause the contract until a specified timestamp
+
+Reverts if the timestamp is in the past
+
+Reverts if sender has no `PAUSE_ROLE`
+
+Reverts if contract is already paused
+
+
+```solidity
+function pauseUntil(uint256 _pauseUntilInclusive) external onlyRole(PAUSE_ROLE);
 ```
+**Parameters**
 
-### topUp()
+|Name|Type|Description|
+|----|----|-----------|
+|`_pauseUntilInclusive`|`uint256`|the last second to pause until inclusive|
 
-Verifies the Merkle proofs for the provided validators and tops them up via [StakingRouter.topUp](/contracts/staking-router). Only callable by accounts with `TOP_UP_ROLE` and only when not paused.
 
-```sol
-function topUp(TopUpData calldata _topUps) external onlyRole(TOP_UP_ROLE) whenResumed
-```
+### topUp
 
-**Structures**:
+Method verifying Merkle proofs on validators and proceeding to top up validators
+via StakingRouter.topUp(stakingModuleId, keyIndices, operatorIds, pubkeys, topUpLimits)
 
-```sol
-struct TopUpData {
-    uint256 moduleId;
-    uint256[] keyIndices;
-    uint256[] operatorIds;
-    uint256[] validatorIndices;
-    BeaconRootData beaconRootData;
-    ValidatorWitness[] validatorWitness;
-    uint256[] pendingBalanceGwei;
-}
-```
-
-`validatorIndices` MUST be sorted in strictly ascending order. The `keyIndices`, `operatorIds`, `validatorWitness`, and `pendingBalanceGwei` arrays must be aligned by position to `validatorIndices[i]`.
-
+Only callable by accounts with TOP_UP_ROLE.
+validatorIndices MUST be sorted in strictly ascending order. The corresponding keyIndices,
+operatorIds, validatorWitness and pendingBalanceGwei arrays must be aligned by position
+to validatorIndices[i].
 Reverts if:
+- the caller doesn't have TOP_UP_ROLE (AccessControl);
+- validatorIndices is empty, or any of keyIndices, operatorIds, validatorWitness,
+pendingBalanceGwei has a length different from validatorIndices
+(`WrongArrayLength`);
+- validatorIndices length exceeds maxValidatorsPerTopUp (`MaxValidatorsPerTopUpExceeded`);
+- validatorIndices is not strictly increasing (not sorted or contains duplicates) (`InvalidValidatorIndicesSortOrder`);
+- fewer than minBlockDistance blocks have passed since the last top-up (`MinBlockDistanceNotMet`);
+- the beacon root is older than maxRootAge relative to block.timestamp (`RootIsTooOld`);
+- the beacon root childBlockTimestamp is not newer than the last top-up timestamp
+(`RootPrecedesLastTopUp`);
+- the module's withdrawal credentials are not of type 0x02 (`WrongWithdrawalCredentials`);
+- any validator pubkey has a length different from 48 bytes (`WrongPubkeyLength`);
+- any validator has activationEpoch > current epoch (derived from beacon root slot) (`ValidatorIsNotActivated`);
+- any validator Merkle proof fails verification in CLValidatorVerifier.
 
-- the caller does not have `TOP_UP_ROLE`;
-- the contract is paused (`whenResumed`);
-- `validatorIndices` is empty, or any of `keyIndices`, `operatorIds`, `validatorWitness`, `pendingBalanceGwei` has a different length (`WrongArrayLength`);
-- `validatorIndices` length exceeds `maxValidatorsPerTopUp` (`MaxValidatorsPerTopUpExceeded`);
-- `validatorIndices` is not strictly increasing (`InvalidValidatorIndicesSortOrder`);
-- fewer than `minBlockDistance` blocks have passed since the last top-up (`MinBlockDistanceNotMet`);
-- the beacon root is older than `maxRootAge` relative to `block.timestamp` (`RootIsTooOld`);
-- the beacon root's child block timestamp is not newer than the last top-up timestamp (`RootPrecedesLastTopUp`);
-- the module's withdrawal credentials are not of type `0x02` (`WrongWithdrawalCredentials`);
-- any validator pubkey is not exactly 48 bytes (`WrongPubkeyLength`);
-- any validator has not yet been activated (`activationEpoch > current epoch`) (`ValidatorIsNotActivated`);
-- any validator Merkle proof fails verification.
 
-### setMaxValidatorsPerTopUp()
+```solidity
+function topUp(TopUpData calldata _topUps) external onlyRole(TOP_UP_ROLE) whenResumed;
+```
+**Parameters**
 
-Sets the maximum number of validators per single `topUp` call. Requires `MANAGE_LIMITS_ROLE`. Emits `MaxValidatorsPerTopUpChanged`.
+|Name|Type|Description|
+|----|----|-----------|
+|`_topUps`|`TopUpData`|TopUpData structure, containing validators' container fields, pending deposits and Merkle proofs on inclusion of each container in Beacon State tree|
 
-```sol
-function setMaxValidatorsPerTopUp(uint256 _newValue) external onlyRole(MANAGE_LIMITS_ROLE)
+
+### getLastTopUpTimestamp
+
+Returns the timestamp when last top up happened
+
+
+```solidity
+function getLastTopUpTimestamp() external view returns (uint256);
 ```
 
-### setMinBlockDistance()
+### getMaxValidatorsPerTopUp
 
-Sets the minimum number of blocks between `topUp` calls. Requires `MANAGE_LIMITS_ROLE`. Emits `MinBlockDistanceChanged`.
+Returns the allowed amount of validators per top up
 
-```sol
-function setMinBlockDistance(uint256 _newValue) external onlyRole(MANAGE_LIMITS_ROLE)
+
+```solidity
+function getMaxValidatorsPerTopUp() external view returns (uint256);
 ```
 
-### setTopUpBalanceLimits()
+### getMinBlockDistance
 
-Sets the target validator balance ceiling and the minimum top-up amount (both in Gwei). Requires `MANAGE_LIMITS_ROLE`. Reverts if `_minTopUpGwei > _targetBalanceGwei` (`MinTopUpExceedsTarget`). Emits `TopUpBalanceLimitsChanged`.
+Returns the min block distance that should pass from last top up
 
-```sol
-function setTopUpBalanceLimits(uint256 _targetBalanceGwei, uint256 _minTopUpGwei) external onlyRole(MANAGE_LIMITS_ROLE)
+
+```solidity
+function getMinBlockDistance() external view returns (uint256);
 ```
 
-### setMaxRootAge()
+### isBlockDistancePassed
 
-Sets the maximum allowed age (in seconds) of the beacon root relative to `block.timestamp`. Requires `MANAGE_LIMITS_ROLE`. Emits `MaxRootAgeChanged`.
+Returns true if enough blocks have passed since the last top-up
+(or no top-up has happened yet).
 
-```sol
-function setMaxRootAge(uint256 _newValue) external onlyRole(MANAGE_LIMITS_ROLE)
+
+```solidity
+function isBlockDistancePassed() external view returns (bool);
 ```
 
-### resume()
+### getMaxRootAge
 
-Resumes the contract. Reverts if the contract is not paused or the caller lacks `RESUME_ROLE`.
+Returns the maximum age (seconds) of beacon root relative to block.timestamp
 
-```sol
-function resume() external onlyRole(RESUME_ROLE)
+
+```solidity
+function getMaxRootAge() external view returns (uint256);
 ```
 
-### pauseFor()
+### getTargetBalanceGwei
 
-Pauses the contract for a specified duration (use `PAUSE_INFINITELY` for an unlimited pause).
+Returns target validator balance ceiling after top-up (in Gwei)
 
-```sol
-function pauseFor(uint256 _duration) external onlyRole(PAUSE_ROLE)
+
+```solidity
+function getTargetBalanceGwei() external view returns (uint256);
 ```
 
-### pauseUntil()
+### getMinTopUpGwei
 
-Pauses the contract until a specified timestamp (inclusive).
+Returns minimum top-up that can be performed (in Gwei).
 
-```sol
-function pauseUntil(uint256 _pauseUntilInclusive) external onlyRole(PAUSE_ROLE)
+
+```solidity
+function getMinTopUpGwei() external view returns (uint256);
 ```
 
-## View methods
+### setMaxValidatorsPerTopUp
 
-### getLastTopUpTimestamp()
+Set max validators per top up value
 
-Returns the timestamp of the last top-up.
 
-```sol
-function getLastTopUpTimestamp() external view returns (uint256)
+```solidity
+function setMaxValidatorsPerTopUp(uint256 _newValue) external onlyRole(MANAGE_LIMITS_ROLE);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_newValue`|`uint256`|Max validators per top up value|
+
+
+### setMinBlockDistance
+
+Set min block distance
+
+
+```solidity
+function setMinBlockDistance(uint256 _newValue) external onlyRole(MANAGE_LIMITS_ROLE);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_newValue`|`uint256`|Min block distance|
+
+
+### setTopUpBalanceLimits
+
+Set targetBalanceGwei and minTopUpGwei values
+
+
+```solidity
+function setTopUpBalanceLimits(uint256 _targetBalanceGwei, uint256 _minTopUpGwei)
+    external
+    onlyRole(MANAGE_LIMITS_ROLE);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_targetBalanceGwei`|`uint256`|target validator balance ceiling after top-up (in Gwei)|
+|`_minTopUpGwei`|`uint256`| minimum top-up that can be performed (in Gwei).|
+
+
+### setMaxRootAge
+
+Sets the maximum allowed age of beacon root relative to current block timestamp
+
+
+```solidity
+function setMaxRootAge(uint256 _newValue) external onlyRole(MANAGE_LIMITS_ROLE);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`_newValue`|`uint256`|Maximum age in seconds|
+
+
+### _isBlockDistancePassed
+
+
+```solidity
+function _isBlockDistancePassed() internal view returns (bool);
 ```
 
-### getMaxValidatorsPerTopUp()
+### _requireBlockDistancePassed
 
-Returns the allowed number of validators per top-up.
 
-```sol
-function getMaxValidatorsPerTopUp() external view returns (uint256)
+```solidity
+function _requireBlockDistancePassed() internal view;
 ```
 
-### getMinBlockDistance()
+### _requireWithdrawalCredentials02
 
-Returns the minimum block distance required between top-ups.
 
-```sol
-function getMinBlockDistance() external view returns (uint256)
+```solidity
+function _requireWithdrawalCredentials02(bytes32 _wc) internal pure;
 ```
 
-### isBlockDistancePassed()
+### _setLastTopUpData
 
-Returns `true` if enough blocks have passed since the last top-up (or if no top-up has happened yet).
 
-```sol
-function isBlockDistancePassed() external view returns (bool)
+```solidity
+function _setLastTopUpData() internal;
 ```
 
-### getMaxRootAge()
+### _setMaxRootAge
 
-Returns the maximum age (in seconds) of the beacon root relative to `block.timestamp`.
 
-```sol
-function getMaxRootAge() external view returns (uint256)
+```solidity
+function _setMaxRootAge(uint256 _newValue) internal;
 ```
 
-### getTargetBalanceGwei()
+### _setMaxValidatorsPerTopUp
 
-Returns the target validator balance ceiling after top-up (in Gwei).
 
-```sol
-function getTargetBalanceGwei() external view returns (uint256)
+```solidity
+function _setMaxValidatorsPerTopUp(uint256 _newValue) internal;
 ```
 
-### getMinTopUpGwei()
+### _setMinBlockDistance
 
-Returns the minimum top-up that can be performed (in Gwei).
 
-```sol
-function getMinTopUpGwei() external view returns (uint256)
+```solidity
+function _setMinBlockDistance(uint256 _newValue) internal;
+```
+
+### _setTopUpBalanceLimits
+
+
+```solidity
+function _setTopUpBalanceLimits(uint256 _targetBalanceGwei, uint256 _minTopUpGwei) internal;
+```
+
+### _verifyRootAge
+
+
+```solidity
+function _verifyRootAge(BeaconRootData calldata _beaconRootData) internal view;
+```
+
+### _verifyValidatorWasActivated
+
+
+```solidity
+function _verifyValidatorWasActivated(uint64 _slot, ValidatorWitness calldata _w) internal view;
+```
+
+### _evaluateTopUpLimit
+
+
+```solidity
+function _evaluateTopUpLimit(ValidatorWitness calldata _validator, uint256 _pendingBalanceGwei)
+    internal
+    view
+    returns (uint256);
+```
+
+### _gatewayStorage
+
+
+```solidity
+function _gatewayStorage() internal pure returns (Storage storage $);
 ```
 
 ## Events
+### MaxValidatorsPerTopUpChanged
 
-```sol
+```solidity
 event MaxValidatorsPerTopUpChanged(uint256 newValue);
+```
+
+### MinBlockDistanceChanged
+
+```solidity
 event MinBlockDistanceChanged(uint256 newValue);
+```
+
+### LastTopUpChanged
+
+```solidity
 event LastTopUpChanged(uint256 newValue);
+```
+
+### MaxRootAgeChanged
+
+```solidity
 event MaxRootAgeChanged(uint256 newValue);
+```
+
+### TopUpBalanceLimitsChanged
+
+```solidity
 event TopUpBalanceLimitsChanged(uint256 targetBalanceGwei, uint256 minTopUpGwei);
 ```
 
-## Related
+## Errors
+### ZeroValue
 
-- [StakingRouter](/contracts/staking-router)
-- [LidoLocator](/contracts/lido-locator)
+```solidity
+error ZeroValue();
+```
+
+### ZeroArgument
+
+```solidity
+error ZeroArgument(string argument);
+```
+
+### TooLargeValue
+
+```solidity
+error TooLargeValue();
+```
+
+### RootIsTooOld
+
+```solidity
+error RootIsTooOld();
+```
+
+### RootPrecedesLastTopUp
+
+```solidity
+error RootPrecedesLastTopUp();
+```
+
+### WrongArrayLength
+
+```solidity
+error WrongArrayLength();
+```
+
+### MaxValidatorsPerTopUpExceeded
+
+```solidity
+error MaxValidatorsPerTopUpExceeded();
+```
+
+### WrongWithdrawalCredentials
+
+```solidity
+error WrongWithdrawalCredentials();
+```
+
+### WrongPubkeyLength
+
+```solidity
+error WrongPubkeyLength();
+```
+
+### MinBlockDistanceNotMet
+
+```solidity
+error MinBlockDistanceNotMet();
+```
+
+### InvalidValidatorIndicesSortOrder
+
+```solidity
+error InvalidValidatorIndicesSortOrder();
+```
+
+### ValidatorIsNotActivated
+
+```solidity
+error ValidatorIsNotActivated();
+```
+
+### MinTopUpExceedsTarget
+
+```solidity
+error MinTopUpExceedsTarget();
+```
+
+## Structs
+### Storage
+
+```solidity
+struct Storage {
+    uint64 maxValidatorsPerTopUp; // 64
+    uint32 lastTopUpTimestamp; // 32
+    uint32 lastTopUpBlock; // 32
+    uint16 minBlockDistance; // 16
+    uint16 maxRootAge; // 16
+    uint64 targetBalanceGwei; // 64
+    uint64 minTopUpGwei; // 64
+}
+```
+

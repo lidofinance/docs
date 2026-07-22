@@ -3,9 +3,6 @@
 - [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.25/consolidation/ConsolidationMigrator.sol)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
-:::note
-The deployed contract address will be added here after deployment.
-:::
 
 ## What is ConsolidationMigrator
 
@@ -15,186 +12,424 @@ It validates consolidation requests submitted as key indices, resolves those ind
 
 The contract inherits `AccessControlEnumerableUpgradeable` and is deployed behind an [OssifiableProxy](/contracts/ossifiable-proxy).
 
-## Roles and access control
+## State Variables
+### ALLOW_PAIR_ROLE
 
-| Role                 | Holder                              | Description                                          |
-| -------------------- | ----------------------------------- | ---------------------------------------------------- |
-| `DEFAULT_ADMIN_ROLE` | Aragon Agent                        | Manages all other roles.                             |
-| `ALLOW_PAIR_ROLE`    | EasyTrack EVMScriptExecutor         | Allows consolidation pairs and assigns submitters.   |
-| `DISALLOW_PAIR_ROLE` | CMC Committee                       | Disallows consolidation pairs.                       |
-
-The proxy admin is the Aragon Agent.
-
-## Constants
-
-| Constant         | Value | Description                            |
-| ---------------- | ----- | -------------------------------------- |
-| `PUBKEY_LENGTH`  | `48`  | Length of a validator public key in bytes. |
-
-## Constructor and initialization
-
-The module bindings are set in the implementation constructor as immutables; `initialize` only sets the admin.
-
-```sol
-constructor(
-    address stakingRouter,
-    address consolidationBus,
-    uint256 _sourceModuleId,
-    uint256 _targetModuleId
-)
-
-function initialize(address admin) external
+```solidity
+bytes32 public constant ALLOW_PAIR_ROLE = keccak256("ALLOW_PAIR_ROLE")
 ```
 
-| Parameter          | Type      | Description                                                              |
-| ------------------ | --------- | ------------------------------------------------------------------------ |
-| `stakingRouter`    | `address` | The [StakingRouter](/contracts/staking-router) address.                  |
-| `consolidationBus` | `address` | The [ConsolidationBus](/contracts/consolidation-bus) address.            |
-| `_sourceModuleId`  | `uint256` | Immutable source module ID (`1` — NOR / CMv1).                           |
-| `_targetModuleId`  | `uint256` | Immutable target module ID (`4` — CMv2).                                 |
-| `admin`            | `address` | Receives `DEFAULT_ADMIN_ROLE`. Reverts `AdminCannotBeZero` if zero.      |
 
-## Allowlist management
+### DISALLOW_PAIR_ROLE
 
-### allowPair()
-
-Allows a consolidation pair (source operator → target operator) and designates the address authorized to submit consolidation batches for that pair. Requires `ALLOW_PAIR_ROLE`. Can be called again for an existing pair to update the submitter. Reverts if `submitter` is zero (`ZeroArgument`). Emits `ConsolidationPairAllowed`.
-
-```sol
-function allowPair(
-    uint256 sourceOperatorId,
-    uint256 targetOperatorId,
-    address submitter
-) external onlyRole(ALLOW_PAIR_ROLE)
+```solidity
+bytes32 public constant DISALLOW_PAIR_ROLE = keccak256("DISALLOW_PAIR_ROLE")
 ```
 
-### disallowPair()
 
-Disallows a consolidation pair and removes its submitter. Requires `DISALLOW_PAIR_ROLE`. Reverts if the pair is not in the allowlist (`PairNotInAllowlist`). Emits `ConsolidationPairDisallowed`.
+### PUBKEY_LENGTH
 
-```sol
-function disallowPair(uint256 sourceOperatorId, uint256 targetOperatorId) external onlyRole(DISALLOW_PAIR_ROLE)
+```solidity
+uint256 public constant PUBKEY_LENGTH = 48
 ```
 
-### selfDisallowPair()
 
-Permissionless: lets a pair's designated submitter remove their own pair. The caller must be the pair's submitter, otherwise it reverts with `NotAuthorized`. Emits `ConsolidationPairDisallowed`.
+### STAKING_ROUTER
 
-```sol
-function selfDisallowPair(uint256 sourceOperatorId, uint256 targetOperatorId) external
+```solidity
+IStakingRouter internal immutable STAKING_ROUTER
 ```
 
-## Submit
 
-### submitConsolidationBatch()
+### CONSOLIDATION_BUS
 
-Submits a consolidation batch for an allowed pair. The caller must be the pair's designated submitter (`NotAuthorized` otherwise). Each referenced key index is validated to be deposited (`keyIndex < totalDepositedValidators`, else `KeyNotDeposited`), resolved to its public key via the corresponding staking module, and the resulting groups are forwarded to the [ConsolidationBus](/contracts/consolidation-bus). Emits `ConsolidationSubmitted`.
+```solidity
+IConsolidationBus internal immutable CONSOLIDATION_BUS
+```
 
-```sol
+
+### SOURCE_MODULE_ID
+
+```solidity
+uint256 internal immutable SOURCE_MODULE_ID
+```
+
+
+### TARGET_MODULE_ID
+
+```solidity
+uint256 internal immutable TARGET_MODULE_ID
+```
+
+
+### _allowedPairs
+mapping(sourceOperatorId => set of allowed targetOperatorIds)
+
+
+```solidity
+mapping(uint256 => EnumerableSet.UintSet) internal _allowedPairs
+```
+
+
+### _submitters
+mapping(sourceOperatorId => mapping(targetOperatorId => submitter address))
+
+
+```solidity
+mapping(uint256 => mapping(uint256 => address)) internal _submitters
+```
+
+
+## Functions
+### constructor
+
+
+```solidity
+constructor(address stakingRouter, address consolidationBus, uint256 _sourceModuleId, uint256 _targetModuleId) ;
+```
+
+### initialize
+
+Initializes the contract.
+
+Proxy initialization method.
+
+
+```solidity
+function initialize(address admin) external initializer;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`admin`|`address`|Lido DAO Aragon agent contract address.|
+
+
+### allowPair
+
+Allows a consolidation pair (source operator -> target operator) with a designated submitter
+
+Can be called multiple times to update the submitter for an existing pair
+
+Reverts if caller does not have ALLOW_PAIR_ROLE or if submitter is zero address
+
+
+```solidity
+function allowPair(uint256 sourceOperatorId, uint256 targetOperatorId, address submitter)
+    external
+    onlyRole(ALLOW_PAIR_ROLE);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator in source module|
+|`targetOperatorId`|`uint256`|ID of the target operator in target module|
+|`submitter`|`address`|Address authorized to submit consolidation batches for this pair|
+
+
+### disallowPair
+
+Disallows a consolidation pair and removes the submitter
+
+Reverts if caller does not have DISALLOW_PAIR_ROLE
+
+
+```solidity
+function disallowPair(uint256 sourceOperatorId, uint256 targetOperatorId) external onlyRole(DISALLOW_PAIR_ROLE);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator|
+|`targetOperatorId`|`uint256`|ID of the target operator|
+
+
+### selfDisallowPair
+
+Allows a submitter to disallow their own pair (permissionless)
+
+Caller must be the designated submitter for the pair
+
+Reverts if caller is not the submitter
+
+
+```solidity
+function selfDisallowPair(uint256 sourceOperatorId, uint256 targetOperatorId) external;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator|
+|`targetOperatorId`|`uint256`|ID of the target operator|
+
+
+### isPairAllowed
+
+Checks if a consolidation pair is allowed
+
+
+```solidity
+function isPairAllowed(uint256 sourceOperatorId, uint256 targetOperatorId) external view returns (bool);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator|
+|`targetOperatorId`|`uint256`|ID of the target operator|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`bool`|True if the pair is allowed|
+
+
+### getAllowedTargets
+
+Returns all allowed target operators for a given source operator
+
+
+```solidity
+function getAllowedTargets(uint256 sourceOperatorId) external view returns (uint256[] memory);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`uint256[]`|Array of allowed target operator IDs|
+
+
+### getSubmitter
+
+Returns the submitter address for a consolidation pair
+
+
+```solidity
+function getSubmitter(uint256 sourceOperatorId, uint256 targetOperatorId) external view returns (address);
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator|
+|`targetOperatorId`|`uint256`|ID of the target operator|
+
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`address`|Address authorized to submit consolidation batches, or address(0) if pair not allowed|
+
+
+### getStakingRouter
+
+Returns the StakingRouter address
+
+
+```solidity
+function getStakingRouter() external view returns (address);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`address`|Address of the StakingRouter|
+
+
+### getConsolidationBus
+
+Returns the ConsolidationBus address
+
+
+```solidity
+function getConsolidationBus() external view returns (address);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`address`|Address of the ConsolidationBus|
+
+
+### sourceModuleId
+
+Returns the source module ID this migrator is bound to
+
+
+```solidity
+function sourceModuleId() external view returns (uint256);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`uint256`|Source module ID|
+
+
+### targetModuleId
+
+Returns the target module ID this migrator is bound to
+
+
+```solidity
+function targetModuleId() external view returns (uint256);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`<none>`|`uint256`|Target module ID|
+
+
+### submitConsolidationBatch
+
+Submits a consolidation batch after validation
+
+Caller must be the designated submitter for this pair (set via allowPair)
+
+Forwards the validated batch to ConsolidationBus
+
+
+```solidity
 function submitConsolidationBatch(
     uint256 sourceOperatorId,
     uint256 targetOperatorId,
     ConsolidationIndexGroup[] calldata groups
-) external
+) external;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`sourceOperatorId`|`uint256`|ID of the source operator|
+|`targetOperatorId`|`uint256`|ID of the target operator|
+|`groups`|`ConsolidationIndexGroup[]`|Array of consolidation index groups, each containing source key indices and a target key index|
+
+
+### _getValidatedConsolidationPubkeys
+
+Validates consolidation key sets and returns corresponding pubkeys.
+Ensures all referenced keys are deposited.
+
+
+```solidity
+function _getValidatedConsolidationPubkeys(
+    uint256 sourceOperatorId,
+    uint256 targetOperatorId,
+    ConsolidationIndexGroup[] calldata groups
+) internal view returns (IConsolidationBus.ConsolidationGroup[] memory pubkeyGroups);
 ```
 
-**Structures**:
+### _validateAndExtractSourceKeys
 
-```sol
+
+```solidity
+function _validateAndExtractSourceKeys(uint256 operatorId, uint256[] calldata keyIndices)
+    internal
+    view
+    returns (bytes[] memory pubkeys);
+```
+
+### _validateAndExtractTargetKey
+
+
+```solidity
+function _validateAndExtractTargetKey(uint256 operatorId, uint256 keyIndex)
+    internal
+    view
+    returns (bytes memory pubkey);
+```
+
+### _getModule
+
+
+```solidity
+function _getModule(uint256 moduleId) internal view returns (IUnifiedStakingModule);
+```
+
+### _getDepositedValidatorsCount
+
+
+```solidity
+function _getDepositedValidatorsCount(IUnifiedStakingModule module, uint256 operatorId)
+    internal
+    view
+    returns (uint256 totalDeposited);
+```
+
+## Events
+### ConsolidationPairAllowed
+
+```solidity
+event ConsolidationPairAllowed(
+    uint256 indexed sourceOperatorId, uint256 indexed targetOperatorId, address indexed submitter
+);
+```
+
+### ConsolidationPairDisallowed
+
+```solidity
+event ConsolidationPairDisallowed(
+    uint256 indexed sourceOperatorId, uint256 indexed targetOperatorId, address indexed submitter
+);
+```
+
+### ConsolidationSubmitted
+
+```solidity
+event ConsolidationSubmitted(
+    uint256 indexed sourceOperatorId, uint256 indexed targetOperatorId, ConsolidationIndexGroup[] groups
+);
+```
+
+## Errors
+### ZeroArgument
+
+```solidity
+error ZeroArgument(string name);
+```
+
+### AdminCannotBeZero
+
+```solidity
+error AdminCannotBeZero();
+```
+
+### PairNotInAllowlist
+
+```solidity
+error PairNotInAllowlist(uint256 sourceOperatorId, uint256 targetOperatorId);
+```
+
+### KeyNotDeposited
+
+```solidity
+error KeyNotDeposited(uint256 moduleId, uint256 operatorId, uint256 keyIndex);
+```
+
+### NotAuthorized
+
+```solidity
+error NotAuthorized(address caller, uint256 sourceOperatorId, uint256 targetOperatorId);
+```
+
+## Structs
+### ConsolidationIndexGroup
+
+```solidity
 struct ConsolidationIndexGroup {
     uint256[] sourceKeyIndices;
     uint256 targetKeyIndex;
 }
 ```
 
-**Parameters:**
-
-| Name               | Type                        | Description                                                       |
-| ------------------ | --------------------------- | ----------------------------------------------------------------- |
-| `sourceOperatorId` | `uint256`                   | Source operator ID in the source module.                          |
-| `targetOperatorId` | `uint256`                   | Target operator ID in the target module.                          |
-| `groups`           | `ConsolidationIndexGroup[]` | Groups of source key indices each mapped to a single target key index. |
-
-## View methods
-
-### isPairAllowed()
-
-```sol
-function isPairAllowed(uint256 sourceOperatorId, uint256 targetOperatorId) external view returns (bool)
-```
-
-### getAllowedTargets()
-
-Returns all allowed target operator IDs for a given source operator.
-
-```sol
-function getAllowedTargets(uint256 sourceOperatorId) external view returns (uint256[] memory)
-```
-
-### getSubmitter()
-
-Returns the submitter address for a pair, or `address(0)` if the pair is not allowed.
-
-```sol
-function getSubmitter(uint256 sourceOperatorId, uint256 targetOperatorId) external view returns (address)
-```
-
-### getStakingRouter()
-
-```sol
-function getStakingRouter() external view returns (address)
-```
-
-### getConsolidationBus()
-
-```sol
-function getConsolidationBus() external view returns (address)
-```
-
-### sourceModuleId()
-
-```sol
-function sourceModuleId() external view returns (uint256)
-```
-
-### targetModuleId()
-
-```sol
-function targetModuleId() external view returns (uint256)
-```
-
-## Events
-
-```sol
-event ConsolidationPairAllowed(
-    uint256 indexed sourceOperatorId,
-    uint256 indexed targetOperatorId,
-    address indexed submitter
-);
-event ConsolidationPairDisallowed(
-    uint256 indexed sourceOperatorId,
-    uint256 indexed targetOperatorId,
-    address indexed submitter
-);
-event ConsolidationSubmitted(
-    uint256 indexed sourceOperatorId,
-    uint256 indexed targetOperatorId,
-    ConsolidationIndexGroup[] groups
-);
-```
-
-## Errors
-
-| Error                                | Description                                                      |
-| ------------------------------------ | ---------------------------------------------------------------- |
-| `PairNotInAllowlist(...)`            | The pair is not in the allowlist.                                |
-| `KeyNotDeposited(...)`               | A referenced key index has not been deposited.                   |
-| `NotAuthorized(...)`                 | The caller is not the designated submitter for the pair.         |
-| `ZeroArgument(string name)`          | A required zero-checked argument was zero.                       |
-| `AdminCannotBeZero()`                | The admin address passed to `initialize` was zero.              |
-
-## Related
-
-- [ConsolidationBus](/contracts/consolidation-bus)
-- [ConsolidationGateway](/contracts/consolidation-gateway)
-- [StakingRouter](/contracts/staking-router)
