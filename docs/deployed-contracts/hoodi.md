@@ -25,7 +25,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x1dB06d15976954D48765f40d4bDd840C257CD4B9`](https://hoodi.etherscan.io/address/0x1dB06d15976954D48765f40d4bDd840C257CD4B9) (impl)
+- Lido Locator: [`0xa519Be1BBfd95445cEdFea56C12AB0B28330CC2F`](https://hoodi.etherscan.io/address/0xa519Be1BBfd95445cEdFea56C12AB0B28330CC2F) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - Lido and stETH token: [`0xB9A2Fb8336f3775d790b3FdD6151e3F193AA7352`](https://hoodi.etherscan.io/address/0xB9A2Fb8336f3775d790b3FdD6151e3F193AA7352) (impl)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
