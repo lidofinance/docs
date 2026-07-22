@@ -48,20 +48,16 @@ A few hours later it might look like the following:
 
 Note that the described algorithm is looking for a validator to exit only among those that can be exited, while using the projected number of validators, which includes non-existent yet validators. It's only weights, so there is no misconception here.
 
-The final exit order predicate sequence to fulfill withdrawal requests:
+The exit order is defined by a sequence of predicates applied as sort keys, from highest to lowest priority. 
 
-1. Validator whose operator with the lowest number of delayed validators
-2. Validator whose operator with the highest number of boosted targeted validators to exit
-3. Validator whose operator with the highest number of soft targeted validators to exit
-4. Validator whose staking module with the highest deviation from the exit share limit
-5. Validator whose operator with the highest stake weight
-6. Validator whose operator with the highest number of validators
-7. Validator with the lowest index
+| Priority | Staking Module                                                                 | Node Operator                                               | Validator              |
+| -------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------- | ---------------------- |
+| 1        |                                                                                | Highest number of validators targeted for **boosted exits** |                        |
+| 2        |                                                                                | Highest number of validators targeted for **smooth exits**  |                        |
+| 3        | Highest deviation from the exit share limit or the biggest by balance |                                                             |                        |
+| 4        |                                                                                | Highest deviation from the **target stake**                 |                        |
+| 5        |                                                                                |                                                             | Lowest validator index |
 
-Exit order for node operators with active forced target limits:
-
-1. Validator whose operator with the highest number of forced targeted validators to exit
-2. Validator with the lowest index
 
 ## Get information to prepare ordered queue
 
@@ -76,9 +72,10 @@ In order to prepare a queue of validators to exit, the following actions and con
 
 ### Report limits
 
-- `maxValidatorExitRequestsPerReport` - max number of exit requests allowed in report to `ValidatorsExitBusOracle` from `OracleReportSanityChecker.getOracleReportLimits()`.
+- `maxBalanceExitRequestedPerReportInEth` - max total effective balance (in ETH) of validators that can be requested to exit in a single report, from `OracleReportSanityChecker.getOracleReportLimits()`.
+- `maxValidatorsPerReport` - max number of exit requests allowed in a single report, from the `ValidatorsExitBusOracle` contract (`getMaxValidatorsPerReport()`). Retained alongside the balance limit and checked first.
 - `VALIDATOR_DELAYED_TIMEOUT_IN_SLOTS` - A parameter from `OracleDaemonConfig` contract used to calculate validators going to exit.
-- `NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP` - - A parameter from `OracleDaemonConfig` that is taken into account when determining the penetration of the operator into the network.
+- `NODE_OPERATOR_NETWORK_PENETRATION_THRESHOLD_BP` - A parameter from `OracleDaemonConfig` that is taken into account when determining the penetration of the operator into the network.
 
 ### Get exitable validators
 
@@ -227,9 +224,13 @@ Get total balance from validators which can be fully withdrawn.
 
 Fetch total balance as sum from:
 
-- `Lido.getBufferedEther()` +
+- `Lido.getWithdrawalsReserve()` +
 - Balance from `elRewardsVault` +
 - Balance from `withdrawalVault`
+
+:::note Deposit reserve
+Since the Staking Router v3 upgrade, a configurable portion of the buffer — the **deposits reserve** — is protected for Consensus Layer deposits and cannot be used to cover withdrawals. The oracle therefore uses `Lido.getWithdrawalsReserve()` (the buffer left after the deposits reserve is set aside) instead of the full `Lido.getBufferedEther()` when estimating the ether already available. Otherwise it would over-count the available buffer and under-request the validators that must be exited.
+:::
 
 ##### Validators to eject cumulative amount
 
@@ -269,7 +270,7 @@ Expected balance is:
 expected_balance = (
   future_withdrawals +  # Validators that have withdrawal_epoch
   future_rewards +  # Rewards we get until last validator in validators_to_eject will be withdrawn
-  total_available_balance +  # Current EL balance (el vault, wc vault, buffered eth)
+  total_available_balance +  # Current EL balance (el vault, wc vault, withdrawals reserve of buffered eth)
   validator_to_eject_balance_sum +  # Validators that we expected to be ejected (requested to exit, not delayed)
   going_to_withdraw_balance  # validators_to_eject balance
 )

@@ -36,14 +36,14 @@ On each report, the oracle decides how many requests to finalize and at what rat
 
 #### Available ether and share rate
 
-The Oracle report has two parts: the report of the number of validators and their total balance and the finalization of requests in the [`WithdrawalQueue`](/docs/contracts/withdrawal-queue-erc721.md). The finalization of requests requires data from the first part of the report. Therefore, to calculate this part the oracle report is simulated by calling `Accounting.simulateOracleReport`, getting share rate and amount of ether that can be withdrawn from [Withdrawal](/docs/contracts/withdrawal-vault.md) and [Execution Layer Rewards](/docs/contracts/lido-execution-layer-rewards-vault.md) Vaults taking into account the limits.
+The Oracle report has two parts: the report of the Lido validators' balances on the Consensus Layer (see [Accounting oracle report](#accounting-oracle-report) above) and the finalization of requests in the [`WithdrawalQueue`](/docs/contracts/withdrawal-queue-erc721.md). The finalization of requests requires data from the first part of the report. Therefore, to calculate this part the oracle report is simulated by calling `Accounting.simulateOracleReport`, getting share rate and amount of ether that can be withdrawn from [Withdrawal](/docs/contracts/withdrawal-vault.md) and [Execution Layer Rewards](/docs/contracts/lido-execution-layer-rewards-vault.md) Vaults taking into account the limits.
 
-The structure of the data for simulation:
+The structure of the data for simulation (`Accounting.ReportValues`):
 
-- `reportTimestamp` - the moment of the oracle report calculation, calculated as `timestamp = genesis_time + ref_slot * seconds_per_slot`;
+- `timestamp` - the moment of the oracle report calculation, calculated as `timestamp = genesis_time + ref_slot * seconds_per_slot`;
 - `timeElapsed` - seconds elapsed since the previous reported ref slot and the simulated one
-- `clValidators` - number of Lido validators on the Ethereum Consensus Layer
-- `clBalance` - sum of all Lido validators' balances on the Ethereum Consensus Layer
+- `clValidatorsBalance` - sum of all Lido active validators' balances on the Ethereum Consensus Layer (excluding pending deposits), in wei
+- `clPendingBalance` - sum of pending deposits attributed to Lido keys on the Consensus Layer (deposited on the Execution Layer, not yet activated), in wei
 - `withdrawalVaultBalance` - withdrawal vault balance on the Ethereum Execution Layer for the reported block
 - `elRewardsVaultBalance` - elRewards vault balance on the Ethereum Execution Layer for reported block. Set to "**0**" if try to simulate report in bunker mode
 - `sharesRequestedToBurn` - gets from `Burner.getSharesRequestedToBurn()`
