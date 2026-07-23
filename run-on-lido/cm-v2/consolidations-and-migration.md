@@ -28,14 +28,12 @@ You can monitor the consolidation queue using external services such as [Validat
 ## Migration process
 
 :::info
-Migrations on Mainnet have not started yet.
-
-They are expected to initiate around Q3 2026, following a successful Hoodi testnet migration. Exact timing depends on the outcome of testnet results and DAO coordination.
+For the current migration periods, readiness requirements, and coordination instructions, see the [CMv2 Migration — Node Operator Overview](https://enchanted-direction-844.notion.site/Curated-Module-v2-Migration-Node-Operator-Overview-383bf633d0c980c3b906fc7f9a7af921?pvs=74). NOM coordinates timing directly with each organization.
 :::
 
-Migrating from CMv1 to CMv2 is a two-step process: first set up your CMv2 footprint, then consolidate validators into it.
+Migrating from CMv1 to CMv2 is a two-step process. First set up your CMv2 footprint, then consolidate validators into it.
 
-Node Operators are expected to migrate one by one, according to a migration schedule coordinated by NOM. Operators that miss their migration window will not be consolidated.
+Onboard and prepare your CMv2 validators as early as requested, but only begin consolidation according to the migration period and instructions shared by NOM.
 
 ### Preparation
 
@@ -44,6 +42,9 @@ Before starting, ensure the following:
 - Confirm you can post the required bond for your intended CMv2 footprint.
 - Validator clients, signers, and monitoring support `0x02` validators and consolidation events.
 - Current CMv1 validators are mapped to infrastructure, so you know which clusters to retire first.
+- Keep the requested number of CMv1 validators and depositable keys available until NOM confirms they are no longer needed.
+- Maintain a buffer of additional depositable keys across your CMv2 Operator Group so incoming stake can still be allocated.
+- Be prepared to process voluntary exits if NOM determines they are needed to fund the initial 32 ETH deposits for CMv2 validators.
 
 ### Step 1: CMv2 setup and initial seeding
 
@@ -51,18 +52,20 @@ Before starting, ensure the following:
 2. **Generate `0x02` validator keys** using your standard key management tooling.
 3. **Upload keys and post bond.** Post bond either before or during key upload so validators can receive initial deposits.
 4. **Bring CMv2 validators live.** Configure validator clients, fee recipient (Lido EL Rewards Vault), MEV-boost, ejector settings, and monitoring.
-5. **Wait for your new validators to be deposited** (32 ETH) and become active.
+5. **Wait for your new validators to be deposited** (32 ETH) and become active. Validators must pass through Ethereum's entry queue, so delays in uploading keys will also delay the start of consolidation.
 
 ### Step 2: Consolidation
 
 1. **Initiate via EasyTrack.** Submit a motion specifying the source CMv1 operator, the target CMv2 sub-Node Operator(s), and a consolidation manager address. Once enacted, stake transfers from the CMv1 entity to its corresponding CMv2 entity are permitted.
-2. **Submit consolidation batches** using the [Consolidations interface on Hoodi](https://consolidation-ui-hoodi.testnet.fi/), specifying which CMv1 source validators consolidate into which CMv2 target validators.
+2. **Submit consolidation batches** using the [Mainnet Consolidations interface](https://consolidation-ui.lido.fi/), specifying which CMv1 source validators consolidate into which CMv2 target validators. For testnet operations, use the [Hoodi Consolidations interface](https://consolidation-ui-hoodi.testnet.fi/).
 
     ![Submit consolidation batches](/img/cm-guide/consolidation-submit.png)
 
-3. **Monitor progress.** Track queued, in-progress, and completed consolidations in the [Consolidations interface on Hoodi](https://consolidation-ui-hoodi.testnet.fi/). Operators are expected to stay aware of their own operations.
+3. **Monitor progress.** Track queued, in-progress, and completed consolidations in the same interface.
 
     ![Monitor consolidation progress](/img/cm-guide/consolidation-monitor.png)
+
+Mainnet addresses for the `Consolidation Migrator`, `Consolidation Bus`, and `Consolidation Gateway` are listed under the [Consolidation Stack](/deployed-contracts/#consolidation-stack).
 
 ### Wind-down
 

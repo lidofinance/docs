@@ -12,6 +12,8 @@ Use highly secure addresses for roles that control funds or operator configurati
 
 You also can optionally configure a Rewards Claimer and a Rewards Splitter.
 
+Role changes are handled by `CuratedModule`; operator names and descriptions are stored in `MetaRegistry`. Their Mainnet addresses are listed in [Deployed Contracts](/deployed-contracts/#curated-module-v2).
+
 ![Roles overview](/img/cm-guide/roles-overview.png)
 
 ## Roles overview

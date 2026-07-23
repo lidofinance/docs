@@ -4,19 +4,17 @@ sidebar_position: 4
 
 # 🔍 Node Operator Types
 
-The Curated Module classifies each Node Operator into one of 6 types based on its profile, contribution history, and underlying infrastructure.
+The Curated Module classifies each Node Operator into one of six profile families based on its profile, contribution history, and underlying infrastructure.
 
 Each NO type determines your bond requirement, your reward share, and base stake allocation weight.
 
-:::warning
-CMv2 parameters are subject to change before Mainnet. Bond amounts and fee caps shown in this documentation reflect the current Hoodi testnet deployment.
-:::
+Type parameters are stored in `ParametersRegistry`, while Operator Group weights are stored in `MetaRegistry`. Their Mainnet addresses are listed in [Deployed Contracts](/deployed-contracts/#curated-module-v2).
 
 ## All Node Operator types
 
 ### Professional Operator (PO)
 
-PO is the entry point for new operators joining after CMv2 launch. You start here on a trial basis, operating under tighter bond requirements, lower reward share, and stake allocation weight than PTO.
+PO is the entry point for new operators joining CMv2. You start here on a trial basis, operating under tighter bond requirements, lower reward share, and stake allocation weight than PTO.
 
 Once you meet the defined criteria, the CMC can propose that you graduate to PTO (subject to an explicit DAO approval via the on-chain vote).
 
@@ -51,12 +49,14 @@ EEO recognizes operators that go beyond standard operation and demonstrate meani
 **Bond:** 11 ETH for the first key, 0.1 ETH for the following 17 keys, and 0.7 ETH for all subsequent keys.  
 **Reward share:** 4% on all keys.
 
-### Intra-Operator DVT Cluster (IODC)
+### Intra-Operator DVT Cluster (IODC/IODC+)
 
-IODC is a distributed validator cluster where all participating nodes belong to the same entity. The setup improves operational resilience compared to a single-node configuration.
+IODC/IODC+ is a distributed validator cluster where all participating nodes belong to the same entity. The setup improves operational resilience compared to a single-node configuration.
+
+IODC has a 3.5% reward share; IODC+ has a 4% reward share and applies when the operator's main profile is PGO, DO, or EEO.
 
 **Bond:** 11 ETH for the first key, 0.1 ETH for the following 17 keys, and 0.7 ETH for all subsequent keys.  
-**Reward share:** 3.5% or 4% on all keys (depending on the main type of an operator).
+**Reward share:** 3.5% for IODC; 4% for IODC+.
 
 ## How types compare
 
@@ -69,11 +69,7 @@ The table below summarizes the key parameters for each type.
 | PGO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 4% | 500 | 1 |
 | DO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 4% | 500 | 1 |
 | EEO | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 4% | 500 | 1 |
-| IODC | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 3.5% / 4% | 500 | 1 |
-
-:::info
-These values are confirmed for the Hoodi testnet. Mainnet parameters may differ and will be confirmed before launch.
-:::
+| IODC/IODC+ | 11 ETH first key, 0.1 ETH following 17 keys and 0.7 ETH for all the subsequent. | 3.5% (IODC) / 4% (IODC+) | 500 | 1 |
 
 ## Operator Groups and stake allocation
 

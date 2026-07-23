@@ -6,10 +6,6 @@ sidebar_position: 3
 
 This page provides a quick-reference glossary for all the terms related to Curated Module v2 (CMv2).
 
-:::warning
-CMv2 parameters are subject to change before Mainnet. Bond amounts and fee caps shown in this documentation reflect the current Hoodi testnet deployment.
-:::
-
 ---
 
 ## Core terms
@@ -78,7 +74,7 @@ EIP-7002 enables on-chain triggerable validator exits without requiring the vali
 
 ### Strike
 
-In Phase 2 of CMv2, there will be a strike-based accountability system. Unlike in [CSM](/staking-modules/csm/penalties#bad-performance-strikes), where strikes are applied per key, CMv2 will apply strikes at the sub-NO level. They serve as a long-term disincentive by reducing allocation weight, instead of relying solely on immediate penalties.
+In Phase 2 of CMv2, there will be a strike-based accountability system. Unlike in [CSM](/run-on-lido/csm/penalties#what-can-affect-your-bond), where strikes are applied per key, CMv2 will apply strikes at the sub-NO level. They serve as a long-term disincentive by reducing allocation weight, instead of relying solely on immediate penalties.
 
 ### Phase 1 / Phase 2
 
@@ -86,4 +82,4 @@ CMv2 is deployed in two phases.
 
 Phase 1 covers operator types, bonding, consolidations from CMv1, and the initial allocation strategy.
 
-Phase 2 is expected to introduce Validator Market (ValMart) for more dynamic stake allocation and the strike system for sub-NO-level accountability.
+Phase 2 plans include Validator Market (ValMart) for more dynamic stake allocation and a strike system for sub-NO-level accountability.

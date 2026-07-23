@@ -6,6 +6,9 @@ If you're looking for a practical guide to run CSM on your setup, please follow 
 :::info
 Terms `validator`, `key`, `validator key`, and `deposit data` have the same meaning within the document.
 :::
+:::info CSM v3 & 0x02 CSM
+CSM has been upgraded to **CSM v3** as part of the Staking Router v3 release (on-chain Vote #203), harmonizing the module with the post-Pectra Lido protocol and introducing balance-based accounting. Existing operators running `0x01` (32 ETH) validators continue to operate as before. CSM v3 is also the foundation for validator consolidations and for an upcoming **[0x02 CSM](/run-on-lido/csm/context-and-background)** module for `0x02` (compounding, up to 2,048 ETH) validators. See **[CSM Context & Background](/run-on-lido/csm/context-and-background)** for how the two modules compare.
+:::
 
 ## ∑ TL;DR
 Community Staking Module (CSM) is a permissionless staking module aimed at attracting community stakers to participate in Lido on Ethereum protocol as Node Operators. The only requirement to join CSM as a Node Operator is to be able to run validators (according to the Lido on Ethereum Standard Node Operator Protocols, aka SNOPs) and supply a [bond](./join-csm#bond). The stake is allocated to the validator keys in the order in which the keys are provided and with respect to the queue [priority](join-csm.md#priority-queues), given that the keys are valid. The [bond](./join-csm#bond) is not directly associated with the actual validator's stake but instead treated as security collateral. The [bond](./join-csm#bond) is a characteristic of a Node Operator; hence, it is collateral for all Node Operator's validators. This allows for the variable [bond](./join-csm#bond) amounts required for the validators, depending on their index in the Node Operator's keys storage. Typically, the rule is: the more validators the Node Operator has, the less the [bond](./join-csm#bond) for one validator. Node Operators get their rewards from the [bond](./join-csm#bond) rebase and from the [Node Operator's portion](./rewards.md) of the staking rewards. Node Operator's portion of the staking rewards is socialized (averaged) if the validators perform above the [threshold](./rewards.md#performance-oracle). Accumulated CL penalties resulting in a balance reduction below the deposit balance and stolen EL rewards are confiscated from the Node Operator's [bond](./join-csm#bond). Node Operators should perform validator exits upon protocol request to avoid force ejection (via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002)). Also, Node Operators can voluntarily exit or eject (via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002)) their validators.
@@ -56,7 +59,7 @@ The module keeps a **confirmed balance** for every deposited validator key: the 
 It is used in three places:
 
 - [`Verifier`](./contracts/Verifier.md) checks it to confirm that a reported withdrawal is large enough to be treated as a full withdrawal.
-- The module uses it as the baseline for the [withdrawal-balance penalty](./penalties.md#reasons) applied when the validator is [withdrawn](./validator-exits.md#withdrawal-balance-reporting).
+- The module uses it as the baseline for the [withdrawal-balance penalty](/run-on-lido/csm/penalties#what-can-affect-your-bond) applied when the validator is [withdrawn](./validator-exits.md#withdrawal-balance-reporting).
 - When the confirmed balance exceeds the validator's allocated amount, the module raises the allocated amount to match, so validator balance growth is reflected in the module's tracked stake and remaining [top-up](#top-up-queue) capacity. This keeps stake allocation fair.
 
 This approach has two important caveats:

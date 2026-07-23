@@ -17,7 +17,7 @@ From the core protocol side, validator exit can be requested to cover withdrawal
 
 From CSM side, validator exits can be requested or triggered for:
 - Unbonded validators. These exits are requested automatically using the `targetLimitMode = 2` (forced mode);
-- Validators with an excessive number of [bad performance strikes](penalties.md#bad-performance-strikes). These exits are triggered via the permissionless method on the [ValidatorStrikes](./contracts/ValidatorStrikes.md) contract. 
+- Validators with an excessive number of [bad performance strikes](/run-on-lido/csm/penalties#what-can-affect-your-bond). These exits are triggered via the permissionless method on the [ValidatorStrikes](./contracts/ValidatorStrikes.md) contract.
 
 :::info
 `targetLimitMode = 2` (forced mode) was introduced within the updated version of [Staking Router](https://hackmd.io/@lido/BJXRTxMRp#Forced-Exit-Requests1). In short, it is similar to the existing `targetLimit` but exits for the validators above `targetLimit` with `targetLimitMode = 2` (forced mode) can be requested within the next [VEBO](/contracts/validators-exit-bus-oracle) report, even without a need to fulfill withdrawal requests from stETH holders.
@@ -32,7 +32,7 @@ Also, in exceptional cases, Lido DAO can trigger exits for Node Operator's valid
 
 ## Withdrawal balance reporting
 
-The module settles a validator's exit after receiving a withdrawal report. Processing the report marks the validator as withdrawn and applies any exit-related [penalties and charges](./penalties.md).
+The module settles a validator's exit after receiving a withdrawal report. Processing the report marks the validator as withdrawn and applies any exit-related [penalties and charges](/run-on-lido/csm/penalties).
 
 ### Non-slashed validators
 
@@ -40,7 +40,7 @@ After a full withdrawal is included in a beacon block, anyone can submit a [with
 
 `Verifier` validates the proof against a beacon block root obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and forwards the proof to the module to process.
 
-If the withdrawal amount is below the [confirmed expected balance](./intro.md#validator-balance-tracking), the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Fixed exit penalties are [scaled with the validator's balance](./penalties.md#penalty-scaling-for-larger-validators).
+If the withdrawal amount is below the [confirmed expected balance](./intro.md#validator-balance-tracking), the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Fixed exit penalties are [scaled with the validator's balance](/run-on-lido/csm/penalties#parameters-by-operator-profile).
 
 ### Slashed validators
 

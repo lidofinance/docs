@@ -216,7 +216,6 @@ module.exports = {
             'staking-modules/csm/intro',
             'staking-modules/csm/join-csm',
             'staking-modules/csm/rewards',
-            'staking-modules/csm/penalties',
             'staking-modules/csm/validator-exits',
             { type: 'doc', id: 'staking-modules/csm/permissions', label: 'Permissions' },
             {
