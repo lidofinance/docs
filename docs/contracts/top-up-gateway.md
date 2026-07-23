@@ -1,6 +1,7 @@
 # TopUpGateway
 
 - [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/TopUpGateway.sol)
+- [Deployed contract](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
 ## What is TopUpGateway

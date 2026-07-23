@@ -1,6 +1,7 @@
 # ConsolidationGateway
 
 - [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/consolidation/ConsolidationGateway.sol)
+- [Deployed contract](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
 ConsolidationGateway is the single entry point for [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251) validator consolidation requests in Lido Core. It proxies consolidation requests to the [WithdrawalVault](/contracts/withdrawal-vault), checking permissions, verifying target validators' withdrawal credentials, applying rate limits, and refunding any excess fee.
