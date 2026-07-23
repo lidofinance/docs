@@ -222,6 +222,15 @@ function getConsensusReport() external view returns (
 );
 ```
 
+#### Returns
+
+| Name                     | Type      | Description                                                                                                                                                                                                                                                   |
+| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hash`                   | `bytes32` | The last reported hash                                                                                                                                                                                                                                        |
+| `refSlot`                | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. If the slot contains a block, the state should include all changes from that block. |
+| `processingDeadlineTime` | `uint256` | Timestamp of the last slot at which a report can be reported and processed                                                                                                                                                                                    |
+| `processingStarted`      | `bool`    | Has the processing of the report been started or not                                                                                                                                                                                                          |
+
 ### getConsensusVersion()
 
 Returns the current consensus version expected by the oracle contract.
@@ -250,15 +259,6 @@ Returns the last reference slot for which processing of the report was started.
 ```solidity
 function getLastProcessingRefSlot() external view returns (uint256);
 ```
-
-#### Returns
-
-| Name                     | Type      | Description                                                                                                                                                                                                                                                   |
-| ------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `hash`                   | `bytes32` | The last reported hash                                                                                                                                                                                                                                        |
-| `refSlot`                | `uint256` | The frame's reference slot: if the data the consensus is being reached upon includes or depends on any onchain state, this state should be queried at the reference slot. If the slot contains a block, the state should include all changes from that block. |
-| `processingDeadlineTime` | `uint256` | Timestamp of the last slot at which a report can be reported and processed                                                                                                                                                                                    |
-| `processingStarted`      | `bool`    | Has the processing of the report been started or not                                                                                                                                                                                                          |
 
 ### getResumeSinceTimestamp()
 
@@ -412,12 +412,14 @@ function submitReportData(ReportData calldata data, uint256 contractVersion) ext
 
 #### Reverts
 
+- Reverts with `ResumedExpected()` if the contract is paused.
 - Reverts with `SenderNotAllowed()` if the caller doesn't have a `SUBMIT_DATA_ROLE` role and is not a member of the oracle committee.
 - Reverts with `UnexpectedContractVersion(expectedVersion, version)` if the provided contract version differs from the current one.
 - Reverts with `UnexpectedConsensusVersion(expectedConsensusVersion, consensusVersion)` if the provided consensus version differs from the expected one.
 - Reverts with `UnexpectedRefSlot(report.refSlot, refSlot)` if the provided reference slot differs from the current consensus frame's one.
 - Reverts with `UnexpectedDataHash(report.hash, hash)` if a `keccak256` hash of the ABI-encoded data differs from the last hash.
 - Reverts with `NoConsensusReportToProcess()` if the report hash data is `0`.
+- Reverts with `ProcessingDeadlineMissed(deadline)` if the processing deadline for the current consensus frame is missed.
 - Reverts with `RefSlotAlreadyProcessing()` if the report reference slot is equal to the previous processing reference slot.
 - Reverts with `UnsupportedRequestsDataFormat(format)` if the provided data format is not `DATA_FORMAT_LIST_WITH_KEY_INDEX`
 - Reverts with `InvalidRequestsDataLength()` if the provided data is packed incorrectly
@@ -497,7 +499,7 @@ function triggerExits(
   ExitRequestsData calldata exitsData,
   uint256[] calldata exitDataIndexes,
   address refundRecipient
-) external payable whenResumed;
+) external payable whenResumed preservesEthBalance;
 ```
 
 #### Parameters
@@ -591,7 +593,7 @@ function pauseUntil(uint256 _pauseUntilInclusive) external;
 
 #### Reverts
 
-- Reverts with `ResumeSinceInPast()` if the provided timestamp is in the past
+- Reverts with `PauseUntilMustBeInFuture()` if the provided timestamp is in the past
 - Reverts with `AccessControl:...` reason if the sender has no `PAUSE_ROLE`
 - Reverts with `ResumedExpected()` if the contract is already paused
 
@@ -724,6 +726,54 @@ event WarnDataIncompleteProcessing(
     uint256 requestsProcessed,
     uint256 requestsCount
 );
+```
+
+### ConsensusHashContractSet()
+
+Emits when the consensus contract address is changed.
+
+```solidity
+event ConsensusHashContractSet(address indexed addr, address indexed prevAddr);
+```
+
+### ConsensusVersionSet()
+
+Emits when a consensus version value is changed.
+
+```solidity
+event ConsensusVersionSet(uint256 indexed version, uint256 indexed prevVersion);
+```
+
+### ReportSubmitted()
+
+Emits when a new consensus report hash is submitted.
+
+```solidity
+event ReportSubmitted(uint256 indexed refSlot, bytes32 hash, uint256 processingDeadlineTime);
+```
+
+### ReportDiscarded()
+
+Emits when consensus report is discarded.
+
+```solidity
+event ReportDiscarded(uint256 indexed refSlot, bytes32 hash);
+```
+
+### ProcessingStarted()
+
+Emits when report data processing is started.
+
+```solidity
+event ProcessingStarted(uint256 indexed refSlot, bytes32 hash);
+```
+
+### WarnProcessingMissed()
+
+Emits on [`submitConsensusReport`](#submitconsensusreport) when `refSlot != prevSubmittedRefSlot && prevProcessingRefSlot != prevSubmittedRefSlot`
+
+```solidity
+event WarnProcessingMissed(uint256 indexed refSlot);
 ```
 
 ### Paused()

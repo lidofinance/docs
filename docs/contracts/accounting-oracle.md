@@ -360,7 +360,8 @@ struct ProcessingState {
 - `mainDataSubmitted` - Whether the main report data for the current reporting frame has already been submitted.
 - `extraDataHash` - Hash of the extra report data. Should be ignored unless `mainDataSubmitted` is true.
 - `extraDataFormat` - Format of the extra report data for the current reporting frame. Should be ignored unless `mainDataSubmitted` is true.
-- `extraDataSubmitted` - Total number of extra report data items for the current reporting frame. Should be ignored unless `mainDataSubmitted` is true.
+- `extraDataSubmitted` - Whether any extra report data for the current reporting frame has been submitted.
+- `extraDataItemsCount` - Total number of extra report data items for the current reporting frame. Should be ignored unless `mainDataSubmitted` is true.
 - `extraDataItemsSubmitted` - How many extra report data items are already submitted for the current reporting frame.
 
 ## View methods
@@ -414,6 +415,14 @@ Returns the current contract version.
 
 ```solidity
 function getContractVersion() public view returns (uint256);
+```
+
+### getCurrentFrame()
+
+Returns the reference slot of the current reporting frame and its timestamp.
+
+```solidity
+function getCurrentFrame() external view returns (uint256 refSlot, uint256 refSlotTimestamp);
 ```
 
 ### getLastProcessingRefSlot()
@@ -651,6 +660,7 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `UnexpectedRefSlot(report.refSlot, refSlot)` if provided reference slot differs from the current consensus frame's one.
 - Reverts with `UnexpectedDataHash(report.hash, hash)` if keccak256 hash of the ABI-encoded data is different from the last hash.
 - Reverts with `NoConsensusReportToProcess()` if report hash data is 0.
+- Reverts with `ProcessingDeadlineMissed(uint256 deadline)` if the processing deadline for the current consensus frame is missed.
 - Reverts with `RefSlotAlreadyProcessing()` if report reference slot is equal to previous processing reference slot.
 - Reverts with `UnexpectedExtraDataHash(bytes32(0), data.extraDataHash)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataHash` is not 0
 - Reverts with `UnexpectedExtraDataItemsCount(0, data.extraDataItemsCount)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataItemsCount` is not 0
@@ -658,7 +668,7 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
 - Reverts with `ExtraDataHashCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataHash` is 0
 - Reverts with `InvalidExitedValidatorsData()` if provided exited validators data doesn't meet safety checks.
-- Reverts with `DeprecatedExtraDataType(itemIndex, itemType)` if extra data contains the deprecated `EXTRA_DATA_TYPE_STUCK_VALIDATORS` type.
+- Reverts with `DeprecatedExtraDataType(itemIndex, itemType)` on `submitReportExtraDataList()` if extra data contains the deprecated `EXTRA_DATA_TYPE_STUCK_VALIDATORS` type.
 
 #### OracleReportSanityChecker
 

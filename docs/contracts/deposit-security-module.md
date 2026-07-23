@@ -30,10 +30,18 @@ function getOwner() external view returns (address);
 
 ### getPauseIntentValidityPeriodBlocks()
 
-Returns `PAUSE_INTENT_VALIDITY_PERIOD_BLOCKS` (see `pauseDeposits`).
+Returns `pauseIntentValidityPeriodBlocks` (see `pauseDeposits`).
 
 ```solidity
 function getPauseIntentValidityPeriodBlocks() external view returns (uint256);
+```
+
+### getMaxOperatorsPerUnvetting()
+
+Returns the maximum number of operators per unvetting (see `unvetSigningKeys`).
+
+```solidity
+function getMaxOperatorsPerUnvetting() external view returns (uint256);
 ```
 
 ### getGuardianQuorum()
@@ -109,6 +117,14 @@ by colluding guardians on several modules at once, providing the necessary windo
 guardian to react and pause deposits to all modules.
 :::
 
+### isDepositsPaused()
+
+Returns whether deposits are paused.
+
+```solidity
+function isDepositsPaused() external view returns (bool);
+```
+
 ## Methods
 
 ### setOwner()
@@ -153,6 +169,27 @@ Reverts if any of the following is true:
 | ---------- | --------- | ---------------------------------------------------- |
 | `newValue` | `uint256` | Number of blocks after which message becomes invalid |
 
+### setMaxOperatorsPerUnvetting()
+
+Sets `maxOperatorsPerUnvetting`.
+
+```solidity
+function setMaxOperatorsPerUnvetting(uint256 newValue) external;
+```
+
+:::note
+Reverts if any of the following is true:
+
+- `msg.sender` is not the owner;
+- `newValue` is 0 (zero).
+  :::
+
+#### Parameters
+
+| Name       | Type      | Description                                     |
+| ---------- | --------- | ----------------------------------------------- |
+| `newValue` | `uint256` | New maximum number of operators per unvetting |
+
 ### setGuardianQuorum()
 
 Sets the number of valid guardian signatures required to vet (depositRoot, nonce) pair (aka "quorum").
@@ -185,6 +222,7 @@ function addGuardian(address addr, uint256 newQuorum) external;
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
+- `addr` is zero address;
 - `addr` is already a guardian.
   :::
 
@@ -207,6 +245,7 @@ function addGuardians(address[] memory addresses, uint256 newQuorum) external;
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
+- any of the `addresses` is zero address;
 - any of the `addresses` is already a guardian.
   :::
 
@@ -298,7 +337,8 @@ Reverts if any of the following is true:
 4. min deposit distance is not passed;
 5. `blockHash` is zero or not equal to `blockhash(blockNumber)`;
 6. deposits are paused;
-7. an invalid or non-guardian signature received.
+7. an invalid or non-guardian signature received;
+8. signatures are not sorted in ascending order by the guardian address.
    :::
 
 Signatures must be sorted in ascending order by the address of the guardian. Each signature must
