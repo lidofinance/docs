@@ -11,7 +11,7 @@ A consolidation is an [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251) operat
 
 Placing this logic in a dedicated contract rather than in the WithdrawalVault itself allows the consolidation flow to be paused independently in an emergency, without affecting protocol withdrawals or [triggerable exits](/contracts/triggerable-withdrawals-gateway).
 
-The contract inherits [AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/utils/access/AccessControlEnumerable.sol), [PausableUntil](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/utils/PausableUntil.sol), and [CLProofVerifier](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/vaults/predeposit_guarantee/CLProofVerifier.sol). It is not deployed behind a proxy.
+The contract inherits OpenZeppelin `AccessControlEnumerable`, [PausableUntil](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/utils/PausableUntil.sol), and [CLProofVerifier](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/vaults/predeposit_guarantee/CLProofVerifier.sol). It is not deployed behind a proxy.
 
 :::note
 ConsolidationGateway serves the Lido Core consolidation flow. For consolidations into stVaults, see [ValidatorConsolidationRequests](/contracts/validator-consolidation-requests).
@@ -80,7 +80,7 @@ The limit parameters are set at deployment and can be updated via [`setConsolida
 
 ## Roles
 
-Access to lever methods is restricted using the functionality of the [AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/utils/access/AccessControlEnumerable.sol) contract:
+Access to lever methods is restricted using the functionality of the OpenZeppelin `AccessControlEnumerable` contract:
 
 - `DEFAULT_ADMIN_ROLE` — manages role assignments; held by the Lido DAO Aragon Agent;
 - `ADD_CONSOLIDATION_REQUEST_ROLE` — allows submitting consolidation requests; intended for the [ConsolidationBus](/contracts/consolidation-bus);
