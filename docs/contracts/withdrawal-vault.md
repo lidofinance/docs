@@ -1,8 +1,8 @@
 # WithdrawalVault
 
-- [Source Code](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/WithdrawalVault.sol)
+- [Source Code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.9/WithdrawalVault.sol)
 - [Deployed Contract](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f)
-- Inherits [WithdrawalVaultEIP7685](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/WithdrawalVaultEIP7685.sol). Abstract contract providing base functionality for [EIP-7685](https://eips.ethereum.org/EIPS/eip-7685) execution-layer requests.
+- Inherits [WithdrawalVaultEIP7685](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.9/WithdrawalVaultEIP7685.sol). Abstract contract providing base functionality for [EIP-7685](https://eips.ethereum.org/EIPS/eip-7685) execution-layer requests.
 
 ## What is WithdrawalVault
 

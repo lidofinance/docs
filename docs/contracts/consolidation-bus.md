@@ -1,6 +1,6 @@
 # ConsolidationBus
 
-- [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.25/consolidation/ConsolidationBus.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/consolidation/ConsolidationBus.sol)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
 ConsolidationBus is a message bus for [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251) consolidation requests that decouples batch publication from execution and fee payment. Trusted publishers announce consolidation batches on-chain, and after a configurable delay anyone can execute a published batch by supplying the required fee.

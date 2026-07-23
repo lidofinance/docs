@@ -1,6 +1,6 @@
 # ConsolidationMigrator
 
-- [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.25/consolidation/ConsolidationMigrator.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/consolidation/ConsolidationMigrator.sol)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
 ConsolidationMigrator is a temporary helper contract for migrating stake between staking modules via [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251) consolidations. It validates consolidation requests submitted as validator key indices, resolves them to public keys through the staking modules, and publishes the resulting batches to the [ConsolidationBus](/contracts/consolidation-bus).
