@@ -1,6 +1,6 @@
 # LidoLocator
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/LidoLocator.sol)
+- [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/LidoLocator.sol)
 - [Deployed contract](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb)
 
 LidoLocator is the universal address book for the Lido protocol.
@@ -134,6 +134,22 @@ Returns an address of the [TriggerableWithdrawalsGateway contract](/contracts/tr
 
 ```sol
 function triggerableWithdrawalsGateway() view returns(address);
+```
+
+### consolidationGateway()
+
+Returns an address of the [ConsolidationGateway contract](/contracts/consolidation-gateway)
+
+```sol
+function consolidationGateway() view returns(address);
+```
+
+### topUpGateway()
+
+Returns an address of the [TopUpGateway contract](/contracts/top-up-gateway)
+
+```sol
+function topUpGateway() view returns(address);
 ```
 
 ### validatorExitDelayVerifier()

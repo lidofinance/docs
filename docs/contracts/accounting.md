@@ -1,6 +1,6 @@
 # Accounting
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/Accounting.sol)
+- [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/Accounting.sol)
 - [Deployed contract](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf)
 
 Handles oracle reports and calculates protocol state changes including rebases, fee distribution, and stVault bad debt internalization.
@@ -16,30 +16,32 @@ Accounting is the core contract that processes oracle reports for Lido:
 - internalizes bad debt from stVaults via `VaultHub`
 - notifies external contracts about rebases
 
-The contract acts as the central point for all accounting operations, replacing the previous `handleOracleReport` logic that was in the Lido contract.
+The contract acts as the central point for all accounting operations.
 
 ## How it works
 
 1. `HashConsensus` reaches consensus on the accounting report hash.
 2. `AccountingOracle.submitReportData()` validates the sender, contract version, consensus version, and report hash.
-3. `AccountingOracle` reports exited validator counts to `StakingRouter`.
-4. `AccountingOracle` calls `WithdrawalQueue.onOracleReport()` to update bunker mode and timing bounds.
-5. `AccountingOracle` calls `Accounting.handleOracleReport()`.
-6. Accounting snapshots pre-report state and simulates the report (including `WithdrawalQueue.prefinalize()` and `OracleReportSanityChecker.smoothenTokenRebase()`).
-7. Accounting runs sanity checks via `OracleReportSanityChecker.checkAccountingOracleReport()`.
-8. Accounting calls `Burner.requestBurnShares()` to lock shares for withdrawal finalization (if needed).
-9. Accounting updates CL state via `Lido.processClStateUpdate()`.
-10. Accounting internalizes bad debt via `VaultHub.decreaseInternalizedBadDebt()` and `Lido.internalizeExternalBadDebt()`.
-11. Accounting calls `Burner.commitSharesToBurn()` (if needed).
-12. Accounting calls `Lido.collectRewardsAndProcessWithdrawals()` to process withdrawals and rewards.
-13. If fees are due, Accounting mints fee shares, distributes them, and calls `StakingRouter.reportRewardsMinted()`.
-14. Accounting notifies the post-rebase receiver and calls `Lido.emitTokenRebase()`.
-15. `AccountingOracle` updates `LazyOracle.updateReportData()` and stores extra-data processing state.
+3. `AccountingOracle` pre-validates the per-module validator balances and the CL balance change rates via `StakingRouter.validateReportValidatorBalancesByStakingModule()` and `OracleReportSanityChecker.checkModuleAndCLBalancesChangeRates()`.
+4. `AccountingOracle` reports exited validator counts to `StakingRouter` and checks them via `OracleReportSanityChecker.checkExitedValidatorsCount()`.
+5. `AccountingOracle` reports per-module validator balances to `StakingRouter` via `reportValidatorBalancesByStakingModule()` — these are used as the basis for rewards distribution.
+6. `AccountingOracle` calls `WithdrawalQueue.onOracleReport()` to update bunker mode and timing bounds.
+7. `AccountingOracle` calls `Accounting.handleOracleReport()`.
+8. Accounting snapshots pre-report state (including `Lido.getBalanceStats()` and the bad debt to internalize from `VaultHub`) and simulates the report (including `WithdrawalQueue.prefinalize()` and `OracleReportSanityChecker.smoothenTokenRebase()`).
+9. Accounting runs sanity checks via `OracleReportSanityChecker.checkAccountingOracleReport()`.
+10. Accounting calls `Burner.requestBurnShares()` to lock shares for withdrawal finalization (if needed).
+11. Accounting updates CL state via `Lido.processClStateUpdate()`.
+12. Accounting internalizes bad debt via `VaultHub.decreaseInternalizedBadDebt()` and `Lido.internalizeExternalBadDebt()`.
+13. Accounting calls `Burner.commitSharesToBurn()` (if needed).
+14. Accounting calls `Lido.collectRewardsAndProcessWithdrawals()` to process withdrawals and rewards.
+15. If fees are due, Accounting mints fee shares, distributes them, and calls `StakingRouter.reportRewardsMinted()`.
+16. Accounting notifies the post-rebase receiver and calls `Lido.emitTokenRebase()`.
+17. `AccountingOracle` updates `LazyOracle.updateReportData()` and stores extra-data processing state.
 
 ```mermaid
 graph TB;
   HC[HashConsensus]-->AO[AccountingOracle];
-  AO-->SR[StakingRouter: reportExitedValidators];
+  AO-->SR[StakingRouter: exited validators & validator balances];
   AO-->WQ[WithdrawalQueue: onOracleReport];
   AO-->A[Accounting: handleOracleReport];
   A-->SC[OracleReportSanityChecker];
@@ -60,8 +62,8 @@ Oracle report input data (defined in `contracts/common/interfaces/ReportValues.s
 struct ReportValues {
     uint256 timestamp;                        // Block timestamp when the report is based
     uint256 timeElapsed;                      // Duration since the previous report
-    uint256 clValidators;                     // Total count of Lido validators on CL
-    uint256 clBalance;                        // Combined balance of all Lido validators on CL
+    uint256 clValidatorsBalance;              // Balance of Lido validators on CL, excluding pending deposits
+    uint256 clPendingBalance;                 // Balance of Lido-attributed pending deposits on CL
     uint256 withdrawalVaultBalance;           // Current withdrawal vault holdings
     uint256 elRewardsVaultBalance;            // Execution Layer rewards vault holdings
     uint256 sharesRequestedToBurn;            // stETH shares marked for burning via Burner
@@ -76,11 +78,11 @@ Snapshot of protocol state before report processing (internal struct):
 
 ```solidity
 struct PreReportState {
-    uint256 clValidators;           // Number of CL validators before report
-    uint256 clBalance;              // CL balance before report
+    uint256 clValidatorsBalance;    // CL validators balance (excluding pending deposits) at the last report
+    uint256 clPendingBalance;       // CL pending deposits balance at the last report
+    uint256 depositedBalance;       // Ether deposited since the last report, as of the reporting refSlot
     uint256 totalPooledEther;       // Total pooled ether before report
     uint256 totalShares;            // Total shares before report
-    uint256 depositedValidators;    // Number of deposited validators
     uint256 externalShares;         // Shares backed by external vaults
     uint256 externalEther;          // Ether in external vaults
     uint256 badDebtToInternalize;   // Bad debt amount to internalize this report
@@ -101,7 +103,7 @@ struct CalculatedValues {
     uint256 totalSharesToBurn;           // Total shares to be burned
     uint256 sharesToMintAsFees;          // Shares to mint as protocol fees
     FeeDistribution feeDistribution;     // Fee distribution details
-    uint256 principalClBalance;          // Principal CL balance
+    uint256 principalClBalance;          // CL balances at the previous report plus deposits made since then
     uint256 preTotalShares;              // Total shares before update
     uint256 preTotalPooledEther;         // Total pooled ETH before update
     uint256 postInternalShares;          // Internal shares after update
@@ -165,7 +167,6 @@ The method performs these operations in order:
 ```solidity
 error NotAuthorized(string operation, address addr);
 error IncorrectReportTimestamp(uint256 reportTimestamp, uint256 upperBoundTimestamp);
-error IncorrectReportValidators(uint256 reportValidators, uint256 minValidators, uint256 maxValidators);
 error InternalSharesCantBeZero();
 ```
 

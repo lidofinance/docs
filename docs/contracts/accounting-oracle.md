@@ -1,8 +1,8 @@
 # AccountingOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/oracle/AccountingOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/oracle/AccountingOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee)
-- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/oracle/BaseOracle.sol)
+- Inherits [BaseOracle](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/oracle/BaseOracle.sol)
 
 :::info
 It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-manual#intro) before
@@ -10,7 +10,7 @@ It's advised to read [What is Lido Oracle mechanism](/guides/oracle-operator-man
 
 ## What is AccountingOracle
 
-AccountingOracle is a contract that collects information submitted by off-chain oracles about the state of Lido-participating validators and their balances; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
+AccountingOracle is a contract that collects information submitted by off-chain oracles about the balances of Lido-participating validators — both active on the Consensus Layer and pending in its deposit queue — including the per-staking-module breakdown; the amounts of funds accumulated in the protocol vaults (i.e., [withdrawal](/contracts/withdrawal-vault) and [execution layer rewards](/contracts/lido-execution-layer-rewards-vault) vaults); the number of [exited](/contracts/staking-router#exited-validators) validators; the number of [withdrawal requests](/contracts/withdrawal-queue-erc721#request) the protocol is able to process; and it coordinates the distribution of node operator rewards.
 
 The report is applied by the [Accounting](/contracts/accounting) contract, which performs the core state updates and rebase calculations.
 
@@ -41,9 +41,14 @@ This would ultimately result in no oracle reports and no stETH rebases for this 
 
 The [submission](/contracts/accounting-oracle#submitreportdata) of the main report to `AccountingOracle` triggers the next processes in order, although within a single tx:
 
+
 1. `Accounting._sanityChecks` (via `OracleReportSanityChecker`).
 2. `StakingRouter.updateExitedValidatorsCountByStakingModule`.
-3. `Accounting.handleOracleReport`, which applies `_applyOracleReportContext` in this exact order:
+3. `StakingRouter.reportValidatorBalancesByStakingModule` — stores per-module validator
+   balances used as the basis for rewards distribution.
+4. `WithdrawalQueue.onOracleReport` — passes the bunker mode decision.
+5. `Accounting.handleOracleReport`, which applies `_applyOracleReportContext` in this exact order:
+   - `Accounting._sanityChecks` (via `OracleReportSanityChecker`)
    - `IBurner.requestBurnShares(withdrawalQueue, sharesToFinalizeWQ)` (if `sharesToFinalizeWQ > 0`)
    - `Lido.processClStateUpdate`
    - `VaultHub.decreaseInternalizedBadDebt` and `Lido.internalizeExternalBadDebt` (if `badDebtToInternalize > 0`)
@@ -53,8 +58,8 @@ The [submission](/contracts/accounting-oracle#submitreportdata) of the main repo
    - `Accounting._distributeFee` (if `sharesToMintAsFees > 0`)
    - `StakingRouter.reportRewardsMinted` (if `sharesToMintAsFees > 0`)
    - `Accounting._notifyRebaseObserver` (emits `TokenRebased` on Lido)
-4. `LazyOracle.updateReportData` (stVaults data root).
-5. Store extra data (if present).
+6. `LazyOracle.updateReportData` (stVaults data root).
+7. Store extra data (if present).
 
 The diagram shows the interaction with contracts.
 
@@ -63,6 +68,8 @@ graph TD;
   A[/submitReportData/] --> B[AccountingOracle];
   B --> C[OracleReportSanityChecker];
   B --> D[StakingRouter.updateExitedValidatorsCountByStakingModule];
+  B --> R[StakingRouter.reportValidatorBalancesByStakingModule];
+  B --> W[WithdrawalQueue.onOracleReport];
   B --> E[Accounting.handleOracleReport];
   E --> F[Burner.requestBurnShares];
   E --> G[Lido.processClStateUpdate];
@@ -86,10 +93,12 @@ The function `submitReportData()` accepts the following `ReportData` structure.
 struct ReportData {
     uint256 consensusVersion;
     uint256 refSlot;
-    uint256 numValidators;
-    uint256 clBalanceGwei;
+    uint256 clValidatorsBalanceGwei;
+    uint256 clPendingBalanceGwei;
     uint256[] stakingModuleIdsWithNewlyExitedValidators;
     uint256[] numExitedValidatorsByStakingModule;
+    uint256[] stakingModuleIdsWithUpdatedBalance;
+    uint256[] validatorBalancesGweiByStakingModule;
     uint256 withdrawalVaultBalance;
     uint256 elRewardsVaultBalance;
     uint256 sharesRequestedToBurn;
@@ -111,10 +120,12 @@ struct ReportData {
 
 **CL values**
 
-- `numValidators` — The number of validators on the Ethereum Consensus Layer that were ever deposited via Lido as observed at the reference slot.
-- `clBalanceGwei` — Cumulative balance nominated in gwei of all Lido validators on the Ethereum Consensus Layer as observed at the reference slot.
+- `clValidatorsBalanceGwei` — Sum of balances (`validator.balance`) of all Lido validators on the Ethereum Consensus Layer, excluding pending deposits, nominated in gwei, as observed at the reference slot.
+- `clPendingBalanceGwei` — Balance of Lido-attributed deposits pending in the Ethereum Consensus Layer deposit queue, nominated in gwei, as observed at the reference slot.
 - `stakingModuleIdsWithNewlyExitedValidators` — Ids of staking modules that have more exited validators than the number stored in the respective staking module contract as observed at the reference slot.
 - `numExitedValidatorsByStakingModule` — Number of ever exited validators for each of the staking modules from the `stakingModuleIdsWithNewlyExitedValidators` array as observed at the reference slot.
+- `stakingModuleIdsWithUpdatedBalance` — Ids of staking modules with updated validator balances as observed at the reference slot. Must include all registered staking modules in their registration order.
+- `validatorBalancesGweiByStakingModule` — Sum of validator balances, excluding pending deposits, nominated in gwei, for each staking module from the `stakingModuleIdsWithUpdatedBalance` array as observed at the reference slot.
 
 **EL values**
 
@@ -234,7 +245,7 @@ Extra data array can be passed in different formats, see below.
 ## Access and permissions
 
 Access to lever methods is restricted using the functionality of the
-[AccessControlEnumerable](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
+[AccessControlEnumerable](https://github.com/lidofinance/core/blob/main/contracts/0.8.9/utils/access/AccessControlEnumerable.sol)
 contract and a bunch of [granular roles](#permissions).
 
 ## Constants
@@ -301,14 +312,27 @@ uint256 public constant EXTRA_DATA_FORMAT_EMPTY = 0;
 
 ### EXTRA_DATA_FORMAT_LIST()
 
-The list format for the extra data array. Used when all extra data processing
-fits into a single transaction.
+The list format for the extra data array. Used when the oracle report contains extra data.
 
-Extra data is passed within a single transaction as a bytearray containing all data items
-packed tightly.
+Extra data may be split across one or more transactions. Each transaction contains
+a 32-byte `keccak256` hash of the next transaction's data (or a zero hash if there is none),
+followed by a chunk of report items:
 
-Hash is a `keccak256` hash calculated over the bytearray items. The Solidity equivalent of
-the hash calculation code would be `keccak256(array)`, where `array` has the `bytes` type.
+```txt
+|                   32 bytes                     |     X bytes      |
+|  Next transaction's data hash or `ZERO_HASH`   |  array of items  |
+```
+
+The `extraDataHash` in `ReportData` is the hash of the first transaction's data, with each
+chunk's hash committing to the next one:
+
+```txt
+extraDataHash := hash0
+hash0 := keccak256(| hash1 | extraData[0], ... extraData[n] |)
+hash1 := keccak256(| hash2 | extraData[n + 1], ... extraData[m] |)
+...
+hashK := keccak256(| ZERO_HASH | extraData[x + 1], ... extraData[extraDataItemsCount] |)
+```
 
 ```solidity
 uint256 public constant EXTRA_DATA_FORMAT_LIST = 1;
@@ -628,7 +652,7 @@ To ensure that the reported data is within possible values, the handler function
 - Reverts with `UnexpectedDataHash(report.hash, hash)` if keccak256 hash of the ABI-encoded data is different from the last hash.
 - Reverts with `NoConsensusReportToProcess()` if report hash data is 0.
 - Reverts with `RefSlotAlreadyProcessing()` if report reference slot is equal to previous processing reference slot.
-- Reverts with `UnexpectedExtraDataHash(bytes32(0), data.extraDataHash)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataHash` is 0
+- Reverts with `UnexpectedExtraDataHash(bytes32(0), data.extraDataHash)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataHash` is not 0
 - Reverts with `UnexpectedExtraDataItemsCount(0, data.extraDataItemsCount)` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_EMPTY` and `data.extraDataItemsCount` is not 0
 - Reverts with `UnsupportedExtraDataFormat(data.extraDataFormat)` if `data.extraDataFormat` is not `EXTRA_DATA_FORMAT_EMPTY` and not `EXTRA_DATA_FORMAT_LIST`
 - Reverts with `ExtraDataItemsCountCannotBeZeroForNonEmptyData()` if `data.extraDataFormat` is `EXTRA_DATA_FORMAT_LIST` and `data.extraDataItemsCount` is 0
@@ -639,12 +663,16 @@ To ensure that the reported data is within possible values, the handler function
 #### OracleReportSanityChecker
 
 - Reverts with `TooManyItemsPerExtraDataTransaction(uint256 maxItemsCount, uint256 receivedItemsCount)` error when check is failed, more [here](/contracts/oracle-report-sanity-checker#checkextradataitemscountpertransaction)
-- Reverts with `ExitedValidatorsLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks. (OracleReportSanityChecker)
+- Reverts with `ExitedEthAmountPerDayLimitExceeded(uint256 limitPerDay, uint256 exitedPerDay)` if provided exited validators data doesn't meet safety checks.
+- Reverts with `InvalidClBalancesData()` if the per-module validator balances arrays have inconsistent lengths.
+- Reverts with `InconsistentValidatorsBalanceByModule(uint256 expected, uint256 actual)` if the sum of per-module validator balances doesn't equal the reported total CL validators balance.
+- Reverts with `IncorrectTotalPendingBalance(uint256 maxAllowed, uint256 actual)`, `IncorrectTotalActivatedBalance(uint256 maxAllowed, uint256 actual)`, `IncorrectTotalCLBalanceIncrease(uint256 maxAllowed, uint256 actual)`, or `IncorrectTotalModuleValidatorsBalanceIncrease(uint256 maxAllowed, uint256 actual)` if the reported balance changes exceed the configured daily limits.
 
 #### StakingRouter
 
-- Reverts with `ArraysLengthMismatch(_stakingModuleIds.length, _exitedValidatorsCounts.length)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
-- Reverts with `ExitedValidatorsCountCannotDecrease()` if provided exited validators data doesn't meet safety checks. (StakingRouter)
-- Reverts with `ReportedExitedValidatorsExceedDeposited(uint256 reportedExitedValidatorsCount,uint256 depositedValidatorsCount)` if provided exited validators data doesn't meet safety checks. (StakingRouter)
+- Reverts with `ArraysLengthMismatch()` if the lengths of the provided module ids and values arrays don't match, or if the balances report doesn't cover all registered staking modules.
+- Reverts with `UnexpectedModuleId(uint256 expected, uint256 received)` if the balances report lists staking modules out of their registration order.
+- Reverts with `ExitedValidatorsCountCannotDecrease()` if provided exited validators data doesn't meet safety checks.
+- Reverts with `ReportedExitedValidatorsExceedDeposited(uint256 reportedExitedValidatorsCount, uint256 depositedValidatorsCount)` if provided exited validators data doesn't meet safety checks.
 
 Other reverts on `Accounting.handleOracleReport()`
