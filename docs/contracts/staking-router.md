@@ -1,6 +1,6 @@
 # StakingRouter
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/sr/StakingRouter.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/sr/StakingRouter.sol)
 - [Deployed contract](https://etherscan.io/address/0xFdDf38947aFB03C621C71b06C9C70bce73f12999)
 
 StakingRouter is a registry of staking modules, each encapsulating a certain validator subset, e.g. curated staking module, community staking module. The contract allocates stake to modules, executes validator deposits and top-ups with ether pulled from [Lido](/contracts/lido), distributes protocol fees, and tracks per-module validator balances.
@@ -105,7 +105,7 @@ If the module allocation rounds down to zero, the module is still called with a 
 
 ### Allocation algorithm
 
-StakingRouter distributes incoming ether across staking modules using the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm: modules with proportionally less stake receive deposits first, gradually equalizing their sizes over time. The strategy operates in 32 ETH units (`MAX_EFFECTIVE_BALANCE_WC_TYPE_01`), so the amount allocated to each module is always a multiple of 32 ETH. The allocation is exposed via the [`getDepositAllocations`](#getdepositallocations) view and is computed as follows:
+StakingRouter distributes incoming ether across staking modules using the [`MinFirstAllocationStrategy`](https://github.com/lidofinance/core/blob/v4.0.0/contracts/common/lib/MinFirstAllocationStrategy.sol) algorithm: modules with proportionally less stake receive deposits first, gradually equalizing their sizes over time. The strategy operates in 32 ETH units (`MAX_EFFECTIVE_BALANCE_WC_TYPE_01`), so the amount allocated to each module is always a multiple of 32 ETH. The allocation is exposed via the [`getDepositAllocations`](#getdepositallocations) view and is computed as follows:
 
 1. The ether amount to allocate is converted into 32 ETH units (`depositsToAllocate`).
 

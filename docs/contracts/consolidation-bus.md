@@ -1,6 +1,6 @@
 # ConsolidationBus
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/consolidation/ConsolidationBus.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/consolidation/ConsolidationBus.sol)
 - [Deployed contract](https://etherscan.io/address/0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 

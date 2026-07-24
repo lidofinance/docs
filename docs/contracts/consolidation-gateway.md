@@ -1,6 +1,6 @@
 # ConsolidationGateway
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/consolidation/ConsolidationGateway.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/consolidation/ConsolidationGateway.sol)
 - [Deployed contract](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
@@ -12,7 +12,7 @@ A consolidation is an [EIP-7251](https://eips.ethereum.org/EIPS/eip-7251) operat
 
 Placing this logic in a dedicated contract rather than in the WithdrawalVault itself allows the consolidation flow to be paused independently in an emergency, without affecting protocol withdrawals or [triggerable exits](/contracts/triggerable-withdrawals-gateway).
 
-The contract inherits OpenZeppelin `AccessControlEnumerable`, [PausableUntil](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/utils/PausableUntil.sol), and [CLProofVerifier](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/vaults/predeposit_guarantee/CLProofVerifier.sol). It is not deployed behind a proxy.
+The contract inherits OpenZeppelin `AccessControlEnumerable`, [PausableUntil](https://github.com/lidofinance/core/blob/v4.0.0/contracts/common/utils/PausableUntil.sol), and [CLProofVerifier](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/vaults/predeposit_guarantee/CLProofVerifier.sol). It is not deployed behind a proxy.
 
 :::note
 ConsolidationGateway serves the Lido Core consolidation flow. For consolidations into stVaults, see [ValidatorConsolidationRequests](/contracts/validator-consolidation-requests).
@@ -86,7 +86,7 @@ Access to lever methods is restricted using the functionality of the OpenZeppeli
 - `DEFAULT_ADMIN_ROLE` — manages role assignments; held by the Lido DAO Aragon Agent;
 - `ADD_CONSOLIDATION_REQUEST_ROLE` — allows submitting consolidation requests; intended for the [ConsolidationBus](/contracts/consolidation-bus);
 - `EXIT_LIMIT_MANAGER_ROLE` — allows updating the [consolidation limits](#consolidation-limits);
-- `PAUSE_ROLE` / `RESUME_ROLE` — allow pausing and resuming the contract (see [PausableUntil](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/utils/PausableUntil.sol)).
+- `PAUSE_ROLE` / `RESUME_ROLE` — allow pausing and resuming the contract (see [PausableUntil](https://github.com/lidofinance/core/blob/v4.0.0/contracts/common/utils/PausableUntil.sol)).
 
 ## View methods
 

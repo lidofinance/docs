@@ -8,7 +8,7 @@ There are several slightly different variants of the `OssifiableProxy` contract.
 
 ### Core variant
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.9/proxy/OssifiableProxy.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.9/proxy/OssifiableProxy.sol)
 
 Defined in the [core](https://github.com/lidofinance/core) repository. Written in Solidity 0.8.9 on top of the OpenZeppelin v4.4 `ERC1967Proxy`. The upgrade-and-call function takes three arguments: `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_, bool forceCall_)`.
 

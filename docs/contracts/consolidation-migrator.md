@@ -1,6 +1,6 @@
 # ConsolidationMigrator
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/consolidation/ConsolidationMigrator.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/consolidation/ConsolidationMigrator.sol)
 - [Deployed contract](https://etherscan.io/address/0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 

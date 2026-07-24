@@ -1,6 +1,6 @@
 # TopUpGateway
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/TopUpGateway.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/TopUpGateway.sol)
 - [Deployed contract](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374)
 - Specification basis: [LIP-35 — Staking Router v3](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md)
 
@@ -14,7 +14,7 @@ TopUpGateway is the only contract allowed to trigger [validator top-ups](/contra
 - computes a per-validator top-up limit from the configured target balance, the proven effective balance, and the validator's pending deposits;
 - forwards the validated public keys and limits to the StakingRouter, which determines the exact deposit amounts within these limits.
 
-The contract inherits [CLValidatorVerifier](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.25/CLValidatorVerifier.sol), OpenZeppelin `AccessControlEnumerableUpgradeable`, and [PausableUntil](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/utils/PausableUntil.sol). It is deployed behind an [OssifiableProxy](/contracts/ossifiable-proxy).
+The contract inherits [CLValidatorVerifier](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/CLValidatorVerifier.sol), OpenZeppelin `AccessControlEnumerableUpgradeable`, and [PausableUntil](https://github.com/lidofinance/core/blob/v4.0.0/contracts/common/utils/PausableUntil.sol). It is deployed behind an [OssifiableProxy](/contracts/ossifiable-proxy).
 
 ## Top-up flow
 
@@ -71,7 +71,7 @@ Access to lever methods is restricted using the functionality of the OpenZeppeli
 - `DEFAULT_ADMIN_ROLE` — manages role assignments;
 - `TOP_UP_ROLE` — allows submitting top-ups; held by the Lido depositor bot;
 - `MANAGE_LIMITS_ROLE` — allows updating the gateway parameters: batch size, block distance, root age, and balance limits;
-- `PAUSE_ROLE` / `RESUME_ROLE` — allow pausing and resuming the contract (see [PausableUntil](https://github.com/lidofinance/core/blob/v3.1.0/contracts/common/utils/PausableUntil.sol)).
+- `PAUSE_ROLE` / `RESUME_ROLE` — allow pausing and resuming the contract (see [PausableUntil](https://github.com/lidofinance/core/blob/v4.0.0/contracts/common/utils/PausableUntil.sol)).
 
 ## Structs
 
