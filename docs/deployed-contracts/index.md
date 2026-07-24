@@ -76,6 +76,11 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 - Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
 
+### 🌊 DeFi Wrapper {#defi-wrapper}
+
+- DeFi Wrapper Factory: [`0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587`](https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587)
+- Lido Earn Strategy Factory: [`0x8Fac09FD82F031D390B94622E2E4baBf16Fd2236`](https://etherscan.io/address/0x8Fac09FD82F031D390B94622E2E4baBf16Fd2236)
+
 ### 🛠️ SRv3 + CMv2 + CSM Upgrade (temporary) {#srv3-cmv2-csm-upgrade-temporary}
 - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Upgrade Config: [`0xf94e7A95C559728AcA33bFa7136Ea5De40B0338E`](https://etherscan.io/address/0xf94e7A95C559728AcA33bFa7136Ea5De40B0338E)
 - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/33)\] Upgrade Template: [`0xD92b6303Ba39297Cb69a3a17A88b47586A6af14C`](https://etherscan.io/address/0xD92b6303Ba39297Cb69a3a17A88b47586A6af14C)
