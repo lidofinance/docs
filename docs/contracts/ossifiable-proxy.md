@@ -2,9 +2,31 @@
 
 `OssifiableProxy` is an ERC-1967 proxy used for non-Aragon upgradeable contract deployments. Its admin can permanently disable upgrades by setting the proxy admin to the zero address.
 
-There are several slightly different variants of the `OssifiableProxy` contract. They use different versions of the OpenZeppelin libraries, resulting in slightly different interfaces, but their core functionality remains the same.
+There are several slightly different variants of the `OssifiableProxy` contract. They use different versions of the OpenZeppelin libraries, resulting in slightly different interfaces, but their core functionality remains the same. Every contract listed on this page is deployed behind one of the Lido variants described below; none of them use the vanilla OpenZeppelin `ERC1967Proxy` directly.
+
+## Proxy variants
+
+### Core variant
+
+- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.8.9/proxy/OssifiableProxy.sol)
+
+Defined in the [core](https://github.com/lidofinance/core) repository. Written in Solidity 0.8.9 on top of the OpenZeppelin v4.4 `ERC1967Proxy`. The upgrade-and-call function takes three arguments: `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_, bool forceCall_)`.
+
+### CSM variant
+
+- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/lib/proxy/OssifiableProxy.sol)
+
+Defined in the [community-staking-module](https://github.com/lidofinance/community-staking-module) repository. Written in Solidity 0.8.24 on top of the OpenZeppelin v5 `ERC1967Proxy`. Following the OpenZeppelin v5 interface changes, the upgrade-and-call function takes two arguments — `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_)` — and the contract declares an explicit `receive()` function.
+
+### Staking modules variant
+
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/lib/proxy/OssifiableProxy.sol)
+
+Defined in the [staking-modules](https://github.com/lidofinance/staking-modules) repository. Written in Solidity 0.8.33 on top of the OpenZeppelin v5 `ERC1967Proxy`. Functionally identical to the CSM variant and exposes the same external interface.
 
 ## Core contracts
+
+All core protocol contracts are deployed behind the [core variant](#core-variant):
 
 - [LidoLocator](/contracts/lido-locator)
 - [Accounting](/contracts/accounting)
@@ -25,6 +47,8 @@ There are several slightly different variants of the `OssifiableProxy` contract.
 
 ### Community Staking Module
 
+The following contracts are deployed behind the [CSM variant](#csm-variant):
+
 - [CSModule](/staking-modules/csm/contracts/CSModule)
 - [Accounting](/staking-modules/csm/contracts/Accounting)
 - [ParametersRegistry](/staking-modules/csm/contracts/ParametersRegistry)
@@ -35,10 +59,12 @@ There are several slightly different variants of the `OssifiableProxy` contract.
 
 #### Gates
 
-- [Identified Community Stakers Gate](/staking-modules/csm/contracts/VettedGate)
-- [Identified DVT Cluster Gate](/staking-modules/csm/contracts/VettedGate)
+- [Identified Community Stakers Gate](/staking-modules/csm/contracts/VettedGate) — [CSM variant](#csm-variant)
+- [Identified DVT Cluster Gate](/staking-modules/csm/contracts/VettedGate) — [staking modules variant](#staking-modules-variant), as it was deployed later than the other CSM proxies
 
 ### Curated Module v2
+
+All Curated Module v2 contracts, including the gates, are deployed behind the [staking modules variant](#staking-modules-variant):
 
 - [CuratedModule](/staking-modules/cm-v2/contracts/CuratedModule)
 - [MetaRegistry](/staking-modules/cm-v2/contracts/MetaRegistry)
