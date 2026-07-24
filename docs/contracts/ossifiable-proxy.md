@@ -12,12 +12,6 @@ There are several slightly different variants of the `OssifiableProxy` contract.
 
 Defined in the [core](https://github.com/lidofinance/core) repository. Written in Solidity 0.8.9 on top of the OpenZeppelin v4.4 `ERC1967Proxy`. The upgrade-and-call function takes three arguments: `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_, bool forceCall_)`.
 
-### CSM variant
-
-- [Source code](https://github.com/lidofinance/community-staking-module/blob/v2.0/src/lib/proxy/OssifiableProxy.sol)
-
-Defined in the [community-staking-module](https://github.com/lidofinance/community-staking-module) repository. Written in Solidity 0.8.24 on top of the OpenZeppelin v5 `ERC1967Proxy`. Following the OpenZeppelin v5 interface changes, the upgrade-and-call function takes two arguments — `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_)` — and the contract declares an explicit `receive()` function.
-
 ### Staking modules variant
 
 - [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/lib/proxy/OssifiableProxy.sol)
