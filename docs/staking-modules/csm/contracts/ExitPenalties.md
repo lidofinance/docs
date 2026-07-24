@@ -1,12 +1,13 @@
-# CSExitPenalties
+# ExitPenalties
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/v2.0/src/CSExitPenalties.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/ExitPenalties.sol)
 - [Deployed contract](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
 
-`CSExitPenalties.sol` is a supplementary contract responsible for processing and storing information about exit-related penalties, namely:
-- Delayed exit penalty;
-- Bad performance ejection penalty (see `CSStrikes`);
-- TE fee paid in case of a forced exit.
+`ExitPenalties` is a supplementary contract that records penalties and charges associated with validator exits. For each validator, it can track:
+
+- a delayed-exit penalty when the validator remains active beyond its allowed exit window;
+- a bad-performance penalty when [`ValidatorStrikes`](ValidatorStrikes.md) triggers the validator's ejection;
+- the execution-layer withdrawal request fee paid to trigger a forced exit.
 
 ## Upgradability
 
@@ -16,50 +17,65 @@ The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradabi
 ### MODULE
 
 ```solidity
-ICSModule public immutable MODULE;
+IBaseModule public immutable MODULE
 ```
 
 
 ### PARAMETERS_REGISTRY
 
 ```solidity
-ICSParametersRegistry public immutable PARAMETERS_REGISTRY;
+IParametersRegistry public immutable PARAMETERS_REGISTRY
 ```
 
 
 ### ACCOUNTING
 
 ```solidity
-ICSAccounting public immutable ACCOUNTING;
+IAccounting public immutable ACCOUNTING
 ```
 
 
 ### STRIKES
 
 ```solidity
-address public immutable STRIKES;
+address public immutable STRIKES
 ```
 
-### VOLUNTARY_EXIT_TYPE_ID
+
+### _exitPenaltyInfo
 
 ```solidity
-uint8 public constant VOLUNTARY_EXIT_TYPE_ID = 0;
+mapping(bytes32 keyPointer => ExitPenaltyInfo info) private _exitPenaltyInfo
 ```
 
-
-### STRIKES_EXIT_TYPE_ID
-
-```solidity
-uint8 public constant STRIKES_EXIT_TYPE_ID = 1;
-```
 
 ## Functions
+### onlyModule
+
+
+```solidity
+modifier onlyModule() ;
+```
+
+### onlyStrikes
+
+
+```solidity
+modifier onlyStrikes() ;
+```
+
+### constructor
+
+
+```solidity
+constructor(address module, address strikes) ;
+```
 
 ### processExitDelayReport
 
 Handles tracking and penalization logic for a validator that remains active beyond its eligible exit window.
 
-*see IStakingModule.reportValidatorExitDelay for details*
+See `IStakingModule.reportValidatorExitDelay` for details.
 
 
 ```solidity
@@ -85,7 +101,7 @@ Process the triggered exit report
 function processTriggeredExit(
     uint256 nodeOperatorId,
     bytes calldata publicKey,
-    uint256 withdrawalRequestPaidFee,
+    uint256 elWithdrawalRequestFeePaid,
     uint256 exitType
 ) external onlyModule;
 ```
@@ -95,8 +111,8 @@ function processTriggeredExit(
 |----|----|-----------|
 |`nodeOperatorId`|`uint256`|ID of the Node Operator|
 |`publicKey`|`bytes`|Public key of the validator|
-|`withdrawalRequestPaidFee`|`uint256`|The fee paid for the withdrawal request|
-|`exitType`|`uint256`|The type of the exit (0 - direct exit, 1 - forced exit)|
+|`elWithdrawalRequestFeePaid`|`uint256`|The fee paid for the withdrawal request|
+|`exitType`|`uint256`|The type of the exit; only `VOLUNTARY_EXIT_TYPE_ID` skips recording EL withdrawal request fee|
 
 
 ### processStrikesReport
@@ -117,11 +133,11 @@ function processStrikesReport(uint256 nodeOperatorId, bytes calldata publicKey) 
 
 ### isValidatorExitDelayPenaltyApplicable
 
-Determines whether a validator exit status should be updated and will have affect on Node Operator.
+Determines whether a validator exit status should be updated and will have an effect on the Node Operator.
 
-*there is a `onlyModule` modifier to prevent using it from outside
+There is a `onlyModule` modifier to prevent using it from outside
 as it gives a false-positive information for non-existent node operators.
-use `isValidatorExitDelayPenaltyApplicable` in the CSModule.sol instead*
+Use `isValidatorExitDelayPenaltyApplicable` in the `BaseModule.sol` instead.
 
 
 ```solidity
@@ -143,12 +159,12 @@ function isValidatorExitDelayPenaltyApplicable(
 
 |Name|Type|Description|
 |----|----|-----------|
-|`<none>`|`bool`|bool Returns true if contract should receive updated validator's status.|
+|`<none>`|`bool`|Returns true if contract should receive updated validator's status.|
 
 
 ### getExitPenaltyInfo
 
-get delayed exit penalty info for the given Node Operator
+Get delayed exit penalty info for the given Node Operator
 
 
 ```solidity
@@ -170,27 +186,17 @@ function getExitPenaltyInfo(uint256 nodeOperatorId, bytes calldata publicKey)
 |----|----|-----------|
 |`<none>`|`ExitPenaltyInfo`|penaltyInfo Delayed exit penalty info|
 
-## Events
-### ValidatorExitDelayProcessed
+
+### _onlyModule
+
 
 ```solidity
-event ValidatorExitDelayProcessed(uint256 indexed nodeOperatorId, bytes pubkey, uint256 delayPenalty);
+function _onlyModule() internal view;
 ```
 
-### TriggeredExitFeeRecorded
+### _onlyStrikes
+
 
 ```solidity
-event TriggeredExitFeeRecorded(
-    uint256 indexed nodeOperatorId,
-    uint256 indexed exitType,
-    bytes pubkey,
-    uint256 withdrawalRequestPaidFee,
-    uint256 withdrawalRequestRecordedFee
-);
-```
-
-### StrikesPenaltyProcessed
-
-```solidity
-event StrikesPenaltyProcessed(uint256 indexed nodeOperatorId, bytes pubkey, uint256 strikesPenalty);
+function _onlyStrikes() internal view;
 ```

@@ -1,48 +1,18 @@
-# CSModule
+# CuratedModule
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/CSModule.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/CuratedModule.sol)
 - [Inherited API source](https://github.com/lidofinance/staking-modules/blob/v3.0/src/abstract/BaseModule.sol)
-- [Deployed contract](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
+- [Deployed contract](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1)
 
-`CSModule.sol` is a core module contract conforming to the `IStakingModule` and `IStakingModuleV2` interfaces. The contract stores information about Node Operators and deposit data (DD) and is responsible for all interactions with the `StakingRouter`, including deposit data queue management. To support `0x02` validators, it also maintains a top-up queue used to fund validators beyond the initial `32 ETH` deposit up to `2048 ETH`.
+`CuratedModule` is the core staking module contract. It stores Node Operator and validator deposit data, handles interactions with the Staking Router, and provides flows for key and operator-address management, rewards, penalties, validator balances, and validator exits. Bond operations are delegated to [`Accounting`](Accounting.md), while exit-related obligations are recorded by [`ExitPenalties`](ExitPenalties.md).
 
-A Node Operator can perform a number of operations directly through this contract, for example:
-- upload new validator keys (deposit data), supplying the required bond in ETH, stETH, or wstETH;
-- remove uploaded keys that have not been deposited yet;
-- manage the Node Operator's manager and reward addresses;
-- compensate a reported (locked) penalty from the bond.
-
-## Upgradability
-
-The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
+For initial deposits and subsequent `0x02` validator top-ups, `CuratedModule` uses the effective allocation weights and external stake supplied by [`MetaRegistry`](MetaRegistry.md). This weighted strategy moves eligible Node Operators toward their target shares instead of allocating stake through a FIFO queue.
 
 ## State Variables
-### MANAGE_TOP_UP_QUEUE_ROLE
+### META_REGISTRY
 
 ```solidity
-bytes32 public constant MANAGE_TOP_UP_QUEUE_ROLE = keccak256("MANAGE_TOP_UP_QUEUE_ROLE")
-```
-
-
-### REWIND_TOP_UP_QUEUE_ROLE
-
-```solidity
-bytes32 public constant REWIND_TOP_UP_QUEUE_ROLE = keccak256("REWIND_TOP_UP_QUEUE_ROLE")
-```
-
-
-### CSMODULE_STORAGE_LOCATION
-
-```solidity
-bytes32 private constant CSMODULE_STORAGE_LOCATION =
-    0x48912ff6aecfe3259bdc07bbe67306543da3ba7172b1471bf49b659c3f4c6d00
-```
-
-
-### INITIALIZED_VERSION
-
-```solidity
-uint64 internal constant INITIALIZED_VERSION = 3
+IMetaRegistry public immutable META_REGISTRY
 ```
 
 
@@ -162,7 +132,8 @@ constructor(
     address lidoLocator,
     address parametersRegistry,
     address accounting,
-    address exitPenalties
+    address exitPenalties,
+    address metaRegistry
 ) BaseModule(moduleType, lidoLocator, parametersRegistry, accounting, exitPenalties);
 ```
 
@@ -174,64 +145,13 @@ and perform extensive deployment verification before using the contract instance
 
 
 ```solidity
-function initialize(address admin, uint8 topUpQueueLimit) external reinitializer(INITIALIZED_VERSION);
+function initialize(address admin) external override initializer;
 ```
-
-### finalizeUpgradeV3
-
-This method is expected to be called only when the contract is upgraded from version 2 to version 3 for the existing version 2 deployment.
-If the version 3 contract is deployed from scratch, the `initialize` method should be used instead.
-To prevent possible frontrun this method should strictly be called in the same TX as the upgrade transaction and should not be called separately.
-
-
-```solidity
-function finalizeUpgradeV3() external reinitializer(INITIALIZED_VERSION);
-```
-
-### rebuildTotalWithdrawnValidators
-
-Rebuilds the global withdrawn validator counter from per-operator counters.
-
-One-time migration helper for v2-to-v3 upgrades. The function is permissionless
-because the resulting value is fully derived from stored Node Operator state.
-
-
-```solidity
-function rebuildTotalWithdrawnValidators() external;
-```
-
-### createNodeOperator
-
-Permissioned method to add a new Node Operator
-Should be called by `*Gate.sol` contracts. See `PermissionlessGate.sol` and `VettedGate.sol` for examples
-
-
-```solidity
-function createNodeOperator(
-    address from,
-    NodeOperatorManagementProperties calldata managementProperties,
-    address referrer
-) public override(BaseModule, IBaseModule) returns (uint256 nodeOperatorId);
-```
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`from`|`address`|Sender address. Initial sender address to be used as a default manager and reward addresses. Gates must pass the correct address in order to specify which address should be the owner of the Node Operator.|
-|`managementProperties`|`NodeOperatorManagementProperties`|Optional. Management properties to be used for the Node Operator. `managerAddress`: Used as `managerAddress` for the Node Operator. If not passed `from` will be used. `rewardAddress`: Used as `rewardAddress` for the Node Operator. If not passed `from` will be used. `extendedManagerPermissions`: Flag indicating that `managerAddress` will be able to change `rewardAddress`. If set to true `resetNodeOperatorManagerAddress` method will be disabled|
-|`referrer`|`address`|Optional. Referrer address. Should be passed when Node Operator is created using partners integration|
-
 
 ### obtainDepositData
 
-Get the next `depositsCount` of depositable keys with signatures from the queue
-
-The method does not update depositable keys count for the Node Operators before the queue processing start.
-Hence, in the rare cases of negative stETH rebase the method might return unbonded keys. This is a trade-off
-between the gas cost and the correctness of the data. Due to module design, any unbonded keys will be requested
-to exit by VEBO.
-
-Second param `depositCalldata` is not used
+Obtains deposit data to be used by StakingRouter to deposit to the Ethereum Deposit
+contract
 
 
 ```solidity
@@ -261,8 +181,7 @@ function obtainDepositData(
 
 Validates that provided keys belong to the corresponding operators in the module and calculates deposit allocations for top-up
 
-The function strictly follows the top-up queue.
-If the provided deposit amount can be distributed only on 4 keys, but 5 keys were provided, then the function reverts.
+Reverts if any key doesn't belong to the module or data is invalid
 
 
 ```solidity
@@ -291,230 +210,168 @@ function allocateDeposits(
 |`allocations`|`uint256[]`|Amount to deposit to each key|
 
 
-### reportValidatorBalance
+### notifyNodeOperatorWeightChange
 
-Update verified on-chain balance for a key.
-
-The function stores balance relative to MIN_ACTIVATION_BALANCE.
+Notifies the module about the weight change of a node operator.
 
 
 ```solidity
-function reportValidatorBalance(uint256 nodeOperatorId, uint256 keyIndex, uint256 currentBalanceWei)
-    public
-    override(BaseModule, IBaseModule);
+function notifyNodeOperatorWeightChange(uint256 nodeOperatorId, uint256 oldWeight, uint256 newWeight) external;
 ```
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
 |`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`keyIndex`|`uint256`|Index of the key in the Node Operator's keys storage|
-|`currentBalanceWei`|`uint256`|Proven current validator balance in wei|
+|`oldWeight`|`uint256`|The old weight of the node operator.|
+|`newWeight`|`uint256`|The new weight of the node operator.|
 
 
-### setTopUpQueueLimit
+### getOperatorWeights
 
-Set the top-up queue capacity limit.
+Returns operator weights used for operator-level allocations in the module.
 
-
-```solidity
-function setTopUpQueueLimit(uint256 limit) external;
-```
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`limit`|`uint256`|How many items may sit in the top-up queue at most.|
-
-
-### removeKeys
-
-Remove keys for the Node Operator. Charging is module-specific (e.g., CSM applies a per-key fee).
-This method is a part of the Optimistic Vetting scheme. After key deletion `totalVettedKeys`
-is set equal to `totalAddedKeys`. If invalid keys are not removed, the unvetting process will be repeated
-and `decreaseVettedSigningKeysCount` will be called by StakingRouter.
+Provides weights from the on-chain allocation strategy used by the module.
 
 
 ```solidity
-function removeKeys(uint256 nodeOperatorId, uint256 startIndex, uint256 keysCount)
-    external
-    override(BaseModule, IBaseModule);
-```
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|ID of the Node Operator|
-|`startIndex`|`uint256`|Index of the first key|
-|`keysCount`|`uint256`|Keys count to delete|
-
-
-### rewindTopUpQueue
-
-Rewind the top-up queue to be able to deposit to mistakenly skipped items.
-
-
-```solidity
-function rewindTopUpQueue(uint256 to) external;
-```
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`to`|`uint256`|Pointer to move the queue `head` to.|
-
-
-### cleanDepositQueue
-
-Clean the deposit queue from batches with no depositable keys
-
-Use **eth_call** to check how many items will be removed
-
-
-```solidity
-function cleanDepositQueue(uint256 maxItems) external returns (uint256 removed, uint256 lastRemovedAtDepth);
-```
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`maxItems`|`uint256`|How many queue items to review|
-
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`removed`|`uint256`|Count of batches to be removed by visiting `maxItems` batches|
-|`lastRemovedAtDepth`|`uint256`|The value to use as `maxItems` to remove `removed` batches if the static call of the method was used|
-
-
-### getTopUpQueue
-
-Returns the top-up queue stats.
-
-
-```solidity
-function getTopUpQueue() external view returns (bool enabled, uint256 limit, uint256 length, uint256 head);
-```
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`enabled`|`bool`|Whether the queue was enabled upon initialization of the module.|
-|`limit`|`uint256`|How many items may sit in the top-up queue at most.|
-|`length`|`uint256`|How many items are in the queue.|
-|`head`|`uint256`|Pointer to the head of the queue.|
-
-
-### getTopUpQueueItem
-
-Returns the top-up queue item by the given index.
-
-
-```solidity
-function getTopUpQueueItem(uint256 index) external view returns (uint256 nodeOperatorId, uint256 keyIndex);
-```
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`index`|`uint256`|An offset from the current head (not a global index) of the item to retrieve.|
-
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`nodeOperatorId`|`uint256`|Node operator ID.|
-|`keyIndex`|`uint256`|Index of the key in the Node Operator's keys storage|
-
-
-### getStakingModuleSummary
-
-Returns all-validators summary in the staking module
-
-
-```solidity
-function getStakingModuleSummary()
+function getOperatorWeights(uint256[] calldata operatorIds)
     external
     view
-    override(BaseModule, IStakingModule)
-    returns (uint256 totalExitedValidators, uint256 totalDepositedValidators, uint256 depositableValidatorsCount);
-```
-**Returns**
-
-|Name|Type|Description|
-|----|----|-----------|
-|`totalExitedValidators`|`uint256`|Total number of validators in the EXITED state on the Consensus Layer. This value can't decrease in normal conditions|
-|`totalDepositedValidators`|`uint256`|Total number of validators deposited via the official Deposit Contract. This value is a cumulative counter: even when the validator goes into EXITED state this counter is not decreasing|
-|`depositableValidatorsCount`|`uint256`|Number of validators in the set available for deposit|
-
-
-### depositQueuePointers
-
-Get the pointers to the head and tail of queue with the given priority.
-
-
-```solidity
-function depositQueuePointers(uint256 queuePriority) external view returns (uint128 head, uint128 tail);
+    returns (uint256[] memory operatorWeights);
 ```
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`queuePriority`|`uint256`|Priority of the queue to get the pointers.|
+|`operatorIds`|`uint256[]`|Node operator IDs to query.|
 
 **Returns**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`head`|`uint128`|Pointer to the head of the queue.|
-|`tail`|`uint128`|Pointer to the tail of the queue.|
+|`operatorWeights`|`uint256[]`|Weights aligned with operatorIds.|
 
 
-### depositQueueItem
+### getNodeOperatorWeightAndExternalStake
 
-Get the deposit queue item by an index
+Returns effective weight and external stake for a node operator.
+
+Reverts until the module deposit info cache is fully refreshed.
 
 
 ```solidity
-function depositQueueItem(uint256 queuePriority, uint128 index) external view returns (Batch);
+function getNodeOperatorWeightAndExternalStake(uint256 nodeOperatorId)
+    external
+    view
+    returns (uint256 weight, uint256 externalStake);
 ```
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`queuePriority`|`uint256`|Priority of the queue to get an item from|
-|`index`|`uint128`|Index of a queue item|
+|`nodeOperatorId`|`uint256`|Node operator ID to query.|
 
 **Returns**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`<none>`|`Batch`|Deposit queue item from the priority queue|
+|`weight`|`uint256`|Effective allocation weight.|
+|`externalStake`|`uint256`|External stake amount in wei.|
 
 
-### getKeysForTopUp
+### getDepositAllocationTargets
 
-Fetches up to `maxKeyCount` validator public keys from the top-up queue.
+Returns current deposit allocation targets for all operators.
 
-If the queue contains fewer than `maxKeyCount` entries, all available keys are returned.
+Target = totalCurrent * operatorWeight / totalWeight (in validator count).
+Includes operators regardless of depositable capacity for informational purposes.
+Actual allocation recalculates shares only across operators with usable capacity,
+so real per-operator amounts may differ from the targets shown here.
+Arrays are indexed by operator id; zero-weight operators have zero values.
 
 
 ```solidity
-function getKeysForTopUp(uint256 maxKeyCount) external view returns (bytes[] memory pubkeys);
+function getDepositAllocationTargets()
+    external
+    view
+    returns (uint256[] memory currentValidators, uint256[] memory targetValidators);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`currentValidators`|`uint256[]`|Current active validator count per operator.|
+|`targetValidators`|`uint256[]`|Target validator count per operator.|
+
+
+### getTopUpAllocationTargets
+
+Returns current top-up allocation targets for all operators.
+
+`target = totalCurrent * operatorWeight / totalWeight` (in wei).
+Includes operators regardless of top-up capacity for informational purposes.
+Actual allocation recalculates shares only across operators with usable capacity,
+so real per-operator amounts may differ from the targets shown here.
+Arrays are indexed by operator id; zero-weight operators have zero values.
+
+
+```solidity
+function getTopUpAllocationTargets()
+    external
+    view
+    returns (uint256[] memory currentAllocations, uint256[] memory targetAllocations);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`currentAllocations`|`uint256[]`|Current operator stake in wei.|
+|`targetAllocations`|`uint256[]`|Target operator stake in wei.|
+
+
+### getDepositsAllocation
+
+Method to get list of operators and amount of Eth that can be topped up to operator from depositAmount
+
+
+```solidity
+function getDepositsAllocation(uint256 maxDepositAmount)
+    external
+    view
+    returns (uint256 allocated, uint256[] memory operatorIds, uint256[] memory allocations);
 ```
 **Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`maxKeyCount`|`uint256`|The maximum number of keys to retrieve.|
+|`maxDepositAmount`|`uint256`||
 
-**Returns**
+
+### createNodeOperator
+
+Permissioned method to add a new Node Operator
+Should be called by `*Gate.sol` contracts. See `PermissionlessGate.sol` and `VettedGate.sol` for examples
+
+
+```solidity
+function createNodeOperator(
+    address from,
+    NodeOperatorManagementProperties calldata managementProperties,
+    address /* referrer */
+)
+    public
+    virtual
+    whenResumed
+    returns (uint256 nodeOperatorId);
+```
+**Parameters**
 
 |Name|Type|Description|
 |----|----|-----------|
-|`pubkeys`|`bytes[]`|The list of validator public keys returned from the queue.|
-
+|`from`|`address`|Sender address. Initial sender address to be used as a default manager and reward addresses. Gates must pass the correct address in order to specify which address should be the owner of the Node Operator.|
+|`managementProperties`|`NodeOperatorManagementProperties`|Optional. Management properties to be used for the Node Operator. `managerAddress`: Used as `managerAddress` for the Node Operator. If not passed `from` will be used. `rewardAddress`: Used as `rewardAddress` for the Node Operator. If not passed `from` will be used. `extendedManagerPermissions`: Flag indicating that `managerAddress` will be able to change `rewardAddress`. If set to true `resetNodeOperatorManagerAddress` method will be disabled|
+|`<none>`|`address`||
 
 ### addValidatorKeysETH
 
@@ -798,6 +655,25 @@ function decreaseVettedSigningKeysCount(bytes calldata nodeOperatorIds, bytes ca
 |`nodeOperatorIds`|`bytes`|Bytes packed array of the Node Operator ids|
 |`vettedSigningKeysCounts`|`bytes`|Bytes packed array of the new numbers of vetted keys for the Node Operators|
 
+### removeKeys
+
+Remove keys for the Node Operator. Charging is module-specific (e.g., CSM applies a per-key fee).
+This method is a part of the Optimistic Vetting scheme. After key deletion `totalVettedKeys`
+is set equal to `totalAddedKeys`. If invalid keys are not removed, the unvetting process will be repeated
+and `decreaseVettedSigningKeysCount` will be called by StakingRouter.
+
+
+```solidity
+function removeKeys(uint256 nodeOperatorId, uint256 startIndex, uint256 keysCount) external virtual;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`nodeOperatorId`|`uint256`|ID of the Node Operator|
+|`startIndex`|`uint256`|Index of the first key|
+|`keysCount`|`uint256`|Keys count to delete|
+
 ### updateDepositableValidatorsCount
 
 Update depositable validators data for the given Node Operator.
@@ -902,6 +778,26 @@ function reportValidatorSlashing(uint256 nodeOperatorId, uint256 keyIndex) exter
 |----|----|-----------|
 |`nodeOperatorId`|`uint256`|The ID of the Node Operator|
 |`keyIndex`|`uint256`|Index of the key in the Node Operator's keys storage|
+
+### reportValidatorBalance
+
+Update verified on-chain balance for a key.
+
+The function stores balance relative to MIN_ACTIVATION_BALANCE.
+
+
+```solidity
+function reportValidatorBalance(uint256 nodeOperatorId, uint256 keyIndex, uint256 currentBalanceWei)
+    public
+    virtual;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`nodeOperatorId`|`uint256`|ID of the Node Operator|
+|`keyIndex`|`uint256`|Index of the key in the Node Operator's keys storage|
+|`currentBalanceWei`|`uint256`|Proven current validator balance in wei|
 
 ### reportSlashedWithdrawnValidators
 
@@ -1053,6 +949,26 @@ hence it does nothing
 ```solidity
 function onExitedAndStuckValidatorsCountsUpdated() external view;
 ```
+
+### getStakingModuleSummary
+
+Returns all-validators summary in the staking module
+
+
+```solidity
+function getStakingModuleSummary()
+    external
+    view
+    virtual
+    returns (uint256 totalExitedValidators, uint256 totalDepositedValidators, uint256 depositableValidatorsCount);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`totalExitedValidators`|`uint256`|Total number of validators in the EXITED state on the Consensus Layer. This value can't decrease in normal conditions|
+|`totalDepositedValidators`|`uint256`|Total number of validators deposited via the official Deposit Contract. This value is a cumulative counter: even when the validator goes into EXITED state this counter is not decreasing|
+|`depositableValidatorsCount`|`uint256`|Number of validators in the set available for deposit|
 
 ### onWithdrawalCredentialsChanged
 
@@ -1519,6 +1435,13 @@ Get the number of Node Operators with outdated deposit info that requires update
 function getNodeOperatorDepositInfoToUpdateCount() external view returns (uint256 count);
 ```
 
+### _updateDepositInfo
+
+
+```solidity
+function _updateDepositInfo(uint256 nodeOperatorId) internal override;
+```
+
 ### _applyDepositableValidatorsCount
 
 
@@ -1528,70 +1451,44 @@ function _applyDepositableValidatorsCount(
     uint256 nodeOperatorId,
     uint256 newCount,
     bool incrementNonceIfUpdated
-) internal override returns (bool changed);
+) internal override returns (bool depositableChanged);
 ```
 
-### _addKeysAndUpdateDepositableValidatorsCount
+### _allocateTopUps
 
 
 ```solidity
-function _addKeysAndUpdateDepositableValidatorsCount(
-    uint256 nodeOperatorId,
-    uint256 keysCount,
-    bytes calldata publicKeys,
-    bytes calldata signatures
-) internal override;
+function _allocateTopUps(
+    uint256 maxDepositAmount,
+    uint256[] calldata operatorIds,
+    uint256[] calldata keyIndices,
+    uint256[] memory topUpLimits
+) internal returns (uint256[] memory allocations);
 ```
 
-### _initTopUpQueue
-
-Setting `topUpQueueLimit` to 0 effectively disables the top-up queue permanently.
+### _validateTopUpPublicKeys
 
 
 ```solidity
-function _initTopUpQueue(uint8 topUpQueueLimit) internal;
+function _validateTopUpPublicKeys(
+    bytes[] calldata pubkeys,
+    uint256[] calldata keyIndices,
+    uint256[] calldata operatorIds
+) internal view;
 ```
 
-### _onlyEnabledTopUpQueue
+### _metaRegistry
 
 
 ```solidity
-function _onlyEnabledTopUpQueue() internal view;
+function _metaRegistry() internal view returns (IMetaRegistry);
 ```
 
-### _topUpQueue
+### _canRequestDepositInfoUpdate
 
 
 ```solidity
-function _topUpQueue() internal view returns (TopUpQueueLib.Queue storage);
-```
-
-### _topUpQueueEnabled
-
-
-```solidity
-function _topUpQueueEnabled() internal view returns (bool enabled);
-```
-
-### _queueLowestPriority
-
-
-```solidity
-function _queueLowestPriority() internal view returns (uint256);
-```
-
-### _checkCanAddKeys
-
-
-```solidity
-function _checkCanAddKeys(uint256 nodeOperatorId, address who) internal view override;
-```
-
-### _csmStorage
-
-
-```solidity
-function _csmStorage() internal pure returns (CSModuleStorage storage $);
+function _canRequestDepositInfoUpdate() internal view override;
 ```
 
 ### __BaseModule_init
@@ -1599,13 +1496,6 @@ function _csmStorage() internal pure returns (CSModuleStorage storage $);
 
 ```solidity
 function __BaseModule_init(address admin) internal onlyInitializing;
-```
-
-### _updateDepositInfo
-
-
-```solidity
-function _updateDepositInfo(uint256 nodeOperatorId) internal virtual;
 ```
 
 ### _reportWithdrawnValidators
@@ -1620,6 +1510,18 @@ function _reportWithdrawnValidators(WithdrawnValidatorInfo[] calldata validatorI
 
 ```solidity
 function _incrementModuleNonce() internal;
+```
+
+### _addKeysAndUpdateDepositableValidatorsCount
+
+
+```solidity
+function _addKeysAndUpdateDepositableValidatorsCount(
+    uint256 nodeOperatorId,
+    uint256 keysCount,
+    bytes calldata publicKeys,
+    bytes calldata signatures
+) internal virtual;
 ```
 
 ### _updateDepositableValidatorsCount
@@ -1638,6 +1540,13 @@ function _updateDepositableValidatorsCount(uint256 nodeOperatorId, bool incremen
 function _removeKeys(uint256 nodeOperatorId, uint256 startIndex, uint256 keysCount, bool useKeyRemovalCharge)
     internal
     virtual;
+```
+
+### _checkCanAddKeys
+
+
+```solidity
+function _checkCanAddKeys(uint256 nodeOperatorId, address who) internal view virtual;
 ```
 
 ### _onlyNodeOperatorManager
@@ -1757,15 +1666,6 @@ function _parametersRegistry() internal view returns (IParametersRegistry);
 function _requireDepositInfoUpToDate() internal view;
 ```
 
-### _canRequestDepositInfoUpdate
-
-Default implementation of the guard for requesting deposit info update.
-
-
-```solidity
-function _canRequestDepositInfoUpdate() internal view virtual;
-```
-
 ### _onlyRecoverer
 
 
@@ -1779,16 +1679,3 @@ function _onlyRecoverer() internal view override;
 ```solidity
 function __checkRole(bytes32 role) internal view override;
 ```
-
-## Structs
-### CSModuleStorage
-**Note:**
-storage-location: erc7201:CSModule
-
-
-```solidity
-struct CSModuleStorage {
-    TopUpQueueLib.Queue topUpQueue;
-}
-```
-
