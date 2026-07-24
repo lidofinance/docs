@@ -7,7 +7,9 @@ If you're looking for a practical guide to run CSM on your setup, please follow 
 Terms `validator`, `key`, `validator key`, and `deposit data` have the same meaning within the document.
 :::
 :::info CSM v3 & 0x02 CSM
-CSM has been upgraded to **CSM v3** as part of the Staking Router v3 release (on-chain Vote #203), harmonizing the module with the post-Pectra Lido protocol and introducing balance-based accounting. Existing operators running `0x01` (32 ETH) validators continue to operate as before. CSM v3 is also the foundation for validator consolidations and for an upcoming **[0x02 CSM](/run-on-lido/csm/context-and-background)** module for `0x02` (compounding, up to 2,048 ETH) validators. See **[CSM Context & Background](/run-on-lido/csm/context-and-background)** for how the two modules compare.
+CSM has been upgraded to **CSM v3** as part of the Staking Router v3 release (on-chain Vote #203), adapting the module to the post-Pectra Lido protocol changes. Existing operators running `0x01` (32 ETH) validators continue to operate as before.
+
+A separate 0x02 CSM module is planned for compounding validators with balances up to 2,048 ETH, but is not live yet. See **[CSM Context & Background](/run-on-lido/csm/context-and-background)** for how the two modules compare.
 :::
 
 ## ∑ TL;DR

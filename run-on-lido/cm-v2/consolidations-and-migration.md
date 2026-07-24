@@ -28,7 +28,7 @@ You can monitor the consolidation queue using external services such as [Validat
 ## Migration process
 
 :::info
-For the current migration periods, readiness requirements, and coordination instructions, see the [CMv2 Migration — Node Operator Overview](https://enchanted-direction-844.notion.site/Curated-Module-v2-Migration-Node-Operator-Overview-383bf633d0c980c3b906fc7f9a7af921?pvs=74). NOM coordinates timing directly with each organization.
+For the current migration periods, readiness requirements, and coordination instructions, see the [CMv2 Migration — Node Operator Overview](https://enchanted-direction-844.notion.site/Curated-Module-v2-Migration-Node-Operator-Overview-383bf633d0c980c3b906fc7f9a7af921). NOM coordinates timing directly with each organization.
 :::
 
 Migrating from CMv1 to CMv2 is a two-step process. First set up your CMv2 footprint, then consolidate validators into it.

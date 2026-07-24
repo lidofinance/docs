@@ -12,7 +12,7 @@ It's a permissioned module designed for professional operators that introduces b
 
 A new Operator Group model is also introduced allowing each entity in CMv2 to manage multiple Node Operators (also referred to as sub-NOs) with different configurations.
 
-CMv2 is rolling out in two phases. Phase 1 is live on Mainnet, and Phase 2 is planned for Q4 2026. CMv1 will be replaced gradually as operators migrate.
+CMv2 is rolling out in two phases. Phase 1 is live on Mainnet, and Phase 2 is planned for Q1 2027. CMv1 will be replaced gradually as operators migrate.
 
 ---
 
@@ -56,7 +56,7 @@ Live on Mainnet (and Hoodi testnet)
 ### Phase 2
 
 :::note
-Targeted Q4 2026 for Mainnet
+Targeted Q1 2027 for Mainnet
 :::
 
 - Validator Market (ValMart), a dynamic allocation mechanism that can factor in parameters such as operator fees, risk profiles, additional bond reserves, and LDO locking or delegation

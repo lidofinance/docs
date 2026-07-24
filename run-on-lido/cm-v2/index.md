@@ -5,7 +5,7 @@ sidebar_position: 1
 # Curated Module v2
 
 :::info
-**Phase 1 of CMv2 is live on Ethereum Mainnet.** Phase 2 is planned for Q4 2026.
+**Phase 1 of CMv2 is live on Ethereum Mainnet.** Phase 2 is planned for Q1 2027.
 :::
 
 ## What You'll Find Here
