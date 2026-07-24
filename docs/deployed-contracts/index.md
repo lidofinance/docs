@@ -69,6 +69,11 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Dashboard Implementation: [`0x294825c2764c7D412dc32d87E2242c4f1D989AF3`](https://etherscan.io/address/0x294825c2764c7D412dc32d87E2242c4f1D989AF3)
 - Validator Consolidation Requests: [`0xaC4Aae7123248684C405A4b0038C1560EC7fE018`](https://etherscan.io/address/0xaC4Aae7123248684C405A4b0038C1560EC7fE018)
 
+### 🌊 DeFi Wrapper {#defi-wrapper}
+
+- DeFi Wrapper Factory: [`0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587`](https://etherscan.io/address/0x3f221b8E5bC098cC6C23611BEeacaeCfD77e1587)
+- Lido Earn Strategy Factory: [`0x8Fac09FD82F031D390B94622E2E4baBf16Fd2236`](https://etherscan.io/address/0x8Fac09FD82F031D390B94622E2E4baBf16Fd2236)
+
 ### 🔗 Consolidation Stack {#consolidation-stack}
 
 - Consolidation Migrator: [`0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7`](https://etherscan.io/address/0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7) (proxy)
