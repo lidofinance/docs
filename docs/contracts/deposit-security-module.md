@@ -1,6 +1,6 @@
 # DepositSecurityModule
 
-- [Source Code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.8.9/DepositSecurityModule.sol)
+- [Source Code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.9/DepositSecurityModule.sol)
 - [Deployed Contract](https://etherscan.io/address/0xfFA96D84dEF2EA035c7AB153D8B991128e3d72fD)
 
 Due to front-running vulnerability, Lido contributors [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
@@ -16,7 +16,7 @@ The guardian himself, or anyone else who has a signed pause message, can call `p
 
 To prevent a replay attack, the guardians sign the block number when malicious predeposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
-Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedValidatorsPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
+Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedEthAmountPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
 
 ## View Methods
 
@@ -30,10 +30,18 @@ function getOwner() external view returns (address);
 
 ### getPauseIntentValidityPeriodBlocks()
 
-Returns `PAUSE_INTENT_VALIDITY_PERIOD_BLOCKS` (see `pauseDeposits`).
+Returns `pauseIntentValidityPeriodBlocks` (see `pauseDeposits`).
 
 ```solidity
 function getPauseIntentValidityPeriodBlocks() external view returns (uint256);
+```
+
+### getMaxOperatorsPerUnvetting()
+
+Returns the maximum number of operators per unvetting (see `unvetSigningKeys`).
+
+```solidity
+function getMaxOperatorsPerUnvetting() external view returns (uint256);
 ```
 
 ### getGuardianQuorum()
@@ -80,14 +88,21 @@ function getGuardianIndex(address addr) external view returns (int256);
 | ------ | --------- | ------------------- |
 | `addr` | `address` | Valid ETH-1 address |
 
-### canDeposit()
+### getLastDepositBlock()
 
-Returns whether `LIDO.deposit()` can be called and a deposit can be made for the staking module with
-id `stakingModuleId`, given that the caller will provide guardian attestations of non-stale deposit
-root and `nonce` and the number of such attestations will be enough to reach a quorum.
+Returns the block number of the last deposit made through the module.
 
 ```solidity
-function canDeposit(uint256 stakingModuleId) external view returns (bool);
+function getLastDepositBlock() external view returns (uint256);
+```
+
+### isMinDepositDistancePassed()
+
+Returns whether the deposit distance is greater than the minimum required for the staking module
+with id `stakingModuleId`.
+
+```solidity
+function isMinDepositDistancePassed(uint256 stakingModuleId) external view returns (bool);
 ```
 
 #### Parameters
@@ -95,6 +110,20 @@ function canDeposit(uint256 stakingModuleId) external view returns (bool);
 | Name              | Type      | Description              |
 | ----------------- | --------- | ------------------------ |
 | `stakingModuleId` | `uint256` | Id of the staking module |
+
+:::note
+The distance is reset when a deposit is made to any module. This prevents a front-run attack
+by colluding guardians on several modules at once, providing the necessary window for an honest
+guardian to react and pause deposits to all modules.
+:::
+
+### isDepositsPaused()
+
+Returns whether deposits are paused.
+
+```solidity
+function isDepositsPaused() external view returns (bool);
+```
 
 ## Methods
 
@@ -140,6 +169,27 @@ Reverts if any of the following is true:
 | ---------- | --------- | ---------------------------------------------------- |
 | `newValue` | `uint256` | Number of blocks after which message becomes invalid |
 
+### setMaxOperatorsPerUnvetting()
+
+Sets `maxOperatorsPerUnvetting`.
+
+```solidity
+function setMaxOperatorsPerUnvetting(uint256 newValue) external;
+```
+
+:::note
+Reverts if any of the following is true:
+
+- `msg.sender` is not the owner;
+- `newValue` is 0 (zero).
+  :::
+
+#### Parameters
+
+| Name       | Type      | Description                                     |
+| ---------- | --------- | ----------------------------------------------- |
+| `newValue` | `uint256` | New maximum number of operators per unvetting |
+
 ### setGuardianQuorum()
 
 Sets the number of valid guardian signatures required to vet (depositRoot, nonce) pair (aka "quorum").
@@ -172,6 +222,7 @@ function addGuardian(address addr, uint256 newQuorum) external;
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
+- `addr` is zero address;
 - `addr` is already a guardian.
   :::
 
@@ -194,6 +245,7 @@ function addGuardians(address[] memory addresses, uint256 newQuorum) external;
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
+- any of the `addresses` is zero address;
 - any of the `addresses` is already a guardian.
   :::
 
@@ -230,9 +282,8 @@ Reverts if any of the following is true:
 
 Pauses deposits if both conditions are satisfied (reverts otherwise):
 
-1. The function is called by the guardian with index guardianIndex OR sig
-   is a valid signature by the guardian with index guardianIndex of the data
-   defined below.
+1. The function is called by a guardian OR `sig` is a valid signature by a guardian
+   of the data defined below.
 
 2. `block.number - blockNumber <= pauseIntentValidityPeriodBlocks`
 
@@ -241,7 +292,7 @@ message (each component taking 32 bytes):
 
 | PAUSE_MESSAGE_PREFIX | blockNumber |
 
-If the staking module is not active does nothing.
+Does nothing if deposits are already paused.
 In case of an emergency, the function `pauseDeposits` is supposed to be called
 by all guardians. Thus, only the first call will do the actual change. So
 the other calls would be OK operations from the point of view of the protocol logic.
@@ -274,20 +325,23 @@ Reverts if any of the following is true:
 
 ### depositBufferedEther()
 
-Verifies the deposit security conditions are met and calls `LIDO.deposit(maxDepositsPerBlock, stakingModuleId, depositCalldata)`. Otherwise reverts.
+Verifies the deposit security conditions are met and calls `StakingRouter.deposit(stakingModuleId, "")`,
+which pulls the required ether from [Lido](/contracts/lido#withdrawdepositableether) and performs the deposits. Otherwise reverts.
 
 :::note
 Reverts if any of the following is true:
 
-1. IDepositContract.get_deposit_root() != depositRoot;
-2. StakingModule.getNonce() != nonce;
-3. The number of guardian signatures is less than getGuardianQuorum();
-4. An invalid or non-guardian signature received;
-5. block.number - StakingModule.getLastDepositBlock() < minDepositBlockDistance;
-6. blockhash(blockNumber) != blockHash.
+1. onchain deposit root is different from the provided one;
+2. onchain module nonce is different from the provided one;
+3. quorum is zero or the number of guardian signatures is less than the quorum;
+4. min deposit distance is not passed;
+5. `blockHash` is zero or not equal to `blockhash(blockNumber)`;
+6. deposits are paused;
+7. an invalid or non-guardian signature received;
+8. signatures are not sorted in ascending order by the guardian address.
    :::
 
-Signatures must be sorted in ascending order by the index of the guardian. Each signature must
+Signatures must be sorted in ascending order by the address of the guardian. Each signature must
 be produced for the keccak256 hash of the following message (each component taking 32 bytes):
 
 | ATTEST_MESSAGE_PREFIX | blockNumber | blockHash | depositRoot | stakingModuleId | nonce |
@@ -299,7 +353,6 @@ function depositBufferedEther(
     bytes32 depositRoot,
     uint256 stakingModuleId,
     uint256 nonce,
-    bytes calldata depositCalldata,
     Signature[] calldata sortedGuardianSignatures
 ) external;
 ```
@@ -313,7 +366,6 @@ function depositBufferedEther(
 | `depositRoot`              | `bytes32`     | Deposit root of the Ethereum DepositContract                                                       |
 | `stakingModuleId`          | `uint256`     | Id of the staking module to deposit with                                                           |
 | `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                                      |
-| `depositCalldata`          | `bytes`       | Staking module deposit calldata                                                                    |
 | `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unvetSigningKeys()

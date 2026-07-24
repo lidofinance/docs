@@ -1,6 +1,6 @@
 # Lido
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.0.2/contracts/0.4.24/Lido.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab96520de3a18e5e111b5eaab095312d7fe84)
 
 Liquid staking pool and a related [ERC-20](https://eips.ethereum.org/EIPS/eip-20)
@@ -14,7 +14,9 @@ Lido is a liquid staking pool and the core contract that is responsible for:
 - do a proper accounting based on received oracle reports and the current state of the protocol
 - collecting withdrawals, priority fees and MEV from respective vaults into the buffer
 - applying fees and distributing rewards
-- passing buffered ether further to [StakingRouter](/contracts/staking-router) or [WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721)
+- allocating buffered ether between the unfinalized withdrawal requests
+  ([WithdrawalQueueERC721](/contracts/withdrawal-queue-erc721)), and validator deposits
+  pulled by [StakingRouter](/contracts/staking-router)
 
 Also, Lido is an [ERC-20](https://eips.ethereum.org/EIPS/eip-20) rebasing token,
 which represents staked ether, `stETH`. Tokens are minted upon ether submission and
@@ -57,25 +59,69 @@ Other contracts are bound to the core and have the following responsibilities:
 Lido contract is a main entry point for stakers. To take part in the pool, a
 user can send some ETH to the contract address and the same amount of `stETH`
 tokens will be minted to the sender address. Submitted ether is accumulated in
-the buffer and can be passed further to
-[`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) to fulfill withdrawal
-requests or to [`StakingRouter`](/contracts/staking-router) to deposit as a new
-validator stake.
+the buffer and is later used to fulfill withdrawal requests via
+[`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) or pulled by
+[`StakingRouter`](/contracts/staking-router) to be deposited as a validator
+stake.
 
 To withdraw the underlying ETH back, a user may use the [`WithdrawalQueueERC721`](/contracts/withdrawal-queue-erc721) contract or swap the token on the secondary market (it may be a cheaper and faster alternative).
 
 ## Deposit
 
 User-submitted ether is stored in the buffer and can be later used for
-withdrawals or passed further to [`StakingRouter`](/contracts/staking-router) to be
-used as validator's deposits. It happens asynchronously and uses
-[`DepositSecurityModule`](/contracts/deposit-security-module) as a guard to prevent
-deposit frontrunning vulnerability.
+withdrawals or deposited as a validator stake. Deposits follow the pull model:
+[`StakingRouter`](/contracts/staking-router) pulls the required amount of
+ether from the buffer via [`withdrawDepositableEther()`](/contracts/lido#withdrawdepositableether)
+when it executes initial 32 ETH deposits (guarded by
+[`DepositSecurityModule`](/contracts/deposit-security-module) to prevent the deposit
+frontrunning vulnerability) or top-ups of `0x02`-type validators (initiated via
+[`TopUpGateway`](/contracts/top-up-gateway)).
 
 ```mermaid
 graph LR;
-  A[/  \]--depositBufferedEther-->DepositSecurityModule-->Lido-->StakingRouter-->NodeOperatorsRegistry;
+  A[/  \]--deposit-->DSM[DepositSecurityModule]-->SR[StakingRouter];
+  B[/  \]--topUp-->TUG[TopUpGateway]-->SR;
+  SR--withdrawDepositableEther-->Lido--ether-->SR;
+  SR-->DC[DepositContract];
 ```
+
+### Deposits reserve
+
+Buffered ether is split into three priority-ordered buckets:
+
+1. **Deposits reserve** — buffer portion available for CL deposits, protected from
+   withdrawals demand. Filled first.
+2. **Withdrawals reserve** — covers unfinalized withdrawal requests from the
+   remaining buffer.
+3. **Unreserved** — excess buffer available for additional CL deposits beyond the
+   reserve.
+
+```txt
+┌─────────── Total Buffered Ether ───────────┐
+├────────────────────┬───────────────────────┼─────┬──────────────┐
+│●●●●●●●●●●●●●●●●●●●●│●●●●●●●●●●●●●●●●●●●●●●●●○○○○○│○○○○○○○○○○○○○○│
+├────────────────────┼───────────────────────┼─────┼──────────────┤
+└─ Deposits Reserve ─┼─ Withdrawals Reserve ─┘     ├─ Unreserved ─┘
+                     └───── Unfinalized stETH ─────┘
+
+● — covered by Buffered Ether
+○ — not covered by Buffered Ether
+```
+
+```js
+depositsReserve    = min(totalBuffered, storedDepositsReserve)
+withdrawalsReserve = min(totalBuffered - depositsReserve, unfinalizedStETH)
+unreserved         = totalBuffered - depositsReserve - withdrawalsReserve
+
+depositableEther   = depositsReserve + unreserved
+```
+
+The deposits reserve guarantees ether availability for stake rebalancing between
+staking modules and migration deposits, regardless of withdrawal demand. The
+reserve target is configured via
+[`setDepositsReserveTarget()`](/contracts/lido#setdepositsreservetarget); the
+effective reserve is consumed as deposits are performed and is restored to the
+target on each oracle report.
 
 ## Redeem
 
@@ -91,7 +137,7 @@ Chain, execution layer rewards (starting from
 [the Merge](https://ethereum.org/en/upgrades/merge/) Ethereum upgrade) or
 fulfilled withdrawal requests (starting from
 [Lido V2](https://blog.lido.fi/introducing-lido-v2/)). A rebase happens when
-oracle reports beacon stats.
+the oracle report is applied.
 
 The rebasing mechanism is implemented via the "shares" concept. Instead of
 storing a map with account balances, Lido stores which share of the total pool
@@ -104,15 +150,20 @@ balanceOf(account) = shares[account] * totalPooledEther / totalShares
 - `shares` - map of user account shares. Every time a user deposits ether, it is
   converted to shares and added to the current user shares amount.
 - `totalShares` - the sum of shares of all accounts in the `shares` map
-- `totalPooledEther` - a sum of three types of ether owned by protocol:
+- `totalPooledEther` - the total amount of ether controlled by the protocol, a sum of:
 
-  - buffered balance - ether stored on contract and hasn't been deposited or
+  - buffered balance - ether stored on the contract and hasn't been deposited or
     locked for withdrawals yet
-  - transient balance - ether submitted to the official Deposit contract but not
-    yet visible in the beacon state
-  - beacon balance - the total amount of ether on validator accounts. This value
-    is reported by oracles and makes the strongest impact on stETH total supply
-    change
+  - CL validators balance - the total balance of Lido validators active on the
+    Consensus Layer. This value is reported by oracles and makes the strongest
+    impact on stETH total supply change
+  - CL pending balance - the total balance of Lido-attributed deposits waiting in
+    the Consensus Layer pending deposits queue, reported by oracles
+  - deposited since report balance - ether sent to the official Deposit contract
+    after the last oracle report and thus not yet reflected in the reported CL
+    balances
+  - external ether - the amount of ether backing external (stVaults) shares,
+    accounted separately via [`VaultHub`](/contracts/vault-hub)
 
 ### External shares (stVaults)
 
@@ -178,9 +229,11 @@ some Beacon chain stats as well as corresponding EL-side values that are valid
 on the reporting block and the decision data required to fulfill pending
 withdrawal requests.
 
-- Beacon chain stats:
-  - the total number of validators managed by the pool
-  - the total balance of validators managed by the pool
+- Consensus Layer stats:
+  - the total balance of Lido validators active on the Consensus Layer
+  - the total balance of Lido-attributed deposits pending in the Consensus Layer
+    deposit queue
+  - per-staking-module validator balances (used for rewards distribution between modules)
 - Historical EL values:
   - withdrawal vault balance
   - execution layer rewards vault balance
@@ -231,7 +284,8 @@ So, the observable outcome of the report for the protocol is the following:
 
 - withdrawal requests in the queue are fulfilled
 - ether is collected from withdrawal and EL rewards vaults to the buffer
-- CL balance is updated according to the report
+- CL balances are updated according to the report
+- the deposits reserve is restored to its configured target
 - rewards are distributed among stakers, staking modules and protocol treasury
 
 ## Standards
@@ -344,21 +398,30 @@ function getStakeLimitFullInfo() view returns (
 
 ## Deposit-related methods
 
-### deposit()
+### withdrawDepositableEther()
 
-Deposit buffered ether to the StakingRouter's module with the id of `_stakingModuleId`.
+Withdraws `_amount` of buffered ether to [`StakingRouter`](/contracts/staking-router)
+to be deposited to the Consensus Layer (the pull model of deposits).
 
-Can be called only by [DepositSecurityModule](/contracts/deposit-security-module) contract.
+Can be called only by the [`StakingRouter`](/contracts/staking-router) contract.
 
 ```sol
-function deposit(uint256 _maxDeposits, uint256 _stakingModuleId, bytes _depositCalldata)
+function withdrawDepositableEther(uint256 _amount, uint256 _seedDepositsCount)
 ```
 
-| Parameter          | Type      | Description                              |
-| ------------------ | --------- | ---------------------------------------- |
-| `_maxDeposits`     | `uint256` | Number of max deposit calls              |
-| `_stakingModuleId` | `uint256` | Id of the staking module to be deposited |
-| `_depositCalldata` | `bytes`   | module calldata                          |
+| Parameter            | Type      | Description                                                                 |
+| -------------------- | --------- | --------------------------------------------------------------------------- |
+| `_amount`            | `uint256` | Amount of ether to withdraw                                                 |
+| `_seedDepositsCount` | `uint256` | Number of initial (seed) 32 ETH deposits performed; `0` in case of a top-up |
+
+:::note
+Reverts if depositing is not allowed at the moment (see [`canDeposit()`](/contracts/lido#candeposit)),
+if `_amount` is zero, or if `_amount` exceeds the currently depositable ether.
+The withdrawn amount is forwarded to `StakingRouter.receiveDepositableEther()` within
+the same call, and the stored deposits reserve is decreased accordingly.
+`_seedDepositsCount` increments the legacy deposited validators counter kept for
+backward compatibility (see [`getBeaconStat()`](/contracts/lido#getbeaconstat)).
+:::
 
 ### getDepositableEther()
 
@@ -368,12 +431,55 @@ Returns the amount of ether available to deposit.
 function getDepositableEther() view returns (uint256)
 ```
 
+:::note
+Equals the buffered ether minus the withdrawals reserve, i.e., the sum of the
+deposits reserve and the unreserved buffer.
+See [Deposits reserve](/contracts/lido#deposits-reserve).
+:::
+
 ### canDeposit()
 
 Returns `true` if depositing buffered ether to the consensus layer is allowed.
 
 ```sol
 function canDeposit() view returns (bool)
+```
+
+:::note
+Depositing is allowed when the protocol is not stopped and bunker mode is not active.
+:::
+
+### getDepositsReserve()
+
+Returns the currently effective deposits reserve — the buffer portion available for
+CL deposits, protected from withdrawals demand.
+
+```sol
+function getDepositsReserve() view returns (uint256)
+```
+
+:::note
+Capped by the current buffered ether. Consumed by
+[`withdrawDepositableEther()`](/contracts/lido#withdrawdepositableether) and restored
+to the configured target on each oracle report.
+:::
+
+### getWithdrawalsReserve()
+
+Returns the currently effective withdrawals reserve — the buffer portion allocated
+to unfinalized withdrawal requests. Computed after the deposits reserve is applied.
+
+```sol
+function getWithdrawalsReserve() view returns (uint256)
+```
+
+### getDepositsReserveTarget()
+
+Returns the configured target that the deposits reserve is restored to on each
+oracle report.
+
+```sol
+function getDepositsReserveTarget() view returns (uint256)
 ```
 
 ## Accounting-related methods
@@ -416,6 +522,27 @@ Returns the maximum ratio of external shares to total shares (basis points).
 function getMaxExternalRatioBP() view returns (uint256)
 ```
 
+### getBalanceStats()
+
+Returns the full balance model data: CL balances from the last oracle report and
+deposit counters.
+
+```sol
+function getBalanceStats() view returns (
+    uint256 clValidatorsBalanceAtLastReport,
+    uint256 clPendingBalanceAtLastReport,
+    uint256 depositedSinceLastReport,
+    uint256 depositedForCurrentReport
+)
+```
+
+| Name                              | Type      | Description                                                                                        |
+| --------------------------------- | --------- | -------------------------------------------------------------------------------------------------- |
+| `clValidatorsBalanceAtLastReport` | `uint256` | Sum of Lido validators' active balances on the Consensus Layer at the last oracle report (wei)     |
+| `clPendingBalanceAtLastReport`    | `uint256` | Sum of Lido-attributed pending deposits on the Consensus Layer at the last oracle report (wei)     |
+| `depositedSinceLastReport`        | `uint256` | Ether deposited since the last oracle report reference slot (wei)                                  |
+| `depositedForCurrentReport`       | `uint256` | Ether deposited between the last report reference slot and the current frame's reference slot (wei) |
+
 ### getTotalELRewardsCollected()
 
 Returns the total amount of execution layer rewards collected to Lido contract buffer.
@@ -426,7 +553,7 @@ function getTotalELRewardsCollected() view returns (uint256)
 
 ### getBeaconStat()
 
-Returns the tuple of key statistics related to the Beacon Chain.
+Returns the tuple of key statistics related to the Consensus Layer.
 
 ```sol
 function getBeaconStat() view returns (
@@ -436,16 +563,17 @@ function getBeaconStat() view returns (
 )
 ```
 
-| Name                  | Type      | Description                                                                    |
-| --------------------- | --------- | ------------------------------------------------------------------------------ |
-| `depositedValidators` | `uint256` | Number of the ever deposited Lido-participating validators                     |
-| `beaconValidators`    | `uint256` | Number of Lido's validators visible in the Beacon state, reported by oracles   |
-| `beaconBalance`       | `uint256` | Total amount of Beacon-side ether (sum of all the balances of Lido validators) |
+| Name                  | Type      | Description                                                                                |
+| --------------------- | --------- | ------------------------------------------------------------------------------------------ |
+| `depositedValidators` | `uint256` | Number of initial (seed) 32 ETH deposits ever performed                                    |
+| `beaconValidators`    | `uint256` | Always equals `depositedValidators`, kept for compatibility                                |
+| `beaconBalance`       | `uint256` | Sum of the CL validators balance and the CL pending balance at the last oracle report      |
 
-:::note
-`depositedValidators` is always greater or equal to `beaconValidators`
+:::warning
+DEPRECATED: `beaconValidators` does not reflect the actual Consensus Layer state
+and always equals `depositedValidators`. Use
+[`getBalanceStats()`](/contracts/lido#getbalancestats) for new integrations.
 :::
-|
 
 ### receiveELRewards()
 
@@ -577,21 +705,25 @@ function setMaxExternalRatioBP(uint256 _maxExternalRatioBP)
 | --------------------- | --------- | --------------------------------------------------- |
 | `_maxExternalRatioBP` | `uint256` | Max external shares ratio in basis points (0-10000) |
 
-### unsafeChangeDepositedValidators()
+### setDepositsReserveTarget()
 
-Unsafely change deposited validators counter.
+Sets the deposits reserve target — the amount of buffered ether to protect for CL
+deposits between oracle reports. See [Deposits reserve](/contracts/lido#deposits-reserve).
 
-The method unsafely changes the deposited validator counter.
-Can be required when onboarding external validators to Lido (i.e., had deposited before and rotated their type-0x00 withdrawal credentials to Lido).
+Can be called only by the bearer of `BUFFER_RESERVE_MANAGER_ROLE`
 
-Can be called only by the bearer of `UNSAFE_CHANGE_DEPOSITED_VALIDATORS_ROLE`
+```sol
+function setDepositsReserveTarget(uint256 _newDepositsReserveTarget)
+```
 
-| Parameter                 | Type      | Description                                    |
-| ------------------------- | --------- | ---------------------------------------------- |
-| `_newDepositedValidators` | `uint256` | New value for the deposited validators counter |
+| Parameter                   | Type      | Description                        |
+| --------------------------- | --------- | ---------------------------------- |
+| `_newDepositsReserveTarget` | `uint256` | New deposits reserve target in wei |
 
-:::warning
-The method might break the internal protocol state if applied incorrectly
+:::note
+If the target is lowered below the current effective reserve, the reserve is reduced
+immediately. Increases are not applied mid-frame and take effect on the next oracle
+report processing.
 :::
 
 ## `ERC-20`-related Methods
@@ -980,7 +1112,7 @@ function getContractVersion() view returns (uint256)
 ```
 
 :::note
-Always returns `3`.
+Always returns `4`.
 :::
 
 ### transferToVault()
