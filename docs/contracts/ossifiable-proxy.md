@@ -16,7 +16,7 @@ Defined in the [core](https://github.com/lidofinance/core) repository. Written i
 
 - [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/lib/proxy/OssifiableProxy.sol)
 
-Defined in the [staking-modules](https://github.com/lidofinance/staking-modules) repository. Written in Solidity 0.8.33 on top of the OpenZeppelin v5 `ERC1967Proxy`. Functionally identical to the CSM variant and exposes the same external interface.
+Defined in the [staking-modules](https://github.com/lidofinance/staking-modules) repository. Written in Solidity 0.8.33 on top of the OpenZeppelin v5 `ERC1967Proxy`. Following the OpenZeppelin v5 interface changes, the upgrade-and-call function takes two arguments — `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_)`.
 
 ## Core contracts
 
@@ -41,7 +41,7 @@ All core protocol contracts are deployed behind the [core variant](#core-variant
 
 ### Community Staking Module
 
-The following contracts are deployed behind the [CSM variant](#csm-variant):
+The following contracts are deployed behind the [staking modules variant](#staking-modules-variant):
 
 - [CSModule](/staking-modules/csm/contracts/CSModule)
 - [Accounting](/staking-modules/csm/contracts/Accounting)
@@ -53,7 +53,7 @@ The following contracts are deployed behind the [CSM variant](#csm-variant):
 
 #### Gates
 
-- [Identified Community Stakers Gate](/staking-modules/csm/contracts/VettedGate) — [CSM variant](#csm-variant)
+- [Identified Community Stakers Gate](/staking-modules/csm/contracts/VettedGate) — [staking modules variant](#staking-modules-variant)
 - [Identified DVT Cluster Gate](/staking-modules/csm/contracts/VettedGate) — [staking modules variant](#staking-modules-variant), as it was deployed later than the other CSM proxies
 
 ### Curated Module v2

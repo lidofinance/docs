@@ -770,7 +770,7 @@ event ProcessingStarted(uint256 indexed refSlot, bytes32 hash);
 
 ### WarnProcessingMissed()
 
-Emits on [`submitConsensusReport`](#submitconsensusreport) when `refSlot != prevSubmittedRefSlot && prevProcessingRefSlot != prevSubmittedRefSlot`
+Emits on `submitConsensusReport` when `refSlot != prevSubmittedRefSlot && prevProcessingRefSlot != prevSubmittedRefSlot`
 
 ```solidity
 event WarnProcessingMissed(uint256 indexed refSlot);
