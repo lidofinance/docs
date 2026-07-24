@@ -81,6 +81,26 @@ Each priority queue operates in a FIFO manner as described above. The priority q
 
 More on the priority queues can be found in the [dedicated section of CSM v2 features](https://hackmd.io/@lido/csm-v2-tech#Priority-Queues) document.
 
+## Top-up queue
+
+:::info
+The top-up queue exists only for CSM deployments serving [`0x02` validators](./intro.md#0x02-validators-support). The existing `0x01` CSM does not use it.
+:::
+
+`0x02` validators are funded in two phases: an initial `32 ETH` deposit, followed by top-ups up to the `2048 ETH` maximum effective balance (MEB). The initial `32 ETH` deposit is allocated exactly like any other deposit, through the [stake allocation queue](#stake-allocation-queue) (including [priority queues](#priority-queues)). The subsequent top-ups are ordered by a separate **top-up queue**.
+
+Unlike the stake allocation queue, which stores `{noId, keysCount}` batches, the top-up queue stores individual `{noId, keyIndex}` items and is processed as a [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) queue. A key is appended to the top-up queue at the moment it receives its initial `32 ETH` deposit, so the order of the top-up queue mirrors the order in which the validators were initially deposited.
+
+![join-csm-8](../../../static/img/csm/topup-queue.png)
+
+The queue has a DAO-configured capacity limit (`topUpQueueLimit`). While the queue is at capacity, new initial `32 ETH` deposits are throttled (the depositable keys count is capped by the remaining capacity), so the number of validators awaiting top-ups stays bounded.
+
+When the protocol tops up validators, it walks the queue strictly from the head. Each key is topped up in steps (multiples of `2 ETH`) toward its remaining room up to `2048 ETH`, bounded by the amount available in the current round. A key is dequeued once it has been fully topped up; a key that still has room remains at the head and is served again in a later round. Because processing is strictly ordered, keys cannot be topped up out of turn.
+
+:::info
+If a key is skipped or dequeued prematurely (for example, due to incorrect pending-deposit data reported by the depositor bot), a permissioned service method can rewind the queue head back to that key so it can be topped up correctly. Keys that were already fully topped up are skipped on reprocessing, since their remaining top-up room is zero.
+:::
+
 ## Deposit data deletion
 The Node Operator might delete uploaded deposit data voluntarily if it has not been deposited yet. The `keyRemovalCharge` is confiscated from the Node Operator's [bond](./join-csm#bond) on each deleted key to cover the maximum possible operational costs associated with the queue processing. Deposit data can be deleted in continuous batches (ex., from index 5 to 10).
 
@@ -88,20 +108,20 @@ If the protocol has already deposited the validator related to the deposit data,
 
 ## Node Operator Types
 
-Node Operators can have different types, which define the Node Operator's properties. The type is set during the Node Operator creation and can be changed later. The Node Operator type is defined by the bond curve assigned to the Node Operator.
+Node Operators can have different types, which define the Node Operator's properties. The type is set during Node Operator creation and can be changed later. The Node Operator type is defined by the bond curve assigned to the Node Operator.
 
 The following parameters can be set for each Node Operator type:
 - `keyRemovalCharge` - a fee charged for each deleted deposit data record;
-- `elRewardsStealingAdditionalFine` - an additional fine charged for each validator that has stolen EL rewards;
+- `generalDelayedPenaltyAdditionalFine` - an additional fine charged for each validator that has stolen EL rewards;
 - `keysLimit` - a limit on the number of active keys for the Node Operator;
 - `queuePriority` and `maxDeposits` - parameters defining the priority queue for the Node Operator;
-- `rewardShare` - a share of the Node Operator rewards that the Node Operator receives for each validator. Can be customized depending on the key index in the Node Operator's keys storage;
-- `performanceLeeway` - a leeway for the Node Operator's validators' performance, which is used to define a performance threshold. Can be customized depending on the key index in the Node Operator's keys storage;
-- `strikesParams` - parameters defining the Node Operator's strikes system, which is used to decide on the Node Operator's validators' ejection due to systematic bad performance;
+- `rewardShareData` - the share of Node Operator rewards that the Node Operator receives for each validator. It can be customized depending on the key index in the Node Operator's key storage;
+- `performanceLeewayData` - a leeway for the performance of the Node Operator's validators, which is used to define a performance threshold. It can be customized depending on the key index in the Node Operator's key storage;
+- `strikesLifetime` and `strikesThreshold` - parameters defining the Node Operator's strikes system, which is used to decide whether to eject the Node Operator's validators due to systematic bad performance;
 - `badPerformancePenalty` - a penalty charged for each validator that has been ejected due to bad performance;
-- `performanceCoefficients` - coefficients used to calculate the Node Operator's performance based on the validators' effectiveness in performing duties like attestation, proposing blocks, and sync committee participation;
-- `allowedExitDelay` - an allowed delay between the moment Node Operator's validator was requested to exit and the moment it is actually initiated exit process;
-- `exitDelayPenalty` - a penalty charged for each validator that has been requested to exit but has not exited within the allowed delay;
-- `maxWithdrawalRequestFee` - a maximum fee charged for each Node Operator's validator that has been forcefully ejected using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002);
+- `performanceCoefficients` - coefficients used to calculate the Node Operator's performance based on the validators' effectiveness in performing duties such as attestations, block proposals, and sync committee participation;
+- `allowedExitDelay` - the allowed delay between the time when a Node Operator's validator was requested to exit and when it initiates the exit process;
+- `exitDelayFee` - a fee charged for each validator that has been requested to exit but has not exited within the allowed delay;
+- `maxElWithdrawalRequestFee` - the maximum fee charged for each Node Operator validator that has been forcefully ejected using [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002);
 
 The Lido DAO defines Node Operator types and associated parameters. The Lido DAO also defines Node Operators eligible for a certain type, either directly or via subcommittees granted the corresponding permissions. The Lido DAO can change the Node Operator type at any time, which will affect the Node Operator's properties and behavior.
