@@ -125,7 +125,7 @@ Each file starts with a canonical comment that points back to the HTML page:
 
 # Lido
 
-- [Source code](https://github.com/lidofinance/core/blob/v3.1.0/contracts/0.4.24/Lido.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.4.24/Lido.sol)
 - [Deployed contract](https://etherscan.io/address/0xae7ab9...)
 
 Liquid staking pool and a related ERC-20 rebasing token (`stETH`)
