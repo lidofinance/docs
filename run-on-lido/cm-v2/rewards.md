@@ -34,6 +34,8 @@ As a Node Operator in CMv2, you earn rewards from two separate streams: a share 
 - Everything above the required bond for your current active keys is claimable
 - If you have set up the Rewards Splitter, rewards are routed to split recipients first; the remaining share goes to the Rewards Address in the standard claim flow or to the sub-NO's bond balance if claimed through the permissionless method
 
+You can verify the Mainnet addresses for `Accounting` and `FeeDistributor` in [Deployed Contracts](/deployed-contracts/#curated-module-v2).
+
 You can also transfer staking rewards directly into your bond balance instead of claiming to your Rewards Address. This is useful in cases such as if you want to accumulate bond for new keys without a separate top-up transaction, or if you prefer to defer regular reward claiming to your Reward Address.
 
 Alternatively, a **Rewards Claimer** address can be configured. It's a separate address authorized to call `claimRewards` methods on your behalf. This is useful if you want to automate or delegate reward claiming without exposing your Manager or Rewards Address.

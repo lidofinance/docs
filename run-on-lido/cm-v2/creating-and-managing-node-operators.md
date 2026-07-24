@@ -14,6 +14,8 @@ This page covers how to create a Node Operator, what happens immediately after c
 
 You create NOs through the CM widget. Each one has a type assigned at creation which can only be changed via a full on-chain vote. It affects your bond requirement, reward share, and stake allocation weight.
 
+Node Operator creation is performed through the `CuratedGate` for the assigned operator type. Gate addresses are listed in [Deployed Contracts](/deployed-contracts/#curated-module-v2).
+
 The creation flow has four steps:
 
 1. **Select your NO type.** Choose from the list of NO types previously set by the CMC. See [Node Operator Types](/run-on-lido/cm-v2/node-operator-types) for details on each type.
@@ -36,7 +38,7 @@ Your operator type is set at creation and can only be changed through a DAO vote
 
 ### The dashboard
 
-Once your NO is active, connect your Manager Address to [cm.testnet.fi](https://cm.testnet.fi) to access the operator dashboard. The dashboard is organized into tabs in the left sidebar, each covering a different area of your operator.
+Once your NO is active, connect your Manager Address to the CMv2 widget on [Mainnet](https://cm.lido.fi/) or [Hoodi](https://cm.testnet.fi/) to access the operator dashboard. The dashboard is organized into tabs in the left sidebar, each covering a different area of your operator.
 
 ![CM dashboard](/img/cm-guide/no-dashboard.png)
 
