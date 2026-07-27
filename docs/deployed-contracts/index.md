@@ -387,7 +387,7 @@ for the rate and price feeds recommended approaches.
   - AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
   - RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
   - TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
-- **LOL stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+- **LOL (ex.reWARDS) stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
   - AllowedRecipientsRegistry: [`0x8d8b35cA51e7808098afF4918C21Ce428c943F89`](https://etherscan.io/address/0x8d8b35cA51e7808098afF4918C21Ce428c943F89)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - AddAllowedRecipient: [`0xe24230619e9218C1eed3de3489a22f6BC3ce18FF`](https://etherscan.io/address/0xe24230619e9218C1eed3de3489a22f6BC3ce18FF)
