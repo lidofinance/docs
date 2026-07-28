@@ -1,7 +1,7 @@
 # OracleReportSanityChecker
 
 - [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.9/sanity_checks/OracleReportSanityChecker.sol)
-- [Deployed contract](https://etherscan.io/address/0xf1647c86E6D7959f638DD9CE1d90e2F3C9503129)
+- [Deployed contract](https://etherscan.io/address/0x147f8d3cf3004FAf9Bf94E88B54b6C06De507be9)
 
 Some vital data for the Lido protocol is collected off-chain and delivered on-chain via Oracle contracts:
 [`AccountingOracle`](/contracts/accounting-oracle), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle).
