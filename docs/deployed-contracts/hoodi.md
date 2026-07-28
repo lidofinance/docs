@@ -1,24 +1,14 @@
 # Hoodi
 
-:::tip 📘 **Lido V3 Technical Paper**
-
-Learn about the next evolution of Lido staking with **stVaults** — user-defined validator setups with optional stETH liquidity. Read the complete [**Lido V3 Technical Paper**](/lido-v3-whitepaper/) for architecture details, mechanisms, and implementation specifics.
-
-:::
-
 :::info **Primary Lido Protocol Testnet**
 
 Hoodi is the primary operational and actively maintained Lido protocol testnet. This page lists the contract addresses for the testnet, including all deployed protocol components and extensions used for testing.
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v3.1.0-rc.1`**](https://github.com/lidofinance/core/releases/tag/v3.1.0-rc.1)
+- ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
 - 🌐 Network: Ethereum Hoodi (Chain ID: `560048`)
 - ✅ Status: Active and maintained
-
-**Key Resources on Lido V3:**
-
-- 🔌 [stVaults Documentation Center](/run-on-lido/stvaults/)
 
 :::
 
