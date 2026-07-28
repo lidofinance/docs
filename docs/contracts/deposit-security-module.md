@@ -325,8 +325,7 @@ Reverts if any of the following is true:
 
 ### depositBufferedEther()
 
-Verifies the deposit security conditions are met and calls `StakingRouter.deposit(stakingModuleId, "")`,
-which pulls the required ether from [Lido](/contracts/lido#withdrawdepositableether) and performs the deposits. Otherwise reverts.
+Verifies that all deposit security conditions are satisfied, then calls [`StakingRouter.deposit`](/contracts/staking-router#deposit), which pulls the required ETH from [`Lido`](/contracts/lido#withdrawdepositableether) and performs the deposits. Reverts if any of the required conditions are not met.
 
 :::note
 Reverts if any of the following is true:
@@ -339,6 +338,7 @@ Reverts if any of the following is true:
 6. deposits are paused;
 7. an invalid or non-guardian signature received;
 8. signatures are not sorted in ascending order by the guardian address.
+9. any downstream contract call reverts. See `StakingRouter.deposit` for details.
 :::
 
 Signatures must be sorted in ascending order by the address of the guardian. Each signature must
