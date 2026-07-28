@@ -140,7 +140,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `newValue` is zero address.
-  :::
+:::
 
 #### Parameters
 
@@ -161,7 +161,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `newValue` is 0 (zero).
-  :::
+:::
 
 #### Parameters
 
@@ -182,7 +182,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `newValue` is 0 (zero).
-  :::
+:::
 
 #### Parameters
 
@@ -202,7 +202,7 @@ function setGuardianQuorum(uint256 newValue) external;
 Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
-  :::
+:::
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Reverts if any of the following is true:
 - `msg.sender` is not the owner;
 - `addr` is zero address;
 - `addr` is already a guardian.
-  :::
+:::
 
 #### Parameters
 
@@ -247,7 +247,7 @@ Reverts if any of the following is true:
 - `msg.sender` is not the owner;
 - any of the `addresses` is zero address;
 - any of the `addresses` is already a guardian.
-  :::
+:::
 
 #### Parameters
 
@@ -269,7 +269,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `addr` is not a guardian.
-  :::
+:::
 
 #### Parameters
 
@@ -321,7 +321,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner.
 - Deposits not paused.
-  :::
+:::
 
 ### depositBufferedEther()
 
@@ -339,7 +339,7 @@ Reverts if any of the following is true:
 6. deposits are paused;
 7. an invalid or non-guardian signature received;
 8. signatures are not sorted in ascending order by the guardian address.
-   :::
+:::
 
 Signatures must be sorted in ascending order by the address of the guardian. Each signature must
 be produced for the keccak256 hash of the following message (each component taking 32 bytes):
@@ -381,7 +381,7 @@ Reverts if any of the following is true:
 4. the number of node operators is greater than maxOperatorsPerUnvetting;
 5. the signature is invalid or the signer is not a guardian;
 6. blockHash is zero or not equal to the blockhash(blockNumber).
-   :::
+:::
 
 The signature, if present, must be produced for the keccak256 hash of the following message:
 | UNVET_MESSAGE_PREFIX | blockNumber | blockHash | stakingModuleId | nonce | nodeOperatorIds | vettedSigningKeysCounts |
