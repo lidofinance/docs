@@ -18,7 +18,7 @@ See the [Key Generation & Fee Recipient](/run-on-lido/cm-v2/useful-tools/key-gen
 
 ![Upload keys](/img/cm-guide/bond-upload-keys.png)
 
-To upload the keys, go to the Keys tab in [cm.testnet.fi](https://cm.testnet.fi), and drag and drop the `deposit-data.json` file. The widget will tell you how much bond is required for the number of keys submitted.
+To upload the keys, open the Keys tab in the CMv2 widget on [Mainnet](https://cm.lido.fi/) or [Hoodi](https://cm.testnet.fi/), then drag and drop the `deposit-data.json` file. The widget will tell you how much bond is required for the number of keys submitted.
 
 Keys with invalid signatures must be removed and re-uploaded with valid signatures. If a key has already been uploaded to Lido or used on the Beacon Chain, it is treated as duplicated and should be removed.
 
@@ -47,7 +47,7 @@ Each key inside your Node Operator has one of the following statuses.
 | **Exited** | Key has been exited | — |
 | **Withdrawn** | Key has been exited and ETH has been returned to the protocol | — |
 | **Unbonded** | Bond is insufficient for this key, which can be Active or otherwise | Top up bond or remove/exit the key |
-| **Exit requested** | An exit has been requested by [VEBO](/contracts/validators-exit-bus-oracle/) but the validator has not yet exited | Exit the validator as soon as possible to avoid a Late exit penalty |
+| **Exit requested** | An exit has been requested by [VEBO](/contracts/validators-exit-bus-oracle/) but the validator has not yet exited | Exit the validator as soon as possible to avoid an Exit Delay Fee |
 | **Duplicated** | Key has been uploaded twice either to the Lido protocol or Ethereum CL | Remove duplicate key |
 | **Invalid** | Uploaded key has an invalid signature | Remove key and re-upload it with the valid signature |
 
@@ -89,6 +89,8 @@ Curated Module v2 introduces a bond for sub-NOs. Every new key requires a certai
 
 Because the bond is staked (represented as stETH), it generates staking rewards which can be claimed if they exceed the minimum required for the amount of keys submitted.
 
+Bond top-ups, claims, and locked bond operations are handled through the `Accounting` contract. Its Mainnet address is listed in [Deployed Contracts](/deployed-contracts/#curated-module-v2).
+
 ---
 
 ### Bond amounts
@@ -102,11 +104,7 @@ The required bond per key varies by Node Operator type.
 | Public Good Operator (PGO) | 11 ETH | 0.1 ETH next 17 keys, 0.7 ETH after |
 | Decentralization Operator (DO) | 11 ETH | 0.1 ETH next 17 keys, 0.7 ETH after |
 | Extra Effort Operator (EEO) | 11 ETH | 0.1 ETH next 17 keys, 0.7 ETH after |
-| Intra-Operator DVT Cluster (IODC) | 11 ETH | 0.1 ETH next 17 keys, 0.7 ETH after |
-
-:::info
-These are Hoodi testnet confirmed values. Mainnet values will be confirmed before launch and may differ.
-:::
+| Intra-Operator DVT Cluster (IODC/IODC+) | 11 ETH | 0.1 ETH next 17 keys, 0.7 ETH after |
 
 ---
 
@@ -121,7 +119,7 @@ You can compensate the penalty from your excess bond. If needed, top up your bon
 If no further action is taken by the Curated Module Committee, the Node Operator can do a transaction to unlock it after the lock period of 60 days ends.
 
 :::warning
-If you do not compensate a locked bond before the EasyTrack motion executes, those funds are **permanently burned**. In Phase 2, this will also result in a strike being assigned to the sub-Node Operator.
+If you do not compensate a locked bond before the EasyTrack motion executes, those funds are **permanently burned**.
 :::
 
 ---

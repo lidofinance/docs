@@ -13,7 +13,7 @@ Node Operators can:
 - Top up their bond independently of adding validator keys, and claim published rewards or available excess bond.
 - Manage their manager and reward addresses and configure reward splits. The exact controls depend on whether extended manager permissions were enabled when the Node Operator was created.
 - Exit validators through a standard voluntary exit or request an EIP-7002 exit through [`Ejector`](./contracts/Ejector.md). After a withdrawal is reported, any bond that is no longer required can be claimed.
-- Compensate an active [general delayed penalty](./penalties.md#immediate-and-delayed) from available excess bond.
+- Compensate an active [general delayed penalty](/run-on-lido/csm/penalties#how-penalties-and-charges-are-applied) from available excess bond.
 
 See [Operator Roles](/run-on-lido/csm/lido-csm-widget/operator-roles) for the detailed manager and reward address permissions.
 

@@ -75,4 +75,4 @@ If you want to learn more about the actual Performance Oracle algorithm, check o
 
 If a Node Operator's performance is below the threshold, they will not receive any rewards for that frame. However, the Node Operator can still claim their [bond](./join-csm#bond) rewards (rebase) as usual. This means that even if a Node Operator's validators are not performing well, they can still benefit from the bond rebase. One can find an example of the rewards calculation [here](https://docs.google.com/spreadsheets/d/1hLvuOesPVOYHDqO373bdyiKn4_3UXQF1rATbgTrKhWc/edit?usp=sharing). **Note that even when performing below the threshold, the rewards per validator will be higher than those for vanilla solo staking.**
 
-However, consistent bad performance can lead to forced ejection and the application of penalties. Please refer to the [Penalties](./penalties.md) section for more details on this process.
+However, consistent bad performance can lead to forced ejection and the application of penalties. Please refer to the [Penalties](/run-on-lido/csm/penalties) guide for more details on this process.

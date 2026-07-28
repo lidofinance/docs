@@ -3,6 +3,10 @@ import TabItem from '@theme/TabItem';
 
 # 🚀 Key Generation for Mainnet
 
+:::warning 0x01 keys only
+This guide is for the live **0x01 CSM**. Generate `0x01` withdrawal credentials with deposit data set to 32 ETH. Do not generate `0x02` keys for CSM yet; 0x02 CSM is not live on Mainnet.
+:::
+
 ## Important
 
 * It is highly recommended that you perform this step using an air-gapped machine (a device that has never connected to the public internet).

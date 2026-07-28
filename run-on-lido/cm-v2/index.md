@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Curated Module v2
 
+:::info
+**Phase 1 of CMv2 is live on Ethereum Mainnet.** Phase 2 is planned for Q1 2027.
+:::
+
 ## What You'll Find Here
 
 ### 📖 Glossary & Context
@@ -56,6 +60,12 @@ Tools and dashboards that support CMv2 operations.
 
 - [Key Generation & Fee Recipient](/run-on-lido/cm-v2/useful-tools/key-generation)
 - [CM Prover Tool](/run-on-lido/cm-v2/useful-tools/cm-prover-tool)
+
+### 📜 Contracts
+
+Mainnet addresses for the Curated Module, Accounting, Parameters Registry, Meta Registry, Curated Gates, and related contracts.
+
+- [Deployed Contracts](/deployed-contracts/#curated-module-v2)
 
 ---
 
