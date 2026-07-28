@@ -6,13 +6,13 @@ Overview of core infrastructure components used in the Lido protocol.
 
 Oracle daemon for Lido decentralized staking service.
 
-- **Version**: 8.0.3
-- **Docker image**: sha256:0f97715ddd74e289b5133c1394984902a0027cfd0a91c2a85e1d9e741388dd4d, [lidofinance/oracle@sha256-0f97715ddd74e289b5133c1394984902a0027cfd0a91c2a85e1d9e741388dd4d](https://hub.docker.com/layers/lidofinance/oracle/8.0.3/images/sha256-0f97715ddd74e289b5133c1394984902a0027cfd0a91c2a85e1d9e741388dd4d)
-- **Commit hash**: [lidofinance/lido-oracle@1d0b944](https://github.com/lidofinance/lido-oracle/commit/1d0b9440fda2dd6d421a1756fa5604269f972a6d)
-- **Last update date**: 15 July, 2026
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/8.0.3)
+- **Version**: 8.0.5
+- **Docker image**: sha256:456bbfe023b75ce67b0939cee3be31673a2d65ce7c0b106c13ec3762a4298592, [lidofinance/oracle@sha256-456bbfe023b75ce67b0939cee3be31673a2d65ce7c0b106c13ec3762a4298592](https://hub.docker.com/layers/lidofinance/oracle/8.0.5/images/sha256-456bbfe023b75ce67b0939cee3be31673a2d65ce7c0b106c13ec3762a4298592)
+- **Commit hash**: [lidofinance/lido-oracle@2b29cfd](https://github.com/lidofinance/lido-oracle/commit/2b29cfdc7e3c8678fda7fa63e3ec78f4aa370f70)
+- **Last update date**: 28 July, 2026
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/8.0.5)
 - [**Documentation**](/guides/oracle-operator-manual)
-- [**Audit Report for v8.0.3 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8_0_3%20Security%20Consultation%20Report.pdf)
+- [**Audit Report for v8.0.5 (MixBytes)**](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v8.0.5%20Security%20Audit%20Report%2007-2026.pdf)
 
 ## Validator Ejector
 
