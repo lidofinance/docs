@@ -167,6 +167,42 @@ module.exports = async function createConfigAsync() {
               to: '/contracts/circuit-breaker',
               from: '/contracts/gate-seal',
             },
+            {
+              to: '/staking-modules/csm/contracts/Accounting',
+              from: '/staking-modules/csm/contracts/CSAccounting',
+            },
+            {
+              to: '/staking-modules/csm/contracts/Ejector',
+              from: '/staking-modules/csm/contracts/CSEjector',
+            },
+            {
+              to: '/staking-modules/csm/contracts/FeeOracle',
+              from: '/staking-modules/csm/contracts/CSFeeOracle',
+            },
+            {
+              to: '/staking-modules/csm/contracts/ParametersRegistry',
+              from: '/staking-modules/csm/contracts/CSParametersRegistry',
+            },
+            {
+              to: '/staking-modules/csm/contracts/Verifier',
+              from: '/staking-modules/csm/contracts/CSVerifier',
+            },
+            {
+              to: '/staking-modules/csm/contracts/ExitPenalties',
+              from: '/staking-modules/csm/contracts/CSExitPenalties',
+            },
+            {
+              to: '/staking-modules/csm/contracts/FeeDistributor',
+              from: '/staking-modules/csm/contracts/CSFeeDistributor',
+            },
+            {
+              to: '/staking-modules/csm/contracts/ValidatorStrikes',
+              from: '/staking-modules/csm/contracts/CSStrikes',
+            },
+            {
+              to: '/staking-modules/csm/contracts/MerkleGateFactory',
+              from: '/staking-modules/csm/contracts/VettedGateFactory',
+            },
           ],
         },
       ],

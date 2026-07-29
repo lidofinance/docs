@@ -39,7 +39,7 @@ Similarly, blocks proposed with the incorrect Fee Recipient may result in a [**G
 - Back up your mnemonic on paper or steel. It is the only way to recover your keystore or generate additional keys. If you lose your keystores, you can still exit validators via [Triggerable Withdrawals](/run-on-lido/cm-v2/bond-and-key-management#ejection-triggerable-withdrawals).
 :::
 
-The steps below will help you create `0x02` keys **for the Hoodi testnet**.
+The steps below will help you create `0x02` keys **for Ethereum Mainnet**.
 
 For a broader overview of the tool and its capabilities, see the [EthStaker Deposit CLI documentation](https://deposit-cli.ethstaker.cc/landing.html).
 
@@ -64,7 +64,7 @@ For a broader overview of the tool and its capabilities, see the [EthStaker Depo
 
 ### 2. Generate keys
 
-The examples below generate `0x02` compounding keys for the **Hoodi** testnet. For Mainnet adjustments, see [Common flags](#common-flags).
+The examples below generate `0x02` compounding keys for **Ethereum Mainnet**. For Hoodi testnet adjustments, see [Common flags](#common-flags).
 
 #### 2.1. From a new mnemonic
 
@@ -72,11 +72,11 @@ Use `new-mnemonic` if this is your first time generating keys:
 
 ```bash
 ./deposit new-mnemonic \
-  --chain hoodi \
+  --chain mainnet \
   --compounding \
   --num_validators <NUMBER_OF_VALIDATORS> \
   --amount 32 \
-  --withdrawal_address 0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
+  --withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 ```
 
 The CLI will prompt you to create a mnemonic. Write it down on paper and store it securely. It cannot be recovered if lost.
@@ -87,19 +87,19 @@ Use `existing-mnemonic` if you already have a mnemonic and want to generate addi
 
 ```bash
 ./deposit existing-mnemonic \
-  --chain hoodi \
+  --chain mainnet \
   --compounding \
   --num_validators <NUMBER_OF_VALIDATORS> \
   --amount 32 \
   --validator_start_index <START_INDEX> \
-  --withdrawal_address 0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2
+  --withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 ```
 
 For example, if you previously generated 4 keys (indices 0 to 3), set `--validator_start_index 4` to generate the next batch.
 
 #### Common flags
 
-For **Mainnet**, replace `--chain hoodi` with `--chain mainnet` and set `--withdrawal_address` to `0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f`.
+For the **Hoodi testnet**, replace `--chain mainnet` with `--chain hoodi` and set `--withdrawal_address` to `0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`.
 
 - **`--compounding`**: generates keys with `0x02` withdrawal credentials, required for CMv2. These validators support a maximum effective balance of 2,048 ETH.
 - **`--amount 32`**: sets the initial deposit amount to 32 ETH per validator. After activation, CMv2 may top up validators up to 2,048 ETH through its allocation algorithm.

@@ -1,31 +1,21 @@
 # Hoodi
 
-:::tip 📘 **Lido V3 Technical Paper**
-
-Learn about the next evolution of Lido staking with **stVaults** — user-defined validator setups with optional stETH liquidity. Read the complete [**Lido V3 Technical Paper**](/lido-v3-whitepaper/) for architecture details, mechanisms, and implementation specifics.
-
-:::
-
 :::info **Primary Lido Protocol Testnet**
 
 Hoodi is the primary operational and actively maintained Lido protocol testnet. This page lists the contract addresses for the testnet, including all deployed protocol components and extensions used for testing.
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v3.1.0-rc.1`**](https://github.com/lidofinance/core/releases/tag/v3.1.0-rc.1)
+- ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
 - 🌐 Network: Ethereum Hoodi (Chain ID: `560048`)
 - ✅ Status: Active and maintained
-
-**Key Resources on Lido V3:**
-
-- 🔌 [stVaults Documentation Center](/run-on-lido/stvaults/)
 
 :::
 
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0x1dB06d15976954D48765f40d4bDd840C257CD4B9`](https://hoodi.etherscan.io/address/0x1dB06d15976954D48765f40d4bDd840C257CD4B9) (impl)
+- Lido Locator: [`0xa519Be1BBfd95445cEdFea56C12AB0B28330CC2F`](https://hoodi.etherscan.io/address/0xa519Be1BBfd95445cEdFea56C12AB0B28330CC2F) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - Lido and stETH token: [`0xB9A2Fb8336f3775d790b3FdD6151e3F193AA7352`](https://hoodi.etherscan.io/address/0xB9A2Fb8336f3775d790b3FdD6151e3F193AA7352) (impl)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
@@ -62,6 +52,11 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Staking Vault Pinned Beacon Proxy: [`0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76`](https://hoodi.etherscan.io/address/0x3e144aEd003b5AE6953A99B78dD34154CF3F8c76)
 - Dashboard Implementation: [`0x38131D5548Be57A34937521fe427a23f49e1e2d4`](https://hoodi.etherscan.io/address/0x38131D5548Be57A34937521fe427a23f49e1e2d4)
 - Validator Consolidation Requests: [`0xbf95Cd394cC03cD03fEA62A435ac347314877f1d`](https://hoodi.etherscan.io/address/0xbf95Cd394cC03cD03fEA62A435ac347314877f1d)
+
+### 🌊 DeFi Wrapper {#defi-wrapper}
+
+- DeFi Wrapper Factory: [`0xd05ebF24A340ece8B8FB53a170F1171DCd02b4d9`](https://hoodi.etherscan.io/address/0xd05ebF24A340ece8B8FB53a170F1171DCd02b4d9)
+- Lido Earn Strategy Factory: [`0x0b860bfFDA72D214Dc8aC98bEcd8D1cd55307561`](https://hoodi.etherscan.io/address/0x0b860bfFDA72D214Dc8aC98bEcd8D1cd55307561)
 
 ### 🔗 Consolidation Stack {#consolidation-stack}
 

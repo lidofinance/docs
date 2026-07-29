@@ -1,44 +1,46 @@
-# CSFeeDistributor
+# FeeDistributor
 
-- [Source code](https://github.com/lidofinance/staking-modules/blob/v2.0/src/CSFeeDistributor.sol)
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/FeeDistributor.sol)
 - [Deployed contract](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
 
-`CSFeeDistributor.sol` is a supplementary contract that stores non-claimed and non-distributed Node Operator rewards on its balance. This contract stores the latest root of a rewards distribution Merkle tree. It accepts calls from `CSAccounting.sol` with reward claim requests and stores data about already claimed rewards by the Node Operator. It receives non-distributed rewards from the `CSModule.sol` each time the `StakingRouter` mints the new portion of the module's rewards. This contract transfers excess rewards allocated by `StakingRouter` due to variable Node Operator reward share back to Lido treasury.
+`FeeDistributor.sol` is a supplementary contract that stores non-claimed and non-distributed Node Operator rewards on its balance. This contract stores the latest root of a rewards distribution Merkle tree. It accepts calls from `Accounting.sol` with reward claim requests and stores data about already claimed rewards by the Node Operator. It receives non-distributed rewards from the module each time the `StakingRouter` mints the new portion of the module's rewards. This contract transfers excess rewards allocated by `StakingRouter` due to variable Node Operator reward share back to Lido treasury.
 
-**Changes in v2:**
-- Added storage of the distribution history;
-- Added support of the variable Node Operator reward share and rebate transfer to Lido treasury;
+Node Operators can use the contract read-only methods for example to:
+- read the latest rewards tree CID to fetch the rewards tree from IPFS and build a proof;
+- check the shares distributable for a Node Operator;
+- inspect past distributions.
+
 
 ## Upgradability
 
 The contract uses [OssifiableProxy](contracts/ossifiable-proxy.md) for upgradability.
 
 ## State Variables
-### RECOVERER_ROLE
+### INITIALIZED_VERSION
 
 ```solidity
-bytes32 public constant RECOVERER_ROLE = keccak256("RECOVERER_ROLE");
+uint64 internal constant INITIALIZED_VERSION = 3
 ```
 
 
 ### STETH
 
 ```solidity
-IStETH public immutable STETH;
+IStETH public immutable STETH
 ```
 
 
 ### ACCOUNTING
 
 ```solidity
-address public immutable ACCOUNTING;
+address public immutable ACCOUNTING
 ```
 
 
 ### ORACLE
 
 ```solidity
-address public immutable ORACLE;
+address public immutable ORACLE
 ```
 
 
@@ -47,7 +49,7 @@ The latest Merkle Tree root
 
 
 ```solidity
-bytes32 public treeRoot;
+bytes32 public treeRoot
 ```
 
 
@@ -56,7 +58,7 @@ CID of the last published Merkle tree
 
 
 ```solidity
-string public treeCid;
+string public treeCid
 ```
 
 
@@ -65,7 +67,7 @@ CID of the file with log for the last frame reported
 
 
 ```solidity
-string public logCid;
+string public logCid
 ```
 
 
@@ -74,7 +76,7 @@ Amount of stETH shares sent to the Accounting in favor of the NO
 
 
 ```solidity
-mapping(uint256 nodeOperatorId => uint256 distributed) public distributedShares;
+mapping(uint256 nodeOperatorId => uint256 distributed) public distributedShares
 ```
 
 
@@ -83,15 +85,25 @@ Total Amount of stETH shares available for claiming by NOs
 
 
 ```solidity
-uint256 public totalClaimableShares;
+uint256 public totalClaimableShares
 ```
 
-### distributionDataHistoryCount
-The number of _distributionDataHistory records
+
+### _distributionDataHistory
+Array of the distribution data history
 
 
 ```solidity
-uint256 public distributionDataHistoryCount;
+mapping(uint256 index => DistributionData) internal _distributionDataHistory
+```
+
+
+### distributionDataHistoryCount
+The number of records retrievable via `getHistoricalDistributionData`
+
+
+```solidity
+uint256 public distributionDataHistoryCount
 ```
 
 
@@ -100,11 +112,53 @@ The address to transfer rebate to
 
 
 ```solidity
-address public rebateRecipient;
+address public rebateRecipient
 ```
 
 
 ## Functions
+### onlyAccounting
+
+
+```solidity
+modifier onlyAccounting() ;
+```
+
+### onlyOracle
+
+
+```solidity
+modifier onlyOracle() ;
+```
+
+### constructor
+
+
+```solidity
+constructor(address stETH, address accounting, address oracle) ;
+```
+
+### initialize
+
+Initialize contract from scratch. In case of a method call frontrun, the contract instance should be discarded.
+It is recommended to call this method in the same transaction as the deployment transaction
+and perform extensive deployment verification before using the contract instance.
+
+
+```solidity
+function initialize(address admin, address _rebateRecipient) external reinitializer(INITIALIZED_VERSION);
+```
+
+### finalizeUpgradeV3
+
+This method is expected to be called only when the contract is upgraded from version 2 to version 3 for the existing
+version 2 deployment. If the version 3 contract is deployed from scratch, the `initialize` method should be used instead.
+To prevent possible frontrun this method should strictly be called in the same TX as the upgrade transaction and should not be called separately.
+
+
+```solidity
+function finalizeUpgradeV3() external reinitializer(INITIALIZED_VERSION);
+```
 
 ### setRebateRecipient
 
@@ -167,16 +221,16 @@ function processOracleReport(
 |Name|Type|Description|
 |----|----|-----------|
 |`_treeRoot`|`bytes32`|Root of the Merkle tree|
-|`_treeCid`|`string`|an IPFS CID of the tree|
-|`_logCid`|`string`|an IPFS CID of the log|
-|`distributed`|`uint256`|an amount of the distributed shares|
-|`rebate`|`uint256`|an amount of the rebate shares|
-|`refSlot`|`uint256`|refSlot of the report|
+|`_treeCid`|`string`|IPFS CID of the tree|
+|`_logCid`|`string`|IPFS CID of the log|
+|`distributed`|`uint256`|Amount of the distributed shares|
+|`rebate`|`uint256`|Amount of the rebate shares|
+|`refSlot`|`uint256`|Reference slot of the report|
 
 
 ### recoverERC20
 
-*Allows sender to recover ERC20 tokens held by the contract*
+Allows sender to recover ERC20 tokens held by the contract
 
 
 ```solidity
@@ -187,7 +241,7 @@ function recoverERC20(address token, uint256 amount) external override;
 |Name|Type|Description|
 |----|----|-----------|
 |`token`|`address`|The address of the ERC20 token to recover|
-|`amount`|`uint256`|The amount of the ERC20 token to recover Emits an ERC20Recovered event upon success Optionally, the inheriting contract can override this function to add additional restrictions|
+|`amount`|`uint256`|The amount of the ERC20 token to recover|
 
 
 ### getInitializedVersion
@@ -211,7 +265,7 @@ function pendingSharesToDistribute() external view returns (uint256);
 
 |Name|Type|Description|
 |----|----|-----------|
-|`<none>`|`uint256`|pendingShares Amount shares that are pending to distribute|
+|`<none>`|`uint256`|Amount shares that are pending to distribute|
 
 
 ### getHistoricalDistributionData
@@ -265,7 +319,7 @@ function getFeesToDistribute(uint256 nodeOperatorId, uint256 cumulativeFeeShares
 
 Get a hash of a leaf
 
-*Double hash the leaf to prevent second preimage attacks*
+Double hash the leaf to prevent second preimage attacks
 
 
 ```solidity
@@ -285,51 +339,31 @@ function hashLeaf(uint256 nodeOperatorId, uint256 shares) public pure returns (b
 |`<none>`|`bytes32`|Hash of the leaf|
 
 
-## Events
-### OperatorFeeDistributed
-*Emitted when fees are distributed*
+### _setRebateRecipient
 
 
 ```solidity
-event OperatorFeeDistributed(uint256 indexed nodeOperatorId, uint256 shares);
+function _setRebateRecipient(address _rebateRecipient) internal;
 ```
 
-### DistributionDataUpdated
-*Emitted when distribution data is updated*
+### _onlyAccounting
 
 
 ```solidity
-event DistributionDataUpdated(uint256 totalClaimableShares, bytes32 treeRoot, string treeCid);
+function _onlyAccounting() internal view;
 ```
 
-### DistributionLogUpdated
-*Emitted when distribution log is updated*
+### _onlyOracle
 
 
 ```solidity
-event DistributionLogUpdated(string logCid);
+function _onlyOracle() internal view;
 ```
 
-### ModuleFeeDistributed
-*It logs how many shares were distributed in the latest report*
+### _onlyRecoverer
 
 
 ```solidity
-event ModuleFeeDistributed(uint256 shares);
+function _onlyRecoverer() internal view override;
 ```
 
-### RebateTransferred
-*Emitted when rebate is transferred*
-
-
-```solidity
-event RebateTransferred(uint256 shares);
-```
-
-### RebateRecipientSet
-*Emitted when rebate recipient is set*
-
-
-```solidity
-event RebateRecipientSet(address recipient);
-```

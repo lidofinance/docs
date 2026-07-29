@@ -4,8 +4,8 @@ sidebar_position: 1
 
 # Curated Module v2
 
-:::warning
-CMv2 is currently deployed on the Hoodi testnet. Specific parameters such as bond amounts, fee caps, and penalty thresholds may change before Mainnet launch. Mainnet migration is targeted for Q3 2026. Treat all values in this documentation as current testnet unless a Mainnet figure is explicitly noted.
+:::info
+**Phase 1 of CMv2 is live on Ethereum Mainnet.** Phase 2 is planned for Q1 2027.
 :::
 
 ## What You'll Find Here
@@ -60,6 +60,12 @@ Tools and dashboards that support CMv2 operations.
 
 - [Key Generation & Fee Recipient](/run-on-lido/cm-v2/useful-tools/key-generation)
 - [CM Prover Tool](/run-on-lido/cm-v2/useful-tools/cm-prover-tool)
+
+### 📜 Contracts
+
+Mainnet addresses for the Curated Module, Accounting, Parameters Registry, Meta Registry, Curated Gates, and related contracts.
+
+- [Deployed Contracts](/deployed-contracts/#curated-module-v2)
 
 ---
 

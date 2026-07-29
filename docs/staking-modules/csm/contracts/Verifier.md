@@ -1,0 +1,422 @@
+# Verifier
+
+- [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Verifier.sol)
+- [Deployed contract](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba)
+
+`Verifier.sol` is a supplementary contract responsible for validating Consensus Layer (CL) data proofs against the beacon block root obtained via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reporting the verified facts to the module. All of its proof-processing methods are permissionless - anyone (typically the prover bot or the Node Operator) can submit a valid proof.
+
+The following proof types are supported:
+
+- validator withdrawal (including historical);
+- validator balance (including historical);
+- validator slashing.
+
+## Hard-fork compatibility
+
+`Verifier` does not inspect the Consensus Layer fork version directly. Instead, it supports two sets of [SSZ generalized indices](https://github.com/ethereum/consensus-specs/blob/master/ssz/merkle-proofs.md#generalized-merkle-tree-index), separated by `PIVOT_SLOT`. Proofs for state slots before the pivot use one set of indices, while proofs for the pivot slot and later use the other.
+
+`FIRST_SUPPORTED_SLOT` is the deployment's lower acceptance boundary and should not be advanced merely because a new fork occurs. If a fork changes any relevant proof path, the immutable constructor values cannot be updated. A replacement `Verifier` must be deployed, tested with proofs from both sides of the fork boundary, and authorized on the module before activation. A changed leaf schema may also require contract code changes rather than new gindices alone.
+
+The Mainnet deployment sets both `FIRST_SUPPORTED_SLOT` and `PIVOT_SLOT` to the Electra activation slot and configures both sets of indices for the Electra layout. As a result, the deployment supports Electra and remains compatible with later hard forks while the relevant SSZ indices remain unchanged. A hard fork does not necessarily change these paths; nevertheless, the generalized indices must be revalidated against the finalized specification for each fork.
+
+The following values and assumptions must be tracked:
+
+| Value | Fork-sensitive assumptions to verify |
+| --- | --- |
+| `PIVOT_SLOT` | Activation slot at which the second set of proof paths becomes valid. |
+| `GI_*` | SSZ generalized indices for the corresponding fields used in proofs. |
+| `SLOTS_PER_EPOCH` | Epoch calculation used when checking validator withdrawability. |
+| `BEACON_ROOTS` | EIP-4788 system-contract address and lookup semantics. |
+| SSZ leaf schemas | Layouts of `BeaconBlockHeader`, `Validator`, and `Withdrawal`, whose roots are computed by the contract. |
+
+## Upgradability
+
+The contract is immutable.
+
+## State Variables
+### BEACON_ROOTS
+
+```solidity
+address public constant BEACON_ROOTS = 0x000F3df6D732807Ef1319fB7B8bB8522d0Beac02
+```
+
+
+### MAX_BP
+
+```solidity
+uint256 internal constant MAX_BP = 10_000
+```
+
+
+### MIN_WITHDRAWAL_RATIO
+Minimum withdrawal amount as a ratio of the expected validator balance,
+expressed in basis points (10 000 = 100%).
+
+
+```solidity
+uint256 public immutable MIN_WITHDRAWAL_RATIO
+```
+
+
+### SLOTS_PER_EPOCH
+
+```solidity
+uint64 public immutable SLOTS_PER_EPOCH
+```
+
+
+### SLOTS_PER_HISTORICAL_ROOT
+Count of historical roots per accumulator.
+
+See https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/beacon-chain.md#time-parameters
+
+
+```solidity
+uint64 public constant SLOTS_PER_HISTORICAL_ROOT = 8192
+```
+
+
+### GI_FIRST_WITHDRAWAL_PREV
+This index is relative to a state like: `BeaconState.latest_execution_payload_header.withdrawals[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_WITHDRAWAL_PREV
+```
+
+
+### GI_FIRST_WITHDRAWAL_CURR
+This index is relative to a state like: `BeaconState.latest_execution_payload_header.withdrawals[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_WITHDRAWAL_CURR
+```
+
+
+### GI_FIRST_VALIDATOR_PREV
+This index is relative to a state like: `BeaconState.validators[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_VALIDATOR_PREV
+```
+
+
+### GI_FIRST_VALIDATOR_CURR
+This index is relative to a state like: `BeaconState.validators[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_VALIDATOR_CURR
+```
+
+
+### GI_FIRST_HISTORICAL_SUMMARY_PREV
+This index is relative to a state like: `BeaconState.historical_summaries[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_HISTORICAL_SUMMARY_PREV
+```
+
+
+### GI_FIRST_HISTORICAL_SUMMARY_CURR
+This index is relative to a state like: `BeaconState.historical_summaries[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_HISTORICAL_SUMMARY_CURR
+```
+
+
+### GI_FIRST_BLOCK_ROOT_IN_SUMMARY
+This index is relative to HistoricalSummary like: HistoricalSummary.blockRoots[0].
+Considered constant across forks.
+
+
+```solidity
+GIndex public constant GI_FIRST_BLOCK_ROOT_IN_SUMMARY =
+    GIndex.wrap(0x000000000000000000000000000000000000000000000000000000000040000d)
+```
+
+
+### GI_FIRST_BALANCES_NODE_PREV
+This index is relative to a state like: `BeaconState.balances[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_BALANCES_NODE_PREV
+```
+
+
+### GI_FIRST_BALANCES_NODE_CURR
+This index is relative to a state like: `BeaconState.balances[0]`.
+
+
+```solidity
+GIndex public immutable GI_FIRST_BALANCES_NODE_CURR
+```
+
+
+### FIRST_SUPPORTED_SLOT
+The very first slot the verifier is supposed to accept proofs for.
+
+
+```solidity
+Slot public immutable FIRST_SUPPORTED_SLOT
+```
+
+
+### PIVOT_SLOT
+The first slot of the currently compatible fork.
+
+
+```solidity
+Slot public immutable PIVOT_SLOT
+```
+
+
+### CAPELLA_SLOT
+Historical summaries started accumulating from the slot of Capella fork.
+
+
+```solidity
+Slot public immutable CAPELLA_SLOT
+```
+
+
+### WITHDRAWAL_ADDRESS
+An address withdrawals are supposed to happen to (Lido withdrawal credentials).
+
+
+```solidity
+address public immutable WITHDRAWAL_ADDRESS
+```
+
+
+### MODULE
+Staking module contract.
+
+
+```solidity
+IBaseModule public immutable MODULE
+```
+
+
+## Functions
+### constructor
+
+The previous and current forks can be essentially the same.
+
+
+```solidity
+constructor(
+    address withdrawalAddress,
+    address module,
+    uint64 slotsPerEpoch,
+    GIndices memory gindices,
+    Slot firstSupportedSlot,
+    Slot pivotSlot,
+    Slot capellaSlot,
+    uint256 minWithdrawalRatio,
+    address admin
+) ;
+```
+
+### processSlashedProof
+
+Verify proof of a slashed validator and report it to the module
+
+
+```solidity
+function processSlashedProof(ProcessSlashedInput calldata data) external whenResumed;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`data`|`ProcessSlashedInput`|@see ProcessSlashedInput|
+
+
+### processWithdrawalProof
+
+Verify withdrawal proof and report withdrawal to the module for valid proofs
+
+
+```solidity
+function processWithdrawalProof(ProcessWithdrawalInput calldata data) external whenResumed;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`data`|`ProcessWithdrawalInput`|@see ProcessWithdrawalInput|
+
+
+### processHistoricalWithdrawalProof
+
+Verify withdrawal proof against historical summaries data and report withdrawal to the module for valid proofs
+
+
+```solidity
+function processHistoricalWithdrawalProof(ProcessHistoricalWithdrawalInput calldata data) external whenResumed;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`data`|`ProcessHistoricalWithdrawalInput`|@see ProcessHistoricalWithdrawalInput|
+
+
+### processBalanceProof
+
+Verify a validator's balance proof from a recent beacon block and sync the key added balance.
+
+
+```solidity
+function processBalanceProof(ProcessBalanceProofInput calldata data) external whenResumed;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`data`|`ProcessBalanceProofInput`|The balance proof input containing recent block header, validator witness, and balance witness.|
+
+
+### processHistoricalBalanceProof
+
+Verify a validator's balance proof from a historical beacon block and sync the key added balance.
+A historical proof is needed because the validator's balance may have increased at some point in the past
+and later decreased (e.g. due to inactivity leak or penalties). A recent proof alone would miss that peak,
+so a historical proof allows capturing the highest observed balance.
+
+
+```solidity
+function processHistoricalBalanceProof(ProcessHistoricalBalanceProofInput calldata data) external whenResumed;
+```
+**Parameters**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`data`|`ProcessHistoricalBalanceProofInput`|The balance proof input containing recent + historical block headers, validator witness, and balance witness.|
+
+
+### _reportSingleValidator
+
+
+```solidity
+function _reportSingleValidator(WithdrawnValidatorInfo memory info) internal;
+```
+
+### _getParentBlockRoot
+
+
+```solidity
+function _getParentBlockRoot(uint64 blockTimestamp) internal view returns (bytes32);
+```
+
+### _processWithdrawalProof
+
+`header` MUST be trusted at this point.
+
+
+```solidity
+function _processWithdrawalProof(
+    WithdrawalWitness calldata withdrawal,
+    ValidatorWitness calldata validator,
+    BeaconBlockHeader calldata header,
+    uint256 nodeOperatorId,
+    uint256 keyIndex
+) internal view returns (uint256 withdrawalAmount);
+```
+
+### _processBalanceProof
+
+
+```solidity
+function _processBalanceProof(
+    ValidatorWitness calldata validator,
+    BalanceWitness calldata balance,
+    bytes32 stateRoot,
+    Slot stateSlot
+) internal view returns (uint64 balanceGwei);
+```
+
+### _verifyValidatorBalance
+
+
+```solidity
+function _verifyValidatorBalance(
+    uint256 validatorIndex,
+    bytes32 balanceNode,
+    bytes32 stateRoot,
+    Slot stateSlot,
+    bytes32[] calldata proof
+) internal view returns (uint64 balanceGwei);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`balanceGwei`|`uint64`|Validator's balance in gwei.|
+
+
+### _getValidatorBalanceNodeInfo
+
+
+```solidity
+function _getValidatorBalanceNodeInfo(bytes32 balanceNode, uint256 validatorIndex, Slot stateSlot)
+    internal
+    view
+    returns (GIndex gI, uint64 balanceGwei);
+```
+**Returns**
+
+|Name|Type|Description|
+|----|----|-----------|
+|`gI`|`GIndex`|Generalized index of the node for the `validatorIndex` and `stateSlot`.|
+|`balanceGwei`|`uint64`|Balance in gwei extracted from the `balanceNode`.|
+
+
+### _getValidatorGI
+
+
+```solidity
+function _getValidatorGI(uint256 offset, Slot stateSlot) internal view returns (GIndex);
+```
+
+### _getWithdrawalGI
+
+
+```solidity
+function _getWithdrawalGI(uint256 offset, Slot stateSlot) internal view returns (GIndex);
+```
+
+### _getValidatorBalanceGI
+
+
+```solidity
+function _getValidatorBalanceGI(uint256 offset, Slot stateSlot) internal view returns (GIndex);
+```
+
+### _getHistoricalBlockRootGI
+
+
+```solidity
+function _getHistoricalBlockRootGI(Slot recentSlot, Slot targetSlot) internal view returns (GIndex gI);
+```
+
+### _computeEpochAtSlot
+
+
+```solidity
+function _computeEpochAtSlot(Slot slot) internal view returns (uint256);
+```
+
+### __checkRole
+
+
+```solidity
+function __checkRole(bytes32 role) internal view override;
+```

@@ -7,6 +7,10 @@ import TabItem from '@theme/TabItem';
 
 # 🧪 Key Generation for Testnet
 
+:::warning 0x01 keys only
+The current Hoodi deployment accepts **0x01 validator keys only**, with deposit data set to 32 ETH. The dedicated 0x02 CSM testnet is not live yet.
+:::
+
 ## Generating Keys
 
 <Tabs>

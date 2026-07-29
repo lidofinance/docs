@@ -12,7 +12,7 @@ It's a permissioned module designed for professional operators that introduces b
 
 A new Operator Group model is also introduced allowing each entity in CMv2 to manage multiple Node Operators (also referred to as sub-NOs) with different configurations.
 
-CMv2 rolls out in two phases (planned for Q3 and Q4 2026) and will replace CMv1 through a structured migration once complete.
+CMv2 is rolling out in two phases. Phase 1 is live on Mainnet, and Phase 2 is planned for Q1 2027. CMv1 will be replaced gradually as operators migrate.
 
 ---
 
@@ -23,12 +23,14 @@ CMv2 introduces significant changes from CMv1 and CSM. The table below summarize
 | Feature | CMv1 | CSM | CMv2 |
 | --- | --- | --- | --- |
 | **Stake allocation** | MinFirst allocation | FIFO queue | Weighted stake allocation with respect to sub-operators |
-| **Validator type** | `0x01` only | `0x01` only | `0x02` only |
+| **Validator type** | `0x01` only | `0x01` only* | `0x02` only |
 | **Deposit flow** | Single 32 ETH deposits | Single 32 ETH deposits | Two-phased: initial 32 ETH + top-ups up to 2048 ETH validator balance |
 | **Operator creation** | Via governance | Permissionless | Via Curated Gate contracts controlled by governance |
 | **Bond** | No bond; reputation-based model | Per validator | Bond required per `0x02` key at the sub-NO level |
 | **Rewards** | Push-based | Pull-based | Pull-based |
 | **Address management** | Governance | Operator-controlled | Operator-controlled + governance fallback |
+
+**CSM currently uses `0x01` validators on Mainnet. A separate `0x02` CSM instance has been approved but is not yet live.*
 
 ---
 
@@ -39,7 +41,7 @@ CMv2 is being rolled out in two distinct phases. Understanding which features ar
 ### Phase 1
 
 :::note
-Live on Hoodi, targeted Q3 2026 for Mainnet
+Live on Mainnet (and Hoodi testnet)
 :::
 
 - Introduction of [**bond**](/run-on-lido/cm-v2/bond-and-key-management) and [**penalties**](/run-on-lido/cm-v2/penalties) to Curated Module operators
@@ -54,7 +56,7 @@ Live on Hoodi, targeted Q3 2026 for Mainnet
 ### Phase 2
 
 :::note
-Targeted Q4 2026 for Mainnet
+Targeted Q1 2027 for Mainnet
 :::
 
 - Validator Market (ValMart), a dynamic allocation mechanism that can factor in parameters such as operator fees, risk profiles, additional bond reserves, and LDO locking or delegation

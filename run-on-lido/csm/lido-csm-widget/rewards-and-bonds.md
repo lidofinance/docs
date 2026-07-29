@@ -21,6 +21,28 @@ Here, you will see your net rewards and bond claimable in aggregate and broken d
 
 You will also be able to claim your net rewards + bond in total or in individual parts if you wish, and select among 3 token types to receive: ETH (in the form of a [Withdrawal NFT](/guides/lido-tokens-integration-guide#unsteth)) / stETH / wstETH.
 
+## Rewards splitter
+
+CSM v3 includes an optional built-in rewards splitter. It lets a Node Operator route a percentage of their Node Operator rewards to as many as 10 additional recipient addresses without deploying a separate splitter contract.
+
+- Split recipients receive **stETH only**.
+- The splitter applies to **Node Operator rewards only**. Bond rebase rewards are not split.
+- Any share not assigned to additional recipients remains in the Node Operator's bond.
+- Claiming is permissionless: anyone can trigger the claim, but funds can only go to the configured recipients.
+
+### Configure reward splits
+
+![Configure rewards splitter](/img/csm-guide/bond-3.png)
+
+1. Open the CSM Widget settings on [Mainnet](https://csm.lido.fi/settings/splits) or [Hoodi](https://csm.testnet.fi/settings/splits).
+2. Select **Rewards splitter** and choose **Set up splits**.
+3. Add each recipient address and its percentage. The combined recipient share cannot exceed 100%.
+4. Review the remaining share assigned to the Node Operator's bond, then confirm the transaction.
+
+:::warning
+Review every recipient address and percentage carefully before confirming. If you configure splits before the Node Operator's first rewards distribution, you cannot edit them until that first distribution occurs. Afterward, splits can only be edited when there are no unclaimed rewards or pending shares to distribute.
+:::
+
 ### Add Bond tab
 
 ![Add Bond](/img/csm-guide/bond-2.png)
