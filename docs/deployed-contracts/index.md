@@ -13,7 +13,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
 - 🌐 Network: Ethereum Mainnet (Chain ID: `1`)
 - ✅ Status: Active and maintained
-  :::
+:::
 
 ## 🏛️ Core Protocol {#core-protocol}
 
@@ -75,7 +75,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🔮 Oracle Contracts {#oracle-contracts}
 
 - Accounting Oracle:
-  - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy)
+  - AccountingOracle: [`0x852deD011285fe67063a08005c71a85690503Cee`](https://etherscan.io/address/0x852deD011285fe67063a08005c71a85690503Cee) (proxy) 
     - AccountingOracle: [`0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136`](https://etherscan.io/address/0xe4f03D1107d1905B6F2A28FCb6Af221E0CE19136) (impl)
   - HashConsensus: [`0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288)
 - Validators Exit Bus Oracle:
@@ -132,27 +132,27 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 Each pausable contract below is covered by the CircuitBreaker, with a designated pauser authorized to trigger a pause. The pausers are the **[CircuitBreaker Committee](#emergency-brakes-multisigs)** for core protocol pausables, the **[CSM Committee](#committees)** for CSM pausables, and the **[CMC Committee](#committees)** for CMv2 pausables.
 
-| Pausable                                                                                                                  | Pauser                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [Withdrawal Queue ERC721](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1)                        | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [Validators Exit Bus Oracle](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e)                     | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [Triggerable Withdrawals Gateway](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B)                | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [Vault Hub](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709)                                      | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [Predeposit Guarantee](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3)                           | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [Consolidation Gateway](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462)                          | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [Top Up Gateway](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374)                                 | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
-| [CSModule](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)                                       | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [CSM Accounting](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da)                                 | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [CSM FeeOracle](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB)                                  | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [CSM Verifier](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba)                                   | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [CSM Ejector](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5)                                    | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [VettedGate (Identified Community Stakers Gate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [VettedGate (Identified DVT Cluster Gate)](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8)       | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)            |
-| [CuratedModule](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1)                                  | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91)            |
-| [Curated Accounting](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6)                             | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91)            |
-| [Curated FeeOracle](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5)                              | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91)            |
-| [Curated Verifier](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)                               | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91)            |
-| [Curated Ejector](https://etherscan.io/address/0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E)                                | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91)            |
+| Pausable | Pauser |
+| --- | --- |
+| [Withdrawal Queue ERC721](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Validators Exit Bus Oracle](https://etherscan.io/address/0x0De4Ea0184c2ad0BacA7183356Aea5B8d5Bf5c6e) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Triggerable Withdrawals Gateway](https://etherscan.io/address/0xDC00116a0D3E064427dA2600449cfD2566B3037B) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Vault Hub](https://etherscan.io/address/0x1d201BE093d847f6446530Efb0E8Fb426d176709) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Predeposit Guarantee](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Consolidation Gateway](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [Top Up Gateway](https://etherscan.io/address/0x3FC2C71579D80790Aaa3fc7Be8B66ac39dC57374) | [CircuitBreaker Committee](https://etherscan.io/address/0x8772E3a2D86B9347A2688f9bc1808A6d8917760C) |
+| [CSModule](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM Accounting](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM FeeOracle](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM Verifier](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM Ejector](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [VettedGate (Identified Community Stakers Gate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [VettedGate (Identified DVT Cluster Gate)](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CuratedModule](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| [Curated Accounting](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| [Curated FeeOracle](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| [Curated Verifier](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| [Curated Ejector](https://etherscan.io/address/0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 
 ## 📊 Data Bus {#data-bus}
 
