@@ -130,16 +130,14 @@ To speed up the process and make it more robust, please provide the artifacts (i
 
 - verify the sources via [diffyscan](https://github.com/lidofinance/diffyscan), examples:
   - [wstETH on Linea](https://github.com/lidofinance/diffyscan/pull/29)
-
-- verify the sources via [diffyscan](https://github.com/lidofinance/diffyscan), examples on legacy chains:
-  - [wstETH on Scroll](https://github.com/lidofinance/diffyscan/pull/35)
-  - [wstETH on Mode](https://github.com/lidofinance/diffyscan/pull/41)
+  - examples on legacy chains:
+    - [wstETH on Scroll](https://github.com/lidofinance/diffyscan/pull/35)
+    - [wstETH on Mode](https://github.com/lidofinance/diffyscan/pull/41)
 
 - verify the configuration and storage state via [state-mate](https://github.com/lidofinance/state-mate), example:
   - [a.DI on Binance Smart Chain (BSC)](https://github.com/lidofinance/state-mate/tree/main/configs/bsc)
-
-- verify the configuration and storage state via [state-mate](https://github.com/lidofinance/state-mate), example on legacy chain:
-  - [wstETH on Mantle](https://github.com/lidofinance/state-mate/tree/main/configs/mantle)
+  - example on legacy chain:
+    - [wstETH on Mantle](https://github.com/lidofinance/state-mate/tree/main/configs/mantle)
 
 ### R-2: "Lock and mint" bridge mechanics
 

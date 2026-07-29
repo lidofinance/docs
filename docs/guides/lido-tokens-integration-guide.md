@@ -68,15 +68,15 @@ For an up-to-date list of networks and feed addresses, see [deployed contracts](
 - [Linea](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7)
 - [BNB Chain](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645)
 
-:::note
-The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
-:::
-
 and legacy networks:
 
 - [Scroll](https://data.chain.link/feeds/scroll/mainnet/wsteth-steth%20exchangerate)
 - [Polygon PoS](https://data.chain.link/feeds/polygon/mainnet/wsteth-steth)
 - [zkSync Era](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
+
+:::note
+The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
+:::
 
 These feeds might be used to compose a target feed, e.g., for the `wstETH/USD` pair, see the following examples of AAVE v3 markets:
 
@@ -298,8 +298,6 @@ Currently, wstETH token is present on multiple networks (see [deployed contracts
 - [Binance Smart Chain (BSC)](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C)
 - [Unichain](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001)
 
-with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/cross-chain-tokens-guide.md).
-
 and legacy networks:
 
 - [Scroll](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32)
@@ -311,6 +309,8 @@ and legacy networks:
 - [Soneium](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941)
 - [Lisk](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415)
 - [Swellchain](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc)
+
+with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/cross-chain-tokens-guide.md).
 
 :::note
 On most networks, wstETH for Lido Multichain is a bridged ERC-20 token and cannot be unwrapped locally. On networks where stETH is also available, the token design follows the [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md) approach.
