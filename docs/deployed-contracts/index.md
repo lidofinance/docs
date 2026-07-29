@@ -666,13 +666,13 @@ for the rate and price feeds recommended approaches.
 
 Balancer
 
-- [wstETH/WETH](https://arbitrum.balancer.fi/#/pool/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c000000000000000000000159) on Arbitrum: [`0xFB5e6d0c1DfeD2BA000fBC040Ab8DF3615AC329c`](https://arbiscan.io/address/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c)
-- [wstETH/USDC](https://arbitrum.balancer.fi/#/pool/0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158) on Arbitrum: [`0x178E029173417b1F9C8bC16DCeC6f697bC323746`](https://arbiscan.io/address/0x178e029173417b1f9c8bc16dcec6f697bc323746)
+- [wstETH/WETH](https://balancer.fi/pools/arbitrum/v2/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c000000000000000000000159) on Arbitrum: [`0xFB5e6d0c1DfeD2BA000fBC040Ab8DF3615AC329c`](https://arbiscan.io/address/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c)
+- [wstETH/USDC](https://balancer.fi/pools/arbitrum/v2/0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158) on Arbitrum: [`0x178E029173417b1F9C8bC16DCeC6f697bC323746`](https://arbiscan.io/address/0x178e029173417b1f9c8bc16dcec6f697bc323746)
 
 Beethoven
 
-- [wstETH/bb-rf-aWETH](https://op.beets.fi/pool/0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f) on Optimism: [`0xde45f101250f2ca1c0f8adfc172576d10c12072d`](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d)
-- [wstETH/bb-rf-aUSD/bb-rf-aWBTC](https://op.beets.fi/pool/0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b) on Optimism: [`0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF`](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef)
+- wstETH/bb-rf-aWETH on Optimism: [`0xde45f101250f2ca1c0f8adfc172576d10c12072d`](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d)
+- wstETH/bb-rf-aUSD/bb-rf-aWBTC on Optimism: [`0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF`](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef)
 
 Kyber Network
 
@@ -784,11 +784,11 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 - Swellchain:
   - L1ERC20TokenBridge: [`0xecf3376512EDAcA4FBB63d2c67d12a0397d24121`](https://etherscan.io/address/0xecf3376512EDAcA4FBB63d2c67d12a0397d24121) (proxy)
   - L1ERC20TokenBridge: [`0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2`](https://etherscan.io/address/0x7e97935FbDF2a27EA35c4fdDdaCf5ACd685e65A2) (impl)
-  - WstETH ERC20Bridged: [`0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc`](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc) (proxy)
-  - WstETH ERC20Bridged: [`0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1`](https://explorer.swellnetwork.io/address/0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1) (impl)
-  - L2ERC20TokenBridge: [`0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0`](https://explorer.swellnetwork.io/address/0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0) (proxy)
-  - L2ERC20TokenBridge: [`0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE`](https://explorer.swellnetwork.io/address/0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE) (impl)
-  - Governance BridgeExecutor: [`0xFF22ea467301010F1364fc154c13e0c86Fcfb077`](https://explorer.swellnetwork.io/address/0xFF22ea467301010F1364fc154c13e0c86Fcfb077)
+  - WstETH ERC20Bridged: `0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc` (proxy)
+  - WstETH ERC20Bridged: `0xa1A3257813eD45d91e9c45E03C66FcDD54B4e7c1` (impl)
+  - L2ERC20TokenBridge: `0x8311496799B8C2C7f13bC32c123ac4Eea068e6F0` (proxy)
+  - L2ERC20TokenBridge: `0x66ca84bC3C2dB33b6bd7B8994C033444C72b8ADE` (impl)
+  - Governance BridgeExecutor: `0xFF22ea467301010F1364fc154c13e0c86Fcfb077`
 - Zircuit:
   - L1ERC20TokenBridge: [`0x912C7271a6A3622dfb8B218eb46a6122aB046C79`](https://etherscan.io/address/0x912C7271a6A3622dfb8B218eb46a6122aB046C79) (proxy)
   - L1ERC20TokenBridge: [`0x6bc726C993103197C41d787dd72eCd4D2e1614E8`](https://etherscan.io/address/0x6bc726C993103197C41d787dd72eCd4D2e1614E8) (impl)
