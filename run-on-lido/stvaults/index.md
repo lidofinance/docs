@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# stVaults Documentation Center
+# [LEGACY] stVaults Documentation Center
 
 :::tip 📘 **Lido V3 Technical Paper**
 
