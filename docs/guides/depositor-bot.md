@@ -32,12 +32,13 @@ noticeably more RAM and network bandwidth than the figures above — size the ho
 ### Nodes
 
 - Ethereum EL RPC service
-- Onchain databus transport RPC service (Gnosis at the moment)
-
-Required only when top-ups are enabled (`ENABLE_TOP_UP=true`):
-
 - Ethereum CL RPC service with the debug API available (`/eth/v2/debug/beacon/states`)
 - [Lido Keys API](/guides/tooling/#keys-api) instance
+- Onchain databus transport RPC service (Gnosis at the moment)
+
+The CL node and the Keys API are only *used* by the top-up path, but the depositor bot verifies that the EL, CL and
+Keys API endpoints are reachable and report the same chain id on start up. It therefore requires all of them even when
+`ENABLE_TOP_UP=false`, and exits on start up if they are missing or unreachable.
 
 ## How to use
 
@@ -73,8 +74,8 @@ Required variables are(mainnet):
 | DEPOSIT_MODULES_WHITELIST         | -                                          | Comma separated list of staking module's ids in which the depositor bot will make deposits and top-ups                    |
 | ---                               | ---	                                       | ---                                                                                                                      |
 | ENABLE_TOP_UP                     | false                                      | Enables top-ups of `0x02` modules. Keep disabled until Node Operators submit consolidation requests                       |
-| CL_API_URLS                       | -                                          | Comma separated list of CL endpoints. Required when `ENABLE_TOP_UP=true`                                                  |
-| KEYS_API_URL                      | -                                          | [Keys API](/guides/tooling/#keys-api) URL. Required when `ENABLE_TOP_UP=true`                                             |
+| CL_API_URLS                       | -                                          | Comma separated list of CL endpoints. Required even when `ENABLE_TOP_UP=false`                                             |
+| KEYS_API_URL                      | -                                          | [Keys API](/guides/tooling/#keys-api) URL. Required even when `ENABLE_TOP_UP=false`                                       |
 | MAX_VALIDATORS_PER_TOP_UP         | 32                                         | Maximum number of validators per top-up transaction (also capped onchain by the `TopUpGateway`)                           |
 | ---                               | ---	                                       | ---                                                                                                                      |
 | MESSAGE_TRANSPORTS                | -                                          | Transports used in bot. Set: onchain_transport                                                                           |
