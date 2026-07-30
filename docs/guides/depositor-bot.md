@@ -10,6 +10,15 @@ deposit is executed using
 the [depositBufferedEther](/contracts/deposit-security-module/#depositbufferedether) function within
 the [DepositSecurityModule](/contracts/deposit-security-module) smart contract.
 
+Since v5.6.0 the bot also performs **top-ups**: adding ETH to already-active validators of `0x02` (compounding)
+staking modules through the `TopUpGateway` contract. Top-ups do not require a guardian quorum — only the bot itself
+can submit them — and they keep working while deposits are paused in the DSM. Top-ups are disabled by default
+(`ENABLE_TOP_UP=false`) and must stay disabled until Node Operators have submitted consolidation requests.
+
+The full per-iteration algorithm (module prioritisation, seed deposits vs. top-ups, validator selection) is described
+in [depositor-algorithm.md](https://github.com/lidofinance/depositor-bot/blob/main/docs/depositor-algorithm.md) in the
+bot repository.
+
 ## Requirements
 
 ### Hardware
@@ -17,10 +26,18 @@ the [DepositSecurityModule](/contracts/deposit-security-module) smart contract.
 - 1-core CPU
 - 2GB RAM
 
+With top-ups enabled the bot fetches and decodes the full beacon state (SSZ) to build validator proofs, which needs
+noticeably more RAM and network bandwidth than the figures above — size the host against the current validator set.
+
 ### Nodes
 
 - Ethereum EL RPC service
 - Onchain databus transport RPC service (Gnosis at the moment)
+
+Required only when top-ups are enabled (`ENABLE_TOP_UP=true`):
+
+- Ethereum CL RPC service with the debug API available (`/eth/v2/debug/beacon/states`)
+- [Lido Keys API](/guides/tooling/#keys-api) instance
 
 ## How to use
 
@@ -53,7 +70,12 @@ Required variables are(mainnet):
 | CREATE_TRANSACTIONS               | false                                      | If true then tx will be send to blockchain                                                                               |
 | LIDO_LOCATOR                      | 0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb | Lido Locator address. Mainnet by default. Other networks can be found [here](/deployed-contracts/) |
 | DEPOSIT_CONTRACT                  | 0x00000000219ab540356cBB839Cbe05303d7705Fa | Ethereum deposit contract address                                                                                        |
-| DEPOSIT_MODULES_WHITELIST         | 1                                          | List of staking module's ids in which the depositor bot will make deposits                                               |
+| DEPOSIT_MODULES_WHITELIST         | -                                          | Comma separated list of staking module's ids in which the depositor bot will make deposits and top-ups                    |
+| ---                               | ---	                                       | ---                                                                                                                      |
+| ENABLE_TOP_UP                     | false                                      | Enables top-ups of `0x02` modules. Keep disabled until Node Operators submit consolidation requests                       |
+| CL_API_URLS                       | -                                          | Comma separated list of CL endpoints. Required when `ENABLE_TOP_UP=true`                                                  |
+| KEYS_API_URL                      | -                                          | [Keys API](/guides/tooling/#keys-api) URL. Required when `ENABLE_TOP_UP=true`                                             |
+| MAX_VALIDATORS_PER_TOP_UP         | 32                                         | Maximum number of validators per top-up transaction (also capped onchain by the `TopUpGateway`)                           |
 | ---                               | ---	                                       | ---                                                                                                                      |
 | MESSAGE_TRANSPORTS                | -                                          | Transports used in bot. Set: onchain_transport                                                                           |
 | ONCHAIN_TRANSPORT_RPC_ENDPOINTS   | -                                          | List of databus(Gnosis) rpc endpoints that will be used for reading data bus contract, comma separated (`,`).            |
@@ -83,13 +105,15 @@ Optional variables can be found [here](https://github.com/lidofinance/depositor-
     ```
 3. Run depositor bot
     ```bash
-    poetry run python src/depositor.py
+    poetry run python src/main.py depositor
     ```
 4. Verify in logs that depositor bot is performing validations, you should see logs of a kind:
     ```
-    {"name": "bots.depositor", "levelname": "INFO", "funcName": "execute", "lineno": 121, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Do deposit to module with id: 1."}
-    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 210, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Checks failed. Skip deposit."}
-    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 194, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1729511569, "msg": "Calculations deposit recommendations.", "value": false, "is_mellow": false}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "execute", "lineno": 210, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1753350000, "msg": "Depositor iteration start.", "block_number": 23000000}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_execute_actual", "lineno": 245, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1753350000, "msg": "Depositable ether.", "value": 3200000000000000000000}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_execute_actual", "lineno": 303, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1753350000, "msg": "Phase B start: full deposits to 0x01 + top-up to 0x02."}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "_deposit_to_module", "lineno": 490, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1753350000, "msg": "Gas price too high — skip deposit.", "module_id": 1}
+    {"name": "bots.depositor", "levelname": "INFO", "funcName": "execute", "lineno": 215, "module": "depositor", "pathname": "/app/src/bots/depositor.py", "timestamp": 1753350000, "msg": "Depositor iteration finished.", "value": true}
     ```
 
 If you are facing problems, check what environment variables depositor bot is using, find a log
@@ -101,5 +125,6 @@ Docker image can be found [here](/guides/tooling/#depositor-bot).
 
 ## Monitoring
 
-Prometheus metrics will be available on endpoint `http://localhost:${PROMETHEUS_PORT}/metrics`.
-Alerts [source code](https://github.com/lidofinance/depositor-bot?tab=readme-ov-file#alerts) for AlertManager.
+Prometheus metrics will be available on endpoint `http://localhost:${PROMETHEUS_PORT}/metrics`. The metrics list is
+defined in [src/metrics/metrics.py](https://github.com/lidofinance/depositor-bot/blob/main/src/metrics/metrics.py).
+Alerts [source code](https://github.com/lidofinance/depositor-bot/blob/main/alerts/alerts.yml) for AlertManager.

@@ -44,11 +44,11 @@ The Lido Council Daemon monitors deposit contract keys.
 
 Bot that submits deposit transactions to the Lido protocol once the Deposit Security Committee quorum is reached.
 
-- **Version**: 5.5.1
-- **Docker image**: sha256:bbacf8afbbb2be8b14efcfa0d03b4e8b01a0abe4ba87793d1684eeff5b4eb1a8, [lidofinance/depositor-bot@sha256-bbacf8afbbb2be8b14efcfa0d03b4e8b01a0abe4ba87793d1684eeff5b4eb1a8](https://hub.docker.com/layers/lidofinance/depositor-bot/5.5.1/images/sha256-bbacf8afbbb2be8b14efcfa0d03b4e8b01a0abe4ba87793d1684eeff5b4eb1a8)
-- **Commit hash**: [lidofinance/depositor-bot@89fbbf8](https://github.com/lidofinance/depositor-bot/commit/89fbbf8deae2b93841f5b657b8865ff3d0c762d5)
-- **Last update date**: 21 April, 2026
-- [**Repository**](https://github.com/lidofinance/depositor-bot/tree/5.5.1)
+- **Version**: 5.6.0
+- **Docker image**: sha256:a8fc015713cf4680bf2d2692de7a295ac99d00d29bb154860c285a44e63e0c32, [lidofinance/depositor-bot@sha256-a8fc015713cf4680bf2d2692de7a295ac99d00d29bb154860c285a44e63e0c32](https://hub.docker.com/layers/lidofinance/depositor-bot/5.6.0/images/sha256-a8fc015713cf4680bf2d2692de7a295ac99d00d29bb154860c285a44e63e0c32)
+- **Commit hash**: [lidofinance/depositor-bot@ccb788e](https://github.com/lidofinance/depositor-bot/commit/ccb788e041cf7a95ff5f9a1894bb67fd5393124c)
+- **Last update date**: 24 July, 2026
+- [**Repository**](https://github.com/lidofinance/depositor-bot/tree/5.6.0)
 - [**Documentation**](/guides/depositor-bot)
 
 ## Reward Distribution Bot
