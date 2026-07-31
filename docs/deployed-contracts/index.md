@@ -291,6 +291,11 @@ for the rate and price feeds recommended approaches.
   - Chainlink wstETH/stETH exchange rate on zkSync: [`0x24a0C9404101A8d7497676BE12F10aEa356bAC28`](https://explorer.zksync.io/address/0x24a0C9404101A8d7497676BE12F10aEa356bAC28) (proxy)
   - Chainlink wstETH/stETH exchange rate on Linea: [`0x3C8A95F2264bB3b52156c766b738357008d87cB7`](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7) (proxy)
   - Chainlink wstETH/stETH exchange rate on BNB: [`0x4c75d01cfa4D998770b399246400a6dc40FB9645`](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645) (proxy)
+- Multichain PriceOracle wrappers (immutable adapters over the Chainlink feeds above; used e.g. by CCIP Direct Staking)
+  - PriceOracle on Arbitrum: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://arbiscan.io/address/0x328de900860816d29D1367F6903a24D8ed40C997)
+  - PriceOracle on Optimism: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://optimistic.etherscan.io/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367)
+  - PriceOracle on Base: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://basescan.org/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367)
+  - PriceOracle on Linea: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://lineascan.build/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367)
 
 ## 🎁 Reward Programs {#reward-programs}
 
