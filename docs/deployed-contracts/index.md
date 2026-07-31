@@ -528,12 +528,13 @@ for the rate and price feeds recommended approaches.
 
 ### 🧱 Ethereum (common) {#ethereum-common}
 
-Ethereum contracts common for all chains.
+Ethereum mainnet contracts shared across all chains.
 
 #### CCIP Direct Staking {#ethereum-common-ccip-ds}
 
 Chainlink's [CCIP Direct Staking](https://docs.chain.link/quickstarts/ccip-direct-staking) related contracts.
 
+Note: Some addresses in the CCIP Direct Staking lists repeat across different networks; the linked explorer domain indicates the chain.
 - LidoCustomReceiver: [`0x6F357d53d6bE3238180316BA5F8f11467e164588`](https://etherscan.io/address/0x6F357d53d6bE3238180316BA5F8f11467e164588) (proxy)
 - LidoCustomReceiver: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://etherscan.io/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367) (impl)
 - ProxyAdmin for LidoCustomReceiver: [`0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD`](https://etherscan.io/address/0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD)
