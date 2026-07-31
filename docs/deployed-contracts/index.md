@@ -526,12 +526,26 @@ for the rate and price feeds recommended approaches.
 
 ## 🌐 Lido Multichain {#lido-multichain}
 
+### 🧱 Ethereum (common) {#ethereum-common}
+
+Ethereum contracts common for all chains.
+
+##### CCIP Direct Staking {#ethereum-common-ccip-ds}
+
+Chainklink's [CCIP Direct Staking](https://docs.chain.link/quickstarts/ccip-direct-staking) related contracts.
+
+- LidoCustomReceiver: [`0x6F357d53d6bE3238180316BA5F8f11467e164588`](https://etherscan.io/address/0x6F357d53d6bE3238180316BA5F8f11467e164588) (proxy)
+- LidoCustomReceiver: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://etherscan.io/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367) (impl)
+- ProxyAdmin for LidoCustomReceiver: [`0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD`](https://etherscan.io/address/0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD)
+
 ### 🌀 Arbitrum {#arbitrum}
 
 ##### 🧱 Ethereum part {#ethereum-part-arbitrum}
 
 - L1ERC20TokenGateway: [`0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a`](https://etherscan.io/address/0x0F25c1DC2a9922304f2eac71DCa9B07E310e8E5a) (proxy)
 - L1ERC20TokenGateway: [`0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C`](https://etherscan.io/address/0xc4E3ff0b5B106f88Fc64c43031BE8b076ee9F21C) (impl)
+- CCIP Direct Staking:
+  - ArbitrumLegacyAdapterL1toL2: [`0xBf96561e4519182CFA4cebBf95494D9CA5a316f9`](https://etherscan.io/address/0xBf96561e4519182CFA4cebBf95494D9CA5a316f9)
 
 ##### 🌀 Arbitrum part {#arbitrum-part}
 
@@ -540,6 +554,13 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenGateway: [`0x07D4692291B9E30E326fd31706f686f83f331B82`](https://arbiscan.io/address/0x07D4692291B9E30E326fd31706f686f83f331B82) (proxy)
 - L2ERC20TokenGateway: [`0xe75886DE20dF66827e321EfdB88726e6Baa4b0A7`](https://arbiscan.io/address/0xe75886DE20dF66827e321EfdB88726e6Baa4b0A7) (impl)
 - Arbitrum Governance Bridge Executor: [`0x1dcA41859Cd23b526CBe74dA8F48aC96e14B1A29`](https://arbiscan.io/address/0x1dca41859cd23b526cbe74da8f48ac96e14b1a29)
+- CCIP Direct Staking:
+  - CustomSenderReferral: [`0x72229141D4B016682d3618ECe47c046f30Da4AD1`](https://arbiscan.io/address/0x72229141D4B016682d3618ECe47c046f30Da4AD1) (proxy)
+  - CustomSenderReferral: [`0x220F64A4793Bc8aca7330ceCc4ae4e2F3B5Bc664`](https://arbiscan.io/address/0x220F64A4793Bc8aca7330ceCc4ae4e2F3B5Bc664) (impl)
+  - ProxyAdmin for CustomSenderReferral: [`0x5B42aEbFe95247f1d22e282831e2A513bF050217`](https://arbiscan.io/address/0x5B42aEbFe95247f1d22e282831e2A513bF050217)
+  - PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://arbiscan.io/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+  - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://arbiscan.io/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+  - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://arbiscan.io/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
 ### 🌞 Optimism {#optimism}
 
@@ -549,6 +570,8 @@ for the rate and price feeds recommended approaches.
 - OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
 - L1LidoTokensBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
+- CCIP Direct Staking:
+  - OptimismLegacyAdapterL1toL2: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://etherscan.io/address/0x328de900860816d29D1367F6903a24D8ed40C997)
 
 #### 🌞 Optimism part {#optimism-part}
 
@@ -561,6 +584,13 @@ for the rate and price feeds recommended approaches.
 - L2ERC20ExtendedTokensBridge: [`0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957`](https://optimistic.etherscan.io/address/0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957) (proxy)
 - L2ERC20ExtendedTokensBridge: [`0x2734602C0CEbbA68662552CacD5553370B283E2E`](https://optimistic.etherscan.io/address/0x2734602C0CEbbA68662552CacD5553370B283E2E) (impl)
 - Optimism Governance Bridge Executor: [`0xefa0db536d2c8089685630fafe88cf7805966fc3`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
+- CCIP Direct Staking:
+  - CustomSenderReferral: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://optimistic.etherscan.io/address/0x328de900860816d29D1367F6903a24D8ed40C997) (proxy)
+  - CustomSenderReferral: [`0x65498495DdC07c52E12EEe3c44D3a1166eed8703`](https://optimistic.etherscan.io/address/0x65498495DdC07c52E12EEe3c44D3a1166eed8703) (impl)
+  - ProxyAdmin for CustomSenderReferral: [`0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192`](https://optimistic.etherscan.io/address/0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192)
+  - PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://optimistic.etherscan.io/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+  - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://optimistic.etherscan.io/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+  - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://optimistic.etherscan.io/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
 ### 🟦 Base {#base}
 
@@ -568,6 +598,8 @@ for the rate and price feeds recommended approaches.
 
 - L1ERC20TokenBridge: [`0x9de443AdC5A411E83F1878Ef24C3F52C61571e72`](https://etherscan.io/address/0x9de443AdC5A411E83F1878Ef24C3F52C61571e72) (proxy)
 - L1ERC20TokenBridge: [`0x313819736457910ac1dd21a712a37f3d7595645a`](https://etherscan.io/address/0x313819736457910ac1dd21a712a37f3d7595645a) (impl)
+- CCIP Direct Staking:
+  - BaseLegacyAdapterL1toL2: [`0x9c27c304cFdf0D9177002ff186A4aE0A5489Aace`](https://etherscan.io/address/0x9c27c304cFdf0D9177002ff186A4aE0A5489Aace)
 
 #### 🟦 Base part {#base-part}
 
@@ -576,6 +608,13 @@ for the rate and price feeds recommended approaches.
 - L2ERC20TokenBridge: [`0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB`](https://basescan.org/address/0xac9D11cD4D7eF6e54F14643a393F68Ca014287AB) (proxy)
 - L2ERC20TokenBridge: [`0x7063ef4f2887586e96096d3e94c9b6961c50a9a2`](https://basescan.org/address/0x7063ef4f2887586e96096d3e94c9b6961c50a9a2) (impl)
 - Base Governance Bridge Executor (`OptimismBridgeExecutor` contract is used): [`0x0E37599436974a25dDeEdF795C848d30Af46eaCF`](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF)
+- CCIP Direct Staking:
+  - CustomSenderReferral: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://basescan.org/address/0x328de900860816d29D1367F6903a24D8ed40C997) (proxy)
+  - CustomSenderReferral: [`0x65498495DdC07c52E12EEe3c44D3a1166eed8703`](https://basescan.org/address/0x65498495DdC07c52E12EEe3c44D3a1166eed8703) (impl)
+  - ProxyAdmin for CustomSenderReferral: [`0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192`](https://basescan.org/address/0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192)
+  - PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://basescan.org/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+  - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://basescan.org/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+  - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://basescan.org/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
 ### 📏 Linea {#linea}
 
@@ -584,6 +623,8 @@ for the rate and price feeds recommended approaches.
 - L1 TokenBridge (Canonical Bridge): [`0x051f1d88f0af5763fb888ec4378b4d8b29ea3319`](https://etherscan.io/address/0x051f1d88f0af5763fb888ec4378b4d8b29ea3319) (proxy)
 - L1 TokenBridge (Canonical Bridge): [`0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34`](https://etherscan.io/address/0x2B6A2F8880220a66DfB9059FCB76F7dB54104a34) (impl)
 - ProxyAdmin for L1 TokenBridge: [`0xF5058616517C068C7b8c7EbC69FF636Ade9066d6`](https://etherscan.io/address/0xF5058616517C068C7b8c7EbC69FF636Ade9066d6)
+- CCIP Direct Staking:
+  - LineaAdapterL1toL2: [`0x122beD1eB48DC4679DDF2C8fc159e9c498344397`](https://etherscan.io/address/0x122beD1eB48DC4679DDF2C8fc159e9c498344397)
 
 #### 📏 Linea part {#linea-part}
 
@@ -594,6 +635,13 @@ for the rate and price feeds recommended approaches.
 - L2 TokenBridge (Canonical Bridge): [`0xd90ed3d4f9d11262d3d346a4369058d5b3777137`](https://lineascan.build/address/0xd90ed3d4f9d11262d3d346a4369058d5b3777137) (impl)
 - ProxyAdmin for L2 TokenBridge: [`0x1e1f6f22f97b4a7522d8b62e983953639239774e`](https://lineascan.build/address/0x1e1f6f22f97b4a7522d8b62e983953639239774e)
 - Linea Governance Bridge Executor: [`0x74Be82F00CC867614803ffd7f36A2a4aF0405670`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
+- CCIP Direct Staking:
+  - CustomSenderReferral: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://lineascan.build/address/0x328de900860816d29D1367F6903a24D8ed40C997) (proxy)
+  - CustomSenderReferral: [`0xBf96561e4519182CFA4cebBf95494D9CA5a316f9`](https://lineascan.build/address/0xBf96561e4519182CFA4cebBf95494D9CA5a316f9) (impl)
+  - ProxyAdmin for CustomSenderReferral: [`0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192`](https://lineascan.build/address/0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192)
+  - PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://lineascan.build/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+  - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://lineascan.build/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+  - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://lineascan.build/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
 ### 🟡 Binance Smart Chain (BSC) {#binance-smart-chain-bsc}
 
