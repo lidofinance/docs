@@ -63,7 +63,7 @@ Carry Spread shows whether the vault economics are improving or deteriorating ov
     - Expected yearly return is not sufficient to cover fees and Liability growth.
     - Over time this tends to **erode** the Health factor and push it closer to 100%.
 
-If the Carry Spread turns negative or the Health factor trends down toward 100%, you should treat this as an early warning and consider taking actions to improve the vault’s economics.
+If the Carry Spread turns negative or the Health factor trends down toward 100%, you should treat this as an early warning and consider taking actions to improve the vault’s economics — repaying stETH, supplying more ETH, or [rebalancing](./rebalance-guide.md).
 
 If the Health Factor of the vault drops below 100%, please refer to the [stVaults Health Emergency Guide](./health-emergency-guide.md).
 
