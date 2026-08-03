@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
+unlisted: true
+
 ---
 
-# Product-based guide selector
+# Building guides
 
 ## by Basic stVaults
 
@@ -95,4 +97,4 @@ sidebar_position: 2
 | DeFi Strategy | Connector to custom strategy | Custom |
 | User Interface | DeFi Wrapper Embeddable Widget / Custom | Out-of-the-box / Custom |
 
-### Private or Public leveraged staking product powered by 3rd party infrastructure
+### // Private or Public leveraged staking product powered by 3rd party infrastructure
