@@ -11,17 +11,9 @@ Every Basic stVault is controlled through a [`Dashboard`](/contracts/dashboard) 
 
 Each admin holds every permission within its own scope and can delegate individual sub-roles to other addresses. Neither admin can grant roles belonging to the other side.
 
-:::info
-`Dashboard` is technically optional — advanced users can interact with `StakingVault` and `VaultHub` directly. Everything on this page describes the default setup, where `Dashboard` is the control surface for the vault.
-:::
+## Vault contract
 
-## Vault contract role
-
-**Node Operator** provides the validation service for the vault: it deposits ETH from the vault balance to validators and exits validators when necessary.
-
-:::warning
-The Node Operator address is set once, when the vault is created, and **can never be changed**. There is no setter on `StakingVault`.
-:::
+**Node Operator** provides the validation service for the vault: it deposits ETH from the vault balance to validators and exits validators when necessary. The Node Operator address is set once, when the vault is created, and **can never be changed**.
 
 :::info
 The Node Operator address is registered in the [Operator Grid](/contracts/operator-grid) contract as the primary identifier of the Node Operator. Tiers with defined **Reserve Ratios** and **stETH minting limits** are assigned to this address according to the obtained Category.
@@ -29,24 +21,22 @@ The Node Operator address is registered in the [Operator Grid](/contracts/operat
 This address is also used to perform key operations in stVaults from the Node Operator's perspective and must be set up as a **multisig** for security reasons.
 :::
 
-### Node Operator's non-delegable permissions
+### Permissions checked by the vault contract
 
-These are checked against the Node Operator address on `StakingVault` itself, not through `Dashboard` roles, and cannot be delegated.
+These are checked on `StakingVault` itself, not through `Dashboard` roles.
 
-| Operation                                                                                       |
-| ----------------------------------------------------------------------------------------------- |
-| Deposit ETH from the Staking Vault to validators using the Predeposit Guarantee contract.       |
-| Eject validators (`ejectValidators`) — forcefully withdraw validators via EIP-7002.              |
+| Permission                     | Operation                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| Node Operator — non-delegable  | Eject validators: forcefully withdraw validators via EIP-7002 (`ejectValidators`).                                |
+| The vault's depositor          | Deposit ETH from the vault balance to validators (`depositToBeaconChain`). In the default setup the depositor is the [`PredepositGuarantee`](#predeposit-guarantee-contract) contract, so the Node Operator triggers deposits through PDG rather than calling the vault directly. |
 
-## Dashboard contract roles and permissions
+## Dashboard contract
 
 1. **Vault Owner** [`DEFAULT_ADMIN_ROLE`] is one of the two admin roles for the stVault. It allows managing permissions and changing key vault parameters from the Vault Owner (Staker) perspective. Multiple addresses are supported.
 
 2. **Node Operator Manager** [`NODE_OPERATOR_MANAGER_ROLE`] is the other admin role for the stVault. It allows managing permissions and changing key vault parameters from the Node Operator perspective. Multiple addresses are supported.
 
-:::info
-**Holding an admin role is enough to perform any operation in its scope.** Almost all vault operations are guarded by a check for _"caller holds the sub-role **or** the admin of that sub-role"_. So the Vault Owner does not need to grant itself `FUND_ROLE` in order to fund the vault — granting a sub-role only matters when you want a **different** address to be able to perform the operation.
-:::
+**Vault Owner** and **Node Operator Manager** addresses have permissions for all actions within their respective scopes in stVaults. They can also delegate specific permissions (sub-roles) to other addresses.
 
 ### Permissionless operations
 
@@ -71,16 +61,12 @@ These operations are available only to addresses holding `DEFAULT_ADMIN_ROLE` �
 
 These are proposed by one admin and executed once the other admin confirms the exact same call within the confirmation expiry window.
 
-| Operation                                        | Description                                                                                                                     |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `setFeeRate`                                     | Change the Node Operator fee rate.                                                                                              |
-| `correctSettledGrowth`                           | Correct the settled growth baseline: marks value as already accounted for, so it is not charged as Node Operator fee again.       |
-| `setConfirmExpiry`                               | Change how long a pending confirmation stays valid.                                                                             |
-| `transferVaultOwnership`                         | Transfer the `StakingVault` ownership to a new owner without disconnecting from VaultHub.                                        |
-
-:::warning
-After `transferVaultOwnership` the Node Operator fee accrual is effectively disabled. To re-enable it, both parties must agree on a new `settledGrowth` via `correctSettledGrowth()`.
-:::
+| Permission                                                | Operation                                                                                                                        |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `DEFAULT_ADMIN_ROLE` + `NODE_OPERATOR_MANAGER_ROLE`       | Change the Node Operator fee rate (`setFeeRate`).                                                                                |
+|                                                           | Correct the settled growth baseline (`correctSettledGrowth`): marks value as already accounted for, so it is not charged as Node Operator fee again. |
+|                                                           | Change how long a pending confirmation stays valid (`setConfirmExpiry`).                                                         |
+|                                                           | Transfer the `StakingVault` ownership to a new owner without disconnecting from VaultHub (`transferVaultOwnership`).              |
 
 ### Vault Owner's delegatable permissions (sub-roles)
 
@@ -130,7 +116,7 @@ By default, if no sub-role holder is set, the Node Operator Manager can perform 
 | `NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE` | Prove unknown validators through PDG. Requires the `ALLOW_PROVE` or `ALLOW_DEPOSIT_AND_PROVE` PDG policy.                                          |
 | `NODE_OPERATOR_FEE_EXEMPT_ROLE`              | Add a fee exemption to exclude a value from the Node Operator fee base. The exemption works by increasing the settled growth, effectively treating the exempted amount as if fees were already paid on it. |
 
-## Predeposit Guarantee contract roles and permissions
+## Predeposit Guarantee contract
 
 [`PredepositGuarantee`](/contracts/predeposit-guarantee) has its own permission model, independent of `Dashboard` roles.
 
@@ -145,10 +131,10 @@ By default, if no sub-role holder is set, the Node Operator Manager can perform 
 
 | Role          | Operation                                                                                 |
 | ------------- | ------------------------------------------------------------------------------------------- |
-| Node Operator | Set the Node Operator's guarantor. Set the Node Operator's depositor.                      |
+| Node Operator | Set the Node Operator's guarantor (`setNodeOperatorGuarantor`). Set the Node Operator's depositor (`setNodeOperatorDepositor`). |
 | Vault Owner   | Prove an unknown validator.                                                                |
 | Guarantor     | Top up the Node Operator's guarantor bond. Withdraw the guarantor bond. Claim a bond refund. |
-| Depositor     | Pre-deposit validators to the Beacon Chain. Deposit validators to the Beacon Chain.        |
+| Depositor     | Pre-deposit validators to the Beacon Chain (`predeposit`). Deposit validators to the Beacon Chain (`topUpExistingValidators`, `proveWCActivateAndTopUpValidators`). |
 
 ## How to change roles and permissions
 
@@ -163,34 +149,7 @@ By default, if no sub-role holder is set, the Node Operator Manager can perform 
 
 Role changes take effect immediately — they need no confirmation from the other admin.
 
-:::danger
-**Role renouncement is disabled.** `renounceRole()` always reverts, to prevent an address from accidentally locking itself out. A role can only be removed by its admin.
-
-This also means: if you revoke the last `DEFAULT_ADMIN_ROLE` holder, **the vault becomes permanently unmanageable from the Vault Owner side**. The same applies to `NODE_OPERATOR_MANAGER_ROLE`. Always keep at least one working admin address, and prefer a multisig.
-:::
-
-### On-chain methods
-
-`Dashboard` exposes both the standard `AccessControl` methods and batched helpers:
-
-| Method                                    | Description                                                            |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| `grantRole(bytes32 role, address account)`   | Grant a single role.                                                   |
-| `revokeRole(bytes32 role, address account)`  | Revoke a single role.                                                  |
-| `grantRoles(RoleAssignment[] assignments)`   | Grant several roles to several accounts in one transaction.            |
-| `revokeRoles(RoleAssignment[] assignments)`  | Revoke several roles from several accounts in one transaction.         |
-| `renounceRole(bytes32, address)`             | **Disabled** — always reverts.                                         |
-
-Each `RoleAssignment` is a `{account, role}` pair. Granting a role an account already holds (or revoking one it does not hold) does not revert and emits no event.
-
-To inspect the current state:
-
-| Method                              | Description                                     |
-| ----------------------------------- | ------------------------------------------------- |
-| `hasRole(role, account)`            | Whether an account holds a role.                 |
-| `getRoleMembers(role)`              | All addresses holding a role.                    |
-| `getRoleMemberCount(role)`          | Number of addresses holding a role.              |
-| `getRoleAdmin(role)`                | Which role is allowed to grant/revoke this role. |
+Role changes are made with `grantRole` / `revokeRole` and their batched variants `grantRoles` / `revokeRoles`; current holders can be read with `hasRole` and `getRoleMembers`. See the [Dashboard contract reference](/contracts/dashboard) for full signatures.
 
 ### Granting a role
 
@@ -223,10 +182,11 @@ For detailed CLI options, see the [vault operations documentation](https://lidof
   <summary>using stVaults Web UI</summary>
 
 1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/settings/permissions`.
-2. Pick the section matching the role's scope — the Vault Owner permissions section, or the "Node Operator Manager Permissions" section.
-3. Find the item for the permission you want to delegate and add the address.
+2. Pick the section matching the role's scope — **Vault Manager Permissions** (editable by `DEFAULT_ADMIN_ROLE`) or **Node Operator Manager Permissions** (editable by `NODE_OPERATOR_MANAGER_ROLE`). A section you are not allowed to edit is shown read-only.
+3. Find the item for the permission you want to delegate and add the address. It is highlighted as a pending addition until you submit.
+4. Submit the form to send the transaction.
 
-You must be connected with an address holding the corresponding admin role.
+The page is a single form: every pending addition across all permission items is applied together in one `grantRoles` transaction.
 
 </details>
 
@@ -235,16 +195,37 @@ You must be connected with an address holding the corresponding admin role.
 <details>
   <summary>using Command-line Interface</summary>
 
+First, discover the role hashes:
+
+```bash
+yarn start vo r roles
+```
+
+Then revoke the role:
+
 ```bash
 yarn start vo w role-revoke --roleAssignments '[{"account": "<address>", "role": "<role_hash_in_hex>"}]'
 ```
+
+You can pass several assignments in the same array to revoke them in one transaction. Interactive mode is also available:
+
+```bash
+yarn start vo w role-revoke
+```
+
+For detailed CLI options, see the [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-revoke).
 
 </details>
 
 <details>
   <summary>using stVaults Web UI</summary>
 
-On the same `settings/permissions` page, remove the address from the corresponding permission item.
+1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/settings/permissions`.
+2. Pick the section matching the role's scope — **Vault Manager Permissions** or **Node Operator Manager Permissions**.
+3. Click the address you want to remove in the corresponding permission item — it gets marked for revocation. Click it again to undo.
+4. Submit the form to send the transaction.
+
+All addresses marked for revocation are removed together in one `revokeRoles` transaction. If you stage grants and revocations in the same submission, they are sent as two separate transactions.
 
 </details>
 
@@ -254,10 +235,3 @@ On the same `settings/permissions` page, remove the address from the correspondi
 - Grant sub-roles only to addresses that must act **on their own**, e.g. an automation bot that tops up the vault (`FUND_ROLE`) or a monitoring service that can trigger a rebalance (`REBALANCE_ROLE`). The admin already covers all of these.
 - Review role members after every operational change — `getRoleMembers` on `Dashboard`, or the permissions page in the Web UI.
 - Before revoking, confirm that at least one other address holds the role (`getRoleMemberCount`).
-
-## Related
-
-- [Dashboard contract reference](/contracts/dashboard)
-- [StakingVault contract reference](/contracts/staking-vault)
-- [OperatorGrid contract reference](/contracts/operator-grid)
-- [PredepositGuarantee contract reference](/contracts/predeposit-guarantee)
