@@ -669,11 +669,6 @@ Balancer
 - [wstETH/WETH](https://balancer.fi/pools/arbitrum/v2/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c000000000000000000000159) on Arbitrum: [`0xFB5e6d0c1DfeD2BA000fBC040Ab8DF3615AC329c`](https://arbiscan.io/address/0xfb5e6d0c1dfed2ba000fbc040ab8df3615ac329c)
 - [wstETH/USDC](https://balancer.fi/pools/arbitrum/v2/0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158) on Arbitrum: [`0x178E029173417b1F9C8bC16DCeC6f697bC323746`](https://arbiscan.io/address/0x178e029173417b1f9c8bc16dcec6f697bc323746)
 
-Beethoven
-
-- wstETH/bb-rf-aWETH on Optimism: [`0xde45f101250f2ca1c0f8adfc172576d10c12072d`](https://optimistic.etherscan.io/address/0xde45f101250f2ca1c0f8adfc172576d10c12072d)
-- wstETH/bb-rf-aUSD/bb-rf-aWBTC on Optimism: [`0x981Fb05B738e981aC532a99e77170ECb4Bc27AEF`](https://optimistic.etherscan.io/address/0x981fb05b738e981ac532a99e77170ecb4bc27aef)
-
 Kyber Network
 
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/ETH/40) on Arbitrum: [`0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a`](https://arbiscan.io/address/0x2149a5f5d7ca96eb98a2ee6e5b0ba1a5593a1a0a)
