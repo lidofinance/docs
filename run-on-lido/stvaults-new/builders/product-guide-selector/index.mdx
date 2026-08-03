@@ -1,0 +1,267 @@
+---
+sidebar_position: 2
+---
+
+---
+title: Choose the right stVaults setup
+---
+
+import React, { useState } from 'react';
+
+export const GUIDES = {
+  basic: {
+    title: 'Basic isolated staking setup',
+    link: './basic-stvaults/basic-isolated-staking-setup',
+    description:
+      'A single-staker, isolated stVault with on-demand stETH minting — the simplest out-of-the-box setup.',
+    buildingBlocks: [
+      { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
+      { block: 'User Interface', solution: 'stVault Web UI', implementation: 'Out-of-the-box' },
+    ],
+  },
+  massRedemptions: {
+    title: 'Mass staking product with utilizing stETH to fulfil redemptions',
+    link: './basic-stvaults/etf-etp-product',
+    description:
+      'A multi-staker staking product where minted stETH is used specifically to cover redemptions (ETF/ETP-like pattern).',
+    buildingBlocks: [
+      { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
+      { block: 'Pooling Wrapper', solution: 'Custom', implementation: 'Custom' },
+      { block: 'User Interface', solution: 'Custom', implementation: 'Custom' },
+    ],
+  },
+  withoutYield: {
+    title: 'Private or Public staking vault without additional yield strategy',
+    link: './stvaults-defi-wrapper/without-yield-strategy',
+    description:
+      'A staking vault (single or multiple stakers) with no stETH minting and no additional DeFi yield strategy.',
+    buildingBlocks: [
+      { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
+      { block: 'Pooling Wrapper', solution: 'stVaults DeFi Wrapper', implementation: 'Out-of-the-box' },
+      { block: 'User Interface', solution: 'DeFi Wrapper Embeddable Widget / Custom', implementation: 'Out-of-the-box / Custom' },
+    ],
+  },
+  earnEth: {
+    title: 'Private or Public staking vault with EarnETH',
+    link: './stvaults-defi-wrapper/with-earneth',
+    description:
+      'A staking vault (single or multiple stakers) using minted stETH in Lido EarnETH to boost APY.',
+    buildingBlocks: [
+      { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
+      { block: 'Pooling Wrapper', solution: 'stVaults DeFi Wrapper', implementation: 'Out-of-the-box' },
+      { block: 'DeFi Strategy', solution: 'Connector to EarnETH', implementation: 'Out-of-the-box' },
+      { block: 'User Interface', solution: 'DeFi Wrapper Embeddable Widget / Custom', implementation: 'Out-of-the-box / Custom' },
+    ],
+  },
+  custom: {
+    title: 'Private or Public staking vault with Custom strategy',
+    link: './stvaults-defi-wrapper/with-custom-strategy',
+    description:
+      'A staking vault (single or multiple stakers) connected to a custom DeFi strategy, including leveraged staking setups.',
+    buildingBlocks: [
+      { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
+      { block: 'Pooling Wrapper', solution: 'stVaults DeFi Wrapper', implementation: 'Out-of-the-box' },
+      { block: 'DeFi Strategy', solution: 'Connector to custom strategy', implementation: 'Custom' },
+      { block: 'User Interface', solution: 'DeFi Wrapper Embeddable Widget / Custom', implementation: 'Out-of-the-box / Custom' },
+    ],
+  },
+};
+
+export const CONTACT_FORM_URL = 'https://share-eu1.hsforms.com/1IoKy_Y7cRbSqBIP2PB1ucg2dywmt';
+
+export function resolveGuideKey(stakers, minting, strategy) {
+  if (!stakers || !minting) return null;
+
+  if (stakers === 'isolated') {
+    if (minting === 'no' || minting === 'ondemand') return 'basic';
+    if (minting === 'boost') {
+      if (!strategy) return null;
+      if (strategy === 'earnEth') return 'earnEth';
+      return 'custom';
+    }
+  }
+
+  if (stakers === 'multiple') {
+    if (minting === 'no') return 'withoutYield';
+    if (minting === 'ondemand') return 'contact';
+    if (minting === 'redemptions') return 'massRedemptions';
+    if (minting === 'boost') {
+      if (!strategy) return null;
+      if (strategy === 'earnEth') return 'earnEth';
+      return 'custom';
+    }
+  }
+
+  return null;
+}
+
+export const RadioGroup = ({ label, name, value, onChange, options }) => (
+  <div style={{ marginBottom: '1.25rem' }}>
+    <p style={{ fontWeight: 600, marginBottom: '0.5rem' }}>{label}</p>
+    {options.map((opt) => (
+      <label key={opt.value} style={{ display: 'block', marginBottom: '0.25rem' }}>
+        <input
+          type="radio"
+          name={name}
+          value={opt.value}
+          checked={value === opt.value}
+          onChange={() => onChange(opt.value)}
+        />{' '}
+        {opt.label}
+      </label>
+    ))}
+  </div>
+);
+
+export const ProductGuideSelector = () => {
+  const [stakers, setStakers] = useState(null);
+  const [minting, setMinting] = useState(null);
+  const [strategy, setStrategy] = useState(null);
+
+  const handleStakers = (val) => {
+    setStakers(val);
+    setMinting(null);
+    setStrategy(null);
+  };
+  const handleMinting = (val) => {
+    setMinting(val);
+    setStrategy(null);
+  };
+
+  const mintingOptions =
+    stakers === 'multiple'
+      ? [
+          { value: 'no', label: "No, we don't need stETH" },
+          { value: 'ondemand', label: 'Yes, minting on demand (general liquidity)' },
+          { value: 'redemptions', label: 'Yes, to cover redemptions' },
+          { value: 'boost', label: 'Yes, to boost APY by utilizing stETH in DeFi' },
+        ]
+      : [
+          { value: 'no', label: "No, we don't need stETH" },
+          { value: 'ondemand', label: 'Yes, minting on demand' },
+          { value: 'boost', label: 'Yes, to boost APY by utilizing stETH in DeFi' },
+        ];
+
+  const guideKey = resolveGuideKey(stakers, minting, strategy);
+  const guide = guideKey && guideKey !== 'contact' ? GUIDES[guideKey] : null;
+  const isContact = guideKey === 'contact';
+
+  return (
+    <div style={{ border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: 8, padding: '1.5rem', margin: '1.5rem 0' }}>
+      <RadioGroup
+        label="1. How many stakers will use this product?"
+        name="stakers"
+        value={stakers}
+        onChange={handleStakers}
+        options={[
+          { value: 'isolated', label: 'Isolated (1 staker)' },
+          { value: 'multiple', label: 'Multiple stakers' },
+        ]}
+      />
+
+      <RadioGroup
+        label="2. Do you need stETH minting?"
+        name="minting"
+        value={minting}
+        onChange={handleMinting}
+        options={mintingOptions}
+      />
+
+      {minting === 'boost' && (
+        <RadioGroup
+          label="3. Which DeFi strategy?"
+          name="strategy"
+          value={strategy}
+          onChange={setStrategy}
+          options={[
+            { value: 'earnEth', label: 'Lido EarnETH' },
+            { value: 'leveraged', label: 'Leveraged staking strategy' },
+            { value: 'custom', label: 'Custom DeFi strategy' },
+          ]}
+        />
+      )}
+
+      {isContact && (
+        <div className="alert alert--warning" role="alert">
+          <p style={{ fontWeight: 600, marginBottom: '0.5rem' }}>
+            We don't have a ready guide for this combination yet
+          </p>
+          <p style={{ marginBottom: '0.5rem' }}>
+            Multi-staker products with on-demand stETH minting (outside of redemptions) are an
+            unvalidated use case. Please get in touch with our team so we can help you directly.
+          </p>
+          <a href={CONTACT_FORM_URL} target="_blank" rel="noopener noreferrer">
+            Contact the stVaults team →
+          </a>
+        </div>
+      )}
+
+      {guide && (
+        <div className="alert alert--info" role="alert">
+          <p style={{ fontWeight: 600, marginBottom: '0.25rem' }}>{guide.title}</p>
+          <p style={{ marginBottom: '0.75rem' }}>{guide.description}</p>
+          <p style={{ marginBottom: '1rem' }}>
+            🔗 <a href={guide.link}>Economy, Architecture, and Building Guide</a>
+          </p>
+
+          <p style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Product characteristics</p>
+          <table style={{ width: '100%', marginBottom: '1rem' }}>
+            <thead>
+              <tr><th>Parameter</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of stakers</td>
+                <td>{stakers === 'isolated' ? '1 (Isolated staking setup)' : 'Multiple'}</td>
+              </tr>
+              <tr>
+                <td>stETH minting capability</td>
+                <td>
+                  {minting === 'no' && 'No'}
+                  {minting === 'ondemand' && 'Yes, on demand'}
+                  {minting === 'redemptions' && 'Yes, to cover redemptions'}
+                  {minting === 'boost' &&
+                    `Yes, to boost APY (${
+                      strategy === 'earnEth'
+                        ? 'Lido EarnETH'
+                        : strategy === 'leveraged'
+                        ? 'Leveraged strategy'
+                        : 'Custom strategy'
+                    })`}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Building blocks</p>
+          <table style={{ width: '100%', marginBottom: '1rem' }}>
+            <thead>
+              <tr><th>Building block</th><th>Solution</th><th>Implementation</th></tr>
+            </thead>
+            <tbody>
+              {guide.buildingBlocks.map((row) => (
+                <tr key={row.block}>
+                  <td>{row.block}</td>
+                  <td>{row.solution}</td>
+                  <td>{row.implementation}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {!guide && !isContact && stakers && minting && minting !== 'boost' && (
+        <p style={{ color: 'var(--ifm-color-emphasis-600)', fontStyle: 'italic' }}>
+          Select an option above to continue.
+        </p>
+      )}
+    </div>
+  );
+};
+
+# Choose the right stVaults setup for you
+
+Answer a few questions below to find the guide that fits your product.
+
+<ProductGuideSelector />
