@@ -23,7 +23,7 @@ Repaying is the better option whenever you can get the stETH — see [Supply, wi
 ## Before you start
 
 - **You need `REBALANCE_ROLE`** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](./roles-and-permissions.md).
-- **A fresh oracle report must be applied.** The call reverts with `VaultReportStale` otherwise. See [Apply oracle reports](./apply-oracle-reports.md).
+- **A fresh oracle report must be applied.** The call reverts with `VaultReportStale` otherwise. The Web UI handles this for you; via CLI or Etherscan you have to apply the report yourself — see [Apply oracle reports](./apply-oracle-reports.md).
 - **The ETH must be on the vault balance, not on validators.** If most of the vault's ETH is staked, request validator exits first and wait for the ETH to be swept back.
 
 ## How much to rebalance
@@ -52,8 +52,10 @@ Two methods are available on the `Dashboard` contract, differing only in how you
   <summary>using stVaults Web UI</summary>
 
 1. Go to `https://stvaults.lido.fi/vaults/<vault_address>/rebalance`.
-2. Enter the amount to rebalance. The page shows the resulting Health Factor, Utilization ratio and stETH Liability, so you can check the outcome before signing.
-3. If the vault balance is not enough, enable the option to supply ETH and add the missing amount — it is funded and rebalanced in one transaction.
+2. Enter the amount to rebalance. Utilization ratio, stETH Liability, Health Factor and Total Value are shown as current → projected values, so you can check the outcome before signing.
+3. If the vault balance is not enough, switch on the supply toggle and add the missing ETH — it is funded and rebalanced in the same transaction.
+
+If the oracle report is stale, the UI prepends the report update to the same transaction batch, so there is no separate step for it.
 
 </details>
 
@@ -61,15 +63,17 @@ Two methods are available on the `Dashboard` contract, differing only in how you
   <summary>using Command-line Interface</summary>
 
 ```bash
-yarn start c dashboard w rebalance-ether <dashboard_address> <ether>
-yarn start c dashboard w rebalance-shares <dashboard_address> <shares>
+yarn start contracts dashboard write rebalance-ether <dashboard_address> <ether>
+yarn start contracts dashboard write rebalance-shares <dashboard_address> <shares>
 ```
 
 To check the shortfall first:
 
 ```bash
-yarn start c dashboard r health-shortfall-shares <dashboard_address>
+yarn start contracts dashboard read health-shortfall-shares <dashboard_address>
 ```
+
+Note that these commands take the **Dashboard** address, not the vault address, and that `contracts`, `write` and `read` can be shortened to `c`, `w` and `r`.
 
 </details>
 
@@ -89,6 +93,8 @@ If the vault becomes unhealthy and the owner does not act, the protocol restores
 `forceRebalance` on the `VaultHub` contract is **permissionless** — anyone can call it for a vault that has an obligations shortfall. It takes **all available ETH on the vault balance**, up to what is needed to cover the outstanding obligations, and rebalances it.
 
 It also requires a fresh oracle report, and it does not settle Lido fees.
+
+The Web UI exposes this as well. Once a vault becomes force-rebalanceable, its rebalance page switches into force-rebalance mode: the amount field and the supply toggle disappear, and the submit button works for any connected address — no `REBALANCE_ROLE` needed.
 
 :::warning
 Being force-rebalanced is worse than rebalancing yourself: you lose control over how much is rebalanced and when. Monitor the Health Factor and act while it is still above 100% — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Health emergency guide](./health-emergency-guide.md).
