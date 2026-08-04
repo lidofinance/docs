@@ -37,9 +37,6 @@ Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosyst
   - [Arbitrum](https://app.aave.com/reserve-overview/?underlyingAsset=0x5979d7b546e38e414f7e9822514be443a4800529&marketName=proto_arbitrum_v3)
   - [Base](https://app.aave.com/reserve-overview/?underlyingAsset=0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452&marketName=proto_base_v3)
   - [Optimism](https://app.aave.com/reserve-overview/?underlyingAsset=0x1f32b1c2345538c0c6f582fcb022739c4a194ebb&marketName=proto_optimism_v3)
-- and markets on legacy networks:
-  - [Scroll](https://app.aave.com/reserve-overview/?underlyingAsset=0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32&marketName=proto_scroll_v3)
-  - [Polygon PoS](https://app.aave.com/reserve-overview/?underlyingAsset=0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd&marketName=proto_polygon_v3)
 - wstETH is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
 - there are various [Mellow LRT](https://app.mellow.finance/restake) projects built on top of the (w)stETH
 - stETH is listed as a collateral token on the AAVE v2 [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) market
@@ -67,13 +64,6 @@ For an up-to-date list of networks and feed addresses, see [deployed contracts](
 - [Base](https://data.chain.link/feeds/base/base/wsteth-steth%20exchangerate)
 - [Linea](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7)
 - [BNB Chain](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645)
-
-and legacy networks:
-
-- [Scroll](https://data.chain.link/feeds/scroll/mainnet/wsteth-steth%20exchangerate)
-- [Polygon PoS](https://data.chain.link/feeds/polygon/mainnet/wsteth-steth)
-- [zkSync Era](https://data.chain.link/feeds/zksync/zksync/wsteth-steth%20exchangerate)
-
 :::note
 The Ethereum Mainnet Chainlink-compatible feed is deployed and used by the Mellow LRT vaults, being a wrapper for `wstETH.getStETHByWstETH(10 ** decimals)`
 :::
@@ -298,18 +288,6 @@ Currently, wstETH token is present on multiple networks (see [deployed contracts
 - [Binance Smart Chain (BSC)](https://bscscan.com/address/0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C)
 - [Unichain](https://uniscan.xyz/address/0xc02fE7317D4eb8753a02c35fe019786854A92001)
 
-and legacy networks:
-
-- [Scroll](https://scrollscan.com/address/0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32)
-- [zkSync Era](https://explorer.zksync.io/address/0x703b52F2b28fEbcB60E1372858AF5b18849FE867)
-- [Mantle](https://explorer.mantle.xyz/address/0x458ed78EB972a369799fb278c0243b25e5242A83)
-- [Polygon PoS](https://polygonscan.com/token/0x03b54a6e9a984069379fae1a4fc4dbae93b3bccd)
-- [Mode](https://explorer.mode.network/address/0x98f96A4B34D03a2E6f225B28b8f8Cb1279562d81)
-- [Zircuit](https://explorer.zircuit.com/address/0xf0e673Bc224A8Ca3ff67a61605814666b1234833)
-- [Soneium](https://soneium.blockscout.com/address/0xaA9BD8c957D803466FA92504BDd728cC140f8941)
-- [Lisk](https://blockscout.lisk.com/address/0x76D8de471F54aAA87784119c60Df1bbFc852C415)
-- [Swellchain](https://explorer.swellnetwork.io/address/0x7c98E0779EB5924b3ba8cE3B17648539ed5b0Ecc)
-
 with bridging implemented via [the canonical bridges recommended approach](/docs/token-guides/cross-chain-tokens-guide.md).
 
 :::note
@@ -330,12 +308,6 @@ The wstETH and stETH tokens design follows the [LIP-22](https://github.com/lidof
 - Unichain:
   - Token address: [`0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F`](https://uniscan.xyz/address/0x81f2508AAC59757EF7425DDc9717AB5c2AA0A84F)
   - wstETH/stETH in-protocol native rate feed: [`0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8`](https://uniscan.xyz/address/0xD835fAC9080396CCE95bDf9EcC7cc27Bab12c9f8)
-
-And legacy network:
-
-- Soneium:
-  - Token address: [`0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF`](https://soneium.blockscout.com/address/0x0Ce031AEd457C870D74914eCAA7971dd3176cDAF)
-  - wstETH/stETH in-protocol native rate feed: [`0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265`](https://soneium.blockscout.com/address/0xDff6f372e8c16b2b9e95c55bDfe74C0bA3F90265)
 
 The native rate feed allows getting `wstETH/stETH` in-protocol rate delivered from the L1 side by the canonical bridge.
 

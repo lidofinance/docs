@@ -20,7 +20,7 @@ Please follow recommendation R-9, which is specific to stETH bridging.
 
 Deploy the wstETH setup from the [lido-l2](https://github.com/lidofinance/lido-l2) repository. This repository allows you to deploy the default wstETH setup on OP-Stack and Arbitrum networks. The setup satisfies the required [Recommendations](#recommendations).
 
-If your stack requires a modification of the default setup, please consider examples of how it is done for legacy chains:
+If your stack requires a modification of the default setup, please consider examples of how it is done for:
 
 - [zkSync Era](https://github.com/lidofinance/lido-l2/pull/62)
 - [Scroll](https://github.com/scroll-tech/scroll/pull/988)
@@ -59,12 +59,11 @@ This section describes an approximate path to bridging Lido tokens to a network.
 - If the proposed solution does not fulfill some of the recommendations, consider including the roadmap and committing to deliver it.
 - Examples:
   - [wstETH to Base](https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668)
-  - [wstETH and stETH to Unichain](https://research.lido.fi/t/steth-wsteth-deployment-on-unichain/9553)
-  - [wstETH to BSC by Wormhole x Axelar](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
-- Examples on legacy chains:
   - [wstETH to ZKSync](https://research.lido.fi/t/wsteth-deployment-on-zksync/5701)
   - [wstETH to Scroll](https://research.lido.fi/t/wsteth-deployment-on-scroll/6603)
   - [wstETH and stETH to Soneium](https://research.lido.fi/t/steth-wsteth-deployment-on-soneium/9389/2)
+  - [wstETH and stETH to Unichain](https://research.lido.fi/t/steth-wsteth-deployment-on-unichain/9553)
+  - [wstETH to BSC by Wormhole x Axelar](https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012)
 
 🐾 Get transient/pre-endorsement approval of the setup from the NEC.
 
@@ -129,15 +128,13 @@ For submitting sources for verification on explorer, please use standard JSON in
 To speed up the process and make it more robust, please provide the artifacts (i.e., open Pull Requests) for the automated tools:
 
 - verify the sources via [diffyscan](https://github.com/lidofinance/diffyscan), examples:
+  - [wstETH on Scroll](https://github.com/lidofinance/diffyscan/pull/35)
   - [wstETH on Linea](https://github.com/lidofinance/diffyscan/pull/29)
-  - examples on legacy chains:
-    - [wstETH on Scroll](https://github.com/lidofinance/diffyscan/pull/35)
-    - [wstETH on Mode](https://github.com/lidofinance/diffyscan/pull/41)
+  - [wstETH on Mode](https://github.com/lidofinance/diffyscan/pull/41)
 
-- verify the configuration and storage state via [state-mate](https://github.com/lidofinance/state-mate), example:
+- verify the configuration and storage state via [state-mate](https://github.com/lidofinance/state-mate), examples:
+  - [wstETH on Mantle](https://github.com/lidofinance/state-mate/tree/main/configs/mantle)
   - [a.DI on Binance Smart Chain (BSC)](https://github.com/lidofinance/state-mate/tree/main/configs/bsc)
-  - example on legacy chain:
-    - [wstETH on Mantle](https://github.com/lidofinance/state-mate/tree/main/configs/mantle)
 
 ### R-2: "Lock and mint" bridge mechanics
 
@@ -179,11 +176,8 @@ Rollup examples:
 
 - [`OptimismBridgeExecutor`](https://optimistic.etherscan.io/address/0xefa0db536d2c8089685630fafe88cf7805966fc3)
 - [Bridge executor on Base](https://basescan.org/address/0x0E37599436974a25dDeEdF795C848d30Af46eaCF) - reused `OptimismBridgeExecutor` contract
-- [`LineaBridgeExecutor`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
-
-Rollup examples on legacy chains:
-
 - [`ZkSyncBridgeExecutor`](https://explorer.zksync.io/address/0x13f46b59067f064c634fb17e207ed203916dccc8#contract)
+- [`LineaBridgeExecutor`](https://lineascan.build/address/0x74Be82F00CC867614803ffd7f36A2a4aF0405670)
 - [`ScrollBridgeExecutor`](https://scrollscan.com/address/0x0c67D8D067E349669dfEAB132A7c03A90594eE09)
 
 Non-rollup examples:
@@ -270,7 +264,7 @@ Please take into account that the [OpenZeppelin ERC20 with permit (EIP-2612) imp
 - The regular (`ERC1967Proxy`) proxy pattern is good enough; the transparent proxy pattern might be an unnecessary complication.
 - Use ossifiable proxies when possible. For example, consider [OssifiableProxy](https://github.com/lidofinance/lido-l2/blob/main/contracts/proxy/OssifiableProxy.sol), which is used in the Lido protocol on Ethereum.
 
-Please have the implementations petrified with dummy values. It helps to reduce confusion, like taking the implementation address instead of the proxy address. For example, see legacy [zkSync Era ERC20BridgedUpgradeable implementation](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c#contract) (bridge, decimals, name, symbol views).
+Please have the implementations petrified with dummy values. It helps to reduce confusion, like taking the implementation address instead of the proxy address. For example, see [zkSync Era ERC20BridgedUpgradeable implementation](https://explorer.zksync.io/address/0xc7a0daa1b8fea68532b6425d0e156088b0d2ab2c#contract) (bridge, decimals, name, symbol views).
 
 ### R-13: Use AccessControlEnumerable for ACL
 
@@ -470,10 +464,9 @@ graph TD;
 - Unofficial guidelines (like the 1st iteration of the guide) https://research.lido.fi/t/unofficial-guidelines-for-bridging-solutions-network-expansion-workgroup/5790
 - Lido emergency multisig https://research.lido.fi/t/emergency-brakes-signer-rotation/5286
 - Lido DAO recognition proposal for wstETH on Base https://research.lido.fi/t/wsteth-deployment-to-base-and-ownership-acceptance-by-lido-dao/5668
+- Lido DAO recognition proposal for wstETH on zkSync Era https://research.lido.fi/t/wsteth-deployment-on-zksync/5701
+- Lido DAO recognition proposal for wstETH on Mantle https://research.lido.fi/t/wsteth-deployment-on-mantle/5991
 - Lido DAO recognition proposal for wstETH on Linea https://research.lido.fi/t/wsteth-on-linea-ownership-acceptance-by-lido-dao/5961
-- Lido DAO recognition proposals for legacy chains:
-  - Lido DAO recognition proposal for wstETH on zkSync Era https://research.lido.fi/t/wsteth-deployment-on-zksync/5701
-  - Lido DAO recognition proposal for wstETH on Mantle https://research.lido.fi/t/wsteth-deployment-on-mantle/5991
-  - Lido DAO recognition proposal for wstETH on Scroll https://research.lido.fi/t/wsteth-deployment-on-scroll/6603
-  - Lido DAO recognition proposal for wstETH on Mode https://research.lido.fi/t/wsteth-deployment-on-mode/7365
+- Lido DAO recognition proposal for wstETH on Scroll https://research.lido.fi/t/wsteth-deployment-on-scroll/6603
+- Lido DAO recognition proposal for wstETH on Mode https://research.lido.fi/t/wsteth-deployment-on-mode/7365
 - Wormhole x Axelar | Lido Bridge: Implementation for wstETH on BNB Chain https://research.lido.fi/t/wormhole-x-axelar-lido-bridge-implementation-for-wsteth-on-bnb-chain/6012/3
