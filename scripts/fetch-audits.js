@@ -12,8 +12,22 @@ function preprocessMarkdown(md) {
   const urlPrefix =
     'https://github.com/lidofinance/audits/blob/main/';
   const pdfRe = /(\[.*?\]\()(?!http|https|#|\/|mailto:)([^)]+\.pdf)(\))/g;
-  return md.replace(pdfRe, (_, p1, rel, p3) => p1 + urlPrefix + rel + p3);
+  const docsRe = /(\]\()https:\/\/docs\.lido\.fi(\/[^)]*)?(\))/g;
+  // Pages renamed on docs.lido.fi; onBrokenLinks='throw' doesn't follow redirects
+  const renamedDocs = {
+    '/token-guides/wsteth-bridging-guide#the-proposed-configuration':
+      '/token-guides/cross-chain-tokens-guide#mainnet-proposed-configuration',
+  };
+  return md
+    .replace(pdfRe, (_, p1, rel, p3) => p1 + urlPrefix + rel + p3)
+    .replace(docsRe, (_, p1, rel, p3) => {
+      const local = rel || '/';
+      return p1 + (renamedDocs[local] || local) + p3;
+    });
 }
+
+// Earn audits live on a separate page (earn/audits.md)
+const skipSections = ['## Lido Earn'];
 
 function sortAuditsAndCount(md) {
   const lines = md.split('\n');
@@ -25,6 +39,10 @@ function sortAuditsAndCount(md) {
 
   function flushSection() {
     if (!inH2) return;
+    if (skipSections.includes(stripCount(curH2))) {
+      buf = [];
+      return;
+    }
     const { heading, body, nReports } = processSection(curH2, buf);
     counts[stripCount(heading)] = nReports;
     out.push(...body);
