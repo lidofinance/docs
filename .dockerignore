@@ -1,0 +1,9 @@
+node_modules
+build
+.docusaurus
+.cache-loader
+.git
+.idea
+.vscode
+.claude
+npm-debug.log*

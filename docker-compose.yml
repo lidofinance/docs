@@ -1,0 +1,6 @@
+services:
+  docs-prod:
+    build:
+      context: .
+    ports:
+      - '3000:80'
