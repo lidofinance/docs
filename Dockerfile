@@ -10,6 +10,6 @@ COPY . .
 RUN npm run build
 
 # ---- Production image: serves the prebuilt static site via nginx ----
-FROM nginx:1.27-alpine AS prod
+FROM nginxinc/nginx-unprivileged:1.27-alpine AS prod
 COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 8080
