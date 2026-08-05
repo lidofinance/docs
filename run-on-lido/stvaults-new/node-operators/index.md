@@ -2,4 +2,4 @@
 sidebar_position: 4
 ---
 
-# Node Operators
+# ⚙️ Node Operators
