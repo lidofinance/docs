@@ -47,6 +47,15 @@ module.exports = {
         'guides/deposit-security-manual',
         {
           type: 'category',
+          label: 'Execution Delegation Framework',
+          items: [
+            'guides/edf/edf-operator-guide',
+            'guides/edf/edf-rotation-and-incidents',
+            'guides/edf/key-custody-policy-for-edf-operators',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Governance and Voting',
           items: [
             'guides/etherscan-voting',
