@@ -455,7 +455,7 @@ Additional signer of Unichain multisig:
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.7 Committees for legacy networks
+### 2.8.7 Committees for networks no longer endorsed
 
 The committees below operate on the networks whose wstETH bridge endpoints are no longer canonically recognized by the Lido DAO (see the [Snapshot vote](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x09880de4739dcef13c4aa5605f1dca23556fc7495d09ecc84561a10f26a59b5c)).
 
