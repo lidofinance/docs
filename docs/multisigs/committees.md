@@ -363,25 +363,7 @@ Additional signer of Unichain multisig:
 `0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6` - [Mantle](https://app.safe.global/home?safe=mnt:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6)\
 `0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD` - [Scroll](https://app.safe.global/home?safe=scr:0x7bA516FB4512877C016907D6e70FAE96fbbdf8cD)
 
-### 2.8.3 Liquidity Observation Lab Committee (Polygon)
-
-**Address:** matic:[`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
-
-**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
-
-**Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
-
-**Quorum:** 2/3
-
-**List of signers:**
-
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1655865828544266242 |
-| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://x.com/tvrmarin/status/1619812143326720000 |
-
-### 2.8.4 Liquidity Observation Lab Committee multisigs for incentives on AAVE
+### 2.8.3 Liquidity Observation Lab Committee multisigs for incentives on AAVE
 
 **Addresses:**\
 `0xC18F11735C6a1941431cCC5BcF13AF0a052A5022` - [Ethereum](https://app.safe.global/home?safe=eth:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Arbitrum](https://app.safe.global/home?safe=arb1:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [BNB](https://app.safe.global/home?safe=bnb:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Polygon](https://app.safe.global/home?safe=matic:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022), [Scroll](https://app.safe.global/home?safe=scr:0xC18F11735C6a1941431cCC5BcF13AF0a052A5022)\
@@ -404,7 +386,7 @@ Additional signer of Unichain multisig:
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.5 Liquidity Observation Lab Committee OP Token Multisig
+### 2.8.4 Liquidity Observation Lab Committee OP Token Multisig
 
 **Address:** oeth:[`0x91cE2F083d59B832f95f90aA0997168ae051a98A`](https://app.safe.global/settings/setup?safe=oeth:0x91cE2F083d59B832f95f90aA0997168ae051a98A)
 
@@ -426,7 +408,7 @@ Additional signer of Unichain multisig:
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
 
-### 2.8.6 Liquidity Observation Lab Committee ARB Token Multisig
+### 2.8.5 Liquidity Observation Lab Committee ARB Token Multisig
 
 **Address:** arb1:[`0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56`](https://app.safe.global/settings/setup?safe=arb1:0x1840c4D81d2C50B603da5391b6A24c1cD62D0B56)
 
@@ -451,7 +433,7 @@ Additional signer of Unichain multisig:
 | skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.7 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
+### 2.8.6 Liquidity Observation Lab Committee Arbitrum LTIPP Grant Token Multisig
 
 **Address:** arb1:[`0xD97221065E826167A2cFE3307972c0D42200fDB4`](https://app.safe.global/home?safe=arb1:0xD97221065E826167A2cFE3307972c0D42200fDB4)
 
@@ -473,7 +455,29 @@ Additional signer of Unichain multisig:
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.8 Liquidity Observation Lab Committee ZK Token Multisig
+### 2.8.7 Committees for networks no longer endorsed
+
+The committees below operate on the networks whose wstETH bridge endpoints are no longer canonically recognized by the Lido DAO (see the [Snapshot vote](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x09880de4739dcef13c4aa5605f1dca23556fc7495d09ecc84561a10f26a59b5c)).
+
+#### 2.8.7.1 Liquidity Observation Lab Committee (Polygon)
+
+**Address:** matic:[`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
+
+**Purpose of the multisig:** The multisig is set up to receive assets from the Liquidity Observation Lab Committee multisig on Ethereum and distribute them among approved recipients.
+
+**Forum topic:** [Launch of LIDO on Polygon](https://research.lido.fi/t/lido-on-l2-third-edition-polygon/4068)
+
+**Quorum:** 2/3
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| kadmil | 0x9A3f38AF97b791C85c043D46a64f56f87E0283D4 | https://etherscan.io/verifySig/17851 | https://x.com/kadmil_eth/status/1655865828544266242 |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://x.com/tvrmarin/status/1619812143326720000 |
+
+#### 2.8.7.2 Liquidity Observation Lab Committee ZK Token Multisig
 
 **Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
 
