@@ -7,6 +7,7 @@ set -eu
 : "${BASIC_AUTH_USER:?BASIC_AUTH_USER env var is required}"
 : "${BASIC_AUTH_PASS:?BASIC_AUTH_PASS env var is required}"
 
-htpasswd -bc /tmp/.htpasswd "$BASIC_AUTH_USER" "$BASIC_AUTH_PASS"
+printf '%s' "$BASIC_AUTH_PASS" | htpasswd -ci /tmp/.htpasswd "$BASIC_AUTH_USER"
+chmod 600 /tmp/.htpasswd
 
 exec nginx -g 'daemon off;'

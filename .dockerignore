@@ -7,3 +7,6 @@ build
 .vscode
 .claude
 npm-debug.log*
+.env
+.env.*
+!.env.example

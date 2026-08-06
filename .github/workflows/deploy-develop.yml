@@ -31,7 +31,7 @@ jobs:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ secrets.HARBOR_ROBOT_TOKEN }}
 
-      - name: Build checker docker image
+      - name: Build and push docker image
         uses: docker/build-push-action@v6
         env:
           APP: lido-docs
@@ -39,6 +39,5 @@ jobs:
           file: Dockerfile
           context: .
           push: true
-          load: true
           tags: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}/${{ env.APP }}:${{ env.IMAGE_TAG }}
           builder: ${{ steps.buildx.outputs.name }}
