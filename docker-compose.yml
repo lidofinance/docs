@@ -1,0 +1,9 @@
+services:
+  docs-prod:
+    build:
+      context: .
+    environment:
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:?BASIC_AUTH_USER is required}
+      BASIC_AUTH_PASS: ${BASIC_AUTH_PASS:?BASIC_AUTH_PASS is required}
+    ports:
+      - '3000:8080'
