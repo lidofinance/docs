@@ -31,7 +31,7 @@ Repaying is the better option whenever you can get the stETH — see [Supply, wi
 It depends on what you are trying to achieve:
 
 - **Restore health** — rebalance the shortfall. Read it from `healthShortfallShares` on the `Dashboard` contract: it returns the shares needed to bring the vault back to a healthy state and cover any pending redemptions, `0` if the vault is already healthy, and the maximum `uint256` value if rebalancing alone cannot fix the position.
-- **Close the vault** — rebalance the entire stETH liability, which brings it to zero and unlocks the remaining ETH for withdrawal. See [Disconnection and withdraw connection deposit](./disconnection-and-withdraw-connection-deposit.md).
+- **Close the vault** — rebalance the entire stETH liability, which brings it to zero and unlocks the remaining ETH for withdrawal. See [Disconnection](./disconnection.md).
 
 :::note
 The stETH liability grows daily with the stETH rebase, so a number you calculated yesterday will be slightly short today. Always read the current value right before executing.
