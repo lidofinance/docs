@@ -66,8 +66,6 @@ On Hoodi the wizard is the same, at [app.safe.protofire.io](https://app.safe.pro
 Requirements:
 
 - **3 signers, threshold 2** (2-of-3);
-- signers held by **different people on different devices**, not derived from one seed;
-- seed phrases backed up **offline only** (steel plate, separate locations);
 - this multisig is used for **nothing else** — no treasury, no other roles.
 
 ![Safe creation wizard step 2: three signer addresses and a threshold of 2 out of 3 signers](./screenshots/safe-mainnet-signers-threshold.jpg)

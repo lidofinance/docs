@@ -69,18 +69,7 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
     No single person may hold a quorum of signers. Two signers MUST NOT live on the same physical device or be derived from the same seed.
     
-6. **Seed phrases MUST be backed up offline only.**  
-    
-    Do not use photos, cloud storage, password managers, or plaintext files. A durable medium, such as a steel plate in a physically secured location, is RECOMMENDED. Backups of distinct signers SHOULD be stored in distinct locations.
-    
-    Splitting each seed phrase into three parts, any two of which restore it, is RECOMMENDED.
-    
-    - Use **SLIP-39** where the wallet supports it.
-    - Otherwise split by word ranges. For a 24-word phrase: part 1 = words 1–18, part 2 = words 12–24, part 3 = words 1–12 and 18–24. Each part reveals most of the phrase, so this is weaker than SLIP-39.
-    
-    The three parts MUST be stored in three distinct locations.
-    
-7. **Signer set changes MUST be executed promptly.**  
+6. **Signer set changes MUST be executed promptly.**  
     
     None of the cases below requires touching the `DelegationContract`. Every removal MUST be paired with adding a replacement signer.
     
@@ -94,15 +83,11 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
 
 ## 4. Delegate hot-key custody
 
-1. **Generate the key where it will be used.**  
-    
-    The delegate key SHOULD be generated on the host, KMS, or HSM that will use it. It SHOULD NOT be transmitted through chat, email, tickets, or shared drives — not even temporarily or encrypted.
-    
-2. **Use one key per seat and environment.**  
+1. **Use one key per seat and environment.**  
     
     A delegate key MUST be unique to a single `DelegationContract` and a single environment. It MUST NOT be reused across mainnet/testnet, across Oracle and Council daemons, or for anything besides its seat’s duties.
     
-3. **Harden the host.**  
+2. **Harden the host.**  
     
     The daemon host SHOULD be dedicated to the role, with:
     
@@ -111,15 +96,15 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     - No shared SSH accounts
     - Current OS and daemon versions
     - No unrelated internet-facing services
-4. **Keep only minimal balance.**  
+3. **Keep only minimal balance.**  
     
     The delegate address MUST hold only working gas funds. A low-balance alert SHOULD be configured. The address MUST NOT accumulate other assets.
     
-5. **Delegate keys MUST be dedicated to their assigned activity.**  
+4. **Delegate keys MUST be dedicated to their assigned activity.**  
     
     Each hot key MUST be responsible only for the single activity it was assigned to perform (day-to-day protocol operation). It MUST NOT be used for any other purpose.
 
-6. **A replacement key MAY be staged only for a planned rotation.**  
+5. **A replacement key MAY be staged only for a planned rotation.**  
     
     A daemon that supports soft key rotation MAY temporarily hold both the current delegate key and one replacement delegate key. The replacement key MUST meet all requirements in this section and MUST be staged only for the minimum period needed to complete the rotation.
     
@@ -158,7 +143,7 @@ A `DelegationContract` authorizes exactly one effective delegate at a time. Befo
     Routine rotations MUST be announced on the Lido research forum at least **1 day** before `nominateDelegate()` is executed and in the operators’ coordination channel before execution. This lets monitoring parties distinguish a planned `DelegateNominated` from a hostile one.
     
 4. **Planned rotation procedure**
-    1. Generate the new key on the host that runs the daemon.
+    1. Generate the new key.
     2. Complete the pre-nomination announcement.
     3. Add the replacement key to the daemon as its staged secondary member key. Keep the current delegate configured and operating.
     4. Owner executes `nominateDelegate(newKey)`. The old key remains effective during the cooldown.
@@ -178,7 +163,7 @@ A `DelegationContract` authorizes exactly one effective delegate at a time. Befo
         - Move the previous EOA’s remaining balance to the new delegate address.
 5. **Owner rotation**  
     
-    Multisig signer keys follow §3.7. Replacing the multisig itself requires a new `DelegationContract` deployment and a governance vote.
+    Multisig signer keys follow §3.6. Replacing the multisig itself requires a new `DelegationContract` deployment and a governance vote.
     
 
 ---
