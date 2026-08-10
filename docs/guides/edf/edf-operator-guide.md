@@ -96,7 +96,7 @@ The `DelegationFactory` is already deployed by the Lido contributors — you onl
 | Network | `DelegationFactory` address |
 | --- | --- |
 | Ethereum mainnet | _TBD — will be published before the migration_ |
-| Hoodi | [`0x9da023b90FE52fB693C3aDFE1e6B91Ed4CCdf2ca`](https://hoodi.etherscan.io/address/0x9da023b90FE52fB693C3aDFE1e6B91Ed4CCdf2ca#code) |
+| Hoodi | [`0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6`](https://hoodi.etherscan.io/address/0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6#code) |
 
 **Do not accept a factory address from chat or DM.** Take it from the table above or from the
 [Deployed Instances table](https://github.com/lidofinance/execution-delegation-framework#deployed-instances),
