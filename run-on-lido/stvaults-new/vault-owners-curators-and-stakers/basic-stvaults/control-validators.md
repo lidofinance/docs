@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Control validators and withdraw from the Beacon Chain
 
-The ETH your vault has staked sits on validators run by your Node Operator. This page covers what you, as a Vault Owner, can do about those validators: ask for an exit, pull ETH back from the Beacon Chain yourself, and stop new deposits.
+The ETH your stVault has staked sits on validators run by your Node Operator. This page covers what you, as a Vault Owner, can do about those validators: ask for an exit, pull ETH back from the Beacon Chain yourself, and stop new deposits.
 
 There are two ways to get ETH back from validators:
 
@@ -19,7 +19,7 @@ There are two ways to get ETH back from validators:
 | Vault Owner | Trigger a partial withdrawal or a full exit | `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` |
 | Vault Owner | Pause / resume deposits to validators | `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` / `RESUME_BEACON_CHAIN_DEPOSITS_ROLE` |
 | Node Operator | Exit validators directly | the Node Operator address, non-delegable |
-| stVaults Committee, Lido DAO | Force a full exit | only while the vault has an obligations shortfall |
+| stVaults Committee, Lido DAO | Force a full exit | only while the stVault has an obligations shortfall |
 
 All Vault Owner permissions above are held by the admin by default and can be delegated — see [Roles and permissions](./roles-and-permissions.md).
 
@@ -52,10 +52,10 @@ yarn start contracts dashboard write exit <dashboard_address> <validator_pubkey>
 
 This path pulls ETH from the Beacon Chain without involving the Node Operator, using EIP-7002 triggerable withdrawals. It comes in two flavours:
 
-- **Full exit** — the validator leaves and its entire balance returns to the vault. Pass an amount of `0`.
+- **Full exit** — the validator leaves and its entire balance returns to the stVault. Pass an amount of `0`.
 - **Partial withdrawal** — only part of the balance returns. The amount is trimmed so that at least 32 ETH stays on the validator, otherwise it would be deactivated.
 
-The withdrawn ETH lands on the vault's Not Staked Balance. How long it takes depends on the Ethereum exit queue.
+The withdrawn ETH lands on the stVault's Not Staked Balance. How long it takes depends on the Ethereum exit queue.
 
 ### The fee
 
@@ -73,20 +73,20 @@ The fee can spike sharply when the withdrawal queue is congested. Whatever you s
 
 Full exits always go through. Partial withdrawals are rejected with `PartialValidatorWithdrawalNotAllowed` when:
 
-- the vault has an **obligations shortfall** — anything it owes and cannot currently cover;
-- the vault is **jailed**;
+- the stVault has an **obligations shortfall** — anything it owes and cannot currently cover;
+- the stVault is **jailed**;
 - the oracle report is **stale** — see [Apply oracle reports](./apply-oracle-reports.md).
 
-The first restriction is deliberate: a vault that is behind on its obligations must not be able to occupy the consensus layer withdrawal queue and delay the forced exits needed to rebalance it.
+The first restriction is deliberate: an stVault that is behind on its obligations must not be able to occupy the consensus layer withdrawal queue and delay the forced exits needed to rebalance it.
 
 <details>
   <summary>using stVaults Web UI</summary>
 
-1. Open the **Validators** page of your vault.
+1. Open the **Validators** page of your stVault.
 2. Pick a validator and choose **Withdraw to stVault**.
 3. Enter an amount for a partial withdrawal, or use **Force exit validator** to withdraw the entire balance.
 
-The modal shows the amount available to withdraw and the estimated withdrawal fee. If the vault is jailed, the partial option is disabled and the modal says so.
+The modal shows the amount available to withdraw and the estimated withdrawal fee. If the stVault is jailed, the partial option is disabled and the modal says so.
 
 </details>
 
@@ -114,14 +114,14 @@ Public keys and amounts are comma-separated lists of the same length. **Amounts 
 
 ## Pause and resume deposits to validators
 
-Pausing stops the Node Operator from depositing any more of the vault balance into new validators. Existing validators are unaffected and keep running.
+Pausing stops the Node Operator from depositing any more of the stVault balance into new validators. Existing validators are unaffected and keep running.
 
 This is useful when you are about to withdraw, disconnect, or simply do not want the balance to be staked further while you decide.
 
 <details>
   <summary>using stVaults Web UI</summary>
 
-Open the vault **Settings** and switch off deposits from the stVault balance to validators.
+Open the stVault **Settings** and switch off deposits from the stVault balance to validators.
 
 </details>
 
@@ -135,15 +135,15 @@ Open the vault **Settings** and switch off deposits from the stVault balance to 
 
 ## Forced exit by the protocol
 
-If your vault falls behind on its obligations, the stVaults Committee and the Lido DAO can force its validators to exit, returning the ETH to the vault so the position can be rebalanced.
+If your stVault falls behind on its obligations, the stVaults Committee and the Lido DAO can force its validators to exit, returning the ETH to the stVault so the position can be rebalanced.
 
-This is not arbitrary — the call reverts with `ForcedValidatorExitNotAllowed` unless the vault actually has an obligations shortfall at the time, and it requires a fresh oracle report. Forced exits are always full exits.
+This is not arbitrary — the call reverts with `ForcedValidatorExitNotAllowed` unless the stVault actually has an obligations shortfall at the time, and it requires a fresh oracle report. Forced exits are always full exits.
 
-An **obligations shortfall** means the vault owes more than the liquid ETH on its balance can cover. What it owes is:
+An **obligations shortfall** means the stVault owes more than the liquid ETH on its balance can cover. What it owes is:
 
 - the ETH needed to bring the Health Factor back above 100%, or the ETH needed to cover pending **Lido redemptions** — whichever of the two is larger;
 - plus unsettled Lido fees, but only once they reach 1 ETH. Below that they are ignored.
 
-If the vault balance covers all of that, there is no shortfall and forced exits are not possible — even if the vault is unhealthy.
+If the stVault balance covers all of that, there is no shortfall and forced exits are not possible — even if the stVault is unhealthy.
 
 The way to never meet this path is to watch the Health Factor and act early — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Rebalance guide](./rebalance-guide.md).

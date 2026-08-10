@@ -6,14 +6,14 @@ sidebar_position: 1
 
 Every Basic stVault is controlled through a [`Dashboard`](/contracts/dashboard) contract, which is deployed together with the [`StakingVault`](/contracts/staking-vault) and owns it. `Dashboard` uses OpenZeppelin's `AccessControl` with a **two-admin model**:
 
-- **Vault Owner** (`DEFAULT_ADMIN_ROLE`) — the staker side of the vault.
-- **Node Operator Manager** (`NODE_OPERATOR_MANAGER_ROLE`) — the validation service side of the vault.
+- **Vault Owner** (`DEFAULT_ADMIN_ROLE`) — the staker side of the stVault.
+- **Node Operator Manager** (`NODE_OPERATOR_MANAGER_ROLE`) — the validation service side of the stVault.
 
 Each admin holds every permission within its own scope and can delegate individual sub-roles to other addresses. Neither admin can grant roles belonging to the other side.
 
-## Vault contract
+## stVault contract
 
-**Node Operator** provides the validation service for the vault: it deposits ETH from the vault balance to validators and exits validators when necessary. The Node Operator address is set once, when the vault is created, and **can never be changed**.
+**Node Operator** provides the validation service for the stVault: it deposits ETH from the stVault balance to validators and exits validators when necessary. The Node Operator address is set once, when the stVault is created, and **can never be changed**.
 
 :::info
 The Node Operator address is registered in the [Operator Grid](/contracts/operator-grid) contract as the primary identifier of the Node Operator. Tiers with defined **Reserve Ratios** and **stETH minting limits** are assigned to this address according to the obtained Category.
@@ -21,20 +21,20 @@ The Node Operator address is registered in the [Operator Grid](/contracts/operat
 This address is also used to perform key operations in stVaults from the Node Operator's perspective and must be set up as a **multisig** for security reasons.
 :::
 
-### Permissions checked by the vault contract
+### Permissions checked by the stVault contract
 
 These are checked on `StakingVault` itself, not through `Dashboard` roles.
 
 | Permission                     | Operation                                                                                                        |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | Node Operator — non-delegable  | Eject validators: forcefully withdraw validators via EIP-7002 (`ejectValidators`).                                |
-| The vault's depositor          | Deposit ETH from the vault balance to validators (`depositToBeaconChain`). In the default setup the depositor is the [`PredepositGuarantee`](#predeposit-guarantee-contract) contract, so the Node Operator triggers deposits through PDG rather than calling the vault directly. |
+| The stVault's depositor          | Deposit ETH from the stVault balance to validators (`depositToBeaconChain`). In the default setup the depositor is the [`PredepositGuarantee`](#predeposit-guarantee-contract) contract, so the Node Operator triggers deposits through PDG rather than calling the stVault directly. |
 
 ## Dashboard contract
 
-1. **Vault Owner** [`DEFAULT_ADMIN_ROLE`] is one of the two admin roles for the stVault. It allows managing permissions and changing key vault parameters from the Vault Owner (Staker) perspective. Multiple addresses are supported.
+1. **Vault Owner** [`DEFAULT_ADMIN_ROLE`] is one of the two admin roles for the stVault. It allows managing permissions and changing key stVault parameters from the Vault Owner (Staker) perspective. Multiple addresses are supported.
 
-2. **Node Operator Manager** [`NODE_OPERATOR_MANAGER_ROLE`] is the other admin role for the stVault. It allows managing permissions and changing key vault parameters from the Node Operator perspective. Multiple addresses are supported.
+2. **Node Operator Manager** [`NODE_OPERATOR_MANAGER_ROLE`] is the other admin role for the stVault. It allows managing permissions and changing key stVault parameters from the Node Operator perspective. Multiple addresses are supported.
 
 **Vault Owner** and **Node Operator Manager** addresses have permissions for all actions within their respective scopes in stVaults. They can also delegate specific permissions (sub-roles) to other addresses.
 
@@ -88,11 +88,11 @@ By default, if no sub-role holder is set, the Vault Owner can perform all the ac
 | `REQUEST_VALIDATOR_EXIT_ROLE`       | Ask the Node Operator to exit a validator and return ETH to the stVault balance. |
 | `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` | Force a full or partial withdrawal of ETH from a validator via EIP-7002.        |
 | `VOLUNTARY_DISCONNECT_ROLE`         | Disconnect from Lido VaultHub (disables minting stETH, stops paying fees to Lido, collects the Node Operator fee). |
-| `VAULT_CONFIGURATION_ROLE`          | — Request OperatorGrid to change the vault tier (specify a new tier).           |
+| `VAULT_CONFIGURATION_ROLE`          | — Request OperatorGrid to change the stVault tier (specify a new tier).           |
 |                                     | — Request OperatorGrid to sync the tier params.                                |
-|                                     | — Request OperatorGrid to update the share limit of the vault.                 |
+|                                     | — Request OperatorGrid to update the share limit of the stVault.                 |
 |                                     | — Accept a new tier on connection to VaultHub.                                 |
-| `COLLECT_VAULT_ERC20_ROLE`          | Collect ERC-20 tokens held by the **vault** — e.g. recovery of tokens wrongly transferred to the vault address, or claiming incentives paid to it as ERC-20. Does not support ETH. |
+| `COLLECT_VAULT_ERC20_ROLE`          | Collect ERC-20 tokens held by the **stVault** — e.g. recovery of tokens wrongly transferred to the stVault address, or claiming incentives paid to it as ERC-20. Does not support ETH. |
 
 ### Node Operator Manager's non-delegable permissions
 
@@ -112,7 +112,7 @@ By default, if no sub-role holder is set, the Node Operator Manager can perform 
 
 | Permission                                   | Operation                                                                                                                                       |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE`    | Withdraw ETH from the vault and deposit directly to provided validators, bypassing the default PDG process. Requires the `ALLOW_DEPOSIT_AND_PROVE` PDG policy. |
+| `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE`    | Withdraw ETH from the stVault and deposit directly to provided validators, bypassing the default PDG process. Requires the `ALLOW_DEPOSIT_AND_PROVE` PDG policy. |
 | `NODE_OPERATOR_PROVE_UNKNOWN_VALIDATOR_ROLE` | Prove unknown validators through PDG. Requires the `ALLOW_PROVE` or `ALLOW_DEPOSIT_AND_PROVE` PDG policy.                                          |
 | `NODE_OPERATOR_FEE_EXEMPT_ROLE`              | Add a fee exemption to exclude a value from the Node Operator fee base. The exemption works by increasing the settled growth, effectively treating the exempted amount as if fees were already paid on it. |
 
@@ -125,7 +125,7 @@ By default, if no sub-role holder is set, the Node Operator Manager can perform 
 | Permission     | Operation                                                                                        |
 | -------------- | -------------------------------------------------------------------------------------------------- |
 | Permissionless | Provide a Merkle proof of validator existence on CL (positive).                                   |
-| Permissionless | Provide a Merkle proof of invalid validator existence on CL (negative) and compensate the staking vault. |
+| Permissionless | Provide a Merkle proof of invalid validator existence on CL (negative) and compensate the staking stVault. |
 
 ### Configurable permissions
 
@@ -174,7 +174,7 @@ You can pass several assignments in the same array to grant them in one transact
 yarn start vo w role-grant
 ```
 
-For detailed CLI options, see the [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-grant).
+For detailed CLI options, see the [stVault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-grant).
 
 </details>
 
@@ -213,7 +213,7 @@ You can pass several assignments in the same array to revoke them in one transac
 yarn start vo w role-revoke
 ```
 
-For detailed CLI options, see the [vault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-revoke).
+For detailed CLI options, see the [stVault operations documentation](https://lidofinance.github.io/lido-staking-vault-cli/commands/vault-operations#role-revoke).
 
 </details>
 
@@ -232,6 +232,6 @@ All addresses marked for revocation are removed together in one `revokeRoles` tr
 ### Recommended practices
 
 - Use a **multisig** for both `DEFAULT_ADMIN_ROLE` and `NODE_OPERATOR_MANAGER_ROLE`. Losing an admin address is unrecoverable.
-- Grant sub-roles only to addresses that must act **on their own**, e.g. an automation bot that tops up the vault (`FUND_ROLE`) or a monitoring service that can trigger a rebalance (`REBALANCE_ROLE`). The admin already covers all of these.
+- Grant sub-roles only to addresses that must act **on their own**, e.g. an automation bot that tops up the stVault (`FUND_ROLE`) or a monitoring service that can trigger a rebalance (`REBALANCE_ROLE`). The admin already covers all of these.
 - Review role members after every operational change — `getRoleMembers` on `Dashboard`, or the permissions page in the Web UI.
 - Before revoking, confirm that at least one other address holds the role (`getRoleMemberCount`).

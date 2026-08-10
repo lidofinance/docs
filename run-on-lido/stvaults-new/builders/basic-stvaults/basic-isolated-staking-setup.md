@@ -158,7 +158,7 @@ Creating an stVault is a permissionless operation, but in this two-step process 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-       1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+       1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
       4. Find the method `createVaultWithDashboardWithoutConnectingToVaultHub` in the list, fill out the fields, and click **Write**.
@@ -186,7 +186,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **Operator Grid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+      1. Open **Etherscan** and navigate to the **Operator Grid** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.
@@ -202,7 +202,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 #### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as collateral for connection to Lido Core, and initiates the connection to Lido Core.
 
-This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../features-and-mechanics/roles-and-permissions).
+This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../../vault-owners-curators-and-stakers/basic-stvaults/roles-and-permissions.md).
 
 **Parameters and addresses needed for this step:**
 
@@ -214,7 +214,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
 <details>
   <summary>using stVaults Web UI</summary>
-      1. Open the stVaults mainpage (see [#Environments](#environments))
+      1. Open the stVaults Web UI (see [Environments](../../concepts-and-reference/integration-overview#stvaults-environments))
 
       2. Connect wallet on the "My Vaults" page.
 
@@ -257,7 +257,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 
 <details>
   <summary>using stVaults Web UI</summary>
-      1. Open the stVaults mainpage (see [#Environments](#environments))
+      1. Open the stVaults Web UI (see [Environments](../../concepts-and-reference/integration-overview#stvaults-environments))
       2. Connect wallet on the "My Vaults" page.
       3. Click "Create vault".
 
@@ -275,7 +275,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+      1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
       4. Find the method `createVaultWithDashboard` in the list, fill out the fields, and click **Write**.

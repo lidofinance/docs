@@ -36,7 +36,7 @@ After disconnection, all integrations with Lido protocol components are disabled
 - Node Operator fee distribution stops.
 
 :::warning
-Node Operators must independently monitor disconnection events, as validation continues after disconnection, but Node Operator fees are no longer accrued. Disconnection can be detected by monitoring the VaultDisconnectInitiated(address **indexed** vault) event emitted by the VaultHub contract on-chain.
+Node Operators must independently monitor disconnection events, as validation continues after disconnection, but Node Operator fees are no longer accrued. Disconnection can be detected by monitoring the VaultDisconnectInitiated(address **indexed** stVault) event emitted by the VaultHub contract on-chain.
 :::
 
 **No connection to VaultHub:**
@@ -63,12 +63,12 @@ If the stVault is **not ossified**, it can be reconnected to VaultHub in the fut
 
 Before starting the disconnection process, make sure:
 
-1. **All minted stETH is repaid.** Your vault must have zero liability shares. If you have outstanding stETH minted against the vault, [repay it first](./supply-withdraw-mint-repay.md).
-2. **Your vault has a fresh oracle report.** The disconnect will revert if the report is stale. [Apply a fresh report](./apply-oracle-reports.md) if needed.
-3. **The vault has sufficient balance to cover all unsettled fees.** Both Lido protocol fees and accrued Node Operator fees (if applicable) are settled from the vault balance during the initiation step. If the vault balance is insufficient to cover them, the transaction will revert.
+1. **All minted stETH is repaid.** Your stVault must have zero liability shares. If you have outstanding stETH minted against the stVault, [repay it first](./supply-withdraw-mint-repay.md).
+2. **Your stVault has a fresh oracle report.** The disconnect will revert if the report is stale. [Apply a fresh report](./apply-oracle-reports.md) if needed.
+3. **The stVault has sufficient balance to cover all unsettled fees.** Both Lido protocol fees and accrued Node Operator fees (if applicable) are settled from the stVault balance during the initiation step. If the stVault balance is insufficient to cover them, the transaction will revert.
 
 :::info
-Once completed, the vault is removed from Lido protocol. However, the same vault can be reconnected later unless it has been ossified.
+Once completed, the stVault is removed from Lido protocol. However, the same stVault can be reconnected later unless it has been ossified.
 :::
 
 :::warning
@@ -86,8 +86,8 @@ This call:
 
 - Collects any accrued Node Operator fees and **transfers them to the Dashboard contract** as `feeLeftover`, for later recovery (see [Step 6](#step-6-recover-node-operator-fees)).
 - Stops further fee accrual.
-- Settles all outstanding Lido protocol fees from the vault balance to the Lido treasury.
-- Marks the vault as **pending disconnection** in VaultHub.
+- Settles all outstanding Lido protocol fees from the stVault balance to the Lido treasury.
+- Marks the stVault as **pending disconnection** in VaultHub.
 
 <details>
   <summary>using Command-line Interface</summary>
@@ -105,15 +105,15 @@ yarn start contracts dashboard w voluntary-disconnect <dashboardAddress>
 
 </details>
 
-Once the transaction succeeds, your vault enters the **pending disconnection** state. While pending:
+Once the transaction succeeds, your stVault enters the **pending disconnection** state. While pending:
 
 - No new stETH can be minted.
 - No ETH can be withdrawn through VaultHub.
-- The vault awaits the next oracle report to finalize the disconnection.
+- The stVault awaits the next oracle report to finalize the disconnection.
 
 ## Step 2. Apply the next oracle report
 
-Wait for the next oracle report, then apply the report data to your vault via `LazyOracle.updateVaultData()`. This is the step that **finalizes** the disconnection.
+Wait for the next oracle report, then apply the report data to your stVault via `LazyOracle.updateVaultData()`. This is the step that **finalizes** the disconnection.
 
 :::info
 Normally the oracle report occurs daily shortly after 12 PM UTC.
@@ -121,8 +121,8 @@ Normally the oracle report occurs daily shortly after 12 PM UTC.
 
 When the oracle report is applied and the report timestamp is after your disconnect initiation:
 
-- If there are no slashing obligations and no remaining liability shares, the disconnect **completes successfully**. VaultHub transfers ownership of the StakingVault to the Dashboard and removes all vault records.
-- If slashing was reported or liabilities remain, the disconnect is **aborted** and the vault returns to connected state.
+- If there are no slashing obligations and no remaining liability shares, the disconnect **completes successfully**. VaultHub transfers ownership of the StakingVault to the Dashboard and removes all stVault records.
+- If slashing was reported or liabilities remain, the disconnect is **aborted** and the stVault returns to connected state.
 
 This is a **permissionless operation** — anyone can apply the report.
 
@@ -139,11 +139,11 @@ The CLI automatically fetches the latest report CID, retrieves the Merkle tree f
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Deployed contracts](/deployed-contracts/) page for your environment.
+1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
 2. Call `latestReportData` to get the current `reportCid`.
 3. Fetch the Merkle tree JSON from IPFS: `https://ipfs.io/ipfs/<reportCid>`
-4. Locate your vault's entry in the tree and copy its values and proof.
-5. Call `updateVaultData`, passing the vault address, the values from the tree and the proof.
+4. Locate your stVault's entry in the tree and copy its values and proof.
+5. Call `updateVaultData`, passing the stVault address, the values from the tree and the proof.
 
 </details>
 
@@ -162,7 +162,7 @@ Call `Dashboard.abandonDashboard(newOwner)`. This:
 - Accepts the pending ownership on behalf of the Dashboard.
 - Initiates an ownership transfer to the specified `newOwner` address.
 
-The caller must have `DEFAULT_ADMIN_ROLE` on the Dashboard. The `newOwner` can be any account including the current vault owner (`DEFAULT_ADMIN_ROLE`) **except** the Dashboard itself.
+The caller must have `DEFAULT_ADMIN_ROLE` on the Dashboard. The `newOwner` can be any account including the current stVault owner (`DEFAULT_ADMIN_ROLE`) **except** the Dashboard itself.
 
 <details>
   <summary>using Command-line Interface</summary>
@@ -206,7 +206,7 @@ After this step, you are the full owner of the StakingVault with no dependency o
 
 ## Step 5. Withdraw ETH
 
-When your vault was connected to VaultHub, 1 ETH was locked as a connection deposit (minimal reserve). Now that the vault is fully disconnected, you can withdraw this deposit along with any other remaining balance.
+When your stVault was connected to VaultHub, 1 ETH was locked as a connection deposit (minimal reserve). Now that the stVault is fully disconnected, you can withdraw this deposit along with any other remaining balance.
 
 Call `StakingVault.withdraw(recipient, amount)` from the owner address.
 
@@ -229,7 +229,7 @@ yarn start contracts vault w withdraw <vaultAddress> <recipientAddress> <amountI
 
 ## Step 6. Recover Node Operator fees
 
-During Step 1, accrued Node Operator fees were withdrawn from the vault and stored on the Dashboard contract as `feeLeftover` rather than sent directly to the `feeRecipient`. This is intentional: if the `feeRecipient` were a contract that rejects ETH transfers, sending fees directly would revert and block the disconnect.
+During Step 1, accrued Node Operator fees were withdrawn from the stVault and stored on the Dashboard contract as `feeLeftover` rather than sent directly to the `feeRecipient`. This is intentional: if the `feeRecipient` were a contract that rejects ETH transfers, sending fees directly would revert and block the disconnect.
 
 To send the stored fees to the configured `feeRecipient`, call `Dashboard.recoverFeeLeftover()`. This is a **permissionless operation**, anyone can call it, and the fees will be sent to the `feeRecipient` address configured on the Dashboard.
 
@@ -254,12 +254,12 @@ yarn start contracts dashboard w recover-fee-leftover <dashboardAddress>
 
 ## Step 1. Initiate voluntary disconnect
 
-Call `VaultHub.voluntaryDisconnect(vaultAddress)` directly. The caller must be the vault's owner as recorded in VaultHub (`connection.owner`).
+Call `VaultHub.voluntaryDisconnect(vaultAddress)` directly. The caller must be the stVault's owner as recorded in VaultHub (`connection.owner`).
 
 This call:
 
-- Settles all outstanding Lido protocol fees from the vault balance to the Lido treasury.
-- Marks the vault as **pending disconnection** in VaultHub.
+- Settles all outstanding Lido protocol fees from the stVault balance to the Lido treasury.
+- Marks the stVault as **pending disconnection** in VaultHub.
 
 <details>
   <summary>using Command-line Interface</summary>
@@ -272,20 +272,20 @@ yarn start contracts hub w v-owner-disconnect <vaultAddress>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **VaultHub** contract — find its address on the [Deployed contracts](/deployed-contracts/) page for your environment.
-2. Call `voluntaryDisconnect`, passing your vault address.
+1. Open **Etherscan** and navigate to the **VaultHub** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+2. Call `voluntaryDisconnect`, passing your stVault address.
 
 </details>
 
-Once the transaction succeeds, your vault enters the **pending disconnection** state. While pending:
+Once the transaction succeeds, your stVault enters the **pending disconnection** state. While pending:
 
 - No new stETH can be minted.
 - No ETH can be withdrawn through VaultHub.
-- The vault awaits the next oracle report to finalize the disconnection.
+- The stVault awaits the next oracle report to finalize the disconnection.
 
 ## Step 2. Apply the next oracle report
 
-Wait for the next oracle report, then apply the report data to your vault via `LazyOracle.updateVaultData()`. This is the step that **finalizes** the disconnection.
+Wait for the next oracle report, then apply the report data to your stVault via `LazyOracle.updateVaultData()`. This is the step that **finalizes** the disconnection.
 
 :::info
 Normally the oracle report occurs daily shortly after 12 PM UTC.
@@ -293,8 +293,8 @@ Normally the oracle report occurs daily shortly after 12 PM UTC.
 
 When the oracle report is applied and the report timestamp is after your disconnect initiation:
 
-- If there are no slashing obligations and no remaining liability shares, the disconnect **completes successfully**. VaultHub transfers ownership of the StakingVault to `connection.owner` and removes all vault records.
-- If slashing was reported or liabilities remain, the disconnect is **aborted** and the vault returns to connected state.
+- If there are no slashing obligations and no remaining liability shares, the disconnect **completes successfully**. VaultHub transfers ownership of the StakingVault to `connection.owner` and removes all stVault records.
+- If slashing was reported or liabilities remain, the disconnect is **aborted** and the stVault returns to connected state.
 
 This is a **permissionless operation** — anyone can apply the report.
 
@@ -311,11 +311,11 @@ The CLI automatically fetches the latest report CID, retrieves the Merkle tree f
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Deployed contracts](/deployed-contracts/) page for your environment.
+1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
 2. Call `latestReportData` to get the current `reportCid`.
 3. Fetch the Merkle tree JSON from IPFS: `https://ipfs.io/ipfs/<reportCid>`
-4. Locate your vault's entry in the tree and copy its values and proof.
-5. Call `updateVaultData`, passing the vault address, the values from the tree and the proof.
+4. Locate your stVault's entry in the tree and copy its values and proof.
+5. Call `updateVaultData`, passing the stVault address, the values from the tree and the proof.
 
 </details>
 
@@ -351,7 +351,7 @@ After this step, you are the full owner of the StakingVault with no dependency o
 
 ## Step 4. Withdraw ETH
 
-When your vault was connected to VaultHub, 1 ETH was locked as a connection deposit (minimal reserve). Now that the vault is fully disconnected, you can withdraw this deposit along with any other remaining balance.
+When your stVault was connected to VaultHub, 1 ETH was locked as a connection deposit (minimal reserve). Now that the stVault is fully disconnected, you can withdraw this deposit along with any other remaining balance.
 
 Call `StakingVault.withdraw(recipient, amount)` from the owner address.
 
