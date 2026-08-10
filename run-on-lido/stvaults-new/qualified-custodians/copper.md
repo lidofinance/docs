@@ -41,7 +41,7 @@ To use the stVaults infrastructure, the stVaults smart contracts must be whiteli
 You can find the addresses required for whitelisting in the [Custodians overview list](./index.md#whitelisting-smart-contract-addresses).
 
 ## Useful guides
-- [Create a Basic stVault with optional liquidity](../builders/product-guides/basic-stvaults/basic-isolated-staking-setup.md)
+- [Create a Basic stVault with optional liquidity](../builders/basic-stvaults/basic-isolated-staking-setup.md)
 - [Health Monitoring Guide](../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md)
 - [Health Emergency Guide](../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md)
 - [stVault Rebalancing](../vault-owners-curators-and-stakers/basic-stvaults/rebalance-guide.md)
