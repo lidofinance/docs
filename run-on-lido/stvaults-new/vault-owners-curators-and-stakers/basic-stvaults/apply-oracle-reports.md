@@ -4,11 +4,11 @@ sidebar_position: 9
 
 # Apply oracle reports
 
-Before minting stETH or performing other operations that depend on current vault state, the protocol needs to ensure that you are working with the latest available data. [LazyOracle](/contracts/lazy-oracle) allows anyone to apply the latest report to a specific vault on demand.
+Before minting stETH or performing other operations that depend on current stVault state, the protocol needs to ensure that you are working with the latest available data. [LazyOracle](/contracts/lazy-oracle) allows anyone to apply the latest report to a specific stVault on demand.
 
 ## Why apply a fresh report?
 
-Your stVault's state (total value, mintable stETH capacity, health factor) is updated through oracle reports. These reports are published periodically, but applying them to your specific vault is a separate, permissionless action. Fresh data is required for:
+Your stVault's state (total value, mintable stETH capacity, health factor) is updated through oracle reports. These reports are published periodically, but applying them to your specific stVault is a separate, permissionless action. Fresh data is required for:
 
 - minting stETH,
 - withdrawing ETH,
@@ -17,37 +17,37 @@ Your stVault's state (total value, mintable stETH capacity, health factor) is up
 - resuming beacon deposits,
 - partial validator withdrawals,
 - settling Lido fees,
-- disconnecting the vault.
+- disconnecting the stVault.
 
 :::info
-Many vault operations (except funding and burning shares) will revert if the report is stale. When you are not sure why your operation reverts, apply a fresh report first.
+Many stVault operations (except funding and burning shares) will revert if the report is stale. When you are not sure why your operation reverts, apply a fresh report first.
 :::
 
 ## How it works
 
-1. The [AccountingOracle](/contracts/accounting-oracle) publishes a Merkle tree root containing data for all vaults
-2. You get your vault's data and proof from IPFS using the published CID
+1. The [AccountingOracle](/contracts/accounting-oracle) publishes a Merkle tree root containing data for all stVaults
+2. You get your stVault's data and proof from IPFS using the published CID
 3. You submit the data and proof to the [LazyOracle](/contracts/lazy-oracle) contract
-4. [LazyOracle](/contracts/lazy-oracle) verifies the proof and updates your vault's state in [VaultHub](/contracts/vault-hub).
+4. [LazyOracle](/contracts/lazy-oracle) verifies the proof and updates your stVault's state in [VaultHub](/contracts/vault-hub).
 
-This is a **permissionless operation** — anyone can apply a report to any vault.
+This is a **permissionless operation** — anyone can apply a report to any stVault.
 
 <details>
   <summary>using stVaults Web UI</summary>
 
       The Web UI applies a fresh report automatically whenever an operation needs one — supplying, withdrawing, minting, repaying, rebalancing, disbursing the fee, tier changes and validator operations all prepend the report update to the same transaction batch. No manual action is required in most cases.
 
-      The report status is shown in the navigation, next to the current vault address: **Oracle report up to date** or **Oracle report outdated**. The question mark next to it opens the details — the timestamp of the last report, a link to view it on IPFS, and, while the report is stale, an **Apply fresh report** button to submit it manually.
+      The report status is shown in the navigation, next to the current stVault address: **Oracle report up to date** or **Oracle report outdated**. The question mark next to it opens the details — the timestamp of the last report, a link to view it on IPFS, and, while the report is stale, an **Apply fresh report** button to submit it manually.
 
       ![Oracle report](/img/stvaults/guide-basic-stvault/guide_1_src_10.png)
 
-      The banner shown for a vault pending disconnection carries its own **Apply the latest Oracle report** button.
+      The banner shown for an stVault pending disconnection carries its own **Apply the latest Oracle report** button.
 
 </details>
 <details>
   <summary>using Command-line Interface</summary>
 
-      Apply the latest report to your vault:
+      Apply the latest report to your stVault:
 
       ```bash
       yarn start report w submit -v <vaultAddress>
@@ -56,7 +56,7 @@ This is a **permissionless operation** — anyone can apply a report to any vaul
 
       - fetches the latest report CID from LazyOracle,
       - retrieves the Merkle tree from IPFS,
-      - generates the proof for your vault,
+      - generates the proof for your stVault,
       - submits the transaction.
 
 </details>
@@ -65,17 +65,17 @@ This is a **permissionless operation** — anyone can apply a report to any vaul
 
       Applying a report via Etherscan requires manually fetching the proof data from IPFS. For most users, the CLI or Web UI is recommended.
 
-      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Deployed contracts](/deployed-contracts/) page for your environment.
+      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
       2. Call `latestReportData` to get the current `reportCid`.
       3. Fetch the Merkle tree JSON from IPFS: `https://ipfs.io/ipfs/<reportCid>`
-      4. Locate your vault's entry in the tree and copy its values and proof.
-      5. Call `updateVaultData`, passing the vault address, the values from the tree and the proof.
+      4. Locate your stVault's entry in the tree and copy its values and proof.
+      5. Call `updateVaultData`, passing the stVault address, the values from the tree and the proof.
 
 </details>
 
 ## Checking report freshness
 
-You can check when your vault's report was last updated:
+You can check when your stVault's report was last updated:
 
 <details>
   <summary>using Command-line Interface</summary>
@@ -83,15 +83,15 @@ You can check when your vault's report was last updated:
       ```bash
       yarn start vo r info -v <vaultAddress>
       ```
-      This displays the vault's current metrics including the last report timestamp.
+      This displays the stVault's current metrics including the last report timestamp.
 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
 
-      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Deployed contracts](/deployed-contracts/) page for your environment.
+      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
       2. Call `latestReportTimestamp` to see when the latest report was published.
-      3. Call `vaultInfo`, passing your vault address, to see its current on-chain metrics.
+      3. Call `vaultInfo`, passing your stVault address, to see its current on-chain metrics.
 
 </details>
 

@@ -8,7 +8,7 @@ This page defines every stVault metric and gives the formula behind it.
 
 The metrics fall into two families:
 
-- **State metrics** describe the vault right now. They are derived from the latest oracle report plus the on-chain flows since that report, and every one of them can be read from the [`Dashboard`](/contracts/dashboard) contract.
+- **State metrics** describe the stVault right now. They are derived from the latest oracle report plus the on-chain flows since that report, and every one of them can be read from the [`Dashboard`](/contracts/dashboard) contract.
 - **Performance metrics** describe what happened between two oracle reports. They are computed off-chain from consecutive reports by the Web UI and the [CLI](https://lidofinance.github.io/lido-staking-vault-cli/metrics-calculation).
 
 ### Notation
@@ -33,19 +33,19 @@ On-chain the ratios are stored in basis points (`10000` = 100%), and share amoun
 
 ### Reserve Ratio
 
-Defines the share of the collateral that is reserved when the Vault Owner mints stETH. stETH isn't minted for this amount. Set by the Tier the vault belongs to.
+Defines the share of the collateral that is reserved when the Vault Owner mints stETH. stETH isn't minted for this amount. Set by the Tier the stVault belongs to.
 
 ### Forced Rebalance Threshold
 
-Defines the minimum allowed ratio of Total Value to stETH Liability. Crossing it makes the vault subject to [forced rebalancing](./rebalance-guide.md). Always lower than the Reserve Ratio.
+Defines the minimum allowed ratio of Total Value to stETH Liability. Crossing it makes the stVault subject to [forced rebalancing](./rebalance-guide.md). Always lower than the Reserve Ratio.
 
 ### Minimal Reserve
 
-The amount of ETH that is always reserved in the vault regardless of Total Value. 1 ETH by default, and may be increased in response to a correlated slashing event according to the [Risk management framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4).
+The amount of ETH that is always reserved in the stVault regardless of Total Value. 1 ETH by default, and may be increased in response to a correlated slashing event according to the [Risk management framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4).
 
 ### stETH minting limit
 
-Absolute maximum for the minting capacity, defined by the vault's Tier. Changing it requires changing the Tier.
+Absolute maximum for the minting capacity, defined by the stVault's Tier. Changing it requires changing the Tier.
 
 ### Node Operator fee
 
@@ -55,7 +55,7 @@ The share of the gross staking rewards that the Node Operator charges for provid
 
 ### Total Value
 
-The total amount of ETH attributed to the vault. It splits into ETH deposited to validators and ETH held on the vault balance, and rewards accrue to both:
+The total amount of ETH attributed to the stVault. It splits into ETH deposited to validators and ETH held on the stVault balance, and rewards accrue to both:
 
 $$
 TV = \text{staked} + \text{notStaked}
@@ -69,15 +69,15 @@ $$
 
 ### Not Staked stVault Balance
 
-ETH held on the vault contract balance and not deposited to validators, and therefore not earning rewards. ETH staged for pending validator activations is excluded.
+ETH held on the stVault contract balance and not deposited to validators, and therefore not earning rewards. ETH staged for pending validator activations is excluded.
 
 $$
-\text{notStaked} = \text{vault balance} - \text{staged}
+\text{notStaked} = \text{stVault balance} - \text{staged}
 $$
 
 ### stETH Liability
 
-The amount of stETH the Vault Owner minted in the vault, backed by the ETH collateral. Stored in shares, so its ETH value increases daily with the stETH rebase:
+The amount of stETH the Vault Owner minted in the stVault, backed by the ETH collateral. Stored in shares, so its ETH value increases daily with the stETH rebase:
 
 $$
 L = \text{liabilityShares} \times \text{shareRate}
@@ -94,9 +94,9 @@ $$
 \end{aligned}
 $$
 
-Growth is the value the vault gained on its own, as opposed to the ETH that was supplied into it. Two details matter here: it is measured from the **latest oracle report**, not from the live Total Value, and it **includes value still held in quarantine** — the fee accrues on quarantined value too.
+Growth is the value the stVault gained on its own, as opposed to the ETH that was supplied into it. Two details matter here: it is measured from the **latest oracle report**, not from the live Total Value, and it **includes value still held in quarantine** — the fee accrues on quarantined value too.
 
-$\text{settledGrowth}$ is the high-water mark of growth already accounted for: it moves up whenever the fee is disbursed, and also when an amount is explicitly exempted from the fee base. Because of the $\max(0, \dots)$, a drop in vault value accrues no new fee until the growth exceeds that mark again — the Node Operator is not paid twice for recovering the same value.
+$\text{settledGrowth}$ is the high-water mark of growth already accounted for: it moves up whenever the fee is disbursed, and also when an amount is explicitly exempted from the fee base. Because of the $\max(0, \dots)$, a drop in stVault value accrues no new fee until the growth exceeds that mark again — the Node Operator is not paid twice for recovering the same value.
 
 ### Unsettled Lido fees
 
@@ -108,7 +108,7 @@ $$
 
 ### Locked by fees obligations (unsettled fees)
 
-ETH locked in the vault because of the undisbursed Node Operator fee and unsettled Lido fees.
+ETH locked in the stVault because of the undisbursed Node Operator fee and unsettled Lido fees.
 
 $$
 \text{feeObligation} = \text{accruedFee} + \text{unsettledFees}
@@ -116,7 +116,7 @@ $$
 
 ### Reserve
 
-The part of the collateral that is reserved when minting and for which stETH isn't minted. It is capped by the value the vault has on top of its liability:
+The part of the collateral that is reserved when minting and for which stETH isn't minted. It is capped by the value the stVault has on top of its liability:
 
 $$
 \text{reserve} = \min\Bigl(TV - L,\; \frac{L \times RR}{1 - RR}\Bigr)
@@ -136,7 +136,7 @@ The liability used here is the **maximum** liability observed during the current
 
 ### Total Lock
 
-The total amount of ETH locked in the vault: the collateral plus everything the vault owes in fees.
+The total amount of ETH locked in the stVault: the collateral plus everything the stVault owes in fees.
 
 $$
 \text{totalLock} = \text{collateral} + \text{accruedFee} + \text{unsettledFees}
@@ -167,7 +167,7 @@ On-chain the capacity is denominated in shares, not in ETH.
 
 It can additionally be capped by:
 
-- the vault's personal stETH minting limit;
+- the stVault's personal stETH minting limit;
 - the Tier remaining capacity;
 - the Node Operator remaining capacity;
 - the total stVaults remaining capacity;
@@ -189,31 +189,31 @@ $$
 UR = \frac{L}{\text{capacity}} \times 100\%
 $$
 
-At 100% no further stETH can be minted. Above 100% the vault is at or beyond its intended liability limit and approaches the forced rebalancing zone.
+At 100% no further stETH can be minted. Above 100% the stVault is at or beyond its intended liability limit and approaches the forced rebalancing zone.
 
 ### Health Factor
 
-Shows how well the stETH Liability is backed by the Total Value. The primary indicator of vault health:
+Shows how well the stETH Liability is backed by the Total Value. The primary indicator of stVault health:
 
 $$
 HF = \frac{TV \times (1 - FRT)}{L} \times 100\%
 $$
 
-The vault is healthy while `HF ≥ 100%`. Below that it becomes subject to [forced rebalancing](./rebalance-guide.md). See the [Health monitoring guide](./health-monitoring-guide.md) for the risk bands used in the Web UI.
+The stVault is healthy while `HF ≥ 100%`. Below that it becomes subject to [forced rebalancing](./rebalance-guide.md). See the [Health monitoring guide](./health-monitoring-guide.md) for the risk bands used in the Web UI.
 
 ### Available to withdraw
 
-ETH that can be withdrawn from the vault balance right now. It is the lower of what is liquid and what is unlocked, reduced by the fees the vault owes:
+ETH that can be withdrawn from the stVault balance right now. It is the lower of what is liquid and what is unlocked, reduced by the fees the stVault owes:
 
 $$
 \begin{aligned}
-\text{liquid} &= \min(\text{balance} - \text{staged},\; TV) - \text{redemptions} \\[2pt]
+\text{liquid} &= \min(\text{stVault balance} - \text{staged},\; TV) - \text{lidoRedemptions} \\[2pt]
 \text{unlocked} &= \max(0,\; TV - \text{collateral}) \\[2pt]
 \text{available} &= \max\bigl(0,\; \min(\text{liquid},\; \text{unlocked}) - \text{unsettledFees} - \text{accruedFee}\bigr)
 \end{aligned}
 $$
 
-While the vault is pending disconnection, nothing is withdrawable.
+While the stVault is pending disconnection, nothing is withdrawable.
 
 ## Lido Core reference metrics
 
@@ -231,7 +231,7 @@ $$
 APR_{\text{stETH}} = \frac{\text{shareRate}_{curr} - \text{shareRate}_{prev}}{\text{shareRate}_{prev}} \times \frac{\text{secondsInYear}}{\text{periodSeconds}} \times 100\%
 $$
 
-This is the benchmark to compare the vault's own [Net staking APR](#net-staking-apr) against: if the vault earns less than plain stETH after fees, its configuration or performance needs a review. See [Last Lido APR for stETH](/integrations/api#last-lido-apr-for-steth) for the canonical calculation.
+This is the benchmark to compare the stVault's own [Net staking APR](#net-staking-apr) against: if the stVault earns less than plain stETH after fees, its configuration or performance needs a review. See [Last Lido APR for stETH](/integrations/api#last-lido-apr-for-steth) for the canonical calculation.
 
 ### Node Operator fee at Lido Core
 
@@ -250,7 +250,7 @@ $$
 $$
 
 :::note
-Any change in vault value not captured by `inOutDelta` is currently counted as staking rewards. Slashing penalties and other vault-level ETH movements therefore land in this metric rather than being tracked separately.
+Any change in stVault value not captured by `inOutDelta` is currently counted as staking rewards. Slashing penalties and other stVault-level ETH movements therefore land in this metric rather than being tracked separately.
 :::
 
 ### Node Operator rewards
@@ -266,7 +266,7 @@ $$
 \end{aligned}
 $$
 
-The two terms do not overlap: $\text{accruedFee}$ *subtracts* the settled mark rather than including it, so together they add up to everything the Node Operator has earned over the vault's lifetime, taken or not.
+The two terms do not overlap: $\text{accruedFee}$ *subtracts* the settled mark rather than including it, so together they add up to everything the Node Operator has earned over the stVault's lifetime, taken or not.
 
 ### Lido fees
 
@@ -322,13 +322,13 @@ $$
 
 ### stVault bottom line
 
-The final result for the Vault Owner inside the vault perimeter — net staking rewards after the stETH liability growth:
+The final result for the Vault Owner inside the stVault perimeter — net staking rewards after the stETH liability growth:
 
 $$
 \text{bottomLine} = \text{netStakingRewards} - \text{rebaseCost}
 $$
 
-A negative bottom line means the stETH liability grew faster than the vault earned, which is common while new validators sit in the activation queue.
+A negative bottom line means the stETH liability grew faster than the stVault earned, which is common while new validators sit in the activation queue.
 
 ### APR metrics
 
@@ -370,19 +370,19 @@ $$
 
 Carry Spread is the Health Factor trend indicator: a positive spread raises the Health Factor, a negative one lowers it.
 
-## Restoring an unhealthy vault
+## Restoring an unhealthy stVault
 
 Three metrics tell you how much of each corrective action is needed to bring the Utilization Ratio back to 100%. See the [Health emergency guide](./health-emergency-guide.md) for a worked comparison.
 
 ### ETH to rebalance
 
-The ETH to send from the vault balance to Lido Core, writing off the same stETH liability 1:1:
+The ETH to send from the stVault balance to Lido Core, writing off the same stETH liability 1:1:
 
 $$
 \text{ETH to rebalance} = \frac{L - (1 - RR) \times TV}{RR}
 $$
 
-The shortfall is zero while the vault is healthy. If the liability already exceeds Total Value, rebalancing alone cannot fix the position and the vault is considered to have bad debt.
+The shortfall is zero while the stVault is healthy. If the liability already exceeds Total Value, rebalancing alone cannot fix the position and the stVault is considered to have bad debt.
 
 ### stETH to repay
 
@@ -394,7 +394,7 @@ $$
 
 ### ETH to supply
 
-The ETH to add to the vault, which raises Total Value without touching the liability:
+The ETH to add to the stVault, which raises Total Value without touching the liability:
 
 $$
 \text{supply} = \frac{\text{repay}}{1 - RR}

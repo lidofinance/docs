@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Supply, withdraw, mint and repay
 
-These four operations are the everyday lifecycle of a Basic stVault: you supply ETH into the vault, mint stETH against it, repay the stETH, and withdraw the ETH back out.
+These four operations are the everyday lifecycle of a Basic stVault: you supply ETH into the stVault, mint stETH against it, repay the stETH, and withdraw the ETH back out.
 
 All four are permissioned on the [`Dashboard`](/contracts/dashboard) contract. By default the Vault Owner can perform all of them; each can be delegated separately to one or more addresses.
 
@@ -18,17 +18,17 @@ All four are permissioned on the [`Dashboard`](/contracts/dashboard) contract. B
 An address holding `DEFAULT_ADMIN_ROLE` can perform all of them without granting itself the sub-roles — see [Roles and permissions](./roles-and-permissions.md).
 
 :::warning
-Withdrawing and minting depend on the current vault state. Make sure a fresh oracle report is applied to your vault before you start — see [Apply oracle reports](./apply-oracle-reports.md).
+Withdrawing and minting depend on the current stVault state. Make sure a fresh oracle report is applied to your stVault before you start — see [Apply oracle reports](./apply-oracle-reports.md).
 :::
 
 ## Supply ETH
 
-Supplying (funding) adds ETH to the vault balance. It has no upper limit and does not depend on the oracle report.
+Supplying (funding) adds ETH to the stVault balance. It has no upper limit and does not depend on the oracle report.
 
 <details>
   <summary>using stVaults Web UI</summary>
 
-Open the **Supply / Withdraw** section of your vault.
+Open the **Supply / Withdraw** section of your stVault.
 
 ![Supply and Withdraw](/img/stvaults/guide-basic-stvault/guide_1_scr_6.png)
 
@@ -43,7 +43,7 @@ You can choose which token to supply — ETH or wETH. Selecting the checkbox min
 yarn start vo w fund <amount>
 ```
 
-The amount is in ETH. Add `-v, --vault <address>` to target a specific vault, otherwise the CLI prompts you to pick one.
+The amount is in ETH. Add `-v, --vault <address>` to target a specific stVault, otherwise the CLI prompts you to pick one.
 
 See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal#fund-vault).
 
@@ -59,19 +59,19 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 
 ## Withdraw ETH
 
-Withdrawing moves ETH from the vault balance to a recipient address.
+Withdrawing moves ETH from the stVault balance to a recipient address.
 
 To be withdrawable, ETH has to be both:
 
-- **Liquid** — sitting on the vault balance, not on validators. ETH on validators must be withdrawn from the Beacon Chain first.
-- **Unlocked** — not reserved as collateral for the stETH liability, as the minimal reserve, for pending redemptions, or for unpaid fees.
+- **Liquid** — sitting on the stVault balance, not on validators. ETH on validators must be withdrawn from the Beacon Chain first.
+- **Unlocked** — not reserved as collateral for the stETH liability, as the minimal reserve, for pending Lido redemptions, or for unpaid fees.
 
 See [Metrics](./metrics.md) for the full breakdown and where to find the current number.
 
 <details>
   <summary>using stVaults Web UI</summary>
 
-Open the **Supply / Withdraw** section of your vault. You can specify a destination address for the withdrawal, and choose whether to receive ETH or wETH.
+Open the **Supply / Withdraw** section of your stVault. You can specify a destination address for the withdrawal, and choose whether to receive ETH or wETH.
 
 </details>
 
@@ -82,7 +82,7 @@ Open the **Supply / Withdraw** section of your vault. You can specify a destinat
 yarn start vo w withdraw <amount>
 ```
 
-The amount is in ETH. Add `-r, --recipient <address>` to send the ETH somewhere other than your own address, and `-v, --vault <address>` to target a specific vault.
+The amount is in ETH. Add `-r, --recipient <address>` to send the ETH somewhere other than your own address, and `-v, --vault <address>` to target a specific stVault.
 
 See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/get-started/supply-withdrawal#withdraw-from-vault).
 
@@ -99,7 +99,7 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 
 ## Mint stETH
 
-Once ETH is supplied, you can mint stETH against it on demand. Unlike Lido Core, stVaults allow minting only within the vault's [stETH minting capacity](./metrics.md).
+Once ETH is supplied, you can mint stETH against it on demand. Unlike Lido Core, stVaults allow minting only within the stVault's [stETH minting capacity](./metrics.md).
 
 Three flavours are available, all of them payable so you can fund and mint in one transaction:
 
@@ -114,7 +114,7 @@ Each takes a recipient address, so minted tokens can go straight to another addr
 <details>
   <summary>using stVaults Web UI</summary>
 
-Open the **Mint / Repay** section of your vault.
+Open the **Mint / Repay** section of your stVault.
 
 ![Mint and Repay](/img/stvaults/guide-basic-stvault/guide_1_scr_7.png)
 
@@ -145,7 +145,7 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 
 ## Repay (burn) stETH
 
-Repaying burns stETH and decreases the vault's stETH liability, which frees up the collateral that was backing it.
+Repaying burns stETH and decreases the stVault's stETH liability, which frees up the collateral that was backing it.
 
 | Method        | Burns                     |
 | ------------- | ------------------------- |
@@ -164,7 +164,7 @@ The ETH released by the repayment is unlocked only once the next oracle report c
 <details>
   <summary>using stVaults Web UI</summary>
 
-Open the **Mint / Repay** section of your vault and choose which token to repay: stETH or wstETH.
+Open the **Mint / Repay** section of your stVault and choose which token to repay: stETH or wstETH.
 
 </details>
 
@@ -186,7 +186,7 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **stETH** or **wstETH** token contract — find the addresses on the [Deployed contracts](/deployed-contracts/) page for your environment.
+1. Open **Etherscan** and navigate to the **stETH** or **wstETH** token contract — find the addresses on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
 2. Call `approve`, passing the `Dashboard` contract address and the amount **in wei** you want to allow it to pull.
 3. Once the approval is confirmed, navigate to the **Dashboard** contract by its address.
 4. Call `burnShares`, `burnStETH` or `burnWstETH`, passing the amount **in wei**.
