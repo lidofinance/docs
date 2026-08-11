@@ -25,7 +25,7 @@ All Vault Owner permissions above are held by the admin by default and can be de
 
 ## Request a validator exit
 
-The polite path: you signal which validators should leave, and the Node Operator performs the exit.
+You signal which validators should leave, and the Node Operator performs the exit.
 
 :::warning
 This does **not** exit anything by itself. It emits a `ValidatorExitRequested` event per key, and the Node Operator has to be watching for it and act. Whether and when they do is an off-chain matter between you and them — the protocol does not enforce it.
@@ -116,7 +116,7 @@ Public keys and amounts are comma-separated lists of the same length. **Amounts 
 
 Pausing stops the Node Operator from depositing any more of the stVault balance into new validators. Existing validators are unaffected and keep running.
 
-This is useful when you are about to withdraw, disconnect, or simply do not want the balance to be staked further while you decide.
+This is useful when you are about to withdraw, disconnect, or do not want the balance staked further while you decide.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -137,7 +137,7 @@ Open the stVault **Settings** and switch off deposits from the stVault balance t
 
 If your stVault falls behind on its obligations, the stVaults Committee and the Lido DAO can force its validators to exit, returning the ETH to the stVault so the position can be rebalanced.
 
-This is not arbitrary — the call reverts with `ForcedValidatorExitNotAllowed` unless the stVault actually has an obligations shortfall at the time, and it requires a fresh oracle report. Forced exits are always full exits.
+The call reverts with `ForcedValidatorExitNotAllowed` unless the stVault has an obligations shortfall at the time, and it requires a fresh oracle report. Forced exits are always full exits.
 
 An **obligations shortfall** means the stVault owes more than the liquid ETH on its balance can cover. What it owes is:
 
@@ -146,4 +146,4 @@ An **obligations shortfall** means the stVault owes more than the liquid ETH on 
 
 If the stVault balance covers all of that, there is no shortfall and forced exits are not possible — even if the stVault is unhealthy.
 
-The way to never meet this path is to watch the Health Factor and act early — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Rebalance guide](./rebalance-guide.md).
+Watch the Health Factor and act while it is still above 100% — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Rebalance guide](./rebalance-guide.md).

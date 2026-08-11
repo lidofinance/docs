@@ -58,7 +58,7 @@ Validator gets **slashed by 1 ETH** → total backing = 99 ETH:
 <img src="/img/stvaults/health/100_1.png" width="600px" align="center" />
 
 
-**The stVault is still healthy, but is really close to rebalancing** (Reserve factor is below RR). However, nothing happens yet: the user can't mint more stETH, but forced rebalancing will not happen if the ratio stops decreasing.
+**The stVault is still healthy, but is close to rebalancing** (Reserve factor is below RR). However, nothing happens yet: the user can't mint more stETH, but forced rebalancing will not happen if the ratio stops decreasing.
 
 ### Step 2: More slashing
 Validator **slashing continues by an additional 0.5 ETH** → total backing = 98.5 ETH:
@@ -135,7 +135,7 @@ This is the least recommended method for restoring stVault health.
 - The user is not required to burn stETH, so their potential earnings outside the stVault remain unaffected.
 
 **Cons:**
-- The user's future rewards from the stVault will be significantly reduced due to a decrease in the stVault's Total Value — from 98.5 ETH to 85 ETH (approximately −14%).
+- The user's future rewards from the stVault will be reduced due to a decrease in the stVault's Total Value — from 98.5 ETH to 85 ETH (approximately −14%).
 
 #### Let’s sum up:
 

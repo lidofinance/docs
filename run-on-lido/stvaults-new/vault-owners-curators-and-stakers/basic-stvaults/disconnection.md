@@ -24,7 +24,7 @@ A Vault Owner may choose to disconnect for several reasons:
   Disconnecting disables Lido-provided accounting, liquidity by stETH, and fee mechanisms, and therefore stops Lido fee accrual.
 
 - **Make the stVault irrevocably independent (ossification)**
-  The stVault can be ossified to prevent any future upgrades or changes, effectively removing any potential influence from Lido DAO.
+  The stVault can be ossified to prevent any future upgrades or changes, removing any influence from Lido DAO.
   Disconnection does not imply ossification: ossification is an optional, separate action available after disconnection.
 ### What stops working after disconnection
 

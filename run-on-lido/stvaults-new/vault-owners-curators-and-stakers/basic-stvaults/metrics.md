@@ -144,7 +144,7 @@ $$
 
 ### Pending unlock
 
-ETH eligible for unlocking after stETH was repaid, but still awaiting confirmation from the next oracle report. It is the gap between the liability the collateral is still sized for and the liability that actually remains:
+ETH eligible for unlocking after stETH was repaid, but still awaiting confirmation from the next oracle report. It is the gap between the liability the collateral is still sized for and the liability that remains:
 
 $$
 \text{pendingUnlock} = \max(0,\; L_{\max} - L)
@@ -223,7 +223,7 @@ Gross annualized rewards earned by validators in Lido Core, **before** the proto
 
 ### stETH APR
 
-What an stETH holder actually receives: the Lido Core APR **net** of the Lido protocol fee, currently 10% of staking rewards.
+What an stETH holder receives: the Lido Core APR **net** of the Lido protocol fee, currently 10% of staking rewards.
 
 The fee is collected by minting new shares, so this return is exactly the growth of the stETH share rate:
 

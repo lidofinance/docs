@@ -46,7 +46,7 @@ Two methods are available on the `Dashboard` contract, differing only in how you
 | `rebalanceVaultWithShares`  | stETH shares |
 | `rebalanceVaultWithEther`   | ETH |
 
-`rebalanceVaultWithEther` converts the amount to shares internally, so the ETH actually transferred can differ slightly from what you passed because of rounding. It is also payable: you can supply extra ETH in the same transaction to cover a shortfall the stVault balance cannot.
+`rebalanceVaultWithEther` converts the amount to shares internally, so the ETH transferred can differ slightly from what you passed because of rounding. It is also payable: you can supply extra ETH in the same transaction to cover a shortfall the stVault balance cannot.
 
 <details>
   <summary>using stVaults Web UI</summary>

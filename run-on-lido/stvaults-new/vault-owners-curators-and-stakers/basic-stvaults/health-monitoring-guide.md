@@ -109,4 +109,4 @@ When **Utilization ratio approaches 100%**:
 - There is little remaining capacity to mint additional stETH.
 - The stVault comes closer to the boundary where forced rebalancing may be triggered.
 
-If Utilization reaches or exceeds 100%, the stVault is effectively at or above its intended Liability limit and may enter the forced rebalancing zone. In this situation, the Vault Owner should promptly review their position and take corrective actions as described in the [stVaults Health Emergency Guide](./health-emergency-guide.md).
+If Utilization reaches or exceeds 100%, the stVault is at or above its intended Liability limit and may enter the forced rebalancing zone. In this situation, the Vault Owner should promptly review their position and take corrective actions as described in the [stVaults Health Emergency Guide](./health-emergency-guide.md).
