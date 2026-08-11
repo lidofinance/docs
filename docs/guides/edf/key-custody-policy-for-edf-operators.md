@@ -67,11 +67,7 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
     Hardware cold wallets, such as Ledger or Trezor, are RECOMMENDED for all signers. A software wallet is acceptable.
     
-5. **Signer keys MUST be held by distinct people on distinct devices.**  
-    
-    No single person may hold a quorum of signers. Two signers MUST NOT live on the same physical device or be derived from the same seed.
-    
-6. **Signer set changes MUST be executed promptly.**  
+5. **Signer set changes MUST be executed promptly.**  
     
     None of the cases below requires touching the `DelegationContract`. Every removal MUST be paired with adding a replacement signer.
     
@@ -165,7 +161,7 @@ A `DelegationContract` authorizes exactly one effective delegate at a time. Befo
         - Move the previous EOA’s remaining balance to the new delegate address.
 5. **Owner rotation**  
     
-    Multisig signer keys follow §3.6. Replacing the multisig itself requires a new `DelegationContract` deployment and a governance vote.
+    Multisig signer keys follow §3.5. Replacing the multisig itself requires a new `DelegationContract` deployment and a governance vote.
     
 
 ---
