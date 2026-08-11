@@ -69,7 +69,7 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
 5. **Multisig signer set changes MUST be executed promptly.**  
     
-    Every sit change should be paired with a hot key rotation.
+    Every signer set change SHOULD be paired with a hot key rotation.
     
     - **Departure or role change.** No later than the person’s last day of access. Removing the signer MUST NOT delay revocation of their other access.
     - **Lost or stolen signer device, or exposed seed backup.** Within **24 hours** of the loss being reported. If the affected signer together with any other doubtful signer would meet the threshold, treat it as a §6.2 event.
@@ -102,14 +102,6 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
     Each hot key MUST be responsible only for the single activity it was assigned to perform (day-to-day protocol operation). It MUST NOT be used for any other purpose.
 
-5. **A replacement key MAY be staged only for a planned rotation.**  
-    
-    A daemon that supports soft key rotation MAY temporarily hold both the current delegate key and one replacement delegate key. The replacement key MUST meet all requirements in this section and MUST be staged only for the minimum period needed to complete the rotation.
-    
-    Dual-key staging MUST NOT be used when the current host or secrets store is suspected of compromise. In that case, follow the incident procedure in §6.1 and generate the replacement key on clean infrastructure.
-    
-    After a successful rotation, the previous key MUST be removed promptly from the daemon configuration and secrets store.
-    
 
 ---
 
