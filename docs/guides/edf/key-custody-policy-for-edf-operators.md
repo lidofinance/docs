@@ -67,9 +67,9 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
     Hardware cold wallets, such as Ledger or Trezor, are RECOMMENDED for all signers. A software wallet is acceptable.
     
-5. **Signer set changes MUST be executed promptly.**  
+5. **Multisig signer set changes MUST be executed promptly.**  
     
-    None of the cases below requires touching the `DelegationContract`. Every removal MUST be paired with adding a replacement signer.
+    Every sit change should be paired with a hot key rotation.
     
     - **Departure or role change.** No later than the person’s last day of access. Removing the signer MUST NOT delay revocation of their other access.
     - **Lost or stolen signer device, or exposed seed backup.** Within **24 hours** of the loss being reported. If the affected signer together with any other doubtful signer would meet the threshold, treat it as a §6.2 event.
