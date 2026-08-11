@@ -27,8 +27,8 @@ Your hot key becomes its **delegate**, and you can rotate or revoke it yourself,
 
 Two key classes:
 
-- **Owner key** — a **Safe multisig**, 2-of-3, with hardware cold wallets recommended for the
-  signers. Called **the multisig** everywhere below.
+- **Owner key** — a **Safe multisig**, 2-of-3 or stronger, with hardware cold wallets recommended
+  for the signers. Called **the multisig** everywhere below.
 - **Delegate key** — the hot key on the daemon host.
 
 ---
@@ -65,7 +65,7 @@ On Hoodi the wizard is the same, at [app.safe.protofire.io](https://app.safe.pro
 
 Requirements:
 
-- **3 signers, threshold 2** (2-of-3);
+- **at least 3 signers, threshold at least 2** (2-of-3 or stronger);
 - this multisig is used for **nothing else** — no treasury, no other roles.
 
 ![Safe creation wizard step 2: three signer addresses and a threshold of 2 out of 3 signers](./screenshots/safe-mainnet-signers-threshold.jpg)
@@ -206,8 +206,8 @@ true yet, finish that step first.
 **Delegate EOA:** <PASTE address here>
 
 - [x] I have read the EDF Operator Key Custody Policy and my setup follows it
-- [x] I created a dedicated 2-of-3 owner multisig, with signers held by different people on different
-      devices
+- [x] I created a dedicated owner multisig, at least 2-of-3, with signers held by different people
+      on different devices
 - [x] The multisig is used for nothing except this delegation contract
 - [x] I deployed my DelegationContract from the official DelegationFactory, with a 48-hour
       (172800 s) cooldown

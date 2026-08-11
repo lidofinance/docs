@@ -59,7 +59,9 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
     The multisig MUST be responsible only for the single activity it was assigned to perform: key delegation management. It MUST NOT be used for any other purpose.
     
-3. **The multisig MUST be 2-of-3.**
+3. **The multisig MUST be at least 2-of-3.**
+    
+    A higher threshold or more signers is acceptable.
     
 4. **Every signer SHOULD be a hardware cold wallet.**  
     
