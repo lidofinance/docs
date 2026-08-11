@@ -96,7 +96,7 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     - No unrelated internet-facing services
 3. **Keep only minimal balance.**  
     
-    The delegate address MUST hold only working gas funds. A low-balance alert SHOULD be configured. The address MUST NOT accumulate other assets.
+    The delegate address MUST hold only working gas funds. A low-balance alert SHOULD be configured.
     
 4. **Delegate keys MUST be dedicated to their assigned activity.**  
     
