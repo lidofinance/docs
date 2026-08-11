@@ -176,7 +176,6 @@ module.exports = {
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/hoodi',
-        'deployed-contracts/holesky',
       ],
     },
     {
