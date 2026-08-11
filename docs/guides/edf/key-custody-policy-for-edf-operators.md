@@ -172,10 +172,7 @@ Response:
 
 1. **Revoke first, investigate second.** 
     
-    The owner MUST call `revokeDelegate()` immediately upon suspicion:
-    
-    - Target: within **30 minutes** of detection
-    - Hard limit: within **4 hours**
+    The owner MUST call `revokeDelegate()` immediately upon suspicion.
     
     Revocation takes effect immediately: it clears both the current delegate and any pending one, and signature verification through the contract fails closed from that moment on. If a rotation is in flight, revocation cancels it — the staged replacement must be nominated again once the seat is safe to restore.
     
@@ -223,43 +220,28 @@ Response:
 
 ---
 
-## 7. Monitoring obligations
+## 7. Monitoring
 
-Alongside Lido’s protocol-wide monitoring, each operator MUST independently monitor their own contract.
+Alongside Lido’s protocol-wide monitoring, each operator SHOULD independently monitor their own contract.
 
-### Deployment verification
-
-When a `DelegationContract` is deployed with a non-zero initial delegate, the operator MUST verify that the emitted `InitialDelegateSet` event contains the intended initial delegate address.
-
-### Required alerts
+### Recommended alerts
 
 - **`DelegateNominated`, `DelegateRevoked`, and `Terminated` events** on the operator’s `DelegationContract`
-    - MUST alert a human 24/7
+    - SHOULD alert a human 24/7
     - An unexpected `DelegateNominated` is the primary owner-compromise signal
-    - The owner MUST react to the alert before the cooldown elapses
+    - The owner MUST react to an unexpected nomination before the cooldown elapses
 - **Delegate address activity** outside the daemon’s expected pattern
     - Unexpected `execute()` targets, including EOA destinations
     - Unexpected non-zero `msg.value` forwarded through `execute()`
     - Transactions from the delegate EOA itself
 
----
+### Emergency contact
 
-## 8. Cooldown parameter
-
-The cooldown is fixed at deployment and cannot be changed afterwards.
-
-**A 48-hour cooldown MUST be set when the `DelegationContract` is deployed.**
-
-The value is set against two opposing constraints:
-
-- It MUST be long enough for §7’s 24/7 alerting plus the owner quorum to react to a hostile nomination before it activates.
-- It is also the recovery cost after a revocation: a revoked seat stays down until a replacement is nominated and its cooldown elapses (§6.1).
-
-48 hours satisfies both under this policy. Because the parameter is immutable, an operator who believes a different value is warranted MUST raise it before deployment.
+Each operator MUST provide a fast contact channel for emergencies, where a human can be reached at any time, and MUST keep it current.
 
 ---
 
-## 9. Publication and attestation
+## 8. Publication and attestation
 
 1. Operators MUST publish the `DelegationContract` address and owner multisig address on the research forum, for each delegation contract.
 2. On every delegate rotation — at least once a year — operators MUST post the new delegate address in the same thread.

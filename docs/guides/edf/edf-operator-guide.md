@@ -173,7 +173,7 @@ factory.
 
 Lido runs protocol-wide monitoring; monitor your own contract independently.
 
-**Must page a human 24/7** — events on your `DelegationContract`:
+**Should page a human 24/7** — events on your `DelegationContract`:
 
 - `DelegateNominated(newDelegate, activeFrom)` — if you did not do it, your multisig is compromised.
   React before `activeFrom` (48 h).

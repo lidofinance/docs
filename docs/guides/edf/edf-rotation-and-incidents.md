@@ -100,8 +100,6 @@ captured in logs).
    revokeDelegate()
    ```
 
-   Target: **within 30 minutes** of detection. Hard limit: **4 hours**.
-
    It takes effect immediately and cancels any rotation in flight.
 2. **Notify** the holders' Telegram chat as soon as the transaction is sent: seat, revoked key,
    known facts, and as much evidence as you can collect.
