@@ -152,7 +152,11 @@ module.exports = {
         'contracts/trp-vesting-escrow',
         'contracts/circuit-breaker',
         'contracts/reserve',
-        'contracts/ossifiable-proxy'
+        'contracts/ossifiable-proxy',
+        'contracts/consolidation-bus',
+        'contracts/consolidation-gateway',
+        'contracts/consolidation-migrator',
+        'contracts/top-up-gateway',
       ],
     },
     {
