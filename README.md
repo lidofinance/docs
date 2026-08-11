@@ -106,5 +106,7 @@ Generation lives in [`src/plugins`](src/plugins/README.md) — see that README f
 Fetch external markdown files to build an up-to-date version.
 
 ```console
-npm run fetch-external
+npm run fetch
 ```
+
+This refreshes the audit and LIP indexes, then checks documented Safe multisig quorums against public chain RPC endpoints. Use `npm run fetch-audits`, `npm run fetch-lips`, or `npm run fetch-msig-quorums` to run one task.

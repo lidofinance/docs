@@ -14,7 +14,7 @@ More details on the contribution process and LIPs statuses can be found [here](h
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
-| [37](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md) | "Execution Delegation Framework" | Raman Siamionau, Matsvei Talstalutski | [Link](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) |
+| [37](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md) | Execution Delegation Framework | Raman Siamionau, Matsvei Talstalutski | [Link](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) |
 
 ## Approved
 

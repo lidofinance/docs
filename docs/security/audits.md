@@ -1326,7 +1326,33 @@ Audited at commit [`ad4b2f6`](https://github.com/lidofinance/lido-dao/tree/ad4b2
 
 See [full report](https://github.com/lidofinance/audits/blob/main/QSP%20Lido%20Report%2012-2020.pdf) for more details.
 
-## Lido Multichain audit reports (19 reports)
+## Lido Multichain audit reports (22 reports)
+
+### 08-2026 MixBytes Lido L2 Direct Staking Security Audit
+
+Audited at commit [`3d1d484`](https://github.com/lidofinance/l2-direct-staking/tree/3d1d484c31d39881cdbe8423614e3043e89e027f).
+
+- Total Issues: 4 (3 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 4 (3 Fixed, 1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/Direct-Staking-2026-08-MixBytes-Security-Audit-Report.pdf) for more details.
+
+### 08-2026 MixBytes Chainlink CCIP Linea Adapter Security Audit
+
+> NB: It is not authored by Lido. Used by Lido Direct Staking Automation contracts*.
+
+Audited at commit [`34344f5`](https://github.com/Aphyla/chainlink-csr/tree/34344f5b247de110c74c18df6b445ab1cb238f5e).
+
+- Total Issues: 1 (1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/Direct-Staking-Linea-Adapter-2026-08-MixBytes-Security-Audit-Report.pdf) for more details.
 
 ### 03-2026 Cantina zkSync Lido Bridge PR-85 Fix Review
 
@@ -1353,6 +1379,22 @@ Audited at commit [`8f19e11`](https://github.com/lidofinance/lido-l2/tree/8f19e1
 The deployed contracts are verified against the [stETH on Optimism](/deployed-contracts/#optimism) deployment.
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/stETH-on-Unichain-2025-02-MixBytes-deployment-verification.pdf) for more details.
+
+### 02-2025 Trail of Bits Chainlink Custom Senders and Receivers Security Review
+
+> NB: It is not authored by Lido. Used by Lido Direct Staking Automation contracts.
+
+Audited at commit [`8e08c07`](https://github.com/Aphyla/chainlink-csr/tree/8e08c07ec55bbe32f447b450d915f6813eac6cc7).
+The sources are also available at [Lido chainlink-csr mirror](https://github.com/lidofinance/chainlink-csr).
+
+- Total Issues: 7 (6 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Fixed)
+- Medium Issues: 2 (1 Fixed, 1 Acknowledged)
+- Informational Issues: 3 (3 Fixed)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/Direct-Staking-2025-02-Trail-of-Bits-Chainlink-CSR-Security-Review.pdf) for more details.
+The report is also available from [Trail of Bits publications](https://github.com/trailofbits/publications/blob/master/reviews/2025-02-chainlink-customsendersreceivers-securityreview.pdf).
 
 ### 01-2025 MixBytes stETH on Soneium Verification
 
