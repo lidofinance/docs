@@ -299,8 +299,8 @@ unset or wrong — fix the config.
 
    | Variable | Value |
    | --- | --- |
-   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. Config validation **fails at startup** if it is empty or not a valid address — even while the DSM is still on v3/v4. |
-   | `WALLET_PRIVATE_KEY` / `WALLET_PRIVATE_KEY_FILE` | **The old key** — your existing guardian EOA. Used while the DSM is on v3/v4. |
+   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. Config validation **fails at startup** if it is empty or not a valid address — even while the DSM is still on v4. |
+   | `WALLET_PRIVATE_KEY` / `WALLET_PRIVATE_KEY_FILE` | **The old key** — your existing guardian EOA. Used while the DSM is on v4. |
    | `WALLET_PRIVATE_KEY_2` / `WALLET_PRIVATE_KEY_2_FILE` | **The new key** — the delegate of your `DelegationContract`. |
 
    ```bash
