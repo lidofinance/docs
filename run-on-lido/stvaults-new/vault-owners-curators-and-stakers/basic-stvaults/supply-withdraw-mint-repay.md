@@ -64,7 +64,7 @@ Withdrawing moves ETH from the stVault balance to a recipient address.
 To be withdrawable, ETH has to be both:
 
 - **Liquid** — sitting on the stVault balance, not on validators. ETH on validators must be withdrawn from the Beacon Chain first.
-- **Unlocked** — not reserved as collateral for the stETH liability, as the minimal reserve, for pending Lido redemptions, or for unpaid fees.
+- **Unlocked** — not reserved as collateral for the stETH liability, as the minimal reserve, for pending [Lido redemptions](../../concepts-and-reference/stvaults-detailed-technical-design.md#2-redemptions), or for unpaid fees.
 
 See [Metrics](./metrics.md) for the full breakdown and where to find the current number.
 

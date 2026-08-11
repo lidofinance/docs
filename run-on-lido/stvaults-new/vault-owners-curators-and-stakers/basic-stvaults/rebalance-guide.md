@@ -30,7 +30,7 @@ Repaying is the better option whenever you can get the stETH — see [Supply, wi
 
 It depends on what you are trying to achieve:
 
-- **Restore health** — rebalance the shortfall. Read it from `healthShortfallShares` on the `Dashboard` contract: it returns the shares needed to bring the stVault back to a healthy state and cover any pending Lido redemptions, `0` if the stVault is already healthy, and the maximum `uint256` value if rebalancing alone cannot fix the position.
+- **Restore health** — rebalance the shortfall. Read it from `healthShortfallShares` on the `Dashboard` contract: it returns the shares needed to bring the stVault back to a healthy state and cover any pending [Lido redemptions](../../concepts-and-reference/stvaults-detailed-technical-design.md#2-redemptions), `0` if the stVault is already healthy, and the maximum `uint256` value if rebalancing alone cannot fix the position.
 - **Close the stVault** — rebalance the entire stETH liability, which brings it to zero and unlocks the remaining ETH for withdrawal. See [Disconnection](./disconnection.md).
 
 :::note

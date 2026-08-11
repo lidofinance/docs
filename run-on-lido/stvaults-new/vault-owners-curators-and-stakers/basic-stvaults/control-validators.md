@@ -141,7 +141,7 @@ This is not arbitrary — the call reverts with `ForcedValidatorExitNotAllowed` 
 
 An **obligations shortfall** means the stVault owes more than the liquid ETH on its balance can cover. What it owes is:
 
-- the ETH needed to bring the Health Factor back above 100%, or the ETH needed to cover pending **Lido redemptions** — whichever of the two is larger;
+- the ETH needed to bring the Health Factor back above 100%, or the ETH needed to cover pending [Lido redemptions](../../concepts-and-reference/stvaults-detailed-technical-design.md#2-redemptions) — whichever of the two is larger;
 - plus unsettled Lido fees, but only once they reach 1 ETH. Below that they are ignored.
 
 If the stVault balance covers all of that, there is no shortfall and forced exits are not possible — even if the stVault is unhealthy.

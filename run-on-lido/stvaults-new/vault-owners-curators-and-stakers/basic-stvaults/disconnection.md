@@ -36,7 +36,7 @@ After disconnection, all integrations with Lido protocol components are disabled
 - Node Operator fee distribution stops.
 
 :::warning
-Node Operators must independently monitor disconnection events, as validation continues after disconnection, but Node Operator fees are no longer accrued. Disconnection can be detected by monitoring the VaultDisconnectInitiated(address **indexed** stVault) event emitted by the VaultHub contract on-chain.
+Node Operators must independently monitor disconnection events, as validation continues after disconnection, but Node Operator fees are no longer accrued. Disconnection can be detected by monitoring the `VaultDisconnectInitiated(address indexed vault)` event emitted by the VaultHub contract on-chain.
 :::
 
 **No connection to VaultHub:**
@@ -71,9 +71,6 @@ Before starting the disconnection process, make sure:
 Once completed, the stVault is removed from Lido protocol. However, the same stVault can be reconnected later unless it has been ossified.
 :::
 
-:::warning
-**Disconnection cannot be done from the stVaults Web UI.** Use the CLI or Etherscan for every step below.
-:::
 
 <Tabs>
 <TabItem value="dashboard" label="With Dashboard" default>
@@ -89,6 +86,12 @@ This call:
 - Settles all outstanding Lido protocol fees from the stVault balance to the Lido treasury.
 - Marks the stVault as **pending disconnection** in VaultHub.
 
+<details>
+  <summary>using stVaults Web UI</summary>
+
+Open the **Disconnect** tab in your stVault settings. The step shows the Total Value, the Not staked stVault Balance and the Unsettled Lido fees so you can check them before confirming, then submits the transaction.
+
+</details>
 <details>
   <summary>using Command-line Interface</summary>
 
@@ -126,6 +129,12 @@ When the oracle report is applied and the report timestamp is after your disconn
 
 This is a **permissionless operation** — anyone can apply the report.
 
+<details>
+  <summary>using stVaults Web UI</summary>
+
+The step becomes available once a newer report exists. Submitting it applies the report and completes the disconnection.
+
+</details>
 <details>
   <summary>using Command-line Interface</summary>
 
@@ -165,6 +174,12 @@ Call `Dashboard.abandonDashboard(newOwner)`. This:
 The caller must have `DEFAULT_ADMIN_ROLE` on the Dashboard. The `newOwner` can be any account including the current stVault owner (`DEFAULT_ADMIN_ROLE`) **except** the Dashboard itself.
 
 <details>
+  <summary>using stVaults Web UI</summary>
+
+Enter the address that will own the stVault and submit. The step warns you to check the transaction in your wallet before signing — the ownership transfer cannot be undone.
+
+</details>
+<details>
   <summary>using Command-line Interface</summary>
 
 ```bash
@@ -186,6 +201,12 @@ The StakingVault uses a two-step ownership transfer. After the Dashboard initiat
 
 Call `StakingVault.acceptOwnership()` from the address specified as `newOwner` in the previous step.
 
+<details>
+  <summary>using stVaults Web UI</summary>
+
+Connect the wallet of the address you named in the previous step, then submit. Until you do, the step asks you to accept ownership by that address.
+
+</details>
 <details>
   <summary>using Command-line Interface</summary>
 
@@ -211,6 +232,12 @@ When your stVault was connected to VaultHub, 1 ETH was locked as a connection de
 Call `StakingVault.withdraw(recipient, amount)` from the owner address.
 
 <details>
+  <summary>using stVaults Web UI</summary>
+
+The step shows the Last known stVault Total Value and the Withdrawable stVault Balance. Pick where the ETH goes — the Vault Owner's address or another one — and submit.
+
+</details>
+<details>
   <summary>using Command-line Interface</summary>
 
 ```bash
@@ -233,6 +260,9 @@ During Step 1, accrued Node Operator fees were withdrawn from the stVault and st
 
 To send the stored fees to the configured `feeRecipient`, call `Dashboard.recoverFeeLeftover()`. This is a **permissionless operation**, anyone can call it, and the fees will be sent to the `feeRecipient` address configured on the Dashboard.
 
+:::note
+This step has no action in the Web UI. It shows what the leftover fees are and points back here, so use the CLI or Etherscan below.
+:::
 <details>
   <summary>using Command-line Interface</summary>
 
