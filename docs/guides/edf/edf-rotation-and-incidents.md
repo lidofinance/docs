@@ -55,15 +55,14 @@ is unknown.
    nominateDelegate(<newDelegate>)
    ```
 
-5. **Fund the new address right after nomination** — send it part of the current delegate's balance,
-   for example half.
-6. **Verify your own nomination.** Read `getPendingDelegate()` on Etherscan, or:
+5. **Verify your own nomination.** Read `getPendingDelegate()` on Etherscan, or:
 
    ```bash
    cast call <contract> "getPendingDelegate()(address,uint256)" --rpc-url $RPC_URL
    ```
 
    The address and `activeFrom` must be exactly what you intended.
+6. **Fund the new address** — send it half of the current delegate's balance.
 7. **At `activeFrom`** the switch happens with no transaction and no restart. Verify:
 
    ```bash

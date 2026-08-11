@@ -136,10 +136,9 @@ A `DelegationContract` authorizes exactly one effective delegate at a time. Befo
     1. Generate the new key.
     2. Publish the pre-nomination announcement on the research forum.
     3. Add the replacement key to the daemon as its staged secondary member key. Keep the current delegate configured and operating.
-    4. Owner executes `nominateDelegate(newKey)`. The old key remains effective during the cooldown.
-    5. Right after nomination, fund the replacement address from the current delegate address — for example, half its balance.
-    6. Watch for your own `DelegateNominated` event and verify that the delegate and `activeFrom` returned by `getPendingDelegate()` match the intended rotation.
-        - This is also a drill for spotting a nomination you did not make.
+    4. On behalf of the owner, execute `nominateDelegate(newKey)` on your `DelegationContract`. The old key remains effective during the cooldown.
+    5. Watch for your own `DelegateNominated` event and verify that the delegate and `activeFrom` returned by `getPendingDelegate()` match the intended rotation.
+    6. Fund the replacement address from the current delegate address with half of its balance.
     7. During the cooldown, the daemon MUST continue using the current delegate.
     8. After activation:
         - Verify `getDelegate() == newKey`.
