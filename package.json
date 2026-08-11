@@ -61,6 +61,6 @@
     "node": ">=20.18.1"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.3"
+    "serialize-javascript": "^7.0.5"
   }
 }
