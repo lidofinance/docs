@@ -167,7 +167,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Deployed contracts',
+      label: 'Deployed Contracts',
       link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
