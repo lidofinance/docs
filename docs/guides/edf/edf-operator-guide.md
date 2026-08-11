@@ -107,7 +107,7 @@ Copy the multisig address from its dashboard:
 
 | Argument | Value |
 | --- | --- |
-| `owner` | your multisig address from step 0.2 |
+| `owner` | your multisig address from its dashboard (see screenshot) |
 | `delegate` | your delegate EOA from step 1.1 |
 | `cooldown` | `172800` (48 hours) |
 
