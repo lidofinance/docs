@@ -134,21 +134,18 @@ A `DelegationContract` authorizes exactly one effective delegate at a time. Befo
     
 4. **Planned rotation procedure**
     1. Generate the new key.
-    2. Complete the pre-nomination announcement.
+    2. Publish the pre-nomination announcement on the research forum.
     3. Add the replacement key to the daemon as its staged secondary member key. Keep the current delegate configured and operating.
     4. Owner executes `nominateDelegate(newKey)`. The old key remains effective during the cooldown.
     5. Right after nomination, fund the replacement address from the current delegate address — for example, half its balance.
     6. Watch for your own `DelegateNominated` event and verify that the delegate and `activeFrom` returned by `getPendingDelegate()` match the intended rotation.
         - This is also a drill for spotting a nomination you did not make.
-    7. During the cooldown:
-        - The daemon MUST continue using the current delegate.
-        - Notify dependent systems of the verified replacement delegate and `activeFrom`.
-    8. An off-chain service that supports soft key rotation, such as the Oracle daemon or Council, MUST resolve `getDelegate()` on each cycle and automatically select the matching configured key when the nominated delegate becomes effective, without a restart or manual cutover.
-    9. After activation:
+    7. During the cooldown, the daemon MUST continue using the current delegate.
+    8. After activation:
         - Verify `getDelegate() == newKey`.
         - Confirm that the daemon selected the new key.
         - Confirm a successful report or message in the following applicable frame.
-    10. Only after successful verification:
+    9. Only after successful verification:
         - Remove the previous key from the daemon configuration and secrets store.
         - Move the previous EOA’s remaining balance to the new delegate address.
 5. **Owner rotation**  
