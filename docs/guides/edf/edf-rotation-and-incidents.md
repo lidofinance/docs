@@ -104,14 +104,13 @@ captured in logs).
    Target: **within 30 minutes** of detection. Hard limit: **4 hours**.
 
    It takes effect immediately and cancels any rotation in flight.
-2. **Notify** the Lido security contact — Telegram **@Vorobushek2004** and **@chasingrainbow** — and
-   the operators' channel as soon as the transaction is sent: seat, revoked key, known facts, and as
-   much evidence as you can collect.
+2. **Notify** the holders' Telegram chat as soon as the transaction is sent: seat, revoked key,
+   known facts, and as much evidence as you can collect.
 3. **Re-key on clean infrastructure**: new key on a rebuilt or verified host, funded, added to the
    daemon config, then `nominateDelegate(newKey)` from the multisig. The seat comes back **48 hours
    later**.
 4. **Publish a post-incident report** (timeline, root cause, exposure window, custody changes) on
-   the forum, or privately to the security contact if disclosure is sensitive.
+   the forum, or in the holders' Telegram chat if disclosure is sensitive.
 
 While revoked, the Council daemon logs `DelegationContract 0x… has no active delegate` every block
 and the Oracle logs a warning each cycle. This stops once the new delegate activates.
@@ -129,7 +128,7 @@ compromised signer device with any doubt about the rest of the quorum.
 
    **This is irreversible.** It disables `execute()`, fails all signature verification closed, and
    clears the delegate forever.
-2. **Notify governance and the security contact immediately.** Restoring the seat needs a *new*
+2. **Notify governance and the holders' Telegram chat immediately.** Restoring the seat needs a *new*
    `DelegationContract` with a *new* owner multisig **and a governance vote**.
 
 You have exactly one cooldown (48 h) between a hostile `DelegateNominated` and it becoming

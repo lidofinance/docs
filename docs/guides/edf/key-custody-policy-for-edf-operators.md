@@ -195,7 +195,7 @@ Response:
     
 2. **Notify security and operators.**  
     
-    Notify the Lido contributors’ security contact — Telegram **@Vorobushek2004** and **@chasingrainbow** — and the operators’ coordination channel as soon as the revocation transaction is sent. Include:
+    Notify the holders’ Telegram chat as soon as the revocation transaction is sent. Include:
     
     - Seat
     - Revoked key
@@ -207,7 +207,7 @@ Response:
     
 4. **Publish a post-incident report.**  
     
-    Publish a summary to the research forum, or privately to the security contact if disclosure is sensitive. Include:
+    Publish a summary to the research forum, or to the holders’ Telegram chat if disclosure is sensitive. Include:
     
     - Timeline
     - Root cause
@@ -232,7 +232,7 @@ Response:
     
 2. **Notify immediately.**  
     
-    Notify the security contact and coordination channel immediately. Governance will need to reassign the seat to a freshly deployed `DelegationContract` with a new owner multisig, so early notice shortens downtime.
+    Notify the holders’ Telegram chat immediately. Governance will need to reassign the seat to a freshly deployed `DelegationContract` with a new owner multisig, so early notice shortens downtime.
     
 
 ---
@@ -277,4 +277,4 @@ The value is set against two opposing constraints:
 
 1. Operators MUST publish the `DelegationContract` address and owner multisig address on the research forum, for each delegation contract.
 2. On every delegate rotation — at least once a year — operators MUST post the new delegate address in the same thread.
-3. Deviations from a MUST requirement MUST be disclosed to the Lido contributors’ security contact with a remediation timeline.
+3. Deviations from a MUST requirement MUST be disclosed in the holders’ Telegram chat with a remediation timeline.
