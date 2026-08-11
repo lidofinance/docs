@@ -1,7 +1,6 @@
 # EDF Operator Guide — Lido Oracle & Council Daemon
 
-Setup instructions for operators (key holders) of a Lido Oracle seat or a DSM guardian seat moving
-to the **Execution Delegation Framework (EDF)**.
+Setup instructions for operators (key holders) of a Lido Oracle seat or a DSM guardian seat moving to the **Execution Delegation Framework (EDF)**.
 
 **Reference material:**
 
@@ -79,15 +78,9 @@ Write down who the signers are and how to reach them out of hours.
 
 ## Part 1 — Set up your seat
 
-This part sets up **one** seat: one delegate key, one `DelegationContract`. If you hold more than
-one seat, repeat the whole part for each.
-
 ### 1.1. Generate the delegate hot key
 
-- Generate it **on the machine (or KMS/HSM) that will use it**.
-- **Never** send it through chat, email, tickets, or shared drives — not even encrypted.
-- **Never reuse it.** The key is used for this seat's duties and nothing else.
-- **Generate a fresh key.** Do not reuse the EOA that holds your seat today.
+Generate a fresh key. Do not reuse the EOA that holds your seat today.
 
 ### 1.2. Deploy your `DelegationContract` from the factory
 
@@ -123,8 +116,9 @@ Copy the multisig address from its dashboard:
 **In Etherscan** (or Blockscout, Otterscan):
 
 1. Open the factory address → **Contract** → **Write Contract**.
-2. **Connect to Web3** with any wallet that has ETH for gas — the sender gets no rights over the
-   result.
+2. **Connect to Web3** with your owner multisig through WalletConnect — the same flow as in the
+   [Safe + Etherscan example](./edf-rotation-and-incidents.md). Deploying from the multisig also
+   verifies that you control the owner address.
 3. Expand `deploy`, fill in the three values, send the transaction.
 
    ![Etherscan Write Contract tab with the deploy function expanded, showing the owner, delegate and cooldown fields](./screenshots/etherscan-deploy-form.jpg)
@@ -133,9 +127,6 @@ Copy the multisig address from its dashboard:
    cooldown)`. Save the **`instance`** address: that is your `DelegationContract`.
 
    ![Etherscan Logs tab showing InitialDelegateSet and DelegationContractDeployed with instance, owner, delegate and cooldown 172800](./screenshots/etherscan-deploy-logs-owned.jpg)
-
-> From a terminal, with [Foundry](https://getfoundry.sh/):
-> `cast send <factory> "deploy(address,address,uint256)" <owner> <delegate> 172800 --rpc-url $RPC_URL --account <yourAccount>`
 
 ### 1.3. Verify what you deployed
 

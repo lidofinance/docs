@@ -65,7 +65,7 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     
 4. **Every signer SHOULD be a hardware cold wallet.**  
     
-    Hardware cold wallets, such as Ledger or Trezor, are RECOMMENDED for all signers. A software wallet is acceptable.
+    Hardware cold wallets, such as Ledger or Trezor, are RECOMMENDED for all signers.
     
 5. **Multisig signer set changes MUST be executed promptly.**  
     
@@ -238,11 +238,3 @@ Alongside Lido’s protocol-wide monitoring, each operator SHOULD independently 
 ### Emergency contact
 
 Each operator MUST provide a fast contact channel for emergencies, where a human can be reached at any time, and MUST keep it current.
-
----
-
-## 8. Publication and attestation
-
-1. Operators MUST publish the `DelegationContract` address and owner multisig address on the research forum, for each delegation contract.
-2. On every delegate rotation — at least once a year — operators MUST post the new delegate address in the same thread.
-3. Deviations from a MUST requirement MUST be disclosed in the holders’ Telegram chat with a remediation timeline.
