@@ -343,8 +343,8 @@ In order to keep the stVaults risk framework flexible and to streamline the gove
 
 - Set the reserve ratio for specific tiers or stVaults.
 - Define the default and custom tier grids for node operators.
-- Set DAO fee values for specific vaults and tiers within a node operator’s grid.
-- Bad debt compensation management between vaults/tiers in complex cases, like mass slashing.
+- Set DAO fee values for specific stVaults and tiers within a node operator’s grid.
+- Bad debt compensation management between stVaults/tiers in complex cases, like mass slashing.
 - Manage Lido Core redemptions, trigger validator exits for rebalancing or redemptions, and perform other actions required in exceptional cases to keep the Lido Core protocol stable and secure, in accordance with the stVaults risk assessment framework.
 - Adjusting the stVaults risk framework and the scores within the framework.
 
