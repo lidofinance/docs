@@ -26,3 +26,6 @@ yarn-error.log*
 .idea
 .claude
 .env
+
+# Security triage run reports
+/.security-triage
