@@ -59,12 +59,14 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 **Forum topics:**\
 [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
 [Rewards-Share Program 2024](https://research.lido.fi/t/rewards-share-program-2024/6812)\
-[Rewards Share Program & Committee Updates](https://research.lido.fi/t/rewards-share-program-committee-updates/11107)
+[Rewards Share Program & Committee Updates](https://research.lido.fi/t/rewards-share-program-committee-updates/11107)\
+[Proposal: Wind Down the Simple DVT Module Regular Clusters](https://research.lido.fi/t/proposal-wind-down-the-simple-dvt-module-regular-clusters/11571)
 
 **Snapshot:**\
 [Tiered Rewards Share Program: A Sustainable Approach to stETH Growth](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x9279cd4addefdd9185d024f471f1a29561f61556ae209cdda5dffb1fd73b181e)\
 [Rewards-Share Program 2024](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd326ac1c7f4317b370e794a3e57d342f8c9dd8c4f517b2632f835a93585fb0f3)\
-[Rewards Share Committee Reform](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0xb4a35720b03f4c888c2fb41ab66ed324262d7a5b4696ffc3ee20bb35ebb0df6f)
+[Rewards Share Committee Reform](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0xb4a35720b03f4c888c2fb41ab66ed324262d7a5b4696ffc3ee20bb35ebb0df6f)\
+[Wind Down Simple DVT Module Regular Clusters](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x6ab9651fba999ba29ba780fe61d68cc23e7aeb83c841181c5c1933dec9197f37)
 
 **Aragon:**\
 [Omnibus vote #162](https://dao.lido.fi/vote/162)
@@ -247,10 +249,12 @@ The complete list of Lido Stonks contracts is available [here](/deployed-contrac
 
 **Forum topics:**\
 [Simple DVT Module Committee Multisig](https://research.lido.fi/t/simple-dvt-module-committee-multisig/6520)\
-[Simple DVT release](https://research.lido.fi/t/simple-dvt-release/6613)
+[Simple DVT release](https://research.lido.fi/t/simple-dvt-release/6613)\
+[Proposal: Wind Down the Simple DVT Module Regular Clusters ](https://research.lido.fi/t/proposal-wind-down-the-simple-dvt-module-regular-clusters/11571)
 
-**Snapshot:**\
-[Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)
+**Snapshots:**\
+[Staking Router Module Proposal: Simple DVT](https://snapshot.org/#/lido-snapshot.eth/proposal/0xf3ac657484444f0b54eba2c251135c47f875e3d1821496247d11bdd7fab0f291)\
+[Wind Down Simple DVT Module Regular Clusters](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x6ab9651fba999ba29ba780fe61d68cc23e7aeb83c841181c5c1933dec9197f37)
 
 **Aragon:**\
 [Omnibus vote #172 (items 7-18)](https://dao.lido.fi/vote/172)
@@ -297,14 +301,17 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 
 **Forum topics:**\
 [Proposal to form reWARDS Committee](https://research.lido.fi/t/proposal-to-form-rewards-committee/1447)\
-[Proposal to relaunch the reWARDS Committee as the Liquidity Observation Lab (LOL)](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)
+[Proposal to relaunch the reWARDS Committee as the Liquidity Observation Lab (LOL)](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335)\
+[Update Easy Track setup for Liquidity Observation Lab to align with EGG](https://research.lido.fi/t/update-easy-track-setup-for-liquidity-observation-lab-to-align-with-egg/11535)
 
 **Snapshots:**\
 [Proposal to form reWARDS Committee](https://snapshot.org/#/lido-snapshot.eth/proposal/0xe565ad27e1beaacbe0e68bec59bd3d86a80d669ca80022b76dc31be697f6e078)\
-[Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)
+[Vote to move from LDO, DAI to stETH](https://snapshot.org/#/lido-snapshot.eth/proposal/0xdf57d5600ca8c0485a17de035afffe3b918e6059a6ba10bec71fb04f4041b41d)\
+[Increase Easy Track transfer limits for Liquidity Observation Lab to align with EGG](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x863859d857c7429a0dcb85a4b324de803e2f66ddd8f50e4c2f04a31c35c6ae6f)
 
 **Aragon:**\
-[Omnibus vote #160 (items 9-14)](https://dao.lido.fi/vote/160)
+[Omnibus vote #160 (items 9-14)](https://dao.lido.fi/vote/160)\
+[Omnibus vote #202 (item 1.34)](https://dao.lido.fi/vote/202)
 
 **Easy Track contracts and roles:**
 
@@ -515,11 +522,14 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via the Circu
 
 **Forum topics:**\
 [Community Staking Module Committee](https://research.lido.fi/t/community-staking-module-committee/8333)\
-[Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)
+[Community Staking Module](https://research.lido.fi/t/community-staking-module/5917)\
+[0x02 CSM Landscape](https://research.lido.fi/t/0x02-csm-landscape/11697)
 
 **Snapshot:**\
 [Lido Community Staking Module Mainnet Release Setup](https://snapshot.org/#/lido-snapshot.eth/proposal/0xd0d7bfd68f2241524dbb14ae6fe0e8414b9fe3e0dcfc50641a8d28f0067d6693)\
-[CSM v2 Final Rollout](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xc3f92bcdf8926cfa7528ca6a979c0fdce1e4d0cfaaa72dd6410a76a2e1e55766)
+[CSM v2 Final Rollout](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xc3f92bcdf8926cfa7528ca6a979c0fdce1e4d0cfaaa72dd6410a76a2e1e55766)\
+[LIP-33: CMv2 and CSMv3 Architecture, Key Parameters, Rollout Plan](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x7b07bc31f0b38b69a117473031bc126becc70b9fa37246b53d9fe5a841c814f5)\
+[0x02 CSM: New Permissionless Module Launch](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xed2a3b1f796cefdd531abe14ba01363b2da7887434cefdd54ba71ffb6dff59a7)
 
 **Aragon:**\
 [Omnibus vote #180 (items 20-26)](https://dao.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
@@ -585,11 +595,13 @@ A Committee without multisig.
 
 **Forum topics:**\
 [Establishing the Network Expansion Committee](https://research.lido.fi/t/establishing-the-network-expansion-committee/8788)\
-[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://research.lido.fi/t/empowering-lido-ecosystem-foundation-to-lead-bridge-related-partnerships/10794)\
+[Revoke Canonical Status of (w)stETH Bridge Endpoints on Selected Chains and Authorize NEC for Revocations](https://research.lido.fi/t/revoke-canonical-status-of-w-steth-bridge-endpoints-on-selected-chains-and-authorize-nec-for-revocations/11592)
 
 **Snapshot:**\
 [Establish the Network Expansion Committee (NEC)](https://snapshot.org/#/s:lido-snapshot.eth/proposal/0x7cdf1af7cfeb472ae202c45fb6d7e952bb34bfcbc82113549986b2bc2d5f54c5)\
-[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)
+[Empowering Lido Ecosystem Foundation to Lead Bridge-Related Partnerships](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xf842517c2ffba082efac87ec43365e86548adb38e24d1446d850c7d7b979c423)\
+[Revoke Canonical Status of (w)stETH Bridge Endpoints on Selected Chains and Authorize NEC for Revocations](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x09880de4739dcef13c4aa5605f1dca23556fc7495d09ecc84561a10f26a59b5c)
 
 **List of committee members:**
 
@@ -607,15 +619,17 @@ A Committee without multisig.
 **Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget.
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
-**Quorum:** 5/9
+**Quorum:** 5/8
 
 **Forum topics:**\
 [Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://research.lido.fi/t/establishment-of-lido-labs-borg-foundation-as-a-lido-dao-adjacent-foundation/9344)\
-[[EGG] Lido Labs BORG Foundation Grant Funding Request](https://research.lido.fi/t/egg-lido-labs-borg-foundation-grant-funding-request/9708)
+[[EGG] Lido Labs BORG Foundation Grant Funding Request](https://research.lido.fi/t/egg-lido-labs-borg-foundation-grant-funding-request/9708)\
+[Lido Labs proposes Nemo as a new director](https://research.lido.fi/t/lido-labs-proposes-nemo-as-a-new-director/11624)
 
 **Snapshots:**\
 [Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xdf648307e68415e7b5cf96c6afbabd696c1731839f4b4a7cf5cb7efbc44ee9d6)\
-[[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)
+[[EGG] Lido Labs BORG Foundation Grant Funding Request (Apr-Dec 2025)](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xb58527a05581849b3890ff226fa30f2b5e19f7742fe8f4f94e6c953fe0055c0e)\
+[Lido Labs Board Update: Appointment of Nemo as Director](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x3e74af3eb9119c60616c93d1ecccc3bcbd1af27e3895f2e354217872ae116e76)
 
 **Aragon:**\
 [Omnibus vote #184, item 2](https://dao.lido.fi/vote/184)
@@ -636,11 +650,11 @@ The full list of related contracts is available [here](/deployed-contracts/#easy
 | Angelina_L | 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/266535 | https://x.com/helterswellter/status/1886725128693731410  |
 | dgusakov | 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/266612 | https://x.com/d_gusakov/status/1887037067001020872         |
 | Juan | 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/266672 | https://x.com/juanbugeth/status/1887267565807845481       |
-| krogla | 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/267077 | https://x.com/_krogla/status/1890331086091141171 |
 | Alex_L | 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/267399 | https://x.com/Al_lykov/status/1892928521825059308 |
-| UniteTheClans | 0x81ca68f085282434d15c09619360d6513710a979 | https://etherscan.io/verifySig/274605 | https://x.com/0xeferium_m8/status/1930605132573515936 |
 | GrStepanov | 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/278586 |  https://x.com/shalfeyshur/status/1957736329296437494 |
 | Elena_S | 0xb95fda03a90290bd5853c79796a768e37130d193 | https://etherscan.io/verifySig/279001 | https://x.com/Elen0sh/status/1960254652479414583 |
+| Olga_G | 0x48e6dc201c91bc67018566682defd37924f7bde3 | https://etherscan.io/verifySig/320207 | https://x.com/ItsOlgaOlga/status/2079941534737219599 |
+
 
 **Original List of Signers:**\
 https://lido.mypinata.cloud/ipfs/bafkreie5dqoxz4yuknlv3y3bnudtje5c5g655z7732xl6lsqyxjkg7hvii
@@ -688,9 +702,10 @@ The full list of related contracts is available [here](/deployed-contracts/#easy
 | Elena_S | 0x07Bd812CF9c70538d78Cd4faaBbb5C1d8688d173 | https://etherscan.io/verifySig/266617 | https://x.com/Elen0sh/status/1887061240549126642  |
 | Mol_Eliza | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/266655 | https://x.com/MaxMolEliza/status/1887170206675468338        |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/266776 | https://x.com/ppclunghe/status/1887785137024176411       |
-| zuzu_eeka | 0x004812da927b5DCd07e7329609eDD75E25d2d295 | https://etherscan.io/verifySig/266954 | https://x.com/zuzu_eeka/status/1889316339350659472 |
 | Susanna_MV | 0x27a3fc3d99eace1fdca71900a72079f6c3a4b4f8 | https://etherscan.io/verifySig/267541 | https://x.com/MamenSusan87135/status/1894315942991335668 |
 | adcv | 0xcc692077c65dd464caa7e7ae614328914f8469b3 | https://etherscan.io/verifySig/268854 | https://x.com/adcv_/status/1901924468043260399 |
+| Olga_G | 0x48e6dc201c91bc67018566682defd37924f7bde3 | https://etherscan.io/verifySig/320208 | https://x.com/ItsOlgaOlga/status/2079943955941081146?s=20 |
+
 
 **Original List of Signers:**\
 https://lido.mypinata.cloud/ipfs/bafkreigan3ankyy6cfzbpakpiitjnmh6jw3lhtomb4zjm27wcgjdhdtvci
@@ -1008,9 +1023,16 @@ A Committee without multisig.
 
 **Quorum:** 5/9
 
-**Forum post:** [Proposal: Transition the LNOSG into the CMC](https://research.lido.fi/t/proposal-transition-the-lnosg-into-the-cmc/11341)
+**Forum posts:**\
+[Proposal: Transition the LNOSG into the CMC](https://research.lido.fi/t/proposal-transition-the-lnosg-into-the-cmc/11341)\
+[Node Operator Type Assessment Framework | CMv2](https://research.lido.fi/t/node-operator-type-assessment-framework-cmv2/11477)\
+[Staking Router v3 — Design & Implementation Proposal (LIP-35)](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)
 
-**Snapshot:** [From LNOSG to CMC: Evolving Curated Staking Modules Governance](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x1c929502f12c61a510c71965d7a7f82dcc76b5d812e2f52796f6bacd6f66e32b)
+**Snapshots:**\
+[From LNOSG to CMC: Evolving Curated Staking Modules Governance](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x1c929502f12c61a510c71965d7a7f82dcc76b5d812e2f52796f6bacd6f66e32b)\
+[Adopt the Node Operator Type Assessment Framework for CMv2](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x2b221847bae789551593115be9a364db4c9a478056d6394b1bef7728790258ee)\
+[LIP-35: Staking Router v3 Architecture and Key Parameters](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x8fdec5d2cb70f8a266c4f5a269051fcfa985fab0f66cbe747702719d7433f606)\
+[LIP-33: CMv2 and CSMv3 Architecture, Key Parameters, Rollout Plan](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x7b07bc31f0b38b69a117473031bc126becc70b9fa37246b53d9fe5a841c814f5)
 
 **List of signers:**
 
