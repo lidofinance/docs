@@ -4,11 +4,11 @@ sidebar_position: 9
 
 # Apply oracle reports
 
-Before minting stETH or performing other operations that depend on current stVault state, the protocol needs to ensure that you are working with the latest available data. [LazyOracle](/contracts/lazy-oracle) allows anyone to apply the latest report to a specific stVault on demand.
+Before minting stETH or performing other operations that depend on current stVault state, the protocol needs the latest available data. [LazyOracle](/contracts/lazy-oracle) allows anyone to apply the latest report to a specific stVault on demand.
 
 ## Why apply a fresh report?
 
-Your stVault's state (total value, mintable stETH capacity, health factor) is updated through oracle reports. These reports are published periodically, but applying them to your specific stVault is a separate, permissionless action. Fresh data is required for:
+The stVault's state (total value, mintable stETH capacity, health factor) is updated through oracle reports. These reports are published periodically, but applying them to your specific stVault is a separate, permissionless action. Fresh data is required for:
 
 - minting stETH,
 - withdrawing ETH,

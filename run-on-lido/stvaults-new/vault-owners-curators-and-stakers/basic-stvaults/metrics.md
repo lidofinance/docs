@@ -372,7 +372,7 @@ Carry Spread is the Health Factor trend indicator: a positive spread raises the 
 
 ## Restoring an unhealthy stVault
 
-Three metrics tell you how much of each corrective action is needed to bring the Utilization Ratio back to 100%. See the [Health emergency guide](./health-emergency-guide.md) for a worked comparison.
+Three metrics show how much of each corrective action is needed to bring the Utilization Ratio back to 100%. See the [Health emergency guide](./health-emergency-guide.md) for a worked comparison.
 
 ### ETH to rebalance
 

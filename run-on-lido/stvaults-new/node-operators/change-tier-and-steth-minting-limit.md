@@ -4,44 +4,46 @@ sidebar_position: 4
 
 # Change tier and stETH minting limit
 
-A new stVault starts on the Default tier with a 50% Reserve Ratio. Once you have passed [identification](./node-operator-identification-guide.md) and been granted your own tiers, an stVault you serve can be moved onto one of them for better stETH minting terms.
+A new stVault starts on the Default tier with a 50% Reserve Ratio. Once the Node Operator has passed [identification](./node-operator-identification-guide.md) and been granted their own tiers, an stVault they serve can be moved onto one of them for better stETH minting terms.
 
-Three operations live on the `OperatorGrid` contract, and each needs both you and the Vault Owner to agree:
+Three operations live on the `OperatorGrid` contract, and each needs both the Node Operator and the Vault Owner to agree:
 
 | Operation | What it changes |
 | --- | --- |
-| `changeTier` | moves the stVault to another of your tiers, and sets its minting limit at the same time |
+| `changeTier` | moves the stVault to another of the Node Operator's tiers, and sets its minting limit at the same time |
 | `updateVaultShareLimit` | changes only the minting limit, keeping the current tier |
 | `syncTier` | adopts the current parameters of the tier the stVault is already on |
 
 ## How the confirmation works
 
-Both parties call the **same** `OperatorGrid` function with identical arguments. You call it directly; the Vault Owner reaches it through the `Dashboard`, which forwards the call. Whoever goes first registers a confirmation, and the operation executes when the second one matches it.
+Both parties call the **same** `OperatorGrid` function with identical arguments. The Node Operator calls it directly; the Vault Owner reaches it through the `Dashboard`, which forwards the call. Whoever goes first registers a confirmation, and the operation executes when the second one matches it.
 
-The window is the `OperatorGrid` confirmation expiry, which is a protocol-wide setting rather than your stVault's own confirmation lifetime. If it lapses before the second party acts, the first has to submit again.
+The window is the `OperatorGrid` confirmation expiry, which is a protocol-wide setting rather than the stVault's own confirmation lifetime. If it lapses before the second party acts, the first has to submit again.
 
 :::note
-You can register your confirmation while the stVault is still disconnected from VaultHub — the connection is only required to finalise the change from the Vault Owner's side. This lets you agree the terms before the stVault is connected.
+The Node Operator can register their confirmation while the stVault is still disconnected from VaultHub — the connection is only required to finalise the change from the Vault Owner's side. This lets both sides agree the terms before the stVault is connected.
 :::
 
 The change ends in a `VaultHub` connection update, which needs a fresh oracle report on the stVault — see [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
 
 ## Changing the tier
 
-The tier you request must belong to your own group, otherwise the call reverts with `TierNotInOperatorGroup`. Two capacity limits are checked at the moment the change goes through:
+The requested tier must belong to the Node Operator's own group, otherwise the call reverts with `TierNotInOperatorGroup`. Two capacity limits are checked at the moment the change goes through:
 
 - `TierLimitExceeded` — the stVault's liability would push the tier past its aggregate share limit.
-- `GroupLimitExceeded` — the same for your group as a whole.
+- `GroupLimitExceeded` — the same for the operator's group as a whole.
 
 Both are evaluated against the stVault's **current liability**, so a heavily minted stVault can be refused by a tier that would accept an empty one.
 
 :::warning
-You cannot move an stVault back to the Default tier. `changeTier` rejects it with `CannotChangeToDefaultTier`. The only way back is automatic: when an stVault is disconnected from VaultHub, its tier returns to Default.
+An stVault cannot be moved back to the Default tier — `changeTier` rejects it with `CannotChangeToDefaultTier`.
+
+The reset only happens as part of a full [disconnection](../vault-owners-curators-and-stakers/basic-stvaults/disconnection.md) cycle: when the disconnect completes and the stVault is removed from VaultHub, its tier is set back to Default. To use it, the Vault Owner then has to reconnect the stVault. Disconnecting requires the stETH liability to be zero, so this is not a quick way to change terms.
 :::
 
 ## Changing the stETH minting limit
 
-The minting limit is the absolute cap on how much stETH this stVault may mint, expressed in shares. It is bounded on both sides:
+The minting limit is the absolute cap on how much stETH this stVault may mint, expressed in [shares](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics) rather than in stETH. It is bounded on both sides:
 
 - it cannot exceed the tier's own share limit — `RequestedShareLimitTooHigh`;
 - it cannot be set below what the stVault has already minted — `RequestedShareLimitTooLow`.

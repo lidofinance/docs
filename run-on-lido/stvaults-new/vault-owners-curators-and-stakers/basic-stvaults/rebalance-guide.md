@@ -14,39 +14,39 @@ Both reduce the stETH liability, but they spend different things:
 
 | | Repay (burn) | Rebalance |
 | --- | --- | --- |
-| What you spend | stETH you acquire externally | ETH from the stVault balance |
+| What is spent | stETH acquired externally | ETH from the stVault balance |
 | Total Value | unchanged | decreases |
 | Future rewards | unchanged | reduced, the stVault has less ETH working |
 
-Repaying is the better option whenever you can get the stETH — see [Supply, withdraw, mint and repay](./supply-withdraw-mint-repay.md). Rebalancing is the fallback when you do not want to buy stETH on the market, and the mechanism the protocol falls back to when a [stVault becomes unhealthy](./health-emergency-guide.md).
+Repaying is the better option whenever the stETH can be acquired — see [Supply, withdraw, mint and repay](./supply-withdraw-mint-repay.md). Rebalancing is the fallback when you do not want to buy stETH on the market, and the mechanism the protocol falls back to when a [stVault becomes unhealthy](./health-emergency-guide.md).
 
 ## Before you start
 
-- **You need `REBALANCE_ROLE`** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](./roles-and-permissions.md).
-- **A fresh oracle report must be applied.** The call reverts with `VaultReportStale` otherwise. The Web UI handles this for you; via CLI or Etherscan you have to apply the report yourself — see [Apply oracle reports](./apply-oracle-reports.md).
+- **`REBALANCE_ROLE` is required** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](./roles-and-permissions.md).
+- **A fresh oracle report must be applied.** The call reverts with `VaultReportStale` otherwise. The Web UI handles this automatically; via CLI or Etherscan the report has to be applied first — see [Apply oracle reports](./apply-oracle-reports.md).
 - **The ETH must be on the stVault balance, not on validators.** If most of the stVault's ETH is staked, request validator exits first and wait for the ETH to be swept back.
 
 ## How much to rebalance
 
-It depends on what you are trying to achieve:
+It depends on the goal:
 
 - **Restore health** — rebalance the shortfall. Read it from `healthShortfallShares` on the `Dashboard` contract: it returns the shares needed to bring the stVault back to a healthy state and cover any pending [Lido redemptions](../../concepts-and-reference/stvaults-detailed-technical-design.md#2-redemptions), `0` if the stVault is already healthy, and the maximum `uint256` value if rebalancing alone cannot fix the position.
 - **Close the stVault** — rebalance the entire stETH liability, which brings it to zero and unlocks the remaining ETH for withdrawal. See [Disconnection](./disconnection.md).
 
 :::note
-The stETH liability grows daily with the stETH rebase, so a number you calculated yesterday will be slightly short today. Always read the current value right before executing.
+The stETH liability grows daily with the stETH rebase, so a number calculated yesterday will be slightly short today. Always read the current value right before executing.
 :::
 
 ## Doing the rebalance
 
-Two methods are available on the `Dashboard` contract, differing only in how you denominate the amount:
+Two methods are available on the `Dashboard` contract, differing only in how the amount is denominated:
 
 | Method                      | Amount in |
 | --------------------------- | --------- |
 | `rebalanceVaultWithShares`  | stETH shares |
 | `rebalanceVaultWithEther`   | ETH |
 
-`rebalanceVaultWithEther` converts the amount to shares internally, so the ETH transferred can differ slightly from what you passed because of rounding. It is also payable: you can supply extra ETH in the same transaction to cover a shortfall the stVault balance cannot.
+`rebalanceVaultWithEther` converts the amount to shares internally, so the ETH transferred can differ slightly from the amount passed because of rounding. It is also payable: you can supply extra ETH in the same transaction to cover a shortfall the stVault balance cannot.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -97,5 +97,5 @@ It also requires a fresh oracle report, and it does not settle Lido fees.
 The Web UI exposes this as well. Once an stVault becomes force-rebalanceable, its rebalance page switches into force-rebalance mode: the amount field and the supply toggle disappear, and the submit button works for any connected address — no `REBALANCE_ROLE` needed.
 
 :::warning
-Being force-rebalanced is worse than rebalancing yourself: you lose control over how much is rebalanced and when. Monitor the Health Factor and act while it is still above 100% — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Health emergency guide](./health-emergency-guide.md).
+Being force-rebalanced is worse than rebalancing voluntarily: the Vault Owner loses control over how much is rebalanced and when. Monitor the Health Factor and act while it is still above 100% — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Health emergency guide](./health-emergency-guide.md).
 :::

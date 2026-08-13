@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 # Disconnection
 
-This guide walks you through the process of disconnecting your stVault from Lido protocol. Disconnecting is a multi-step process and each step must be completed in the given order.
+Disconnecting an stVault from the Lido protocol is a multi-step process, and each step must be completed in the given order.
 
 ## Why disconnect an stVault and what changes after
 

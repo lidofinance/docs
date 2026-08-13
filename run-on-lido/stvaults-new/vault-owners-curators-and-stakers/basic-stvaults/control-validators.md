@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # Control validators and withdraw from the Beacon Chain
 
-The ETH your stVault has staked sits on validators run by your Node Operator. This page covers what you, as a Vault Owner, can do about those validators: ask for an exit, pull ETH back from the Beacon Chain yourself, and stop new deposits.
+The ETH an stVault has staked sits on validators run by its Node Operator. This page covers what the Vault Owner can do about those validators: ask for an exit, pull ETH back from the Beacon Chain yourself, and stop new deposits.
 
 There are two ways to get ETH back from validators:
 
@@ -25,7 +25,7 @@ All Vault Owner permissions above are held by the admin by default and can be de
 
 ## Request a validator exit
 
-You signal which validators should leave, and the Node Operator performs the exit.
+The Vault Owner signals which validators should leave, and the Node Operator performs the exit.
 
 :::warning
 This does **not** exit anything by itself. It emits a `ValidatorExitRequested` event per key, and the Node Operator has to be watching for it and act. Whether and when they do is an off-chain matter between you and them — the protocol does not enforce it.
@@ -63,7 +63,7 @@ Every withdrawal request costs a fee per validator key, paid in the same transac
 
 - estimate it with `calculateValidatorWithdrawalFee(numberOfKeys)` on the `StakingVault` contract;
 - send a surplus, because the estimate is only accurate for the block it was made in;
-- the exact amount is charged and the excess is refunded to the refund recipient you specify.
+- the exact amount is charged and the excess is refunded to the refund recipient given in the call.
 
 :::warning
 The fee can spike sharply when the withdrawal queue is congested. Whatever you send is the most you can pay: the actual fee is taken and the rest is refunded. So keep the surplus modest — a large one only raises that ceiling.
@@ -116,7 +116,7 @@ Public keys and amounts are comma-separated lists of the same length. **Amounts 
 
 Pausing stops the Node Operator from depositing any more of the stVault balance into new validators. Existing validators are unaffected and keep running.
 
-This is useful when you are about to withdraw, disconnect, or do not want the balance staked further while you decide.
+Useful before a withdrawal or a disconnection, or to stop the balance being staked further while the Vault Owner decides.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -135,7 +135,7 @@ Open the stVault **Settings** and switch off deposits from the stVault balance t
 
 ## Forced exit by the protocol
 
-If your stVault falls behind on its obligations, the stVaults Committee and the Lido DAO can force its validators to exit, returning the ETH to the stVault so the position can be rebalanced.
+If the stVault falls behind on its obligations, the stVaults Committee and the Lido DAO can force its validators to exit, returning the ETH to the stVault so the position can be rebalanced.
 
 The call reverts with `ForcedValidatorExitNotAllowed` unless the stVault has an obligations shortfall at the time, and it requires a fresh oracle report. Forced exits are always full exits.
 

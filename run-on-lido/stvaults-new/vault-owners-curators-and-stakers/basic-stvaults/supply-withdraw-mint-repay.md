@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Supply, withdraw, mint and repay
 
-These four operations are the everyday lifecycle of a Basic stVault: you supply ETH into the stVault, mint stETH against it, repay the stETH, and withdraw the ETH back out.
+These four operations are the everyday lifecycle of a Basic stVault: the Vault Owner supplies ETH into the stVault, mints stETH against it, repays the stETH, and withdraws the ETH back out.
 
 All four are permissioned on the [`Dashboard`](/contracts/dashboard) contract. By default the Vault Owner can perform all of them; each can be delegated separately to one or more addresses.
 
@@ -99,15 +99,15 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 
 ## Mint stETH
 
-Once ETH is supplied, you can mint stETH against it on demand. Unlike Lido Core, stVaults allow minting only within the stVault's [stETH minting capacity](./metrics.md).
+Once ETH is supplied, stETH can be minted against it on demand. Unlike Lido Core, stVaults allow minting only within the stVault's [stETH minting capacity](./metrics.md).
 
-Three flavours are available, all of them payable so you can fund and mint in one transaction:
+Three flavours are available, all of them payable so funding and minting fit in one transaction:
 
 | Method              | Mints                                          |
 | ------------------- | ---------------------------------------------- |
 | `mintShares`        | stETH shares                                   |
 | `mintStETH`         | stETH tokens (rebasing)                        |
-| `mintWstETH`        | wstETH tokens (non-rebasing), wrapped for you  |
+| `mintWstETH`        | wstETH tokens (non-rebasing), wrapped automatically  |
 
 Each takes a recipient address, so minted tokens can go straight to another address.
 
@@ -153,7 +153,7 @@ Repaying burns stETH and decreases the stVault's stETH liability, which frees up
 | `burnStETH`   | stETH tokens              |
 | `burnWstETH`  | wstETH tokens             |
 
-The tokens are pulled from your address, so the `Dashboard` contract needs an allowance first: approve stETH for `burnShares` and `burnStETH`, or wstETH for `burnWstETH`.
+The tokens are pulled from the caller's address, so the `Dashboard` contract needs an allowance first: approve stETH for `burnShares` and `burnStETH`, or wstETH for `burnWstETH`.
 
 The allowance is always denominated in tokens, never in shares. When repaying with `burnShares`, approve the stETH value of those shares — `getPooledEthByShares(shares)`. The two differ because one share is worth more than one wei of stETH, and the gap grows with every oracle report ([learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics)).
 

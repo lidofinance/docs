@@ -13,7 +13,7 @@ sidebar_position: 4
 
 Regularly monitoring **Health factor**, **Carry Spread**, **Net staking APR**, and **stETH Liability / Utilization ratio** is a good operational practice for stVault owners.
 
-Keeping these metrics within safe ranges allows you to:
+Keeping these metrics within safe ranges makes it possible to:
 
 - Detect early signals that the stVault economics are deteriorating.
 - React before the Health factor approaches 100% or Utilization ratio reaches 100%.
@@ -27,13 +27,13 @@ The **stVault overview** screen provides a quick view of the economic state of a
 
 ![stVaults UI: Overview screen](/img/stvaults/health/health-overview.png)
 
-From here you can drill down into the key metrics that determine stVault health:
+From here, drill down into the key metrics that determine stVault health:
 
 - **Health factor**
 - **Net staking APR**
 - **stETH Liability / Utilization ratio**
 
-This section explains what each metric means, where to find it in the UI, and what to pay attention to when monitoring your stVault.
+This section explains what each metric means, where to find it in the UI, and what to pay attention to when monitoring an stVault.
 
 ### Health factor
 
@@ -49,7 +49,7 @@ It is the primary indicator of the stVault’s overall health.
 
 ![stVaults UI: Health Factor](/img/stvaults/health/health-hf.png)
 
-In the Health factor details view you can also see **Carry Spread**.
+The Health factor details view also shows **Carry Spread**.
 
 > Carry Spread — Estimated yearly returns from staking in the stVault, after deductions of fees and stETH Liability growth due to stETH rebase.
 > 
@@ -63,7 +63,7 @@ Carry Spread shows whether the stVault economics are improving or deteriorating 
     - Expected yearly return is not sufficient to cover fees and Liability growth.
     - Over time this tends to **erode** the Health factor and push it closer to 100%.
 
-If the Carry Spread turns negative or the Health factor trends down toward 100%, you should treat this as an early warning and consider taking actions to improve the stVault’s economics — repaying stETH, supplying more ETH, or [rebalancing](./rebalance-guide.md).
+If the Carry Spread turns negative or the Health factor trends down toward 100%, treat this as an early warning and consider actions to improve the stVault’s economics — repaying stETH, supplying more ETH, or [rebalancing](./rebalance-guide.md).
 
 If the Health Factor of the stVault drops below 100%, please refer to the [stVaults Health Emergency Guide](./health-emergency-guide.md).
 
@@ -92,7 +92,7 @@ This value **increases daily** because of the stETH rebase.
 
 ![stVaults UI: stETH Liability](/img/stvaults/health/health-steth-liability.png)
 
-In the stETH Liability details view you can also see:
+The stETH Liability details view also shows:
 
 - **Total stETH minting capacity** (constrained by the Reserve Ratio)
 - **Reserve Ratio (RR)**

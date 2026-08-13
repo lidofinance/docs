@@ -4,7 +4,7 @@ sidebar_position: 13
 
 # Validate the setup before connecting
 
-An stVault is created first and connected to VaultHub second. Between those two moments you can still inspect everything the Node Operator configured.
+An stVault is created first and connected to VaultHub second. Between those two moments the Vault Owner can still inspect everything the Node Operator configured.
 
 Run these checks before the transaction that accepts the tier, supplies ETH and connects the stVault to Lido Core.
 
@@ -16,7 +16,7 @@ The Node Operator is set when the stVault is created and there is no setter for 
 Confirm the address matches the operator you agreed with, character by character, before you put any ETH in.
 :::
 
-The same address is registered in the [Operator Grid](/contracts/operator-grid) and determines which tiers and stETH minting terms your stVault is eligible for.
+The same address is registered in the [Operator Grid](/contracts/operator-grid) and determines which tiers and stETH minting terms the stVault is eligible for.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -115,7 +115,7 @@ yarn start contracts dashboard read node-operator-fee-recipient <dashboard_addre
 
 ## The tier and its limits
 
-The tier the Node Operator proposed sets your Reserve Ratio, Forced Rebalance Threshold and stETH minting limit. Those numbers decide how much stETH you can mint against your ETH and how far the stVault can drift before forced rebalancing — see [Metrics](./metrics.md).
+The tier the Node Operator proposed sets the Reserve Ratio, Forced Rebalance Threshold and stETH minting limit. Those numbers decide how much stETH can be minted against the ETH in the stVault and how far the stVault can drift before forced rebalancing — see [Metrics](./metrics.md).
 
 Compare the proposed tier against the Default tier. Changing the tier later is possible but needs the Node Operator to confirm it.
 
@@ -148,7 +148,7 @@ yarn start contracts operator-grid read vault-tier-info <vault_address>
 Two settings control how ETH reaches validators:
 
 - **PDG policy** — `STRICT` by default, meaning every deposit goes through the full Predeposit Guarantee process. `ALLOW_PROVE` and `ALLOW_DEPOSIT_AND_PROVE` relax that, and `ALLOW_DEPOSIT_AND_PROVE` lets the Node Operator deposit your ETH to validators bypassing PDG entirely. A non-strict policy is a decision about how far you trust the Node Operator.
-- **Depositor** — in the default setup this is the `PredepositGuarantee` contract. VaultHub refuses the connection otherwise, so a mismatch blocks you at this step.
+- **Depositor** — in the default setup this is the `PredepositGuarantee` contract. VaultHub refuses the connection otherwise, so a mismatch blocks the connection at this step.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -179,7 +179,7 @@ yarn start contracts vault read depositor <vault_address>
 
 VaultHub only accepts stVaults deployed by the canonical `VaultFactory` and rejects anything else with `VaultNotFactoryDeployed`. It also refuses an stVault that has been ossified.
 
-Compare the factory address that deployed your stVault against the one listed on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page for your network.
+Compare the factory address that deployed the stVault against the one listed on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page for your network.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -190,13 +190,22 @@ The frontend is open-source and meant to be forked, so a self-hosted or modified
 
 </details>
 
+## Fixing what you find
+
+Most settings can still be corrected at this point, but not from the Web UI: it disables the settings forms for an stVault that is not connected yet. Use the CLI or Etherscan instead. Roles, the Node Operator fee, the confirmation lifetime, the fee recipient and the PDG policy all have setters that work on a disconnected stVault.
+
+Two things are different:
+
+- **The tier and the minting limit cannot be finalised yet.** The Node Operator can register their side of the agreement in advance, but the Vault Owner's side reverts with `VaultNotConnected` until the stVault is connected. Agree the terms now and apply them right after connecting — see [Change tier and stETH minting limit](../../node-operators/change-tier-and-steth-minting-limit.md).
+- **The Node Operator address cannot be changed at all.** If it is wrong, abandon this stVault and have a new one created; nothing is lost as long as no ETH has been supplied.
+
 ## What connecting does
 
 The connecting transaction funds the stVault and hands its ownership to VaultHub.
 
-**1 ETH is a minimum, not a fixed amount.** The connect call is payable and funds whatever you attach, so you can supply your full intended stake in the same transaction instead of connecting first and funding after.
+**1 ETH is a minimum, not a fixed amount.** The connect call is payable and funds whatever is attached, so the full intended stake can go in the same transaction instead of connecting first and funding after.
 
-**Only 1 ETH is locked.** Whatever you supply, exactly 1 ETH becomes the minimal reserve; the rest is ordinary stVault balance that counts towards your [stETH minting capacity](./metrics.md) and can be withdrawn. The reserve is refundable: it comes back when you [disconnect](./disconnection.md).
+**Only 1 ETH is locked.** Whatever is supplied, exactly 1 ETH becomes the minimal reserve; the rest is ordinary stVault balance that counts towards the [stETH minting capacity](./metrics.md) and can be withdrawn. The reserve is refundable: it comes back when you [disconnect](./disconnection.md).
 
 **Connecting can be combined with accepting the tier.** `connectAndAcceptTier` does both in one transaction, which is what the Web UI uses.
 
@@ -205,6 +214,8 @@ The connecting transaction funds the stVault and hands its ownership to VaultHub
 
 An stVault that is not yet connected opens on its **Overview** page with the connection flow instead of the usual dashboard: it shows the stVault details, lets you request a tier and its minting limit, and finishes with **Approve connection to Lido VaultHub**.
 
+The flow has no amount field — it always attaches exactly 1 ETH, the connection deposit. To supply more in the same transaction, connect through the CLI or Etherscan instead, or connect here and supply the rest afterwards.
+
 </details>
 
-Once connected, the stVault starts accruing Lido fees and you can mint stETH against it — see [Supply, withdraw, mint and repay](./supply-withdraw-mint-repay.md).
+Once connected, the stVault starts accruing Lido fees and stETH can be minted against it — see [Supply, withdraw, mint and repay](./supply-withdraw-mint-repay.md).
