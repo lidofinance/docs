@@ -100,11 +100,6 @@ module.exports = {
         'integrations/wallets',
         'integrations/sdk',
         'integrations/subgraph',
-        {
-          type: 'category',
-          label: 'AAVE',
-          items: ['integrations/aave/specification', 'integrations/aave/aip'],
-        },
       ],
     },
     {
@@ -112,7 +107,6 @@ module.exports = {
       label: 'Token guides',
       items: [
         'token-guides/steth-superuser-functions',
-        'token-guides/steth-on-aave-caveats',
         'token-guides/cross-chain-tokens-guide',
       ],
     },
