@@ -17,7 +17,7 @@ Therefore stVaults can utilize large validators (depositing up to 2048 ETH per s
 
 Node Operators should generate deposit data with the following specifications for stVaults:
 
-- **Withdrawal credentials**: `0x02-type` format pointing to the stVault address (`0x02` + 30 bytes of zeros + stVault address)
+- **Withdrawal credentials**: `0x02-type` format pointing to the stVault address (`0x02` + 11 zero bytes + the 20-byte stVault address)
 - **Amount for predeposit**: 1 ETH (for the initial predeposit phase)
 
 Additional deposits may be made in any amount up to the validator’s remaining balance. Deposit data is only necessary for validator proof and is not needed for subsequent top-ups.
