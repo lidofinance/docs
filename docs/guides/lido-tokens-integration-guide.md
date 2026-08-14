@@ -97,6 +97,14 @@ Both are fungible tokens but they reflect the accrued staking rewards differentl
 At any moment, any amount of stETH can be converted to wstETH via a trustless wrapper and vice versa, thus tokens effectively share liquidity.
 :::
 
+### Aave V2 integration lesson
+
+Aave V2 integrated rebasable stETH directly. Its standard aToken accounting tracked an Aave liquidity index, so passing stETH rebases through to depositors required a [custom AStETH implementation](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a#code) that applied both the liquidity index and a stETH share-based rebasing index. This extra conversion layer made nominal stETH and aSTETH amounts subject to wei-level rounding: deposits could mint slightly less aSTETH than the requested stETH amount, and exact-amount flows had to account for the [1–2 wei stETH transfer corner case](#1-2-wei-corner-case). The integration received a [dedicated security audit](https://github.com/lidofinance/audits/blob/main/MixBytes%20AAVE%20stETH%20integration%20Security%20Audit%20Report%2002-22.pdf).
+
+This history is an integration-design lesson, not a loss of stETH composability. [wstETH](#what-is-wsteth) is a trustless wrapper around the same stETH and can be converted back to stETH. It converts the rebasing accounting model into a value-accruing ERC-20 representation: holder balances stay static while each wstETH represents a changing amount of stETH. This fits protocols whose accounting assumes balances change only on transfers, minting, or burning, avoiding a custom rebasing adapter.
+
+[Aave V3](https://aave.com/blog/lido-aave-case-study) and [Aave V4](https://governance.aave.com/t/arfc-aave-v4-activation-on-ethereum-mainnet/24293) use wstETH as collateral. Many lending and broader DeFi integrations follow the same pattern; see the [current examples](#sttokens-steth-and-wsteth). Integrate rebasable stETH when the application intentionally supports its share and rebase semantics; otherwise, prefer wstETH.
+
 For instance, undercollateralized wstETH positions on Maker can be liquidated by unwrapping wstETH and swapping it for ether on Curve.
 
 ## stETH
