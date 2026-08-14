@@ -1,21 +1,18 @@
 # FenwickTreeLibrary
 
+## Overview
+
 This library implements a 0-indexed Fenwick Tree for tracking cumulative values over a dynamic array. It is suitable for systems where frequent prefix sum queries and point updates are required, such as time based accounting, queuing systems, or share tracking.
 
-## Design Characteristics
+### Design Characteristics
 
 - O(log n) complexity for both updates and prefix sum queries.
 - Storage efficient using a `mapping(uint256 => int256)` instead of an array.
 - Only supports lengths that are exact powers of two (`2^k`), which simplifies internal logic and allows future extensions via `extend()`.
 
-## Invariants and Constraints
+## Configuration and State
 
-- The tree must be initialized with a power of two length greater than 0 via `initialize(...)`.
-- Index bounds are enforced. Access beyond the current capacity reverts with `IndexOutOfBounds()`.
-- To support dynamic resizing, `extend()` can double the current tree length (up to a safe limit).
-- Use of negative values is supported in `modify(...)`, allowing decrement operations.
-
-## Data Structures
+### Data Structures
 
 ```solidity
 struct Tree {
@@ -64,17 +61,28 @@ Returns the sum over the range `[from, to]` (inclusive).
 
 - Returns `0` if `from > to`.
 
-## Internals
+### Internals
 
-### `_modify(...)`
+#### `_modify(...)`
 
 Low level implementation of Fenwick update using bitwise operations. It updates `tree[index]` and propagates changes upward via `index |= index + 1`.
 
-### `_get(...)`
+#### `_get(...)`
 
 Assembly optimized prefix sum computation. It aggregates values by descending via `index := and(index, index + 1) - 1`.
 
-## References
+## Invariants and Limitations
+
+### Invariants and Constraints
+
+- The tree must be initialized with a power of two length greater than 0 via `initialize(...)`.
+- Index bounds are enforced. Access beyond the current capacity reverts with `IndexOutOfBounds()`.
+- To support dynamic resizing, `extend()` can double the current tree length (up to a safe limit).
+- Use of negative values is supported in `modify(...)`, allowing decrement operations.
+
+## Related Contracts and References
+
+### References
 
 - [CP Algorithms: Fenwick Tree](https://cp-algorithms.com/data_structures/fenwick.html)
 - [Wikipedia: Binary Indexed Tree](https://en.wikipedia.org/wiki/Fenwick_tree)
