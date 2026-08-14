@@ -739,7 +739,7 @@ Each committee decision is publicly disclosed on the Lido Research Forum, along 
 | Name               | Role                                        |
 |--------------------|---------------------------------------------|
 | Gabriella Sofia	   | Lido NOM contributor                        |
-| Ivan Metrikin      | Lido Tech contributor                       |
+| Ivan Petkov        | Lido NOM contributor                        |
 | Drew Van der Werff | Commit-Boost and Fabric steward             |
 | Fredrik Svantes    | security expert                             |
 | Sébastien Rannou   | representing Kiln, Lido Node Operator       |
