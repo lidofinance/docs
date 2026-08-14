@@ -310,7 +310,11 @@ for the rate and price feeds recommended approaches.
 - Optimism Curve rewards manager:
   - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
 
-## 🔗 AAVE V2 Integration {#aave-v2-integration}
+## 🔗 Legacy Aave V2 Integration {#aave-v2-integration}
+
+:::warning
+The Aave V2 market is being deprecated. Do not use these contracts for new integrations. See the [Aave V2 integration notice](/integrations/aave) for the official legacy position-management path.
+:::
 
 - AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)

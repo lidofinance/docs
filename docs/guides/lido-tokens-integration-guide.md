@@ -39,7 +39,6 @@ Lido's ERC-20 compatible stTokens are widely adopted across the Ethereum ecosyst
   - [Optimism](https://app.aave.com/reserve-overview/?underlyingAsset=0x1f32b1c2345538c0c6f582fcb022739c4a194ebb&marketName=proto_optimism_v3)
 - wstETH is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
 - there are various [Mellow LRT](https://app.mellow.finance/restake) projects built on top of the (w)stETH
-- stETH is listed as a collateral token on the AAVE v2 [Ethereum mainnet](https://app.aave.com/reserve-overview/?underlyingAsset=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&marketName=proto_mainnet) market
 - steCRV (the Curve stETH/ETH LP token) is [listed as a collateral token on Maker](https://daistats.com/#/collateral)
 - Blast L2 integrated [stETH](https://docs.blastfutures.com/get-started/introduction/what-is-blast#how-blast-works) as a rebasable ether (being staked implicitly as a part of the L1->L2 ether bridging flow)
 - there are multiple liquidity strategies built on top of Lido's stTokens, including [Yearn](https://yearn.fi/vaults/1/0xdCD90C7f6324cfa40d7169ef80b12031770B4325) and [Harvest Finance](https://harvest.finance/)
