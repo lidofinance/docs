@@ -586,8 +586,7 @@ Note: Some addresses in the CCIP Direct Staking lists repeat across different ne
 
 #### 🧱 Ethereum part {#ethereum-part-optimism}
 
-- TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9) [proposed to remove]
-- TokenRateNotifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b) [proposed]
+- TokenRateNotifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b)
 - OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
 - L1LidoTokensBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
