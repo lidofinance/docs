@@ -707,7 +707,7 @@ Note: Some addresses in the CCIP Direct Staking lists repeat across different ne
 - LidoCustomReceiver: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://etherscan.io/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367) (impl)
 - ProxyAdmin for LidoCustomReceiver: [`0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD`](https://etherscan.io/address/0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD)
 
-### 🌀 Arbitrum {#ccip-direct-staking-arbitrum}
+### 🌀 Direct Staking on Arbitrum {#ccip-direct-staking-arbitrum}
 
 #### 🧱 Ethereum part {#ccip-direct-staking-arbitrum-ethereum}
 
@@ -722,7 +722,7 @@ Note: Some addresses in the CCIP Direct Staking lists repeat across different ne
 - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://arbiscan.io/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
 - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://arbiscan.io/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
-### 🌞 Optimism {#ccip-direct-staking-optimism}
+### 🌞 Direct Staking on Optimism {#ccip-direct-staking-optimism}
 
 #### 🧱 Ethereum part {#ccip-direct-staking-optimism-ethereum}
 
@@ -737,7 +737,7 @@ Note: Some addresses in the CCIP Direct Staking lists repeat across different ne
 - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://optimistic.etherscan.io/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
 - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://optimistic.etherscan.io/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
-### 🟦 Base {#ccip-direct-staking-base}
+### 🟦 Direct Staking on Base {#ccip-direct-staking-base}
 
 #### 🧱 Ethereum part {#ccip-direct-staking-base-ethereum}
 
@@ -752,7 +752,7 @@ Note: Some addresses in the CCIP Direct Staking lists repeat across different ne
 - SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://basescan.org/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
 - CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://basescan.org/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
-### 📏 Linea {#ccip-direct-staking-linea}
+### 📏 Direct Staking on Linea {#ccip-direct-staking-linea}
 
 #### 🧱 Ethereum part {#ccip-direct-staking-linea-ethereum}
 
