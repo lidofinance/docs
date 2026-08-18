@@ -14,7 +14,7 @@ A validator belongs to an stVault through its **withdrawal credentials**: the `0
 
 The `0x02` type also sets the balance ceiling: a validator compounds up to 2048 ETH ([EIP-7251](https://eips.ethereum.org/EIPS/eip-7251)) instead of the 32 ETH of `0x01` validators.
 
-:::warning
+:::danger
 Withdrawal credentials cannot be changed after a validator is created. A validator built with the wrong ones can never be attached to the stVault; the ETH is only recoverable by exiting it to whatever address the credentials do point at.
 :::
 
@@ -28,7 +28,7 @@ The two reward streams behave differently, and only one of them is automatic.
 
 **Execution-layer rewards** — priority fees and MEV — go wherever the validator client's fee recipient points. That address has nothing to do with the withdrawal credentials.
 
-:::danger
+:::warning
 Set the fee recipient to the stVault address. If it points anywhere else, every priority fee and MEV payment the validator earns stays outside the stVault: it is not part of Total Value, does not count towards the Vault Owner's rewards, and does not appear in any stVault metric.
 :::
 

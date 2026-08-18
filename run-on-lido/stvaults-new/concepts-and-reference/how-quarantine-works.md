@@ -22,7 +22,7 @@ If the reported Total Value stays at or below the threshold, it is accepted in f
 This splits operations into two groups:
 
 - **Verifiable on-chain — never quarantined.** Funding the stVault with `fund()` moves ETH through the stVault balance, so the increase is recorded in `inOutDelta` and raises the expected value by the same amount.
-- **Not verifiable on-chain — quarantined.** ETH that appears on the consensus layer without passing through the stVault balance: [consolidations](../node-operators/consolidations.md) and any other side operation that raises validator balances directly.
+- **Not verifiable on-chain — quarantined.** Any increase the protocol cannot match against `inOutDelta`: [consolidations](../node-operators/consolidations.md), side deposits to a validator, deposits that bypass PDG, and ETH sent straight to the `StakingVault` contract instead of through `fund()`.
 
 Ordinary CL and EL rewards fall under the 3.5% tolerance and pass through untouched.
 
