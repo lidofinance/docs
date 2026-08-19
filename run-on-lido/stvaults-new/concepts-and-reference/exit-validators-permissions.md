@@ -23,14 +23,12 @@ The call takes public keys and a refund recipient, but no amounts: it always iss
 
 ## Vault Owner
 
-The Vault Owner has two instruments, and only the second one moves ETH.
+The Vault Owner has two instruments, and only the second one moves ETH:
 
-**`requestValidatorExit`** emits a `ValidatorExitRequested` event per public key and does nothing else. It costs no fee and enforces nothing: if the Node Operator is not watching for the event, the exit never happens.
-
-**`triggerValidatorWithdrawals`** goes to the Consensus Layer directly and works without the Node Operator:
-
-- an empty amounts array, or an amount of **0**, requests a full exit;
-- a **positive amount** requests a partial withdrawal, and the Consensus Layer keeps at least 32 ETH on the validator.
+1. **`requestValidatorExit`** emits a `ValidatorExitRequested` event per public key and does nothing else. It costs no fee and enforces nothing: if the Node Operator is not watching for the event, the exit never happens.
+2. **`triggerValidatorWithdrawals`** goes to the Consensus Layer directly and works without the Node Operator:
+    - an empty amounts array, or an amount of **0**, requests a full exit;
+    - a **positive amount** requests a partial withdrawal, and the Consensus Layer keeps at least 32 ETH on the validator.
 
 Partial withdrawals carry three conditions that full exits do not. `VaultHub.triggerValidatorWithdrawals` reverts with `PartialValidatorWithdrawalNotAllowed` unless the report is fresh, the stVault is not in jail, and the stVault has no obligations shortfall. The last condition exists to stop a Vault Owner from filling the withdrawal queue with partial requests to delay the forced exits that would rebalance the stVault.
 
@@ -40,7 +38,7 @@ Both act through the same on-chain gate — `VALIDATOR_EXIT_ROLE` on `VaultHub` 
 
 An **obligations shortfall** means the stVault owes more than the ETH available on its balance. What it owes is the larger of the amount needed to bring the Health Factor back above 100% and the amount needed to cover pending Lido [redemptions](./stvaults-detailed-technical-design.md#2-redemptions), plus unsettled Lido fees once they reach 1 ETH. While the balance covers all of it, forced exits are impossible even for an unhealthy stVault.
 
-The Committee does not hold the role itself; it acts through EasyTrack. The `ForceValidatorExitsInVaultHub` factory creates a motion, and once the objection period passes, the EVMScript executor calls `VaultsAdapter.forceValidatorExit`, which holds the role and caps the fee it will pay per key.
+The Committee does not hold the role itself; it acts through EasyTrack.
 
 ## Related
 
