@@ -279,6 +279,7 @@ unset or wrong — fix the config.
 1. Move the delegate key into `MEMBER_PRIV_KEY` and clear `MEMBER_PRIV_KEY_2`.
 2. Restart the oracle.
 3. Delete the old key from your secrets store.
+4. Move the old address's remaining balance to the new delegate address.
 
 ---
 
@@ -364,6 +365,7 @@ A transaction sent **directly** from the delegate EOA to the DSM means the daemo
 1. Move the delegate key into `WALLET_PRIVATE_KEY` and clear `WALLET_PRIVATE_KEY_2`.
 2. Restart the daemon.
 3. Delete the old key from your secrets store.
+4. Move the old address's remaining balance to the new delegate address.
 
 ---
 
