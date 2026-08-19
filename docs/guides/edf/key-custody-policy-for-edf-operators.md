@@ -1,12 +1,8 @@
 # EDF Operator Key Custody Policy
 
-> 🔐 Draft companion policy for [LIP-37: Execution Delegation Framework](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md). Applies to operators of permissioned roles behind an EDF `DelegationContract`, initially Lido Oracle committee members and DSM guardians.
+> 🔐 Policy for [LIP-37: Execution Delegation Framework](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md). Applies to operators of permissioned roles behind an EDF `DelegationContract`, initially Lido Oracle committee members and DSM guardians.
 
-**Status:** Draft  
-
-**Version:** 0.1  
-
-**Effective date:** TBD (upon approval)  
+**Version:** 1.0  
 
 **Applies to:** Operators of permissioned roles behind an EDF `DelegationContract`  
 
