@@ -64,7 +64,7 @@ The utility layer provides essential tools and interfaces to streamline the depl
 
 ### System Overview
 
-![Screenshot 2025-06-04 at 14.44.39](https://hackmd.io/_uploads/rkZnvMlEgx.png)
+![DeFi Wrapper system overview](/img/stvaults/defi-wrapper/system-overview.png)
 
 ### Deposits
 
@@ -84,10 +84,10 @@ The main flow:
    - The Wrapper funds the connected `StakingVault` through the Dashboard and mints `stvToken`.
    - The Node Operator can pause deposits.
    - The Node Operator or the users **must** apply a fresh report to the stVault.
-![image](https://hackmd.io/_uploads/BkrxS0F_xg.png)
+![Deposit flow through the Wrapper](/img/stvaults/defi-wrapper/deposits-flow.png)
 
 2. The Node Operator deposits validators through [PDG](https://hackmd.io/@lido/stVaults-design#315-Essentials-PredepositGuarantee), or through the [PDG bypass](https://hackmd.io/@lido/stVaults-design#PDG-bypass-and-rewards-adjustment).
-![image](https://hackmd.io/_uploads/r19zSAFulg.png)
+![Validator deposit through PDG](/img/stvaults/defi-wrapper/pdg-deposit.png)
 
 ### Withdrawals and Emergency Exit
 
@@ -122,7 +122,7 @@ The system supports two types of rewards for users:
     - Users can bring report data themselves too
     - If the report is outdated, users may not be able to withdraw or receive their correct share of rewards.
 
-![image](https://hackmd.io/_uploads/S1k5VRYdxg.png)
+![Staking rewards through LazyOracle reports](/img/stvaults/defi-wrapper/staking-rewards-report.png)
 
 
 #### 2. Sidecar Rewards (Obol, SSV, restaking, points, etc.)
