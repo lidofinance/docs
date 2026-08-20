@@ -207,10 +207,14 @@ The Ethereum wstETH contract also accepts ETH through its payable shortcut and s
 
 #### `wstETHReferralStaker`
 
-The permissionless `wstETHReferralStaker` helper stakes ETH for wstETH while recording a referral.
+The permissionless [`wstETHReferralStaker`](https://etherscan.io/address/0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d) at `0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d` stakes ETH, passes the supplied referral to `stETH.submit(address)`, wraps the resulting stETH, and transfers the minted wstETH to the caller in one transaction. This avoids the caller receiving intermediate stETH and submitting separate approval and wrap transactions. By contrast, sending ETH directly to the wstETH contract uses the zero referral address.
+
+Call the helper's payable `stakeETH(address _referral)` method. The caller is always the wstETH recipient: there is no separate recipient argument. A contract that calls the helper receives the wstETH itself and must implement any onward transfer. The helper also has no minimum-output argument; preview with `eth_call` using the intended sender and `msg.value`, then reconcile the returned amount or wstETH balance change at execution.
+
+Because the helper calls `stETH.submit`, the stETH `Submitted` event identifies the helper as `sender` and records the supplied address as `referral`; it does not identify the end user as the event sender. The helper remains subject to Lido staking pause and [rate-limit conditions](#staking-rate-limits). [This mainnet transaction](https://etherscan.io/tx/0x1c05efc8cfbbef8b425d4c21bb63d115769cf28a8f1455b1fc7e2acf192e2f03) is an immutable example of the complete call sequence.
 
 :::warning
-Do not send ETH or tokens directly to `wstETHReferralStaker`. Call its payable `stakeETH(address _referral)` method. See the [`wstETHReferralStaker` documentation](/contracts/wsteth-staker).
+Do not send ETH or tokens directly to `wstETHReferralStaker`: its plain ETH receiver reverts and it has no rescue function. See the [`wstETHReferralStaker` documentation](/contracts/wsteth-staker) and [pinned source](https://github.com/lidofinance/si-lidity/blob/41dc3c24b9e4f882789e4c0f7c63f2f5ca56d391/si-contracts/0.8.25/wsteth-staker/WstethStaker.sol).
 :::
 
 ### Hoodi wstETH for testing
