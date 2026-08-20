@@ -2,11 +2,11 @@
 sidebar_position: 2
 ---
 
-# stVaults Documentation Center
+# [LEGACY] stVaults Documentation Center
 
 :::tip 📘 **Lido V3 Technical Paper**
 
-For a comprehensive understanding of stVaults architecture, mechanisms, and the vision behind Lido V3, read the official [**Lido V3 Technical Paper**](/lido-v3-whitepaper) with embedded PDF preview.
+For a comprehensive understanding of stVaults architecture, mechanisms, and the vision behind Lido V3, read the official [**Lido V3 Technical Paper**](/run-on-lido/stvaults-new/concepts-and-reference/lido-v3-whitepaper) with embedded PDF preview.
 
 :::
 
@@ -27,7 +27,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 
 ### Essentials
 
-1. [📘 **Lido V3 Technical Paper**](/lido-v3-whitepaper) — Complete technical specification with PDF preview
+1. [📘 **Lido V3 Technical Paper**](/run-on-lido/stvaults-new/concepts-and-reference/lido-v3-whitepaper) — Complete technical specification with PDF preview
 2. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
 3. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
 

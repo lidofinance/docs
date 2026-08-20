@@ -21,6 +21,8 @@ Dashboard is technically optional - advanced users can interact with `StakingVau
 
 Dashboard uses OpenZeppelin's `AccessControl` with a two-admin model: **Vault Owner** and **Node Operator Manager**. Each can delegate specific sub-roles to other addresses.
 
+Role renouncement is disabled - see [`renounceRole()`](#renouncerolebytes32-address). A role can only be removed by its admin.
+
 ### Admin roles
 
 | Role                         | Description                                                                                               |
@@ -697,7 +699,7 @@ Requests a share limit change. Requires `VAULT_CONFIGURATION_ROLE` and node oper
 function grantRoles(RoleAssignment[] calldata _assignments) external
 ```
 
-Mass-grants multiple roles. Each assignment specifies an account and role.
+Mass-grants multiple roles. Each assignment is an `{account, role}` pair, and the role admin check is performed per assignment. Reverts on an empty array. Granting a role an account already holds does not revert and emits no event, so the same batch can safely be replayed.
 
 ### revokeRoles(RoleAssignment[] \_assignments)
 
@@ -705,7 +707,7 @@ Mass-grants multiple roles. Each assignment specifies an account and role.
 function revokeRoles(RoleAssignment[] calldata _assignments) external
 ```
 
-Mass-revokes multiple roles.
+Mass-revokes multiple roles. Same semantics as `grantRoles()`: per-assignment admin checks, reverts on an empty array, and revoking a role an account does not hold is a no-op that emits no event.
 
 ### grantRole(bytes32 \_role, address \_account)
 
@@ -723,13 +725,13 @@ function revokeRole(bytes32 _role, address _account) external
 
 Revokes a role using AccessControl (admin role required).
 
-### renounceRole(bytes32 \_role, address \_account)
+### renounceRole(bytes32, address)
 
 ```solidity
-function renounceRole(bytes32 _role, address _account) external
+function renounceRole(bytes32, address) public pure override
 ```
 
-Renounces a role held by `_account` (caller must be `_account`).
+Role renouncement is **disabled**: this method always reverts with `RoleRenouncementDisabled()`. It overrides the default `AccessControl` behavior to prevent an account from accidentally losing access to the vault. A role can only be removed by its admin via `revokeRole()` or `revokeRoles()`.
 
 ## Related
 

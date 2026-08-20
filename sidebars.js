@@ -1,11 +1,6 @@
 module.exports = {
   docs: [
     'introduction',
-    {
-      type: 'doc',
-      id: 'lido-v3-whitepaper',
-      className: 'sidebar-v3-highlight',
-    },
     'lido-dao',
     'lips',
     'guides/lido-tokens-integration-guide',
@@ -167,7 +162,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Deployed contracts',
+      label: 'Deployed Contracts',
       link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },

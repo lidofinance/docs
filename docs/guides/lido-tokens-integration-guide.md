@@ -1,4 +1,4 @@
-# Lido tokens integration guide
+# Lido Tokens Integration Guide
 
 This document is intended for developers looking to integrate Lido's stETH or wstETH tokens into their dApps or services, with a focus on money markets, DEXes and blockchain bridges.
 
