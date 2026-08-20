@@ -211,7 +211,7 @@ The permissionless [`wstETHReferralStaker`](https://etherscan.io/address/0xa88f0
 
 Call the helper's payable `stakeETH(address _referral)` method. The caller is always the wstETH recipient: there is no separate recipient argument. A contract that calls the helper receives the wstETH itself and must implement any onward transfer. The helper also has no minimum-output argument; preview with `eth_call` using the intended sender and `msg.value`, then reconcile the returned amount or wstETH balance change at execution.
 
-Because the helper calls `stETH.submit`, the stETH `Submitted` event identifies the helper as `sender` and records the supplied address as `referral`; it does not identify the end user as the event sender. The helper remains subject to Lido staking pause and [rate-limit conditions](#staking-rate-limits). [This mainnet transaction](https://etherscan.io/tx/0x1c05efc8cfbbef8b425d4c21bb63d115769cf28a8f1455b1fc7e2acf192e2f03) is an immutable example of the complete call sequence.
+Because the helper calls `stETH.submit`, the stETH `Submitted` event identifies the helper as `sender` and records the supplied address as `referral`; it does not identify the end user as the event sender. The helper remains subject to Lido staking pause and [rate-limit conditions](#staking-rate-limits).
 
 :::warning
 Do not send ETH or tokens directly to `wstETHReferralStaker`: its plain ETH receiver reverts and it has no rescue function. See the [`wstETHReferralStaker` documentation](/contracts/wsteth-staker) and [pinned source](https://github.com/lidofinance/si-lidity/blob/41dc3c24b9e4f882789e4c0f7c63f2f5ca56d391/si-contracts/0.8.25/wsteth-staker/WstethStaker.sol).
