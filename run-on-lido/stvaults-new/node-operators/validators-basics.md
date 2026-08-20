@@ -60,6 +60,39 @@ Two paths bypass the Node Operator entirely:
 
 Monitoring exit requests is therefore not only a courtesy: acting on them keeps the stVault out of the state where exits happen without the operator's involvement.
 
+## Exit validators
+
+TODO
+
+## Off-chain monitoring tools
+
+### **Ethereum Validators Monitoring (EVM)**
+
+**Where**: [GitHub Repository](https://github.com/lidofinance/ethereum-validators-monitoring)
+
+**Goal**: Off-chain track the status and performance of Ethereum validators used in stVaults. It helps detect inactivity, monitor effectiveness, and identify anomalies in validator operations.
+
+**How to use:**
+
+- Clone the repository from GitHub.
+- Install dependencies and set up the environment.
+- Run the monitoring tool to get validator status.
+- Integrate the output with alerting or dashboards.
+
+### **Ethereum Head Watcher**
+
+**Where**: [GitHub Repository](https://github.com/lidofinance/ethereum-head-watcher)
+
+**Goal**: Off-chain monitor Ethereum chain head updates to detect delays, stalls, or reorgs. It is used to ensure timely block processing and head finality, which are critical for the stability of services like stVaults.
+
+**How to use:**
+
+- Clone the repository from GitHub.
+- Install dependencies and configure environment variables.
+- Run the watcher to observe head progression.
+- Connect it to alerting or monitoring systems if needed.
+
+
 ## Related
 
 - [Predeposit Guarantee](./pdg.md) — how deposits actually reach validators
