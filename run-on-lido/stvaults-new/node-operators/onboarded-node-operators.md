@@ -1,10 +1,10 @@
 ---
-title: 📋 Onboarded Node Operators List
+title: 📋 Onboarded Node Operators
 sidebar_label: 📋 Onboarded Node Operators
 sidebar_position: 2
 ---
  
-# 📋 Identified Node Operators List
+# 📋 Onboarded Node Operators
  
 This page lists all Node Operators that have completed the [Node Operator Identification process](./node-operator-identification-guide.md).
  
@@ -16,7 +16,6 @@ This page lists all Node Operators that have completed the [Node Operator Identi
 | Blockscape Finance AG | `0x3831dc257b7b0b507c8aEBfBf94B8E82E5092311` |
 | Chainnodes | `0xF6b12D876d54Dc709bd93f8a29c2552433FA3E35` |
 | ChainSafe | `0xCF9D6f53f393CA03dfB6cc31DE614be227Bb9d53` |
-| Chorus One | `0x5a386bc3976Ea6c58a65Ddc265c706682177C9D7` |
 | Consensys | `0xf45c77eadd434612fcd93db978b3e36b0d58ec99` |
 | ContributionDAO | `0xe892e6A27eA78f13898341a55834b87Ee5899Bcd` |
 | Cryptonative Systems | `0xC0AC8778B559e0657c17f235e4EaF5145F641959` |
@@ -35,7 +34,7 @@ This page lists all Node Operators that have completed the [Node Operator Identi
 | NodeInfra | `0xf6bdc418887e838ba3788a2acc4d95e8d935a317` |
 | Northstake | `0x9a0ca91b1b8eba833b963af568c25f711e40063b` |
 | Nuxian Labs sa (Pro Delegators) | `0x1dD2b4F38a91af21D2091902EB8E9625A51a3edF` |
-| P2P.org | `0xf6c4eb98b90A044589e3348e9CF8c4C0ACF82A40` |
+| P2P.org | `0x1539c11DFb6C878950738482EA51FB2c0E15ff7b` |
 | Piconbello | `0x5deea49b127ed42dc23dbc968a4cb46ff6e66299` |
 | PierTwo | `0x35921FB43cB92F5Bfef7cBA1e97Eb5A21Fc2d353` |
 | Pothos | `0x79be272cdf0d15c7f27891229b14e7c5ecfaa269` |

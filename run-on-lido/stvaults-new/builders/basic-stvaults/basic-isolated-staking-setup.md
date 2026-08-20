@@ -2,7 +2,10 @@
 sidebar_position: 1
 ---
 
-# Basic isolated staking setup by stVault
+# Basic Isolated Staking Setup by stVault
+
+## Product value proposition
+Competitive offering to native staking — users stake with the same Node Operator and get optional liquidity through stETH.
 
 ## Product characteristics
 | Parameter | Value |
@@ -17,23 +20,16 @@ sidebar_position: 1
 | User Interface | stVault Web UI | Out-of-the-box |
 
 
-## Product value proposition
-
-Competitive offering to native staking — users stake with the same Node Operator and get optional liquidity through stETH.
-
-
 ## Economy model and calculator
 The vault strategy - ETH is deposited to validators and generates staking rewards; stETH is minted on demand by the Vault Owner.
 
 <details>
   <summary>Economy calculation example</summary>
 
-  ## 1. stVaults-based DeFi Product
+<img src="/img/stvaults/economy-examples/insti-scheme.svg" style={{width: '100%', marginBottom: '2rem'}} />
 
-  <img src="/img/stvaults/economy-examples/stvaults-scheme.svg" style={{width: '100%', marginBottom: '2rem'}} />
-
-  As an example, we consider a personalized staking setup with a single Node Operator, full utilization of available
-  stETH Minting Capacity, and subsequent use of stETH in DeFi to add an additional layer of rewards.
+  As an example, we consider a personalized staking setup with a single Node Operator, and full utilization of available
+  stETH Minting Capacity.
 
   ### Annualized Economics Breakdown
 
@@ -53,7 +49,6 @@ The vault strategy - ETH is deposited to validators and generates staking reward
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>- 0.096 ETH</strong></span>
   </div>
-
   Set per stVault through consensus between the Vault Owner and the Node Operator.
   e.g., 3% out of Gross Staking Rewards earned.
 
@@ -62,8 +57,7 @@ The vault strategy - ETH is deposited to validators and generates staking reward
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>- 0.1728 ETH</strong></span>
   </div>
-
-  In this example, the annual Lido Fee approximately equals to 6% of the Lido Core Gross APR and can be calculated by
+  In this example, the annual Lido Fee approximately equals 6% of the Lido Core Gross APR and can be calculated by
   the equation:
   Lido Fee = 6% * 3.2% Lido Core Gross APR * 90 stETH = 0.1728 ETH;
   e.g., Lido Core Gross APR ~ 3.2%.
@@ -76,7 +70,6 @@ The vault strategy - ETH is deposited to validators and generates staking reward
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>2.592 stETH</strong></span>
   </div>
-
   The stVault’s liquidity is provided in stETH, a rebasing token — its balance updates daily to reflect accrued staking
   rewards.
   To ensure the Vault Owner’s repayment amount is always accurately represented, the minted stETH liability adjusts daily in
@@ -87,42 +80,44 @@ The vault strategy - ETH is deposited to validators and generates staking reward
 
   <h4 style={{fontSize: '1.1rem', lineHeight: 1.45, margin: '0.75rem 0 0.25rem', fontWeight: 700}}>stVault Bottom
     Line</h4>
-
-  A positive stVault Efficiency indicates that the Node Operator’s performance is sufficient to cover the growth of the
-  stETH Liability.
-
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>stVault Bottom Line</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>+ 0.3392 ETH</strong></span>
   </div>
-
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>stVault Efficiency</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value"><strong>0.3392%</strong></span>
   </div>
+  A positive stVault Efficiency indicates that the Node Operator’s performance is sufficient to cover the growth of the
+  stETH Liability.
 
 
   ### stETH Usage Outside the stVault
 
-  The Vault Owner generates primary profit by using minted stETH in DeFi protocols:
+  The Vault Owner generates primary profit via higher validation performance than Lido Core APR plus rewards received as
+  a stETH holder.
   - **+ 0.3392%** — stVault Efficiency upside
   - **+ 2.592%** — minted stETH APR (normalized to stVault Total Value 100 ETH)
-  - **+ 2.53%** — additional APR from DeFi strategy (normalized to stVault Total Value 100 ETH)
 
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Total APR</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>5.4612%</strong></span>
+    <span className="value"><strong>2.9312%</strong></span>
   </div>
 
   <br/>
-  ---
+
 
 </details>
 
+
+
+
 ## Architecture
+
+--==PIC==--
 
 ## Step-by-step guide
 

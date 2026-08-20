@@ -19,21 +19,22 @@ This page is a hub: it links out to product materials if you're looking for the 
 | 🌐 [stVaults — Product Page](https://lido.fi/stvaults) | The product pitch: what stVaults is and why it matters. Best link to share with someone who isn't technical. |
 | 🏗️ [stVaults Showcase](https://lido.fi/stvaults-products-overview) | Live products already built on top of stVaults. |
 | 📰 [stVaults News & Deep Dives](https://blog.lido.fi/category/lido-v3/) | Blog posts on stVaults product updates and on what's being built on top of it. |
+| ⚙️ [stVaults NewsArchitecture Overview](./concepts-and-reference/architecture-overview.md) | High-level overview of the stVaults and DeFi Wrapper architecture, including smart contract addresses and interfaces. |
 
 ## Explore the docs by role
 
 | Section | Who it's for |
 | --- | --- |
-| 🛠️ [Builders](/run-on-lido/stvaults-new/builders/) | Teams building a product on top of stVaults — DeFi integrations, wrappers, L2s, custom staking products. |
-| 🏦 [Vault Owners, Curators & Stakers](/run-on-lido/stvaults-new/vault-owners-curators-and-stakers/) | Anyone operating or managing an stVault: funding, minting, health monitoring, roles and permissions. |
-| ⚙️ [Node Operators](/run-on-lido/stvaults-new/node-operators/) | Node operators running validators for stVaults — onboarding, tiers, requirements. |
+| 🛠️ [Builders](./builders/) | Teams building a product on top of stVaults — DeFi integrations, wrappers, L2s, custom staking products. |
+| 🏦 [Vault Owners, Curators & Stakers](./vault-owners-curators-and-stakers/) | Anyone operating or managing an stVault: funding, minting, health monitoring, roles and permissions. |
+| ⚙️ [Node Operators](./node-operators/) | Node operators running validators for stVaults — onboarding, tiers, requirements. |
 
 ## Concepts & Reference
 
 | Resource | What it covers |
 | --- | --- |
-| 📚 [Concepts & Reference](/run-on-lido/stvaults-new/concepts-and-reference/) | Architecture, roles & permissions, parameters & metrics, and other cross-cutting mechanics. |
-| 📘 [Lido V3 Technical Paper](https://docs.lido.fi/Lido_V3_Whitepaper.pdf) | The complete Technical Paper covers architecture, mechanisms, risks, and implementation details. |
+| 📚 [Concepts & Reference](./concepts-and-reference/) | Architecture, roles & permissions, parameters & metrics, and other cross-cutting mechanics. |
+| 📘 [Lido V3 Technical Paper](./concepts-and-reference/lido-v3-whitepaper.mdx) | The complete Technical Paper covers architecture, mechanisms, risks, and implementation details. |
 
 
 ## Qualified Custodians

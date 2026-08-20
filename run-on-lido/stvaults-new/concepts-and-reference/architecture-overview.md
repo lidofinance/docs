@@ -2,9 +2,21 @@
 sidebar_position: 4
 ---
 
-# Integration overview: Basic stVaults, and stVaults + DeFi Wrapper
+# Architecture Overview
 
-## stVaults Environments
+## Basic stVaults Architecture
+
+--PIC--
+
+--Contracts and components list--
+
+## stVaults + De~Fi Wrapper Architecture
+
+--PIC--
+
+--Contracts and components list--
+
+## Environments
 
 #### Hoodi Testnet
 
