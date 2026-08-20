@@ -261,12 +261,16 @@ Because the Node Operator can disburse the fee at any moment, the period fee is 
 
 $$
 \begin{aligned}
-\text{noEarnings}(T) &= \underbrace{\text{settledGrowth}(T) \times \text{feeRate}}_{\text{already disbursed}} + \underbrace{\text{accruedFee}(T)}_{\text{owed, not yet taken}} \\[4pt]
+\text{noEarnings}(T) &= \underbrace{\text{settledGrowth}(T) \times \text{feeRate}}_{\text{already settled}} + \underbrace{\text{accruedFee}(T)}_{\text{owed, not yet taken}} \\[4pt]
 \text{nodeOperatorFee} &= \text{noEarnings}(curr) - \text{noEarnings}(prev)
 \end{aligned}
 $$
 
-The two terms do not overlap: $\text{accruedFee}$ *subtracts* the settled mark rather than including it, so together they add up to everything the Node Operator has earned over the stVault's lifetime, taken or not.
+The two terms do not overlap: $\text{accruedFee}$ *subtracts* the settled mark rather than including it, so together they cover the whole growth the fee has been charged on, taken or not.
+
+:::warning
+$\text{settledGrowth}$ moves up on fee exemptions and manual corrections as well as on disbursements, so the first term is not the same as ETH actually paid out. In a period where growth was exempted or the mark was corrected, this figure counts that value as Node Operator earnings. Read it together with the actual disbursements when either has happened.
+:::
 
 ### Lido fees
 
@@ -278,12 +282,18 @@ $$
 
 The Lido fee is the sum of three components `infraFee + liquidityFee + reservationFee`, each charged on a different base.
 
+The fee rates are annual, and a report covers a fraction of a year, so every component is scaled by the elapsed share of the year:
+
+$$
+\Delta_{\text{year}} = \frac{t_{curr} - t_{prev}}{\text{1 year}}
+$$
+
 #### Infrastructure fee
 
 Charged for using the stVaults infrastructure, calculated from Total Value:
 
 $$
-\text{infraFee} = TV \times APR_{\text{Lido Core}} \times \text{infraFeeRate}
+\text{infraFee} = TV \times APR_{\text{Lido Core}} \times \text{infraFeeRate} \times \Delta_{\text{year}}
 $$
 
 #### Liquidity fee
@@ -291,7 +301,7 @@ $$
 Charged for actual liquidity usage, calculated from the stETH Liability:
 
 $$
-\text{liquidityFee} = L \times APR_{\text{Lido Core}} \times \text{liquidityFeeRate}
+\text{liquidityFee} = L \times APR_{\text{Lido Core}} \times \text{liquidityFeeRate} \times \Delta_{\text{year}}
 $$
 
 #### Reservation liquidity fee
@@ -299,7 +309,7 @@ $$
 Charged for liquidity on demand, calculated from the stETH minting capacity:
 
 $$
-\text{reservationFee} = \text{capacity} \times APR_{\text{Lido Core}} \times \text{reservationFeeRate}
+\text{reservationFee} = \text{capacity} \times APR_{\text{Lido Core}} \times \text{reservationFeeRate} \times \Delta_{\text{year}}
 $$
 
 ### Net staking rewards
@@ -379,10 +389,14 @@ Three metrics show how much of each corrective action is needed to bring the Uti
 The ETH to send from the stVault balance to Lido Core, writing off the same stETH liability 1:1:
 
 $$
-\text{ETH to rebalance} = \frac{L - (1 - RR) \times TV}{RR}
+\text{ETH to rebalance} = \max\!\left(0,\; \frac{L - (1 - RR) \times TV}{RR}\right)
 $$
 
-The shortfall is zero while the stVault is healthy. If the liability already exceeds Total Value, rebalancing alone cannot fix the position and the stVault is considered to have bad debt.
+This brings the liability back to exactly the Reserve Ratio capacity, and it is the same expression `VaultHub` uses for forced rebalancing. The amount is positive whenever the Utilization Ratio is above 100%, which can happen while the stVault is still healthy — the protocol only enforces the rebalance once the Forced Rebalance Threshold is breached. On-chain the result is additionally capped at the full liability, and if the liability already exceeds Total Value, rebalancing alone cannot fix the position and the stVault is considered to have bad debt.
+
+:::info
+Unlike the two metrics below, this expression ignores the fee obligation, exactly as the contract does. While unsettled fees are outstanding, they shrink the capacity, so rebalancing this amount leaves the Utilization Ratio slightly above 100%.
+:::
 
 ### stETH to repay
 

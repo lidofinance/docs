@@ -19,7 +19,7 @@ This guide describes how to become an Identified Node Operator for stVaults and 
 ## The category → tiers model
 
 - **Node Operators are placed into a Category** that reflects combined operational, decentralization, and business factors (Basic identified, stVaults Professional Operator, stVaults Professional Trusted Operator).
-- **Each category contains multiple tiers.** **A tier** is a specific **minting configuration** that defines the **Reserve Ratio (RR)**, **stETH Minting Limit (cap)**, and corresponding **Lido fees**. Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers increase the allowed minting cap but decrease the Reserve Ratio.
+- **Each category contains multiple tiers.** **A tier** is a specific **minting configuration** that defines the **Reserve Ratio (RR)**, **stETH Minting Limit (cap)**, and corresponding **Lido fees**. Operators receive a **tiers grid** (Tier 1…N) within their category; higher tiers raise both the allowed minting cap and the Reserve Ratio.
 - Within the assigned category, **one Node Operator can hold multiple tiers** that the stVaults Committee can set or change based on the Node Operator’s requests, performance, slashing events, or market circumstances in accordance with the stVaults Risk Framework.
 - Categories **Basic**, **stVaults Professional Operator**, and **DVT** can be granted to a Node Operator or DVT cluster upon request during the initial identification process. However, the **stVaults Professional Trusted Operator** category can only be awarded after three months of successful validation and proof of a significant amount of prospective funds to be acquired.
 

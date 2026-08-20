@@ -101,12 +101,15 @@ The stETH Liability details view also shows:
 
 The key condition to monitor is that the stVault’s Liability remains safely within its capacity:
 
-- stETH Liability should **not exceed** the allowed capacity defined by the Reserve Ratio / Forced Rebalance Threshold.
+- stETH Liability should **not exceed** the capacity defined by the **Reserve Ratio**.
 - In practice, this is equivalent to keeping the **Utilization ratio below 100%**.
 
-When **Utilization ratio approaches 100%**:
+When **Utilization ratio approaches 100%**, there is little remaining capacity to mint additional stETH.
 
-- There is little remaining capacity to mint additional stETH.
-- The stVault comes closer to the boundary where forced rebalancing may be triggered.
+:::info
+The two thresholds are separate. The Reserve Ratio sets the minting capacity, and the Utilization ratio measures how much of it is used. Forced rebalancing is triggered by the **Forced Rebalance Threshold**, which sits below the Reserve Ratio, and it is the Health factor that tracks that boundary.
 
-If Utilization reaches or exceeds 100%, the stVault is at or above its intended Liability limit and may enter the forced rebalancing zone. In this situation, the Vault Owner should promptly review their position and take corrective actions as described in the [stVaults Health Emergency Guide](./health-emergency-guide.md).
+An stVault can therefore be above 100% Utilization and still healthy: no further stETH can be minted, but nothing is forced. The [Health emergency guide](./health-emergency-guide.md) works through such a case — Utilization 101% with a Health factor of 100.1%.
+:::
+
+If Utilization reaches or exceeds 100%, the stVault is at its intended Liability limit and the buffer before the forced rebalancing zone is thin. The Vault Owner should review the position and take corrective actions as described in the [stVaults Health Emergency Guide](./health-emergency-guide.md).
