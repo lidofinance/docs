@@ -40,29 +40,52 @@ Validators do not leave on their own, and the protocol does not force the Node O
 
 When the Vault Owner wants ETH back, they call `requestValidatorExit`, which **only emits a `ValidatorExitRequested` event per public key**. Nothing else happens. If no one is watching for that event, the request is invisible and the exit never occurs.
 
-The Node Operator has its own instrument for acting on the request: `StakingVault.ejectValidators` performs an EIP-7002 withdrawal directly. It is checked against the Node Operator address and cannot be delegated.
+## Exit validators
+
+A Node Operator has two ways to take a validator out, and neither of them is partial.
+
+**A voluntary exit from the validator client** is the ordinary consensus-layer route, signed with the validator key. It costs nothing on the execution layer and needs no on-chain transaction.
+
+**`StakingVault.ejectValidators`** sends an EIP-7002 triggerable withdrawal on-chain. It exists for the case the validator key cannot be used — the Node Operator cannot guarantee that every validator pointing at the stVault is under its control, so the contract gives it a way to remove one regardless.
+
+The call compares the sender against the Node Operator address stored in the stVault and reverts with `SenderNotNodeOperator` otherwise. Unlike the Vault Owner's permissions, it is not a Dashboard role and cannot be delegated.
+
+:::info
+`ejectValidators` takes public keys and a refund recipient, but no amounts: it always issues full withdrawal requests.
+:::
+
+The exited ETH returns to the stVault balance, because that is where the withdrawal credentials point.
+
+### The fee
+
+Each key in the request costs an EIP-7002 fee, paid as the value of the same transaction:
+
+- estimate it with `calculateValidatorWithdrawalFee(numberOfKeys)` on the `StakingVault` contract;
+- the fee is set by the network and changes from block to block, so an estimate is only accurate for the block it was made in;
+- the exact amount is charged and the excess is refunded to the refund recipient, or to the sender when that address is zero.
+
+The fee rises steeply while the withdrawal queue is congested. Sending a surplus protects against a revert, but it also raises the ceiling of what can be charged, so keep it modest.
 
 <details>
-<summary>Ejecting validators with the CLI</summary>
+  <summary>using Command-line Interface</summary>
 
 ```bash
-yarn start contracts vault write eject-validators <vault_address> <pubkeys> <amounts> <refund_recipient>
+yarn start contracts vault write eject-validators \
+  <vault_address> <pubkeys> <amounts> <refund_recipient>
 ```
 
-The CLI reads the EIP-7002 fee from `calculateValidatorWithdrawalFee` and asks for confirmation before sending. If `<refund_recipient>` is the zero address, the fee refund goes to the sender.
+Public keys are a comma-separated list. The CLI reads the current fee itself and attaches it to the transaction, then asks for confirmation before sending.
 
 </details>
 
-Two paths bypass the Node Operator entirely:
+<details>
+  <summary>using Etherscan UI</summary>
 
-- The Vault Owner can trigger withdrawals themselves through EIP-7002 — see [Control validators and withdraw from the Beacon Chain](../vault-owners-curators-and-stakers/basic-stvaults/control-validators.md).
-- The protocol can force full exits when the stVault has an obligations shortfall.
+1. Open **Etherscan** and navigate to the **StakingVault** contract by its address.
+2. Call `calculateValidatorWithdrawalFee`, passing the number of keys, to estimate the fee.
+3. Call `ejectValidators`, passing the concatenated public keys and the refund recipient address. Attach the fee, with a surplus, as the payable value.
 
-Monitoring exit requests is therefore not only a courtesy: acting on them keeps the stVault out of the state where exits happen without the operator's involvement.
-
-## Exit validators
-
-TODO
+</details>
 
 ## Off-chain monitoring tools
 

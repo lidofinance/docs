@@ -138,7 +138,7 @@ yarn start contracts operator-grid read vault-tier-info <vault_address>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
 2. Call `vaultTierInfo`, passing your stVault address.
 
 </details>
@@ -179,12 +179,12 @@ yarn start contracts vault read depositor <vault_address>
 
 VaultHub only accepts stVaults deployed by the canonical `VaultFactory` and rejects anything else with `VaultNotFactoryDeployed`. It also refuses an stVault that has been ossified.
 
-Compare the factory address that deployed the stVault against the one listed on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page for your network.
+Compare the factory address that deployed the stVault against the one listed on the [Environments](../../concepts-and-reference/architecture-overview#environments) page for your network.
 
 <details>
   <summary>using stVaults Web UI</summary>
 
-The official stVaults Web UI for your network — see [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) — queries the factory for every stVault it loads and refuses to open one it did not deploy, showing **stVault is not created by Factory** instead. If your stVault opens there, it passed this check.
+The official stVaults Web UI for your network — see [Environments](../../concepts-and-reference/architecture-overview#environments) — queries the factory for every stVault it loads and refuses to open one it did not deploy, showing **stVault is not created by Factory** instead. If your stVault opens there, it passed this check.
 
 The frontend is open-source and meant to be forked, so a self-hosted or modified build can skip the check. Rely on this only when you are on the official deployment.
 

@@ -148,7 +148,7 @@ The CLI automatically fetches the latest report CID, retrieves the Merkle tree f
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
 2. Call `latestReportData` to get the current `reportCid`.
 3. Fetch the Merkle tree JSON from IPFS: `https://ipfs.io/ipfs/<reportCid>`
 4. Locate your stVault's entry in the tree and copy its values and proof.
@@ -302,7 +302,7 @@ yarn start contracts hub w v-owner-disconnect <vaultAddress>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **VaultHub** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+1. Open **Etherscan** and navigate to the **VaultHub** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
 2. Call `voluntaryDisconnect`, passing your stVault address.
 
 </details>
@@ -341,7 +341,7 @@ The CLI automatically fetches the latest report CID, retrieves the Merkle tree f
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
 2. Call `latestReportData` to get the current `reportCid`.
 3. Fetch the Merkle tree JSON from IPFS: `https://ipfs.io/ipfs/<reportCid>`
 4. Locate your stVault's entry in the tree and copy its values and proof.

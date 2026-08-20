@@ -121,7 +121,7 @@ The vault strategy - ETH is deposited to validators and generates staking reward
 
 ## Step-by-step guide
 
-➡️ URLs and Smart Contract addresses are listed on [Environments](../../concepts-and-reference/integration-overview#stvaults-environments)
+➡️ URLs and Smart Contract addresses are listed on [Environments](../../concepts-and-reference/architecture-overview#environments)
 
 Creating an stVault is permissionless. There are two main ways to do it:
 
@@ -153,7 +153,7 @@ Creating an stVault is a permissionless operation, but in this two-step process 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-       1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+       1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
       4. Find the method `createVaultWithDashboardWithoutConnectingToVaultHub` in the list, fill out the fields, and click **Write**.
@@ -181,7 +181,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **Operator Grid** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+      1. Open **Etherscan** and navigate to the **Operator Grid** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.
@@ -209,7 +209,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
 <details>
   <summary>using stVaults Web UI</summary>
-      1. Open the stVaults Web UI (see [Environments](../../concepts-and-reference/integration-overview#stvaults-environments))
+      1. Open the stVaults Web UI (see [Environments](../../concepts-and-reference/architecture-overview#environments))
 
       2. Connect wallet on the "My Vaults" page.
 
@@ -252,7 +252,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 
 <details>
   <summary>using stVaults Web UI</summary>
-      1. Open the stVaults Web UI (see [Environments](../../concepts-and-reference/integration-overview#stvaults-environments))
+      1. Open the stVaults Web UI (see [Environments](../../concepts-and-reference/architecture-overview#environments))
       2. Connect wallet on the "My Vaults" page.
       3. Click "Create vault".
 
@@ -270,7 +270,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+      1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
       2. Go to the **Contract** tab → **Write Contract**.
       3. Click **Connect to Web3** and connect your wallet in the dialog window.
       4. Find the method `createVaultWithDashboard` in the list, fill out the fields, and click **Write**.

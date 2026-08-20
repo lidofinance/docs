@@ -186,7 +186,7 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **stETH** or **wstETH** token contract — find the addresses on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+1. Open **Etherscan** and navigate to the **stETH** or **wstETH** token contract — find the addresses on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
 2. Call `approve`, passing the `Dashboard` contract address and the amount **in wei** you want to allow it to pull.
 3. Once the approval is confirmed, navigate to the **Dashboard** contract by its address.
 4. Call `burnShares`, `burnStETH` or `burnWstETH`, passing the amount **in wei**.

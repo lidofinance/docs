@@ -86,7 +86,7 @@ Nothing releases the quarantine on its own. If step 4 is not sent, the amount st
 <details>
   <summary>using Etherscan UI</summary>
 
-      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](./integration-overview#stvaults-environments) page.
+      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](./architecture-overview#environments) page.
       2. Call `vaultQuarantine`, passing the stVault address, to see whether a quarantine is active, the amount, and the start and end timestamps. `quarantineValue` returns the total held, including the queued remainder.
 
 </details>

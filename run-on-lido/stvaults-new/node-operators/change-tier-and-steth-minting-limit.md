@@ -95,7 +95,7 @@ yarn start vo write sync-tier -v <vault_address>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../concepts-and-reference/integration-overview#stvaults-environments) page.
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../concepts-and-reference/architecture-overview#environments) page.
 2. Call `changeTier`, `updateVaultShareLimit` or `syncTier`, passing the stVault address and the arguments the Vault Owner is using.
 
 The Vault Owner calls the same-named methods on the **Dashboard** contract instead, without the stVault address argument.

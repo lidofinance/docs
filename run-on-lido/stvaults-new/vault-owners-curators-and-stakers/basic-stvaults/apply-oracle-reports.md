@@ -65,7 +65,7 @@ This is a **permissionless operation** — anyone can apply a report to any stVa
 
       Applying a report via Etherscan requires manually fetching the proof data from IPFS. For most users, the CLI or Web UI is recommended.
 
-      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
       2. Call `latestReportData` to get the current `reportCid`.
       3. Fetch the Merkle tree JSON from IPFS: `https://ipfs.io/ipfs/<reportCid>`
       4. Locate your stVault's entry in the tree and copy its values and proof.
@@ -89,7 +89,7 @@ You can check when your stVault's report was last updated:
 <details>
   <summary>using Etherscan UI</summary>
 
-      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/integration-overview#stvaults-environments) page.
+      1. Open **Etherscan** and navigate to the **LazyOracle** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
       2. Call `latestReportTimestamp` to see when the latest report was published.
       3. Call `vaultInfo`, passing your stVault address, to see its current on-chain metrics.
 
