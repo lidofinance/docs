@@ -12,7 +12,7 @@ sidebar_position: 4
 
 ![stVaults + DeFi Wrapper Architecture](/img/stvaults/tech-design/architecture_stv_wrapper.jpg)
 
-## Contracts and components
+## Environments
 
 TBD
 
