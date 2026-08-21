@@ -130,7 +130,7 @@ A `SyncRedeemQueue` burns active shares and transfers the configured exit asset 
 - the requested shares fit within `remainingDailyLimit()`;
 - the resulting asset amount is nonzero after penalties and fees.
 
-Read `syncRedeemParams()`, `remainingDailyLimit()`, and `getLiquidAssets()` immediately before execution and still handle a revert. The capacity uses a linearly refilling bucket, not a guaranteed rolling-day quota. See the [`SyncRedeemQueue` implementation](https://github.com/mellow-finance/flexible-vaults/blob/1314cba3b0333d3224d037e281e04b80403d5460/src/queues/SyncRedeemQueue.sol).
+Read `syncRedeemParams()`, `remainingDailyLimit()`, and `getLiquidAssets()` on the redemption queue immediately before execution and still handle a revert. The Vault's own `getLiquidAssets()` is callable only by a registered redemption queue, so use the queue's public wrapper. The capacity uses a linearly refilling bucket, not a guaranteed rolling-day quota. See the [`SyncRedeemQueue` implementation](https://github.com/mellow-finance/flexible-vaults/blob/1314cba3b0333d3224d037e281e04b80403d5460/src/queues/SyncRedeemQueue.sol).
 
 ### Asynchronous redemptions
 
@@ -151,57 +151,30 @@ Deposit, redeem, performance, and protocol fee parameters are mutable. Read the 
 
 Do not copy a fee, APY, TVL, token price, or waiting time from a product page into application logic. State the block, asset, route, report, and fee configuration used for every quote. APY is historical performance and is not a promised return.
 
-## Integration checklists
+## Integration checklist
 
-### Wallets and portfolio trackers
-
-- Display the ERC-20 ShareManager address, not the Vault address, as the token identity.
-- Keep active balance, pending deposits, claimable shares, pending redemptions, and claimable exit assets separate.
-- Value active shares with the intended asset's current report and show that asset explicitly.
-- Treat a Vault strategy-position view as backing information, not the user's redeemable balance.
-- Refresh after Oracle reports, queue claims, transfers, and configuration changes.
-
-### Smart contracts and DeFi protocols
-
-- Do not call ERC-4626 or permit methods that the token does not implement.
-- Validate `flags()` and account restrictions before assuming transferability or composability.
-- Separate accounting value, market price, and liquidation price.
-- Model the Vault, Oracle, FeeManager, RiskManager, queues, hooks, subvaults, strategies, proxies, and administrative roles.
-- Test losses, suspicious and stale reports, paused queues, depleted liquidity, exhausted synchronous capacity, fee changes, and implementation upgrades.
-
-### Exchanges and custodians
-
-- Credit only confirmed active shares to the liquid token ledger.
-- Track asynchronous deposits and redemptions as separate pending liabilities.
-- Define the supported exit asset and whether the service waits for asynchronous claims.
-- Reconcile custody against active token supply and queue state, not a portfolio API alone.
-- Do not enable deposits from token metadata coverage or a symbol match.
-
-### APIs and researchers
-
-- Return chain ID, ShareManager, Vault, queue, source or exit asset, block, report timestamp, and decimals.
-- Expose both share quantity and asset value; label the report direction.
-- Keep reported Vault value, secondary-market price, and historical performance separate.
-- Date integrations, strategy allocations, fees, liquidity, and product availability.
-
-## Market and integration availability
-
-As checked on **2026-08-20**, the [Lido Earn interface](https://stake.lido.fi/earn) was the maintained primary product surface. CoinGecko mapped [`lido-earn-eth`](https://api.coingecko.com/api/v3/coins/lido-earn-eth) and [`lido-earnusd`](https://api.coingecko.com/api/v3/coins/lido-earnusd) to the canonical ShareManager addresses. The product also linked Vault strategy views for [earnETH](https://debank.com/bundles/221533/accounts) and [earnUSD](https://debank.com/bundles/221534/accounts).
-
-Metadata, a Vault strategy view, or a generic ERC-20 balance does not prove a liquid market, correct share valuation, deposit or redemption support, or external-protocol acceptance. Verify every wallet, protocol, exchange, custodian, API, and portfolio integration from its own current registry and operational state.
+- Use the ShareManager address, never the Vault address, as the token identity, and verify the pair on-chain before enabling anything.
+- Do not call ERC-4626 or permit methods the token does not implement; read `flags()` and account restrictions before assuming mint, burn, or transferability.
+- Keep active balances, pending deposits, claimable shares, pending redemptions, and claimable exit assets as separate states in ledgers, APIs, and UIs.
+- Credit only confirmed active shares to liquid ledgers; track asynchronous requests as separate liabilities and reconcile custody against token supply and queue state, not a portfolio API alone.
+- Value active shares with the intended asset's current, non-suspicious Oracle report; label the report direction, asset, block, and timestamp. A Vault strategy view is not a user's redeemable balance.
+- Declare the exact deposit and exit assets and queues the integration supports; read queue registration, pause state, capacity, and liquid assets immediately before execution and still handle reverts.
+- Separate accounting value, market price, and liquidation price; do not copy fees, APY, TVL, or waiting times into application logic.
+- Refresh state after Oracle reports, queue claims, transfers, and configuration changes.
+- Test losses, stale or suspicious reports, paused queues, depleted liquidity, exhausted synchronous capacity, fee changes, and implementation upgrades.
 
 ## Monitoring and risks
+
+As of 2026-08-21, the [Lido Earn interface](https://stake.lido.fi/earn) is the maintained primary product surface for deposits and redemptions. Token-metadata coverage, a Vault strategy view, or a generic ERC-20 balance does not prove a liquid market, correct share valuation, or external-protocol acceptance: verify every downstream integration from its own current registry and operational state.
 
 Monitor at least:
 
 - proxy implementations, admins, roles, and timelocks;
 - ShareManager flags, account restrictions, and supply changes;
-- registered assets, queue additions or removals, and pause state;
+- registered assets, queues, pause state, synchronous capacity, and liquid assets;
 - Oracle report price, timestamp, suspicious state, supported assets, and security parameters;
 - FeeManager and RiskManager configuration;
-- synchronous redemption capacity and liquid assets;
 - asynchronous request, report, batch, and claim progress;
-- subvault, curator, strategy, and external-protocol status;
-- source-asset and exit-asset market, depeg, liquidity, and custody risk.
+- subvault, curator, strategy, and source-asset and exit-asset market, depeg, liquidity, and custody risk.
 
 Review the maintained [Earn audits](/earn/audits) and the product's [risk disclosures](https://lido.fi/earn/risk-disclosures). The [EarnETH incident review](https://research.lido.fi/t/kelp-incident-review-earneth-exposure-response-and-risk-framework-changes/11579) is a concrete integration case for testing dependency contagion, liquidity stress, paused flows, valuation uncertainty, and unwind procedures. Define pause, recovery, reconciliation, and asset-removal procedures before accepting user funds.
