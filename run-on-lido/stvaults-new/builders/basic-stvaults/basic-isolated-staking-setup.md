@@ -112,12 +112,9 @@ The vault strategy - ETH is deposited to validators and generates staking reward
 
 </details>
 
-
-
-
 ## Architecture
 
---==PIC==--
+![Basic Isolated Staking Setup by stVault](/img/stvaults/builders/architecture_basic.jpg)
 
 ## Step-by-step guide
 

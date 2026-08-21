@@ -6,17 +6,15 @@ sidebar_position: 4
 
 ## Basic stVaults Architecture
 
---PIC--
+![Basic stVaults Architecture](/img/stvaults/tech-design/architecture_stv.jpg)
 
---Contracts and components list--
+## stVaults + DeFi Wrapper Architecture
 
-## stVaults + De~Fi Wrapper Architecture
+![stVaults + DeFi Wrapper Architecture](/img/stvaults/tech-design/architecture_stv_wrapper.jpg)
 
---PIC--
+## Contracts and components
 
---Contracts and components list--
-
-## Environments
+TBD
 
 #### Hoodi Testnet
 
