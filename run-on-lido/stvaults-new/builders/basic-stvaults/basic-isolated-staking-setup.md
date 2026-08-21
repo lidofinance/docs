@@ -282,7 +282,7 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 
 - [Supply/Withdraw ETH, Mint/Repay stETH](../../vault-owners-curators-and-stakers/basic-stvaults/supply-withdraw-mint-repay.md)
 - [Control validators by the Vault Owner](../../vault-owners-curators-and-stakers/basic-stvaults/control-validators.md)
-- [Rebalance](../../vault-owners-curators-and-stakers/basic-stvaults/rebalance-guide.md)
+- [Rebalance](../../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md)
 - [Health Monitoring Guide](../../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md)
 - [Health Emergency Guide](../../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md)
 - [Applying Report Guide](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)

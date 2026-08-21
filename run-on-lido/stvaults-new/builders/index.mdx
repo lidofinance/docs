@@ -21,8 +21,12 @@ export const GUIDES = {
   massRedemptions: {
     title: 'Mass staking product with utilizing stETH to fulfil redemptions',
     link: './basic-stvaults/etf-etp-product',
-    description:
-      'A multi-staker staking product where minted stETH is used specifically to cover redemptions (ETF/ETP-like pattern).',
+  description: (
+    <>
+      A multi-staker staking product where {' '}
+      <a href="../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth">minted stETH is used specifically to cover redemptions</a> (ETF/ETP-like pattern).
+    </>
+  ),
     buildingBlocks: [
       { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
       { block: 'Pooling Wrapper', solution: 'Custom', implementation: 'Custom' },
@@ -200,9 +204,19 @@ export const ProductGuideSelector = () => {
           <p style={{ fontWeight: 600, marginBottom: '0.25rem' }}>{guide.title}</p>
           <p style={{ marginBottom: '0.75rem' }}>{guide.description}</p>
           <p style={{ marginBottom: '1rem', fontWeight: 600 }}>
-            ➡️ <a href={guide.link}>Product Economy, Architecture, and Building Guide</a>
+            <a href={guide.link} style={{
+                display: 'inline-block',
+                backgroundColor: 'var(--ifm-color-primary)',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: 8,
+                fontWeight: 700,
+                textDecoration: 'none',
+                marginBottom: '1.5rem',
+              }}>
+              Read the Product Economy, Architecture, and Building Guide →
+            </a>
           </p>
-
           <p style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Product characteristics</p>
           <table style={{ width: '100%', marginBottom: '1rem' }}>
             <thead>

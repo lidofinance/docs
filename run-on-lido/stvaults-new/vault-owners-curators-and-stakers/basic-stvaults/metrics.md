@@ -37,7 +37,7 @@ Defines the share of the collateral that is reserved when the Vault Owner mints 
 
 ### Forced Rebalance Threshold
 
-Defines the minimum allowed ratio of Total Value to stETH Liability. Crossing it makes the stVault subject to [forced rebalancing](./rebalance-guide.md). Always lower than the Reserve Ratio.
+Defines the minimum allowed ratio of Total Value to stETH Liability. Crossing it makes the stVault subject to [forced rebalancing](./rebalance.md). Always lower than the Reserve Ratio.
 
 ### Minimal Reserve
 
@@ -199,7 +199,7 @@ $$
 HF = \frac{TV \times (1 - FRT)}{L} \times 100\%
 $$
 
-The stVault is healthy while `HF ≥ 100%`. Below that it becomes subject to [forced rebalancing](./rebalance-guide.md). See the [Health monitoring guide](./health-monitoring-guide.md) for the risk bands used in the Web UI.
+The stVault is healthy while `HF ≥ 100%`. Below that it becomes subject to [forced rebalancing](./rebalance.md). See the [Health monitoring guide](./health-monitoring-guide.md) for the risk bands used in the Web UI.
 
 ### Available to withdraw
 

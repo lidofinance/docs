@@ -109,7 +109,7 @@ Three flavours are available, all of them payable so funding and minting fit in 
 | `mintStETH`         | stETH tokens (rebasing)                        |
 | `mintWstETH`        | wstETH tokens (non-rebasing), wrapped automatically  |
 
-Each takes a recipient address, so minted tokens can go straight to another address.
+Each takes a recipient address, so minted tokens can go straight to another address. This may be useful for Vault Owners with restrictions on which tokens can appear on their balance sheets.
 
 <details>
   <summary>using stVaults Web UI</summary>

@@ -19,7 +19,7 @@ This page is a hub: it links out to product materials if you're looking for the 
 | 🌐 [stVaults — Product Page](https://lido.fi/stvaults) | The product pitch: what stVaults is and why it matters. Best link to share with someone who isn't technical. |
 | 🏗️ [stVaults Showcase](https://lido.fi/stvaults-products-overview) | Live products already built on top of stVaults. |
 | 📰 [stVaults News & Deep Dives](https://blog.lido.fi/category/lido-v3/) | Blog posts on stVaults product updates and on what's being built on top of it. |
-| ⚙️ [stVaults NewsArchitecture Overview](./concepts-and-reference/architecture-overview.md) | High-level overview of the stVaults and DeFi Wrapper architecture, including smart contract addresses and interfaces. |
+| ⚙️ [stVaults Architecture Overview](./concepts-and-reference/architecture-overview.md) | High-level overview of the stVaults and DeFi Wrapper architecture, including smart contract addresses and interfaces. |
 
 ## Explore the docs by role
 
