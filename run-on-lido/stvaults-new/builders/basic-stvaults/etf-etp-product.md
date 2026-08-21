@@ -6,7 +6,7 @@ title: 'Mass staking product with redemptions via stETH'
 # Mass staking product with utilizing stETH to fulfil redemptions
 
 ## Product value proposition
-Staking rewards through a chosen Node Operator, with [quick redemption coverage with stETH liquidity](../../vault-owners-curators-and-stakers/basic-stvaults/rede).
+Staking rewards through a chosen Node Operator, with [quick redemption coverage with stETH liquidity](../../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth.md).
 
 ## Product characteristics
 | Parameter | Value |
