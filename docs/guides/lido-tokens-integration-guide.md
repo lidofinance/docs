@@ -1,8 +1,6 @@
 # Lido tokens integration guide
 
-This guide is for developers integrating Lido ecosystem tokens on Ethereum into smart contracts, wallets, exchanges, custody systems, data services, and portfolio trackers.
-
-For JavaScript and TypeScript staking applications, consider the [Lido Ethereum SDK](/integrations/sdk#lido-ethereum-sdk). Direct Lido Earn integrations should use the registered Vault queues and their verified ABIs. On-chain integrations should use the contracts and interfaces linked from this guide.
+This guide is for developers integrating Lido ecosystem tokens on Ethereum into smart contracts, wallets, exchanges, custody systems, data services, and portfolio trackers. For JavaScript and TypeScript staking applications, consider the [Lido Ethereum SDK](/integrations/sdk#lido-ethereum-sdk).
 
 ## Before integrating
 
@@ -15,9 +13,10 @@ Use these maintained sources:
 - [Lido Ecosystem](https://lido.fi/lido-ecosystem) for current integration discovery.
 - [Lido Multichain](https://lido.fi/how-lido-works/lido-multichain) for networks that currently have canonical recognition.
 - The [wstETH liquidity dashboard](https://dune.com/lido/wsteth-liquidity) for current market data.
+- [Lido APIs](/integrations/api), the [Lido Ethereum SDK](/integrations/sdk), and the [Lido Subgraph](/integrations/subgraph) for protocol, reward, withdrawal, and event data. These are read-only convenience layers, not substitutes for on-chain state in security-critical decisions.
 - The integrating protocol's own contracts, registry, documentation, and status page for its current configuration.
 
-Do not treat an old announcement, a token price page, or deployed bytecode by itself as proof that deposits, withdrawals, trading, bridging, or rebase accounting remain supported.
+Integration availability changes faster than token mechanics. Do not treat an old announcement, a token price page, or deployed bytecode by itself as proof that deposits, withdrawals, trading, bridging, or rebase accounting remain supported. Availability is often regional, account-specific, network-specific, or temporarily paused: monitor the upstream source the integration depends on and define a removal or disablement procedure.
 
 For example, verify the Ethereum token relationship with Foundry before using an address from configuration:
 
@@ -45,36 +44,9 @@ The canonical Ethereum addresses are:
 | stETH  | [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) |
 | wstETH | [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0) |
 
-### Lido Earn vault-share tokens
+The stTokens are widely integrated across DeFi, wallets, exchanges, and custody products. As of 2026-08-21, wstETH is listed as collateral in Aave V3 on Ethereum, Arbitrum, Base, and Optimism and in Aave V4 on Ethereum; verify current listings in the [Aave address book](https://github.com/bgd-labs/aave-address-book) and discover other venues through the maintained sources listed [above](#before-integrating). A listing alone does not guarantee current liquidity, risk parameters, or operational support.
 
-`earnETH` and `earnUSD` are transferable, non-rebasing ERC-20 share tokens for Lido Earn Vaults. Their token quantities represent Vault shares; strategy performance, losses, and fees are reflected through the asset value of each share rather than a rebase.
-
-The token contract is the Vault's **ShareManager**, not the Vault itself:
-
-| Token   | Token / ShareManager                                                                                                    | Vault                                                                                                                   |
-| ------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| earnETH | [`0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4`](https://etherscan.io/address/0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4) | [`0x6a37725ca7f4CE81c004c955f7280d5C704a249e`](https://etherscan.io/address/0x6a37725ca7f4CE81c004c955f7280d5C704a249e) |
-| earnUSD | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) | [`0x014e6DA8F283C4aF65B2AA0f201438680A004452`](https://etherscan.io/address/0x014e6DA8F283C4aF65B2AA0f201438680A004452) |
-
-Do not send deposit assets to the token or Vault address. Deposits and redemptions use registered, asset-specific queue contracts and can be synchronous or asynchronous. Do not assume ERC-4626, EIP-2612 permit, unrestricted transfers, a fixed exchange rate, or guaranteed instant liquidity. See the [Lido Earn integration guide](/earn/integration-guide).
-
-### Current integration availability
-
-Integration availability changes faster than token mechanics. The following evidence was checked on **2026-08-20** and is not an exhaustive compatibility list.
-
-| Surface               | Verified examples and discovery source                                                                                                                                                                                                                                                                                                                                            | What the evidence establishes                                                                                                                                           |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DeFi                  | Current Aave address-book entries include wstETH in Aave V3 on Ethereum, Arbitrum, Base, and Optimism, and in Aave V4 on Ethereum. The Curve stETH/ETH and Uniswap v3 wstETH/WETH pools also had on-chain liquidity. Use the [Lido Ecosystem](https://lido.fi/lido-ecosystem) and [liquidity dashboard](https://dune.com/lido/wsteth-liquidity) to discover other current venues. | The named contracts or reserves existed and were active when checked. It does not guarantee future liquidity, risk parameters, or front-end availability.               |
-| Lido Earn             | The [Lido Earn interface](https://stake.lido.fi/earn) supports earnETH and earnUSD deposits and redemptions through registered Vault queues. The [Earn deployment registry](/earn/deployment-contracts) lists the underlying contracts.                                                                                                                                           | This establishes the primary product integration. It does not prove a secondary market, external-protocol acceptance, or instant redemption capacity.                   |
-| Wallets               | [MetaMask documents Lido liquid staking](https://support.metamask.io/manage-crypto/earn/stake/liquid-staking/what-are-lido-steth-and-stmatic) and [Lido withdrawal NFT handling](https://support.metamask.io/trade/earn/stake/liquid-staking/how-do-i-withdraw-my-stake-and-rewards/). The Lido Ecosystem lists other wallet integrations.                                        | The named wallet documented staking and withdrawal flows. Generic ERC-20 display support does not prove correct rebase or withdrawal-NFT handling.                      |
-| Centralized exchanges | Public spot-instrument APIs for [OKX](https://www.okx.com/api/v5/public/instruments?instType=SPOT), [Bybit](https://api.bybit.com/v5/market/instruments-info?category=spot&limit=1000), [Gate.io](https://api.gateio.ws/api/v4/spot/currency_pairs), and [Bitget](https://api.bitget.com/api/v2/spot/public/symbols) reported live or tradable stETH markets.                     | This proves only that a spot instrument was reported. It does not prove regional access, deposit or withdrawal status, supported networks, or correct rebase crediting. |
-| Lido APIs             | The maintained [Lido APIs](/integrations/api), [Lido Ethereum SDK](/integrations/sdk), and [Lido Subgraph](/integrations/subgraph) expose protocol, reward, withdrawal, and event data.                                                                                                                                                                                           | These are integration surfaces, not substitutes for on-chain state in security-critical decisions.                                                                      |
-| Market-data APIs      | CoinGecko exposes the [`staked-ether`](https://api.coingecko.com/api/v3/coins/staked-ether), [`wrapped-steth`](https://api.coingecko.com/api/v3/coins/wrapped-steth), [`lido-earn-eth`](https://api.coingecko.com/api/v3/coins/lido-earn-eth), and [`lido-earnusd`](https://api.coingecko.com/api/v3/coins/lido-earnusd) identifiers mapped to the canonical Ethereum addresses.  | This establishes current metadata coverage. It does not prove a liquid market or that the provider's value is suitable for settlement.                                  |
-| Portfolio trackers    | The [Lido Ecosystem](https://lido.fi/lido-ecosystem) lists current analytics and portfolio products. The Earn interface links strategy-position views for [earnETH](https://debank.com/bundles/221533/accounts) and [earnUSD](https://debank.com/bundles/221534/accounts).                                                                                                        | A Vault strategy view is not a user ledger. Test rebase, active and pending shares, protocol positions, NFTs, and historical-cost behavior independently.               |
-
-Availability is often regional, account-specific, network-specific, or temporarily paused. A production integration should monitor the upstream source it depends on and define a removal or disablement procedure.
-
-#### Integration utilities: rate and price feeds
+### Rate and price feeds
 
 The wstETH/stETH exchange rate, the stETH/ETH market price, and a liquidation price are different values with different risk properties.
 
@@ -91,6 +63,12 @@ For every external feed:
 3. Handle a reverted call, stale answer, paused feed, and L2 sequencer outage.
 4. Do not assume that every Chainlink-compatible adapter implements every aggregator method. Use its verified ABI.
 5. Test the economic response to a stETH market discount, a negative rebase, delayed rate propagation, and bridge failure.
+
+### Lido Earn vault-share tokens
+
+`earnETH` and `earnUSD` are transferable, non-rebasing ERC-20 share tokens for Lido Earn Vaults. Their token quantities represent Vault shares; strategy performance, losses, and fees are reflected through the asset value of each share rather than a rebase. The ERC-20 token contract is the Vault's **ShareManager**, not the Vault itself; both addresses are listed in the [Earn deployment registry](/earn/deployment-contracts).
+
+Do not send deposit assets to the token or Vault address. Deposits and redemptions use registered, asset-specific queue contracts and can be synchronous or asynchronous. Do not assume ERC-4626, EIP-2612 permit, unrestricted transfers, a fixed exchange rate, or guaranteed instant liquidity. See the [Lido Earn integration guide](/earn/integration-guide).
 
 ### LDO
 
@@ -225,7 +203,7 @@ Hoodi is the active Lido testnet. Use the [Hoodi deployed contracts](/deployed-c
 
 #### wstETH
 
-As of 2026-08-20, canonical wstETH recognition remains on Arbitrum, Optimism, Base, Linea, BNB Chain, and Unichain. Obtain current addresses from [deployed contracts](/deployed-contracts/#lido-multichain) and confirm current recognition on [Lido Multichain](https://lido.fi/how-lido-works/lido-multichain).
+As of 2026-08-21, canonical wstETH recognition remains on Arbitrum, Optimism, Base, Linea, BNB Chain, and Unichain. Obtain current addresses from [deployed contracts](/deployed-contracts/#lido-multichain) and confirm current recognition on [Lido Multichain](https://lido.fi/how-lido-works/lido-multichain).
 
 The existence of an older wstETH contract does not mean its bridge remains recognized or actively supported. In June 2026, canonical recognition was revoked for zkSync Era, Mode, Scroll, Mantle, Swell, Zircuit, Soneium, Polygon PoS, and Lisk. Existing contracts and holdings were not disabled by that decision. See [Lido Multichain network support changes](https://blog.lido.fi/lido-multichain-update-june-2026/).
 
@@ -234,6 +212,12 @@ On a network where only wstETH exists, it cannot be unwrapped locally into canon
 #### stETH on OP Stack networks
 
 Optimism and Unichain also have bridged stETH implementations based on [LIP-22](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-22.md). Their balances depend on a rate delivered from Ethereum. Integrations must monitor rate freshness and use the exact token and `TokenRateOracle` addresses listed in [deployed contracts](/deployed-contracts/#lido-multichain).
+
+#### Bridging to new networks
+
+Most generic ERC-20 bridges do not propagate stETH rebases. Locking stETH in such a bridge can leave the rebase on the origin-chain escrow rather than delivering it to destination-chain holders.
+
+Use wstETH by default for a new bridge unless the design explicitly implements rebasable stETH. Follow the [cross-chain token guide](/token-guides/cross-chain-tokens-guide) for endpoint, governance, pause, rate-delivery, and verification requirements.
 
 ## LDO
 
@@ -247,59 +231,9 @@ LDO `transfer` and `transferFrom` can return `false` instead of reverting on som
 
 Ethereum stETH and wstETH implement [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612) permit. stETH signature validation also supports smart-contract wallets through [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271).
 
-The deployed earnETH and earnUSD ShareManagers do not implement EIP-2612. Use ERC-20 allowance and do not call a permit selector solely because another Lido token supports it.
-
 An integration must bind the signature to the expected chain, token, owner, spender, value, nonce, and deadline. Treat a permit as public transaction input: another account can submit it before the intended transaction.
 
 If a combined permit-and-action call can be front-run only to consume the permit, retry the action through the allowance path after checking the resulting allowance. The [Lido withdrawal flow](https://github.com/lidofinance/ethereum-staking-widget/blob/d8a69337f9e5f928533ec28d0b371b3ce30de146/features/withdrawals/hooks/contract/useRequest.ts#L64-L188) implements this fallback. Do not retry blindly or increase the approved amount without user authorization.
-
-## Integration checklists
-
-### Smart contracts and DeFi protocols
-
-- Select stETH or wstETH from the accounting model, not from token popularity.
-- Use full-precision integer math and specify rounding direction at every conversion boundary.
-- Do not infer stETH balances only from ERC-20 transfer events.
-- Separate protocol exchange rate, market price, and liquidation price.
-- Validate oracle freshness, decimals, sequencer state, and failure behavior.
-- Test positive and negative rebases, skipped reports, paused staking, exhausted rate limits, and withdrawal delays.
-- Model wrapper, bridge, oracle, proxy, governance, and external-protocol risks separately.
-- For Earn tokens, validate the exact queue, asset, oracle report, fee configuration, transfer flags, and synchronous redemption capacity at execution time.
-
-### Wallets and portfolio trackers
-
-- Identify every asset by chain ID and full address. Reject symbol-only token discovery.
-- Refresh stETH from current state or maintain shares plus rebase events.
-- Show wstETH quantity separately from its current stETH or fiat value.
-- Index unstETH ownership and `BatchMetadataUpdate` events so finalized withdrawal NFTs update correctly.
-- Distinguish staking rewards from transfers, wrapping, swaps, fees, and withdrawal finalization.
-- Show the network and canonical-recognition status for bridged assets.
-- Show Earn active token balances separately from pending deposits, claimable shares, and pending redemption assets; value shares with the relevant Vault report.
-
-### Exchanges, custodians, and other CeFi systems
-
-- Decide whether the internal ledger holds stETH units, stETH shares, or wstETH units.
-- Reconcile custody balances across rebases and define when users become eligible for each accounting update.
-- Test deposits and withdrawals across a rebase boundary and account for transfer rounding.
-- Publish the exact supported token address and network. Trading support does not imply deposit or withdrawal support.
-- Define how negative rebases, paused withdrawals, bridge incidents, and token migrations affect customer balances.
-- Reconcile on-chain custody independently from the trading ledger and portfolio valuation feed.
-- For Earn tokens, maintain separate ledgers for active shares, claimable deposit shares, locked redemption shares, and claimable exit assets.
-
-### APIs and data providers
-
-- Return chain ID and contract address with every token identifier.
-- State the block, timestamp, source, decimals, and freshness of balances and rates.
-- Do not calculate stETH history from `Transfer` events alone.
-- Keep protocol APR separate from market price performance and third-party incentives.
-- Treat off-chain APIs as read-only convenience layers; use on-chain state for settlement and security decisions.
-- For Earn tokens, return the source asset and oracle report used for share valuation; do not present Vault strategy positions as the holder's redeemable balance.
-
-### Cross-chain bridges
-
-Most generic ERC-20 bridges do not propagate stETH rebases. Locking stETH in such a bridge can leave the rebase on the origin-chain escrow rather than delivering it to destination-chain holders.
-
-Use wstETH by default for a new bridge unless the design explicitly implements rebasable stETH. Follow the [cross-chain token guide](/token-guides/cross-chain-tokens-guide) for endpoint, governance, pause, rate-delivery, and verification requirements.
 
 ## Staking rate limits
 
@@ -324,18 +258,37 @@ The claimable ETH amount is fixed during finalization. It cannot exceed the nomi
 
 Use the [Withdrawal Queue contract documentation](/contracts/withdrawal-queue-erc721) for the current ABI and the [Withdrawals API](/integrations/api#withdrawals-api) only for estimates. An estimate is not a finalization guarantee.
 
+## Integration checklist
+
+Identity and configuration:
+
+- Resolve every token by chain ID and full contract address; reject symbol-only discovery.
+- Publish the exact supported token address and network. Trading or display support does not imply deposit, withdrawal, or bridging support.
+- Read fees, limits, oracle membership, and feed configuration from on-chain getters at execution time instead of copying documented values.
+
+Accounting:
+
+- Select stETH or wstETH from the accounting model, not from token popularity; use full-precision integer math and specify rounding direction at every conversion boundary.
+- Do not infer stETH balances or history from `Transfer` events alone; read current state or maintain shares plus rebase events.
+- Expect 1–2 wei of transfer rounding; use `transferShares` for exact share movement.
+- Reconcile custody and internal ledgers across rebases, and define when users become eligible for each accounting update.
+
+Pricing:
+
+- Separate the protocol exchange rate, the market price, and any liquidation price, and state block, source, decimals, and freshness for published data.
+- Validate feed freshness, decimals, sequencer state, and failure behavior; keep protocol APR separate from market performance and third-party incentives.
+
+Lifecycle and operations:
+
+- Test positive and negative rebases, skipped reports, paused staking, exhausted rate limits, withdrawal delays, and deposits and withdrawals across a rebase boundary.
+- Index unstETH ownership and `BatchMetadataUpdate` events so finalized withdrawal NFTs update correctly, and distinguish rewards from transfers, wraps, swaps, fees, and finalization.
+- Show the network and canonical-recognition status for bridged assets.
+- Model wrapper, bridge, oracle, proxy, governance, and external-protocol risks separately, and monitor the upstream sources the integration depends on.
+
+For earnETH and earnUSD, apply the [Earn integration checklist](/earn/integration-guide#integration-checklist).
+
 ## Risks
 
-Read the maintained [Public Risk Disclosure](/prd) before shipping an integration. At minimum, review:
-
-- smart-contract, proxy, and governance risk;
-- validator penalty and slashing risk;
-- positive and negative rebase behavior;
-- stETH and wstETH market-price deviation from protocol exchange value;
-- oracle delay, stale data, and incorrect-data risk;
-- withdrawal queue, finalization, and liquidity risk;
-- bridge, destination-network, and rate-propagation risk;
-- third-party protocol, custody, exchange, and API risk.
-- Lido Earn strategy, curator, Vault, subvault, queue, fee, access-control, and instant-liquidity risk.
+Read the maintained [Public Risk Disclosure](/prd) before shipping an integration. At minimum, model smart-contract, proxy, and governance risk; validator penalties and negative rebases; stETH and wstETH market-price deviation from the protocol exchange value; oracle delay and incorrect-data risk; withdrawal-queue finalization and liquidity risk; and bridge, custody, exchange, and third-party protocol risk. Lido Earn tokens add strategy, curator, Vault, queue, fee, and instant-liquidity risk; see the [Earn integration guide](/earn/integration-guide#monitoring-and-risks).
 
 An integration should define monitoring, pause, recovery, and asset-removal procedures before accepting user funds.
