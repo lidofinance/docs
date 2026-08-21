@@ -218,6 +218,29 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://hoodi.etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606)
   - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://hoodi.etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
 
+### 🤝 Community Staking Module 0x02
+
+- Entry Gates:
+  - PermissionlessGate: [`0x5AD784cD0A3291e083b015a81E53c6ec70bd5Ef7`](https://hoodi.etherscan.io/address/0x5AD784cD0A3291e083b015a81E53c6ec70bd5Ef7)
+- CSModule: [`0xbb7dd81FAC80f3Effa10eA8b973c15AE65a4CAf9`](https://hoodi.etherscan.io/address/0xbb7dd81FAC80f3Effa10eA8b973c15AE65a4CAf9) (proxy)
+- CSModule: [`0x96C64c0e33D8a52BFedcb1171B8670505020f7A8`](https://hoodi.etherscan.io/address/0x96C64c0e33D8a52BFedcb1171B8670505020f7A8) (impl)
+- Accounting: [`0x04A0294bF3306532309D7DD776D4A7eF502313e0`](https://hoodi.etherscan.io/address/0x04A0294bF3306532309D7DD776D4A7eF502313e0) (proxy)
+- Accounting: [`0x3947824a7a893DB70E8bBCA864B2dCE1D74aa8BD`](https://hoodi.etherscan.io/address/0x3947824a7a893DB70E8bBCA864B2dCE1D74aa8BD) (impl)
+- ParametersRegistry: [`0x81c92Ca47255F1Ab31206b423Af33Ee47c0aE416`](https://hoodi.etherscan.io/address/0x81c92Ca47255F1Ab31206b423Af33Ee47c0aE416) (proxy)
+- ParametersRegistry: [`0x1d7De9b052d40C6aF59a5743f5A4740C3137242d`](https://hoodi.etherscan.io/address/0x1d7De9b052d40C6aF59a5743f5A4740C3137242d) (impl)
+- FeeDistributor: [`0x7E875b0cb3725Ff58AF903679d1bF807A3089496`](https://hoodi.etherscan.io/address/0x7E875b0cb3725Ff58AF903679d1bF807A3089496) (proxy)
+- FeeDistributor: [`0x7Dc7b4215E7b45ca2590f0023a578FAe23914dC2`](https://hoodi.etherscan.io/address/0x7Dc7b4215E7b45ca2590f0023a578FAe23914dC2) (impl)
+- Verifier: [`0xFdE0FD9aDa4E898D3b34Dd4EA3433b75f0B6dd30`](https://hoodi.etherscan.io/address/0xFdE0FD9aDa4E898D3b34Dd4EA3433b75f0B6dd30)
+- FeeOracle:
+  - FeeOracle: [`0x9B8bBA11bbE1a351CC8dD1CFCa6719FF7274A208`](https://hoodi.etherscan.io/address/0x9B8bBA11bbE1a351CC8dD1CFCa6719FF7274A208) (proxy)
+  - FeeOracle: [`0xAcA75A0fD7Ab9c9B50ECadb9DDd3321Dc46CEf98`](https://hoodi.etherscan.io/address/0xAcA75A0fD7Ab9c9B50ECadb9DDd3321Dc46CEf98) (impl)
+  - HashConsensus: [`0x41142D077860906B0A7Debb270f1B8e7d1c8BF34`](https://hoodi.etherscan.io/address/0x41142D077860906B0A7Debb270f1B8e7d1c8BF34)
+- ValidatorStrikes: [`0x543Fbc220A1dAb7f41C62a793D7157Ab6Bd44AA6`](https://hoodi.etherscan.io/address/0x543Fbc220A1dAb7f41C62a793D7157Ab6Bd44AA6) (proxy)
+- ValidatorStrikes: [`0xE6b521F522103fd7499D7C116834E38F342c9189`](https://hoodi.etherscan.io/address/0xE6b521F522103fd7499D7C116834E38F342c9189) (impl)
+- Ejector: [`0xf8a71C08DBe7D2efaD76D3951a3065B8cE20e4f0`](https://hoodi.etherscan.io/address/0xf8a71C08DBe7D2efaD76D3951a3065B8cE20e4f0)
+- ExitPenalties: [`0x3A2a355a27478f4f043e4206b7e1301611642801`](https://hoodi.etherscan.io/address/0x3A2a355a27478f4f043e4206b7e1301611642801) (proxy)
+- ExitPenalties: [`0xa318a6bEBca9CD02aB3a298AA5ea8eB54746ae81`](https://hoodi.etherscan.io/address/0xa318a6bEBca9CD02aB3a298AA5ea8eB54746ae81) (impl)
+
 ### 🛡️ Curated Module v2
 
 - Entry Gates:
@@ -282,6 +305,10 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - ReportWithdrawalsForSlashedValidators: [`0x5732943077210FD18d9d5d2A9d4D8847A5069713`](https://hoodi.etherscan.io/address/0x5732943077210FD18d9d5d2A9d4D8847A5069713)
   - SettleGeneralDelayedPenalty: [`0x029239CDF35d5669d81D32A83EbF783b87aD1AEE`](https://hoodi.etherscan.io/address/0x029239CDF35d5669d81D32A83EbF783b87aD1AEE)
   - UpdateStakingModuleShareLimits: [`0xEE8E0d3087f09f56E3fdb80dd1DB3Fb37de0bfFF`](https://hoodi.etherscan.io/address/0xEE8E0d3087f09f56E3fdb80dd1DB3Fb37de0bfFF)
+- **Community Staking Module 0x02** (module: [`0xbb7dd81FAC80f3Effa10eA8b973c15AE65a4CAf9`](https://hoodi.etherscan.io/address/0xbb7dd81FAC80f3Effa10eA8b973c15AE65a4CAf9), trusted caller [`0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53`](https://hoodi.etherscan.io/address/0x4AF43Ee34a6fcD1fEcA1e1F832124C763561dA53))
+  - ReportWithdrawalsForSlashedValidators: [`0x0b384D661101Fe7F56caa421547b243e03ED4E65`](https://hoodi.etherscan.io/address/0x0b384D661101Fe7F56caa421547b243e03ED4E65)
+  - SettleGeneralDelayedPenalty: [`0x2eCf179d5e840e56054E214438008F19E46711bC`](https://hoodi.etherscan.io/address/0x2eCf179d5e840e56054E214438008F19E46711bC)
+  - UpdateStakingModuleShareLimits: [`0x05F2F2eb01A8e8C20FDD07EAb93640cd8304aaC9`](https://hoodi.etherscan.io/address/0x05F2F2eb01A8e8C20FDD07EAb93640cd8304aaC9)
 - **Curated Module v2** (module: [`0x87EB69Ae51317405FD285efD2326a4a11f6173b9`](https://hoodi.etherscan.io/address/0x87EB69Ae51317405FD285efD2326a4a11f6173b9), trusted caller [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://app.safe.protofire.io/home?safe=hoe:0x84DffcfB232594975C608DE92544Ff239a24c9E9))
   - SetMerkleGateTree: [`0x9F4BB90d6D0bB3B18a7156F3648c1e5256BAD1a7`](https://hoodi.etherscan.io/address/0x9F4BB90d6D0bB3B18a7156F3648c1e5256BAD1a7)
   - ReportWithdrawalsForSlashedValidators: [`0xE1EDc1857B47a3188d9cA16E3e6A2DF2Af494FDD`](https://hoodi.etherscan.io/address/0xE1EDc1857B47a3188d9cA16E3e6A2DF2Af494FDD)
