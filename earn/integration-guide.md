@@ -4,7 +4,7 @@ description: Integration guidance for the earnETH and earnUSD Lido Earn vault-sh
 
 # earnETH and earnUSD integration guide
 
-This guide covers direct integration of the Ethereum `earnETH` and `earnUSD` tokens into smart contracts, wallets, custody systems, exchanges, APIs, and portfolio trackers.
+This guide covers direct integration of the Ethereum `earnETH` and `earnUSD` tokens into smart contracts, wallets, custody systems, exchanges, APIs, and portfolio trackers. AI agents that integrate or execute transactions should also follow the [AI agent rules of engagement](/integrations/ai-agents).
 
 Read the [Earn introduction](/earn/), [deployments](/earn/deployment-contracts), [architecture](/earn/architecture/), and [audits](/earn/audits) before accepting funds. Lido Earn uses third-party Vault infrastructure and strategy integrations whose risks and operational state differ from Lido on Ethereum staking.
 
@@ -22,10 +22,15 @@ Identify each token by chain ID and full ShareManager address. Do not use the Va
 Verify both directions before enabling an integration:
 
 ```sh
+# expect: 0x6a37725ca7f4CE81c004c955f7280d5C704a249e (the earnETH Vault)
 cast call 0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4 \
   'vault()(address)' --rpc-url "$ETH_RPC_URL"
+# expect: 0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4 (the earnETH token)
 cast call 0x6a37725ca7f4CE81c004c955f7280d5C704a249e \
   'shareManager()(address)' --rpc-url "$ETH_RPC_URL"
+# expect: revert — the ShareManagers do not implement EIP-2612 permit
+cast call 0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4 \
+  'DOMAIN_SEPARATOR()(bytes32)' --rpc-url "$ETH_RPC_URL"
 ```
 
 Pin a finalized block when saving evidence. Because these contracts are upgradeable, verify the proxy, implementation, admin, Vault relationship, and current configuration.

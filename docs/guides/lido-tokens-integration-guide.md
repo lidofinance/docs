@@ -1,6 +1,10 @@
+---
+description: How to integrate stETH, wstETH, LDO, unstETH, and the Lido Earn tokens into smart contracts, wallets, exchanges, custody systems, and data services, with on-chain verification steps.
+---
+
 # Lido tokens integration guide
 
-This guide is for developers integrating Lido ecosystem tokens on Ethereum into smart contracts, wallets, exchanges, custody systems, data services, and portfolio trackers. For JavaScript and TypeScript staking applications, consider the [Lido Ethereum SDK](/integrations/sdk#lido-ethereum-sdk).
+This guide is for developers integrating Lido ecosystem tokens on Ethereum into smart contracts, wallets, exchanges, custody systems, data services, and portfolio trackers. For JavaScript and TypeScript staking applications, consider the [Lido Ethereum SDK](/integrations/sdk#lido-ethereum-sdk). AI agents that integrate or execute transactions should also follow the [AI agent rules of engagement](/integrations/ai-agents).
 
 ## Before integrating
 
@@ -21,8 +25,10 @@ Integration availability changes faster than token mechanics. Do not treat an ol
 For example, verify the Ethereum token relationship with Foundry before using an address from configuration:
 
 ```sh
+# expect: non-empty bytecode for both tokens
 cast code 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 --rpc-url "$ETH_RPC_URL"
 cast code 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0 --rpc-url "$ETH_RPC_URL"
+# expect: 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84 (the canonical stETH address)
 cast call 0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0 \
   'stETH()(address)' --rpc-url "$ETH_RPC_URL"
 ```
@@ -78,6 +84,25 @@ Do not send deposit assets to the token or Vault address. Deposits and redemptio
 
 [unstETH](#withdrawals-unsteth) is the ERC-721 token minted for a Lido withdrawal request. Ownership of the NFT controls the right to claim the finalized request.
 
+### Token capabilities
+
+Interface support differs between the tokens. Verified against the deployed Ethereum implementations at block 25806051 (2026-08-21); these properties change only through contract upgrades, so re-verify when an implementation changes:
+
+| Capability                                | stETH         | wstETH | LDO             | unstETH            | earnETH / earnUSD                  |
+| ----------------------------------------- | ------------- | ------ | --------------- | ------------------ | ---------------------------------- |
+| Token standard                            | ERC-20        | ERC-20 | ERC-20 (MiniMe) | ERC-721 + ERC-4906 | ERC-20                             |
+| Rebasing balances                         | Yes           | No     | No              | —                  | No                                 |
+| EIP-2612 permit                           | Yes           | Yes    | No              | —                  | No                                 |
+| EIP-1271 signatures in permit             | Yes           | No     | —               | —                  | —                                  |
+| ERC-4626 vault interface                  | No            | No     | No              | No                 | No                                 |
+| Share transfer functions                  | Yes           | No     | No              | —                  | No                                 |
+| User-callable burn                        | No            | No     | No              | —                  | Yes (destroys shares, not an exit) |
+| Balance can change without Transfer event | Yes           | No     | No              | —                  | No                                 |
+| Transfer can return false without revert  | No            | No     | Yes             | —                  | No                                 |
+| Transfer can move less than requested     | Yes (1–2 wei) | No     | No              | —                  | No                                 |
+
+A machine-readable version of this table, with contract addresses and verification probes, is published at [`docs.lido.fi/tokens.json`](https://docs.lido.fi/tokens.json).
+
 ## stETH vs. wstETH
 
 Choose the token from the accounting behavior the integration can support:
@@ -120,6 +145,7 @@ The accounting oracle normally reports once per day. A report can be delayed, sk
 Oracle membership, quorum, and sanity limits are on-chain configuration. Read them instead of copying values into application code:
 
 ```sh
+# expect: the current member list and quorum; treat both as changeable configuration
 cast call 0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288 \
   'getMembers()(address[])' --rpc-url "$ETH_RPC_URL"
 cast call 0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288 \
