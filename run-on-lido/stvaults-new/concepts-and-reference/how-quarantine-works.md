@@ -94,5 +94,5 @@ Nothing releases the quarantine on its own. If step 4 is not sent, the amount st
 ## Related
 
 - [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md) — how `updateVaultData` works and how to check report freshness
-- [Metrics](../vault-owners-curators-and-stakers/basic-stvaults/metrics.md#total-value) — what Total Value includes
+- [Metrics](../concepts-and-reference/metrics.md#total-value) — what Total Value includes
 - [Consolidations](../node-operators/consolidations.md) — the most common reason for a quarantine
