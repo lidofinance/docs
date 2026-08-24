@@ -275,7 +275,6 @@ export const ProductGuideSelector = () => {
 
 # 🛠️ Builders
 
-
 ## 📎 Guide Selector
 
 Answer a few questions below to find the guide that fits your product.
@@ -283,33 +282,28 @@ Answer a few questions below to find the guide that fits your product.
 <ProductGuideSelector />
 
 ## 🧱 Building blocks
-
+ 
 ![Building Blocks](/img/stvaults/builders/building_blocks.png)
-
+ 
 ### Staking with stVaults
  
-An **stVault** is an isolated, non-custodial staking primitive with its own withdrawal credentials, controlled by its Owner, who picks a Node Operator once at creation — an immutable choice with no access to the vault's principal.
+An **stVault** is an isolated, non-custodial staking primitive with its own withdrawal credentials, controlled by the Vault Owner, who picks a Node Operator once at creation — an immutable choice with no access to the vault's principal.
  
 ### Liquidity by stETH
  
-An stVault owner can optionally, overcollateralized mint stETH against staked ETH — unlocking liquidity without unstaking, and enabling any downstream DeFi strategy.
+An stVault owner can optionally, overcollateralized mint **stETH** against supplied ETH — unlocking liquidity without unstaking, and enabling any downstream DeFi strategy.
  
 ### Pooling by DeFi Wrapper
  
-The **DeFi Wrapper** is a no-/low-code toolkit turning a single stVault into a multi-user, tokenized pool, deployed and governed via the stVaults CLI and a Timelock contract.
+The **DeFi Wrapper** is a no-/low-code toolkit that allows builders creating multi-user staking products based on stVault: deployment via the stVaults CLI and and governance through the Timelock contract.
  
-:::info DeFi Wrapper trade-off: no Management Web UI for the Vault Owner
- 
-The trade-off for fast deployment: no management Web UI (operations run via CLI/contract calls), plus a Timelock execution delay on governance.
- :::
-
 ### Whitelisting by DeFi Wrapper
  
-DeFi Wrapper pools support an on-chain allowlist restricting depositors, set at deployment and managed by an Allow List Manager — a connected DeFi strategy can keep its own separate allowlist too.
+DeFi Wrapper pools support an **on-chain allowlist** restricting depositors, that enables creating single-user and multi-user staking products based on DeFi Wrapper.
  
 ### Connector to EarnETH
  
-The **Lido EarnETH** connector auto-deposits a pool's minted stETH into Mellow-based DeFi strategies, adding extra yield on top of staking rewards — enabled at deployment, no custom integration needed.
+The DeFi Wrapper has a built-in connector to **Lido EarnETH**: as ETH is supplied to the vault, stETH is minted automatically and sent into EarnETH, adding extra yield on top of staking rewards — enabled at deployment, no custom integration needed.
  
 ### DeFi Wrapper embeddable widget
  
