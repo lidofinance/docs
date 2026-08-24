@@ -15,7 +15,7 @@ All four are permissioned on the [`Dashboard`](/contracts/dashboard) contract. B
 | Mint           | `MINT_ROLE`     |
 | Repay (burn)   | `BURN_ROLE`     |
 
-An address holding `DEFAULT_ADMIN_ROLE` can perform all of them without granting itself the sub-roles — see [Roles and permissions](./roles-and-permissions.md).
+An address holding `DEFAULT_ADMIN_ROLE` can perform all of them without granting itself the sub-roles — see [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md).
 
 :::warning
 Withdrawing and minting depend on the current stVault state. Make sure a fresh oracle report is applied to your stVault before you start — see [Apply oracle reports](./apply-oracle-reports.md).
@@ -66,7 +66,7 @@ To be withdrawable, ETH has to be both:
 - **Liquid** — sitting on the stVault balance, not on validators. ETH on validators must be withdrawn from the Beacon Chain first.
 - **Unlocked** — not reserved as collateral for the stETH liability, as the minimal reserve, for pending [Lido redemptions](../../concepts-and-reference/stvaults-detailed-technical-design.md#2-redemptions), or for unpaid fees.
 
-See [Metrics](./metrics.md) for the full breakdown and where to find the current number.
+See [Metrics](../../concepts-and-reference/metrics.md) for the full breakdown and where to find the current number.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -99,7 +99,7 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 
 ## Mint stETH
 
-Once ETH is supplied, stETH can be minted against it on demand. Unlike Lido Core, stVaults allow minting only within the stVault's [stETH minting capacity](./metrics.md).
+Once ETH is supplied, stETH can be minted against it on demand. Unlike Lido Core, stVaults allow minting only within the stVault's [stETH minting capacity](../../concepts-and-reference/metrics.md).
 
 Three flavours are available, all of them payable so funding and minting fit in one transaction:
 

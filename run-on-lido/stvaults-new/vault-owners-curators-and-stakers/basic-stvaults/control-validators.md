@@ -21,7 +21,7 @@ There are two ways to get ETH back from validators:
 | Node Operator | Exit validators directly | the Node Operator address, non-delegable |
 | stVaults Committee, Lido DAO | Force a full exit | only while the stVault has an obligations shortfall |
 
-All Vault Owner permissions above are held by the admin by default and can be delegated — see [Roles and permissions](./roles-and-permissions.md).
+All Vault Owner permissions above are held by the admin by default and can be delegated — see [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md).
 
 ## Request a validator exit
 

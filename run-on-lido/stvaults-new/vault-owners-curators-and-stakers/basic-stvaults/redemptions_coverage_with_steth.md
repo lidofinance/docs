@@ -12,9 +12,9 @@ This guide covers the full cycle: minting to cover a redemption, and then cleari
 
 ## Prerequisites
 
-- **`MINT_ROLE` is required** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](./roles-and-permissions.md#vault-owners-delegatable-permissions-sub-roles).
+- **`MINT_ROLE` is required** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md#vault-owners-delegatable-permissions-sub-roles).
 - **A fresh oracle report must be applied.** Minting reverts otherwise — see [Apply oracle reports](./apply-oracle-reports.md).
-- **Minting capacity must cover the redemption.** Minting is only possible within the stVault's [stETH minting capacity](./metrics.md#total-steth-minting-capacity).
+- **Minting capacity must cover the redemption.** Minting is only possible within the stVault's [stETH minting capacity](../../concepts-and-reference/metrics.md#total-steth-minting-capacity).
 
 ## Step 1: Mint stETH to cover the redemption
 
