@@ -194,7 +194,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 
 #### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as collateral for connection to Lido Core, and initiates the connection to Lido Core.
 
-This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../../vault-owners-curators-and-stakers/basic-stvaults/roles-and-permissions.md).
+This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../../concepts-and-reference/roles-and-permissions.md).
 
 **Parameters and addresses needed for this step:**
 
