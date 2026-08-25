@@ -81,6 +81,10 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - Lazy Oracle: [`0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`](https://hoodi.etherscan.io/address/0xf41491C79C30e8f4862d3F4A5b790171adB8e04A) (proxy)
 - Lazy Oracle: [`0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82`](https://hoodi.etherscan.io/address/0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82) (impl)
 
+## 🔑 Execution Delegation Framework {#execution-delegation-framework}
+
+- DelegationFactory: [`0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6`](https://hoodi.etherscan.io/address/0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6)
+
 ## 🗳️ DAO & Aragon Apps {#dao-contracts}
 
 - Lido DAO (Kernel): [`0xA48DF029Fd2e5FCECB3886c5c2F60e3625A1E87d`](https://hoodi.etherscan.io/address/0xA48DF029Fd2e5FCECB3886c5c2F60e3625A1E87d) (proxy)
