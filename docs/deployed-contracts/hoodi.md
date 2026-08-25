@@ -276,6 +276,10 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - EasyTrack: [`0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a`](https://hoodi.etherscan.io/address/0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a)
 - EVMScriptExecutor: [`0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`](https://hoodi.etherscan.io/address/0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E)
 
+### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
+
+- SetDepositsReserveTarget: [`0x68009122a394504E8fD7fee58F92Cd73c6A60717`](https://hoodi.etherscan.io/address/0x68009122a394504E8fD7fee58F92Cd73c6A60717)
+
 ### 🧩 Easy Track factories for staking modules {#easy-track-factories-for-staking-modules}
 
 - **Curated Node Operators staking module** (registry: [`0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5`](https://hoodi.etherscan.io/address/0x5cDbE1590c083b5A2A64427fAA63A7cfDB91FbB5))
