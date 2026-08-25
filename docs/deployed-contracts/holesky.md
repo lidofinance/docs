@@ -109,6 +109,9 @@ Please use the [**Hoodi**](/deployed-contracts/hoodi.md) deployment instead.
 - EasyTrack: [`0x1763b9ED3586B08AE796c7787811a2E1bc16163a`](https://holesky.etherscan.io/address/0x1763b9ED3586B08AE796c7787811a2E1bc16163a)
 - EVMScriptExecutor: [`0x2819B65021E13CEEB9AC33E77DB32c7e64e7520D`](https://holesky.etherscan.io/address/0x2819B65021E13CEEB9AC33E77DB32c7e64e7520D)
 
+### Easy Track factories for core protocol
+- SetDepositsReserveTarget: [`0x68009122a394504E8fD7fee58F92Cd73c6A60717`](https://holesky.etherscan.io/address/0x68009122a394504E8fD7fee58F92Cd73c6A60717)
+
 ### Easy Track factories for staking modules
 
 - **Curated Node Operators staking module** (registry: [`0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC`](https://holesky.etherscan.io/address/0x595F64Ddc3856a3b5Ff4f4CC1d1fb4B46cFd2bAC))
