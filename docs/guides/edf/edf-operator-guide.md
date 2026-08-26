@@ -325,6 +325,7 @@ Errors you may hit, and what they mean:
 | `DelegationContract 0x… has no active delegate` | The delegate was revoked, or never set. Expected right after an emergency revocation. |
 | `DelegationContract 0x… does not support ERC-1271` | The address is not an EDF delegation contract. |
 | `No configured wallet private key matches active delegate 0x…` | The on-chain delegate is neither `WALLET_PRIVATE_KEY` nor `WALLET_PRIVATE_KEY_2`. Add the key and restart. |
+| `An error occurred when sending a message using Data Bus` with `UNPREDICTABLE_GAS_LIMIT` | The delegate EOA has no xDAI on the DataBus chain, so `estimateGas` fails with "gas required exceeds allowance (0)". Fund the delegate EOA on Gnosis (step 3.1.2). The daemon also warns with `DataBusService account balance is too low`. |
 
 ### 3.3. Report your council setup in the operators' chat
 
@@ -365,7 +366,8 @@ A transaction sent **directly** from the delegate EOA to the DSM means the daemo
 1. Move the delegate key into `WALLET_PRIVATE_KEY` and clear `WALLET_PRIVATE_KEY_2`.
 2. Restart the daemon.
 3. Delete the old key from your secrets store.
-4. Move the old address's remaining balance to the new delegate address.
+4. Move the old address's remaining balance to the new delegate address - on Ethereum and on the
+   DataBus chain (Gnosis), if you have not done it in step 3.1.2 yet.
 
 ---
 
