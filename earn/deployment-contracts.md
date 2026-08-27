@@ -152,6 +152,20 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33`](https://mantlescan.xyz/address/0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33) |
 | OracleSubmitter     | [`0xbe580d9C5C24b0A06C19660c058937BB8434BBa5`](https://mantlescan.xyz/address/0xbe580d9C5C24b0A06C19660c058937BB8434BBa5) |
 
+### earnUSDe – Robinhood
+
+| Contract            | Address                                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Vault               | [`0xEe94bb5a8487954312c470F2cb457fd7329B421F`](https://robinhoodchain.blockscout.com/address/0xEe94bb5a8487954312c470F2cb457fd7329B421F) |
+| Oracle              | [`0x786CAaaf7e7680A1F52148230437dCfb59823c49`](https://robinhoodchain.blockscout.com/address/0x786CAaaf7e7680A1F52148230437dCfb59823c49) |
+| ShareManager        | [`0x906703a4e566D04828845b6C2918B1767E24752A`](https://robinhoodchain.blockscout.com/address/0x906703a4e566D04828845b6C2918B1767E24752A) |
+| FeeManager          | [`0x4FD8e72bEA84dc3B947672E49734e457a196bbdb`](https://robinhoodchain.blockscout.com/address/0x4FD8e72bEA84dc3B947672E49734e457a196bbdb) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://robinhoodchain.blockscout.com/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| Subvault 0          | [`0x4F17B5E905BaFD4E97aEc4F01835cb86008c8381`](https://robinhoodchain.blockscout.com/address/0x4F17B5E905BaFD4E97aEc4F01835cb86008c8381) |
+| Verifier 0          | [`0x45c41eb5AA467a113Ca905565e94047FBDA46A3C`](https://robinhoodchain.blockscout.com/address/0x45c41eb5AA467a113Ca905565e94047FBDA46A3C) |
+| Timelock Controller | [`0xa9BcE5B87B67506061eD83333c496A7d2eF74B56`](https://robinhoodchain.blockscout.com/address/0xa9BcE5B87B67506061eD83333c496A7d2eF74B56) |
+| OracleSubmitter     | [`0x5335607430db53bC5377Bb853802768467857a43`](https://robinhoodchain.blockscout.com/address/0x5335607430db53bC5377Bb853802768467857a43) |
+
 ## Actors
 
 Roles governing the vaults. Addresses are shared across all chains.
