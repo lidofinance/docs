@@ -11,12 +11,6 @@ The DeFi Wrapper turns a single [stVault](./stvaults-detailed-technical-design.m
 
 Everything is deployed from a factory in two transactions and handed to a timelock. The Vault Owner keeps the levers that matter for safety (pause, upgrade) and gives up the ones that would let them touch user funds.
 
-This page describes what the contracts do. For operating a deployed pool, see the [pooled staking product guides](../../stvaults/building-guides/pooled-staking-product/index.md); for the command reference, the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli/).
-
-:::info
-Source: [`lidofinance/vaults-wrapper`](https://github.com/lidofinance/vaults-wrapper), branch `main`. Audited three times — see [Audits](/security/audits).
-:::
-
 ## 2. Design
 
 ### 2.1 Goals
@@ -54,8 +48,6 @@ Mixing depositors who mint stETH with depositors who only stake, in one pool, is
 ## 3. Architecture
 
 ### 3.1 Component map
-
-![DeFi Wrapper system overview](/img/stvaults/defi-wrapper/system-overview.png)
 
 A deployment consists of seven contracts, of which the first four are the Wrapper proper:
 
@@ -387,8 +379,6 @@ Pausing is therefore fast and unpausing is not: resuming requires a timelock pro
 
 ### 4.1 Deposit
 
-![Deposit flow through the Wrapper](/img/stvaults/defi-wrapper/deposits-flow.png)
-
 ```mermaid
 sequenceDiagram
     actor User
@@ -407,9 +397,7 @@ sequenceDiagram
 
 With minting, `depositETHAndMintStethShares` or `depositETHAndMintWsteth` adds a capacity check and a `Dashboard.mintShares` call in the same transaction. Through a strategy, the pool credits stv to the user's forwarder, mints wstETH from it, and the adapter deposits into the external protocol.
 
-The ETH is then staked by the Node Operator through PDG in the ordinary way:
-
-![Validator deposit through PDG](/img/stvaults/defi-wrapper/pdg-deposit.png)
+The ETH is then staked by the Node Operator through [PDG](../node-operators/pdg.md) in the ordinary way.
 
 ### 4.2 Withdrawal
 
@@ -442,9 +430,11 @@ The gap between request and finalization is the Consensus Layer exit queue, and 
 
 ### 4.3 Rewards
 
-![Staking rewards through LazyOracle reports](/img/stvaults/defi-wrapper/staking-rewards-report.png)
-
 Staking rewards need no distribution transaction. LazyOracle reports the vault's value, `totalAssets()` rises, and every stv holder's claim rises with it. It does require somebody to keep applying reports: a stale report blocks deposits, requests, finalization, minting and liquidation alike. `LazyOracle.updateVaultData` is permissionless, so anyone can do it, but somebody has to.
+
+![How a report raises every holder's claim](/img/stvaults/defi-wrapper/staking-rewards-report.png)
+
+The diagram above works it through: two depositors fund 10 and 22 ETH, a report lifts the vault's value to 40 ETH, and each claim grows in proportion — `assets = stv × totalAssets() / totalSupply()`. It predates the current naming, so it labels the pool "Wrapper" and the token "stvToken", and it shows the report being applied by the Node Operator when in fact `updateVaultData` is permissionless.
 
 Value that arrives as tokens rather than as vault growth — DVT sidecar rewards, points after conversion — is swept out of the vault with `StakingVault.collectERC20` and distributed through the [Distributor](#36-distributor).
 
