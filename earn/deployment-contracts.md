@@ -180,6 +180,6 @@ Roles governing the vaults. Addresses are shared across all chains.
 | Curator (stRATEGY)           | [`0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5`](https://app.safe.global/home?safe=eth:0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5) | 5/8    |
 | Curator (GGV)                | [`0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F`](https://app.safe.global/home?safe=eth:0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F) | 3/5    |
 | Oracle Updater               | [`0x93a797643d74fC81e7A51F3f84a9D78F930435D1`](https://app.safe.global/home?safe=eth:0x93a797643d74fC81e7A51F3f84a9D78F930435D1) | 3/8    |
-| Treasury                     | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) | 4/7    |
+| Treasury                     | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) | 4/6    |
 | Lido Pauser                  | [`0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd`](https://app.safe.global/home?safe=eth:0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd) | 3/5    |
 | Mellow Pauser                | [`0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638`](https://app.safe.global/home?safe=eth:0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638) | 1/8    |
