@@ -47,6 +47,8 @@ Mixing depositors who mint stETH with depositors who only stake, in one pool, is
 
 ## 3. Architecture
 
+![Wrapper Architecture](/img/stvaults/tech-design/architecture_wrapper.jpg)
+
 ### 3.1 Component map
 
 A deployment consists of seven contracts, of which the first four are the Wrapper proper:
@@ -59,41 +61,6 @@ A deployment consists of seven contracts, of which the first four are the Wrappe
 | Strategy (optional) | adapter routing minted wstETH into an external protocol |
 | `TimelockController` | governance: holds `DEFAULT_ADMIN_ROLE` everywhere |
 | `StakingVault` + `Dashboard` | the underlying stVault, from Lido Core |
-
-```mermaid
-flowchart TB
-    subgraph Core["Lido Core"]
-        VH[VaultHub]
-        LO[LazyOracle]
-        ST[stETH]
-    end
-
-    subgraph Vault["stVault"]
-        SV[StakingVault]
-        DB[Dashboard]
-    end
-
-    subgraph Wrapper["DeFi Wrapper"]
-        P[StvPool / StvStETHPool]
-        WQ[WithdrawalQueue]
-        D[Distributor]
-        S[Strategy]
-        TL[TimelockController]
-    end
-
-    User -->|ETH| P
-    P -->|fund, mint, burn, rebalance| DB
-    WQ -->|withdraw| DB
-    P --- WQ
-    S --- P
-    TL -.->|admin| P
-    TL -.->|admin| WQ
-    TL -.->|admin| DB
-    DB --- SV
-    SV --- VH
-    VH --- ST
-    VH --- LO
-```
 
 The pool never holds vault ownership. The factory grants `FUND_ROLE`, `REBALANCE_ROLE` and, for minting pools, `MINT_ROLE` and `BURN_ROLE` on the Dashboard to the pool, and `WITHDRAW_ROLE` to the queue. `DEFAULT_ADMIN_ROLE` on the Dashboard goes to the timelock, and the factory revokes itself in the same transaction.
 
@@ -258,14 +225,9 @@ The operator cannot set the rate. What they do choose is *when* to finalize and 
 
 #### Gas cost coverage
 
-Finalization costs the operator gas, so each request can carry a small deduction that is paid to whoever finalizes:
+Finalization costs the operator gas, so each request can carry a deduction that is paid to whoever finalizes it. It is **0 by default** and capped by `MAX_GAS_COST_COVERAGE`, a constant of 0.0005 ETH per request.
 
-| Constant | Value |
-| --- | --- |
-| `MAX_GAS_COST_COVERAGE` | 0.0005 ETH per request |
-| default `gasCostCoverage` | 0 |
-
-The ceiling is derived in the contract's own comments: about 200k gas for a single-request finalization and 300k for a batch of ten, so 0.0005 ETH covers gas prices up to roughly 2.5 gwei single and 16.6 gwei batched. The value in force is captured in the checkpoint, so changing it never re-prices requests that were already finalized.
+The deduction is part of what a depositor actually receives: a claim pays out the discounted assets, minus any stETH rebalanced, minus this coverage. The value in force is captured in the checkpoint, so changing it never re-prices requests that were already finalized.
 
 #### Claiming
 
@@ -395,9 +357,35 @@ sequenceDiagram
     Pool -->> User: stv
 ```
 
-With minting, `depositETHAndMintStethShares` or `depositETHAndMintWsteth` adds a capacity check and a `Dashboard.mintShares` call in the same transaction. Through a strategy, the pool credits stv to the user's forwarder, mints wstETH from it, and the adapter deposits into the external protocol.
+With minting, `depositETHAndMintStethShares` or `depositETHAndMintWsteth` adds a capacity check and a `Dashboard.mintShares` call in the same transaction.
 
-The ETH is then staked by the Node Operator through [PDG](../node-operators/pdg.md) in the ordinary way.
+#### Deposit through a strategy
+
+A strategy deposit is one call from the user's point of view, and four steps under it. The stv is credited to the user's [forwarder](#35-strategies), never to the user, and the wstETH is minted from the forwarder before the adapter deposits it:
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant S as Strategy
+    participant F as User's forwarder
+    participant Pool
+    participant E as External protocol
+
+    User ->> S: supply(referral, wstethToMint, params)
+    S ->> F: create or resolve (deterministic clone)
+    S ->> Pool: depositETH(recipient = forwarder)
+    Pool -->> F: stv
+    S ->> F: mintWsteth(wstethToMint)
+    F ->> Pool: mint against the forwarder's own capacity
+    S ->> F: approve and deposit
+    F ->> E: wstETH
+```
+
+The minting capacity that applies is the **forwarder's**, since it holds the stv — which is what `remainingMintingCapacitySharesOf(user, ethToFund)` on the strategy resolves for you.
+
+A leveraged strategy adds a flashloan around this: borrow ETH, deposit own plus borrowed ETH in one go, mint stETH against the whole amount, supply it as collateral on a lending protocol, borrow ETH back and repay the flashloan. The leverage is bounded by two ratios multiplying together — the pool's reserve ratio and the lending protocol's LTV — so with a 5% pool reserve ratio and 95% LTV, 100 ETH of the user's own supports roughly 925 ETH borrowed before the position stops closing.
+
+Whatever the shape, the ETH is then staked by the Node Operator through [PDG](../node-operators/pdg.md) in the ordinary way.
 
 ### 4.2 Withdrawal
 
@@ -427,6 +415,42 @@ sequenceDiagram
 ```
 
 The gap between request and finalization is the Consensus Layer exit queue, and it is the operator's job to watch the queue depth and decide how much to bring back. See the [withdrawals guide](../../stvaults/building-guides/pooled-staking-product/withdrawals.md).
+
+#### Withdrawal through a strategy
+
+A depositor whose position sits in a strategy cannot go straight to the queue: their stv is held by the forwarder and encumbered by stETH debt. Unwinding runs in three steps before the queue is involved at all, and the first of them is the only strategy-specific one.
+
+**Step 1 — leave the external position.** `requestExitByWsteth(wsteth, params)` returns a strategy-level `requestId`. Adapters differ here: a Mellow exit goes through an async redeem queue and completes later with `finalizeRequestExit(requestId)`, while `GGVStrategy.finalizeRequestExit` reverts with `NotImplemented()` because GGV exposes no on-chain request status. A leveraged strategy instead flashloans the borrowed amount, repays the lending protocol, takes back its collateral and repays the flashloan — leaving the user's own margin behind as wstETH.
+
+**Step 2 — repay what can be repaid.** `burnWsteth(amount)` burns the recovered wstETH against the user's own liability, which frees the stv that was locked as its collateral. Only the part that cannot be recovered stays as debt.
+
+**Step 3 — enter the queue.** `requestWithdrawalFromPool(recipient, stv, stethSharesToRebalance)` files the request from the forwarder, carrying both the stv and the remaining debt. The `recipient` is passed through as the request owner, so the ETH can land directly on the user.
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant S as Strategy
+    participant F as User's forwarder
+    participant E as External protocol
+    participant Pool
+    participant WQ as WithdrawalQueue
+
+    User ->> S: requestExitByWsteth(wsteth, params)
+    S ->> E: close position
+    E -->> F: wstETH
+    Note over S,E: async adapters finish with finalizeRequestExit(requestId)
+
+    User ->> S: burnWsteth(recovered)
+    S ->> Pool: burn against the user's liability
+    Note over Pool: frees the stv that collateralised it
+
+    User ->> S: requestWithdrawalFromPool(recipient, stv, stethShares)
+    S ->> WQ: requestWithdrawal(owner = recipient, stv, stethShares)
+    WQ ->> Pool: transfer stv and remaining liability to the queue
+    WQ -->> User: requestId
+```
+
+From here the path is identical to the plain case: the operator finalizes, and the user claims. What the remaining debt changes is the payout — finalization rebalances it away, so the request settles for the stv value **minus** the rebalanced stETH. Carrying 1000 ETH of stv with 900 stETH of debt into the queue pays out about 100 ETH, not 1000.
 
 ### 4.3 Rewards
 
