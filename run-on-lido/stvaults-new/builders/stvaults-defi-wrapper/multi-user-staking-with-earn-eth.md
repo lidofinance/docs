@@ -43,13 +43,13 @@ This guide walks through the concepts and practical steps to launch such a produ
 ### 1. Create a tokenized staking vault (pool)
 
 The easiest way to create a tokenized staking vault (pool) is to use the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli).
-It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/Factory.sol) contract.
 
 The CLI performs the deployment in two transactions to stay within the current 16M transaction gas limit.
 
 To start:
 
-- Set up the CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/develop/README.md).
+- Set up the CLI according to the [README](https://github.com/lidofinance/lido-staking-vault-cli/blob/main/README.md).
 - Prepare a valid CLI configuration — see the [configuration tutorial](https://lidofinance.github.io/lido-staking-vault-cli/get-started/configuration).
 
 :::info
@@ -140,7 +140,7 @@ Due to design the allow list for `StvStrategyPool` is always on and is limited o
 
 ### 2. Create Web UI
 
-Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
+Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/main/README.md) to:
 
 - Clone the provided repository
 - Use addresses outputted by CLI to fill up `.env`
@@ -161,7 +161,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
 3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
-Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../operational-and-management-guides/applying-report-guide)
+Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
 **Parameters needed for this step:**
 

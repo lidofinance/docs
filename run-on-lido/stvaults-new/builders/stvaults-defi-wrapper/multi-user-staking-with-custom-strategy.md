@@ -52,9 +52,9 @@ Both paths share the same smart-contract development steps (implementing `IStrat
 
 ### Smart contract development
 
-1.  Implement the [`IStrategy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/interfaces/IStrategy.sol) interface
+1.  Implement the [`IStrategy`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/interfaces/IStrategy.sol) interface
 
-2. Implement the [`IStrategyFactory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/interfaces/IStrategyFactory.sol) interface. 
+2. Implement the [`IStrategyFactory`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/interfaces/IStrategyFactory.sol) interface. 
   The `_deployBytes` parameter can be used to pass additional strategy-specific configuration during deployment. If your strategy doesn't need extra config, it can be ignored.
 
 3. Deploy the strategy factory
@@ -158,7 +158,7 @@ Continue with [Post-deployment steps](/run-on-lido/stvaults/building-guides/pool
 Use this path when you have a running [`StvStETHPool`](/run-on-lido/stvaults/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
 
 :::info
-This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/proxy/OssifiableProxy.sol) pattern. The pool contract is a proxy whose implementation can be swapped by its admin (the `TimelockController`). Storage (user balances, roles, parameters) lives in the proxy and is preserved across implementation changes.
+This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/proxy/OssifiableProxy.sol) pattern. The pool contract is a proxy whose implementation can be swapped by its admin (the `TimelockController`). Storage (user balances, roles, parameters) lives in the proxy and is preserved across implementation changes.
 :::
 
 #### What changes during the upgrade
@@ -220,7 +220,7 @@ Note the deployed **strategy implementation address**.
 
 ##### Deploy strategy proxy
 
-The strategy must be deployed behind an [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/proxy/OssifiableProxy.sol). The proxy is created with three parameters:
+The strategy must be deployed behind an [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/proxy/OssifiableProxy.sol). The proxy is created with three parameters:
 
 - `implementation_` — the strategy implementation address from the previous step
 - `admin_` — the pool's `TimelockController` address (proxy admin who can upgrade the implementation)
@@ -280,7 +280,7 @@ Steps 8–10 (resume minting) are only needed if minting was paused in the origi
 :::
 
 :::info
-Steps 6–7 (revoke pause roles from the Node Operator) adjust the emergency role setup to match the strategy pool configuration. Review the [DeFi Wrapper roles and permissions](./roles-and-permissions) to decide what role assignment is appropriate for your setup.
+Steps 6–7 (revoke pause roles from the Node Operator) adjust the emergency role setup to match the strategy pool configuration. Review the [DeFi Wrapper roles and permissions](../../vault-owners-curators-and-stakers/defi-wrapper/vault-owner-and-curator-guides/roles-and-permissions.md) to decide what role assignment is appropriate for your setup.
 :::
 
 <details>
@@ -405,13 +405,13 @@ Study them to understand the complete pattern, including:
 - How to implement cancel/replace flows for pending exit requests
 - How the proxy upgrade preserves all user state
 
-The [upgrade integration test](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol) demonstrates the complete `StvStETHPool` → strategy pool upgrade flow.
+The [upgrade integration test](https://github.com/lidofinance/vaults-wrapper/blob/main/test/integration/wrapper-upgrade-b-to-c.test.sol) demonstrates the complete `StvStETHPool` → strategy pool upgrade flow.
 
 
 
 ### Create Web UI
 
-If your custom strategy has an interface and operations similar to Lido EarnETH, you can use the out-of-the-box DeFi Wrapper embeddable widget with minor modifications. Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
+If your custom strategy has an interface and operations similar to Lido EarnETH, you can use the out-of-the-box DeFi Wrapper embeddable widget with minor modifications. Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/main/README.md) to:
 
 - Clone the provided repository
 - Use addresses outputted by CLI to fill up `.env`
@@ -432,7 +432,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
 3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
-Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../operational-and-management-guides/applying-report-guide)
+Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
 **Parameters needed for this step:**
 

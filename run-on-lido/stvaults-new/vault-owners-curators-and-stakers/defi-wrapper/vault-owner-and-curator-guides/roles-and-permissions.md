@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: 'Health and Rebalance for the stVault with DeFi Wrapper'
+title: 'Roles and Permissions the stVault with DeFi Wrapper'
 
 ---
 

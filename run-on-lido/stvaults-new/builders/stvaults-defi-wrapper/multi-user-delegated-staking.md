@@ -146,7 +146,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
 3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
-Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../operational-and-management-guides/applying-report-guide)
+Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
 **Parameters needed for this step:**
 
