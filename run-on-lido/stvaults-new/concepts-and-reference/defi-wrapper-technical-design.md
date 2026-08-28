@@ -45,7 +45,7 @@ Nothing stops a minting pool from holding both depositors who mint stETH and dep
 
 The liquidity and reservation fees are charged on the vault as a whole. They raise its cumulative Lido fees, which lowers `maxLockableValue`, which lowers `totalAssets()` — so the price of every stv drops, including that of holders who never minted. LazyOracle reports for the vault, not per account, so there is no way to bill those fees back to the accounts that caused them.
 
-The result is a silent subsidy from stakers to minters. So the recommended shape is one pool per behaviour.
+The result is a silent subsidy from stakers to minters, which is why the recommended shape is one pool per behaviour.
 
 ## 3. Architecture
 
@@ -133,7 +133,9 @@ RR_{\text{pool}} = RR_{\text{vault}} + \text{gap}
 FRT_{\text{pool}} = FRT_{\text{vault}} + \text{gap}
 $$
 
-The gap is immutable per deployment and is **250 BP (2.5%)** in every shipped configuration. Both results are capped just below 100% — a reserve ratio of exactly 100% would leave nothing to mint against and would divide by zero in the collateral formulas — with the threshold capped one basis point lower still, so that it stays below the reserve ratio. Neither cap binds in practice: the highest vault reserve ratio is the Default tier's 50%. It exists so that the pool can force-rebalance an account before the *vault* becomes subject to forced rebalancing by the protocol — the pool always hits its own threshold first.
+The gap is immutable per deployment and is **250 BP (2.5%)** in every shipped configuration. It exists so that the pool can force-rebalance an account before the *vault* becomes subject to forced rebalancing by the protocol — the pool always hits its own threshold first.
+
+Both results are capped just below 100%: a reserve ratio of exactly 100% would leave nothing to mint against and would divide by zero in the collateral formulas, and the threshold is capped one basis point lower still so that it stays under the reserve ratio. Neither cap binds in practice, since the highest vault reserve ratio is the Default tier's 50%.
 
 The pool keeps its own copy of both numbers rather than reading them from the vault on each call, so a tier change in Lido Core does not reach it by itself: until someone calls `syncVaultParameters()`, minting capacity and the rebalancing threshold still follow the old tier. The call is permissionless, so anyone can bring them up to date.
 
@@ -309,7 +311,7 @@ First, the forwarder answers to nobody but the strategy: `doCall`, `sendValue` a
 
 Second, the strategy never takes a forwarder address as an argument. It derives one with `_getOrCreateCallForwarder(msg.sender)`, and the CREATE2 salt makes that address a function of the caller. There is no input through which one user could reach another's forwarder.
 
-Together they are what makes the recovery helpers safe to leave open. `safeTransferERC20` on the strategy carries no role check at all — anyone may call it, for any token, to any recipient — because the tokens it moves always come from the caller's own forwarder. Such helpers exist because balances collect there: refunds from the external protocol, ETH left over after a call.
+Together they make the recovery helpers safe to leave open. `safeTransferERC20` on the strategy carries no role check at all — anyone may call it, for any token, to any recipient — because the tokens it moves always come from the caller's own forwarder. Such helpers exist because balances collect there: refunds from the external protocol, ETH left over after a call.
 
 #### Lido EarnETH specifics
 
@@ -317,7 +319,7 @@ EarnETH strategy talks to a Mellow vault through three queues: a synchronous dep
 
 **Entering** picks a path with `MellowSupplyParams{isSync, merkleProof}`. The proof is Mellow's whitelist check, run against the user's forwarder — without it the supply is refused. The two paths differ in cost as much as in timing:
 
-- **Synchronous** settles in the same transaction and pays for the privilege: the price is cut by the queue's penalty and then by the vault's deposit fee. It also only works while Mellow's price report is younger than the queue's `maxAge`.
+- **Synchronous** settles in the same transaction, and costs more for it: the price is cut by the queue's penalty and then by the vault's deposit fee. It also only works while Mellow's price report is younger than the queue's `maxAge`.
 - **Asynchronous** records a request the user collects later with `claimShares()`, paying the deposit fee but no penalty. Only one request may be outstanding at a time — supplying again before claiming is rejected.
 
 Either path is simulated by `previewSupply` first, and `supply` reverts with `SupplyFailed()` if that simulation fails: a paused queue, a stale or suspicious price, a missing whitelist entry all stop the deposit before any ETH moves.
