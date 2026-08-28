@@ -196,7 +196,7 @@ Most settings can still be corrected at this point, but not from the Web UI: it 
 
 Two things are different:
 
-- **The tier and the minting limit cannot be finalised yet.** The Node Operator can register their side of the agreement in advance, but the Vault Owner's side reverts with `VaultNotConnected` until the stVault is connected. Agree the terms now and apply them right after connecting — see [Change tier and stETH minting limit](../../node-operators/change-tier-and-steth-minting-limit.md).
+- **The tier and the minting limit cannot be finalised yet.** The Node Operator can register their side of the agreement in advance, but the Vault Owner's side reverts with `VaultNotConnected` until the stVault is connected. Agree the terms now and apply them right after connecting — see [Change tier and stETH minting limit](../../node-operators/basic-stvaults/change-tier-and-steth-minting-limit.md).
 - **The Node Operator address cannot be changed at all.** If it is wrong, abandon this stVault and have a new one created; nothing is lost as long as no ETH has been supplied.
 
 ## What connecting does

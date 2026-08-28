@@ -420,9 +420,9 @@ If your custom strategy has an interface and operations similar to Lido EarnETH,
 
 ## Adjust stETH minting parameters
 
-By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed [identification](../../node-operators/node-operator-identification-guide.md) and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
+By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed [identification](../../node-operators/basic-stvaults/node-operator-identification-guide.md) and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
-For more information about how this process works for the Basic stVault, please follow [Adjust stETH minting parameters](../../node-operators/change-tier-and-steth-minting-limit.md).
+For more information about how this process works for the Basic stVault, please follow [Adjust stETH minting parameters](../../node-operators/basic-stvaults/change-tier-and-steth-minting-limit.md).
 
 For stVaults with DeFi Wrapper the process of changing tier is a bit different because the Vault Owner role is assigned to the Timelock contract. The Timelock contract itself implements a two-step process for performing an on-chain action. First, the holder of its proposer role creates a proposed on-chain action; second, after a time period, the holder of the executor role executes it.
 

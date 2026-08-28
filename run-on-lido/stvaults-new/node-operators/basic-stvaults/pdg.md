@@ -464,5 +464,5 @@ Steps:
 ## Related
 
 - [PredepositGuarantee contract reference](/contracts/predeposit-guarantee) — full method signatures
-- [stVaults Technical Design](../concepts-and-reference/stvaults-detailed-technical-design.md) — how PDG fits the rest of the protocol
+- [stVaults Technical Design](../../concepts-and-reference/stvaults-detailed-technical-design.md) — how PDG fits the rest of the protocol
 - [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/)

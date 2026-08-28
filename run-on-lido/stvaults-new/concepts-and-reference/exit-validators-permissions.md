@@ -43,6 +43,6 @@ The Committee does not hold the role itself; it acts through EasyTrack.
 ## Related
 
 - [Control validators and withdraw from the Beacon Chain](../vault-owners-curators-and-stakers/basic-stvaults/control-validators.md) — the Vault Owner's step-by-step guide
-- [Validators basics](../node-operators/validators-basics.md) — watching for exit requests on the Node Operator side
+- [Validators basics](../node-operators/basic-stvaults/validators-basics.md) — watching for exit requests on the Node Operator side
 - [Health monitoring guide](../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md) — keeping the stVault out of forced-exit territory
 - [Rebalance guide](../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md) — clearing a shortfall before the protocol acts

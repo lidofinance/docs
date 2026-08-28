@@ -22,7 +22,7 @@ Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) 
 
 ## 2. Preconditions
 
-- A fresh oracle report must be applied to the stVault before consolidating. See [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md) for details.
+- A fresh oracle report must be applied to the stVault before consolidating. See [Apply oracle reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md) for details.
 - Grant `NODE_OPERATOR_FEE_EXEMPT_ROLE` to the address of your original validator's withdrawal credentials:
 
 <details>
@@ -180,8 +180,8 @@ For detailed CLI options, see [stVault operations documentation](https://lidofin
 
 - [ValidatorConsolidationRequests contract](/contracts/validator-consolidation-requests)
 - [Dashboard contract](/contracts/dashboard)
-- [stVaults Roles and Permissions](../concepts-and-reference/roles-and-permissions.md)
-- [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
+- [stVaults Roles and Permissions](../../concepts-and-reference/roles-and-permissions.md)
+- [Apply oracle reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 - [EIP-7251: Increase the MAX_EFFECTIVE_BALANCE](https://eips.ethereum.org/EIPS/eip-7251)
 - [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
 - [stVaults CLI consolidation command](https://lidofinance.github.io/lido-staking-vault-cli/commands/consolidation)

@@ -431,7 +431,7 @@ The wstETH lands on the forwarder because minting always credits the caller: `St
 
 Plain stETH does not appear in this path: `mintWstETH` mints and wraps in one step. An account only holds stETH if it mints through `mintStethShares` directly.
 
-Whatever the shape, the ETH is then staked by the Node Operator through [PDG](../node-operators/pdg.md) in the ordinary way.
+Whatever the shape, the ETH is then staked by the Node Operator through [PDG](../node-operators/basic-stvaults/pdg.md) in the ordinary way.
 
 ### 4.2 Minting stETH
 
@@ -554,7 +554,7 @@ Value that arrives as tokens rather than as vault growth — DVT sidecar rewards
 The Emergency Exit mechanism described in the original design notes — permissionless finalization once the queue has been stuck for 60 days — is **not implemented**. Finalization is unconditionally gated by `FINALIZE_ROLE`. A pool whose operator stops finalizing has no on-chain path for depositors to force their own exit.
 :::
 
-**Deposit front-running** — mitigated by [PDG](../node-operators/pdg.md), which the Wrapper's vaults use.
+**Deposit front-running** — mitigated by [PDG](../node-operators/basic-stvaults/pdg.md), which the Wrapper's vaults use.
 
 Everything that applies to a plain stVault applies to the pool's vault as well — slashing, correlated slashing across an operator's vaults, forced rebalancing, bad debt. Those are not repeated here; see [stVaults Technical Design](./stvaults-detailed-technical-design.md).
 

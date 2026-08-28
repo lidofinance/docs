@@ -266,9 +266,9 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 
 ## Adjust stETH minting parameters
 
-By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed [identification](../../node-operators/node-operator-identification-guide.md) and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
+By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed [identification](../../node-operators/basic-stvaults/node-operator-identification-guide.md) and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
 
-For more information about how this process, please follow [Adjust stETH minting parameters](../../node-operators/change-tier-and-steth-minting-limit.md).
+For more information about how this process, please follow [Adjust stETH minting parameters](../../node-operators/basic-stvaults/change-tier-and-steth-minting-limit.md).
 
 
 ## Useful links

@@ -24,7 +24,7 @@ The window is the `OperatorGrid` confirmation expiry, which is a protocol-wide s
 The Node Operator can register their confirmation while the stVault is still disconnected from VaultHub — the connection is only required to finalise the change from the Vault Owner's side. This lets both sides agree the terms before the stVault is connected.
 :::
 
-The change ends in a `VaultHub` connection update, which needs a fresh oracle report on the stVault — see [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
+The change ends in a `VaultHub` connection update, which needs a fresh oracle report on the stVault — see [Apply oracle reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
 
 ## Changing the tier
 
@@ -38,7 +38,7 @@ Both are evaluated against the stVault's **current liability**, so a heavily min
 :::warning
 An stVault cannot be moved back to the Default tier — `changeTier` rejects it with `CannotChangeToDefaultTier`.
 
-The reset only happens as part of a full [disconnection](../vault-owners-curators-and-stakers/basic-stvaults/disconnection.md) cycle: when the disconnect completes and the stVault is removed from VaultHub, its tier is set back to Default. To use it, the Vault Owner then has to reconnect the stVault. Disconnecting requires the stETH liability to be zero, so this is not a quick way to change terms.
+The reset only happens as part of a full [disconnection](../../vault-owners-curators-and-stakers/basic-stvaults/disconnection.md) cycle: when the disconnect completes and the stVault is removed from VaultHub, its tier is set back to Default. To use it, the Vault Owner then has to reconnect the stVault. Disconnecting requires the stETH liability to be zero, so this is not a quick way to change terms.
 :::
 
 ## Changing the stETH minting limit
@@ -95,7 +95,7 @@ yarn start vo write sync-tier -v <vault_address>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../concepts-and-reference/architecture-overview#environments) page.
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
 2. Call `changeTier`, `updateVaultShareLimit` or `syncTier`, passing the stVault address and the arguments the Vault Owner is using.
 
 The Vault Owner calls the same-named methods on the **Dashboard** contract instead, without the stVault address argument.
