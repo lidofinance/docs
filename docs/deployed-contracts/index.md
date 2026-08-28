@@ -214,10 +214,6 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
   - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606)
   - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
 
-#### 🛠️ Community Staking Module V3 Upgrade (temporary) {#csm3-upgrade-temporary}
-
-- Identified DVT Cluster Curve Setup: [`0x711985E069f4d702e0457C0dACAde3D3894Ce4E3`](https://etherscan.io/address/0x711985E069f4d702e0457C0dACAde3D3894Ce4E3)
-
 ### 👔 Curated Module v2 {#curated-module-v2}
 
 - Entry Gates:
@@ -909,3 +905,4 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
   - L2ERC20TokenBridge: [`0xca498Ee83eD3546321d4DC25e2789B0624F15f68`](https://blockscout.lisk.com/address/0xca498Ee83eD3546321d4DC25e2789B0624F15f68) (proxy)
   - L2ERC20TokenBridge: [`0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D`](https://blockscout.lisk.com/address/0xE766BE7B76E3F4d06551CB169Dd69B10a58ba91D) (impl)
   - Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
+- Identified DVT Cluster Curve Setup: [`0x711985E069f4d702e0457C0dACAde3D3894Ce4E3`](https://etherscan.io/address/0x711985E069f4d702e0457C0dACAde3D3894Ce4E3)
