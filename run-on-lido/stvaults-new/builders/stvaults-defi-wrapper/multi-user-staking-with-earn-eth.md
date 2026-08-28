@@ -77,7 +77,7 @@ Keep this output if you plan to set up the UI.
 
 The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earn ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
 
-To deploy this pool, use the `create-strategy-pool-lido-earn-eth`. The factory addresses for each network are listed in the [Environments](#environments) section. The full parameter reference is available below.
+To deploy this pool, use the `create-strategy-pool-lido-earn-eth`. The factory addresses for each network are listed in the [Environments](../../concepts-and-reference/architecture-overview#environments) section. The full parameter reference is available below.
 
 Start the deployment like:
 
@@ -108,8 +108,8 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 
 | Parameter                    | Description                                                                                                                                      |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<DEFI_WRAPPER_FACTORY>`     | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments))           |
-| `<STRATEGY_FACTORY_ADDRESS>` | Lido Earn ETH Strategy Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
+| `<DEFI_WRAPPER_FACTORY>`     | DeFi Wrapper Factory contract address (see [Environments](../../concepts-and-reference/architecture-overview#environments))           |
+| `<STRATEGY_FACTORY_ADDRESS>` | Lido Earn ETH Strategy Factory contract address (see [Environments](../../concepts-and-reference/architecture-overview#environments)) |
 | `--nodeOperator`             | Address of the Node Operator managing validators                                                                                                 |
 | `--nodeOperatorManager`      | Address authorized to manage Node Operator settings                                                                                              |
 | `--nodeOperatorFeeRateBP`    | Node Operator fee in basis points (10 = 0.1%)                                                                                                    |
@@ -169,7 +169,7 @@ Confirming tier change request requires applying fresh report to vault. [Read mo
 - `TierID`: the ID of the tier to which the stVault will be connected.
 - `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier's stETH limit.
 - `TimelockAddress`: the address of the `TimelockController` contract (deployed together with the pool).
-- `OperatorGridAddress`: the address of the `OperatorGrid` contract (available in the stVaults contract addresses list, see [#Environments](#environments)).
+- `OperatorGridAddress`: the address of the `OperatorGrid` contract (available in the stVaults contract addresses list, see [Environments](../../concepts-and-reference/architecture-overview#environments)).
 
 <details>
   <summary>How to determine available tier IDs for your Node Operator</summary>
@@ -307,7 +307,7 @@ Within the confirmation time window period (default 24 hours) after step 2, the 
 
 #### Etherscan
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [Environments](../../concepts-and-reference/architecture-overview#environments)).
 2. Since this contract is a proxy, complete the verification steps once (if not done before):
    - Go to **Contract → Code**.
    - Click **More options**.

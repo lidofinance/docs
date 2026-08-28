@@ -109,7 +109,7 @@ The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT`
 
 | Parameter | Description |
 |-----------|-------------|
-| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
+| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](../../concepts-and-reference/architecture-overview#environments)) |
 | `--nodeOperator` | Address of the Node Operator managing validators |
 | `--nodeOperatorManager` | Address authorized to manage Node Operator settings |
 | `--nodeOperatorFeeRateBP` | Node Operator fee in basis points (10 = 0.1%) |
