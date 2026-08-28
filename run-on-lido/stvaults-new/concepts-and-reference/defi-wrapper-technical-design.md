@@ -128,26 +128,36 @@ Adds per-account stETH minting on top of `StvPool`. Each account has its own deb
 The pool does **not** mint up to the vault's own reserve ratio. It keeps a margin:
 
 $$
-RR_{\text{pool}} = \min(RR_{\text{vault}} + \text{gap},\; 99.99\%)
+RR_{\text{pool}} = RR_{\text{vault}} + \text{gap}
 \qquad
-FRT_{\text{pool}} = \min(FRT_{\text{vault}} + \text{gap},\; 99.98\%)
+FRT_{\text{pool}} = FRT_{\text{vault}} + \text{gap}
 $$
 
-The gap is immutable per deployment and is **250 BP (2.5%)** in every shipped configuration. It exists so that the pool can force-rebalance an account before the *vault* becomes subject to forced rebalancing by the protocol — the pool always hits its own threshold first.
+The gap is immutable per deployment and is **250 BP (2.5%)** in every shipped configuration. Both results are capped just below 100% — a reserve ratio of exactly 100% would leave nothing to mint against and would divide by zero in the collateral formulas — with the threshold capped one basis point lower still, so that it stays below the reserve ratio. Neither cap binds in practice: the highest vault reserve ratio is the Default tier's 50%. It exists so that the pool can force-rebalance an account before the *vault* becomes subject to forced rebalancing by the protocol — the pool always hits its own threshold first.
 
-`syncVaultParameters()` is permissionless and pulls the current vault parameters, so a tier change in Lido Core reaches the pool as soon as anyone calls it.
+The pool keeps its own copy of both numbers rather than reading them from the vault on each call, so a tier change in Lido Core does not reach it by itself: until someone calls `syncVaultParameters()`, minting capacity and the rebalancing threshold still follow the old tier. The call is permissionless, so anyone can bring them up to date.
 
 #### Per-account collateral
 
-For an account holding assets $A$ with debt $L$ in stETH shares:
+Every position is measured on its own: the assets an account's stv is worth, $A$, against the stETH debt it has minted, $L$. The two pool ratios turn that pair into two amounts of assets:
+
+$$
+\text{lock}(L) = \left\lceil \frac{L}{1 - RR_{\text{pool}}} \right\rceil
+\qquad
+\text{threshold}(L) = \left\lceil \frac{L}{1 - FRT_{\text{pool}}} \right\rceil
+$$
+
+**`lock`** is what the account must keep to carry the debt it has. Read the other way round, it says how much the account may mint against what it holds:
 
 $$
 \text{mintable}(A) = \left\lfloor A \times (1 - RR_{\text{pool}}) \right\rfloor
-\qquad
-\text{lock}(L) = \left\lceil \frac{L}{1 - RR_{\text{pool}}} \right\rceil
 $$
 
-An account is unhealthy once its assets fall below the threshold implied by $FRT_{\text{pool}}$. The `_update` hook adds a second guard on top of the base pool's: an account cannot transfer away stv that its own debt requires as collateral (`InsufficientReservedBalance`).
+Rounding always runs against the account — `mintable` floors, `lock` ceils — so rounding can never leave a position short of collateral.
+
+**`threshold`** is the same shape with the lower ratio, so it always sits below `lock`. Above it the account is healthy; below it anyone may [force-rebalance](#forced-rebalancing) it. The gap between the two is the room an account has to lose value before that happens, and it is thin for an account that mints to the limit.
+
+`lock` is enforced on every transfer, not only at mint time: the `_update` hook rejects any move that would leave the account holding less stv than its own debt requires (`InsufficientReservedBalance`). That is on top of the pool-wide freezes described in [§3.2](#32-stvpool).
 
 #### Forced rebalancing
 
@@ -156,24 +166,37 @@ function forceRebalance(address _account) external returns (uint256 stvBurned);
 function forceRebalanceAndSocializeLoss(address _account) external returns (uint256 stvBurned);
 ```
 
-`forceRebalance` is **permissionless** — anyone may force-rebalance a breached account. It swaps the account's stETH debt for its stv at the current rate, bringing it back to the reserve-ratio level, solving:
+`forceRebalance` is **permissionless** — anyone may force-rebalance a breached account. It repays part of the debt out of the account's own stv, burning stv worth exactly what it extinguishes. Both sides of the position therefore shrink by the same amount $x$, and $x$ is chosen to land the account back on the reserve ratio:
 
 $$
+\frac{L - x}{A_{\text{shares}} - x} = 1 - RR_{\text{pool}}
+\qquad\Longrightarrow\qquad
 x = \frac{L - (1 - RR_{\text{pool}}) \times A_{\text{shares}}}{RR_{\text{pool}}}
 $$
+
+$x$ is the amount of stETH shares repaid, and $A_{\text{shares}}$ is the account's assets expressed in stETH shares. The account keeps whatever stv is left once that much has been burned.
 
 If the account's stv does not cover its debt, the account is **undercollateralized** and `forceRebalance` refuses to act (`UndercollateralizedAccount`). Only `forceRebalanceAndSocializeLoss` can close such a position, it requires `LOSS_SOCIALIZER_ROLE`, and the shortfall is spread across every remaining pool participant. The amount that may be socialized in one call is capped by `maxLossSocializationBP`, which **defaults to 0** — until the timelock raises it, socialization is impossible and an undercollateralized account cannot be closed at all.
 
 #### Exceeding minted stETH
 
-If the stVault is rebalanced directly, bypassing the pool, vault liability drops while the pool's record of who owes what does not. The difference is *exceeding minted stETH*: value the pool holds as stETH rather than ETH. `totalAssets()` accounts for it explicitly, and the pool can hold both assets at once:
+Two contracts count the same debt. The pool tracks what its accounts owe *it*, and the vault tracks what it owes *Lido Core*. Normally the two agree; when they drift apart, the difference has a name in each direction:
+
+- the vault owes more than the pool has on record → **unassigned liability**, covered in [§3.2](#32-stvpool);
+- the pool has on record more than the vault owes → **exceeding minted stETH**.
+
+The second happens when the vault's debt is repaid without the pool being involved — a rebalance performed on the vault directly. The vault spends its own ETH to burn stETH liability, so both its value and its liability fall, while every account in the pool still owes exactly what it owed before.
+
+Those unchanged debts are worth something. The accounts owe stETH that the vault no longer owes anyone, and that claim belongs to the pool, offsetting the ETH the rebalance consumed. So the pool can hold value in two forms at once, and `totalAssets()` picks the branch that applies:
 
 ```
 exceeding > 0  →  totalAssets = nominalAssets + exceedingMintedSteth
 otherwise      →  totalAssets = nominalAssets − unassignedLiabilitySteth
 ```
 
-Only one of the two can be non-zero at a time. Accounts may settle their debt against the exceeding amount voluntarily via `rebalanceExceedingMintedStethShares`, which the contract's own NatSpec flags as front-runnable: the exceeding amount is a shared pool-wide budget, so competing calls revert with `InsufficientExceedingShares`.
+Only one branch can ever be live, because the two quantities are the same difference measured in opposite directions.
+
+An account can settle against that claim with `rebalanceExceedingMintedStethShares`: it burns its own stv, its debt drops, and no vault-level rebalance is needed — the vault's liability is already lower. The catch is that the exceeding amount is one pool-wide budget served first come, first served. The contract's NatSpec flags the front-running risk outright, and whoever loses the race gets `InsufficientExceedingShares`.
 
 ### 3.4 WithdrawalQueue
 
@@ -188,14 +211,16 @@ function requestWithdrawal(address _owner, uint256 _stvToWithdraw, uint256 _stet
 
 Requests are records, not tokens — the `owner` is fixed at creation and only they can claim. A request stores cumulative sums of stv, stETH shares and assets, which is what lets any range of requests be priced with two lookups.
 
-Both bounds are on the request:
+A request is bounded at both ends, and the two bounds deliberately measure different things:
 
-| Constant | Value | Purpose |
-| --- | --- | --- |
-| `MIN_WITHDRAWAL_VALUE` | 0.001 ETH | stops the queue filling with dust |
-| `MAX_WITHDRAWAL_ASSETS` | 10,000 ETH | stops one request monopolizing returned ETH |
+| Constant | Value | Measured on | Reverts with |
+| --- | --- | --- | --- |
+| `MIN_WITHDRAWAL_VALUE` | 0.001 ETH | what the request will actually pay out — the assets minus any debt it settles | `RequestValueTooSmall` |
+| `MAX_WITHDRAWAL_ASSETS` | 10,000 ETH | the gross assets the stv is worth, debt included | `RequestAssetsTooLarge` |
 
-The minimum applies to the *value* of the request — assets minus any stETH being rebalanced — so a request that is mostly debt repayment is measured on what is actually paid out. Creating a request requires a fresh report and transfers the stv, and when rebalancing also the debt, to the queue.
+A request that mostly repays debt is small as a payout but can still be large in gross size, so the floor keeps dust out of the queue while the ceiling keeps any one request from monopolizing the ETH coming back from validators.
+
+Creating a request requires a fresh report, and moves the stv — plus the debt, when the request settles any — to the queue.
 
 #### Finalization
 
@@ -212,7 +237,11 @@ function finalize(uint256 _maxRequests, address _gasCostCoverageRecipient) exter
 
 The delay is immutable per deployment with a **one-hour floor** enforced in the constructor; every shipped configuration sets exactly one hour. Condition 4 is what makes the rate meaningful: a request must be priced against a report that already knows about it.
 
-Everything finalized in one call shares a **checkpoint** recording the stv rate, the stETH share rate and the gas-cost coverage in force. Claims are priced from checkpoints, which is why claiming needs a checkpoint hint, or lets the contract binary-search for one.
+Everything finalized in one call shares a **checkpoint** recording the stv rate, the stETH share rate and the gas-cost coverage in force. Checkpoints accumulate in an append-only list, each one stamped with the first request it covers.
+
+Claims are priced from them, so claiming starts by locating the right one: the last checkpoint whose first request number does not exceed yours. The list is ordered, so that is a binary search, and there are two ways to run it.
+
+`claimWithdrawal(recipient, requestId)` does it on-chain, scanning the whole list at the claimer's expense. `claimWithdrawalBatch` instead takes the indices as an argument — the **hint** — which callers compute beforehand with the `findCheckpointHint` and `findCheckpointHintBatch` view functions, for free. The hint is never required, only cheaper, and it matters more the longer the pool has been finalizing requests.
 
 #### The one-sided discount
 
@@ -245,7 +274,15 @@ It is also why the minimum is measured on the value rather than the assets — a
 
 #### Gas cost coverage
 
-Finalization costs the operator gas, so each request can carry a deduction that is paid to whoever finalizes it. It is **0 by default** and capped by `MAX_GAS_COST_COVERAGE`, a constant of 0.0005 ETH per request. The value in force is captured in the checkpoint, so changing it never re-prices requests that were already finalized.
+Finalization is work the Node Operator pays for while the exiting depositors get the benefit, and a queue full of small requests makes that worse — the loop runs per request. So each request can carry a deduction that goes to whoever finalizes it.
+
+The amount is set by `FINALIZE_ROLE` through `setFinalizationGasCostCoverage`, is **0 by default**, and cannot exceed `MAX_GAS_COST_COVERAGE`, a constant of 0.0005 ETH per request. The ceiling is what stops an operator from turning the deduction into a toll on exits.
+
+At finalization each request gives up `min(payout, coverage)` — a request worth less than the coverage surrenders what it has and never goes negative — and the total is withdrawn from the vault alongside the claimable ETH and sent to the address passed to `finalize`, defaulting to the caller.
+
+The rate in force is captured in the checkpoint, so an operator who changes it later does not re-price requests that were already finalized but not yet claimed.
+
+The contract's own note gives both motives: a non-zero coverage compensates finalizers for gas, and it makes flooding the queue with dust requests cost the sender something.
 
 #### Claiming
 
@@ -276,11 +313,16 @@ Together they are what makes the recovery helpers safe to leave open. `safeTrans
 
 #### Lido EarnETH specifics
 
-`MellowStrategy` talks to a Mellow vault through three queues: a synchronous deposit queue, an asynchronous one, and an asynchronous redeem queue. At least one deposit queue must be configured; the redeem queue is mandatory.
+EarnETH strategy talks to a Mellow vault through three queues: a synchronous deposit queue, an asynchronous one, and an asynchronous redeem queue. At least one deposit queue must be configured; the redeem queue is mandatory.
 
-**Entering** picks a path through `MellowSupplyParams{isSync, merkleProof}`. The synchronous queue settles inside the same transaction. The asynchronous one records a request that the user completes later with `claimShares()`.
+**Entering** picks a path with `MellowSupplyParams{isSync, merkleProof}`. The proof is Mellow's whitelist check, run against the user's forwarder — without it the supply is refused. The two paths differ in cost as much as in timing:
 
-**Leaving is always asynchronous.** `requestExitByWsteth` places a `redeem` on the redeem queue, and the position is collected later with `finalizeRequestExit(requestId)`. The request id is `bytes32(block.timestamp)`, so several exits made in the same block merge into one underlying request: expect more than one event carrying the same id, and a single finalize settling the lot.
+- **Synchronous** settles in the same transaction and pays for the privilege: the price is cut by the queue's penalty and then by the vault's deposit fee. It also only works while Mellow's price report is younger than the queue's `maxAge`.
+- **Asynchronous** records a request the user collects later with `claimShares()`, paying the deposit fee but no penalty. Only one request may be outstanding at a time — supplying again before claiming is rejected.
+
+Either path is simulated by `previewSupply` first, and `supply` reverts with `SupplyFailed()` if that simulation fails: a paused queue, a stale or suspicious price, a missing whitelist entry all stop the deposit before any ETH moves.
+
+**Leaving is always asynchronous.** `requestExitByWsteth` places a `redeem` on the redeem queue, and the position is collected later with `finalizeRequestExit(requestId)`. The request id is `bytes32(block.timestamp)`, so a user's exits made in the same block merge into one underlying request: expect more than one event carrying that id, and a single finalize settling the lot.
 
 The constructor validates the queues against the vault before anything is deployed — each must belong to that vault, be of the right kind, and hold wstETH as its asset, with the synchronous one additionally named `SyncDepositQueue`. It also requires that the strategy itself has no pre-existing deposit or redeem request. A mismatch reverts with `InvalidQueue`, so an adapter cannot be pointed at a Mellow vault it does not fit.
 
@@ -314,12 +356,6 @@ The share is a **snapshot taken when the tree is built**, not a time-weighted av
 
 - a depositor who exits before claiming loses what they had accrued — the next tree omits their leaf, and the root it replaces is no longer accepted;
 - recipients are discovered from `Deposit` events, so an account that received stv by transfer never enters the tree.
-:::
-
-:::info
-The Distributor is **not wired into the pool**: no contract transfers into it, and the pool holds it only as an address. Tokens get there by being swept out of the vault with `StakingVault.collectERC20`, or by a plain transfer.
-
-Staking rewards do **not** pass through it — they accrue implicitly, because `totalAssets()` tracks the vault's value and every stv holder's claim grows with it.
 :::
 
 ### 3.7 Factory and deployment
@@ -529,7 +565,15 @@ Staking rewards need no distribution transaction. LazyOracle reports the vault's
 
 ![How a report raises every holder's claim](/img/stvaults/defi-wrapper/staking-rewards-report.png)
 
-The diagram above works it through: two depositors fund 10 and 22 ETH, a report lifts the vault's value to 40 ETH, and each claim grows in proportion — `assets = stv × totalAssets() / totalSupply()`. It predates the current naming, so it labels the pool "Wrapper" and the token "stvToken", and it shows the report being applied by the Node Operator when in fact `updateVaultData` is permissionless.
+An account's claim is always its share of whatever the pool is currently worth:
+
+$$
+\text{assets}(\text{account}) = \text{stv}(\text{account}) \times \frac{\text{totalAssets}}{\text{totalSupply}}
+$$
+
+Nothing on the right-hand side changes when a report lands except `totalAssets`, so every claim moves together and in proportion. The diagram above works one through: two depositors fund 10 and 22 ETH, a report lifts the vault to 40 ETH, and their claims become 12.5 and 27.5 ETH.
+
+It predates the current naming, so it labels the pool "Wrapper" and the token "stvToken", and it shows the report being applied by the Node Operator when in fact `updateVaultData` is permissionless.
 
 Value that arrives as tokens rather than as vault growth — DVT sidecar rewards, points after conversion — is swept out of the vault with `StakingVault.collectERC20` and distributed through the [Distributor](#36-distributor).
 
@@ -538,7 +582,9 @@ Value that arrives as tokens rather than as vault growth — DVT sidecar rewards
 
 ### 5.1 From Lido DAO
 
-**Seizure of vault stake through a malicious upgrade.** Mitigated by community monitoring, Dual Governance (stakers can veto), and the vault's ability to disconnect from Lido Core. Disconnecting, though, requires repaying all minted stETH, and stETH locked as collateral in a strategy may not be repayable inside the objection window.
+**Governance capture.** Vaults depend on Lido Core contracts that the DAO can upgrade. That dependency is the surface a compromised or hostile governance would have to work through: in principle an upgrade could replace those contracts with code that moves a vault's ETH.
+
+Three things stand in the way, which is why this stays theoretical: proposals are watched by the community, Dual Governance lets stakers block one or leave before it takes effect, and a vault can disconnect from Lido Core altogether.
 
 ### 5.2 From Lido Core
 
@@ -549,10 +595,6 @@ Value that arrives as tokens rather than as vault growth — DVT sidecar rewards
 ### 5.3 From the stVault
 
 **Node Operator misbehaviour.** The operator cannot move delegated stake, but they can be slow: delaying validator exits keeps depositors waiting in the queue. What bounds this today is the operator's reputation and the finalization rules, which stop them from profiting from the delay.
-
-:::warning
-The Emergency Exit mechanism described in the original design notes — permissionless finalization once the queue has been stuck for 60 days — is **not implemented**. Finalization is unconditionally gated by `FINALIZE_ROLE`. A pool whose operator stops finalizing has no on-chain path for depositors to force their own exit.
-:::
 
 **Deposit front-running** — mitigated by [PDG](../node-operators/basic-stvaults/pdg.md), which the Wrapper's vaults use.
 
@@ -568,7 +610,7 @@ Everything that applies to a plain stVault applies to the pool's vault as well �
 
 **External protocol failure or malicious upgrade** — bounded by working only in the wstETH and (W)ETH pair, LTV sanity checks, and per-user custody, which keeps one user's position from touching another's.
 
-**Strategy economics.** An adapter built on leverage — none of the shipped ones are — carries liquidation risk if the stETH/ETH ratio moves, the risk that pool liquidity is insufficient to close a position, and exposure to rising borrow rates. These are inherent to leverage rather than defects, and users take them on knowingly.
+**Strategy economics.** An adapter built on leverage — none of the shipped ones are — carries liquidation risk if the stETH/ETH ratio moves, the risk that pool liquidity is insufficient to close a position, and exposure to rising borrow rates. These come with leverage itself rather than being faults in the design, and a user accepts them when choosing such a strategy.
 
 ## 6. Useful links
 
