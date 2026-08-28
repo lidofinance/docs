@@ -16,7 +16,7 @@ Everything is deployed from a factory in two transactions and handed to a timelo
 ### 2.1 Goals
 
 - **Pool one stVault across many depositors** while keeping each depositor's position individually accounted.
-- **Keep stETH minting per-account.** A depositor's debt is their own: it limits their own withdrawals and can be liquidated without touching anyone else's position.
+- **Keep stETH minting per-account.** A depositor's debt is their own: it limits their own withdrawals and can be rebalanced away without touching anyone else's position.
 - **Make the operator's discretion bounded.** The Node Operator decides *when* to return ETH from validators, but not at what rate a request settles.
 - **Deploy without a trusted setup step.** The factory wires every role in one transaction and revokes itself, so a deployment cannot be left half-configured.
 
@@ -31,19 +31,21 @@ Everything is deployed from a factory in two transactions and handed to a timelo
 
 A deployment is one of three shapes, decided by `poolType` at deploy time and immutable afterwards:
 
-| Configuration | Contract | Minting | Strategy | Allowlist |
+| Configuration | Pool type | Minting | Strategy | Allowlist |
 | --- | --- | --- | --- | --- |
 | Pooled staking | `StvPool` | no | no | optional |
 | Pooled staking with liquidity | `StvStETHPool` | yes | no | optional |
-| Pooled staking with a DeFi strategy | `StvStETHPool` | yes | required | required |
+| Pooled staking with a DeFi strategy | `StvStrategyPool` | yes | required | required |
 
-:::note
-`StvStrategyPool` is a **pool type, not a contract**. The third configuration is `StvStETHPool` deployed with `poolType == STRATEGY_POOL_TYPE` and a strategy proxy added to its allowlist. `Factory.derivePoolType` enforces that a strategy requires both minting and the allowlist (`InvalidConfiguration`).
-:::
+Only two of these are contracts. A strategy pool is `StvStETHPool` carrying the `StvStrategyPool` type tag, with a strategy proxy in its allowlist — which is why an existing minting pool can be upgraded into one in place, and why everything in [§3.3](#33-stvstethpool) applies to it.
 
-### 2.4 Unsupported configuration
+### 2.4 Lido fee socialization and economic consequences
 
-Mixing depositors who mint stETH with depositors who only stake, in one pool, is not supported. They pay different fees — minting adds the liquidity and reservation fees on top of the infra fee — but rewards are computed by LazyOracle for the vault as a whole, so the fee difference cannot be attributed back to the accounts that caused it. Supporting it requires changes in Lido Core accounting, not in the Wrapper.
+Nothing stops a minting pool from holding both depositors who mint stETH and depositors who only stake — minting is per account, and neither the pool nor the vault rejects the mix. It is left unsupported because of how the cost lands.
+
+The liquidity and reservation fees are charged on the vault as a whole. They raise its cumulative Lido fees, which lowers `maxLockableValue`, which lowers `totalAssets()` — so the price of every stv drops, including that of holders who never minted. LazyOracle reports for the vault, not per account, so there is no way to bill those fees back to the accounts that caused them.
+
+The result is a silent subsidy from stakers to minters. So the recommended shape is one pool per behaviour.
 
 ## 3. Architecture
 
@@ -68,6 +70,10 @@ The pool never holds vault ownership. The factory grants `FUND_ROLE`, `REBALANCE
 
 The base pool. It accepts ETH, forwards it into the stVault through `Dashboard.fund()`, and issues `stv` — a transferable ERC-20 claim on the vault's value.
 
+:::info
+**stv** stands for *staking vault token* — the pool's own share token.
+:::
+
 #### stv accounting
 
 `stv` has **27 decimals** while the underlying asset has 18. The pool is initialized by minting `vaultBalance × 1e9` stv **to itself** for the connect deposit already sitting in the vault, which fixes the starting rate at 1 ETH = 1e27 stv and keeps later conversions exact.
@@ -88,8 +94,8 @@ Conversions round in the direction that protects the pool: `previewDeposit` floo
 
 Two conditions can arise that make the pool's own accounting untrustworthy, and both freeze it:
 
-- **Unassigned liability** — the vault owes stETH that no pool account is recorded as owing. This happens if liability is transferred in from another vault. It is measured as the excess of vault liability over the pool's recorded minted shares.
-- **Bad debt** — the vault's total value is below its liability, so stv cannot be priced against a solvent position.
+- **Unassigned liability** — the vault owes stETH that no pool account is recorded as owing, measured as the excess of vault liability over the pool's recorded minted shares. It arises through [bad debt socialization](./stvaults-detailed-technical-design.md#bad-debt): the DAO can move uncovered liability from one vault onto another **run by the same Node Operator**, and if the pool's vault is the acceptor, its liability grows while nobody in the pool has minted anything.
+- **Bad debt** — the vault owes more stETH than it is worth, so there is no longer enough value behind stv to price it. This is not a normal state: losses have to exceed the reserve entirely, which takes an exceptional event such as mass slashing, not a dip in validator performance. Rebalancing cannot fix it; the Lido Core [escalation path](./stvaults-detailed-technical-design.md#bad-debt) can.
 
 Both are checked inside the ERC-20 `_update` hook, so while either holds, **every** transfer, mint and burn of stv reverts — deposits included. No role is involved and nobody can override it; the condition has to be cleared.
 
@@ -100,7 +106,7 @@ function rebalanceUnassignedLiability(uint256 _stethShares) external;
 function rebalanceUnassignedLiabilityWithEther() external payable;
 ```
 
-The first repays it out of the vault's own assets, the second out of ETH the caller supplies. Both refuse to touch liability that belongs to an account (`NotEnoughToRebalance`).
+The first repays it out of the vault's own assets, the second out of ETH the caller supplies. Neither can repay more than the unassigned amount, or the call reverts with `NotEnoughToRebalance`. That cap matters because both spend the vault's assets, which belong to every stv holder: without it, anyone could clear one account's personal debt at everyone else's expense.
 
 #### Deposits
 
@@ -109,13 +115,13 @@ function depositETH(address _recipient, address _referral) public payable return
 receive() external payable;   // auto-deposits to msg.sender
 ```
 
-Each deposit checks, in order: non-zero value, non-zero recipient, deposits not paused, allowlist membership, and **report freshness** — `VaultHub.isReportFresh(vault)`, reverting `VaultReportStale`. Freshness is required because stv is priced from the last report; without it a depositor could be issued stv at a stale rate. See [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
+Each deposit checks, in order: non-zero value, non-zero recipient, deposits not paused, allowlist membership, and **report freshness**. Freshness is required because stv is priced from the last report; without it a depositor could be issued stv at a stale rate. See [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
 
 The allowlist is implemented as a role, not a mapping: membership *is* `DEPOSIT_ROLE`, whose admin is `ALLOW_LIST_MANAGER_ROLE`. Whether the allowlist is enforced at all is fixed in the constructor and cannot be toggled later — changing it means upgrading to a new implementation.
 
 ### 3.3 StvStETHPool
 
-Adds per-account stETH minting on top of `StvPool`. Each account has its own debt, its own collateral requirement and its own liquidation.
+Adds per-account stETH minting on top of `StvPool`. Each account has its own debt, its own collateral requirement and its own forced rebalancing.
 
 #### The reserve ratio gap
 
@@ -127,7 +133,7 @@ RR_{\text{pool}} = \min(RR_{\text{vault}} + \text{gap},\; 99.99\%)
 FRT_{\text{pool}} = \min(FRT_{\text{vault}} + \text{gap},\; 99.98\%)
 $$
 
-The gap is immutable per deployment and is **250 BP (2.5%)** in every shipped configuration. It exists so that an account can be liquidated by the pool before the *vault* becomes subject to forced rebalancing by the protocol — the pool always hits its own threshold first.
+The gap is immutable per deployment and is **250 BP (2.5%)** in every shipped configuration. It exists so that the pool can force-rebalance an account before the *vault* becomes subject to forced rebalancing by the protocol — the pool always hits its own threshold first.
 
 `syncVaultParameters()` is permissionless and pulls the current vault parameters, so a tier change in Lido Core reaches the pool as soon as anyone calls it.
 
@@ -143,14 +149,14 @@ $$
 
 An account is unhealthy once its assets fall below the threshold implied by $FRT_{\text{pool}}$. The `_update` hook adds a second guard on top of the base pool's: an account cannot transfer away stv that its own debt requires as collateral (`InsufficientReservedBalance`).
 
-#### Liquidation
+#### Forced rebalancing
 
 ```solidity
 function forceRebalance(address _account) external returns (uint256 stvBurned);
 function forceRebalanceAndSocializeLoss(address _account) external returns (uint256 stvBurned);
 ```
 
-`forceRebalance` is **permissionless** — anyone may liquidate a breached account. It swaps the account's stETH debt for its stv at the current rate, bringing it back to the reserve-ratio level, solving:
+`forceRebalance` is **permissionless** — anyone may force-rebalance a breached account. It swaps the account's stETH debt for its stv at the current rate, bringing it back to the reserve-ratio level, solving:
 
 $$
 x = \frac{L - (1 - RR_{\text{pool}}) \times A_{\text{shares}}}{RR_{\text{pool}}}
@@ -223,11 +229,23 @@ If the rate **fell**, the request is discounted — the queue absorbs its share 
 
 The operator cannot set the rate. What they do choose is *when* to finalize and whether to batch, and batching socializes rewards across the batch rather than letting earlier requests capture them.
 
+#### What a claim pays out
+
+A request can carry stETH debt as well as stv, through `stethSharesToRebalance`. Finalization settles that debt out of the vault and burns the stv that backed it, so only the remainder leaves as ETH:
+
+```
+payout = assets (discounted to the checkpoint rate, if the rate fell)
+       − stethSharesToRebalance valued at the checkpoint share rate
+       − gas cost coverage
+```
+
+Carrying 1000 ETH of stv with 900 stETH of debt into the queue therefore pays out around 100 ETH, not 1000. That is not a loss: the depositor minted those 900 stETH earlier and still holds them, so exiting nets the debt against the collateral, the way closing a loan returns equity rather than the gross position.
+
+It is also why the minimum is measured on the value rather than the assets — a request that is mostly debt repayment still has to pay out something.
+
 #### Gas cost coverage
 
-Finalization costs the operator gas, so each request can carry a deduction that is paid to whoever finalizes it. It is **0 by default** and capped by `MAX_GAS_COST_COVERAGE`, a constant of 0.0005 ETH per request.
-
-The deduction is part of what a depositor actually receives: a claim pays out the discounted assets, minus any stETH rebalanced, minus this coverage. The value in force is captured in the checkpoint, so changing it never re-prices requests that were already finalized.
+Finalization costs the operator gas, so each request can carry a deduction that is paid to whoever finalizes it. It is **0 by default** and capped by `MAX_GAS_COST_COVERAGE`, a constant of 0.0005 ETH per request. The value in force is captured in the checkpoint, so changing it never re-prices requests that were already finalized.
 
 #### Claiming
 
@@ -240,33 +258,31 @@ Only the request owner can claim, once, after finalization. Claiming is **not pa
 
 ### 3.5 Strategies
 
-A strategy pool routes each depositor's minted wstETH into an external protocol. Two adapters exist:
+A strategy pool routes each depositor's minted wstETH into an external protocol. One adapter comes out of the box: `MellowStrategy`, the **Lido EarnETH** connector, whose factory is the only strategy factory deployed on either network.
 
-| Adapter | Target | Status |
-| --- | --- | --- |
-| `MellowStrategy` | Mellow vaults — the **Lido Earn ETH** connector | current |
-| `GGVStrategy` | BoringVault via `TellerWithMultiAssetSupport` | earlier integration |
+Any other protocol needs its own adapter. That means two contracts — one implementing `IStrategy`, and a factory implementing `IStrategyFactory.deploy(pool, deployBytes)` for `Factory.createPoolFinish` to call. The [custom strategy guide](../../stvaults/building-guides/pooled-staking-product/custom-strategy.md) walks through writing and deploying one.
 
-:::note
-This connector appears under three names across older material: `GGVStrategy` in the repository README, `MellowStrategy` in the source and the 03-2026 audit, and **Lido Earn ETH** in the CLI and the published docs. The last is current.
-:::
+#### Per-user accounting
 
-#### Per-user custody
+Whichever adapter is used, the custody model is the same — it lives in `StrategyCallForwarderRegistry`, which every strategy inherits. Positions are not commingled. Each user gets their own `StrategyCallForwarder` — a minimal clone deployed at a CREATE2 address derived from the chain id, the strategy id, the strategy address and the user, so it is deterministic and unique per user per strategy.
 
-Strategy positions are not commingled. Each user gets their own `StrategyCallForwarder` — a minimal clone deployed at a CREATE2 address derived from the chain id, the strategy id, the strategy address and the user, so it is deterministic and unique per user per strategy.
+**The forwarder holds the stv, not the user.** The user's claim is mediated by the strategy, and two rules keep that from being a hazard.
 
-```mermaid
-flowchart LR
-    U[User] -->|supply| S[Strategy]
-    S -->|deterministic clone| F[StrategyCallForwarder]
-    S -->|depositETH to F| P[StvStETHPool]
-    S -->|mintWsteth, approve, deposit| F
-    F --> E[External protocol]
-```
+First, the forwarder answers to nobody but the strategy: `doCall`, `sendValue` and `safeTransferERC20` on it are all `onlyOwner`, and the owner is the strategy contract, set when the clone is initialized. A user cannot drive their own forwarder directly.
 
-**The forwarder holds the stv, not the user.** The user's claim is mediated by the strategy. The forwarder is `onlyOwner` with the strategy as owner, and every strategy entry point resolves the forwarder from `msg.sender`, so a user can only ever act on their own — which is what makes the permissionless recovery helpers safe.
+Second, the strategy never takes a forwarder address as an argument. It derives one with `_getOrCreateCallForwarder(msg.sender)`, and the CREATE2 salt makes that address a function of the caller. There is no input through which one user could reach another's forwarder.
 
-`GGVStrategy.finalizeRequestExit` always reverts with `NotImplemented()`: GGV exposes no way to read a request's status on-chain.
+Together they are what makes the recovery helpers safe to leave open. `safeTransferERC20` on the strategy carries no role check at all — anyone may call it, for any token, to any recipient — because the tokens it moves always come from the caller's own forwarder. Such helpers exist because balances collect there: refunds from the external protocol, ETH left over after a call.
+
+#### Lido EarnETH specifics
+
+`MellowStrategy` talks to a Mellow vault through three queues: a synchronous deposit queue, an asynchronous one, and an asynchronous redeem queue. At least one deposit queue must be configured; the redeem queue is mandatory.
+
+**Entering** picks a path through `MellowSupplyParams{isSync, merkleProof}`. The synchronous queue settles inside the same transaction. The asynchronous one records a request that the user completes later with `claimShares()`.
+
+**Leaving is always asynchronous.** `requestExitByWsteth` places a `redeem` on the redeem queue, and the position is collected later with `finalizeRequestExit(requestId)`. The request id is `bytes32(block.timestamp)`, so several exits made in the same block merge into one underlying request: expect more than one event carrying the same id, and a single finalize settling the lot.
+
+The constructor validates the queues against the vault before anything is deployed — each must belong to that vault, be of the right kind, and hold wstETH as its asset, with the synchronous one additionally named `SyncDepositQueue`. It also requires that the strategy itself has no pre-existing deposit or redeem request. A mismatch reverts with `InvalidQueue`, so an adapter cannot be pointed at a Mellow vault it does not fit.
 
 ### 3.6 Distributor
 
@@ -280,10 +296,30 @@ function claim(address _recipient, address _token, uint256 _cumulativeAmount, by
 
 Accounting is cumulative: the leaf commits to a total, and a claim transfers the difference against what that recipient already took. A root can be set at most once per block and must actually change.
 
-`claim` is **permissionless** — anyone may submit a proof on someone's behalf, and the tokens always go to the recipient named in the leaf.
+`claim` is **permissionless** — anyone may submit a proof on someone's behalf, and the tokens always go to the recipient named in the leaf. It works from the DeFi Wrapper widget or the CLI; for strategy pools the leaf names the user's forwarder rather than the user, so the widget claims and then calls `safeTransferERC20` on the strategy to pass the tokens on, in one batch.
+
+#### How a distribution is built
+
+The tree is assembled off-chain and published to IPFS — the contract stores only the root, the CID and `lastProcessedBlock`. Each leaf is `(recipient, token, cumulativeAmount)`, and a recipient's share of the newly arrived tokens is their stv balance over the effective supply, after the operator's cut:
+
+```
+distributable = balance now − (balance at the previous root − claimed since)
+share         = balanceOf(user) / (totalSupply − balanceOf(pool))
+```
+
+The pool's own stv, minted against the connect deposit, is excluded from the supply. `MANAGER_ROLE` — the Node Operator Manager by default — pushes the root. There is no schedule: a root can be submitted at any time, at most once per block, and has to differ from the current one.
 
 :::warning
-The Distributor is **not wired into the pool**. No contract transfers into it, and the pool holds it only as an address. It is funded by ordinary ERC-20 transfers and driven entirely off-chain: build the tree, pin it to IPFS, push the root. Staking rewards do **not** flow through it — they accrue implicitly, because `totalAssets()` tracks the vault's value and every stv holder's claim grows with it.
+The share is a **snapshot taken when the tree is built**, not a time-weighted average, and only the current root can be proven against. Two consequences:
+
+- a depositor who exits before claiming loses what they had accrued — the next tree omits their leaf, and the root it replaces is no longer accepted;
+- recipients are discovered from `Deposit` events, so an account that received stv by transfer never enters the tree.
+:::
+
+:::info
+The Distributor is **not wired into the pool**: no contract transfers into it, and the pool holds it only as an address. Tokens get there by being swept out of the vault with `StakingVault.collectERC20`, or by a plain transfer.
+
+Staking rewards do **not** pass through it — they accrue implicitly, because `totalAssets()` tracks the vault's value and every stv holder's claim grows with it.
 :::
 
 ### 3.7 Factory and deployment
@@ -300,7 +336,9 @@ The commitment hash binds the caller **and** every configuration field. A differ
 
 #### Timelock
 
-`DEFAULT_ADMIN_ROLE` on the pool, the queue, the distributor and the Dashboard all land on an OpenZeppelin `TimelockController` whose own admin is `address(0)` — self-administered from creation, with no separate owner. Proposer and executor are configured at deploy.
+`DEFAULT_ADMIN_ROLE` on the pool, the queue, the distributor and the Dashboard all land on an OpenZeppelin `TimelockController` whose own admin is `address(0)` — self-administered from creation, with no separate owner.
+
+Two addresses drive it, both set at deploy: a **proposer**, which schedules operations and can also cancel them, and an **executor**, which runs them once the delay has passed. In practice both are the Vault Owner, usually a multisig. The emergency committee is then given `CANCELLER_ROLE`, which lets it drop a scheduled operation without being able to schedule or run one.
 
 #### Upgrades
 
@@ -357,11 +395,9 @@ sequenceDiagram
     Pool -->> User: stv
 ```
 
-With minting, `depositETHAndMintStethShares` or `depositETHAndMintWsteth` adds a capacity check and a `Dashboard.mintShares` call in the same transaction.
-
 #### Deposit through a strategy
 
-A strategy deposit is one call from the user's point of view, and four steps under it. The stv is credited to the user's [forwarder](#35-strategies), never to the user, and the wstETH is minted from the forwarder before the adapter deposits it:
+A strategy deposit is one call from the user's point of view. Underneath, the ETH becomes stv, the stv backs newly minted wstETH, and only that wstETH reaches the external protocol — all of it on the user's [forwarder](#35-strategies), never on the user's own address:
 
 ```mermaid
 sequenceDiagram
@@ -369,25 +405,54 @@ sequenceDiagram
     participant S as Strategy
     participant F as User's forwarder
     participant Pool
+    participant DB as Dashboard
     participant E as External protocol
 
     User ->> S: supply(referral, wstethToMint, params)
     S ->> F: create or resolve (deterministic clone)
+
+    Note over S,Pool: ETH becomes stv
     S ->> Pool: depositETH(recipient = forwarder)
     Pool -->> F: stv
-    S ->> F: mintWsteth(wstethToMint)
-    F ->> Pool: mint against the forwarder's own capacity
-    S ->> F: approve and deposit
+
+    Note over F,DB: stv backs minted wstETH
+    S ->> F: doCall(Pool, mintWsteth(amount))
+    F ->> Pool: mintWsteth(amount)
+    Pool ->> DB: mintWstETH(caller, amount)
+    DB -->> F: wstETH
+
+    Note over F,E: wstETH enters the protocol
+    S ->> F: doCall(wstETH, approve(queue))
+    S ->> F: doCall(queue, deposit(amount))
     F ->> E: wstETH
 ```
 
-The minting capacity that applies is the **forwarder's**, since it holds the stv — which is what `remainingMintingCapacitySharesOf(user, ethToFund)` on the strategy resolves for you.
+The wstETH lands on the forwarder because minting always credits the caller: `StvStETHPool.mintWsteth` passes `msg.sender` down to `Dashboard.mintWstETH`, and the call was made by the forwarder. The same is true of the debt and of the capacity it is checked against — the position belongs to the forwarder throughout, which is why `remainingMintingCapacitySharesOf(user, ethToFund)` on the strategy resolves it for you.
 
-A leveraged strategy adds a flashloan around this: borrow ETH, deposit own plus borrowed ETH in one go, mint stETH against the whole amount, supply it as collateral on a lending protocol, borrow ETH back and repay the flashloan. The leverage is bounded by two ratios multiplying together — the pool's reserve ratio and the lending protocol's LTV — so with a 5% pool reserve ratio and 95% LTV, 100 ETH of the user's own supports roughly 925 ETH borrowed before the position stops closing.
+Plain stETH does not appear in this path: `mintWstETH` mints and wraps in one step. An account only holds stETH if it mints through `mintStethShares` directly.
 
 Whatever the shape, the ETH is then staked by the Node Operator through [PDG](../node-operators/pdg.md) in the ordinary way.
 
-### 4.2 Withdrawal
+### 4.2 Minting stETH
+
+Minting is a separate act from depositing, not a stage of it. It is available in a minting pool to any account holding stv, for any amount within that account's own [capacity](#33-stvstethpool), at any time.
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant Pool
+    participant Dashboard
+
+    User ->> Pool: mintStethShares(amount) / mintWsteth(amount)
+    Pool ->> Pool: check the caller's remaining capacity
+    Pool ->> Pool: record the debt against the caller
+    Pool ->> Dashboard: mintShares / mintWstETH to the caller
+    Dashboard -->> User: stETH / wstETH
+```
+
+Repaying is symmetric. `burnStethShares` and `burnWsteth` reduce the debt whenever the account wants, which releases the stv that was locked against it. A strategy pool works the same way, with the calls made through the strategy so they land on the user's forwarder.
+
+### 4.3 Withdrawal
 
 ```mermaid
 sequenceDiagram
@@ -420,7 +485,7 @@ The gap between request and finalization is the Consensus Layer exit queue, and 
 
 A depositor whose position sits in a strategy cannot go straight to the queue: their stv is held by the forwarder and encumbered by stETH debt. Unwinding runs in three steps before the queue is involved at all, and the first of them is the only strategy-specific one.
 
-**Step 1 — leave the external position.** `requestExitByWsteth(wsteth, params)` returns a strategy-level `requestId`. Adapters differ here: a Mellow exit goes through an async redeem queue and completes later with `finalizeRequestExit(requestId)`, while `GGVStrategy.finalizeRequestExit` reverts with `NotImplemented()` because GGV exposes no on-chain request status. A leveraged strategy instead flashloans the borrowed amount, repays the lending protocol, takes back its collateral and repays the flashloan — leaving the user's own margin behind as wstETH.
+**Step 1 — leave the external position.** `requestExitByWsteth(wsteth, params)` returns a strategy-level `requestId`. With Lido EarnETH the exit goes through an asynchronous redeem queue, so it completes in a second call, `finalizeRequestExit(requestId)`; a custom adapter settles however its own protocol does.
 
 **Step 2 — repay what can be repaid.** `burnWsteth(amount)` burns the recovered wstETH against the user's own liability, which frees the stv that was locked as its collateral. Only the part that cannot be recovered stays as debt.
 
@@ -448,13 +513,19 @@ sequenceDiagram
     S ->> WQ: requestWithdrawal(owner = recipient, stv, stethShares)
     WQ ->> Pool: transfer stv and remaining liability to the queue
     WQ -->> User: requestId
+
+    Note over User,WQ: operator finalizes, then the user claims from the queue itself
+    User ->> WQ: claimWithdrawal(recipient, requestId)
+    WQ -->> User: ETH
 ```
 
-From here the path is identical to the plain case: the operator finalizes, and the user claims. What the remaining debt changes is the payout — finalization rebalances it away, so the request settles for the stv value **minus** the rebalanced stETH. Carrying 1000 ETH of stv with 900 stETH of debt into the queue pays out about 100 ETH, not 1000.
+Note where the calls go. Everything touching the position runs through the strategy, because the stv sits on the forwarder and only the strategy can move it. The claim does not: `recipient` is passed straight through as the request owner, so the user calls the queue directly at the end. Pass your own address there rather than the forwarder, or the request ends up owned by the forwarder.
 
-### 4.3 Rewards
+From here the path is identical to the plain case: the operator finalizes, and the user claims. The remaining debt rides along with the request and is settled at finalization, so the payout is the stv value net of it — see [what a claim pays out](#what-a-claim-pays-out).
 
-Staking rewards need no distribution transaction. LazyOracle reports the vault's value, `totalAssets()` rises, and every stv holder's claim rises with it. It does require somebody to keep applying reports: a stale report blocks deposits, requests, finalization, minting and liquidation alike. `LazyOracle.updateVaultData` is permissionless, so anyone can do it, but somebody has to.
+### 4.4 Rewards
+
+Staking rewards need no distribution transaction. LazyOracle reports the vault's value, `totalAssets()` rises, and every stv holder's claim rises with it. It does require somebody to keep applying reports: a stale report blocks deposits, requests, finalization, minting and forced rebalancing alike. `LazyOracle.updateVaultData` is permissionless, so anyone can do it, but somebody has to.
 
 ![How a report raises every holder's claim](/img/stvaults/defi-wrapper/staking-rewards-report.png)
 
@@ -462,16 +533,6 @@ The diagram above works it through: two depositors fund 10 and 22 ETH, a report 
 
 Value that arrives as tokens rather than as vault growth — DVT sidecar rewards, points after conversion — is swept out of the vault with `StakingVault.collectERC20` and distributed through the [Distributor](#36-distributor).
 
-### 4.4 Degradation
-
-Some states need no attacker and no role to take effect:
-
-| Condition | Effect | Cleared by |
-| --- | --- | --- |
-| stale oracle report | deposits, requests, finalization, minting and liquidation all revert | anyone: `LazyOracle.updateVaultData` |
-| unassigned liability | every stv transfer, mint and burn reverts | anyone: `rebalanceUnassignedLiability` |
-| bad debt | every stv transfer, mint and burn reverts | vault recovery, or Lido Core bad-debt handling |
-| account below the pool threshold | that account is liquidatable | anyone: `forceRebalance` |
 
 ## 5. Risks
 
@@ -495,6 +556,8 @@ The Emergency Exit mechanism described in the original design notes — permissi
 
 **Deposit front-running** — mitigated by [PDG](../node-operators/pdg.md), which the Wrapper's vaults use.
 
+Everything that applies to a plain stVault applies to the pool's vault as well — slashing, correlated slashing across an operator's vaults, forced rebalancing, bad debt. Those are not repeated here; see [stVaults Technical Design](./stvaults-detailed-technical-design.md).
+
 ### 5.4 From the Wrapper
 
 **Contract vulnerabilities** — mitigated by three audits, the per-feature pause matrix, and timelocked upgrades. The asymmetry documented above applies: pausing is immediate, resuming needs a governance round-trip.
@@ -505,11 +568,7 @@ The Emergency Exit mechanism described in the original design notes — permissi
 
 **External protocol failure or malicious upgrade** — bounded by working only in the wstETH and (W)ETH pair, LTV sanity checks, and per-user custody, which keeps one user's position from touching another's.
 
-**Strategy economics.** Leverage carries liquidation risk if the stETH/ETH ratio moves, the risk that pool liquidity is insufficient to close a position, and exposure to rising borrow rates. These are inherent to leverage rather than defects, and users take them on knowingly.
-
-### 5.6 Inherited risks
-
-Everything that applies to a plain stVault applies here too — slashing, correlated slashing across an operator's vaults, forced rebalancing, and the [oracle quarantine](./how-quarantine-works.md) on sudden value jumps. See [stVaults Technical Design](./stvaults-detailed-technical-design.md).
+**Strategy economics.** An adapter built on leverage — none of the shipped ones are — carries liquidation risk if the stETH/ETH ratio moves, the risk that pool liquidity is insufficient to close a position, and exposure to rising borrow rates. These are inherent to leverage rather than defects, and users take them on knowingly.
 
 ## 6. Useful links
 
