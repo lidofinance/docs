@@ -129,3 +129,4 @@ Monitor logs:
 
 ```bash
 sudo journalctl -fu CLIENT.service -o cat | ccze -A
+```

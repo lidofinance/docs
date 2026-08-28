@@ -4,13 +4,13 @@ sidebar_position: 1
 
 # 🔑 Generating Validator Keys
 
-:::warning Generate 0x01 keys
-The CSM deployments currently available on Mainnet and Hoodi accept **0x01 validator keys only**, with deposit data set to 32 ETH. 0x02 CSM has been approved but is not live yet. Do not generate or upload `0x02` keys until its dedicated testnet or Mainnet deployment is announced.
-:::
-
-Before you can run validators in the Community Staking Module, you need to generate your validator keys. These keys secure 32 ETH each and are tasked with signing attestations and proposing blocks, so generating them properly and securely is a must.
+Before you can run validators in the Community Staking Module, you need to generate your validator keys. Each key secures a deposit of 32 ETH and is tasked with signing attestations and proposing blocks, so generating it properly and securely is a must. For 0x01 CSM keys, that 32 ETH is also the validator's maximum balance; for 0x02 CSM keys, the validator can later grow up to 2,048 ETH through top-ups.
 
 In this section, we’ll guide you through the process of generating validator keys, with options depending on whether you’re deploying on testnet or mainnet.
+
+:::info Choose the right credential type
+Generate `0x01` keys for 0x01 CSM (Mainnet and Hoodi), or `0x02` keys for 0x02 CSM (Hoodi only). Double-check the credential type before uploading keys.
+:::
 
 ---
 
