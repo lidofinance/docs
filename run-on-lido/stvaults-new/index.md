@@ -35,6 +35,8 @@ This page is a hub: it links out to product materials if you're looking for the 
 | --- | --- |
 | 📚 [Concepts & Reference](./concepts-and-reference/) | Architecture, roles & permissions, parameters & metrics, and other cross-cutting mechanics. |
 | 📘 [Lido V3 Technical Paper](./concepts-and-reference/lido-v3-whitepaper.mdx) | The complete Technical Paper covers architecture, mechanisms, risks, and implementation details. |
+| 👁️ [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4) | Explains stVaults' risk assessment framework — global stake limits relative to Lido Core, tiered Reserve Ratios that discretize concentration risk per Node Operator, and how risk from stake concentration is attributed and governed. |
+| 🧾 [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504) | Defines tiers of Reserve Ratio, Force Rebalance Threshold, minting caps, and fee parameters for stVaults across identified, DVT, and non-identified Node Operators. |
 
 
 ## Qualified Custodians

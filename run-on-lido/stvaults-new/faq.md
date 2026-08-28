@@ -4,22 +4,27 @@ sidebar_position: 6
 
 # 🙋‍♂️ F.A.Q.
 
+
 <details>
 <summary>Can I mint stETH before my validator is active?</summary>
 
-Yes. You can mint stETH right after supplying ETH to your stVault — you don't need an active validator, or even a validator at all, to mint. 
+Yes. You can mint stETH right after supplying ETH to your stVault — you don't need an active validator, or even a validator at all, to mint.
 
 The nuance shows up on the other side: once you've minted, how you deposit that ETH to a validator depends on the deposit method, because minted ETH is locked as collateral and can no longer be withdrawn from the vault.
 
 - The [**full PDG flow**](./node-operators/pdg#full-cycle-trustless-path-through-pdg) deposits directly from the stVault Balance without withdrawing ETH first, so this way stays available even when your minting capacity is fully utilized.
 - The [**PDG shortcut**](./node-operators/pdg#pdg-shortcut) works by withdrawing ETH from the vault and side-depositing it to the validator — which isn't possible once that ETH is locked as collateral for minted stETH.
 
-This also affects when queued (not-yet-active) ETH counts toward your minting capacity:
+This also affects whether **Ongoing Deposits** — ETH already sent to a validator but still sitting in the beacon chain activation queue — count toward your minting capacity:
 
-- **If the validator is already active**, ETH sitting in the activation queue is counted by the Oracle as part of the stVault [Total Value](./concepts-and-reference/metrics.md#total-value), so any deposit method — full PDG flow, PDG shortcut, or any other side-deposit — works fine.
-- **If the validator doesn't exist yet**, the accounting Oracle doesn't count such ETH as part of stVaults Total Value so it's not possible to mint stETH against this ETH, until the validator is activated and its balance is proven by the Oracle.
+**Ongoing Deposits = Top-ups and initial PDG deposits + Off-Book Deposits**
 
-The technical detailese are explained in the [Predeposit Guarantee guide](./node-operators/pdg.md).
+- **Top-ups and initial PDG deposits** are counted by the Oracle as part of stVault [Total Value](./concepts-and-reference/metrics.md#total-value) right away. This covers top-ups to an already active validator, and initial deposits made through the full PDG flow — PDG guarantees the deposit, so the Oracle can prove and count it before the validator is even active.
+- **Off-Book Deposits** are validator deposits not yet included in Total Value. This includes deposits made via the PDG shortcut (unguaranteed deposits), and initial deposits made directly to a validator outside of the stVault. These only count once the validator is activated and its balance is proven by the Oracle.
+
+So minting against queued ETH works as long as it went in as a top-up or through the full PDG flow — but not for off-book deposits, which stay outside Total Value until the validator goes live.
+
+The technical details are explained in the [Predeposit Guarantee guide](./node-operators/pdg.md).
 </details>
 
 <details>
