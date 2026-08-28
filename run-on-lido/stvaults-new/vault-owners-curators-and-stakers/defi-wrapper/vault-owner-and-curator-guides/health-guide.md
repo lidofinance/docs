@@ -46,7 +46,7 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 <details>
   <summary>using Etherscan UI</summary>
 
-      1. Open **Etherscan** and navigate to the **VaultHub** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+      1. Open **Etherscan** and navigate to the **VaultHub** contract by its address (available in the stVaults contract addresses list, see [Environments](../../concepts-and-reference/architecture-overview#environments)).
       2. Since this contract is a proxy, complete the verification steps once (if not done before):
          - Go to **Contract → Code**.
          - Click **More options**.

@@ -292,7 +292,7 @@ Within the confirmation time window period (default 24 hours) after step 2, the 
 
 #### Etherscan
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [Environments](../../concepts-and-reference/architecture-overview#environments)).
 2. Since this contract is a proxy, complete the verification steps once (if not done before):
    - Go to **Contract → Code**.
    - Click **More options**.

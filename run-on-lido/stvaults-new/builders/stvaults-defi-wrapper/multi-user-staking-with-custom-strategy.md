@@ -440,7 +440,7 @@ Confirming tier change request requires applying fresh report to vault. [Read mo
 - `TierID`: the ID of the tier to which the stVault will be connected.
 - `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier's stETH limit.
 - `TimelockAddress`: the address of the `TimelockController` contract (deployed together with the pool).
-- `OperatorGridAddress`: the address of the `OperatorGrid` contract (available in the stVaults contract addresses list, see [#Environments](#environments)).
+- `OperatorGridAddress`: the address of the `OperatorGrid` contract (available in the stVaults contract addresses list, see [Environments](../../concepts-and-reference/architecture-overview#environments)).
 
 <details>
   <summary>How to determine available tier IDs for your Node Operator</summary>
@@ -578,7 +578,7 @@ Within the confirmation time window period (default 24 hours) after step 2, the 
 
 #### Etherscan
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [#Environments](#environments)).
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address (available in the stVaults contract addresses list, see [Environments](../../concepts-and-reference/architecture-overview#environments)).
 2. Since this contract is a proxy, complete the verification steps once (if not done before):
    - Go to **Contract → Code**.
    - Click **More options**.
