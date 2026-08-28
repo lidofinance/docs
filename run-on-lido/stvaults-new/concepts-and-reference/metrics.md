@@ -37,7 +37,7 @@ Defines the share of the collateral that is reserved when the Vault Owner mints 
 
 ### Forced Rebalance Threshold
 
-Defines the minimum allowed ratio of Total Value to stETH Liability. Crossing it makes the stVault subject to [forced rebalancing](./rebalance-guide.md). Always lower than the Reserve Ratio.
+Defines the minimum allowed ratio of Total Value to stETH Liability. Crossing it makes the stVault subject to [forced rebalancing](../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md). Always lower than the Reserve Ratio.
 
 ### Minimal Reserve
 
@@ -199,7 +199,7 @@ $$
 HF = \frac{TV \times (1 - FRT)}{L} \times 100\%
 $$
 
-The stVault is healthy while `HF ≥ 100%`. Below that it becomes subject to [forced rebalancing](./rebalance-guide.md). See the [Health monitoring guide](./health-monitoring-guide.md) for the risk bands used in the Web UI.
+The stVault is healthy while `HF ≥ 100%`. Below that it becomes subject to [forced rebalancing](../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md). See the [Health monitoring guide](../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md) for the risk bands used in the Web UI.
 
 ### Available to withdraw
 
@@ -382,7 +382,7 @@ Carry Spread is the Health Factor trend indicator: a positive spread raises the 
 
 ## Restoring an unhealthy stVault
 
-Three metrics show how much of each corrective action is needed to bring the Utilization Ratio back to 100%. See the [Health emergency guide](./health-emergency-guide.md) for a worked comparison.
+Three metrics show how much of each corrective action is needed to bring the Utilization Ratio back to 100%. See the [Health emergency guide](../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md) for a worked comparison.
 
 ### ETH to rebalance
 
@@ -416,5 +416,5 @@ $$
 
 ## Related
 
-- [Health monitoring guide](./health-monitoring-guide.md) — which of these to watch and how often
+- [Health monitoring guide](../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md) — which of these to watch and how often
 - [CLI metrics calculation reference](https://lidofinance.github.io/lido-staking-vault-cli/metrics-calculation) — the off-chain methodology in full

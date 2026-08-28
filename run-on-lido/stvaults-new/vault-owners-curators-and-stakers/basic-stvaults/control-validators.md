@@ -21,7 +21,7 @@ There are two ways to get ETH back from validators:
 | Node Operator | Exit validators directly | the Node Operator address, non-delegable |
 | stVaults Committee, Lido DAO | Force a full exit | only while the stVault has an obligations shortfall |
 
-All Vault Owner permissions above are held by the admin by default and can be delegated — see [Roles and permissions](./roles-and-permissions.md).
+All Vault Owner permissions above are held by the admin by default and can be delegated — see [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md).
 
 ## Request a validator exit
 
@@ -146,4 +146,4 @@ An **obligations shortfall** means the stVault owes more than the liquid ETH on 
 
 If the stVault balance covers all of that, there is no shortfall and forced exits are not possible — even if the stVault is unhealthy.
 
-Watch the Health Factor and act while it is still above 100% — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Rebalance guide](./rebalance-guide.md).
+Watch the Health Factor and act while it is still above 100% — see the [Health monitoring guide](./health-monitoring-guide.md) and the [Rebalance guide](./rebalance.md).

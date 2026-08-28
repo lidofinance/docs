@@ -167,7 +167,7 @@ The CLI automatically fetches the latest report CID, retrieves the Merkle tree f
 You can verify the disconnection completed by calling `VaultHub.isVaultConnected(vaultAddress)` or checking for the `VaultDisconnectCompleted` event in the transaction logs. If the disconnect was aborted due to slashing or liabilities, a `VaultDisconnectAborted` event will appear instead, and you will need to resolve the issue before trying again.
 :::
 
-For more about applying report, read [Applying Report Guide](./applying-report-guide.md).
+For more about applying report, read [Applying Oracle Reports](./applying-report-guide.md).
 
 ## Step 3. Abandon Dashboard and transfer ownership
 
@@ -400,7 +400,7 @@ The CLI automatically fetches the latest report CID, retrieves the Merkle tree f
 You can verify the disconnection completed by calling `VaultHub.isVaultConnected(vaultAddress)` or checking for the `VaultDisconnectCompleted` event in the transaction logs. If the disconnect was aborted due to slashing or liabilities, a `VaultDisconnectAborted` event will appear instead, and you will need to resolve the issue before trying again.
 :::
 
-For more about applying report, read [Applying Report Guide](./applying-report-guide.md).
+For more about applying report, read [Applying Oracle Reports](./applying-report-guide.md).
 
 ## Step 3. Accept ownership
 

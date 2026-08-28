@@ -44,4 +44,5 @@ You can find the addresses required for whitelisting in the [Custodians overview
 - [Create a Basic stVault with optional liquidity](../builders/basic-stvaults/basic-isolated-staking-setup.md)
 - [Health Monitoring Guide](../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md)
 - [Health Emergency Guide](../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md)
-- [stVault Rebalancing](../vault-owners-curators-and-stakers/basic-stvaults/rebalance-guide.md)
+- [stVault Rebalancing](../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md)
+- [Redemptions coverage with stETH liquidity](../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth.md)

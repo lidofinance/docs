@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Roles and permissions
+# Roles and Permissions
 
 Every Basic stVault is controlled through a [`Dashboard`](/contracts/dashboard) contract, which is deployed together with the [`StakingVault`](/contracts/staking-vault) and owns it. `Dashboard` uses OpenZeppelin's `AccessControl` with a **two-admin model**:
 

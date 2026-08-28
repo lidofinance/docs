@@ -485,4 +485,4 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
 - [stVaults Metrics](../features-and-mechanics/parameters-and-metrics)
 - [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
 - [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
-- [Applying Report Guide](../operational-and-management-guides/applying-report-guide)
+- [Applying Oracle Reports](../operational-and-management-guides/applying-report-guide)

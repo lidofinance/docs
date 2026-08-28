@@ -50,7 +50,7 @@ Both admin roles and every sub-role are readable on the `Dashboard` contract. Ch
 - **`NODE_OPERATOR_MANAGER_ROLE` is the operator's address** you agreed on.
 - **No sub-role was granted to an address you do not recognise.** The factory accepts a list of role assignments at creation, so sub-roles can already be in place before you ever see the stVault. An admin can perform every operation in its scope anyway, so any sub-role holder is an extra key to your stVault.
 
-Roles can be changed later, so a surprise here is recoverable — see [Roles and permissions](./roles-and-permissions.md).
+Roles can be changed later, so a surprise here is recoverable — see [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -115,7 +115,7 @@ yarn start contracts dashboard read node-operator-fee-recipient <dashboard_addre
 
 ## The tier and its limits
 
-The tier the Node Operator proposed sets the Reserve Ratio, Forced Rebalance Threshold and stETH minting limit. Those numbers decide how much stETH can be minted against the ETH in the stVault and how far the stVault can drift before forced rebalancing — see [Metrics](./metrics.md).
+The tier the Node Operator proposed sets the Reserve Ratio, Forced Rebalance Threshold and stETH minting limit. Those numbers decide how much stETH can be minted against the ETH in the stVault and how far the stVault can drift before forced rebalancing — see [Metrics](../../concepts-and-reference/metrics.md).
 
 Compare the proposed tier against the Default tier. Changing the tier later is possible but needs the Node Operator to confirm it.
 
@@ -196,7 +196,7 @@ Most settings can still be corrected at this point, but not from the Web UI: it 
 
 Two things are different:
 
-- **The tier and the minting limit cannot be finalised yet.** The Node Operator can register their side of the agreement in advance, but the Vault Owner's side reverts with `VaultNotConnected` until the stVault is connected. Agree the terms now and apply them right after connecting — see [Change tier and stETH minting limit](../../node-operators/change-tier-and-steth-minting-limit.md).
+- **The tier and the minting limit cannot be finalised yet.** The Node Operator can register their side of the agreement in advance, but the Vault Owner's side reverts with `VaultNotConnected` until the stVault is connected. Agree the terms now and apply them right after connecting — see [Change tier and stETH minting limit](../../node-operators/basic-stvaults/change-tier-and-steth-minting-limit.md).
 - **The Node Operator address cannot be changed at all.** If it is wrong, abandon this stVault and have a new one created; nothing is lost as long as no ETH has been supplied.
 
 ## What connecting does
@@ -205,7 +205,7 @@ The connecting transaction funds the stVault and hands its ownership to VaultHub
 
 **1 ETH is a minimum, not a fixed amount.** The connect call is payable and funds whatever is attached, so the full intended stake can go in the same transaction instead of connecting first and funding after.
 
-**Only 1 ETH is locked.** Whatever is supplied, exactly 1 ETH becomes the minimal reserve; the rest is ordinary stVault balance that counts towards the [stETH minting capacity](./metrics.md) and can be withdrawn. The reserve is refundable: it comes back when you [disconnect](./disconnection.md).
+**Only 1 ETH is locked.** Whatever is supplied, exactly 1 ETH becomes the minimal reserve; the rest is ordinary stVault balance that counts towards the [stETH minting capacity](../../concepts-and-reference/metrics.md#total-steth-minting-capacity) and can be withdrawn. The reserve is refundable: it comes back when you [disconnect](./disconnection.md).
 
 **Connecting can be combined with accepting the tier.** `connectAndAcceptTier` does both in one transaction, which is what the Web UI uses.
 

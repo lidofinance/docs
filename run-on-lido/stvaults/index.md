@@ -44,7 +44,7 @@ Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
 2. [Health Emergency guide](./operational-and-management-guides/health-emergency-guide.md)
 3. [stVaults Economy Examples](./operational-and-management-guides/stvaults-economy-examples.mdx)
 4. [Voluntary Rebalancing and Vault Closure](./operational-and-management-guides/voluntary-rebalancing-and-vault-closure.md)
-5. [Applying Report Guide](./operational-and-management-guides/applying-report-guide.md)
+5. [Applying Oracle Reports](./operational-and-management-guides/applying-report-guide.md)
 6. [stVault Disconnect Guide](./operational-and-management-guides/stvault-disconnect-guide.md)
 7. [Become an Identified Node Operator and get tiers, or request changes](./operational-and-management-guides/node-operators-identification.md)
 

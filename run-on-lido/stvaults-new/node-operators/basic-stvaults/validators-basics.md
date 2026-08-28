@@ -6,7 +6,7 @@ sidebar_position: 9
 
 Running validators for an stVault is ordinary Ethereum validation with a few constraints that come from the stVault: where the withdrawal credentials point, where the execution-layer rewards land, and who is expected to act on an exit request. This page covers those constraints.
 
-Everything else — key generation, node setup, client choice, monitoring — is the same craft as any other Lido module. The [CSM guide](../../csm/index.md) covers it in depth and applies here too.
+Everything else — key generation, node setup, client choice, monitoring — is the same craft as any other Lido module. The [CSM guide](../../../csm/index.md) covers it in depth and applies here too.
 
 ## Withdrawal credentials
 
@@ -120,7 +120,7 @@ Public keys are a comma-separated list. The CLI reads the current fee itself and
 
 - [Predeposit Guarantee](./pdg.md) — how deposits actually reach validators
 - [Consolidations](./consolidations.md) — migrating existing validators into an stVault
-- [CSM guide: generating validator keys](../../csm/generating-validator-keys/index.md)
-- [CSM guide: node setup](../../csm/node-setup/index.md)
-- [CSM guide: alerts and monitoring](../../csm/alerts-and-monitoring/index.md)
-- [CSM guide: best practices](../../csm/best-practices/index.md)
+- [CSM guide: generating validator keys](../../../csm/generating-validator-keys/index.md)
+- [CSM guide: node setup](../../../csm/node-setup/index.md)
+- [CSM guide: alerts and monitoring](../../../csm/alerts-and-monitoring/index.md)
+- [CSM guide: best practices](../../../csm/best-practices/index.md)

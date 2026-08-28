@@ -17,7 +17,7 @@ There are **three ways to restore stVault Health**:
 
 1. **Burn stETH** – Restores the reserve ratio without changing total value; keeps rewards unchanged but reduces external earnings.
 2. **Add ETH** – Increases stVault value and future rewards; requires adding extra capital.
-3. **[Rebalance](./rebalance-guide.md) / Wait for Forced Rebalancing** – Moves ETH to Lido Core and writes off equivalent debt; least recommended, as it lowers stVault total value and reduces future rewards.
+3. **[Rebalance](./rebalance.md) / Wait for Forced Rebalancing** – Moves ETH to Lido Core and writes off equivalent debt; least recommended, as it lowers stVault total value and reduces future rewards.
 
 ## Definitions
 
@@ -116,7 +116,7 @@ User needs to top up the stVault balance (Total Value) by 1.5 ETH:
     
 #### 3. Rebalance or do nothing and wait for forced rebalancing
 
-⚖️ Rebalance is moving enough ETH from the stVault to Lido Core, writing off the same stETH debt 1:1 (not burned, now backed by Core). See the [Rebalance guide](./rebalance-guide.md) for how to execute it and how forced rebalancing works.
+⚖️ Rebalance is moving enough ETH from the stVault to Lido Core, writing off the same stETH debt 1:1 (not burned, now backed by Core). See the [Rebalance guide](./rebalance.md) for how to execute it and how forced rebalancing works.
 
 For this example, the required amount to be moved is 13.5 ETH:
 

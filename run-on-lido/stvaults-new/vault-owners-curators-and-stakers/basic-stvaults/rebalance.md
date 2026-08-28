@@ -22,7 +22,7 @@ Repaying is the better option whenever the stETH can be acquired — see [Supply
 
 ## Before you start
 
-- **`REBALANCE_ROLE` is required** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](./roles-and-permissions.md).
+- **`REBALANCE_ROLE` is required** — by default the Vault Owner has it; it can be delegated. See [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md).
 - **A fresh oracle report must be applied.** The call reverts with `VaultReportStale` otherwise. The Web UI handles this automatically; via CLI or Etherscan the report has to be applied first — see [Apply oracle reports](./apply-oracle-reports.md).
 - **The ETH must be on the stVault balance, not on validators.** If most of the stVault's ETH is staked, request validator exits first and wait for the ETH to be swept back.
 
