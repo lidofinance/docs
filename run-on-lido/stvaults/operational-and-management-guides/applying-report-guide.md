@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 📊 Applying Report Guide
+# 📊 Applying Oracle Reports
 
 Before minting stETH or performing other operations that depend on current vault state, the protocol needs to ensure that you are working with the latest available data. [LazyOracle](/contracts/lazy-oracle) allows anyone to apply the latest report to a specific vault on demand.
 

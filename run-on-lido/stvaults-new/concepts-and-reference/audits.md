@@ -2,7 +2,7 @@
 sidebar_position: 12
 ---
 
-# Security approach and Audits
+# stVaults Audits
 
 ## V3 and stVaults
 

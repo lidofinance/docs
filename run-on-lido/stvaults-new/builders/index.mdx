@@ -19,11 +19,11 @@ export const GUIDES = {
     ],
   },
   massRedemptions: {
-    title: 'Mass staking product with utilizing stETH to fulfil redemptions',
-    link: './basic-stvaults/etf-etp-product',
+    title: 'Multi-User Staking Product with Redemptions through stETH',
+    link: './basic-stvaults/staking_with_redemptions_through_steth',
   description: (
     <>
-      A multi-staker staking product where {' '}
+      A multi-user staking product where {' '}
       <a href="../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth">minted stETH is used specifically to cover redemptions</a> (ETF/ETP-like pattern).
     </>
   ),
@@ -34,10 +34,10 @@ export const GUIDES = {
     ],
   },
   withoutYield: {
-    title: 'Private or Public staking vault without additional yield strategy',
-    link: './stvaults-defi-wrapper/without-yield-strategy',
+    title: 'Conservative Multi-User Delegated Staking',
+    link: './stvaults-defi-wrapper/multi-user-delegated-staking',
     description:
-      'A staking vault (single or multiple stakers) with no stETH minting and no additional DeFi yield strategy.',
+      'A conservative staking vault for single or multiple stakers, with no stETH minting or additional DeFi yield strategy. DeFi Wrapper enables a multi-user setup, while its Whitelisting capability allows builders to restrict who can deposit into the vault.',
     buildingBlocks: [
       { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
       { block: 'Pooling Wrapper', solution: 'stVaults DeFi Wrapper', implementation: 'Out-of-the-box' },
@@ -238,8 +238,8 @@ export const ProductGuideSelector = () => {
                       strategy === 'earnEth'
                         ? 'Lido EarnETH'
                         : strategy === 'leveraged'
-                        ? 'Leveraged strategy'
-                        : 'Custom strategy'
+                        ? 'Leveraged Staking Strategy'
+                        : 'Custom DeFi Strategy'
                     })`}
                 </td>
               </tr>
@@ -283,7 +283,7 @@ Answer a few questions below to find the guide that fits your product.
 
 ## 🧱 Building blocks
  
-![Building Blocks](/img/stvaults/builders/building_blocks.png)
+![Building Blocks](/img/stvaults/builders/building_blocks.jpg)
  
 ### Staking with stVaults
  

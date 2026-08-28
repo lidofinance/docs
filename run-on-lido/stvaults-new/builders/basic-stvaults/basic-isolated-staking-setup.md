@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
+title: 'Basic Isolated Staking Setup'
 ---
 
-# Basic Isolated Staking Setup by stVault
+# Basic Isolated Staking Setup
 
 ## Product value proposition
 Competitive offering to native staking — users stake with the same Node Operator and get optional liquidity through stETH.
@@ -11,7 +12,7 @@ Competitive offering to native staking — users stake with the same Node Operat
 | Parameter | Value |
 | -- | -- |
 | Number of stakers | 1 (Isolated staking setup) |
-| stETH minting capability | yes, on demand |
+| stETH minting capability | Yes, on demand |
 
 ## Building blocks
 | Building block | Solution | Implementation | 
@@ -116,14 +117,14 @@ The vault strategy - ETH is deposited to validators and generates staking reward
 
 ![Basic Isolated Staking Setup by stVault](/img/stvaults/builders/architecture_basic.jpg)
 
-## Step-by-step guide
+## Creating new stVault
 
 ➡️ URLs and Smart Contract addresses are listed on [Environments](../../concepts-and-reference/architecture-overview#environments)
 
 Creating an stVault is permissionless. There are two main ways to do it:
 
 1. Two-step process (recommended): initiated by the Node Operator and completed by the Vault Owner.
-2. One-step process (for experienced Vault Owners / Stakers): create the stVault and supply 1 ETH in a single transaction.
+2. One-step process: create stVault and supply 1 ETH of the Connection Deposit in a single transaction.
 
 ### Parameters needed to create an stVault:
 
@@ -150,14 +151,12 @@ Creating an stVault is a permissionless operation, but in this two-step process 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-       1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
-      2. Go to the **Contract** tab → **Write Contract**.
-      3. Click **Connect to Web3** and connect your wallet in the dialog window.
-      4. Find the method `createVaultWithDashboardWithoutConnectingToVaultHub` in the list, fill out the fields, and click **Write**.
-         - You can leave `_roleAssignments = []`.
-      5. Sign the transaction in your wallet.
-      6. Click **View your transaction** and wait for it to be executed.
-      7. Open the **Logs** tab, scroll to the **DashboardCreated** event, and note down the addresses of the created **Vault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
+
+1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address.
+2. Call `createVaultWithDashboardWithoutConnectingToVaultHub`. You can leave `_roleAssignments = []`.
+3. Sign the transaction in your wallet.
+4. Click **View your transaction** and wait for it to be executed.
+5. Open the **Logs** tab, scroll to the **DashboardCreated** event, and note down the addresses of the created **StakingVault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
 </details>
 
 #### 1.2. When an stVault is created, the Node Operator may optionally propose a tier with more favorable stETH minting terms than the Default tier.
@@ -178,21 +177,14 @@ To perform this step, the Node Operator of the newly created vault must already 
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **Operator Grid** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
-      2. Since this contract is a proxy, complete the verification steps once (if not done before):
-         - Go to **Contract → Code**.
-         - Click **More options**.
-         - Select **Is this a proxy?**.
-         - Click **Verify** in the dialog.
-         - Return to the contract details page.
-      3. Open the **Contract** tab → **Write as Proxy**.
-      4. Click **Connect to Web3** and connect your wallet in the dialog window.
-      5. Find the `changeTier` method in the list, fill out the fields, and click **Write**.
-      6. Sign the transaction in your wallet.
-      7. Click **View your transaction** and wait for it to be executed.
+
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address.
+2. Call `changeTier`.
 </details>
 
-#### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as collateral for connection to Lido Core, and initiates the connection to Lido Core.
+#### 1.3. After that, the **Vault Owner**, in one transaction, accepts the stETH minting parameters and fees (by accepting the tier), supplies 1 ETH as the Connection Deposit for the VaultHub connection, and initiates the connection to VaultHub.
+
+The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be used as collateral for minting stETH, and can be deposited to validators to earn validation rewards. It can be withdrawn after [disconnecting the stVault from VaultHub](../../vault-owners-curators-and-stakers/basic-stvaults/disconnection.md).
 
 This is a permissioned operation. By default, this permission belongs to the Vault Owner, who can delegate it to other addresses (multiple supported, including the Vault Owner’s own address). [Read more about roles](../../concepts-and-reference/roles-and-permissions.md).
 
@@ -227,25 +219,19 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **Dashboard** contract by its address (provided in the results of stVault creation, see step 1.1).
-      2. Since this contract is a proxy, complete the verification steps once (if not done before):
-         - Go to **Contract → Code**.
-         - Click **More options**.
-         - Select **Is this a proxy?**.
-         - Click **Verify** in the dialog.
-         - Return to the contract details page.
-      3. Open the **Contract** tab → **Write as Proxy**.
-      4. Click **Connect to Web3** and connect your wallet in the dialog window.
-      5. Find the `connectAndAcceptTier` method in the list, fill out the fields, and click **Write**.
-         - fill out the `payableAmount` field with '1' to supply `1 ETH` in the same transaction.
-         - set the `_currentSettledGrowth` field to '0' for a newly created vault like in this scenario (if the stVault is newly created but had side deposits before connecting, settled growth must be set accordingly before the connection).
-      6. Sign the transaction in your wallet.
-      7. Click **View your transaction** and wait for it to be executed.
+
+1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+2. Call `connectAndAcceptTier`:
+    - fill out the `payableAmount` field with '1' to supply `1 ETH` in the same transaction.
+    - set the `_currentSettledGrowth` field to '0' for a newly created vault like in this scenario (if the stVault is newly created but had side deposits before connecting, settled growth must be set accordingly before the connection).
+
 </details>
 
-### 2. One-step process (for experienced Vault Owners / Stakers)
+### 2. One-step process
 
-In this approach, the Vault Owner creates an stVault that automatically connects to Lido Core, enabling stETH minting. This requires supplying 1 ETH, which will be locked as collateral for the connection to Lido Core. All completed in a single transaction, so despite being a permissionless operation, it is usually performed by the Vault Owner of the future stVault.
+In this approach, the Vault Owner creates an stVault that is automatically connected to Lido Core, enabling stETH minting. This requires supplying 1 ETH, which is locked as the Connection Deposit for the VaultHub connection. The entire process is completed in a single transaction. While stVault creation is permissionless, this approach is typically performed by the intended Vault Owner of the new stVault.
+
+The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be used as collateral for minting stETH, and can be deposited to validators to earn validation rewards. It can be withdrawn after [disconnecting the stVault from VaultHub](../../vault-owners-curators-and-stakers/basic-stvaults/disconnection.md).
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -267,16 +253,23 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 </details>
 <details>
   <summary>using Etherscan UI</summary>
-      1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview#environments) page.
-      2. Go to the **Contract** tab → **Write Contract**.
-      3. Click **Connect to Web3** and connect your wallet in the dialog window.
-      4. Find the method `createVaultWithDashboard` in the list, fill out the fields, and click **Write**.
-         - `_payableAmount (ether)` must be at least **1 ETH**.
-         - You can leave `_roleAssignments = []`.
-      5. Sign the transaction in your wallet.
-      6. Click **View your transaction** and wait for it to be executed.
-      7. Open the **Logs** tab, scroll to the **DashboardCreated** event, and note down the addresses of the created **Vault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
+
+1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address.
+2. Call `createVaultWithDashboard`:
+   - `_payableAmount (ether)` must be at least **1 ETH**.
+   - You can leave `_roleAssignments = []`.
+3. Sign the transaction in your wallet.
+4. Click **View your transaction** and wait for it to be executed.
+5. Open the **Logs** tab, scroll to the **DashboardCreated** event, and note down the addresses of the created **Vault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
 </details>
+
+
+## Adjust stETH minting parameters
+
+By default, a newly created stVault is connected to the Default tier with a Reserve Ratio of 50%. If the Node Operator has passed [identification](../../node-operators/node-operator-identification-guide.md) and been granted individual tiers, the stVault can be moved from the Default tier to one of the Node Operator’s tiers to access better stETH minting conditions.
+
+For more information about how this process, please follow [Adjust stETH minting parameters](../../node-operators/change-tier-and-steth-minting-limit.md).
+
 
 ## Useful links
 
@@ -285,4 +278,4 @@ In this approach, the Vault Owner creates an stVault that automatically connects
 - [Rebalance](../../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md)
 - [Health Monitoring Guide](../../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md)
 - [Health Emergency Guide](../../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md)
-- [Applying Report Guide](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
+- [Applying Oracle Reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)

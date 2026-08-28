@@ -1,25 +1,24 @@
 ---
-sidebar_position: 3
-title: 'Leveraged Staking Product with 3rd-Party Infrastructure'
+sidebar_position: 2
+title: 'Multi-User Staking Product with Redemptions through stETH'
 ---
 
-# Leveraged Staking Product with 3rd-Party Infrastructure
+# Multi-User Staking Product with Redemptions through stETH
 
 ## Product value proposition
-Staking rewards through a chosen Node Operator, full utilization of the available stETH Minting Capacity, and recursive leverage through external lending markets to increase validation rewards.
+Staking rewards through a chosen Node Operator, with [quick redemption coverage through stETH liquidity](../../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth.md).
 
 ## Product characteristics
 | Parameter | Value |
 | -- | -- |
 | Number of stakers | Multiple |
-| stETH minting capability | Yes, as collateral for borrowing ETH in recursive loops |
+| stETH minting capability | Yes, to cover redemptions |
 
 ## Building blocks
 | Building block | Solution | Implementation | 
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | Custom | Custom |
-| Leveraged staking strategy | Custom | Custom |
 | User Interface | Custom | Custom |
 
 ## Economy model and calculator
@@ -28,48 +27,9 @@ The vault strategy - ETH is deposited to validators and generates staking reward
 <details>
   <summary>Economy calculation example</summary>
 
-<img src="/img/stvaults/economy-examples/leverage-scheme.svg" style={{width: '100%', marginBottom: '2rem'}} />
+<img src="/img/stvaults/economy-examples/insti-scheme.svg" style={{width: '100%', marginBottom: '2rem'}} />
 
-  As an example, we consider a personalized staking setup involving a single Node Operator,
-  full utilization of the available stETH minting capacity, and recursive leverage through external lending markets.
-
-  <h4 style={{fontSize: '1.1rem', lineHeight: 1.45, margin: '0.75rem 0 0.25rem', fontWeight: 700}}>In our example</h4>
-
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">Leverage multiplier:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">~9×;</span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">tVault — Total Value:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">894.85 ETH;</span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">stVault — Total stETH Minting Capacity:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">850.11 stETH;</span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">stVault — stETH Liability:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">850.11 stETH;</span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">Lending Market — stETH Used as Collateral:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">850.11 stETH;</span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">Lending Market — ETH Borrowed:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">794.85 ETH;</span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0 1rem'}}>
-    <span className="label">Vault Owner's Principal ETH:</span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value">only the initial 100 ETH.</span>
-  </div>
+  As an calculation example, let's consider a staking setup with a single Node Operator, and full utilization of available stETH Minting Capacity.
 
   ### Annualized Economics Breakdown
 
@@ -78,28 +38,28 @@ The vault strategy - ETH is deposited to validators and generates staking reward
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Gross Staking Rewards</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>30.4251 ETH</strong></span>
+    <span className="value"><strong>3.2 ETH</strong></span>
   </div>
 
   Validators generate staking rewards on top of the 100 ETH deposited to the Beacon Chain.
-  e.g., 3.4% Staking APR.
+  e.g., 3.2% Staking APR.
 
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Node Operator Fee</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>- 1.217 ETH</strong></span>
+    <span className="value"><strong>- 0.096 ETH</strong></span>
   </div>
   Set per stVault through consensus between the Vault Owner and the Node Operator.
-  e.g., 4% out of Gross Staking Rewards earned.
+  e.g., 3% out of Gross Staking Rewards earned.
 
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Lido Fee</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>- 1.6322 ETH</strong></span>
+    <span className="value"><strong>- 0.1728 ETH</strong></span>
   </div>
   In this example, the annual Lido Fee approximately equals 6% of the Lido Core Gross APR and can be calculated by
   the equation:
-  Lido Fee = 6% * 3.2% Lido Core Gross APR * 850.11 stETH = 1.6322 ETH;
+  Lido Fee = 6% * 3.2% Lido Core Gross APR * 90 stETH = 0.1728 ETH;
   e.g., Lido Core Gross APR ~ 3.2%.
 
   <h4 style={{fontSize: '1.1rem', lineHeight: 1.45, margin: '0.75rem 0 0.25rem', fontWeight: 700}}>stETH Liability
@@ -108,7 +68,7 @@ The vault strategy - ETH is deposited to validators and generates staking reward
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>Minted stETH Rebase</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>24.4832 stETH</strong></span>
+    <span className="value"><strong>2.592 stETH</strong></span>
   </div>
   The stVault’s liquidity is provided in stETH, a rebasing token — its balance updates daily to reflect accrued staking
   rewards.
@@ -123,53 +83,44 @@ The vault strategy - ETH is deposited to validators and generates staking reward
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>stVault Bottom Line</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>+ 3.0926 ETH</strong></span>
+    <span className="value"><strong>+ 0.3392 ETH</strong></span>
   </div>
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
     <span className="label"><strong>stVault Efficiency</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>3.0926%</strong></span>
+    <span className="value"><strong>0.3392%</strong></span>
   </div>
   A positive stVault Efficiency indicates that the Node Operator’s performance is sufficient to cover the growth of the
   stETH Liability.
 
+
   ### stETH Usage Outside the stVault
 
-  The Vault Owner used the minted stETH to loop through a lending market in order to amplify staking rewards.
-  Additional income and expenses from the lending market:
-  - **+ 24.4832 stETH** — rebase rewards from stETH used as collateral on the lending market
-  - **+ 2.5503 stETH** — supply-side rewards from the lending market
-  - **- 21.1431 ETH** — interest paid on borrowed ETH
+  The Vault Owner generates primary profit via higher validation performance than Lido Core APR plus rewards received as
+  a stETH holder.
+  - **+ 0.3392%** — stVault Efficiency upside
+  - **+ 2.592%** — minted stETH APR (normalized to stVault Total Value 100 ETH)
 
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label"><strong>Total rewards</strong></span>
-    <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>8.983 ETH</strong></span>
-  </div>
-  <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0 1rem'}}>
     <span className="label"><strong>Total APR</strong></span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
-    <span className="value"><strong>8.983%</strong></span>
+    <span className="value"><strong>2.9312%</strong></span>
   </div>
 
-  Total APR is normalized to the Vault Owner’s initial 100 ETH.
+  <br/>
 
-  (!) Note: All lending market parameters are illustrative. Actual values depend on the specific product and prevailing
-  market conditions. (!)
 
 </details>
 
 ## Architecture
 
-![Leveraged Staking Product with 3rd-Party Infrastructure](/img/stvaults/builders/architecture_lsp.jpg)
+![Multi-User Staking Product with Redemptions through stETH](/img/stvaults/builders/architecture_rsp.jpg)
 
-## Leveraged Staking Strategy
+## Redemptions coverage by stETH
 
-There are several ways to build a leveraged staking strategy with stVaults: implement the solution in-house or use existing infrastructure developed by stVaults builders, such as Gauntlet or RockSolid.
+There are several possible options to cover redemptions with stETH liquidity, depending on specific requirements and limitations. All of them are described in this doc — [Redemptions coverage with stETH liquidity](../../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth.md).
 
-This guide explains how to create the stVault itself. Once the stVault is deployed, you can [configure roles and permissions](../../concepts-and-reference/roles-and-permissions.md) by assigning them to the corresponding smart contracts of the selected solution. Please confirm the required contract addresses with the respective builder.
-
-## Parameters needed to create an stVault
+## Parameters needed to create an stVault:
 
 Creating an stVault is permissionless.
 
@@ -225,8 +176,9 @@ For more information about how this process, please follow [Adjust stETH minting
 
 ## Useful links
 
-- [Roles and Permissions](../../concepts-and-reference/roles-and-permissions.md)
+- [Supply/Withdraw ETH, Mint/Repay stETH](../../vault-owners-curators-and-stakers/basic-stvaults/supply-withdraw-mint-repay.md)
 - [Control validators by the Vault Owner](../../vault-owners-curators-and-stakers/basic-stvaults/control-validators.md)
+— [Redemptions coverage with stETH liquidity](../../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth.md)
 - [Rebalance](../../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md)
 - [Health Monitoring Guide](../../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md)
 - [Health Emergency Guide](../../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md)
