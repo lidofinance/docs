@@ -74,7 +74,7 @@ After a full withdrawal is included in a beacon block, anyone can submit a [with
 
 `Verifier` validates the proof against a beacon block root obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and forwards the proof to the module to process.
 
-If the withdrawal amount is below the [confirmed expected balance](#validator-balance-tracking), the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Fixed exit penalties are [scaled with the validator's balance](/run-on-lido/csm/penalties#parameters-by-operator-profile).
+If the withdrawal amount is below the [confirmed expected balance](#validator-balance-tracking), the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Some of these amounts are proportional to the validator's balance while others are flat, as documented for [CMv2](/run-on-lido/cm-v2/penalties#exit-delay-fee) and [0x02 CSM](/run-on-lido/csm/penalties#parameters-by-operator-profile).
 
 ### Slashed validators
 

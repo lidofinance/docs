@@ -23,7 +23,7 @@ Until now, CSM has worked exclusively with `0x01` validators, which have a maxim
 
 Supporting wider `0x02` adoption is important for Ethereum. Larger validators can compound rewards and consolidate stake into fewer validators, reducing consensus-layer overhead and helping prepare Ethereum for future improvements such as faster finality.
 
-Technical limitations make it difficult to support both credential types within a single CSM module. They also prevent CSM from capping `0x02` validators at different balances, which would be needed to offer a wider range of bond amounts. For this reason, 0x02 CSM will be introduced as a separate module built on the same CSM v3 codebase.
+Technical limitations make it difficult to support both credential types within a single CSM module. They also prevent CSM from capping `0x02` validators at different balances, which would be needed to offer a wider range of bond amounts. For this reason, 0x02 CSM is a separate module built on the same CSM v3 codebase.
 
 ## How the modules work together
 

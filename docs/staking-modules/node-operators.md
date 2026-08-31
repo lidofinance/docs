@@ -8,11 +8,9 @@ Looking for a practical guide to run nodes? Follow the [Curated Module v2 guide]
 
 ## Node Operator creation
 
-To become a Node Operator or register new validators for an existing Node Operator, at least one [`validator pubkey`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#validator), corresponding [`deposit signature`](https://github.com/ethereum/consensus-specs/blob/v1.4.0/specs/phase0/beacon-chain.md#signingdata), and the corresponding [bond](#bond) amount should be provided.
-
 **In CMv2** an eligible address creates the Node Operator through the [`CuratedGate`](/staking-modules/contracts/CuratedGate) for its assigned operator type, providing a valid Merkle proof. Creation alone does not make the operator eligible for deposits as the Curated Module Committee must add it to an operator group and assign an allocation weight first.
 
-**In CSM** entry is permissionless, through [`PermissionlessGate`](/staking-modules/contracts/PermissionlessGate), or through [`VettedGate`](/staking-modules/contracts/VettedGate) if the operator is part of ICS or IDVTC.
+**In CSM** entry is permissionless, through [`PermissionlessGate`](/staking-modules/contracts/PermissionlessGate), or through [`VettedGate`](/staking-modules/contracts/VettedGate) if the operator is part of ICS or IDVTC. The operator is created together with its first validator keys and bond in a single transaction.
 
 ### Node Operator structure
 
@@ -70,7 +68,7 @@ Any unbonded validators are requested to exit. Unbonded but not deposited keys a
 With the [bond](#bond) being stored in stETH, there is a risk of a reduction in the [bond](#bond) amount due to a negative stETH rebase. This might result in some Node Operators being unable to claim rewards (due to the actual [bond](#bond) being lower than required) or even validators becoming unbonded. This problem is described in detail in [Bond Mechanics in Lido ADR](https://hackmd.io/@lido/BJqWx7P0p). For this document, it is worth mentioning that no additional actions are required due to the low probability of the negative stETH rebase and a dedicated [reserve fund](/contracts/reserve) at the Lido DAO's disposal for possible use as cover.
 
 ## Deposit data validation and invalidation (aka vetting and unvetting)
-These modules utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM calls [`decreaseVettedSigningKeysCount`](/staking-modules/contracts/CSModule#decreasevettedsigningkeyscount) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
+These modules utilize an [optimistic vetting](https://hackmd.io/@lido/ryw2Qo5ia) approach. Uploaded deposit data will be treated as valid unless DSM reports it is not. In case of invalid deposit data detection, DSM reports it to the [Staking Router](/contracts/staking-router#decreasestakingmodulevettedkeyscountbynodeoperator), which calls `decreaseVettedSigningKeysCount` on the module ([`CuratedModule`](/staking-modules/contracts/CuratedModule#decreasevettedsigningkeyscount) or [`CSModule`](/staking-modules/contracts/CSModule#decreasevettedsigningkeyscount)) to set `vettedKeys` pointer to the deposit data prior to the first invalid deposit data. In this case a Node Operator should remove invalid keys to resume stake allocation to the valid non-deposited keys.
 
 ## Depositable keys
 Several factors determine if the deposit can be made using corresponding deposit data. This information is reflected in the Node Operator's `depositableKeys` property. This property indicates the number of deposit data records extracted sequentially starting from the last deposited record available in the Node Operator's key storage for deposits by the staking router. This number is determined as follows:
