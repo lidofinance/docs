@@ -88,7 +88,7 @@ The `DelegationFactory` is already deployed by the Lido contributors — you onl
 
 | Network | `DelegationFactory` address |
 | --- | --- |
-| Ethereum mainnet | _TBD — will be published before the migration_ |
+| Ethereum mainnet | [`0xD990770eB2B4b6062EDdB06892fF179C693b46e6`](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6#code) |
 | Hoodi | [`0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6`](https://hoodi.etherscan.io/address/0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6#code) |
 
 **Do not accept a factory address from chat or DM.** Take it from the table above or from the
