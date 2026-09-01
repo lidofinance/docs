@@ -60,6 +60,10 @@ The disconnect process requires multiple roles across the Pool, Withdrawal Queue
 
 :::
 
+:::warning
+`MANAGER_ROLE` on the Distributor is a custody decision rather than an operational one. Its holder sets the Merkle root directly — no delay, and no on-chain check that the tree matches what was actually transferred — so a wrong or malicious root redirects every **unclaimed** token. Amounts users have already claimed are safe, because claims are cumulative per recipient and token, but the remaining balance stays exposed until it is all claimed.
+:::
+
 Schedule and execute a batch transaction through the Timelock Controller to grant the roles below. The example covers the seven grants that match the Pool, Withdrawal Queue, and Dashboard **rebalance / pause / exit** path. If `trustedActor` must also call `voluntaryDisconnect()` or `collectERC20` on the Dashboard without going through an admin Timelock, append two more `grantRole` calls on the Dashboard for `VOLUNTARY_DISCONNECT_ROLE` and `COLLECT_VAULT_ERC20_ROLE`. `MANAGER_ROLE` is on the Distributor — grant it separately if the distributor is managed by a different address than `--nodeOperatorManager`.
 
 ```
@@ -217,17 +221,32 @@ Follow the [stVault disconnection guide](../../basic-stvaults/disconnection.md) 
 3. **Abandon Dashboard** — call `Dashboard.abandonDashboard(newOwner)` from the Timelock Controller.
 4. **Accept ownership** — call `StakingVault.acceptOwnership()` from the `newOwner` address.
 
+:::danger
+**Choose `newOwner` carefully: from this step until Step 7, that one address holds every depositor's ETH.**
+
+Use an address already trusted with the pool, never a personal key. The timelock is the safest choice but makes Step 7 manual: the CLI's `propose-operation` does not know the StakingVault, so `acceptOwnership`, `withdraw` and `collectERC20` would each need hand-built calldata and its own delay. The multisig behind the timelock keeps the CLI usable at the cost of that delay.
+
+Either way, keep the window short — Step 7 is what puts the funds back behind something users can act on themselves.
+:::
+
 ---
 
 ## Step 7. Withdraw assets and distribute to users
 
 After disconnection, remaining ETH in the vault must be distributed to pool users through the Distributor contract.
 
-### 7.1. Convert vault ETH to wstETH
+### 7.1. Convert vault ETH to an ERC-20
 
-The Distributor only moves ERC-20 tokens, so the vault's ETH has to become one first. wstETH is the choice because it keeps earning: a user who leaves the tokens unclaimed for a month still accrues staking rewards, which wETH would not give them.
+The Distributor only moves ERC-20 tokens, so the vault's ETH has to become one first. Either wstETH or wETH works, and the choice is economic rather than technical:
 
-The conversion needs no extra step. wstETH's `receive()` stakes whatever ETH arrives and mints wstETH back to the sender, so a single `withdraw` call to the wstETH address does it.
+| Token | While the tokens sit unclaimed | Consider it when |
+| --- | --- | --- |
+| **wstETH** | keeps accruing staking rewards | users may take weeks to claim, and you want them to keep earning meanwhile |
+| **wETH** | holds a flat ETH value | you want the amounts to stay exactly what was distributed, with no rate to explain |
+
+wstETH is the usual choice for that first reason. Whichever you pick, the rest of Step 7 is identical — substitute its address wherever the commands below say wstETH.
+
+The conversion needs no extra step in either case: both contracts mint to the sender on receiving ETH — wstETH stakes it, wETH wraps it — so a single `withdraw` call to the token's address does the job.
 
 First, retrieve the available balance of the vault:
 
@@ -235,13 +254,13 @@ First, retrieve the available balance of the vault:
 yarn start contracts vault r available-balance <vaultAddress>
 ```
 
-Use the value returned as `<amountInETH>` in the next command. Call `StakingVault.withdraw(recipient, amount)` with the **wstETH contract address** as the recipient:
+Use the value returned as `<amountInETH>` in the next command. Call `StakingVault.withdraw(recipient, amount)` with the **token contract address** as the recipient:
 
 ```bash
-yarn start contracts vault w withdraw <vaultAddress> <wstethAddress> <amountInETH>
+yarn start contracts vault w withdraw <vaultAddress> <tokenAddress> <amountInETH>
 ```
 
-After this call, the vault holds wstETH tokens (not ETH).
+After this call, the vault holds that token rather than ETH.
 
 :::info
 Make sure you account for the Initial Connect Deposit (1 ETH) that was unlocked after disconnect — it is now part of the available balance.

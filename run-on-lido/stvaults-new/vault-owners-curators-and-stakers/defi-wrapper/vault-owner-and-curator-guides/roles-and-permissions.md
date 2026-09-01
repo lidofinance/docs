@@ -22,7 +22,7 @@ Use CLI `yarn start defi-wrapper use-cases timelock-governance --help` to get li
 
 `TimelockController` is deployed together with the pool and becomes the admin for most DeFi Wrapper components. It is **self-administered**, meaning role changes and privileged actions should go through timelocked proposals.
 
-**Proposer** – schedules operations, and may also cancel a scheduled one. **Executor** – runs an operation once its delay has elapsed. Both are set at deployment, and in practice both are the Vault Owner, usually a multisig.
+**Proposer** – schedules operations, and may also cancel a scheduled one. **Executor** – runs an operation once its delay has elapsed. Both are set at deployment, and we recommend splitting them as described in [Non-Custodial Operational Setup](./non-custodial-operations.md).
 
 The Emergency Committee is then granted `CANCELLER_ROLE`, so it can drop a scheduled operation without being able to schedule or run one. The factory grants only the proposer and executor, so that role has to be added afterwards by a proposal through the timelock itself.
 
@@ -35,13 +35,15 @@ The Emergency Committee is then granted `CANCELLER_ROLE`, so it can drop a sched
 
 The Pool is an ERC20 share token contract (`StvPool` / `StvStETHPool`) where users deposit ETH and receive STV shares.
 
-| Role                                           | When applicable                | Permissions                                                                                                                                                     |
-| ---------------------------------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DEFAULT_ADMIN_ROLE`                           | always                         | Admin for pool roles and configuration. Assigned to the pool `TimelockController`.                                                                              |
-| `ALLOW_LIST_MANAGER_ROLE`                      | allowlist pools (non-strategy) | Manage the deposit allowlist: add/remove accounts (controls `DEPOSIT_ROLE`).                                                                                    |
-| `DEPOSITS_PAUSE_ROLE` / `DEPOSITS_RESUME_ROLE` | always                         | Pause/resume ETH deposits into the pool. <br/><br/> **Pause**: Emergency Committee; <br/>**Resume**: via timelock governance                                    |
-| `MINTING_PAUSE_ROLE` / `MINTING_RESUME_ROLE`   | minting pools (`StvStETHPool`) | Pause/resume (w)stETH minting. <br/><br/> **Pause**: Emergency Committee; <br/>**Resume**: via timelock governance                                              |
-| `LOSS_SOCIALIZER_ROLE`                         | minting pools (`StvStETHPool`) | Call `forceRebalanceAndSocializeLoss(...)` for undercollateralized accounts (typically used by an operator/keeper before emergency actions such as disconnect). |
+| Role | When applicable | Permissions | Default assignment |
+| --- | --- | --- | --- |
+| `DEFAULT_ADMIN_ROLE` | always | Admin for pool roles and configuration | `TimelockController` |
+| `ALLOW_LIST_MANAGER_ROLE` | allowlist pools (non-strategy) | Manage the deposit allowlist: add and remove accounts, which is what `DEPOSIT_ROLE` records | the allowlist manager from the deploy config; **nobody** on strategy pools |
+| `DEPOSITS_PAUSE_ROLE` | always | Pause ETH deposits into the pool | Emergency Committee |
+| `DEPOSITS_RESUME_ROLE` | always | Resume ETH deposits | **nobody** |
+| `MINTING_PAUSE_ROLE` | minting pools (`StvStETHPool`) | Pause (w)stETH minting | Emergency Committee |
+| `MINTING_RESUME_ROLE` | minting pools (`StvStETHPool`) | Resume (w)stETH minting | **nobody** |
+| `LOSS_SOCIALIZER_ROLE` | minting pools (`StvStETHPool`) | Call `forceRebalanceAndSocializeLoss(...)` to close an undercollateralized account, spreading the shortfall over everyone else | **nobody** |
 
 ### Allowlist specifics
 
@@ -49,46 +51,53 @@ The Pool is an ERC20 share token contract (`StvPool` / `StvStETHPool`) where use
 - For strategy pools the Strategy contract is added to the allowlist during deployment, and **users are expected to supply via the Strategy** (not via the Pool directly).
 
 :::warning
-The **resume** roles in the tables below are granted to nobody at deployment, and neither is `LOSS_SOCIALIZER_ROLE`. Every implementation starts with its features paused and the factory hands out only the pause halves. Resuming therefore takes two timelock rounds: one to grant the resume role, another to use it. Pausing is immediate; unpausing is not.
+Every role marked **nobody** on this page is unassigned at deployment. Each implementation starts with its features paused and the factory hands out only the pause halves, so resuming takes two timelock rounds: one to grant the resume role, another to use it. Pausing is immediate; unpausing is not.
 :::
 
 ## Withdrawal Queue roles
 
 Withdrawal Queue (`WithdrawalQueue`) manages withdrawal requests, finalization, and claiming.
 
-| Role                                                 | Permissions                                                                                                                          | Default assignment   |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| `DEFAULT_ADMIN_ROLE`                                 | Admin for queue roles.                                                                                                               | `TimelockController` |
-| `FINALIZE_ROLE`                                      | Finalize withdrawals; set finalization gas cost coverage.                                                                            | `nodeOperator`       |
-| `WITHDRAWALS_PAUSE_ROLE` / `WITHDRAWALS_RESUME_ROLE` | Pause/resume new withdrawal request submissions. <br/><br/> **Pause**: Emergency Committee; <br/>**Resume**: via timelock governance |                      |
-| `FINALIZE_PAUSE_ROLE` / `FINALIZE_RESUME_ROLE`       | Pause/resume finalization. <br/><br/> **Pause**: Emergency Committee; <br/>**Resume**: via timelock governance                       |                      |
+| Role | Permissions | Default assignment |
+| --- | --- | --- |
+| `DEFAULT_ADMIN_ROLE` | Admin for queue roles | `TimelockController` |
+| `FINALIZE_ROLE` | Finalize withdrawals, and set the finalization gas cost coverage | `nodeOperator` |
+| `WITHDRAWALS_PAUSE_ROLE` | Pause new withdrawal requests | Emergency Committee |
+| `WITHDRAWALS_RESUME_ROLE` | Resume new withdrawal requests | **nobody** |
+| `FINALIZE_PAUSE_ROLE` | Pause finalization | Emergency Committee |
+| `FINALIZE_RESUME_ROLE` | Resume finalization | **nobody** |
 
 ## Distributor roles
 
 Distributor (`Distributor`) is used for Merkle-based token distributions (e.g., incentives).
 
-| Role                 | Permissions                                                                   | Default assignment    |
-| -------------------- | ----------------------------------------------------------------------------- | --------------------- |
-| `DEFAULT_ADMIN_ROLE` | Admin for distributor roles.                                                  | `TimelockController`  |
-| `MANAGER_ROLE`       | Manage distribution config: add supported tokens; update Merkle root and CID. | `nodeOperatorManager` |
+| Role | Permissions | Default assignment |
+| --- | --- | --- |
+| `DEFAULT_ADMIN_ROLE` | Admin for distributor roles | `TimelockController` |
+| `MANAGER_ROLE` | Add supported tokens, and update the Merkle root and CID | `nodeOperatorManager` |
 
-## Strategy roles
+## EarnETH strategy roles
 
-A strategy pool adds one more contract with its own pause switches.
+A pool with the EarnETH connector adds one more contract with its own roles.
 
 | Role | Permissions | Default assignment |
 | --- | --- | --- |
-| `DEFAULT_ADMIN_ROLE` | Admin for strategy roles. | `TimelockController` |
-| `SUPPLY_PAUSE_ROLE` / `SUPPLY_RESUME_ROLE` | Pause/resume entering the strategy. <br/><br/> **Pause**: Emergency Committee; <br/>**Resume**: nobody at deploy | |
-| `REDEEM_PAUSE_ROLE` / `REDEEM_RESUME_ROLE` | Pause/resume exiting the strategy. | |
+| `DEFAULT_ADMIN_ROLE` | Admin for strategy roles | `TimelockController` |
+| `ALLOW_LIST_MANAGER_ROLE` | Manage who may supply through the strategy, when its allowlist is enabled | `TimelockController` |
+| `SUPPLY_PAUSE_ROLE` | Pause entering the strategy | Emergency Committee |
+| `SUPPLY_RESUME_ROLE` | Resume entering the strategy | **nobody** |
+| `REDEEM_PAUSE_ROLE` | Pause exiting the strategy | **nobody** |
+| `REDEEM_RESUME_ROLE` | Resume exiting the strategy | **nobody** |
+
+The strategy carries its own allowlist, separate from the pool's. Whether it is enforced is fixed in the constructor and cannot be switched off by a transaction — turning a private strategy pool public means upgrading to an implementation deployed with the flag off.
 
 ## How DeFi Wrapper wires stVault permissions
 
 During deployment, the Factory grants the DeFi Wrapper contracts the minimum required stVault `Dashboard` permissions:
 
-| Role                                                       | Default assignment                                    |
-| ---------------------------------------------------------- | ----------------------------------------------------- |
-| `DEFAULT_ADMIN_ROLE`                                       | TimelockController contract on the Dashboard contract |
-| `FUND_ROLE` / `REBALANCE_ROLE` / `MINT_ROLE` / `BURN_ROLE` | StvPool/StvStETHPool contract                         |
-| `WITHDRAW_ROLE`                                            | Withdrawal Queue contract                             |
-| `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE`                         | Emergency Committee                                   |
+| Role | Permissions | Default assignment |
+| --- | --- | --- |
+| `DEFAULT_ADMIN_ROLE` | Admin for Dashboard roles | `TimelockController` |
+| `FUND_ROLE` / `REBALANCE_ROLE` / `MINT_ROLE` / `BURN_ROLE` | Move ETH into the vault, rebalance it, and mint or burn stETH against it | the pool (`StvPool` / `StvStETHPool`) |
+| `WITHDRAW_ROLE` | Take ETH out of the vault to settle finalized requests | the Withdrawal Queue |
+| `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` | Stop deposits to validators | Emergency Committee |

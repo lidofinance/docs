@@ -73,7 +73,7 @@ These are proposed by one admin and executed once the other admin confirms the e
 Granted and revoked by `DEFAULT_ADMIN_ROLE`.
 
 :::info
-By default, if no sub-role holder is set, the Vault Owner can perform all the actions described below.
+`DEFAULT_ADMIN_ROLE` can perform every action below directly, whether or not the sub-role has been granted to anyone. The Dashboard checks these permissions with `onlyRoleMemberOrAdmin`, which passes for the holder of the role **or** the holder of that role's admin.
 :::
 
 | Permission                          | Operation                                                                     |
@@ -107,7 +107,9 @@ By default, if no sub-role holder is set, the Vault Owner can perform all the ac
 Granted and revoked by `NODE_OPERATOR_MANAGER_ROLE`.
 
 :::info
-By default, if no sub-role holder is set, the Node Operator Manager can perform all the actions described below.
+As on the Vault Owner side, `NODE_OPERATOR_MANAGER_ROLE` can perform every action below directly, whether or not the sub-role has been granted to anyone — it is the admin of all three, and the checks use `onlyRoleMemberOrAdmin`.
+
+It is also its own admin, so the Vault Owner can neither grant nor revoke it.
 :::
 
 | Permission                                   | Operation                                                                                                                                       |
