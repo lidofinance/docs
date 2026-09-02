@@ -54,7 +54,7 @@ sequenceDiagram
   P-->>G: unlock guarantee
 ```
 
-See the [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg) for step-by-step flows.
+See the [PDG guide](/run-on-lido/stvaults/node-operators/basic-stvaults/pdg) for step-by-step flows.
 
 ## Constants
 

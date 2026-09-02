@@ -72,7 +72,7 @@ Keep this output if you plan to set up the UI.
 
 :::
 
-#### Deployment of `StvPool` (pool without stETH minting)
+#### Deployment of `StvPool` (pool without stETH minting) {#StvPool}
 
 Run `yarn start defi-wrapper contracts factory write create-pool-stv -h` for the description of the required STV pool parameters.
 
@@ -94,7 +94,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv <DEFI_WRAPPER_FACTOR
   --allowList false
 ```
 
-#### Deployment of `StvStETHPool` (pool with stETH minting)
+#### Deployment of `StvStETHPool` (pool with stETH minting) {#StvStETHPool}
 
 Run `yarn start defi-wrapper contracts factory write create-pool-stv-steth -h` for the description of the required STV pool parameters.
 
