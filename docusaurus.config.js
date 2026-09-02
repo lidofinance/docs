@@ -105,7 +105,7 @@ module.exports = async function createConfigAsync() {
               from: '/guides/steth-integration-guide',
             },
             {
-              to: '/run-on-lido/stvaults-new/concepts-and-reference/lido-v3-whitepaper',
+              to: '/run-on-lido/stvaults/concepts-and-reference/lido-v3-whitepaper',
               from: '/lido-v3-whitepaper',
             },
             {
