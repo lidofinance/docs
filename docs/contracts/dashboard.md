@@ -739,5 +739,5 @@ Role renouncement is **disabled**: this method always reverts with `RoleRenounce
 - [VaultHub](/contracts/vault-hub)
 - [OperatorGrid](/contracts/operator-grid)
 - [PredepositGuarantee](/contracts/predeposit-guarantee)
-- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview.md)
-- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design.md)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)
