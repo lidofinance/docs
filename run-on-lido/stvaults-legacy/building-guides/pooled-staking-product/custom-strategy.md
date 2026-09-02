@@ -80,7 +80,7 @@ The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT`
 
 | Parameter | Description |
 |-----------|-------------|
-| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
+| `<DEFI_WRAPPER_FACTORY>` | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults-legacy/building-guides/pooled-staking-product/#environments)) |
 | `--nodeOperator` | Address of the Node Operator managing validators |
 | `--nodeOperatorManager` | Address authorized to manage Node Operator settings |
 | `--nodeOperatorFeeRateBP` | Node Operator fee in basis points (10 = 0.1%) |
@@ -120,13 +120,13 @@ After successful deployment, the CLI outputs the addresses and environment varia
 Keep the CLI output — you will need these addresses for the UI setup and ongoing operations.
 :::
 
-Continue with [Post-deployment steps](/run-on-lido/stvaults/building-guides/pooled-staking-product/#2-create-web-ui).
+Continue with [Post-deployment steps](/run-on-lido/stvaults-legacy/building-guides/pooled-staking-product/#2-create-web-ui).
 
 ---
 
 ## Path B: Upgrade an existing pool to a strategy pool
 
-Use this path when you have a running [`StvStETHPool`](/run-on-lido/stvaults/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
+Use this path when you have a running [`StvStETHPool`](/run-on-lido/stvaults-legacy/building-guides/pooled-staking-product/#deployment-of-stvstethpool-pool-with-steth-minting) and want to add a strategy without redeploying the pool. All existing user balances and state are preserved through the proxy upgrade.
 
 :::info
 This upgrade path uses the [`OssifiableProxy`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/proxy/OssifiableProxy.sol) pattern. The pool contract is a proxy whose implementation can be swapped by its admin (the `TimelockController`). Storage (user balances, roles, parameters) lives in the proxy and is preserved across implementation changes.
@@ -385,5 +385,5 @@ The [upgrade integration test](https://github.com/lidofinance/vaults-wrapper/blo
 - [IStrategyFactory interface](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/interfaces/IStrategyFactory.sol)
 - [Upgrade integration test (StvStETHPool → strategy pool)](https://github.com/lidofinance/vaults-wrapper/blob/develop/test/integration/wrapper-upgrade-b-to-c.test.sol)
 - [stVaults CLI documentation](https://lidofinance.github.io/lido-staking-vault-cli/)
-- [stVaults Roles and Permissions](/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions)
+- [stVaults Roles and Permissions](/run-on-lido/stvaults-legacy/features-and-mechanics/roles-and-permissions)
 - [Health Monitoring Guide](../../operational-and-management-guides/health-monitoring-guide.md)

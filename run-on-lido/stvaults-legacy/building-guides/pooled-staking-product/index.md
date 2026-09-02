@@ -206,8 +206,8 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 
 | Parameter                    | Description                                                                                                                                      |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<DEFI_WRAPPER_FACTORY>`     | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments))           |
-| `<STRATEGY_FACTORY_ADDRESS>` | Lido Earn ETH Strategy Factory contract address (see [Environments](/run-on-lido/stvaults/building-guides/pooled-staking-product/#environments)) |
+| `<DEFI_WRAPPER_FACTORY>`     | DeFi Wrapper Factory contract address (see [Environments](/run-on-lido/stvaults-legacy/building-guides/pooled-staking-product/#environments))           |
+| `<STRATEGY_FACTORY_ADDRESS>` | Lido Earn ETH Strategy Factory contract address (see [Environments](/run-on-lido/stvaults-legacy/building-guides/pooled-staking-product/#environments)) |
 | `--nodeOperator`             | Address of the Node Operator managing validators                                                                                                 |
 | `--nodeOperatorManager`      | Address authorized to manage Node Operator settings                                                                                              |
 | `--nodeOperatorFeeRateBP`    | Node Operator fee in basis points (10 = 0.1%)                                                                                                    |
