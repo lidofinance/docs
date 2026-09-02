@@ -357,6 +357,10 @@ for the rate and price feeds recommended approaches.
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
 
+### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
+
+- SetDepositsReserveTarget: [`0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0`](https://etherscan.io/address/0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0)
+
 ### 🧩 Easy Track Factories for Staking Modules {#easy-track-factories-for-staking-modules}
 
 - **Curated Node Operators staking module** (registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5))
