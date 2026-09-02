@@ -364,4 +364,6 @@ PDG inherits from `PausableUntilWithRoles`. All state-changing methods require t
 - [StakingVault](/contracts/staking-vault)
 - [VaultHub](/contracts/vault-hub)
 - [Dashboard](/contracts/dashboard)
-- [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg)
+- [PDG guide](/run-on-lido/stvaults/node-operators/basic-stvaults/pdg.md)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview.md)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design.md)
