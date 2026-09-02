@@ -6,13 +6,13 @@ sidebar_position: 2
 
 A freshly deployed pool has no depositors, so it has no ETH to stake and nothing for the operator to run. This guide covers the bootstrap: the operator supplies 32 ETH themselves, activates the first validator with it through the [PDG shortcut](../basic-stvaults/pdg.md#pdg-shortcut), and later recovers that ETH through the ordinary withdrawal queue.
 
-This route keeps the operator out of the vault's custody path: no `WITHDRAW_ROLE`, no direct `Dashboard.fund()`. The money goes in as an ordinary pool deposit and comes back as an ordinary withdrawal request, on the same terms as any depositor's.
+This route keeps the operator out of the vault's custody path: no `WITHDRAW_ROLE`, no direct `Dashboard.fund()`. The ETH goes in as an ordinary pool deposit and comes back as an ordinary withdrawal request, on the same terms as any depositor's.
 
 Two addresses appear below. **OPERATOR** deposits the ETH and ends up holding the stv. **DEPOSITOR** signs the shortcut transaction. They can be the same address.
 
 ## Which role grants what
 
-The Dashboard has two independent role trees, and this procedure needs both.
+The procedure spans roles on the pool, the Dashboard and the queue, and they do not all answer to the same admin.
 
 | Action | Role | Held by |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ yarn start vo w role-grant -v <vaultAddress> \
   -r '[{"account":"<depositorAddress>","role":"NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE"}]'
 ```
 
-Signed by the **Node Operator Manager**, for the reason given above.
+Signed by the **Node Operator Manager**, which administers this role.
 
 ## Step 5 — Run the shortcut
 
@@ -71,7 +71,7 @@ yarn start deposits w unguaranteed-deposit '<depositsJson>' -v <vaultAddress>
 
 The argument is an array of deposit structs — `pubkey`, `signature`, `amount` in gwei, `deposit_data_root` — the same data a normal deposit uses. The CLI checks the BLS signature first; `--no-bls-check` skips that.
 
-This withdraws the 32 ETH from the vault and sends it straight to the deposit contract with the vault's withdrawal credentials, bypassing the predeposit. From there the validator takes the ordinary entry path — the deposit is processed, then the validator waits in the activation queue, which is as long as the number of validators entering at the time makes it.
+This withdraws the 32 ETH from the vault and sends it straight to the deposit contract with the vault's withdrawal credentials, bypassing the predeposit. From there the validator takes the ordinary entry path — the deposit is processed, then the validator waits in the activation queue, whose length depends on how many validators are entering at the time.
 
 :::warning
 The vault's reported Total Value drops by 32 ETH the moment this executes, and the stv price drops with it, because the ETH has left the vault while the validator's balance is not yet reported. Every stv holder sees the dip, not just OPERATOR. On a pool that already has depositors, tell them beforehand.
@@ -92,7 +92,7 @@ OPERATOR's stv is worth roughly 32 ETH again only once the quarantine releases. 
 
 From here OPERATOR is an ordinary depositor. File a withdrawal request for the stv from Step 2, wait for finalization, claim — see [Supply and withdraw](../../vault-owners-curators-and-stakers/defi-wrapper/stakers/supply-withdraw.md).
 
-Finalization needs ETH on the vault balance, which by now is staked. Either wait for organic deposits to cover it, or exit the bootstrap validator and let the ETH sweep back. Driving that is the operator's ordinary job — see [Manage the withdrawal queue](./manage-withdrawal-queue.md).
+Finalization needs ETH on the vault balance, and by now the bootstrap ETH is staked. Either wait for organic deposits to cover it, or exit the bootstrap validator and let the ETH sweep back. Driving that is the operator's ordinary job — see [Manage the withdrawal queue](./manage-withdrawal-queue.md).
 
 ## Cleaning up
 
