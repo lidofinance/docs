@@ -334,5 +334,5 @@ Removes quarantine for a vault. Only callable by `VaultHub`.
 - [AccountingOracle](/contracts/accounting-oracle)
 - [OperatorGrid](/contracts/operator-grid)
 - [PredepositGuarantee](/contracts/predeposit-guarantee)
-- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview.md)
-- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design.md)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)

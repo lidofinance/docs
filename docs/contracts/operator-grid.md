@@ -385,5 +385,5 @@ Jails or unjails a vault. Requires `REGISTRY_ROLE`.
 - [VaultHub](/contracts/vault-hub)
 - [StakingVault](/contracts/staking-vault)
 - [Dashboard](/contracts/dashboard)
-- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview.md)
-- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design.md)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)
