@@ -4,11 +4,11 @@ sidebar_position: 2
 
 # Manage the withdrawal queue
 
-Exits from a DeFi Wrapper pool do not settle on their own. Depositors file requests, the requests wait, and nothing pays them out until an account holding `FINALIZE_ROLE` — the Node Operator, by default — calls `finalize`. Between those two points sits the operator's job: watch how much the queue owes, bring back enough ETH from validators to cover it, and settle.
+Exits from a DeFi Wrapper pool do not settle on their own. Depositors file requests, the requests wait, and nothing pays them out until an account holding `FINALIZE_ROLE` — the Node Operator, by default — calls `finalize`. That gap is the operator's job: watch what the queue owes, bring back enough ETH from validators to cover it, and settle.
 
 ## Watching the queue
 
-One command answers the operational question — is there anything to do, and can it be done:
+One command shows whether there is anything to settle and whether it can be settled right now:
 
 ```bash
 yarn start dw uc wo withdrawal-status <poolAddress>
@@ -56,7 +56,7 @@ yarn start contracts vault r staged-balance <vaultAddress>
 
 `get-claimable-ether` takes comma-separated **lists**, not a single id: request ids and their checkpoint hints. Find the hints with `findCheckpointHint`, or claim through the UI, which resolves them automatically.
 
-`available-balance` excludes ETH staged for validator activations — that ETH is spoken for and cannot settle a request.
+`available-balance` excludes ETH staged for validator activations: that ETH is already committed and cannot settle a request.
 
 </details>
 
@@ -79,7 +79,7 @@ The first is a request, not an action: `requestValidatorExit` emits `ValidatorEx
 
 Both on-chain routes pay the EIP-7002 fee per public key. It is set by the network and rises while the withdrawal queue is congested, so read it with `calculateValidatorWithdrawalFee` and send a surplus; the excess is refunded.
 
-Between the request and the ETH landing on the vault sit the Consensus Layer exit queue and the sweep. Those dominate the timeline: the queue's own minimum delay is the smallest part of a depositor's wait.
+An exit request has to clear the Consensus Layer exit queue and then the sweep before the ETH lands on the vault. Those two dominate the timeline; the queue's own minimum delay is the smallest part of a depositor's wait.
 
 See [Validators basics](../basic-stvaults/validators-basics.md) for the full picture of who may do what.
 
@@ -100,7 +100,7 @@ If `finalize` reverts outright, the usual causes are a stale report or a paused 
 
 ### Gas cost coverage
 
-Finalizing costs the Node Operator gas while the benefit goes to the depositors leaving the pool. The coverage is how that is squared: a fixed amount is deducted from **each finalized request's payout** and paid to whoever called `finalize` — the address passed as `--gas-coverage-recipient`, or the sender by default.
+Finalizing costs the Node Operator gas while the benefit goes to the depositors leaving the pool. The coverage offsets that: a fixed amount is deducted from **each finalized request's payout** and paid to whoever called `finalize` — the address passed as `--gas-coverage-recipient`, or the sender by default.
 
 It is **0 by default**, so nothing is deducted until it is set. Raising it is a `FINALIZE_ROLE` action:
 
@@ -108,7 +108,7 @@ It is **0 by default**, so nothing is deducted until it is set. Raising it is a 
 yarn start dw uc wo set-finalization-gas-cost-coverage <withdrawalQueueAddress> <gasCostCoverageWei>
 ```
 
-Two consequences worth planning around. Coverage is part of what a finalization has to pay out, so raising it raises the vault balance needed to settle the same set of requests. And a request whose payout is smaller than the coverage surrenders only what it has, never going negative — which is also what makes a non-zero coverage discourage flooding the queue with dust.
+Two consequences follow. Coverage is part of what a finalization has to pay out, so raising it raises the vault balance needed to settle the same set of requests. And a request whose payout is smaller than the coverage surrenders only what it has, never going negative — which is also what makes a non-zero coverage discourage flooding the queue with dust.
 
 The ceiling and the checkpoint behaviour are described in [Gas cost coverage](../../concepts-and-reference/defi-wrapper-technical-design.md#gas-cost-coverage).
 

@@ -596,7 +596,7 @@ Three things stand in the way, which is why this stays theoretical: proposals ar
 
 ### 5.3 From the stVault
 
-**Node Operator misbehaviour.** The operator cannot move delegated stake, but they can be slow: delaying validator exits keeps depositors waiting in the queue. What bounds this today is the operator's reputation and the finalization rules, which stop them from profiting from the delay.
+**Node Operator misbehaviour.** The operator cannot move delegated stake, but they can be slow: delaying validator exits keeps depositors waiting in the queue. Three things bound this. The finalization rules stop them from profiting from the delay, since they set neither the rate nor the order. Their reputation is at stake. And `FINALIZE_ROLE` is administered by the Timelock Controller, so governance can grant it to another address if the operator goes quiet — depositors have no permissionless route of their own, but the pool is not locked to one finalizer.
 
 **Deposit front-running** — mitigated by [PDG](../node-operators/basic-stvaults/pdg.md), which the Wrapper's vaults use.
 

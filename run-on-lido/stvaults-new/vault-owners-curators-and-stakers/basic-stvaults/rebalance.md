@@ -10,15 +10,20 @@ The stVault's Total Value and stETH Liability both go down by the rebalanced amo
 
 ## Rebalance or repay?
 
-Both reduce the stETH liability, but they spend different things:
+Both reduce the stETH liability, but they spend different things. Taking an stVault with 1,000 ETH of Total Value and 400 stETH minted, closed out in full either way:
 
 | | Repay (burn) | Rebalance |
 | --- | --- | --- |
-| What is spent | stETH acquired externally | ETH from the stVault balance |
-| Total Value | unchanged | decreases |
+| What is spent | 400 stETH acquired externally | 400 ETH from the stVault balance |
+| Total Value afterwards | unchanged, 1,000 ETH | reduced to 600 ETH |
+| ETH recovered at the end | 1,000 ETH | 600 ETH |
 | Future rewards | unchanged | reduced, the stVault has less ETH working |
 
-Repaying is the better option whenever the stETH can be acquired — see [Supply, withdraw, mint and repay](./supply-withdraw-mint-repay.md). Rebalancing is the fallback when you do not want to buy stETH on the market, and the mechanism the protocol falls back to when a [stVault becomes unhealthy](./health-emergency-guide.md).
+Recovering 1,000 ETH instead of 600 is not a gain: the 400 stETH had to be bought somewhere. At parity that purchase costs 400 ETH, so both paths leave the same 600 ETH — the extra ETH that came back was paid for on the market.
+
+The whole difference is therefore the stETH price. Trading below parity, repaying is cheaper; above parity, rebalancing is. What repaying gives at any price is that the stVault keeps its full balance, and keeps earning on it, until the moment of withdrawal — see [Supply, withdraw, mint and repay](./supply-withdraw-mint-repay.md).
+
+Rebalancing avoids the market entirely, and it is what the protocol falls back to when an [stVault becomes unhealthy](./health-emergency-guide.md).
 
 ## Before you start
 
