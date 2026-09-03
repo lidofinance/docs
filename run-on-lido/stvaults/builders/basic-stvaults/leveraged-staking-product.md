@@ -208,7 +208,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address.
+1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview.md#environments) page.
 2. Call `createVaultWithDashboard`:
    - `_payableAmount (ether)` must be at least **1 ETH**.
    - You can leave `_roleAssignments = []`.

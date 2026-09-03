@@ -152,7 +152,7 @@ Creating an stVault is a permissionless operation, but in this two-step process 
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address.
+1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview.md#environments) page.
 2. Call `createVaultWithDashboardWithoutConnectingToVaultHub`. You can leave `_roleAssignments = []`.
 3. Sign the transaction in your wallet.
 4. Click **View your transaction** and wait for it to be executed.
@@ -178,7 +178,7 @@ To perform this step, the Node Operator of the newly created vault must already 
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **OperatorGrid** contract by its address.
+1. Open **Etherscan** and navigate to the **OperatorGrid** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview.md#environments) page.
 2. Call `changeTier`.
 </details>
 
@@ -220,7 +220,7 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `connectAndAcceptTier`:
     - fill out the `payableAmount` field with '1' to supply `1 ETH` in the same transaction.
     - set the `_currentSettledGrowth` field to '0' for a newly created vault like in this scenario (if the stVault is newly created but had side deposits before connecting, settled growth must be set accordingly before the connection).
@@ -254,7 +254,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address.
+1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview.md#environments) page.
 2. Call `createVaultWithDashboard`:
    - `_payableAmount (ether)` must be at least **1 ETH**.
    - You can leave `_roleAssignments = []`.

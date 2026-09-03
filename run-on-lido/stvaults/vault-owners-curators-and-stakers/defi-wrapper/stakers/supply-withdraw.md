@@ -36,6 +36,8 @@ For a minting pool the form also shows what you would be able to mint against th
 
 If the pool has an allowlist, an address that is not on it cannot deposit.
 
+The widget always mints the **maximum** available rather than an amount you pick — neither the deposit form nor the **Mint** button in the vault status takes a number.
+
 </details>
 
 <details>
@@ -61,7 +63,7 @@ Pass `0` as the referral if there is none. `deposit-eth` accepts `-s, --receiver
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **pool** contract by its address — you can find it on the [Environments](../../../concepts-and-reference/architecture-overview.md#environments) page or from the product operator.
+1. Open **Etherscan** and navigate to the **pool** contract — find its address on the [Per-setup addresses](../../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page or ask whoever runs the product.
 2. Call `depositETH`, passing the recipient and the referral address, with the ETH amount as the payable value.
 3. On a minting pool, call `mintStethShares` or `mintWsteth` afterwards to borrow against the position.
 
@@ -75,7 +77,7 @@ The pool prices stv from the last oracle report, so a deposit or a withdrawal re
 
 Applying a report is **permissionless** — `LazyOracle.updateVaultData` can be called by anyone, and it is the same report for the whole vault. In practice it rarely has to be done by hand:
 
-- **In the widget** it is invisible. When the report is stale the interface prepends `updateVaultData` to the same transaction batch as the deposit or withdrawal, so one confirmation covers both.
+- **In the widget** it is invisible. When the report is stale the interface prepends `updateVaultData` to the same transaction batch as the deposit or withdrawal.
 - **On the CLI or Etherscan** it has to be applied first, as a separate call.
 
 <details>

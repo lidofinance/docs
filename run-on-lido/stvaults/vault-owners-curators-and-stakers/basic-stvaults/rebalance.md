@@ -87,7 +87,7 @@ Note that these commands take the **Dashboard** address, not the stVault address
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `healthShortfallShares` to check how many shares are needed to restore health.
 3. Call `rebalanceVaultWithEther` or `rebalanceVaultWithShares`, passing the amount **in wei**.
 

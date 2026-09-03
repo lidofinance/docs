@@ -62,7 +62,7 @@ The disconnect process requires multiple roles across the Pool, Withdrawal Queue
 
 :::
 
-:::warning
+:::danger
 `MANAGER_ROLE` on the Distributor is a custody decision rather than an operational one. Its holder sets the Merkle root directly — no delay, and no on-chain check that the tree matches what was actually transferred — so a wrong or malicious root redirects every **unclaimed** token. Amounts users have already claimed are safe, because claims are cumulative per recipient and token, but the remaining balance stays exposed until it is all claimed.
 :::
 
@@ -360,7 +360,7 @@ Pin the file with your provider to ensure it remains accessible. After pinning, 
 
 The distribution is now configured. Users can verify their allocation by opening the CID via an IPFS gateway and locating their address in the Merkle tree.
 
-Users can claim their funds — see [User: claiming funds](#user-claiming-funds) below.
+Users can claim their funds — see below.
 
 ---
 

@@ -206,7 +206,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 #### Etherscan
 
-1. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+1. Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Go to the **Contract** tab → **Write Contract**.
 3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
 4. Find the `schedule` method in the list and fill out the fields:
@@ -254,13 +254,13 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 1. Check the timelock delay period:
 
-   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Read Contract**.
    - Find the `getMinDelay` method and click **Query** to see the minimum delay in seconds.
 
 2. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
 3. Execute change tier, connect the wallet:
-   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Write Contract**.
    - Click **Connect to Web3** and connect the wallet that holds the **executor role**.Click **Connect to Web3** and connect the wallet that holds the **executor role**.
 4. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
