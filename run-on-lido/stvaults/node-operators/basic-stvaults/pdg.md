@@ -299,8 +299,10 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start contracts dashboard write set-pdg-policy <dashboard_address> ALLOW_DEPOSIT_AND_PROVE
+   yarn start contracts dashboard write set-pdg-policy <dashboard_address> 2
    ```
+
+   The policy is passed as a number: `0` for `STRICT`, `1` for `ALLOW_PROVE`, `2` for `ALLOW_DEPOSIT_AND_PROVE`.
 
    To check the current policy at any time:
 
