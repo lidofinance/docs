@@ -39,7 +39,7 @@ This is a **permissionless operation** — anyone can apply a report to any vaul
 
       The report status is displayed at the top of the vault overview page, showing the last update timestamp and a link to view the oracle report on IPFS.
 
-      ![Oracle report](/img/stvaults/guide-basic-stvault/guide_1_src_10.png)
+      ![Oracle report](/img/stvaults/guide-basic-stvault/report_uptodate.png)
 
       In certain situations (such as when deposits are restricted due to accumulated fees, or when the vault is pending disconnection), an "Apply the latest Oracle report" button will appear in the relevant warning banner if a newer report is available.
 

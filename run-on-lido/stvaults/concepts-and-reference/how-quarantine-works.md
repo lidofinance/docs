@@ -40,12 +40,12 @@ The Node Operator fee is calculated on Total Value **including** the quarantined
 
 ## Recommended flow
 
-Quarantine is driven by oracle reports, not by wall-clock time: it starts when a report that reflects the increase is applied to the stVault, and it ends when a later report is applied. Both are the same `updateVaultData` call described in [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md), and both are permissionless: the Vault Owner or any third party can send them.
+Quarantine is driven by oracle reports, not by wall-clock time: it starts when a report that reflects the increase is applied to the stVault, and it ends when a later report is applied. Both are the same `updateVaultData` call described in [Apply oracle reports](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md), and both are permissionless: the Vault Owner or any third party can execute the call directly, via the CLI, or through the Web UI.
 
 These four steps take an increase through quarantine in the minimum time:
 
 1. **Perform the side operation** — a consolidation, a deposit that bypasses PDG, or anything else that raises validator balances directly.
-2. **Wait for the next general oracle report that reflects the new CL balance**, then apply it to the stVault with `updateVaultData`. Quarantine starts at this moment.
+2. **Wait for the next oracle report** that reflects the new CL balance, then [apply it to the stVault](../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md). **Quarantine starts at this moment.**
 3. **Wait 72 hours.**
 4. **Apply the next report whose `vaultsDataTimestamp` is at least `startTimestamp + 72 h`.** That call releases the quarantine and the amount becomes part of Total Value.
 

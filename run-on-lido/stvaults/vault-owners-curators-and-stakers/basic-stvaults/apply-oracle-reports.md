@@ -39,9 +39,7 @@ This is a **permissionless operation** — anyone can apply a report to any stVa
 
       The report status is shown in the navigation, next to the current stVault address: **Oracle report up to date** or **Oracle report outdated**. The question mark next to it opens the details — the timestamp of the last report, a link to view it on IPFS, and, while the report is stale, an **Apply fresh report** button to submit it manually.
 
-      ![Oracle report](/img/stvaults/guide-basic-stvault/guide_1_src_10.png)
-
-      The banner shown for an stVault pending disconnection carries its own **Apply the latest Oracle report** button.
+      ![Oracle report](/img/stvaults/guide-basic-stvault/report_outdated.png)
 
 </details>
 <details>
@@ -77,6 +75,16 @@ This is a **permissionless operation** — anyone can apply a report to any stVa
 
 You can check when your stVault's report was last updated:
 
+<details>
+  <summary>using stVaults Web UI</summary>
+
+      The report status is shown in the navigation, next to the current stVault address: **Oracle report up to date** or **Oracle report outdated**. The question mark next to it opens the details — the timestamp of the last report, a link to view it on IPFS, and, while the report is stale, an **Apply fresh report** button to submit it manually.
+
+      ![Oracle report](/img/stvaults/guide-basic-stvault/report_outdated.png)
+      
+      ![Oracle report](/img/stvaults/guide-basic-stvault/report_uptodate.png)
+
+</details>
 <details>
   <summary>using Command-line Interface</summary>
 
