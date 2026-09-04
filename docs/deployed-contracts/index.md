@@ -86,6 +86,10 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
   - Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
 
+## 🔑 Execution Delegation Framework {#execution-delegation-framework}
+
+- DelegationFactory: [`0xD990770eB2B4b6062EDdB06892fF179C693b46e6`](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6)
+
 ## 🗳️ DAO Contracts {#dao-contracts}
 
 - Lido DAO (Kernel): [`0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc`](https://etherscan.io/address/0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc) (proxy)
@@ -360,6 +364,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
+
+### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
+
+- SetDepositsReserveTarget: [`0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0`](https://etherscan.io/address/0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0)
 
 ### 🧩 Easy Track Factories for Staking Modules {#easy-track-factories-for-staking-modules}
 

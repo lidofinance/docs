@@ -15,7 +15,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8`](https://hoodi.etherscan.io/address/0xe2EF9536DAAAEBFf5b1c130957AB3E80056b06D8) (proxy)
-- Lido Locator: [`0xa519Be1BBfd95445cEdFea56C12AB0B28330CC2F`](https://hoodi.etherscan.io/address/0xa519Be1BBfd95445cEdFea56C12AB0B28330CC2F) (impl)
+- Lido Locator: [`0x546d76dd8D4BC0c6a26Cb71a39De5d78E222Cbf8`](https://hoodi.etherscan.io/address/0x546d76dd8D4BC0c6a26Cb71a39De5d78E222Cbf8) (impl)
 - Lido and stETH token: [`0x3508A952176b3c15387C97BE809eaffB1982176a`](https://hoodi.etherscan.io/address/0x3508A952176b3c15387C97BE809eaffB1982176a) (proxy)
 - Lido and stETH token: [`0xB9A2Fb8336f3775d790b3FdD6151e3F193AA7352`](https://hoodi.etherscan.io/address/0xB9A2Fb8336f3775d790b3FdD6151e3F193AA7352) (impl)
 - wstETH token: [`0x7E99eE3C66636DE415D2d7C880938F2f40f94De4`](https://hoodi.etherscan.io/address/0x7E99eE3C66636DE415D2d7C880938F2f40f94De4)
@@ -23,7 +23,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - EIP-712 helper for stETH: [`0x2A1d51BF3aAA7A7D027C8f561e5f579876a17B0a`](https://hoodi.etherscan.io/address/0x2A1d51BF3aAA7A7D027C8f561e5f579876a17B0a)
 - Staking Router: [`0xCc820558B39ee15C7C45B59390B503b83fb499A8`](https://hoodi.etherscan.io/address/0xCc820558B39ee15C7C45B59390B503b83fb499A8) (proxy)
 - Staking Router: [`0x05C392877165372Bf76dd08d52D4445bFEd6FF1F`](https://hoodi.etherscan.io/address/0x05C392877165372Bf76dd08d52D4445bFEd6FF1F) (impl)
-- Deposit Security Module: [`0xf738F86009Ec704880c9Aa175fc5869F020FEe4e`](https://hoodi.etherscan.io/address/0xf738F86009Ec704880c9Aa175fc5869F020FEe4e)
+- Deposit Security Module: [`0x8E63F0aF403ffd3Cbd5dB18b4ee632314ab49B51`](https://hoodi.etherscan.io/address/0x8E63F0aF403ffd3Cbd5dB18b4ee632314ab49B51)
 - TopUp Gateway: [`0x10DBEb3367876826d00D21718D1d893e0fbD2956`](https://hoodi.etherscan.io/address/0x10DBEb3367876826d00D21718D1d893e0fbD2956) (proxy)
 - TopUp Gateway: [`0x8621D8a402fdf2a131E38e16ac50f4C97660Fc2b`](https://hoodi.etherscan.io/address/0x8621D8a402fdf2a131E38e16ac50f4C97660Fc2b) (impl)
 - Execution Layer Rewards Vault: [`0x9b108015fe433F173696Af3Aa0CF7CDb3E104258`](https://hoodi.etherscan.io/address/0x9b108015fe433F173696Af3Aa0CF7CDb3E104258)
@@ -80,6 +80,10 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 - OracleDaemonConfig: [`0x2a833402e3F46fFC1ecAb3598c599147a78731a9`](https://hoodi.etherscan.io/address/0x2a833402e3F46fFC1ecAb3598c599147a78731a9)
 - Lazy Oracle: [`0xf41491C79C30e8f4862d3F4A5b790171adB8e04A`](https://hoodi.etherscan.io/address/0xf41491C79C30e8f4862d3F4A5b790171adB8e04A) (proxy)
 - Lazy Oracle: [`0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82`](https://hoodi.etherscan.io/address/0xC372aBC601C4eE5aA82CA2bcb54Da5a1Ef492E82) (impl)
+
+## 🔑 Execution Delegation Framework {#execution-delegation-framework}
+
+- DelegationFactory: [`0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6`](https://hoodi.etherscan.io/address/0xEb49f72DB1546B0E63e1114E2e403edbcE722AE6)
 
 ## 🗳️ DAO & Aragon Apps {#dao-contracts}
 
@@ -271,6 +275,10 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 
 - EasyTrack: [`0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a`](https://hoodi.etherscan.io/address/0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a)
 - EVMScriptExecutor: [`0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`](https://hoodi.etherscan.io/address/0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E)
+
+### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
+
+- SetDepositsReserveTarget: [`0x68009122a394504E8fD7fee58F92Cd73c6A60717`](https://hoodi.etherscan.io/address/0x68009122a394504E8fD7fee58F92Cd73c6A60717)
 
 ### 🧩 Easy Track factories for staking modules {#easy-track-factories-for-staking-modules}
 
