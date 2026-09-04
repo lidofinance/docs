@@ -37,8 +37,8 @@ Support may vary by jurisdiction, entity, and onboarding scope. Clients should c
 
 | Custodian | stETH Support | wstETH Support | stVaults Web UI integration | Official website |
 | --- | --- | --- | --- | --- |
-| [Fireblocks](./fireblocks.md) | ✅ | ✅ | WalletConnect | https://www.fireblocks.com/ |
-| [Copper](./copper.md) | ✅ | ✅ | CopperConnect Browser Extension | https://copper.co/ |
+| [Fireblocks](./fireblocks.md) | ✅ | ✅ | Fireblocks DeFi Extension, WalletConnect | https://www.fireblocks.com/ |
+| [Copper](./copper.md) | ✅ | ✅ | CopperConnect | https://copper.co/ |
 | [Cactus Custody](./cactus.md) | ✅ | ✅ | Cactus Link | https://www.mycactus.com/ |
 | BitGo | ✅ | ✅ | WalletConnect | https://www.bitgo.com/ |
 | Anchorage |  | ✅ | WalletConnect | https://www.anchorage.com/ |

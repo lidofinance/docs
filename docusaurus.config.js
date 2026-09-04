@@ -105,7 +105,7 @@ module.exports = async function createConfigAsync() {
               from: '/guides/steth-integration-guide',
             },
             {
-              to: '/run-on-lido/stvaults-new/concepts-and-reference/lido-v3-whitepaper',
+              to: '/run-on-lido/stvaults/concepts-and-reference/lido-v3-whitepaper',
               from: '/lido-v3-whitepaper',
             },
             {
@@ -117,40 +117,40 @@ module.exports = async function createConfigAsync() {
               from: '/guides/stvaults/',
             },
             {
-              to: '/run-on-lido/stvaults/tech-documentation/pdg',
-              from: ['/guides/stvaults/pdg', '/run-on-lido/stvaults/pdg'],
+              to: '/run-on-lido/stvaults/node-operators/basic-stvaults/pdg',
+              from: ['/guides/stvaults/pdg', '/run-on-lido/stvaults/pdg', '/run-on-lido/stvaults/tech-documentation/pdg'],
             },
             {
-              to: '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
-              from: '/run-on-lido/stvaults/health-monitoring-guide',
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide',
+              from: ['/run-on-lido/stvaults/health-monitoring-guide','/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide'],
             },
             {
-              to: '/run-on-lido/stvaults/operational-and-management-guides/health-emergency-guide',
-              from: '/run-on-lido/stvaults/health-emergency-guide',
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide',
+              from: ['/run-on-lido/stvaults/health-emergency-guide','/run-on-lido/stvaults/operational-and-management-guides/health-emergency-guide'],
             },
             {
-              to: '/run-on-lido/stvaults/operational-and-management-guides/node-operators-identification',
-              from: '/run-on-lido/stvaults/node-operators-identification',
+              to: '/run-on-lido/stvaults/node-operators/basic-stvaults/node-operator-identification-guide',
+              from: ['/run-on-lido/stvaults/node-operators-identification','/run-on-lido/stvaults/operational-and-management-guides/node-operators-identification'],
             },
             {
-              to: '/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions',
-              from: '/run-on-lido/stvaults/roles-and-permissions',
+              to: '/run-on-lido/stvaults/concepts-and-reference/roles-and-permissions',
+              from: ['/run-on-lido/stvaults/roles-and-permissions','/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions'],
             },
             {
-              to: '/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics',
-              from: '/run-on-lido/stvaults/parameters-and-metrics',
+              to: '/run-on-lido/stvaults/concepts-and-reference/metrics',
+              from: ['/run-on-lido/stvaults/parameters-and-metrics','/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics'],
             },
             {
-              to: '/run-on-lido/stvaults/tech-documentation/integration-overview',
-              from: '/run-on-lido/stvaults/integration-overview',
+              to: '/run-on-lido/stvaults/concepts-and-reference/architecture-overview',
+              from: ['/run-on-lido/stvaults/integration-overview','/run-on-lido/stvaults/tech-documentation/integration-overview'],
             },
             {
-              to: '/run-on-lido/stvaults/tech-documentation/tech-design',
-              from: '/run-on-lido/stvaults/tech-design',
+              to: '/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design',
+              from: ['/run-on-lido/stvaults/tech-design','/run-on-lido/stvaults/tech-documentation/tech-design'],
             },
             {
-              to: '/run-on-lido/stvaults/tech-documentation/consolidation',
-              from: '/run-on-lido/stvaults/consolidation',
+              to: '/run-on-lido/stvaults/node-operators/basic-stvaults/consolidation',
+              from: ['/run-on-lido/stvaults/consolidation','/run-on-lido/stvaults/tech-documentation/consolidation'],
             },
             {
               to: '/multisigs/emergency-brakes',

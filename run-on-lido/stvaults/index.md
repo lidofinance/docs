@@ -1,77 +1,55 @@
 ---
-sidebar_position: 2
+title: stVaults Documentation Center
+sidebar_label: stVaults Documentation Center
+sidebar_position: 3
+description: Navigation hub for everything related to Lido V3 stVaults — product overview, guides by role, and tools.
 ---
 
-# [LEGACY] stVaults Documentation Center
+# stVaults Documentation Center
 
-:::tip 📘 **Lido V3 Technical Paper**
+stVaults is the core innovation of Lido V3 — isolated, non-custodial staking primitives that let stakers and builders choose their own node operator while retaining optional access to stETH liquidity.
 
-For a comprehensive understanding of stVaults architecture, mechanisms, and the vision behind Lido V3, read the official [**Lido V3 Technical Paper**](/run-on-lido/stvaults-new/concepts-and-reference/lido-v3-whitepaper) with embedded PDF preview.
+This page is a hub: it links out to product materials if you're looking for the big picture, and into the docs if you already know what you're building or managing.
 
-:::
+## Get Familiar with stVaults
 
-## 🛠️ Building Guides
+| Resource | What it's for |
+| --- | --- |
+| 🧭 [stVaults 101 — How Lido Works](https://lido.fi/how-lido-works/stvaults-basics) | The basics of how stVaults actually work — plain language, sits between the product pitch and the technical docs. |
+| 🌐 [stVaults — Product Page](https://lido.fi/stvaults) | The product pitch: what stVaults is and why it matters. Best link to share with someone who isn't technical. |
+| 🏗️ [stVaults Showcase](https://lido.fi/stvaults-products-overview) | Live products already built on top of stVaults. |
+| 📰 [stVaults News & Deep Dives](https://blog.lido.fi/category/lido-v3/) | Blog posts on stVaults product updates and on what's being built on top of it. |
+| ⚙️ [stVaults Architecture Overview](./concepts-and-reference/architecture-overview.md) | High-level overview of the stVaults and DeFi Wrapper architecture, including smart contract addresses and interfaces. |
 
-The stVaults platform enables the creation of staking products tailored to different target audiences with diverse needs. These two comprehensive guides provide detailed instructions on how to create any product powered by stVaults.
+## Explore the Docs by Role
 
-| Staking Product to build                                                              | Its Value Proposition | Its Segments |
-|---------------------------------------------------------------------------------------| -------- | -------- |
-| [Basic stVault with optional liquidity](./building-guides/basic-stvault.md)           | A competitive alternative to native staking: users stake with the same Node Operator while gaining optional liquidity through stETH. | Institutional stakers, large individual stakers (32+ ETH), funds, treasuries, builders, integrators, liquidity providers. |
-| [End-user staking product by DeFi Wrapper](./building-guides/pooled-staking-product/) | A DeFi-wrapped stVault with pooling, liquidity, automated yield-boosting strategy, and white-labeled staking UI – all in one customizable no-code/low-code solution. | Retail stakers (&lt;32 ETH), APR-maximizers, institutional stakers seeking a simple staking UI. |
+| Section | Who it's for |
+| --- | --- |
+| 🛠️ [Builders](./builders/) | Teams building a product on top of stVaults — DeFi integrations, wrappers, L2s, custom staking products. |
+| 🏦 [Vault Owners, Curators & Stakers](./vault-owners-curators-and-stakers/) | Anyone operating or managing an stVault: funding, minting, health monitoring, roles and permissions. |
+| ⚙️ [Node Operators](./node-operators/) | Node operators running validators for stVaults — onboarding, tiers, requirements. |
 
-:::info
-Have your own custom product in mind? [Contact us](https://tally.so/r/mVrkZa)!
-:::
+## Concepts & Reference
 
-## 📚 stVaults Resources
+| Resource | What it covers |
+| --- | --- |
+| 📚 [Concepts & Reference](./concepts-and-reference/) | Architecture, roles & permissions, parameters & metrics, and other cross-cutting mechanics. |
+| 📘 [Lido V3 Technical Paper](./concepts-and-reference/lido-v3-whitepaper.mdx) | The complete Technical Paper covers architecture, mechanisms, risks, and implementation details. |
+| 🔍 [V3 Audits](./concepts-and-reference/audits.md) | Security audit reports for stVaults and DeFi Wrapper. |
+| 👁️ [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4) | Explains stVaults' risk assessment framework — global stake limits relative to Lido Core, tiered Reserve Ratios that discretize concentration risk per Node Operator, and how risk from stake concentration is attributed and governed. |
+| 🧾 [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504) | Defines tiers of Reserve Ratio, Force Rebalance Threshold, minting caps, and fee parameters for stVaults across identified, DVT, and non-identified Node Operators. |
 
-### Essentials
 
-1. [📘 **Lido V3 Technical Paper**](/run-on-lido/stvaults-new/concepts-and-reference/lido-v3-whitepaper) — Complete technical specification with PDF preview
-2. [[Forum post] Risk assessment framework](https://research.lido.fi/t/risk-assessment-framework-for-stvaults/9978/4)
-3. [[Forum post] Fees structure and charging logic](https://research.lido.fi/t/default-risk-assessment-framework-and-fees-parameters-for-lido-v3-stvaults/10504)
+## Qualified Custodians
+ 
+| Resource | What it's for |
+| --- | --- |
+| 🏛️ [Qualified Custodians Supporting stVaults](./qualified-custodians/) | Which custodians support stVaults, and how institutional clients can access stVaults depending on their custody setup. |
+ 
+## Tools
 
-### 🔧 Tools
-
-1. [stVaults Web UI on Hoodi Testnet](https://stvaults-hoodi.testnet.fi/)
-2. [stVaults Web UI on Mainnet](https://stvaults.lido.fi/)
-3. [Command-line interface (CLI)](https://lidofinance.github.io/lido-staking-vault-cli/)
-4. [stVaults product economy calculator](https://docs.google.com/spreadsheets/d/1Zwixmdq93Pe_jXeuKZTMj5yY_b7HEh8ua5OY_6icxT8/edit?usp=sharing)
-
-### 📝 Operational and Management Guides
-
-1. [Health Monitoring guide](./operational-and-management-guides/health-monitoring-guide.md)
-2. [Health Emergency guide](./operational-and-management-guides/health-emergency-guide.md)
-3. [stVaults Economy Examples](./operational-and-management-guides/stvaults-economy-examples.mdx)
-4. [Voluntary Rebalancing and Vault Closure](./operational-and-management-guides/voluntary-rebalancing-and-vault-closure.md)
-5. [Applying Oracle Reports](./operational-and-management-guides/applying-report-guide.md)
-6. [stVault Disconnect Guide](./operational-and-management-guides/stvault-disconnect-guide.md)
-7. [Become an Identified Node Operator and get tiers, or request changes](./operational-and-management-guides/node-operators-identification.md)
-
-### 🔍 stVaults Features and Mechanics
-
-1. [stVaults Roles](./features-and-mechanics/roles-and-permissions.md)
-2. [stVaults Parameters and Metrics](./features-and-mechanics/parameters-and-metrics.md)
-3. [Exit Validators](./features-and-mechanics/exit-validators.md)
-
-### 📚 Tech Documentation
-
-1. [stVaults Integration Overview](./tech-documentation/integration-overview.md)
-2. [stVaults Technical Design](./tech-documentation/tech-design.md)
-3. [DeFi Wrapper Technical Design](https://hackmd.io/@lido/lido-v3-wrapper-design)
-4. [Deployed Testnet Contracts](../../deployed-contracts/hoodi/)
-5. [Migrate validators to stVault through consolidation](./tech-documentation/consolidation.md)
-6. [Deposit validators through Predeposit Guarantee](./tech-documentation/pdg.md)
-7. [stVaults contracts reference](/contracts/vault-hub)
-
-### 🏛️ Qualified Custodians Supporting stVaults
-
-1. [Overview of qualified custodians supporting stVaults](./qualified-custodians/index.md)
-2. [Fireblocks user guide](./qualified-custodians/fireblocks.md)
-3. [Copper user guide](./qualified-custodians/copper.md)
-4. [Cactus Custody user guide](./qualified-custodians/cactus.md)
-
-:::tip 📣 **Leave feedback**
-Trying to integrate with Lido V3 and stVaults?
-Please share your thoughts through **[the short form](https://tally.so/r/3X9vYe)**.
-:::
+| Tool | Link |
+| --- | --- |
+| Web UI — Mainnet | [stvaults.lido.fi](https://stvaults.lido.fi/) |
+| Web UI — Hoodi Testnet | [stvaults-hoodi.testnet.fi](https://stvaults-hoodi.testnet.fi/) |
+| Command-line interface (CLI) | [CLI Docs](https://lidofinance.github.io/lido-staking-vault-cli/) |
