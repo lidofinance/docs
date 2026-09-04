@@ -85,7 +85,7 @@ Applying a report is **permissionless** — `LazyOracle.updateVaultData` can be 
 
 ```bash
 # Is the pool's vault report fresh?
-yarn start dw uc wo report-fresh <poolAddress>
+yarn start dw uc wo r report-fresh <poolAddress>
 
 # Apply the latest report to the vault
 yarn start report w submit -v <vaultAddress>
