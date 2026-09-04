@@ -6,7 +6,7 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
+- ⚓ Lido protocol version: [**`v4.0.1`**](https://github.com/lidofinance/core/releases/tag/v4.0.1)
 - 🌐 Network: Ethereum Hoodi (Chain ID: `560048`)
 - ✅ Status: Active and maintained
 
@@ -161,7 +161,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 
 ## 🔄 Post Token Rebase Receiver {#post-token-rebase-receiver}
 
-- Token Rate Notifier: [`0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D`](https://hoodi.etherscan.io/address/0x9c53d0075eA00ad77dDAd1b71E67bb97AaBC1e3D)
+- Token Rate Notifier: [`0xe2d1307a8e0eb6996eE9eB6FB5949124F17EDf65`](https://hoodi.etherscan.io/address/0xe2d1307a8e0eb6996eE9eB6FB5949124F17EDf65)
 
 ## 🧩 Staking Modules {#staking-modules}
 
