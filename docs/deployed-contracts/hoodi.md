@@ -218,7 +218,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://hoodi.etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606)
   - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://hoodi.etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
 
-### 🛡️ Curated Module v2
+### 🛡️ Curated Module v2 {#curated-module-v2}
 
 - Entry Gates:
   - Professional Operator Gate: [`0xF1862d120831eBE31f7202378Ff3Ae63A5658ae3`](https://hoodi.etherscan.io/address/0xF1862d120831eBE31f7202378Ff3Ae63A5658ae3) (proxy)

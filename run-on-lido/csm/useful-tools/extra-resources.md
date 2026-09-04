@@ -5,7 +5,7 @@ sidebar_position: 1
 # 📚 Extra Resources
 
 * Lido [Discord](https://discord.com/invite/lido)
-* Lido [Documentation](/staking-modules/csm/intro)
+* Lido [Documentation](/staking-modules/)
 * Lido [Node Operator Portal](https://operatorportal.lido.fi/)
 * [CSM Rewards Calculator](https://www.nodeop.info/)
 * Ethstaker [Discord](https://discord.com/invite/ethstaker) and [Reddit](https://www.reddit.com/r/ethstaker/)

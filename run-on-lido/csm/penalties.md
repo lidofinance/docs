@@ -25,7 +25,7 @@ When you join CSM, your bond acts as collateral for all validators under your No
 | Slashing | Losses associated with the slashed validator are assessed and deducted from the bond after withdrawal. |
 | Redirecting Execution Layer rewards or another protocol violation | The assessed loss and an additional fine can be reported as a General Delayed Penalty. |
 
-When a validator exits, CSM compares its withdrawal balance with its confirmed expected balance. For a non-slashed validator, any shortfall is applied directly to the bond. Slashed validators use a [separate reporting flow](/staking-modules/csm/validator-exits#slashed-validators) so the full loss can be assessed before it is deducted.
+When a validator exits, CSM compares its withdrawal balance with its confirmed expected balance. For a non-slashed validator, any shortfall is applied directly to the bond. Slashed validators use a [separate reporting flow](/staking-modules/validator-exits#slashed-validators) so the full loss can be assessed before it is deducted.
 
 One period of poor performance does not immediately reduce your bond. The validator first loses its Node Operator reward for that 28-day frame and receives a strike. Strikes expire after the applicable lifetime if the validator does not continue underperforming.
 
@@ -40,7 +40,7 @@ Penalty and charge amounts, as well as performance thresholds, depend on your op
 | Strikes before ejection | 3 within 6 frames | 4 within 6 frames | 3 within 6 frames | 3 within 6 frames |
 | Bad performance ejection penalty | 0.258 ETH | 0.172 ETH | 0.258 ETH | 0.258 ETH per 32 ETH of validator balance;<br />up to 16.512 ETH |
 | Time to process a requested exit | 4 days | 5 days | 5 days | 4 days |
-| Exit delay charge | 0.1 ETH | 0.05 ETH | 0.05 ETH | 0.1 ETH per 32 ETH of validator balance;<br />up to 6.4 ETH |
+| Exit delay charge | 0.1 ETH | 0.05 ETH | 0.05 ETH | 0.1 ETH |
 | General Delayed Penalty additional fine | 0.1 ETH | 0.05 ETH | 0.05 ETH | 0.1 ETH |
 
 The Slashing penalty and the loss component of a General Delayed Penalty depend on the assessed loss. The Triggerable Exit fee depends on the execution-layer withdrawal request cost and does not scale with the validator balance, so these do not have fixed values in the table.
@@ -68,4 +68,4 @@ Undeposited unbonded keys stop receiving deposits. Validators that remain unbond
 - Monitor validator performance and CSM alerts.
 - [Verify the fee recipient](/run-on-lido/csm/troubleshooting/setting-the-fee-recipient-for-csm-validators/verifying-fee-recipient-for-csm-validators) before your validator proposes a block.
 - Follow [slashing prevention](/run-on-lido/csm/best-practices/slashing-prevention) practices.
-- Process [validator exit requests](/staking-modules/csm/validator-exits) as soon as possible.
+- Process [validator exit requests](/staking-modules/validator-exits) as soon as possible.

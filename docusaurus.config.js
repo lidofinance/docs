@@ -176,40 +176,168 @@ module.exports = async function createConfigAsync() {
               from: '/contracts/gate-seal',
             },
             {
-              to: '/staking-modules/csm/contracts/Accounting',
+              to: '/staking-modules/contracts/Accounting',
               from: '/staking-modules/csm/contracts/CSAccounting',
             },
             {
-              to: '/staking-modules/csm/contracts/Ejector',
+              to: '/staking-modules/contracts/Ejector',
               from: '/staking-modules/csm/contracts/CSEjector',
             },
             {
-              to: '/staking-modules/csm/contracts/FeeOracle',
+              to: '/staking-modules/contracts/FeeOracle',
               from: '/staking-modules/csm/contracts/CSFeeOracle',
             },
             {
-              to: '/staking-modules/csm/contracts/ParametersRegistry',
+              to: '/staking-modules/contracts/ParametersRegistry',
               from: '/staking-modules/csm/contracts/CSParametersRegistry',
             },
             {
-              to: '/staking-modules/csm/contracts/Verifier',
+              to: '/staking-modules/contracts/Verifier',
               from: '/staking-modules/csm/contracts/CSVerifier',
             },
             {
-              to: '/staking-modules/csm/contracts/ExitPenalties',
+              to: '/staking-modules/contracts/ExitPenalties',
               from: '/staking-modules/csm/contracts/CSExitPenalties',
             },
             {
-              to: '/staking-modules/csm/contracts/FeeDistributor',
+              to: '/staking-modules/contracts/FeeDistributor',
               from: '/staking-modules/csm/contracts/CSFeeDistributor',
             },
             {
-              to: '/staking-modules/csm/contracts/ValidatorStrikes',
+              to: '/staking-modules/contracts/ValidatorStrikes',
               from: '/staking-modules/csm/contracts/CSStrikes',
             },
             {
-              to: '/staking-modules/csm/contracts/MerkleGateFactory',
+              to: '/staking-modules/contracts/MerkleGateFactory',
               from: '/staking-modules/csm/contracts/VettedGateFactory',
+            },
+            {
+              to: '/staking-modules/',
+              from: '/staking-modules/csm/intro',
+            },
+            {
+              to: '/staking-modules/node-operators',
+              from: '/staking-modules/csm/join-csm',
+            },
+            {
+              to: '/staking-modules/rewards',
+              from: '/staking-modules/csm/rewards',
+            },
+            {
+              to: '/staking-modules/validator-exits',
+              from: '/staking-modules/csm/validator-exits',
+            },
+            {
+              to: '/staking-modules/permissions',
+              from: '/staking-modules/csm/permissions',
+            },
+            {
+              to: '/staking-modules/further-reading',
+              from: '/staking-modules/csm/further-reading',
+            },
+            {
+              to: '/staking-modules/',
+              from: '/staking-modules/cm-v2/intro',
+            },
+            {
+              to: '/staking-modules/permissions',
+              from: '/staking-modules/cm-v2/permissions',
+            },
+            {
+              to: '/staking-modules/contracts/Accounting',
+              from: '/staking-modules/csm/contracts/Accounting',
+            },
+            {
+              to: '/staking-modules/contracts/Accounting',
+              from: '/staking-modules/cm-v2/contracts/Accounting',
+            },
+            {
+              to: '/staking-modules/contracts/Ejector',
+              from: '/staking-modules/csm/contracts/Ejector',
+            },
+            {
+              to: '/staking-modules/contracts/Ejector',
+              from: '/staking-modules/cm-v2/contracts/Ejector',
+            },
+            {
+              to: '/staking-modules/contracts/ExitPenalties',
+              from: '/staking-modules/csm/contracts/ExitPenalties',
+            },
+            {
+              to: '/staking-modules/contracts/ExitPenalties',
+              from: '/staking-modules/cm-v2/contracts/ExitPenalties',
+            },
+            {
+              to: '/staking-modules/contracts/FeeDistributor',
+              from: '/staking-modules/csm/contracts/FeeDistributor',
+            },
+            {
+              to: '/staking-modules/contracts/FeeDistributor',
+              from: '/staking-modules/cm-v2/contracts/FeeDistributor',
+            },
+            {
+              to: '/staking-modules/contracts/FeeOracle',
+              from: '/staking-modules/csm/contracts/FeeOracle',
+            },
+            {
+              to: '/staking-modules/contracts/FeeOracle',
+              from: '/staking-modules/cm-v2/contracts/FeeOracle',
+            },
+            {
+              to: '/staking-modules/contracts/MerkleGateFactory',
+              from: '/staking-modules/csm/contracts/MerkleGateFactory',
+            },
+            {
+              to: '/staking-modules/contracts/MerkleGateFactory',
+              from: '/staking-modules/cm-v2/contracts/MerkleGateFactory',
+            },
+            {
+              to: '/staking-modules/contracts/ParametersRegistry',
+              from: '/staking-modules/csm/contracts/ParametersRegistry',
+            },
+            {
+              to: '/staking-modules/contracts/ParametersRegistry',
+              from: '/staking-modules/cm-v2/contracts/ParametersRegistry',
+            },
+            {
+              to: '/staking-modules/contracts/ValidatorStrikes',
+              from: '/staking-modules/csm/contracts/ValidatorStrikes',
+            },
+            {
+              to: '/staking-modules/contracts/ValidatorStrikes',
+              from: '/staking-modules/cm-v2/contracts/ValidatorStrikes',
+            },
+            {
+              to: '/staking-modules/contracts/Verifier',
+              from: '/staking-modules/csm/contracts/Verifier',
+            },
+            {
+              to: '/staking-modules/contracts/Verifier',
+              from: '/staking-modules/cm-v2/contracts/Verifier',
+            },
+            {
+              to: '/staking-modules/contracts/CSModule',
+              from: '/staking-modules/csm/contracts/CSModule',
+            },
+            {
+              to: '/staking-modules/contracts/PermissionlessGate',
+              from: '/staking-modules/csm/contracts/PermissionlessGate',
+            },
+            {
+              to: '/staking-modules/contracts/VettedGate',
+              from: '/staking-modules/csm/contracts/VettedGate',
+            },
+            {
+              to: '/staking-modules/contracts/CuratedModule',
+              from: '/staking-modules/cm-v2/contracts/CuratedModule',
+            },
+            {
+              to: '/staking-modules/contracts/CuratedGate',
+              from: '/staking-modules/cm-v2/contracts/CuratedGate',
+            },
+            {
+              to: '/staking-modules/contracts/MetaRegistry',
+              from: '/staking-modules/cm-v2/contracts/MetaRegistry',
             },
           ],
         },
