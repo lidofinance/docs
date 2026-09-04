@@ -628,7 +628,7 @@ Minting against a stVault is subject to the protocol-wide minting [rate limits](
 - Reduces both `liabilityShares` and `totalValue` simultaneously by taking ETH from the vault, submitting it 1:1 for stETH via Lido Core, and then burning it on behalf of the vault.
 - Improves vault health at the cost of reducing its totalValue.
 - Requires validators to be exited or partially withdrawn if staked ETH is intended to be used.
-- Can be performed by the _vault owner_ or executed permissionlessly if the vault's `forcedRebalanceThreshold` is breached.
+- Can be performed by the _vault owner_ or executed permissionlessly if the vault's `forcedRebalanceThresholdBP` is breached.
 
 #### Connecting and Disconnecting
 

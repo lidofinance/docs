@@ -78,11 +78,11 @@ You can check a validator's credentials or state at [beaconcha.in](https://beaco
 
 - A list of source pubkeys of validators that you want to consolidate from.
 - A list of target pubkeys of validators that you want to consolidate to.
-- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. You can discover it via CLI:
+- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. It is the owner of the stVault, so you can read it from the vault:
   ```bash
-  yarn start helpers find-dashboard-by-vault <vault_address>
+  yarn start contracts vault r owner <vault_address>
   ```
-  For more details, see [additional helpers documentation](https://lidofinance.github.io/lido-staking-vault-cli/get-started/additional-helpers#find-dashboard-by-vault).
+  Other ways to find it are on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 - You need ETH to cover the consolidation fee. The exact amount depends on the number of public keys and the current state of the blockchain. You can determine the fee for a single consolidation request by calling the view function [`getConsolidationRequestFee`](/contracts/validator-consolidation-requests#getconsolidationrequestfee) on the [`ValidatorConsolidationRequests`](/contracts/validator-consolidation-requests) contract. The total amount required will be calculated as the number of consolidations multiplied by the fee per request.
 
 ## 4. Run consolidation command

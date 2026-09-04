@@ -16,14 +16,14 @@ An end-user staking product with a higher risk/yield profile achieved by deposit
 | Parameter | Value |
 | -- | -- |
 | Number of stakers | Multiple |
-| stETH minting capability | Yes, to deposit into Lido EarnETH and generate additional DeFi yield |
+| stETH minting capability | Yes, to deposit into a custom DeFi strategy and generate additional DeFi yield |
 
 ## Building blocks
 | Building block | Solution | Implementation | 
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | DeFi Wrapper | Out-of-the-box |
-| Connector to DeFi Strategy | Connector to Lido EarnETH | Out-of-the-box |
+| Connector to DeFi Strategy | Custom connector | Custom |
 | User Interface | DeFi Wrapper Embeddable Widget / Custom | Out-of-the-box / Custom |
 
 ## What is DeFi Wrapper?
@@ -380,7 +380,7 @@ cast call <TIMELOCK> "isOperationReady(bytes32)(bool)" <OPERATION_ID> --rpc-url 
 #### Verify the upgrade via CLI
 
 ```bash
-yarn start defi-wrapper contracts pool r info <POOL_ADDRESS>
+yarn start defi-wrapper use-cases wrapper-operations read info <POOL_ADDRESS>
 yarn start vo r info -v <VAULT_ADDRESS>
 ```
 
@@ -430,7 +430,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `OperatorGrid.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
+3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -563,7 +563,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-Within the confirmation time window period (default 24 hours) after step 2, the Node Operator must confirm the tier change:
+Within the confirmation time window period (24 hours at the Mainnet minimum) after step 2, the Node Operator must confirm the tier change:
 
 #### stVaults UI
 
