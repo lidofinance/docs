@@ -100,6 +100,7 @@ module.exports = {
         'integrations/wallets',
         'integrations/sdk',
         'integrations/subgraph',
+        'integrations/ai-agents',
       ],
     },
     {

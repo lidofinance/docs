@@ -275,7 +275,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 ## 📈 Price Feeds {#price-feeds}
 
 :::note
-See [integration guide](/guides/lido-tokens-integration-guide.md#integration-utilities-rate-and-price-feeds)
+See [integration guide](/guides/lido-tokens-integration-guide.md#rate-and-price-feeds)
 for the rate and price feeds recommended approaches.
 :::
 
