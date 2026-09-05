@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "external": {
+    "audits": {
+      "repository": "lidofinance/audits",
+      "ref": "main",
+      "commit": "43360053503065dc28344f1efab9a2beb62158ea",
+      "output": "docs/security/audits.md",
+      "output_sha256": "b0fd13baf267958e680f06ec57ce172fcf96905de5cda17061c300ff7f110d73"
+    },
+    "lips": {
+      "repository": "lidofinance/lido-improvement-proposals",
+      "ref": "develop",
+      "commit": "a9710178eb21f5237affe8f516832477a52f46ae",
+      "output": "docs/lips.md",
+      "output_sha256": "bbc3fd75fb173f2ac23026956786b43d5aa3de0d9b74f708424147acfea63a7a"
+    }
+  },
+  "quorums": {
+    "eth:0xe2a682a9722354d825d1bbdf372cc86b2ea82c8c": {
+      "chain": "eth",
+      "address": "0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C",
+      "value": "3/5",
+      "block_number": 25881452,
+      "block_hash": "0xd1e1f82ce843a17c93b9f7eab6fba5dabfaac1c5d13bca9fa8ad2d7b11ae966e",
+      "chain_id": 1,
+      "providers": [
+        "https://eth.drpc.org",
+        "https://public.1rpc.io/eth"
+      ]
+    },
+    "eth:0x9eb81629245c5248a8f4ffcdf11a73e0d0c74071": {
+      "chain": "eth",
+      "address": "0x9Eb81629245C5248A8f4FfCDf11A73E0D0C74071",
+      "value": "5/8",
+      "block_number": 25881452,
+      "block_hash": "0xd1e1f82ce843a17c93b9f7eab6fba5dabfaac1c5d13bca9fa8ad2d7b11ae966e",
+      "chain_id": 1,
+      "providers": [
+        "https://eth.drpc.org",
+        "https://ethereum-rpc.publicnode.com"
+      ]
+    },
+    "eth:0xccf2daba8bb04a232a2fda0d01010d4ef6c69b85": {
+      "chain": "eth",
+      "address": "0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85",
+      "value": "4/6",
+      "block_number": 25881452,
+      "block_hash": "0xd1e1f82ce843a17c93b9f7eab6fba5dabfaac1c5d13bca9fa8ad2d7b11ae966e",
+      "chain_id": 1,
+      "providers": [
+        "https://eth.drpc.org",
+        "https://public.1rpc.io/eth"
+      ]
+    }
+  }
+}
