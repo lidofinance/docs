@@ -1,10 +1,10 @@
 # ShareModule
 
-## Purpose
+## Overview
 
 `ShareModule` is a core module responsible for managing user interactions with a vault through structured deposit and redeem queues. It provides governance over queue creation, hook configurations, oracle-driven settlement, and fee accounting.
 
-## Key Responsibilities
+### Key Responsibilities
 
 - Tracks and validates all deposit and redeem queue operations.
 - Coordinates price reporting with the oracle.
@@ -12,7 +12,7 @@
 - Integrates hooks for deposit and redeem processing customization.
 - Acts as the central hub for protocol and performance fee minting, share claim logic, and report handling.
 
-## Roles
+## Roles and Permissions
 
 - `SET_HOOK_ROLE`: Grants the ability to modify per-queue and default hook addresses.
 - `CREATE_QUEUE_ROLE`: Allows creation of new deposit and redeem queues.
@@ -20,7 +20,9 @@
 - `SET_QUEUE_LIMIT_ROLE`: Enables setting the max number of total queues.
 - `REMOVE_QUEUE_ROLE`: Allows safe removal of queues with `canBeRemoved()` check.
 
-## Core Storage Layout (`ShareModuleStorage`)
+## Configuration and State
+
+### Core Storage Layout (`ShareModuleStorage`)
 
 - `shareManager`: Reference to contract handling share minting and burning.
 - `feeManager`: Reference to contract that calculates fees and stores fee-related data.
@@ -34,7 +36,9 @@
 - `queues`: Asset to queues mapping.
 - `assets`: Registry of all assets with registered queues.
 
-## View Functions
+## Functions
+
+### View Functions
 
 - `shareManager()`: Returns the `IShareManager` instance.
 - `feeManager()`: Returns the `IFeeManager` instance.
@@ -55,7 +59,7 @@
 - `getQueueCount(asset)`: Returns queue count for an asset.
 - `queueAt(asset, index)`: Returns a queue by asset and index.
 
-## Mutable Functions
+### State-Changing Functions
 
 - `claimShares(account)`: Claims all claimable shares from deposit queues for the specific account.
 - `callHook(assets)`: Calls the queue's associated hook and transfers assets to the queue if redeem.

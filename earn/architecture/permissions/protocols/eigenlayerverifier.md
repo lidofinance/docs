@@ -4,15 +4,15 @@
 
 `EigenLayerVerifier` is a custom `ICustomVerifier` implementation tailored to securely authorize calls to EigenLayer contracts like `DelegationManager`, `StrategyManager`, and `RewardsCoordinator`. It uses strict role-based gating, exact calldata matching, and entity specific validation to ensure that only authorized vaults and bots can interact with EigenLayer staking, delegation, withdrawal, and rewards workflows.
 
-## Purpose
-
 This verifier protects EigenLayer operations by:
 
 - Ensuring only whitelisted entities (vaults, strategies, operators) can execute actions.
 - Verifying target contracts and function selectors precisely.
 - Enforcing exact calldata encoding to eliminate any ambiguity or abuse.
 
-## Role Definitions
+## Roles and Permissions
+
+### Role Definitions
 
 | Role Constant | Description |
 | --- | --- |
@@ -23,7 +23,9 @@ This verifier protects EigenLayer operations by:
 | `MELLOW_VAULT_ROLE` | Whitelisted vaults acting as stakers or earners (usually `Subvault`) |
 | `RECEIVER_ROLE` | Authorized receivers for claimed rewards |
 
-## Constructor
+## Configuration and State
+
+### Constructor
 
 ```solidity
 constructor(address delegationManager_, address strategyManager_, address rewardsCoordinator_, string memory name_, uint256 version_)
@@ -34,27 +36,17 @@ Initializes the verifier by:
 - Setting immutable references to EigenLayer's `DelegationManager`, `StrategyManager`, and `RewardsCoordinator`.
 - Inheriting access control via `OwnedCustomVerifier`.
 
-## `verifyCall`
+## Behavior
 
-```solidity
-function verifyCall(
-    address who,
-    address where,
-    uint256 value,
-    bytes calldata callData,
-    bytes calldata /* verificationData */
-) external view override returns (bool)
-```
-
-## General Preconditions
+### General Preconditions
 
 - `who` must have `CALLER_ROLE`.
 - `value` must be 0 (no ETH allowed).
 - `callData.length >= 4` (valid selector).
 
-## Validated Targets & Selectors
+### Validated Targets & Selectors
 
-### StrategyManager – `depositIntoStrategy`
+#### StrategyManager – `depositIntoStrategy`
 
 `depositIntoStrategy(IStrategy, address asset, uint256 shares)`
 
@@ -63,7 +55,7 @@ function verifyCall(
 - Shares must be non-zero.
 - Calldata must match.
 
-### DelegationManager
+#### DelegationManager
 
 **`delegateTo(address operator, SignatureWithExpiry signature, bytes32 salt)`**
 
@@ -83,7 +75,7 @@ function verifyCall(
 - `tokens.length == 1` and token must have `ASSET_ROLE`.
 - Calldata must match.
 
-### RewardsCoordinator – `processClaim`
+#### RewardsCoordinator – `processClaim`
 
 Selector: `processClaim(RewardsMerkleClaim claimData, address receiver)`
 
@@ -91,7 +83,23 @@ Selector: `processClaim(RewardsMerkleClaim claimData, address receiver)`
 - `receiver` must have `RECEIVER_ROLE`.
 - Calldata must match.
 
-## Security Properties
+## Functions
+
+### `verifyCall`
+
+```solidity
+function verifyCall(
+    address who,
+    address where,
+    uint256 value,
+    bytes calldata callData,
+    bytes calldata /* verificationData */
+) external view override returns (bool)
+```
+
+## Invariants and Limitations
+
+### Security Properties
 
 - Role enforcement: Prevents unauthorized usage of EigenLayer functions.
 - Exact calldata match: Avoids incorrect encoding or maliciously crafted data.

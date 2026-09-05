@@ -12,13 +12,13 @@ The `VaultConfigurator` contract provides a streamlined and modular deployment m
 
 It ensures that all components are correctly wired together by setting appropriate references between them.
 
-## Purpose
-
 This contract is designed to be used by an actor that needs to deploy and configure fully functional vaults in a deterministic and upgradeable way, using versioned module factories.
 
-## Contract Structure
+## Configuration and State
 
-### State Variables
+### Contract Structure
+
+#### State Variables
 
 ```solidity
 IFactory public immutable shareManagerFactory;
@@ -30,7 +30,7 @@ IFactory public immutable vaultFactory;
 
 Each of these holds a reference to a factory contract responsible for creating a specific type of contract.
 
-### Constructor
+#### Constructor
 
 ```solidity
 constructor(
@@ -44,7 +44,7 @@ constructor(
 
 Initializes the configurator with references to module factories.
 
-## InitParams Struct
+### InitParams Struct
 
 ```solidity
 struct InitParams {
@@ -66,7 +66,7 @@ struct InitParams {
 }
 ```
 
-### Fields
+#### Fields
 
 - `version`: Version of the `Vault` implementation to deploy.
 - `proxyAdmin`: Address to be set as `ProxyAdmin` for upgradeable proxies.
@@ -78,9 +78,11 @@ struct InitParams {
 - `queueLimit`: Maximum number of queued operations per deposit and redeem queue.
 - `roleHolders`: List of role assignments for vault level access control.
 
-## External Functions
+## Functions
 
-### `create`
+### State-Changing Functions
+
+#### `create`
 
 ```solidity
 function create(InitParams calldata params)
@@ -94,11 +96,11 @@ function create(InitParams calldata params)
     )
 ```
 
-### Description
+#### Description
 
 Creates and initializes a new vault instance along with all dependent modules using the provided factory addresses and parameters.
 
-### Steps
+#### Steps
 
 1. Deploy ShareManager using `shareManagerFactory` to deploy a versioned `ShareManager` proxy.
 2. Deploy FeeManager using `feeManagerFactory` to deploy a versioned `FeeManager`.
@@ -107,7 +109,7 @@ Creates and initializes a new vault instance along with all dependent modules us
 5. Deploy Vault by preparing encoded initialization calldata and calling `vaultFactory.create()` with the version and proxy admin.
 6. Post deployment wiring sets the `vault` address in each of the deployed components using `IShareManager(shareManager).setVault(vault)`, `IRiskManager(riskManager).setVault(vault)`, and `IOracle(oracle).setVault(vault)`.
 
-### Returns
+#### Returns
 
 - `shareManager`: Address of the deployed share manager contract.
 - `feeManager`: Address of the deployed fee manager contract.
