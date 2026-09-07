@@ -46,7 +46,7 @@ export const GUIDES = {
   },
   earnEth: {
     title: 'Private or Public staking vault with EarnETH',
-    link: './defi-wrapper/with-earneth',
+    link: './defi-wrapper/multi-user-staking-with-earn-eth',
     description:
       'A staking vault (single or multiple stakers) using minted stETH in Lido EarnETH to boost APY.',
     buildingBlocks: [
@@ -58,7 +58,7 @@ export const GUIDES = {
   },
   custom: {
     title: 'Private or Public staking vault with Custom strategy',
-    link: './defi-wrapper/with-custom-strategy',
+    link: './defi-wrapper/multi-user-staking-with-custom-strategy',
     description:
       'A staking vault (single or multiple stakers) connected to a custom DeFi strategy, including leveraged staking setups.',
     buildingBlocks: [
@@ -66,6 +66,18 @@ export const GUIDES = {
       { block: 'Pooling Wrapper', solution: 'stVaults DeFi Wrapper', implementation: 'Out-of-the-box' },
       { block: 'DeFi Strategy', solution: 'Connector to custom strategy', implementation: 'Custom' },
       { block: 'User Interface', solution: 'DeFi Wrapper Embeddable Widget / Custom', implementation: 'Out-of-the-box / Custom' },
+    ],
+  },
+  leveraged: {
+    title: 'Leveraged Staking Product with 3rd-Party Infrastructure',
+    link: './basic-stvaults/leveraged-staking-product',
+    description:
+      'Staking rewards through a chosen Node Operator, full utilization of the available stETH Minting Capacity, and recursive leverage through external lending markets to increase validation rewards.',
+    buildingBlocks: [
+      { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
+      { block: 'Pooling Wrapper', solution: 'Custom', implementation: 'Custom' },
+      { block: 'Leveraged staking strategy', solution: 'Custom', implementation: 'Custom / by Gauntlet / by RockSolid' },
+      { block: 'User Interface', solution: 'Custom', implementation: 'Custom' },
     ],
   },
 };
@@ -80,6 +92,7 @@ export function resolveGuideKey(stakers, minting, strategy) {
     if (minting === 'boost') {
       if (!strategy) return null;
       if (strategy === 'earnEth') return 'earnEth';
+      if (strategy === 'leveraged') return 'leveraged';
       return 'custom';
     }
   }
@@ -91,6 +104,7 @@ export function resolveGuideKey(stakers, minting, strategy) {
     if (minting === 'boost') {
       if (!strategy) return null;
       if (strategy === 'earnEth') return 'earnEth';
+      if (strategy === 'leveraged') return 'leveraged';
       return 'custom';
     }
   }

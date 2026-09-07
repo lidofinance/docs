@@ -34,93 +34,106 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
 
 #### Categories and Tiers for Identified Node Operators
 
+<style>{`
+  .tier-basic { background-color: rgba(46, 160, 67, 0.18); color: #b9f6ca; }
+  .tier-professional { background-color: rgba(168, 85, 247, 0.18); color: #e9d5ff; }
+  .tier-trusted { background-color: rgba(245, 158, 11, 0.18); color: #ffe0b2; }
+  .tier-dvt { background-color: rgba(59, 130, 246, 0.18); color: #bbdefb; }
+  .tier-unidentified { background-color: rgba(255, 255, 255, 0.06); color: #e6edf3; }
+  [data-theme='light'] .tier-basic { background-color: #e8f5e9; color: #1a1a1a; }
+  [data-theme='light'] .tier-professional { background-color: #f3e5f5; color: #1a1a1a; }
+  [data-theme='light'] .tier-trusted { background-color: #fff3e0; color: #1a1a1a; }
+  [data-theme='light'] .tier-dvt { background-color: #e3f2fd; color: #1a1a1a; }
+  [data-theme='light'] .tier-unidentified { background-color: #f5f5f5; color: #1a1a1a; }
+`}</style>
+
 <table style={{ borderCollapse: "collapse", width: "100%" }}>
   <thead>
     <tr>
       <th></th>
-      <th colSpan="2" style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
-      <th colSpan="2" style={{ backgroundColor: "#f3e5f5" }}>stVaults Professional Operator</th>
-      <th colSpan="2" style={{ backgroundColor: "#fff3e0" }}>stVaults Professional Trusted Operator</th>
-      <th colSpan="2" style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
+      <th colSpan="2" className="tier-basic">Basic</th>
+      <th colSpan="2" className="tier-professional">stVaults Professional Operator</th>
+      <th colSpan="2" className="tier-trusted">stVaults Professional Trusted Operator</th>
+      <th colSpan="2" className="tier-dvt">DVT cluster</th>
     </tr>
     <tr>
       <td>Tier Number</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>Reserve Ratio</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>Tier stETH limit</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>Reserve Ratio</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>Tier stETH limit</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>Reserve Ratio</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>Tier stETH limit</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>Reserve Ratio</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>Tier stETH limit</td>
+      <td className="tier-basic">Reserve Ratio</td>
+      <td className="tier-basic">Tier stETH limit</td>
+      <td className="tier-professional">Reserve Ratio</td>
+      <td className="tier-professional">Tier stETH limit</td>
+      <td className="tier-trusted">Reserve Ratio</td>
+      <td className="tier-trusted">Tier stETH limit</td>
+      <td className="tier-dvt">Reserve Ratio</td>
+      <td className="tier-dvt">Tier stETH limit</td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>5%</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>47,500 stETH</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>3.50%</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>48,250 stETH</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>2.50%</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>48,750 stETH</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>2%</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>49,000 stETH</td>
+      <td className="tier-basic">5%</td>
+      <td className="tier-basic">47,500 stETH</td>
+      <td className="tier-professional">3.50%</td>
+      <td className="tier-professional">48,250 stETH</td>
+      <td className="tier-trusted">2.50%</td>
+      <td className="tier-trusted">48,750 stETH</td>
+      <td className="tier-dvt">2%</td>
+      <td className="tier-dvt">49,000 stETH</td>
     </tr>
     <tr>
       <td>2</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>6%</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>47,000 stETH</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>4%</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>48,000 stETH</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>3%</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>48,500 stETH</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>2%</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>49,000 stETH</td>
+      <td className="tier-basic">6%</td>
+      <td className="tier-basic">47,000 stETH</td>
+      <td className="tier-professional">4%</td>
+      <td className="tier-professional">48,000 stETH</td>
+      <td className="tier-trusted">3%</td>
+      <td className="tier-trusted">48,500 stETH</td>
+      <td className="tier-dvt">2%</td>
+      <td className="tier-dvt">49,000 stETH</td>
     </tr>
     <tr>
       <td>3</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>9%</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>182,000 stETH</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>6%</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>188,000 stETH</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>4%</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>192,000 stETH</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>2%</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>196,000 stETH</td>
+      <td className="tier-basic">9%</td>
+      <td className="tier-basic">182,000 stETH</td>
+      <td className="tier-professional">6%</td>
+      <td className="tier-professional">188,000 stETH</td>
+      <td className="tier-trusted">4%</td>
+      <td className="tier-trusted">192,000 stETH</td>
+      <td className="tier-dvt">2%</td>
+      <td className="tier-dvt">196,000 stETH</td>
     </tr>
     <tr>
       <td>4</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>14%</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>258,000 stETH</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>10%</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>270,000 stETH</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>6.50%</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>280,500 stETH</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>3%</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>291,000 stETH</td>
+      <td className="tier-basic">14%</td>
+      <td className="tier-basic">258,000 stETH</td>
+      <td className="tier-professional">10%</td>
+      <td className="tier-professional">270,000 stETH</td>
+      <td className="tier-trusted">6.50%</td>
+      <td className="tier-trusted">280,500 stETH</td>
+      <td className="tier-dvt">3%</td>
+      <td className="tier-dvt">291,000 stETH</td>
     </tr>
     <tr>
       <td>5</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>20%</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>320,000 stETH</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>14.50%</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>342,000 stETH</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>10%</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>360,000 stETH</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>4%</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>384,000 stETH</td>
+      <td className="tier-basic">20%</td>
+      <td className="tier-basic">320,000 stETH</td>
+      <td className="tier-professional">14.50%</td>
+      <td className="tier-professional">342,000 stETH</td>
+      <td className="tier-trusted">10%</td>
+      <td className="tier-trusted">360,000 stETH</td>
+      <td className="tier-dvt">4%</td>
+      <td className="tier-dvt">384,000 stETH</td>
     </tr>
     <tr>
       <td><b>Total</b></td>
-      <td style={{ backgroundColor: "#e8f5e9" }}></td>
-      <td style={{ backgroundColor: "#e8f5e9" }}><b>854,500 stETH</b></td>
-      <td style={{ backgroundColor: "#f3e5f5" }}></td>
-      <td style={{ backgroundColor: "#f3e5f5" }}><b>896,250 stETH</b></td>
-      <td style={{ backgroundColor: "#fff3e0" }}></td>
-      <td style={{ backgroundColor: "#fff3e0" }}><b>929,750 stETH</b></td>
-      <td style={{ backgroundColor: "#e3f2fd" }}></td>
-      <td style={{ backgroundColor: "#e3f2fd" }}><b>969,000 stETH</b></td>
+      <td className="tier-basic"></td>
+      <td className="tier-basic"><b>854,500 stETH</b></td>
+      <td className="tier-professional"></td>
+      <td className="tier-professional"><b>896,250 stETH</b></td>
+      <td className="tier-trusted"></td>
+      <td className="tier-trusted"><b>929,750 stETH</b></td>
+      <td className="tier-dvt"></td>
+      <td className="tier-dvt"><b>969,000 stETH</b></td>
     </tr>
   </tbody>
 </table>
@@ -131,53 +144,53 @@ This is a common tier shared by all stVaults operated by Unidentified Node Opera
   <thead>
     <tr>
       <th>Category</th>
-      <th style={{ backgroundColor: "#f5f5f5" }}>Unidentified (permissionless)</th>
-      <th style={{ backgroundColor: "#e8f5e9" }}>Basic</th>
-      <th style={{ backgroundColor: "#f3e5f5" }}>stVaults Professional Operator</th>
-      <th style={{ backgroundColor: "#fff3e0" }}>stVaults Professional Trusted Operator</th>
-      <th style={{ backgroundColor: "#e3f2fd" }}>DVT cluster</th>
+      <th className="tier-unidentified">Unidentified (permissionless)</th>
+      <th className="tier-basic">Basic</th>
+      <th className="tier-professional">stVaults Professional Operator</th>
+      <th className="tier-trusted">stVaults Professional Trusted Operator</th>
+      <th className="tier-dvt">DVT cluster</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>KYB(C)</td>
-      <td style={{ backgroundColor: "#f5f5f5" }}>Not required</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>Required</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>Required</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>Required</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>Required for each independent Node Operator in the Cluster</td>
+      <td className="tier-unidentified">Not required</td>
+      <td className="tier-basic">Required</td>
+      <td className="tier-professional">Required</td>
+      <td className="tier-trusted">Required</td>
+      <td className="tier-dvt">Required for each independent Node Operator in the Cluster</td>
     </tr>
     <tr>
       <td>Infra requirements</td>
-      <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>Basic</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>Strong</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>Strong</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>DVT cluster with 4+ independent Identified Node Operators</td>
+      <td className="tier-unidentified">-</td>
+      <td className="tier-basic">Basic</td>
+      <td className="tier-professional">Strong</td>
+      <td className="tier-trusted">Strong</td>
+      <td className="tier-dvt">DVT cluster with 4+ independent Identified Node Operators</td>
     </tr>
     <tr>
       <td>Operations Requirements</td>
-      <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>Basic</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>Strong</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>Strong</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>Use DKG to generate keys</td>
+      <td className="tier-unidentified">-</td>
+      <td className="tier-basic">Basic</td>
+      <td className="tier-professional">Strong</td>
+      <td className="tier-trusted">Strong</td>
+      <td className="tier-dvt">Use DKG to generate keys</td>
     </tr>
     <tr>
       <td>Business case (amount of ETH to be acquired)</td>
-      <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>-</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>Large amount of ETH</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>Significant amount of ETH</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>-</td>
+      <td className="tier-unidentified">-</td>
+      <td className="tier-basic">-</td>
+      <td className="tier-professional">Large amount of ETH</td>
+      <td className="tier-trusted">Significant amount of ETH</td>
+      <td className="tier-dvt">-</td>
     </tr>
     <tr>
       <td>Time constraints</td>
-      <td style={{ backgroundColor: "#f5f5f5" }}>-</td>
-      <td style={{ backgroundColor: "#e8f5e9" }}>-</td>
-      <td style={{ backgroundColor: "#f3e5f5" }}>-</td>
-      <td style={{ backgroundColor: "#fff3e0" }}>3+ months of successful validation as an stVaults Professional Operator</td>
-      <td style={{ backgroundColor: "#e3f2fd" }}>-</td>
+      <td className="tier-unidentified">-</td>
+      <td className="tier-basic">-</td>
+      <td className="tier-professional">-</td>
+      <td className="tier-trusted">3+ months of successful validation as an stVaults Professional Operator</td>
+      <td className="tier-dvt">-</td>
     </tr>
   </tbody>
 </table>
