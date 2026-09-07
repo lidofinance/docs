@@ -24,6 +24,8 @@ Competitive offering to native staking — users stake with the same Node Operat
 ## Economy model and calculator
 The vault strategy - ETH is deposited to validators and generates staking rewards; stETH is minted on demand by the Vault Owner.
 
+For custom calculations, use this spreadsheet as a calculator: [Lido stVault Economics Model](https://docs.google.com/spreadsheets/d/1QOnqUvXy6PXMstYTpbSHHivDQ7VloYCjGMKlhvN80as/edit?usp=sharing)
+
 <details>
   <summary>Economy calculation example</summary>
 

@@ -20,6 +20,7 @@ This page is a hub: it links out to product materials if you're looking for the 
 | 🏗️ [stVaults Showcase](https://lido.fi/stvaults-products-overview) | Live products already built on top of stVaults. |
 | 📰 [stVaults News & Deep Dives](https://blog.lido.fi/category/lido-v3/) | Blog posts on stVaults product updates and on what's being built on top of it. |
 | ⚙️ [stVaults Architecture Overview](./concepts-and-reference/architecture-overview.md) | High-level overview of the stVaults and DeFi Wrapper architecture, including smart contract addresses and interfaces. |
+| 🧮 [Lido stVault Economics Model](https://docs.google.com/spreadsheets/d/1QOnqUvXy6PXMstYTpbSHHivDQ7VloYCjGMKlhvN80as/edit?usp=sharing) | Illustrates the economics of liquid staking through Lido stVaults, including Node Operator fees, Lido fees, and potential additional yield from utilizing stETH in DeFi. |
 
 ## Explore the Docs by Role
 
