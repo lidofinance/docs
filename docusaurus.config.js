@@ -153,6 +153,58 @@ module.exports = async function createConfigAsync() {
               from: ['/run-on-lido/stvaults/consolidation','/run-on-lido/stvaults/tech-documentation/consolidation'],
             },
             {
+              to: '/run-on-lido/stvaults/builders/',
+              from: ['/run-on-lido/stvaults/building-guides/', '/run-on-lido/stvaults/operational-and-management-guides/stvaults-economy-examples'],
+            },
+            {
+              to: '/run-on-lido/stvaults/builders/basic-stvaults/',
+              from: '/run-on-lido/stvaults/building-guides/basic-stvault',
+            },
+            {
+              to: '/run-on-lido/stvaults/builders/defi-wrapper/',
+              from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/',
+            },
+            {
+              to: '/run-on-lido/stvaults/builders/defi-wrapper/multi-user-staking-with-custom-strategy',
+              from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/custom-strategy',
+            },
+            {
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/disconnection',
+              from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/disconnect-guide',
+            },
+            {
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/roles-and-permissions',
+              from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/roles-and-permissions',
+            },
+            {
+              to: '/run-on-lido/stvaults/node-operators/defi-wrapper/manage-withdrawal-queue',
+              from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/withdrawals',
+            },
+            {
+              to: '/run-on-lido/stvaults/concepts-and-reference/',
+              from: ['/run-on-lido/stvaults/features-and-mechanics/', '/run-on-lido/stvaults/tech-documentation/'],
+            },
+            {
+              to: '/run-on-lido/stvaults/concepts-and-reference/exit-validators-permissions',
+              from: '/run-on-lido/stvaults/features-and-mechanics/exit-validators',
+            },
+            {
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/',
+              from: '/run-on-lido/stvaults/operational-and-management-guides/',
+            },
+            {
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports',
+              from: '/run-on-lido/stvaults/operational-and-management-guides/applying-report-guide',
+            },
+            {
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/disconnection',
+              from: '/run-on-lido/stvaults/operational-and-management-guides/stvault-disconnect-guide',
+            },
+            {
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth',
+              from: '/run-on-lido/stvaults/operational-and-management-guides/voluntary-rebalancing-and-vault-closure',
+            },
+            {
               to: '/multisigs/emergency-brakes',
               from: '/multisigs/emergency-breaks',
             },
