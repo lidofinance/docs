@@ -229,7 +229,11 @@ true yet, finish that step first.
    MEMBER_PRIV_KEY_2=0xnewdelegatekey  # new - takes over after the vote
    ```
 
-2. **Restart the oracle.**
+2. **Fund the delegate EOA.** Send 50% of the current balance of your old member EOA to the new
+   delegate EOA (the address returned by `getDelegate()`). Both keys must be able to pay for gas: the
+   old one until the vote, the new one after it.
+
+3. **Restart the oracle.**
 
 ### 2.2. Check that the oracle works — in the logs
 
@@ -252,6 +256,7 @@ Oracle daemon ready for EDF — DelegationContract <PASTE address here>
 - [x] DELEGATION_CONTRACT_ADDRESS is set to my DelegationContract
 - [x] Both keys are configured: MEMBER_PRIV_KEY (old member EOA) and MEMBER_PRIV_KEY_2 (new
       delegate)
+- [x] The new delegate EOA is funded
 - [x] I restarted the oracle and saw no configuration errors in the logs
 ```
 
@@ -301,7 +306,12 @@ unset or wrong — fix the config.
    WALLET_PRIVATE_KEY_2=0xnewdelegatekey   # new - takes over at DSM v5
    ```
 
-2. **Restart the daemon.**
+2. **Fund the delegate EOA.** Send 50% of the current balance of your old guardian EOA to the new
+   delegate EOA (the address returned by `getDelegate()`). Both keys must be able to pay for gas: the
+   old one until DSM v5, the new one after it. Do the same on the DataBus chain (Gnosis): the delegate
+   EOA needs xDAI there to send Data Bus messages. 
+
+3. **Restart the daemon.**
 
 ### 3.2. Check that the daemon works — in the logs
 
@@ -338,6 +348,7 @@ Council daemon ready for EDF — DelegationContract <PASTE address here>
 - [x] DELEGATION_CONTRACT_ADDRESS is set to my DelegationContract
 - [x] Both keys are configured: WALLET_PRIVATE_KEY (old guardian EOA) and WALLET_PRIVATE_KEY_2
       (new delegate)
+- [x] The new delegate EOA is funded on Ethereum and on Gnosis
 - [x] I restarted the daemon and saw no configuration errors in the logs
 ```
 
