@@ -31,7 +31,7 @@ Steps 1–5 are DeFi Wrapper-specific and covered below. Step 6 follows the stan
 To view all contract addresses for your pool at once:
 
 ```bash
-yarn start dw uc wo info <poolAddress>
+yarn start dw uc wo r info <poolAddress>
 ```
 
 This prints the Vault, Dashboard, WithdrawalQueue, Distributor, and other addresses in a single command. You will need these addresses throughout the guide.
@@ -56,17 +56,17 @@ The disconnect process requires multiple roles across the Pool, Withdrawal Queue
 | `MANAGER_ROLE`                      | Distributor      | `add-token`, `distribute`, and Merkle root updates (Steps 7.3–7.4); pre-granted to `--nodeOperatorManager` unless a different actor distributes |
 
 :::info
-`VOLUNTARY_DISCONNECT_ROLE` is only needed if `trustedActor` calls `voluntaryDisconnect()` directly. If using a Timelock Controller that already holds `DEFAULT_ADMIN_ROLE` on the Dashboard, this grant can be skipped.
+`VOLUNTARY_DISCONNECT_ROLE` is only needed if the trusted actor calls `voluntaryDisconnect()` directly. If using a Timelock Controller that already holds `DEFAULT_ADMIN_ROLE` on the Dashboard, this grant can be skipped.
 
-`COLLECT_VAULT_ERC20_ROLE` is only needed if `trustedActor` (not the vault owner) performs Step 7.2 (`collect-erc20`).
+`COLLECT_VAULT_ERC20_ROLE` is only needed if the trusted actor (not the vault owner) performs Step 7.2 (`collect-erc20`).
 
 :::
 
-:::warning
+:::danger
 `MANAGER_ROLE` on the Distributor is a custody decision rather than an operational one. Its holder sets the Merkle root directly — no delay, and no on-chain check that the tree matches what was actually transferred — so a wrong or malicious root redirects every **unclaimed** token. Amounts users have already claimed are safe, because claims are cumulative per recipient and token, but the remaining balance stays exposed until it is all claimed.
 :::
 
-Schedule and execute a batch transaction through the Timelock Controller to grant the roles below. The example covers the seven grants that match the Pool, Withdrawal Queue, and Dashboard **rebalance / pause / exit** path. If `trustedActor` must also call `voluntaryDisconnect()` or `collectERC20` on the Dashboard without going through an admin Timelock, append two more `grantRole` calls on the Dashboard for `VOLUNTARY_DISCONNECT_ROLE` and `COLLECT_VAULT_ERC20_ROLE`. `MANAGER_ROLE` is on the Distributor — grant it separately if the distributor is managed by a different address than `--nodeOperatorManager`.
+Schedule and execute a batch transaction through the Timelock Controller to grant the roles below. The example covers the seven grants that match the Pool, Withdrawal Queue, and Dashboard **rebalance / pause / exit** path. If the trusted actor must also call `voluntaryDisconnect()` or `collectERC20` on the Dashboard without going through an admin Timelock, append two more `grantRole` calls on the Dashboard for `VOLUNTARY_DISCONNECT_ROLE` and `COLLECT_VAULT_ERC20_ROLE`. `MANAGER_ROLE` is on the Distributor — grant it separately if the distributor is managed by a different address than `--nodeOperatorManager`.
 
 ```
 targets: [Pool, Pool, Pool, WithdrawalQueue, WithdrawalQueue, Dashboard, Dashboard]
@@ -360,7 +360,7 @@ Pin the file with your provider to ensure it remains accessible. After pinning, 
 
 The distribution is now configured. Users can verify their allocation by opening the CID via an IPFS gateway and locating their address in the Merkle tree.
 
-Users can claim their funds — see [User: claiming funds](#user-claiming-funds) below.
+Users can claim their funds — see below.
 
 ---
 

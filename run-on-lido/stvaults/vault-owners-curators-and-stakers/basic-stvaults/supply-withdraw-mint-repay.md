@@ -54,7 +54,7 @@ See [details and examples](https://lidofinance.github.io/lido-staking-vault-cli/
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `fund`, putting the amount of ETH into the payable field.
 
 </details>

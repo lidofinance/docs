@@ -144,7 +144,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `OperatorGrid.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
+3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -206,7 +206,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 #### Etherscan
 
-1. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+1. Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Go to the **Contract** tab → **Write Contract**.
 3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
 4. Find the `schedule` method in the list and fill out the fields:
@@ -254,13 +254,13 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 1. Check the timelock delay period:
 
-   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Read Contract**.
    - Find the `getMinDelay` method and click **Query** to see the minimum delay in seconds.
 
 2. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
 3. Execute change tier, connect the wallet:
-   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Write Contract**.
    - Click **Connect to Web3** and connect the wallet that holds the **executor role**.Click **Connect to Web3** and connect the wallet that holds the **executor role**.
 4. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
@@ -277,7 +277,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-Within the confirmation time window period (default 24 hours) after step 2, the Node Operator must confirm the tier change:
+Within the confirmation time window period (24 hours at the Mainnet minimum) after step 2, the Node Operator must confirm the tier change:
 
 #### stVaults UI
 

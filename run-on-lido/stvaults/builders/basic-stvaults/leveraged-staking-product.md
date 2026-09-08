@@ -15,7 +15,7 @@ Staking rewards through a chosen Node Operator, full utilization of the availabl
 | stETH minting capability | Yes, as collateral for borrowing ETH in recursive loops |
 
 ## Building blocks
-| Building block | Solution | Implementation | 
+| Building block | Solution | Implementation |
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | Custom | Custom |
@@ -179,7 +179,7 @@ Creating an stVault is permissionless.
 2. **Node Operator Manager address**. One of the two administrative roles in an stVault. From the Node Operator perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 3. **Vault Owner address**. One of the two administrative roles in an stVault. From the Vault Owner (Staker) perspective, this role manages permissions and can update key vault parameters. Multiple addresses are supported.
 4. **Node Operator Fee**. The share of gross staking rewards that the Node Operator charges for providing validation services. Expressed in basis points [0 (0%) .. 10,000 (100%)].
-5. **Confirmation Lifetime**. The key parameter of the multi-role confirmation mechanism. It defines the maximum time interval between proposal and confirmation. This mechanism is used to update certain stVault parameters by requiring consensus between the two stVault representatives: the Vault Owner and the Node Operator Manager. Measured in seconds [86,400 sec (24 hours) .. 25,920,000 sec (30 days)]. For security reasons, it is strongly recommended to keep it as short as possible, ideally the minimum 86,400 sec.
+5. **Confirmation Lifetime**. The key parameter of the multi-role confirmation mechanism. It defines the maximum time interval between proposal and confirmation. This mechanism is used to update certain stVault parameters by requiring consensus between the two stVault representatives: the Vault Owner and the Node Operator Manager. Measured in seconds [86,400 sec (24 hours) .. 2,592,000 sec (30 days)]. For security reasons, it is strongly recommended to keep it as short as possible, ideally the minimum 86,400 sec.
 
 ## Creating new stVault
 
@@ -210,7 +210,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **VaultFactory** contract by its address.
+1. Open **Etherscan** and navigate to the **VaultFactory** contract — find its address on the [Environments](../../concepts-and-reference/architecture-overview.md#environments) page.
 2. Call `createVaultWithDashboard`:
    - `_payableAmount (ether)` must be at least **1 ETH**.
    - You can leave `_roleAssignments = []`.

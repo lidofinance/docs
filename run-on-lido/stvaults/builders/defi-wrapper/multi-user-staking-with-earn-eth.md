@@ -16,14 +16,14 @@ An end-user staking product with a higher risk/yield profile achieved by deposit
 | Parameter | Value |
 | -- | -- |
 | Number of stakers | Multiple |
-| stETH minting capability | Yes, to deposit into custom DeFi strategy and generate additional yield |
+| stETH minting capability | Yes, to deposit into Lido EarnETH and generate additional yield |
 
 ## Building blocks
 | Building block | Solution | Implementation | 
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | DeFi Wrapper | Out-of-the-box |
-| Connector to DeFi Strategy | Custom connector | Custom |
+| Connector to DeFi Strategy | Connector to Lido EarnETH | Out-of-the-box |
 | User Interface | DeFi Wrapper Embeddable Widget / Custom | Out-of-the-box / Custom |
 
 ## What is DeFi Wrapper?
@@ -130,7 +130,7 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 Due to design the allow list for `StvStrategyPool` is always on and is limited only to the strategies contracts attached to the pool. The strategy contract(if enabled by `--allowList true`) has it's own allow list. To manage the Strategy allow list, use the following CLI commands:
 
 - `yarn start defi-wrapper use-cases wrapper-operations read info <poolAddress>` to check the current strategy address attached to the pool
-- `yarn start defi-wrapper use-cases tinmelock-governance common read get-timelock-address <poolAddress>` to get the timelock address for the pool
+- `yarn start defi-wrapper use-cases timelock-governance common read get-timelock-address <poolAddress>` to get the timelock address for the pool
 - `yarn start defi-wrapper use-cases wrapper-operations read allow-list <strategyAddress>` to check the current allow list state for the strategy
 - `yarn start defi-wrapper use-cases timelock-governance strategy write propose-grant-role <timelockAddress> <strategyAddress> ALLOW_LIST_MANAGER_ROLE <managerAddress>` AS PROPOSER to propose adding a manager to the strategy allow list
 - `yarn start defi-wrapper use-cases timelock-governance strategy write execute-grant-role <timelockAddress> <strategyAddress> ALLOW_LIST_MANAGER_ROLE <managerAddress>` AS EXECUTOR to execute adding a manager to the strategy allow list after the timelock delay has passed
@@ -159,7 +159,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `OperatorGrid.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (default 24 hours), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
+3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -221,7 +221,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 #### Etherscan
 
-1. Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+1. Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Go to the **Contract** tab → **Write Contract**.
 3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
 4. Find the `schedule` method in the list and fill out the fields:
@@ -269,13 +269,13 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 
 1. Check the timelock delay period:
 
-   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Read Contract**.
    - Find the `getMinDelay` method and click **Query** to see the minimum delay in seconds.
 
 2. Wait for the timelock delay period to pass. You can verify the operation is ready by calling `isOperationReady(operationId)` on the TimelockController contract (in **Read Contract** tab).
 3. Execute change tier, connect the wallet:
-   - Open **Etherscan** and navigate to the **TimelockController** contract by its address.
+   - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Write Contract**.
    - Click **Connect to Web3** and connect the wallet that holds the **executor role**.Click **Connect to Web3** and connect the wallet that holds the **executor role**.
 4. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
@@ -292,7 +292,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-Within the confirmation time window period (default 24 hours) after step 2, the Node Operator must confirm the tier change:
+Within the confirmation time window period (24 hours at the Mainnet minimum) after step 2, the Node Operator must confirm the tier change:
 
 #### stVaults UI
 

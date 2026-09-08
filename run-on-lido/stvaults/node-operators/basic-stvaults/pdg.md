@@ -175,8 +175,8 @@ Steps:
 
 7. The `Depositor` proves the validator's appearance on the Consensus Layer to the PDG contract with the withdrawal credentials corresponding to the stVault's address, activates the validator, and (optionally) performs an extra top-up.
 
-   - Method called: `PredepositGuarantee.proveWCActivateAndTopUpValidators(witness, amounts)`.
-   - Caller must be the `Depositor` in the PredepositGuarantee contract.
+   - Method called: `PredepositGuarantee.proveWCActivateAndTopUpValidators(witnesses, amounts)`.
+   - Proving and activating are **permissionless** — anyone may call them. Only the optional top-up is restricted: if any amount is non-zero, the caller must be the `Depositor`, otherwise the call reverts with `NotDepositor`.
 
    As a result:
 

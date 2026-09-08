@@ -11,7 +11,7 @@ Exits from a DeFi Wrapper pool do not settle on their own. Depositors file reque
 One command shows whether there is anything to settle and whether it can be settled right now:
 
 ```bash
-yarn start dw uc wo withdrawal-status <poolAddress>
+yarn start dw uc wo r withdrawal-status <poolAddress>
 ```
 
 It prints the pool, queue and vault addresses, then the numbers that decide the next move:
@@ -86,7 +86,7 @@ See [Validators basics](../basic-stvaults/validators-basics.md) for the full pic
 ## Finalizing
 
 ```bash
-yarn start dw uc wo finalize-withdrawals <poolAddress>
+yarn start dw uc wo w finalize-withdrawals <poolAddress>
 ```
 
 | Option | Default | Purpose |
@@ -105,7 +105,7 @@ Finalizing costs the Node Operator gas while the benefit goes to the depositors 
 It is **0 by default**, so nothing is deducted until it is set. Raising it is a `FINALIZE_ROLE` action:
 
 ```bash
-yarn start dw uc wo set-finalization-gas-cost-coverage <withdrawalQueueAddress> <gasCostCoverageWei>
+yarn start dw uc wo w set-finalization-gas-cost-coverage <withdrawalQueueAddress> <gasCostCoverageWei>
 ```
 
 Two consequences follow. Coverage is part of what a finalization has to pay out, so raising it raises the vault balance needed to settle the same set of requests. And a request whose payout is smaller than the coverage surrenders only what it has, never going negative — which is also what makes a non-zero coverage discourage flooding the queue with dust.
@@ -117,7 +117,7 @@ The ceiling and the checkpoint behaviour are described in [Gas cost coverage](..
 The CLI can watch for reports, apply them and finalize what becomes settleable:
 
 ```bash
-yarn start dw uc wo auto-report <poolAddress>
+yarn start dw uc wo w auto-report <poolAddress>
 ```
 
 | Option | Default | Purpose |

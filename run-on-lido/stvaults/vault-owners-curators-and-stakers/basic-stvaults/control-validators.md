@@ -46,7 +46,7 @@ yarn start contracts dashboard write exit <dashboard_address> <validator_pubkey>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `requestValidatorExit`, passing the validator public keys concatenated into a single hex string (48 bytes each).
 
 </details>
@@ -108,9 +108,9 @@ Public keys and amounts are comma-separated lists of the same length. **Amounts 
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **StakingVault** contract by its address.
+1. Open **Etherscan** and navigate to the **StakingVault** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `calculateValidatorWithdrawalFee`, passing the number of keys, to estimate the fee.
-3. Navigate to the **Dashboard** contract by its address.
+3. Navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 4. Call `triggerValidatorWithdrawals`, passing the concatenated public keys, the amounts **in Gwei** (`0` for a full exit), and the refund recipient address. Attach the fee, with a surplus, as the payable value.
 
 </details>
@@ -131,7 +131,7 @@ Open the stVault **Settings** and switch off deposits from the stVault balance t
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `pauseBeaconChainDeposits` or `resumeBeaconChainDeposits`.
 
 </details>

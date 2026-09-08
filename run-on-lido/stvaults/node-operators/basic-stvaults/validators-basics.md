@@ -81,7 +81,7 @@ Public keys are a comma-separated list. The CLI reads the current fee itself and
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **StakingVault** contract by its address.
+1. Open **Etherscan** and navigate to the **StakingVault** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `calculateValidatorWithdrawalFee`, passing the number of keys, to estimate the fee.
 3. Call `ejectValidators`, passing the concatenated public keys and the refund recipient address. Attach the fee, with a surplus, as the payable value.
 

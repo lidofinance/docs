@@ -37,7 +37,7 @@ These roles must never be held directly by a single operational multisig, since 
 
 | Role | Risk |
 | --- | --- |
-| `DEFAULT_ADMIN` (Vault Owner) | Can grant or remove any role, including its own, and confirms transfer of StakingVault ownership. |
+| `DEFAULT_ADMIN_ROLE` (Vault Owner) | Can grant or remove any role, including its own, and confirms transfer of StakingVault ownership. |
 | `WITHDRAW_ROLE` | Withdraws ETH directly from the stVault balance. |
 | `MINT_ROLE` | Mints stETH from the stVault, creating leveraged exposure on behalf of the owner. |
 | `VOLUNTARY_DISCONNECT_ROLE` | Disconnects the stVault from VaultHub — an irreversible structural action, not a routine operational one. |
@@ -70,7 +70,7 @@ A small number of roles don't cleanly fall into either bucket and are left to th
 
 ## Step 2 — Delegate operational roles to the operations manager multisig
 
-Grant the operational roles (and, if chosen, the discretionary roles) directly to the operations manager's multisig address. This is a standard `grantRole` call from the Vault Owner's `DEFAULT_ADMIN` address for each role listed above.
+Grant the operational roles (and, if chosen, the discretionary roles) directly to the operations manager's multisig address. This is a standard `grantRole` call from the Vault Owner's `DEFAULT_ADMIN_ROLE` address for each role listed above.
 
 This multisig should be sized for day-to-day usability (e.g. 2-of-3) rather than maximum security, since none of the roles it holds can move staker principal on their own.
 

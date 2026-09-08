@@ -105,7 +105,7 @@ yarn start contracts dashboard w voluntary-disconnect <dashboardAddress>
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **Dashboard** contract by its address.
+1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `voluntaryDisconnect`.
 
 </details>
