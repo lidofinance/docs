@@ -34,7 +34,6 @@ How an address becomes a Node Operator. Each module has its own gate, and the fa
 | --- | --- | --- |
 | [`Accounting`](/staking-modules/contracts/Accounting) | Both | Holds the bond as `stETH` shares and manages required bond, rewards, penalties, and charges |
 | [`FeeDistributor`](/staking-modules/contracts/FeeDistributor) | Both | Holds reward shares while unallocated or claimable, and stores the rewards Merkle tree |
-| [`FeeOracle`](/staking-modules/contracts/FeeOracle) | Both | Processes the Performance Oracle report once consensus is reached |
 
 ## Configuration
 
@@ -50,4 +49,10 @@ How an address becomes a Node Operator. Each module has its own gate, and the fa
 | [`ValidatorStrikes`](/staking-modules/contracts/ValidatorStrikes) | Both | Stores strike data reported by the Performance Oracle and can trigger ejection |
 | [`ExitPenalties`](/staking-modules/contracts/ExitPenalties) | Both | Records exit-related penalties and charges per validator |
 | [`Ejector`](/staking-modules/contracts/Ejector) | Both | Triggers validator withdrawals through EIP-7002 |
+
+## Oracles and proofs
+
+| Contract | Applies to | What it does |
+| --- | --- | --- |
+| [`FeeOracle`](/staking-modules/contracts/FeeOracle) | Both | Processes the Performance Oracle report once consensus is reached |
 | [`Verifier`](/staking-modules/contracts/Verifier) | Both | Validates Consensus Layer proofs against the beacon block root and reports the verified facts |

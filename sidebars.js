@@ -243,7 +243,6 @@ module.exports = {
               items: [
               { type: 'doc', id: 'staking-modules/contracts/Accounting', label: 'Accounting' },
               { type: 'doc', id: 'staking-modules/contracts/FeeDistributor', label: 'FeeDistributor' },
-              { type: 'doc', id: 'staking-modules/contracts/FeeOracle', label: 'FeeOracle' },
               ],
             },
             {
@@ -263,6 +262,14 @@ module.exports = {
               { type: 'doc', id: 'staking-modules/contracts/ValidatorStrikes', label: 'ValidatorStrikes' },
               { type: 'doc', id: 'staking-modules/contracts/ExitPenalties', label: 'ExitPenalties' },
               { type: 'doc', id: 'staking-modules/contracts/Ejector', label: 'Ejector' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Oracles and proofs',
+              collapsed: false,
+              items: [
+              { type: 'doc', id: 'staking-modules/contracts/FeeOracle', label: 'FeeOracle' },
               { type: 'doc', id: 'staking-modules/contracts/Verifier', label: 'Verifier' },
               ],
             },
