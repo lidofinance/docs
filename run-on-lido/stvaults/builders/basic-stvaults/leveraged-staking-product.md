@@ -19,7 +19,7 @@ Staking rewards through a chosen Node Operator, full utilization of the availabl
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | Custom | Custom |
-| Leveraged staking strategy | Custom | Custom |
+| Leveraged staking strategy | Custom | Custom / by Gauntlet / by RockSolid |
 | User Interface | Custom | Custom |
 
 ## Economy model and calculator
