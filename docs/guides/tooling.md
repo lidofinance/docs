@@ -6,11 +6,11 @@ Overview of core infrastructure components used in the Lido protocol.
 
 Oracle daemon for Lido decentralized staking service.
 
-- **Version**: 8.0.6
-- **Docker image**: sha256:eadfaaef1da16436329704a8fd1cd36da147822eb277fb766d6b874f6c1261d1, [lidofinance/oracle@sha256-eadfaaef1da16436329704a8fd1cd36da147822eb277fb766d6b874f6c1261d1](https://hub.docker.com/layers/lidofinance/oracle/8.0.6/images/sha256-eadfaaef1da16436329704a8fd1cd36da147822eb277fb766d6b874f6c1261d1)
-- **Commit hash**: [lidofinance/lido-oracle@57a5f60](https://github.com/lidofinance/lido-oracle/commit/57a5f6089dd8ed9602000ef96a8f2b1f19caa704)
-- **Last update date**: 28 August, 2026
-- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/8.0.6)
+- **Version**: 8.1.0
+- **Docker image**: sha256:ea496996214d309a6fcf9e8231627b1486cf1f92439571a1773b16fc3f2af9f4, [lidofinance/oracle@sha256-ea496996214d309a6fcf9e8231627b1486cf1f92439571a1773b16fc3f2af9f4](https://hub.docker.com/layers/lidofinance/oracle/8.1.0/images/sha256-ea496996214d309a6fcf9e8231627b1486cf1f92439571a1773b16fc3f2af9f4)
+- **Commit hash**: [lidofinance/lido-oracle@032c228](https://github.com/lidofinance/lido-oracle/commit/032c228c767759e67da43e6c40fa81732257879d)
+- **Last update date**: 8 September, 2026
+- [**Repository**](https://github.com/lidofinance/lido-oracle/tree/8.1.0)
 - [**Documentation**](/guides/oracle-operator-manual)
 - [**Audit Report for v8.0.1 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8%20Audit%20Report.pdf)
 - [**Audit Report for v8.0.2 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8_0_2%20Security%20Consultation%20Report.pdf)
@@ -18,6 +18,7 @@ Oracle daemon for Lido decentralized staking service.
 - [**Audit Report for v8.0.5 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8_0_5%20Security%20Consultation%20Report.pdf)
 - [**Audit Report for v8.0.5 (MixBytes)**](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v8.0.5%20Security%20Audit%20Report%2007-2026.pdf)
 - [**Audit Report for v8.0.6 (MixBytes)**](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v8.0.6%20Security%20Audit%20Report%2008-2026.pdf)
+- [**Audit Report for v8.1 (Composable Security)**](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8_1%20Audit%20Report.pdf)
 
 ## Validator Ejector
 
