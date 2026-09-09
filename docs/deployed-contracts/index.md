@@ -10,7 +10,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
+- ⚓ Lido protocol version: [**`v4.0.1`**](https://github.com/lidofinance/core/releases/tag/v4.0.1)
 - 🌐 Network: Ethereum Mainnet (Chain ID: `1`)
 - ✅ Status: Active and maintained
 :::
@@ -162,7 +162,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 
 ## 🔄 Post Token Rebase Receiver {#post-token-rebase-receiver}
 
-- Token Rate Notifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
+- Token Rate Notifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b)
 
 ## 🧩 Staking Modules {#staking-modules}
 
