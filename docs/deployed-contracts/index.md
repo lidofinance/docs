@@ -18,8 +18,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - \[[proposed to remove](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Lido Locator: [`0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b`](https://etherscan.io/address/0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b) (impl)
-  - \[proposed\] Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
+  - \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] Lido Locator: [`0x60E09F1791F1168d0450E4F100616B4a3F95119C`](https://etherscan.io/address/0x60E09F1791F1168d0450E4F100616B4a3F95119C) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
   - Lido: [`0x028271E30a695c0527A0C50cA30603feD004cDb0`](https://etherscan.io/address/0x028271E30a695c0527A0C50cA30603feD004cDb0) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
@@ -31,7 +31,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
   - Staking Router: [`0xDD76927045435C7605cf6f5F978cfb8CABDb5F80`](https://etherscan.io/address/0xDD76927045435C7605cf6f5F978cfb8CABDb5F80) (impl)
 - SR Library: [`0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14`](https://etherscan.io/address/0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14) (external lib)
 - Beacon Chain Depositor: [`0xf98AC162eAB766bDB9507c3584c00C535B8F6216`](https://etherscan.io/address/0xf98AC162eAB766bDB9507c3584c00C535B8F6216)
-- Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- \[[proposed to remove](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] Deposit Security Module: [`0x39BB5d491e98A44D1bfe8047A737a81E296a63E0`](https://etherscan.io/address/0x39BB5d491e98A44D1bfe8047A737a81E296a63E0)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
@@ -89,7 +90,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 ## 🔑 Execution Delegation Framework {#execution-delegation-framework}
 
-- DelegationFactory: [`0xD990770eB2B4b6062EDdB06892fF179C693b46e6`](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] DelegationFactory: [`0xD990770eB2B4b6062EDdB06892fF179C693b46e6`](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6)
 
 ## 🗳️ DAO Contracts {#dao-contracts}
 
@@ -359,7 +360,7 @@ for the rate and price feeds recommended approaches.
 
 ### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
 
-- SetDepositsReserveTarget: [`0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0`](https://etherscan.io/address/0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0)
+- \[[proposed](https://research.lido.fi/t/proposal-add-easy-track-factory-for-deposit-reserve-target-management-by-cmc/11827)\] SetDepositsReserveTarget: [`0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0`](https://etherscan.io/address/0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0)
 
 ### 🧩 Easy Track Factories for Staking Modules {#easy-track-factories-for-staking-modules}
 
