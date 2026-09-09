@@ -25,3 +25,7 @@ yarn-error.log*
 .vscode
 .idea
 .claude
+.env
+
+# Security triage run reports
+/.security-triage
