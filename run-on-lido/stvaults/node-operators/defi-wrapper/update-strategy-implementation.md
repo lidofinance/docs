@@ -31,7 +31,7 @@ yarn start dw uc wo r allow-list <strategyAddress>
 
 With the allowlist enabled the command prints the `ALLOW_LIST_MANAGER_ROLE` holders and the listed addresses; with it disabled it says so and prints nothing further.
 
-## Step 1 — Deploy the new implementation
+## Step 1. Deploy the new implementation
 
 Deploy from the **same factory** the original implementation came from, so the bytecode is identical and only the constructor argument differs. The call is `deploy(address pool, bytes deployBytes)`:
 
@@ -64,7 +64,7 @@ cast call <newImplementationAddress> "POOL()(address)" --rpc-url <rpcUrl>       
 
 Each factory decides what `deployBytes` means. `MellowStrategyFactory` decodes it as that single bool; a custom factory defines its own encoding — see [custom strategies](../../builders/defi-wrapper/multi-user-staking-with-custom-strategy.md).
 
-## Step 2 — Upgrade the proxy through the timelock
+## Step 2. Upgrade the proxy through the timelock
 
 The strategy proxy's admin is the Timelock Controller, so the upgrade is an ordinary proposal: propose, wait out the delay, execute with the **same salt**. Generate a fresh 32-byte salt for this operation rather than reusing one from an earlier proposal:
 

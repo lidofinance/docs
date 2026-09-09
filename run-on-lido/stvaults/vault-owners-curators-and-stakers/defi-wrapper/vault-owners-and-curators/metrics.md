@@ -54,8 +54,9 @@ $$
 
 Both quantities are defined below, and the mechanics behind them are in
 [Unassigned liability and bad debt](../../../concepts-and-reference/defi-wrapper-technical-design.md#unassigned-liability-and-bad-debt) and
-[Exceeding minted stETH](../../../concepts-and-reference/defi-wrapper-technical-design.md#exceeding-minted-steth). The plain pool has no minting and therefore only the
-second branch.
+[Exceeding minted stETH](../../../concepts-and-reference/defi-wrapper-technical-design.md#exceeding-minted-steth).
+
+The plain pool has no minting, so only the second branch ever applies to it.
 
 ### stv rate
 
@@ -65,8 +66,8 @@ $$
 R_{stv} = \frac{\text{totalAssets}}{\text{totalSupply}}
 $$
 
-Before any stv is issued the rate starts at 1 ETH per $10^{27}$ stv, which is what fixes the scale and keeps
-later conversions exact.
+Before any stv is issued the rate starts at 1 ETH per $10^{27}$ stv, which fixes the scale and keeps later
+conversions exact.
 
 ### Total liability shares
 
@@ -131,8 +132,8 @@ $$
 \text{threshold}(L_{a}) = \left\lceil \frac{L_{a}}{1 - FRT_{p}} \right\rceil
 $$
 
-The gap between `lock` and `threshold` is the room an account has to lose value before that happens, and it
-is thin for an account that mints to its limit.
+The gap between `lock` and `threshold` is the room an account has to lose value before that happens. That
+room is thin for an account that mints to its limit.
 
 ### Minting capacity
 
@@ -146,7 +147,7 @@ $$
 $$
 
 Both are denominated in stETH shares. The remaining capacity can also be evaluated against ETH not yet
-deposited, which is what tells a depositor how much a deposit would let them mint.
+deposited, so a depositor can see what a deposit would let them mint.
 
 Rounding always runs against the account — capacity floors, `lock` ceils — so it can never leave a position
 short of collateral.
@@ -195,8 +196,8 @@ $$
 \text{unfinalized range} = \text{lastFinalizedRequestId}\ ..\ \text{lastRequestId}
 $$
 
-Four figures measure that range: how many requests it holds, and what they are owed in each of three units —
-stv, stETH shares and assets.
+Four figures measure that range: how many requests it holds, and what those requests are owed in each of
+three units — stv, stETH shares and assets.
 
 ### ETH free to stake
 
@@ -224,7 +225,7 @@ $$
 $$
 
 A request that waited through a loss absorbs its share of it. A request that waited through rewards does not
-capture them — those stay with the depositors still in the pool, whose validators were the ones earning. See
+capture them — those stay with the depositors still in the pool, whose validators earned them. See
 [§3.4](../../../concepts-and-reference/defi-wrapper-technical-design.md#34-withdrawalqueue).
 
 ### Claimable ETH
@@ -254,8 +255,8 @@ $$
 $$
 
 The period is a day because an oracle report updates the vault's value once a day, so each day's rewards
-start earning from the next one. That compounding is what makes the APY come out slightly above the APR it
-is derived from.
+start earning from the next one. The compounding is why the APY comes out slightly above the APR it is
+derived from.
 
 ### Strategy pools
 
