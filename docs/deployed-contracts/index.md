@@ -10,7 +10,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
+- ⚓ Lido protocol version: [**`v4.0.1`**](https://github.com/lidofinance/core/releases/tag/v4.0.1)
 - 🌐 Network: Ethereum Mainnet (Chain ID: `1`)
 - ✅ Status: Active and maintained
 :::
@@ -18,8 +18,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - \[[proposed to remove](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621)\] Lido Locator: [`0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b`](https://etherscan.io/address/0x0360002bf51DCae1c0267aE0AFDaBacAF7De686b) (impl)
-  - \[proposed\] Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
+  - Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
   - Lido: [`0x028271E30a695c0527A0C50cA30603feD004cDb0`](https://etherscan.io/address/0x028271E30a695c0527A0C50cA30603feD004cDb0) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
@@ -163,7 +162,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 
 ## 🔄 Post Token Rebase Receiver {#post-token-rebase-receiver}
 
-- Token Rate Notifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
+- Token Rate Notifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b)
 
 ## 🧩 Staking Modules {#staking-modules}
 
@@ -290,6 +289,11 @@ for the rate and price feeds recommended approaches.
   - Chainlink wstETH/stETH exchange rate on zkSync: [`0x24a0C9404101A8d7497676BE12F10aEa356bAC28`](https://explorer.zksync.io/address/0x24a0C9404101A8d7497676BE12F10aEa356bAC28) (proxy)
   - Chainlink wstETH/stETH exchange rate on Linea: [`0x3C8A95F2264bB3b52156c766b738357008d87cB7`](https://lineascan.build/address/0x3C8A95F2264bB3b52156c766b738357008d87cB7) (proxy)
   - Chainlink wstETH/stETH exchange rate on BNB: [`0x4c75d01cfa4D998770b399246400a6dc40FB9645`](https://bscscan.com/address/0x4c75d01cfa4D998770b399246400a6dc40FB9645) (proxy)
+- Multichain PriceOracle wrappers (immutable adapters over the Chainlink feeds above; used e.g. by CCIP Direct Staking)
+  - PriceOracle on Arbitrum: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://arbiscan.io/address/0x328de900860816d29D1367F6903a24D8ed40C997)
+  - PriceOracle on Optimism: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://optimistic.etherscan.io/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367)
+  - PriceOracle on Base: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://basescan.org/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367)
+  - PriceOracle on Linea: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://lineascan.build/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367)
 
 ## 🎁 Reward Programs {#reward-programs}
 
@@ -305,7 +309,11 @@ for the rate and price feeds recommended approaches.
 - Optimism Curve rewards manager:
   - Manager Contract: [`0xD420d6C8aA81c087829A64Ce59936b7C1176A81a`](https://optimistic.etherscan.io/address/0xD420d6C8aA81c087829A64Ce59936b7C1176A81a)
 
-## 🔗 AAVE V2 Integration {#aave-v2-integration}
+## 🔗 Legacy Aave V2 Integration {#aave-v2-integration}
+
+:::warning
+The Aave V2 market is being deprecated. Do not use these contracts for new integrations. See the [Aave V2 integration notice](/integrations/aave) for the official legacy position-management path.
+:::
 
 - AStETH: [`0x1982b2F5814301d4e9a8b0201555376e62F82428`](https://etherscan.io/address/0x1982b2F5814301d4e9a8b0201555376e62F82428) (proxy)
 - AStETH: [`0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a`](https://etherscan.io/address/0xbd233D4ffdAA9B7d1d3E6b18CCcb8D091142893a) (impl)
@@ -338,15 +346,15 @@ for the rate and price feeds recommended approaches.
 
 ## 🪺 Lido NEST Contracts {#lido-nest-contracts}
 
-- [proposed] OracleRouter [`0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31`](https://etherscan.io/address/0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31)
-- [proposed] AmountConverter (ETH-anchored) [`0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d`](https://etherscan.io/address/0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d)
-- [proposed] StonksFactory [`0x632C0CCDca849eeD780FC685BBa9AbC3c7407Cb2`](https://etherscan.io/address/0x632C0CCDca849eeD780FC685BBa9AbC3c7407Cb2)
-  - [proposed] Order (sample) [`0x2569633AdB492ca9327cb7433277aa7c68D69e28`](https://etherscan.io/address/0x2569633AdB492ca9327cb7433277aa7c68D69e28)
-- [proposed] StakingRevenueSource [`0x6220212a33a87Ed7Cc386B67eB2c393974F28C38`](https://etherscan.io/address/0x6220212a33a87Ed7Cc386B67eB2c393974F28C38)
-- [proposed] BuybackExecutor [`0x6c213ca5A10Cc26548C742229569B4AeD2A9C9B7`](https://etherscan.io/address/0x6c213ca5A10Cc26548C742229569B4AeD2A9C9B7)
-- [proposed] BuybackAllocator [`0xAA568141c051f2D1132b110f8391F18D48E8D889`](https://etherscan.io/address/0xAA568141c051f2D1132b110f8391F18D48E8D889)
-- [proposed] Stonks (LP mode) [`0x8c595aA4AEc6F42B9e7D77F83179768D37CE3042`](https://etherscan.io/address/0x8c595aA4AEc6F42B9e7D77F83179768D37CE3042)
-- [proposed] Stonks (Treasury mode) [`0xb368586CB980895E51e1D82102E63b3F69d3F151`](https://etherscan.io/address/0xb368586CB980895E51e1D82102E63b3F69d3F151)
+- OracleRouter [`0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31`](https://etherscan.io/address/0x79ef3a538200Fe4981D67E7e886bfb36D4Cb5a31)
+- AmountConverter (ETH-anchored) [`0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d`](https://etherscan.io/address/0x70dA04C5D0f325F5AF1426dE6672BF2424B4593d)
+- StonksFactory [`0x632C0CCDca849eeD780FC685BBa9AbC3c7407Cb2`](https://etherscan.io/address/0x632C0CCDca849eeD780FC685BBa9AbC3c7407Cb2)
+  - Order (sample) [`0x2569633AdB492ca9327cb7433277aa7c68D69e28`](https://etherscan.io/address/0x2569633AdB492ca9327cb7433277aa7c68D69e28)
+- StakingRevenueSource [`0x6220212a33a87Ed7Cc386B67eB2c393974F28C38`](https://etherscan.io/address/0x6220212a33a87Ed7Cc386B67eB2c393974F28C38)
+- BuybackExecutor [`0x6c213ca5A10Cc26548C742229569B4AeD2A9C9B7`](https://etherscan.io/address/0x6c213ca5A10Cc26548C742229569B4AeD2A9C9B7)
+- BuybackAllocator [`0xAA568141c051f2D1132b110f8391F18D48E8D889`](https://etherscan.io/address/0xAA568141c051f2D1132b110f8391F18D48E8D889)
+- Stonks (LP mode) [`0x8c595aA4AEc6F42B9e7D77F83179768D37CE3042`](https://etherscan.io/address/0x8c595aA4AEc6F42B9e7D77F83179768D37CE3042)
+- Stonks (Treasury mode) [`0xb368586CB980895E51e1D82102E63b3F69d3F151`](https://etherscan.io/address/0xb368586CB980895E51e1D82102E63b3F69d3F151)
 
 ## ⚡ Easy Track {#easy-track}
 
@@ -372,8 +380,7 @@ for the rate and price feeds recommended approaches.
   - SetMerkleGateTree: [`0xf3ec30B86c3dC1b8a1C754D885F9bE3160e15B4c`](https://etherscan.io/address/0xf3ec30B86c3dC1b8a1C754D885F9bE3160e15B4c)
   - ReportWithdrawalsForSlashedValidators: [`0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A`](https://etherscan.io/address/0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A)
   - SettleGeneralDelayedPenalty: [`0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F`](https://etherscan.io/address/0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F)
-  - \[[proposed to remove](https://research.lido.fi/t/community-staking-module/5917/231)\] UpdateStakingModuleShareLimits: [`0x0C6703F1d8D9DdfB6c6e5F57b4f7432a6500D6D8`](https://etherscan.io/address/0x0C6703F1d8D9DdfB6c6e5F57b4f7432a6500D6D8)
-  - \[[proposed](https://research.lido.fi/t/community-staking-module/5917/231)\] UpdateStakingModuleShareLimits: [`0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1`](https://etherscan.io/address/0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1)
+  - UpdateStakingModuleShareLimits: [`0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1`](https://etherscan.io/address/0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1)
 - **Curated Module v2** (module: [`0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1`](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1), committee ms [`0x2570e0b22AD904501dfB0d49575991ACB801dD91`](https://app.safe.global/settings/setup?safe=eth:0x2570e0b22AD904501dfB0d49575991ACB801dD91))
   - SetMerkleGateTree: [`0xa121667D1780a1D54EAEd67AE17ee13d0f872D60`](https://etherscan.io/address/0xa121667D1780a1D54EAEd67AE17ee13d0f872D60)
   - ReportWithdrawalsForSlashedValidators: [`0x71862Abd99819597670007bb992A7a7562fE50f2`](https://etherscan.io/address/0x71862Abd99819597670007bb992A7a7562fE50f2)
@@ -389,11 +396,11 @@ for the rate and price feeds recommended approaches.
   - RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
   - TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
 - **LOL (ex.reWARDS) stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
-  - \[[proposed](https://research.lido.fi/t/update-easy-track-setup-for-liquidity-observation-lab-to-align-with-egg/11535)\] AllowedRecipientsRegistry: [`0x8d8b35cA51e7808098afF4918C21Ce428c943F89`](https://etherscan.io/address/0x8d8b35cA51e7808098afF4918C21Ce428c943F89)
-  - \[[proposed](https://research.lido.fi/t/update-easy-track-setup-for-liquidity-observation-lab-to-align-with-egg/11535)\] AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
-  - \[[proposed](https://research.lido.fi/t/update-easy-track-setup-for-liquidity-observation-lab-to-align-with-egg/11535)\] AddAllowedRecipient: [`0xe24230619e9218C1eed3de3489a22f6BC3ce18FF`](https://etherscan.io/address/0xe24230619e9218C1eed3de3489a22f6BC3ce18FF)
-  - \[[proposed](https://research.lido.fi/t/update-easy-track-setup-for-liquidity-observation-lab-to-align-with-egg/11535)\] RemoveAllowedRecipient: [`0xF4d5D97C85eD18f77F99B57f55E9E11d52992632`](https://etherscan.io/address/0xF4d5D97C85eD18f77F99B57f55E9E11d52992632)
-  - \[[proposed](https://research.lido.fi/t/update-easy-track-setup-for-liquidity-observation-lab-to-align-with-egg/11535)\] TopUpAllowedRecipients: [`0xc72d4C3e86b681D7c9EE306D41193C64D709C303`](https://etherscan.io/address/0xc72d4C3e86b681D7c9EE306D41193C64D709C303)
+  - AllowedRecipientsRegistry: [`0x8d8b35cA51e7808098afF4918C21Ce428c943F89`](https://etherscan.io/address/0x8d8b35cA51e7808098afF4918C21Ce428c943F89)
+  - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
+  - AddAllowedRecipient: [`0xe24230619e9218C1eed3de3489a22f6BC3ce18FF`](https://etherscan.io/address/0xe24230619e9218C1eed3de3489a22f6BC3ce18FF)
+  - RemoveAllowedRecipient: [`0xF4d5D97C85eD18f77F99B57f55E9E11d52992632`](https://etherscan.io/address/0xF4d5D97C85eD18f77F99B57f55E9E11d52992632)
+  - TopUpAllowedRecipients: [`0xc72d4C3e86b681D7c9EE306D41193C64D709C303`](https://etherscan.io/address/0xc72d4C3e86b681D7c9EE306D41193C64D709C303)
 - **Rewards Share stETH** (committee ms [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/settings/setup?safe=eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C))
   - AllowedRecipientsRegistry: [`0xdc7300622948a7AdaF339783F6991F9cdDD79776`](https://etherscan.io/address/0xdc7300622948a7AdaF339783F6991F9cdDD79776)
   - AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
@@ -557,8 +564,7 @@ for the rate and price feeds recommended approaches.
 
 #### 🧱 Ethereum part {#ethereum-part-optimism}
 
-- TokenRateNotifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9) [proposed to remove]
-- TokenRateNotifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b) [proposed]
+- TokenRateNotifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b)
 - OpStackTokenRatePusher: [`0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE`](https://etherscan.io/address/0xd54c1c6413caac3477AC14b2a80D5398E3c32FfE)
 - L1LidoTokensBridge: [`0x76943C0D61395d8F2edF9060e1533529cAe05dE6`](https://etherscan.io/address/0x76943C0D61395d8F2edF9060e1533529cAe05dE6) (proxy)
 - L1LidoTokensBridge: [`0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4`](https://etherscan.io/address/0x168Cfea1Ad879d7032B3936eF3b0E90790b6B6D4) (impl)
@@ -688,6 +694,78 @@ Kyber Network
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979d7b546e38e414f7e9822514be443a4800529/0xff970a61a04b1ca14834a43f5de4533ebddb5cc8/40) on Arbitrum: [`0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494`](https://arbiscan.io/address/0x7acbea3b8ab7cdf4a595c6ed81e7d3e26038d494)
 - [wstETH/ETH](https://kyberswap.com/elastic/add/0x1f32b1c2345538c0c6f582fcb022739c4a194ebb/ETH/10) on Optimism: [`0xda74db17023750d02b83be2559a4eaa013b65c54`](https://optimistic.etherscan.io/address/0xda74db17023750d02b83be2559a4eaa013b65c54)
 - [wstETH/USDC](https://kyberswap.com/elastic/add/0x5979D7b546E38E414F7E9822514be443A4800529/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8/40) on Optimism: [`0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7`](https://optimistic.etherscan.io/address/0x5fc53f707c7aacd460a1cd564c06e0f07610fcb7)
+
+## 🔗 CCIP Direct Staking {#ccip-direct-staking}
+
+Chainlink's [CCIP Direct Staking](https://docs.chain.link/quickstarts/ccip-direct-staking) related contracts.
+
+Note: Some addresses in the CCIP Direct Staking lists repeat across different networks; the linked explorer domain indicates the chain.
+
+### 🧱 Ethereum (common) {#ethereum-common-ccip-ds}
+
+- LidoCustomReceiver: [`0x6F357d53d6bE3238180316BA5F8f11467e164588`](https://etherscan.io/address/0x6F357d53d6bE3238180316BA5F8f11467e164588) (proxy)
+- LidoCustomReceiver: [`0x301cBCDA894c932E9EDa3Cf8878f78304e69E367`](https://etherscan.io/address/0x301cBCDA894c932E9EDa3Cf8878f78304e69E367) (impl)
+- ProxyAdmin for LidoCustomReceiver: [`0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD`](https://etherscan.io/address/0x88a45d2760b63c1500E3D2E3552b28e5Cdaa37BD)
+
+### 🌀 Direct Staking on Arbitrum {#ccip-direct-staking-arbitrum}
+
+#### 🧱 Ethereum part {#ccip-direct-staking-arbitrum-ethereum}
+
+- ArbitrumLegacyAdapterL1toL2: [`0xBf96561e4519182CFA4cebBf95494D9CA5a316f9`](https://etherscan.io/address/0xBf96561e4519182CFA4cebBf95494D9CA5a316f9)
+
+#### 🌀 Arbitrum part {#ccip-direct-staking-arbitrum-l2}
+
+- CustomSenderReferral: [`0x72229141D4B016682d3618ECe47c046f30Da4AD1`](https://arbiscan.io/address/0x72229141D4B016682d3618ECe47c046f30Da4AD1) (proxy)
+- CustomSenderReferral: [`0x220F64A4793Bc8aca7330ceCc4ae4e2F3B5Bc664`](https://arbiscan.io/address/0x220F64A4793Bc8aca7330ceCc4ae4e2F3B5Bc664) (impl)
+- ProxyAdmin for CustomSenderReferral: [`0x5B42aEbFe95247f1d22e282831e2A513bF050217`](https://arbiscan.io/address/0x5B42aEbFe95247f1d22e282831e2A513bF050217)
+- PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://arbiscan.io/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+- SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://arbiscan.io/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+- CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://arbiscan.io/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
+
+### 🌞 Direct Staking on Optimism {#ccip-direct-staking-optimism}
+
+#### 🧱 Ethereum part {#ccip-direct-staking-optimism-ethereum}
+
+- OptimismLegacyAdapterL1toL2: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://etherscan.io/address/0x328de900860816d29D1367F6903a24D8ed40C997)
+
+#### 🌞 Optimism part {#ccip-direct-staking-optimism-l2}
+
+- CustomSenderReferral: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://optimistic.etherscan.io/address/0x328de900860816d29D1367F6903a24D8ed40C997) (proxy)
+- CustomSenderReferral: [`0x65498495DdC07c52E12EEe3c44D3a1166eed8703`](https://optimistic.etherscan.io/address/0x65498495DdC07c52E12EEe3c44D3a1166eed8703) (impl)
+- ProxyAdmin for CustomSenderReferral: [`0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192`](https://optimistic.etherscan.io/address/0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192)
+- PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://optimistic.etherscan.io/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+- SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://optimistic.etherscan.io/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+- CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://optimistic.etherscan.io/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
+
+### 🟦 Direct Staking on Base {#ccip-direct-staking-base}
+
+#### 🧱 Ethereum part {#ccip-direct-staking-base-ethereum}
+
+- BaseLegacyAdapterL1toL2: [`0x9c27c304cFdf0D9177002ff186A4aE0A5489Aace`](https://etherscan.io/address/0x9c27c304cFdf0D9177002ff186A4aE0A5489Aace)
+
+#### 🟦 Base part {#ccip-direct-staking-base-l2}
+
+- CustomSenderReferral: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://basescan.org/address/0x328de900860816d29D1367F6903a24D8ed40C997) (proxy)
+- CustomSenderReferral: [`0x65498495DdC07c52E12EEe3c44D3a1166eed8703`](https://basescan.org/address/0x65498495DdC07c52E12EEe3c44D3a1166eed8703) (impl)
+- ProxyAdmin for CustomSenderReferral: [`0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192`](https://basescan.org/address/0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192)
+- PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://basescan.org/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+- SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://basescan.org/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+- CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://basescan.org/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
+
+### 📏 Direct Staking on Linea {#ccip-direct-staking-linea}
+
+#### 🧱 Ethereum part {#ccip-direct-staking-linea-ethereum}
+
+- LineaAdapterL1toL2: [`0x122beD1eB48DC4679DDF2C8fc159e9c498344397`](https://etherscan.io/address/0x122beD1eB48DC4679DDF2C8fc159e9c498344397)
+
+#### 📏 Linea part {#ccip-direct-staking-linea-l2}
+
+- CustomSenderReferral: [`0x328de900860816d29D1367F6903a24D8ed40C997`](https://lineascan.build/address/0x328de900860816d29D1367F6903a24D8ed40C997) (proxy)
+- CustomSenderReferral: [`0xBf96561e4519182CFA4cebBf95494D9CA5a316f9`](https://lineascan.build/address/0xBf96561e4519182CFA4cebBf95494D9CA5a316f9) (impl)
+- ProxyAdmin for CustomSenderReferral: [`0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192`](https://lineascan.build/address/0x4c8c4A15c1e810e481c412A9B06Be5f79dC02192)
+- PausableImmutableOraclePool: [`0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8`](https://lineascan.build/address/0xac143bF41BBA4a8014b4Ef5a5F46b39a36AE40A8)
+- SyncTrigger: [`0x871a5cddE9813627Ff37A2895A0c9B117A664622`](https://lineascan.build/address/0x871a5cddE9813627Ff37A2895A0c9B117A664622)
+- CREReceiver: [`0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A`](https://lineascan.build/address/0x09BdB4E8BA68d245DCb1c6fbEb1e4f13b57cc69A)
 
 ## 🔒 LRT Vaults on Mellow Protocol {#lrt-vaults-on-mellow-protocol}
 

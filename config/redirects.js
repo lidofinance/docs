@@ -1,5 +1,13 @@
 const redirects = [
   {
+    to: '/integrations/aave',
+    from: [
+      '/integrations/aave/aip',
+      '/integrations/aave/specification',
+      '/token-guides/steth-on-aave-caveats',
+    ],
+  },
+  {
     to: '/guides/lido-tokens-integration-guide',
     from: '/guides/steth-integration-guide',
   },
