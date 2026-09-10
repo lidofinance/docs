@@ -8,6 +8,8 @@ The committee was originally formed as part of [LIP-5: Mitigations for deposit f
 
 ## Mainnet members
 
+\[[proposed to rotate](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] Current members:
+
 | Operator           | Address                                                                                                                 | Announcement                                                            |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
 | Blockscape         | [`0x7912Fa976BcDe9c2cf728e213e892AD7588E6AaF`](https://etherscan.io/address/0x7912Fa976BcDe9c2cf728e213e892AD7588E6AaF) | [post on x.com](https://x.com/BlockscapeLab/status/1452902878885068803) |
@@ -16,6 +18,17 @@ The committee was originally formed as part of [LIP-5: Mitigations for deposit f
 | Lido dev team      | [`0x5fd0dDbC3351d009eb3f88DE7Cd081a614C519F1`](https://etherscan.io/address/0x5fd0dDbC3351d009eb3f88DE7Cd081a614C519F1) | [post on x.com](https://x.com/LidoFinance/status/1452973085557149709)   |
 | P2P                | [`0xa56b128Ea2Ea237052b0fA2a96a387C0E43157d8`](https://etherscan.io/address/0xa56b128Ea2Ea237052b0fA2a96a387C0E43157d8) | [post on x.com](https://x.com/P2Pvalidator/status/1452970276480819208)  |
 | Stakefish          | [`0x4B87F16B8d32cb5a859a4C48a88edB5adBe3498E`](https://etherscan.io/address/0x4B87F16B8d32cb5a859a4C48a88edB5adBe3498E) | [post on x.com](https://x.com/stakefish/status/2041526695866323442)     |
+
+\[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] EDF DelegationContracts (LIP-37):
+
+| Operator           | Address                                                                                                                 | Announcement                                                                                            |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Blockscape         | [`0xDc1579636686C082fc3b00B9EB25259A110D0C44`](https://etherscan.io/address/0xDc1579636686C082fc3b00B9EB25259A110D0C44) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/11) |
+| Stakely            | [`0x6A22d74a816662078f2371A7138E7614874cd61d`](https://etherscan.io/address/0x6A22d74a816662078f2371A7138E7614874cd61d) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/12) |
+| Staking Facilities | [`0x35506190Ca6df385aA6Bc4a970646dd4f49426c1`](https://etherscan.io/address/0x35506190Ca6df385aA6Bc4a970646dd4f49426c1) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/13) |
+| Lido dev team      | [`0x915F0Fa50E1af761B113b41c79ab33Bf4734C36E`](https://etherscan.io/address/0x915F0Fa50E1af761B113b41c79ab33Bf4734C36E) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/21) |
+| P2P                | [`0xe387Ba1d5C9f6306eCe9ac949C7fB6233dD5411E`](https://etherscan.io/address/0xe387Ba1d5C9f6306eCe9ac949C7fB6233dD5411E) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/16) |
+| Stakefish          | [`0x031E597BcF680f1f2293b119b4b2B14096B15497`](https://etherscan.io/address/0x031E597BcF680f1f2293b119b4b2B14096B15497) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/15) |
 
 **Signing quorum:**
 

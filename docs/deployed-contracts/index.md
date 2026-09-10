@@ -336,7 +336,8 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 ## 🤖 Bots {#bots}
 
-- Depositor bot: [`0xF82aC5937A20dC862F9bc0668779031E06000f17`](https://etherscan.io/address/0xF82aC5937A20dC862F9bc0668779031E06000f17)
+- \[[proposed to remove](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/24)\] Depositor bot: [`0xF82aC5937A20dC862F9bc0668779031E06000f17`](https://etherscan.io/address/0xF82aC5937A20dC862F9bc0668779031E06000f17)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/24)\] Depositor bot: [`0x6Aa249bA53A3abcaC52F91146583B3eE2Ee4C7F5`](https://etherscan.io/address/0x6Aa249bA53A3abcaC52F91146583B3eE2Ee4C7F5)
 
 ## 🪨 Lido Stonks Contracts {#lido-stonks-contracts}
 
