@@ -51,7 +51,7 @@ There are two ways to bring the stETH Liability back to zero — see [Rebalance 
 | Total Value | unchanged | decreases |
 | Future rewards | unchanged | reduced — the stVault has less ETH working |
 
-### Option A — Repay with new client deposits
+### Option A. Repay with new client deposits
 
 1. When clients bring in new ETH, **stake** it through Lido Core to receive stETH 1:1, or **swap** it to stETH on a secondary market.
 2. **Repay** that stETH to the stVault — see [Repay (burn) stETH](./supply-withdraw-mint-repay.md#repay-burn-steth). This burns the stETH and reduces the stETH Liability by the same amount.
@@ -62,7 +62,7 @@ This is the better option economically whenever it's available — it doesn't to
 Approve the `Dashboard` contract for the stETH before repaying, and remember the ETH freed up by the repayment only becomes withdrawable after the next oracle report confirms it. The stVaults Web UI handles both automatically.
 :::
 
-### Option B — Rebalance using validator ETH
+### Option B. Rebalance using validator ETH
 
 Use this when no new client ETH is expected in time, or the liability needs to be cleared as soon as possible.
 

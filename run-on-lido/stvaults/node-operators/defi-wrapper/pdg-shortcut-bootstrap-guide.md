@@ -26,7 +26,7 @@ The procedure spans roles on the pool, the Dashboard and the queue, and they do 
 `NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE` is administered by `NODE_OPERATOR_MANAGER_ROLE`, not by the timelock, so **a timelock proposal cannot grant it** — the grant has to be signed by the Node Operator Manager address. See [Roles and permissions](../../concepts-and-reference/roles-and-permissions.md).
 :::
 
-## Step 1 — Let OPERATOR deposit
+## Step 1. Let OPERATOR deposit
 
 Pools deployed with an allowlist only accept listed addresses, and on a strategy pool the list contains the strategy alone. Add OPERATOR to it:
 
@@ -36,7 +36,7 @@ yarn start dw c stv w add-to-allow-list <poolAddress> <operatorAddress>
 
 On a strategy pool `ALLOW_LIST_MANAGER_ROLE` is not granted to anyone at deployment, so the timelock has to grant it first — to itself or to an operations key — before this call will go through. Both the grant and the later revoke are timelock operations.
 
-## Step 2 — OPERATOR deposits 32 ETH
+## Step 2. OPERATOR deposits 32 ETH
 
 ```bash
 yarn start dw c stv w deposit-eth <poolAddress> 32 0x0000000000000000000000000000000000000000
@@ -44,7 +44,7 @@ yarn start dw c stv w deposit-eth <poolAddress> 32 0x000000000000000000000000000
 
 Called by OPERATOR. The pool mints stv to OPERATOR and forwards the ETH to the vault; the strategy is not involved even on a strategy pool. Record the amount of stv minted — that is the claim used to get the ETH back in Step 7.
 
-## Step 3 — Allow the shortcut
+## Step 3. Allow the shortcut
 
 The shortcut is refused unless the vault's PDG policy permits it:
 
@@ -54,7 +54,7 @@ yarn start contracts dashboard w set-pdg-policy <dashboardAddress> 2
 
 `2` is `ALLOW_DEPOSIT_AND_PROVE`. Called by the timelock, so this is a proposal like any other Dashboard admin action.
 
-## Step 4 — Grant the shortcut role to DEPOSITOR
+## Step 4. Grant the shortcut role to DEPOSITOR
 
 ```bash
 yarn start vo w role-grant -v <vaultAddress> \
@@ -63,7 +63,7 @@ yarn start vo w role-grant -v <vaultAddress> \
 
 Signed by the **Node Operator Manager**, which administers this role.
 
-## Step 5 — Run the shortcut
+## Step 5. Run the shortcut
 
 ```bash
 yarn start deposits w unguaranteed-deposit '<depositsJson>' -v <vaultAddress>
@@ -77,7 +77,7 @@ This withdraws the 32 ETH from the vault and sends it straight to the deposit co
 The vault's reported Total Value drops by 32 ETH the moment this executes, and the stv price drops with it, because the ETH has left the vault while the validator's balance is not yet reported. Every stv holder sees the dip, not just OPERATOR. On a pool that already has depositors, tell them beforehand.
 :::
 
-## Step 6 — Wait for the oracle, then for quarantine
+## Step 6. Wait for the oracle, then for quarantine
 
 The dip reverses in two stages, and neither can be hurried:
 
@@ -88,7 +88,7 @@ The dip reverses in two stages, and neither can be hurried:
 OPERATOR's stv is worth roughly 32 ETH again only once the quarantine releases. Withdrawing before that settles the position at the depressed rate.
 :::
 
-## Step 7 — Recover the 32 ETH
+## Step 7. Recover the 32 ETH
 
 From here OPERATOR is an ordinary depositor. File a withdrawal request for the stv from Step 2, wait for finalization, claim — see [Supply and withdraw](../../vault-owners-curators-and-stakers/defi-wrapper/stakers/supply-withdraw.md).
 

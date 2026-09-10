@@ -54,8 +54,9 @@ $$
 
 Both quantities are defined below, and the mechanics behind them are in
 [Unassigned liability and bad debt](../../../concepts-and-reference/defi-wrapper-technical-design.md#unassigned-liability-and-bad-debt) and
-[Exceeding minted stETH](../../../concepts-and-reference/defi-wrapper-technical-design.md#exceeding-minted-steth). The plain pool has no minting and therefore only the
-second branch.
+[Exceeding minted stETH](../../../concepts-and-reference/defi-wrapper-technical-design.md#exceeding-minted-steth).
+
+The plain pool has no minting, so only the second branch ever applies to it.
 
 ### stv rate
 
@@ -65,8 +66,8 @@ $$
 R_{stv} = \frac{\text{totalAssets}}{\text{totalSupply}}
 $$
 
-Before any stv is issued the rate starts at 1 ETH per $10^{27}$ stv, which is what fixes the scale and keeps
-later conversions exact.
+Before any stv is issued the rate starts at 1 ETH per $10^{27}$ stv, which fixes the scale and keeps later
+conversions exact.
 
 ### Total liability shares
 
@@ -120,8 +121,8 @@ $$
 \text{lock}(L_{a}) = \left\lceil \frac{L_{a}}{1 - RR_{p}} \right\rceil
 $$
 
-A transfer that would leave the account holding less than this reverts, so the requirement is checked every
-time stv leaves an account, not only when the debt is taken on.
+The account can move any stv above this amount. A transfer that would take the balance below it fails, and
+that check runs on every transfer.
 
 ### Threshold assets
 
@@ -131,8 +132,8 @@ $$
 \text{threshold}(L_{a}) = \left\lceil \frac{L_{a}}{1 - FRT_{p}} \right\rceil
 $$
 
-The gap between `lock` and `threshold` is the room an account has to lose value before that happens, and it
-is thin for an account that mints to its limit.
+The gap between `lock` and `threshold` is the room an account has to lose value before that happens. That
+room is thin for an account that mints to its limit.
 
 ### Minting capacity
 
@@ -146,7 +147,7 @@ $$
 $$
 
 Both are denominated in stETH shares. The remaining capacity can also be evaluated against ETH not yet
-deposited, which is what tells a depositor how much a deposit would let them mint.
+deposited, so a depositor can see what a deposit would let them mint.
 
 Rounding always runs against the account — capacity floors, `lock` ceils — so it can never leave a position
 short of collateral.
@@ -189,14 +190,14 @@ when the account's stv does not cover its debt, are in
 
 ### Unfinalized totals
 
-What the queue still owes, counted four ways:
+Everything filed after the last finalized request is still outstanding:
 
 $$
-\text{unfinalizedRequests} = \text{lastRequestId} - \text{lastFinalizedRequestId}
+\text{unfinalized range} = \text{lastFinalizedRequestId}\ ..\ \text{lastRequestId}
 $$
 
-`unfinalizedStv`, `unfinalizedStethShares` and `unfinalizedAssets` are the corresponding sums over that range,
-each a difference of two cumulative totals stored on the boundary requests.
+Four figures measure that range: how many requests it holds, and what those requests are owed in each of
+three units — stv, stETH shares and assets.
 
 ### ETH free to stake
 
@@ -224,7 +225,7 @@ $$
 $$
 
 A request that waited through a loss absorbs its share of it. A request that waited through rewards does not
-capture them — those stay with the depositors still in the pool, whose validators were the ones earning. See
+capture them — those stay with the depositors still in the pool, whose validators earned them. See
 [§3.4](../../../concepts-and-reference/defi-wrapper-technical-design.md#34-withdrawalqueue).
 
 ### Claimable ETH
@@ -250,11 +251,34 @@ The DeFi Wrapper widget shows depositors an APY derived from those. It reads the
 as a simple moving average from the stVaults API and compounds it daily:
 
 $$
-APY = \left(1 + \frac{APR}{365}\right)^{365} - 1
+\text{staking APY} = \left(1 + \frac{\text{Net staking APR}}{365}\right)^{365} - 1
 $$
 
 The period is a day because an oracle report updates the vault's value once a day, so each day's rewards
-start earning from the next one. That compounding is what makes the APY come out slightly above the APR it
-is derived from.
+start earning from the next one. The compounding is why the APY comes out slightly above the APR it is
+derived from.
 
-A depositor's own realized return is the growth of the [stv rate](#stv-rate) between two points in time.
+### Strategy pools
+
+A strategy pool earns twice: the vault stakes the ETH, and the stETH minted against it works in the external
+protocol.
+
+Only the spread over stETH counts — the position is funded with minted stETH, whose rebase the depositor
+still owes — and only on the share of the assets actually minted against:
+
+$$
+\begin{aligned}
+\text{strategy APR} &= U \times (\text{strategy APR}_{\text{external}} - \text{stETH APR}) \\[2pt]
+\text{net APR} &= \text{strategy APR} + \text{Net staking APR} \\[2pt]
+\text{net APY} &= \left(1 + \frac{\text{net APR}}{365}\right)^{365} - 1
+\end{aligned}
+$$
+
+$U$ is how much of the assets is minted against. The estimate shown before depositing assumes the maximum,
+$1 - RR_{p}$; for an existing position the account's own
+[Utilization Ratio](#account-utilization-ratio) is used instead.
+
+:::note
+The strategy term is negative whenever the external protocol yields less than stETH, putting the total below
+what plain staking in the same vault would have paid.
+:::

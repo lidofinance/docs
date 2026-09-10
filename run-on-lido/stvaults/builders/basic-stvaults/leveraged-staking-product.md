@@ -19,11 +19,13 @@ Staking rewards through a chosen Node Operator, full utilization of the availabl
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | Custom | Custom |
-| Leveraged staking strategy | Custom | Custom |
+| Leveraged staking strategy | Custom | Custom / by Gauntlet / by RockSolid |
 | User Interface | Custom | Custom |
 
 ## Economy model and calculator
 The vault strategy - ETH is deposited to validators and generates staking rewards; stETH is minted on demand by the Vault Owner.
+
+For custom calculations, use this spreadsheet as a calculator: [Lido stVault Economics Model](https://docs.google.com/spreadsheets/d/1QOnqUvXy6PXMstYTpbSHHivDQ7VloYCjGMKlhvN80as/edit?usp=sharing)
 
 <details>
   <summary>Economy calculation example</summary>

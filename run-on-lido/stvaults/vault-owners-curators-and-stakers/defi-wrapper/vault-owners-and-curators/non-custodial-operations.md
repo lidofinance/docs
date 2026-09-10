@@ -27,7 +27,7 @@ The setup below splits stVault permissions into two categories, based on whether
 The Proposer/Executor pattern described here is a general non-custodial account design (proposer schedules an action, a separate executor confirms and executes it). It is independent from stVaults' native **Multi-roles confirmation** mechanism, which requires the Vault Owner and Node Operator Manager to jointly confirm a small set of protocol-level parameter changes (NO fee, Confirmation Expiry, AccruedRewardsAdjustment). The two mechanisms can, and should, be used together.
 :::
 
-## Step 1 — Classify roles by custody risk
+## Step 1. Classify roles by custody risk
 
 Before delegating anything, classify all Dashboard sub-roles into two groups based on whether they give access to the stVault's principal or its collateralization state.
 
@@ -68,13 +68,13 @@ A small number of roles don't cleanly fall into either bucket and are left to th
 `REBALANCE_ROLE` and `VAULT_CONFIGURATION_ROLE` can be assigned either to the operations manager multisig directly (faster, simpler UX) or routed through the Proposer/Executor address (slower, safer). There is no partial option — a role is assigned to one address or the other, so pick a side deliberately rather than defaulting.
 :::
 
-## Step 2 — Delegate operational roles to the operations manager multisig
+## Step 2. Delegate operational roles to the operations manager multisig
 
 Grant the operational roles (and, if chosen, the discretionary roles) directly to the operations manager's multisig address. This is a standard `grantRole` call from the Vault Owner's `DEFAULT_ADMIN_ROLE` address for each role listed above.
 
 This multisig should be sized for day-to-day usability (e.g. 2-of-3) rather than maximum security, since none of the roles it holds can move staker principal on their own.
 
-## Step 3 — Route custody-sensitive roles through a Proposer/Executor address
+## Step 3. Route custody-sensitive roles through a Proposer/Executor address
 
 Instead of granting custody-sensitive roles to any single multisig, grant them to a Proposer/Executor contract address, structured as follows:
 
