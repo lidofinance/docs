@@ -9,14 +9,14 @@ description: Navigation hub for everything related to Lido V3 stVaults — produ
 
 stVaults is the core innovation of Lido V3 — isolated, non-custodial staking primitives that let stakers and builders choose their own node operator while retaining optional access to stETH liquidity.
 
-This page is a hub: it links out to product materials if you're looking for the big picture, and into the docs if you already know what you're building or managing.
+New to stVaults? Start with the product materials below. Already building or managing one? Jump straight into the docs by role.
 
 ## Get Familiar with stVaults
 
 | Resource | What it's for |
 | --- | --- |
-| 🧭 [stVaults 101 — How Lido Works](https://lido.fi/how-lido-works/stvaults-basics) | The basics of how stVaults actually work — plain language, sits between the product pitch and the technical docs. |
-| 🌐 [stVaults — Product Page](https://lido.fi/stvaults) | The product pitch: what stVaults is and why it matters. Best link to share with someone who isn't technical. |
+| 🧭 [stVaults 101 — How Lido Works](https://lido.fi/how-lido-works/stvaults-basics) | How stVaults work, in plain language — a good starting point before the technical docs. |
+| 🌐 [stVaults — Product Page](https://lido.fi/stvaults) | What stVaults is and why it matters. Best link to share with someone who isn't technical. |
 | 🏗️ [stVaults Showcase](https://lido.fi/stvaults-products-overview) | Live products already built on top of stVaults. |
 | 📰 [stVaults News & Deep Dives](https://blog.lido.fi/category/lido-v3/) | Blog posts on stVaults product updates and on what's being built on top of it. |
 | ⚙️ [stVaults Architecture Overview](./concepts-and-reference/architecture-overview.md) | High-level overview of the stVaults and DeFi Wrapper architecture, including smart contract addresses and interfaces. |
@@ -45,7 +45,7 @@ This page is a hub: it links out to product materials if you're looking for the 
  
 | Resource | What it's for |
 | --- | --- |
-| 🏛️ [Qualified Custodians Supporting stVaults](./qualified-custodians/) | Which custodians support stVaults, and how institutional clients can access stVaults depending on their custody setup. |
+| 🏛️ [Qualified Custodians Supporting stVaults](./qualified-custodians/) | For institutional clients checking whether their custodian supports stVaults, and how to connect and use stVaults through it. |
  
 ## Tools
 
