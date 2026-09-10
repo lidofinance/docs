@@ -54,7 +54,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
-**Quorum:** 3/6
+**Quorum:** 3/5
 
 **Forum topics:**\
 [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
@@ -603,7 +603,7 @@ A Committee without multisig.
 **Purpose of the multisig:** The Lido Labs BORG Foundation utilizes this multisig to hold and manage the Lido Labs BORG’s operational budget.
 The multisig enables the receipt of allowed tokens (listed in the [AllowedTokensRegistry](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca); use [getAllowedTokens](https://etherscan.io/address/0x4ac40c34f8992bb1e5e856a448792158022551ca#readContract#F6) to view the list) from the Lido DAO Treasury via Easy Track.
 
-**Quorum:** 5/9
+**Quorum:** 5/8
 
 **Forum topics:**\
 [Establishment of Lido Labs BORG Foundation as a Lido-DAO-Adjacent Foundation](https://research.lido.fi/t/establishment-of-lido-labs-borg-foundation-as-a-lido-dao-adjacent-foundation/9344)\
@@ -978,7 +978,7 @@ A Committee without multisig.
 
 **Purpose of the multisig:** The multisig has been established to manage a dedicated reserve for the [Lido Bug Bounty Program](https://immunefi.com/bug-bounty/lido/information/).
 
-**Quorum:** 5/9
+**Quorum:** 5/8
 
 **Forum post:** [Establishment of a Dedicated Bug Bounty Reserve Multisig](https://research.lido.fi/t/establishment-of-a-dedicated-bug-bounty-reserve-multisig/10974)
 

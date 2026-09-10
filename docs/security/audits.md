@@ -1,6 +1,35 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (112 reports)
+## Lido on Ethereum (116 reports)
+
+### 09-2026 MixBytes Lido Easy Track Factory for Deposit Reserve Target management Security Audit
+
+Audited at commit [`99bd732`](https://github.com/lidofinance/easy-track/tree/99bd7322ed10cc81f82aa5904e0e62827ccadea5).
+
+An audit of Easy Track factory for Deposit Reserve Target management.
+
+- Total Issues: 0
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Easy%20Track%20for%20Deposit%20Reserve%20Target%20management%20Audit%20Report%2009-2026.pdf) for more details.
+
+### 09-2026 Composable Security Lido Oracle v8.1 Security Audit
+
+Audited at commit [`032c228`](https://github.com/lidofinance/lido-oracle/tree/032c228c767759e67da43e6c40fa81732257879d).
+
+A security review of the Lido Oracle v8.1 change set, which adds support for the Execution Delegation Framework (LIP-37), including a retest. Previous [report for V8](#06-2026-composable-security-lido-oracle-v8-security-audit).
+
+- Total Issues: 4 (3 Fixed, 1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 2 (2 Fixed)
+- Info Issues: 2 (1 Fixed, 1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8_1%20Audit%20Report.pdf) for more details.
 
 ### 08-2026 MixBytes Lido TokenRateNotifier Security Audit
 
@@ -13,6 +42,35 @@ Audited at commit [`dc9066b`](https://github.com/lidofinance/core/tree/dc9066b6f
 - Low Issues: 1 (1 Fixed)
 
 See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20TokenRateNotifier%20Security%20Audit%20Report%2008-2026.pdf) for more details.
+
+### 08-2026 MixBytes Off-chain Audit of Lido Oracle v8.0.6
+
+Audited at commit [`57a5f60`](https://github.com/lidofinance/lido-oracle/tree/57a5f6089dd8ed9602000ef96a8f2b1f19caa704).
+
+An interim security review of the Lido Oracle v8.0.6 hotfix, which replaces the hardcoded transaction gas ceiling with a configurable `TX_GAS_LIMIT` defaulting to the [EIP-7825](https://eips.ethereum.org/EIPS/eip-7825) transaction gas cap, and bounds the size of Validator Exit Bus Oracle exit reports so that they stay under it. Previous [report for V8](#06-2026-composable-security-lido-oracle-v8-security-audit).
+
+- Total Issues: 2 (2 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 2 (2 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v8.0.6%20Security%20Audit%20Report%2008-2026.pdf) for more details.
+
+### 08-2026 Composable Security Lido EDF On-chain Audit
+
+Audited at commit [`5572991`](https://github.com/lidofinance/execution-delegation-framework/tree/557299104ad3eb1a74198933bd016328c490e276) for the [execution-delegation-framework repository](https://github.com/lidofinance/execution-delegation-framework) and commit [`8c4cee2`](https://github.com/lidofinance/core/tree/8c4cee2be76a4ed8067026e30b5bdc64a4e3cb29) for the [core repository](https://github.com/lidofinance/core).
+
+An audit of the Execution Delegation Framework (LIP-37) and the DSM v5 integration, including a retest.
+
+- Total Issues: 10 (10 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 4 (4 Acknowledged)
+- Info Issues: 6 (6 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20EDF%20On-chain%20Audit%20Report%2008-2026.pdf) for more details.
 
 ### 07-2026 Composable Security Lido Oracle v8.0.2 Security Consultation
 
@@ -1328,7 +1386,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/QSP%20Lido%20R
 
 ## Lido Multichain audit reports (22 reports)
 
-### 08-2026 MixBytes Lido L2 Direct Staking Security Audit
+### 09-2026 MixBytes Lido L2 Direct Staking Security Audit
 
 Audited at commit [`3d1d484`](https://github.com/lidofinance/l2-direct-staking/tree/3d1d484c31d39881cdbe8423614e3043e89e027f).
 
@@ -1338,7 +1396,7 @@ Audited at commit [`3d1d484`](https://github.com/lidofinance/l2-direct-staking/t
 - Medium Issues: 0
 - Low Issues: 4 (3 Fixed, 1 Acknowledged)
 
-See [full report](https://github.com/lidofinance/audits/blob/main/L2/Direct-Staking-2026-08-MixBytes-Security-Audit-Report.pdf) for more details.
+See [full report](https://github.com/lidofinance/audits/blob/main/L2/Direct-Staking-2026-09-MixBytes-Security-Audit-Report.pdf) for more details.
 
 ### 08-2026 MixBytes Chainlink CCIP Linea Adapter Security Audit
 
