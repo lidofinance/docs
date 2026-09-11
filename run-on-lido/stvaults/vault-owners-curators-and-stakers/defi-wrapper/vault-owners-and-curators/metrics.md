@@ -22,7 +22,10 @@ top: the pool's own accounting, each depositor's position inside it, and the wit
 | $R_{stv}$ | the stv rate — assets per stv |
 
 stv carries **27 decimals** against the asset's 18, so rates involving it are scaled by $10^{36}$ on-chain.
-Ratios are stored in basis points (`10000` = 100%). The formulas here use fractions and ETH.
+Ratios are stored in basis points (`10000` = 100%). The formulas here use fractions and ETH, while on-chain the minted
+amounts and the minting capacity are held in **stETH shares**. Two steps separate the two: shares convert to stETH at
+the current share rate, which rises with every rebase, and minted stETH counts as an equal amount of ETH of liability.
+Ratios such as the Utilization Ratio are unaffected by the choice, because numerator and denominator convert alike.
 
 $RR_{p}$ and $FRT_{p}$ are the vault's ratios plus a fixed gap, 250 BP in every shipped configuration, which
 is what makes the pool force-rebalance an account before the protocol force-rebalances the vault — see
@@ -121,8 +124,7 @@ $$
 \text{lock}(L_{a}) = \left\lceil \frac{L_{a}}{1 - RR_{p}} \right\rceil
 $$
 
-The account can move any stv above this amount. A transfer that would take the balance below it fails, and
-that check runs on every transfer.
+The account can move any stv above this amount; a transfer that would take the balance below it fails.
 
 ### Threshold assets
 
@@ -146,8 +148,8 @@ $$
 \end{aligned}
 $$
 
-Both are denominated in stETH shares. The remaining capacity can also be evaluated against ETH not yet
-deposited, so a depositor can see what a deposit would let them mint.
+The remaining capacity can also be evaluated against ETH not yet deposited, so a depositor can see what a
+deposit would let them mint.
 
 Rounding always runs against the account — capacity floors, `lock` ceils — so it can never leave a position
 short of collateral.
@@ -179,11 +181,12 @@ The stETH shares a force-rebalance would repay out of a breached account's own s
 exactly on the pool reserve ratio:
 
 $$
-x = \frac{L_{a} - (1 - RR_{p}) \times A_{\text{shares}}}{RR_{p}}
+x = \frac{L_{a}^{\text{shares}} - (1 - RR_{p}) \times A^{\text{shares}}}{RR_{p}}
 $$
 
-where $A_{\text{shares}}$ is the account's assets expressed in stETH shares. The derivation, and what happens
-when the account's stv does not cover its debt, are in
+Both sides are in stETH shares here, because that is how the contract solves it — $A^{\text{shares}}$ is the
+account's assets converted at the current share rate. The derivation, and what happens when the account's stv
+does not cover its debt, are in
 [§3.3](../../../concepts-and-reference/defi-wrapper-technical-design.md#33-stvstethpool).
 
 ## Withdrawal queue metrics
@@ -268,15 +271,17 @@ still owes — and only on the share of the assets actually minted against:
 
 $$
 \begin{aligned}
+U &= \frac{L_{a}}{A} = \frac{UR_{a}}{100\%} \times (1 - RR_{p}) \\[2pt]
 \text{strategy APR} &= U \times (\text{strategy APR}_{\text{external}} - \text{stETH APR}) \\[2pt]
 \text{net APR} &= \text{strategy APR} + \text{Net staking APR} \\[2pt]
 \text{net APY} &= \left(1 + \frac{\text{net APR}}{365}\right)^{365} - 1
 \end{aligned}
 $$
 
-$U$ is how much of the assets is minted against. The estimate shown before depositing assumes the maximum,
-$1 - RR_{p}$; for an existing position the account's own
-[Utilization Ratio](#account-utilization-ratio) is used instead.
+$U$ is the account's stETH debt divided by its assets, with both amounts expressed in ETH.
+$UR_a$ is the account's [Utilization Ratio](#account-utilization-ratio), expressed as a percentage.
+Before a deposit, the estimate assumes full use of the minting capacity: $UR_a = 100\%$, so $U = 1 - RR_p$.
+For an existing position, use the account's actual Utilization Ratio in the formula for $U$.
 
 :::note
 The strategy term is negative whenever the external protocol yields less than stETH, putting the total below

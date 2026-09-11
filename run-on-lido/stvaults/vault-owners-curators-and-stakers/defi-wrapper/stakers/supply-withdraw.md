@@ -48,15 +48,15 @@ The widget always mints the **maximum** available rather than an amount you pick
 yarn start dw c stv w deposit-eth <poolAddress> <amountInETH> <referralAddress>
 
 # Minting pool: deposit and mint in one call
-yarn start dw c stv-steth w deposit-eth-shares <poolAddress> <amountInETH> <stethShares> <referralAddress>
-yarn start dw c stv-steth w deposit-eth-wsteth <poolAddress> <amountInETH> <wstethAmount> <referralAddress>
+yarn start dw c stv-steth w deposit-eth-shares <poolAddress> <amountInETH> <stethSharesToMint> [-r <referralAddress>]
+yarn start dw c stv-steth w deposit-eth-wsteth <poolAddress> <amountInETH> <wstethToMint> [-r <referralAddress>]
 
 # Mint or repay later, independently of any deposit
 yarn start dw c stv-steth w mint-steth-shares <poolAddress> <stethShares>
 yarn start dw c stv-steth w burn-steth-shares <poolAddress> <stethShares>
 ```
 
-Pass `0` as the referral if there is none. `deposit-eth` accepts `-s, --receiver` to credit the stv to a different address.
+The two pools take the referral differently: `deposit-eth` on a plain pool takes it as a positional argument, and passing the zero address (`0x0000000000000000000000000000000000000000`) means none; the minting pool's commands take it as the optional `-r, --referral`, which can simply be left out. `deposit-eth` also accepts `-s, --receiver` to credit the stv to a different address.
 
 </details>
 

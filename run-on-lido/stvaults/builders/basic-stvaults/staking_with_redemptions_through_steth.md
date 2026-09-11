@@ -155,7 +155,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
       ```
 </details>
 <details>

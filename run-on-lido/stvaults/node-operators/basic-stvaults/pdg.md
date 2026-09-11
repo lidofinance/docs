@@ -372,7 +372,7 @@ Steps:
 
    As a result:
 
-   - 6.1. ETH is withdrawn from the stVault's withdrawable balance.
+   - 6.1. ETH is withdrawn from the stVault's withdrawable balance. This requires a fresh oracle report, since `VaultHub.withdraw` refuses a stale one.
    - 6.2. stVault Total Value is reduced by the deposit amount until the validator appears in the Beacon Chain state AND is included in a subsequent Oracle report.
    - 6.3. ETH is deposited to the validator via the Ethereum Deposit Contract.
 

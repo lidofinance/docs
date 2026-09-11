@@ -147,7 +147,7 @@ Creating an stVault is a permissionless operation, but in this two-step process 
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create-without-connecting --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create-without-connecting --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
       ```
       Note down the addresses of the created **Vault** and **Dashboard** contracts — these are the key contracts of your newly created stVault.
 </details>
@@ -196,7 +196,6 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 - `TierID`: the ID of the tier to which the stVault will be connected.
 - `RequestedShareLimit`: the requested absolute stETH minting limit for the stVault, expressed in shares. This value cannot exceed the tier’s stETH limit. [Learn more about shares and stETH / wstETH tokens](/guides/lido-tokens-integration-guide#steth-internals-share-mechanics).
 - `payableAmount`: the amount of ETH to supply in the same transaction; minimum is **1 ETH**.
-- `currentSettledGrowth`: the amount of unaccounted growth accrued on the vault while it was disconnected; 0 for newly created vaults via the create-without-connecting method. Settled growth is the part of the total growth that has already been charged by the node operator or is not subject to fee (exempted), such as unguaranteed or side deposits, and consolidations accrued while the vault was disconnected.
 
 <details>
   <summary>using stVaults Web UI</summary>
@@ -224,8 +223,9 @@ This is a permissioned operation. By default, this permission belongs to the Vau
 
 1. Open **Etherscan** and navigate to the **Dashboard** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 2. Call `connectAndAcceptTier`:
-    - fill out the `payableAmount` field with '1' to supply `1 ETH` in the same transaction.
-    - set the `_currentSettledGrowth` field to '0' for a newly created vault like in this scenario (if the stVault is newly created but had side deposits before connecting, settled growth must be set accordingly before the connection).
+    - fill out the `payableAmount` field with '1' to supply `1 ETH` in the same transaction;
+    - set `_tierId` to the tier to connect to — `0` is the Default tier;
+    - set `_requestedShareLimit` to the stETH share limit you want for the stVault.
 
 </details>
 
@@ -250,7 +250,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
       ```
 </details>
 <details>
