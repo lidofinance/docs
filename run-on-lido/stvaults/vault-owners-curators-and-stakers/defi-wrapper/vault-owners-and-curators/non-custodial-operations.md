@@ -10,7 +10,7 @@ This guide explains how to configure role delegation for an stVault that sits be
 
 ## Why this setup matters
 
-An stVault + DeFi Wrapper setup typically needs frequent, low-friction operational actions — adjusting Predeposit Guarantee (PDG) policy, requesting validator exits, pausing deposits, and similar day-to-day tasks. At the same time, the same vault holds staker principal, and a single compromised or malicious operational key should never be able to withdraw funds, mint stETH fron the stVault, or reassign roles.
+ An stVault + DeFi Wrapper setup typically needs frequent, low-friction operational actions — requesting validator exits, pausing deposits, and similar day-to-day tasks — alongside occasional governance actions such as adjusting Predeposit Guarantee (PDG) policy. At the same time, the same vault holds stakers principal, and a single compromised or malicious operational key should never be able to withdraw funds, mint stETH from the stVault, or reassign roles.
 
 The setup below splits stVault permissions into two categories, based on whether an operation can move or re-collateralize staker funds:
 

@@ -29,5 +29,5 @@ sidebar_position: 3
 ### Stakers
 
 1. [Supply and Withdraw](./defi-wrapper/stakers/supply-withdraw.md) — supplying and withdrawing via the DeFi Wrapper's interfaces.
-2. [Rebalance Stakers's Position](./defi-wrapper/stakers/rebalance.md) — rebalancing a staker's position in the DeFi Wrapper.
+2. [Rebalance Staker's Position](./defi-wrapper/stakers/rebalance.md) — rebalancing a staker's position in the DeFi Wrapper.
 3. [Stakers' Emergency Guide](./defi-wrapper/stakers/emergency-guide.md) — withdrawing ETH from a non-responsive stVault with DeFi Wrapper.

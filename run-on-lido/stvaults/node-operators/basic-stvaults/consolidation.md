@@ -20,7 +20,7 @@ The consolidation mechanism only transfers the effective balance from source val
 
 ## 1. Setup stVaults CLI tool
 
-Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) to setup stVaults CLI.
+Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) to set up the stVaults CLI.
 
 ## 2. Preconditions
 
