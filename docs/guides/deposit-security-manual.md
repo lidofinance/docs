@@ -28,11 +28,13 @@ To make a deposit, we propose to collect a quorum of 4/6 of the signatures of th
 
 ### Committee membership
 
-The current set of guardians is five node operators (Stakefish, Kiln, Blockscape, Staking facilities, P2P) and Lido dev team. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 6 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
+The committee consists of five node operators and the Lido dev team. The current list of guardians and their addresses is published on the [Lido Council Daemon](/holders/lido-council-daemon#mainnet-members) page. In the future, we want to bring as many node operators as possible into the mix, so the expectation will be that while the 6 guardians start the rest of the node operators can also participate via testnet and gradually get pulled into mainnet.
+
+After the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, a guardian seat is held by the member's `DelegationContract` under the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide), not by an EOA. The member's hot key becomes the delegate of that contract and can be rotated or revoked by the member without a governance vote.
 
 ### Members responsibilities
 
-Each member must prepare an EOA account to sign the pair `(depositRoot, keysOpIndex)` with its private key. The addresses of the committee members will be added to the smart contract. Also, members have to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the committee member’s private key to be able to perform ECDSA signing.
+Each member must prepare a hot key to sign the pair `(depositRoot, keysOpIndex)`. The address added to the smart contract is the member's `DelegationContract` (before the LIP-37 vote: the member's EOA), and the hot key is its delegate. The `DepositSecurityModule` verifies guardian signatures through ERC-1271, so a signature is valid only while the signing key is the active delegate of the contract. Also, members have to run `DSC Daemon` that monitors the validators’ public keys in the `DepositContract` and in all Staking Modules. The daemon must have access to the delegate’s private key to be able to perform ECDSA signing. See the [EDF Operator Guide](/guides/edf/edf-operator-guide) for the setup.
 
 ## Preparation steps
 

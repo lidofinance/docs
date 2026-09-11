@@ -18,7 +18,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
+  - \[[proposed to remove](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
+  - \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] Lido Locator: [`0x60E09F1791F1168d0450E4F100616B4a3F95119C`](https://etherscan.io/address/0x60E09F1791F1168d0450E4F100616B4a3F95119C) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
   - Lido: [`0x028271E30a695c0527A0C50cA30603feD004cDb0`](https://etherscan.io/address/0x028271E30a695c0527A0C50cA30603feD004cDb0) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
@@ -30,7 +31,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
   - Staking Router: [`0xDD76927045435C7605cf6f5F978cfb8CABDb5F80`](https://etherscan.io/address/0xDD76927045435C7605cf6f5F978cfb8CABDb5F80) (impl)
 - SR Library: [`0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14`](https://etherscan.io/address/0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14) (external lib)
 - Beacon Chain Depositor: [`0xf98AC162eAB766bDB9507c3584c00C535B8F6216`](https://etherscan.io/address/0xf98AC162eAB766bDB9507c3584c00C535B8F6216)
-- Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- \[[proposed to remove](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] Deposit Security Module: [`0x39BB5d491e98A44D1bfe8047A737a81E296a63E0`](https://etherscan.io/address/0x39BB5d491e98A44D1bfe8047A737a81E296a63E0)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
@@ -85,6 +87,10 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
   - Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
+
+## 🔑 Execution Delegation Framework {#execution-delegation-framework}
+
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/10)\] DelegationFactory: [`0xD990770eB2B4b6062EDdB06892fF179C693b46e6`](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6)
 
 ## 🗳️ DAO Contracts {#dao-contracts}
 
@@ -330,7 +336,8 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 ## 🤖 Bots {#bots}
 
-- Depositor bot: [`0xF82aC5937A20dC862F9bc0668779031E06000f17`](https://etherscan.io/address/0xF82aC5937A20dC862F9bc0668779031E06000f17)
+- \[[proposed to remove](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/24)\] Depositor bot: [`0xF82aC5937A20dC862F9bc0668779031E06000f17`](https://etherscan.io/address/0xF82aC5937A20dC862F9bc0668779031E06000f17)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/24)\] Depositor bot: [`0x6Aa249bA53A3abcaC52F91146583B3eE2Ee4C7F5`](https://etherscan.io/address/0x6Aa249bA53A3abcaC52F91146583B3eE2Ee4C7F5)
 
 ## 🪨 Lido Stonks Contracts {#lido-stonks-contracts}
 
@@ -360,6 +367,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
+
+### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
+
+- \[[proposed](https://research.lido.fi/t/proposal-add-easy-track-factory-for-deposit-reserve-target-management-by-cmc/11827/6)\] SetDepositsReserveTarget: [`0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0`](https://etherscan.io/address/0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0)
 
 ### 🧩 Easy Track Factories for Staking Modules {#easy-track-factories-for-staking-modules}
 
