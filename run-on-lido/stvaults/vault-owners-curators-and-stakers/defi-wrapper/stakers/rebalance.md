@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
-title: Rebalance Stakers's Position
+title: Rebalance Staker's Position
 sidebar_label: Rebalance Position
 ---
 
-# Rebalance Stakers's Position
+# Rebalance Staker's Position

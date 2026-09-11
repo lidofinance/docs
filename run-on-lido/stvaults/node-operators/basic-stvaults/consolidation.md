@@ -20,7 +20,7 @@ The consolidation mechanism only transfers the effective balance from source val
 
 ## 1. Setup stVaults CLI tool
 
-Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) to setup stVaults CLI.
+Use [these instructions](https://lidofinance.github.io/lido-staking-vault-cli/) to set up the stVaults CLI.
 
 ## 2. Preconditions
 
@@ -78,9 +78,9 @@ You can check a validator's credentials or state at [beaconcha.in](https://beaco
 
 - A list of source pubkeys of validators that you want to consolidate from.
 - A list of target pubkeys of validators that you want to consolidate to.
-- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. It is the owner of the stVault, so you can read it from the vault:
+- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. Read it from the vault's connection data, where it is the `owner` field:
   ```bash
-  yarn start contracts vault r owner <vault_address>
+  yarn start contracts v-v r vault-data <vault_address>
   ```
   Other ways to find it are on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
 - You need ETH to cover the consolidation fee. The exact amount depends on the number of public keys and the current state of the blockchain. You can determine the fee for a single consolidation request by calling the view function [`getConsolidationRequestFee`](/contracts/validator-consolidation-requests#getconsolidationrequestfee) on the [`ValidatorConsolidationRequests`](/contracts/validator-consolidation-requests) contract. The total amount required will be calculated as the number of consolidations multiplied by the fee per request.

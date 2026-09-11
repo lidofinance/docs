@@ -19,7 +19,7 @@ An end-user staking product with a higher risk/yield profile achieved by deposit
 | stETH minting capability | Yes, to deposit into a custom DeFi strategy and generate additional DeFi yield |
 
 ## Building blocks
-| Building block | Solution | Implementation | 
+| Building block | Solution | Implementation |
 | -- | -- | -- |
 | Basis | stVault | Out-of-the-box |
 | Pooling Wrapper | DeFi Wrapper | Out-of-the-box |
@@ -54,7 +54,7 @@ Both paths share the same smart-contract development steps (implementing `IStrat
 
 1.  Implement the [`IStrategy`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/interfaces/IStrategy.sol) interface
 
-2. Implement the [`IStrategyFactory`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/interfaces/IStrategyFactory.sol) interface. 
+2. Implement the [`IStrategyFactory`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/interfaces/IStrategyFactory.sol) interface.
   The `_deployBytes` parameter can be used to pass additional strategy-specific configuration during deployment. If your strategy doesn't need extra config, it can be ignored.
 
 3. Deploy the strategy factory
@@ -93,12 +93,16 @@ yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FAC
   --reserveRatioGapBP 250 \
   --mintingEnabled true \
   --allowList true \
-  --allowListManager <ALLOW_LIST_MANAGER_ADDRESS> \
+  --allowListManager 0x0000000000000000000000000000000000000000 \
   --strategyFactory <MY_STRATEGY_FACTORY_ADDRESS> \
   --strategyFactoryDeployBytes <strategyFactoryDeployBytes>
 ```
 
 Run `yarn start defi-wrapper contracts factory write create-pool-custom -h` for the full description of all available parameters.
+
+:::warning
+On a strategy pool `--allowListManager` has to be the zero address. The CLI rejects any other value while `--strategyFactory` is set, since that role decides which strategies may deposit into the pool.
+:::
 
 :::info
 The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the vault upon connection to Lido `VaultHub`.
@@ -124,7 +128,7 @@ The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT`
 | `--reserveRatioGapBP` | Reserve ratio gap in basis points (recommended min: 250) |
 | `--mintingEnabled` | Enable stETH minting (`true` / `false`) |
 | `--allowList` | Enable deposit allowlist (`true` / `false`) |
-| `--allowListManager` | Address managing the allowlist |
+| `--allowListManager` | Address managing the allowlist. Must be the zero address on a strategy pool. |
 | `--strategyFactory` | Your deployed strategy factory address |
 | `--strategyFactoryDeployBytes` | Optional hex-encoded bytes passed to your factory's `deploy()` |
 
@@ -428,9 +432,9 @@ For stVaults with DeFi Wrapper the process of changing tier is a bit different b
 
 Thus, changing tier for a pooled vault is a three-step process:
 
-1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `OperatorGrid.changeTier` call
+1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `Dashboard.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator calls `OperatorGrid.changeTier` with the same parameters
+3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the vault as an extra argument
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -496,11 +500,11 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 2. Go to the **Contract** tab → **Write Contract**.
 3. Click **Connect to Web3** and connect the wallet that holds the **proposer role**.
 4. Find the `schedule` method in the list and fill out the fields:
-   - `target`: the `OperatorGrid` contract address.
+   - `target`: the `Dashboard` contract address.
    - `value`: `0` (no ETH is sent with this call).
-   - `data`: the ABI-encoded call to `changeTier(address vault, uint256 tierId, uint256 requestedShareLimit)`. You can generate this using tools like [ABI Encoder](https://abi.hashex.org/) or cast from Foundry:
+   - `data`: the ABI-encoded call to `changeTier(uint256 tierId, uint256 requestedShareLimit)`. You can generate this using tools like [ABI Encoder](https://abi.hashex.org/) or cast from Foundry:
      ```bash
-     cast calldata "changeTier(address,uint256,uint256)" <VaultAddress> <TierID> <RequestedShareLimit>
+     cast calldata "changeTier(uint256,uint256)" <TierID> <RequestedShareLimit>
      ```
    - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000` (no predecessor required).
    - `salt`: `0x0000000000000000000000000000000000000000000000000000000000000000` (or any unique value if you need to differentiate identical operations).
@@ -548,9 +552,9 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 3. Execute change tier, connect the wallet:
    - Open **Etherscan** and navigate to the **TimelockController** contract — find its address on the [Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses) page.
    - Go to the **Contract** tab → **Write Contract**.
-   - Click **Connect to Web3** and connect the wallet that holds the **executor role**.Click **Connect to Web3** and connect the wallet that holds the **executor role**.
+   - Click **Connect to Web3** and connect the wallet that holds the **executor role**.
 4. Find the `execute` method in the list and fill out the fields with the **same values** used in the `schedule` call:
-   - `target`: the `OperatorGrid` contract address.
+   - `target`: the `Dashboard` contract address.
    - `value`: `0`.
    - `payload`: the same ABI-encoded call data used in step 1.
    - `predecessor`: `0x0000000000000000000000000000000000000000000000000000000000000000`.

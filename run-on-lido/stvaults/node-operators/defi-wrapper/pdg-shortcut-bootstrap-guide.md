@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # PDG Shortcut Bootstrap
@@ -70,6 +70,8 @@ yarn start deposits w unguaranteed-deposit '<depositsJson>' -v <vaultAddress>
 ```
 
 The argument is an array of deposit structs — `pubkey`, `signature`, `amount` in gwei, `deposit_data_root` — the same data a normal deposit uses. The CLI checks the BLS signature first; `--no-bls-check` skips that.
+
+The vault's oracle report has to be fresh: the call withdraws from the vault, and `VaultHub.withdraw` refuses a stale report. Applying one is permissionless — see [Apply oracle reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
 
 This withdraws the 32 ETH from the vault and sends it straight to the deposit contract with the vault's withdrawal credentials, bypassing the predeposit. From there the validator takes the ordinary entry path — the deposit is processed, then the validator waits in the activation queue, whose length depends on how many validators are entering at the time.
 

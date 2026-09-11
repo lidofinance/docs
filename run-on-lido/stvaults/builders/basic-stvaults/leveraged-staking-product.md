@@ -43,7 +43,7 @@ For custom calculations, use this spreadsheet as a calculator: [Lido stVault Eco
     <span className="value">~9×;</span>
   </div>
   <div style={{display: 'flex', alignItems: 'baseline', gap: '0.25rem', margin: '0.25rem 0'}}>
-    <span className="label">tVault — Total Value:</span>
+    <span className="label">stVault — Total Value:</span>
     <span style={{flex: '1 1 auto', borderBottom: '1px dotted currentColor', opacity: 0.5, margin: '0 0.5rem'}}/>
     <span className="value">894.85 ETH;</span>
   </div>
@@ -204,7 +204,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
       ```
 </details>
 <details>
