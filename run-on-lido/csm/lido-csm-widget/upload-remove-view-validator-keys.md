@@ -10,19 +10,29 @@ import TabItem from '@theme/TabItem';
 ## Deposit queue
 
 :::info
-We encourage operators to see the queue before submitting new keys, as they may have to wait some time to get deposits, and there's a fee of `0.02 ETH` for removing keys while in the queue.
+We encourage operators to see the queue before submitting new keys, as they may have to wait some time to get deposits, and there's a [key removal charge](/run-on-lido/csm/penalties#parameters-by-operator-profile) for removing keys while in the queue.
 :::
 
-The way validators are deposited in the CSM is through a FIFO (first in, first out) queue. You can see a visual representation of the queue under the deposit widget, or at the top of the `View Keys` tab.
+Stake is allocated to uploaded keys through a queue. You can see a visual representation of it under the deposit widget, or at the top of the `View Keys` tab.
 
 ![Deposit queue](/img/csm-guide/keys-1.png)
 
+The default queue is FIFO (first in, first out), so keys are served in the order they were submitted. Some operator types are also eligible to have a limited number of keys deposited through a higher-priority queue, which is processed before the default one. See [Stake allocation queue](/staking-modules/node-operators#stake-allocation-queue) for the full mechanics.
+
+**In 0x01 CSM**, each key receives a single 32 ETH deposit once the queue reaches it.
+
+**In 0x02 CSM**, keys are funded in two phases. The queue above allocates the initial 32 ETH deposit that activates each validator, and validators are then topped up toward the 2,048 ETH maximum through a separate top-up queue. Top-ups depend on the module's stake share limit and overall deposit demand, so a validator may never reach the full 2,048 ETH, and both phases can take longer than a standard 32 ETH deposit.
+
 ## Upload keys
+
+:::warning
+Your deposit data must use the withdrawal credential type of the module you are joining, `0x01` for 0x01 CSM or `0x02` for 0x02 CSM. See [Generating Validator Keys](/run-on-lido/csm/generating-validator-keys/) before you upload.
+:::
 
 * Go to the Lido CSM Widget and connect your wallet. **MAKE SURE THAT YOU ARE ON THE CORRECT NETWORK (i.e., Mainnet or Hoodi).**
   * **Mainnet:** [https://csm.lido.fi/](https://csm.lido.fi/)
   * **Hoodi:** [https://csm.testnet.fi/](https://csm.testnet.fi/)
-* Select `Become a Node Operator` and then `Create a Node Operator`
+* Select `Become a Node Operator` and then `Create a Node Operator`. If you don't have an operator yet, you first [choose your operator type](/run-on-lido/csm/context-and-background#operator-profiles-and-economics), which determines the module you join and the bond you post.
 * On the Lido CSM Widget, upload your `deposit data file` and select the corresponding bond type (ETH, stETH, or wstETH), and provide the desired bond amount. Learn more about [bond requirements](https://operatorportal.lido.fi/modules/community-staking-module#block-2d1c307d95fc4f8ab7c32b7584f795cf).
 
 ![Upload keys](/img/csm-guide/keys-2.png)
@@ -105,14 +115,22 @@ You can also view the status of the keys pertaining to your uploaded deposit dat
 
 ![View keys](/img/csm-guide/keys-4.png)
 
-| Status                                                                 | What it means                                                                                 | What to do?                                                                                      |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| <span style={{color: 'green'}}><strong>Active</strong></span>            | Key has been deposited & is either pending activation or active on the [beacon chain].        | Make sure your validator node is online to perform its duties                                    |
-| **Depositable**                                                        | Key is valid and bond is sufficient. Pending deposit from Lido Protocol                       | Maintain sufficient bond amounts                                                                 |
-| **Exited**                                                             | Key has been exited                                                                           | None                                                                                             |
-| <span style={{color: 'orange'}}><strong>Unbonded</strong></span>         | Bond is insufficient for this key, which can be Active or otherwise                           | - Active key: Top up bond or exit key<br />- Non-active key: Top up bond or do nothing             |
-| <span style={{color: 'red'}}><strong>Duplicated</strong></span>          | Key has been uploaded twice                                                                   | Remove duplicate key                                                                             |
-| <span style={{color: 'red'}}><strong>Invalid</strong></span>             | Uploaded key has an invalid signature                                                         | Remove key                                                                                       |
-| <span style={{color: 'red'}}><strong>Stuck</strong></span>               | Exit request for Active Key was not fulfilled within 96 hours                                 | Exit key                                                                                        |
+:::info
+In 0x02 CSM, a key shown as **Active** may still be receiving top-ups toward its 2,048 ETH maximum.
+:::
+
+| Status | What it means | What to do? |
+| --- | --- | --- |
+| <span style={{color: 'orange'}}><strong>Unchecked</strong></span> | Key has been uploaded but not yet validated by the protocol | Wait for validation. If an earlier key is Invalid, remove it so the rest can be checked |
+| **Depositable** | Key is valid and bond is sufficient. Pending deposit from Lido Protocol | Maintain sufficient bond amounts |
+| <span style={{color: 'orange'}}><strong>Non queued</strong></span> | Key is depositable but does not currently hold a place in the deposit queue | No action needed, the key is queued again automatically |
+| **Activation pending** | Key has been deposited and is awaiting activation on the [beacon chain] | Make sure your validator node is online and ready to perform duties |
+| <span style={{color: 'green'}}><strong>Active</strong></span> | Key is active on the [beacon chain] | Make sure your validator node is online to perform its duties |
+| **Withdrawn** | Key has been exited and ETH has been returned to the protocol | Claim your bond and rewards under **Bond & Rewards** |
+| <span style={{color: 'orange'}}><strong>Unbonded</strong></span> | Bond is insufficient for this key, which can be Active or otherwise | - Active key: Top up bond or exit key<br />- Non-active key: Top up bond or do nothing |
+| <span style={{color: 'orange'}}><strong>Strikes</strong></span> | The key has accumulated strikes for performing below the threshold | Improve performance. Enough strikes can lead to ejection and a penalty |
+| <span style={{color: 'red'}}><strong>Slashed</strong></span> | The validator has been slashed on the [beacon chain] | Review your setup to prevent further slashings. See [Slashing Prevention](/run-on-lido/csm/best-practices/slashing-prevention) |
+| <span style={{color: 'red'}}><strong>Duplicated</strong></span> | Key has been uploaded twice | Remove duplicate key |
+| <span style={{color: 'red'}}><strong>Invalid</strong></span> | Uploaded key has an invalid signature | Remove key |
 
 [beacon chain]: https://beaconcha.in/

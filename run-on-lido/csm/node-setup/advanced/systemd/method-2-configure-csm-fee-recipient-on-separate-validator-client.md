@@ -555,7 +555,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_tekuvalidator.se
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
+sudo rm -r ~/keystore-m_<timestamp>.json # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -593,7 +593,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_nimbusvalidator.
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
+sudo rm -r ~/keystore-m_<timestamp>.json # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -621,7 +621,7 @@ docker logs csm_lodestar_validator -f
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
+sudo rm -r ~/keystore-m_<timestamp>.json # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -659,7 +659,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_lighthousevalida
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
+sudo rm -r ~/keystore-m_<timestamp>.json # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>
@@ -697,7 +697,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/csm_prysmvalidator.s
 To prevent configuration mistakes leading to double signing in the future, remove duplicate copies of the validator signing keystores once everything is running smoothly.
 
 ```bash
-sudo rm -r ~/keystore-m_<timestamp>.json ~ # replace <timestamp> with what's in your actual file name
+sudo rm -r ~/keystore-m_<timestamp>.json # replace <timestamp> with what's in your actual file name
 ```
 
   </TabItem>

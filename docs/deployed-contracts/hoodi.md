@@ -245,7 +245,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - ExitPenalties: [`0x3A2a355a27478f4f043e4206b7e1301611642801`](https://hoodi.etherscan.io/address/0x3A2a355a27478f4f043e4206b7e1301611642801) (proxy)
 - ExitPenalties: [`0xa318a6bEBca9CD02aB3a298AA5ea8eB54746ae81`](https://hoodi.etherscan.io/address/0xa318a6bEBca9CD02aB3a298AA5ea8eB54746ae81) (impl)
 
-### 🛡️ Curated Module v2
+### 🛡️ Curated Module v2 {#curated-module-v2}
 
 - Entry Gates:
   - Professional Operator Gate: [`0xF1862d120831eBE31f7202378Ff3Ae63A5658ae3`](https://hoodi.etherscan.io/address/0xF1862d120831eBE31f7202378Ff3Ae63A5658ae3) (proxy)

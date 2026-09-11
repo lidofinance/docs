@@ -23,14 +23,14 @@ CMv2 introduces significant changes from CMv1 and CSM. The table below summarize
 | Feature | CMv1 | CSM | CMv2 |
 | --- | --- | --- | --- |
 | **Stake allocation** | MinFirst allocation | FIFO queue | Weighted stake allocation with respect to sub-operators |
-| **Validator type** | `0x01` only | `0x01` only* | `0x02` only |
-| **Deposit flow** | Single 32 ETH deposits | Single 32 ETH deposits | Two-phased: initial 32 ETH + top-ups up to 2048 ETH validator balance |
+| **Validator type** | `0x01` only | `0x01` and `0x02`* | `0x02` only |
+| **Deposit flow** | Single 32 ETH deposits | Single 32 ETH deposits in 0x01 CSM; initial 32 ETH plus top-ups in 0x02 CSM | Two-phased: initial 32 ETH + top-ups up to 2048 ETH validator balance |
 | **Operator creation** | Via governance | Permissionless | Via Curated Gate contracts controlled by governance |
 | **Bond** | No bond; reputation-based model | Per validator | Bond required per `0x02` key at the sub-NO level |
 | **Rewards** | Push-based | Pull-based | Pull-based |
 | **Address management** | Governance | Operator-controlled | Operator-controlled + governance fallback |
 
-**CSM currently uses `0x01` validators on Mainnet. A separate `0x02` CSM instance has been approved but is not yet live.*
+**CSM is a family of two modules. 0x01 CSM is live on Mainnet and Hoodi, and [0x02 CSM](/run-on-lido/csm/context-and-background) is live on Hoodi with an expected Mainnet release in Q4 2026.*
 
 ---
 

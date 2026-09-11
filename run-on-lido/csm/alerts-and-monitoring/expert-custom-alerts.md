@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # 🧪 Expert: Subscribing to Important Events
@@ -21,8 +21,8 @@ If the guide seems too complicated, make sure to check out a tool: [SM Sentinel]
 
 ### ValidatorExitRequest
 `ValidatorExitRequest` is the most important event for key management. It requires sending a voluntary exit request using the key specified in the event.
-If the Node Operator doesn't do this in time, the key becomes stuck, and rewards for the current and upcoming frames until stuck keys are exited frame are zeroed.
-Following all the events filtered by `stakingModuleId=3 (Mainnet), stakingModuleId=4 (Hoodi)` and `nodeOperatorId` is essential.
+If the Node Operator doesn't exit in time, an exit delay charge is applied to the bond once the validator withdraws, and the protocol may force the exit from the Execution Layer at the operator's cost.
+Following all the events filtered by `stakingModuleId` and `nodeOperatorId` is essential. For 0x01 CSM that is `stakingModuleId=3` on Mainnet and `stakingModuleId=4` on Hoodi. 0x02 CSM is a separate module with its own id and its own contract addresses, so check [Deployed Contracts](/deployed-contracts/) for the deployment you are monitoring.
 ```solidity
 event ValidatorExitRequest(
     uint256 indexed stakingModuleId,
@@ -44,13 +44,15 @@ This event can be tracked using [Ejector](https://github.com/lidofinance/validat
 - [Hoodi](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d)
 
 
-### ELRewardsStealingPenaltyReported
-The [CSM Committee](https://research.lido.fi/t/community-staking-module-committee/8333) can report a potentially stolen amount of EL rewards. If so, the NO must either compensate or challenge the report.
+### GeneralDelayedPenaltyReported
+The [CSM Committee](https://research.lido.fi/t/community-staking-module-committee/8333) can report a protocol violation, such as stolen EL rewards. If so, the NO must either compensate or challenge the report. See [Penalties](/run-on-lido/csm/penalties#how-penalties-and-charges-are-applied).
 ```solidity
-event ELRewardsStealingPenaltyReported(
+event GeneralDelayedPenaltyReported(
     uint256 indexed nodeOperatorId,
-    bytes32 proposedBlockHash,
-    uint256 stolenAmount
+    bytes32 indexed penaltyType,
+    uint256 amount,
+    uint256 additionalFine,
+    string details
 );
 ```
 
@@ -62,32 +64,32 @@ event VettedSigningKeysCountDecreased(
 );
 ```
 
-### StuckSigningKeysCountChanged
-Stuck keys for the Node Operator mean no rewards for the current frame. It's too late already to exit these keys in the current frame, but it is still required to receive further rewards
+### ValidatorSlashingReported
+Get notifications when a slashing is reported for one of your keys.
 ```solidity
-event StuckSigningKeysCountChanged(
-    uint256 indexed nodeOperatorId,
-    uint256 stuckKeysCount
-);
-```
-
-### InitialSlashingSubmitted
-Get notifications when slashing occurs and is reported
-```solidity
-event InitialSlashingSubmitted(
-    uint256 indexed nodeOperatorId,
-    uint256 keyIndex
-);
-```
-
-### WithdrawalSubmitted
-Information event that the key has been reported as `withdrawn`, so the required bond for this key is released.
-```solidity
-event WithdrawalSubmitted(
+event ValidatorSlashingReported(
     uint256 indexed nodeOperatorId,
     uint256 keyIndex,
-    uint256 amount
+    bytes pubkey
 );
+```
+
+### ValidatorWithdrawn
+Information event that the key has been reported as withdrawn, so the required bond for this key is released. `slashingPenalty` shows any loss deducted from the bond.
+```solidity
+event ValidatorWithdrawn(
+    uint256 indexed nodeOperatorId,
+    uint256 keyIndex,
+    uint256 exitBalance,
+    uint256 slashingPenalty,
+    bytes pubkey
+);
+```
+
+### KeyRemovalChargeApplied
+A key removal charge has been taken from the bond.
+```solidity
+event KeyRemovalChargeApplied(uint256 indexed nodeOperatorId);
 ```
 
 ### DepositedSigningKeysCountChanged
@@ -99,7 +101,55 @@ event DepositedSigningKeysCountChanged(
 );
 ```
 
-## Contract: CSFeeDistributor
+## Contract: ExitPenalties
+
+- [Mainnet](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
+- [Hoodi](https://hoodi.etherscan.io/address/0xD259b31083Be841E5C85b2D481Cfc17C14276800)
+
+### ValidatorExitDelayProcessed
+An exit delay charge has been applied because the validator was not exited within the allowed delay.
+```solidity
+event ValidatorExitDelayProcessed(
+    uint256 indexed nodeOperatorId,
+    bytes pubkey,
+    uint256 delayFee
+);
+```
+
+### TriggeredExitFeeRecorded
+The protocol forced an exit from the Execution Layer and recorded the withdrawal request fee against the Node Operator.
+```solidity
+event TriggeredExitFeeRecorded(
+    uint256 indexed nodeOperatorId,
+    uint256 indexed exitType,
+    bytes pubkey,
+    uint256 withdrawalRequestPaidFee,
+    uint256 withdrawalRequestRecordedFee
+);
+```
+
+### StrikesPenaltyProcessed
+A bad performance penalty has been applied after the key accumulated enough strikes.
+```solidity
+event StrikesPenaltyProcessed(
+    uint256 indexed nodeOperatorId,
+    bytes pubkey,
+    uint256 strikesPenalty
+);
+```
+
+## Contract: ValidatorStrikes
+
+- [Mainnet](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f)
+- [Hoodi](https://hoodi.etherscan.io/address/0x8fBA385C3c334D251eE413e79d4D3890db98693c)
+
+### StrikesDataUpdated
+A new strikes tree has been published. Check whether any of your keys accumulated strikes, since enough strikes lead to ejection and a penalty.
+```solidity
+event StrikesDataUpdated(bytes32 treeRoot, string treeCid);
+```
+
+## Contract: FeeDistributor
 
 - [Mainnet](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
 - [Hoodi](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582)

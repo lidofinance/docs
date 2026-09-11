@@ -44,17 +44,11 @@ Scroll down, click **Apply changes**, and wait for the chain to sync.
 
 ![Installation progress](/img/csm-guide/dappnode-2.png)
 
-### Installing the Lido CSM package
+### Uploading validator keys and managing your operator
 
-1. Go to **DAppStore** (`http://my.dappnode/installer/dnp`), find **Lido CSM** (Mainnet/Hoodi), and click **GET**.  
-2. Once installed, open the **Lido CSM** package under **Packages**.
+Import your validator keystores into the validator client from the **Stakers** tab in the Dappnode UI. See the [key generation guides](/run-on-lido/csm/generating-validator-keys/) for the exact steps for your network.
 
-![Lido CSM package UI](/img/csm-guide/dappnode-3.png)
-
-This gives you the local CSM widget plus extra features:
-- Upload keystores & deposit data.  
-- Monitor client status on Dashboard.  
-- Configure Telegram alerts in Notifications.
+Then use the CSM widget on [Mainnet](https://csm.lido.fi/) or [Hoodi](https://csm.testnet.fi/) to upload your keys to CSM, manage your bond, rewards, and roles.
 
 ### Keep your clients up to date
 To keep your clients and other packages up to date for network upgrades, security releases or minor improvements please follow [this guide](/run-on-lido/csm/updates-and-maintenance/client-updates).
