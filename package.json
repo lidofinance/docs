@@ -13,10 +13,15 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "format": "prettier --write docs/",
-    "fetch-audits": "node scripts/fetch-audits.js",
-    "fetch-external": "node scripts/fetch-external.js",
-    "fetch-lips": "node scripts/fetch-lips.js",
-    "fetch-msig-quorums": "node scripts/fetch-msig-quorums.js"
+    "fetch-audits": "node scripts/fetch-audits.js --write",
+    "check-audits": "node scripts/fetch-audits.js --check",
+    "fetch-external": "node scripts/fetch-external.js --write",
+    "check-external": "node scripts/fetch-external.js --check",
+    "fetch-lips": "node scripts/fetch-lips.js --write",
+    "check-lips": "node scripts/fetch-lips.js --check",
+    "fetch-msig-quorums": "node scripts/fetch-msig-quorums.js --write",
+    "check-msig-quorums": "node scripts/fetch-msig-quorums.js --check",
+    "test:scripts": "node --test scripts/tests/*.test.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
