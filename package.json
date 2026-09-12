@@ -17,6 +17,7 @@
     "fetch": "node scripts/fetch.js",
     "fetch-audits": "node scripts/fetch-audits.js",
     "fetch-lips": "node scripts/fetch-lips.js",
+    "fetch-disclosures": "node scripts/fetch-disclosures.js",
     "fetch-msig-quorums": "node scripts/fetch-msig-quorums.js"
   },
   "dependencies": {
