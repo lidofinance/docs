@@ -6,7 +6,7 @@ The `Factory` contract is a generalized deployment mechanism for creating upgrad
 
 It conforms to the `IFactory` interface and supports deploying any `IFactoryEntity` compliant contracts via `TransparentUpgradeableProxy`, using `initialize()` for configuration.
 
-## Key Capabilities
+### Key Capabilities
 
 - Versioned deployment: track multiple logic contract versions, each deployable by index.
 - Proposal system: allow anyone to propose implementations, with owner approval required.
@@ -14,7 +14,14 @@ It conforms to the `IFactory` interface and supports deploying any `IFactoryEnti
 - Deterministic deployments: uses `create2` salt to ensure predictable addresses.
 - Entity tracking: keeps a registry of all deployed entities.
 
-## Storage Structure
+## Roles and Permissions
+
+- Uses `OwnableUpgradeable`.
+- Only owner can accept implementations and blacklist versions.
+
+## Configuration and State
+
+### Storage Structure
 
 The contract uses a deterministic storage layout via:
 
@@ -31,7 +38,7 @@ Storage fields (in `FactoryStorage`) include:
 | `proposals` | Pending implementation proposals |
 | `isBlacklisted` | Mapping from version -> is blacklisted |
 
-## Initialization
+### Initialization
 
 ```solidity
 function initialize(bytes calldata data) external initializer
@@ -40,7 +47,9 @@ function initialize(bytes calldata data) external initializer
 - Accepts encoded owner address.
 - Sets initial admin and emits `Initialized`.
 
-## Entity Deployment
+## Functions
+
+### Entity Deployment
 
 ```solidity
 function create(uint256 version, address owner, bytes calldata initParams) external returns (address instance)
@@ -59,9 +68,9 @@ Emits:
 event Created(address instance, uint256 version, address owner, bytes initParams);
 ```
 
-## Implementation Management
+### Implementation Management
 
-### Propose New Implementation
+#### Propose New Implementation
 
 ```solidity
 function proposeImplementation(address implementation) external
@@ -72,7 +81,7 @@ function proposeImplementation(address implementation) external
 - Emits `ProposeImplementation(implementation)`.
 - Permissionless function.
 
-### Accept Proposed Implementation
+#### Accept Proposed Implementation
 
 ```solidity
 function acceptProposedImplementation(address implementation) external onlyOwner
@@ -83,7 +92,7 @@ function acceptProposedImplementation(address implementation) external onlyOwner
 - Moves from `proposals` to `implementations`.
 - Emits `AcceptProposedImplementation(implementation)`.
 
-### Blacklisting
+#### Blacklisting
 
 ```solidity
 function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
@@ -93,7 +102,7 @@ function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
 - Enforces that version index exists.
 - Emits `SetBlacklistStatus(version, flag)`.
 
-## View Functions
+### View Functions
 
 | Function | Returns |
 | --- | --- |
@@ -106,12 +115,9 @@ function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
 | `proposalAt(index)` | Proposal at index |
 | `isBlacklisted(version)` | Whether a version is blocked from deployment |
 
-## Access Control
+## Invariants and Limitations
 
-- Uses `OwnableUpgradeable`.
-- Only owner can accept implementations and blacklist versions.
-
-## Security Considerations
+### Security Considerations
 
 - Immutable logic whitelist: only approved contracts can be deployed.
 - Blacklisting: emergency response for vulnerabilities.

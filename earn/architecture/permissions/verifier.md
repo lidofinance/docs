@@ -1,6 +1,6 @@
 # Verifier
 
-## Purpose
+## Overview
 
 The `Verifier` contract is a multi mode permissioning module for verifying and enforcing call-level access control across vault connected modules. It supports:
 
@@ -10,21 +10,23 @@ The `Verifier` contract is a multi mode permissioning module for verifying and e
 
 This contract enables secure and modular delegation of operational permissions.
 
-## Core Responsibilities
+### Core Responsibilities
 
 - Validates function calls from external actors (e.g., operators, curators) or strategy contracts (strategies).
 - Grants or revokes execution rights using onchain and offchain mechanisms.
 - Ensures that only whitelisted or merkle authenticated calls are allowed.
 - Integrates with vault based role system via `IAccessControl`.
 
-## Roles and Access
+## Roles and Permissions
 
 - `SET_MERKLE_ROOT_ROLE`: Role allowed to update the active Merkle root.
 - `CALLER_ROLE`: Role required by initiators of authorized calls.
 - `ALLOW_CALL_ROLE`: Grants ability to add compact calls to allowlist.
 - `DISALLOW_CALL_ROLE`: Grants ability to remove compact calls from allowlist.
 
-## Storage Layout
+## Configuration and State
+
+### Storage Layout
 
 ```solidity
 struct VerifierStorage {
@@ -40,23 +42,7 @@ struct VerifierStorage {
 - `compactCallHashes`: Set of hashes representing allowed compact calls.
 - `compactCalls`: Optional mapping for reverse lookup of call metadata by hash.
 
-## Verification Types
-
-```solidity
-enum VerificationType {
-  ONCHAIN_COMPACT,
-  MERKLE_COMPACT,
-  MERKLE_EXTENDED,
-  CUSTOM_VERIFIER
-}
-```
-
-- **ONCHAIN_COMPACT**: Checks `CompactCall` (who | where | selector) hash against internal set.
-- **MERKLE_COMPACT**: Verifies Merkle proof of `CompactCall` (who | where | selector) hash.
-- **MERKLE_EXTENDED**: Verifies Merkle proof of `ExtendedCall` (who | where | value | callData) hash.
-- **CUSTOM_VERIFIER**: Delegates full verification to an external verifier.
-
-## Call Structures
+### Call Structures
 
 ```solidity
 struct CompactCall {
@@ -83,7 +69,35 @@ struct VerificationPayload {
 - `ExtendedCall`: Encodes full call (selector + calldata + ETH value).
 - `VerificationPayload`: Contains verification metadata and proof.
 
-## View Functions
+### Initialization
+
+```solidity
+function initialize(bytes calldata initParams) external initializer;
+```
+
+- `initParams` format: `abi.encode(address vault_, bytes32 merkleRoot_)`.
+
+## Behavior
+
+### Verification Types
+
+```solidity
+enum VerificationType {
+  ONCHAIN_COMPACT,
+  MERKLE_COMPACT,
+  MERKLE_EXTENDED,
+  CUSTOM_VERIFIER
+}
+```
+
+- **ONCHAIN_COMPACT**: Checks `CompactCall` (who | where | selector) hash against internal set.
+- **MERKLE_COMPACT**: Verifies Merkle proof of `CompactCall` (who | where | selector) hash.
+- **MERKLE_EXTENDED**: Verifies Merkle proof of `ExtendedCall` (who | where | value | callData) hash.
+- **CUSTOM_VERIFIER**: Delegates full verification to an external verifier.
+
+## Functions
+
+### View Functions
 
 - `vault()`: Returns the associated vault contract.
 - `merkleRoot()`: Returns current Merkle root.
@@ -93,9 +107,9 @@ struct VerificationPayload {
 - `hashCall(CompactCall)`: Returns keccak256 hash of compact call.
 - `hashCall(ExtendedCall)`: Returns keccak256 hash of extended call.
 
-## Verification Functions
+### Verification Functions
 
-### `verifyCall(...)`
+#### `verifyCall(...)`
 
 ```solidity
 function verifyCall(
@@ -110,7 +124,7 @@ function verifyCall(
 - Validates call permissions using the chosen `VerificationType`.
 - Reverts with `VerificationFailed` on failure.
 
-### `getVerificationResult(...) -> bool`
+#### `getVerificationResult(...) -> bool`
 
 ```solidity
 function getVerificationResult(
@@ -131,17 +145,9 @@ Verification decision logic:
 - `MERKLE_EXTENDED`: Validate Merkle proof of full hash.
 - `CUSTOM_VERIFIER`: Validate Merkle proof of the verification payload and delegate validation to external contract.
 
-## Mutable Functions
+### State-Changing Functions
 
 - `initialize(bytes calldata initParams)`: Accepts `abi.encode(address vault_, bytes32 merkleRoot_)` and sets the vault address and initial Merkle root.
 - `setMerkleRoot(bytes32 root)`: Updates Merkle root (requires `SET_MERKLE_ROOT_ROLE`).
 - `allowCalls(CompactCall[] calldata calls)`: Adds compact calls to allowlist and reverts on duplicates.
 - `disallowCalls(CompactCall[] calldata calls)`: Removes calls from allowlist and reverts if a call is not found.
-
-## Initialization
-
-```solidity
-function initialize(bytes calldata initParams) external initializer;
-```
-
-- `initParams` format: `abi.encode(address vault_, bytes32 merkleRoot_)`.

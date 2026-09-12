@@ -1,10 +1,10 @@
 # SignatureQueue
 
-## Purpose
+## Overview
 
 The `SignatureQueue` enables instant user deposits or redemptions using off-chain signed approvals from a trusted consensus group. This queue type bypasses the normal time-delayed queuing mechanism (for example `DepositQueue` and `RedeemQueue`) by verifying orders via [EIP-712](https://eips.ethereum.org/EIPS/eip-712) or [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) signatures, offering fast lane access for users while preserving oracle bound price safety.
 
-## Key Features
+### Key Features
 
 - Instant execution without waiting for oracle price reports.
 - Nonce based signature protection to prevent replay attacks.
@@ -13,14 +13,15 @@ The `SignatureQueue` enables instant user deposits or redemptions using off-chai
 - Stateless and removable (does not accumulate shares or process claims).
 - Fee bypass: no `depositFee` or `redeemFee` is charged for actions via this queue.
 
-## High Level Workflow
+### Use Cases
 
-1. Off-chain consensus actors (for example operators, curators, admins) generate signed `Order` messages.
-2. A user submits this order to the `SignatureQueue` contract for execution.
-3. The queue verifies the order signature, validates nonce, queue address, asset match, deadline, and caller, then computes the implied asset or share price and checks it against the vault's oracle.
-4. If all checks pass, the order is executed atomically.
+- Instant UX: bypassing delays in `DepositQueue` or `RedeemQueue`.
+- Institutional integrations: where trusted relayers or coordinators pre-sign valid actions.
+- Fallback mechanism: during oracle lags or downtime.
 
-## Order Structure
+## Configuration and State
+
+### Order Structure
 
 Each order encapsulates all the necessary metadata for verification:
 
@@ -38,7 +39,27 @@ struct Order {
 }
 ```
 
-## Signature Validation
+### Storage Layout
+
+```solidity
+struct SignatureQueueStorage {
+    address consensus;                        // Signature validator contract
+    address vault;                            // Parent vault (Vault.sol)
+    address asset;                            // Supported ERC20 token or native ETH
+    mapping(address => uint256) nonces;       // Per-user nonces
+}
+```
+
+## Behavior
+
+### High Level Workflow
+
+1. Off-chain consensus actors (for example operators, curators, admins) generate signed `Order` messages.
+2. A user submits this order to the `SignatureQueue` contract for execution.
+3. The queue verifies the order signature, validates nonce, queue address, asset match, deadline, and caller, then computes the implied asset or share price and checks it against the vault's oracle.
+4. If all checks pass, the order is executed atomically.
+
+### Signature Validation
 
 - Orders are signed by a quorum of validators registered in the `Consensus` contract.
 - Signatures can conform to [EIP-712](https://eips.ethereum.org/EIPS/eip-712) (structured message hashing) or [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) (smart contract based signature schemes).
@@ -62,7 +83,7 @@ keccak256(
 );
 ```
 
-## Price Safety Check
+### Price Safety Check
 
 After signature verification, `SignatureQueue` uses the vault's `Oracle` to validate the price:
 
@@ -72,18 +93,9 @@ After signature verification, `SignatureQueue` uses the vault's `Oracle` to vali
 
 Otherwise, the operation is rejected with `InvalidPrice`.
 
-## Storage Layout
+## Functions
 
-```solidity
-struct SignatureQueueStorage {
-    address consensus;                        // Signature validator contract
-    address vault;                            // Parent vault (Vault.sol)
-    address asset;                            // Supported ERC20 token or native ETH
-    mapping(address => uint256) nonces;       // Per-user nonces
-}
-```
-
-## Interface Compatibility
+### Interface Compatibility
 
 Despite not using claimable balances, `SignatureQueue` implements stub methods for compatibility with the `IQueue` interface:
 
@@ -100,20 +112,16 @@ event OrderExecuted(Order order, IConsensus.Signature[] signatures);
 
 Emitted after a signed order is successfully executed.
 
-## Security Assumptions
+## Invariants and Limitations
+
+### Security Assumptions
 
 - Only trusted off-chain actors (consensus group) are authorized to sign orders.
 - Price quotes must match oracle defined asset or share rates.
 - Users cannot reuse old signatures due to nonce tracking.
 - Orders must be executed before `deadline`.
 
-## Use Cases
-
-- Instant UX: bypassing delays in `DepositQueue` or `RedeemQueue`.
-- Institutional integrations: where trusted relayers or coordinators pre-sign valid actions.
-- Fallback mechanism: during oracle lags or downtime.
-
-## Limitations
+### Limitations
 
 - Does not charge fees (unlike time delayed queues).
 - Requires trusted off-chain actors.

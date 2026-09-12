@@ -6,23 +6,18 @@ The `Queue` contract provides a shared foundation for time-gated asset processin
 
 This abstract module is not directly deployable but is designed to be extended by concrete implementations, which define the behavior of `_handleReport` and allowed user actions (deposit and redeem functions).
 
-## Purpose
-
 - Serves as a modular base for deposit and redeem queues.
 - Enforces vault request processing initially triggered by Oracle.
 - Stores timestamped user action traces via `Checkpoints.Trace224`.
 - Ensures vault controlled access and proper report validation.
 
-## Derived contracts
-
-- `DepositQueue`: handles queued deposits after a delay.
-- `RedeemQueue`: handles redemption requests similarly.
-
-## Use Cases
+### Use Cases
 
 - Prevents manipulation by requiring delayed processing relative to price updates.
 
-## Storage Structure
+## Configuration and State
+
+### Storage Structure
 
 ```solidity
 struct QueueStorage {
@@ -36,7 +31,7 @@ struct QueueStorage {
 - `vault`: only this address can call `handleReport(...)`.
 - `timestamps`: request history used in the implementations.
 
-## Initialization
+### Initialization
 
 ```solidity
 function __Queue_init(address asset_, address vault_) internal
@@ -45,7 +40,9 @@ function __Queue_init(address asset_, address vault_) internal
 - Must be called by child contracts.
 - Initializes asset, vault, and creates a starting checkpoint.
 
-## Oracle Integration
+## Functions
+
+### Oracle Integration
 
 ```solidity
 function handleReport(uint224 priceD18, uint32 timestamp) external
@@ -55,7 +52,7 @@ function handleReport(uint224 priceD18, uint32 timestamp) external
 - The function validates the report. The caller must be the `vault`, price must be non-zero, and the timestamp must be in the past (`timestamp < block.timestamp`).
 - Internally delegates to `_handleReport(...)` (must be implemented by child).
 
-## Abstract Hook
+### Abstract Hook
 
 ```solidity
 function _handleReport(uint224 priceD18, uint32 timestamp) internal virtual
@@ -67,7 +64,7 @@ Must be implemented by child classes to:
 - Apply pricing logic to convert shares to assets and assets to shares.
 - Mint or burn shares, transfer tokens, etc.
 
-## View Functions
+### View Functions
 
 | Function | Description |
 | --- | --- |
@@ -75,7 +72,7 @@ Must be implemented by child classes to:
 | `asset()` | Returns the ERC20 or native token used by the queue |
 | `canBeRemoved()` | Not implemented in `Queue` (optional for children) |
 
-## Internal Helpers
+### Internal Helpers
 
 | Function | Description |
 | --- | --- |
@@ -100,3 +97,10 @@ event ReportHandled(uint224 priceD18, uint32 timestamp)
 | `Forbidden()`   | Caller not authorized (e.g., not the vault)        |
 |`InvalidReport()`| Oracle report is zero-priced or timestamp is invalid |
 | `QueuePaused()` | Reserved for future ACL/pause integration            |
+
+## Related Contracts and References
+
+### Derived contracts
+
+- `DepositQueue`: handles queued deposits after a delay.
+- `RedeemQueue`: handles redemption requests similarly.

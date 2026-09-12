@@ -1,8 +1,12 @@
 # SlotLibrary
 
+## Overview
+
 This library generates unique and collision resistant storage slots for use in upgradeable Solidity contracts. It ensures that different modules or instances do not unintentionally overwrite each other's storage, even when used via proxy or delegate calls.
 
-## Storage Slot Strategy
+## Configuration and State
+
+### Storage Slot Strategy
 
 - Based on [EIP-7201](https://eips.ethereum.org/EIPS/eip-7201).
 - Inputs include contract name (`contractName`), human readable name (`name`), and version number (`version`).
@@ -32,7 +36,7 @@ This structure ensures:
 - Instance separation: multiple deployments with different names produce distinct slots.
 - Versioning: upgrades can cleanly migrate to new versions without collision.
 
-## Function
+## Functions
 
 ### `getSlot(string contractName, string name, uint256 version) -> bytes32`
 

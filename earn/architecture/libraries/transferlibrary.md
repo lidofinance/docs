@@ -1,18 +1,20 @@
 # TransferLibrary
 
+## Overview
+
 This utility abstracts away the differences between transferring native ETH and ERC20 tokens by introducing a unified interface for both sending and receiving assets. It also standardizes how native ETH is represented on-chain to simplify integration logic across different components.
 
-## ETH Representation
+## Configuration and State
 
-The constant `ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` ([EIP-7528](https://eips.ethereum.org/EIPS/eip-7528)) is used as a sentinel value to distinguish native ETH from ERC20 tokens.
-
-## Errors
-
-- `InvalidValue()`: Thrown when the contract expects a specific `msg.value` (for native ETH transfers) but receives a different amount.
-
-## Constants
+### Constants
 
 - `ETH`: Reserved address used to represent native Ether. When passed to `sendAssets` or `receiveAssets`, the function will process ETH instead of calling token functions.
+
+## Behavior
+
+### ETH Representation
+
+The constant `ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` ([EIP-7528](https://eips.ethereum.org/EIPS/eip-7528)) is used as a sentinel value to distinguish native ETH from ERC20 tokens.
 
 ## Functions
 
@@ -57,3 +59,7 @@ function func() external payable {
 }
 ```
 :::
+
+## Errors
+
+- `InvalidValue()`: Thrown when the contract expects a specific `msg.value` (for native ETH transfers) but receives a different amount.

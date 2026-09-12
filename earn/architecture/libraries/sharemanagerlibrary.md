@@ -1,5 +1,7 @@
 # ShareManagerLibrary
 
+## Overview
+
 This library helps pack multiple boolean flags and lockup durations into a compact `uint256` bitmask. It enables efficient storage and quick access to share manager configuration in vault systems.
 
 Designed for the `ShareManager` component to control:
@@ -10,7 +12,9 @@ Designed for the `ShareManager` component to control:
 
 All data is packed into a single `uint256` using bit level encoding for optimal storage and gas efficiency.
 
-## Bitmask Layout
+## Configuration and State
+
+### Bitmask Layout
 
 | Bit Range | Purpose |
 | --- | --- |
