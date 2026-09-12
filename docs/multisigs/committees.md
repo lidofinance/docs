@@ -328,7 +328,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | shardyaco  | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
 | adcv       | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
-| Alex_L     | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| Elena_S    | 0x1Aa35Ee905b481b0497c597392Fc41E2DA92d74B | https://etherscan.io/verifySig/317001 | https://x.com/Elen0sh/status/2064995315871023385 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Olga_K     | 0x397ee87383787812fe0828ead2bcada6ae8fac6f | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
 | Marin      | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
@@ -352,7 +352,7 @@ This Multisig is allowed to [hold stETH](https://research.lido.fi/t/rewards-janu
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| Elena_S    | 0x1Aa35Ee905b481b0497c597392Fc41E2DA92d74B | https://etherscan.io/verifySig/317001 | https://x.com/Elen0sh/status/2064995315871023385 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Armin | 0x8ecd93982FfbB2f937ADa6c6e50d1950974081C0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
@@ -387,7 +387,7 @@ Additional signer of Unichain multisig:
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| Elena_S    | 0x1Aa35Ee905b481b0497c597392Fc41E2DA92d74B | https://etherscan.io/verifySig/317001 | https://x.com/Elen0sh/status/2064995315871023385 |
 | adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
@@ -462,11 +462,39 @@ Additional signer of Unichain multisig:
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
 | Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
 
-### 2.8.7 Committees for networks no longer endorsed
+### 2.8.7 Liquidity Observation Lab Committee DAO Asset Treasury Multisig
+
+**Address:** [`0xf6F0732c1e9971497342C295141566E6F1A31e96`](https://app.safe.global/settings/setup?safe=eth:0xf6F0732c1e9971497342C295141566E6F1A31e96)
+
+**Purpose of the multisig:** Holds the DAO's shares in the Lido Earn ETH and USD Vaults, received via Easy Track under the DAO Treasury allocation mandate, separately from Lido Ecosystem BORG Foundation tokens.
+
+**Forum topics:**\
+[Lido Earn: Competing on Trust — $5m Treasury Allocation](https://research.lido.fi/t/lido-earn-competing-on-trust-5m-treasury-allocation/11228)\
+[Liquidity Observation Lab (LOL): DAO Asset Treasury multisig](https://research.lido.fi/t/liquidity-observation-lab-lol-liquidity-strategy-and-application-to-curve-steth-eth-pool/5335/34)
+
+**Snapshot:** [Authorize $5M DAO Treasury Allocation to Lido Earn ETH and USD Vaults](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xd32eab4ce41e2754d8a51fdf89bd9f4eb43ecbeb7b60d0e93ce84bc3e4d4c8a3)
+
+**Quorum:** 5/9
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
+| Armin | 0x8ecd93982FfbB2f937ADa6c6e50d1950974081C0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
+| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/11698 | https://x.com/adcv_/status/1587404360476237829 |
+| Elena_S | 0x1Aa35Ee905b481b0497c597392Fc41E2DA92d74B | https://etherscan.io/verifySig/317284 | https://x.com/Elen0sh/status/2066441808331022629 |
+| GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
+| Olga_K | 0x397eE87383787812fe0828Ead2BCAda6AE8FAc6F | https://etherscan.io/verifySig/273368 | https://x.com/itmamuramgk28/status/1925113854834381180 |
+| Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/274497 | https://x.com/penzjun/status/1930225234981835172 |
+| skelneko | 0x75D95fF8D48E2Ca5c4235322A8AC8e52A76124cD | https://etherscan.io/verifySig/274493 | https://x.com/skelneko/status/1930219472591434005 |
+| Angelina_L | 0x70d80eb5390C7872233D4a9B0b0d74Ea749294c1 | https://etherscan.io/verifySig/274395 | https://x.com/helterswellter/status/1929818306233414023 |
+
+### 2.8.8 Committees for networks no longer endorsed
 
 The committees below operate on the networks whose wstETH bridge endpoints are no longer canonically recognized by the Lido DAO (see the [Snapshot vote](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x09880de4739dcef13c4aa5605f1dca23556fc7495d09ecc84561a10f26a59b5c)).
 
-#### 2.8.7.1 Liquidity Observation Lab Committee (Polygon)
+#### 2.8.8.1 Liquidity Observation Lab Committee (Polygon)
 
 **Address:** matic:[`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5)
 
@@ -484,7 +512,7 @@ The committees below operate on the networks whose wstETH bridge endpoints are n
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Marin | 0x04e7C0350241b818eE5c92cc260008C9898F41cf | https://etherscan.io/verifySig/13838 | https://x.com/tvrmarin/status/1619812143326720000 |
 
-#### 2.8.7.2 Liquidity Observation Lab Committee ZK Token Multisig
+#### 2.8.8.2 Liquidity Observation Lab Committee ZK Token Multisig
 
 **Address:** zksync:[`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913)
 
@@ -500,7 +528,7 @@ The committees below operate on the networks whose wstETH bridge endpoints are n
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| Alex_L | 0xB339918e75664a07BB650513427559920C0A0F6C | https://etherscan.io/verifySig/20179 | https://x.com/Al_lykov/status/1668625635810615297?s=20 |
+| Elena_S    | 0x1Aa35Ee905b481b0497c597392Fc41E2DA92d74B | https://etherscan.io/verifySig/317001 | https://x.com/Elen0sh/status/2064995315871023385 |
 | GrStepanov | 0x8D0855047b59a5f11262f095ee724b5A59a89710 | https://etherscan.io/verifySig/34273 | https://x.com/grstepanov/status/1468933222923116550 |
 | shardyaco | 0x59d07dc34B135B17b87840a86BFF7302039E7EDf | https://etherscan.io/verifySig/11733 | https://x.com/defiyaco/status/1587222297936633857?s=61&t=zNY2z0koPK_WF8W9MSgaww |
 | Armin      | 0x8ecd93982ffbb2f937ada6c6e50d1950974081c0 | https://etherscan.io/verifySig/278526 | https://x.com/0xasot/status/1957455712721764433 |
