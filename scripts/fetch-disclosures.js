@@ -70,7 +70,7 @@ function parseOptions(argv, latestDate) {
 function classifyTopic(title, categoryId, openingText = '') {
   const normalized = title.toLowerCase().replace(/[^a-z0-9]+/g, ' ')
   if (
-    !/\b(security disclosure|security bulletin|incident|post mortem|postmortem|vulnerabilit(?:y|ies))\b/.test(
+    !/\b(security disclosure|security bulletin|incident|post mortem|postmortem|vulnerabilit(?:y|ies)|weakness(?:es)?)\b/.test(
       normalized,
     )
   )

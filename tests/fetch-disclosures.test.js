@@ -82,6 +82,29 @@ test('classifies candidates with product and node-operator routing precedence', 
   assert.equal(classifyTopic('Routine update', 1), null)
 })
 
+test('discovers weakness-only titles while retaining product and operator routing', async () => {
+  const titles = ['Recovery-lever weakness', 'Accounting weaknesses', 'Lido Earn weakness', 'Validator weakness']
+  const listings = titles.map((title, index) => listingTopic(43 + index, { title, category_id: index === 3 ? 12 : 1 }))
+  const topics = Object.fromEntries(listings.map((item) => [item.id, topic(item.id, item)]))
+  const report = await collectDisclosures(OPTIONS, LEDGER, api([listings], topics))
+
+  assert.equal(report.collection_complete, true)
+  assert.deepEqual(
+    report.candidates.map((row) => [row.topic_id, row.classification]),
+    [
+      [43, 'review_required'],
+      [44, 'review_required'],
+    ],
+  )
+  assert.deepEqual(
+    report.exclusions.map((row) => [row.topic_id, row.classification]),
+    [
+      [45, 'product'],
+      [46, 'node_operator'],
+    ],
+  )
+})
+
 test('fetches all missing post batches and retains hashes without text or identities', async () => {
   const posts = Array.from({ length: 23 }, (_, index) => ({
     id: index + 1,

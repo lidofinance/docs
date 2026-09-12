@@ -113,7 +113,7 @@ This refreshes the audit and LIP indexes, then checks documented Safe multisig q
 
 ### Review disclosure candidates
 
-Run the separate manual collector to compare likely security disclosures on the [Lido Research Forum](https://research.lido.fi) with `docs/security/disclosures.md`:
+Run the separate manual collector to find security disclosures relevant to Lido's staking business on the [Lido Research Forum](https://research.lido.fi) and compare them with `docs/security/disclosures.md`:
 
 ```console
 npm run fetch-disclosures
@@ -124,6 +124,6 @@ The default window starts at the latest publication date in the local ledger and
 
 Reports are written to timestamped JSON files in the already-ignored `.security-triage/` directory. They contain numeric ids, source links, dates, content hashes, candidates, already-listed topics, routing exclusions, and coverage errors. Titles, post bodies, and author identities are not saved. Compare ledger links by topic id, so links to individual replies do not create duplicate candidates.
 
-Selection uses title terms such as security disclosure, security bulletin, incident, post-mortem, and vulnerability. Node-operator-category topics and topics mentioning Lido Earn/earnETH/earnUSD in their title or opening post are routed to exclusions for human review. Other product incidents must also be excluded during review. These are heuristics: a complete collection means pagination and selected post streams succeeded, not that every disclosure was discovered. Unbumped edits and disclosures without matching title terms can be missed; use overlapping windows and inspect exclusions before publishing.
+Selection uses title terms such as security disclosure, security bulletin, incident, post-mortem, vulnerability/vulnerabilities, and weakness/weaknesses. The ledger focuses on Lido's staking business; a maintainer confirms each candidate's relevance before inclusion. Node-operator-category topics and topics mentioning Lido Earn/earnETH/earnUSD in their title or opening post are routed to exclusions for human review. These are heuristics: a complete collection means pagination and selected post streams succeeded, not that every disclosure was discovered. Unbumped edits and disclosures without matching title terms can be missed; use overlapping windows and inspect exclusions before publishing.
 
 This command produces review candidates only. A maintainer chooses the scope, publication date, type, severity, and wording before manually editing the ledger. It does not run through `npm run fetch` or fetch live forum data during tests, builds, or deployment.

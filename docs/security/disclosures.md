@@ -2,7 +2,7 @@
 
 A reverse-chronological (most recent first) record of security-related disclosures and post-mortem reports published by Lido. For details on impact, root cause, and resolution, refer to the linked reports. Dates reflect when the report was published. Disclosures and outage reports related to node operators can be found on [research.lido.fi](https://research.lido.fi).
 
-Product-level incidents, including Lido Earn incidents, are outside the scope of this ledger.
+This ledger focuses on security-related disclosures affecting Lido's staking business.
 
 | Date | Type | Severity | Title | Links |
 | ---------- | ---- | -------- | --------------------------------------------------- | ----- |
@@ -20,4 +20,4 @@ Product-level incidents, including Lido Earn incidents, are outside the scope of
 
 *Severity levels: **Critical** — potential loss of staker funds or critical system compromise. **High** — significant impact, may affect funds under specific conditions. **Moderate** — limited impact, staker funds not at risk. **Low** — minimal impact, informational or theoretical.*
 
-*Last updated: 11 Sep 2026*
+*Last updated: 12 Sep 2026*
