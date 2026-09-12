@@ -2,6 +2,7 @@ module.exports = {
   earnSidebar: [
     'introduction',
     'deployment-contracts',
+    'integration-guide',
     {
       type: 'category',
       label: 'Architecture',
@@ -95,11 +96,7 @@ module.exports = {
           type: 'category',
           label: 'Vaults',
           link: { type: 'doc', id: 'architecture/vaults/index' },
-          items: [
-            'architecture/vaults/vault',
-            'architecture/vaults/subvault',
-            'architecture/vaults/vaultconfigurator',
-          ],
+          items: ['architecture/vaults/vault', 'architecture/vaults/subvault', 'architecture/vaults/vaultconfigurator'],
         },
       ],
     },
@@ -107,4 +104,4 @@ module.exports = {
     'referral-tracking',
     'audits',
   ],
-};
+}

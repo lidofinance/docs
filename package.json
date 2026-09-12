@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "node scripts/validate-tokens-json.js && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -16,7 +16,8 @@
     "fetch-audits": "node scripts/fetch-audits.js",
     "fetch-external": "node scripts/fetch-external.js",
     "fetch-lips": "node scripts/fetch-lips.js",
-    "fetch-msig-quorums": "node scripts/fetch-msig-quorums.js"
+    "fetch-msig-quorums": "node scripts/fetch-msig-quorums.js",
+    "validate-tokens": "node scripts/validate-tokens-json.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",

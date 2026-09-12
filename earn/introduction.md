@@ -14,11 +14,11 @@ earnETH consists of two subvaults. Each subvault specializes in its respective s
 
 ### How deposits work
 
-Users can deposit ETH, wETH, wstETH, GG, or strETH with up to a 24-hour deposit waiting period and receive the share token earnETH.
+The current interface supports ETH, WETH, wstETH, GG, strETH, and DVstETH deposits. A synchronous route mints earnETH in the deposit transaction when its queue and Oracle conditions are satisfied. An asynchronous route records a request whose shares must be claimed after processing. See the [integration guide](./integration-guide) for route discovery and verification.
 
 ### How withdrawals work
 
-Users can withdraw wstETH in two steps (request + claim) with a typical withdrawal waiting time of ~3 days.
+The current interface redeems earnETH into wstETH. It uses synchronous redemption when fresh pricing, liquid assets, and capacity are available; otherwise it creates an asynchronous request that must be claimed after processing. Completion time is not guaranteed.
 
 ### Curators
 
@@ -30,17 +30,16 @@ earnUSD provides on-chain access to strategies involving USD-denominated digital
 
 ### How it works
 
-Deposited tokens are allocated across yield-generating protocols through subvaults, with returns automatically compounded into the earnUSD share token, reflecting each depositor's share and performance. Currently there is one subvault, curated by Mellow.
+Deposited tokens are allocated across yield-generating protocols through subvaults. Strategy performance, losses, and fees are reflected in the asset value of each earnUSD share, while the holder's active token quantity does not rebase. Currently there is one subvault, curated by Mellow.
 
 ### How deposits work
 
-Users can deposit USDC or USDT with a 24-hour depositing waiting period and receive the share token earnUSD.
+The current interface supports USDC and USDT deposits. A synchronous route mints earnUSD in the deposit transaction when its queue and Oracle conditions are satisfied. An asynchronous route records a request whose shares must be claimed after processing. See the [integration guide](./integration-guide) for route discovery and verification.
 
 ### How withdrawals work
 
-Users can withdraw USDC in two steps (request + claim) with a typical withdrawal waiting time of ~3 days.
+The current interface redeems earnUSD into USDC. It uses synchronous redemption when fresh pricing, liquid assets, and capacity are available; otherwise it creates an asynchronous request that must be claimed after processing. Completion time is not guaranteed.
 
 ### Curators
 
 - Mellow - https://mellow.finance/
-
