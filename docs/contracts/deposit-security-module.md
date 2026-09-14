@@ -1,14 +1,15 @@
 # DepositSecurityModule
 
-- [Source Code](https://github.com/lidofinance/core/blob/06126c70ceb179b1feff29718a6a08cf381c7500/contracts/0.8.9/DepositSecurityModule.sol)
-- [Deployed Contract](https://etherscan.io/address/0x39BB5d491e98A44D1bfe8047A737a81E296a63E0)
+- [Source Code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.9/DepositSecurityModule.sol)
+- [Deployed Contract](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] [Deployed Contract (DSM v5)](https://etherscan.io/address/0x39BB5d491e98A44D1bfe8047A737a81E296a63E0)
 
 Due to front-running vulnerability, Lido contributors [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 
 - monitoring the history of deposits and the set of Lido keys available for the deposit, signing and disseminating messages allowing deposits;
 - signing the special message allowing anyone to pause deposits once the malicious Node Operator predeposits are detected.
 
-Each committee member (guardian) is a contract that supports ERC-1271 `isValidSignature()`. Under the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide), the guardian is the member's [`DelegationContract`](/contracts/delegation-contract), and the member's hot key is its delegate. The `DepositSecurityModule` (version 5) verifies every guardian signature through ERC-1271, so a signature is valid only while the signing key is the active delegate of the guardian contract. A guardian can also call `pauseDeposits` and `unvetSigningKeys` directly, without a signature: under EDF the delegate does this through `DelegationContract.execute()`.
+Each member must generate an EOA address to sign messages with their private key. The addresses of the committee members will be added to the smart contract.
 
 To make a deposit, we propose to collect a quorum of 4/6 of the signatures of the committee members. Members of the committee can collude with node operators and steal money by signing bad data that contains malicious predeposits. To mitigate this, we propose allowing a single committee member to stop deposits and also enforce space deposits in time (e.g., no more than 150 deposits with 25 blocks in between them) to provide the single honest participant the ability to stop further deposits even if the supermajority colludes.
 
@@ -17,19 +18,6 @@ The guardian himself, or anyone else who has a signed pause message, can call `p
 To prevent a replay attack, the guardians sign the block number when malicious predeposits are observed. After a certain number of blocks (`pauseIntentValidityPeriodBlocks`) message becomes invalid.
 
 Values of the parameters `maxDepositsPerBlock` and `minDepositBlockDistance` are controlled by Lido DAO and must be harmonized with `appearedEthAmountPerDayLimit` of [`OracleReportSanityChecker`](/contracts/oracle-report-sanity-checker). These parameters are set in the StakingRouter contract independently for each module.
-
-## Guardian signatures
-
-Every signed message carries the guardian address, and the signature is passed together with it:
-
-```solidity
-struct GuardianSignature {
-    address guardian;
-    bytes signature;
-}
-```
-
-The contract checks that `guardian` is a committee member and that `guardian.isValidSignature(msgHash, signature)` returns the ERC-1271 magic value. The message hash includes the guardian address, so a signature made for one guardian contract cannot be replayed for another.
 
 ## View Methods
 
@@ -236,8 +224,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - `addr` is zero address;
-- `addr` is already a guardian;
-- `addr` does not report ERC-1271 support through ERC-165 `supportsInterface()`.
+- `addr` is already a guardian.
 :::
 
 #### Parameters
@@ -260,8 +247,7 @@ Reverts if any of the following is true:
 
 - `msg.sender` is not the owner;
 - any of the `addresses` is zero address;
-- any of the `addresses` is already a guardian;
-- any of the `addresses` does not report ERC-1271 support through ERC-165 `supportsInterface()`.
+- any of the `addresses` is already a guardian.
 :::
 
 #### Parameters
@@ -297,15 +283,15 @@ Reverts if any of the following is true:
 
 Pauses deposits if both conditions are satisfied (reverts otherwise):
 
-1. The function is called by a guardian (then `sig` is ignored) OR `sig.guardian` is a guardian
-   and `sig.signature` is its valid signature of the data defined below.
+1. The function is called by a guardian OR `sig` is a valid signature by a guardian
+   of the data defined below.
 
 2. `block.number - blockNumber <= pauseIntentValidityPeriodBlocks`
 
 The signature, if present, must be produced for keccak256 hash of the following
 message (each component taking 32 bytes):
 
-| PAUSE_MESSAGE_PREFIX | guardian | blockNumber |
+| PAUSE_MESSAGE_PREFIX | blockNumber |
 
 Does nothing if deposits are already paused.
 In case of an emergency, the function `pauseDeposits` is supposed to be called
@@ -313,15 +299,15 @@ by all guardians. Thus, only the first call will do the actual change. So
 the other calls would be OK operations from the point of view of the protocol logic.
 
 ```solidity
-function pauseDeposits(uint256 blockNumber, GuardianSignature calldata sig) external;
+function pauseDeposits(uint256 blockNumber, Signature memory sig) external;
 ```
 
 #### Parameters
 
-| Name          | Type                | Description                                                                |
-| ------------- | ------------------- | -------------------------------------------------------------------------- |
-| `blockNumber` | `uint256`           | Block number with malicious predeposits have been observed by the guardian |
-| `sig`         | `GuardianSignature` | Guardian address and its signature (see [Guardian signatures](#guardian-signatures)) |
+| Name          | Type        | Description                                                                                      |
+| ------------- | ----------- | ------------------------------------------------------------------------------------------------ |
+| `blockNumber` | `uint256`   | Block number with malicious predeposits have been observed by the guardian                       |
+| `sig`         | `Signature` | Short ECDSA guardian signature as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unpauseDeposits()
 
@@ -351,7 +337,7 @@ Reverts if any of the following is true:
 4. min deposit distance is not passed;
 5. `blockHash` is zero or not equal to `blockhash(blockNumber)`;
 6. deposits are paused;
-7. `sig.guardian` is not a guardian, or `sig.signature` is not its valid signature;
+7. an invalid or non-guardian signature received;
 8. signatures are not sorted in ascending order by the guardian address.
 9. any downstream contract call reverts. See `StakingRouter.deposit` for details.
 :::
@@ -359,7 +345,7 @@ Reverts if any of the following is true:
 Signatures must be sorted in ascending order by the address of the guardian. Each signature must
 be produced for the keccak256 hash of the following message (each component taking 32 bytes):
 
-| ATTEST_MESSAGE_PREFIX | guardian | blockNumber | blockHash | depositRoot | stakingModuleId | nonce |
+| ATTEST_MESSAGE_PREFIX | blockNumber | blockHash | depositRoot | stakingModuleId | nonce |
 
 ```solidity
 function depositBufferedEther(
@@ -368,7 +354,7 @@ function depositBufferedEther(
     bytes32 depositRoot,
     uint256 stakingModuleId,
     uint256 nonce,
-    GuardianSignature[] calldata sortedGuardianSignatures
+    Signature[] calldata sortedGuardianSignatures
 ) external;
 ```
 
@@ -381,7 +367,7 @@ function depositBufferedEther(
 | `depositRoot`              | `bytes32`     | Deposit root of the Ethereum DepositContract                                                       |
 | `stakingModuleId`          | `uint256`     | Id of the staking module to deposit with                                                           |
 | `nonce`                    | `uint256`     | Nonce of key operations of the staking module                                                      |
-| `sortedGuardianSignatures` | `GuardianSignature[]` | Guardian addresses and their signatures, sorted by guardian address (see [Guardian signatures](#guardian-signatures)) |
+| `sortedGuardianSignatures` | `Signature[]` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
 
 ### unvetSigningKeys()
 
@@ -394,13 +380,12 @@ Reverts if any of the following is true:
 2. nodeOperatorIds is not packed with 8 bytes per id;
 3. vettedSigningKeysCounts is not packed with 16 bytes per count;
 4. the number of node operators is greater than maxOperatorsPerUnvetting;
-5. the caller is not a guardian, and `sig.guardian` is not a guardian or `sig.signature` is not its valid signature;
+5. the signature is invalid or the signer is not a guardian;
 6. blockHash is zero or not equal to the blockhash(blockNumber).
 :::
 
-If the caller is a guardian, `sig` is ignored. Otherwise the signature must be produced for the keccak256 hash of the following message:
-
-| UNVET_MESSAGE_PREFIX | guardian | blockNumber | blockHash | stakingModuleId | nonce | nodeOperatorIds | vettedSigningKeysCounts |
+The signature, if present, must be produced for the keccak256 hash of the following message:
+| UNVET_MESSAGE_PREFIX | blockNumber | blockHash | stakingModuleId | nonce | nodeOperatorIds | vettedSigningKeysCounts |
 
 ```solidity
 function unvetSigningKeys(
@@ -410,7 +395,7 @@ function unvetSigningKeys(
     uint256 nonce,
     bytes calldata nodeOperatorIds,
     bytes calldata vettedSigningKeysCounts,
-    GuardianSignature calldata sig
+    Signature calldata sig
 ) external;
 ```
 
@@ -424,4 +409,4 @@ function unvetSigningKeys(
 | `nonce`                   | `uint256`   | Nonce of key operations of the staking module                                                      |
 | `nodeOperatorIds`         | `bytes`     | The list of node operator IDs packed with 8 bytes per id                                           |
 | `vettedSigningKeysCounts` | `bytes`     | The list of vetted signing keys counts packed with 16 bytes per count                              |
-| `sig`                     | `GuardianSignature` | Guardian address and its signature (see [Guardian signatures](#guardian-signatures)) |
+| `sig`                     | `Signature` | Short ECDSA guardians signatures as defined in [EIP-2098](https://eips.ethereum.org/EIPS/eip-2098) |
