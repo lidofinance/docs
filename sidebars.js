@@ -148,6 +148,8 @@ module.exports = {
         'contracts/wsteth',
         'contracts/wsteth-staker',
         'contracts/deposit-security-module',
+        'contracts/delegation-factory',
+        'contracts/delegation-contract',
         'contracts/data-bus',
         'contracts/burner',
         'contracts/lido-execution-layer-rewards-vault',

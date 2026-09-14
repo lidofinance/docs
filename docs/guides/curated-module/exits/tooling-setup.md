@@ -40,14 +40,14 @@ Currently, it has only one module ([NodeOperatorsRegistry](https://github.com/li
 
 ### Oracle Allowlist
 
-After the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, `getMembers()` on `HashConsensus` returns `DelegationContract` addresses. `ORACLE_ADDRESSES_ALLOWLIST` must contain the members' **delegate EOAs** instead. See [ORACLE_ADDRESSES_ALLOWLIST](/guides/validator-ejector-guide#oracle_addresses_allowlist) in the Ejector guide.
-
-Before the vote, the oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle) contract on-chain, directly from the contract using Etherscan.
+The oracle members are retrievable from the HashConsensus (for the Validator Exit Bus Oracle) contract on-chain, directly from the contract using Etherscan.
 
 | network  | Contract Call |
 | -------- | ------------- |
 | Mainnet  | [getMembers()](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) |
 | Hoodi    | [getMembers()](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c#readContract#F16) |
+
+Under the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide), `getMembers()` returns `DelegationContract` addresses. `ORACLE_ADDRESSES_ALLOWLIST` must contain the members' **delegate EOAs** instead. See [ORACLE_ADDRESSES_ALLOWLIST](/guides/validator-ejector-guide#oracle_addresses_allowlist) in the Ejector guide.
 
 ## Example Infra Setup
 

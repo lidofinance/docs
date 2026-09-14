@@ -6,6 +6,7 @@ Setup instructions for operators (key holders) of a Lido Oracle seat or a DSM gu
 
 - [LIP-37: Execution Delegation Framework](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md) — the proposal
 - [execution-delegation-framework](https://github.com/lidofinance/execution-delegation-framework) — the contracts, [architecture](https://github.com/lidofinance/execution-delegation-framework/blob/main/docs/architecture.md), [usage guide](https://github.com/lidofinance/execution-delegation-framework/blob/main/docs/usage.md)
+- [DelegationFactory](/contracts/delegation-factory) and [DelegationContract](/contracts/delegation-contract) — the contract reference
 - [EDF Operator Key Custody Policy](./key-custody-policy-for-edf-operators.md) — the rules you must follow
 - [EDF Rotation and Incidents](./edf-rotation-and-incidents.md) — what to do after the setup
 
@@ -217,8 +218,7 @@ true yet, finish that step first.
 
 ## Minimum software versions
 
-Run these versions or newer **before the vote**. Older releases stop working when the vote is
-enacted.
+Run these versions or newer. Older releases do not support EDF.
 
 | Component | Minimum version |
 | --- | --- |
@@ -249,7 +249,7 @@ enacted.
    MEMBER_PRIV_KEY_2=0xnewdelegatekey  # new - takes over after the vote
    ```
 
-2. **Fund the delegate EOA — required before the vote.** Send 50% of the current balance of your
+2. **Fund the delegate EOA (required).** Send 50% of the current balance of your
    old member EOA to the new delegate EOA (the address returned by `getDelegate()`). Both keys must
    be able to pay for gas: the old one until the vote, the new one after it.
 
@@ -321,7 +321,7 @@ unset or wrong — fix the config.
 
    | Variable | Value |
    | --- | --- |
-   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. An **empty value is not rejected at startup** while the DSM is on v4. Set it before the vote and check for `EDF preflight passed` in the logs (step 3.2). |
+   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. Required. On DSM v4 an **empty value is not rejected at startup**, so check for `EDF preflight passed` in the logs (step 3.2). |
    | `WALLET_PRIVATE_KEY` / `WALLET_PRIVATE_KEY_FILE` | **The old key** — your existing guardian EOA. Used while the DSM is on v4. |
    | `WALLET_PRIVATE_KEY_2` / `WALLET_PRIVATE_KEY_2_FILE` | **The new key** — the delegate of your `DelegationContract`. |
 
@@ -331,7 +331,7 @@ unset or wrong — fix the config.
    WALLET_PRIVATE_KEY_2=0xnewdelegatekey   # new - takes over at DSM v5
    ```
 
-2. **Fund the delegate EOA — required before the vote.** Send 50% of the current balance of your
+2. **Fund the delegate EOA (required).** Send 50% of the current balance of your
    old guardian EOA to the new delegate EOA (the address returned by `getDelegate()`). Both keys must
    be able to pay for gas: the old one until DSM v5, the new one after it. Do the same on the DataBus
    chain (Gnosis): the delegate EOA needs xDAI there to send Data Bus messages.
@@ -350,23 +350,22 @@ Guardian execution mode: edf
   dsmVersion: 5
 ```
 
-Before the vote (DSM v4) the daemon runs in `legacy-eoa` mode and checks the EDF config once at
-startup:
+On DSM v4 the daemon runs in `legacy-eoa` mode and checks the EDF config once at startup:
 
 - `EDF preflight passed` — the contract is found, not terminated, and its delegate matches one of
   the configured keys.
 - `EDF setup is not ready` with a `reason` field — fix the config. The daemon keeps running on DSM
   v4 anyway.
 
-This is the only check before the vote. A daemon with a wrong EDF config does not crash when DSM
-v5 is enacted: it logs `Guardian cycle processing error` every cycle and signs nothing. A restart
+This is the only check on DSM v4. A daemon with a wrong EDF config does not crash when the DSM
+switches to v5: it logs `Guardian cycle processing error` every cycle and signs nothing. A restart
 then exits with code 1 and one of the errors below.
 
 Errors you may hit, and what they mean:
 
 | Error | Meaning |
 | --- | --- |
-| `DELEGATION_CONTRACT_ADDRESS is required for DSM version 5` | Variable not set, and the DSM is already on v5. |
+| `DELEGATION_CONTRACT_ADDRESS is required for DSM version 5` | Variable not set, and the DSM is on v5. |
 | `No contract code at DELEGATION_CONTRACT_ADDRESS 0x…` | Wrong address, or wrong network. |
 | `DelegationContract 0x… is terminated` | Someone called `terminate()`. The seat is permanently dead. |
 | `DelegationContract 0x… has no active delegate` | The delegate was revoked, or never set. Expected right after an emergency revocation. |
