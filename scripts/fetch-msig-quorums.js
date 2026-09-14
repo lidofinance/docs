@@ -294,12 +294,15 @@ async function run() {
   const files = discoverDocFiles()
   const results = await Promise.all(files.map((file) => processFile(file, onFileChecked)))
 
+  const total = totals.ok + totals.drift + totals.error
+  console.log(`\n${total} checked: ${totals.ok} ok, ${totals.drift} drift, ${totals.error} error`)
+  if (totals.error > 0) {
+    throw new Error('quorum refresh incomplete; no files were written')
+  }
+
   for (const { relativePath, content, original } of results) {
     if (content !== original) fs.writeFileSync(path.join(ROOT, relativePath), content)
   }
-
-  const total = totals.ok + totals.drift + totals.error
-  console.log(`\n${total} checked: ${totals.ok} ok, ${totals.drift} drift, ${totals.error} error`)
 }
 
 if (require.main === module) runTask(run)
