@@ -456,9 +456,9 @@ See [full report](https://github.com/lidofinance/audits/blob/main/Consensys%20Di
 
 ### 12-2025 Ackee Blockchain Stonks 2.0 Audit
 
-Audited at commit [`0669c4a`](https://github.com/lidofinance/stonks/tree/0669c4a50660912785e18861d9ef8108a86a3552).
+Audited at commit [`10a2499`](https://github.com/lidofinance/stonks/tree/10a249971099be1b36c27f43a3f0a520389fb62e).
 
-Revision 2.0 of the report also reviews the changes from [`4c6d195`](https://github.com/lidofinance/stonks/tree/4c6d1955268b8c97df5fd93ea8912878e07a1252) to [`10a2499`](https://github.com/lidofinance/stonks/tree/10a249971099be1b36c27f43a3f0a520389fb62e) for the Lido NEST integration.
+> NB: Revision 2.0 of the report reviewed the changes from [`4c6d195`](https://github.com/lidofinance/stonks/tree/4c6d1955268b8c97df5fd93ea8912878e07a1252) to [`10a2499`](https://github.com/lidofinance/stonks/tree/10a249971099be1b36c27f43a3f0a520389fb62e) for the Lido NEST integration.
 
 - Total Issues: 17 (17 Fixed)
 - Critical Issues: 0
