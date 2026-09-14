@@ -112,7 +112,7 @@ async function fetchTopic(topicId, getJson) {
     }
     return { id, number: post.post_number, updated_at: post.updated_at, content_sha256: hash(post.cooked) }
   })
-  const firstPost = [...posts.values()].find((post) => post.post_number === 1)
+  const firstPost = stream.map((id) => posts.get(id)).find((post) => post.post_number === 1)
   if (!firstPost || typeof topic.title !== 'string')
     throw new Error(`missing opening post or title for topic ${topicId}`)
   return {

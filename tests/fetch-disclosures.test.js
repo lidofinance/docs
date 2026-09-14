@@ -149,6 +149,67 @@ test('rejects missing posts, empty streams, and mismatched topic ids', async () 
   )
 })
 
+for (const source of ['initial response', 'post batch']) {
+  test(`an undeclared opening post in the ${source} cannot make collection complete`, async () => {
+    const extra = { id: 430, post_number: 1, cooked: 'Lido Earn incident.' }
+    const reply = { id: 431, post_number: 2, cooked: 'Protocol follow-up.' }
+    const initial = source === 'initial response' ? [extra, reply] : []
+    const getJson = api([[listingTopic(43)]], {
+      43: topic(43, { post_stream: { stream: [reply.id], posts: initial } }),
+    })
+    const report = await collectDisclosures(OPTIONS, LEDGER, async (url) =>
+      url.includes('/posts.json?') ? { post_stream: { posts: [extra, reply] } } : getJson(url),
+    )
+
+    assert.equal(report.discovery_complete, true)
+    assert.equal(report.collection_complete, false)
+    assert.deepEqual(report.candidates, [])
+    assert.deepEqual(report.already_listed, [])
+    assert.deepEqual(report.exclusions, [])
+    assert.deepEqual(report.errors, [{ topic_id: 43, message: 'missing opening post or title for topic 43' }])
+  })
+
+  test(`an undeclared opening post in the ${source} cannot override product routing`, async () => {
+    const extra = { id: 999, post_number: 1, cooked: 'Lido Earn incident.' }
+    const opening = { id: 430, post_number: 1, cooked: 'Protocol report.' }
+    const initial = source === 'initial response' ? [extra, opening] : []
+    const getJson = api([[listingTopic(43)]], {
+      43: topic(43, { post_stream: { stream: [opening.id], posts: initial } }),
+    })
+    const report = await collectDisclosures(OPTIONS, LEDGER, async (url) =>
+      url.includes('/posts.json?') ? { post_stream: { posts: [extra, opening] } } : getJson(url),
+    )
+
+    assert.equal(report.collection_complete, true)
+    assert.deepEqual(report.errors, [])
+    assert.deepEqual(report.exclusions, [])
+    assert.equal(report.candidates.length, 1)
+    assert.equal(report.candidates[0].classification, 'explicit_disclosure')
+    assert.equal(report.candidates[0].post_count, 1)
+    assert.deepEqual(
+      report.candidates[0].posts.map((post) => post.id),
+      [opening.id],
+    )
+  })
+}
+
+test('uses a declared opening post fetched in a later batch for product routing', async () => {
+  const opening = { id: 430, post_number: 1, cooked: 'Lido Earn incident.' }
+  const reply = { id: 431, post_number: 2, cooked: 'Follow-up.' }
+  const result = await fetchTopic(43, async (url) =>
+    url.endsWith('/43.json')
+      ? topic(43, { post_stream: { stream: [opening.id, reply.id], posts: [reply] } })
+      : { post_stream: { posts: [opening] } },
+  )
+
+  assert.equal(result.complete_post_stream, true)
+  assert.equal(result.classification, 'product')
+  assert.deepEqual(
+    result.posts.map((post) => post.id),
+    [opening.id, reply.id],
+  )
+})
+
 test('old pinned topics do not truncate discovery; repeated ids produce one candidate', async () => {
   const pages = [
     [listingTopic(1, { pinned: true, bumped_at: '2020-01-01T00:00:00Z' }), listingTopic(42)],
