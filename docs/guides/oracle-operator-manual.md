@@ -13,7 +13,7 @@ Due to the lack of native communication between these two networks, Lido employs
 6. [**Optional**] Add alerts to Oracle's Prometheus metrics.
 7. In case of mainnet, share your address and intention to join the Oracle set with the public. You need to publish it on Twitter and also write a message with a Twitter link under the Onboarding post on [the Research forum](https://research.lido.fi/). You need to publish it on Twitter and also write a message with a twitter link under the Onboarding post on [the Research forum](https://research.lido.fi/).
 8. Propose your Oracle's Ethereum address to the Lido team to vote on adding your address to the Oracle Members.
-9. Before the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, deploy your `DelegationContract` and configure the daemon as described in the [EDF Operator Guide](/guides/edf/edf-operator-guide). The vote then moves the seat from your EOA to that contract. A seat that is not prepared before the vote produces no reports from the moment the vote is enacted until the operator finishes the setup.
+9. Before the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, deploy your `DelegationContract` and configure the daemon as described in the [EDF Operator Guide](/guides/edf/edf-operator-guide). The vote moves the seat from your EOA to that contract. An unprepared seat produces no reports after the vote until the setup is done.
 
 ## Intro
 

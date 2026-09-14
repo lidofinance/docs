@@ -43,7 +43,7 @@ Read the [Key Custody Policy](./key-custody-policy-for-edf-operators.md) before 
 anything. Two of its values are irreversible:
 
 - the **owner address** — your multisig (step 0.2);
-- the **cooldown** — the policy requires **at least 48 hours**; use **`172800` seconds** (48 hours).
+- the **cooldown** — **48 hours = `172800` seconds**, the policy minimum.
 
 ### 0.2. Prepare the owner multisig
 
@@ -178,15 +178,12 @@ Route these to a phone.
 - `execute()` calls to targets your daemon never calls, or to an EOA;
 - non-zero `msg.value` forwarded through `execute()`;
 - direct transactions from the delegate EOA that your daemon did not send;
-- code on the delegate account: poll `eth_getCode` (EXTCODESIZE) of your delegate EOA and alert
-  when the result is not empty.
+- non-empty code on the delegate EOA (poll `eth_getCode`; see
+  [section 4 of the custody policy](./key-custody-policy-for-edf-operators.md#4-delegate-hot-key-custody)).
 
-`execute()` emits no event, so the first two alerts cannot come from log or event monitoring. They
-need trace-level monitoring: internal transactions from a `trace_` / `debug_` RPC, or the
-**Internal Transactions** feed of your `DelegationContract` on Etherscan. The code check needs
-polling too: no event marks that transition. A delegate with code (for example after an EIP-7702
-authorization) changes how your `DelegationContract` verifies signatures, see
-[section 4 of the custody policy](./key-custody-policy-for-edf-operators.md#4-delegate-hot-key-custody).
+`execute()` emits no events, so the first two alerts need trace-level monitoring: internal
+transactions from a `trace_` / `debug_` RPC, or the **Internal Transactions** tab of your
+`DelegationContract` on Etherscan.
 
 ### 1.5. Publish your addresses
 
@@ -220,15 +217,15 @@ true yet, finish that step first.
 
 ## Minimum software versions
 
-Run these versions or newer **before the vote**. Older releases do not know the `DelegationContract`
-and stop working at the moment the vote is enacted.
+Run these versions or newer **before the vote**. Older releases stop working when the vote is
+enacted.
 
-| Component | Minimum version | Notes |
-| --- | --- | --- |
-| [lido-oracle](https://github.com/lidofinance/lido-oracle/releases) | 8.1.0 | post-audit EDF release |
-| [lido-council-daemon](https://github.com/lidofinance/lido-council-daemon/releases) | 4.1.2 | first release with DSM v5 support |
-| [depositor-bot](https://github.com/lidofinance/depositor-bot/releases) | 5.7.0 | depositor seat only; older releases stop at DSM v5 |
-| [validator-ejector](https://github.com/lidofinance/validator-ejector/releases) | a build that unwraps `execute(address,bytes)` | run by node operators, not by seat holders. Today only the [2.2.0 pre-release](https://github.com/lidofinance/validator-ejector/releases/tag/2.2.0) has it; there is **no stable release** with this support yet. The 2.1.0 stable release rejects every report sent through a `DelegationContract`. See the [Ejector guide](/guides/validator-ejector-guide#oracle_addresses_allowlist). |
+| Component | Minimum version |
+| --- | --- |
+| [lido-oracle](https://github.com/lidofinance/lido-oracle/releases) | 8.1.0 |
+| [lido-council-daemon](https://github.com/lidofinance/lido-council-daemon/releases) | 4.1.2 |
+| [depositor-bot](https://github.com/lidofinance/depositor-bot/releases) | 5.7.0 |
+| [validator-ejector](https://github.com/lidofinance/validator-ejector/releases) | 2.2.0 |
 
 ---
 
@@ -254,8 +251,7 @@ and stop working at the moment the vote is enacted.
 
 2. **Fund the delegate EOA — required before the vote.** Send 50% of the current balance of your
    old member EOA to the new delegate EOA (the address returned by `getDelegate()`). Both keys must
-   be able to pay for gas: the old one until the vote, the new one after it. A delegate with no ETH
-   cannot send reports from the moment the vote is enacted.
+   be able to pay for gas: the old one until the vote, the new one after it.
 
 3. **Restart the oracle.**
 
@@ -271,9 +267,8 @@ At startup:
   list probably changed since the signer was resolved; it will be re-resolved on the next cycle.` —
   fix the config.
 
-None of these messages stops the oracle. It keeps running in dry mode, sends no transactions, and
-re-resolves the member list and the delegate on every cycle, so it recovers by itself once the
-config or the on-chain state is right.
+The oracle does not stop on these errors: it runs in dry mode and re-checks the config every
+cycle, so no restart is needed after the fix.
 
 ### 2.3. Report your oracle setup in the operators' chat
 
@@ -326,7 +321,7 @@ unset or wrong — fix the config.
 
    | Variable | Value |
    | --- | --- |
-   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. An **empty value passes startup validation**, and the daemon runs normally while the DSM is on v4, so a missing variable is not caught at startup. Set it before the vote and check for the `EDF preflight passed` log line (step 3.2). |
+   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. An **empty value is not rejected at startup** while the DSM is on v4. Set it before the vote and check for `EDF preflight passed` in the logs (step 3.2). |
    | `WALLET_PRIVATE_KEY` / `WALLET_PRIVATE_KEY_FILE` | **The old key** — your existing guardian EOA. Used while the DSM is on v4. |
    | `WALLET_PRIVATE_KEY_2` / `WALLET_PRIVATE_KEY_2_FILE` | **The new key** — the delegate of your `DelegationContract`. |
 
@@ -339,9 +334,7 @@ unset or wrong — fix the config.
 2. **Fund the delegate EOA — required before the vote.** Send 50% of the current balance of your
    old guardian EOA to the new delegate EOA (the address returned by `getDelegate()`). Both keys must
    be able to pay for gas: the old one until DSM v5, the new one after it. Do the same on the DataBus
-   chain (Gnosis): the delegate EOA needs xDAI there to send Data Bus messages. A delegate with no
-   funds cannot pause deposits, unvet keys, or send Data Bus messages from the moment DSM v5 is
-   enacted.
+   chain (Gnosis): the delegate EOA needs xDAI there to send Data Bus messages.
 
 3. **Restart the daemon.**
 
@@ -357,18 +350,17 @@ Guardian execution mode: edf
   dsmVersion: 5
 ```
 
-Before the vote, while the DSM is still on v4, the daemon runs in `legacy-eoa` mode and checks the
-EDF configuration once at startup, without blocking:
+Before the vote (DSM v4) the daemon runs in `legacy-eoa` mode and checks the EDF config once at
+startup:
 
-- `EDF preflight passed` — the contract is found, it is not terminated, and its delegate matches one
-  of the configured keys.
-- `EDF setup is not ready` with a `reason` field — fix the config. This is a warning only: the daemon
-  keeps running on DSM v4 as if nothing is wrong.
+- `EDF preflight passed` — the contract is found, not terminated, and its delegate matches one of
+  the configured keys.
+- `EDF setup is not ready` with a `reason` field — fix the config. The daemon keeps running on DSM
+  v4 anyway.
 
-This warning is the only signal you get before the vote. If you miss it, the daemon fails at the
-moment the vote enacts DSM v5: a running daemon does not crash, it logs
-`Guardian cycle processing error` on every cycle and signs nothing, so the guardian goes silent. A
-restart at that point exits with code 1 and one of the errors below.
+This is the only check before the vote. A daemon with a wrong EDF config does not crash when DSM
+v5 is enacted: it logs `Guardian cycle processing error` every cycle and signs nothing. A restart
+then exits with code 1 and one of the errors below.
 
 Errors you may hit, and what they mean:
 
