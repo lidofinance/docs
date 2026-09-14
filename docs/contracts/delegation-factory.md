@@ -3,7 +3,7 @@
 - [Source Code](https://github.com/lidofinance/execution-delegation-framework/blob/main/src/DelegationFactory.sol)
 - \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/10)\] [Deployed Contract](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6)
 
-`DelegationFactory` deploys [`DelegationContract`](/contracts/delegation-contract) instances for the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide). Anyone can call `deploy()`. The parameters of the new contract cannot be changed after deployment.
+`DelegationFactory` deploys [`DelegationContract`](/contracts/delegation-contract) instances for the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide). Anyone can call `deploy()`. The new contract's owner and cooldown cannot be changed after deployment; its initial delegate can later be rotated or revoked.
 
 Only contracts deployed from this factory are accepted for Lido Oracle and Deposit Security Committee seats. Factory addresses per network are listed on the [deployed contracts](/deployed-contracts/#execution-delegation-framework) page.
 
