@@ -196,7 +196,13 @@ On the endpoint, JSON will be POSTed with the following structure:
 
 JSON array of Lido Oracle addresses, from which only report transactions will be accepted.
 
-You can get a list from Etherscan on [Hoodi](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16) or [Mainnet](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16)
+After the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, every oracle seat is held by a `DelegationContract` under the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide). The member's **delegate EOA** sends each report through `DelegationContract.execute(address,bytes)`, and the Ejector verifies a report by recovering the signer of that transaction. This changes what the allowlist must contain:
+
+- The allowlist must contain the **delegate EOAs** of the oracle members, not the `DelegationContract` addresses. After the vote, `getMembers()` on `HashConsensus` returns the `DelegationContract` addresses, so do not copy that list as is. Take each `DelegationContract` from the [Lido Oracle members page](/holders/lido-oracle) and read its `getDelegate()` on Etherscan, or use the delegate addresses that oracle operators publish in the LIP-37 forum thread and in rotation announcements (see [EDF Rotation and Incidents](/guides/edf/edf-rotation-and-incidents)).
+- Keep the previous member EOAs in the allowlist until their reports leave the lookback window: about 7 days at the default `BLOCKS_PRELOAD` of 50000 blocks. The same rule applies to every later delegate rotation: add the new delegate before it becomes active and remove the old one about 7 days later.
+- Only an Ejector build that unwraps `execute(address,bytes)` can verify reports after the vote. Today that is the [2.2.0 pre-release](https://github.com/lidofinance/validator-ejector/releases/tag/2.2.0); there is no stable release with this support yet. The 2.1.0 stable release rejects every report sent through a `DelegationContract` and skips the exit request.
+
+Before the vote, you can get the list from Etherscan on [Hoodi](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c#readContract#F16) or [Mainnet](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16) (`HashConsensus` of the Validators Exit Bus Oracle).
 
 Format:
 

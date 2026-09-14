@@ -35,22 +35,22 @@ Daemon service which loads LidoOracle events for validator exits and sends out e
 
 The Lido Council Daemon monitors deposit contract keys.
 
-- **Version**: 4.0.4
-- **Docker image**: sha256:8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02, [lidofinance/lido-council-daemon@sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02](https://hub.docker.com/layers/lidofinance/lido-council-daemon/4.0.4/images/sha256-8e419905599b55cf37dc51f667468e7a24c34e7b5bade17e7f08691e98dbdb02)
-- **Commit hash**: [lidofinance/lido-council-daemon@b02577f](https://github.com/lidofinance/lido-council-daemon/commit/b02577ff193ea8fa96f5c16025292d044ebd70f3)
-- **Last update date**: 7 July, 2026
-- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/4.0.4)
+- **Version**: 4.1.2
+- **Docker image**: sha256:4c204661e0c930be50a0d42155342c2988f1b024d1d8896250197c4256347aa7, [lidofinance/lido-council-daemon@sha256-4c204661e0c930be50a0d42155342c2988f1b024d1d8896250197c4256347aa7](https://hub.docker.com/layers/lidofinance/lido-council-daemon/4.1.2/images/sha256-4c204661e0c930be50a0d42155342c2988f1b024d1d8896250197c4256347aa7)
+- **Commit hash**: [lidofinance/lido-council-daemon@d3bc5e8](https://github.com/lidofinance/lido-council-daemon/commit/d3bc5e8fe968293530f3ec976c30230d98f671de)
+- **Last update date**: 7 September, 2026
+- [**Repository**](https://github.com/lidofinance/lido-council-daemon/tree/4.1.2)
 - [**Documentation**](/guides/deposit-security-manual)
 
 ## Depositor Bot
 
 Bot that submits deposit transactions to the Lido protocol once the Deposit Security Committee quorum is reached.
 
-- **Version**: 5.6.0
-- **Docker image**: sha256:a8fc015713cf4680bf2d2692de7a295ac99d00d29bb154860c285a44e63e0c32, [lidofinance/depositor-bot@sha256-a8fc015713cf4680bf2d2692de7a295ac99d00d29bb154860c285a44e63e0c32](https://hub.docker.com/layers/lidofinance/depositor-bot/5.6.0/images/sha256-a8fc015713cf4680bf2d2692de7a295ac99d00d29bb154860c285a44e63e0c32)
-- **Commit hash**: [lidofinance/depositor-bot@ccb788e](https://github.com/lidofinance/depositor-bot/commit/ccb788e041cf7a95ff5f9a1894bb67fd5393124c)
-- **Last update date**: 24 July, 2026
-- [**Repository**](https://github.com/lidofinance/depositor-bot/tree/5.6.0)
+- **Version**: 5.7.0
+- **Docker image**: sha256:5289b2a070190adcdf70d7cc54885235faaa8ac015c4e57977ebfc4160ee59ae, [lidofinance/depositor-bot@sha256-5289b2a070190adcdf70d7cc54885235faaa8ac015c4e57977ebfc4160ee59ae](https://hub.docker.com/layers/lidofinance/depositor-bot/5.7.0/images/sha256-5289b2a070190adcdf70d7cc54885235faaa8ac015c4e57977ebfc4160ee59ae)
+- **Commit hash**: [lidofinance/depositor-bot@b5ea173](https://github.com/lidofinance/depositor-bot/commit/b5ea173eb86c27bf164c5f6ca8bc862be869736e)
+- **Last update date**: 8 September, 2026
+- [**Repository**](https://github.com/lidofinance/depositor-bot/tree/5.7.0)
 - [**Documentation**](/guides/depositor-bot)
 
 ## Reward Distribution Bot

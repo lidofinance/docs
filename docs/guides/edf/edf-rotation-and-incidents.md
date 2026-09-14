@@ -44,7 +44,9 @@ is unknown.
 1. **Generate** the new key on the target host (step 1.1 of the guide applies).
 2. **Announce** at least **1 day** ahead on the research forum and in the operators' channel.
    Oracle operators: also send the new delegate address to node operators for their
-   `ORACLE_ADDRESSES_ALLOWLIST`.
+   `ORACLE_ADDRESSES_ALLOWLIST`. Node operators must add the new delegate before `activeFrom` and
+   keep the old one for about 7 days after the switch, until its reports leave the Ejector's
+   lookback window (`BLOCKS_PRELOAD`, 50000 blocks by default).
 3. **Stage it in the daemon**, keeping the current key in place:
    - **Oracle:** set `MEMBER_PRIV_KEY_2` to the new key. Restart once.
    - **Council:** set `WALLET_PRIVATE_KEY_2` to the new key, keeping `WALLET_PRIVATE_KEY` as it
