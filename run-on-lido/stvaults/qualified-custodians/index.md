@@ -50,7 +50,7 @@ Support may vary by jurisdiction, entity, and onboarding scope. Clients should c
 ## Whitelisting smart contract addresses
 To use the stVaults infrastructure, the relevant stVaults smart contracts must be whitelisted for interaction. Please ask your administrator or custodian support team to add the required stVaults contract addresses to the whitelist.
 
-Some addresses must be whitelisted before creating your first vault, while vault-specific addresses can only be added after a vault has been created. We recommend whitelisting the core stVaults infrastructure addresses upfront, and adding individual vault contract addresses as new stVaults are deployed.
+Some addresses must be whitelisted before creating your first vault, while vault-specific addresses can only be added after an stVault has been created. We recommend whitelisting the core stVaults infrastructure addresses upfront, and adding individual vault contract addresses as new stVaults are deployed.
 
 ### stVaults infrastructure addresses to be whitelisted
 <Tabs>

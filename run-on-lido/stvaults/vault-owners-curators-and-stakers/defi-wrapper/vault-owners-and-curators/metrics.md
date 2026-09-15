@@ -15,7 +15,7 @@ top: the pool's own accounting, each depositor's position inside it, and the wit
 | Symbol | Meaning |
 | --- | --- |
 | $TV$ | Total Value of the underlying stVault |
-| $RR$, $FRT$ | the vault's Reserve Ratio and Forced Rebalance Threshold, as fractions |
+| $RR$, $FRT$ | the stVault's Reserve Ratio and Forced Rebalance Threshold, as fractions |
 | $RR_{p}$, $FRT_{p}$ | the **pool's** own ratios, as fractions |
 | $A$ | assets an account's stv is worth |
 | $L_{a}$ | stETH an account has minted, in ETH |
@@ -27,15 +27,15 @@ amounts and the minting capacity are held in **stETH shares**. Two steps separat
 the current share rate, which rises with every rebase, and minted stETH counts as an equal amount of ETH of liability.
 Ratios such as the Utilization Ratio are unaffected by the choice, because numerator and denominator convert alike.
 
-$RR_{p}$ and $FRT_{p}$ are the vault's ratios plus a fixed gap, 250 BP in every shipped configuration, which
-is what makes the pool force-rebalance an account before the protocol force-rebalances the vault — see
+$RR_{p}$ and $FRT_{p}$ are the stVault's ratios plus a fixed gap, 250 BP in every shipped configuration, which
+is what makes the pool force-rebalance an account before the protocol force-rebalances the stVault — see
 [§3.3](../../../concepts-and-reference/defi-wrapper-technical-design.md#33-stvstethpool).
 
 ## Pool state metrics
 
 ### Total nominal assets
 
-The vault's Total Value minus the fees it owes. This is the raw number the pool prices stv from, before the
+The stVault's Total Value minus the fees it owes. This is the raw number the pool prices stv from, before the
 corrections in [Total assets](#total-assets):
 
 $$
@@ -74,13 +74,13 @@ conversions exact.
 
 ### Total liability shares
 
-The stETH shares the vault owes Lido Core. The pool separately tracks what its own accounts owe **it**, and
-normally the two match. When they do not, the gap has a name: **unassigned liability** if the vault owes
+The stETH shares the stVault owes Lido Core. The pool separately tracks what its own accounts owe **it**, and
+normally the two match. When they do not, the gap has a name: **unassigned liability** if the stVault owes
 more, **exceeding minted stETH** if the pool's records do.
 
 ### Unassigned liability
 
-The excess of what the vault owes over what the pool has on record — debt no account is registered as owing.
+The excess of what the stVault owes over what the pool has on record — debt no account is registered as owing.
 It arises through bad debt socialization, when the DAO moves uncovered liability onto this vault.
 
 $$
@@ -96,8 +96,8 @@ vault's own assets or with ETH they supply — see
 
 ### Exceeding minted stETH
 
-The same difference the other way round: the pool has more debt on record than the vault owes, which happens
-when the vault's liability is repaid without the pool being involved.
+The same difference the other way round: the pool has more debt on record than the stVault owes, which happens
+when the stVault's liability is repaid without the pool being involved.
 
 $$
 \text{exceedingMintedShares} = \max(0,\; \text{totalMintedStethShares} - \text{totalLiabilityShares})
@@ -170,10 +170,10 @@ $$
 HF_{a} = \frac{A \times (1 - FRT_{p})}{L_{a}} \times 100\%
 $$
 
-The account is healthy while `HF ≥ 100%`. This is the per-account analogue of the vault's
+The account is healthy while `HF ≥ 100%`. This is the per-account analogue of the stVault's
 [Health Factor](../../../concepts-and-reference/metrics.md#health-factor), measured on one account's own
-assets and debt. The vault's figure is an aggregate and says nothing about any single account: one account
-can be in breach while the vault as a whole is healthy.
+assets and debt. The stVault's figure is an aggregate and says nothing about any single account: one account
+can be in breach while the stVault as a whole is healthy.
 
 ### Force-rebalance amount
 
@@ -211,7 +211,7 @@ $$
 \text{freeToStake} = \max\bigl(0,\; \text{availableBalance} - \text{unfinalizedAssets}\bigr)
 $$
 
-Here $\text{availableBalance}$ is the vault's own balance less the ETH already staged for pending validator
+Here $\text{availableBalance}$ is the stVault's own balance less the ETH already staged for pending validator
 activations. At zero, everything sitting on the balance is spoken for by the queue.
 
 ### Rate discount
@@ -250,20 +250,20 @@ The pool publishes no APR of its own. Performance is a property of the underlyin
 gross staking rewards, Node Operator and Lido fees, Gross and Net staking APR, Carry Spread — describe a
 pool's returns too.
 
-The DeFi Wrapper widget shows depositors an APY derived from those. It reads the vault's **Net staking APR**
+The DeFi Wrapper widget shows depositors an APY derived from those. It reads the stVault's **Net staking APR**
 as a simple moving average from the stVaults API and compounds it daily:
 
 $$
 \text{staking APY} = \left(1 + \frac{\text{Net staking APR}}{365}\right)^{365} - 1
 $$
 
-The period is a day because an oracle report updates the vault's value once a day, so each day's rewards
+The period is a day because an oracle report updates the stVault's value once a day, so each day's rewards
 start earning from the next one. The compounding is why the APY comes out slightly above the APR it is
 derived from.
 
 ### Strategy pools
 
-A strategy pool earns twice: the vault stakes the ETH, and the stETH minted against it works in the external
+A strategy pool earns twice: the stVault stakes the ETH, and the stETH minted against it works in the external
 protocol.
 
 Only the spread over stETH counts — the position is funded with minted stETH, whose rebase the depositor

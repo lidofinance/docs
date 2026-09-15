@@ -6,7 +6,7 @@ sidebar_position: 1
 
 A freshly deployed pool has no depositors, so it has no ETH to stake and nothing for the operator to run. This guide covers the bootstrap: the operator supplies 32 ETH themselves, activates the first validator with it through the [PDG shortcut](../basic-stvaults/pdg.md#pdg-shortcut), and later recovers that ETH through the ordinary withdrawal queue.
 
-This route keeps the operator out of the vault's custody path: no `WITHDRAW_ROLE`, no direct `Dashboard.fund()`. The ETH goes in as an ordinary pool deposit and comes back as an ordinary withdrawal request, on the same terms as any depositor's.
+This route keeps the operator out of the stVault's custody path: no `WITHDRAW_ROLE`, no direct `Dashboard.fund()`. The ETH goes in as an ordinary pool deposit and comes back as an ordinary withdrawal request, on the same terms as any depositor's.
 
 Two addresses appear below. **OPERATOR** deposits the ETH and ends up holding the stv. **DEPOSITOR** signs the shortcut transaction. They can be the same address.
 
@@ -42,11 +42,11 @@ On a strategy pool `ALLOW_LIST_MANAGER_ROLE` is not granted to anyone at deploym
 yarn start dw c stv w deposit-eth <poolAddress> 32 0x0000000000000000000000000000000000000000
 ```
 
-Called by OPERATOR. The pool mints stv to OPERATOR and forwards the ETH to the vault; the strategy is not involved even on a strategy pool. Record the amount of stv minted — that is the claim used to get the ETH back in Step 7.
+Called by OPERATOR. The pool mints stv to OPERATOR and forwards the ETH to the stVault; the strategy is not involved even on a strategy pool. Record the amount of stv minted — that is the claim used to get the ETH back in Step 7.
 
 ## Step 3. Allow the shortcut
 
-The shortcut is refused unless the vault's PDG policy permits it:
+The shortcut is refused unless the stVault's PDG policy permits it:
 
 ```bash
 yarn start contracts dashboard w set-pdg-policy <dashboardAddress> 2
@@ -71,12 +71,12 @@ yarn start deposits w unguaranteed-deposit '<depositsJson>' -v <vaultAddress>
 
 The argument is an array of deposit structs — `pubkey`, `signature`, `amount` in gwei, `deposit_data_root` — the same data a normal deposit uses. The CLI checks the BLS signature first; `--no-bls-check` skips that.
 
-The vault's oracle report has to be fresh: the call withdraws from the vault, and `VaultHub.withdraw` refuses a stale report. Applying one is permissionless — see [Apply oracle reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
+The stVault's oracle report has to be fresh: the call withdraws from the stVault, and `VaultHub.withdraw` refuses a stale report. Applying one is permissionless — see [Apply oracle reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md).
 
-This withdraws the 32 ETH from the vault and sends it straight to the deposit contract with the vault's withdrawal credentials, bypassing the predeposit. From there the validator takes the ordinary entry path — the deposit is processed, then the validator waits in the activation queue, whose length depends on how many validators are entering at the time.
+This withdraws the 32 ETH from the stVault and sends it straight to the deposit contract with the stVault's withdrawal credentials, bypassing the predeposit. From there the validator takes the ordinary entry path — the deposit is processed, then the validator waits in the activation queue, whose length depends on how many validators are entering at the time.
 
 :::warning
-The vault's reported Total Value drops by 32 ETH the moment this executes, and the stv price drops with it, because the ETH has left the vault while the validator's balance is not yet reported. Every stv holder sees the dip, not just OPERATOR. On a pool that already has depositors, tell them beforehand.
+The stVault's reported Total Value drops by 32 ETH the moment this executes, and the stv price drops with it, because the ETH has left the stVault while the validator's balance is not yet reported. Every stv holder sees the dip, not just OPERATOR. On a pool that already has depositors, tell them beforehand.
 :::
 
 ## Step 6. Wait for the oracle, then for quarantine
@@ -130,5 +130,5 @@ yarn start contracts dashboard w set-pdg-policy <dashboardAddress> 0
 ```
 
 :::note
-Step 4 is a judgment call rather than a cleanup chore. Leaving the policy at `ALLOW_DEPOSIT_AND_PROVE` keeps the shortcut available for later top-ups, at the cost of leaving a path that moves ETH out of the vault without PDG's guarantee. Setting it back to `STRICT` closes that path; reopening it later is another proposal.
+Step 4 is a judgment call rather than a cleanup chore. Leaving the policy at `ALLOW_DEPOSIT_AND_PROVE` keeps the shortcut available for later top-ups, at the cost of leaving a path that moves ETH out of the stVault without PDG's guarantee. Setting it back to `STRICT` closes that path; reopening it later is another proposal.
 :::

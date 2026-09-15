@@ -20,7 +20,7 @@ The setup below splits stVault permissions into two categories, based on whether
 ## Prerequisites
 
 - The stVault and its DeFi Wrapper are already deployed and connected to VaultHub.
-- The operations manager has set up a dedicated multisig (recommended: 2-of-3) that will act as the day-to-day operator of the vault.
+- The operations manager has set up a dedicated multisig (recommended: 2-of-3) that will act as the day-to-day operator of the stVault.
 - A second, broader multisig group is available to act as **Executor** — this should include parties independent from the operations manager, such as a custodian, an auditor, or another trusted counterparty (e.g. a traffic or distribution partner, a builder).
 
 :::note

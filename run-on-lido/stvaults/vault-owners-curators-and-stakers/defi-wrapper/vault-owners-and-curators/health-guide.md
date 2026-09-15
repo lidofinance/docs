@@ -8,7 +8,7 @@ title: 'Health and Rebalance'
 The key stVault metrics that the Vault Owner should monitor and control are:
 
 - **Utilization Ratio** — the share of the stETH minting capacity currently used by the Vault Owner. [Learn more](../../../concepts-and-reference/metrics.md#utilization-ratio)
-- **Health Factor** — a metric that reflects the economic state of the vault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../../../concepts-and-reference/metrics.md#health-factor)
+- **Health Factor** — a metric that reflects the economic state of the stVault. It shows how the stETH liability is collateralized by the Total Value. A Health Factor of 100% corresponds to the Forced Rebalance Threshold, meaning that if the Health Factor falls below 100%, the stVault becomes subject to forced rebalancing. [Learn more](../../../concepts-and-reference/metrics.md#health-factor)
 
 Read more:
 

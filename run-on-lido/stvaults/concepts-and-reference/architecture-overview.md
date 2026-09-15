@@ -69,7 +69,7 @@ are deployed per setup. Three ways to look them up:
 
 #### Web UI
 
-Connect the wallet at the [stVaults Web UI](#interfaces) and open the vault. Its page lists the StakingVault
+Connect the wallet at the [stVaults Web UI](#interfaces) and open the stVault. Its page lists the StakingVault
 and Dashboard addresses. The DeFi Wrapper widget is deployed per pool, so a depositor gets the pool address
 from whoever runs the product.
 
