@@ -42,6 +42,15 @@ module.exports = {
         'guides/deposit-security-manual',
         {
           type: 'category',
+          label: 'Execution Delegation Framework',
+          items: [
+            'guides/edf/edf-operator-guide',
+            'guides/edf/edf-rotation-and-incidents',
+            'guides/edf/key-custody-policy-for-edf-operators',
+          ],
+        },
+        {
+          type: 'category',
           label: 'Governance and Voting',
           items: [
             'guides/etherscan-voting',
@@ -95,11 +104,6 @@ module.exports = {
         'integrations/wallets',
         'integrations/sdk',
         'integrations/subgraph',
-        {
-          type: 'category',
-          label: 'AAVE',
-          items: ['integrations/aave/specification', 'integrations/aave/aip'],
-        },
       ],
     },
     {
@@ -107,7 +111,6 @@ module.exports = {
       label: 'Token guides',
       items: [
         'token-guides/steth-superuser-functions',
-        'token-guides/steth-on-aave-caveats',
         'token-guides/cross-chain-tokens-guide',
       ],
     },
@@ -147,7 +150,11 @@ module.exports = {
         'contracts/trp-vesting-escrow',
         'contracts/circuit-breaker',
         'contracts/reserve',
-        'contracts/ossifiable-proxy'
+        'contracts/ossifiable-proxy',
+        'contracts/consolidation-bus',
+        'contracts/consolidation-gateway',
+        'contracts/consolidation-migrator',
+        'contracts/top-up-gateway',
       ],
     },
     {
@@ -167,7 +174,6 @@ module.exports = {
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
         'deployed-contracts/hoodi',
-        'deployed-contracts/holesky',
       ],
     },
     {

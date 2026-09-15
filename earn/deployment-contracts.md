@@ -19,6 +19,7 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | DepositQueue (wstETH)      | [`0xe39EED9A454C4918F8d0682062777cB251cd513F`](https://etherscan.io/address/0xe39EED9A454C4918F8d0682062777cB251cd513F) |
 | SyncDepositQueue (wstETH)  | [`0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522`](https://etherscan.io/address/0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522) |
 | RedeemQueue (wstETH)       | [`0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4`](https://etherscan.io/address/0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4) |
+| SyncRedeemQueue (wstETH)   | [`0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A`](https://etherscan.io/address/0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A) |
 | DepositQueue (GG)          | [`0x411172F1E5310d03b38128F2a294F2e33c691B30`](https://etherscan.io/address/0x411172F1E5310d03b38128F2a294F2e33c691B30) |
 | SyncDepositQueue (GG)      | [`0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B`](https://etherscan.io/address/0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B) |
 | DepositQueue (strETH)      | [`0x268ea1cc674cdaE200c4609E7b09d03Dc618E663`](https://etherscan.io/address/0x268ea1cc674cdaE200c4609E7b09d03Dc618E663) |
@@ -44,8 +45,10 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | DepositQueue (USDC)     | [`0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76`](https://etherscan.io/address/0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76) |
 | SyncDepositQueue (USDC) | [`0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5`](https://etherscan.io/address/0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5) |
 | RedeemQueue (USDC)      | [`0x9e36A74FE278906a76e7615263e46a83fC40c47F`](https://etherscan.io/address/0x9e36A74FE278906a76e7615263e46a83fC40c47F) |
+| SyncRedeemQueue (USDC)  | [`0xE0eee7e956A94BD00546d9CA07e5012F11A5059d`](https://etherscan.io/address/0xE0eee7e956A94BD00546d9CA07e5012F11A5059d) |
 | DepositQueue (USDT)     | [`0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73`](https://etherscan.io/address/0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73) |
 | SyncDepositQueue (USDT) | [`0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9`](https://etherscan.io/address/0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9) |
+| RedeemQueue (USDT)      | [`0x95092A7a86715246Be6395b8D514B3d60A270Cd3`](https://etherscan.io/address/0x95092A7a86715246Be6395b8D514B3d60A270Cd3) |
 | DepositQueue (USDe)     | [`0xeEc37568b01e0C4d5028501A49E024B475E2D7cA`](https://etherscan.io/address/0xeEc37568b01e0C4d5028501A49E024B475E2D7cA) |
 | Oracle                  | [`0x827044735c9708a2cf850e7Ea37EBa43bc786028`](https://etherscan.io/address/0x827044735c9708a2cf850e7Ea37EBa43bc786028) |
 | ShareManager            | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) |
@@ -67,7 +70,9 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Vault                   | [`0xDF0fb76Df2c21F79798949A4E886cd22D1C085d7`](https://etherscan.io/address/0xDF0fb76Df2c21F79798949A4E886cd22D1C085d7) |
 | SyncDepositQueue (USDC) | [`0xEdcd9C257719799435B05C28ff9a8a34e6872bE0`](https://etherscan.io/address/0xEdcd9C257719799435B05C28ff9a8a34e6872bE0) |
 | RedeemQueue (USDC)      | [`0x59fC26AFFF725eBb77Db8E1de14572e5eA9e87EB`](https://etherscan.io/address/0x59fC26AFFF725eBb77Db8E1de14572e5eA9e87EB) |
+| SyncRedeemQueue (USDC)  | [`0x395d3230B47c8EAd7b4152c670945f6545efe3c9`](https://etherscan.io/address/0x395d3230B47c8EAd7b4152c670945f6545efe3c9) |
 | SyncDepositQueue (USDT) | [`0xeC3EE7F7669b7ce0aC91c4638e4b89c9F40E179F`](https://etherscan.io/address/0xeC3EE7F7669b7ce0aC91c4638e4b89c9F40E179F) |
+| SyncRedeemQueue (USDT)  | [`0xe04A1c2D63e6964f5629B3c08BF08D2472faaB09`](https://etherscan.io/address/0xe04A1c2D63e6964f5629B3c08BF08D2472faaB09) |
 | Oracle                  | [`0x8d229B565A0c6Bf2d693C343bea0Ec96103dEF5f`](https://etherscan.io/address/0x8d229B565A0c6Bf2d693C343bea0Ec96103dEF5f) |
 | ShareManager            | [`0xd9543AfF8A859F6B34f80A9A230B277c89ACdda4`](https://etherscan.io/address/0xd9543AfF8A859F6B34f80A9A230B277c89ACdda4) |
 | FeeManager              | [`0x31325D52B763B1a43d5564114FA4A4ce62148716`](https://etherscan.io/address/0x31325D52B763B1a43d5564114FA4A4ce62148716) |
@@ -101,7 +106,9 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Vault                   | [`0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d`](https://etherscan.io/address/0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d) |
 | SyncDepositQueue (USDC) | [`0xBb647898e0CF0aE81Ac480d04A8a9973763eBD2D`](https://etherscan.io/address/0xBb647898e0CF0aE81Ac480d04A8a9973763eBD2D) |
 | RedeemQueue (USDC)      | [`0x8B857170F2a6C10Ce64ec8b920428ca977fb7710`](https://etherscan.io/address/0x8B857170F2a6C10Ce64ec8b920428ca977fb7710) |
+| SyncRedeemQueue (USDC)  | [`0xaFd38D9a5F48f6953c0d110c4e0ecBA2381f7Fc5`](https://etherscan.io/address/0xaFd38D9a5F48f6953c0d110c4e0ecBA2381f7Fc5) |
 | SyncDepositQueue (USDT) | [`0xa01aEfeC7A3384C8440e99084458030BDbdD7404`](https://etherscan.io/address/0xa01aEfeC7A3384C8440e99084458030BDbdD7404) |
+| SyncRedeemQueue (USDT)  | [`0x978f41aF86E14901C77ebaB799c307886e7C2c54`](https://etherscan.io/address/0x978f41aF86E14901C77ebaB799c307886e7C2c54) |
 | SyncDepositQueue (USDe) | [`0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947`](https://etherscan.io/address/0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947) |
 | Oracle                  | [`0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C`](https://etherscan.io/address/0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C) |
 | ShareManager            | [`0x3D561e1E0204d47b45C23B65356a4536c36d1AF6`](https://etherscan.io/address/0x3D561e1E0204d47b45C23B65356a4536c36d1AF6) |
