@@ -13,6 +13,7 @@ Due to the lack of native communication between these two networks, Lido employs
 6. [**Optional**] Add alerts to Oracle's Prometheus metrics.
 7. In case of mainnet, share your address and intention to join the Oracle set with the public. You need to publish it on Twitter and also write a message with a Twitter link under the Onboarding post on [the Research forum](https://research.lido.fi/). You need to publish it on Twitter and also write a message with a twitter link under the Onboarding post on [the Research forum](https://research.lido.fi/).
 8. Propose your Oracle's Ethereum address to the Lido team to vote on adding your address to the Oracle Members.
+9. After the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, the seat is held by a `DelegationContract` instead of an EOA: deploy it and configure the daemon as described in the [EDF Operator Guide](/guides/edf/edf-operator-guide).
 
 ## Intro
 
@@ -107,7 +108,9 @@ The current Oracle set consists of 9 participants with a quorum of 5. This means
 The actual list of Oracle participants list can be fetched from the HashConsensus contract using the [`getMembers`](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16) method.
 *Hoodi Oracle participants' addresses can be found [here](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16)*
 
-The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post.
+The latest updates can be found in the [Expansion of Lido on Ethereum Oracle set](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836) post. The current members and their addresses are also listed on the [Lido Oracle](/holders/lido-oracle#mainnet-members) page.
+
+After the [LIP-37](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) vote, an Oracle seat is held by the member's `DelegationContract` under the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide), not by an EOA. The member's hot key becomes the delegate of that contract and can be rotated or revoked by the member without a governance vote. See the [EDF Operator Guide](/guides/edf/edf-operator-guide) for the setup.
 
 ## Prerequisites
 
@@ -176,6 +179,11 @@ Additional variables required by the CSM module:
 
 - `MEMBER_PRIV_KEY` - Private key of the Oracle member account.
 - `MEMBER_PRIV_KEY_FILE` - A path to the file contained the private key of the Oracle member account.
+
+**EDF (delegation), see the [EDF Operator Guide](/guides/edf/edf-operator-guide#part-2--configure-the-lido-oracle):**
+
+- `DELEGATION_CONTRACT_ADDRESS` - The member's `DelegationContract` address. When empty, delegation is off.
+- `MEMBER_PRIV_KEY_2` / `MEMBER_PRIV_KEY_2_FILE` - The second key, the delegate of the `DelegationContract`. Used together with `MEMBER_PRIV_KEY` during the migration and for key rotation.
 
 Full list could be found [here](https://github.com/lidofinance/lido-oracle#env-variables).
 

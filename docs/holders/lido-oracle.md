@@ -8,6 +8,8 @@ Onboarding of new oracle members and rotation of existing members is coordinated
 
 ## Mainnet members
 
+\[[proposed to rotate](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] Current members:
+
 | Operator             | Address                                                                                                                 | Forum post                                                                                                                                                                                                         |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Chorus One (Bitwise) | [`0x8dB977C13CAA938BC58464bFD622DF0570564b78`](https://etherscan.io/address/0x8dB977C13CAA938BC58464bFD622DF0570564b78) | [address rotation](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/80)                                                                                                                      |
@@ -19,6 +21,20 @@ Onboarding of new oracle members and rotation of existing members is coordinated
 | Chainlayer           | [`0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf`](https://etherscan.io/address/0xc79F702202E3A6B0B6310B537E786B9ACAA19BAf) | [intent to join](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/17), [replacing Jump Crypto](https://research.lido.fi/t/jump-crypto-replacement-in-the-oracle-set/5620/8)                  |
 | MatrixedLink         | [`0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9`](https://etherscan.io/address/0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9) | [intent to join (replacing Rated)](https://research.lido.fi/t/rated-labs-replacement-in-the-oracle-set/7850/2), [address declaration](https://research.lido.fi/t/rated-labs-replacement-in-the-oracle-set/7850/14) |
 | Caliber              | [`0x4118DAD7f348A4063bD15786c299De2f3B1333F3`](https://etherscan.io/address/0x4118DAD7f348A4063bD15786c299De2f3B1333F3) | [intent to join (replacing Kyber)](https://research.lido.fi/t/expansion-of-lidos-ethereum-oracle-set/2836/78)                                                                                                      |
+
+\[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746)\] EDF DelegationContracts (LIP-37):
+
+| Operator             | Address                                                                                                                 | Forum post                                                                                              |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Chorus One (Bitwise) | [`0x56B3eA8016Da18C6E8CD8135492d242F0dE0DBBC`](https://etherscan.io/address/0x56B3eA8016Da18C6E8CD8135492d242F0dE0DBBC) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/22) |
+| Staking Facilities   | [`0xc7442d4d8F3FfEa0fA4a18Ad3062c8137cE21749`](https://etherscan.io/address/0xc7442d4d8F3FfEa0fA4a18Ad3062c8137cE21749) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/13) |
+| Stakefish            | [`0x5e8Ed9f10307eD6FA793A347e4D0f407D00B9C6f`](https://etherscan.io/address/0x5e8Ed9f10307eD6FA793A347e4D0f407D00B9C6f) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/15) |
+| P2P                  | [`0x4E3F2DEeb59eB9a205D82D17647b3e56422e0FEe`](https://etherscan.io/address/0x4E3F2DEeb59eB9a205D82D17647b3e56422e0FEe) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/17) |
+| bloXroute            | [`0x99Cd2EF33040879D40BBC77Df81863D97f13C64d`](https://etherscan.io/address/0x99Cd2EF33040879D40BBC77Df81863D97f13C64d) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/23) |
+| Instadapp            | [`0xE75A431A98487DC69A14Bdd13d858E3238e9C1b3`](https://etherscan.io/address/0xE75A431A98487DC69A14Bdd13d858E3238e9C1b3) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/20) |
+| Chainlayer           | [`0xd524101C3c40f71Fce7B9312D299603880a06Bdb`](https://etherscan.io/address/0xd524101C3c40f71Fce7B9312D299603880a06Bdb) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/14) |
+| MatrixedLink         | [`0xC4f2704273598d51A0ec76A31C12553ec8f5A891`](https://etherscan.io/address/0xC4f2704273598d51A0ec76A31C12553ec8f5A891) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/19) |
+| Caliber              | [`0xc77d0Bf3AA4778E36a89CDC8bbc9c34d8060637d`](https://etherscan.io/address/0xc77d0Bf3AA4778E36a89CDC8bbc9c34d8060637d) | [EDF DelegationContract](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/18) |
 
 **Consensus quorum:** 5 out of 9 identical report hashes are required to finalize a report. The current value is enforced on-chain and is readable via [`getQuorum()`](/contracts/hash-consensus#getquorum) on each `HashConsensus` instance.
 
