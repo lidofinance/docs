@@ -124,8 +124,8 @@ Alternatively, you can list pubkeys directly in the command as parameters:
 
 ```bash
 yarn start consolidation write consolidate-validators <dashboard> \
-  --source_pubkeys "source_pubkey_first_group_01 source_pubkey_first_group_02, source_pubkey_second_group_01 source_pubkey_second_group_02" \
-  --target_pubkeys "target_pubkey_first target_pubkey_second" \
+  --source "source_pubkey_first_group_01 source_pubkey_first_group_02, source_pubkey_second_group_01 source_pubkey_second_group_02" \
+  --target "target_pubkey_first,target_pubkey_second" \
   --wallet-connect
 ```
 

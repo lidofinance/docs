@@ -74,7 +74,7 @@ The fee can spike sharply when the withdrawal queue is congested. Whatever you s
 
 ### When partial withdrawals are blocked
 
-Full exits always go through. Partial withdrawals are rejected with `PartialValidatorWithdrawalNotAllowed` when:
+Full exits always go through. Partial withdrawals are rejected when:
 
 - the stVault has an **obligations shortfall** — anything it owes and cannot currently cover;
 - the stVault is **jailed**;

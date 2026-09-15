@@ -24,7 +24,7 @@ The setup below splits stVault permissions into two categories, based on whether
 - A second, broader multisig group is available to act as **Executor** — this should include parties independent from the operations manager, such as a custodian, an auditor, or another trusted counterparty (e.g. a traffic or distribution partner, a builder).
 
 :::note
-The Proposer/Executor pattern described here is a general non-custodial account design (proposer schedules an action, a separate executor confirms and executes it). It is independent from stVaults' native **Multi-roles confirmation** mechanism, which requires the Vault Owner and Node Operator Manager to jointly confirm a small set of protocol-level parameter changes (NO fee, Confirmation Expiry, AccruedRewardsAdjustment). The two mechanisms can, and should, be used together.
+The Proposer/Executor pattern described here is a general non-custodial account design (proposer schedules an action, a separate executor confirms and executes it). It is independent from stVaults' native **Multi-roles confirmation** mechanism, which requires the Vault Owner and Node Operator Manager to jointly confirm a small set of protocol-level parameter changes (Node Operator fee rate, Confirmation Expiry, settled growth correction, stVault ownership transfer). The two mechanisms can, and should, be used together.
 :::
 
 ## Step 1. Classify roles by custody risk
@@ -102,4 +102,4 @@ With this structure:
 
 ## Result
 
-With this configuration, the operations manager can run the stVault + DeFi Wrapper day to day — managing the validator lifecycle, adjusting the PDG policy, and funding the stVault with incentives when necessary — without ever holding a role that, on its own, can withdraw funds, mint stETH, or reassign stVault ownership. Every custody-sensitive action requires a second, independent party to execute it.
+With this configuration, the operations manager can run the stVault + DeFi Wrapper day to day — managing the validator lifecycle, proposing PDG policy changes through the timelock, and funding the stVault with incentives when necessary — without ever holding a role that, on its own, can withdraw funds, mint stETH, or reassign stVault ownership. Every custody-sensitive action requires a second, independent party to execute it.

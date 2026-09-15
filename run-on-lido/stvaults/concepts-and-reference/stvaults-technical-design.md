@@ -243,7 +243,7 @@ Any outstanding obligations on a vault:
 
 - limit withdrawals from the vault by the amount required to cover obligations;
 - reduce minting capacity by the amount required to cover obligations;
-- pause beacon chain deposits while the vault is unhealthy, has redemptions to cover, or has unsettled fees greater than 1 ETH. This pause prevents the vault from continuously depositing ETH to the consensus layer and avoiding obligation settlement;
+- pause beacon chain deposits while the vault is unhealthy, has redemptions to cover, or has unsettled fees of at least 1 ETH. This pause prevents the vault from continuously depositing ETH to the consensus layer and avoiding obligation settlement;
 - reject attempts to disconnect from VaultHub.
 
 _Obligations cheatsheet_

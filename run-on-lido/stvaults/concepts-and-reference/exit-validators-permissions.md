@@ -32,7 +32,7 @@ The Vault Owner has two instruments, and only the second one moves ETH:
     - an empty amounts array, or an amount of **0**, requests a full exit;
     - a **positive amount** requests a partial withdrawal, and the Consensus Layer keeps at least 32 ETH on the validator.
 
-Partial withdrawals carry three conditions that full exits do not. `VaultHub.triggerValidatorWithdrawals` reverts with `PartialValidatorWithdrawalNotAllowed` unless the report is fresh, the stVault is not in jail, and the stVault has no obligations shortfall. The last condition exists to stop a Vault Owner from filling the withdrawal queue with partial requests to delay the forced exits that would rebalance the stVault.
+Partial withdrawals carry three conditions that full exits do not. `VaultHub.triggerValidatorWithdrawals` requires that the report is fresh, the stVault is not in jail, and the stVault has no obligations shortfall. The last condition exists to stop a Vault Owner from filling the withdrawal queue with partial requests to delay the forced exits that would rebalance the stVault.
 
 ## stVaults Committee and Lido DAO
 
