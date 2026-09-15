@@ -51,7 +51,7 @@ The Pool is an ERC20 share token contract (`StvPool` / `StvStETHPool`) where use
 - For strategy pools the Strategy contract is added to the allowlist during deployment, and **users are expected to supply via the Strategy** (not via the Pool directly).
 
 :::warning
-Every role marked **nobody** on this page is unassigned at deployment. Each implementation starts with its features paused and the factory hands out only the pause halves, so resuming takes two timelock rounds: one to grant the resume role, another to use it. Pausing is immediate; unpausing is not.
+Every role marked **nobody** on this page is unassigned at deployment. Each implementation starts with its features paused and the factory hands out only the pause halves, so resuming takes two calls: one to grant the resume role, another to use it. Both fit in a single `scheduleBatch` operation on the Timelock Controller, so it is one delay rather than two — but pausing is immediate, and resuming always waits out that delay.
 :::
 
 ## Withdrawal Queue roles

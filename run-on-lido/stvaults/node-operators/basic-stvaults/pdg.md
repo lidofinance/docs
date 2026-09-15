@@ -68,8 +68,8 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start deposits write set-no-guarantor <new_guarantor_address>
-   # where <new_guarantor_address> is the address that will act as the Guarantor
+   yarn start deposits write set-no-guarantor
+   # runs interactively and prompts for the address that will act as the Guarantor
    ```
 
    </details>
@@ -83,8 +83,8 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start deposits write set-no-depositor <depositor_address>
-   # where <depositor_address> is the address that will act as the Depositor
+   yarn start deposits write set-no-depositor -d <depositor_address>
+   # -d is optional; without it the CLI prompts for the address
    ```
 
    </details>
@@ -192,7 +192,7 @@ Steps:
    yarn start deposits write prove-and-activate -i <validator_index>
 
    # Or prove, activate AND top up in one transaction (combines steps 7 and 9):
-   yarn start deposits write prove-and-top-up <validator_index> <extra_topup_eth> -v <vault_address>
+   yarn start deposits write prove-and-top-up <validator_indexes> <extra_topup_eth_amounts> -v <vault_address>
    ```
 
    </details>
@@ -342,8 +342,8 @@ Steps:
    <summary>using Command-line Interface</summary>
 
    ```bash
-   yarn start deposits write set-no-depositor <depositor_address>
-   # where <depositor_address> is the address that will act as the Depositor
+   yarn start deposits write set-no-depositor -d <depositor_address>
+   # -d is optional; without it the CLI prompts for the address
    ```
 
    </details>
@@ -372,7 +372,7 @@ Steps:
 
    As a result:
 
-   - 6.1. ETH is withdrawn from the stVault's withdrawable balance.
+   - 6.1. ETH is withdrawn from the stVault's withdrawable balance. This requires a fresh oracle report, since `VaultHub.withdraw` refuses a stale one.
    - 6.2. stVault Total Value is reduced by the deposit amount until the validator appears in the Beacon Chain state AND is included in a subsequent Oracle report.
    - 6.3. ETH is deposited to the validator via the Ethereum Deposit Contract.
 

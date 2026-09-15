@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Supply and Withdraw ETH
@@ -8,7 +8,7 @@ How to put ETH into a DeFi Wrapper pool and get it back out, through the Web UI 
 
 ## What a depositor holds
 
-Depositing ETH into a pool mints **stv**, an ERC-20 claim on the pool's share of the underlying stVault. It is transferable, and it grows in value as the vault earns — nothing is ever distributed to holders, the token just becomes worth more ETH.
+Depositing ETH into a pool mints **stv**, an ERC-20 claim on the pool's share of the underlying stVault. It is transferable, and it grows in value as the stVault earns — nothing is ever distributed to holders, the token just becomes worth more ETH.
 
 $$
 \text{assets} = \text{stv}_{\text{account}} \times \frac{\text{totalAssets}}{\text{totalSupply}}
@@ -36,7 +36,7 @@ For a minting pool the form also shows what you would be able to mint against th
 
 If the pool has an allowlist, an address that is not on it cannot deposit.
 
-The widget always mints the **maximum** available rather than an amount you pick — neither the deposit form nor the **Mint** button in the vault status takes a number.
+The widget always mints the **maximum** available rather than an amount you pick — neither the deposit form nor the **Mint** button in the stVault status takes a number.
 
 </details>
 
@@ -48,15 +48,15 @@ The widget always mints the **maximum** available rather than an amount you pick
 yarn start dw c stv w deposit-eth <poolAddress> <amountInETH> <referralAddress>
 
 # Minting pool: deposit and mint in one call
-yarn start dw c stv-steth w deposit-eth-shares <poolAddress> <amountInETH> <stethShares> <referralAddress>
-yarn start dw c stv-steth w deposit-eth-wsteth <poolAddress> <amountInETH> <wstethAmount> <referralAddress>
+yarn start dw c stv-steth w deposit-eth-shares <poolAddress> <amountInETH> <stethSharesToMint> [-r <referralAddress>]
+yarn start dw c stv-steth w deposit-eth-wsteth <poolAddress> <amountInETH> <wstethToMint> [-r <referralAddress>]
 
 # Mint or repay later, independently of any deposit
 yarn start dw c stv-steth w mint-steth-shares <poolAddress> <stethShares>
 yarn start dw c stv-steth w burn-steth-shares <poolAddress> <stethShares>
 ```
 
-Pass `0` as the referral if there is none. `deposit-eth` accepts `-s, --receiver` to credit the stv to a different address.
+The two pools take the referral differently: `deposit-eth` on a plain pool takes it as a positional argument, and passing the zero address (`0x0000000000000000000000000000000000000000`) means none; the minting pool's commands take it as the optional `-r, --referral`, which can simply be left out. `deposit-eth` also accepts `-s, --receiver` to credit the stv to a different address.
 
 </details>
 
@@ -100,7 +100,7 @@ The second command fetches the report data and proof and submits them. See [Appl
 A withdrawal is three stages, and the depositor drives only the first and the last:
 
 1. **You request.** Your stv moves to the Withdrawal Queue and the request records what it is worth. Nothing is paid yet.
-2. **The operator finalizes.** Once enough ETH is back on the vault and the delay has passed, the Node Operator settles a batch of requests and locks the ETH for them.
+2. **The operator finalizes.** Once enough ETH is back on the stVault and the delay has passed, the Node Operator settles a batch of requests and locks the ETH for them.
 3. **The depositor claims.** The locked ETH is transferred to the address named in the call.
 
 The wait between stages 1 and 2 is set by how long validators take to exit, not by the pool. The pool's own minimum delay is one hour in every shipped configuration; the Consensus Layer exit queue is what determines the timeline.
@@ -171,4 +171,4 @@ Only the holder of `FINALIZE_ROLE` — the Node Operator by default — can fina
 
 There is a route that does not depend on that operator, but it runs through the pool's governance rather than through the depositor: `FINALIZE_ROLE` is administered by the Timelock Controller, which can grant it to another address.
 
-**Claiming keeps working regardless.** It is not pausable, and it survives the vault being disconnected from Lido Core. Once ETH is locked against a finalized request, nothing in the system can hold it back.
+**Claiming keeps working regardless.** It is not pausable, and it survives the stVault being disconnected from Lido Core. Once ETH is locked against a finalized request, nothing in the system can hold it back.

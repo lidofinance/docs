@@ -69,7 +69,7 @@ are deployed per setup. Three ways to look them up:
 
 #### Web UI
 
-Connect the wallet at the [stVaults Web UI](#interfaces) and open the vault. Its page lists the StakingVault
+Connect the wallet at the [stVaults Web UI](#interfaces) and open the stVault. Its page lists the StakingVault
 and Dashboard addresses. The DeFi Wrapper widget is deployed per pool, so a depositor gets the pool address
 from whoever runs the product.
 
@@ -78,9 +78,8 @@ from whoever runs the product.
 From a vault address to the rest of a basic stVault setup:
 
 ```bash
-yarn start contracts vault r owner <vaultAddress>          # the Dashboard
+yarn start contracts v-v r vault-data <vaultAddress>       # connection data; its `owner` field is the Dashboard
 yarn start contracts dashboard r vault <dashboardAddress>  # back to the StakingVault
-yarn start contracts v-v r vault-data <vaultAddress>       # connection parameters; `owner` is the Dashboard
 ```
 
 For a DeFi Wrapper setup, one call returns the whole set — vault, Dashboard, withdrawal queue, distributor
@@ -102,7 +101,7 @@ With any one address in hand, the rest follow from the **Read Contract** tab:
 
 | On this contract | Call | To get |
 | --- | --- | --- |
-| StakingVault | `owner` | Dashboard |
+| VaultHub | `vaultConnection(vault).owner` | Dashboard |
 | Dashboard | `stakingVault` | StakingVault |
 | pool | `VAULT`, `DASHBOARD`, `WITHDRAWAL_QUEUE`, `DISTRIBUTOR`, `VAULT_HUB` | the rest of the setup |
 | WithdrawalQueue | `POOL`, `VAULT`, `DASHBOARD`, `LAZY_ORACLE` | the rest of the setup |

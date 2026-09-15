@@ -22,7 +22,7 @@ Staking rewards through a chosen Node Operator, with [quick redemption coverage 
 | User Interface | Custom | Custom |
 
 ## Economy model and calculator
-The vault strategy - ETH is deposited to validators and generates staking rewards; stETH is minted on demand by the Vault Owner.
+The stVault strategy - ETH is deposited to validators and generates staking rewards; stETH is minted on demand by the Vault Owner.
 
 For custom calculations, use this spreadsheet as a calculator: [Lido stVault Economics Model](https://docs.google.com/spreadsheets/d/1QOnqUvXy6PXMstYTpbSHHivDQ7VloYCjGMKlhvN80as/edit?usp=sharing)
 
@@ -155,7 +155,7 @@ The 1 ETH Connection Deposit becomes part of the stVault Total Value, can be use
 <details>
   <summary>by Command-line Interface</summary>
       ```bash
-      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRateBP <NodeOperatorFeeInBasisPoints> 1
+      yarn start vo w create-vault create --defaultAdmin <VaultOwnerAddress> --nodeOperator <NodeOperatorAddress> --nodeOperatorManager <NodeOperatorManagerAddress> --confirmExpiry <TimeInSeconds> --nodeOperatorFeeRate <NodeOperatorFeeInBasisPoints> 1
       ```
 </details>
 <details>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 title: Exit Validators Permissions and Principles
 sidebar_label: Exit Validators Permissions
 ---

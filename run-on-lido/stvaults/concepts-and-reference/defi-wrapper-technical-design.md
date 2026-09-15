@@ -401,7 +401,7 @@ The pause roles go to the emergency committee at deployment; the Dashboard's `PA
 :::warning
 **No address holds the resume roles after deployment.** Every implementation constructor pre-pauses its features, and the factory grants only the pause halves. `DEPOSITS_RESUME_ROLE`, `MINTING_RESUME_ROLE`, `WITHDRAWALS_RESUME_ROLE`, `FINALIZE_RESUME_ROLE`, the strategy resume roles and `LOSS_SOCIALIZER_ROLE` are unassigned.
 
-Pausing is therefore fast and unpausing is not: resuming requires a timelock proposal to grant the resume role first, then a second call to use it. Plan that delay into any incident response.
+Pausing is therefore fast and unpausing is not: resuming means granting the resume role and then using it, neither of which any address can do on its own. Both calls fit in one `scheduleBatch` operation, so the cost is a single timelock delay rather than two — plan that delay into any incident response.
 :::
 
 #### Role summary

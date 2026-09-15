@@ -155,7 +155,7 @@ yarn start dw c stv-steth w pause-minting <poolAddress>
 After pausing, any attempts to deposit ETH, mint stETH shares, or mint wstETH will revert.
 
 :::warning
-Pausing is one-way without governance. The factory hands out only the pause roles, so after deployment no address holds `DEPOSITS_RESUME_ROLE`, `MINTING_RESUME_ROLE` or `WITHDRAWALS_RESUME_ROLE`. Undoing Steps 3.1 and 4 therefore takes two rounds through the Timelock Controller: one to grant the resume role, another to call resume.
+Pausing is one-way without governance. The factory hands out only the pause roles, so after deployment no address holds `DEPOSITS_RESUME_ROLE`, `MINTING_RESUME_ROLE` or `WITHDRAWALS_RESUME_ROLE`. Undoing Steps 3.1 and 4 therefore goes through the Timelock Controller: grant the resume role, then call resume. Batch both into one `scheduleBatch` and it costs a single delay.
 
 Be sure the disconnect is going ahead before you pause. Abandoning it halfway leaves the pool frozen for its users until governance unfreezes it.
 :::
@@ -302,9 +302,12 @@ The CLI provides a single command that handles the entire distribution flow:
 
 ```bash
 yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
+  --skip-transfer \
   --mode=snapshot \
   --output-path ./distribution.json
 ```
+
+`--skip-transfer` is here because Step 7.2 already moved the tokens to the Distributor; without it this call would transfer them a second time.
 
 **Options:**
 
@@ -317,18 +320,6 @@ yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount>
 | `--skip-transfer`                             | Skip transferring tokens to the Distributor (if already done in step 7.2) |
 | `--skip-set-root`                             | Generate the tree without setting the root on-chain                       |
 | `--skip-write`                                | Skip writing the distribution JSON to file                                |
-
-:::info
-Since tokens were already transferred to distributor in step 7.2, use `--skip-transfer` to avoid a duplicate transfer:
-
-```bash
-yarn start dw uc distributor w distribute <poolAddress> <wstethAddress> <amount> \
-  --skip-transfer \
-  --mode=snapshot \
-  --output-path=<path>
-```
-
-:::
 
 :::info
 The caller must have `MANAGER_ROLE` on the Distributor contract. This role is granted upon pool creation to the `--nodeOperatorManager` address.
@@ -421,8 +412,10 @@ yarn start dw uc distributor w claim <poolAddress> --recipients <proxyAddress>
 **Step 3.** Transfer wstETH from the proxy to your wallet:
 
 ```bash
-yarn start dw c str w safe-transfer-erc20 <proxyAddress> <wstethAddress> <userAddress> <amount>
+yarn start dw c str w safe-transfer-erc20 <strategyAddress> <wstethAddress> <userAddress> <amount>
 ```
+
+The call goes to the **strategy**, not to the proxy. The strategy derives the caller's own proxy from `msg.sender`, so a proxy address is never passed in — which is what stops one user from reaching another's. Each user therefore runs this for themselves.
 
 The `<amount>` is in decimal wstETH format (e.g. `1.5`), not raw wei.
 

@@ -666,8 +666,8 @@ Thus, each vault must remain solvent, preventing any vault-specific losses from 
 
 - Comprises two parts:
 
-  1. **Forced Validator Withdrawals** (permissionless, via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002)).
-  2. **Forced Rebalance** (permissionless rebalancing using available vault unstaked ETH).
+  1. **Forced Validator Withdrawals** — requires `VALIDATOR_EXIT_ROLE` on `VaultHub`, via [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002); see [Exit validators permissions](./exit-validators-permissions.md).
+  2. **Forced Rebalance** — permissionless, using available vault unstaked ETH.
 
 - Once triggered, no further deposits or withdrawals are allowed until the vault's health is restored.
 

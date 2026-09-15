@@ -76,6 +76,8 @@ yarn start contracts vault write eject-validators \
 
 Public keys are a comma-separated list. The CLI reads the current fee itself and attaches it to the transaction, then asks for confirmation before sending.
 
+`<amounts>` is required by the CLI but does not reach the contract: it is used to size the fee and to print the confirmation, while the call itself carries only the public keys and the refund recipient. Exits through this route are always full.
+
 </details>
 
 <details>
