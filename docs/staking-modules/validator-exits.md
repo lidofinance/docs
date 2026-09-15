@@ -49,7 +49,7 @@ From the core protocol side, validator exit can be requested to cover withdrawal
 
 From the module side, validator exits can be requested or triggered for:
 - Unbonded validators. These exits are requested automatically using the `targetLimitMode = 2` (forced mode);
-- Validators with an excessive number of bad performance strikes. These exits are triggered via the permissionless method on the [`ValidatorStrikes`](/staking-modules/contracts/ValidatorStrikes) contract. The strike parameters are set per Node Operator type, and are documented for CSM under [Penalties](/run-on-lido/csm/penalties#what-can-affect-your-bond).
+- CSM validators with an excessive number of bad performance strikes. These exits are triggered via the permissionless method on the [`ValidatorStrikes`](/staking-modules/contracts/ValidatorStrikes) contract. The strike parameters are set per Node Operator type, and are documented for CSM under [Penalties](/run-on-lido/csm/penalties#what-can-affect-your-bond).
 
 :::info
 `targetLimitMode = 2` (forced mode) was introduced within the updated version of [Staking Router](https://hackmd.io/@lido/BJXRTxMRp#Forced-Exit-Requests1). In short, it is similar to the existing `targetLimit` but exits for the validators above `targetLimit` with `targetLimitMode = 2` (forced mode) can be requested within the next [VEBO](/contracts/validators-exit-bus-oracle) report, even without a need to fulfill withdrawal requests from stETH holders.

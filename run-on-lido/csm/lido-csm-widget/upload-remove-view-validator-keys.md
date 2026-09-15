@@ -119,18 +119,29 @@ You can also view the status of the keys pertaining to your uploaded deposit dat
 In 0x02 CSM, a key shown as **Active** may still be receiving top-ups toward its 2,048 ETH maximum.
 :::
 
-| Status | What it means | What to do? |
+### Key lifecycle
+
+| Status | Meaning | Action |
 | --- | --- | --- |
-| <span style={{color: 'orange'}}><strong>Unchecked</strong></span> | Key has been uploaded but not yet validated by the protocol | Wait for validation. If an earlier key is Invalid, remove it so the rest can be checked |
-| **Depositable** | Key is valid and bond is sufficient. Pending deposit from Lido Protocol | Maintain sufficient bond amounts |
-| <span style={{color: 'orange'}}><strong>Non queued</strong></span> | Key is depositable but does not currently hold a place in the deposit queue | No action needed, the key is queued again automatically |
-| **Activation pending** | Key has been deposited and is awaiting activation on the [beacon chain] | Make sure your validator node is online and ready to perform duties |
-| <span style={{color: 'green'}}><strong>Active</strong></span> | Key is active on the [beacon chain] | Make sure your validator node is online to perform its duties |
-| **Withdrawn** | Key has been exited and ETH has been returned to the protocol | Claim your bond and rewards under **Bond & Rewards** |
-| <span style={{color: 'orange'}}><strong>Unbonded</strong></span> | Bond is insufficient for this key, which can be Active or otherwise | - Active key: Top up bond or exit key<br />- Non-active key: Top up bond or do nothing |
-| <span style={{color: 'orange'}}><strong>Strikes</strong></span> | The key has accumulated strikes for performing below the threshold | Improve performance. Enough strikes can lead to ejection and a penalty |
-| <span style={{color: 'red'}}><strong>Slashed</strong></span> | The validator has been slashed on the [beacon chain] | Review your setup to prevent further slashings. See [Slashing Prevention](/run-on-lido/csm/best-practices/slashing-prevention) |
-| <span style={{color: 'red'}}><strong>Duplicated</strong></span> | Key has been uploaded twice | Remove duplicate key |
-| <span style={{color: 'red'}}><strong>Invalid</strong></span> | Uploaded key has an invalid signature | Remove key |
+| **Unchecked** | Uploaded; awaiting validation | Wait. Remove earlier Invalid or Duplicated keys |
+| **Depositable** | Valid and sufficiently bonded; awaiting deposit | Maintain sufficient bond |
+| **Non queued** | Depositable, but not currently in the queue | Resolve any **Unbonded** keys. If still **Non queued**, use **Normalize queue** in the widget to add them to the deposit queue. |
+| **Activation pending** | Deposited; awaiting activation on the [beacon chain] | Keep your validator online and ready |
+| **Active** | Active on the [beacon chain] | Keep validating |
+| **Exit requested** | The protocol has requested an exit | [Exit the validator](/run-on-lido/csm/lido-csm-widget/exiting-csm-validators) within the allowed time |
+| **Exit initiated** | An ejection request has been submitted | Monitor progress; keep validating until exit |
+| **Exiting** | Exit is scheduled on the [beacon chain] | Keep validating until exit |
+| **Exited (withdrawal pending)** | Exited; ETH withdrawal is pending | Wait for withdrawal |
+| **Withdrawn** | ETH has been returned to the protocol | Claim available bond and rewards under **Bond & Rewards** |
+
+### Warnings and errors
+
+| Status | Meaning | Action |
+| --- | --- | --- |
+| **Unbonded** | Insufficient bond for this key | Active: top up bond or exit.<br />Not active: top up bond or leave pending |
+| **Strikes** | Performance strikes may lead to ejection and a penalty | Improve performance |
+| **Slashed** | Slashed on the [beacon chain] | Review your setup; see [Slashing Prevention](/run-on-lido/csm/best-practices/slashing-prevention) |
+| **Duplicated** | Key uploaded more than once | Remove duplicate key |
+| **Invalid** | Invalid deposit signature | Remove key |
 
 [beacon chain]: https://beaconcha.in/

@@ -151,7 +151,7 @@ Node Operators can have different types, which define the Node Operator's proper
 
 The following parameters can be set for each Node Operator type:
 - `keyRemovalCharge` - a fee charged for each deleted deposit data record;
-- `generalDelayedPenaltyAdditionalFine` - an additional fine charged for each validator that has stolen EL rewards;
+- `generalDelayedPenaltyAdditionalFine` - an additional fine added to each General Delayed Penalty reported for a Node Operator due to protocol rule violations;
 - `keysLimit` - a limit on the number of active keys for the Node Operator;
 - `queuePriority` and `maxDeposits` - parameters defining the priority queue for the Node Operator;
 - `rewardShareData` - the share of Node Operator rewards that the Node Operator receives for each validator. It can be customized depending on the key index in the Node Operator's key storage;

@@ -42,7 +42,7 @@ These modules include an optional built-in fee splitter. When the Node Operator'
 Node Operators can also authorize another address to submit reward-claim transactions on their behalf. That address only triggers the claim, and the claimed funds are always sent to the configured reward address.
 
 ## Performance Oracle
-The Performance Oracle creates a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) with the allocation of the Node Operator rewards and delivers the root on-chain. To make the original tree available to users, it is published on [IPFS](https://ipfs.tech/) and [GitHub](https://github.com/lidofinance/csm-rewards). Instead of storing multiple roots, each new tree consists of all Node Operator rewards ever acquired by the module's Node Operators. Hence, only the latest tree is required to determine the reward allocation at any moment in time. The amount available for distribution can be calculated as `cumulativeFeeShares - distributedShares`. `FeeDistributor` stores `distributedShares` for each Node Operator to ensure correct accounting.
+The Performance Oracle creates a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) with the allocation of the Node Operator rewards and delivers the root on-chain. To make the original tree available to users, it is published on IPFS and GitHub ([CMv2](https://github.com/lidofinance/cm-v2-rewards) and [CSM](https://github.com/lidofinance/csm-rewards)). Instead of storing multiple roots, each new tree consists of all Node Operator rewards ever acquired by the module's Node Operators. Hence, only the latest tree is required to determine the reward allocation at any moment in time. The amount available for distribution can be calculated as `cumulativeFeeShares - distributedShares`. `FeeDistributor` stores `distributedShares` for each Node Operator to ensure correct accounting.
 
 The Performance Oracle calculates validators performance based on their **attestation, block proposal, and sync committee participation effectiveness**, weighted by the `performanceCoefficients` configured for each [Node Operator type](/staking-modules/node-operators#node-operator-types).
 
@@ -50,11 +50,11 @@ A performance threshold is used to determine which validators participate in the
 
 ![rewards-5](/img/csm/rewards-5.png)
 
-Each deployment sets its own `frame` length, it is 28 days in CSM and 14 days in CMv2.
+Each deployment sets its own `frame` length. The current lengths on Mainnet are 14 days for CMv2 and 28 days for CSM (7 and 14 days on Hoodi, respectively).
 
 The length is a trade-off. A short frame makes the performance threshold less forgiving, because a brief outage weighs more heavily on the average. A long frame smooths that out, but delays reward allocation.
 
-The performance threshold is relative to the overall network attestation effectiveness to ensure that network issues outside the Node Operator's control do not affect reward allocation.
+The performance threshold is relative to the overall network performance to ensure that network issues outside the Node Operator's control do not affect reward allocation.
 
 ### Artifacts
 
@@ -62,7 +62,7 @@ Performance Oracle creates a few artifacts for each successful round of reward d
 
 Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashes of the files used to retrieve the content back from the IPFS network) are pushed on-chain. The [`FeeDistributor` contract](/staking-modules/contracts/FeeDistributor) has two view functions to retrieve these CIDs: [**treeCid**](/staking-modules/contracts/FeeDistributor#treecid) and [**logCid**](/staking-modules/contracts/FeeDistributor#logcid).
 
-The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. Each module publishes its tree and pre-generated proofs in a repository with one branch per network: [cm-v2-rewards](https://github.com/lidofinance/cm-v2-rewards) for CMv2 and [csm-rewards](https://github.com/lidofinance/csm-rewards) for CSM.
+The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. Each module publishes its tree and pre-generated proofs in a repository with one branch per network: [cm-v2-rewards](https://github.com/lidofinance/cm-v2-rewards) for CMv2 and [csm-rewards](https://github.com/lidofinance/csm-rewards), currently for 0x01 CSM only.
 
 A frame performance assessment log provides transparency into the rewards distribution performed by the Oracle. It stores, among other things:
 
@@ -81,6 +81,6 @@ If you want to learn more about the actual Performance Oracle algorithm, check o
 
 ### Bad performance
 
-If a Node Operator's performance is below the threshold, they will not receive any rewards for that frame. However, the Node Operator can still claim their [bond](/staking-modules/node-operators#bond) rewards (rebase) as usual. This means that even if a Node Operator's validators are not performing well, they can still benefit from the bond rebase. One can find an example of the rewards calculation [here](https://docs.google.com/spreadsheets/d/1hLvuOesPVOYHDqO373bdyiKn4_3UXQF1rATbgTrKhWc/edit?usp=sharing).
+If a validator's performance is below the threshold, it contributes no Node Operator rewards for that frame. Other eligible validators operated by the same Node Operator still contribute rewards. However, the Node Operator can still claim their [bond](/staking-modules/node-operators#bond) rewards (rebase) as usual. This means that even if a Node Operator's validators are not performing well, they can still benefit from the bond rebase. One can find an example of the rewards calculation [here](https://docs.google.com/spreadsheets/d/1hLvuOesPVOYHDqO373bdyiKn4_3UXQF1rATbgTrKhWc/edit?usp=sharing).
 
-However, consistent bad performance can lead to forced ejection and the application of penalties. Please refer to the [Penalties](/run-on-lido/csm/penalties) guide for more details on this process.
+For CSM validators, consistent bad performance can lead to forced ejection and [penalties](/run-on-lido/csm/penalties). For CMv2 Node Operators, underperformance is assessed case by case by the Curated Module Committee (CMC) and may result in a [General Delayed Penalty](/run-on-lido/cm-v2/penalties#general-delayed-penalty).

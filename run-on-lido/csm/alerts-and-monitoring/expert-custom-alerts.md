@@ -22,7 +22,12 @@ If the guide seems too complicated, make sure to check out a tool: [SM Sentinel]
 ### ValidatorExitRequest
 `ValidatorExitRequest` is the most important event for key management. It requires sending a voluntary exit request using the key specified in the event.
 If the Node Operator doesn't exit in time, an exit delay charge is applied to the bond once the validator withdraws, and the protocol may force the exit from the Execution Layer at the operator's cost.
-Following all the events filtered by `stakingModuleId` and `nodeOperatorId` is essential. For 0x01 CSM that is `stakingModuleId=3` on Mainnet and `stakingModuleId=4` on Hoodi. 0x02 CSM is a separate module with its own id and its own contract addresses, so check [Deployed Contracts](/deployed-contracts/) for the deployment you are monitoring.
+
+VEBO is shared by the CSM modules on each network. Filter events by both `stakingModuleId` and `nodeOperatorId`, using the module ID for your deployment:
+
+- **0x01 CSM:** `stakingModuleId=3` on [Mainnet](/deployed-contracts/#community-staking-module) and `stakingModuleId=4` on [Hoodi](/deployed-contracts/hoodi#-community-staking-module).
+- **0x02 CSM:** `stakingModuleId=6` on [Hoodi](/deployed-contracts/hoodi#-community-staking-module-0x02).
+
 ```solidity
 event ValidatorExitRequest(
     uint256 indexed stakingModuleId,
@@ -40,8 +45,9 @@ This event can be tracked using [Ejector](https://github.com/lidofinance/validat
 
 ## Contract: CSM
 
-- [Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
-- [Hoodi](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d)
+- [0x01 CSM — Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
+- [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d)
+- [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0xbb7dd81FAC80f3Effa10eA8b973c15AE65a4CAf9)
 
 
 ### GeneralDelayedPenaltyReported
@@ -103,8 +109,9 @@ event DepositedSigningKeysCountChanged(
 
 ## Contract: ExitPenalties
 
-- [Mainnet](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
-- [Hoodi](https://hoodi.etherscan.io/address/0xD259b31083Be841E5C85b2D481Cfc17C14276800)
+- [0x01 CSM — Mainnet](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
+- [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0xD259b31083Be841E5C85b2D481Cfc17C14276800)
+- [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0x3A2a355a27478f4f043e4206b7e1301611642801)
 
 ### ValidatorExitDelayProcessed
 An exit delay charge has been applied because the validator was not exited within the allowed delay.
@@ -140,8 +147,9 @@ event StrikesPenaltyProcessed(
 
 ## Contract: ValidatorStrikes
 
-- [Mainnet](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f)
-- [Hoodi](https://hoodi.etherscan.io/address/0x8fBA385C3c334D251eE413e79d4D3890db98693c)
+- [0x01 CSM — Mainnet](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f)
+- [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0x8fBA385C3c334D251eE413e79d4D3890db98693c)
+- [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0x543Fbc220A1dAb7f41C62a793D7157Ab6Bd44AA6)
 
 ### StrikesDataUpdated
 A new strikes tree has been published. Check whether any of your keys accumulated strikes, since enough strikes lead to ejection and a penalty.
@@ -151,8 +159,9 @@ event StrikesDataUpdated(bytes32 treeRoot, string treeCid);
 
 ## Contract: FeeDistributor
 
-- [Mainnet](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
-- [Hoodi](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582)
+- [0x01 CSM — Mainnet](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
+- [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582)
+- [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0x7E875b0cb3725Ff58AF903679d1bF807A3089496)
 
 ### DistributionDataUpdated
 Notify when rewards for the current frame are available to claim
