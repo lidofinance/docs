@@ -37,7 +37,7 @@ export const GUIDES = {
     title: 'Conservative Multi-User Delegated Staking',
     link: './defi-wrapper/multi-user-delegated-staking',
     description:
-      'A conservative staking vault for single or multiple stakers, with no stETH minting or additional DeFi yield strategy. DeFi Wrapper enables a multi-user setup, while its Whitelisting capability allows builders to restrict who can deposit into the vault.',
+      'A conservative staking vault for single or multiple stakers, with no stETH minting or additional DeFi yield strategy. DeFi Wrapper enables a multi-user setup, while its Whitelisting capability allows builders to restrict who can deposit into the stVault.',
     buildingBlocks: [
       { block: 'Basis', solution: 'stVault', implementation: 'Out-of-the-box' },
       { block: 'Pooling Wrapper', solution: 'stVaults DeFi Wrapper', implementation: 'Out-of-the-box' },
@@ -301,7 +301,7 @@ Answer a few questions below to find the guide that fits your product.
  
 ### Staking with stVaults
  
-An **stVault** is an isolated, non-custodial staking primitive with its own withdrawal credentials, controlled by the Vault Owner, who picks a Node Operator once at creation — an immutable choice with no access to the vault's principal.
+An **stVault** is an isolated, non-custodial staking primitive with its own withdrawal credentials, controlled by the Vault Owner, who picks a Node Operator once at creation — an immutable choice with no access to the stVault's principal.
  
 ### Liquidity by stETH
  
@@ -317,7 +317,7 @@ DeFi Wrapper pools support an **on-chain allowlist** restricting depositors, tha
  
 ### Connector to EarnETH
  
-The DeFi Wrapper has a built-in connector to **Lido EarnETH**: as ETH is supplied to the vault, stETH is minted automatically and sent into EarnETH, adding extra yield on top of staking rewards — enabled at deployment, no custom integration needed.
+The DeFi Wrapper has a built-in connector to **Lido EarnETH**: as ETH is supplied to the stVault, stETH is minted automatically and sent into EarnETH, adding extra yield on top of staking rewards — enabled at deployment, no custom integration needed.
  
 ### DeFi Wrapper embeddable widget
  
