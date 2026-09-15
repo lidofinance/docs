@@ -9,57 +9,57 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 
 ### earnETH
 
-| Contract                   | Address                                                                                                                 |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Vault                      | [`0x6a37725ca7f4CE81c004c955f7280d5C704a249e`](https://etherscan.io/address/0x6a37725ca7f4CE81c004c955f7280d5C704a249e) |
-| DepositQueue (ETH)         | [`0x1db7094Ef0D994B0b62f6Cd67dB801ad194999A8`](https://etherscan.io/address/0x1db7094Ef0D994B0b62f6Cd67dB801ad194999A8) |
-| SyncDepositQueue (ETH)     | [`0xb99394f8b95d426Cb2F013B857C74aCC924b20D5`](https://etherscan.io/address/0xb99394f8b95d426Cb2F013B857C74aCC924b20D5) |
-| DepositQueue (WETH)        | [`0x3Fc48660d02e59fBedD0a5Cc18a5580D1f8dD6A4`](https://etherscan.io/address/0x3Fc48660d02e59fBedD0a5Cc18a5580D1f8dD6A4) |
-| SyncDepositQueue (WETH)    | [`0xCe6C2505fEF74d2dE10FCF1d534cB73eCc837976`](https://etherscan.io/address/0xCe6C2505fEF74d2dE10FCF1d534cB73eCc837976) |
-| DepositQueue (wstETH)      | [`0xe39EED9A454C4918F8d0682062777cB251cd513F`](https://etherscan.io/address/0xe39EED9A454C4918F8d0682062777cB251cd513F) |
-| SyncDepositQueue (wstETH)  | [`0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522`](https://etherscan.io/address/0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522) |
-| RedeemQueue (wstETH)       | [`0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4`](https://etherscan.io/address/0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4) |
-| SyncRedeemQueue (wstETH)   | [`0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A`](https://etherscan.io/address/0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A) |
-| DepositQueue (GG)          | [`0x411172F1E5310d03b38128F2a294F2e33c691B30`](https://etherscan.io/address/0x411172F1E5310d03b38128F2a294F2e33c691B30) |
-| SyncDepositQueue (GG)      | [`0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B`](https://etherscan.io/address/0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B) |
-| DepositQueue (strETH)      | [`0x268ea1cc674cdaE200c4609E7b09d03Dc618E663`](https://etherscan.io/address/0x268ea1cc674cdaE200c4609E7b09d03Dc618E663) |
-| SyncDepositQueue (strETH)  | [`0xA4F23f56442C01a478af20fe06b9F5f8f05aDD96`](https://etherscan.io/address/0xA4F23f56442C01a478af20fe06b9F5f8f05aDD96) |
-| DepositQueue (DVstETH)     | [`0x4bDd2Ea1E20acb13f2758190c92a84175107A86f`](https://etherscan.io/address/0x4bDd2Ea1E20acb13f2758190c92a84175107A86f) |
-| SyncDepositQueue (DVstETH) | [`0xA80f247b92C79740b0610b754403D5cb0bf216b5`](https://etherscan.io/address/0xA80f247b92C79740b0610b754403D5cb0bf216b5) |
-| Oracle                     | [`0xAda1f4c24603aB2fe5aBd35BCD12370e98A20358`](https://etherscan.io/address/0xAda1f4c24603aB2fe5aBd35BCD12370e98A20358) |
-| ShareManager               | [`0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4`](https://etherscan.io/address/0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4) |
-| FeeManager                 | [`0xed4Fac879eE86F3aB0101993A3713e7cAA0488E1`](https://etherscan.io/address/0xed4Fac879eE86F3aB0101993A3713e7cAA0488E1) |
-| RiskManager                | [`0xa2a4C4ecE27229aF51c546844AB752824Ccb557e`](https://etherscan.io/address/0xa2a4C4ecE27229aF51c546844AB752824Ccb557e) |
-| Subvault 0                 | [`0xC5901C2481ca9C26398A9Da258b13717894bfebF`](https://etherscan.io/address/0xC5901C2481ca9C26398A9Da258b13717894bfebF) |
-| Verifier 0                 | [`0xBc46B79d79fCac1F4232D4Da1BA31aCED0AABFE0`](https://etherscan.io/address/0xBc46B79d79fCac1F4232D4Da1BA31aCED0AABFE0) |
-| Subvault 1                 | [`0x7F515C80fA4C1FCFF34F0329141A9C3b20468FE5`](https://etherscan.io/address/0x7F515C80fA4C1FCFF34F0329141A9C3b20468FE5) |
-| Verifier 1                 | [`0xc0FC0B74923A80Af21B1E49633cAA309f432140F`](https://etherscan.io/address/0xc0FC0B74923A80Af21B1E49633cAA309f432140F) |
-| Timelock Controller        | [`0x363Ba8843d06BA5968f55C26aB055162eDd62189`](https://etherscan.io/address/0x363Ba8843d06BA5968f55C26aB055162eDd62189) |
-| OracleSubmitter            | [`0xFbD83f7C531D35D99392a5A20bb5F1e75E97076e`](https://etherscan.io/address/0xFbD83f7C531D35D99392a5A20bb5F1e75E97076e) |
+| Contract                       | Address                                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Vault                          | [`0x6a37725ca7f4CE81c004c955f7280d5C704a249e`](https://etherscan.io/address/0x6a37725ca7f4CE81c004c955f7280d5C704a249e) |
+| DepositQueue (ETH)             | [`0x1db7094Ef0D994B0b62f6Cd67dB801ad194999A8`](https://etherscan.io/address/0x1db7094Ef0D994B0b62f6Cd67dB801ad194999A8) |
+| SyncDepositQueue (ETH)         | [`0xb99394f8b95d426Cb2F013B857C74aCC924b20D5`](https://etherscan.io/address/0xb99394f8b95d426Cb2F013B857C74aCC924b20D5) |
+| DepositQueue (WETH)            | [`0x3Fc48660d02e59fBedD0a5Cc18a5580D1f8dD6A4`](https://etherscan.io/address/0x3Fc48660d02e59fBedD0a5Cc18a5580D1f8dD6A4) |
+| SyncDepositQueue (WETH)        | [`0xCe6C2505fEF74d2dE10FCF1d534cB73eCc837976`](https://etherscan.io/address/0xCe6C2505fEF74d2dE10FCF1d534cB73eCc837976) |
+| DepositQueue (wstETH)          | [`0xe39EED9A454C4918F8d0682062777cB251cd513F`](https://etherscan.io/address/0xe39EED9A454C4918F8d0682062777cB251cd513F) |
+| SyncDepositQueue (wstETH)      | [`0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522`](https://etherscan.io/address/0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522) |
+| RedeemQueue (wstETH)           | [`0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4`](https://etherscan.io/address/0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4) |
+| SyncRedeemQueue (wstETH)       | [`0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A`](https://etherscan.io/address/0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A) |
+| DepositQueue (GG)              | [`0x411172F1E5310d03b38128F2a294F2e33c691B30`](https://etherscan.io/address/0x411172F1E5310d03b38128F2a294F2e33c691B30) |
+| SyncDepositQueue (GG)          | [`0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B`](https://etherscan.io/address/0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B) |
+| DepositQueue (strETH)          | [`0x268ea1cc674cdaE200c4609E7b09d03Dc618E663`](https://etherscan.io/address/0x268ea1cc674cdaE200c4609E7b09d03Dc618E663) |
+| SyncDepositQueue (strETH)      | [`0xA4F23f56442C01a478af20fe06b9F5f8f05aDD96`](https://etherscan.io/address/0xA4F23f56442C01a478af20fe06b9F5f8f05aDD96) |
+| DepositQueue (DVstETH)         | [`0x4bDd2Ea1E20acb13f2758190c92a84175107A86f`](https://etherscan.io/address/0x4bDd2Ea1E20acb13f2758190c92a84175107A86f) |
+| SyncDepositQueue (DVstETH)     | [`0xA80f247b92C79740b0610b754403D5cb0bf216b5`](https://etherscan.io/address/0xA80f247b92C79740b0610b754403D5cb0bf216b5) |
+| Oracle                         | [`0xAda1f4c24603aB2fe5aBd35BCD12370e98A20358`](https://etherscan.io/address/0xAda1f4c24603aB2fe5aBd35BCD12370e98A20358) |
+| Token / ShareManager (earnETH) | [`0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4`](https://etherscan.io/address/0xBBFC8683C8fE8cF73777feDE7ab9574935fea0A4) |
+| FeeManager                     | [`0xed4Fac879eE86F3aB0101993A3713e7cAA0488E1`](https://etherscan.io/address/0xed4Fac879eE86F3aB0101993A3713e7cAA0488E1) |
+| RiskManager                    | [`0xa2a4C4ecE27229aF51c546844AB752824Ccb557e`](https://etherscan.io/address/0xa2a4C4ecE27229aF51c546844AB752824Ccb557e) |
+| Subvault 0                     | [`0xC5901C2481ca9C26398A9Da258b13717894bfebF`](https://etherscan.io/address/0xC5901C2481ca9C26398A9Da258b13717894bfebF) |
+| Verifier 0                     | [`0xBc46B79d79fCac1F4232D4Da1BA31aCED0AABFE0`](https://etherscan.io/address/0xBc46B79d79fCac1F4232D4Da1BA31aCED0AABFE0) |
+| Subvault 1                     | [`0x7F515C80fA4C1FCFF34F0329141A9C3b20468FE5`](https://etherscan.io/address/0x7F515C80fA4C1FCFF34F0329141A9C3b20468FE5) |
+| Verifier 1                     | [`0xc0FC0B74923A80Af21B1E49633cAA309f432140F`](https://etherscan.io/address/0xc0FC0B74923A80Af21B1E49633cAA309f432140F) |
+| Timelock Controller            | [`0x363Ba8843d06BA5968f55C26aB055162eDd62189`](https://etherscan.io/address/0x363Ba8843d06BA5968f55C26aB055162eDd62189) |
+| OracleSubmitter                | [`0xFbD83f7C531D35D99392a5A20bb5F1e75E97076e`](https://etherscan.io/address/0xFbD83f7C531D35D99392a5A20bb5F1e75E97076e) |
 
 ### earnUSD
 
-| Contract                | Address                                                                                                                 |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Vault                   | [`0x014e6DA8F283C4aF65B2AA0f201438680A004452`](https://etherscan.io/address/0x014e6DA8F283C4aF65B2AA0f201438680A004452) |
-| DepositQueue (USDC)     | [`0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76`](https://etherscan.io/address/0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76) |
-| SyncDepositQueue (USDC) | [`0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5`](https://etherscan.io/address/0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5) |
-| RedeemQueue (USDC)      | [`0x9e36A74FE278906a76e7615263e46a83fC40c47F`](https://etherscan.io/address/0x9e36A74FE278906a76e7615263e46a83fC40c47F) |
-| SyncRedeemQueue (USDC)  | [`0xE0eee7e956A94BD00546d9CA07e5012F11A5059d`](https://etherscan.io/address/0xE0eee7e956A94BD00546d9CA07e5012F11A5059d) |
-| DepositQueue (USDT)     | [`0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73`](https://etherscan.io/address/0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73) |
-| SyncDepositQueue (USDT) | [`0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9`](https://etherscan.io/address/0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9) |
-| RedeemQueue (USDT)      | [`0x95092A7a86715246Be6395b8D514B3d60A270Cd3`](https://etherscan.io/address/0x95092A7a86715246Be6395b8D514B3d60A270Cd3) |
-| DepositQueue (USDe)     | [`0xeEc37568b01e0C4d5028501A49E024B475E2D7cA`](https://etherscan.io/address/0xeEc37568b01e0C4d5028501A49E024B475E2D7cA) |
-| Oracle                  | [`0x827044735c9708a2cf850e7Ea37EBa43bc786028`](https://etherscan.io/address/0x827044735c9708a2cf850e7Ea37EBa43bc786028) |
-| ShareManager            | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) |
-| FeeManager              | [`0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc`](https://etherscan.io/address/0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc) |
-| RiskManager             | [`0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4`](https://etherscan.io/address/0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4) |
-| Subvault 0              | [`0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd`](https://etherscan.io/address/0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd) |
-| Verifier 0              | [`0xB65A8E0937c77a76C3f4F86A1110f81A299CB481`](https://etherscan.io/address/0xB65A8E0937c77a76C3f4F86A1110f81A299CB481) |
-| Subvault 1              | [`0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242`](https://etherscan.io/address/0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242) |
-| Verifier 1              | [`0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36`](https://etherscan.io/address/0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36) |
-| Timelock Controller     | [`0xdA6Da82DFF8cD29D828e4775Cc003f504A968845`](https://etherscan.io/address/0xdA6Da82DFF8cD29D828e4775Cc003f504A968845) |
-| OracleSubmitter         | [`0xB105DaEeFEb1390ce49172c99E3e12C607367156`](https://etherscan.io/address/0xB105DaEeFEb1390ce49172c99E3e12C607367156) |
+| Contract                       | Address                                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Vault                          | [`0x014e6DA8F283C4aF65B2AA0f201438680A004452`](https://etherscan.io/address/0x014e6DA8F283C4aF65B2AA0f201438680A004452) |
+| DepositQueue (USDC)            | [`0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76`](https://etherscan.io/address/0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76) |
+| SyncDepositQueue (USDC)        | [`0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5`](https://etherscan.io/address/0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5) |
+| RedeemQueue (USDC)             | [`0x9e36A74FE278906a76e7615263e46a83fC40c47F`](https://etherscan.io/address/0x9e36A74FE278906a76e7615263e46a83fC40c47F) |
+| SyncRedeemQueue (USDC)         | [`0xE0eee7e956A94BD00546d9CA07e5012F11A5059d`](https://etherscan.io/address/0xE0eee7e956A94BD00546d9CA07e5012F11A5059d) |
+| DepositQueue (USDT)            | [`0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73`](https://etherscan.io/address/0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73) |
+| SyncDepositQueue (USDT)        | [`0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9`](https://etherscan.io/address/0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9) |
+| RedeemQueue (USDT)             | [`0x95092A7a86715246Be6395b8D514B3d60A270Cd3`](https://etherscan.io/address/0x95092A7a86715246Be6395b8D514B3d60A270Cd3) |
+| DepositQueue (USDe)            | [`0xeEc37568b01e0C4d5028501A49E024B475E2D7cA`](https://etherscan.io/address/0xeEc37568b01e0C4d5028501A49E024B475E2D7cA) |
+| Oracle                         | [`0x827044735c9708a2cf850e7Ea37EBa43bc786028`](https://etherscan.io/address/0x827044735c9708a2cf850e7Ea37EBa43bc786028) |
+| Token / ShareManager (earnUSD) | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) |
+| FeeManager                     | [`0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc`](https://etherscan.io/address/0x72fa23f40e08eB9E45953233b2Dd9665E347e8Dc) |
+| RiskManager                    | [`0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4`](https://etherscan.io/address/0x7b1e06C46d4510277FC37a37bBeF65F3794fdDE4) |
+| Subvault 0                     | [`0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd`](https://etherscan.io/address/0x77B9441d5Cb89fca435190A9B6D108ad4B00ccFd) |
+| Verifier 0                     | [`0xB65A8E0937c77a76C3f4F86A1110f81A299CB481`](https://etherscan.io/address/0xB65A8E0937c77a76C3f4F86A1110f81A299CB481) |
+| Subvault 1                     | [`0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242`](https://etherscan.io/address/0xe3e0111e31FA3AEB7A528128F2DbAe1C15397242) |
+| Verifier 1                     | [`0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36`](https://etherscan.io/address/0xBEa44cd2f58f3CC6f37aaeC82A2dee57911d0b36) |
+| Timelock Controller            | [`0xdA6Da82DFF8cD29D828e4775Cc003f504A968845`](https://etherscan.io/address/0xdA6Da82DFF8cD29D828e4775Cc003f504A968845) |
+| OracleSubmitter                | [`0xB105DaEeFEb1390ce49172c99E3e12C607367156`](https://etherscan.io/address/0xB105DaEeFEb1390ce49172c99E3e12C607367156) |
 
 ## earnUSDc – Operational Conservative
 

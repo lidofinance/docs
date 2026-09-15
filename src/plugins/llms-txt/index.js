@@ -9,6 +9,7 @@ module.exports = function llmsTxtPlugin(_context, options) {
     siteDescription = '',
     indexFilename = 'llms.txt',
     fullFilename = 'llms-full.txt',
+    highlights = [],
   } = options || {}
 
   return {
@@ -26,7 +27,7 @@ module.exports = function llmsTxtPlugin(_context, options) {
         return { ...collection, docs }
       })
 
-      const indexBody = renderIndex(sections, siteUrl, siteTitle, siteDescription)
+      const indexBody = renderIndex(sections, siteUrl, siteTitle, siteDescription, highlights)
       const fullBody = renderFull(sections, siteUrl, siteTitle, siteDescription)
 
       fs.writeFileSync(path.join(outDir, indexFilename), indexBody, 'utf8')
@@ -40,13 +41,24 @@ module.exports = function llmsTxtPlugin(_context, options) {
   }
 }
 
-function renderIndex(sections, siteUrl, siteTitle, siteDescription) {
+function renderIndex(sections, siteUrl, siteTitle, siteDescription, highlights = []) {
   const lines = []
   lines.push(`# ${siteTitle}`)
   lines.push('')
   if (siteDescription) {
     for (const line of siteDescription.split('\n')) {
       lines.push(`> ${line}`)
+    }
+    lines.push('')
+  }
+
+  if (highlights.length) {
+    lines.push('## Integration quick start')
+    lines.push('')
+    for (const item of highlights) {
+      const url = item.href.startsWith('/') ? `${siteUrl}${item.href}` : item.href
+      const desc = escapeMarkdown(item.description || '')
+      lines.push(desc ? `- [${item.title}](${url}): ${desc}` : `- [${item.title}](${url})`)
     }
     lines.push('')
   }

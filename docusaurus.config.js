@@ -94,6 +94,38 @@ module.exports = async function createConfigAsync() {
           siteTitle: 'Lido Documentation',
           siteDescription:
             'Documentation for the Lido liquid staking protocol on Ethereum and L2s. Covers protocol contracts, integrations, node operator guides, CSM, stVaults, and the Earn product.',
+          highlights: [
+            {
+              title: 'Lido tokens integration guide',
+              href: '/guides/lido-tokens-integration-guide.md',
+              description: 'stETH, wstETH, LDO, unstETH, and Earn token integration with on-chain verification steps.',
+            },
+            {
+              title: 'earnETH and earnUSD integration guide',
+              href: '/earn/integration-guide.md',
+              description: 'Earn vault-share token identity, valuation, queues, and lifecycle.',
+            },
+            {
+              title: 'AI agents',
+              href: '/integrations/ai-agents.md',
+              description: 'Rules of engagement for AI agents: address resolution, live-state discipline, transaction safety rails.',
+            },
+            {
+              title: 'Deployed contracts',
+              href: '/deployed-contracts.md',
+              description: 'Source of truth for Lido contract and token addresses on all networks.',
+            },
+            {
+              title: 'Lido Earn deployments',
+              href: '/earn/deployment-contracts.md',
+              description: 'Source of truth for Earn Vault, token, queue, oracle, and manager addresses.',
+            },
+            {
+              title: 'Token manifest (tokens.json)',
+              href: '/tokens.json',
+              description: 'Machine-readable token addresses, interface support, quirks, and verification probes.',
+            },
+          ],
           collections: aiArtifactsCollections,
         },
       ],
