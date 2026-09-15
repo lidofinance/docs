@@ -334,10 +334,12 @@ This is a **permissionless operation** — anyone can apply the report.
   <summary>using Command-line Interface</summary>
 
 ```bash
-yarn start report w submit -v <vaultAddress>
+yarn start report w by-vaults-submit <vaultAddress>
 ```
 
 The CLI automatically fetches the latest report CID, retrieves the Merkle tree from IPFS, generates the proof, and submits the transaction.
+
+Use `by-vaults-submit` here rather than `submit`: the `submit` command resolves the stVault's Dashboard first and fails if the owner recorded in VaultHub is an EOA.
 
 </details>
 <details>

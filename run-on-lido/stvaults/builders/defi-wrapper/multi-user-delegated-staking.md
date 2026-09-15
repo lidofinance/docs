@@ -42,7 +42,7 @@ This guide walks through the concepts and practical steps to launch such a produ
 ### 1. Create a tokenized staking vault (pool)
 
 The easiest way to create a tokenized staking vault (pool) is to use the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli).
-It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/Factory.sol) contract.
 
 The CLI performs the deployment in two transactions to stay within the current 16M transaction gas limit.
 
@@ -125,7 +125,7 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 ### 2. Create Web UI
 
-Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
+Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/main/README.md) to:
 
 - Clone the provided repository
 - Use addresses outputted by CLI to fill up `.env`

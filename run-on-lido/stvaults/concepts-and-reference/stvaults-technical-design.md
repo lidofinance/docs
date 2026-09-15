@@ -145,11 +145,11 @@ To control stETH minting, VaultHub tracks these parameters for each stVault:
 
 - **Liability**: The amount of stETH shares minted against the vault (as in, liability towards Lido Core).
 - **Reserve ratio (RR)**: A portion of the vault's total value locked as an additional reserve (safety buffer) for minted stETH (e.g., if reserve ratio is 30%, with a total value of 100 ETH, 30 ETH must be reserved, which means the vault can mint 70 stETH max). The maximum possible reserve ratio is 99.99%.
-- **Force rebalance threshold (FRT)**: When the reserve drops below this threshold, the vault is considered unhealthy and is subject to **force-rebalancing**. FRT must be at least 0.1% lower than RR, e.g. if RR is 30%, FRT must be 29.9% or smaller.
+- **Force rebalance threshold (FRT)**: When the reserve drops below this threshold, the vault is considered unhealthy and is subject to **force-rebalancing**. FRT must be more than 0.1% (10 basis points) lower than RR, e.g. if RR is 30%, FRT must be 29.89% or smaller.
 - **Share limit**: The absolute flat cap on stETH shares that a stVault can mint.
 - **Obligations**: the health obligation, stETH redemption requests, and Lido fees.
 
-If the vault's locked amount breaches FRT, the vault is considered unhealthy and:
+If the vault's reserve falls below FRT — the vault is considered unhealthy and:
 
 - cannot mint stETH
 - cannot withdraw ETH
