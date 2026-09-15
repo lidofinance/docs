@@ -78,7 +78,7 @@ You can check a validator's credentials or state at [beaconcha.in](https://beaco
 
 - A list of source pubkeys of validators that you want to consolidate from.
 - A list of target pubkeys of validators that you want to consolidate to.
-- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. Read it from the vault's connection data, where it is the `owner` field:
+- The [Dashboard](/contracts/dashboard) contract address used to control the stVault. Read it from the stVault's connection data, where it is the `owner` field:
   ```bash
   yarn start contracts v-v r vault-data <vault_address>
   ```

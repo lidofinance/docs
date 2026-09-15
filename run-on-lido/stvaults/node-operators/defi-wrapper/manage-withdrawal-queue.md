@@ -21,7 +21,7 @@ It prints the pool, queue and vault addresses, then the numbers that decide the 
 | Is Report Fresh | whether finalization is possible at all right now |
 | Requests to Finalize | how many requests are waiting |
 | Unfinalized ETH | what those requests will pay out in total |
-| ETH Available for Finalization | what the vault can cover today |
+| ETH Available for Finalization | what the stVault can cover today |
 | **ETH to Withdraw from CL** | the shortfall — how much has to come back from validators |
 | Is Finalization Paused | whether the feature has been paused |
 | Min Withdrawal Delay | how long a request must sit before it can be settled |
@@ -62,7 +62,7 @@ yarn start contracts vault r staged-balance <vaultAddress>
 
 ## Bringing ETH back from validators
 
-When the vault cannot cover the queue, ETH has to come back from the Consensus Layer. Three routes, with different owners:
+When the stVault cannot cover the queue, ETH has to come back from the Consensus Layer. Three routes, with different owners:
 
 ```bash
 # Ask the Node Operator to exit — emits an event, nothing more
@@ -79,7 +79,7 @@ The first is a request, not an action: `requestValidatorExit` emits `ValidatorEx
 
 Both on-chain routes pay the EIP-7002 fee per public key. It is set by the network and rises while the withdrawal queue is congested, so read it with `calculateValidatorWithdrawalFee` and send a surplus; the excess is refunded.
 
-An exit request has to clear the Consensus Layer exit queue and then the sweep before the ETH lands on the vault. Those two dominate the timeline; the queue's own minimum delay is the smallest part of a depositor's wait.
+An exit request has to clear the Consensus Layer exit queue and then the sweep before the ETH lands on the stVault. Those two dominate the timeline; the queue's own minimum delay is the smallest part of a depositor's wait.
 
 See [Validators basics](../basic-stvaults/validators-basics.md) for the full picture of who may do what.
 
@@ -94,7 +94,7 @@ yarn start dw uc wo w finalize-withdrawals <poolAddress>
 | `--max-requests <n>` | 1000 | upper bound on requests settled in one transaction |
 | `--gas-coverage-recipient <address>` | the sender | where the gas cost coverage is paid |
 
-The call walks the queue in order and stops at the first request it cannot settle — it never skips ahead. A run that finalizes fewer requests than expected is normal: the vault ran out of available ETH, the minimum delay has not elapsed, or no oracle report has landed since the request was created. The exact conditions are in [Finalization](../../concepts-and-reference/defi-wrapper-technical-design.md#finalization).
+The call walks the queue in order and stops at the first request it cannot settle — it never skips ahead. A run that finalizes fewer requests than expected is normal: the stVault ran out of available ETH, the minimum delay has not elapsed, or no oracle report has landed since the request was created. The exact conditions are in [Finalization](../../concepts-and-reference/defi-wrapper-technical-design.md#finalization).
 
 If `finalize` reverts outright, the usual causes are a stale report or a paused finalization feature — both visible in `withdrawal-status`.
 

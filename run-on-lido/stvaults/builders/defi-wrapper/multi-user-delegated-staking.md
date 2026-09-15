@@ -53,7 +53,7 @@ To start:
 
 :::info
 
-The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the vault upon connection to Lido `VaultHub`.
+The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the stVault upon connection to Lido `VaultHub`.
 
 The newly created staking vault is automatically connected to Lido `VaultHub` and placed into the default tier. Placement into non-default tiers right upon deployment is not supported.
 
@@ -119,7 +119,7 @@ yarn start defi-wrapper contracts factory w create-pool-stv-steth <DEFI_WRAPPER_
 
 :::warning
 
-The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is expected to be sufficient to absorb enough of the vault's performance volatility to keep users' positions healthy in most cases.
+The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is expected to be sufficient to absorb enough of the stVault's performance volatility to keep users' positions healthy in most cases.
 
 :::
 
@@ -144,7 +144,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `Dashboard.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the vault as an extra argument
+3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the stVault as an extra argument
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
