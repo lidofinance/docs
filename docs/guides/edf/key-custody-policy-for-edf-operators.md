@@ -72,6 +72,10 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
     - **Suspected compromise of the signer’s computer, or coercion.** Within **24 hours**.
     - **Routine device replacement, or a signer who cannot be reached out of hours.** Within **5 business days**.
     
+6. **The cooldown MUST be at least 48 hours.**  
+    
+    The `cooldown` passed to `DelegationFactory.deploy()` MUST be at least **48 hours (172800 seconds)**. The cooldown is the owner's only window to react to a hostile `DelegateNominated`, and it cannot be changed after deployment. The contract does not enforce a minimum, so it is checked at admission: a `DelegationContract` with a shorter cooldown is not accepted for a seat.
+    
 
 ---
 
@@ -97,6 +101,14 @@ Treat the owner setup as a long-lived commitment and get it right before deploym
 4. **Delegate keys MUST be dedicated to their assigned activity.**  
     
     Each hot key MUST be responsible only for the single activity it was assigned to perform (day-to-day protocol operation). It MUST NOT be used for any other purpose.
+
+5. **The delegate MUST be a plain externally owned account.**  
+    
+    The delegate address MUST have empty code for the whole time it is the delegate: no smart contract, no smart-contract wallet, no EIP-7702 delegation designator. The `DelegationContract` checks the delegate's code length to choose between ECDSA recovery and an ERC-1271 call. Code on the delegate therefore changes which signatures the seat accepts, with no event and no change in `getDelegate()`. Operators SHOULD poll the delegate's code and alert when it is not empty (see §7).
+    
+6. **The delegate key MUST never sign an EIP-7702 authorization.**  
+    
+    An EIP-7702 authorization installs code on the delegate account and breaks the rule above. If such an authorization has been signed, treat it as a §6.1 event and revoke the delegate.
 
 
 ---
@@ -230,6 +242,10 @@ Alongside Lido’s protocol-wide monitoring, each operator SHOULD independently 
     - Unexpected `execute()` targets, including EOA destinations
     - Unexpected non-zero `msg.value` forwarded through `execute()`
     - Transactions from the delegate EOA itself
+    - `execute()` emits no events, so the first two checks need trace-level monitoring (internal transactions)
+- **Code on the delegate account**
+    - Poll the code of the delegate address (`eth_getCode` / EXTCODESIZE) and alert when it is not empty
+    - No event marks this change, so polling is the only detector (see §4.5)
 
 ### Emergency contact
 

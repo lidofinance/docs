@@ -6,6 +6,7 @@ Setup instructions for operators (key holders) of a Lido Oracle seat or a DSM gu
 
 - [LIP-37: Execution Delegation Framework](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md) — the proposal
 - [execution-delegation-framework](https://github.com/lidofinance/execution-delegation-framework) — the contracts, [architecture](https://github.com/lidofinance/execution-delegation-framework/blob/main/docs/architecture.md), [usage guide](https://github.com/lidofinance/execution-delegation-framework/blob/main/docs/usage.md)
+- [DelegationFactory](/contracts/delegation-factory) and [DelegationContract](/contracts/delegation-contract) — the contract reference
 - [EDF Operator Key Custody Policy](./key-custody-policy-for-edf-operators.md) — the rules you must follow
 - [EDF Rotation and Incidents](./edf-rotation-and-incidents.md) — what to do after the setup
 
@@ -43,7 +44,7 @@ Read the [Key Custody Policy](./key-custody-policy-for-edf-operators.md) before 
 anything. Two of its values are irreversible:
 
 - the **owner address** — your multisig (step 0.2);
-- the **cooldown** — **48 hours = `172800` seconds**.
+- the **cooldown** — **48 hours = `172800` seconds**, the policy minimum.
 
 ### 0.2. Prepare the owner multisig
 
@@ -177,7 +178,13 @@ Route these to a phone.
 
 - `execute()` calls to targets your daemon never calls, or to an EOA;
 - non-zero `msg.value` forwarded through `execute()`;
-- direct transactions from the delegate EOA that your daemon did not send.
+- direct transactions from the delegate EOA that your daemon did not send;
+- non-empty code on the delegate EOA (poll `eth_getCode`; see
+  [section 4 of the custody policy](./key-custody-policy-for-edf-operators.md#4-delegate-hot-key-custody)).
+
+`execute()` emits no events, so the first two alerts need trace-level monitoring: internal
+transactions from a `trace_` / `debug_` RPC, or the **Internal Transactions** tab of your
+`DelegationContract` on Etherscan.
 
 ### 1.5. Publish your addresses
 
@@ -209,6 +216,19 @@ true yet, finish that step first.
 
 ---
 
+## Minimum software versions
+
+Run these versions or newer. Older releases do not support EDF.
+
+| Component | Minimum version |
+| --- | --- |
+| [lido-oracle](https://github.com/lidofinance/lido-oracle/releases) | 8.1.0 |
+| [lido-council-daemon](https://github.com/lidofinance/lido-council-daemon/releases) | 4.1.2 |
+| [depositor-bot](https://github.com/lidofinance/depositor-bot/releases) | 5.7.0 |
+| [validator-ejector](https://github.com/lidofinance/validator-ejector/releases) | 2.2.0 |
+
+---
+
 ## Part 2 — Configure the Lido Oracle
 
 > Follow **Part 2** if you run the Lido Oracle, **Part 3** if you run the Council daemon.
@@ -229,9 +249,9 @@ true yet, finish that step first.
    MEMBER_PRIV_KEY_2=0xnewdelegatekey  # new - takes over after the vote
    ```
 
-2. **Fund the delegate EOA.** Send 50% of the current balance of your old member EOA to the new
-   delegate EOA (the address returned by `getDelegate()`). Both keys must be able to pay for gas: the
-   old one until the vote, the new one after it.
+2. **Fund the delegate EOA (required).** Send 50% of the current balance of your
+   old member EOA to the new delegate EOA (the address returned by `getDelegate()`). Both keys must
+   be able to pay for gas: the old one until the vote, the new one after it.
 
 3. **Restart the oracle.**
 
@@ -243,7 +263,12 @@ At startup:
 - `Delegation contract is a member, but its current delegate matches none of the configured
   accounts.` — fix the config.
 - `None of the configured accounts is an active member.` — fix the config.
-- `Provided Account is not part of Oracle's members and has no submit role.` — fix the config.
+- `Reporting address is not a HashConsensus member and has no submit role at this block. The member
+  list probably changed since the signer was resolved; it will be re-resolved on the next cycle.` —
+  fix the config.
+
+The oracle does not stop on these errors: it runs in dry mode and re-checks the config every
+cycle, so no restart is needed after the fix.
 
 ### 2.3. Report your oracle setup in the operators' chat
 
@@ -296,7 +321,7 @@ unset or wrong — fix the config.
 
    | Variable | Value |
    | --- | --- |
-   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. Config validation **fails at startup** if it is empty or not a valid address — even while the DSM is still on v4. |
+   | `DELEGATION_CONTRACT_ADDRESS` | Your `DelegationContract` address. Required. On DSM v4 an **empty value is not rejected at startup**, so check for `EDF preflight passed` in the logs (step 3.2). |
    | `WALLET_PRIVATE_KEY` / `WALLET_PRIVATE_KEY_FILE` | **The old key** — your existing guardian EOA. Used while the DSM is on v4. |
    | `WALLET_PRIVATE_KEY_2` / `WALLET_PRIVATE_KEY_2_FILE` | **The new key** — the delegate of your `DelegationContract`. |
 
@@ -306,10 +331,10 @@ unset or wrong — fix the config.
    WALLET_PRIVATE_KEY_2=0xnewdelegatekey   # new - takes over at DSM v5
    ```
 
-2. **Fund the delegate EOA.** Send 50% of the current balance of your old guardian EOA to the new
-   delegate EOA (the address returned by `getDelegate()`). Both keys must be able to pay for gas: the
-   old one until DSM v5, the new one after it. Do the same on the DataBus chain (Gnosis): the delegate
-   EOA needs xDAI there to send Data Bus messages. 
+2. **Fund the delegate EOA (required).** Send 50% of the current balance of your
+   old guardian EOA to the new delegate EOA (the address returned by `getDelegate()`). Both keys must
+   be able to pay for gas: the old one until DSM v5, the new one after it. Do the same on the DataBus
+   chain (Gnosis): the delegate EOA needs xDAI there to send Data Bus messages.
 
 3. **Restart the daemon.**
 
@@ -325,11 +350,22 @@ Guardian execution mode: edf
   dsmVersion: 5
 ```
 
+On DSM v4 the daemon runs in `legacy-eoa` mode and checks the EDF config once at startup:
+
+- `EDF preflight passed` — the contract is found, not terminated, and its delegate matches one of
+  the configured keys.
+- `EDF setup is not ready` with a `reason` field — fix the config. The daemon keeps running on DSM
+  v4 anyway.
+
+This is the only check on DSM v4. A daemon with a wrong EDF config does not crash when the DSM
+switches to v5: it logs `Guardian cycle processing error` every cycle and signs nothing. A restart
+then exits with code 1 and one of the errors below.
+
 Errors you may hit, and what they mean:
 
 | Error | Meaning |
 | --- | --- |
-| `DELEGATION_CONTRACT_ADDRESS is required for DSM version 5` | Variable not set. |
+| `DELEGATION_CONTRACT_ADDRESS is required for DSM version 5` | Variable not set, and the DSM is on v5. |
 | `No contract code at DELEGATION_CONTRACT_ADDRESS 0x…` | Wrong address, or wrong network. |
 | `DelegationContract 0x… is terminated` | Someone called `terminate()`. The seat is permanently dead. |
 | `DelegationContract 0x… has no active delegate` | The delegate was revoked, or never set. Expected right after an emergency revocation. |
