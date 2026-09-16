@@ -149,7 +149,7 @@ To control stETH minting, VaultHub tracks these parameters for each stVault:
 - **Share limit**: The absolute flat cap on stETH shares that a stVault can mint.
 - **Obligations**: the health obligation, stETH redemption requests, and Lido fees.
 
-If the vault's reserve falls below FRT — the vault is considered unhealthy and:
+If the vault's reserve falls below FRT, the vault is considered unhealthy and:
 
 - cannot mint stETH
 - cannot withdraw ETH
