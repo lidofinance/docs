@@ -11,8 +11,6 @@ sidebar_label: DeFi Wrapper Technical Design
 
 The DeFi Wrapper turns a single [stVault](./stvaults-technical-design.md) into a multi-user product. An stVault on its own has one owner; the Wrapper puts a tokenized pool in front of it, so many depositors can share one vault, hold a transferable claim on it, mint stETH against their own share, and route that stETH into a DeFi strategy — without any of them holding vault permissions.
 
-Everything is deployed from a factory in two transactions and handed to a timelock. The Vault Owner keeps the levers that matter for safety (pause, upgrade) and gives up the ones that would let them touch user funds.
-
 ## 2. Design
 
 ### 2.1 Goals
@@ -342,7 +340,7 @@ function claim(address _recipient, address _token, uint256 _cumulativeAmount, by
 
 Accounting is cumulative: the leaf commits to a total, and a claim transfers the difference against what that recipient already took. A root can be set at most once per block and must actually change.
 
-`claim` is **permissionless** — anyone may submit a proof on someone's behalf, and the tokens always go to the recipient named in the leaf. It works from the DeFi Wrapper widget or the CLI; for strategy pools the leaf names the user's forwarder rather than the user, so the widget claims and then calls `safeTransferERC20` on the strategy to pass the tokens on, in one batch.
+`claim` is **permissionless** — anyone may submit a proof on someone's behalf, and the tokens always go to the recipient named in the leaf. For strategy pools that recipient is the user's forwarder rather than the user, so the tokens reach the user only after `safeTransferERC20` on the strategy.
 
 #### How a distribution is built
 
@@ -399,7 +397,9 @@ Pausing is per feature, not per contract, so an incident can be contained withou
 The pause roles go to the emergency committee at deployment; the Dashboard's `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` goes there too, so the same committee can stop validator deposits.
 
 :::warning
-**No address holds the resume roles after deployment.** Every implementation constructor pre-pauses its features, and the factory grants only the pause halves. `DEPOSITS_RESUME_ROLE`, `MINTING_RESUME_ROLE`, `WITHDRAWALS_RESUME_ROLE`, `FINALIZE_RESUME_ROLE`, the strategy resume roles and `LOSS_SOCIALIZER_ROLE` are unassigned.
+**No address holds the resume roles after deployment.** The factory grants only the pause halves: `DEPOSITS_RESUME_ROLE`, `MINTING_RESUME_ROLE`, `WITHDRAWALS_RESUME_ROLE`, `FINALIZE_RESUME_ROLE`, the strategy resume roles and `LOSS_SOCIALIZER_ROLE` are unassigned.
+
+A pool goes live unpaused.
 
 Pausing is therefore fast and unpausing is not: resuming means granting the resume role and then using it, neither of which any address can do on its own. Both calls fit in one `scheduleBatch` operation, so the cost is a single timelock delay rather than two — plan that delay into any incident response.
 :::
@@ -466,6 +466,8 @@ sequenceDiagram
     S ->> F: doCall(queue, deposit(amount))
     F ->> E: wstETH
 ```
+
+The two halves are independent. ETH and the wstETH amount are separate arguments, each with its own condition, so one entry point covers a fresh deposit, a position built from stv the forwarder already holds, or both at once.
 
 The wstETH lands on the forwarder because minting always credits the caller: `StvStETHPool.mintWsteth` passes `msg.sender` down to `Dashboard.mintWstETH`, and the call was made by the forwarder. The same is true of the debt and of the capacity it is checked against — the position belongs to the forwarder throughout, which is why `remainingMintingCapacitySharesOf(user, ethToFund)` on the strategy resolves it for you.
 
@@ -615,6 +617,13 @@ Everything that applies to a plain stVault applies to the pool's vault as well �
 **External protocol failure or malicious upgrade** — bounded by working only in the wstETH and (W)ETH pair, LTV sanity checks, and per-user custody, which keeps one user's position from touching another's.
 
 **Strategy economics.** An adapter built on leverage — none of the shipped ones are — carries liquidation risk if the stETH/ETH ratio moves, the risk that pool liquidity is insufficient to close a position, and exposure to rising borrow rates. These come with leverage itself rather than being faults in the design, and a user accepts them when choosing such a strategy.
+
+### 5.6 From the Vault Owner
+
+**The timelock can move depositor ETH.** `Dashboard.withdraw(recipient, amount)` is guarded by `onlyRoleMemberOrAdmin(WITHDRAW_ROLE)`, which passes for the holder of that role **or** of its admin.
+`WITHDRAW_ROLE` has no custom admin, so its admin is `DEFAULT_ADMIN_ROLE`, and the factory grants that to the timelock. A scheduled operation can therefore send up to `withdrawableValue()` to any address: everything not locked as collateral for minted stETH.
+
+This is the vault ownership model rather than a flaw in the Wrapper — an stVault has an owner, and the Wrapper pools depositors behind that owner. What bounds it is who holds the proposer and executor roles, which is why [Non-custodial operations](../vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/non-custodial-operations.md) matters for anyone choosing a pool. The delay itself is not an exit window: it is an hour in the shipped configurations, while leaving through the withdrawal queue takes days.
 
 ## 6. Useful links
 

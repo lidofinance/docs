@@ -261,7 +261,7 @@ The reserve ratio ensures that stETH minted by a vault is overcollateralized. Wh
 Bad debt is resolved through an escalation path:
 
 1. **Vault replenishment**: Voluntary deposit of additional funds to cover the debt
-2. **Bad debt socialization**: DAO-initiated shifting of uncovered liability to other vaults operated by the same node operator. The accepting vault must have sufficient capacity to absorb the extra liability without breaching its own health threshold. This keeps the operator responsible for all their vaults rather than isolating losses
+2. **Bad debt socialization**: DAO-initiated shifting of uncovered liability to other vaults operated by the same node operator. The amount is capped so that the acceptor's total value still covers its own liability. That can leave the acceptor unhealthy, but never in bad debt itself. This keeps the operator responsible for all their vaults rather than isolating losses
 3. **Self-coverage application**: DAO-initiated coverage application mechanisms, e.g. applying a dedicated reserve fund
 4. **Bad debt internalization**: As a last resort, Lido DAO is able to write off the vault's remaining bad debt and accept losses to the protocol by decreasing stETH token rebase.
 
@@ -278,7 +278,7 @@ Each vault operation that relies on the accuracy of the vault's total value is g
 - withdraw ETH from the vault,
 - mint stETH against the vault,
 - rebalance the vault,
-- deposit to beacon chain, or
+- resume beacon-chain deposits once they were paused, or
 - disconnect from the VaultHub.
 
 Staleness therefore seals the vault in a conservative state until a fresh report is submitted, ensuring that collateral calculations never proceed on outdated data.
@@ -333,7 +333,7 @@ Diagram. An example group with a 100k limit and three tiers
 
 #### Tier change flow
 
-A tier change is performed via a multi-confirmed action (see Dashboard, Multi-confirmation): both the vault owner and the corresponding node operator must independently submit matching tier changes within a set timeframe of each other but regardless of order. Each confirmation is stored on-chain, expires automatically if not completed in time, and can be resubmitted without side effects. Once the second transaction arrives, the contract reallocates the vault’s liability from the old tier to the new one, updates the group and tier share counters, and—if the vault is already connected—pushes the new mint parameters straight to VaultHub.
+A tier change is performed via a multi-confirmed action (see Dashboard, Multi-confirmation): both the vault owner and the corresponding node operator must independently submit matching tier changes within a set timeframe of each other but regardless of order. Each confirmation is stored on-chain, expires automatically if not completed in time, and can be resubmitted without side effects. The node operator may pre-confirm a change for a vault that is not connected yet, but the owner's side only goes through for a connected vault. Once the second transaction arrives, the contract reallocates the vault’s liability from the old tier to the new one, updates the group and tier share counters, and pushes the new mint parameters straight to VaultHub.
 
 #### Lido fees
 
@@ -346,14 +346,14 @@ A vault can have individual parameters different from its tier:
 - Share limit: the vault owner and node operator can jointly adjust the vault's share limit independently of the tier's share limit (but not exceeding),
 - Lido fees: the DAO can update individual vault fees (infrastructure, liquidity, reservation) to differ from tier rates.
 
-These parameters can be restored by mutual confirmation from both the owner and the node operator via the sync tier method.
+Syncing a vault back to its tier restores the tier's reserve ratio, forced rebalance threshold and fees, but leaves the vault's own share limit in place.
 
 #### Jail
 
 OperatorGrid can **jail** a vault as a protective measure. The main purpose of the jailing mechanism is to prevent further minting of a problematic vault.
 
 - While jailed, a vault **cannot mint** new stETH shares.
-- Jailing **does not** affect burning or other administrative operations;
+- Jailing **does not** affect burning or settling obligations; it does block partial validator withdrawals, leaving only full exits;
 - Jailing can be **set or cleared** by DAO.
 - Unjailing restores normal minting subject to the usual tier and group limits.
 
@@ -408,7 +408,7 @@ _Diagram. Proven validator deposit flow_
 - On connection, VaultHub enforces all predeposits in the vault have sufficient staged balance on the vault.
 - StakingVaults support [Pectra's EIP-7251](https://eips.ethereum.org/EIPS/eip-7251), so predeposit + activation flows work for both 32 ETH and multi-ETH (up to 2048) validators.
 - Most steps in PDG can be batched, including a fast path that proves, activates, and tops up multiple validators in a single call.
-- A node operator can attach their PDG balance during predeposit.
+- A node operator that acts as its own guarantor can top up the PDG guarantee balance with ether attached to the predeposit transaction, in multiples of 1 ETH.
 - As soon as a validator predeposit is sent, it appears in the beacon deposit queue. Proof of withdrawal credentials can only be generated once the validator is finalized in consensus state.
 :::
 
@@ -518,7 +518,7 @@ The fee is disbursed permissionlessly (with an exception for abnormally high fee
 3. Updates **settled growth** to the current growth (so the same amount won’t be charged again),
 4. Pays the fee to the configured recipient from the vault’s available balance.
 
-On a voluntary disconnect, the fee is disbursed automatically first, then disconnect proceeds.
+On a voluntary disconnect the accrued fee is collected, but it is parked on the Dashboard as `feeLeftover` rather than sent: the recipient claims it afterwards with `recoverFeeLeftover()`.
 
 ##### Abnormally high fee
 
@@ -536,7 +536,7 @@ Changing the fee rate requires dual confirmation (admin + node-operator manager)
 
 - The latest report must be fresh (so accounting is up to date),
 - Any recent exemptions/corrections to settled growth must have been recorded _before_ that report (prevents retroactive charging),
-- The vault must not be under quarantine (ensures that reported total value is not reduced and fully reflects any exemptions).
+- Outstanding fees are disbursed at the old rate before the new one takes effect.
 
 #### PDG policy
 
@@ -581,7 +581,7 @@ Other scenarios—such as validator consolidation or direct deposits made to the
    - Can be done in batches.
    - Uses `0x02` withdrawal credentials pointing to the vault's address.
    - Does not change `totalValue`.
-   - Reverts if `locked > totalValue`.
+   - Reverts if the vault's available balance (its balance less the staged balance) is short of the deposit amount, and is blocked entirely while beacon-chain deposits are paused, which VaultHub enforces for as long as the vault carries outstanding obligations.
 
 3. **Receiving EL and CL validation rewards**
 
@@ -590,13 +590,13 @@ Other scenarios—such as validator consolidation or direct deposits made to the
 
 4. **Exiting Validators**
 
-   - The _vault owner_ can call `requestValidatorExits()` to ask for a voluntary exit.
-   - The _node operator_, _vault owner_, or `VaultHub` (under extreme conditions) can call `triggerValidatorWithdrawal()` to perform [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) "triggerable withdrawal".
+   - The _vault owner_ can call `requestValidatorExit()` to ask for a voluntary exit.
+   - The _vault owner_ can call `triggerValidatorWithdrawals()` to perform an [EIP-7002](https://eips.ethereum.org/EIPS/eip-7002) "triggerable withdrawal"; the _node operator_ has its own entry point, `ejectValidators()`, which triggers full exits only; and `VaultHub.forceValidatorExit()` does the same under extreme conditions.
    - Once exited, the validator's balance is transferred to the vault.
-   - Partial withdrawals may be requested only when the vault is healthy.
+   - Partial withdrawals are rejected while the vault is jailed or while its obligations exceed its balance; full exits are always available.
 
 5. **Withdrawing**
-   - The _vault owner_ calls `withdraw()` on VaultHub to take out any amount of **unlocked** ETH (i.e., `totalValue - locked`) from the vault's balance.
+   - The _vault owner_ calls `withdraw()` on VaultHub to take out **unlocked** ETH (i.e., `totalValue - locked`) from the vault's balance, less anything set aside for redemptions and unsettled Lido fees.
    - Exiting validators or partial withdrawals are necessary to withdraw staked ETH.
 
 #### Accessing stETH
@@ -605,7 +605,7 @@ Other scenarios—such as validator consolidation or direct deposits made to the
 
 ![Minting flow](/img/stvaults/tech-design/minting-flow.png)
 
-- The _vault owner_ calls `mint()` on the `VaultHub` to mint stETH up to the amount coverable by the locked ether (including RR).
+- The _vault owner_ calls `mintShares()` on the `VaultHub` to mint stETH up to the amount coverable by the locked ether (including RR).
 - Increases the vault's `liabilityShares`.
 - The minting capacity is limited by current `totalValue`, `liabilityShares`, `shareLimit`, and `reserveRatio`.
 
@@ -617,7 +617,7 @@ Minting against a stVault is subject to the protocol-wide minting [rate limits](
 
 ![Burning flow](/img/stvaults/tech-design/burning-flow.png)
 
-- The _vault owner_ calls `burn()` on the `VaultHub` to burn stETH on behalf of the vault.
+- The _vault owner_ calls `burnShares()` on the `VaultHub` to burn stETH on behalf of the vault.
 - Decreases the vault's `liabilityShares`.
 - The `locked` amount gets reduced with the next proven update.
 
