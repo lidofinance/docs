@@ -581,7 +581,7 @@ Other scenarios—such as validator consolidation or direct deposits made to the
    - Can be done in batches.
    - Uses `0x02` withdrawal credentials pointing to the vault's address.
    - Does not change `totalValue`.
-   - Reverts if the vault's available balance (its balance less the staged balance) is short of the deposit amount, and is blocked entirely while beacon-chain deposits are paused, which VaultHub enforces for as long as the vault carries outstanding obligations.
+   - Reverts if the vault's available balance (its balance less the staged balance) is short of the deposit amount, and is blocked entirely while beacon-chain deposits are paused.
 
 3. **Receiving EL and CL validation rewards**
 

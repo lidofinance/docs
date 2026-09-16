@@ -319,14 +319,14 @@ EarnETH strategy talks to a Mellow vault through three queues: a synchronous dep
 
 **Entering** picks a path with `MellowSupplyParams{isSync, merkleProof}`. The proof is Mellow's whitelist check, run against the user's forwarder — without it the supply is refused. The two paths differ in cost as much as in timing:
 
-- **Synchronous** settles in the same transaction, and costs more for it: the price is cut by the queue's penalty and then by the stVault's deposit fee. It also only works while Mellow's price report is younger than the queue's `maxAge`.
+- **Synchronous** settles in the same transaction, and costs more for it: the price is cut by the queue's penalty and then by the Mellow vault's deposit fee. It also only works while Mellow's price report is younger than the queue's `maxAge`.
 - **Asynchronous** records a request the user collects later with `claimShares()`, paying the deposit fee but no penalty. Only one request may be outstanding at a time — supplying again before claiming is rejected.
 
 Either path is simulated by `previewSupply` first, and `supply` reverts with `SupplyFailed()` if that simulation fails: a paused queue, a stale or suspicious price, a missing whitelist entry all stop the deposit before any ETH moves.
 
 **Leaving is always asynchronous.** `requestExitByWsteth` places a `redeem` on the redeem queue, and the position is collected later with `finalizeRequestExit(requestId)`. The request id is `bytes32(block.timestamp)`, so a user's exits made in the same block merge into one underlying request: expect more than one event carrying that id, and a single finalize settling the lot.
 
-The constructor validates the queues against the stVault before anything is deployed — each must belong to that vault, be of the right kind, and hold wstETH as its asset, with the synchronous one additionally named `SyncDepositQueue`. It also requires that the strategy itself has no pre-existing deposit or redeem request. A mismatch reverts with `InvalidQueue`, so an adapter cannot be pointed at a Mellow vault it does not fit.
+The constructor validates the queues against the Mellow vault before anything is deployed — each must belong to that vault, be of the right kind, and hold wstETH as its asset, with the synchronous one additionally named `SyncDepositQueue`. It also requires that the strategy itself has no pre-existing deposit or redeem request. A mismatch reverts with `InvalidQueue`, so an adapter cannot be pointed at a Mellow vault it does not fit.
 
 ### 3.6 Distributor
 
@@ -344,19 +344,19 @@ Accounting is cumulative: the leaf commits to a total, and a claim transfers the
 
 #### How a distribution is built
 
-The tree is assembled off-chain and published to IPFS — the contract stores only the root, the CID and `lastProcessedBlock`. Each leaf is `(recipient, token, cumulativeAmount)`, and a recipient's share of the newly arrived tokens is their stv balance over the effective supply, after the operator's cut:
+The tree is assembled off-chain and published to IPFS — the contract stores only the root, the CID and `lastProcessedBlock`. Each leaf is `(recipient, token, cumulativeAmount)`. How a recipient's share is computed depends on the mode the tree was built in: `integral`, the default, weights each holder by how long they held, while `snapshot` uses balances at the chosen block, after the operator's cut:
 
 ```
 distributable = balance now − (balance at the previous root − claimed since)
-share         = balanceOf(user) / (totalSupply − balanceOf(pool))
+share         = balanceOf(user) / (totalSupply − balanceOf(pool))    // snapshot mode
 ```
 
 The pool's own stv, minted against the connect deposit, is excluded from the supply. `MANAGER_ROLE` — the Node Operator Manager by default — pushes the root. There is no schedule: a root can be submitted at any time, at most once per block, and has to differ from the current one.
 
 :::warning
-The share is a **snapshot taken when the tree is built**, not a time-weighted average, and only the current root can be proven against. Two consequences:
+Only the current root can be proven against. Two consequences:
 
-- a depositor who exits before claiming loses what they had accrued — the next tree omits their leaf, and the root it replaces is no longer accepted;
+- under `snapshot`, a depositor who exits before the tree is built loses what they had accrued — the next tree omits their leaf, and the root it replaces is no longer accepted;
 - recipients are discovered from `Deposit` events, so an account that received stv by transfer never enters the tree.
 :::
 
