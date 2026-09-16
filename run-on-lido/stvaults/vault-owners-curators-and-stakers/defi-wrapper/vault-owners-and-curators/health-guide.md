@@ -56,5 +56,5 @@ The amount of ETH required for rebalancing to bring the Utilization Ratio to 100
       3. Open the **Contract** tab → **Read as Proxy**.
       4. Click **Connect to Web3** and connect your wallet in the dialog window.
       5. Find the method `healthShortfallShares` in the list, fill out the input with the `vault` contract address, and click **Query**.
-      6. Receive the result right under the submit button.
+      6. Receive the result right under the submit button. It is denominated in stETH shares, not ETH.
 </details>

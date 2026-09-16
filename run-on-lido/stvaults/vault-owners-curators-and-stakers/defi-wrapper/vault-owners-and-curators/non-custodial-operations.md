@@ -40,7 +40,7 @@ These roles must never be held directly by a single operational multisig, since 
 | `DEFAULT_ADMIN_ROLE` (Vault Owner) | Can grant or remove any role, including its own, and confirms transfer of StakingVault ownership. |
 | `WITHDRAW_ROLE` | Withdraws ETH directly from the stVault balance. |
 | `MINT_ROLE` | Mints stETH from the stVault, creating leveraged exposure on behalf of the owner. |
-| `VOLUNTARY_DISCONNECT_ROLE` | Disconnects the stVault from VaultHub — an irreversible structural action, not a routine operational one. |
+| `VOLUNTARY_DISCONNECT_ROLE` | Disconnects the stVault from VaultHub — a structural action, not a routine operational one. |
 | `COLLECT_VAULT_ERC20_ROLE` | Recovers ERC20 tokens sent to the stVault, including incentive tokens that may belong to stakers rather than the operator. |
 
 ### Operational roles
@@ -52,7 +52,7 @@ These roles support day-to-day management and do not, on their own, allow custod
 | `FUND_ROLE` | Supplies ETH to the stVault; cannot cause harm. |
 | `BURN_ROLE` | Repays previously minted stETH; only reduces risk exposure. |
 | `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` / `RESUME_BEACON_CHAIN_DEPOSITS_ROLE` | Reversible, does not move capital. |
-| `REQUEST_VALIDATOR_EXIT_ROLE` | Initiates a validator exit; returned ETH stays on the stVault balance. |
+| `REQUEST_VALIDATOR_EXIT_ROLE` | Requests a validator exit; returned ETH stays on the stVault balance. |
 | `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` | Forces a full or partial validator withdrawal; funds return to the stVault balance. |
 
 ### Discretionary roles

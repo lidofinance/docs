@@ -21,7 +21,7 @@ There are **three ways to restore stVault Health**:
 
 ## Definitions
 
-- **Reserve Ratio (RR)** limits minting — this means that users will be able to mint up to 90% of stETH out of ETH they put into the stVault. However, falling below RR doesn't force an immediate correction.
+- **Reserve Ratio (RR)** limits minting — this means that users will be able to mint up to (100% − RR) of stETH out of ETH they put into the stVault. However, falling below RR doesn't force an immediate correction.
 - **Force Rebalance Threshold (FRT)** defines when forced rebalancing is *allowed to* happen. A rebalancing may happen to improve the stVault's health and prevent stVault insolvency. It is always lower than RR: FRT < RR (e.g., 9% if RR = 10%).
 - **Health Factor (HF)** is a metric calculated using the following formula: Health Factor = Total Value × (1 − FRT) / Minted stETH
     

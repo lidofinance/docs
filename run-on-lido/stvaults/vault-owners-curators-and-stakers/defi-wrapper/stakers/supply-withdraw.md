@@ -8,7 +8,7 @@ How to put ETH into a DeFi Wrapper pool and get it back out, through the Web UI 
 
 ## What a depositor holds
 
-Depositing ETH into a pool mints **stv**, an ERC-20 claim on the pool's share of the underlying stVault. It is transferable, and it grows in value as the stVault earns — nothing is ever distributed to holders, the token just becomes worth more ETH.
+Depositing ETH into a pool mints **stv**, an ERC-20 claim on the pool's share of the underlying stVault. It is transferable, and it grows in value as the stVault earns — the yield is never paid out, the token just becomes worth more ETH.
 
 $$
 \text{assets} = \text{stv}_{\text{account}} \times \frac{\text{totalAssets}}{\text{totalSupply}}
@@ -144,8 +144,8 @@ The `owner` you pass at request time is the only address that can later claim. `
 <details>
   <summary>using Etherscan UI</summary>
 
-1. Open **Etherscan** and navigate to the **pool** contract, then approve the Withdrawal Queue to spend your stv.
-2. Navigate to the **WithdrawalQueue** contract and call `requestWithdrawal`, passing the owner, the stv amount and the stETH shares to settle (`0` if none).
+1. Open **Etherscan** and navigate to the **WithdrawalQueue** contract — no stv approval is needed.
+2. Call `requestWithdrawal`, passing the owner, the stv amount and the stETH shares to settle (`0` if none).
 3. Once the request is finalized, call `claimWithdrawal`, passing the recipient and the request id.
 
 Check `getWithdrawalStatus` for a request's state, and `getClaimableEther` for what it will pay.

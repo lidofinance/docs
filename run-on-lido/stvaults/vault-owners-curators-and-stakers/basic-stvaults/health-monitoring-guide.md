@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Definitions
 
-- **Reserve Ratio (RR)** limits minting — this means that users will be able to mint up to 90% of stETH out of ETH they put into the stVault. However, falling below RR doesn't force an immediate correction.
+- **Reserve Ratio (RR)** limits minting — this means that users will be able to mint up to (100% − RR) of stETH out of ETH they put into the stVault. However, falling below RR doesn't force an immediate correction.
 - **Utilization Ratio (UR)** is a metric that shows how much stETH is minted out of Total stETH Minting Capacity: Utilization Ratio = (stETH Liability / Total stETH Minting Capacity) × 100%
 
 ## TLDR

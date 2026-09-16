@@ -69,7 +69,7 @@ Each factory decides what `deployBytes` means. `MellowStrategyFactory` decodes i
 The strategy proxy's admin is the Timelock Controller, so the upgrade is an ordinary proposal: propose, wait out the delay, execute with the **same salt**. Generate a fresh 32-byte salt for this operation rather than reusing one from an earlier proposal:
 
 ```bash
-openssl rand -hex 32
+echo 0x$(openssl rand -hex 32)
 ```
 
 Confirm the admin:
