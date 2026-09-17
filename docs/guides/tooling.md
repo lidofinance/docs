@@ -24,11 +24,11 @@ Oracle daemon for Lido decentralized staking service.
 
 Daemon service which loads LidoOracle events for validator exits and sends out exit messages when necessary.
 
-- **Version**: 2.2.0
-- **Docker image**: sha256:119841189487da4e049270abf6ed01b82a42c739878894528d4fefb600a471f5, [lidofinance/validator-ejector@sha256-119841189487da4e049270abf6ed01b82a42c739878894528d4fefb600a471f5](https://hub.docker.com/layers/lidofinance/validator-ejector/2.2.0/images/sha256-119841189487da4e049270abf6ed01b82a42c739878894528d4fefb600a471f5)
-- **Commit hash**: [lidofinance/validator-ejector@debecf4](https://github.com/lidofinance/validator-ejector/commit/debecf42ac9f5ce7ccbd415274c8ef40f884b124)
-- **Last update date**: 21 August, 2026
-- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/2.2.0)
+- **Version**: 2.2.1
+- **Docker image**: sha256:f75ddc40df52999d018722d80d679b0880bf9b690b8b820b5a1e9c82699fc417, [lidofinance/validator-ejector@sha256-f75ddc40df52999d018722d80d679b0880bf9b690b8b820b5a1e9c82699fc417](https://hub.docker.com/layers/lidofinance/validator-ejector/2.2.1/images/sha256-f75ddc40df52999d018722d80d679b0880bf9b690b8b820b5a1e9c82699fc417)
+- **Commit hash**: [lidofinance/validator-ejector@dd9e0fc](https://github.com/lidofinance/validator-ejector/commit/dd9e0fc4a4592f514a0b7e9bfe0786e02fd03c48)
+- **Last update date**: 15 September, 2026
+- [**Repository**](https://github.com/lidofinance/validator-ejector/tree/2.2.1)
 - [**Documentation**](/guides/validator-ejector-guide)
 
 ## Council daemon
