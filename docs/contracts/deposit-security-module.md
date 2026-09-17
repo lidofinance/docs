@@ -2,6 +2,7 @@
 
 - [Source Code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.9/DepositSecurityModule.sol)
 - [Deployed Contract](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] [Deployed Contract (DSM v5)](https://etherscan.io/address/0x39BB5d491e98A44D1bfe8047A737a81E296a63E0)
 
 Due to front-running vulnerability, Lido contributors [proposed](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-5.md) to establish the Deposit Security Committee dedicated to ensuring the safety of deposits on the Beacon chain:
 

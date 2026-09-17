@@ -12,6 +12,10 @@ const redirects = [
     from: '/guides/steth-integration-guide',
   },
   {
+    to: '/run-on-lido/stvaults/concepts-and-reference/lido-v3-whitepaper',
+    from: '/lido-v3-whitepaper',
+  },
+  {
     to: '/token-guides/cross-chain-tokens-guide',
     from: '/token-guides/wsteth-bridging-guide',
   },
@@ -20,40 +24,117 @@ const redirects = [
     from: '/guides/stvaults/',
   },
   {
-    to: '/run-on-lido/stvaults/tech-documentation/pdg',
-    from: ['/guides/stvaults/pdg', '/run-on-lido/stvaults/pdg'],
+    to: '/run-on-lido/stvaults/node-operators/basic-stvaults/pdg',
+    from: [
+      '/guides/stvaults/pdg',
+      '/run-on-lido/stvaults/pdg',
+      '/run-on-lido/stvaults/tech-documentation/pdg',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
-    from: '/run-on-lido/stvaults/health-monitoring-guide',
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide',
+    from: [
+      '/run-on-lido/stvaults/health-monitoring-guide',
+      '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/operational-and-management-guides/health-emergency-guide',
-    from: '/run-on-lido/stvaults/health-emergency-guide',
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide',
+    from: [
+      '/run-on-lido/stvaults/health-emergency-guide',
+      '/run-on-lido/stvaults/operational-and-management-guides/health-emergency-guide',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/operational-and-management-guides/node-operators-identification',
-    from: '/run-on-lido/stvaults/node-operators-identification',
+    to: '/run-on-lido/stvaults/node-operators/basic-stvaults/node-operator-identification-guide',
+    from: [
+      '/run-on-lido/stvaults/node-operators-identification',
+      '/run-on-lido/stvaults/operational-and-management-guides/node-operators-identification',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions',
-    from: '/run-on-lido/stvaults/roles-and-permissions',
+    to: '/run-on-lido/stvaults/concepts-and-reference/roles-and-permissions',
+    from: [
+      '/run-on-lido/stvaults/roles-and-permissions',
+      '/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics',
-    from: '/run-on-lido/stvaults/parameters-and-metrics',
+    to: '/run-on-lido/stvaults/concepts-and-reference/metrics',
+    from: [
+      '/run-on-lido/stvaults/parameters-and-metrics',
+      '/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/tech-documentation/integration-overview',
-    from: '/run-on-lido/stvaults/integration-overview',
+    to: '/run-on-lido/stvaults/concepts-and-reference/architecture-overview',
+    from: [
+      '/run-on-lido/stvaults/integration-overview',
+      '/run-on-lido/stvaults/tech-documentation/integration-overview',
+    ],
   },
   {
-    to: '/run-on-lido/stvaults/tech-documentation/tech-design',
-    from: '/run-on-lido/stvaults/tech-design',
+    to: '/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design',
+    from: ['/run-on-lido/stvaults/tech-design', '/run-on-lido/stvaults/tech-documentation/tech-design'],
   },
   {
-    to: '/run-on-lido/stvaults/tech-documentation/consolidation',
-    from: '/run-on-lido/stvaults/consolidation',
+    to: '/run-on-lido/stvaults/node-operators/basic-stvaults/consolidation',
+    from: ['/run-on-lido/stvaults/consolidation', '/run-on-lido/stvaults/tech-documentation/consolidation'],
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/',
+    from: [
+      '/run-on-lido/stvaults/building-guides/',
+      '/run-on-lido/stvaults/operational-and-management-guides/stvaults-economy-examples',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/basic-stvaults/',
+    from: '/run-on-lido/stvaults/building-guides/basic-stvault',
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/defi-wrapper/',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/',
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/defi-wrapper/multi-user-staking-with-custom-strategy',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/custom-strategy',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/disconnection',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/disconnect-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/roles-and-permissions',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/roles-and-permissions',
+  },
+  {
+    to: '/run-on-lido/stvaults/node-operators/defi-wrapper/manage-withdrawal-queue',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/withdrawals',
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/',
+    from: ['/run-on-lido/stvaults/features-and-mechanics/', '/run-on-lido/stvaults/tech-documentation/'],
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/exit-validators-permissions',
+    from: '/run-on-lido/stvaults/features-and-mechanics/exit-validators',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/applying-report-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/disconnection',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/stvault-disconnect-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/rebalance',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/voluntary-rebalancing-and-vault-closure',
   },
   {
     to: '/multisigs/emergency-brakes',

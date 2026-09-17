@@ -36,13 +36,6 @@ module.exports = async function createConfigAsync() {
           src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'doc',
-            docId: 'lido-v3-whitepaper',
-            label: '📘 V3 Technical Paper',
-            position: 'left',
-            className: 'navbar__item--v3',
-          },
           { to: '/deployed-contracts/', label: 'Mainnet contracts', position: 'left' },
           { to: '/lips', label: 'LIPs', position: 'left' },
           { to: '/security/audits', label: 'Audits', position: 'left' },

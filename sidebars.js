@@ -1,11 +1,6 @@
 module.exports = {
   docs: [
     'introduction',
-    {
-      type: 'doc',
-      id: 'lido-v3-whitepaper',
-      className: 'sidebar-v3-highlight',
-    },
     'lido-dao',
     'lips',
     'guides/lido-tokens-integration-guide',
@@ -45,6 +40,15 @@ module.exports = {
           ],
         },
         'guides/deposit-security-manual',
+        {
+          type: 'category',
+          label: 'Execution Delegation Framework',
+          items: [
+            'guides/edf/edf-operator-guide',
+            'guides/edf/edf-rotation-and-incidents',
+            'guides/edf/key-custody-policy-for-edf-operators',
+          ],
+        },
         {
           type: 'category',
           label: 'Governance and Voting',
@@ -139,6 +143,8 @@ module.exports = {
         'contracts/wsteth',
         'contracts/wsteth-staker',
         'contracts/deposit-security-module',
+        'contracts/delegation-factory',
+        'contracts/delegation-contract',
         'contracts/data-bus',
         'contracts/burner',
         'contracts/lido-execution-layer-rewards-vault',
@@ -165,7 +171,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Deployed contracts',
+      label: 'Deployed Contracts',
       link: { type: 'doc', id: 'deployed-contracts/index' },
       items: [
         { type: 'doc', id: 'deployed-contracts/index', label: 'Mainnet' },
