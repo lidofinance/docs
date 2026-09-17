@@ -58,10 +58,12 @@ yarn start contracts dashboard w set-pdg-policy <dashboardAddress> 2
 
 ```bash
 yarn start vo w role-grant -v <vaultAddress> \
-  -r '[{"account":"<depositorAddress>","role":"NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE"}]'
+  -r '[{"account":"<depositorAddress>","role":"0x5c17b14b08ace6dda14c9642528ae92de2a73d59eacb65c71f39f309a5611063"}]'
 ```
 
 Signed by the **Node Operator Manager**, which administers this role.
+
+The `role` field is a `bytes32`, not a name: `role-grant` passes it straight to the contract. The hash is `keccak256("vaults.NodeOperatorFee.UnguaranteedDepositRole")`. Omit `-r` to pick the role by name from a prompt instead, or list the vault's roles with `yarn start vo r roles -v <vaultAddress>`.
 
 ## Step 5. Run the shortcut
 
@@ -120,7 +122,7 @@ yarn start dw uc tg pool w execute-revoke-role \
 
 ```bash
 yarn start contracts dashboard w role-revoke <dashboardAddress> \
-  '[{"account":"<depositorAddress>","role":"NODE_OPERATOR_UNGUARANTEED_DEPOSIT_ROLE"}]'
+  '[{"account":"<depositorAddress>","role":"0x5c17b14b08ace6dda14c9642528ae92de2a73d59eacb65c71f39f309a5611063"}]'
 ```
 
 **4. Return the PDG policy to `STRICT`**, so the shortcut cannot be used again without a fresh decision. A timelock proposal, as in Step 3:

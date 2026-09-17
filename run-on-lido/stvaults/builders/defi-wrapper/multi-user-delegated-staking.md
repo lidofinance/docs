@@ -42,7 +42,7 @@ This guide walks through the concepts and practical steps to launch such a produ
 ### 1. Create a tokenized staking vault (pool)
 
 The easiest way to create a tokenized staking vault (pool) is to use the [stVaults CLI](https://lidofinance.github.io/lido-staking-vault-cli).
-It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/develop/src/Factory.sol) contract.
+It's a command-line tool for managing both staking vaults and DeFi Wrapper pools. It deploys a pool plus its underlying staking vault via the [`Factory`](https://github.com/lidofinance/vaults-wrapper/blob/main/src/Factory.sol) contract.
 
 The CLI performs the deployment in two transactions to stay within the current 16M transaction gas limit.
 
@@ -125,7 +125,7 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 ### 2. Create Web UI
 
-Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/develop/README.md) to:
+Follow this [guide](https://github.com/lidofinance/defi-wrapper-widget/blob/main/README.md) to:
 
 - Clone the provided repository
 - Use addresses outputted by CLI to fill up `.env`
@@ -144,7 +144,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `Dashboard.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the stVault as an extra argument
+3. Within the `OperatorGrid` confirmation expiry (currently 24 hours), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the stVault as an extra argument
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -277,7 +277,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-Within the confirmation time window period (24 hours at the Mainnet minimum) after step 2, the Node Operator must confirm the tier change:
+Within the `OperatorGrid` confirmation expiry (currently 24 hours) after step 2, the Node Operator must confirm the tier change:
 
 #### stVaults UI
 

@@ -24,7 +24,7 @@ The setup below splits stVault permissions into two categories, based on whether
 - A second, broader multisig group is available to act as **Executor** — this should include parties independent from the operations manager, such as a custodian, an auditor, or another trusted counterparty (e.g. a traffic or distribution partner, a builder).
 
 :::note
-The Proposer/Executor pattern described here is a general non-custodial account design (proposer schedules an action, a separate executor confirms and executes it). It is independent from stVaults' native **Multi-roles confirmation** mechanism, which requires the Vault Owner and Node Operator Manager to jointly confirm a small set of protocol-level parameter changes (NO fee, Confirmation Expiry, AccruedRewardsAdjustment). The two mechanisms can, and should, be used together.
+The Proposer/Executor pattern described here is a general non-custodial account design (proposer schedules an action, a separate executor confirms and executes it). It is independent from stVaults' native **Multi-roles confirmation** mechanism, which requires the Vault Owner and Node Operator Manager to jointly confirm a small set of protocol-level parameter changes (Node Operator fee rate, Confirmation Expiry, settled growth correction, stVault ownership transfer). The two mechanisms can, and should, be used together.
 :::
 
 ## Step 1. Classify roles by custody risk
@@ -40,7 +40,7 @@ These roles must never be held directly by a single operational multisig, since 
 | `DEFAULT_ADMIN_ROLE` (Vault Owner) | Can grant or remove any role, including its own, and confirms transfer of StakingVault ownership. |
 | `WITHDRAW_ROLE` | Withdraws ETH directly from the stVault balance. |
 | `MINT_ROLE` | Mints stETH from the stVault, creating leveraged exposure on behalf of the owner. |
-| `VOLUNTARY_DISCONNECT_ROLE` | Disconnects the stVault from VaultHub — an irreversible structural action, not a routine operational one. |
+| `VOLUNTARY_DISCONNECT_ROLE` | Disconnects the stVault from VaultHub — a structural action, not a routine operational one. |
 | `COLLECT_VAULT_ERC20_ROLE` | Recovers ERC20 tokens sent to the stVault, including incentive tokens that may belong to stakers rather than the operator. |
 
 ### Operational roles
@@ -52,7 +52,7 @@ These roles support day-to-day management and do not, on their own, allow custod
 | `FUND_ROLE` | Supplies ETH to the stVault; cannot cause harm. |
 | `BURN_ROLE` | Repays previously minted stETH; only reduces risk exposure. |
 | `PAUSE_BEACON_CHAIN_DEPOSITS_ROLE` / `RESUME_BEACON_CHAIN_DEPOSITS_ROLE` | Reversible, does not move capital. |
-| `REQUEST_VALIDATOR_EXIT_ROLE` | Initiates a validator exit; returned ETH stays on the stVault balance. |
+| `REQUEST_VALIDATOR_EXIT_ROLE` | Requests a validator exit; returned ETH stays on the stVault balance. |
 | `TRIGGER_VALIDATOR_WITHDRAWAL_ROLE` | Forces a full or partial validator withdrawal; funds return to the stVault balance. |
 
 ### Discretionary roles
@@ -102,4 +102,4 @@ With this structure:
 
 ## Result
 
-With this configuration, the operations manager can run the stVault + DeFi Wrapper day to day — managing the validator lifecycle, adjusting the PDG policy, and funding the stVault with incentives when necessary — without ever holding a role that, on its own, can withdraw funds, mint stETH, or reassign stVault ownership. Every custody-sensitive action requires a second, independent party to execute it.
+With this configuration, the operations manager can run the stVault + DeFi Wrapper day to day — managing the validator lifecycle, proposing PDG policy changes through the timelock, and funding the stVault with incentives when necessary — without ever holding a role that, on its own, can withdraw funds, mint stETH, or reassign stVault ownership. Every custody-sensitive action requires a second, independent party to execute it.

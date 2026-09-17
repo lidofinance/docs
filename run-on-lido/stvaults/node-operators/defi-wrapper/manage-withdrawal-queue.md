@@ -77,7 +77,7 @@ yarn start contracts dashboard w trigger-validator-withdrawal <dashboardAddress>
 
 The first is a request, not an action: `requestValidatorExit` emits `ValidatorExitRequested` per key and stops there. `eject-validators` is the Node Operator's own instrument — it is checked against the Node Operator address, cannot be delegated, and always performs full exits. Its `<amounts>` argument is used only to size the fee and to print a confirmation; the contract call carries public keys and a refund recipient, nothing else.
 
-Both on-chain routes pay the EIP-7002 fee per public key. It is set by the network and rises while the withdrawal queue is congested, so read it with `calculateValidatorWithdrawalFee` and send a surplus; the excess is refunded.
+Both on-chain routes pay the EIP-7002 fee per public key. It is set by the network and rises while the withdrawal queue is congested. The CLI reads it with `calculateValidatorWithdrawalFee` and sends exactly that; calling the contract directly, send a surplus — the excess is refunded to the recipient.
 
 An exit request has to clear the Consensus Layer exit queue and then the sweep before the ETH lands on the stVault. Those two dominate the timeline; the queue's own minimum delay is the smallest part of a depositor's wait.
 

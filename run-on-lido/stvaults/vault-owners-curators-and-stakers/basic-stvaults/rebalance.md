@@ -37,7 +37,7 @@ Rebalancing avoids the market entirely, and it is what the protocol falls back t
 
 It depends on the goal:
 
-- **Restore health** — rebalance the shortfall. Read it from `healthShortfallShares` on the `Dashboard` contract: it returns the shares needed to bring the stVault back to a healthy state and cover any pending [Lido redemptions](../../concepts-and-reference/stvaults-technical-design.md#2-redemptions), `0` if the stVault is already healthy, and the maximum `uint256` value if rebalancing alone cannot fix the position.
+- **Restore health** — rebalance the shortfall. Read it from `healthShortfallShares` on the `Dashboard` contract: it returns the shares needed to bring the stVault back to a healthy state, `0` if the stVault is already healthy, and the maximum `uint256` value if rebalancing alone cannot fix the position.
 - **Close the stVault** — rebalance the entire stETH liability, which brings it to zero and unlocks the remaining ETH for withdrawal. See [Disconnection](./disconnection.md).
 
 :::note

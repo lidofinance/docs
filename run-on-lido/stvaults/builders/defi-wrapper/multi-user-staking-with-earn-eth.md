@@ -54,7 +54,7 @@ To start:
 
 :::info
 
-The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the vault upon connection to Lido `VaultHub`.
+The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT` required to be locked on the stVault upon connection to Lido `VaultHub`.
 
 The newly created staking vault is automatically connected to Lido `VaultHub` and placed into the default tier. Placement into non-default tiers right upon deployment is not supported.
 
@@ -75,7 +75,7 @@ Keep this output if you plan to set up the UI.
 
 #### Deployment of `StvStrategyPool` with the `Lido Earn ETH` strategy
 
-The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited stETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earn ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
+The pool with the `Lido Earn ETH` strategy: ETH is deposited to validators and generates staking rewards, stETH is minted, wrapped into wstETH and automatically deposited to the Earn ETH strategy to earn additional rewards. Deposited wstETH is distributed across a curated set of high-performing DeFi strategies, including lending markets and LP positions. The `Earn ETH` strategy is built on Mellow architecture, so the strategy connector is called "MellowStrategy", and the factory is called "MellowStrategyFactory".
 
 To deploy this pool, use the `create-strategy-pool-lido-earn-eth`. The factory addresses for each network are listed in the [Environments](../../concepts-and-reference/architecture-overview#environments) section. The full parameter reference is available below.
 
@@ -89,7 +89,7 @@ yarn start defi-wrapper contracts factory w create-strategy-pool-lido-earn-eth <
   --confirmExpiry 86400 \
   --minDelaySeconds 3600 \
   --minWithdrawalDelayTime 3600 \
-  --name "Staked Earn ETH Pool" \
+  --name "Earn ETH Pool" \
   --symbol STV \
   --proposer <PROPOSER_ADDRESS> \
   --executor <EXECUTOR_ADDRESS> \
@@ -100,7 +100,7 @@ yarn start defi-wrapper contracts factory w create-strategy-pool-lido-earn-eth <
 You can use `--allowList true` to enable the deposit allowlist for this strategy. AllowList Manager role on Strategy must be set separately by TimeLock governance.
 
 :::warning
-AllowList will be always enabled on StvStethPool contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has its own allow list.
+AllowList will be always enabled on the `StvStETHPool` contract. This allowlist ensures only the strategy contract can deposit into the pool, and minting is required to produce wstETH for the Earn ETH Vault. Strategy contract has its own allow list.
 :::
 
 <details>
@@ -113,11 +113,11 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 | `--nodeOperator`             | Address of the Node Operator managing validators                                                                                                 |
 | `--nodeOperatorManager`      | Address authorized to manage Node Operator settings                                                                                              |
 | `--nodeOperatorFeeRateBP`    | Node Operator fee in basis points (10 = 0.1%)                                                                                                    |
-| `--confirmExpiry`            | Confirmation timeout in seconds                                                                                                                  |
-| `--minDelaySeconds`          | TimeLock minimum delay before execution                                                                                                          |
-| `--minWithdrawalDelayTime`   | Minimum delay before withdrawals can be finalized                                                                                                |
-| `--name`                     | ERC-20 pool share token name                                                                                                                     |
-| `--symbol`                   | ERC-20 pool share token symbol                                                                                                                   |
+| `--confirmExpiry`            | Confirmation timeout in seconds (whole hours; min 24 hours on Mainnet, 1 hour on testnets, max 30 days)                                          |
+| `--minDelaySeconds`          | TimeLock minimum delay before execution (whole hours, max 30 days)                                                                               |
+| `--minWithdrawalDelayTime`   | Minimum delay before withdrawals can be finalized (whole hours, min 1 hour, max 30 days)                                                         |
+| `--name`                     | ERC-20 pool share token name (3–14 characters)                                                                                                   |
+| `--symbol`                   | ERC-20 pool share token symbol (3–8 characters)                                                                                                  |
 | `--proposer`                 | Address authorized to propose TimeLock operations                                                                                                |
 | `--executor`                 | Address authorized to execute TimeLock operations                                                                                                |
 | `--emergencyCommittee`       | Address that can pause pool operations                                                                                                           |
@@ -127,7 +127,7 @@ AllowList will be always enabled on StvStethPool contract. This allowlist ensure
 
 #### Managing AllowList for `StvStrategyPool` with `Lido Earn ETH` strategy
 
-Due to design the allow list for `StvStrategyPool` is always on and is limited only to the strategies contracts attached to the pool. The strategy contract(if enabled by `--allowList true`) has it's own allow list. To manage the Strategy allow list, use the following CLI commands:
+Due to design the allow list for `StvStrategyPool` is always on and is limited only to the strategies contracts attached to the pool. The strategy contract(if enabled by `--allowList true`) has its own allow list. To manage the Strategy allow list, use the following CLI commands:
 
 - `yarn start defi-wrapper use-cases wrapper-operations read info <poolAddress>` to check the current strategy address attached to the pool
 - `yarn start defi-wrapper use-cases timelock-governance common read get-timelock-address <poolAddress>` to get the timelock address for the pool
@@ -159,7 +159,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `Dashboard.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the vault as an extra argument
+3. Within the `OperatorGrid` confirmation expiry (currently 24 hours), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the stVault as an extra argument
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -292,7 +292,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-Within the confirmation time window period (24 hours at the Mainnet minimum) after step 2, the Node Operator must confirm the tier change:
+Within the `OperatorGrid` confirmation expiry (currently 24 hours) after step 2, the Node Operator must confirm the tier change:
 
 #### stVaults UI
 

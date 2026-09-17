@@ -6,7 +6,7 @@ sidebar_label: Roles and Permissions
 
 # Roles and Permissions
 
-Every Basic stVault is controlled through a [`Dashboard`](/contracts/dashboard) contract, which is deployed together with the [`StakingVault`](/contracts/staking-vault) and owns it. `Dashboard` uses OpenZeppelin's `AccessControl` with a **two-admin model**:
+Every Basic stVault is controlled through a [`Dashboard`](/contracts/dashboard) contract, which is deployed together with the [`StakingVault`](/contracts/staking-vault) and is the owner-side entry point to it. While the stVault is connected, [`VaultHub`](/contracts/vault-hub) holds the `StakingVault` ownership and `Dashboard` acts through it; the ownership comes back to `Dashboard` after a disconnect. `Dashboard` uses OpenZeppelin's `AccessControl` with a **two-admin model**:
 
 - **Vault Owner** (`DEFAULT_ADMIN_ROLE`) — the staker side of the stVault.
 - **Node Operator Manager** (`NODE_OPERATOR_MANAGER_ROLE`) — the validation service side of the stVault.
@@ -93,7 +93,7 @@ Granted and revoked by `DEFAULT_ADMIN_ROLE`.
 | `VAULT_CONFIGURATION_ROLE`          | — Request OperatorGrid to change the stVault tier (specify a new tier).           |
 |                                     | — Request OperatorGrid to sync the tier params.                                |
 |                                     | — Request OperatorGrid to update the share limit of the stVault.                 |
-|                                     | — Accept a new tier on connection to VaultHub.                                 |
+|                                     | — Accept a new tier on connection to VaultHub (`connectAndAcceptTier`) — also needs `DEFAULT_ADMIN_ROLE`. |
 | `COLLECT_VAULT_ERC20_ROLE`          | Collect ERC-20 tokens held by the **stVault** — e.g. recovery of tokens wrongly transferred to the stVault address, or claiming incentives paid to it as ERC-20. Does not support ETH. |
 
 ### Node Operator Manager's non-delegable permissions

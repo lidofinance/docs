@@ -209,7 +209,7 @@ module.exports = async function createConfigAsync() {
               from: '/run-on-lido/stvaults/operational-and-management-guides/stvault-disconnect-guide',
             },
             {
-              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth',
+              to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/rebalance',
               from: '/run-on-lido/stvaults/operational-and-management-guides/voluntary-rebalancing-and-vault-closure',
             },
             {

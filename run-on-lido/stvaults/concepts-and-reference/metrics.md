@@ -380,7 +380,7 @@ $$
 \text{carrySpread} = \frac{\text{bottomLine}}{TV_{prev}} \times \frac{\text{secondsInYear}}{\text{periodSeconds}} \times 100\%
 $$
 
-Carry Spread is the Health Factor trend indicator: a positive spread raises the Health Factor, a negative one lowers it.
+A positive Carry Spread does not guarantee an increase in Health Factor. With a fixed Forced Rebalance Threshold, Health Factor rises when assets grow faster than liabilities in percentage terms and falls when liabilities grow faster than assets.
 
 ## Restoring an unhealthy stVault
 

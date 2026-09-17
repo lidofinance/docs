@@ -130,7 +130,7 @@ Open the **Tier** tab in your stVault settings. **Choose Tier** shows which tier
   <summary>using Command-line Interface</summary>
 
 ```bash
-yarn start contracts operator-grid read vault-tier-info <vault_address>
+yarn start contracts operator-grid read vault-info <vault_address>
 ```
 
 </details>

@@ -85,7 +85,7 @@ yarn start defi-wrapper contracts factory w create-pool-custom <DEFI_WRAPPER_FAC
   --confirmExpiry 86400 \
   --minDelaySeconds 3600 \
   --minWithdrawalDelayTime 3600 \
-  --name "My Custom Strategy Pool" \
+  --name "Strategy Pool" \
   --symbol STV \
   --proposer <PROPOSER_ADDRESS> \
   --executor <EXECUTOR_ADDRESS> \
@@ -120,8 +120,8 @@ The deployer must have at least `1 ETH` available. This is the `CONNECT_DEPOSIT`
 | `--confirmExpiry` | Confirmation timeout in seconds |
 | `--minDelaySeconds` | TimeLock minimum delay before execution |
 | `--minWithdrawalDelayTime` | Minimum delay before withdrawals can be finalized |
-| `--name` | ERC-20 pool share token name |
-| `--symbol` | ERC-20 pool share token symbol |
+| `--name` | ERC-20 pool share token name; the CLI enforces 3–14 characters |
+| `--symbol` | ERC-20 pool share token symbol; the CLI enforces 3–8 characters |
 | `--proposer` | Address authorized to propose TimeLock operations |
 | `--executor` | Address authorized to execute TimeLock operations |
 | `--emergencyCommittee` | Address that can pause pool operations |
@@ -141,13 +141,13 @@ The minimum recommended value for `reserveRatioGapBP` is `250` (2.5%). It is exp
 
 After successful deployment, the CLI outputs the addresses and environment variables you need:
 
-- **Vault** contract address
-- **Pool** contract address
-- **WithdrawalQueue** contract address
-- **Distributor** contract address
-- **Strategy** contract address
-- **TimeLock** contract address
-- UI environment variables (`VITE_POOL_ADDRESS`, `VITE_POOL_TYPE`, etc.)
+The first transaction prints the **Dashboard**, **Pool Proxy**, **Withdrawal Queue Proxy** and **TimeLock**;
+the second adds the **Vault**, **Pool**, **Pool Type**, **Withdrawal Queue**, **Strategy Factory** and
+**Strategy**, along with the UI environment variables (`VITE_POOL_ADDRESS`, `VITE_POOL_TYPE`).
+
+The **Distributor** address is not printed. Read it later with `yarn start dw uc wo r info <poolAddress>`,
+which returns the whole set — see
+[Per-setup addresses](../../concepts-and-reference/architecture-overview.md#per-setup-addresses).
 
 :::info
 Keep the CLI output — you will need these addresses for the UI setup and ongoing operations.
@@ -201,7 +201,7 @@ Parameters:
 - `<STV_STETH_POOL_FACTORY>` — the `StvStETHPoolFactory` address from the DeFi Wrapper Factory (`Factory.STV_STETH_POOL_FACTORY()`)
 - `<DASHBOARD>` — your pool's existing Dashboard address
 - `true` — enables the allowlist (immutable in the new implementation)
-- `<RESERVE_RATIO_GAP_BP>` — same value as the existing pool (e.g., `500`)
+- `<RESERVE_RATIO_GAP_BP>` — the existing pool's value, readable with `poolReserveRatioBP` minus the stVault's ratio; `250` in the shipped configurations
 - `<WITHDRAWAL_QUEUE>` — your pool's existing WithdrawalQueue address
 - `<DISTRIBUTOR>` — your pool's existing Distributor address
 - `<STRATEGY_POOL_TYPE>` — the strategy pool type hash (`Factory.STRATEGY_POOL_TYPE()`)
@@ -238,7 +238,7 @@ INITIALIZE_CALLDATA=$(cast calldata "initialize(address,address)" <TIMELOCK> <EM
 
 Where:
 - `<TIMELOCK>` — the pool's TimelockController address (will receive `DEFAULT_ADMIN_ROLE` on the strategy)
-- `<EMERGENCY_COMMITTEE>` — address that will receive the initial pause role (e.g., `SUPPLY_PAUSE_ROLE`)
+- `<EMERGENCY_COMMITTEE>` — address that receives `SUPPLY_PAUSE_ROLE`; pass the zero address to grant it to nobody
 
 Then deploy the proxy:
 
@@ -271,7 +271,7 @@ The exact number and content of operations depends on the current pool configura
 | 1 | `proxy__upgradeToAndCall(newImpl, "")` | Swap implementation to strategy pool type |
 | 2 | `grantRole(ALLOW_LIST_MANAGER_ROLE, timelock)` | Temporarily grant allowlist management to Timelock |
 | 3 | `addToAllowList(strategyProxy)` | Allow the strategy to deposit into the pool |
-| 4 | `revokeRole(ALLOW_LIST_MANAGER_ROLE, factory)` | Remove Factory's allowlist management |
+| 4 | `revokeRole(ALLOW_LIST_MANAGER_ROLE, factory)` | Remove the Factory's allowlist management. Not optional: the Factory has held this role since the pool was created, and the upgrade is what makes it usable |
 | 5 | `revokeRole(ALLOW_LIST_MANAGER_ROLE, timelock)` | Remove Timelock's temporary allowlist management |
 | 6 | `revokeRole(DEPOSITS_PAUSE_ROLE, nodeOperator)` | Adjust pause roles for the new setup |
 | 7 | `revokeRole(MINTING_PAUSE_ROLE, nodeOperator)` | Adjust pause roles for the new setup |
@@ -392,7 +392,7 @@ yarn start vo r info -v <VAULT_ADDRESS>
 
 - **Existing STV balances** are fully preserved — users keep their tokens.
 - **Direct deposits** to the pool are no longer possible (blocked by allowlist). Users must go through the strategy.
-- **Existing STV holders** can approve and deposit their tokens into the strategy to start receiving strategy-boosted yield.
+- **Existing STV holders** can move into the strategy, but not by approving it: the strategy has no function that pulls stv from a user's address. `supply` either takes ETH or mints against stv the user's forwarder already holds. To migrate, transfer the stv to that forwarder — its address is deterministic and readable with `getStrategyCallForwarderAddress(user)` — and then call `supply` with a non-zero wstETH amount.
 - **Withdrawals** of existing STV continue to work through the WithdrawalQueue as before.
 
 ---
@@ -434,7 +434,7 @@ Thus, changing tier for a pooled vault is a three-step process:
 
 1. Holder of the Timelock's proposer role calls `TimelockController.schedule` to propose the `Dashboard.changeTier` call
 2. After the timelock period, the holder of the Timelock's executor role calls `TimelockController.execute` for the scheduled proposal
-3. Within the confirmation time window period (24 hours at the Mainnet minimum), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the stVault as an extra argument
+3. Within the `OperatorGrid` confirmation expiry (currently 24 hours), the Node Operator confirms from their side by calling `OperatorGrid.changeTier(vault, tierId, requestedShareLimit)` — the same tier and share limit, but through a different contract and with the stVault as an extra argument
 
 Confirming tier change request requires applying fresh report to vault. [Read more about applying reports](../../vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports.md)
 
@@ -567,7 +567,7 @@ Use `--wallet-connect` option for all commands or provide private key to CLI `.e
 <details>
   <summary>Step 3: Confirm the tier change (Node Operator)</summary>
 
-Within the confirmation time window period (24 hours at the Mainnet minimum) after step 2, the Node Operator must confirm the tier change:
+Within the `OperatorGrid` confirmation expiry (currently 24 hours) after step 2, the Node Operator must confirm the tier change:
 
 #### stVaults UI
 
