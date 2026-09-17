@@ -26,6 +26,10 @@ Before creating a cluster:
 6. Decide how many validator keys to run based on available **ETH bond** for Lido CSM.  
 7. Each operator also needs a **full Ethereum node** and **MEV-Boost** configured with Lido-vetted relays. Please refer to [Node Setup](/run-on-lido/csm/node-setup/) to learn how.
 
+:::tip
+Verified DVT clusters of independent community stakers can apply for the **IDVTC** operator type, which has more favorable bond and reward parameters than Default. See [Operator profiles and economics](/run-on-lido/csm/context-and-background#operator-profiles-and-economics) and [apply here](https://csm.lido.fi/type/idvtc-apply).
+:::
+
 ## 1. Preparing Your Environment
 Obol's client is named Charon, we will need this to use this to distribute keys and perform the actions as a group.
 
@@ -140,3 +144,5 @@ docker exec -it charon-distributed-validator-node-charon-1 /bin/sh -c 'charon ex
 ```
 
 Once a validator has broadcasted an exit message, it must continue to validate for at least 27 hours or longer. Do not shut off your distributed validator nodes until your validator is fully exited.
+
+Note that this is a Consensus Layer requirement and is separate from CSM's own deadline. If the protocol requested the exit, you must initiate it within the allowed exit delay for your operator profile, or an exit delay charge is applied to your bond. See [Penalties](/run-on-lido/csm/penalties#parameters-by-operator-profile).

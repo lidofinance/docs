@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -16,8 +20,10 @@ This guide is for the live **0x01 CSM**. Generate `0x01` withdrawal credentials 
 
 ## Creating an air-gapped machine
 
-1. Buy a cheap single-board computer (e.g., Raspberry Pi).
-2. **OS‑on‑a‑stick:** Flash a USB drive with TailsOS and run from USB—no files persist after removal.
+You have two options:
+
+1. Buy a cheap single-board computer (e.g., Raspberry Pi) and never connect it to the internet.
+2. **OS-on-a-stick:** run a live OS from a USB drive, so no files persist after you remove it. You will flash this drive in [Flash and install OS](#flash-and-install-os), after staging the key generation tool on a second drive.
 
 ## What you will need
 
@@ -40,21 +46,25 @@ This GUI method generates keystores, deposit data, and mnemonic.
 
 ### Downloading the executable binary file
 
-On your working laptop, get the latest [release](https://github.com/ethstaker/ethstaker-deposit-cli/releases) of the EthStaker validator key generation tool and it's corresponding sha256 checksum.
+On your working laptop, get the latest [release](https://github.com/ethstaker/ethstaker-deposit-cli/releases) of the EthStaker validator key generation tool and its corresponding sha256 checksum.
+
+:::warning
+The commands below use `v1.3.0` as an example. Replace the URL, the file name, and the checksum with the ones from the release you actually download, otherwise the verification will fail. Each release publishes its own `.sha256` file next to the archive.
+:::
 
 ```bash
 cd ~
-# change the URL to the actual URL (right-click & copy link URL)
-curl -LO https://github.com/ethstaker/ethstaker-deposit-cli/releases/download/v1.2.2/ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz
-# change the sha256 checksum to the actual checksum
-echo "04af3f4fd2fdccf4ae060abde47637622a31114d9f2e53e62722a694a4d5b206 ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz" | sha256sum --check
+curl -LO https://github.com/ethstaker/ethstaker-deposit-cli/releases/download/v1.3.0/ethstaker_deposit-cli-d8016bc-linux-amd64.tar.gz
+echo "89ecdfd5bb312c723b1feb7e09762be2510fd75df03d91876fad7f247b7238f2 ethstaker_deposit-cli-d8016bc-linux-amd64.tar.gz" | sha256sum --check
 ```
 
 **Expected output:**
 
 ```
-ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz: OK
+ethstaker_deposit-cli-d8016bc-linux-amd64.tar.gz: OK
 ```
+
+If the check reports `FAILED`, stop. Do not use the file.
 
 After verification, move the `.tar.gz` file onto a new USB drive.
 
@@ -104,7 +114,7 @@ Load the USB drive with `Wagyu Keygen` to the fresh OS.
 Run the GUI and:
 
 1. Create a secret recovery phrase.
-2. Select network (Mainnet/Hoodi).
+2. Select network: **Mainnet**.
 3. Write down and confirm the phrase.
 4. Choose number of keys.
 5. Encrypt keystores with a password.
@@ -121,8 +131,8 @@ Load the USB drive with the `.tar.gz` file to the fresh OS. Open terminal:
 
 ```bash
 cd Desktop
-tar xvf ethstaker_deposit-cli-b13dcb9-linux-amd64.tar.gz
-cd ethstaker_deposit-cli-b13dcb9-linux-amd64
+tar xvf ethstaker_deposit-cli-d8016bc-linux-amd64.tar.gz
+cd ethstaker_deposit-cli-d8016bc-linux-amd64
 ```
 
 #### Before proceeding
@@ -195,7 +205,7 @@ Go to **Stakers → Ethereum** in Dappnode UI, click **Upload Keystores**.
 Import your keystores and enter passwords.
 Tag them “Lido”; fee recipient set to `0x388C818CA8B9251b393131C08a736A67ccB19297`.
 
-[Import guide →](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys)
+Once the keystores are imported into your validator client, upload the `deposit_data.json` to CSM and provide your bond: [Upload keys to CSM →](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys#upload-keys)
 
   </TabItem>
   <TabItem value="ethpillar" label="EthPillar">
@@ -212,7 +222,7 @@ Run:
 ethpillar
 ```
 
-Select **Validator Client → Generate / Import Validator Keys → Import from backup** and paste path.
+Select **Validator Client → Generate / Import Validator Keys → Import validator keys from offline key generation or backup** and paste the path.
 
   </TabItem>
   <TabItem value="stereum" label="Stereum">

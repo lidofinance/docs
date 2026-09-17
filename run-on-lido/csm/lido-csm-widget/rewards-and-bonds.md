@@ -21,28 +21,6 @@ Here, you will see your net rewards and bond claimable in aggregate and broken d
 
 You will also be able to claim your net rewards + bond in total or in individual parts if you wish, and select among 3 token types to receive: ETH (in the form of a [Withdrawal NFT](/guides/lido-tokens-integration-guide#unsteth)) / stETH / wstETH.
 
-## Rewards splitter
-
-CSM v3 includes an optional built-in rewards splitter. It lets a Node Operator route a percentage of their Node Operator rewards to as many as 10 additional recipient addresses without deploying a separate splitter contract.
-
-- Split recipients receive **stETH only**.
-- The splitter applies to **Node Operator rewards only**. Bond rebase rewards are not split.
-- Any share not assigned to additional recipients remains in the Node Operator's bond.
-- Claiming is permissionless: anyone can trigger the claim, but funds can only go to the configured recipients.
-
-### Configure reward splits
-
-![Configure rewards splitter](/img/csm-guide/bond-3.png)
-
-1. Open the CSM Widget settings on [Mainnet](https://csm.lido.fi/settings/splits) or [Hoodi](https://csm.testnet.fi/settings/splits).
-2. Select **Rewards splitter** and choose **Set up splits**.
-3. Add each recipient address and its percentage. The combined recipient share cannot exceed 100%.
-4. Review the remaining share assigned to the Node Operator's bond, then confirm the transaction.
-
-:::warning
-Review every recipient address and percentage carefully before confirming. If you configure splits before the Node Operator's first rewards distribution, you cannot edit them until that first distribution occurs. Afterward, splits can only be edited when there are no unclaimed rewards or pending shares to distribute.
-:::
-
 ### Add Bond tab
 
 ![Add Bond](/img/csm-guide/bond-2.png)
@@ -50,7 +28,7 @@ Review every recipient address and percentage carefully before confirming. If yo
 There are 2 activities you can perform here:
 
 1. Review the balance of your total bond provided and the excess/insufficient bond amounts.
-2. Add more bond so that you can get more of your uploaded validator keys deposited by the CSM or top up any shortages due to poor performance or slashing events. **Read more on bond penalties [here](https://operatorportal.lido.fi/modules/community-staking-module#block-3951aa72ba1e471bafe95b40fef65d2b)**.
+2. Add more bond so that you can get more of your uploaded validator keys deposited by the CSM or top up any shortages due to poor performance or slashing events. **Read more on [bond penalties](/run-on-lido/csm/penalties)**.
 
 Once your excess bond amount is sufficient for new validator keys to be deposited, the **Keys available to upload** will increase.
 
@@ -73,9 +51,31 @@ You cannot replenish **Locked bonds** using the **ADD BOND** feature.
 
 This tab allows you to replenish your **Locked bonds** due to MEV theft and resume the accruing of your CSM operator rewards.
 
+## Rewards splitter
+
+CSM v3 includes an optional built-in rewards splitter. It lets a Node Operator route a percentage of their Node Operator rewards to as many as 10 additional recipient addresses without deploying a separate splitter contract.
+
+- Split recipients receive **stETH only**.
+- The splitter applies to **Node Operator rewards only**. Bond rebase rewards are not split.
+- Any share not assigned to additional recipients remains in the Node Operator's bond.
+- Claiming is permissionless: anyone can trigger the claim, but funds can only go to the configured recipients.
+
+### Configure reward splits
+
+![Configure rewards splitter](/img/csm-guide/bond-3.png)
+
+1. Open the CSM Widget settings on [Mainnet](https://csm.lido.fi/settings/splits) or [Hoodi](https://csm.testnet.fi/settings/splits).
+2. Select **Rewards splitter** and choose **Set up splits**.
+3. Add each recipient address and its percentage. The combined recipient share cannot exceed 100%.
+4. Review the remaining share assigned to the Node Operator's bond, then confirm the transaction.
+
+:::warning
+Review every recipient address and percentage carefully before confirming. If you configure splits before the Node Operator's first rewards distribution, you cannot edit them until that first distribution occurs. Afterward, splits can only be edited when there are no unclaimed rewards or pending shares to distribute.
+:::
+
 ## Resources
 
 | Category                                                                                          | Navigation                                     |
 | ------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | [Bond & Rewards](https://operatorportal.lido.fi/modules/community-staking-module#block-88e6d7eca6364a758541dc1ee66a278f) | CSM Operator Portal: "Economics" section      |
-| [Bond Penalties](https://operatorportal.lido.fi/modules/community-staking-module#block-3951aa72ba1e471bafe95b40fef65d2b)   | CSM Operator Portal: "Penalties" sub-section |
+| [Penalties](/run-on-lido/csm/penalties) | Penalty and charge types, amounts per operator profile, and what to do |
