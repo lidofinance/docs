@@ -1,10 +1,10 @@
 # RiskManager
 
+## Overview
+
 On-chain risk control and allocation policy manager for modular vaults.
 
 The `RiskManager` contract defines and enforces asset deposit limits across a `Vault` and its associated `Subvaults`. It maintains internal accounting of balances, limits, and allowed subvault assets.
-
-## Purpose
 
 This contract is a centralized module responsible for:
 
@@ -12,18 +12,6 @@ This contract is a centralized module responsible for:
 - Allowlisting or disallowing specific assets per subvault.
 - Tracking pending balances (deposits and withdrawals that are not yet finalized).
 - Validating risk assumptions through oracle price reports.
-
-## Core Concepts
-
-- Vault Limit: global cap across all assets managed by the vault (in shares).
-- Subvault Limit: individual cap per subvault, enforced independently (in shares).
-- Allowed Assets: only explicitly allowlisted assets are permitted in a given subvault.
-- Pending Assets: temporarily tracked assets, for example during deposit queueing.
-- Shares Conversion: all balances are internally tracked in shares, calculated using the latest report in the `Oracle` contract.
-
-## Storage Slot
-
-Utilizes a deterministic storage slot computed via `SlotLibrary.getSlot("RiskManager", name, version)` to ensure safe upgrades and modular deployment.
 
 ## Roles and Permissions
 
@@ -39,9 +27,35 @@ The contract uses fine-grained access roles:
 
 Roles are verified via the vault's ACL module (`IACLModule`) or allowed queues (`IShareModule`).
 
-## Key Methods
+## Configuration and State
 
-### View
+### Storage Slot
+
+Utilizes a deterministic storage slot computed via `SlotLibrary.getSlot("RiskManager", name, version)` to ensure safe upgrades and modular deployment.
+
+## Behavior
+
+### Core Concepts
+
+- Vault Limit: global cap across all assets managed by the vault (in shares).
+- Subvault Limit: individual cap per subvault, enforced independently (in shares).
+- Allowed Assets: only explicitly allowlisted assets are permitted in a given subvault.
+- Pending Assets: temporarily tracked assets, for example during deposit queueing.
+- Shares Conversion: all balances are internally tracked in shares, calculated using the latest report in the `Oracle` contract.
+
+### Internal Mechanics
+
+#### Conversion to Shares
+
+Conversion is done with oracle price data, where:
+
+```solidity
+shares = (value * priceD18) / 1e18
+```
+
+## Functions
+
+### View Functions
 
 - `vault()`: Returns the vault address.
 - `vaultState()`: Returns the global vault state (limit, balance).
@@ -55,7 +69,7 @@ Roles are verified via the vault's ACL module (`IACLModule`) or allowed queues (
 - `convertToShares(asset, value)`: Converts amount to share units using oracle.
 - `maxDeposit(subvault, asset)`: Calculates max deposit amount given limits and prices.
 
-### Mutable
+### State-Changing Functions
 
 - `initialize(bytes data)`: Initializes vault wide limit.
 - `setVault(address)`: Assigns the vault address (one time only).
@@ -67,17 +81,9 @@ Roles are verified via the vault's ACL module (`IACLModule`) or allowed queues (
 - `modifyVaultBalance(address, int256)`: Applies a delta to vault's current balance (with limit checks).
 - `modifySubvaultBalance(address, asset, int256)`: Same as above, but scoped to a specific subvault.
 
-## Internal Mechanics
+## Invariants and Limitations
 
-### Conversion to Shares
-
-Conversion is done with oracle price data, where:
-
-```solidity
-shares = (value * priceD18) / 1e18
-```
-
-## Assumptions
+### Assumptions
 
 The system assumes that the vault and its subvaults operate exclusively with correlated assets, and that protocol level delegations performed by the curator do not introduce extreme APR variance or significant principal loss.
 

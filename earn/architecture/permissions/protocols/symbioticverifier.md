@@ -6,15 +6,15 @@
 
 This verifier ensures that only allowed addresses (typically curators) can perform specific actions within the Symbiotic ecosystem.
 
-## Purpose
-
 The verifier ensures that:
 
 - Only whitelisted vaults can act on behalf of themselves in Symbiotic vaults and farms.
 - All interactions are strictly validated against exact calldata to prevent misuse or encoding variation.
 - Only allowed selectors and targets can be used.
 
-## Role Definitions
+## Roles and Permissions
+
+### Role Definitions
 
 | Role Constant | Description |
 | --- | --- |
@@ -23,13 +23,37 @@ The verifier ensures that:
 | `SYMBIOTIC_VAULT_ROLE` | Contracts that are approved as Symbiotic vault |
 | `SYMBIOTIC_FARM_ROLE` | Contracts that are approved as Symbiotic farm |
 
-## Constructor
+## Configuration and State
+
+### Constructor
 
 ```solidity
 constructor(address vaultFactory_, address farmFactory_, string memory name_, uint256 version_)
 ```
 
-## `verifyCall`
+## Behavior
+
+### High Level Behavior
+
+- Verifies caller (`who`) has `CALLER_ROLE`.
+- Matches target contract (`where`) with either a Symbiotic vault or farm.
+- Validates exact function selector and arguments using full `keccak256(callData)` hash.
+- Rejects any calls with non zero ETH value.
+
+### Supported Calls
+
+| Target Type | Function | Signature | Additional Checks |
+| --- | --- | --- | --- |
+| Symbiotic Vault | `deposit(onBehalfOf, amount)` | `ISymbioticVault.deposit.selector` | `onBehalfOf` must have `MELLOW_VAULT_ROLE`, `amount > 0` |
+| Symbiotic Vault | `withdraw(claimer, amount)` | `ISymbioticVault.withdraw.selector` | `claimer` must have `MELLOW_VAULT_ROLE`, `amount > 0` |
+| Symbiotic Vault | `claim(recipient, epoch)` | `ISymbioticVault.claim.selector` | `recipient` must have `MELLOW_VAULT_ROLE` |
+| Symbiotic Farm | `claimRewards(recipient, token, data)` | `ISymbioticStakerRewards.claimRewards.selector` | `recipient` must have `MELLOW_VAULT_ROLE`, `token != 0x0` |
+
+For all calls, the calldata must exactly match the selector and parameters. All other selectors or targets are denied.
+
+## Functions
+
+### `verifyCall`
 
 ```solidity
 function verifyCall(
@@ -41,25 +65,9 @@ function verifyCall(
 ) public view returns (bool)
 ```
 
-## High Level Behavior
+## Invariants and Limitations
 
-- Verifies caller (`who`) has `CALLER_ROLE`.
-- Matches target contract (`where`) with either a Symbiotic vault or farm.
-- Validates exact function selector and arguments using full `keccak256(callData)` hash.
-- Rejects any calls with non zero ETH value.
-
-## Supported Calls
-
-| Target Type | Function | Signature | Additional Checks |
-| --- | --- | --- | --- |
-| Symbiotic Vault | `deposit(onBehalfOf, amount)` | `ISymbioticVault.deposit.selector` | `onBehalfOf` must have `MELLOW_VAULT_ROLE`, `amount > 0` |
-| Symbiotic Vault | `withdraw(claimer, amount)` | `ISymbioticVault.withdraw.selector` | `claimer` must have `MELLOW_VAULT_ROLE`, `amount > 0` |
-| Symbiotic Vault | `claim(recipient, epoch)` | `ISymbioticVault.claim.selector` | `recipient` must have `MELLOW_VAULT_ROLE` |
-| Symbiotic Farm | `claimRewards(recipient, token, data)` | `ISymbioticStakerRewards.claimRewards.selector` | `recipient` must have `MELLOW_VAULT_ROLE`, `token != 0x0` |
-
-For all calls, the calldata must exactly match the selector and parameters. All other selectors or targets are denied.
-
-## Security Properties
+### Security Properties
 
 - Strict call gating: Only explicitly allowed selectors, targets, and roles pass.
 - Calldata hash check: Enforces strict encoding to avoid alternate ABI variants or garbage data.

@@ -6,9 +6,7 @@
 
 This verifier is designed for use in modular vaults such as `Subvault` where only specific ERC20 operations should be allowed through a customizable permission matrix.
 
-## Purpose
-
-To allow or deny ERC20 `approve` and `transfer` calls based on:
+It accepts ERC20 `approve` and `transfer` calls only when all of the following conditions hold:
 
 - The caller (must have `CALLER_ROLE`).
 - The asset address (must have `ASSET_ROLE`).
@@ -18,7 +16,7 @@ To allow or deny ERC20 `approve` and `transfer` calls based on:
 - `value` sent with the call must be `0`.
 - Only exact calldata is accepted (no encoding variation or garbage data).
 
-## Roles
+## Roles and Permissions
 
 Each permission check is mapped to a distinct `bytes32` role:
 
@@ -30,17 +28,17 @@ Each permission check is mapped to a distinct `bytes32` role:
 
 These roles are expected to be configured via the `initialize()` function inherited from `OwnedCustomVerifier`.
 
-## Contract Behavior
+## Configuration and State
 
-### Constructor
+The constructor passes `name_` and `version_` to `OwnedCustomVerifier`, which uses them to namespace the verifier's ACL storage. Roles are configured through the inherited `initialize()` function and ACL management functions.
 
-```solidity
-constructor(string memory name_, uint256 version_)
-```
+## Behavior
 
-- Passes initialization parameters to `OwnedCustomVerifier` and disables further initializers.
+`verifyCall` returns `false` unless the call has zero ETH value, exactly encoded calldata, an allowed caller and token, and an allowed non-zero recipient. It accepts only `approve(address,uint256)` and `transfer(address,uint256)` selectors; zero-value transfers are rejected, while zero-value approvals are allowed.
 
-### `verifyCall` Function
+## Functions
+
+### `verifyCall`
 
 ```solidity
 function verifyCall(
@@ -52,43 +50,26 @@ function verifyCall(
 ) external view override returns (bool)
 ```
 
-### Summary
+Checks whether a specific ERC20 call is authorized.
 
-Checks if a specific ERC20 call is authorized.
+#### Validation Steps
 
-### Logic Steps
-
-Step 1: Pre checks
-
-- Must be a zero ETH call: `value == 0`.
-- Calldata must be exactly 68 bytes: 4 byte selector + 32 bytes address + 32 bytes uint.
-- `where` (the token address) must have `ASSET_ROLE`.
-- `who` (the caller, usually curator) must have `CALLER_ROLE`.
-
-Step 2: Selector validation
-
-Accepts only two ERC20 functions: `approve(address,uint256)` and `transfer(address,uint256)`.
-
-Step 3: Recipient and amount validation
-
-- `to` address must have `RECIPIENT_ROLE`.
-- For `transfer`, `amount` must not be zero.
-- `to` must not be the zero address in any case.
-
-Step 4: Exact calldata matching
-
-Ensures call is not forged via alternate encodings:
+1. Require a zero ETH value and exactly 68 bytes of calldata: a 4-byte selector, a 32-byte address, and a 32-byte amount.
+2. Require `ASSET_ROLE` for `where` and `CALLER_ROLE` for `who`.
+3. Accept only the `approve(address,uint256)` and `transfer(address,uint256)` selectors.
+4. Require `RECIPIENT_ROLE` for the decoded `to` address and reject the zero address.
+5. Reject a zero `amount` for `transfer`; `approve` may use any amount.
+6. Re-encode the arguments and require an exact calldata hash match:
 
 ```solidity
 keccak256(abi.encodeWithSelector(selector, to, amount)) == keccak256(callData)
 ```
 
-### Returns
+The function returns `true` only if every check passes.
 
-- `true` if all checks pass.
-- `false` otherwise.
+## Invariants and Limitations
 
-## Security Considerations
+### Security Considerations
 
-- Prevents misuse of `approve` and `transfer` by enforcing strict role based gating, zero ETH payload enforcement, and calldata normalization to eliminate encoding ambiguity.
+- Prevents misuse of `approve` and `transfer` by enforcing strict role-based gating, zero ETH payload enforcement, and calldata normalization to eliminate encoding ambiguity.
 - Ensures no contract or address receives funds or allowances without being explicitly whitelisted.

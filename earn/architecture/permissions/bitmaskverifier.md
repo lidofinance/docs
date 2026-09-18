@@ -1,26 +1,27 @@
 # BitmaskVerifier
 
-## Purpose
+## Overview
 
-The `BitmaskVerifier` is a customizable, low-level verifier module that enables selective call authorization using bitmask-based hashing. It allows a contract to validate whether a function call (defined by `who`, `where`, `value`, and `data`) conforms to a pre authorized pattern.
+The `BitmaskVerifier` is a stateless `ICustomVerifier` implementation that authorizes calls through bitmask-based hashing. It checks whether a call, defined by `who`, `where`, `value`, and `data`, matches a pre-authorized pattern.
 
 It supports:
 
 - Partial matching of calldata.
 - Exact or wildcard matching on sender, target, or ETH value.
-- Highly gas efficient verification with minimal storage.
+- Verification without contract storage.
 
-## Core Concept: Bitmask Based Hashing
+### Use Cases
 
-The `BitmaskVerifier` computes a hash over masked components of a transaction and compares it to a stored or expected hash.
+This verifier enables granular control over contract interactions, for example:
 
-The verification succeeds if:
+- Approvals to a specific contract: Allow `approve(farmContract, anyAmount)` but block other approvals.
+- Partial calldata authorization: Authorize only the first 4 bytes (function selector) of a call.
+- Curated access for specific addresses: Allow only specific curators to call `delegate(address)` with known targets.
+- Value matching: authorize a specific ETH value or ignore selected bits.
 
-```solidity
-calculateHash(bitmask, who, where, value, data) == expectedHash
-```
+## Configuration and State
 
-## Bitmask Format
+### Bitmask Format
 
 The bitmask is a byte array with the following structure:
 
@@ -31,12 +32,40 @@ The bitmask is a byte array with the following structure:
 | [64:96] | 32 bytes | `value` | Mask for ETH value (uint256) |
 | [96:] | `data.length` | `data` | One byte per calldata byte; used to mask calldata selectively |
 
-This structure allows the verifier to:
+Each mask bit selects whether the corresponding input bit affects the hash. An all-ones byte matches the whole input byte, an all-zero byte ignores it, and mixed values match selected bits.
 
-- Fully match addresses and value.
-- Partially match calldata (for example permit `approve(x, anyAmount)`).
+## Behavior
 
-## Function: `calculateHash`
+### Core Concept: Bitmask Based Hashing
+
+The verifier computes a chained hash over masked components of a transaction and compares it with the expected hash supplied in `verificationData`.
+
+The verification succeeds if:
+
+```solidity
+calculateHash(bitmask, who, where, value, data) == expectedHash
+```
+
+The hash processes the masked inputs in this order:
+
+1. `who`, masked by `bitmask[0:32]`
+1. `where`, masked by `bitmask[32:64]`
+1. `value`, masked by `bitmask[64:96]`
+1. Each `data[i]` masked by `bitmask[96+i]`
+
+### Verification Data
+
+This input must be ABI encoded as:
+
+```solidity
+abi.encode(bytes32 expectedHash, bytes bitmask)
+```
+
+`verifyCall` decodes these values, requires the bitmask length to equal `96 + data.length`, and compares `calculateHash(...)` with `expectedHash`. In the standard `Verifier` flow, the Merkle proof authenticates `verificationData` before the custom verifier is called.
+
+## Functions
+
+### `calculateHash`
 
 ```solidity
 function calculateHash(
@@ -48,20 +77,9 @@ function calculateHash(
 ) public pure returns (bytes32)
 ```
 
-## Logic
+Returns the chained `keccak256` hash of the masked caller, target, value, and calldata.
 
-This function computes a `keccak256` hash over the masked versions of each input field:
-
-1. `who`, masked by `bitmask[0:32]`
-1. `where`, masked by `bitmask[32:64]`
-1. `value`, masked by `bitmask[64:96]`
-1. Each `data[i]` masked by `bitmask[96+i]`
-
-## Example Use
-
-If a bitmask has `0xff` for a given byte, that byte is strictly matched. If `0x00`, the byte is ignored (wildcarded). Mixed values allow partial matching.
-
-## Function: `verifyCall`
+### `verifyCall`
 
 ```solidity
 function verifyCall(
@@ -73,30 +91,10 @@ function verifyCall(
 ) public pure returns (bool)
 ```
 
-## Input: `verificationData`
+Returns `false` when the bitmask length is invalid or the calculated hash does not match the expected hash. Otherwise, it returns `true`.
 
-This input must be ABI encoded as:
+## Invariants and Limitations
 
-```solidity
-abi.encode(bytes32 expectedHash, bytes bitmask)
-```
-
-## Logic
-
-1. Parses `expectedHash` and `bitmask` from the calldata.
-1. Verifies that the bitmask length matches `96 + data.length`. The 96 bytes cover 32 for `who`, 32 for `where`, 32 for `value`, and one byte per calldata byte.
-1. Calls `calculateHash()` and compares it to `expectedHash`.
-
-Returns:
-
-- `true` if the masked call hash matches the expected hash.
-- `false` otherwise.
-
-## Use Cases
-
-This verifier enables granular control over contract interactions, for example:
-
-- Approvals to a specific contract: Allow `approve(farmContract, anyAmount)` but block other approvals.
-- Partial calldata authorization: Authorize only the first 4 bytes (function selector) of a call.
-- Curated access for specific addresses: Allow only specific curators to call `delegate(address)` with known targets.
-- Value bound actions: Authorize only zero ETH transactions or enforce a cap on `value`.
+- The bitmask must contain exactly 96 fixed-field bytes plus one byte for every calldata byte.
+- The verifier does not store or authenticate patterns itself; the surrounding permission system must authenticate `verificationData`.
+- Masking is bitwise. A partially set byte constrains only the selected bits, not the entire byte.

@@ -1,6 +1,6 @@
 # Consensus
 
-## Purpose
+## Overview
 
 The `Consensus` contract manages a permissioned set of signers and enforces multi-signature validation logic using either EIP 712 or EIP 1271 signatures. It is a lightweight module designed for verifying offchain consensus before executing critical actions such as deposits and redemptions via SignatureQueues.
 
@@ -11,20 +11,9 @@ It supports:
 - Dynamic signer set management.
 - Stateless, reusable verification interface.
 
-## Core Concepts
+## Configuration and State
 
-### Threshold Based Verification
-
-To validate an action, a set of authorized signers must collectively submit signatures. The number of valid signatures must be greater than or equal to the configured `threshold`.
-
-### Signature Types
-
-Each signer is associated with a `SignatureType`:
-
-- `EIP712`: Used for externally owned accounts (standard `ECDSA.recover`).
-- `EIP1271`: Used for contract accounts (via `isValidSignature()`).
-
-## Storage Layout
+### Storage Layout
 
 ```solidity
 struct ConsensusStorage {
@@ -36,7 +25,7 @@ struct ConsensusStorage {
 - `threshold`: Minimum number of valid signatures required for verification to succeed.
 - `signers`: Mapping of signer addresses to their configured signature type.
 
-## Initialization
+### Initialization
 
 ```solidity
 function initialize(bytes calldata data)
@@ -45,9 +34,26 @@ function initialize(bytes calldata data)
 - Expects `abi.encode(owner)` as input.
 - Sets the initial owner using `OwnableUpgradeable`.
 
-## Signature Verification
+## Behavior
 
-### `checkSignatures`
+### Core Concepts
+
+#### Threshold Based Verification
+
+To validate an action, a set of authorized signers must collectively submit signatures. The number of valid signatures must be greater than or equal to the configured `threshold`.
+
+#### Signature Types
+
+Each signer is associated with a `SignatureType`:
+
+- `EIP712`: Used for externally owned accounts (standard `ECDSA.recover`).
+- `EIP1271`: Used for contract accounts (via `isValidSignature()`).
+
+## Functions
+
+### Signature Verification
+
+#### `checkSignatures`
 
 ```solidity
 function checkSignatures(bytes32 orderHash, Signature[] calldata signatures) public view returns (bool)
@@ -66,7 +72,7 @@ Signature validation behavior:
 - `EIP712`: Uses `ECDSA.recover(orderHash, sig)` and matches signer.
 - `EIP1271`: Calls `isValidSignature(orderHash, sig)` on the contract.
 
-### `requireValidSignatures`
+#### `requireValidSignatures`
 
 ```solidity
 function requireValidSignatures(bytes32 orderHash, Signature[] calldata signatures) external view
@@ -74,9 +80,9 @@ function requireValidSignatures(bytes32 orderHash, Signature[] calldata signatur
 
 Same logic as `checkSignatures`, but reverts with `InvalidSignatures` error if validation fails.
 
-## Signer Management (Owner only)
+### Signer Management (Owner only)
 
-### `setThreshold`
+#### `setThreshold`
 
 ```solidity
 function setThreshold(uint256 threshold_) external onlyOwner
@@ -86,7 +92,7 @@ function setThreshold(uint256 threshold_) external onlyOwner
 - Must be greater than zero and less than or equal to `signers.length()`.
 - Emits `ThresholdSet`.
 
-### `addSigner`
+#### `addSigner`
 
 ```solidity
 function addSigner(address signer, uint256 threshold_, SignatureType sigType) external onlyOwner
@@ -97,7 +103,7 @@ function addSigner(address signer, uint256 threshold_, SignatureType sigType) ex
 - Reverts if `signer == address(0)` or signer already exists.
 - Emits `SignerAdded` and `ThresholdSet`.
 
-### `removeSigner`
+#### `removeSigner`
 
 ```solidity
 function removeSigner(address signer, uint256 threshold_) external onlyOwner
@@ -108,7 +114,7 @@ function removeSigner(address signer, uint256 threshold_) external onlyOwner
 - Reverts if signer not found.
 - Emits `SignerRemoved` and `ThresholdSet`.
 
-## View Functions
+### View Functions
 
 | Function | Returns |
 | --- | --- |
@@ -123,9 +129,18 @@ function removeSigner(address signer, uint256 threshold_) external onlyOwner
 - `ThresholdSet(uint256)`
 - `SignerAdded(address signer, SignatureType)`
 - `SignerRemoved(address signer)`
-- `InvalidSignatures(bytes32 hash, Signature[] signatures)` (used in revert)
 
-## Security Considerations
+## Errors
+
+- `InvalidSignatures(bytes32 hash, Signature[] signatures)`: Submitted signatures do not satisfy the consensus rules.
+- `InvalidThreshold(uint256 threshold)`: Threshold is zero or exceeds the signer count.
+- `ZeroAddress()`: A signer address is zero.
+- `SignerAlreadyExists(address signer)`: The signer is already registered.
+- `SignerNotFound(address signer)`: The signer is not registered.
+
+## Invariants and Limitations
+
+### Security Considerations
 
 - Only the owner (via `OwnableUpgradeable`) may update signer set or threshold.
 - Signatures are stateless and externally verifiable.
