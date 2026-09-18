@@ -54,7 +54,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
-**Quorum:** 3/6
+**Quorum:** 3/5
 
 **Forum topics:**\
 [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
@@ -85,7 +85,6 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 | --- | --- | --- | --- |
 | K_G | 0xC0DB9e34A47Ba42B6C17E6adae8f07d1Cb37C3d5 | https://etherscan.io/verifySig/255465 | https://x.com/Kean_Gilbert/status/1829481809970594270 |
 | Alex_L | 0xb339918e75664a07bb650513427559920c0a0f6c | https://etherscan.io/verifySig/34671 | https://x.com/Al_lykov/status/1829368876699681203 |
-| adcv | 0xcC692077C65dd464cAA7e7ae614328914f8469b3 | https://etherscan.io/verifySig/254203 | https://x.com/adcv_/status/1815411719952621755 |
 | Pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/17027 | https://x.com/ppclunghe/status/1672510820025073666?t=UYIyPA1_TfgNO323Q82mIQ&s=03 |
 | Willem H | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/297055 | https://x.com/0xWillem/status/1993272885733986451 |
 | Samuel_C | 0x0fb6215099f48d723cfb89434c2cb887357bc871 | https://etherscan.io/verifySig/304805 | https://x.com/stakesaurus/status/2036845084491342196 |
@@ -997,7 +996,7 @@ A Committee without multisig.
 
 **Purpose of the multisig:** The multisig has been established to manage a dedicated reserve for the [Lido Bug Bounty Program](https://immunefi.com/bug-bounty/lido/information/).
 
-**Quorum:** 5/9
+**Quorum:** 5/8
 
 **Forum post:** [Establishment of a Dedicated Bug Bounty Reserve Multisig](https://research.lido.fi/t/establishment-of-a-dedicated-bug-bounty-reserve-multisig/10974)
 
@@ -1009,7 +1008,6 @@ A Committee without multisig.
 |	Angelina_L	| 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/2003804133615456344 |
 |	dgusakov	| 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/297986 | https://x.com/d_gusakov/status/2000951850158391359 |
 |	Juan	| 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/298319 | |
-|	krogla	| 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/298804 | https://x.com/_krogla/status/2003385873572987224 |
 |	Alex_L	| 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/297970 | https://x.com/Al_lykov/status/2000924606174220308 |
 |	Nick K	| 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/299001 | |
 |	GrStepanov	| 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/298318 | https://x.com/shalfeyshur/status/2001963106801754378 |
