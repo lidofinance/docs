@@ -1009,7 +1009,6 @@ A Committee without multisig.
 |	Angelina_L	| 0x30ce91eb74e56d0df97c78774b3aca2144f6ad32 | https://etherscan.io/verifySig/296198 | https://x.com/helterswellter/status/2003804133615456344 |
 |	dgusakov	| 0x992ce4eec8288274f60880c7770dda265fcce610 | https://etherscan.io/verifySig/297986 | https://x.com/d_gusakov/status/2000951850158391359 |
 |	Juan	| 0xB8Dcad009E533066F12e408075E10E3a30F1f15A | https://etherscan.io/verifySig/298319 | |
-|	krogla	| 0x000000dfe832ccd7a4011a1fca34602c9a598353 | https://etherscan.io/verifySig/298804 | https://x.com/_krogla/status/2003385873572987224 |
 |	Alex_L	| 0xE61F7F15f91cdb58008cAeaea46E2d3f2BaFF68c | https://etherscan.io/verifySig/297970 | https://x.com/Al_lykov/status/2000924606174220308 |
 |	Nick K	| 0xCDDf6b6CffFa7b61b3048916C9C1262F6410C01f | https://etherscan.io/verifySig/299001 | |
 |	GrStepanov	| 0xf15f39f29b2C57Ab77745E73FD92f33aDA024791 | https://etherscan.io/verifySig/298318 | https://x.com/shalfeyshur/status/2001963106801754378 |
