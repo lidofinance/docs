@@ -54,7 +54,7 @@ This committee operates as part of the [Growth Committee](https://research.lido.
 
 **Purpose of the multisig:** Multisig is used for signing off on the Rewards Share Program, allowing functions such as adding and removing participants to whitelist, and distributing funds (stETH) allocated for Rewards Share Program according to budget proposal and calculated based on Rewards Share Program Policy through the Easy Track.
 
-**Quorum:** 3/6
+**Quorum:** 3/5
 
 **Forum topics:**\
 [Proposal to form Referral Program Committee and setup a multisig](https://research.lido.fi/t/setup-lido-referral-program-committee-and-use-easy-track-for-the-payouts-ethereum/1808)\
@@ -997,7 +997,7 @@ A Committee without multisig.
 
 **Purpose of the multisig:** The multisig has been established to manage a dedicated reserve for the [Lido Bug Bounty Program](https://immunefi.com/bug-bounty/lido/information/).
 
-**Quorum:** 5/9
+**Quorum:** 5/8
 
 **Forum post:** [Establishment of a Dedicated Bug Bounty Reserve Multisig](https://research.lido.fi/t/establishment-of-a-dedicated-bug-bounty-reserve-multisig/10974)
 

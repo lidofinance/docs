@@ -101,10 +101,27 @@ The build produces three artifacts for AI agents and assistants:
 
 Generation lives in [`src/plugins`](src/plugins/README.md) — see that README for plugin details, config, and customization.
 
-## Fetch and refresh external content
+## Check and refresh dynamic content
 
-Fetch external markdown files to build an up-to-date version.
+The audit and LIP pages are generated from immutable snapshots of their source repositories. The refresh resolves each configured branch once, pins the resulting commit in the generated page and `dynamic-content.lock.json`, and writes files atomically.
+
+Check for drift without changing the working tree:
+
+```console
+npm run check-external
+```
+
+Apply the current audit and LIP snapshots:
 
 ```console
 npm run fetch-external
 ```
+
+Safe quorum values use a separate on-chain check. It pins one block per chain, requires the block hash and quorum to agree across two public RPC providers, and records evidence for changed values in `dynamic-content.lock.json`.
+
+```console
+npm run check-msig-quorums
+npm run fetch-msig-quorums
+```
+
+These commands are manual maintenance tools. The build does not fetch or modify source pages.
