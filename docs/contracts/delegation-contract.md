@@ -2,7 +2,7 @@
 
 - [Source Code](https://github.com/lidofinance/execution-delegation-framework/blob/main/src/DelegationContract.sol)
 - [Audit](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20EDF%20On-chain%20Audit%20Report%2008-2026.pdf)
-- \[[proposed](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746/25)\] Deployed instances: [Lido Oracle](/holders/lido-oracle) and [Lido Council Daemon](/holders/lido-council-daemon) members
+- Deployed instances: [Lido Oracle](/holders/lido-oracle) and [Lido Council Daemon](/holders/lido-council-daemon) members
 
 `DelegationContract` is the per-seat contract of the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide). It has one owner and one active delegate. The owner is a cold multisig that nominates and revokes the delegate. The delegate is a hot key that does the daily work: it sends transactions through `execute()` or signs messages that the protocol checks through ERC-1271 `isValidSignature()`.
 
