@@ -24,4 +24,4 @@ Current members use EDF DelegationContracts (LIP-37):
 
 **Consensus quorum:** 5 out of 9 identical report hashes are required to finalize a report. The current value is enforced on-chain and is readable via [`getQuorum()`](/contracts/hash-consensus#getquorum) on each `HashConsensus` instance.
 
-The authoritative on-chain set is maintained by the [`HashConsensus`](/contracts/hash-consensus) contract; the values above can be cross-checked via [`getMembers()`](/contracts/hash-consensus#getmembers) on the `HashConsensus` instances bound to the [`AccountingOracle`](/contracts/accounting-oracle), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle) and [`FeeOracle`](/staking-modules/csm/contracts/FeeOracle).
+The authoritative on-chain set is maintained by the [`HashConsensus`](/contracts/hash-consensus) contract; the values above can be cross-checked via [`getMembers()`](/contracts/hash-consensus#getmembers) on the `HashConsensus` instances bound to the [`AccountingOracle`](/contracts/accounting-oracle), [`ValidatorsExitBusOracle`](/contracts/validators-exit-bus-oracle) and [`FeeOracle`](/staking-modules/contracts/FeeOracle).

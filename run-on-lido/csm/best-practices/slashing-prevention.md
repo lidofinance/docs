@@ -29,11 +29,13 @@ Despite the common misconception, being offline is not a slashable event.
 
 There are three penalties associated with the slashing:
 
-- **Initial penalty** also known as minimal penalty. Applied at the moment of slashing detection. Amount = `effective_balance // (32*128)` (usually 0.008 ETH)
-- **Midterm penalty** also known as correlation penalty. Applied in the middle of the slashing period (day #18). The amount may vary from `0 ETH to 32 ETH` depending on the number of other ongoing slashings (usually `0 ETH`)
-- **Missed attestations penalty**. During the whole period of slashing (usually 36 days), the validator balance is penalized for the missed attestations as if the validator was offline (usually `~0.1-0.2 ETH`)
+- **Initial penalty** also known as minimal penalty. Applied at the moment of slashing detection. Amount = `effective_balance // (32*128)` (0.008 ETH for a 32 ETH validator)
+- **Midterm penalty** also known as correlation penalty. Applied in the middle of the slashing period (day #18). The amount may vary from `0 ETH` up to the validator's whole effective balance depending on the number of other ongoing slashings (usually `0 ETH`)
+- **Missed attestations penalty**. During the whole period of slashing (usually 36 days), the validator balance is penalized for the missed attestations as if the validator was offline (`~0.1-0.2 ETH` for a 32 ETH validator)
 
-A typical total slashing penalty is **~0.3 ETH**
+A typical total slashing penalty is **~0.3 ETH** for a 32 ETH validator.
+
+All three penalties scale with the validator's effective balance, so a 0x02 CSM validator that has been topped up carries a proportionally larger downside. Because the loss is deducted from your bond, a slashing on a large 0x02 validator can exceed the available bond, and the outstanding amount is then [recorded as debt](/run-on-lido/csm/penalties#if-your-bond-becomes-insufficient) and recovered from future top-ups and rewards.
 
 ## What are the consequences of slashing for the CSM validators?
 

@@ -131,7 +131,7 @@ docker run --rm -it \
 
 **Replace**:
 1. Volume mapping with your keystore path
-2. `NETWORK` with `holesky` or `mainnet`
+2. `NETWORK` with `mainnet` or `hoodi`
 3. `0xF00` with your validator pubkey
 
 **Reference**: [Lodestar Exit CLI](https://chainsafe.github.io/lodestar/run/validator-management/validator-cli/#validator-voluntary-exit)
@@ -147,7 +147,7 @@ lighthouse --network NETWORK account validator exit \
 ```
 
 **Replace**:
-1. `NETWORK` with `mainnet` or `holesky`
+1. `NETWORK` with `mainnet` or `hoodi`
 2. `/path/to/keystore` with your keystore path
 
 You’ll be prompted for your keystore password and the exit phrase **Exit my validator**.
