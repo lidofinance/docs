@@ -9,6 +9,13 @@
 
 const fs = require('fs');
 const path = require('path');
+const {
+  parseMode,
+  readLock,
+  reconcileFile,
+  stableJson,
+  writeAtomic,
+} = require('./lib/external-content');
 
 // ---------------------------------------------------------------------------
 // Config
@@ -19,24 +26,24 @@ const DOC_DIRS = ['docs', 'earn', 'run-on-lido'];
 // Safe URL chain prefix → ordered list of public JSON-RPC endpoints. Each is
 // tried in turn on transient failures (5xx/4xx/network).
 const CHAIN_RPCS = {
-  eth:      ['https://eth.drpc.org', 'https://ethereum-rpc.publicnode.com', 'https://eth.llamarpc.com'],
-  base:     ['https://base.drpc.org', 'https://base-rpc.publicnode.com', 'https://base.llamarpc.com'],
+  eth:      ['https://eth.drpc.org', 'https://public.1rpc.io/eth', 'https://ethereum-rpc.publicnode.com', 'https://eth.llamarpc.com'],
+  base:     ['https://base.drpc.org', 'https://base-rpc.publicnode.com', 'https://base.llamarpc.com', 'https://mainnet.base.org'],
   arb1:     ['https://arbitrum.drpc.org', 'https://arbitrum-one-rpc.publicnode.com', 'https://arb1.arbitrum.io/rpc'],
   oeth:     ['https://optimism.drpc.org', 'https://optimism-rpc.publicnode.com', 'https://mainnet.optimism.io'],
   matic:    ['https://polygon.drpc.org', 'https://polygon-bor-rpc.publicnode.com', 'https://polygon-rpc.com'],
-  bnb:      ['https://bsc.drpc.org', 'https://bsc-rpc.publicnode.com', 'https://binance.llamarpc.com'],
+  bnb:      ['https://bsc.drpc.org', 'https://bsc-rpc.publicnode.com', 'https://binance.llamarpc.com', 'https://bsc-dataseed-public.bnbchain.org'],
   zksync:   ['https://zksync.drpc.org', 'https://mainnet.era.zksync.io'],
   gno:      ['https://gnosis.drpc.org', 'https://gnosis-rpc.publicnode.com', 'https://rpc.gnosischain.com'],
   avax:     ['https://avalanche.drpc.org', 'https://avalanche-c-chain-rpc.publicnode.com'],
   celo:     ['https://celo.drpc.org', 'https://forno.celo.org'],
-  scr:      ['https://scroll.drpc.org', 'https://rpc.scroll.io'],
+  scr:      ['https://scroll.drpc.org', 'https://scroll-rpc.publicnode.com', 'https://rpc.scroll.io', 'https://public.1rpc.io/scroll'],
   linea:    ['https://linea.drpc.org', 'https://rpc.linea.build'],
   mnt:      ['https://mantle.drpc.org', 'https://rpc.mantle.xyz'],
   mantle:   ['https://mantle.drpc.org', 'https://rpc.mantle.xyz'],
   unichain: ['https://unichain.drpc.org', 'https://mainnet.unichain.org'],
   ink:      ['https://ink.drpc.org', 'https://rpc-gel.inkonchain.com'],
   lisk:     ['https://lisk.drpc.org', 'https://rpc.api.lisk.com'],
-  mode:     ['https://mode.drpc.org', 'https://mainnet.mode.network'],
+  mode:     ['https://mainnet.mode.network', 'https://34443.rpc.thirdweb.com', 'https://mode.drpc.org', 'https://1rpc.io/mode'],
   soneium:  ['https://soneium.drpc.org', 'https://rpc.soneium.org'],
   plasma:   ['https://plasma.drpc.org', 'https://rpc.plasma.to'],
   sep:      ['https://sepolia.drpc.org', 'https://ethereum-sepolia-rpc.publicnode.com'],
@@ -45,7 +52,10 @@ const CHAIN_RPCS = {
 };
 
 const CONCURRENCY = 4;
-const FETCH_TIMEOUT_MS = 15_000;
+const FETCH_TIMEOUT_MS = 10_000;
+const RPC_RETRIES = 2;
+const PIN_DEPTH = 12;
+const REQUIRED_PROVIDER_AGREEMENT = 2;
 // Match any URL/text containing a Safe `safe=<chain>:<address>` query param,
 // independent of the host/path (e.g. app.safe.global, safe.scroll.xyz,
 // multisig.mantle.xyz, …). Unsupported chain prefixes will surface as
@@ -76,6 +86,12 @@ function createLimiter(max) {
 }
 
 const limit = createLimiter(CONCURRENCY);
+const providerLimiters = new Map();
+
+function limitProvider(url, fn) {
+  if (!providerLimiters.has(url)) providerLimiters.set(url, createLimiter(1));
+  return providerLimiters.get(url)(fn);
+}
 
 // ---------------------------------------------------------------------------
 // Multisig threshold/owners read via JSON-RPC `eth_call`
@@ -88,6 +104,7 @@ const SELECTOR_GET_THRESHOLD = '0xe75235b8';
 const SELECTOR_GET_OWNERS = '0xa0e67e2b';
 
 const quorumCache = new Map();
+const chainPinCache = new Map();
 
 function fetchQuorum(chain, address) {
   const key = `${chain}:${address.toLowerCase()}`;
@@ -107,40 +124,138 @@ function fetchQuorum(chain, address) {
 async function resolveQuorum(chain, address) {
   const rpcs = CHAIN_RPCS[chain];
   if (!rpcs) throw new Error(`unsupported chain: ${chain}`);
-  const [threshold, owners] = await Promise.all([
-    rpcCallWithFallback(rpcs, address, SELECTOR_GET_THRESHOLD).then(decodeUint),
-    rpcCallWithFallback(rpcs, address, SELECTOR_GET_OWNERS).then(decodeArrayLength),
-  ]);
-  if (!(threshold > 0 && threshold <= owners)) {
-    throw new Error(`invalid quorum: ${threshold}/${owners}`);
+  if (!chainPinCache.has(chain)) {
+    const promise = pinCommonBlock(rpcs).catch((error) => {
+      if (chainPinCache.get(chain) === promise) chainPinCache.delete(chain);
+      throw error;
+    });
+    chainPinCache.set(chain, promise);
   }
-  return `${threshold}/${owners}`;
+  const pin = await chainPinCache.get(chain);
+  const reads = await Promise.allSettled(
+    pin.providers.map(async (provider) => {
+      try {
+        return await limitProvider(provider.url, () => readQuorum(provider.url, address, pin.blockTag));
+      } catch (error) {
+        throw new Error(`${provider.url}: ${error.message}`)
+      }
+    }),
+  );
+  const confirmed = reads
+    .map((result, index) => ({ result, provider: pin.providers[index] }))
+    .filter(({ result }) => result.status === 'fulfilled')
+    .map(({ result, provider }) => ({ ...result.value, provider: provider.url }));
+  if (confirmed.length < REQUIRED_PROVIDER_AGREEMENT) {
+    const failures = reads
+      .filter((result) => result.status === 'rejected')
+      .map((result) => result.reason.message)
+      .join('; ');
+    throw new Error(`only ${confirmed.length} provider quorum reads succeeded at ${pin.blockTag}: ${failures}`);
+  }
+  const expected = confirmed[0].value;
+  const agreeing = confirmed.filter((result) => result.value === expected);
+  if (agreeing.length < REQUIRED_PROVIDER_AGREEMENT) {
+    throw new Error(`provider quorum disagreement at ${pin.blockTag}: ${confirmed.map((item) => `${item.provider}=${item.value}`).join(', ')}`);
+  }
+  return {
+    value: expected,
+    block_number: pin.blockNumber,
+    block_hash: pin.blockHash,
+    chain_id: pin.chainId,
+    providers: agreeing.slice(0, REQUIRED_PROVIDER_AGREEMENT).map((item) => item.provider),
+  };
 }
 
-async function rpcCallWithFallback(rpcs, to, data) {
-  let lastErr;
-  for (const url of rpcs) {
+async function pinCommonBlock(rpcs) {
+  const probes = await Promise.allSettled(rpcs.map(async (url) => {
+    const [chainIdHex, blockNumberHex] = await Promise.all([
+      rpcRequest(url, 'eth_chainId', []),
+      rpcRequest(url, 'eth_blockNumber', []),
+    ]);
+    return { url, chainId: Number.parseInt(chainIdHex, 16), latest: Number.parseInt(blockNumberHex, 16) };
+  }));
+  const available = probes.filter((result) => result.status === 'fulfilled').map((result) => result.value);
+  if (available.length < REQUIRED_PROVIDER_AGREEMENT) {
+    throw new Error(`only ${available.length} RPC providers available; need ${REQUIRED_PROVIDER_AGREEMENT}`);
+  }
+  const chainIds = new Set(available.map((provider) => provider.chainId));
+  if (chainIds.size !== 1) throw new Error(`RPC chain id disagreement: ${[...chainIds].join(', ')}`);
+  const blockNumber = Math.max(0, Math.min(...available.map((provider) => provider.latest)) - PIN_DEPTH);
+  const blockTag = `0x${blockNumber.toString(16)}`;
+  const blocks = await Promise.allSettled(available.map(async (provider) => {
+    const block = await rpcRequest(provider.url, 'eth_getBlockByNumber', [blockTag, false]);
+    if (!block || !/^0x[0-9a-fA-F]{64}$/.test(block.hash || '')) {
+      throw new Error(`invalid block response from ${provider.url}`);
+    }
+    return { ...provider, blockHash: block.hash.toLowerCase() };
+  }));
+  const byHash = new Map();
+  for (const result of blocks) {
+    if (result.status !== 'fulfilled') continue;
+    const values = byHash.get(result.value.blockHash) || [];
+    values.push(result.value);
+    byHash.set(result.value.blockHash, values);
+  }
+  const agreement = [...byHash.entries()]
+    .map(([blockHash, providers]) => ({ blockHash, providers }))
+    .sort((left, right) => right.providers.length - left.providers.length)[0];
+  if (!agreement || agreement.providers.length < REQUIRED_PROVIDER_AGREEMENT) {
+    throw new Error(`no ${REQUIRED_PROVIDER_AGREEMENT}-provider block-hash agreement at ${blockTag}`);
+  }
+  return {
+    blockNumber,
+    blockTag,
+    blockHash: agreement.blockHash,
+    chainId: agreement.providers[0].chainId,
+    providers: agreement.providers,
+  };
+}
+
+async function readQuorum(rpcUrl, address, blockTag) {
+  const [threshold, owners] = await Promise.all([
+    rpcCall(rpcUrl, address, SELECTOR_GET_THRESHOLD, blockTag).then(decodeUint),
+    rpcCall(rpcUrl, address, SELECTOR_GET_OWNERS, blockTag).then(decodeArrayLength),
+  ]);
+  if (!(threshold > 0 && threshold <= owners)) throw new Error(`invalid quorum: ${threshold}/${owners}`);
+  return { value: `${threshold}/${owners}` };
+}
+
+async function rpcCall(rpcUrl, to, data, blockTag) {
+  return rpcRequest(rpcUrl, 'eth_call', [{ to, data }, blockTag]);
+}
+
+async function rpcRequest(rpcUrl, method, params) {
+  const body = JSON.stringify({ jsonrpc: '2.0', method, params, id: 1 });
+  let lastError;
+  for (let attempt = 0; attempt <= RPC_RETRIES; attempt++) {
     try {
-      return await rpcCall(url, to, data);
-    } catch (err) {
-      lastErr = err;
+      const res = await fetch(rpcUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      });
+      if (!res.ok) {
+        const retryable = res.status === 429 || res.status >= 500;
+        const error = new Error(`rpc HTTP ${res.status}`);
+        if (!retryable || attempt === RPC_RETRIES) throw error;
+        const retryAfter = Number.parseFloat(res.headers.get('retry-after'));
+        const requestedDelayMs = Number.isFinite(retryAfter) ? retryAfter * 1_000 : 250 * (2 ** attempt);
+        const delayMs = Math.min(requestedDelayMs, 5_000);
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        continue;
+      }
+      const json = await res.json();
+      if (json.error) throw new Error(json.error.message ?? JSON.stringify(json.error));
+      if (json.result === undefined) throw new Error(`rpc returned no result for ${method}`);
+      return json.result;
+    } catch (error) {
+      lastError = error;
+      if (attempt === RPC_RETRIES || !['AbortError', 'TimeoutError', 'TypeError'].includes(error.name)) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 250 * (2 ** attempt)));
     }
   }
-  throw lastErr ?? new Error('no rpcs configured');
-}
-
-async function rpcCall(rpcUrl, to, data) {
-  const body = JSON.stringify({ jsonrpc: '2.0', method: 'eth_call', params: [{ to, data }, 'latest'], id: 1 });
-  const res = await fetch(rpcUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body,
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-  });
-  if (!res.ok) throw new Error(`rpc HTTP ${res.status}`);
-  const json = await res.json();
-  if (json.error) throw new Error(json.error.message ?? JSON.stringify(json.error));
-  return json.result;
+  throw lastError;
 }
 
 function decodeUint(hex) {
@@ -255,7 +370,7 @@ function* scanQuorumSites(lines) {
 // ---------------------------------------------------------------------------
 // Per-file processing
 // ---------------------------------------------------------------------------
-async function processFile(file, onFileDone) {
+async function processFile(file, mode, onFileDone) {
   const original = fs.readFileSync(file, 'utf8');
   const lines = original.split('\n');
   const rel = path.relative(ROOT, file);
@@ -263,10 +378,10 @@ async function processFile(file, onFileDone) {
   const checks = await Promise.all(
     [...scanQuorumSites(lines)].map(async (site) => {
       try {
-        const onchain = await fetchQuorum(site.chain, site.address);
-        if (site.current === onchain) return { ...site, status: 'ok', onchain };
-        site.write(onchain);
-        return { ...site, status: 'drift', onchain };
+        const pin = await fetchQuorum(site.chain, site.address);
+        if (site.current === pin.value) return { ...site, status: 'ok', onchain: pin.value, pin };
+        if (mode === 'write') site.write(pin.value);
+        return { ...site, status: 'drift', onchain: pin.value, pin };
       } catch (err) {
         return { ...site, status: 'error', message: err.message };
       }
@@ -313,10 +428,12 @@ function formatCheck(c, refWidth) {
     c.status === 'drift' ? `${c.current} → ${c.onchain}` :
     c.status === 'error' ? `${c.current ?? '?'}  (${c.message})` :
     c.current;
-  return `  ${SYMBOL[c.status]} ${line}  ${ref}  ${tail}`;
+  const pin = c.pin ? `  block=${c.pin.block_number} hash=${c.pin.block_hash}` : '';
+  return `  ${SYMBOL[c.status]} ${line}  ${ref}  ${tail}${pin}`;
 }
 
 async function main() {
+  const mode = parseMode(process.argv.slice(2));
   const totals = { ok: 0, drift: 0, error: 0 };
   // Reserve enough width for the longest configured `chain:0x…` reference so
   // columns align even when short and long prefixes mix on a single page.
@@ -333,17 +450,56 @@ async function main() {
   };
 
   const files = discoverDocFiles();
-  const results = await Promise.all(files.map((f) => processFile(f, onFileDone)));
+  const results = await Promise.all(files.map((f) => processFile(f, mode, onFileDone)));
 
-  for (const { rel, content, original } of results) {
-    if (content !== original) fs.writeFileSync(path.join(ROOT, rel), content);
+  // A write run is transactional at repository level: incomplete RPC
+  // coverage must not leave a partially refreshed set of quorum values.
+  const canWrite = mode === 'write' && totals.error === 0;
+  if (canWrite) {
+    for (const { rel, content, original } of results) {
+      if (content !== original) writeAtomic(path.join(ROOT, rel), content);
+    }
   }
+
+  const lock = readLock();
+  lock.schema_version = 1;
+  lock.external ||= {};
+  lock.quorums ||= {};
+  for (const { checks } of results) {
+    for (const check of checks.filter((item) => item.status === 'drift' && item.pin)) {
+      const key = `${check.chain}:${check.address.toLowerCase()}`;
+      lock.quorums[key] = {
+        chain: check.chain,
+        address: check.address,
+        value: check.onchain,
+        block_number: check.pin.block_number,
+        block_hash: check.pin.block_hash,
+        chain_id: check.pin.chain_id,
+        providers: check.pin.providers,
+      };
+    }
+  }
+  const lockMode = mode === 'write' && !canWrite ? 'check' : mode;
+  const lockResult = reconcileFile(path.join(ROOT, 'dynamic-content.lock.json'), stableJson(lock), lockMode);
+  if (lockResult.changed) console.log(`dynamic-content.lock.json: ${lockResult.action}`);
 
   const total = totals.ok + totals.drift + totals.error;
   console.log(`\n${total} checked: ${totals.ok} ok, ${totals.drift} drift, ${totals.error} error`);
+  if (mode === 'write' && !canWrite) console.error('write aborted: RPC coverage was incomplete; no quorum files or lock evidence were changed');
+  if (totals.error > 0) process.exitCode = 2;
+  else if (mode === 'check' && (totals.drift > 0 || lockResult.changed)) process.exitCode = 1;
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exitCode = 2;
+  });
+}
+
+module.exports = {
+  decodeArrayLength,
+  decodeUint,
+  pinCommonBlock,
+  resolveQuorum,
+};

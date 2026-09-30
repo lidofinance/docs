@@ -1,9 +1,10 @@
 # Security Disclosures
 
-A reverse-chronological (most recent first) record of security-related disclosures and post-mortem reports published by Lido. For details on impact, root cause, and resolution, refer to the linked reports. Dates reflect when the report was published. Disclosures and outage reports related to node operators can be found on [research.lido.fi](https://research.lido.fi).
+A reverse-chronological (most recent first) record of security-related disclosures and post-mortem reports published by Lido. For details on impact, root cause, and resolution, refer to the linked reports. Dates reflect when the report was published. This ledger covers the Lido core protocol and its governance-control surface; product-level incidents, including Lido Earn incidents, are outside its scope. Disclosures and outage reports related to node operators can be found on [research.lido.fi](https://research.lido.fi).
 
 | Date | Type | Severity | Title | Links |
 | ---------- | ---- | -------- | --------------------------------------------------- | ----- |
+| 2026-08-06 | Incident | Low | Staking Router v3: Accounting Oracle / VEBO Incident | [Forum](https://research.lido.fi/t/11756) |
 | 2026-03-23 | Bug Bounty | Low | Batched Immunefi-reported Weakness Disclosure | [Forum](https://research.lido.fi/t/security-bulletin-batched-immunefi-reported-weakness-disclosure-march-2026-funds-not-at-risk/11342) |
 | 2025-08-01 | Bug Bounty | High | CSVerifier Weak Validation of Historical Block GIndex | [Forum](https://research.lido.fi/t/security-disclosure-post-mortem-csverifier-weak-validation-of-the-historical-block-gindex-user-funds-remain-safe/10466) |
 | 2025-07-21 | Bug Bounty | Moderate | DG Weakness Reported Through Immunefi | [Forum](https://research.lido.fi/t/security-disclosure-dg-weakness-reported-through-immunefi-funds-not-at-risk/10393) |
@@ -17,4 +18,4 @@ A reverse-chronological (most recent first) record of security-related disclosur
 
 *Severity levels: **Critical** — potential loss of staker funds or critical system compromise. **High** — significant impact, may affect funds under specific conditions. **Moderate** — limited impact, staker funds not at risk. **Low** — minimal impact, informational or theoretical.*
 
-*Last updated: 24 Mar 2026*
+*Last updated: 1 Sep 2026*
