@@ -4,7 +4,9 @@
 
 `VerifierModule` is an abstract extension of `BaseModule` designed to provide standardized access to a `Verifier` contract. It manages internal storage using a deterministic slot derived via `SlotLibrary`, supporting secure modular composition across multiple vault systems.
 
-## Constructor
+## Configuration and State
+
+### Constructor
 
 ```solidity
 constructor(string memory name_, uint256 version_)
@@ -17,9 +19,11 @@ Parameters:
 - `name_` — Unique identifier used to namespace the storage slot.
 - `version_` — Version number used for slot derivation.
 
-## Public & External Functions
+## Functions
 
-### `verifier()`
+### Public and External Functions
+
+#### `verifier()`
 
 ```solidity
 function verifier() public view returns (IVerifier)
@@ -31,9 +35,9 @@ Returns:
 
 - `IVerifier` — The verifier contract associated with the module.
 
-## Internal Functions
+### Internal Functions
 
-### `__VerifierModule_init(address verifier_)`
+#### `__VerifierModule_init(address verifier_)`
 
 ```solidity
 function __VerifierModule_init(address verifier_) internal onlyInitializing
@@ -49,9 +53,9 @@ Reverts:
 
 - `ZeroAddress()` if verifier address is zero.
 
-## Private Functions
+### Private Functions
 
-### `_verifierModuleStorage()`
+#### `_verifierModuleStorage()`
 
 ```solidity
 function _verifierModuleStorage() private view returns (VerifierModuleStorage storage)

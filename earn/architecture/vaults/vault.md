@@ -10,21 +10,9 @@ The `Vault` contract is the central entry point in the Flexible Vault system. It
 
 This contract allows secure, extensible, and upgradeable vault implementations by coordinating all external and internal interactions within the system. It is typically instantiated through `Factory` or `VaultConfigurator` and initialized with all the required components and role assignments in a single atomic transaction.
 
-## Inheritance Structure
+## Configuration and State
 
-```solidity
-contract Vault is IFactoryEntity, VaultModule, ShareModule, ACLModule
-```
-
-The contract inherits three modules:
-
-- `ACLModule`: Admin and permission management.
-- `ShareModule`: Deposits, redemptions, share management.
-- `VaultModule`: Subvault delegation control.
-
-It also implements the `IFactoryEntity` interface for standard factory based deployment patterns.
-
-## Constructor
+### Constructor
 
 ```solidity
 constructor(
@@ -37,7 +25,7 @@ constructor(
 )
 ```
 
-### Parameters
+#### Parameters
 
 - `name_`: Unique name identifier for the vault instance.
 - `version_`: Configuration version of the vault.
@@ -46,7 +34,7 @@ constructor(
 - `subvaultFactory_`: Address of the factory used to deploy subvaults.
 - `verifierFactory_`: Address of the factory for deploying verifier contracts.
 
-### Behavior
+#### Behavior
 
 Passes these arguments to the parent module constructors:
 
@@ -54,9 +42,9 @@ Passes these arguments to the parent module constructors:
 - `ShareModule(name_, version_, depositQueueFactory_, redeemQueueFactory_)`
 - `VaultModule(name_, version_, subvaultFactory_, verifierFactory_)`
 
-## Structs
+### Structs
 
-### `RoleHolder`
+#### `RoleHolder`
 
 ```solidity
 struct RoleHolder {
@@ -67,9 +55,11 @@ struct RoleHolder {
 
 Used to batch assign multiple roles during initialization. Each entry maps a role identifier to a designated address.
 
-## External Functions
+## Functions
 
-### `initialize`
+### State-Changing Functions
+
+#### `initialize`
 
 ```solidity
 function initialize(bytes calldata initParams) external initializer
@@ -77,7 +67,7 @@ function initialize(bytes calldata initParams) external initializer
 
 Initializes the vault instance. Can only be called once due to the `initializer` modifier.
 
-### `initParams` structure (ABI-encoded)
+#### `initParams` structure (ABI-encoded)
 
 ```solidity
 (
@@ -93,7 +83,7 @@ Initializes the vault instance. Can only be called once due to the `initializer`
 )
 ```
 
-### Initialization Logic
+#### Initialization Logic
 
 - Calls `__ACLModule_init(admin_)` to configure the default admin.
 - Calls `__ShareModule_init(...)` to link share management and hook modules.
@@ -101,7 +91,15 @@ Initializes the vault instance. Can only be called once due to the `initializer`
 - Iterates over `roleHolders` and grants each role using `_grantRole(...)`.
 - Emits `Initialized(initParams)`.
 
-## Design Notes
+## Events
+
+### `Initialized(bytes data)`
+
+Emitted after successful initialization. Includes all parameters passed for transparency.
+
+## Invariants and Limitations
+
+### Design Notes
 
 - Modular composition: The vault is composed by inheriting three upgradeable modules, enabling reuse and flexible configuration.
 - Factory compatible: The contract is factory deployable and supports atomic configuration during creation.
@@ -109,8 +107,18 @@ Initializes the vault instance. Can only be called once due to the `initializer`
 - Role assignment: Enables full delegation of operational control via batched `RoleHolder` entries.
 - Upgradeable and isolated: Each module manages its own storage via deterministic slots (`SlotLibrary`) to support safe upgrades.
 
-## Events
+## Related Contracts and References
 
-### `Initialized(bytes data)`
+### Inheritance Structure
 
-Emitted after successful initialization. Includes all parameters passed for transparency.
+```solidity
+contract Vault is IFactoryEntity, VaultModule, ShareModule, ACLModule
+```
+
+The contract inherits three modules:
+
+- `ACLModule`: Admin and permission management.
+- `ShareModule`: Deposits, redemptions, share management.
+- `VaultModule`: Subvault delegation control.
+
+It also implements the `IFactoryEntity` interface for standard factory based deployment patterns.

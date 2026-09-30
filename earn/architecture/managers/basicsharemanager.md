@@ -6,14 +6,16 @@
 
 This contract is intended for setups where shares are not tokenized on-chain as ERC20s but are still tracked internally using the `ERC20Upgradeable` storage schema.
 
-## Key Features
+### Key Features
 
 - Uses `ShareManager` for permissioning, allocation, and whitelisting logic.
 - Maintains balances and total supply using `ERC20Upgradeable.ERC20Storage`.
 - Internal mint and burn logic emits `IERC20.Transfer` events (for transparency or compatibility).
 - Fully decoupled from standard `ERC20` interface. Share transfers are governed by vault queues and mint and burn logic only.
 
-## Storage
+## Configuration and State
+
+### Storage
 
 ERC20 style balances and supply are stored at a fixed storage slot allowing for migrations between BasicShareManager and TokenizedShareManager:
 
@@ -21,7 +23,7 @@ ERC20 style balances and supply are stored at a fixed storage slot allowing for 
 bytes32 private constant ERC20StorageLocation = 0x52c6...ce00;
 ```
 
-## Initialization
+### Initialization
 
 ```solidity
 function initialize(bytes calldata data) external initializer
@@ -29,14 +31,16 @@ function initialize(bytes calldata data) external initializer
 
 - Expects a single `bytes32 whitelistMerkleRoot` (used by `ShareManager`).
 
-## View Functions
+## Functions
+
+### View Functions
 
 - `activeShares()`: Returns `_totalSupply` from ERC20 storage.
 - `activeSharesOf(account)`: Returns balance of `account`.
 
-## Internal Logic
+### Internal Logic
 
-### `_mintShares(address, uint256)`
+#### `_mintShares(address, uint256)`
 
 - Checks if minting is allowed via `updateChecks`.
 - Increments total supply and receiver's balance.
@@ -47,7 +51,7 @@ Reverts if:
 - `account == address(0)`.
 - Minting is paused or restricted by lockup, whitelist, or blacklist.
 
-### `_burnShares(address, uint256)`
+#### `_burnShares(address, uint256)`
 
 - Checks if burning is allowed via `updateChecks`.
 - Decreases sender's balance and total supply.
@@ -59,7 +63,9 @@ Reverts if:
 - `value > account balance`.
 - Burning is paused or blocked.
 
-## Design Notes
+## Invariants and Limitations
+
+### Design Notes
 
 - This module deliberately avoids exposing the ERC20 interface, preventing unintended external transfers or integrations.
 - It is intended for internal share accounting within vault systems, where shares are tracked but not tokenized on-chain.

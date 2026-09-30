@@ -6,7 +6,7 @@ The `Oracle` contract is responsible for secure and configurable price reporting
 
 It enforces strong assumptions around data integrity, report timing, and trust minimization through roles and deviation thresholds. This oracle ensures consistent pricing across all queue, share, and vault related computations.
 
-## Key Responsibilities
+### Key Responsibilities
 
 - Report submission: Allows trusted accounts to submit price updates.
 - Deviation analysis: Compares new prices against the last report for suspicious behavior.
@@ -14,7 +14,7 @@ It enforces strong assumptions around data integrity, report timing, and trust m
 - Asset management: Controls which tokens are supported by the oracle.
 - Oracle price validation: Used by other modules (for example `SignatureQueue`) to verify incoming prices.
 
-## Roles
+## Roles and Permissions
 
 | Role | Description |
 | --- | --- |
@@ -24,7 +24,9 @@ It enforces strong assumptions around data integrity, report timing, and trust m
 | `ADD_SUPPORTED_ASSETS_ROLE` | Can whitelist new assets for reporting |
 | `REMOVE_SUPPORTED_ASSETS_ROLE` | Can remove assets and delete associated state |
 
-## `SecurityParams`
+## Configuration and State
+
+### `SecurityParams`
 
 ```solidity
 struct SecurityParams {
@@ -44,7 +46,7 @@ struct SecurityParams {
 - `depositInterval`: Minimum age required for a deposit to be processed.
 - `redeemInterval`: Same, but for redemptions.
 
-## `Reports`
+### `Reports`
 
 ```solidity
 struct Report {
@@ -61,33 +63,9 @@ struct DetailedReport {
 
 Used to validate asset prices and coordinate cross queue processing.
 
-## Key Functions
+## Behavior
 
-### View
-
-| Function | Description |
-| --- | --- |
-| `vault()` | Returns the linked vault (must implement `IShareModule`) |
-| `securityParams()` | Current oracle thresholds and intervals |
-| `supportedAssets()` | Count of whitelisted tokens |
-| `supportedAssetAt(index)` | Token at a given index |
-| `isSupportedAsset(address)` | Whether an asset is valid for reporting |
-| `getReport(asset)` | Returns last report (price, timestamp, suspicious flag) |
-| `validatePrice(priceD18, asset)` | Validates a given price against the current report and security params |
-
-### Mutable
-
-| Function | Description |
-| --- | --- |
-| `initialize(params)` | Initializes with assets and security settings |
-| `setVault(vault)` | Registers the vault for report consumption |
-| `submitReports(reports[])` | Batch submits prices for multiple assets |
-| `acceptReport(asset, price, timestamp)` | Marks a previously suspicious report as trusted |
-| `setSecurityParams(params)` | Updates thresholds and timing rules |
-| `addSupportedAssets(assets[])` | Adds tokens to the supported set |
-| `removeSupportedAssets(assets[])` | Removes tokens and clears their reports |
-
-## Reporting Logic
+### Reporting Logic
 
 When calling `submitReports(...)`:
 
@@ -102,7 +80,7 @@ Step 3: Price is compared against previous:
 
 Step 4: If the report is accepted, it triggers `vault.handleReport(...)` with adjusted deposit and redeem timestamps and emits `ReportsSubmitted`.
 
-## Validation Logic
+### Validation Logic
 
 Prices are validated by:
 
@@ -121,6 +99,32 @@ Used by:
 - `SignatureDepositQueue`, `SignatureRedeemQueue`, `DepositQueue` and `RedeemQueue` contracts.
 - Vault's limit accounting (`RiskManager`).
 
+## Functions
+
+### View Functions
+
+| Function | Description |
+| --- | --- |
+| `vault()` | Returns the linked vault (must implement `IShareModule`) |
+| `securityParams()` | Current oracle thresholds and intervals |
+| `supportedAssets()` | Count of whitelisted tokens |
+| `supportedAssetAt(index)` | Token at a given index |
+| `isSupportedAsset(address)` | Whether an asset is valid for reporting |
+| `getReport(asset)` | Returns last report (price, timestamp, suspicious flag) |
+| `validatePrice(priceD18, asset)` | Validates a given price against the current report and security params |
+
+### State-Changing Functions
+
+| Function | Description |
+| --- | --- |
+| `initialize(params)` | Initializes with assets and security settings |
+| `setVault(vault)` | Registers the vault for report consumption |
+| `submitReports(reports[])` | Batch submits prices for multiple assets |
+| `acceptReport(asset, price, timestamp)` | Marks a previously suspicious report as trusted |
+| `setSecurityParams(params)` | Updates thresholds and timing rules |
+| `addSupportedAssets(assets[])` | Adds tokens to the supported set |
+| `removeSupportedAssets(assets[])` | Removes tokens and clears their reports |
+
 ## Events
 
 | Event | Purpose |
@@ -132,7 +136,9 @@ Used by:
 | `SupportedAssetsRemoved(addresses[])` | Tokens delisted |
 | `SetVault(address)` | Vault set |
 
-## Security Considerations
+## Invariants and Limitations
+
+### Security Considerations
 
 - Only trusted roles can push prices.
 - Suspicious reports cannot be accepted without explicit approval.
