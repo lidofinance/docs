@@ -944,7 +944,7 @@ Committee's multisig is designated to configure stVaults and/or Node Operator Ti
 | Mol_Eliza | 0x21b82aa7149c8fd0562e78b740937442ffd43094 | https://etherscan.io/verifySig/280352 | https://research.lido.fi/t/stvaults-committee-proposal/10608/13 |
 | mikgur | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/280076 | https://research.lido.fi/t/stvaults-committee-proposal/10608/11 |
 | AlexDry | 0x1555f8A94fC27A06C6610D00157216fa8783EA91 | https://etherscan.io/verifySig/296111 | https://research.lido.fi/t/stvaults-committee-proposal/10608/12 |
-| snk999 | 0x4d55af0756b43ee0c1052e585a185a47771b022e | https://etherscan.io/verifySig/317754 | https://research.lido.fi/t/stvaults-committee-proposal/10608/19 |
+| snk999 | 0x2d55aD2742d98961D0c6E68C6372a19614357708 | https://etherscan.io/verifySig/317754 | https://research.lido.fi/t/stvaults-committee-proposal/10608/19 |
 
 ## 2.17 Bridging Security Committee
 
