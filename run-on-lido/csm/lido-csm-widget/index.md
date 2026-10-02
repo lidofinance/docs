@@ -19,3 +19,5 @@ In this section, we break down the widget’s key functionalities, providing eas
 [**Exiting CSM Validators →**](./exiting-csm-validators/)
 
 [**Operator Roles →**](./operator-roles)
+
+[**Managing 0x01 and 0x02 Operators →**](./managing-0x01-and-0x02-operators)

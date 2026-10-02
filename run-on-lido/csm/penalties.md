@@ -25,9 +25,9 @@ When you join CSM, your bond acts as collateral for all validators under your No
 | Slashing | Losses associated with the slashed validator are assessed and deducted from the bond after withdrawal. |
 | Redirecting Execution Layer rewards or another protocol violation | The assessed loss and an additional fine can be reported as a General Delayed Penalty. |
 
-When a validator exits, CSM compares its withdrawal balance with its confirmed expected balance. For a non-slashed validator, any shortfall is applied directly to the bond. Slashed validators use a [separate reporting flow](/staking-modules/csm/validator-exits#slashed-validators) so the full loss can be assessed before it is deducted.
+When a validator exits, CSM compares its withdrawal balance with its confirmed expected balance. For a non-slashed validator, any shortfall is applied directly to the bond. Slashed validators use a [separate reporting flow](/staking-modules/validator-exits#slashed-validators) so the full loss can be assessed before it is deducted.
 
-One period of poor performance does not immediately reduce your bond. The validator first loses its Node Operator reward for that 28-day frame and receives a strike. Strikes expire after the applicable lifetime if the validator does not continue underperforming.
+One period of poor performance does not immediately reduce your bond. The validator first loses its Node Operator reward for that [frame](/staking-modules/rewards#performance-oracle) and receives a strike. Strikes expire after the applicable lifetime if the validator does not continue underperforming.
 
 ## Parameters by operator profile
 
@@ -68,4 +68,4 @@ Undeposited unbonded keys stop receiving deposits. Validators that remain unbond
 - Monitor validator performance and CSM alerts.
 - [Verify the fee recipient](/run-on-lido/csm/troubleshooting/setting-the-fee-recipient-for-csm-validators/verifying-fee-recipient-for-csm-validators) before your validator proposes a block.
 - Follow [slashing prevention](/run-on-lido/csm/best-practices/slashing-prevention) practices.
-- Process [validator exit requests](/staking-modules/csm/validator-exits) as soon as possible.
+- Process [validator exit requests](/staking-modules/validator-exits) as soon as possible.

@@ -14,5 +14,9 @@ test('shares Docusaurus redirects with imported documentation', () => {
     resolveRedirect('/token-guides/wsteth-bridging-guide#the-proposed-configuration'),
     '/token-guides/cross-chain-tokens-guide#mainnet-proposed-configuration',
   )
+  assert.equal(
+    resolveRedirect('/staking-modules/csm/contracts/CSAccounting'),
+    '/staking-modules/contracts/Accounting',
+  )
   assert.equal(resolveRedirect('/guides/current'), '/guides/current')
 })

@@ -28,6 +28,10 @@ Next, type and enter `ethpillar` to launch the terminal UI and:
 4. Verify the fee recipient and withdrawal address below or on the [CSM Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module).
 5. Import the generated validator keys into your validator client.
 
+:::note
+EthPillar's CSM key generation does not yet support `0x02` keys. If you are joining 0x02 CSM on Hoodi, generate your keys with Eth Docker or Wagyu Keygen instead, as described in [Key Generation for Testnet](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet).
+:::
+
 <Tabs>
   <TabItem value="withdrawal" label="Withdrawal Address">
     <ul>
