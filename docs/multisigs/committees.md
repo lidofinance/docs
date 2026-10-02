@@ -1050,7 +1050,8 @@ A Committee without multisig.
 
 ## 2.21 Lido Automation Owner Multisig
 
-**Address:** [`0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b`](https://app.safe.global/settings/setup?safe=eth:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b)
+**Address:**\
+`0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b` - [Ethereum](https://app.safe.global/settings/setup?safe=eth:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b), [Arbitrum](https://app.safe.global/settings/setup?safe=arb1:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b), [Base](https://app.safe.global/settings/setup?safe=base:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b), [Optimism](https://app.safe.global/settings/setup?safe=oeth:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b), [Linea](https://app.safe.global/settings/setup?safe=linea:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b)
 
 **Purpose of the multisig:** The multisig owns Lido automation workflows registered in the Chainlink Runtime Environment (CRE) Workflow Registry and manages their deployment and updates. The multisig is technical and does not manage or custody any funds.
 
