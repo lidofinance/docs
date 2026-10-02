@@ -1,119 +1,102 @@
-const fs = require('fs');
-const https = require('https');
-const path = require('path');
+#!/usr/bin/env node
 
-// Source & dest ------------------------------------------------------------
-const fileUrl =
-  'https://raw.githubusercontent.com/lidofinance/audits/refs/heads/main/README.md';
-const localPath = path.join(__dirname, '../docs/security/audits.md');
+const fs = require('node:fs')
+const path = require('node:path')
 
-/* ------------------------------ helpers --------------------------------- */
-function preprocessMarkdown(md) {
-  const urlPrefix =
-    'https://github.com/lidofinance/audits/blob/main/';
-  const pdfRe = /(\[.*?\]\()(?!http|https|#|\/|mailto:)([^)]+\.pdf)(\))/g;
-  return md.replace(pdfRe, (_, p1, rel, p3) => p1 + urlPrefix + rel + p3);
+const { fetchText } = require('./lib/http')
+const { convertGithubAlerts } = require('./lib/markdown')
+const { printCounts } = require('./lib/output')
+const { runTask } = require('./lib/tasks')
+const { resolveRedirect } = require('../config/redirects')
+
+const AUDITS_URL = 'https://raw.githubusercontent.com/lidofinance/audits/refs/heads/main/README.md'
+const OUTPUT_PATH = path.join(__dirname, '../docs/security/audits.md')
+const AUDITS_REPOSITORY_URL = 'https://github.com/lidofinance/audits/blob/main/'
+const RELATIVE_PDF_LINK = /(\[.*?\]\()(?!http|https|#|\/|mailto:)([^)]+\.pdf)(\))/g
+const DOCS_LINK = /(\]\()https:\/\/docs\.lido\.fi(\/[^)]*)?(\))/g
+const SKIPPED_SECTION = '## Lido Earn'
+
+function preprocessMarkdown(markdown) {
+  return convertGithubAlerts(markdown)
+    .replace(RELATIVE_PDF_LINK, (_, opening, relativePath, closing) => {
+      return opening + AUDITS_REPOSITORY_URL + relativePath + closing
+    })
+    .replace(DOCS_LINK, (_, opening, pathWithFragment, closing) => {
+      const localPath = pathWithFragment || '/'
+      return opening + resolveRedirect(localPath) + closing
+    })
 }
 
-function sortAuditsAndCount(md) {
-  const lines = md.split('\n');
-  const out = [];
-  let curH2 = null;
-  let buf = [];
-  let inH2 = false;
-  const counts = {}; // { heading: nReports }
+function splitByHeading(lines, prefix) {
+  const preamble = []
+  const sections = []
+  let currentSection = null
 
-  function flushSection() {
-    if (!inH2) return;
-    const { heading, body, nReports } = processSection(curH2, buf);
-    counts[stripCount(heading)] = nReports;
-    out.push(...body);
-    buf = [];
-  }
-
-  function stripCount(h) {
-    return h.replace(/\s*\(\d+\s+reports?\)$/i, '').trim();
-  }
-
-  function processSection(headingLine, buffer) {
-    const auditBlocks = [];
-    const preamble = [];
-    let cur = null;
-
-    for (const ln of buffer) {
-      if (ln.startsWith('### ')) {
-        if (cur) auditBlocks.push(cur);
-        cur = { header: ln, lines: [] };
-      } else {
-        (cur ? cur.lines : preamble).push(ln);
-      }
-    }
-    if (cur) auditBlocks.push(cur);
-
-    auditBlocks.sort((a, b) => {
-      const r = /^###\s+(\d{1,2})-(\d{4})/;
-      const A = a.header.match(r);
-      const B = b.header.match(r);
-      const vA = A ? +A[2] * 12 + +A[1] : 0;
-      const vB = B ? +B[2] * 12 + +B[1] : 0;
-      return vB - vA;
-    });
-
-    const hClean = stripCount(headingLine);
-    const headingWithCount = `${hClean} (${auditBlocks.length} reports)`;
-
-    const sectionLines = [headingWithCount, ...preamble];
-    for (const blk of auditBlocks) {
-      sectionLines.push(blk.header, ...blk.lines);
-    }
-    return {
-      heading: hClean,
-      nReports: auditBlocks.length,
-      body: sectionLines,
-    };
-  }
-
-  for (const ln of lines) {
-    if (ln.startsWith('## ')) {
-      flushSection();
-      curH2 = ln;
-      inH2 = true;
-    } else if (inH2) {
-      buf.push(ln);
+  for (const line of lines) {
+    if (line.startsWith(prefix)) {
+      currentSection = { heading: line, lines: [] }
+      sections.push(currentSection)
+    } else if (currentSection) {
+      currentSection.lines.push(line)
     } else {
-      out.push(ln);
+      preamble.push(line)
     }
   }
-  flushSection();
-  return { content: out.join('\n'), counts };
+
+  return { preamble, sections }
 }
 
-/* ---------------------------- fetch & write ----------------------------- */
-https
-  .get(fileUrl, (res) => {
-    if (res.statusCode !== 200) {
-      console.error('Failed to fetch audits README –', res.statusCode);
-      process.exit(1);
+function stripReportCount(heading) {
+  return heading.replace(/\s*\(\d+\s+reports?\)$/i, '').trim()
+}
+
+function reportDateValue(heading) {
+  const match = heading.match(/^###\s+(\d{1,2})-(\d{4})/)
+  return match ? Number(match[2]) * 12 + Number(match[1]) : 0
+}
+
+function sortAuditsAndCount(markdown) {
+  const document = splitByHeading(markdown.split('\n'), '## ')
+  const output = [...document.preamble]
+  const counts = {}
+  let skippedSectionFound = false
+
+  for (const section of document.sections) {
+    const heading = stripReportCount(section.heading)
+    if (heading === SKIPPED_SECTION) {
+      skippedSectionFound = true
+      continue
     }
-    let data = '';
-    res.on('data', (c) => (data += c));
-    res.on('end', () => {
-      const pre = preprocessMarkdown(data);
-      const { content, counts } = sortAuditsAndCount(pre);
 
-      fs.mkdirSync(path.dirname(localPath), { recursive: true });
-      fs.writeFileSync(localPath, content, 'utf8');
+    const { preamble, sections: reports } = splitByHeading(section.lines, '### ')
+    reports.sort((left, right) => reportDateValue(right.heading) - reportDateValue(left.heading))
 
-      // Pretty-print counts summary
-      console.log('\nCategory counts:');
-      for (const [cat, n] of Object.entries(counts)) {
-        console.log(`  • ${cat}: ${n}`);
-      }
+    counts[heading] = reports.length
+    output.push(`${heading} (${reports.length} reports)`, ...preamble)
+    for (const report of reports) {
+      output.push(report.heading, ...report.lines)
+    }
+  }
 
-      console.log('\n👌 Audits list written →', localPath);
-    });
-  })
-  .on('error', (e) => {
-    console.error('Network error:', e.message);
-    process.exit(1);
-  });
+  if (!skippedSectionFound) {
+    throw new Error(`required audit section not found: ${SKIPPED_SECTION}`)
+  }
+
+  return { content: output.join('\n'), counts }
+}
+
+async function run() {
+  const markdown = await fetchText(AUDITS_URL)
+  const preprocessed = preprocessMarkdown(markdown)
+  const { content, counts } = sortAuditsAndCount(preprocessed)
+
+  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true })
+  fs.writeFileSync(OUTPUT_PATH, content, 'utf8')
+
+  printCounts(counts)
+  console.log('\n👌 Audits list written →', OUTPUT_PATH)
+}
+
+if (require.main === module) runTask(run)
+
+module.exports = { preprocessMarkdown, run, sortAuditsAndCount }
