@@ -1047,3 +1047,21 @@ A Committee without multisig.
 | Aleksandra_G | 0x6B70C69A2b6c54C3525dA5e5b241aC7437D672CB | https://etherscan.io/verifySig/307022 | https://x.com/sasha__gusakova/status/2046151244717146452 |
 | sabrychiaa | 0x3F3C4146F597d2b1d9bC51Ad56E084cfd77Ebd9a | https://etherscan.io/verifySig/307024 | https://x.com/sabrychiaa/status/2046166468748878214 |
 | KimonSh | 0xfAd931F268dc5f8E5cdc3000baAaC0cbdb4E0a9C | https://etherscan.io/verifySig/307081 | https://x.com/KimonSh/status/2046588325864058934 |
+
+## 2.21 Lido Automation Owner Multisig
+
+**Address:** [`0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b`](https://app.safe.global/settings/setup?safe=eth:0x23AC4BF8ca7345eE533B12705aF40F69060D9b5b)
+
+**Purpose of the multisig:** The multisig owns Lido automation workflows registered in the Chainlink Runtime Environment (CRE) Workflow Registry and manages their deployment and updates. The multisig is technical and does not manage or custody any funds.
+
+**Quorum:** 3/5
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| tamtamchik | 0x9777af8c6727d57f74f7d381ad47eb4a65f042ff | https://etherscan.io/verifySig/297408 | |
+| TheDZhon | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/297455 | |
+| folkyatina | 0xe26a7d308853b5efe3c9b668e73946d6c9b3cb14 | https://etherscan.io/verifySig/334857 | |
+| PolyGrimbo | 0x59d5b4b00885fdafe27ff904ea85e72795e91e31 | https://etherscan.io/verifySig/334858 | |
+| arwer13 | 0xadaa2f1db51c32ce96d332bd113fe1002c51939a | https://etherscan.io/verifySig/334859 | |
