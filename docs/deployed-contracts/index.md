@@ -222,6 +222,39 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 
 - Identified DVT Cluster Curve Setup: [`0x711985E069f4d702e0457C0dACAde3D3894Ce4E3`](https://etherscan.io/address/0x711985E069f4d702e0457C0dACAde3D3894Ce4E3)
 
+### 🕶️ Community Staking Module 0x02 (proposed) {#community-staking-module-0x02}
+
+- Entry Gates:
+  - PermissionlessGate: [`0x78e36353FE904c3685585D9F3204D4aAcb3Ad506`](https://etherscan.io/address/0x78e36353FE904c3685585D9F3204D4aAcb3Ad506) (proposed)
+- CSModule: [`0x792Cd25e4aE3578375031FB55e048E163A804F7B`](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B) (proxy) (proposed)
+  - CSModule: [`0xF66826CeFDD4F163f1e8bfB6c0b6808744264d46`](https://etherscan.io/address/0xF66826CeFDD4F163f1e8bfB6c0b6808744264d46) (impl) (proposed)
+- Accounting: [`0x3696dDd942A9e156F5D4728505D1b9a32dCef900`](https://etherscan.io/address/0x3696dDd942A9e156F5D4728505D1b9a32dCef900) (proxy) (proposed)
+  - Accounting: [`0x1e262530C7d142b2d1C113C11778294cc662874C`](https://etherscan.io/address/0x1e262530C7d142b2d1C113C11778294cc662874C) (impl) (proposed)
+- ParametersRegistry: [`0x5352b3d8274933c72dC774DccCD12B7301EdBfD7`](https://etherscan.io/address/0x5352b3d8274933c72dC774DccCD12B7301EdBfD7) (proxy) (proposed)
+  - ParametersRegistry: [`0x122E385434Eb5dD0a2a1EdF7b3b13e369C730E6e`](https://etherscan.io/address/0x122E385434Eb5dD0a2a1EdF7b3b13e369C730E6e) (impl) (proposed)
+- FeeDistributor: [`0x122CdeDD0da630B555050976052C262EA25f8335`](https://etherscan.io/address/0x122CdeDD0da630B555050976052C262EA25f8335) (proxy) (proposed)
+  - FeeDistributor: [`0x4e939B8c69e53900b2330A8C68e29953118Ca1C7`](https://etherscan.io/address/0x4e939B8c69e53900b2330A8C68e29953118Ca1C7) (impl) (proposed)
+- Verifier: [`0x69b4C32a43565e768794D41b4A265F86dE61b861`](https://etherscan.io/address/0x69b4C32a43565e768794D41b4A265F86dE61b861) (proposed)
+- FeeOracle:
+  - FeeOracle: [`0x0fB5EC09Cc975d8E1aF43063e51882798814f311`](https://etherscan.io/address/0x0fB5EC09Cc975d8E1aF43063e51882798814f311) (proxy) (proposed)
+    - FeeOracle: [`0x607cBd562f83736BB258FC50b6d0ceB323471Ff9`](https://etherscan.io/address/0x607cBd562f83736BB258FC50b6d0ceB323471Ff9) (impl) (proposed)
+  - HashConsensus: [`0xd5a965FAab2d02D3cC2286A9da42d09F0F2aE210`](https://etherscan.io/address/0xd5a965FAab2d02D3cC2286A9da42d09F0F2aE210) (proposed)
+- ValidatorStrikes: [`0x89bd84481F7679732EADDF7d99d02ABD8309df65`](https://etherscan.io/address/0x89bd84481F7679732EADDF7d99d02ABD8309df65) (proxy) (proposed)
+  - ValidatorStrikes: [`0x855ead6778b1162bdB728e4613Af852cb2eb73c4`](https://etherscan.io/address/0x855ead6778b1162bdB728e4613Af852cb2eb73c4) (impl) (proposed)
+- Ejector: [`0x2EE500885870b020e84E86a09A5d26D1EEec3E5E`](https://etherscan.io/address/0x2EE500885870b020e84E86a09A5d26D1EEec3E5E) (proposed)
+- ExitPenalties: [`0xa96021Eff64E8FE927424C77902c56C4F17d10A5`](https://etherscan.io/address/0xa96021Eff64E8FE927424C77902c56C4F17d10A5) (proxy) (proposed)
+  - ExitPenalties: [`0x5131f7f71C69b25AE320457d5543Ae0A26e4A7c2`](https://etherscan.io/address/0x5131f7f71C69b25AE320457d5543Ae0A26e4A7c2) (impl) (proposed)
+- External libraries:
+  - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902) (proposed)
+  - BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323) (proposed)
+  - DepositQueueOps: [`0xb430AA6C70A352c2aaC9813AE049A210dB11aB41`](https://etherscan.io/address/0xb430AA6C70A352c2aaC9813AE049A210dB11aB41) (proposed)
+  - GeneralPenalty: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4) (proposed)
+  - NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3) (proposed)
+  - NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A) (proposed)
+  - StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2) (proposed)
+  - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606) (proposed)
+  - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A) (proposed)
+
 ### 👔 Curated Module v2 {#curated-module-v2}
 
 - Entry Gates:
@@ -389,6 +422,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
   - ReportWithdrawalsForSlashedValidators: [`0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A`](https://etherscan.io/address/0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A)
   - SettleGeneralDelayedPenalty: [`0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F`](https://etherscan.io/address/0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F)
   - UpdateStakingModuleShareLimits: [`0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1`](https://etherscan.io/address/0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1)
+- **Community Staking Module 0x02** (proposed) (module: [`0x792Cd25e4aE3578375031FB55e048E163A804F7B`](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
+  - ReportWithdrawalsForSlashedValidators: [`0x8D74020d8EACCdFf0366dAAFfb96e6c98CDFc112`](https://etherscan.io/address/0x8D74020d8EACCdFf0366dAAFfb96e6c98CDFc112) (proposed)
+  - SettleGeneralDelayedPenalty: [`0x0B676AdEABcf4A696187cfAb90290Aa3ac51aFA2`](https://etherscan.io/address/0x0B676AdEABcf4A696187cfAb90290Aa3ac51aFA2) (proposed)
+  - UpdateStakingModuleShareLimits: [`0x5b0De22E65C068430f6e769754D51133775408cc`](https://etherscan.io/address/0x5b0De22E65C068430f6e769754D51133775408cc) (proposed)
 - **Curated Module v2** (module: [`0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1`](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1), committee ms [`0x2570e0b22AD904501dfB0d49575991ACB801dD91`](https://app.safe.global/settings/setup?safe=eth:0x2570e0b22AD904501dfB0d49575991ACB801dD91))
   - SetMerkleGateTree: [`0xa121667D1780a1D54EAEd67AE17ee13d0f872D60`](https://etherscan.io/address/0xa121667D1780a1D54EAEd67AE17ee13d0f872D60)
   - ReportWithdrawalsForSlashedValidators: [`0x71862Abd99819597670007bb992A7a7562fE50f2`](https://etherscan.io/address/0x71862Abd99819597670007bb992A7a7562fE50f2)
