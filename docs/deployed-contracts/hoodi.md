@@ -346,6 +346,9 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - AllowedRecipientsRegistry: [`0xdf53b1cd4CFE43b6CdA3640Be0e4f1a45126ec61`](https://hoodi.etherscan.io/address/0xdf53b1cd4CFE43b6CdA3640Be0e4f1a45126ec61)
   - AllowedTokensRegistry: [`0x40Db7E8047C487bD8359289272c717eA3C34D1D3`](https://hoodi.etherscan.io/address/0x40Db7E8047C487bD8359289272c717eA3C34D1D3)
   - TopUpAllowedRecipients: [`0x9D735eeDfa96F53BF9d31DbE81B51a5d333198dB`](https://hoodi.etherscan.io/address/0x9D735eeDfa96F53BF9d31DbE81B51a5d333198dB)
+- **LOL LDO (deployed; Easy Track registration pending)** (trusted caller and sole recipient: QA & DAO Ops ms [`0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A`](https://app.safe.protofire.io/home?safe=hoe:0x418B816A7c3ecA151A31d98e30aa7DAa33aBf83A))
+  - AllowedRecipientsRegistry: [`0x44b44591a8Cc0E8a3AB8CA3bB3b2DEd106Aca8Ae`](https://hoodi.etherscan.io/address/0x44b44591a8Cc0E8a3AB8CA3bB3b2DEd106Aca8Ae)
+  - TopUpAllowedRecipients (single token, LDO): [`0x35e7d6136d346B5B477f28f7B7F5cEC363020893`](https://hoodi.etherscan.io/address/0x35e7d6136d346B5B477f28f7B7F5cEC363020893)
 - **Tooling contracts:**
   - AllowedRecipientsBuilder (single token): [`0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC`](https://hoodi.etherscan.io/address/0xC20129f1dd4DFeD023a6d6A8de9d54A7b61af5CC)
   - AllowedRecipientsFactory (single token): [`0xFdf256eED0ec8B782065E2aCDb975071033A6110`](https://hoodi.etherscan.io/address/0xFdf256eED0ec8B782065E2aCDb975071033A6110)
