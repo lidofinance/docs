@@ -151,6 +151,11 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 | [CSM Ejector](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
 | [VettedGate (Identified Community Stakers Gate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
 | [VettedGate (Identified DVT Cluster Gate)](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 CSModule](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 Accounting](https://etherscan.io/address/0x3696dDd942A9e156F5D4728505D1b9a32dCef900) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 FeeOracle](https://etherscan.io/address/0x0fB5EC09Cc975d8E1aF43063e51882798814f311) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 Verifier](https://etherscan.io/address/0x69b4C32a43565e768794D41b4A265F86dE61b861) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 Ejector](https://etherscan.io/address/0x2EE500885870b020e84E86a09A5d26D1EEec3E5E) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
 | [CuratedModule](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated Accounting](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated FeeOracle](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
@@ -245,15 +250,15 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 - ExitPenalties: [`0xa96021Eff64E8FE927424C77902c56C4F17d10A5`](https://etherscan.io/address/0xa96021Eff64E8FE927424C77902c56C4F17d10A5) (proxy) (proposed)
   - ExitPenalties: [`0x5131f7f71C69b25AE320457d5543Ae0A26e4A7c2`](https://etherscan.io/address/0x5131f7f71C69b25AE320457d5543Ae0A26e4A7c2) (impl) (proposed)
 - External libraries:
-  - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902) (proposed)
-  - BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323) (proposed)
-  - DepositQueueOps: [`0xb430AA6C70A352c2aaC9813AE049A210dB11aB41`](https://etherscan.io/address/0xb430AA6C70A352c2aaC9813AE049A210dB11aB41) (proposed)
-  - GeneralPenalty: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4) (proposed)
-  - NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3) (proposed)
-  - NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A) (proposed)
-  - StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2) (proposed)
-  - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606) (proposed)
-  - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A) (proposed)
+  - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
+  - BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323)
+  - DepositQueueOps: [`0xb430AA6C70A352c2aaC9813AE049A210dB11aB41`](https://etherscan.io/address/0xb430AA6C70A352c2aaC9813AE049A210dB11aB41)
+  - GeneralPenalty: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
+  - NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3)
+  - NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A)
+  - StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2)
+  - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606)
+  - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
 
 ### 👔 Curated Module v2 {#curated-module-v2}
 
