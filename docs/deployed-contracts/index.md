@@ -676,7 +676,7 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - CCIPAdapter: [`0x29D4fA5FCC282ba2788A281860770c166F597d5d`](https://etherscan.io/address/0x29D4fA5FCC282ba2788A281860770c166F597d5d)
 - HyperLaneAdapter: [`0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3`](https://etherscan.io/address/0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3)
 - LayerZeroAdapter: [`0x742650E0441Be8503682965d601AD0Ba1fB54411`](https://etherscan.io/address/0x742650E0441Be8503682965d601AD0Ba1fB54411)
-- WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
+- \[[proposed to remove](https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980)\] WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
 
 ###### 🔌 wstETH on BSC endpoints {#wsteth-on-bsc-endpoints-eth}
 
@@ -698,7 +698,7 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - CCIPAdapter: [`0x15AD245133568c2498c7dA0cf2204A03b0e9b98A`](https://bscscan.com/address/0x15AD245133568c2498c7dA0cf2204A03b0e9b98A)
 - HyperLaneAdapter: [`0xCd867B440c726461e5fAbe8d3a050b2f8701C230`](https://bscscan.com/address/0xCd867B440c726461e5fAbe8d3a050b2f8701C230)
 - LayerZeroAdapter: [`0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408`](https://bscscan.com/address/0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408)
-- WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
+- \[[proposed to remove](https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980)\] WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
 
 ###### 🔌 wstETH on BSC endpoints {#wsteth-on-bsc-endpoints-bsc}
 
