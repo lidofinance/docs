@@ -10,16 +10,11 @@ More details on the contribution process and LIPs statuses can be found [here](h
 |------------|-------|--------|----------------|
 | [0](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-0.md) | LIP Purpose and Guidelines | Lidos Community | [Link](https://research.lido.fi/t/lido-improvement-proposal-process/16) |
 
-## Proposed
-
-| LIP&nbsp;# | Title | Author | Discussions&#8209;to |
-|------------|-------|--------|----------------|
-| [37](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md) | Execution Delegation Framework | Raman Siamionau, Matsvei Talstalutski | [Link](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) |
-
 ## Implemented
 
 | LIP&nbsp;# | Title | Author | Discussions&#8209;to |
 |------------|-------|--------|----------------|
+| [37](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-37.md) | Execution Delegation Framework | Raman Siamionau (@F4ever), Matsvei Talstalutski (@chasingrainbows) | [Link](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) |
 | [36](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-36.md) | NEST — Automated LDO Buyback and Liquidity Provisioning System | Vasiliy Shapovalov, Vitaly Galaichuk, Jen Kopytina, Alexander Belokon, adcv | [Link](https://research.lido.fi/t/liquid-buybacks-nest-execution-with-ldo-wsteth-liquidity/10894) |
 | [35](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-35.md) | Staking Router v3 | Maksim Kuraian (@mkurayan) , KRogLA (@KRogLA), Alexander Kolesnikov (@eddort), Anna Mukharram (@Amuhar) | [Link](https://research.lido.fi/t/staking-router-v3-design-implementation-proposal-lip-35/11621) |
 | [34](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-34.md) | CircuitBreaker — Programmable panic layer | Azat Serikov | [Link](https://research.lido.fi/t/circuitbreaker-programmable-panic-layer/11400) |
