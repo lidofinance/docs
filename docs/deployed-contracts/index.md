@@ -440,17 +440,20 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 ### 💰 Easy Track Factories for Token Transfers {#easy-track-factories-for-token-transfers}
 
-- **LOL (ex.reWARDS) stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+- **LOL stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
   - AllowedRecipientsRegistry: [`0x48c4929630099b217136b64089E8543dB0E5163a`](https://etherscan.io/address/0x48c4929630099b217136b64089E8543dB0E5163a)
   - AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
   - RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
   - TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
-- **LOL (ex.reWARDS) stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+- **LOL stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
   - AllowedRecipientsRegistry: [`0x8d8b35cA51e7808098afF4918C21Ce428c943F89`](https://etherscan.io/address/0x8d8b35cA51e7808098afF4918C21Ce428c943F89)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - AddAllowedRecipient: [`0xe24230619e9218C1eed3de3489a22f6BC3ce18FF`](https://etherscan.io/address/0xe24230619e9218C1eed3de3489a22f6BC3ce18FF)
   - RemoveAllowedRecipient: [`0xF4d5D97C85eD18f77F99B57f55E9E11d52992632`](https://etherscan.io/address/0xF4d5D97C85eD18f77F99B57f55E9E11d52992632)
   - TopUpAllowedRecipients: [`0xc72d4C3e86b681D7c9EE306D41193C64D709C303`](https://etherscan.io/address/0xc72d4C3e86b681D7c9EE306D41193C64D709C303)
+- **LOL LDO** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+  - \[[proposed](https://research.lido.fi/t/authorize-a-contingent-ldo-cex-liquidity-market-making-mandate/11839)\] AllowedRecipientsRegistry: [`0xf1e9c3bD021ED1419Dd3b37f9b6E49Eb662877Fe`](https://etherscan.io/address/0xf1e9c3bD021ED1419Dd3b37f9b6E49Eb662877Fe)
+  - \[[proposed](https://research.lido.fi/t/authorize-a-contingent-ldo-cex-liquidity-market-making-mandate/11839)\] TopUpAllowedRecipients: [`0xa3e98cb26F1277B623Edb95cee3bd33269b305F7`](https://etherscan.io/address/0xa3e98cb26F1277B623Edb95cee3bd33269b305F7)
 - **Rewards Share stETH** (committee ms [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/settings/setup?safe=eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C))
   - AllowedRecipientsRegistry: [`0xdc7300622948a7AdaF339783F6991F9cdDD79776`](https://etherscan.io/address/0xdc7300622948a7AdaF339783F6991F9cdDD79776)
   - AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
