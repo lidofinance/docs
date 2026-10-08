@@ -10,7 +10,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v4.0.1`**](https://github.com/lidofinance/core/releases/tag/v4.0.1)
+- ⚓ Lido protocol version: [**`v4.1.0`**](https://github.com/lidofinance/core/releases/tag/v4.1.0)
 - 🌐 Network: Ethereum Mainnet (Chain ID: `1`)
 - ✅ Status: Active and maintained
 :::
