@@ -23,6 +23,10 @@ Before creating your SSV cluster:
 5. Decide how many validator keys to run based on available **ETH bond** for Lido CSM.  
 6. You’ll still need **full Ethereum node connectivity** (EL+CL) and **MEV-Boost with Lido-vetted relays** as required by Lido CSM. See [Node Setup](/run-on-lido/csm/node-setup/).
 
+:::tip
+Verified DVT clusters of independent community stakers can apply for the **IDVTC** operator type, which has more favorable bond and reward parameters than Default. See [Operator profiles and economics](/run-on-lido/csm/context-and-background#operator-profiles-and-economics) and [apply here](https://csm.lido.fi/type/idvtc-apply).
+:::
+
 ---
 
 ## 1. Preparing Your Environment
@@ -128,7 +132,7 @@ Once all the members have registered their operators and activated DKG we can pr
 
 ---
 
-## 9. Upload Keys to Lido CSM
+## 7. Upload Keys to Lido CSM
 
 To use your SSV validator(s) with Lido CSM:
 
@@ -139,7 +143,7 @@ To use your SSV validator(s) with Lido CSM:
 
 ---
 
-## 10. Exiting Validators
+## 8. Exiting Validators
 
 You can exit validators directly in the **SSV App**:
 

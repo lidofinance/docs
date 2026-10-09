@@ -10,7 +10,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 **Deployment Information:**
 
-- ⚓ Lido protocol version: [**`v4.0.0`**](https://github.com/lidofinance/core/releases/tag/v4.0.0)
+- ⚓ Lido protocol version: [**`v4.0.1`**](https://github.com/lidofinance/core/releases/tag/v4.0.1)
 - 🌐 Network: Ethereum Mainnet (Chain ID: `1`)
 - ✅ Status: Active and maintained
 :::
@@ -18,7 +18,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
 ## 🏛️ Core Protocol {#core-protocol}
 
 - Lido Locator: [`0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb`](https://etherscan.io/address/0xC1d0b3DE6792Bf6b4b37EccdcC24e45978Cfd2Eb) (proxy)
-  - Lido Locator: [`0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313`](https://etherscan.io/address/0xF2Ffb952e129a63F0614Ff87126E1d4a494A2313) (impl)
+  - Lido Locator: [`0x60E09F1791F1168d0450E4F100616B4a3F95119C`](https://etherscan.io/address/0x60E09F1791F1168d0450E4F100616B4a3F95119C) (impl)
 - Lido and stETH token: [`0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84`](https://etherscan.io/address/0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84) (proxy)
   - Lido: [`0x028271E30a695c0527A0C50cA30603feD004cDb0`](https://etherscan.io/address/0x028271E30a695c0527A0C50cA30603feD004cDb0) (impl)
 - Accounting: [`0x23ED611be0e1a820978875C0122F92260804cdDf`](https://etherscan.io/address/0x23ED611be0e1a820978875C0122F92260804cdDf) (proxy)
@@ -30,7 +30,7 @@ This page lists production contract addresses on mainnets, including Ethereum an
   - Staking Router: [`0xDD76927045435C7605cf6f5F978cfb8CABDb5F80`](https://etherscan.io/address/0xDD76927045435C7605cf6f5F978cfb8CABDb5F80) (impl)
 - SR Library: [`0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14`](https://etherscan.io/address/0xc0be9942Fd8f54aB126A5F0Ba649A90049ccad14) (external lib)
 - Beacon Chain Depositor: [`0xf98AC162eAB766bDB9507c3584c00C535B8F6216`](https://etherscan.io/address/0xf98AC162eAB766bDB9507c3584c00C535B8F6216)
-- Deposit Security Module: [`0xF573E9E3de1f86B085417ab294f56E7920B4e9Be`](https://etherscan.io/address/0xF573E9E3de1f86B085417ab294f56E7920B4e9Be)
+- Deposit Security Module: [`0x39BB5d491e98A44D1bfe8047A737a81E296a63E0`](https://etherscan.io/address/0x39BB5d491e98A44D1bfe8047A737a81E296a63E0)
 - Execution Layer Rewards Vault: [`0x388C818CA8B9251b393131C08a736A67ccB19297`](https://etherscan.io/address/0x388C818CA8B9251b393131C08a736A67ccB19297)
 - Withdrawal Queue ERC721: [`0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1`](https://etherscan.io/address/0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1) (proxy)
 - Withdrawal Vault: [`0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f`](https://etherscan.io/address/0xb9d7934878b5fb9610b3fe8a5e441e8fad7e293f) (proxy)
@@ -85,6 +85,10 @@ This page lists production contract addresses on mainnets, including Ethereum an
 - OracleDaemonConfig: [`0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09`](https://etherscan.io/address/0xbf05A929c3D7885a6aeAd833a992dA6E5ac23b09)
 - Lazy Oracle: [`0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c`](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c) (proxy)
   - Lazy Oracle: [`0x96c9a897D116ef660086d3aA67b3af653324aB37`](https://etherscan.io/address/0x96c9a897D116ef660086d3aA67b3af653324aB37) (impl)
+
+## 🔑 Execution Delegation Framework {#execution-delegation-framework}
+
+- DelegationFactory: [`0xD990770eB2B4b6062EDdB06892fF179C693b46e6`](https://etherscan.io/address/0xD990770eB2B4b6062EDdB06892fF179C693b46e6)
 
 ## 🗳️ DAO Contracts {#dao-contracts}
 
@@ -147,6 +151,11 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 | [CSM Ejector](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
 | [VettedGate (Identified Community Stakers Gate)](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
 | [VettedGate (Identified DVT Cluster Gate)](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 CSModule](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 Accounting](https://etherscan.io/address/0x3696dDd942A9e156F5D4728505D1b9a32dCef900) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 FeeOracle](https://etherscan.io/address/0x0fB5EC09Cc975d8E1aF43063e51882798814f311) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 Verifier](https://etherscan.io/address/0x69b4C32a43565e768794D41b4A265F86dE61b861) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
+| [CSM 0x02 Ejector](https://etherscan.io/address/0x2EE500885870b020e84E86a09A5d26D1EEec3E5E) (proposed) | [CSM Committee](https://etherscan.io/address/0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f) |
 | [CuratedModule](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated Accounting](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated FeeOracle](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
@@ -162,7 +171,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 
 ## 🔄 Post Token Rebase Receiver {#post-token-rebase-receiver}
 
-- Token Rate Notifier: [`0x25e35855783bec3E49355a29e110f02Ed8b05ba9`](https://etherscan.io/address/0x25e35855783bec3E49355a29e110f02Ed8b05ba9)
+- Token Rate Notifier: [`0xbe05d12Fd10919F1881125006523452F6aFF791b`](https://etherscan.io/address/0xbe05d12Fd10919F1881125006523452F6aFF791b)
 
 ## 🧩 Staking Modules {#staking-modules}
 
@@ -217,6 +226,39 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 #### 🛠️ Community Staking Module V3 Upgrade (temporary) {#csm3-upgrade-temporary}
 
 - Identified DVT Cluster Curve Setup: [`0x711985E069f4d702e0457C0dACAde3D3894Ce4E3`](https://etherscan.io/address/0x711985E069f4d702e0457C0dACAde3D3894Ce4E3)
+
+### 🕶️ Community Staking Module 0x02 (proposed) {#community-staking-module-0x02}
+
+- Entry Gates:
+  - PermissionlessGate: [`0x78e36353FE904c3685585D9F3204D4aAcb3Ad506`](https://etherscan.io/address/0x78e36353FE904c3685585D9F3204D4aAcb3Ad506) (proposed)
+- CSModule: [`0x792Cd25e4aE3578375031FB55e048E163A804F7B`](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B) (proxy) (proposed)
+  - CSModule: [`0xF66826CeFDD4F163f1e8bfB6c0b6808744264d46`](https://etherscan.io/address/0xF66826CeFDD4F163f1e8bfB6c0b6808744264d46) (impl) (proposed)
+- Accounting: [`0x3696dDd942A9e156F5D4728505D1b9a32dCef900`](https://etherscan.io/address/0x3696dDd942A9e156F5D4728505D1b9a32dCef900) (proxy) (proposed)
+  - Accounting: [`0x1e262530C7d142b2d1C113C11778294cc662874C`](https://etherscan.io/address/0x1e262530C7d142b2d1C113C11778294cc662874C) (impl) (proposed)
+- ParametersRegistry: [`0x5352b3d8274933c72dC774DccCD12B7301EdBfD7`](https://etherscan.io/address/0x5352b3d8274933c72dC774DccCD12B7301EdBfD7) (proxy) (proposed)
+  - ParametersRegistry: [`0x122E385434Eb5dD0a2a1EdF7b3b13e369C730E6e`](https://etherscan.io/address/0x122E385434Eb5dD0a2a1EdF7b3b13e369C730E6e) (impl) (proposed)
+- FeeDistributor: [`0x122CdeDD0da630B555050976052C262EA25f8335`](https://etherscan.io/address/0x122CdeDD0da630B555050976052C262EA25f8335) (proxy) (proposed)
+  - FeeDistributor: [`0x4e939B8c69e53900b2330A8C68e29953118Ca1C7`](https://etherscan.io/address/0x4e939B8c69e53900b2330A8C68e29953118Ca1C7) (impl) (proposed)
+- Verifier: [`0x69b4C32a43565e768794D41b4A265F86dE61b861`](https://etherscan.io/address/0x69b4C32a43565e768794D41b4A265F86dE61b861) (proposed)
+- FeeOracle:
+  - FeeOracle: [`0x0fB5EC09Cc975d8E1aF43063e51882798814f311`](https://etherscan.io/address/0x0fB5EC09Cc975d8E1aF43063e51882798814f311) (proxy) (proposed)
+    - FeeOracle: [`0x607cBd562f83736BB258FC50b6d0ceB323471Ff9`](https://etherscan.io/address/0x607cBd562f83736BB258FC50b6d0ceB323471Ff9) (impl) (proposed)
+  - HashConsensus: [`0xd5a965FAab2d02D3cC2286A9da42d09F0F2aE210`](https://etherscan.io/address/0xd5a965FAab2d02D3cC2286A9da42d09F0F2aE210) (proposed)
+- ValidatorStrikes: [`0x89bd84481F7679732EADDF7d99d02ABD8309df65`](https://etherscan.io/address/0x89bd84481F7679732EADDF7d99d02ABD8309df65) (proxy) (proposed)
+  - ValidatorStrikes: [`0x855ead6778b1162bdB728e4613Af852cb2eb73c4`](https://etherscan.io/address/0x855ead6778b1162bdB728e4613Af852cb2eb73c4) (impl) (proposed)
+- Ejector: [`0x2EE500885870b020e84E86a09A5d26D1EEec3E5E`](https://etherscan.io/address/0x2EE500885870b020e84E86a09A5d26D1EEec3E5E) (proposed)
+- ExitPenalties: [`0xa96021Eff64E8FE927424C77902c56C4F17d10A5`](https://etherscan.io/address/0xa96021Eff64E8FE927424C77902c56C4F17d10A5) (proxy) (proposed)
+  - ExitPenalties: [`0x5131f7f71C69b25AE320457d5543Ae0A26e4A7c2`](https://etherscan.io/address/0x5131f7f71C69b25AE320457d5543Ae0A26e4A7c2) (impl) (proposed)
+- External libraries:
+  - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
+  - BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323)
+  - DepositQueueOps: [`0xb430AA6C70A352c2aaC9813AE049A210dB11aB41`](https://etherscan.io/address/0xb430AA6C70A352c2aaC9813AE049A210dB11aB41)
+  - GeneralPenalty: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
+  - NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3)
+  - NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A)
+  - StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2)
+  - TopUpQueueOps: [`0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606`](https://etherscan.io/address/0xdA104f5f2a18405fC7cCD6E0A7FEB5B824843606)
+  - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
 
 ### 👔 Curated Module v2 {#curated-module-v2}
 
@@ -330,7 +372,7 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 ## 🤖 Bots {#bots}
 
-- Depositor bot: [`0xF82aC5937A20dC862F9bc0668779031E06000f17`](https://etherscan.io/address/0xF82aC5937A20dC862F9bc0668779031E06000f17)
+- Depositor bot: [`0x6Aa249bA53A3abcaC52F91146583B3eE2Ee4C7F5`](https://etherscan.io/address/0x6Aa249bA53A3abcaC52F91146583B3eE2Ee4C7F5)
 
 ## 🪨 Lido Stonks Contracts {#lido-stonks-contracts}
 
@@ -361,6 +403,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - EasyTrack: [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea)
 - EVMScriptExecutor: [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977)
 
+### ⚙️ Easy Track Factories for Core Protocol {#easy-track-factories-for-core-protocol}
+
+- SetDepositsReserveTarget: [`0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0`](https://etherscan.io/address/0x62E9Dc68BDCBC46362f40e0bb9c154C9a42E62b0)
+
 ### 🧩 Easy Track Factories for Staking Modules {#easy-track-factories-for-staking-modules}
 
 - **Curated Node Operators staking module** (registry: [`0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5`](https://etherscan.io/address/0x55032650b14df07b85bF18A3a3eC8E0Af2e028d5))
@@ -381,6 +427,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
   - ReportWithdrawalsForSlashedValidators: [`0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A`](https://etherscan.io/address/0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A)
   - SettleGeneralDelayedPenalty: [`0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F`](https://etherscan.io/address/0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F)
   - UpdateStakingModuleShareLimits: [`0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1`](https://etherscan.io/address/0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1)
+- **Community Staking Module 0x02** (proposed) (module: [`0x792Cd25e4aE3578375031FB55e048E163A804F7B`](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B), committee ms [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f))
+  - ReportWithdrawalsForSlashedValidators: [`0x8D74020d8EACCdFf0366dAAFfb96e6c98CDFc112`](https://etherscan.io/address/0x8D74020d8EACCdFf0366dAAFfb96e6c98CDFc112) (proposed)
+  - SettleGeneralDelayedPenalty: [`0x0B676AdEABcf4A696187cfAb90290Aa3ac51aFA2`](https://etherscan.io/address/0x0B676AdEABcf4A696187cfAb90290Aa3ac51aFA2) (proposed)
+  - UpdateStakingModuleShareLimits: [`0x5b0De22E65C068430f6e769754D51133775408cc`](https://etherscan.io/address/0x5b0De22E65C068430f6e769754D51133775408cc) (proposed)
 - **Curated Module v2** (module: [`0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1`](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1), committee ms [`0x2570e0b22AD904501dfB0d49575991ACB801dD91`](https://app.safe.global/settings/setup?safe=eth:0x2570e0b22AD904501dfB0d49575991ACB801dD91))
   - SetMerkleGateTree: [`0xa121667D1780a1D54EAEd67AE17ee13d0f872D60`](https://etherscan.io/address/0xa121667D1780a1D54EAEd67AE17ee13d0f872D60)
   - ReportWithdrawalsForSlashedValidators: [`0x71862Abd99819597670007bb992A7a7562fE50f2`](https://etherscan.io/address/0x71862Abd99819597670007bb992A7a7562fE50f2)
@@ -390,17 +440,20 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 ### 💰 Easy Track Factories for Token Transfers {#easy-track-factories-for-token-transfers}
 
-- **LOL (ex.reWARDS) stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+- **LOL stETH** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
   - AllowedRecipientsRegistry: [`0x48c4929630099b217136b64089E8543dB0E5163a`](https://etherscan.io/address/0x48c4929630099b217136b64089E8543dB0E5163a)
   - AddAllowedRecipient: [`0x935cb3366Faf2cFC415B2099d1F974Fd27202b77`](https://etherscan.io/address/0x935cb3366Faf2cFC415B2099d1F974Fd27202b77)
   - RemoveAllowedRecipient: [`0x22010d1747CaFc370b1f1FBBa61022A313c5693b`](https://etherscan.io/address/0x22010d1747CaFc370b1f1FBBa61022A313c5693b)
   - TopUpAllowedRecipients: [`0x1F2b79FE297B7098875930bBA6dd17068103897E`](https://etherscan.io/address/0x1F2b79FE297B7098875930bBA6dd17068103897E)
-- **LOL (ex.reWARDS) stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+- **LOL stablecoins** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
   - AllowedRecipientsRegistry: [`0x8d8b35cA51e7808098afF4918C21Ce428c943F89`](https://etherscan.io/address/0x8d8b35cA51e7808098afF4918C21Ce428c943F89)
   - AllowedTokensRegistry: [`0x4AC40c34f8992bb1e5E856A448792158022551ca`](https://etherscan.io/address/0x4AC40c34f8992bb1e5E856A448792158022551ca)
   - AddAllowedRecipient: [`0xe24230619e9218C1eed3de3489a22f6BC3ce18FF`](https://etherscan.io/address/0xe24230619e9218C1eed3de3489a22f6BC3ce18FF)
   - RemoveAllowedRecipient: [`0xF4d5D97C85eD18f77F99B57f55E9E11d52992632`](https://etherscan.io/address/0xF4d5D97C85eD18f77F99B57f55E9E11d52992632)
   - TopUpAllowedRecipients: [`0xc72d4C3e86b681D7c9EE306D41193C64D709C303`](https://etherscan.io/address/0xc72d4C3e86b681D7c9EE306D41193C64D709C303)
+- **LOL LDO** (committee ms [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=eth:0x87D93d9B2C672bf9c9642d853a8682546a5012B5))
+  - \[[proposed](https://research.lido.fi/t/authorize-a-contingent-ldo-cex-liquidity-market-making-mandate/11839)\] AllowedRecipientsRegistry: [`0xf1e9c3bD021ED1419Dd3b37f9b6E49Eb662877Fe`](https://etherscan.io/address/0xf1e9c3bD021ED1419Dd3b37f9b6E49Eb662877Fe)
+  - \[[proposed](https://research.lido.fi/t/authorize-a-contingent-ldo-cex-liquidity-market-making-mandate/11839)\] TopUpAllowedRecipients: [`0xa3e98cb26F1277B623Edb95cee3bd33269b305F7`](https://etherscan.io/address/0xa3e98cb26F1277B623Edb95cee3bd33269b305F7)
 - **Rewards Share stETH** (committee ms [`0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C`](https://app.safe.global/settings/setup?safe=eth:0xe2A682A9722354D825d1BbDF372cC86B2ea82c8C))
   - AllowedRecipientsRegistry: [`0xdc7300622948a7AdaF339783F6991F9cdDD79776`](https://etherscan.io/address/0xdc7300622948a7AdaF339783F6991F9cdDD79776)
   - AddAllowedRecipient: [`0x1F809D2cb72a5Ab13778811742050eDa876129b6`](https://etherscan.io/address/0x1F809D2cb72a5Ab13778811742050eDa876129b6)
@@ -626,7 +679,7 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - CCIPAdapter: [`0x29D4fA5FCC282ba2788A281860770c166F597d5d`](https://etherscan.io/address/0x29D4fA5FCC282ba2788A281860770c166F597d5d)
 - HyperLaneAdapter: [`0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3`](https://etherscan.io/address/0x8d374DF3de08b971777Aa091fA68BCE109b3a7F3)
 - LayerZeroAdapter: [`0x742650E0441Be8503682965d601AD0Ba1fB54411`](https://etherscan.io/address/0x742650E0441Be8503682965d601AD0Ba1fB54411)
-- WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
+- \[[proposed to remove](https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980)\] WormholeAdapter: [`0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17`](https://etherscan.io/address/0xEDc0D2cb2289BBa1587424dd42bDD1ca7eAbDF17)
 
 ###### 🔌 wstETH on BSC endpoints {#wsteth-on-bsc-endpoints-eth}
 
@@ -648,7 +701,7 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - CCIPAdapter: [`0x15AD245133568c2498c7dA0cf2204A03b0e9b98A`](https://bscscan.com/address/0x15AD245133568c2498c7dA0cf2204A03b0e9b98A)
 - HyperLaneAdapter: [`0xCd867B440c726461e5fAbe8d3a050b2f8701C230`](https://bscscan.com/address/0xCd867B440c726461e5fAbe8d3a050b2f8701C230)
 - LayerZeroAdapter: [`0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408`](https://bscscan.com/address/0xc934433f4c433Cf80DE6fB65fd70C7a650D8a408)
-- WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
+- \[[proposed to remove](https://research.lido.fi/t/reconfigure-bsc-governance-forwarding-after-wormhole-auto-delivery-shutdown/11980)\] WormholeAdapter: [`0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119`](https://bscscan.com/address/0xBb1E43408BbF2C767Ff3Bd5bBC34E183CC1Ef119)
 
 ###### 🔌 wstETH on BSC endpoints {#wsteth-on-bsc-endpoints-bsc}
 

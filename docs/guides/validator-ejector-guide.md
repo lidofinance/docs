@@ -196,7 +196,11 @@ On the endpoint, JSON will be POSTed with the following structure:
 
 JSON array of Lido Oracle addresses, from which only report transactions will be accepted.
 
-You can get a list from Etherscan on [Hoodi](https://hoodi.etherscan.io/address/0x32EC59a78abaca3f91527aeB2008925D5AaC1eFC#readContract#F16) or [Mainnet](https://etherscan.io/address/0xD624B08C83bAECF0807Dd2c6880C3154a5F0B288#readContract#F16)
+Every oracle seat is held by a `DelegationContract` under the [Execution Delegation Framework (EDF)](/guides/edf/edf-operator-guide). The member's **delegate EOA** sends each report through `DelegationContract.execute(address,bytes)`, and the Ejector verifies the report by recovering the signer of that transaction. So:
+
+- The allowlist must contain the **delegate EOAs** of the oracle members, not the `DelegationContract` addresses that `getMembers()` on `HashConsensus` returns ([Hoodi](https://hoodi.etherscan.io/address/0x30308CD8844fb2DB3ec4D056F1d475a802DCA07c#readContract#F16), [Mainnet](https://etherscan.io/address/0x7FaDB6358950c5fAA66Cb5EB8eE5147De3df355a#readContract#F16)). Take each `DelegationContract` from the [Lido Oracle members page](/holders/lido-oracle) and read its `getDelegate()` on Etherscan, or use the delegate addresses that oracle operators publish in the [LIP-37 forum thread](https://research.lido.fi/t/lip-37-execution-delegation-framework-edf/11746) and in rotation announcements (see [EDF Rotation and Incidents](/guides/edf/edf-rotation-and-incidents)).
+- After a delegate rotation, keep the previous delegate in the allowlist until its reports leave the lookback window: about 7 days at the default `BLOCKS_PRELOAD` of 50000 blocks.
+- Use validator-ejector [2.2.0](https://github.com/lidofinance/validator-ejector/releases/tag/2.2.0) or newer: it unwraps `execute(address,bytes)`. Older releases reject every report sent through a `DelegationContract`.
 
 Format:
 

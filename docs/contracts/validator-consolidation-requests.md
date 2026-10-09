@@ -101,6 +101,6 @@ Returns the current EIP-7251 consolidation request fee. This value is used by th
 
 ## Related
 
-- [Consolidations guide](/run-on-lido/stvaults/tech-documentation/consolidation)
+- [Consolidation guide](/run-on-lido/stvaults/node-operators/basic-stvaults/consolidation)
 - [Dashboard](/contracts/dashboard)
 - [NodeOperatorFee](/contracts/dashboard#node-operator-fee-accounting)
