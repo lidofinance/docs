@@ -168,7 +168,7 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 
 ## Actors
 
-Roles governing the vaults. Addresses are shared across all chains.
+Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Robinhood, Active Vault Admin is 3/6 and Oracle Updater is 3/7.
 
 | Role                         | Multisig                                                                                                                         | Quorum |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
