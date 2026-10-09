@@ -4,13 +4,13 @@
 
 `LidoDepositHook` is an implementation of the `IHook` interface that acts as a conversion adapter for incoming deposits. It standardizes various ETH-like assets into `wstETH` for use in downstream vault logic. The hook supports ETH, WETH, and stETH as input formats and ensures conversion to `wstETH` before optionally forwarding execution to a downstream `nextHook`.
 
-## Primary Purpose
-
 - Converts ETH, WETH, or stETH into `wstETH` on deposit.
 - Ensures compatibility with protocols that expect `wstETH`.
 - Provides composable hooks by chaining into a downstream `IHook` (`nextHook`).
 
-## Constructor Parameters
+## Configuration and State
+
+### Constructor Parameters
 
 | Parameter | Type | Description |
 | --- | --- | --- |
@@ -18,7 +18,7 @@
 | `weth_` | address | Address of the `WETH` token contract |
 | `nextHook_` | address | Address of the optional downstream hook to forward to after wrapping |
 
-## Key Function
+## Functions
 
 ### `callHook(address asset, uint256 assets)`
 
@@ -43,6 +43,8 @@ Execution Steps:
 
 - `UnsupportedAsset(address asset)` is thrown if the provided asset is neither `wstETH`, `stETH`, `WETH`, nor `ETH`.
 
-## Assumptions
+## Invariants and Limitations
+
+### Assumptions
 
 It is assumed this hook will not trigger `STAKE_LIMIT` or other limit related errors in the Lido contracts. If such errors do occur, the vault admin can reconfigure the system to bypass the automated staking hook. In this case, `RedirectingDepositHook` can be assigned to the relevant queues, delegating staking responsibilities to the vault curator via manual liquidity management.

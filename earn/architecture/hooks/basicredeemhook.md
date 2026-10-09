@@ -6,13 +6,11 @@
 
 This hook is typically invoked by a vault's redemption queue or during `redeem()` operations when assets must be made liquid.
 
-## Purpose
-
 - Ensures sufficient liquidity in the vault to fulfill asset redemptions.
 - Minimizes idle capital by pulling only when needed.
 - Supports liquidity routing across subvaults.
 
-## Key Functions
+## Functions
 
 ### `callHook(address asset, uint256 assets)`
 
@@ -37,14 +35,16 @@ Returns the total liquid amount of a given asset available across the vault and 
 - Reads balances from `vault.balanceOf(asset)` and `subvault[i].balanceOf(asset)` for each subvault.
 - Aggregates and returns the sum.
 
-## Contract Assumptions
+## Invariants and Limitations
+
+### Contract Assumptions
 
 - The `vault` invoking this hook implements `IVaultModule` and supports:
 - `subvaults()` -> total number of subvaults.
 - `subvaultAt(index)` -> address of a given subvault.
 - `hookPullAssets(subvault, asset, amount)` -> callable method to move funds.
 
-## Security Considerations
+### Security Considerations
 
 - Hook only pulls assets using vault controlled `hookPullAssets()`, ensuring controlled asset flow.
 - Assumes vault validates which hook is active. There is no permissioning within the hook itself.
