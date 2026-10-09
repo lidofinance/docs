@@ -117,6 +117,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | SwapModule 0            | [`0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b`](https://etherscan.io/address/0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b) |
 | Subvault 0              | [`0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A`](https://etherscan.io/address/0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A) |
 | Verifier 0              | [`0x87631dbf0224234107B593c874f63f577e1336Da`](https://etherscan.io/address/0x87631dbf0224234107B593c874f63f577e1336Da) |
+| Subvault 1              | [`0x902FbA36Ca71b8FF947CB1A0fAE9b3a4f586Eb38`](https://etherscan.io/address/0x902FbA36Ca71b8FF947CB1A0fAE9b3a4f586Eb38) |
+| Verifier 1              | [`0x837e702a45c57d6D713466D6C44f5274BDbFC05E`](https://etherscan.io/address/0x837e702a45c57d6D713466D6C44f5274BDbFC05E) |
 | Timelock Controller     | [`0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF`](https://etherscan.io/address/0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF) |
 | OracleSubmitter         | [`0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59`](https://etherscan.io/address/0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59) |
 
