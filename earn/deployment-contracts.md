@@ -72,6 +72,7 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | RedeemQueue (USDC)      | [`0x59fC26AFFF725eBb77Db8E1de14572e5eA9e87EB`](https://etherscan.io/address/0x59fC26AFFF725eBb77Db8E1de14572e5eA9e87EB) |
 | SyncRedeemQueue (USDC)  | [`0x395d3230B47c8EAd7b4152c670945f6545efe3c9`](https://etherscan.io/address/0x395d3230B47c8EAd7b4152c670945f6545efe3c9) |
 | SyncDepositQueue (USDT) | [`0xeC3EE7F7669b7ce0aC91c4638e4b89c9F40E179F`](https://etherscan.io/address/0xeC3EE7F7669b7ce0aC91c4638e4b89c9F40E179F) |
+| RedeemQueue (USDT)      | [`0xF210B2E34190923afe746b297cD96465D605F33f`](https://etherscan.io/address/0xF210B2E34190923afe746b297cD96465D605F33f) |
 | SyncRedeemQueue (USDT)  | [`0xe04A1c2D63e6964f5629B3c08BF08D2472faaB09`](https://etherscan.io/address/0xe04A1c2D63e6964f5629B3c08BF08D2472faaB09) |
 | Oracle                  | [`0x8d229B565A0c6Bf2d693C343bea0Ec96103dEF5f`](https://etherscan.io/address/0x8d229B565A0c6Bf2d693C343bea0Ec96103dEF5f) |
 | ShareManager            | [`0xd9543AfF8A859F6B34f80A9A230B277c89ACdda4`](https://etherscan.io/address/0xd9543AfF8A859F6B34f80A9A230B277c89ACdda4) |
@@ -108,6 +109,7 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | RedeemQueue (USDC)      | [`0x8B857170F2a6C10Ce64ec8b920428ca977fb7710`](https://etherscan.io/address/0x8B857170F2a6C10Ce64ec8b920428ca977fb7710) |
 | SyncRedeemQueue (USDC)  | [`0xaFd38D9a5F48f6953c0d110c4e0ecBA2381f7Fc5`](https://etherscan.io/address/0xaFd38D9a5F48f6953c0d110c4e0ecBA2381f7Fc5) |
 | SyncDepositQueue (USDT) | [`0xa01aEfeC7A3384C8440e99084458030BDbdD7404`](https://etherscan.io/address/0xa01aEfeC7A3384C8440e99084458030BDbdD7404) |
+| RedeemQueue (USDT)      | [`0xfAc01645CA39EcD6C80bd15C052d448ED5069DF0`](https://etherscan.io/address/0xfAc01645CA39EcD6C80bd15C052d448ED5069DF0) |
 | SyncRedeemQueue (USDT)  | [`0x978f41aF86E14901C77ebaB799c307886e7C2c54`](https://etherscan.io/address/0x978f41aF86E14901C77ebaB799c307886e7C2c54) |
 | SyncDepositQueue (USDe) | [`0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947`](https://etherscan.io/address/0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947) |
 | Oracle                  | [`0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C`](https://etherscan.io/address/0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C) |
@@ -117,6 +119,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | SwapModule 0            | [`0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b`](https://etherscan.io/address/0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b) |
 | Subvault 0              | [`0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A`](https://etherscan.io/address/0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A) |
 | Verifier 0              | [`0x87631dbf0224234107B593c874f63f577e1336Da`](https://etherscan.io/address/0x87631dbf0224234107B593c874f63f577e1336Da) |
+| Subvault 1              | [`0x902FbA36Ca71b8FF947CB1A0fAE9b3a4f586Eb38`](https://etherscan.io/address/0x902FbA36Ca71b8FF947CB1A0fAE9b3a4f586Eb38) |
+| Verifier 1              | [`0x837e702a45c57d6D713466D6C44f5274BDbFC05E`](https://etherscan.io/address/0x837e702a45c57d6D713466D6C44f5274BDbFC05E) |
 | Timelock Controller     | [`0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF`](https://etherscan.io/address/0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF) |
 | OracleSubmitter         | [`0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59`](https://etherscan.io/address/0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59) |
 
@@ -152,9 +156,23 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33`](https://mantlescan.xyz/address/0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33) |
 | OracleSubmitter     | [`0xbe580d9C5C24b0A06C19660c058937BB8434BBa5`](https://mantlescan.xyz/address/0xbe580d9C5C24b0A06C19660c058937BB8434BBa5) |
 
+### earnUSDe – Robinhood
+
+| Contract            | Address                                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Vault               | [`0xEe94bb5a8487954312c470F2cb457fd7329B421F`](https://robinhoodchain.blockscout.com/address/0xEe94bb5a8487954312c470F2cb457fd7329B421F) |
+| Oracle              | [`0x786CAaaf7e7680A1F52148230437dCfb59823c49`](https://robinhoodchain.blockscout.com/address/0x786CAaaf7e7680A1F52148230437dCfb59823c49) |
+| ShareManager        | [`0x906703a4e566D04828845b6C2918B1767E24752A`](https://robinhoodchain.blockscout.com/address/0x906703a4e566D04828845b6C2918B1767E24752A) |
+| FeeManager          | [`0x4FD8e72bEA84dc3B947672E49734e457a196bbdb`](https://robinhoodchain.blockscout.com/address/0x4FD8e72bEA84dc3B947672E49734e457a196bbdb) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://robinhoodchain.blockscout.com/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| Subvault 0          | [`0x4F17B5E905BaFD4E97aEc4F01835cb86008c8381`](https://robinhoodchain.blockscout.com/address/0x4F17B5E905BaFD4E97aEc4F01835cb86008c8381) |
+| Verifier 0          | [`0x45c41eb5AA467a113Ca905565e94047FBDA46A3C`](https://robinhoodchain.blockscout.com/address/0x45c41eb5AA467a113Ca905565e94047FBDA46A3C) |
+| Timelock Controller | [`0xa9BcE5B87B67506061eD83333c496A7d2eF74B56`](https://robinhoodchain.blockscout.com/address/0xa9BcE5B87B67506061eD83333c496A7d2eF74B56) |
+| OracleSubmitter     | [`0x5335607430db53bC5377Bb853802768467857a43`](https://robinhoodchain.blockscout.com/address/0x5335607430db53bC5377Bb853802768467857a43) |
+
 ## Actors
 
-Roles governing the vaults. Addresses are shared across all chains.
+Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle and Robinhood, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
 
 | Role                         | Multisig                                                                                                                         | Quorum |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
@@ -162,7 +180,7 @@ Roles governing the vaults. Addresses are shared across all chains.
 | Lazy Vault Admin             | [`0x0Dd73341d6158a72b4D224541f1094188f57076E`](https://app.safe.global/home?safe=eth:0x0Dd73341d6158a72b4D224541f1094188f57076E) | 5/8    |
 | Active Vault Admin           | [`0x982aB69785f5329BB59c36B19CBd4865353fEf10`](https://app.safe.global/home?safe=eth:0x982aB69785f5329BB59c36B19CBd4865353fEf10) | 3/8    |
 | Curator (earnETH, earnUSD)   | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/6    |
-| Curator (earnUSDс, earnUSDe) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
+| Curator (earnUSDc, earnUSDe) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
 | Curator (stRATEGY)           | [`0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5`](https://app.safe.global/home?safe=eth:0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5) | 5/8    |
 | Curator (GGV)                | [`0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F`](https://app.safe.global/home?safe=eth:0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F) | 3/5    |
 | Oracle Updater               | [`0x93a797643d74fC81e7A51F3f84a9D78F930435D1`](https://app.safe.global/home?safe=eth:0x93a797643d74fC81e7A51F3f84a9D78F930435D1) | 3/8    |
