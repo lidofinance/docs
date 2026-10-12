@@ -577,8 +577,6 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - Liquidity Observation Lab: [`0x65B05f4fCa066316383b0FE196C76C873a4dFD02`](https://app.safe.global/settings/setup?safe=zksync:0x65B05f4fCa066316383b0FE196C76C873a4dFD02) (zkSync Era)
 - Liquidity Observation Lab ZK Token Multisig: [`0xf7169E14CDEF99403BE9114c9303887f760B1913`](https://app.safe.global/settings/setup?safe=zksync:0xf7169E14CDEF99403BE9114c9303887f760B1913) (zkSync Era)
 - Liquidity Observation Lab: [`0x87D93d9B2C672bf9c9642d853a8682546a5012B5`](https://app.safe.global/settings/setup?safe=matic:0x87D93d9B2C672bf9c9642d853a8682546a5012B5) (Polygon)
-- Liquidity Observation Lab: [`0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4`](https://multisig.moonbeam.network/settings/setup?safe=mriver:0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4) (Moonriver)
-- Liquidity Observation Lab: [`0x007132343cA619C5449297507B26c3f85e80D1b1`](https://multisig.moonbeam.network/settings/setup?safe=mbeam:0x007132343cA619C5449297507B26c3f85e80D1b1) (Moonbeam)
 - Liquidity Observation Lab: [`0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61`](https://app.safe.global/settings/setup?safe=bnb:0x5A9d695c518e95CD6Ea101f2f25fC2AE18486A61) (BNB)
 - Liquidity Observation Lab: [`0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6`](https://safe.linea.build/settings/setup?safe=linea:0xA8ef4Db842D95DE72433a8b5b8FF40CB7C74C1b6) (Linea)
 - Liquidity Observation Lab: [`0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6`](https://multisig.mantle.xyz/settings/setup?safe=mantle:0x6Ef6cd595b775B9752df83C8b1700235b21FE2f6) (Mantle)
@@ -827,7 +825,8 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 ## 📜 Legacy Contracts {#legacy-contracts}
 
 > **These contracts were previously used and are currently active, but they are no longer being supported by contributors from Lido DAO and don't fall under Lido bug bounty scope and terms anymore**
-
+- Liquidity Observation Lab: `0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4` (Moonriver)
+- Liquidity Observation Lab: `0x007132343cA619C5449297507B26c3f85e80D1b1` (Moonbeam)
 - Finance Ops: [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops: [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 - 1inch Liquidity Farming: [`0xdB46C277dA1599390eAb394327602889E9546296`](https://etherscan.io/address/0xdB46C277dA1599390eAb394327602889E9546296)
