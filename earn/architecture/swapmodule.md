@@ -46,7 +46,7 @@ oracleMinAmount = evaluate(tokenIn, tokenOut, amountIn) * multiplier / BASE_MULT
 ```
 
 - `evaluate()` converts `amountIn` using the oracle prices of both tokens, normalizing decimals (native ETH is priced as WETH).
-- `multiplier` is the pair-specific `customMultiplier(tokenIn, tokenOut)` if set, otherwise `defaultMultiplier`. The lower bound caps tolerated negative deviation from the oracle quote at 10%; values above `BASE_MULTIPLIER` require a premium over the quote.
+- `multiplier` is the pair-specific `customMultiplier(tokenIn, tokenOut)` if set, otherwise `defaultMultiplier`. The lower bound requires `minAmountOut` to be at least 90% of the oracle quote for `amountIn`; values above `BASE_MULTIPLIER` require a premium over that quote. This bound excludes the separate signed CoW order fee.
 
 `checkParams` reverts unless `amountIn` is non-zero, `minAmountOut >= oracleMinAmount`, the tokens hold the corresponding roles, the input balance is sufficient, the deadline has not passed (`deadline >= block.timestamp`), and `tokenIn != tokenOut`.
 
@@ -63,7 +63,7 @@ oracleMinAmount = evaluate(tokenIn, tokenOut, amountIn) * multiplier / BASE_MULT
 | `evaluate(tokenIn, tokenOut, amountIn)`      | Converts the input amount at oracle prices while normalizing token decimals      |
 | `checkMultiplier(multiplier)`                | Reverts if the multiplier is outside the allowed range                           |
 | `checkParams(params)`                        | Validates token roles, balance, amount, oracle minimum, deadline, and token pair |
-| `checkCowswapOrder(params, order, orderUid)` | Verifies that a CoW order exactly matches the requested swap                     |
+| `checkCowswapOrder(params, order, orderUid)` | Checks the listed CoW order fields and the computed UID                          |
 
 ### State-Changing Functions
 
@@ -95,10 +95,12 @@ function swap(Params calldata params, address router, bytes calldata data) exter
 Instead of an atomic router call, the module can place pre-signed CoW Swap orders:
 
 - `setCowswapApproval(asset, amount)`: approves the CoW vault relayer to spend an input token.
-- `createLimitOrder(params, order, orderUid)`: validates `params` (same slippage checks) and verifies that the CoW order fields match them exactly (sell/buy tokens, amounts, deadline, receiver, sell-kind, ERC20 balances, and the computed order UID), then pre-signs the order in the CoW settlement contract.
+- `createLimitOrder(params, order, orderUid)`: validates `params` (same slippage checks) and matches the CoW order's sell/buy tokens, amounts, and deadline to `params`. It also requires the module as receiver, sell-kind, ERC20 balance modes, and a matching computed UID, then pre-signs the order in the CoW settlement contract.
 - `invalidateOrder(orderUid)`: cancels a previously created order.
 
 All three are restricted to `CALLER_ROLE`. Native ETH cannot be traded through CoW orders.
+
+The module does not cap `order.feeAmount`. CoW settlement adds this signed sell-token fee to the executed sell amount, prorating it for partial fills. The oracle bound uses `amountIn` and excludes this fee; callers must account for it when choosing orders and relayer approvals.
 
 ## Events
 

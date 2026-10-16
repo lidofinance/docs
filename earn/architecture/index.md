@@ -50,7 +50,7 @@ Deposit flow:
 1. Step 1: User Deposits
    - A user submits a deposit request via `deposit(assets, referral, merkleProof)`.
    - Deposits require `canDeposit` when `hasWhitelist` is set, and a valid Merkle proof when a root is configured. Both checks apply when both mechanisms are enabled.
-   - A processed previous request is claimed automatically. An unprocessed request reverts with `PendingRequestExists`.
+   - A previous request is claimed automatically when its processed fee-adjusted price checkpoint is positive. Otherwise, the new deposit reverts with `PendingRequestExists`.
    - The deposited amount and timestamp are stored in the `DepositQueue` contract.
 2. Step 2: Oracle Report
    - Oracle report is propagated via the `handleReport(priceD18, timestamp)` method.
@@ -76,7 +76,7 @@ Deposit flow:
 
 1. Single Active Request
 
-   Each user may have at most one unprocessed deposit request. An unprocessed request blocks a new deposit. If the pending request is already claimable, the claim will be automatically processed during the next deposit.
+   Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists`. The allowed 100% deposit fee creates a zero checkpoint, leaving the processed request unclaimable and uncancelable and blocking further deposits from that account.
 
 2. Delayed Execution
 
@@ -432,7 +432,7 @@ Process Flow for Curator Allocation:
 1. Curator asks Admin to add 2 Subvaults with correct verifier configs:
    - First one allowing liquidity transfer into a Copper or Ceffu account
    - Second one allowing deposits, withdrawals, withdrawal claims and reward claims & swaps from Symbiotic
-2. Curator pushes unallocated funds: `Vault.pushAssets(subvault, USDC, 500000)`.
+2. Curator pushes unallocated funds: `Vault.pushAssets(subvault, USDC, 5e11)` (500,000 USDC in its six-decimal raw units).
 3. Allocates assets in Subvault 1 (Delta Neutral strategy on ByBit via Copper ClearLoop).
    - In UI, Curator clicks New Call -> sets target to Copper Subvault -> selects USDC asset and Bybit ClearLoop as destination.
    - Generate `VerificationPayload` via Mellow API.
