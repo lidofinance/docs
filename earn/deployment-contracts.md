@@ -98,6 +98,21 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0x0555306F5063f62a3A7896A9eaBA0754c1185a67`](https://basescan.org/address/0x0555306F5063f62a3A7896A9eaBA0754c1185a67) |
 | OracleSubmitter     | [`0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0`](https://basescan.org/address/0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0) |
 
+### earnUSDc – Monad
+
+| Contract            | Address                                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Vault               | [`0xFAf725a4815587d40F0C9b984125599dC68F5404`](https://monadscan.com/address/0xFAf725a4815587d40F0C9b984125599dC68F5404) |
+| Oracle              | [`0xA509fAE139dea4910cDFEA995e4976EFE85717Ea`](https://monadscan.com/address/0xA509fAE139dea4910cDFEA995e4976EFE85717Ea) |
+| ShareManager        | [`0x7c704172F3f28E0093b65390eDf0E480768A830b`](https://monadscan.com/address/0x7c704172F3f28E0093b65390eDf0E480768A830b) |
+| FeeManager          | [`0xCC0B1393AF58A7427a2384dAa981e7d3E58706D9`](https://monadscan.com/address/0xCC0B1393AF58A7427a2384dAa981e7d3E58706D9) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://monadscan.com/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| SwapModule 0        | [`0xcd9b5a88d726671773760039b3b6D53Fd18Ea3Ec`](https://monadscan.com/address/0xcd9b5a88d726671773760039b3b6D53Fd18Ea3Ec) |
+| Subvault 0          | [`0xb04DEF64Ef8e2d8Ab74292f8e4604B5DBC6B3c30`](https://monadscan.com/address/0xb04DEF64Ef8e2d8Ab74292f8e4604B5DBC6B3c30) |
+| Verifier 0          | [`0x5669D4303D4926a60F1CBE61E2E36f629628248a`](https://monadscan.com/address/0x5669D4303D4926a60F1CBE61E2E36f629628248a) |
+| Timelock Controller | [`0x815396921dE4aF2CC278Cbfe448C3933fD4Ec074`](https://monadscan.com/address/0x815396921dE4aF2CC278Cbfe448C3933fD4Ec074) |
+| Curator Account     | [`0xb72AE38bA1CC5024536E2d6d08abf39ebc44f772`](https://monadscan.com/address/0xb72AE38bA1CC5024536E2d6d08abf39ebc44f772) |
+
 ## earnUSDe – Operational Experimental
 
 ### earnUSDe – Ethereum
@@ -172,7 +187,9 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 
 ## Actors
 
-Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle and Robinhood, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
+Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood and Monad, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
+
+On Monad, the Curator (earnUSDc, earnUSDe) Safe acts through the Curator Account, a MellowAccountV1 contract that the Safe owns.
 
 | Role                         | Multisig                                                                                                                         | Quorum |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
