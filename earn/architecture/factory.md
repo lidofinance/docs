@@ -46,7 +46,7 @@ function initialize(bytes calldata data) external initializer
 ```
 
 - Accepts encoded owner address.
-- Sets initial admin and emits `Initialized`.
+- Sets the factory owner and emits `Initialized`.
 
 ## Functions
 

@@ -211,14 +211,14 @@ The following parameters are saved in the state of the Verifier contract:
 
 The Oracle contract handles secure and configurable price reporting for supported assets. Closely integrated with the `ShareModule`, it provides price validation, deviation monitoring, and time-restricted report submissions.
 
-It enforces strict guarantees around report timing and trust minimization using role permissions and deviation thresholds. This oracle ensures consistent pricing across all queue, share, and limit related calculations.
+Trusted role holders supply prices within the configured timing and deviation rules. Other components use these reports for share conversion and limit accounting.
 
 Key considerations:
 
 - Only authorized roles can submit price updates
 - Suspicious reports require explicit approval before acceptance
 - Price validation is performed locally without relying on external oracle feeds
-- Manipulation is prevented through absolute and relative deviation limits
+- Subsequent reports are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy
 
 #### Technical details
 
@@ -329,7 +329,7 @@ Performance and Protocol fees are activated by a fresh Oracle report on the base
 - Deposit fee - applied linearly and calculated as `shares * depositFeeD6 / 1e6`, deducted during the oracle report handling process.
 - Redeem fee - applied linearly and calculated as `shares * redeemFeeD6 / 1e6`, deducted when shares are requested for redemption.
 - Performance fee - due to the use of a non standard pricing mechanism (`price = shares / assets`), delegation yield will result in a lower reported price by the oracle; if `priceD18` falls below `minPriceD18`, the fee is charged as `(minPriceD18 - priceD18) * performanceFeeD6 * totalShares / (priceD18 * 1e6)` to capture the implied yield.
-- Protocol fee - a continuously accruing time based fee calculated as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`, proportional to both share supply and elapsed time since the last timestamp update.
+- Protocol fee - applies when `timestamps[vault] != 0` and `block.timestamp > timestamps[vault]`. It is calculated as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`, proportional to both share supply and elapsed time since the last timestamp update.
 
 ### Risk Manager
 

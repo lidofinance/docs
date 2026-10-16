@@ -11,7 +11,7 @@ This contract is intended for setups where shares are not tokenized on-chain as 
 - Uses `ShareManager` for permissioning, allocation, and whitelisting logic.
 - Maintains balances and total supply using `ERC20Upgradeable.ERC20Storage`.
 - Internal mint and burn logic emits `IERC20.Transfer` events (for transparency or compatibility).
-- Fully decoupled from standard `ERC20` interface. Share transfers are governed by vault queues and mint and burn logic only.
+- Fully decoupled from standard `ERC20` interface. Share movements use vault queues and the internal mint, burn, and lock paths.
 
 ## Configuration and State
 

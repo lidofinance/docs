@@ -58,7 +58,7 @@ Computes a linear fee as `shares * redeemFeeD6 / 1e6`.
 Calculates the total fee to be charged based on performance and protocol components.
 
 - Performance: If `minPriceD18 != 0` and current `priceD18` is below `minPriceD18`, applies `performanceFeeD6` as `(minPriceD18 - priceD18) * performanceFeeD6 * totalShares / (priceD18 * 1e6)`.
-- Protocol: time-weighted fee based on `block.timestamp - timestamps[vault]`, computed as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`.
+- Protocol: applies only when `timestamps[vault] != 0` and `block.timestamp > timestamps[vault]`. The time-weighted fee is based on `block.timestamp - timestamps[vault]`, computed as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`.
 
 `calculateFee` returns zero unless the supplied asset is the supplied `vault`'s configured base asset. Both performance and protocol components use this condition. Fees are denominated in vault shares.
 

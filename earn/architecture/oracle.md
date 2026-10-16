@@ -4,7 +4,7 @@
 
 The `Oracle` contract is responsible for secure and configurable price reporting for supported assets. It is tightly coupled with a vault module (implementing `IShareModule`) and provides price validation, deviation tracking, and rate limited report submission.
 
-It enforces strong assumptions around data integrity, report timing, and trust minimization through roles and deviation thresholds. This oracle ensures consistent pricing across all queue, share, and vault related computations.
+Trusted role holders supply prices within the configured timing and deviation rules. Other components use these reports for share conversion and limit accounting.
 
 ### Key Responsibilities
 
@@ -141,4 +141,4 @@ Used by:
 - Only trusted roles can push prices.
 - Suspicious reports cannot be accepted without explicit approval.
 - Price validation is local and does not rely on external feeds.
-- Prevents manipulation by enforcing absolute and relative deviation constraints.
+- Subsequent reports are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy.

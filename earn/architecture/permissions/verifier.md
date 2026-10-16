@@ -122,7 +122,7 @@ function verifyCall(
 ```
 
 - Validates call permissions using the chosen `VerificationType`.
-- Reverts with `VerificationFailed` on failure.
+- Reverts with `VerificationFailed` when `getVerificationResult` returns false. Reverts from the underlying verification path propagate unchanged.
 
 #### `getVerificationResult(...) -> bool`
 
@@ -136,7 +136,7 @@ function getVerificationResult(
 ) external view returns (bool);
 ```
 
-- Returns `true` if the verification succeeds, `false` otherwise.
+- Returns `true` when verification succeeds and `false` for rejected checks. Malformed custom payloads, failed custom-verifier calls, or invalid return data can revert instead.
 
 Verification decision logic:
 

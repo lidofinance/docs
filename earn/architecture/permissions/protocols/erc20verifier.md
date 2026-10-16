@@ -34,7 +34,7 @@ The constructor passes `name_` and `version_` to `OwnedCustomVerifier`, which us
 
 ## Behavior
 
-`verifyCall` returns `false` unless the call has zero ETH value, exactly encoded calldata, an allowed caller and token, and an allowed non-zero recipient. It accepts only `approve(address,uint256)` and `transfer(address,uint256)` selectors; zero-value transfers are rejected, while zero-value approvals are allowed.
+`verifyCall` returns `true` only when the call has zero ETH value, exactly encoded calldata, an allowed caller and token, and an allowed non-zero recipient. Malformed ABI-encoded addresses can revert during decoding. It accepts only `approve(address,uint256)` and `transfer(address,uint256)` selectors; zero-value transfers are rejected, while zero-value approvals are allowed.
 
 ## Functions
 
