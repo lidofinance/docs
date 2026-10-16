@@ -30,7 +30,11 @@ function multicall(Call[] calldata calls)
 - Only the owner can execute `multicall`; inherited ownership functions control who owns the account.
 - Each target still applies its own roles, limits, and validation. Account ownership does not bypass those checks.
 - The account has no separate call allowlist or verifier. Its owner chooses the targets and calldata.
-- A vault or subvault can grant operational roles to the account so its owner can act through it. Deployment-specific grants are separate configuration.
+- The parent vault can grant roles to the account, including the `CALLER_ROLE` checked by a subvault's verifier. On-chain and Merkle compact/extended call entries must name the account as the caller (`who`); custom verifiers receive that address and apply their own policy. Deployment-specific grants are separate configuration.
+
+## Audit
+
+[NM-0829](../audits#module-and-incremental-audits) reviewed `MellowAccountV1` at commit `6ca2926`.
 
 ## Source
 

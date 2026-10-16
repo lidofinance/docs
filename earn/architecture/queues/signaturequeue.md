@@ -87,7 +87,7 @@ _hashTypedDataV4(keccak256(
 
 ### Price Safety Check
 
-After signature verification, `SignatureQueue` validates the price if the vault has a non-zero Oracle configured:
+For queues connected to the standard `Vault`, `SignatureQueue` always validates the price after signature verification. `ShareModule` requires a non-zero Oracle at initialization and has no setter to disable it:
 
 - Deposits: `price = requestedShares / depositedAssets`.
 - Redemptions: `price = burnedShares / redeemedAssets`.

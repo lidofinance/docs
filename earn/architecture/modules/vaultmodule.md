@@ -88,7 +88,8 @@ These can only be invoked by the vault itself via hooks:
 - `NotEntity(address)`: Provided contract is not a valid factory deployed entity.
 - `InvalidSubvault(address)`: Subvault fails verification (incorrect `subvault.vault()` address).
 - `ZeroAddress()`: Passed `RiskManager` address is zero (used in `__VaultModule_init`).
-- `Forbidden()`: Caller is not authorized, or the verifier is bound to a different vault.
+- `Forbidden()`: A hook call comes from anyone other than the vault itself, or the verifier is bound to a different vault.
+- `AccessControlUnauthorizedAccount(address account, bytes32 neededRole)`: Caller lacks a required role.
 
 ## Invariants and Limitations
 

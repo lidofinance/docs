@@ -91,7 +91,7 @@ This determines the total amount eligible for conversion into vault shares at th
 
 Rather than eagerly updating each user balance during `handleReport`, the vault employs lazy propagation:
 
-- Each user's claimable shares are finalized only during subsequent calling `claim()`.
+- Shares are allocated during report processing and minted when claimed. Anyone can call `claim(account)` or the vault's `claimShares(account)`; a subsequent deposit also attempts to claim the account's previous request. `TokenizedShareManager` transfers attempt to claim for both sender and recipient.
 - This significantly reduces processing cost during batch report execution.
 
 ### Timestamp Compression
@@ -119,13 +119,12 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 ## Errors
 
 - `DepositNotAllowed()`: Depositor not whitelisted.
-- `PendingRequestExists()`: Existing request not yet processed or claimed.
+- `PendingRequestExists()`: The previous request cannot be claimed because its fee-adjusted price checkpoint is not yet available or is zero.
 - `ClaimableRequestExists()`: Attempting to cancel after request has become claimable.
 - `NoPendingRequest()`: No existing request to cancel.
 - `ZeroValue()`: Input value is zero.
 - `InvalidReport()`: Invalid report input, or the latest supported-asset report is zero-priced or suspicious during deposit/cancellation accounting.
-- `UnsupportedAsset()`: The Oracle does not support the asset used in risk accounting.
-- `LimitExceeded()`: A deposit exceeds the RiskManager vault limit.
+- `LimitExceeded(int256 newValue, int256 maxValue)`: A deposit or report-time vault balance update exceeds the RiskManager vault limit.
 - `Forbidden()`: Unauthorized caller.
 - `QueuePaused()`: Deposits disabled via vault pause mechanism.
 
@@ -135,7 +134,9 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 
 1. Single Active Request: Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists`.
 2. Delayed Execution: Deposit processing requires an oracle report submitted after a configured `depositInterval`.
-3. Lazy Claiming: Deposits are converted to shares during oracle processing, but users must call `claim()` to receive them.
+3. Lazy Claiming: Shares are allocated during oracle processing and minted when claimed through permissionless claim calls or automatic claim paths.
 4. Whitelist Enforcement: Deposits require every enabled whitelist mechanism, including both local permission and Merkle proof when configured together.
 
 The allowed 100% deposit fee creates a zero price checkpoint. The processed request cannot be claimed or canceled and blocks further deposits from that account. Later positive checkpoints do not replace the first checkpoint applicable to that request.
+
+Report processing also checks the vault limit when moving a nonempty batch from pending assets into the vault balance at the current reported price. Repricing or a lowered limit can make this update revert with `LimitExceeded`, which propagates through `vault.handleReport` and reverts the entire Oracle `submitReports` batch or `acceptReport` call.

@@ -29,6 +29,10 @@ The constructor sets the owner, decimals, initial answer, inclusive minimum and 
 
 The owner controls the price within the configured bounds. Consumers must check freshness and decide whether this authority is acceptable. The interface does not imply decentralized Chainlink price aggregation.
 
+## Audit
+
+[NM-0891](../audits#module-and-incremental-audits) reviewed `PermissionedChainlinkOracle` at commit `bcf37ae`.
+
 ## Source
 
 [PermissionedChainlinkOracle.sol at `69bbaf1`](https://github.com/mellow-finance/flexible-vaults/blob/69bbaf17530dc5127ecf9049cceaab141f516a1e/src/oracles/PermissionedChainlinkOracle.sol)

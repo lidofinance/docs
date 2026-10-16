@@ -73,7 +73,7 @@ shares = (value * priceD18) / 1e18
 
 - `initialize(bytes data)`: Initializes vault wide limit.
 - `setVault(address)`: Assigns the vault address (one time only).
-- `setVaultLimit(int256 limit)`: Updates vault's global limit.
+- `setVaultLimit(int256 limit)`: Updates the vault's global limit without checking the current balance or pending deposits. A later deposit-queue report can fail its vault balance update if balance plus pending exceeds the limit; this reverts the entire Oracle `submitReports` batch or `acceptReport` call.
 - `setSubvaultLimit(address, int256)`: Updates limit for a specific subvault.
 - `allowSubvaultAssets(address, address[])`: Adds assets to a subvault allowlist.
 - `disallowSubvaultAssets(address, address[])`: Removes assets from allowlist.

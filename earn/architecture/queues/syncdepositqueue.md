@@ -80,16 +80,16 @@ There is nothing to claim afterwards: shares appear in the user's balance immedi
 
 ## Errors
 
-| Error                 | Reason                                                                                   |
-| --------------------- | ---------------------------------------------------------------------------------------- |
-| `ZeroValue()`         | Zero deposit amount, the net share amount rounds to zero, or `maxAge == 0` in the setter |
-| `QueuePaused()`       | Deposits disabled via vault pause mechanism                                              |
-| `DepositNotAllowed()` | Depositor not whitelisted                                                                |
-| `InvalidReport()`     | Latest oracle report is suspicious or zero-priced                                        |
-| `LimitExceeded()`     | Deposit exceeds the RiskManager vault limit                                              |
-| `StaleReport()`       | Latest oracle report is older than `maxAge`                                              |
-| `Forbidden()`         | Caller lacks `SET_SYNC_DEPOSIT_PARAMS_ROLE`                                              |
-| `TooLarge()`          | Parameter exceeds the allowed maximum                                                    |
+| Error                                             | Reason                                                                                   |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ZeroValue()`                                     | Zero deposit amount, the net share amount rounds to zero, or `maxAge == 0` in the setter |
+| `QueuePaused()`                                   | Deposits disabled via vault pause mechanism                                              |
+| `DepositNotAllowed()`                             | Depositor not whitelisted                                                                |
+| `InvalidReport()`                                 | Latest oracle report is suspicious or zero-priced                                        |
+| `LimitExceeded(int256 newValue, int256 maxValue)` | Deposit exceeds the RiskManager vault limit                                              |
+| `StaleReport()`                                   | Latest oracle report is older than `maxAge`                                              |
+| `Forbidden()`                                     | Caller lacks `SET_SYNC_DEPOSIT_PARAMS_ROLE`                                              |
+| `TooLarge()`                                      | Parameter exceeds the allowed maximum                                                    |
 
 ## Invariants and Limitations
 

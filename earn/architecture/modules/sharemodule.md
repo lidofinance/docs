@@ -69,7 +69,7 @@
 - `setQueueStatus(queue, isPaused)`: Pauses or unpauses a queue.
 - `createQueue(version, isDeposit, owner, asset, data)`: Deploys a new queue for an asset.
 - `removeQueue(queue)`: Removes a queue that passed `canBeRemoved()`.
-- `handleReport(asset, priceD18, depositTimestamp, redeemTimestamp)`: Called only by the oracle. Mints protocol and performance fee shares only for the FeeManager base asset, then sends the report to queues of that asset. This function does not call hooks directly.
+- `handleReport(asset, priceD18, depositTimestamp, redeemTimestamp)`: Called only by the oracle. Mints protocol and performance fee shares only when the reported asset is the FeeManager base asset. For every reported asset, sends the report to that asset's queues. This function does not call hooks directly.
 
 ## Events
 
