@@ -2,9 +2,6 @@
 sidebar_position: 2
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # 🖥️ Advanced: Local Grafana Dashboard
 
 ## Setup
@@ -45,3 +42,12 @@ Edit the `prometheus.yml` configuration file.
 
 ```bash
 sudo nano /etc/prometheus/prometheus.yml
+```
+
+Add a scrape target pointing at your validator client's metrics endpoint. Metrics have to be enabled on the client itself first, and both the flag that enables them and the port they are served on differ between clients, so check your client's own documentation for the exact values.
+
+Then reload Prometheus so it picks up the new target:
+
+```bash
+sudo systemctl restart prometheus
+```

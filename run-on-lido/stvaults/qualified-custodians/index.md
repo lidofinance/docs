@@ -37,8 +37,8 @@ Support may vary by jurisdiction, entity, and onboarding scope. Clients should c
 
 | Custodian | stETH Support | wstETH Support | stVaults Web UI integration | Official website |
 | --- | --- | --- | --- | --- |
-| [Fireblocks](./fireblocks.md) | ✅ | ✅ | WalletConnect | https://www.fireblocks.com/ |
-| [Copper](./copper.md) | ✅ | ✅ | CopperConnect Browser Extension | https://copper.co/ |
+| [Fireblocks](./fireblocks.md) | ✅ | ✅ | Fireblocks DeFi Extension, WalletConnect | https://www.fireblocks.com/ |
+| [Copper](./copper.md) | ✅ | ✅ | CopperConnect | https://copper.co/ |
 | [Cactus Custody](./cactus.md) | ✅ | ✅ | Cactus Link | https://www.mycactus.com/ |
 | BitGo | ✅ | ✅ | WalletConnect | https://www.bitgo.com/ |
 | Anchorage |  | ✅ | WalletConnect | https://www.anchorage.com/ |
@@ -50,7 +50,7 @@ Support may vary by jurisdiction, entity, and onboarding scope. Clients should c
 ## Whitelisting smart contract addresses
 To use the stVaults infrastructure, the relevant stVaults smart contracts must be whitelisted for interaction. Please ask your administrator or custodian support team to add the required stVaults contract addresses to the whitelist.
 
-Some addresses must be whitelisted before creating your first vault, while vault-specific addresses can only be added after a vault has been created. We recommend whitelisting the core stVaults infrastructure addresses upfront, and adding individual vault contract addresses as new stVaults are deployed.
+Some addresses must be whitelisted before creating your first vault, while vault-specific addresses can only be added after an stVault has been created. We recommend whitelisting the core stVaults infrastructure addresses upfront, and adding individual vault contract addresses as new stVaults are deployed.
 
 ### stVaults infrastructure addresses to be whitelisted
 <Tabs>

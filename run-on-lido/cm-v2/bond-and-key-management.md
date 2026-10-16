@@ -29,7 +29,7 @@ The [Key statuses](#key-statuses) section below provides more information on all
 After valid keys are uploaded, they become eligible for deposits. Deposits in CMv2 happen in two stages:
 
 - **Initial deposit:** a validator first receives its initial 32 ETH deposit to get activated.
-- **Top-ups:** after activation, the same validator may later receive top-ups, up to a maximum balance of 2,048 ETH.
+- **Top-ups:** after activation, the same validator may later receive top-ups, up to a maximum effective balance of 2,048 ETH.
 
 CMv2 does not deposit validators in simple upload order. When new `0x02` keys are available, incoming ETH first goes to cover the 32 ETH initial deposits needed to activate them; the rest is used for top-ups. Active validators may receive top-ups over time until they reach 2,048 ETH.
 

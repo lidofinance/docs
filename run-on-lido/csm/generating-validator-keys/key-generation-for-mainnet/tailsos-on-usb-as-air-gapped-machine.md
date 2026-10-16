@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # TailsOS on USB as Air-gapped Machine
 
 ## Flash TailsOS on USB Drive

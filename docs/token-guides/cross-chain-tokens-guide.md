@@ -297,7 +297,7 @@ please fill out the list, providing the details if needed.
 - [ ] Dedicated governance contract on target network for bridging L1 Lido DAO decisions (see R-6)
 - [ ] Governance bridging (one of) (see R-6)
   - [ ] Canonical bridge
-  - [ ] Aggregation with a.DI with 2/2, 3/4 or 3/5
+  - [ ] Aggregation with a.DI with 2/3, 3/4 or 3/5
 - [ ] Dedicated upgradable L1 bridge instance (see R-4)
 - [ ] Dedicated upgradable target network bridge instance (see R-4)
 - [ ] L2 wstETH token upgradable (see R-3)

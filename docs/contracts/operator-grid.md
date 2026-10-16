@@ -1,6 +1,6 @@
 # OperatorGrid
 
-- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/vaults/OperatorGrid.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.1.0/contracts/0.8.25/vaults/OperatorGrid.sol)
 - [Deployed contract](https://etherscan.io/address/0xC69685E89Cefc327b43B7234AC646451B27c544d)
 
 Registry for node operators, groups, and tier parameters that define share limits, reserve ratios, and fee schedules for stVaults.
@@ -385,4 +385,5 @@ Jails or unjails a vault. Requires `REGISTRY_ROLE`.
 - [VaultHub](/contracts/vault-hub)
 - [StakingVault](/contracts/staking-vault)
 - [Dashboard](/contracts/dashboard)
-- [stVaults Parameters and Metrics](/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)

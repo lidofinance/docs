@@ -1,6 +1,6 @@
 # PredepositGuarantee
 
-- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.1.0/contracts/0.8.25/vaults/predeposit_guarantee/PredepositGuarantee.sol)
 - [Deployed contract](https://etherscan.io/address/0xF4bF42c6D6A0E38825785048124DBAD6c9eaaac3)
 
 PredepositGuarantee (PDG) mitigates deposit frontrunning by requiring a node operator guarantee and validator withdrawal credentials proofs (EIP-4788) before activating staged deposits.
@@ -54,7 +54,7 @@ sequenceDiagram
   P-->>G: unlock guarantee
 ```
 
-See the [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg) for step-by-step flows.
+See the [PDG guide](/run-on-lido/stvaults/node-operators/basic-stvaults/pdg) for step-by-step flows.
 
 ## Constants
 
@@ -364,4 +364,6 @@ PDG inherits from `PausableUntilWithRoles`. All state-changing methods require t
 - [StakingVault](/contracts/staking-vault)
 - [VaultHub](/contracts/vault-hub)
 - [Dashboard](/contracts/dashboard)
-- [PDG guide](/run-on-lido/stvaults/tech-documentation/pdg)
+- [PDG guide](/run-on-lido/stvaults/node-operators/basic-stvaults/pdg)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)

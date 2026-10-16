@@ -23,19 +23,19 @@ This guide explains how Fireblocks clients can connect to the stVaults Web UI an
 
 ### 2. In Fireblocks app on your phone:
 #### 2.1. Navigate to the Web3 Wallet section, tap the “Scan” icon, and scan the QR code.
-#### Choose a User to connect.
+#### 2.2. Choose a User to connect.
 <img alt="Fireblocks UI: Choose a User to connect" src="/img/stvaults/custodians/fireblocks/fb_4.jpeg" width="300" />
 <br />
 
-#### 2.2. Choose an account to connect.
+#### 2.3. Choose an account to connect.
 <img alt="Fireblocks UI: Choose an account to connect" src="/img/stvaults/custodians/fireblocks/fb_5.jpeg" width="300" />
 <br />
 
-#### 2.3. Configure preferences and tap "Connect".
+#### 2.4. Configure preferences and tap "Connect".
 <img alt="Fireblocks UI: Configure preferences and proceed" src="/img/stvaults/custodians/fireblocks/fb_6.jpeg" width="300" />
 <br />
 
-#### 2.4. Connection established.
+#### 2.5. Connection established.
 <img alt="Fireblocks UI: Connection established" src="/img/stvaults/custodians/fireblocks/fb_7.jpeg" width="300" />
 
 ### 3. In the stVaults Web UI:
@@ -48,7 +48,8 @@ To use the stVaults infrastructure, the stVaults smart contracts must be whiteli
 You can find the addresses required for whitelisting in the [Custodians overview list](./index.md#whitelisting-smart-contract-addresses).
 
 ## Useful guides
-- [Create a Basic stVault with optional liquidity](../building-guides/basic-stvault.md)
-- [Health Monitoring Guide](../operational-and-management-guides/health-monitoring-guide.md)
-- [Health Emergency Guide](../operational-and-management-guides/health-emergency-guide.md)
-- [Voluntary Rebalancing and Vault Closure](../operational-and-management-guides/voluntary-rebalancing-and-vault-closure.md)
+- [Create a Basic stVault with optional liquidity](../builders/basic-stvaults/basic-isolated-staking-setup.md)
+- [Health Monitoring Guide](../vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide.md)
+- [Health Emergency Guide](../vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide.md)
+- [stVault Rebalancing](../vault-owners-curators-and-stakers/basic-stvaults/rebalance.md)
+- [Redemptions coverage with stETH liquidity](../vault-owners-curators-and-stakers/basic-stvaults/redemptions_coverage_with_steth.md)

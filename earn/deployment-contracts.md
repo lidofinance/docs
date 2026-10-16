@@ -19,6 +19,7 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | DepositQueue (wstETH)      | [`0xe39EED9A454C4918F8d0682062777cB251cd513F`](https://etherscan.io/address/0xe39EED9A454C4918F8d0682062777cB251cd513F) |
 | SyncDepositQueue (wstETH)  | [`0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522`](https://etherscan.io/address/0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522) |
 | RedeemQueue (wstETH)       | [`0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4`](https://etherscan.io/address/0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4) |
+| SyncRedeemQueue (wstETH)   | [`0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A`](https://etherscan.io/address/0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A) |
 | DepositQueue (GG)          | [`0x411172F1E5310d03b38128F2a294F2e33c691B30`](https://etherscan.io/address/0x411172F1E5310d03b38128F2a294F2e33c691B30) |
 | SyncDepositQueue (GG)      | [`0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B`](https://etherscan.io/address/0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B) |
 | DepositQueue (strETH)      | [`0x268ea1cc674cdaE200c4609E7b09d03Dc618E663`](https://etherscan.io/address/0x268ea1cc674cdaE200c4609E7b09d03Dc618E663) |
@@ -44,8 +45,10 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | DepositQueue (USDC)     | [`0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76`](https://etherscan.io/address/0xC75E7E73B25fEa8bB23EB55CC48BA55067b5be76) |
 | SyncDepositQueue (USDC) | [`0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5`](https://etherscan.io/address/0xf6AFAf6afcAe116dD37A779D50fE6c5fa6f8C8f5) |
 | RedeemQueue (USDC)      | [`0x9e36A74FE278906a76e7615263e46a83fC40c47F`](https://etherscan.io/address/0x9e36A74FE278906a76e7615263e46a83fC40c47F) |
+| SyncRedeemQueue (USDC)  | [`0xE0eee7e956A94BD00546d9CA07e5012F11A5059d`](https://etherscan.io/address/0xE0eee7e956A94BD00546d9CA07e5012F11A5059d) |
 | DepositQueue (USDT)     | [`0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73`](https://etherscan.io/address/0xEeC5041c47Cba1e31321AC6941Bf09Ad60645B73) |
 | SyncDepositQueue (USDT) | [`0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9`](https://etherscan.io/address/0x534d0bEb82C47cf703BFb9E959297658b65Ec8E9) |
+| RedeemQueue (USDT)      | [`0x95092A7a86715246Be6395b8D514B3d60A270Cd3`](https://etherscan.io/address/0x95092A7a86715246Be6395b8D514B3d60A270Cd3) |
 | DepositQueue (USDe)     | [`0xeEc37568b01e0C4d5028501A49E024B475E2D7cA`](https://etherscan.io/address/0xeEc37568b01e0C4d5028501A49E024B475E2D7cA) |
 | Oracle                  | [`0x827044735c9708a2cf850e7Ea37EBa43bc786028`](https://etherscan.io/address/0x827044735c9708a2cf850e7Ea37EBa43bc786028) |
 | ShareManager            | [`0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981`](https://etherscan.io/address/0x4Ce1ac8F43E0E5BD7A346A98aF777bF8fbeA1981) |
@@ -67,7 +70,10 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Vault                   | [`0xDF0fb76Df2c21F79798949A4E886cd22D1C085d7`](https://etherscan.io/address/0xDF0fb76Df2c21F79798949A4E886cd22D1C085d7) |
 | SyncDepositQueue (USDC) | [`0xEdcd9C257719799435B05C28ff9a8a34e6872bE0`](https://etherscan.io/address/0xEdcd9C257719799435B05C28ff9a8a34e6872bE0) |
 | RedeemQueue (USDC)      | [`0x59fC26AFFF725eBb77Db8E1de14572e5eA9e87EB`](https://etherscan.io/address/0x59fC26AFFF725eBb77Db8E1de14572e5eA9e87EB) |
+| SyncRedeemQueue (USDC)  | [`0x395d3230B47c8EAd7b4152c670945f6545efe3c9`](https://etherscan.io/address/0x395d3230B47c8EAd7b4152c670945f6545efe3c9) |
 | SyncDepositQueue (USDT) | [`0xeC3EE7F7669b7ce0aC91c4638e4b89c9F40E179F`](https://etherscan.io/address/0xeC3EE7F7669b7ce0aC91c4638e4b89c9F40E179F) |
+| RedeemQueue (USDT)      | [`0xF210B2E34190923afe746b297cD96465D605F33f`](https://etherscan.io/address/0xF210B2E34190923afe746b297cD96465D605F33f) |
+| SyncRedeemQueue (USDT)  | [`0xe04A1c2D63e6964f5629B3c08BF08D2472faaB09`](https://etherscan.io/address/0xe04A1c2D63e6964f5629B3c08BF08D2472faaB09) |
 | Oracle                  | [`0x8d229B565A0c6Bf2d693C343bea0Ec96103dEF5f`](https://etherscan.io/address/0x8d229B565A0c6Bf2d693C343bea0Ec96103dEF5f) |
 | ShareManager            | [`0xd9543AfF8A859F6B34f80A9A230B277c89ACdda4`](https://etherscan.io/address/0xd9543AfF8A859F6B34f80A9A230B277c89ACdda4) |
 | FeeManager              | [`0x31325D52B763B1a43d5564114FA4A4ce62148716`](https://etherscan.io/address/0x31325D52B763B1a43d5564114FA4A4ce62148716) |
@@ -92,6 +98,21 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0x0555306F5063f62a3A7896A9eaBA0754c1185a67`](https://basescan.org/address/0x0555306F5063f62a3A7896A9eaBA0754c1185a67) |
 | OracleSubmitter     | [`0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0`](https://basescan.org/address/0x8A6a1648A39C7F3dE64282e8bF2fcD783CCF08b0) |
 
+### earnUSDc – Monad
+
+| Contract            | Address                                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Vault               | [`0xFAf725a4815587d40F0C9b984125599dC68F5404`](https://monadscan.com/address/0xFAf725a4815587d40F0C9b984125599dC68F5404) |
+| Oracle              | [`0xA509fAE139dea4910cDFEA995e4976EFE85717Ea`](https://monadscan.com/address/0xA509fAE139dea4910cDFEA995e4976EFE85717Ea) |
+| ShareManager        | [`0x7c704172F3f28E0093b65390eDf0E480768A830b`](https://monadscan.com/address/0x7c704172F3f28E0093b65390eDf0E480768A830b) |
+| FeeManager          | [`0xCC0B1393AF58A7427a2384dAa981e7d3E58706D9`](https://monadscan.com/address/0xCC0B1393AF58A7427a2384dAa981e7d3E58706D9) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://monadscan.com/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| SwapModule 0        | [`0xcd9b5a88d726671773760039b3b6D53Fd18Ea3Ec`](https://monadscan.com/address/0xcd9b5a88d726671773760039b3b6D53Fd18Ea3Ec) |
+| Subvault 0          | [`0xb04DEF64Ef8e2d8Ab74292f8e4604B5DBC6B3c30`](https://monadscan.com/address/0xb04DEF64Ef8e2d8Ab74292f8e4604B5DBC6B3c30) |
+| Verifier 0          | [`0x5669D4303D4926a60F1CBE61E2E36f629628248a`](https://monadscan.com/address/0x5669D4303D4926a60F1CBE61E2E36f629628248a) |
+| Timelock Controller | [`0x815396921dE4aF2CC278Cbfe448C3933fD4Ec074`](https://monadscan.com/address/0x815396921dE4aF2CC278Cbfe448C3933fD4Ec074) |
+| Curator Account     | [`0xb72AE38bA1CC5024536E2d6d08abf39ebc44f772`](https://monadscan.com/address/0xb72AE38bA1CC5024536E2d6d08abf39ebc44f772) |
+
 ## earnUSDe – Operational Experimental
 
 ### earnUSDe – Ethereum
@@ -101,7 +122,10 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Vault                   | [`0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d`](https://etherscan.io/address/0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d) |
 | SyncDepositQueue (USDC) | [`0xBb647898e0CF0aE81Ac480d04A8a9973763eBD2D`](https://etherscan.io/address/0xBb647898e0CF0aE81Ac480d04A8a9973763eBD2D) |
 | RedeemQueue (USDC)      | [`0x8B857170F2a6C10Ce64ec8b920428ca977fb7710`](https://etherscan.io/address/0x8B857170F2a6C10Ce64ec8b920428ca977fb7710) |
+| SyncRedeemQueue (USDC)  | [`0xaFd38D9a5F48f6953c0d110c4e0ecBA2381f7Fc5`](https://etherscan.io/address/0xaFd38D9a5F48f6953c0d110c4e0ecBA2381f7Fc5) |
 | SyncDepositQueue (USDT) | [`0xa01aEfeC7A3384C8440e99084458030BDbdD7404`](https://etherscan.io/address/0xa01aEfeC7A3384C8440e99084458030BDbdD7404) |
+| RedeemQueue (USDT)      | [`0xfAc01645CA39EcD6C80bd15C052d448ED5069DF0`](https://etherscan.io/address/0xfAc01645CA39EcD6C80bd15C052d448ED5069DF0) |
+| SyncRedeemQueue (USDT)  | [`0x978f41aF86E14901C77ebaB799c307886e7C2c54`](https://etherscan.io/address/0x978f41aF86E14901C77ebaB799c307886e7C2c54) |
 | SyncDepositQueue (USDe) | [`0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947`](https://etherscan.io/address/0xAcb2E510e8FcdaB3808cC5B9d206374cAB527947) |
 | Oracle                  | [`0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C`](https://etherscan.io/address/0xBcdFaf92783B2C391A1c80682e75Bb6EF47B9c3C) |
 | ShareManager            | [`0x3D561e1E0204d47b45C23B65356a4536c36d1AF6`](https://etherscan.io/address/0x3D561e1E0204d47b45C23B65356a4536c36d1AF6) |
@@ -110,6 +134,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | SwapModule 0            | [`0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b`](https://etherscan.io/address/0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b) |
 | Subvault 0              | [`0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A`](https://etherscan.io/address/0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A) |
 | Verifier 0              | [`0x87631dbf0224234107B593c874f63f577e1336Da`](https://etherscan.io/address/0x87631dbf0224234107B593c874f63f577e1336Da) |
+| Subvault 1              | [`0x902FbA36Ca71b8FF947CB1A0fAE9b3a4f586Eb38`](https://etherscan.io/address/0x902FbA36Ca71b8FF947CB1A0fAE9b3a4f586Eb38) |
+| Verifier 1              | [`0x837e702a45c57d6D713466D6C44f5274BDbFC05E`](https://etherscan.io/address/0x837e702a45c57d6D713466D6C44f5274BDbFC05E) |
 | Timelock Controller     | [`0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF`](https://etherscan.io/address/0x7589b8645F61F151D6c28Eaf8cE2fD9F23E09AbF) |
 | OracleSubmitter         | [`0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59`](https://etherscan.io/address/0xDa5508789B5f93fb49b644c87Ef9D8CddB699d59) |
 
@@ -145,20 +171,36 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33`](https://mantlescan.xyz/address/0x3032f5eCf95B2F8FA216Df50d588E2aAe4256f33) |
 | OracleSubmitter     | [`0xbe580d9C5C24b0A06C19660c058937BB8434BBa5`](https://mantlescan.xyz/address/0xbe580d9C5C24b0A06C19660c058937BB8434BBa5) |
 
+### earnUSDe – Robinhood
+
+| Contract            | Address                                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Vault               | [`0xEe94bb5a8487954312c470F2cb457fd7329B421F`](https://robinhoodchain.blockscout.com/address/0xEe94bb5a8487954312c470F2cb457fd7329B421F) |
+| Oracle              | [`0x786CAaaf7e7680A1F52148230437dCfb59823c49`](https://robinhoodchain.blockscout.com/address/0x786CAaaf7e7680A1F52148230437dCfb59823c49) |
+| ShareManager        | [`0x906703a4e566D04828845b6C2918B1767E24752A`](https://robinhoodchain.blockscout.com/address/0x906703a4e566D04828845b6C2918B1767E24752A) |
+| FeeManager          | [`0x4FD8e72bEA84dc3B947672E49734e457a196bbdb`](https://robinhoodchain.blockscout.com/address/0x4FD8e72bEA84dc3B947672E49734e457a196bbdb) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://robinhoodchain.blockscout.com/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| Subvault 0          | [`0x4F17B5E905BaFD4E97aEc4F01835cb86008c8381`](https://robinhoodchain.blockscout.com/address/0x4F17B5E905BaFD4E97aEc4F01835cb86008c8381) |
+| Verifier 0          | [`0x45c41eb5AA467a113Ca905565e94047FBDA46A3C`](https://robinhoodchain.blockscout.com/address/0x45c41eb5AA467a113Ca905565e94047FBDA46A3C) |
+| Timelock Controller | [`0xa9BcE5B87B67506061eD83333c496A7d2eF74B56`](https://robinhoodchain.blockscout.com/address/0xa9BcE5B87B67506061eD83333c496A7d2eF74B56) |
+| OracleSubmitter     | [`0x5335607430db53bC5377Bb853802768467857a43`](https://robinhoodchain.blockscout.com/address/0x5335607430db53bC5377Bb853802768467857a43) |
+
 ## Actors
 
-Roles governing the vaults. Addresses are shared across all chains.
+Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood and Monad, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
+
+On Monad, the Curator (earnUSDc, earnUSDe) Safe acts through the Curator Account, a MellowAccountV1 contract that the Safe owns.
 
 | Role                         | Multisig                                                                                                                         | Quorum |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | Proxy Admin                  | [`0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0`](https://app.safe.global/home?safe=eth:0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0) | 5/8    |
 | Lazy Vault Admin             | [`0x0Dd73341d6158a72b4D224541f1094188f57076E`](https://app.safe.global/home?safe=eth:0x0Dd73341d6158a72b4D224541f1094188f57076E) | 5/8    |
 | Active Vault Admin           | [`0x982aB69785f5329BB59c36B19CBd4865353fEf10`](https://app.safe.global/home?safe=eth:0x982aB69785f5329BB59c36B19CBd4865353fEf10) | 3/8    |
-| Curator (earnETH, earnUSD)   | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/5    |
-| Curator (earnUSDс, earnUSDe) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
+| Curator (earnETH, earnUSD)   | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/6    |
+| Curator (earnUSDc, earnUSDe) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
 | Curator (stRATEGY)           | [`0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5`](https://app.safe.global/home?safe=eth:0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5) | 5/8    |
 | Curator (GGV)                | [`0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F`](https://app.safe.global/home?safe=eth:0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F) | 3/5    |
 | Oracle Updater               | [`0x93a797643d74fC81e7A51F3f84a9D78F930435D1`](https://app.safe.global/home?safe=eth:0x93a797643d74fC81e7A51F3f84a9D78F930435D1) | 3/8    |
-| Treasury                     | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) | 4/7    |
+| Treasury                     | [`0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85`](https://app.safe.global/home?safe=eth:0xcCf2daba8Bb04a232a2fDA0D01010D4EF6C69B85) | 4/6    |
 | Lido Pauser                  | [`0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd`](https://app.safe.global/home?safe=eth:0xA916fD5252160A7E56A6405741De76dc0Da5A0Cd) | 3/5    |
 | Mellow Pauser                | [`0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638`](https://app.safe.global/home?safe=eth:0x6E887aF318c6b29CEE42Ea28953Bd0BAdb3cE638) | 1/8    |

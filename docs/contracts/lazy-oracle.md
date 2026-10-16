@@ -1,6 +1,6 @@
 # LazyOracle
 
-- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/vaults/LazyOracle.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.1.0/contracts/0.8.25/vaults/LazyOracle.sol)
 - [Deployed contract](https://etherscan.io/address/0x5DB427080200c235F2Ae8Cd17A7be87921f7AD6c)
 
 Oracle adapter for stVaults. Stores per-vault reports, applies sanity checks, and forwards vault updates to VaultHub.
@@ -334,4 +334,5 @@ Removes quarantine for a vault. Only callable by `VaultHub`.
 - [AccountingOracle](/contracts/accounting-oracle)
 - [OperatorGrid](/contracts/operator-grid)
 - [PredepositGuarantee](/contracts/predeposit-guarantee)
-- [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)

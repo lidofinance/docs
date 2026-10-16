@@ -1,0 +1,331 @@
+const redirects = [
+  {
+    to: '/integrations/aave',
+    from: [
+      '/integrations/aave/aip',
+      '/integrations/aave/specification',
+      '/token-guides/steth-on-aave-caveats',
+    ],
+  },
+  {
+    to: '/guides/lido-tokens-integration-guide',
+    from: '/guides/steth-integration-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/lido-v3-whitepaper',
+    from: '/lido-v3-whitepaper',
+  },
+  {
+    to: '/token-guides/cross-chain-tokens-guide',
+    from: '/token-guides/wsteth-bridging-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/',
+    from: '/guides/stvaults/',
+  },
+  {
+    to: '/run-on-lido/stvaults/node-operators/basic-stvaults/pdg',
+    from: [
+      '/guides/stvaults/pdg',
+      '/run-on-lido/stvaults/pdg',
+      '/run-on-lido/stvaults/tech-documentation/pdg',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/health-monitoring-guide',
+    from: [
+      '/run-on-lido/stvaults/health-monitoring-guide',
+      '/run-on-lido/stvaults/operational-and-management-guides/health-monitoring-guide',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/health-emergency-guide',
+    from: [
+      '/run-on-lido/stvaults/health-emergency-guide',
+      '/run-on-lido/stvaults/operational-and-management-guides/health-emergency-guide',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/node-operators/basic-stvaults/node-operator-identification-guide',
+    from: [
+      '/run-on-lido/stvaults/node-operators-identification',
+      '/run-on-lido/stvaults/operational-and-management-guides/node-operators-identification',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/roles-and-permissions',
+    from: [
+      '/run-on-lido/stvaults/roles-and-permissions',
+      '/run-on-lido/stvaults/features-and-mechanics/roles-and-permissions',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/metrics',
+    from: [
+      '/run-on-lido/stvaults/parameters-and-metrics',
+      '/run-on-lido/stvaults/features-and-mechanics/parameters-and-metrics',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/architecture-overview',
+    from: [
+      '/run-on-lido/stvaults/integration-overview',
+      '/run-on-lido/stvaults/tech-documentation/integration-overview',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design',
+    from: ['/run-on-lido/stvaults/tech-design', '/run-on-lido/stvaults/tech-documentation/tech-design'],
+  },
+  {
+    to: '/run-on-lido/stvaults/node-operators/basic-stvaults/consolidation',
+    from: ['/run-on-lido/stvaults/consolidation', '/run-on-lido/stvaults/tech-documentation/consolidation'],
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/',
+    from: [
+      '/run-on-lido/stvaults/building-guides/',
+      '/run-on-lido/stvaults/operational-and-management-guides/stvaults-economy-examples',
+    ],
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/basic-stvaults/',
+    from: '/run-on-lido/stvaults/building-guides/basic-stvault',
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/defi-wrapper/',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/',
+  },
+  {
+    to: '/run-on-lido/stvaults/builders/defi-wrapper/multi-user-staking-with-custom-strategy',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/custom-strategy',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/disconnection',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/disconnect-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/defi-wrapper/vault-owners-and-curators/roles-and-permissions',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/roles-and-permissions',
+  },
+  {
+    to: '/run-on-lido/stvaults/node-operators/defi-wrapper/manage-withdrawal-queue',
+    from: '/run-on-lido/stvaults/building-guides/pooled-staking-product/withdrawals',
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/',
+    from: ['/run-on-lido/stvaults/features-and-mechanics/', '/run-on-lido/stvaults/tech-documentation/'],
+  },
+  {
+    to: '/run-on-lido/stvaults/concepts-and-reference/exit-validators-permissions',
+    from: '/run-on-lido/stvaults/features-and-mechanics/exit-validators',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/apply-oracle-reports',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/applying-report-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/disconnection',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/stvault-disconnect-guide',
+  },
+  {
+    to: '/run-on-lido/stvaults/vault-owners-curators-and-stakers/basic-stvaults/rebalance',
+    from: '/run-on-lido/stvaults/operational-and-management-guides/voluntary-rebalancing-and-vault-closure',
+  },
+  {
+    to: '/multisigs/emergency-brakes',
+    from: '/multisigs/emergency-breaks',
+  },
+  {
+    to: '/earn',
+    from: '/earn/introduction',
+  },
+  {
+    to: '/contracts/circuit-breaker',
+    from: '/contracts/gate-seal',
+  },
+  {
+    to: '/staking-modules/contracts/Accounting',
+    from: '/staking-modules/csm/contracts/CSAccounting',
+  },
+  {
+    to: '/staking-modules/contracts/Ejector',
+    from: '/staking-modules/csm/contracts/CSEjector',
+  },
+  {
+    to: '/staking-modules/contracts/FeeOracle',
+    from: '/staking-modules/csm/contracts/CSFeeOracle',
+  },
+  {
+    to: '/staking-modules/contracts/ParametersRegistry',
+    from: '/staking-modules/csm/contracts/CSParametersRegistry',
+  },
+  {
+    to: '/staking-modules/contracts/Verifier',
+    from: '/staking-modules/csm/contracts/CSVerifier',
+  },
+  {
+    to: '/staking-modules/contracts/ExitPenalties',
+    from: '/staking-modules/csm/contracts/CSExitPenalties',
+  },
+  {
+    to: '/staking-modules/contracts/FeeDistributor',
+    from: '/staking-modules/csm/contracts/CSFeeDistributor',
+  },
+  {
+    to: '/staking-modules/contracts/ValidatorStrikes',
+    from: '/staking-modules/csm/contracts/CSStrikes',
+  },
+  {
+    to: '/staking-modules/contracts/MerkleGateFactory',
+    from: '/staking-modules/csm/contracts/VettedGateFactory',
+  },
+  {
+    to: '/staking-modules/',
+    from: '/staking-modules/csm/intro',
+  },
+  {
+    to: '/staking-modules/node-operators',
+    from: '/staking-modules/csm/join-csm',
+  },
+  {
+    to: '/staking-modules/rewards',
+    from: '/staking-modules/csm/rewards',
+  },
+  {
+    to: '/staking-modules/validator-exits',
+    from: '/staking-modules/csm/validator-exits',
+  },
+  {
+    to: '/staking-modules/permissions',
+    from: '/staking-modules/csm/permissions',
+  },
+  {
+    to: '/staking-modules/further-reading',
+    from: '/staking-modules/csm/further-reading',
+  },
+  {
+    to: '/staking-modules/',
+    from: '/staking-modules/cm-v2/intro',
+  },
+  {
+    to: '/staking-modules/permissions',
+    from: '/staking-modules/cm-v2/permissions',
+  },
+  {
+    to: '/staking-modules/contracts/Accounting',
+    from: '/staking-modules/csm/contracts/Accounting',
+  },
+  {
+    to: '/staking-modules/contracts/Accounting',
+    from: '/staking-modules/cm-v2/contracts/Accounting',
+  },
+  {
+    to: '/staking-modules/contracts/Ejector',
+    from: '/staking-modules/csm/contracts/Ejector',
+  },
+  {
+    to: '/staking-modules/contracts/Ejector',
+    from: '/staking-modules/cm-v2/contracts/Ejector',
+  },
+  {
+    to: '/staking-modules/contracts/ExitPenalties',
+    from: '/staking-modules/csm/contracts/ExitPenalties',
+  },
+  {
+    to: '/staking-modules/contracts/ExitPenalties',
+    from: '/staking-modules/cm-v2/contracts/ExitPenalties',
+  },
+  {
+    to: '/staking-modules/contracts/FeeDistributor',
+    from: '/staking-modules/csm/contracts/FeeDistributor',
+  },
+  {
+    to: '/staking-modules/contracts/FeeDistributor',
+    from: '/staking-modules/cm-v2/contracts/FeeDistributor',
+  },
+  {
+    to: '/staking-modules/contracts/FeeOracle',
+    from: '/staking-modules/csm/contracts/FeeOracle',
+  },
+  {
+    to: '/staking-modules/contracts/FeeOracle',
+    from: '/staking-modules/cm-v2/contracts/FeeOracle',
+  },
+  {
+    to: '/staking-modules/contracts/MerkleGateFactory',
+    from: '/staking-modules/csm/contracts/MerkleGateFactory',
+  },
+  {
+    to: '/staking-modules/contracts/MerkleGateFactory',
+    from: '/staking-modules/cm-v2/contracts/MerkleGateFactory',
+  },
+  {
+    to: '/staking-modules/contracts/ParametersRegistry',
+    from: '/staking-modules/csm/contracts/ParametersRegistry',
+  },
+  {
+    to: '/staking-modules/contracts/ParametersRegistry',
+    from: '/staking-modules/cm-v2/contracts/ParametersRegistry',
+  },
+  {
+    to: '/staking-modules/contracts/ValidatorStrikes',
+    from: '/staking-modules/csm/contracts/ValidatorStrikes',
+  },
+  {
+    to: '/staking-modules/contracts/ValidatorStrikes',
+    from: '/staking-modules/cm-v2/contracts/ValidatorStrikes',
+  },
+  {
+    to: '/staking-modules/contracts/Verifier',
+    from: '/staking-modules/csm/contracts/Verifier',
+  },
+  {
+    to: '/staking-modules/contracts/Verifier',
+    from: '/staking-modules/cm-v2/contracts/Verifier',
+  },
+  {
+    to: '/staking-modules/contracts/CSModule',
+    from: '/staking-modules/csm/contracts/CSModule',
+  },
+  {
+    to: '/staking-modules/contracts/PermissionlessGate',
+    from: '/staking-modules/csm/contracts/PermissionlessGate',
+  },
+  {
+    to: '/staking-modules/contracts/VettedGate',
+    from: '/staking-modules/csm/contracts/VettedGate',
+  },
+  {
+    to: '/staking-modules/contracts/CuratedModule',
+    from: '/staking-modules/cm-v2/contracts/CuratedModule',
+  },
+  {
+    to: '/staking-modules/contracts/CuratedGate',
+    from: '/staking-modules/cm-v2/contracts/CuratedGate',
+  },
+  {
+    to: '/staking-modules/contracts/MetaRegistry',
+    from: '/staking-modules/cm-v2/contracts/MetaRegistry',
+  },
+]
+
+const REDIRECTED_FRAGMENTS = {
+  '/token-guides/wsteth-bridging-guide#the-proposed-configuration': '#mainnet-proposed-configuration',
+}
+
+function resolveRedirect(source) {
+  const fragmentIndex = source.indexOf('#')
+  const sourcePath = fragmentIndex === -1 ? source : source.slice(0, fragmentIndex)
+  const sourceFragment = fragmentIndex === -1 ? '' : source.slice(fragmentIndex)
+  const redirect = redirects.find(({ from }) => (Array.isArray(from) ? from.includes(sourcePath) : from === sourcePath))
+
+  if (!redirect) return source
+  return redirect.to + (REDIRECTED_FRAGMENTS[source] || sourceFragment)
+}
+
+module.exports = { redirects, resolveRedirect }

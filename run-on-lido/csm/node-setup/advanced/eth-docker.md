@@ -63,6 +63,10 @@ ethd config
 4. **\[For Testnet only]** **yes** to generate validator keys: set quantity, password, save mnemonic, verify fee recipient on [CSM Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module)
 5. **\[For Mainnet]** **no** to generate keys here (use secure workflow in [Key Generation for Mainnet guide](/run-on-lido/csm/generating-validator-keys/key-generation-for-mainnet/))
 
+:::note
+When generating keys, Eth Docker asks whether you want a **distributing** validator (Type 1, `0x01`) or an **accumulating** one (Type 2, `0x02`). Choose accumulating for 0x02 CSM, or distributing for 0x01 CSM. See [Key Generation for Testnet](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet).
+:::
+
 ## Address Tabs
 
 <Tabs>

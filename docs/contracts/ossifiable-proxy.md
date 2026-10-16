@@ -8,7 +8,7 @@ There are several slightly different variants of the `OssifiableProxy` contract.
 
 ### Core variant
 
-- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.9/proxy/OssifiableProxy.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.1.0/contracts/0.8.9/proxy/OssifiableProxy.sol)
 
 Defined in the [core](https://github.com/lidofinance/core) repository. Written in Solidity 0.8.9 on top of the OpenZeppelin v4.4 `ERC1967Proxy`. The upgrade-and-call function takes three arguments: `proxy__upgradeToAndCall(address newImplementation_, bytes setupCalldata_, bool forceCall_)`.
 
@@ -43,38 +43,38 @@ All core protocol contracts are deployed behind the [core variant](#core-variant
 
 The following contracts are deployed behind the [staking modules variant](#staking-modules-variant):
 
-- [CSModule](/staking-modules/csm/contracts/CSModule)
-- [Accounting](/staking-modules/csm/contracts/Accounting)
-- [ParametersRegistry](/staking-modules/csm/contracts/ParametersRegistry)
-- [FeeDistributor](/staking-modules/csm/contracts/FeeDistributor)
-- [FeeOracle](/staking-modules/csm/contracts/FeeOracle)
-- [ValidatorStrikes](/staking-modules/csm/contracts/ValidatorStrikes)
-- [ExitPenalties](/staking-modules/csm/contracts/ExitPenalties)
+- [CSModule](/staking-modules/contracts/CSModule)
+- [Accounting](/staking-modules/contracts/Accounting)
+- [ParametersRegistry](/staking-modules/contracts/ParametersRegistry)
+- [FeeDistributor](/staking-modules/contracts/FeeDistributor)
+- [FeeOracle](/staking-modules/contracts/FeeOracle)
+- [ValidatorStrikes](/staking-modules/contracts/ValidatorStrikes)
+- [ExitPenalties](/staking-modules/contracts/ExitPenalties)
 
 #### Gates
 
-- [Identified Community Stakers Gate](/staking-modules/csm/contracts/VettedGate) — [staking modules variant](#staking-modules-variant)
-- [Identified DVT Cluster Gate](/staking-modules/csm/contracts/VettedGate) — [staking modules variant](#staking-modules-variant), as it was deployed later than the other CSM proxies
+- [Identified Community Stakers Gate](/staking-modules/contracts/VettedGate) — [staking modules variant](#staking-modules-variant)
+- [Identified DVT Cluster Gate](/staking-modules/contracts/VettedGate) — [staking modules variant](#staking-modules-variant), as it was deployed later than the other CSM proxies
 
 ### Curated Module v2
 
 All Curated Module v2 contracts, including the gates, are deployed behind the [staking modules variant](#staking-modules-variant):
 
-- [CuratedModule](/staking-modules/cm-v2/contracts/CuratedModule)
-- [MetaRegistry](/staking-modules/cm-v2/contracts/MetaRegistry)
-- [Accounting](/staking-modules/cm-v2/contracts/Accounting)
-- [ParametersRegistry](/staking-modules/cm-v2/contracts/ParametersRegistry)
-- [FeeDistributor](/staking-modules/cm-v2/contracts/FeeDistributor)
-- [FeeOracle](/staking-modules/cm-v2/contracts/FeeOracle)
-- [ValidatorStrikes](/staking-modules/cm-v2/contracts/ValidatorStrikes)
-- [ExitPenalties](/staking-modules/cm-v2/contracts/ExitPenalties)
+- [CuratedModule](/staking-modules/contracts/CuratedModule)
+- [MetaRegistry](/staking-modules/contracts/MetaRegistry)
+- [Accounting](/staking-modules/contracts/Accounting)
+- [ParametersRegistry](/staking-modules/contracts/ParametersRegistry)
+- [FeeDistributor](/staking-modules/contracts/FeeDistributor)
+- [FeeOracle](/staking-modules/contracts/FeeOracle)
+- [ValidatorStrikes](/staking-modules/contracts/ValidatorStrikes)
+- [ExitPenalties](/staking-modules/contracts/ExitPenalties)
 
 #### Gates
 
-- [Professional Operator Gate](/staking-modules/cm-v2/contracts/CuratedGate)
-- [Professional Trusted Operator Gate](/staking-modules/cm-v2/contracts/CuratedGate)
-- [Public Good Operator Gate](/staking-modules/cm-v2/contracts/CuratedGate)
-- [Decentralization Operator Gate](/staking-modules/cm-v2/contracts/CuratedGate)
-- [Extra Effort Operator Gate](/staking-modules/cm-v2/contracts/CuratedGate)
-- [Intra-Operator DVT Cluster Gate](/staking-modules/cm-v2/contracts/CuratedGate)
-- [Intra-Operator DVT Cluster Plus Gate](/staking-modules/cm-v2/contracts/CuratedGate)
+- [Professional Operator Gate](/staking-modules/contracts/CuratedGate)
+- [Professional Trusted Operator Gate](/staking-modules/contracts/CuratedGate)
+- [Public Good Operator Gate](/staking-modules/contracts/CuratedGate)
+- [Decentralization Operator Gate](/staking-modules/contracts/CuratedGate)
+- [Extra Effort Operator Gate](/staking-modules/contracts/CuratedGate)
+- [Intra-Operator DVT Cluster Gate](/staking-modules/contracts/CuratedGate)
+- [Intra-Operator DVT Cluster Plus Gate](/staking-modules/contracts/CuratedGate)

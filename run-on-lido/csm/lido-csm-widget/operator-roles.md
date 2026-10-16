@@ -6,6 +6,10 @@ sidebar_position: 4
 
 CSM has two roles to interact with your Node Operator: **Manager** and **Rewards**. When you first create your operator, both roles are assigned to the wallet you used at creation (unless you are explicitly specifying custom addresses), but both can be changed later. Let's see what each role can do and how to change the wallet:
 
+:::info
+Roles are set per operator. If you run both a 0x01 and a 0x02 operator, each one has its own Manager and Rewards addresses, and you configure them separately. See [Managing 0x01 and 0x02 Operators](/run-on-lido/csm/lido-csm-widget/managing-0x01-and-0x02-operators).
+:::
+
 :::warning
 You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Rewards address.
 
@@ -18,7 +22,7 @@ You can work around this by using the Extended mode explained [here](#extended-m
 The Manager can perform the following actions:
 
 * Add new validator keys
-* Compensate the reported MEV stealing penalty
+* Compensate a reported [General Delayed Penalty](/run-on-lido/csm/penalties#how-penalties-and-charges-are-applied)
 * Delete validator keys that were not deposited yet
 * Claim rewards (rewards will be transferred to the Reward address)
 * Put depositable keys back into the deposit queue if they were skipped during the queue iteration
@@ -46,7 +50,7 @@ On top of the permissions above, there's several methods that can be called by a
 
 ## Change roles
 
-To change the roles for either the Manager or Rewards address, navigate to the [Roles tab](https://csm.lido.fi/roles).
+To change the roles for either the Manager or Rewards address, navigate to the Roles tab on [Mainnet](https://csm.lido.fi/roles) or [Hoodi](https://csm.testnet.fi/roles).
 
 ![Roles Tab](/img/csm-guide/roles-1.png)
 

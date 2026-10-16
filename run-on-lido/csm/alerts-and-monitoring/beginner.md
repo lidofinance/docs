@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # 📊 Beginner: CSM Widget, MigaLabs, Beaconcha.in
 
-To get Node Operator rewards on your CSM validators, their performance must be above the average performance of the network minus 3% (5% for ICS's first 150 keys) during the monitoring frame of 28 days. That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
+To get Node Operator rewards on your CSM validators, their performance must be above the average performance of the network minus 3% (5% for ICS's first 150 keys) during the monitoring frame of 28 days on Mainnet (14 days on Hoodi). That makes it very easy to receive rewards, and it's even easier to check how your operator is doing.
 
 ## Snapshot Performance
 

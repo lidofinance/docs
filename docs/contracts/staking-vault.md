@@ -1,6 +1,6 @@
 # StakingVault
 
-- [Source code](https://github.com/lidofinance/core/blob/v4.0.0/contracts/0.8.25/vaults/StakingVault.sol)
+- [Source code](https://github.com/lidofinance/core/blob/v4.1.0/contracts/0.8.25/vaults/StakingVault.sol)
 - [Implementation](https://etherscan.io/address/0x06A56487494aa080deC7Bf69128EdA9225784553)
 - [Beacon](https://etherscan.io/address/0x5FbE8cEf9CCc56ad245736D3C5bAf82ad54Ca789)
 
@@ -344,4 +344,5 @@ The contract has a `receive()` function allowing direct ETH transfers, but the p
 - [PredepositGuarantee](/contracts/predeposit-guarantee)
 - [Staking Vault Beacon](/contracts/staking-vault-beacon)
 - [Staking Vault Factory](/contracts/staking-vault-factory)
-- [stVaults Technical Design](/run-on-lido/stvaults/tech-documentation/tech-design)
+- [stVaults Architecture Overview](/run-on-lido/stvaults/concepts-and-reference/architecture-overview)
+- [stVaults Technical Design](/run-on-lido/stvaults/concepts-and-reference/stvaults-technical-design)

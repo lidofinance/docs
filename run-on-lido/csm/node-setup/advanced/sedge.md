@@ -60,6 +60,10 @@ The MEV-Boost service is configured with designated relays. Learn more about CSM
 
 If you're going through **testnet**, in the prompts, choose to generate keystore source, mnemonic source (backup your seed), and passphrase. Specify the number of keys and initial index.
 
+:::note
+Sedge does not yet support generating `0x02` keys. If you are joining 0x02 CSM on Hoodi, generate your keys with Eth Docker or Wagyu Keygen instead, as described in [Key Generation for Testnet](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet).
+:::
+
 Then copy deposit data for the CSM widget:
 
 ```bash

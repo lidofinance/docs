@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
 
 # 🧪 Key Generation for Testnet
 
-:::warning 0x01 keys only
-The current Hoodi deployment accepts **0x01 validator keys only**, with deposit data set to 32 ETH. The dedicated 0x02 CSM testnet is not live yet.
+:::info Choose the right credential type
+Hoodi accepts both **0x01** and **0x02** validator keys, with deposit data set to 32 ETH either way. Generate the credential type that matches the module you are joining, and check the notes in each tab below for tool-specific support.
 :::
 
 ## Generating Keys
@@ -32,6 +32,10 @@ ethpillar
 
 Then select **Validator Client → Generate / Import Validator Keys → Generate new validator keys** and follow the prompts.
 
+:::warning 0x02 not yet supported for CSM
+EthPillar's Lido CSM key-generation flow currently always generates 0x01 (regular-withdrawal) keys, regardless of the compounding option shown in its menu. Use Eth Docker or Wagyu Keygen (see other tabs) to generate 0x02 CSM keys for now.
+:::
+
 </TabItem>
 
 <TabItem value="eth-docker" label="Eth Docker">
@@ -53,6 +57,10 @@ cd ~/eth-docker
 
 Keystores will be in `~/eth-docker/.eth/validator_keys`.
 
+:::info Choose your credential type
+Both methods prompt you to choose between a **distributing** validator (Type 1, 0x01) and an **accumulating** validator (Type 2, 0x02). Choose accumulating for 0x02 CSM, or distributing for 0x01 CSM.
+:::
+
 </TabItem>
 
 <TabItem value="sedge" label="Sedge">
@@ -60,6 +68,10 @@ Keystores will be in `~/eth-docker/.eth/validator_keys`.
 ### Sedge
 
 In the prompts when setting up your node with the interactive mode, choose to generate keystore source, mnemonic source (backup your seed), and passphrase. Specify the number of keys and initial index.
+
+:::warning 0x02 not yet supported
+Sedge does not currently support generating 0x02 (compounding) validator keys. Use Eth Docker or Wagyu Keygen (see other tabs) to generate 0x02 CSM keys for now.
+:::
 
 </TabItem>
 
@@ -73,11 +85,12 @@ Use the [Wagyu Keygen](https://github.com/stake-house/wagyu-key-gen) GUI:
 2. Generate a secret recovery phrase and select the network.
 3. Write down the phrase and confirm it.
 4. Choose number of validator keys.
-5. Encrypt keystores with a strong password.
-6. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault:
+5. Choose the withdrawal credential type: **regular (0x01)** for 0x01 CSM, or **compounding (0x02)** for 0x02 CSM.
+6. Encrypt keystores with a strong password.
+7. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault:
    * **Hoodi:** `0x4473dCDDbf77679A643BdB654dbd86D67F8d32f2`
-7. Confirm password.
-8. Select output folder for keystores and deposit data.
+8. Confirm password.
+9. Select output folder for keystores and deposit data.
 
 You will receive:
 
@@ -118,7 +131,7 @@ For offline keys:
 cat $(find /var/lib -name "keystore*.json" 2>/dev/null)
 ```
 
-Run `ethpillar`, select **Validator Client → Generate / Import Validator Keys → Import validator keys from offline ...**, paste path.
+Run `ethpillar`, select **Validator Client → Generate / Import Validator Keys → Import validator keys from offline key generation or backup**, then paste the path.
 
 </TabItem>
 
@@ -150,7 +163,7 @@ This will copy the keys from the specified path, ensure are set to the correct n
 
 ### Eth Docker
 
-Import keys:
+Move the keystores into `~/eth-docker/.eth/validator_keys`, adjust permissions, then import:
 
 ```bash
 ethd keys import
