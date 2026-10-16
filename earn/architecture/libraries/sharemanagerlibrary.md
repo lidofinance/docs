@@ -1,14 +1,14 @@
-# ShareManagerLibrary
+# ShareManagerFlagLibrary
 
 ## Overview
 
-This library helps pack multiple boolean flags and lockup durations into a compact `uint256` bitmask. It enables efficient storage and quick access to share manager configuration in vault systems.
+This library helps pack boolean flags and a global unlock timestamp into a compact `uint256` bitmask. It enables efficient storage and quick access to share manager configuration in vault systems.
 
 Designed for the `ShareManager` component to control:
 
 - Whether minting, burning, or transfers are paused.
 - Whether deposit or transfer whitelists are active.
-- How long global or user-specific lockups last.
+- The Unix timestamp before which burns, locks, and transfers are blocked. Minting is not subject to this lockup.
 
 All data is packed into a single `uint256` using bit level encoding for optimal storage and gas efficiency.
 
@@ -16,15 +16,14 @@ All data is packed into a single `uint256` using bit level encoding for optimal 
 
 ### Bitmask Layout
 
-| Bit Range | Purpose |
-| --- | --- |
-| `[0]` | `hasMintPause` (bool) |
-| `[1]` | `hasBurnPause` (bool) |
-| `[2]` | `hasTransferPause` (bool) |
-| `[3]` | `hasWhitelist` (bool) |
-| `[4]` | `hasTransferWhitelist` (bool) |
-| `[5..36]` | `globalLockup` (uint32) |
-| `[37..68]` | `targetedLockup` (uint32) |
+| Bit Range | Purpose                       |
+| --------- | ----------------------------- |
+| `[0]`     | `hasMintPause` (bool)         |
+| `[1]`     | `hasBurnPause` (bool)         |
+| `[2]`     | `hasTransferPause` (bool)     |
+| `[3]`     | `hasWhitelist` (bool)         |
+| `[4]`     | `hasTransferWhitelist` (bool) |
+| `[5..36]` | `globalLockup` (uint32)       |
 
 ## Functions
 
@@ -50,11 +49,7 @@ Returns `true` if a transfer whitelist is enabled (bit 4 is set).
 
 ### `getGlobalLockup(uint256 mask) -> uint32`
 
-Returns the global lockup duration in seconds, encoded in bits `[5..36]`.
-
-### `getTargetedLockup(uint256 mask) -> uint32`
-
-Returns the targeted lockup duration in seconds, encoded in bits `[37..68]`.
+Returns the global unlock timestamp, encoded in bits `[5..36]`. `ShareManager.updateChecks` compares it with `block.timestamp`.
 
 ### `createMask(IShareManager.Flags calldata f) -> uint256`
 
@@ -68,6 +63,5 @@ struct Flags {
     bool hasWhitelist;
     bool hasTransferWhitelist;
     uint32 globalLockup;
-    uint32 targetedLockup;
 }
 ```

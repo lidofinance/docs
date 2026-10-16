@@ -17,7 +17,8 @@ It conforms to the `IFactory` interface and supports deploying any `IFactoryEnti
 ## Roles and Permissions
 
 - Uses `OwnableUpgradeable`.
-- Only owner can accept implementations and blacklist versions.
+- Only the owner can accept implementations and blacklist versions.
+- Anyone can call `create` for an accepted, non-blacklisted version. `isEntity` proves factory origin, not approval of the proxy's owner or application configuration.
 
 ## Configuration and State
 
@@ -31,12 +32,12 @@ bytes32 _factoryStorageSlot = SlotLibrary.getSlot("Factory", name_, version_);
 
 Storage fields (in `FactoryStorage`) include:
 
-| Field | Description |
-| --- | --- |
-| `entities` | Set of all deployed proxy instances |
-| `implementations` | Approved logic contract addresses |
-| `proposals` | Pending implementation proposals |
-| `isBlacklisted` | Mapping from version -> is blacklisted |
+| Field             | Description                            |
+| ----------------- | -------------------------------------- |
+| `entities`        | Set of all deployed proxy instances    |
+| `implementations` | Approved logic contract addresses      |
+| `proposals`       | Pending implementation proposals       |
+| `isBlacklisted`   | Mapping from version -> is blacklisted |
 
 ### Initialization
 
@@ -55,7 +56,7 @@ function initialize(bytes calldata data) external initializer
 function create(uint256 version, address owner, bytes calldata initParams) external returns (address instance)
 ```
 
-Deploys a new `TransparentUpgradeableProxy`:
+Anyone can deploy a new `TransparentUpgradeableProxy`. The `owner` argument owns the separate `ProxyAdmin` deployed by the OpenZeppelin v5 proxy; application ownership is set through `initParams`:
 
 - Uses implementation from `implementations.at(version)`.
 - Rejects if version is out of bounds or blacklisted.
@@ -65,7 +66,7 @@ Deploys a new `TransparentUpgradeableProxy`:
 Emits:
 
 ```solidity
-event Created(address instance, uint256 version, address owner, bytes initParams);
+event Created(address indexed instance, uint256 indexed version, address indexed owner, bytes initParams);
 ```
 
 ### Implementation Management
@@ -104,16 +105,16 @@ function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
 
 ### View Functions
 
-| Function | Returns |
-| --- | --- |
-| `entities()` | Total number of deployed entities |
-| `entityAt(index)` | Deployed entity at index |
-| `isEntity(address)` | Checks if address is a deployed entity |
-| `implementations()` | Total implementation count |
-| `implementationAt(index)` | Implementation at index |
-| `proposals()` | Total proposals pending approval |
-| `proposalAt(index)` | Proposal at index |
-| `isBlacklisted(version)` | Whether a version is blocked from deployment |
+| Function                  | Returns                                      |
+| ------------------------- | -------------------------------------------- |
+| `entities()`              | Total number of deployed entities            |
+| `entityAt(index)`         | Deployed entity at index                     |
+| `isEntity(address)`       | Checks if address is a deployed entity       |
+| `implementations()`       | Total implementation count                   |
+| `implementationAt(index)` | Implementation at index                      |
+| `proposals()`             | Total proposals pending approval             |
+| `proposalAt(index)`       | Proposal at index                            |
+| `isBlacklisted(version)`  | Whether a version is blocked from deployment |
 
 ## Invariants and Limitations
 

@@ -6,8 +6,8 @@ The `SyncRedeemQueue` contract enables synchronous (instant) redemptions of vaul
 
 ## Roles and Permissions
 
-| Role | Permission |
-| --- | --- |
+| Role                          | Permission                                                                      |
+| ----------------------------- | ------------------------------------------------------------------------------- |
 | `SET_SYNC_REDEEM_PARAMS_ROLE` | Updates the synchronous redemption penalty, maximum report age, and daily limit |
 
 The role is checked against the vault's ACL.
@@ -23,13 +23,13 @@ function syncRedeemParams()
     returns (uint256 penaltyD6, uint32 maxAge, uint256 usage, uint256 dailyLimit, uint256 latestRequestTimestamp)
 ```
 
-| Parameter | Description | Update rule or constraint |
-| --- | --- | --- |
-| `penaltyD6` | Penalty applied to synchronous redemptions, in D6 precision (`1e4` = 1%) | At most `5e5` (50%) |
-| `maxAge` | Maximum allowed age of the oracle report used for pricing, in seconds | Non-zero, at most 365 days |
-| `usage` | Stored leaky-bucket usage before decay since the last synchronization | Updated when a redemption or parameter change synchronizes usage |
-| `dailyLimit` | Leaky-bucket capacity for synchronous redemptions, denominated in shares | Divisible by 86400 |
-| `latestRequestTimestamp` | Timestamp of the latest usage synchronization | Updated together with `usage` |
+| Parameter                | Description                                                              | Update rule or constraint                                        |
+| ------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| `penaltyD6`              | Penalty applied to synchronous redemptions, in D6 precision (`1e4` = 1%) | At most `5e5` (50%)                                              |
+| `maxAge`                 | Maximum allowed age of the oracle report used for pricing, in seconds    | Non-zero, at most 365 days                                       |
+| `usage`                  | Stored leaky-bucket usage before decay since the last synchronization    | Updated when a redemption or parameter change synchronizes usage |
+| `dailyLimit`             | Leaky-bucket capacity for synchronous redemptions, denominated in shares | Divisible by 86400                                               |
+| `latestRequestTimestamp` | Timestamp of the latest usage synchronization                            | Updated together with `usage`                                    |
 
 The configurable parameters are set during initialization and updated via `setSyncRedeemParams(penaltyD6, maxAge, dailyLimit)`.
 
@@ -72,22 +72,22 @@ Because capacity refills continuously, `dailyLimit` is not a strict rolling 24-h
 
 ### View Functions
 
-| Function | Description |
-| --- | --- |
-| `name()` | Returns `"SyncRedeemQueue"` |
-| `syncRedeemParams()` | Returns the configured parameters and stored usage state |
+| Function                | Description                                                                      |
+| ----------------------- | -------------------------------------------------------------------------------- |
+| `name()`                | Returns `"SyncRedeemQueue"`                                                      |
+| `syncRedeemParams()`    | Returns the configured parameters and stored usage state                         |
 | `remainingDailyLimit()` | Returns usage after linear decay and the currently available redemption capacity |
-| `getLiquidAssets()` | Returns liquidity reported by the vault for this queue |
-| `canBeRemoved()` | Returns `true` because the queue keeps no pending requests |
+| `getLiquidAssets()`     | Returns liquidity reported by the vault for this queue                           |
+| `canBeRemoved()`        | Returns `true` because the queue keeps no pending requests                       |
 
 `getLiquidAssets()` delegates to `vault.getLiquidAssets()`. If no redeem hook is configured, the vault returns its direct asset balance; otherwise it returns the hook's liquidity estimate.
 
 ### State-Changing Functions
 
-| Function | Access | Description |
-| --- | --- | --- |
-| `setSyncRedeemParams(penaltyD6, maxAge, dailyLimit)` | `SET_SYNC_REDEEM_PARAMS_ROLE` in the vault ACL | Synchronizes usage, then updates the pricing and limit parameters |
-| `redeem(shares, receiver)` | Public | Burns shares and transfers assets immediately after all checks pass |
+| Function                                             | Access                                         | Description                                                         |
+| ---------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------- |
+| `setSyncRedeemParams(penaltyD6, maxAge, dailyLimit)` | `SET_SYNC_REDEEM_PARAMS_ROLE` in the vault ACL | Synchronizes usage, then updates the pricing and limit parameters   |
+| `redeem(shares, receiver)`                           | Public                                         | Burns shares and transfers assets immediately after all checks pass |
 
 ## Events
 
@@ -96,17 +96,17 @@ Because capacity refills continuously, `dailyLimit` is not a strict rolling 24-h
 
 ## Errors
 
-| Error                                 | Reason                                                       |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `ZeroValue()`                         | Zero shares, zero receiver, the payout rounds to zero, or `maxAge == 0` in the setter |
-| `QueuePaused()`                       | Redemptions disabled via vault pause mechanism               |
-| `InvalidReport()`                     | Latest oracle report is suspicious or zero-priced            |
-| `StaleReport()`                       | Latest oracle report is older than `maxAge`                  |
-| `InsufficientAssets(requested, available)` | Vault lacks liquid assets to cover the payout          |
-| `DailyLimitOverflow()`                | Redemption exceeds the remaining daily limit                 |
-| `InvalidDailyLimit()`                 | `dailyLimit` is not divisible by 86400                       |
-| `Forbidden()`                         | Caller lacks `SET_SYNC_REDEEM_PARAMS_ROLE`                   |
-| `TooLarge()`                          | Parameter exceeds the allowed maximum                        |
+| Error                                      | Reason                                                                                |
+| ------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `ZeroValue()`                              | Zero shares, zero receiver, the payout rounds to zero, or `maxAge == 0` in the setter |
+| `QueuePaused()`                            | Redemptions disabled via vault pause mechanism                                        |
+| `InvalidReport()`                          | Latest oracle report is suspicious or zero-priced                                     |
+| `StaleReport()`                            | Latest oracle report is older than `maxAge`                                           |
+| `InsufficientAssets(requested, available)` | Vault lacks liquid assets to cover the payout                                         |
+| `DailyLimitOverflow()`                     | Redemption exceeds the remaining daily limit                                          |
+| `InvalidDailyLimit()`                      | `dailyLimit` is not divisible by 86400                                                |
+| `Forbidden()`                              | Caller lacks `SET_SYNC_REDEEM_PARAMS_ROLE`                                            |
+| `TooLarge()`                               | Parameter exceeds the allowed maximum                                                 |
 
 ## Invariants and Limitations
 
@@ -116,3 +116,7 @@ Because capacity refills continuously, `dailyLimit` is not a strict rolling 24-h
 2. Fresh Pricing: redemptions revert if the latest oracle report is older than `maxAge` or flagged as suspicious.
 3. Liquidity-Bounded: without a redeem hook, available liquidity is the vault's direct asset balance. With a hook, liquidity is determined by that hook and may include assets available from eligible subvaults (for example, `BasicRedeemHook` counts both).
 4. Rate-Limited: total instant redemptions are throttled by the leaky-bucket daily limit.
+
+## Source
+
+[SyncRedeemQueue.sol at `69bbaf1`](https://github.com/mellow-finance/flexible-vaults/blob/69bbaf17530dc5127ecf9049cceaab141f516a1e/src/queues/SyncRedeemQueue.sol)

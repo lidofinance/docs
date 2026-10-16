@@ -10,7 +10,7 @@ This contract is a centralized module responsible for:
 
 - Defining and enforcing deposit limits at vault and subvault levels.
 - Allowlisting or disallowing specific assets per subvault.
-- Tracking pending balances (deposits and withdrawals that are not yet finalized).
+- Tracking pending deposits before their processing.
 - Validating risk assumptions through oracle price reports.
 
 ## Roles and Permissions
@@ -25,7 +25,7 @@ The contract uses fine-grained access roles:
 - `MODIFY_VAULT_BALANCE_ROLE`: Can update the vault's live balance.
 - `MODIFY_SUBVAULT_BALANCE_ROLE`: Can update a subvault's internal balance.
 
-Roles are verified via the vault's ACL module (`IACLModule`) or allowed queues (`IShareModule`).
+Roles are checked through the vault ACL. Queues can modify pending assets and vault balances. `modifySubvaultBalance` accepts the vault or a holder of `MODIFY_SUBVAULT_BALANCE_ROLE`, without a queue exception.
 
 ## Configuration and State
 

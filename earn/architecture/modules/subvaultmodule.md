@@ -32,7 +32,7 @@ SlotLibrary.getSlot("SubvaultModule", name_, version_)
 
 #### `__SubvaultModule_init(address vault_)`
 
-Internal setup method to be called during construction or proxy initialization.
+An `onlyInitializing` setup method that stores the parent vault address. It does not register this subvault in the parent; `createSubvault` or `reconnectSubvault` performs that step.
 
 ## Functions
 

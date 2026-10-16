@@ -2,20 +2,20 @@
 
 ## Overview
 
-The `SwapModule` contract is a subvault-attached utility that lets curators swap assets through whitelisted DEX routers or CoW Swap limit orders while enforcing oracle-based slippage protection. Every trade is checked against a reference price from an external price oracle (Aave-style `getAssetPrice` feed), so a curator cannot execute a swap at a rate worse than the configured tolerance.
+The `SwapModule` contract is a subvault-attached utility that lets curators swap assets through whitelisted DEX routers or CoW Swap limit orders while enforcing oracle-based slippage protection. Router swaps are checked against a reference price from an Aave-compatible `getAssetPrice` feed in the swap transaction. CoW limit orders are checked when created; the module does not recheck the oracle price when they settle.
 
 The module holds its own role-based ACL (via `MellowACL`) that whitelists tokens, routers, and callers.
 
 ## Roles and Permissions
 
-| Role                 | Purpose                                                              |
-| -------------------- | -------------------------------------------------------------------- |
-| `DEFAULT_ADMIN_ROLE` | Manages other roles and updates the price oracle via `setOracle`     |
-| `TOKEN_IN_ROLE`      | Granted to token addresses allowed as swap input                     |
-| `TOKEN_OUT_ROLE`     | Granted to token addresses allowed as swap output                    |
-| `ROUTER_ROLE`        | Granted to DEX router addresses allowed in `swap`                    |
-| `CALLER_ROLE`        | Granted to accounts allowed to execute swaps and manage CoW orders   |
-| `SET_SLIPPAGE_ROLE`  | Granted to accounts allowed to update slippage multipliers           |
+| Role                 | Purpose                                                            |
+| -------------------- | ------------------------------------------------------------------ |
+| `DEFAULT_ADMIN_ROLE` | Manages other roles and updates the price oracle via `setOracle`   |
+| `TOKEN_IN_ROLE`      | Granted to token addresses allowed as swap input                   |
+| `TOKEN_OUT_ROLE`     | Granted to token addresses allowed as swap output                  |
+| `ROUTER_ROLE`        | Granted to DEX router addresses allowed in `swap`                  |
+| `CALLER_ROLE`        | Granted to accounts allowed to execute swaps and manage CoW orders |
+| `SET_SLIPPAGE_ROLE`  | Granted to accounts allowed to update slippage multipliers         |
 
 ## Configuration and State
 
@@ -24,6 +24,18 @@ The CoW Swap settlement contract, CoW vault relayer, and WETH address are fixed 
 The admin can replace the price oracle. Accounts with `SET_SLIPPAGE_ROLE` can update the default multiplier or set a multiplier for a specific token pair. A pair-specific value takes precedence over the default; both must be within `[0.9e8, 1.1e8]`, where `BASE_MULTIPLIER = 1e8`.
 
 ## Behavior
+
+### Swap Parameters
+
+```solidity
+struct Params {
+    address tokenIn;
+    address tokenOut;
+    uint256 amountIn;
+    uint256 minAmountOut;
+    uint256 deadline;
+}
+```
 
 ### Slippage Protection
 
@@ -42,16 +54,16 @@ oracleMinAmount = evaluate(tokenIn, tokenOut, amountIn) * multiplier / BASE_MULT
 
 ### View Functions
 
-| Function | Description |
-| --- | --- |
-| `subvault()` | Returns the only subvault allowed to push or pull assets |
-| `oracle()` | Returns the current Aave-compatible price oracle |
-| `defaultMultiplier()` | Returns the fallback slippage multiplier |
-| `customMultiplier(tokenIn, tokenOut)` | Returns the pair-specific multiplier, or zero when none is set |
-| `evaluate(tokenIn, tokenOut, amountIn)` | Converts the input amount at oracle prices while normalizing token decimals |
-| `checkMultiplier(multiplier)` | Reverts if the multiplier is outside the allowed range |
-| `checkParams(params)` | Validates token roles, balance, amount, oracle minimum, deadline, and token pair |
-| `checkCowswapOrder(params, order, orderUid)` | Verifies that a CoW order exactly matches the requested swap |
+| Function                                     | Description                                                                      |
+| -------------------------------------------- | -------------------------------------------------------------------------------- |
+| `subvault()`                                 | Returns the only subvault allowed to push or pull assets                         |
+| `oracle()`                                   | Returns the current Aave-compatible price oracle                                 |
+| `defaultMultiplier()`                        | Returns the fallback slippage multiplier                                         |
+| `customMultiplier(tokenIn, tokenOut)`        | Returns the pair-specific multiplier, or zero when none is set                   |
+| `evaluate(tokenIn, tokenOut, amountIn)`      | Converts the input amount at oracle prices while normalizing token decimals      |
+| `checkMultiplier(multiplier)`                | Reverts if the multiplier is outside the allowed range                           |
+| `checkParams(params)`                        | Validates token roles, balance, amount, oracle minimum, deadline, and token pair |
+| `checkCowswapOrder(params, order, orderUid)` | Verifies that a CoW order exactly matches the requested swap                     |
 
 ### State-Changing Functions
 
@@ -99,7 +111,11 @@ All three are restricted to `CALLER_ROLE`. Native ETH cannot be traded through C
 
 ## Errors
 
-| Error               | Reason                                                                    |
-| ------------------- | ------------------------------------------------------------------------- |
+| Error               | Reason                                                                                                         |
+| ------------------- | -------------------------------------------------------------------------------------------------------------- |
 | `Forbidden(reason)` | A validation failed; the string names the specific check (e.g. `"router"`, `"minAmountOut < oracleMinAmount"`) |
-| `ZeroValue()`       | Zero address or invalid role data passed during initialization             |
+| `ZeroValue()`       | Zero address or invalid role data during initialization, or a zero oracle in `setOracle`                       |
+
+## Source
+
+[SwapModule.sol at `69bbaf1`](https://github.com/mellow-finance/flexible-vaults/blob/69bbaf17530dc5127ecf9049cceaab141f516a1e/src/utils/SwapModule.sol)

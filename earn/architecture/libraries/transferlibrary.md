@@ -18,6 +18,10 @@ The constant `ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` ([EIP-7528](http
 
 ## Functions
 
+### `balanceOf(address asset, address account) -> uint256`
+
+Returns `account.balance` for the ETH sentinel, or `IERC20(asset).balanceOf(account)` for an ERC20 asset.
+
 ### `sendAssets(address asset, address to, uint256 assets)`
 
 Sends the specified asset (`assets` amount) to the recipient `to`.
@@ -58,6 +62,7 @@ function func() external payable {
     ...
 }
 ```
+
 :::
 
 ## Errors

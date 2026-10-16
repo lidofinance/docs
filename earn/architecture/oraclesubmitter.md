@@ -6,12 +6,15 @@ The `OracleSubmitter` contract wraps a vault's `Oracle`. It applies its own acce
 
 ## Roles and Permissions
 
-| Role | Permission |
-| --- | --- |
+| Role                  | Permission                                       |
+| --------------------- | ------------------------------------------------ |
+| `DEFAULT_ADMIN_ROLE`  | Grants and revokes roles on this adapter         |
 | `SUBMIT_REPORTS_ROLE` | Calls `submitReports(...)` through this contract |
-| `ACCEPT_REPORT_ROLE` | Calls `acceptReports(...)` through this contract |
+| `ACCEPT_REPORT_ROLE`  | Calls `acceptReports(...)` through this contract |
 
-The role identifiers match those exposed by the underlying oracle. Callers hold the roles on `OracleSubmitter`, while `OracleSubmitter` must hold the corresponding roles in the vault's ACL.
+The constructor `(admin_, submitter_, accepter_, oracle_)` grants the admin, submission, and acceptance roles to their respective accounts. The administrator can change submission and acceptance role holders.
+
+The reporting role identifiers match those exposed by the underlying oracle. Callers hold the roles on `OracleSubmitter`, while `OracleSubmitter` must hold the corresponding roles in the vault's ACL.
 
 ## Configuration and State
 
@@ -35,18 +38,18 @@ The feed starts empty: `latestAnswer` and `updatedAt` are zero until the first n
 
 ### View Functions
 
-| Function | Description |
-| --- | --- |
-| `oracle()` | Returns the underlying oracle |
-| `baseAsset()` | Returns the vault's base asset |
-| `decimals()` | Returns the price feed decimals |
-| `latestAnswer()` | Returns the latest exported share price |
-| `updatedAt()` | Returns the timestamp of the latest feed update |
-| `reports(asset)` | Returns the number of stored reports for an asset |
-| `reportAt(asset, index)` | Returns a stored `DetailedReport` |
-| `acceptedAt(asset, index)` | Returns the manual acceptance timestamp, or zero if the report was not manually accepted |
-| `latestRoundData()` | Returns Chainlink-style `(roundId, answer, startedAt, updatedAt, answeredInRound)` data; both round IDs are zero |
-| `getRate()` | Returns `latestAnswer` as `uint256` |
+| Function                   | Description                                                                                                      |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `oracle()`                 | Returns the underlying oracle                                                                                    |
+| `baseAsset()`              | Returns the vault's base asset                                                                                   |
+| `decimals()`               | Returns the price feed decimals                                                                                  |
+| `latestAnswer()`           | Returns the latest exported share price                                                                          |
+| `updatedAt()`              | Returns the timestamp of the latest feed update                                                                  |
+| `reports(asset)`           | Returns the number of stored reports for an asset                                                                |
+| `reportAt(asset, index)`   | Returns a stored `DetailedReport`                                                                                |
+| `acceptedAt(asset, index)` | Returns the manual acceptance timestamp, or zero if the report was not manually accepted                         |
+| `latestRoundData()`        | Returns Chainlink-style `(roundId, answer, startedAt, updatedAt, answeredInRound)` data; both round IDs are zero |
+| `getRate()`                | Returns `latestAnswer` as `uint256`                                                                              |
 
 ### State-Changing Functions
 
@@ -68,11 +71,15 @@ function acceptReports(address[] calldata assets, uint224[] calldata pricesD18, 
 
 - Manually accepts reports previously flagged as suspicious by the oracle's security checks.
 - If the base asset is present, it must be first in the batch; accepting it updates the exported price feed.
-- Records the acceptance timestamp per report in `acceptedAt`.
+- Writes `acceptedAt` at index `reports(asset) - 1`, the latest report this adapter stored for the asset. It assumes that the accepted report came through this adapter. If no report was stored, the call reverts.
 
 ## Errors
 
-| Error             | Reason                                                              |
-| ----------------- | ------------------------------------------------------------------- |
-| `ZeroBaseAsset()` | The vault's fee manager has no base asset configured at deployment  |
-| `InvalidOrder()`  | The base asset report is not first in the submitted/accepted batch  |
+| Error             | Reason                                                             |
+| ----------------- | ------------------------------------------------------------------ |
+| `ZeroBaseAsset()` | The vault's fee manager has no base asset configured at deployment |
+| `InvalidOrder()`  | The base asset report is not first in the submitted/accepted batch |
+
+## Source
+
+[OracleSubmitter.sol at `69bbaf1`](https://github.com/mellow-finance/flexible-vaults/blob/69bbaf17530dc5127ecf9049cceaab141f516a1e/src/oracles/OracleSubmitter.sol)

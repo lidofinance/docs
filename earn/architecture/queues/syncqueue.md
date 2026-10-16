@@ -42,18 +42,18 @@ Synchronous queues do not accumulate pending requests, so there is nothing to pr
 
 ### View Functions
 
-| Function        | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| `vault()`       | Returns the controlling vault address                             |
-| `asset()`       | Returns the ERC20 or native token used by the queue               |
-| `canBeRemoved()`| Always returns `true`: a sync queue holds no pending user requests |
+| Function         | Description                                                        |
+| ---------------- | ------------------------------------------------------------------ |
+| `vault()`        | Returns the controlling vault address                              |
+| `asset()`        | Returns the ERC20 or native token used by the queue                |
+| `canBeRemoved()` | Always returns `true`: a sync queue holds no pending user requests |
 
 ## Errors
 
-| Error             | Reason                                          |
-| ----------------- | ----------------------------------------------- |
-| `ZeroValue()`     | Called with `0` address or value                |
-| `QueuePaused()`   | Queue operations disabled via vault pause       |
+| Error             | Reason                                            |
+| ----------------- | ------------------------------------------------- |
+| `ZeroValue()`     | Called with `0` address or value                  |
+| `QueuePaused()`   | Queue operations disabled via vault pause         |
 | `InvalidReport()` | Latest oracle report is suspicious or zero-priced |
 
 ## Related Contracts and References
@@ -62,3 +62,7 @@ Synchronous queues do not accumulate pending requests, so there is nothing to pr
 
 - `SyncDepositQueue`: mints shares immediately at the latest oracle price with a configurable penalty.
 - `SyncRedeemQueue`: burns shares and pays out assets immediately, limited by vault liquidity and a daily limit.
+
+## Source
+
+[SyncQueue.sol at `69bbaf1`](https://github.com/mellow-finance/flexible-vaults/blob/69bbaf17530dc5127ecf9049cceaab141f516a1e/src/queues/SyncQueue.sol)

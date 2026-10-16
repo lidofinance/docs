@@ -2,7 +2,7 @@
 
 ## Overview
 
-`BasicShareManager` is a concrete implementation of the abstract `ShareManager`, designed to provide native ERC20 style share accounting within a modular vault system. It handles minting, burning, and tracking balances of vault shares directly through a local ERC20 compatible storage layout, without exposing standard ERC20 interfaces.
+`BasicShareManager` is a concrete implementation of the abstract `ShareManager`, designed to provide native ERC20 style share accounting within a modular vault system. It handles minting, burning, locking, and balance accounting of vault shares directly through a local ERC20 compatible storage layout, without exposing standard ERC20 interfaces.
 
 This contract is intended for setups where shares are not tokenized on-chain as ERC20s but are still tracked internally using the `ERC20Upgradeable` storage schema.
 
@@ -49,7 +49,7 @@ function initialize(bytes calldata data) external initializer
 Reverts if:
 
 - `account == address(0)`.
-- Minting is paused or restricted by lockup, whitelist, or blacklist.
+- Minting is paused, or the account fails the whitelist or blacklist checks. The global lockup does not block minting.
 
 #### `_burnShares(address, uint256)`
 
@@ -62,6 +62,10 @@ Reverts if:
 - `account == address(0)`.
 - `value > account balance`.
 - Burning is paused or blocked.
+
+#### `_lockShares(address, uint256)`
+
+Applies burn checks to the account, then moves its shares to the manager without changing total supply. It emits `IERC20.Transfer(account, address(this), value)`. The account must be non-zero and its balance must cover the amount.
 
 ## Invariants and Limitations
 

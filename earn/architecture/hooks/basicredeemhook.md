@@ -2,11 +2,11 @@
 
 ## Overview
 
-`BasicRedeemHook` is a minimal hook implementation for `IHook`, designed to dynamically fetch liquidity from subvaults during redemption processing in a `VaultModule`. It ensures that enough assets are available for user redemptions by pulling liquidity from a set of registered subvaults.
+`BasicRedeemHook` is a minimal hook implementation for `IHook`, designed to dynamically fetch liquidity from subvaults during redemption processing in a `VaultModule`. It attempts to make assets available for redemptions by pulling from eligible registered subvaults.
 
 This hook is typically invoked by a vault's redemption queue or during `redeem()` operations when assets must be made liquid.
 
-- Ensures sufficient liquidity in the vault to fulfill asset redemptions.
+- Attempts to supply the liquidity needed for redemptions; subsequent transfers revert if eligible liquidity is insufficient.
 - Minimizes idle capital by pulling only when needed.
 - Supports liquidity routing across subvaults.
 
@@ -20,7 +20,7 @@ Execution Flow:
 
 1. Checks how much of the `asset` the vault already holds.
 2. If balance is sufficient, no-op.
-3. Otherwise, iterates over subvaults (via `subvaultAt(i)`), and for each subvault pulls only the required portion via `hookPullAssets()`, then stops when total required assets have been pulled.
+3. Otherwise, iterates over subvaults (via `subvaultAt(i)`), and skips any subvault where the RiskManager does not allow the asset, and otherwise pulls only the required portion via `hookPullAssets()`, then stops when total required assets have been pulled.
 
 Guarantees:
 
@@ -30,9 +30,9 @@ Guarantees:
 
 ### `getLiquidAssets(address asset) -> uint256`
 
-Returns the total liquid amount of a given asset available across the vault and all its subvaults.
+Returns the total liquid amount of a given asset available across the vault and eligible subvaults where the RiskManager allows the asset.
 
-- Reads balances from `vault.balanceOf(asset)` and `subvault[i].balanceOf(asset)` for each subvault.
+- Reads balances from `vault.balanceOf(asset)` and `subvault[i].balanceOf(asset)` for each eligible subvault.
 - Aggregates and returns the sum.
 
 ## Invariants and Limitations

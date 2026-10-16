@@ -93,7 +93,7 @@ enum VerificationType {
 - **ONCHAIN_COMPACT**: Checks `CompactCall` (who | where | selector) hash against internal set.
 - **MERKLE_COMPACT**: Verifies Merkle proof of `CompactCall` (who | where | selector) hash.
 - **MERKLE_EXTENDED**: Verifies Merkle proof of `ExtendedCall` (who | where | value | callData) hash.
-- **CUSTOM_VERIFIER**: Delegates full verification to an external verifier.
+- **CUSTOM_VERIFIER**: First checks `CALLER_ROLE` and authenticates the payload with a Merkle proof. The payload fixes the custom verifier address and its data; only the final call check is delegated.
 
 ## Functions
 

@@ -13,8 +13,8 @@ The `DepositQueue` contract enables asynchronous asset deposits into vaults usin
 - A user submits a deposit request via `deposit(assets, referral, merkleProof)`.
 - The deposited amount is stored as a `(timestamp, value)` checkpoint under `requestOf[msg.sender]`.
 - Each account can have only one pending request at a time.
-- Deposits are validated via optional Merkle whitelist logic (using `merkleProof`) or onchain mapping (if `flags.hasWhitelist()` returns true).
-- If a previous request exists, it must be claimed or canceled before creating a new one.
+- If `hasWhitelist` is enabled, the account must have `canDeposit`. If a Merkle root is set, its proof must also be valid. Both requirements apply when both mechanisms are enabled.
+- `deposit` automatically claims a processed previous request. An unprocessed request reverts with `PendingRequestExists`.
 
 #### Step 2: Oracle Report
 
@@ -22,7 +22,8 @@ The `DepositQueue` contract enables asynchronous asset deposits into vaults usin
 - The queue validates the report. It must be called by the vault, the timestamp must be in the past, and price must be non-zero.
 - The queue handles deposit requests that are pending for longer than `depositInterval` seconds (the interval is specified in the oracle's security params).
 - The contract stores the price in `prices` and uses it to convert accumulated assets to shares.
-- Converted shares are allocated but not minted yet.
+- User shares are allocated for later claims. Deposit fee shares are minted to the fee recipient.
+- The queue sends the processed assets to the vault, reduces pending assets, updates the vault balance in the RiskManager, and calls the deposit hook.
 - `ReportHandled` is emitted.
 
 #### Step 3: User Claims
@@ -105,6 +106,8 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 
 - `claimableOf(address account)`: Returns how many shares are currently claimable for a given user.
 - `requestOf(address account)`: Returns the `(timestamp, amount)` tuple of a user's current pending request.
+- `unclaimedRequests()`: Returns the number of requests still awaiting a claim or cancellation.
+- `canBeRemoved()`: Returns true only when `unclaimedRequests() == 0`.
 
 ## Events
 
@@ -120,7 +123,9 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 - `ClaimableRequestExists()`: Attempting to cancel after request has become claimable.
 - `NoPendingRequest()`: No existing request to cancel.
 - `ZeroValue()`: Input value is zero.
-- `InvalidReport()`: Oracle report failed validation.
+- `InvalidReport()`: Invalid report input, or the latest supported-asset report is zero-priced or suspicious during deposit/cancellation accounting.
+- `UnsupportedAsset()`: The Oracle does not support the asset used in risk accounting.
+- `LimitExceeded()`: A deposit exceeds the RiskManager vault limit.
 - `Forbidden()`: Unauthorized caller.
 - `QueuePaused()`: Deposits disabled via vault pause mechanism.
 
@@ -128,7 +133,7 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 
 ### Key Invariants
 
-1. Single Active Request: Each user may have at most one unprocessed deposit request. A user cannot create a new deposit until the previous one is claimed.
+1. Single Active Request: Each user may have at most one unprocessed deposit request. An unprocessed request blocks a new deposit; a processed request is claimed automatically by the next deposit.
 2. Delayed Execution: Deposit processing requires an oracle report submitted after a configured `depositInterval`.
 3. Lazy Claiming: Deposits are converted to shares during oracle processing, but users must call `claim()` to receive them.
-4. Whitelist Enforcement: Deposits may require Merkle proof for depositor whitelisting.
+4. Whitelist Enforcement: Deposits require every enabled whitelist mechanism, including both local permission and Merkle proof when configured together.

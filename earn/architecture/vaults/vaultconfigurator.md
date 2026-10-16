@@ -69,13 +69,13 @@ struct InitParams {
 #### Fields
 
 - `version`: Version of the `Vault` implementation to deploy.
-- `proxyAdmin`: Address to be set as `ProxyAdmin` for upgradeable proxies.
+- `proxyAdmin`: Owner of the separate `ProxyAdmin` contract that each OpenZeppelin v5 transparent proxy deploys. This is not the proxy admin contract address itself.
 - `vaultAdmin`: Address to be set as the vault's owner (admin).
 - `_Version`: Specific implementation version to use for each module (used in the corresponding factory).
 - `_Params`: ABI-encoded initialization parameters for each module.
 - `defaultDepositHook`: Address of the default deposit hook to attach to queues.
 - `defaultRedeemHook`: Address of the default redeem hook to attach to queues.
-- `queueLimit`: Maximum number of queued operations per deposit and redeem queue.
+- `queueLimit`: Maximum total number of queues registered with the vault. `createQueue` reverts with `QueueLimitReached` at this cap.
 - `roleHolders`: List of role assignments for vault level access control.
 
 ## Functions
@@ -106,7 +106,7 @@ Creates and initializes a new vault instance along with all dependent modules us
 2. Deploy FeeManager using `feeManagerFactory` to deploy a versioned `FeeManager`.
 3. Deploy RiskManager using `riskManagerFactory` to deploy a versioned `RiskManager`.
 4. Deploy Oracle using `oracleFactory` to deploy a versioned `Oracle`.
-5. Deploy Vault by preparing encoded initialization calldata and calling `vaultFactory.create()` with the version and proxy admin.
+5. Deploy Vault by preparing encoded initialization calldata and calling `vaultFactory.create()` with the version and proxy admin owner.
 6. Post deployment wiring sets the `vault` address in each of the deployed components using `IShareManager(shareManager).setVault(vault)`, `IRiskManager(riskManager).setVault(vault)`, and `IOracle(oracle).setVault(vault)`.
 
 #### Returns

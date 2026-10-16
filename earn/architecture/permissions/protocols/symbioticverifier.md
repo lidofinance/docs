@@ -16,12 +16,12 @@ The verifier ensures that:
 
 ### Role Definitions
 
-| Role Constant | Description |
-| --- | --- |
-| `CALLER_ROLE` | Who is allowed to initiate Symbiotic operations (typically curators) |
-| `MELLOW_VAULT_ROLE` | Addresses that are allowed to be the recipient of deposits, withdrawals, or claims (usually Subvaults) |
-| `SYMBIOTIC_VAULT_ROLE` | Contracts that are approved as Symbiotic vault |
-| `SYMBIOTIC_FARM_ROLE` | Contracts that are approved as Symbiotic farm |
+| Role Constant          | Description                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| `CALLER_ROLE`          | Who is allowed to initiate Symbiotic operations (typically curators)                                   |
+| `MELLOW_VAULT_ROLE`    | Addresses that are allowed to be the recipient of deposits, withdrawals, or claims (usually Subvaults) |
+| `SYMBIOTIC_VAULT_ROLE` | Contracts that are approved as Symbiotic vault                                                         |
+| `SYMBIOTIC_FARM_ROLE`  | Contracts that are approved as Symbiotic farm                                                          |
 
 ## Configuration and State
 
@@ -42,12 +42,12 @@ constructor(address vaultFactory_, address farmFactory_, string memory name_, ui
 
 ### Supported Calls
 
-| Target Type | Function | Signature | Additional Checks |
-| --- | --- | --- | --- |
-| Symbiotic Vault | `deposit(onBehalfOf, amount)` | `ISymbioticVault.deposit.selector` | `onBehalfOf` must have `MELLOW_VAULT_ROLE`, `amount > 0` |
-| Symbiotic Vault | `withdraw(claimer, amount)` | `ISymbioticVault.withdraw.selector` | `claimer` must have `MELLOW_VAULT_ROLE`, `amount > 0` |
-| Symbiotic Vault | `claim(recipient, epoch)` | `ISymbioticVault.claim.selector` | `recipient` must have `MELLOW_VAULT_ROLE` |
-| Symbiotic Farm | `claimRewards(recipient, token, data)` | `ISymbioticStakerRewards.claimRewards.selector` | `recipient` must have `MELLOW_VAULT_ROLE`, `token != 0x0` |
+| Target Type     | Function                               | Signature                                       | Additional Checks                                         |
+| --------------- | -------------------------------------- | ----------------------------------------------- | --------------------------------------------------------- |
+| Symbiotic Vault | `deposit(onBehalfOf, amount)`          | `ISymbioticVault.deposit.selector`              | `onBehalfOf` must have `MELLOW_VAULT_ROLE`, `amount > 0`  |
+| Symbiotic Vault | `withdraw(claimer, amount)`            | `ISymbioticVault.withdraw.selector`             | `claimer` must have `MELLOW_VAULT_ROLE`, `amount > 0`     |
+| Symbiotic Vault | `claim(recipient, epoch)`              | `ISymbioticVault.claim.selector`                | `recipient` must have `MELLOW_VAULT_ROLE`                 |
+| Symbiotic Farm  | `claimRewards(recipient, token, data)` | `ISymbioticStakerRewards.claimRewards.selector` | `recipient` must have `MELLOW_VAULT_ROLE`, `token != 0x0` |
 
 For all calls, the calldata must exactly match the selector and parameters. All other selectors or targets are denied.
 
@@ -72,4 +72,4 @@ function verifyCall(
 - Strict call gating: Only explicitly allowed selectors, targets, and roles pass.
 - Calldata hash check: Enforces strict encoding to avoid alternate ABI variants or garbage data.
 - Zero value enforcement: Prevents accidental ETH transfers.
-- Factory pattern compatibility: Target contracts can be validated indirectly via registries.
+- The constructor stores `vaultFactory` and `farmFactory`, but `verifyCall` does not use them. Target validation relies on the configured vault and farm roles.

@@ -66,19 +66,19 @@ Must be implemented by child classes to:
 
 ### View Functions
 
-| Function | Description |
-| --- | --- |
-| `vault()` | Returns the controlling vault address |
-| `asset()` | Returns the ERC20 or native token used by the queue |
-| `canBeRemoved()` | Not implemented in `Queue` (optional for children) |
+| Function         | Description                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------- |
+| `vault()`        | Returns the controlling vault address                                                       |
+| `asset()`        | Returns the ERC20 or native token used by the queue                                         |
+| `canBeRemoved()` | Required by `IQueue`; concrete queues implement it, and vault removal depends on its result |
 
 ### Internal Helpers
 
-| Function | Description |
-| --- | --- |
-| `_timestamps()` | Returns the internal `Checkpoints.Trace224` structure |
-| `_queueStorage()` | Loads queue storage using custom storage slot |
-| `_queueStorageSlot` | Computed using SlotLibrary to prevent conflicts |
+| Function            | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `_timestamps()`     | Returns the internal `Checkpoints.Trace224` structure |
+| `_queueStorage()`   | Loads queue storage using custom storage slot         |
+| `_queueStorageSlot` | Computed using SlotLibrary to prevent conflicts       |
 
 ## Events
 
@@ -91,12 +91,12 @@ event ReportHandled(uint224 priceD18, uint32 timestamp)
 
 ## Errors
 
-| Error               | Reason                                               |
-|---------------------|------------------------------------------------------|
-| `ZeroValue()`       | Called with `0` address or value                     |
-| `Forbidden()`   | Caller not authorized (e.g., not the vault)        |
-|`InvalidReport()`| Oracle report is zero-priced or timestamp is invalid |
-| `QueuePaused()` | Reserved for future ACL/pause integration            |
+| Error             | Reason                                                                     |
+| ----------------- | -------------------------------------------------------------------------- |
+| `ZeroValue()`     | Called with `0` address or value                                           |
+| `Forbidden()`     | Caller not authorized (e.g., not the vault)                                |
+| `InvalidReport()` | Oracle report is zero-priced or timestamp is invalid                       |
+| `QueuePaused()`   | Raised by user deposit/redeem paths when `setQueueStatus` pauses the queue |
 
 ## Related Contracts and References
 

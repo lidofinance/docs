@@ -25,12 +25,12 @@ This verifier enables granular control over contract interactions, for example:
 
 The bitmask is a byte array with the following structure:
 
-| Segment | Bytes | Targeted Field | Description |
-| --- | --- | --- | --- |
-| [0:32] | 32 bytes | `who` | Mask for the caller address (left padded to 32 bytes) |
-| [32:64] | 32 bytes | `where` | Mask for the target contract address (left padded to 32 bytes) |
-| [64:96] | 32 bytes | `value` | Mask for ETH value (uint256) |
-| [96:] | `data.length` | `data` | One byte per calldata byte; used to mask calldata selectively |
+| Segment | Bytes         | Targeted Field | Description                                                                                                                   |
+| ------- | ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [0:32]  | 32 bytes      | `who`          | Mask for the caller address (encoded as `bytes32(bytes20(address))`: address bytes first, followed by 12 zero bytes)          |
+| [32:64] | 32 bytes      | `where`        | Mask for the target contract address (encoded as `bytes32(bytes20(address))`: address bytes first, followed by 12 zero bytes) |
+| [64:96] | 32 bytes      | `value`        | Mask for ETH value (uint256)                                                                                                  |
+| [96:]   | `data.length` | `data`         | One byte per calldata byte; used to mask calldata selectively                                                                 |
 
 Each mask bit selects whether the corresponding input bit affects the hash. An all-ones byte matches the whole input byte, an all-zero byte ignores it, and mixed values match selected bits.
 

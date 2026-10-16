@@ -45,6 +45,8 @@ module.exports = {
         },
         'architecture/oracle',
         'architecture/oraclesubmitter',
+        'architecture/permissionedchainlinkoracle',
+        'architecture/mellowaccountv1',
         {
           type: 'category',
           label: 'Queues',
@@ -100,11 +102,7 @@ module.exports = {
           type: 'category',
           label: 'Vaults',
           link: { type: 'doc', id: 'architecture/vaults/index' },
-          items: [
-            'architecture/vaults/vault',
-            'architecture/vaults/subvault',
-            'architecture/vaults/vaultconfigurator',
-          ],
+          items: ['architecture/vaults/vault', 'architecture/vaults/subvault', 'architecture/vaults/vaultconfigurator'],
         },
       ],
     },
@@ -112,4 +110,4 @@ module.exports = {
     'referral-tracking',
     'audits',
   ],
-};
+}

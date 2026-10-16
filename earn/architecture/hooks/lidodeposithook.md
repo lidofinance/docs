@@ -12,10 +12,10 @@
 
 ### Constructor Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `wsteth_` | address | Address of the `wstETH` token contract |
-| `weth_` | address | Address of the `WETH` token contract |
+| Parameter   | Type    | Description                                                          |
+| ----------- | ------- | -------------------------------------------------------------------- |
+| `wsteth_`   | address | Address of the `wstETH` token contract                               |
+| `weth_`     | address | Address of the `WETH` token contract                                 |
 | `nextHook_` | address | Address of the optional downstream hook to forward to after wrapping |
 
 ## Functions

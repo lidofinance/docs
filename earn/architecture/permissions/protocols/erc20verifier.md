@@ -20,17 +20,17 @@ It accepts ERC20 `approve` and `transfer` calls only when all of the following c
 
 Each permission check is mapped to a distinct `bytes32` role:
 
-| Role Constant | Purpose |
-| --- | --- |
-| `ASSET_ROLE` | Marks which ERC20 tokens are allowed to be interacted with |
-| `CALLER_ROLE` | Who is allowed to perform `approve` or `transfer` |
+| Role Constant    | Purpose                                                                           |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `ASSET_ROLE`     | Marks which ERC20 tokens are allowed to be interacted with                        |
+| `CALLER_ROLE`    | Who is allowed to perform `approve` or `transfer`                                 |
 | `RECIPIENT_ROLE` | Who is allowed to receive tokens (for `transfer`) or get approval (for `approve`) |
 
 These roles are expected to be configured via the `initialize()` function inherited from `OwnedCustomVerifier`.
 
 ## Configuration and State
 
-The constructor passes `name_` and `version_` to `OwnedCustomVerifier`, which uses them to namespace the verifier's ACL storage. Roles are configured through the inherited `initialize()` function and ACL management functions.
+The constructor passes `name_` and `version_` to `OwnedCustomVerifier`, which uses them only to derive the `MellowACL` role-tracking slot. Role membership uses the fixed OpenZeppelin AccessControl storage slots. The constructor disables implementation initializers. Roles are configured through the inherited `initialize()` and ACL management functions.
 
 ## Behavior
 

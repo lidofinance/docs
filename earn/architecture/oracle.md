@@ -16,12 +16,12 @@ It enforces strong assumptions around data integrity, report timing, and trust m
 
 ## Roles and Permissions
 
-| Role | Description |
-| --- | --- |
-| `SUBMIT_REPORTS_ROLE` | Permission to submit regular price reports |
-| `ACCEPT_REPORT_ROLE` | Permission to accept suspicious reports |
-| `SET_SECURITY_PARAMS_ROLE` | Can modify validation rules and intervals |
-| `ADD_SUPPORTED_ASSETS_ROLE` | Can whitelist new assets for reporting |
+| Role                           | Description                                   |
+| ------------------------------ | --------------------------------------------- |
+| `SUBMIT_REPORTS_ROLE`          | Permission to submit regular price reports    |
+| `ACCEPT_REPORT_ROLE`           | Permission to accept suspicious reports       |
+| `SET_SECURITY_PARAMS_ROLE`     | Can modify validation rules and intervals     |
+| `ADD_SUPPORTED_ASSETS_ROLE`    | Can whitelist new assets for reporting        |
 | `REMOVE_SUPPORTED_ASSETS_ROLE` | Can remove assets and delete associated state |
 
 ## Configuration and State
@@ -73,12 +73,9 @@ Step 1: Each asset is checked for support.
 
 Step 2: The previous report is evaluated. If `timeout` has not passed and the report is not suspicious, revert `TooEarly`.
 
-Step 3: Price is compared against previous:
+Step 3: The first report for an asset is always suspicious and requires `acceptReport`. Later prices above either maximum deviation limit revert with `InvalidPrice`. Within those limits, a report is suspicious if the previous report is suspicious or either suspicious deviation threshold is exceeded.
 
-- Too far off -> revert `InvalidPrice`.
-- Moderately off -> flagged `isSuspicious`.
-
-Step 4: If the report is accepted, it triggers `vault.handleReport(...)` with adjusted deposit and redeem timestamps and emits `ReportsSubmitted`.
+Step 4: Only a non-suspicious report calls `vault.handleReport(...)`, with adjusted deposit and redeem timestamps. `ReportsSubmitted` is emitted once for the entire submitted batch.
 
 ### Validation Logic
 
@@ -92,49 +89,50 @@ A price is:
 
 - Rejected if either deviation exceeds max.
 - Accepted but suspicious if above suspicious threshold.
-- Accepted as normal if within all limits.
+- Normal only when the previous report is not suspicious and both deviations are within the suspicious thresholds. The first report remains suspicious until explicit acceptance.
 
 Used by:
 
-- `SignatureDepositQueue`, `SignatureRedeemQueue`, `DepositQueue` and `RedeemQueue` contracts.
-- Vault's limit accounting (`RiskManager`).
+- Only `SignatureDepositQueue` and `SignatureRedeemQueue` call `validatePrice`.
+- `RiskManager`, `SyncDepositQueue`, `SyncRedeemQueue`, and `OracleSubmitter` read `getReport`.
+- `DepositQueue` and `RedeemQueue` receive prices through `vault.handleReport`.
 
 ## Functions
 
 ### View Functions
 
-| Function | Description |
-| --- | --- |
-| `vault()` | Returns the linked vault (must implement `IShareModule`) |
-| `securityParams()` | Current oracle thresholds and intervals |
-| `supportedAssets()` | Count of whitelisted tokens |
-| `supportedAssetAt(index)` | Token at a given index |
-| `isSupportedAsset(address)` | Whether an asset is valid for reporting |
-| `getReport(asset)` | Returns last report (price, timestamp, suspicious flag) |
+| Function                         | Description                                                            |
+| -------------------------------- | ---------------------------------------------------------------------- |
+| `vault()`                        | Returns the linked vault (must implement `IShareModule`)               |
+| `securityParams()`               | Current oracle thresholds and intervals                                |
+| `supportedAssets()`              | Count of whitelisted tokens                                            |
+| `supportedAssetAt(index)`        | Token at a given index                                                 |
+| `isSupportedAsset(address)`      | Whether an asset is valid for reporting                                |
+| `getReport(asset)`               | Returns last report (price, timestamp, suspicious flag)                |
 | `validatePrice(priceD18, asset)` | Validates a given price against the current report and security params |
 
 ### State-Changing Functions
 
-| Function | Description |
-| --- | --- |
-| `initialize(params)` | Initializes with assets and security settings |
-| `setVault(vault)` | Registers the vault for report consumption |
-| `submitReports(reports[])` | Batch submits prices for multiple assets |
-| `acceptReport(asset, price, timestamp)` | Marks a previously suspicious report as trusted |
-| `setSecurityParams(params)` | Updates thresholds and timing rules |
-| `addSupportedAssets(assets[])` | Adds tokens to the supported set |
-| `removeSupportedAssets(assets[])` | Removes tokens and clears their reports |
+| Function                                | Description                                                                                                             |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `initialize(params)`                    | Initializes with assets and security settings                                                                           |
+| `setVault(vault)`                       | Registers the vault for report consumption                                                                              |
+| `submitReports(reports[])`              | Batch submits prices for multiple assets                                                                                |
+| `acceptReport(asset, price, timestamp)` | Marks a previously suspicious report as trusted                                                                         |
+| `setSecurityParams(params)`             | Updates thresholds and timing rules                                                                                     |
+| `addSupportedAssets(assets[])`          | Adds tokens to the supported set                                                                                        |
+| `removeSupportedAssets(assets[])`       | Removes tokens and clears their reports; reverts with `Forbidden` for the FeeManager base asset or an asset with queues |
 
 ## Events
 
-| Event | Purpose |
-| --- | --- |
-| `ReportsSubmitted(Report[])` | Emitted when new prices are posted |
-| `ReportAccepted(asset, price, timestamp)` | Suspicious report accepted |
-| `SecurityParamsSet(params)` | Oracle thresholds changed |
-| `SupportedAssetsAdded(addresses[])` | New tokens added |
-| `SupportedAssetsRemoved(addresses[])` | Tokens delisted |
-| `SetVault(address)` | Vault set |
+| Event                                     | Purpose                            |
+| ----------------------------------------- | ---------------------------------- |
+| `ReportsSubmitted(Report[])`              | Emitted when new prices are posted |
+| `ReportAccepted(asset, price, timestamp)` | Suspicious report accepted         |
+| `SecurityParamsSet(params)`               | Oracle thresholds changed          |
+| `SupportedAssetsAdded(addresses[])`       | New tokens added                   |
+| `SupportedAssetsRemoved(addresses[])`     | Tokens delisted                    |
+| `SetVault(address)`                       | Vault set                          |
 
 ## Invariants and Limitations
 

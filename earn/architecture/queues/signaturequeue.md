@@ -10,14 +10,14 @@ The `SignatureQueue` enables instant user deposits or redemptions using off-chai
 - Nonce based signature protection to prevent replay attacks.
 - [EIP-712](https://eips.ethereum.org/EIPS/eip-712) and [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) compatible signed orders.
 - Oracle price validation enforced on-chain.
-- Stateless and removable (does not accumulate shares or process claims).
+- No pending requests or claims; removable despite persistent nonces and configuration.
 - Fee bypass: no `depositFee` or `redeemFee` is charged for actions via this queue.
 
 ### Use Cases
 
 - Instant UX: bypassing delays in `DepositQueue` or `RedeemQueue`.
 - Institutional integrations: where trusted relayers or coordinators pre-sign valid actions.
-- Fallback mechanism: during oracle lags or downtime.
+- An alternative to queued execution while the oracle can still validate the quoted price.
 
 ## Configuration and State
 
@@ -32,8 +32,8 @@ struct Order {
     address asset;         // Token involved in deposit/redeem
     address caller;        // Must match msg.sender
     address recipient;     // Recipient of assets or shares
-    uint256 ordered;       // Assets in (deposit) or shares out (redeem)
-    uint256 requested;     // Shares out (deposit) or assets in (redeem)
+    uint256 ordered;       // Assets in (deposit) or shares burned (redeem)
+    uint256 requested;     // Shares minted (deposit) or assets paid (redeem)
     uint256 deadline;      // Expiration timestamp
     uint256 nonce;         // Unique per caller
 }
@@ -67,7 +67,7 @@ struct SignatureQueueStorage {
 The order hash is computed via:
 
 ```solidity
-keccak256(
+_hashTypedDataV4(keccak256(
     abi.encode(
         ORDER_TYPEHASH,
         order.orderId,
@@ -80,12 +80,14 @@ keccak256(
         order.deadline,
         order.nonce
     )
-);
+));
 ```
+
+`hashOrder(order)` returns this EIP-712 digest. Its domain uses the name and version decoded by `initialize`, the chain ID, and the queue address. Sign this digest through EIP-712, rather than the struct hash alone.
 
 ### Price Safety Check
 
-After signature verification, `SignatureQueue` uses the vault's `Oracle` to validate the price:
+After signature verification, `SignatureQueue` validates the price if the vault has a non-zero Oracle configured:
 
 - Deposits: `price = requestedShares / depositedAssets`.
 - Redemptions: `price = burnedShares / redeemedAssets`.
@@ -95,6 +97,15 @@ Otherwise, the operation is rejected with `InvalidPrice`.
 
 ## Functions
 
+### Initialization and Public Views
+
+`initialize(data)` decodes the asset, vault, consensus, EIP-712 name, and version. The consensus must be an entity from `consensusFactory`, otherwise it reverts with `NotEntity`.
+
+- `validateOrder(order, signatures)`: Checks the order and signatures; returns no value.
+- `hashOrder(order)`: Returns its EIP-712 digest.
+- `nonces(account)`: Returns the account's next nonce.
+- `consensus()`: Returns the consensus contract.
+
 ### Interface Compatibility
 
 Despite not using claimable balances, `SignatureQueue` implements stub methods for compatibility with the `IQueue` interface:
@@ -102,7 +113,7 @@ Despite not using claimable balances, `SignatureQueue` implements stub methods f
 - `claimableOf(...) -> 0`
 - `claim(...) -> false`
 - `handleReport(...)`: no-op
-- `canBeRemoved() -> true`: confirms it has no persistent state
+- `canBeRemoved() -> true`: it has no pending requests; nonces and configuration remain stored
 
 ## Events
 

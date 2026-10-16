@@ -14,14 +14,14 @@ This verifier protects EigenLayer operations by:
 
 ### Role Definitions
 
-| Role Constant | Description |
-| --- | --- |
-| `CALLER_ROLE` | Address allowed to initiate EigenLayer calls (typically curators) |
-| `ASSET_ROLE` | Whitelisted ERC20 token allowed in strategy deposits or withdrawals |
-| `STRATEGY_ROLE` | Whitelisted EigenLayer strategy contracts |
-| `OPERATOR_ROLE` | Approved EigenLayer operator address for delegation |
+| Role Constant       | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `CALLER_ROLE`       | Address allowed to initiate EigenLayer calls (typically curators)    |
+| `ASSET_ROLE`        | Whitelisted ERC20 token allowed in strategy deposits or withdrawals  |
+| `STRATEGY_ROLE`     | Whitelisted EigenLayer strategy contracts                            |
+| `OPERATOR_ROLE`     | Approved EigenLayer operator address for delegation                  |
 | `MELLOW_VAULT_ROLE` | Whitelisted vaults acting as stakers or earners (usually `Subvault`) |
-| `RECEIVER_ROLE` | Authorized receivers for claimed rewards |
+| `RECEIVER_ROLE`     | Authorized receivers for claimed rewards                             |
 
 ## Configuration and State
 
@@ -48,11 +48,11 @@ Initializes the verifier by:
 
 #### StrategyManager – `depositIntoStrategy`
 
-`depositIntoStrategy(IStrategy, address asset, uint256 shares)`
+`depositIntoStrategy(IStrategy, address asset, uint256 amount)`
 
 - Strategy must have `STRATEGY_ROLE`.
 - Asset must have `ASSET_ROLE`.
-- Shares must be non-zero.
+- The deposit token amount must be non-zero; this argument is not a number of strategy shares.
 - Calldata must match.
 
 #### DelegationManager

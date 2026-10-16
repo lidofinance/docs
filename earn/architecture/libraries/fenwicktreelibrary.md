@@ -76,7 +76,7 @@ Assembly optimized prefix sum computation. It aggregates values by descending vi
 ### Invariants and Constraints
 
 - The tree must be initialized with a power of two length greater than 0 via `initialize(...)`.
-- Index bounds are enforced. Access beyond the current capacity reverts with `IndexOutOfBounds()`.
+- Only `modify` checks bounds and reverts with `IndexOutOfBounds`. The prefix `get` clamps its index; the range `get` performs no bounds check.
 - To support dynamic resizing, `extend()` can double the current tree length (up to a safe limit).
 - Use of negative values is supported in `modify(...)`, allowing decrement operations.
 

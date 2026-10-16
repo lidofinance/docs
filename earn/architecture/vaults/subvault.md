@@ -43,7 +43,7 @@ Initializes the Subvault contract. This function can only be called once due to 
 
 1. Decodes `verifier_` and `vault_` from the calldata.
 2. Calls `__VerifierModule_init(verifier_)` to link the external verifier (used for strategy proof or access control).
-3. Calls `__SubvaultModule_init(vault_)` to register this Subvault with the parent vault.
+3. Calls `__SubvaultModule_init(vault_)` to store the parent vault address. Parent registration occurs in `createSubvault` or `reconnectSubvault`.
 4. Emits the `Initialized(initParams)` event for transparency.
 
 ## Events
@@ -58,7 +58,7 @@ Emitted once after a successful `initialize` call. Contains the raw ABI-encoded 
 
 - Modular strategy execution: The `CallModule` enables arbitrary external calls, useful for delegating assets into other protocols or yield strategies.
 - Trust minimized calls: External strategy actions are gated via a `VerifierModule`, which can enforce logic like off-chain signatures or time based constraints.
-- Parent vault registration: Initialization ensures the `vault` address is securely set once and governs access and lifecycle.
+- Parent vault linkage: Initialization stores `vault`; the parent separately registers the subvault during creation or reconnection.
 - Upgradeable architecture: Follows the shared pattern of using deterministic storage slots (via `SlotLibrary`) to remain safely upgradeable and composable.
 
 ## Related Contracts and References

@@ -27,8 +27,8 @@ constructor(
 
 #### Parameters
 
-- `name_`: Unique name identifier for the vault instance.
-- `version_`: Configuration version of the vault.
+- `name_`: Implementation-level name used to derive module storage slots; not a per-proxy vault name.
+- `version_`: Implementation-level version used with `name_` to derive storage slots.
 - `depositQueueFactory_`: Address of the factory used to deploy deposit queues.
 - `redeemQueueFactory_`: Address of the factory used to deploy redemption queues.
 - `subvaultFactory_`: Address of the factory used to deploy subvaults.
@@ -112,10 +112,10 @@ Emitted after successful initialization. Includes all parameters passed for tran
 ### Inheritance Structure
 
 ```solidity
-contract Vault is IFactoryEntity, VaultModule, ShareModule, ACLModule
+contract Vault is IFactoryEntity, VaultModule, ShareModule
 ```
 
-The contract inherits three modules:
+The two directly inherited modules both inherit `ACLModule`. Its composed modules are:
 
 - `ACLModule`: Admin and permission management.
 - `ShareModule`: Deposits, redemptions, share management.

@@ -17,8 +17,8 @@ It supports:
 
 ```solidity
 struct ConsensusStorage {
-    uint256 threshold;
     EnumerableMap.AddressToUintMap signers;
+    uint256 threshold;
 }
 ```
 
@@ -61,11 +61,12 @@ function checkSignatures(bytes32 orderHash, Signature[] calldata signatures) pub
 
 Returns `true` if:
 
-- At least `threshold` signatures are present.
+- The signature array is non-empty and contains at least `threshold` signatures.
+- Signer addresses are strictly ascending, without duplicates.
 - Each signature is from an authorized signer.
 - Each signature is valid according to the signer's configured signature type.
 
-Returns `false` otherwise.
+Returns `false` for an empty array, insufficient signatures, duplicate or unordered signers, unknown signers, or a validly encoded signature that fails verification. Malformed ECDSA signatures and reverting or malformed EIP-1271 calls revert instead.
 
 Signature validation behavior:
 
@@ -78,7 +79,7 @@ Signature validation behavior:
 function requireValidSignatures(bytes32 orderHash, Signature[] calldata signatures) external view
 ```
 
-Same logic as `checkSignatures`, but reverts with `InvalidSignatures` error if validation fails.
+Reverts with `InvalidSignatures` when `checkSignatures` returns false. Reverts from ECDSA or EIP-1271 validation propagate unchanged.
 
 ### Signer Management (Owner only)
 
@@ -116,11 +117,11 @@ function removeSigner(address signer, uint256 threshold_) external onlyOwner
 
 ### View Functions
 
-| Function | Returns |
-| --- | --- |
-| `threshold()` | Current consensus threshold |
-| `signers()` | Total number of signers |
-| `signerAt(uint256)` | Signer address and type at index |
+| Function            | Returns                                   |
+| ------------------- | ----------------------------------------- |
+| `threshold()`       | Current consensus threshold               |
+| `signers()`         | Total number of signers                   |
+| `signerAt(uint256)` | Signer address and type at index          |
 | `isSigner(address)` | Boolean indicating if address is a signer |
 
 ## Events
