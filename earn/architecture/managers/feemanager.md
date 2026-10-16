@@ -64,11 +64,11 @@ Calculates the total fee to be charged based on performance and protocol compone
 
 ## Events
 
-- `Initialized(bytes data)`: Emitted after initialization.
-- `SetFeeRecipient(address feeRecipient)`: On recipient update.
-- `SetFees(...)`: On any fee change.
-- `SetBaseAsset(...)`: When base asset is configured per vault.
-- `UpdateState(...)`: On state update used for protocol and performance fees.
+- `Initialized(bytes initParams)`: Emitted after initialization.
+- `SetFeeRecipient(address indexed feeRecipient)`: On recipient update.
+- `SetFees(uint24 depositFeeD6, uint24 redeemFeeD6, uint24 performanceFeeD6, uint24 protocolFeeD6)`: On any fee change.
+- `SetBaseAsset(address indexed vault, address indexed baseAsset)`: When base asset is configured per vault.
+- `UpdateState(address indexed vault, address indexed asset, uint256 priceD18)`: On state update used for protocol and performance fees.
 
 ## Errors
 

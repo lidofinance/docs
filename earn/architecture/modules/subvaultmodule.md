@@ -51,7 +51,7 @@ Allows the parent vault to withdraw a specified amount of an asset.
 - Access control: Can only be called by the `vault()` address.
 - Reverts with `NotVault()` if the caller is not the vault.
 - Transfer behavior: Uses `TransferLibrary.sendAssets()` to forward tokens or native ETH to the `Vault.sol` address.
-- Emits `AssetsPulled(asset, vault, value)`.
+- Emits `AssetsPulled(address indexed asset, address indexed to, uint256 value)`.
 
 ## Events
 

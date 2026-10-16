@@ -53,7 +53,7 @@ Locks use a separate path. `_lockShares` applies burn checks with `updateChecks(
 - `burn(value)` burns the caller's shares.
 - `burnFrom(account, value)` spends the caller's allowance, then burns the account's shares.
 
-These functions use the inherited burn checks and claim logic. They reduce the share supply without withdrawing assets. The burn emits an ERC20 `Transfer(account, address(0), value)`, without the queue-only ShareManager `Burn` event. Pending-share claims can emit their own events.
+These functions use the inherited burn checks and claim logic. They reduce the share supply without withdrawing assets. The burn emits an ERC20 `Transfer(address indexed from, address indexed to, uint256 value)` with `from = account` and `to = address(0)`, without the queue-only ShareManager `Burn(address indexed account, uint256 shares)` event. Pending-share claims can emit their own events.
 
 This extension was reviewed in [NM-0798](../../audits#module-and-incremental-audits).
 

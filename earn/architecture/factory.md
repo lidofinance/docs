@@ -46,7 +46,7 @@ function initialize(bytes calldata data) external initializer
 ```
 
 - Accepts encoded owner address.
-- Sets the factory owner and emits `Initialized`.
+- Sets the factory owner and emits `Initialized(bytes initParams)`.
 
 ## Functions
 
@@ -79,7 +79,7 @@ function proposeImplementation(address implementation) external
 
 - Fails if already in `implementations` or `proposals`.
 - Adds to `proposals`.
-- Emits `ProposeImplementation(implementation)`.
+- Emits `ProposeImplementation(address implementation)`.
 - Permissionless function.
 
 #### Accept Proposed Implementation
@@ -91,7 +91,7 @@ function acceptProposedImplementation(address implementation) external onlyOwner
 - Only callable by owner.
 - Fails if not proposed.
 - Moves from `proposals` to `implementations`.
-- Emits `AcceptProposedImplementation(implementation)`.
+- Emits `AcceptProposedImplementation(address implementation)`.
 
 #### Blacklisting
 
@@ -101,7 +101,7 @@ function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
 
 - Blocks deployments using a specific version.
 - Enforces that version index exists.
-- Emits `SetBlacklistStatus(version, flag)`.
+- Emits `SetBlacklistStatus(uint256 version, bool flag)`.
 
 ### View Functions
 

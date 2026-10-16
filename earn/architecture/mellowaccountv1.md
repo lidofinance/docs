@@ -6,7 +6,7 @@
 
 ## Initialization
 
-The implementation constructor disables initializers. `initialize(bytes data)` decodes `abi.encode(address owner)`, initializes ownership and reentrancy protection, and emits `Initialized(data)`. The initializer can run only once.
+The implementation constructor disables initializers. `initialize(bytes data)` decodes `abi.encode(address owner)`, initializes ownership and reentrancy protection, and emits `Initialized(bytes initParams)`. The initializer can run only once.
 
 ## Behavior
 
@@ -23,7 +23,7 @@ function multicall(Call[] calldata calls)
     returns (bytes[] memory results);
 ```
 
-`multicall` executes each call sequentially through `Address.functionCall`, returns the raw results in the same order, and emits `Executed(caller)`. A failed call reverts the batch. The method is not payable and has no per-call ETH value field.
+`multicall` executes each call sequentially through `Address.functionCall`, returns the raw results in the same order, and emits `Executed(address indexed caller)`. A failed call reverts the batch. The method is not payable and has no per-call ETH value field.
 
 ## Permissions and Limitations
 

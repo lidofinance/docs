@@ -60,24 +60,24 @@ Returns `true` if the role is currently active (assigned to at least one account
 
 #### `_grantRole(role: bytes32, account: address) -> bool`
 
-Grants the specified role to an account. If the role was not previously active, it is added to `supportedRoles`, and `RoleAdded` is emitted.
+Grants the specified role to an account. If the role was not previously active, it is added to `supportedRoles`, and `RoleAdded(bytes32 indexed role)` is emitted.
 
 - Inherits from `AccessControlUpgradeable._grantRole`.
 - Emits:
 
 ```solidity
-event RoleAdded(bytes32 indexed role)
+event RoleAdded(bytes32 indexed role);
 ```
 
 #### `_revokeRole(role: bytes32, account: address) -> bool`
 
-Revokes the specified role from an account. If the role has no remaining members afterward, it is removed from `supportedRoles`, and `RoleRemoved` is emitted.
+Revokes the specified role from an account. If the role has no remaining members afterward, it is removed from `supportedRoles`, and `RoleRemoved(bytes32 indexed role)` is emitted.
 
 - Inherits from `AccessControlUpgradeable._revokeRole`.
 - Emits:
 
 ```solidity
-event RoleRemoved(bytes32 indexed role)
+event RoleRemoved(bytes32 indexed role);
 ```
 
 ## Events

@@ -44,11 +44,11 @@ Initializes the Subvault contract. This function can only be called once due to 
 1. Decodes `verifier_` and `vault_` from the calldata.
 2. Calls `__VerifierModule_init(verifier_)` to link the external verifier (used for strategy proof or access control).
 3. Calls `__SubvaultModule_init(vault_)` to store the parent vault address. Parent registration occurs in `createSubvault` or `reconnectSubvault`.
-4. Emits the `Initialized(initParams)` event for transparency.
+4. Emits the `Initialized(bytes initParams)` event for transparency.
 
 ## Events
 
-### `Initialized(bytes data)`
+### `Initialized(bytes initParams)`
 
 Emitted once after a successful `initialize` call. Contains the raw ABI-encoded input for auditing or debugging.
 

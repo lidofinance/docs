@@ -89,11 +89,11 @@ Initializes the vault instance. Can only be called once due to the `initializer`
 - Calls `__ShareModule_init(...)` to link share management and hook modules.
 - Calls `__VaultModule_init(riskManager_)` to initialize risk management.
 - Iterates over `roleHolders` and grants each role using `_grantRole(...)`.
-- Emits `Initialized(initParams)`.
+- Emits `Initialized(bytes initParams)`.
 
 ## Events
 
-### `Initialized(bytes data)`
+### `Initialized(bytes initParams)`
 
 Emitted after successful initialization. Includes all parameters passed for transparency.
 

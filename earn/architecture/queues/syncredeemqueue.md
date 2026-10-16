@@ -91,7 +91,7 @@ Because capacity refills continuously, `dailyLimit` is not a strict rolling 24-h
 
 ## Events
 
-- `Redeemed(address account, uint256 shares, uint256 assets, uint256 feeShares)`: Emitted on a successful synchronous redemption.
+- `Redeemed(address indexed account, uint256 shares, uint256 assets, uint256 feeShares)`: Emitted on a successful synchronous redemption.
 - `SyncRedeemParamsSet(uint256 penaltyD6, uint32 maxAge, uint256 dailyLimit)`: Emitted when queue parameters are updated.
 
 ## Errors

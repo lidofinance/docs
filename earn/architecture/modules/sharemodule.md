@@ -73,12 +73,12 @@
 
 ## Events
 
-- `SharesClaimed(account)`
-- `CustomHookSet(queue, hook)`
-- `QueueCreated(queue, asset, isDepositQueue)`
-- `QueueRemoved(queue, asset)`
-- `HookCalled(queue, asset, assets, hook)`
-- `QueueLimitSet(limit)`
-- `SetQueueStatus(queue, isPaused)`
-- `DefaultHookSet(hook, isDepositHook)`
-- `ReportHandled(asset, priceD18, depositTimestamp, redeemTimestamp, fees)`
+- `SharesClaimed(address indexed account)`
+- `CustomHookSet(address indexed queue, address indexed hook)`
+- `QueueCreated(address indexed queue, address indexed asset, bool isDepositQueue)`
+- `QueueRemoved(address indexed queue, address indexed asset)`
+- `HookCalled(address indexed queue, address indexed asset, uint256 assets, address hook)`
+- `QueueLimitSet(uint256 limit)`
+- `SetQueueStatus(address indexed queue, bool indexed isPaused)`
+- `DefaultHookSet(address indexed hook, bool isDepositHook)`
+- `ReportHandled(address indexed asset, uint224 indexed priceD18, uint32 depositTimestamp, uint32 redeemTimestamp, uint256 fees)`

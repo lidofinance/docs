@@ -24,7 +24,7 @@ The `DepositQueue` contract enables asynchronous asset deposits into vaults usin
 - The contract stores the price in `prices` and uses it to convert accumulated assets to shares.
 - User shares are allocated for later claims. Deposit fee shares are minted to the fee recipient.
 - The queue sends the processed assets to the vault, reduces pending assets, updates the vault balance in the RiskManager, and calls the deposit hook.
-- `ReportHandled` is emitted.
+- `ReportHandled(uint224 priceD18, uint32 timestamp)` is emitted.
 
 #### Step 3: User Claims
 
@@ -42,7 +42,7 @@ The `DepositQueue` contract enables asynchronous asset deposits into vaults usin
 - A user may cancel a pending request using `cancelDepositRequest()`.
 - Cancellation reverts if the request has already become claimable (processed by an oracle report).
 - Refund is issued in the original asset amount.
-- `DepositRequestCanceled` is emitted.
+- `DepositRequestCanceled(address indexed account, uint256 assets, uint32 timestamp)` is emitted.
 
 ### Internal Mechanics
 
@@ -111,9 +111,9 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 
 ## Events
 
-- `DepositRequested(address account, address referral, uint224 assets, uint32 timestamp)`: Emitted on new deposit submission.
-- `DepositRequestCanceled(address account, uint256 assets, uint32 timestamp)`: Emitted when a request is canceled and assets refunded.
-- `DepositRequestClaimed(address account, uint256 shares, uint32 timestamp)`: Emitted when deposit shares are successfully claimed.
+- `DepositRequested(address indexed account, address indexed referral, uint224 assets, uint32 timestamp)`: Emitted on new deposit submission.
+- `DepositRequestCanceled(address indexed account, uint256 assets, uint32 timestamp)`: Emitted when a request is canceled and assets refunded.
+- `DepositRequestClaimed(address indexed account, uint256 shares, uint32 timestamp)`: Emitted when deposit shares are successfully claimed.
 - `ReportHandled(uint224 priceD18, uint32 timestamp)`: Emitted when an oracle report is processed.
 
 ## Errors

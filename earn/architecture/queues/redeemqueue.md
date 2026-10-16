@@ -131,9 +131,9 @@ Returns core system state:
 
 ## Events
 
-- `RedeemRequested(account, shares, timestamp)`
-- `RedeemRequestClaimed(account, receiver, assets, timestamp)`
-- `RedeemRequestsHandled(counter, demand)`
+- `RedeemRequested(address indexed account, uint256 shares, uint256 timestamp)`
+- `RedeemRequestClaimed(address indexed account, address indexed receiver, uint256 assets, uint32 timestamp)`
+- `RedeemRequestsHandled(uint256 counter, uint256 demand)`
 
 ## Invariants and Limitations
 

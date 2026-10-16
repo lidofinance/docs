@@ -75,7 +75,7 @@ Step 2: The previous report is evaluated. If `timeout` has not passed and the re
 
 Step 3: If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks. Otherwise, prices above either maximum deviation limit revert with `InvalidPrice(uint256 priceD18)`. Within those limits, a report is suspicious if the previous report is suspicious or either suspicious deviation threshold is exceeded. Suspicious reports require `acceptReport`.
 
-Step 4: Only a non-suspicious report calls `vault.handleReport(...)`, with adjusted deposit and redeem timestamps. `ReportsSubmitted` is emitted once for the entire submitted batch.
+Step 4: Only a non-suspicious report calls `vault.handleReport(...)`, with adjusted deposit and redeem timestamps. `ReportsSubmitted(Report[] reports)` is emitted once for the entire submitted batch.
 
 ### Validation Logic
 
@@ -125,14 +125,14 @@ Used by:
 
 ## Events
 
-| Event                                     | Purpose                            |
-| ----------------------------------------- | ---------------------------------- |
-| `ReportsSubmitted(Report[])`              | Emitted when new prices are posted |
-| `ReportAccepted(asset, price, timestamp)` | Suspicious report accepted         |
-| `SecurityParamsSet(params)`               | Oracle thresholds changed          |
-| `SupportedAssetsAdded(addresses[])`       | New tokens added                   |
-| `SupportedAssetsRemoved(addresses[])`     | Tokens delisted                    |
-| `SetVault(address)`                       | Vault set                          |
+| Event                                                                                       | Purpose                            |
+| ------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `ReportsSubmitted(Report[] reports)`                                                        | Emitted when new prices are posted |
+| `ReportAccepted(address indexed asset, uint224 indexed priceD18, uint32 indexed timestamp)` | Suspicious report accepted         |
+| `SecurityParamsSet(SecurityParams securityParams)`                                          | Oracle thresholds changed          |
+| `SupportedAssetsAdded(address[] assets)`                                                    | New tokens added                   |
+| `SupportedAssetsRemoved(address[] assets)`                                                  | Tokens delisted                    |
+| `SetVault(address indexed vault)`                                                           | Vault set                          |
 
 ## Invariants and Limitations
 

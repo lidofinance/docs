@@ -104,12 +104,12 @@ The module does not cap `order.feeAmount`. CoW settlement adds this signed sell-
 
 ## Events
 
-- `AssetsPushed(address asset, uint256 value)` / `AssetsPulled(address asset, uint256 value)`: Asset movements between subvault and module.
+- `AssetsPushed(address indexed asset, uint256 value)` / `AssetsPulled(address indexed asset, uint256 value)`: Asset movements between subvault and module.
 - `Swap(Params params, address router, uint256 amountOut)`: Emitted on a successful router swap.
 - `LimitOrderCreated(Params params, bytes orderUid)` / `LimitOrderInvalidated(bytes orderUid)`: CoW Swap order lifecycle.
-- `CowswapApprovalSet(address asset, uint256 amount)`: Relayer approval updated.
-- `DefaultMultiplierSet(uint256 multiplier)` / `CustomMultiplierSet(address tokenIn, address tokenOut, uint256 multiplier)`: Slippage settings updated.
-- `OracleSet(address oracle)`: Price oracle updated.
+- `CowswapApprovalSet(address indexed asset, uint256 amount)`: Relayer approval updated.
+- `DefaultMultiplierSet(uint256 indexed multiplier)` / `CustomMultiplierSet(address indexed tokenIn, address indexed tokenOut, uint256 indexed multiplier)`: Slippage settings updated.
+- `OracleSet(address indexed oracle)`: Price oracle updated.
 
 ## Errors
 

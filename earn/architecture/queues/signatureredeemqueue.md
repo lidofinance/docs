@@ -24,7 +24,7 @@ This module provides a low latency redemption path under stronger trust assumpti
 2. Nonce incremented for the caller to prevent signature reuse.
 3. Vault liquid asset check. Ensures enough liquidity is available for the redemption and reverts with `InsufficientAssets(uint256 requested, uint256 available)` if funds are lacking.
 4. Redemption Processing: burns `order.ordered` shares from the user via `shareManager`, calls `vault.callHook(...)` to obtain assets and move them from the vault to the queue, transfers `order.requested` assets to `order.recipient`, and updates internal vault balance via the `RiskManager`.
-5. Event emitted: `OrderExecuted(order, signatures)` confirms successful execution.
+5. Event emitted: `OrderExecuted(Order order, IConsensus.Signature[] signatures)` confirms successful execution.
 
 ## Functions
 

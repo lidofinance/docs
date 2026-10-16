@@ -75,7 +75,7 @@ There is nothing to claim afterwards: shares appear in the user's balance immedi
 
 ## Events
 
-- `Deposited(address account, address referral, uint224 assets, uint256 shares, uint256 feeShares)`: Emitted on a successful synchronous deposit.
+- `Deposited(address indexed account, address indexed referral, uint224 assets, uint256 shares, uint256 feeShares)`: Emitted on a successful synchronous deposit.
 - `SyncDepositParamsSet(uint256 penaltyD6, uint32 maxAge)`: Emitted when queue parameters are updated.
 
 ## Errors

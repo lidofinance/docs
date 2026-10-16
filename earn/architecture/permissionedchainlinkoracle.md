@@ -14,7 +14,7 @@ The constructor sets the owner, decimals, initial answer, inclusive minimum and 
 
 ## Functions
 
-- `updatePrice(newAnswer)`: Owner only. Checks the bounds, stores the answer and current timestamp, then emits `AnswerUpdated`.
+- `updatePrice(newAnswer)`: Owner only. Checks the bounds, stores the answer and current timestamp, then emits `AnswerUpdated(int256 indexed current, uint256 indexed roundId, uint256 updatedAt)`.
 - `latestRoundData()`: Returns `(0, latestAnswer, latestTimestamp, latestTimestamp, 0)`. Both round IDs are always zero.
 - Public getters expose `decimals`, `description`, `minAllowedAnswer`, `maxAllowedAnswer`, `latestAnswer`, and `latestTimestamp`.
 - Inherited ownership functions allow ownership transfer or renunciation.

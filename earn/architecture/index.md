@@ -61,7 +61,7 @@ Deposit flow:
    - The queue handles deposit requests that are pending for at least `depositInterval` seconds (the interval is specified in the oracle's security parameters).
    - The contract stores a `(timestamp, reducedByDepositFeePriceD18)` pair in the `prices` array. This value is used to convert accumulated assets into shares based on the user's request timestamp. The `reducedByDepositFeePriceD18` is derived by applying the deposit fee to the actual reported `priceD18`.
    - Net user shares are allocated for later claims. Fee shares are minted to the fee recipient; assets move to the vault, risk accounting is updated, and the deposit hook is called.
-   - Emits the `ReportHandled` event.
+   - Emits the `ReportHandled(uint224 priceD18, uint32 timestamp)` event.
 3. Step 3: User Claims
    - A user calls `claim(account)` (or `claimShares(account)` in the `Vault`) to mint and receive previously allocated shares.
    - The number of shares is computed as:
@@ -243,7 +243,7 @@ Reporting flow:
    - Only a non-suspicious report propagates immediately. Suspicious reports require `ACCEPT_REPORT_ROLE` approval.
 2. Step 2: Accepted report propagation:
    - Triggers `vault.handleReport(...)`, processing deposit requests and pending redeem requests
-   - `ReportsSubmitted` is emitted once for the submitted batch, including suspicious reports.
+   - `ReportsSubmitted(Report[] reports)` is emitted once for the submitted batch, including suspicious reports.
 
 Validation Logic:
 

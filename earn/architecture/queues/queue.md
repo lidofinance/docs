@@ -83,7 +83,7 @@ Must be implemented by child classes to:
 ## Events
 
 ```solidity
-event ReportHandled(uint224 priceD18, uint32 timestamp)
+event ReportHandled(uint224 priceD18, uint32 timestamp);
 ```
 
 - Emitted when `handleReport()` completes.

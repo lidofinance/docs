@@ -30,7 +30,7 @@ This contract is optimized for high-trust environments requiring immediate asset
 5. Calls `vault.callHook(...)` for any optional strategy logic.
 6. Updates the vault balance through the RiskManager; reverts with `LimitExceeded(int256 newValue, int256 maxValue)` above the vault limit.
 7. Mints `order.requested` shares to `order.recipient`.
-8. Emits `OrderExecuted` event.
+8. Emits `OrderExecuted(Order order, IConsensus.Signature[] signatures)` event.
 
 ## Functions
 

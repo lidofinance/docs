@@ -57,14 +57,14 @@ function __VaultModule_init(address riskManager_) internal onlyInitializing
 
 #### Subvault Management
 
-- `createSubvault(version, owner, verifier)`: Deploys a new Subvault via `subvaultFactory`, requires the provided verifier to be a `verifierFactory` entity bound to this vault (`NotEntity(address subvault)` or `Forbidden()` otherwise), links it, adds it to the vault's Subvault list, and emits `SubvaultCreated`.
-- `disconnectSubvault(subvault)`: Removes a Subvault from the vault registry, emits `SubvaultDisconnected`, and reverts with `NotConnected(address subvault)` if not already linked.
-- `reconnectSubvault(subvault)`: Re-adds a Subvault to the vault registry, validates via `subvaultFactory` and `verifierFactory`, emits `SubvaultReconnected`, and reverts with `InvalidSubvault(address subvault)`, `NotEntity(address subvault)`, `Forbidden()`, or `AlreadyConnected(address subvault)` if checks fail.
+- `createSubvault(version, owner, verifier)`: Deploys a new Subvault via `subvaultFactory`, requires the provided verifier to be a `verifierFactory` entity bound to this vault (`NotEntity(address subvault)` or `Forbidden()` otherwise), links it, adds it to the vault's Subvault list, and emits `SubvaultCreated(address indexed subvault, uint256 version, address indexed owner, address indexed verifier)`.
+- `disconnectSubvault(subvault)`: Removes a Subvault from the vault registry, emits `SubvaultDisconnected(address indexed subvault)`, and reverts with `NotConnected(address subvault)` if not already linked.
+- `reconnectSubvault(subvault)`: Re-adds a Subvault to the vault registry, validates via `subvaultFactory` and `verifierFactory`, emits `SubvaultReconnected(address indexed subvault, address indexed verifier)`, and reverts with `InvalidSubvault(address subvault)`, `NotEntity(address subvault)`, `Forbidden()`, or `AlreadyConnected(address subvault)` if checks fail.
 
 #### Liquidity Movement
 
-- `pushAssets(subvault, asset, value)`: Transfers assets from vault to subvault, updates internal risk manager state (adds exposure), and emits `AssetsPushed`.
-- `pullAssets(subvault, asset, value)`: Retrieves assets from a subvault, updates internal risk manager state (reduces exposure), and emits `AssetsPulled`.
+- `pushAssets(subvault, asset, value)`: Transfers assets from vault to subvault, updates internal risk manager state (adds exposure), and emits `AssetsPushed(address indexed asset, address indexed subvault, uint256 value)`.
+- `pullAssets(subvault, asset, value)`: Retrieves assets from a subvault, updates internal risk manager state (reduces exposure), and emits `AssetsPulled(address indexed asset, address indexed subvault, uint256 value)`.
 
 #### Internal Liquidity Hooks
 
@@ -75,11 +75,11 @@ These can only be invoked by the vault itself via hooks:
 
 ## Events
 
-- `SubvaultCreated(subvault, version, owner, verifier)`
-- `SubvaultDisconnected(subvault)`
-- `SubvaultReconnected(subvault, verifier)`
-- `AssetsPulled(asset, subvault, value)`
-- `AssetsPushed(asset, subvault, value)`
+- `SubvaultCreated(address indexed subvault, uint256 version, address indexed owner, address indexed verifier)`
+- `SubvaultDisconnected(address indexed subvault)`
+- `SubvaultReconnected(address indexed subvault, address indexed verifier)`
+- `AssetsPulled(address indexed asset, address indexed subvault, uint256 value)`
+- `AssetsPushed(address indexed asset, address indexed subvault, uint256 value)`
 
 ## Errors
 

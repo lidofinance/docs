@@ -91,7 +91,7 @@ function setThreshold(uint256 threshold_) external onlyOwner
 
 - Sets a new threshold.
 - Must be greater than zero and less than or equal to `signers.length()`.
-- Emits `ThresholdSet`.
+- Emits `ThresholdSet(uint256 indexed threshold)`.
 
 #### `addSigner`
 
@@ -102,7 +102,7 @@ function addSigner(address signer, uint256 threshold_, SignatureType sigType) ex
 - Adds a new signer with specified signature type.
 - Updates threshold as part of signer addition.
 - Reverts if `signer == address(0)` or signer already exists.
-- Emits `SignerAdded` and `ThresholdSet`.
+- Emits `SignerAdded(address indexed signer, SignatureType signatureType)` and `ThresholdSet(uint256 indexed threshold)`.
 
 #### `removeSigner`
 
@@ -113,7 +113,7 @@ function removeSigner(address signer, uint256 threshold_) external onlyOwner
 - Removes signer from consensus set.
 - Updates threshold.
 - Reverts if signer not found.
-- Emits `SignerRemoved` and `ThresholdSet`.
+- Emits `SignerRemoved(address indexed signer)` and `ThresholdSet(uint256 indexed threshold)`.
 
 ### View Functions
 
@@ -126,10 +126,10 @@ function removeSigner(address signer, uint256 threshold_) external onlyOwner
 
 ## Events
 
-- `Initialized(bytes)`
-- `ThresholdSet(uint256)`
-- `SignerAdded(address signer, SignatureType)`
-- `SignerRemoved(address signer)`
+- `Initialized(bytes initParams)`
+- `ThresholdSet(uint256 indexed threshold)`
+- `SignerAdded(address indexed signer, SignatureType signatureType)`
+- `SignerRemoved(address indexed signer)`
 
 ## Errors
 
