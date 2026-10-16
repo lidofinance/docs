@@ -71,9 +71,9 @@ When calling `submitReports(...)`:
 
 Step 1: Each asset is checked for support.
 
-Step 2: The previous report is evaluated. If `timeout` has not passed and the report is not suspicious, revert `TooEarly`.
+Step 2: The previous report is evaluated. If `timeout` has not passed and the report is not suspicious, revert `TooEarly(uint256 timestamp, uint256 minTimestamp)`.
 
-Step 3: If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks. Otherwise, prices above either maximum deviation limit revert with `InvalidPrice`. Within those limits, a report is suspicious if the previous report is suspicious or either suspicious deviation threshold is exceeded. Suspicious reports require `acceptReport`.
+Step 3: If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks. Otherwise, prices above either maximum deviation limit revert with `InvalidPrice(uint256 priceD18)`. Within those limits, a report is suspicious if the previous report is suspicious or either suspicious deviation threshold is exceeded. Suspicious reports require `acceptReport`.
 
 Step 4: Only a non-suspicious report calls `vault.handleReport(...)`, with adjusted deposit and redeem timestamps. `ReportsSubmitted` is emitted once for the entire submitted batch.
 
@@ -113,15 +113,15 @@ Used by:
 
 ### State-Changing Functions
 
-| Function                                | Description                                                                                                             |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `initialize(params)`                    | Initializes with assets and security settings                                                                           |
-| `setVault(vault)`                       | Registers the vault for report consumption                                                                              |
-| `submitReports(reports[])`              | Batch submits prices for multiple assets                                                                                |
-| `acceptReport(asset, price, timestamp)` | Marks a previously suspicious report as trusted                                                                         |
-| `setSecurityParams(params)`             | Updates thresholds and timing rules                                                                                     |
-| `addSupportedAssets(assets[])`          | Adds tokens to the supported set                                                                                        |
-| `removeSupportedAssets(assets[])`       | Removes tokens and clears their reports; reverts with `Forbidden` for the FeeManager base asset or an asset with queues |
+| Function                                | Description                                                                                                               |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `initialize(params)`                    | Initializes with assets and security settings                                                                             |
+| `setVault(vault)`                       | Registers the vault for report consumption                                                                                |
+| `submitReports(reports[])`              | Batch submits prices for multiple assets                                                                                  |
+| `acceptReport(asset, price, timestamp)` | Marks a previously suspicious report as trusted                                                                           |
+| `setSecurityParams(params)`             | Updates thresholds and timing rules                                                                                       |
+| `addSupportedAssets(assets[])`          | Adds tokens to the supported set                                                                                          |
+| `removeSupportedAssets(assets[])`       | Removes tokens and clears their reports; reverts with `Forbidden()` for the FeeManager base asset or an asset with queues |
 
 ## Events
 

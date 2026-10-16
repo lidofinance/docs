@@ -50,7 +50,7 @@ Deposit flow:
 1. Step 1: User Deposits
    - A user submits a deposit request via `deposit(assets, referral, merkleProof)`.
    - Deposits require `canDeposit` when `hasWhitelist` is set, and a valid Merkle proof when a root is configured. Both checks apply when both mechanisms are enabled.
-   - A previous request is claimed automatically when its processed fee-adjusted price checkpoint is positive. Otherwise, the new deposit reverts with `PendingRequestExists`.
+   - A previous request is claimed automatically when its processed fee-adjusted price checkpoint is positive. Otherwise, the new deposit reverts with `PendingRequestExists()`.
    - The deposited amount and timestamp are stored in the `DepositQueue` contract.
 2. Step 2: Oracle Report
    - Oracle report is propagated via the `handleReport(priceD18, timestamp)` method.
@@ -76,7 +76,7 @@ Deposit flow:
 
 1. Single Active Request
 
-   Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists`. The allowed 100% deposit fee creates a zero checkpoint, leaving the processed request unclaimable and uncancelable and blocking further deposits from that account.
+   Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists()`. The allowed 100% deposit fee creates a zero checkpoint, leaving the processed request unclaimable and uncancelable and blocking further deposits from that account.
 
 2. Delayed Execution
 
@@ -235,10 +235,10 @@ Reporting flow:
 1. Step 1: Report is submitted:
    - Each asset is checked for support
    - The previous report state is evaluated:
-     - If `timeout` has not passed, and the report is not suspicious -> revert `TooEarly`
+     - If `timeout` has not passed, and the report is not suspicious -> revert `TooEarly(uint256 timestamp, uint256 minTimestamp)`
    - Price is compared against previous:
      - If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks.
-     - With a non-zero previous price, either maximum deviation exceeded -> revert `InvalidPrice`.
+     - With a non-zero previous price, either maximum deviation exceeded -> revert `InvalidPrice(uint256 priceD18)`.
      - Within maximum limits, a previous suspicious report or either suspicious threshold exceeded -> mark suspicious.
    - Only a non-suspicious report propagates immediately. Suspicious reports require `ACCEPT_REPORT_ROLE` approval.
 2. Step 2: Accepted report propagation:

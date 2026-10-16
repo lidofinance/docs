@@ -45,7 +45,7 @@ A user calls `deposit(assets, referral, merkleProof)`. The queue then completes 
 
 4. Transfers the assets from the caller and forwards them to the vault.
 5. Converts assets to shares at the reduced price, mints the deposit fee (if any) to the fee recipient, and mints the remaining shares directly to the caller.
-6. Updates the RiskManager vault balance, reverting with `LimitExceeded` above the vault limit, then calls the deposit hook.
+6. Updates the RiskManager vault balance, reverting with `LimitExceeded(int256 newValue, int256 maxValue)` above the vault limit, then calls the deposit hook.
 
 There is nothing to claim afterwards: shares appear in the user's balance immediately. `claimableOf(account)` and `claim(account)` are implemented as no-ops for interface compatibility and always return zero values.
 

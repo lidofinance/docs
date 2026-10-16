@@ -122,7 +122,7 @@ function verifyCall(
 ```
 
 - Validates call permissions using the chosen `VerificationType`.
-- Reverts with `VerificationFailed` when `getVerificationResult` returns false. Reverts from the underlying verification path propagate unchanged.
+- Reverts with `VerificationFailed()` when `getVerificationResult` returns false. Reverts from the underlying verification path propagate unchanged.
 
 #### `getVerificationResult(...) -> bool`
 

@@ -32,7 +32,7 @@ function initialize(bytes calldata data) external initializer
 
 - Sets `admin` as the contract's `DEFAULT_ADMIN_ROLE`.
 - Grants each `roles[i]` to `holders[i]`.
-- Reverts with `ZeroValue` if `admin == address(0)`, any holder is the zero address, or any role is `DEFAULT_ADMIN_ROLE`.
+- Reverts with `ZeroValue()` if `admin == address(0)`, any holder is the zero address, or any role is `DEFAULT_ADMIN_ROLE`.
 
 ## Behavior
 

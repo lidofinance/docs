@@ -75,7 +75,7 @@ struct InitParams {
 - `_Params`: ABI-encoded initialization parameters for each module.
 - `defaultDepositHook`: Address of the default deposit hook to attach to queues.
 - `defaultRedeemHook`: Address of the default redeem hook to attach to queues.
-- `queueLimit`: Maximum total number of queues registered with the vault. `createQueue` reverts with `QueueLimitReached` at this cap.
+- `queueLimit`: Maximum total number of queues registered with the vault. `createQueue` reverts with `QueueLimitReached()` at this cap.
 - `roleHolders`: List of role assignments for vault level access control.
 
 ## Functions

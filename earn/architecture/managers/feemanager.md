@@ -73,5 +73,5 @@ Calculates the total fee to be charged based on performance and protocol compone
 ## Errors
 
 - `ZeroAddress()`: Thrown if an address input is zero.
-- `InvalidFees(...)`: When the combined fee rate exceeds 100 percent (`1e6` D6).
-- `BaseAssetAlreadySet(...)`: Prevents base asset override if already set.
+- `InvalidFees(uint24 depositFeeD6, uint24 redeemFeeD6, uint24 performanceFeeD6, uint24 protocolFeeD6)`: When the combined fee rate exceeds 100 percent (`1e6` D6).
+- `BaseAssetAlreadySet(address vault, address baseAsset)`: Prevents base asset override if already set.

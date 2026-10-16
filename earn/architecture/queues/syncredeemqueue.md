@@ -51,7 +51,7 @@ A user calls `redeem(shares, receiver)`. The queue then completes the following 
    assets = (sharesToRedeem - feeShares) * 1e18 / priceD18;
    ```
 
-4. Reverts with `InsufficientAssets(requested, available)` if the vault's liquid assets do not cover the payout.
+4. Reverts with `InsufficientAssets(uint256 requested, uint256 available)` if the vault's liquid assets do not cover the payout.
 5. Reverts with `DailyLimitOverflow()` if the full `shares` amount exceeds the remaining daily limit; otherwise adds it to the current usage.
 6. Burns `shares` from the caller, mints `feeShares` to the fee recipient, triggers the vault's redeem hook, and transfers the assets to `receiver`.
 7. Updates the `RiskManager` vault balance.
@@ -96,17 +96,17 @@ Because capacity refills continuously, `dailyLimit` is not a strict rolling 24-h
 
 ## Errors
 
-| Error                                      | Reason                                                                                |
-| ------------------------------------------ | ------------------------------------------------------------------------------------- |
-| `ZeroValue()`                              | Zero shares, zero receiver, the payout rounds to zero, or `maxAge == 0` in the setter |
-| `QueuePaused()`                            | Redemptions disabled via vault pause mechanism                                        |
-| `InvalidReport()`                          | Latest oracle report is suspicious or zero-priced                                     |
-| `StaleReport()`                            | Latest oracle report is older than `maxAge`                                           |
-| `InsufficientAssets(requested, available)` | Vault lacks liquid assets to cover the payout                                         |
-| `DailyLimitOverflow()`                     | Redemption exceeds the remaining daily limit                                          |
-| `InvalidDailyLimit()`                      | `dailyLimit` is not divisible by 86400                                                |
-| `Forbidden()`                              | Caller lacks `SET_SYNC_REDEEM_PARAMS_ROLE`                                            |
-| `TooLarge()`                               | Parameter exceeds the allowed maximum                                                 |
+| Error                                                      | Reason                                                                                |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `ZeroValue()`                                              | Zero shares, zero receiver, the payout rounds to zero, or `maxAge == 0` in the setter |
+| `QueuePaused()`                                            | Redemptions disabled via vault pause mechanism                                        |
+| `InvalidReport()`                                          | Latest oracle report is suspicious or zero-priced                                     |
+| `StaleReport()`                                            | Latest oracle report is older than `maxAge`                                           |
+| `InsufficientAssets(uint256 requested, uint256 available)` | Vault lacks liquid assets to cover the payout                                         |
+| `DailyLimitOverflow()`                                     | Redemption exceeds the remaining daily limit                                          |
+| `InvalidDailyLimit()`                                      | `dailyLimit` is not divisible by 86400                                                |
+| `Forbidden()`                                              | Caller lacks `SET_SYNC_REDEEM_PARAMS_ROLE`                                            |
+| `TooLarge()`                                               | Parameter exceeds the allowed maximum                                                 |
 
 ## Invariants and Limitations
 

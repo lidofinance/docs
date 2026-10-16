@@ -113,10 +113,10 @@ The module does not cap `order.feeAmount`. CoW settlement adds this signed sell-
 
 ## Errors
 
-| Error               | Reason                                                                                                         |
-| ------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `Forbidden(reason)` | A validation failed; the string names the specific check (e.g. `"router"`, `"minAmountOut < oracleMinAmount"`) |
-| `ZeroValue()`       | Zero address or invalid role data during initialization, or a zero oracle in `setOracle`                       |
+| Error                      | Reason                                                                                                         |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Forbidden(string reason)` | A validation failed; the string names the specific check (e.g. `"router"`, `"minAmountOut < oracleMinAmount"`) |
+| `ZeroValue()`              | Zero address or invalid role data during initialization, or a zero oracle in `setOracle`                       |
 
 ## Source
 

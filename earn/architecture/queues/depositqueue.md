@@ -14,7 +14,7 @@ The `DepositQueue` contract enables asynchronous asset deposits into vaults usin
 - The deposited amount is stored as a `(timestamp, value)` checkpoint under `requestOf[msg.sender]`.
 - Each account can have only one pending request at a time.
 - If `hasWhitelist` is enabled, the account must have `canDeposit`. If a Merkle root is set, its proof must also be valid. Both requirements apply when both mechanisms are enabled.
-- `deposit` automatically claims a previous request when its processed fee-adjusted price checkpoint is positive. Otherwise, it reverts with `PendingRequestExists`.
+- `deposit` automatically claims a previous request when its processed fee-adjusted price checkpoint is positive. Otherwise, it reverts with `PendingRequestExists()`.
 
 #### Step 2: Oracle Report
 
@@ -132,11 +132,11 @@ This compression strategy ensures that the Fenwick Tree remains compact, even wi
 
 ### Key Invariants
 
-1. Single Active Request: Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists`.
+1. Single Active Request: Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists()`.
 2. Delayed Execution: Deposit processing requires an oracle report submitted after a configured `depositInterval`.
 3. Lazy Claiming: Shares are allocated during oracle processing and minted when claimed through permissionless claim calls or automatic claim paths.
 4. Whitelist Enforcement: Deposits require every enabled whitelist mechanism, including both local permission and Merkle proof when configured together.
 
 The allowed 100% deposit fee creates a zero price checkpoint. The processed request cannot be claimed or canceled and blocks further deposits from that account. Later positive checkpoints do not replace the first checkpoint applicable to that request.
 
-Report processing also checks the vault limit when moving a nonempty batch from pending assets into the vault balance at the current reported price. Repricing or a lowered limit can make this update revert with `LimitExceeded`, which propagates through `vault.handleReport` and reverts the entire Oracle `submitReports` batch or `acceptReport` call.
+Report processing also checks the vault limit when moving a nonempty batch from pending assets into the vault balance at the current reported price. Repricing or a lowered limit can make this update revert with `LimitExceeded(int256 newValue, int256 maxValue)`, which propagates through `vault.handleReport` and reverts the entire Oracle `submitReports` batch or `acceptReport` call.

@@ -57,9 +57,9 @@ function __VaultModule_init(address riskManager_) internal onlyInitializing
 
 #### Subvault Management
 
-- `createSubvault(version, owner, verifier)`: Deploys a new Subvault via `subvaultFactory`, requires the provided verifier to be a `verifierFactory` entity bound to this vault (`NotEntity` or `Forbidden` otherwise), links it, adds it to the vault's Subvault list, and emits `SubvaultCreated`.
-- `disconnectSubvault(subvault)`: Removes a Subvault from the vault registry, emits `SubvaultDisconnected`, and reverts with `NotConnected` if not already linked.
-- `reconnectSubvault(subvault)`: Re-adds a Subvault to the vault registry, validates via `subvaultFactory` and `verifierFactory`, emits `SubvaultReconnected`, and reverts with `InvalidSubvault`, `NotEntity`, `Forbidden`, or `AlreadyConnected` if checks fail.
+- `createSubvault(version, owner, verifier)`: Deploys a new Subvault via `subvaultFactory`, requires the provided verifier to be a `verifierFactory` entity bound to this vault (`NotEntity(address subvault)` or `Forbidden()` otherwise), links it, adds it to the vault's Subvault list, and emits `SubvaultCreated`.
+- `disconnectSubvault(subvault)`: Removes a Subvault from the vault registry, emits `SubvaultDisconnected`, and reverts with `NotConnected(address subvault)` if not already linked.
+- `reconnectSubvault(subvault)`: Re-adds a Subvault to the vault registry, validates via `subvaultFactory` and `verifierFactory`, emits `SubvaultReconnected`, and reverts with `InvalidSubvault(address subvault)`, `NotEntity(address subvault)`, `Forbidden()`, or `AlreadyConnected(address subvault)` if checks fail.
 
 #### Liquidity Movement
 
@@ -83,10 +83,10 @@ These can only be invoked by the vault itself via hooks:
 
 ## Errors
 
-- `AlreadyConnected(subvault)`: When attempting to reconnect an already connected subvault.
-- `NotConnected(subvault)`: When attempting to disconnect a subvault that isn't connected.
-- `NotEntity(address)`: Provided contract is not a valid factory deployed entity.
-- `InvalidSubvault(address)`: Subvault fails verification (incorrect `subvault.vault()` address).
+- `AlreadyConnected(address subvault)`: When attempting to reconnect an already connected subvault.
+- `NotConnected(address subvault)`: When attempting to disconnect a subvault that isn't connected.
+- `NotEntity(address subvault)`: Provided contract is not a valid factory deployed entity.
+- `InvalidSubvault(address subvault)`: Subvault fails verification (incorrect `subvault.vault()` address).
 - `ZeroAddress()`: Passed `RiskManager` address is zero (used in `__VaultModule_init`).
 - `Forbidden()`: A hook call comes from anyone other than the vault itself, or the verifier is bound to a different vault.
 - `AccessControlUnauthorizedAccount(address account, bytes32 neededRole)`: Caller lacks a required role.

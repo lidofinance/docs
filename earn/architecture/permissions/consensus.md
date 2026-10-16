@@ -79,7 +79,7 @@ Signature validation behavior:
 function requireValidSignatures(bytes32 orderHash, Signature[] calldata signatures) external view
 ```
 
-Reverts with `InvalidSignatures` when `checkSignatures` returns false. Reverts from ECDSA or EIP-1271 validation propagate unchanged.
+Reverts with `InvalidSignatures(bytes32 orderHash, Signature[] signatures)` when `checkSignatures` returns false. Reverts from ECDSA or EIP-1271 validation propagate unchanged.
 
 ### Signer Management (Owner only)
 
@@ -133,7 +133,7 @@ function removeSigner(address signer, uint256 threshold_) external onlyOwner
 
 ## Errors
 
-- `InvalidSignatures(bytes32 hash, Signature[] signatures)`: Submitted signatures do not satisfy the consensus rules.
+- `InvalidSignatures(bytes32 orderHash, Signature[] signatures)`: Submitted signatures do not satisfy the consensus rules.
 - `InvalidThreshold(uint256 threshold)`: Threshold is zero or exceeds the signer count.
 - `ZeroAddress()`: A signer address is zero.
 - `SignerAlreadyExists(address signer)`: The signer is already registered.

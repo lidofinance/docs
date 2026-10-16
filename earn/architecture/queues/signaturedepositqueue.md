@@ -28,7 +28,7 @@ This contract is optimized for high-trust environments requiring immediate asset
 3. Transfers `order.ordered` assets from the caller to this contract.
 4. Transfers these assets into the vault.
 5. Calls `vault.callHook(...)` for any optional strategy logic.
-6. Updates the vault balance through the RiskManager; reverts with `LimitExceeded` above the vault limit.
+6. Updates the vault balance through the RiskManager; reverts with `LimitExceeded(int256 newValue, int256 maxValue)` above the vault limit.
 7. Mints `order.requested` shares to `order.recipient`.
 8. Emits `OrderExecuted` event.
 

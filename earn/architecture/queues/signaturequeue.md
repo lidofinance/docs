@@ -93,13 +93,13 @@ For queues connected to the standard `Vault`, `SignatureQueue` always validates 
 - Redemptions: `price = burnedShares / redeemedAssets`.
 - Oracle must confirm price is within allowed bounds and not marked as suspicious.
 
-Otherwise, the operation is rejected with `InvalidPrice`.
+Otherwise, the operation is rejected with `InvalidPrice()`.
 
 ## Functions
 
 ### Initialization and Public Views
 
-`initialize(data)` decodes the asset, vault, consensus, EIP-712 name, and version. The consensus must be an entity from `consensusFactory`, otherwise it reverts with `NotEntity`.
+`initialize(data)` decodes the asset, vault, consensus, EIP-712 name, and version. The consensus must be an entity from `consensusFactory`, otherwise it reverts with `NotEntity()`.
 
 - `validateOrder(order, signatures)`: Checks the order and signatures; returns no value.
 - `hashOrder(order)`: Returns its EIP-712 digest.
