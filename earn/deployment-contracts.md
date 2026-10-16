@@ -100,8 +100,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 
 ### earnUSDc – Monad
 
-| Contract            | Address                                                                                                                |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Contract            | Address                                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Vault               | [`0xFAf725a4815587d40F0C9b984125599dC68F5404`](https://monadscan.com/address/0xFAf725a4815587d40F0C9b984125599dC68F5404) |
 | Oracle              | [`0xA509fAE139dea4910cDFEA995e4976EFE85717Ea`](https://monadscan.com/address/0xA509fAE139dea4910cDFEA995e4976EFE85717Ea) |
 | ShareManager        | [`0x7c704172F3f28E0093b65390eDf0E480768A830b`](https://monadscan.com/address/0x7c704172F3f28E0093b65390eDf0E480768A830b) |
@@ -188,6 +188,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 ## Actors
 
 Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood and Monad, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
+
+On Monad, the Curator (earnUSDc, earnUSDe) Safe acts through the Curator Account, a MellowAccountV1 contract that the Safe owns.
 
 | Role                         | Multisig                                                                                                                         | Quorum |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------ |
