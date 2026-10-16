@@ -218,7 +218,7 @@ Key considerations:
 - Only authorized roles can submit price updates
 - Suspicious reports require explicit approval before acceptance
 - Price validation is performed locally without relying on external oracle feeds
-- Subsequent reports are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy
+- Reports with a non-zero previous price are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy
 
 #### Technical details
 
@@ -237,8 +237,8 @@ Reporting flow:
    - The previous report state is evaluated:
      - If `timeout` has not passed, and the report is not suspicious -> revert `TooEarly`
    - Price is compared against previous:
-     - The first report is always suspicious and requires explicit acceptance.
-     - Either maximum deviation exceeded -> revert `InvalidPrice`.
+     - If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks.
+     - With a non-zero previous price, either maximum deviation exceeded -> revert `InvalidPrice`.
      - Within maximum limits, a previous suspicious report or either suspicious threshold exceeded -> mark suspicious.
    - Only a non-suspicious report propagates immediately. Suspicious reports require `ACCEPT_REPORT_ROLE` approval.
 2. Step 2: Accepted report propagation:
@@ -247,17 +247,17 @@ Reporting flow:
 
 Validation Logic:
 
-Reports are validated by:
+When the stored previous price is non-zero, reports are validated by:
 
 - Calculating absolute deviation (`maxAbsolute`)
 - Calculating relative deviation (`maxRelative`)
 - Comparing against `max` and `suspicious` thresholds
 
-A report is:
+With a non-zero previous price, a report is:
 
 - Rejected if either deviation exceeds max
 - Accepted but marked as suspicious if above the suspicious threshold, flagging the report
-- Normal only if the previous report is not suspicious and neither suspicious threshold is exceeded; the first report requires acceptance
+- Normal only if the previous report is not suspicious and neither suspicious threshold is exceeded; a zero previous price instead makes the new report suspicious without deviation checks
 
 Used by:
 

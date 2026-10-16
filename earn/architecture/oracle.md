@@ -73,23 +73,23 @@ Step 1: Each asset is checked for support.
 
 Step 2: The previous report is evaluated. If `timeout` has not passed and the report is not suspicious, revert `TooEarly`.
 
-Step 3: The first report for an asset is always suspicious and requires `acceptReport`. Later prices above either maximum deviation limit revert with `InvalidPrice`. Within those limits, a report is suspicious if the previous report is suspicious or either suspicious deviation threshold is exceeded.
+Step 3: If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks. Otherwise, prices above either maximum deviation limit revert with `InvalidPrice`. Within those limits, a report is suspicious if the previous report is suspicious or either suspicious deviation threshold is exceeded. Suspicious reports require `acceptReport`.
 
 Step 4: Only a non-suspicious report calls `vault.handleReport(...)`, with adjusted deposit and redeem timestamps. `ReportsSubmitted` is emitted once for the entire submitted batch.
 
 ### Validation Logic
 
-Prices are validated by:
+When the stored previous price is non-zero, prices are validated by:
 
 - Calculating absolute deviation.
 - Calculating relative deviation.
 - Comparing against `max` and `suspicious` thresholds.
 
-A price is:
+With a non-zero previous price, a new price is:
 
 - Rejected if either deviation exceeds max.
 - Accepted but suspicious if above suspicious threshold.
-- Normal only when the previous report is not suspicious and both deviations are within the suspicious thresholds. The first report remains suspicious until explicit acceptance.
+- Normal only when the previous report is not suspicious and both deviations are within the suspicious thresholds. When the previous price is zero, validation instead returns valid and suspicious without deviation checks.
 
 Used by:
 
@@ -141,4 +141,4 @@ Used by:
 - Only trusted roles can push prices.
 - Suspicious reports cannot be accepted without explicit approval.
 - Price validation is local and does not rely on external feeds.
-- Subsequent reports are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy.
+- Reports with a non-zero previous price are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy.
