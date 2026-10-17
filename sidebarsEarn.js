@@ -44,6 +44,9 @@ module.exports = {
           ],
         },
         'architecture/oracle',
+        'architecture/oraclesubmitter',
+        'architecture/permissionedchainlinkoracle',
+        'architecture/mellowaccountv1',
         {
           type: 'category',
           label: 'Queues',
@@ -52,12 +55,16 @@ module.exports = {
             'architecture/queues/queue',
             'architecture/queues/depositqueue',
             'architecture/queues/redeemqueue',
+            'architecture/queues/syncqueue',
+            'architecture/queues/syncdepositqueue',
+            'architecture/queues/syncredeemqueue',
             'architecture/queues/signaturequeue',
             'architecture/queues/signaturedepositqueue',
             'architecture/queues/signatureredeemqueue',
           ],
         },
         'architecture/factory',
+        'architecture/swapmodule',
         {
           type: 'category',
           label: 'Hooks',
@@ -95,11 +102,7 @@ module.exports = {
           type: 'category',
           label: 'Vaults',
           link: { type: 'doc', id: 'architecture/vaults/index' },
-          items: [
-            'architecture/vaults/vault',
-            'architecture/vaults/subvault',
-            'architecture/vaults/vaultconfigurator',
-          ],
+          items: ['architecture/vaults/vault', 'architecture/vaults/subvault', 'architecture/vaults/vaultconfigurator'],
         },
       ],
     },
@@ -107,4 +110,4 @@ module.exports = {
     'referral-tracking',
     'audits',
   ],
-};
+}

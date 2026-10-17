@@ -12,13 +12,13 @@ The `VaultConfigurator` contract provides a streamlined and modular deployment m
 
 It ensures that all components are correctly wired together by setting appropriate references between them.
 
-## Purpose
-
 This contract is designed to be used by an actor that needs to deploy and configure fully functional vaults in a deterministic and upgradeable way, using versioned module factories.
 
-## Contract Structure
+## Configuration and State
 
-### State Variables
+### Contract Structure
+
+#### State Variables
 
 ```solidity
 IFactory public immutable shareManagerFactory;
@@ -30,7 +30,7 @@ IFactory public immutable vaultFactory;
 
 Each of these holds a reference to a factory contract responsible for creating a specific type of contract.
 
-### Constructor
+#### Constructor
 
 ```solidity
 constructor(
@@ -44,7 +44,7 @@ constructor(
 
 Initializes the configurator with references to module factories.
 
-## InitParams Struct
+### InitParams Struct
 
 ```solidity
 struct InitParams {
@@ -66,21 +66,23 @@ struct InitParams {
 }
 ```
 
-### Fields
+#### Fields
 
 - `version`: Version of the `Vault` implementation to deploy.
-- `proxyAdmin`: Address to be set as `ProxyAdmin` for upgradeable proxies.
+- `proxyAdmin`: Owner of the separate `ProxyAdmin` contract that each OpenZeppelin v5 transparent proxy deploys. This is not the proxy admin contract address itself.
 - `vaultAdmin`: Address to be set as the vault's owner (admin).
 - `_Version`: Specific implementation version to use for each module (used in the corresponding factory).
 - `_Params`: ABI-encoded initialization parameters for each module.
 - `defaultDepositHook`: Address of the default deposit hook to attach to queues.
 - `defaultRedeemHook`: Address of the default redeem hook to attach to queues.
-- `queueLimit`: Maximum number of queued operations per deposit and redeem queue.
+- `queueLimit`: Maximum total number of queues registered with the vault. `createQueue` reverts with `QueueLimitReached()` at this cap.
 - `roleHolders`: List of role assignments for vault level access control.
 
-## External Functions
+## Functions
 
-### `create`
+### State-Changing Functions
+
+#### `create`
 
 ```solidity
 function create(InitParams calldata params)
@@ -94,20 +96,20 @@ function create(InitParams calldata params)
     )
 ```
 
-### Description
+#### Description
 
 Creates and initializes a new vault instance along with all dependent modules using the provided factory addresses and parameters.
 
-### Steps
+#### Steps
 
 1. Deploy ShareManager using `shareManagerFactory` to deploy a versioned `ShareManager` proxy.
 2. Deploy FeeManager using `feeManagerFactory` to deploy a versioned `FeeManager`.
 3. Deploy RiskManager using `riskManagerFactory` to deploy a versioned `RiskManager`.
 4. Deploy Oracle using `oracleFactory` to deploy a versioned `Oracle`.
-5. Deploy Vault by preparing encoded initialization calldata and calling `vaultFactory.create()` with the version and proxy admin.
+5. Deploy Vault by preparing encoded initialization calldata and calling `vaultFactory.create()` with the version and proxy admin owner.
 6. Post deployment wiring sets the `vault` address in each of the deployed components using `IShareManager(shareManager).setVault(vault)`, `IRiskManager(riskManager).setVault(vault)`, and `IOracle(oracle).setVault(vault)`.
 
-### Returns
+#### Returns
 
 - `shareManager`: Address of the deployed share manager contract.
 - `feeManager`: Address of the deployed fee manager contract.

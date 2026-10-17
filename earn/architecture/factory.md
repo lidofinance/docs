@@ -6,7 +6,7 @@ The `Factory` contract is a generalized deployment mechanism for creating upgrad
 
 It conforms to the `IFactory` interface and supports deploying any `IFactoryEntity` compliant contracts via `TransparentUpgradeableProxy`, using `initialize()` for configuration.
 
-## Key Capabilities
+### Key Capabilities
 
 - Versioned deployment: track multiple logic contract versions, each deployable by index.
 - Proposal system: allow anyone to propose implementations, with owner approval required.
@@ -14,7 +14,15 @@ It conforms to the `IFactory` interface and supports deploying any `IFactoryEnti
 - Deterministic deployments: uses `create2` salt to ensure predictable addresses.
 - Entity tracking: keeps a registry of all deployed entities.
 
-## Storage Structure
+## Roles and Permissions
+
+- Uses `OwnableUpgradeable`.
+- Only the owner can accept implementations and blacklist versions.
+- Anyone can call `create` for an accepted, non-blacklisted version. `isEntity` proves factory origin, not approval of the proxy's owner or application configuration.
+
+## Configuration and State
+
+### Storage Structure
 
 The contract uses a deterministic storage layout via:
 
@@ -24,29 +32,31 @@ bytes32 _factoryStorageSlot = SlotLibrary.getSlot("Factory", name_, version_);
 
 Storage fields (in `FactoryStorage`) include:
 
-| Field | Description |
-| --- | --- |
-| `entities` | Set of all deployed proxy instances |
-| `implementations` | Approved logic contract addresses |
-| `proposals` | Pending implementation proposals |
-| `isBlacklisted` | Mapping from version -> is blacklisted |
+| Field             | Description                            |
+| ----------------- | -------------------------------------- |
+| `entities`        | Set of all deployed proxy instances    |
+| `implementations` | Approved logic contract addresses      |
+| `proposals`       | Pending implementation proposals       |
+| `isBlacklisted`   | Mapping from version -> is blacklisted |
 
-## Initialization
+### Initialization
 
 ```solidity
 function initialize(bytes calldata data) external initializer
 ```
 
 - Accepts encoded owner address.
-- Sets initial admin and emits `Initialized`.
+- Sets the factory owner and emits `Initialized(bytes initParams)`.
 
-## Entity Deployment
+## Functions
+
+### Entity Deployment
 
 ```solidity
 function create(uint256 version, address owner, bytes calldata initParams) external returns (address instance)
 ```
 
-Deploys a new `TransparentUpgradeableProxy`:
+Anyone can deploy a new `TransparentUpgradeableProxy`. The `owner` argument owns the separate `ProxyAdmin` deployed by the OpenZeppelin v5 proxy; application ownership is set through `initParams`:
 
 - Uses implementation from `implementations.at(version)`.
 - Rejects if version is out of bounds or blacklisted.
@@ -56,12 +66,12 @@ Deploys a new `TransparentUpgradeableProxy`:
 Emits:
 
 ```solidity
-event Created(address instance, uint256 version, address owner, bytes initParams);
+event Created(address indexed instance, uint256 indexed version, address indexed owner, bytes initParams);
 ```
 
-## Implementation Management
+### Implementation Management
 
-### Propose New Implementation
+#### Propose New Implementation
 
 ```solidity
 function proposeImplementation(address implementation) external
@@ -69,10 +79,10 @@ function proposeImplementation(address implementation) external
 
 - Fails if already in `implementations` or `proposals`.
 - Adds to `proposals`.
-- Emits `ProposeImplementation(implementation)`.
+- Emits `ProposeImplementation(address implementation)`.
 - Permissionless function.
 
-### Accept Proposed Implementation
+#### Accept Proposed Implementation
 
 ```solidity
 function acceptProposedImplementation(address implementation) external onlyOwner
@@ -81,9 +91,9 @@ function acceptProposedImplementation(address implementation) external onlyOwner
 - Only callable by owner.
 - Fails if not proposed.
 - Moves from `proposals` to `implementations`.
-- Emits `AcceptProposedImplementation(implementation)`.
+- Emits `AcceptProposedImplementation(address implementation)`.
 
-### Blacklisting
+#### Blacklisting
 
 ```solidity
 function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
@@ -91,27 +101,24 @@ function setBlacklistStatus(uint256 version, bool flag) external onlyOwner
 
 - Blocks deployments using a specific version.
 - Enforces that version index exists.
-- Emits `SetBlacklistStatus(version, flag)`.
+- Emits `SetBlacklistStatus(uint256 version, bool flag)`.
 
-## View Functions
+### View Functions
 
-| Function | Returns |
-| --- | --- |
-| `entities()` | Total number of deployed entities |
-| `entityAt(index)` | Deployed entity at index |
-| `isEntity(address)` | Checks if address is a deployed entity |
-| `implementations()` | Total implementation count |
-| `implementationAt(index)` | Implementation at index |
-| `proposals()` | Total proposals pending approval |
-| `proposalAt(index)` | Proposal at index |
-| `isBlacklisted(version)` | Whether a version is blocked from deployment |
+| Function                  | Returns                                      |
+| ------------------------- | -------------------------------------------- |
+| `entities()`              | Total number of deployed entities            |
+| `entityAt(index)`         | Deployed entity at index                     |
+| `isEntity(address)`       | Checks if address is a deployed entity       |
+| `implementations()`       | Total implementation count                   |
+| `implementationAt(index)` | Implementation at index                      |
+| `proposals()`             | Total proposals pending approval             |
+| `proposalAt(index)`       | Proposal at index                            |
+| `isBlacklisted(version)`  | Whether a version is blocked from deployment |
 
-## Access Control
+## Invariants and Limitations
 
-- Uses `OwnableUpgradeable`.
-- Only owner can accept implementations and blacklist versions.
-
-## Security Considerations
+### Security Considerations
 
 - Immutable logic whitelist: only approved contracts can be deployed.
 - Blacklisting: emergency response for vulnerabilities.

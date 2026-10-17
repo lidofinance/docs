@@ -6,7 +6,9 @@
 
 This module is intended to be inherited and extended by other functional modules.
 
-## Constructor
+## Configuration and State
+
+### Constructor
 
 ```solidity
 constructor() {
@@ -16,15 +18,17 @@ constructor() {
 
 Prevents the contract from being initialized outside of proxy context. Ensures secure upgradeable deployments.
 
-## Public & External Functions
+## Functions
 
-### `getStorageAt(bytes32 slot)`
+### Public and External Functions
+
+#### `getStorageAt(bytes32 slot)`
 
 ```solidity
 function getStorageAt(bytes32 slot) external pure returns (StorageSlot.Bytes32Slot memory)
 ```
 
-Returns a reference to a custom storage slot. Enables advanced access to shared storage across upgradeable modules using the `StorageSlot` pattern.
+Returns a memory copy of the value at the requested storage slot, wrapped in a `StorageSlot.Bytes32Slot` struct. The external caller does not receive a storage reference.
 
 Parameters:
 
@@ -32,9 +36,9 @@ Parameters:
 
 Returns:
 
-- A `StorageSlot.Bytes32Slot` struct pointing to the slot.
+- A `StorageSlot.Bytes32Slot` memory struct containing the stored value.
 
-### `onERC721Received(...)`
+#### `onERC721Received(...)`
 
 ```solidity
 function onERC721Received(address, address, uint256, bytes calldata) external pure returns (bytes4)
@@ -46,7 +50,7 @@ Returns:
 
 - `IERC721Receiver.onERC721Received.selector` — confirms compliance.
 
-### `receive()`
+#### `receive()`
 
 ```solidity
 receive() external payable {}
@@ -54,9 +58,9 @@ receive() external payable {}
 
 Allows the contract to receive native ETH transfers. This is typically used for vaults handling native tokens directly.
 
-## Internal Functions
+### Internal Functions
 
-### `__BaseModule_init()`
+#### `__BaseModule_init()`
 
 ```solidity
 function __BaseModule_init() internal onlyInitializing

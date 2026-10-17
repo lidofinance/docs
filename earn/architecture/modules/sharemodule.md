@@ -1,10 +1,10 @@
 # ShareModule
 
-## Purpose
+## Overview
 
 `ShareModule` is a core module responsible for managing user interactions with a vault through structured deposit and redeem queues. It provides governance over queue creation, hook configurations, oracle-driven settlement, and fee accounting.
 
-## Key Responsibilities
+### Key Responsibilities
 
 - Tracks and validates all deposit and redeem queue operations.
 - Coordinates price reporting with the oracle.
@@ -12,7 +12,7 @@
 - Integrates hooks for deposit and redeem processing customization.
 - Acts as the central hub for protocol and performance fee minting, share claim logic, and report handling.
 
-## Roles
+## Roles and Permissions
 
 - `SET_HOOK_ROLE`: Grants the ability to modify per-queue and default hook addresses.
 - `CREATE_QUEUE_ROLE`: Allows creation of new deposit and redeem queues.
@@ -20,7 +20,9 @@
 - `SET_QUEUE_LIMIT_ROLE`: Enables setting the max number of total queues.
 - `REMOVE_QUEUE_ROLE`: Allows safe removal of queues with `canBeRemoved()` check.
 
-## Core Storage Layout (`ShareModuleStorage`)
+## Configuration and State
+
+### Core Storage Layout (`ShareModuleStorage`)
 
 - `shareManager`: Reference to contract handling share minting and burning.
 - `feeManager`: Reference to contract that calculates fees and stores fee-related data.
@@ -34,7 +36,9 @@
 - `queues`: Asset to queues mapping.
 - `assets`: Registry of all assets with registered queues.
 
-## View Functions
+## Functions
+
+### View Functions
 
 - `shareManager()`: Returns the `IShareManager` instance.
 - `feeManager()`: Returns the `IFeeManager` instance.
@@ -55,7 +59,7 @@
 - `getQueueCount(asset)`: Returns queue count for an asset.
 - `queueAt(asset, index)`: Returns a queue by asset and index.
 
-## Mutable Functions
+### State-Changing Functions
 
 - `claimShares(account)`: Claims all claimable shares from deposit queues for the specific account.
 - `callHook(assets)`: Calls the queue's associated hook and transfers assets to the queue if redeem.
@@ -65,16 +69,16 @@
 - `setQueueStatus(queue, isPaused)`: Pauses or unpauses a queue.
 - `createQueue(version, isDeposit, owner, asset, data)`: Deploys a new queue for an asset.
 - `removeQueue(queue)`: Removes a queue that passed `canBeRemoved()`.
-- `handleReport(asset, priceD18, depositTimestamp, redeemTimestamp)`: Called by the oracle, distributes protocol fees, and propagates the price report to all queues and calls hooks.
+- `handleReport(asset, priceD18, depositTimestamp, redeemTimestamp)`: Called only by the oracle. Mints protocol and performance fee shares only when the reported asset is the FeeManager base asset. For every reported asset, sends the report to that asset's queues. This function does not call hooks directly.
 
 ## Events
 
-- `SharesClaimed(account)`
-- `CustomHookSet(queue, hook)`
-- `QueueCreated(queue, asset, isDepositQueue)`
-- `QueueRemoved(queue, asset)`
-- `HookCalled(queue, asset, assets, hook)`
-- `QueueLimitSet(limit)`
-- `SetQueueStatus(queue, isPaused)`
-- `DefaultHookSet(hook, isDepositHook)`
-- `ReportHandled(asset, priceD18, depositTimestamp, redeemTimestamp, fees)`
+- `SharesClaimed(address indexed account)`
+- `CustomHookSet(address indexed queue, address indexed hook)`
+- `QueueCreated(address indexed queue, address indexed asset, bool isDepositQueue)`
+- `QueueRemoved(address indexed queue, address indexed asset)`
+- `HookCalled(address indexed queue, address indexed asset, uint256 assets, address hook)`
+- `QueueLimitSet(uint256 limit)`
+- `SetQueueStatus(address indexed queue, bool indexed isPaused)`
+- `DefaultHookSet(address indexed hook, bool isDepositHook)`
+- `ReportHandled(address indexed asset, uint224 indexed priceD18, uint32 depositTimestamp, uint32 redeemTimestamp, uint256 fees)`

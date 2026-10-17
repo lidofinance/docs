@@ -1,6 +1,6 @@
 # RedeemQueue
 
-## Purpose
+## Overview
 
 The `RedeemQueue` contract enables delayed, batched redemptions of vault shares into underlying assets. Redemptions are processed in two phases:
 
@@ -8,8 +8,6 @@ The `RedeemQueue` contract enables delayed, batched redemptions of vault shares 
 2. Liquidity settlement - vault liquidity is allocated to fulfill priced requests.
 
 This separation supports asynchronous liquidity management, gas efficiency, and protection against griefing.
-
-## Overview
 
 The `RedeemQueue` enables users to convert their vault shares into underlying assets, introducing a time delay enforced by an oracle defined `redeemInterval`. It maintains the following core invariants:
 
@@ -25,28 +23,63 @@ timestamp <= reportTimestamp - redeemInterval
 
 In the next step, these vault shares are converted to assets at the price specified in the oracle report.
 
-## Liquidity Processing (Two-Stage)
+## Configuration and State
+
+### Storage Layout
+
+All internal state is maintained in `RedeemQueueStorage`, including:
+
+| Field                | Description                                                             |
+| -------------------- | ----------------------------------------------------------------------- |
+| `handledIndices`     | Tracks number of oracle checkpoints that have been priced               |
+| `batchIterator`      | Index of the next unfulfilled batch                                     |
+| `totalDemandAssets`  | Total asset amount needed to fulfill pending batches                    |
+| `totalPendingShares` | Net locked shares not yet priced by an oracle report                    |
+| `requestsOf`         | Maps `address -> (timestamp -> shares)` for pending user requests       |
+| `prefixSum`          | Maps `timestamp index -> shares` for batch creation and summation       |
+| `batches`            | Array of `Batch` structs; each batch tracks fulfilled assets and shares |
+| `prices`             | Oracle reported price checkpoints, indexed by timestamp                 |
+
+### Structs
+
+#### `Request`
+
+Represents a single redemption request from a user:
+
+- `timestamp`: When the request was submitted.
+- `shares`: Amount of vault shares being redeemed.
+- `isClaimable`: Set to true after batch is fulfilled.
+- `assets`: Amount of assets claimable for this request (set after pricing).
+
+#### `Batch`
+
+Represents a priced redemption batch:
+
+- `assets`: Total value fulfilled for the batch (via oracle `shares / report.price`).
+- `shares`: Total shares matched in this batch.
+
+## Behavior
+
+### Liquidity Processing (Two-Stage)
 
 Redemption is handled in two distinct phases:
 
 1. Post-Request: Vault curators monitor and, if needed, pull liquidity from external protocols.
-2. Post-Oracle Report: Once a valid report is submitted and sufficient liquidity is available, the vault curator (or any other trusted actor) invokes `handleBatches(n)` on the `RedeemQueue`. This action triggers the movement of required assets from the vault (and associated subvaults) to process redemption requests.
+2. Post-Oracle Report: Once a valid report is submitted and sufficient liquidity is available, any account can invoke `handleBatches(n)` on the `RedeemQueue`. This action triggers the movement of required assets from the vault (and associated subvaults) to process redemption requests.
 
-## Scalability Approach
+### Scalability Approach
 
 Unlike deposits, redemption requests are never cancelled, which allows for a simplified and gas efficient tracking model. A prefix sum array is used to efficiently manage cumulative share redemptions over time.
 
-## Redemption Processing Logic
+### Redemption Processing Logic
 
-### On Redemption
+#### On Redemption
 
-When a user redeems `amount` of shares at time `T`, the system logs:
+`redeem(shares)` first locks the caller's shares in the ShareManager. Unless the caller is the fee recipient, it burns the redeem fee from those locked shares and mints the same amount to the fee recipient.
 
-```
-prefixSum[T] += amount
-```
+The request, `prefixSum`, and `totalPendingShares` record the net shares after the fee. Requests at the same timestamp share a compressed index.
 
-### On Oracle Report
+#### On Oracle Report
 
 At `reportTimestamp`, all requests with:
 
@@ -54,13 +87,13 @@ At `reportTimestamp`, all requests with:
 timestamp <= reportTimestamp - redeemInterval
 ```
 
-are marked as processed.
+are priced. Their net locked shares are burned from the ShareManager at report time, and a batch records the corresponding asset demand.
 
-### Post-Processing
+#### Post-Processing
 
-The curator ensures the necessary asset liquidity is available, then calls `handleBatches()` to finalize processing.
+Curators can arrange liquidity, but `handleBatches()` is permissionless. Any account can finalize batches covered by the available liquid assets.
 
-### User Claim
+#### User Claim
 
 After requests are processed, users can call:
 
@@ -70,42 +103,11 @@ claim(receiver, timestamps[])
 
 to claim assets for their requested vault shares corresponding to each processed timestamp.
 
-## Storage Layout
+## Functions
 
-All internal state is maintained in `RedeemQueueStorage`, including:
+### View Functions
 
-| Field | Description |
-| --- | --- |
-| `handledIndices` | Tracks number of oracle checkpoints that have been priced |
-| `batchIterator` | Index of the next unfulfilled batch |
-| `totalDemandAssets` | Total asset amount needed to fulfill pending batches |
-| `totalPendingShares` | Total shares in requests that are not yet claimable |
-| `requestsOf` | Maps `address -> (timestamp -> shares)` for pending user requests |
-| `prefixSum` | Maps `timestamp index -> shares` for batch creation and summation |
-| `batches` | Array of `Batch` structs; each batch tracks fulfilled assets and shares |
-| `prices` | Oracle reported price checkpoints, indexed by timestamp |
-
-## Structs
-
-### `Request`
-
-Represents a single redemption request from a user:
-
-- `timestamp`: When the request was submitted.
-- `shares`: Amount of vault shares being redeemed.
-- `isClaimable`: Set to true after batch is fulfilled.
-- `assets`: Amount of assets claimable for this request (set after pricing).
-
-### `Batch`
-
-Represents a priced redemption batch:
-
-- `assets`: Total value fulfilled for the batch (via oracle `shares / report.price`).
-- `shares`: Total shares matched in this batch.
-
-## View Functions
-
-### `requestsOf(account, offset, limit)`
+#### `requestsOf(account, offset, limit)`
 
 Returns paginated redemption request data for the specified account. Each request includes:
 
@@ -114,11 +116,11 @@ Returns paginated redemption request data for the specified account. Each reques
 - Claimable status
 - Asset amount
 
-### `batchAt(index)`
+#### `batchAt(index)`
 
 Returns the `(assets, shares)` for a given redemption batch.
 
-### `getState()`
+#### `getState()`
 
 Returns core system state:
 
@@ -127,14 +129,16 @@ Returns core system state:
 - Total `demandedAssets` still awaiting liquidity
 - Total `pendingShares` that are not yet claimable
 
-## State Transition Guarantees
+## Events
+
+- `RedeemRequested(address indexed account, uint256 shares, uint256 timestamp)`
+- `RedeemRequestClaimed(address indexed account, address indexed receiver, uint256 assets, uint32 timestamp)`
+- `RedeemRequestsHandled(uint256 counter, uint256 demand)`
+
+## Invariants and Limitations
+
+### State Transition Guarantees
 
 1. Non-Cancellable Requests: Prevents griefing where a user requests redemption, causing curator to pull liquidity, then cancels.
 2. Price Separation: Oracle reports must be delayed by at least `redeemInterval` seconds from the original request.
 3. Asynchronous Fulfillment: Liquidity can be managed independently of oracle report submission.
-
-## Events
-
-- `RedeemRequested(account, shares, timestamp)`
-- `RedeemRequestClaimed(account, receiver, assets, timestamp)`
-- `RedeemRequestsHandled(counter, demand)`

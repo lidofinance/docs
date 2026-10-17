@@ -2,6 +2,8 @@
 
 From Core Vaults to Meta Vaults
 
+Source snapshot for this update: [`flexible-vaults@69bbaf1`](https://github.com/mellow-finance/flexible-vaults/tree/69bbaf17530dc5127ecf9049cceaab141f516a1e/src). This identifies the described code, not audit coverage or the configuration of every deployment. See [Deployments](../deployment-contracts) for deployed addresses and [Audits](../audits) for review scopes.
+
 ## Mellow Core Vaults
 
 ### Abstract
@@ -47,19 +49,19 @@ Deposit flow:
 
 1. Step 1: User Deposits
    - A user submits a deposit request via `deposit(assets, referral, merkleProof)`.
-   - Deposits are validated via optional Merkle whitelist logic (using `merkleProof`) or onchain mapping (if `hasWhitelist` flag is set).
-   - If a previous request exists, it must be claimed or canceled before creating a new one.
+   - Deposits require `canDeposit` when `hasWhitelist` is set, and a valid Merkle proof when a root is configured. Both checks apply when both mechanisms are enabled.
+   - A previous request is claimed automatically when its processed fee-adjusted price checkpoint is positive. Otherwise, the new deposit reverts with `PendingRequestExists()`.
    - The deposited amount and timestamp are stored in the `DepositQueue` contract.
 2. Step 2: Oracle Report
    - Oracle report is propagated via the `handleReport(priceD18, timestamp)` method.
    - The queue validates the report:
      - It must be called by the `Vault`.
-     - The provided `timestamp` must be in the past (usually `request.timestamp - depositInterval`).
+     - The provided `timestamp` must be in the past (derived as `report.timestamp - depositInterval`).
      - `priceD18` must be non-zero.
    - The queue handles deposit requests that are pending for at least `depositInterval` seconds (the interval is specified in the oracle's security parameters).
    - The contract stores a `(timestamp, reducedByDepositFeePriceD18)` pair in the `prices` array. This value is used to convert accumulated assets into shares based on the user's request timestamp. The `reducedByDepositFeePriceD18` is derived by applying the deposit fee to the actual reported `priceD18`.
-   - The corresponding shares are allocated but not yet minted.
-   - Emits the `ReportHandled` event.
+   - Net user shares are allocated for later claims. Fee shares are minted to the fee recipient; assets move to the vault, risk accounting is updated, and the deposit hook is called.
+   - Emits the `ReportHandled(uint224 priceD18, uint32 timestamp)` event.
 3. Step 3: User Claims
    - A user calls `claim(account)` (or `claimShares(account)` in the `Vault`) to mint and receive previously allocated shares.
    - The number of shares is computed as:
@@ -74,7 +76,7 @@ Deposit flow:
 
 1. Single Active Request
 
-   Each user may have at most one unprocessed deposit request. New deposits are blocked until the previous request is claimed. If the pending request is already claimable, the claim will be automatically processed during the next deposit.
+   Each user may have at most one outstanding deposit request. The next deposit claims it automatically only when its processed fee-adjusted price checkpoint is positive; otherwise it reverts with `PendingRequestExists()`. The allowed 100% deposit fee creates a zero checkpoint, leaving the processed request unclaimable and uncancelable and blocking further deposits from that account.
 
 2. Delayed Execution
 
@@ -104,11 +106,11 @@ This separation allows asynchronous liquidity management, gas efficiency, and pr
 Redeem flow:
 
 1. Step 1: User redeems
-   - User submits `redeem` request, vault shares are immediately burned.
+   - A `redeem` request locks shares in the ShareManager. Unless the caller is the fee recipient, the fee is burned from the locked shares and minted to that recipient. The request records net shares.
    - The vault curator monitors and manages liquidity across connected Subvaults, pulling funds and swapping assets as needed to fulfill redemption requests.
 2. Step 2: Oracle report
    - Valid and non-suspicious `Oracle` report arrives.
-   - The vault curator invokes `handleBatches(n)` on the `RedeemQueue`.
+   - The report burns the batch's net locked shares. Any account can then invoke `handleBatches(n)` on the `RedeemQueue`; this method is permissionless.
    - This triggers the movement of required assets from the vault (and associated Subvaults) to process redemption requests.
 3. Step 3: User claims
    - Users call `claim(receiver, timestamps)` to withdraw assets.
@@ -137,7 +139,7 @@ Key Features:
 - Nonce-based signature protection to prevent replay attacks
 - EIP 712 and EIP 1271 compatible signed orders
 - Oracle price validation enforced onchain
-- Stateless and removable (does not accumulate shares or process claims)
+- No pending requests or claims; nonces and configuration remain stored
 - Fee bypass: No Deposit Fee or Redeem Fee is charged for actions via this queue
 
 #### Technical details
@@ -160,6 +162,11 @@ Signature Queue flow:
 - Price quotes must be valid and non-suspicious.
 - Users cannot reuse old signatures due to nonce tracking.
 - Orders must be executed before `deadline`.
+
+### Synchronous Queues
+
+- [SyncDepositQueue](./queues/syncdepositqueue) mints shares immediately using a fresh, non-suspicious report, with a price penalty, deposit fee, and vault-limit checks.
+- [SyncRedeemQueue](./queues/syncredeemqueue) burns shares and pays assets in one transaction, subject to report freshness, penalty, redeem fee, available liquidity, and a share-denominated leaky-bucket limit.
 
 ### Vault
 
@@ -192,9 +199,9 @@ Verifier allows multiple types of verification:
 - ONCHAIN_COMPACT: Checks `CompactCall` (who | where | selector) hash against internal admin controlled set
 - MERKLE_COMPACT: Verifies Merkle proof of `CompactCall` (who | where | selector) hash
 - MERKLE_EXTENDED: Verifies Merkle proof of `ExtendedCall` (who | where | value | callData) hash
-- CUSTOM_VERIFIER: Delegates full verification to an external verifier
+- CUSTOM_VERIFIER: Checks `CALLER_ROLE` and a Merkle proof that authenticates the verifier address and its data, then delegates the final call check
 
-Two admin-owned parameters are saved in the state of the Verifier contract:
+The following parameters are saved in the state of the Verifier contract:
 
 - `compactCallHashes` that defines all allowed calls for ONCHAIN_COMPACT verification type
 - `compactCalls` is an optional mapping for reverse lookup of call metadata by hash
@@ -204,14 +211,14 @@ Two admin-owned parameters are saved in the state of the Verifier contract:
 
 The Oracle contract handles secure and configurable price reporting for supported assets. Closely integrated with the `ShareModule`, it provides price validation, deviation monitoring, and time-restricted report submissions.
 
-It enforces strict guarantees around report timing and trust minimization using role permissions and deviation thresholds. This oracle ensures consistent pricing across all queue, share, and limit related calculations.
+Trusted role holders supply prices within the configured timing and deviation rules. Other components use these reports for share conversion and limit accounting.
 
 Key considerations:
 
 - Only authorized roles can submit price updates
 - Suspicious reports require explicit approval before acceptance
 - Price validation is performed locally without relying on external oracle feeds
-- Manipulation is prevented through absolute and relative deviation limits
+- Reports with a non-zero previous price are checked against absolute and relative deviation limits; role holders remain trusted for price accuracy
 
 #### Technical details
 
@@ -228,34 +235,41 @@ Reporting flow:
 1. Step 1: Report is submitted:
    - Each asset is checked for support
    - The previous report state is evaluated:
-     - If `timeout` has not passed, and the report is not suspicious -> revert `TooEarly`
+     - If `timeout` has not passed, and the report is not suspicious -> revert `TooEarly(uint256 timestamp, uint256 minTimestamp)`
    - Price is compared against previous:
-     - `maxAbsolute` -> revert `InvalidPrice`
-     - `maxRelative` -> flagged `isSuspicious`
-   - If the report is valid and non-suspicious (deviation < suspicious && deviation < max), it is immediately accepted
-   - If the report is suspicious it will be accepted only after validation from the Admin (ACCEPT_REPORT_ROLE holder)
+     - If the stored previous price is zero, including before the first report, the new report is suspicious without deviation checks.
+     - With a non-zero previous price, either maximum deviation exceeded -> revert `InvalidPrice(uint256 priceD18)`.
+     - Within maximum limits, a previous suspicious report or either suspicious threshold exceeded -> mark suspicious.
+   - Only a non-suspicious report propagates immediately. Suspicious reports require `ACCEPT_REPORT_ROLE` approval.
 2. Step 2: Accepted report propagation:
    - Triggers `vault.handleReport(...)`, processing deposit requests and pending redeem requests
-   - Emits `ReportsSubmitted`
+   - `ReportsSubmitted(Report[] reports)` is emitted once for the submitted batch, including suspicious reports.
 
 Validation Logic:
 
-Reports are validated by:
+When the stored previous price is non-zero, reports are validated by:
 
 - Calculating absolute deviation (`maxAbsolute`)
 - Calculating relative deviation (`maxRelative`)
 - Comparing against `max` and `suspicious` thresholds
 
-A report is:
+With a non-zero previous price, a report is:
 
 - Rejected if either deviation exceeds max
 - Accepted but marked as suspicious if above the suspicious threshold, flagging the report
-- Accepted as normal if within all limits
+- Normal only if the previous report is not suspicious and neither suspicious threshold is exceeded; a zero previous price instead makes the new report suspicious without deviation checks
 
 Used by:
 
-- `SignatureDepositQueue`, `SignatureRedeemQueue`, `DepositQueue` and `RedeemQueue` contracts
-- Vault's limit accounting (`RiskManager`)
+- Signature queues call `validatePrice`.
+- `RiskManager`, synchronous queues, and `OracleSubmitter` read `getReport`.
+- Asynchronous queues receive prices through `vault.handleReport`.
+
+### Oracle and Curator Utilities
+
+- [OracleSubmitter](./oraclesubmitter) adds report roles, history, and a Chainlink-compatible share-price feed around the vault Oracle.
+- [PermissionedChainlinkOracle](./permissionedchainlinkoracle) exposes an owner-supplied price within immutable bounds. It does not aggregate independent observations.
+- [MellowAccountV1](./mellowaccountv1) lets an owner batch contract calls through an account. Targets enforce permissions against that account.
 
 ### Share Manager
 
@@ -264,7 +278,7 @@ The Share Manager is an upgradeable contract responsible for managing vault shar
 Key responsibilities include:
 
 - Tracking total and active share supply
-- Managing global and targeted account lockups
+- Enforcing a global unlock timestamp for burns, locks, and transfers
 - Verifying whitelist status and transfer permissions
 - Enforcing mint, burn, and transfer pauses
 - Handling share allocation and claims through queues
@@ -280,9 +294,8 @@ Share Manager relies on a compact bitmask (`flags`) for enabling and disabling f
 - `hasWhitelist`
 - `hasTransferWhitelist`
 - `globalLockup`
-- `targetedLockup`
 
-Lockups are enforced in `updateChecks`.
+`globalLockup` is a Unix timestamp checked by `updateChecks` for burns, locks, and transfers. It does not restrict minting. There is no per-account lockup.
 
 Share Manager operates under the control of defined roles:
 
@@ -315,8 +328,8 @@ Performance and Protocol fees are activated by a fresh Oracle report on the base
 
 - Deposit fee - applied linearly and calculated as `shares * depositFeeD6 / 1e6`, deducted during the oracle report handling process.
 - Redeem fee - applied linearly and calculated as `shares * redeemFeeD6 / 1e6`, deducted when shares are requested for redemption.
-- Performance fee - due to the use of a non standard pricing mechanism (`price = shares / assets`), delegation yield will result in a lower reported price by the oracle; if `priceD18` falls below `minPriceD18`, the fee is charged as `(minPriceD18 - priceD18) * performanceFeeD6 * totalShares / 1e24` to capture the implied yield.
-- Protocol fee - a continuously accruing time based fee calculated as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`, proportional to both share supply and elapsed time since the last timestamp update.
+- Performance fee - due to the use of a non standard pricing mechanism (`price = shares / assets`), delegation yield will result in a lower reported price by the oracle; if `priceD18` falls below `minPriceD18`, the fee is charged as `(minPriceD18 - priceD18) * performanceFeeD6 * totalShares / (priceD18 * 1e6)` to capture the implied yield.
+- Protocol fee - applies when `timestamps[vault] != 0` and `block.timestamp > timestamps[vault]`. It is calculated as `totalShares * protocolFee * (block.timestamp - timestamps[vault]) / (365 * 24 * 3600 * 1e6)`, proportional to both share supply and elapsed time since the last timestamp update.
 
 ### Risk Manager
 
@@ -419,7 +432,7 @@ Process Flow for Curator Allocation:
 1. Curator asks Admin to add 2 Subvaults with correct verifier configs:
    - First one allowing liquidity transfer into a Copper or Ceffu account
    - Second one allowing deposits, withdrawals, withdrawal claims and reward claims & swaps from Symbiotic
-2. Curator pushes unallocated funds: `Vault.pushAssets(USDC, 500000)`.
+2. Curator pushes unallocated funds: `Vault.pushAssets(subvault, USDC, 5e11)` (500,000 USDC in its six-decimal raw units).
 3. Allocates assets in Subvault 1 (Delta Neutral strategy on ByBit via Copper ClearLoop).
    - In UI, Curator clicks New Call -> sets target to Copper Subvault -> selects USDC asset and Bybit ClearLoop as destination.
    - Generate `VerificationPayload` via Mellow API.
@@ -438,6 +451,7 @@ Process Flow for Curator Allocation:
      ```
 
    - Inside Bybit UI, strategy is realized by the Curator, with settlements occurring every few hours in the Copper Clearloop.
+
 4. Allocate to Subvault 2 (Symbiotic Restaking).
    - Pushes unallocated funds to the second Subvault: `vault.pushAssets(subvault2, asset, 5e11)`.
    - Clicks New Call -> target = Restaking Subvault -> calls `deposit(subvault, 5e11)`.
