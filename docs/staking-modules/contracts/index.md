@@ -25,8 +25,8 @@ How an address becomes a Node Operator. Each module has its own gate, and the fa
 | --- | --- | --- |
 | [`CuratedGate`](/staking-modules/contracts/CuratedGate) | CMv2 only | Lets an address in the gate's Merkle tree create a Node Operator of the gate's type |
 | [`PermissionlessGate`](/staking-modules/contracts/PermissionlessGate) | CSM only | Lets anyone register as a Node Operator |
-| [`VettedGate`](/staking-modules/contracts/VettedGate) | CSM only | Lets addresses in the gate's Merkle tree register with a better bond curve, used for ICS and IDVTC |
-| [`MerkleGateFactory`](/staking-modules/contracts/MerkleGateFactory) | Both | Deploys and initializes Merkle-based gate instances behind a proxy |
+| [`VettedGate`](/staking-modules/contracts/VettedGate) | 0x01 CSM only | Lets addresses in the gate's Merkle tree register with a better bond curve, used for ICS and IDVTC |
+| [`MerkleGateFactory`](/staking-modules/contracts/MerkleGateFactory) | CMv2 and 0x01 CSM | Deploys and initializes Merkle-based gate instances behind a proxy |
 
 ## Bond and rewards
 

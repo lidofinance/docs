@@ -9,7 +9,7 @@ Machines purchased from the [Dappnode store](https://dappnode.com/) are plug-and
 :::
 
 ### Video Guide
-<iframe width="800" height="450" src="https://www.youtube.com/embed/n31bSAn2IuM?si=RoLjNML8JArVVtGz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+<iframe style={{width: '100%', height: 'auto', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/n31bSAn2IuM?si=RoLjNML8JArVVtGz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 You can also follow complete playlists for:  
 - [Mainnet Playlist](https://youtube.com/playlist?list=PLS0yTNR46xvGJP1H09iRFxKK09vrNTqBp&si=wx75jG1VC6s_nLFM)  

@@ -6,7 +6,8 @@
 
 | Module | Mainnet |
 | --- | --- |
-| CSM | [`0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8`](https://etherscan.io/address/0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8) |
+| 0x01 CSM | [`0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8`](https://etherscan.io/address/0xb8cd8F059Ad7a5dB8CAfDe34aAb007317F7156C8) |
+| 0x02 CSM | [`0x78e36353FE904c3685585D9F3204D4aAcb3Ad506`](https://etherscan.io/address/0x78e36353FE904c3685585D9F3204D4aAcb3Ad506) |
 
 `PermissionlessGate.sol` is a supplementary contract that allows anyone to register as a Node Operator in the module. In a single transaction, it creates the Node Operator and submits the initial validator keys and bond in ETH, `stETH`, or `wstETH`. Node Operators created through this gate use the default bond curve.
 

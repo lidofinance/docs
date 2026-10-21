@@ -7,7 +7,7 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0xDdE99d63b352A665d04339D4792E6852Ce89d1B7`](https://etherscan.io/address/0xDdE99d63b352A665d04339D4792E6852Ce89d1B7) |
-| CSM | [`0xc0f110Af6eA9119037a71C84D14506A22AE43DdE`](https://etherscan.io/address/0xc0f110Af6eA9119037a71C84D14506A22AE43DdE) |
+| 0x01 CSM | [`0xc0f110Af6eA9119037a71C84D14506A22AE43DdE`](https://etherscan.io/address/0xc0f110Af6eA9119037a71C84D14506A22AE43DdE) |
 
 `MerkleGateFactory` is an immutable supplementary contract that deploys and initializes Merkle-based gate instances behind [OssifiableProxy](/contracts/ossifiable-proxy), namely [`CuratedGate`](/staking-modules/contracts/CuratedGate) in CMv2 and [`VettedGate`](/staking-modules/contracts/VettedGate) in CSM. Each new proxy is initialized with its bond curve, Merkle tree root and CID, name, and administrator.
 

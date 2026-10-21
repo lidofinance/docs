@@ -513,9 +513,7 @@ The committees below operate on the networks whose wstETH bridge endpoints are n
 
 **Address:** [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
 
-**Purpose of the multisig:** The Community Staking Module Committee uses this multisig to perform operations: report facts of MEV stealing committed by CSM Node Operators,
-cancel MEV stealing penalty if needed, start EasyTracks to settle MEV stealing penalty, switch the bond curve for the particular Node Operator or reset it to the default one,
-pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via the CircuitBreaker.
+**Purpose of the multisig:** The Community Staking Module Committee uses this multisig to operate 0x01 CSM and 0x02 CSM. It reports and cancels General Delayed Penalties and manages their additional fines and the key removal charges, starts Easy Track motions to settle those penalties, report withdrawals of slashed validators, update stake share limits, and update the Merkle trees of the 0x01 CSM gates, sets or resets the bond curve of a 0x01 CSM Node Operator, rewinds the 0x02 CSM top-up queue, and pauses module contracts in case of emergency via the CircuitBreaker.
 
 **Quorum:** 4/6
 
@@ -532,19 +530,27 @@ pause CSModule, CSAccounting, and CSFeeOracle in case of emergency via the Circu
 
 **Aragon:**\
 [Omnibus vote #180 (items 20-26)](https://dao.lido.fi/vote/180) (CSM was added to the Lido on Ethereum protocol)\
-[Omnibus vote #192 (items 1.34-1.59)](https://dao.lido.fi/vote/192) (upgrade to CSM v2)
-
-**Roles** (corresponding roles were assigned to the MS during CSM deployment transactions):
-- `REPORT_EL_REWARDS_STEALING_PENALTY_ROLE`: [0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d](https://etherscan.io/tx/0x79d54166a3df5ac9a73a053c043de0f6dd8ff7a0df2967c01be837925761c29d)
-- `SET_BOND_CURVE_ROLE`: [0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565](https://etherscan.io/tx/0x7ddfa518a16581cb317fadd7da5bafe864bc3665c1a5f9a0a2ca8c183d71b565)
-- `RESET_BOND_CURVE_ROLE`: [0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b](https://etherscan.io/tx/0xa8a3699744cb35895dae32d4810b1fb709f490e01448d3bba9c56ccfbc66eb8b)
+[Omnibus vote #192 (items 1.34-1.59)](https://dao.lido.fi/vote/192) (upgrade to CSM v2)\
+[Omnibus vote #203 (items 1-4, 6-8)](https://dao.lido.fi/vote/203) (upgrade to CSM v3)\
+[Omnibus vote #206 (items 1-4)](https://dao.lido.fi/vote/206) (0x02 CSM was added to the Lido on Ethereum protocol)
 
 **List of related contracts and roles:**
 
-| Contract name                         | Contract address                                                                                                        | Multisig role |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
-| Easy Track CSMSettleElStealingPenalty | [`0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4`](https://etherscan.io/address/0xF6B6E7997338C48Ea3a8BCfa4BB64a315fDa76f4) | trustedcaller |
-| CircuitBreaker                        | [`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7) | pauser |
+| Contract name | Contract address | Multisig role |
+| --- | --- | --- |
+| 0x01 CSM CSModule | [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) | `REPORT_GENERAL_DELAYED_PENALTY_ROLE` |
+| 0x01 CSM Accounting | [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) | `SET_BOND_CURVE_ROLE` |
+| 0x01 CSM ParametersRegistry | [`0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428`](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428) | `MANAGE_GENERAL_PENALTIES_AND_CHARGES_ROLE` |
+| 0x02 CSM CSModule | [`0x792Cd25e4aE3578375031FB55e048E163A804F7B`](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B) | `REPORT_GENERAL_DELAYED_PENALTY_ROLE`, `REWIND_TOP_UP_QUEUE_ROLE` |
+| 0x02 CSM ParametersRegistry | [`0x5352b3d8274933c72dC774DccCD12B7301EdBfD7`](https://etherscan.io/address/0x5352b3d8274933c72dC774DccCD12B7301EdBfD7) | `MANAGE_GENERAL_PENALTIES_AND_CHARGES_ROLE` |
+| Easy Track SetMerkleGateTree (0x01 CSM) | [`0xf3ec30B86c3dC1b8a1C754D885F9bE3160e15B4c`](https://etherscan.io/address/0xf3ec30B86c3dC1b8a1C754D885F9bE3160e15B4c) | trustedcaller |
+| Easy Track ReportWithdrawalsForSlashedValidators (0x01 CSM) | [`0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A`](https://etherscan.io/address/0xE330516a03bDdEBA4209b5591112f1aa3dd90F0A) | trustedcaller |
+| Easy Track SettleGeneralDelayedPenalty (0x01 CSM) | [`0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F`](https://etherscan.io/address/0xB71755bE764abB4Ce26cb4dADf056Be57fB8880F) | trustedcaller |
+| Easy Track UpdateStakingModuleShareLimits (0x01 CSM) | [`0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1`](https://etherscan.io/address/0xde3e46E3129fA4e4e3f66c9024B0A3Ad509b27a1) | trustedcaller |
+| Easy Track ReportWithdrawalsForSlashedValidators (0x02 CSM) | [`0x8D74020d8EACCdFf0366dAAFfb96e6c98CDFc112`](https://etherscan.io/address/0x8D74020d8EACCdFf0366dAAFfb96e6c98CDFc112) | trustedcaller |
+| Easy Track SettleGeneralDelayedPenalty (0x02 CSM) | [`0x0B676AdEABcf4A696187cfAb90290Aa3ac51aFA2`](https://etherscan.io/address/0x0B676AdEABcf4A696187cfAb90290Aa3ac51aFA2) | trustedcaller |
+| Easy Track UpdateStakingModuleShareLimits (0x02 CSM) | [`0x5b0De22E65C068430f6e769754D51133775408cc`](https://etherscan.io/address/0x5b0De22E65C068430f6e769754D51133775408cc) | trustedcaller |
+| CircuitBreaker | [`0x6019CB557978296BA3C08a7B73225C0975DFB2F7`](https://etherscan.io/address/0x6019CB557978296BA3C08a7B73225C0975DFB2F7) | pauser |
 
 
 **List of signers:**

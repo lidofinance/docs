@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0xffC1C5d59CeAC6F6c27E701F04a70cb50474607C`](https://etherscan.io/address/0xffC1C5d59CeAC6F6c27E701F04a70cb50474607C) |
-| CSM | [`0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428`](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428) |
+| 0x01 CSM | [`0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428`](https://etherscan.io/address/0x9D28ad303C90DF524BA960d7a2DAC56DcC31e428) |
+| 0x02 CSM | [`0x5352b3d8274933c72dC774DccCD12B7301EdBfD7`](https://etherscan.io/address/0x5352b3d8274933c72dC774DccCD12B7301EdBfD7) |
 
 `ParametersRegistry` is a supplementary contract that stores configurable parameters associated with Node Operator types, represented by bond curve IDs. It provides defaults and optional per-curve overrides for key limits, reward shares, performance and strike settings, general penalties, and validator-exit parameters. Contracts including the module contract ([`CuratedModule`](/staking-modules/contracts/CuratedModule) or [`CSModule`](/staking-modules/contracts/CSModule)), [`ValidatorStrikes`](/staking-modules/contracts/ValidatorStrikes), and [`ExitPenalties`](/staking-modules/contracts/ExitPenalties) retrieve the custom value when one is configured and the default otherwise.
 

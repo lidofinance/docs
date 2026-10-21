@@ -6,7 +6,8 @@
 
 | Module | Mainnet |
 | --- | --- |
-| CSM | [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) |
+| 0x01 CSM | [`0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F`](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F) |
+| 0x02 CSM | [`0x792Cd25e4aE3578375031FB55e048E163A804F7B`](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B) |
 
 `CSModule.sol` is a core module contract conforming to the `IStakingModule` and `IStakingModuleV2` interfaces. The contract stores information about Node Operators and deposit data (DD) and is responsible for all interactions with the `StakingRouter`, including deposit data queue management. To support `0x02` validators, it also maintains a top-up queue used to fund validators beyond the initial `32 ETH` deposit up to `2048 ETH`.
 

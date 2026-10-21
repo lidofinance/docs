@@ -21,7 +21,7 @@ The default queue is FIFO (first in, first out), so keys are served in the order
 
 **In 0x01 CSM**, each key receives a single 32 ETH deposit once the queue reaches it.
 
-**In 0x02 CSM**, keys are funded in two phases. The queue above allocates the initial 32 ETH deposit that activates each validator, and validators are then topped up toward the 2,048 ETH maximum through a separate top-up queue. Top-ups depend on the module's stake share limit and overall deposit demand, so a validator may never reach the full 2,048 ETH, and both phases can take longer than a standard 32 ETH deposit.
+**In 0x02 CSM**, keys are funded in two phases. The queue above allocates the initial 32 ETH deposit that activates each validator, and a separate top-up queue then adds stake up to a target slightly below the 2,048 ETH maximum to avoid overfilling. Top-ups depend on the module's stake share limit and overall deposit demand, so a validator may never reach that target, and both phases can take longer than a standard 32 ETH deposit.
 
 ## Upload keys
 

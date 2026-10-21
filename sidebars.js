@@ -238,7 +238,7 @@ module.exports = {
               items: [
               { type: 'doc', id: 'staking-modules/contracts/CuratedGate', label: 'CuratedGate (CMv2)' },
               { type: 'doc', id: 'staking-modules/contracts/PermissionlessGate', label: 'PermissionlessGate (CSM)' },
-              { type: 'doc', id: 'staking-modules/contracts/VettedGate', label: 'VettedGate (CSM)' },
+              { type: 'doc', id: 'staking-modules/contracts/VettedGate', label: 'VettedGate (0x01 CSM)' },
               { type: 'doc', id: 'staking-modules/contracts/MerkleGateFactory', label: 'MerkleGateFactory' },
               ],
             },

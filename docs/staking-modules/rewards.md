@@ -62,7 +62,7 @@ Performance Oracle creates a few artifacts for each successful round of reward d
 
 Both files are uploaded to IPFS, and their corresponding CIDs (essentially hashes of the files used to retrieve the content back from the IPFS network) are pushed on-chain. The [`FeeDistributor` contract](/staking-modules/contracts/FeeDistributor) has two view functions to retrieve these CIDs: [**treeCid**](/staking-modules/contracts/FeeDistributor#treecid) and [**logCid**](/staking-modules/contracts/FeeDistributor#logcid).
 
-The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. Each module publishes its tree and pre-generated proofs in a repository with one branch per network: [cm-v2-rewards](https://github.com/lidofinance/cm-v2-rewards) for CMv2 and [csm-rewards](https://github.com/lidofinance/csm-rewards), currently for 0x01 CSM only.
+The Merkle tree dump can be used to construct a valid proof for Node Operators to claim their acquired rewards. Each module publishes its tree and pre-generated proofs in a repository with one branch per network: [cm-v2-rewards](https://github.com/lidofinance/cm-v2-rewards) for CMv2 and [csm-rewards](https://github.com/lidofinance/csm-rewards) for both CSM modules. 0x02 CSM publishes to its own `mainnet-0x02` and `hoodi-0x02` branches.
 
 A frame performance assessment log provides transparency into the rewards distribution performed by the Oracle. It stores, among other things:
 

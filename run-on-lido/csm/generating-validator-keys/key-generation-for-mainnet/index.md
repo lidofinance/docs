@@ -7,8 +7,8 @@ import TabItem from '@theme/TabItem';
 
 # 🚀 Key Generation for Mainnet
 
-:::warning 0x01 keys only
-This guide is for the live **0x01 CSM**. Generate `0x01` withdrawal credentials with deposit data set to 32 ETH. Do not generate `0x02` keys for CSM yet; 0x02 CSM is not live on Mainnet.
+:::info Choose the right credential type
+Generate `0x01` keys for 0x01 CSM or `0x02` keys for 0x02 CSM, with deposit data set to 32 ETH either way. Each module only accepts its own credential type, so double-check before uploading keys.
 :::
 
 ## Important
@@ -16,7 +16,7 @@ This guide is for the live **0x01 CSM**. Generate `0x01` withdrawal credentials 
 * It is highly recommended that you perform this step using an air-gapped machine (a device that has never connected to the public internet).
 * If this is not available, turn off all internet and wireless connections (Ethernet, WiFi, Bluetooth) before proceeding.
 * In both cases, ensure you’re in a safe environment with a trusted network and physically block all camera devices.
-* Generate the keys using **0x01 Withdrawal Credentials with deposit amount set to 32 ETH**.
+* Generate the keys with the deposit amount set to **32 ETH**, using **0x01** withdrawal credentials for 0x01 CSM or **0x02** for 0x02 CSM.
 
 ## Creating an air-gapped machine
 
@@ -117,10 +117,11 @@ Run the GUI and:
 2. Select network: **Mainnet**.
 3. Write down and confirm the phrase.
 4. Choose number of keys.
-5. Encrypt keystores with a password.
-6. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault in Ethereum Mainnet: `0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f`
-7. Confirm password.
-8. Save keystores & deposit data to a USB drive.
+5. Choose the withdrawal credential type: **regular (0x01)** for 0x01 CSM, or **compounding (0x02)** for 0x02 CSM.
+6. Encrypt keystores with a password.
+7. **IMPORTANT:** Set withdrawal address to the Lido Withdrawal Vault in Ethereum Mainnet: `0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f`
+8. Confirm password.
+9. Save keystores & deposit data to a USB drive.
 
   </TabItem>
   <TabItem value="executable-run" label="Executable binaries">
@@ -140,11 +141,21 @@ cd ethstaker_deposit-cli-d8016bc-linux-amd64
 1. Turn off Ethernet, WiFi, Bluetooth.
 2. Cover camera devices.
 
-Generate keys:
+Generate keys for **0x01 CSM**:
 
 ```bash
-./deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+./deposit new-mnemonic --num_validators <number> --chain mainnet --regular-withdrawal --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 ```
+
+Or for **0x02 CSM**:
+
+```bash
+./deposit new-mnemonic --num_validators <number> --chain mainnet --compounding --amount 32 --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+```
+
+:::warning
+Always pass `--regular-withdrawal` or `--compounding` explicitly. Starting with `v1.3.1`, the tool generates `0x02` keys by default, so omitting the flag can produce the wrong credential type for 0x01 CSM.
+:::
 
 Expected output:
 
@@ -187,11 +198,21 @@ pip3 install -r requirements.txt
 1. Turn off Ethernet, WiFi, Bluetooth.
 2. Cover camera devices.
 
-Generate keys:
+Generate keys for **0x01 CSM**:
 
 ```bash
-python -m ethstaker_deposit new-mnemonic --num_validators <number> --chain mainnet --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+python -m ethstaker_deposit new-mnemonic --num_validators <number> --chain mainnet --regular-withdrawal --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
 ```
+
+Or for **0x02 CSM**:
+
+```bash
+python -m ethstaker_deposit new-mnemonic --num_validators <number> --chain mainnet --compounding --amount 32 --eth1_withdrawal_address 0xB9D7934878B5FB9610B3fE8A5e441e8fad7E293f
+```
+
+:::warning
+Always pass `--regular-withdrawal` or `--compounding` explicitly. Starting with `v1.3.1`, the tool generates `0x02` keys by default, so omitting the flag can produce the wrong credential type for 0x01 CSM.
+:::
 
   </TabItem>
 </Tabs>

@@ -9,7 +9,7 @@ Before you can run validators in the Community Staking Module, you need to gener
 In this section, we’ll guide you through the process of generating validator keys, with options depending on whether you’re deploying on testnet or mainnet.
 
 :::info Choose the right credential type
-Generate `0x01` keys for 0x01 CSM (Mainnet and Hoodi), or `0x02` keys for 0x02 CSM (Hoodi only). Double-check the credential type before uploading keys.
+Generate `0x01` keys for 0x01 CSM, or `0x02` keys for 0x02 CSM. Double-check the credential type before uploading keys.
 :::
 
 ---

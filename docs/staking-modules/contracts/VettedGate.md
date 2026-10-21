@@ -4,11 +4,10 @@
 
 ## Deployed contracts
 
-Deployed in CSM only.
-
-- Deployed contracts (deployed as multiple gate instances):
-  - [Identified Community Stakers Gate](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0)
-  - [Identified DVT Cluster Gate](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8)
+| Module | Gate | Mainnet |
+| --- | --- | --- |
+| 0x01 CSM | Identified Community Stakers | [`0xB314D4A76C457c93150d308787939063F4Cc67E0`](https://etherscan.io/address/0xB314D4A76C457c93150d308787939063F4Cc67E0) |
+| 0x01 CSM | Identified DVT Cluster | [`0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8`](https://etherscan.io/address/0xa12760721A72A7199aB38059DA6690b9Cd4ed7B8) |
 
 `VettedGate.sol` is a supplementary contract that allows addresses included in a gate instance's Merkle tree to register as Node Operators in the module. In a single transaction, an eligible participant can create a Node Operator, assign the gate's bond curve, and submit initial validator keys and a bond in ETH, `stETH`, or `wstETH`. An existing Node Operator owner can instead claim the gate's bond curve. Each address can use a given gate instance only once.
 

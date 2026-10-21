@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0xf4618370a1fBf46905B16C10817c8CFaD924D6db`](https://etherscan.io/address/0xf4618370a1fBf46905B16C10817c8CFaD924D6db) |
-| CSM | [`0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f`](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f) |
+| 0x01 CSM | [`0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f`](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f) |
+| 0x02 CSM | [`0x89bd84481F7679732EADDF7d99d02ABD8309df65`](https://etherscan.io/address/0x89bd84481F7679732EADDF7d99d02ABD8309df65) |
 
 `ValidatorStrikes` is a supplementary contract that stores the latest Merkle tree root and CID for validator-strike data reported by the [Performance Oracle](/staking-modules/contracts/FeeOracle). Anyone can submit a valid Merkle multiproof showing that one or more validators have reached the strike threshold configured in [`ParametersRegistry`](/staking-modules/contracts/ParametersRegistry) for their Node Operator type. For each qualifying validator, the contract records a bad-performance penalty through [`ExitPenalties`](/staking-modules/contracts/ExitPenalties) and calls [`Ejector`](/staking-modules/contracts/Ejector) to trigger the validator's exit.
 

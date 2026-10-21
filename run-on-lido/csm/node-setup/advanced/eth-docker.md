@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ## Full Node Setup
 
 ### Video Guide
-<iframe width="800" height="450" src="https://www.youtube.com/embed/PQ5qLfbBeTI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+<iframe style={{width: '100%', height: 'auto', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/PQ5qLfbBeTI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 
 :::warning
