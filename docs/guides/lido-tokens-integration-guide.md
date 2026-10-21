@@ -202,7 +202,7 @@ Also, V2 upgrade introduced a `transferSharesFrom` to completely match ERC-20 se
 
 ### Fees
 
-Lido collects a percentage of the staking rewards as a protocol fee. The exact fee size is defined by the DAO and can be changed in the future via DAO voting. To collect the fee, the protocol mints new stETH token shares and assigns them to the fee recipients. Currently, the fee collected by Lido protocol is 10% of staking rewards with half of it going to the node operators and the other half going to the protocol treasury.
+Lido collects a percentage of the staking rewards as a protocol fee. The exact fee size is defined by the DAO and can be changed in the future via DAO voting. To collect the fee, the protocol mints new stETH token shares and assigns them to the fee recipients. For details on how protocol fees are distributed, see the [Staking Router fee distribution](/contracts/staking-router#fee-distribution).
 
 Since the total amount of Lido pooled ether tends to increase, the combined value of all holders' shares denominated in stETH increases respectively. Thus, the rewards effectively spread between each token holder proportionally to their share in the protocol TVL. So Lido mints new shares to the fee recipient so that the total cost of the newly-minted shares exactly corresponds to the fee taken (calculated in basis points):
 
