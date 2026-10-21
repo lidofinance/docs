@@ -513,7 +513,7 @@ The committees below operate on the networks whose wstETH bridge endpoints are n
 
 **Address:** [`0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f`](https://app.safe.global/settings/setup?safe=eth:0xC52fC3081123073078698F1EAc2f1Dc7Bd71880f)
 
-**Purpose of the multisig:** The Community Staking Module Committee uses this multisig to operate 0x01 CSM and 0x02 CSM. It reports and cancels General Delayed Penalties and manages their additional fines and the key removal charges, starts Easy Track motions to settle those penalties, report withdrawals of slashed validators, update stake share limits, and update the Merkle trees of the 0x01 CSM gates, sets or resets the bond curve of a 0x01 CSM Node Operator, rewinds the 0x02 CSM top-up queue, and pauses module contracts in case of emergency via the CircuitBreaker.
+**Purpose of the multisig:** The Community Staking Module Committee uses this multisig to run the day-to-day operations of 0x01 CSM and 0x02 CSM, including handling General Delayed Penalties and pausing module contracts in case of emergency. Its exact roles are listed below.
 
 **Quorum:** 4/6
 
