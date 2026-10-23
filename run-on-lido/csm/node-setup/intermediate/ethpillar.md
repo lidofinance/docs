@@ -4,13 +4,15 @@ import TabItem from '@theme/TabItem';
 # EthPillar
 
 :::warning
-For Testnet setups, replace all Holesky references with Hoodi.
+The original EthPillar repository has not been updated since November 2025. A community fork, [mjkeating/EthPillar](https://github.com/mjkeating/EthPillar), is under active development. This guide was written for the original release and has not been tested against the fork.
 :::
 
 ## Full Node Setup
 
 ### Video Guide
-<iframe width="800" height="450" src="https://www.youtube.com/embed/aZLPACj2oPI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+<iframe style={{width: '100%', height: 'auto', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/aZLPACj2oPI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+
+The video was recorded on the Holesky testnet. For testnet setups, use Hoodi instead.
 
 ### Download EthPillar
 
@@ -29,7 +31,7 @@ Next, type and enter `ethpillar` to launch the terminal UI and:
 5. Import the generated validator keys into your validator client.
 
 :::note
-EthPillar's CSM key generation does not yet support `0x02` keys. If you are joining 0x02 CSM on Hoodi, generate your keys with Eth Docker or Wagyu Keygen instead, as described in [Key Generation for Testnet](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet).
+EthPillar's CSM key generation does not yet support `0x02` keys. If you are joining 0x02 CSM, generate your keys with one of the methods in [Generating Validator Keys](/run-on-lido/csm/generating-validator-keys/) instead.
 :::
 
 <Tabs>

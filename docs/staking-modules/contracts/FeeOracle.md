@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0x8EeFCdbD984c30E472BcbF545783D051CB5114e5`](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) |
-| CSM | [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) |
+| 0x01 CSM | [`0x4D4074628678Bd302921c20573EEa1ed38DdF7FB`](https://etherscan.io/address/0x4D4074628678Bd302921c20573EEa1ed38DdF7FB) |
+| 0x02 CSM | [`0x0fB5EC09Cc975d8E1aF43063e51882798814f311`](https://etherscan.io/address/0x0fB5EC09Cc975d8E1aF43063e51882798814f311) |
 
 `FeeOracle` is a supplementary contract that processes the module's Performance Oracle report after consensus has been reached. An authorized consensus member or account holding `SUBMIT_DATA_ROLE` submits the report data matching the consensus hash. The contract sends rewards-distribution data to [`FeeDistributor`](/staking-modules/contracts/FeeDistributor) and the latest validator-strikes tree to [`ValidatorStrikes`](/staking-modules/contracts/ValidatorStrikes).
 

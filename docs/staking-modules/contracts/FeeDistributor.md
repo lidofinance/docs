@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0x367d23c756599c20DCc8D6943F4976E8F88D60d7`](https://etherscan.io/address/0x367d23c756599c20DCc8D6943F4976E8F88D60d7) |
-| CSM | [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) |
+| 0x01 CSM | [`0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0`](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0) |
+| 0x02 CSM | [`0x122CdeDD0da630B555050976052C262EA25f8335`](https://etherscan.io/address/0x122CdeDD0da630B555050976052C262EA25f8335) |
 
 `FeeDistributor` is a supplementary contract that holds the module's `stETH` reward shares while they are unallocated or claimable by Node Operators. [`FeeOracle`](/staking-modules/contracts/FeeOracle) reports the latest rewards-distribution Merkle root and CID, distribution log, newly claimable shares, and any rebate. The contract stores a history of these reports and transfers the reported rebate to the configured recipient.
 

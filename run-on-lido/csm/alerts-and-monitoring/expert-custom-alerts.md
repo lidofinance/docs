@@ -26,7 +26,7 @@ If the Node Operator doesn't exit in time, an exit delay charge is applied to th
 VEBO is shared by the CSM modules on each network. Filter events by both `stakingModuleId` and `nodeOperatorId`, using the module ID for your deployment:
 
 - **0x01 CSM:** `stakingModuleId=3` on [Mainnet](/deployed-contracts/#community-staking-module) and `stakingModuleId=4` on [Hoodi](/deployed-contracts/hoodi#-community-staking-module).
-- **0x02 CSM:** `stakingModuleId=6` on [Hoodi](/deployed-contracts/hoodi#-community-staking-module-0x02).
+- **0x02 CSM:** `stakingModuleId=5` on [Mainnet](/deployed-contracts/#community-staking-module-0x02) and `stakingModuleId=6` on [Hoodi](/deployed-contracts/hoodi#-community-staking-module-0x02).
 
 ```solidity
 event ValidatorExitRequest(
@@ -47,6 +47,7 @@ This event can be tracked using [Ejector](https://github.com/lidofinance/validat
 
 - [0x01 CSM — Mainnet](https://etherscan.io/address/0xdA7dE2ECdDfccC6c3AF10108Db212ACBBf9EA83F)
 - [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0x79CEf36D84743222f37765204Bec41E92a93E59d)
+- [0x02 CSM — Mainnet](https://etherscan.io/address/0x792Cd25e4aE3578375031FB55e048E163A804F7B)
 - [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0xbb7dd81FAC80f3Effa10eA8b973c15AE65a4CAf9)
 
 
@@ -111,6 +112,7 @@ event DepositedSigningKeysCountChanged(
 
 - [0x01 CSM — Mainnet](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193)
 - [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0xD259b31083Be841E5C85b2D481Cfc17C14276800)
+- [0x02 CSM — Mainnet](https://etherscan.io/address/0xa96021Eff64E8FE927424C77902c56C4F17d10A5)
 - [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0x3A2a355a27478f4f043e4206b7e1301611642801)
 
 ### ValidatorExitDelayProcessed
@@ -149,6 +151,7 @@ event StrikesPenaltyProcessed(
 
 - [0x01 CSM — Mainnet](https://etherscan.io/address/0xaa328816027F2D32B9F56d190BC9Fa4A5C07637f)
 - [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0x8fBA385C3c334D251eE413e79d4D3890db98693c)
+- [0x02 CSM — Mainnet](https://etherscan.io/address/0x89bd84481F7679732EADDF7d99d02ABD8309df65)
 - [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0x543Fbc220A1dAb7f41C62a793D7157Ab6Bd44AA6)
 
 ### StrikesDataUpdated
@@ -161,6 +164,7 @@ event StrikesDataUpdated(bytes32 treeRoot, string treeCid);
 
 - [0x01 CSM — Mainnet](https://etherscan.io/address/0xD99CC66fEC647E68294C6477B40fC7E0F6F618D0)
 - [0x01 CSM — Hoodi](https://hoodi.etherscan.io/address/0xaCd9820b0A2229a82dc1A0770307ce5522FF3582)
+- [0x02 CSM — Mainnet](https://etherscan.io/address/0x122CdeDD0da630B555050976052C262EA25f8335)
 - [0x02 CSM — Hoodi](https://hoodi.etherscan.io/address/0x7E875b0cb3725Ff58AF903679d1bF807A3089496)
 
 ### DistributionDataUpdated

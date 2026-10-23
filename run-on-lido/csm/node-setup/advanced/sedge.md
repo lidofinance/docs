@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 ### Video Guide
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/wTxhkr_eDa4?si=1vHZfSK5QMipt31O" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+<iframe style={{width: '100%', height: 'auto', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/wTxhkr_eDa4?si=1vHZfSK5QMipt31O" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 :::warning
 For Testnet setups, replace all Holesky references with Hoodi.
@@ -61,7 +61,7 @@ The MEV-Boost service is configured with designated relays. Learn more about CSM
 If you're going through **testnet**, in the prompts, choose to generate keystore source, mnemonic source (backup your seed), and passphrase. Specify the number of keys and initial index.
 
 :::note
-Sedge does not yet support generating `0x02` keys. If you are joining 0x02 CSM on Hoodi, generate your keys with Eth Docker or Wagyu Keygen instead, as described in [Key Generation for Testnet](/run-on-lido/csm/generating-validator-keys/key-generation-for-testnet).
+Sedge does not yet support generating `0x02` keys. If you are joining 0x02 CSM, generate your keys with one of the methods in [Generating Validator Keys](/run-on-lido/csm/generating-validator-keys/) instead.
 :::
 
 Then copy deposit data for the CSM widget:

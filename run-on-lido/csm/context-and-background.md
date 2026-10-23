@@ -10,16 +10,16 @@ The **Community Staking Module (CSM)** is a family of two staking modules in Lid
 It is designed to make participation as a Node Operator accessible to independent operators.
 
 :::info
-0x02 CSM is live on the Hoodi testnet, with an expected Mainnet release in Q4 2026.
+0x02 CSM is live on Mainnet. It launched with a stake share limit of 0.01% that the CSM Committee raises in steps, so new keys may wait for the next increase before receiving deposits. See the [rollout plan](https://research.lido.fi/t/0x02-csm-landscape/11697/10).
 
-Access 0x01 CSM at [csm.lido.fi](https://csm.lido.fi/) (Mainnet) and both at [csm.testnet.fi](https://csm.testnet.fi/) (Hoodi).
+Access both modules at [csm.lido.fi](https://csm.lido.fi/) (Mainnet) and [csm.testnet.fi](https://csm.testnet.fi/) (Hoodi).
 :::
 
 ---
 
 ## Why there are two CSM modules
 
-Until now, CSM has worked exclusively with `0x01` validators, which have a maximum effective balance of 32 ETH. With the introduction of `0x02` credentials, CSM now has an opportunity to support compounding validators with balances of up to 2,048 ETH.
+CSM originally worked exclusively with `0x01` validators, which have a maximum effective balance of 32 ETH. With the introduction of `0x02` credentials, CSM can also support compounding validators with balances of up to 2,048 ETH.
 
 Supporting wider `0x02` adoption is important for Ethereum. Larger validators can compound rewards and consolidate stake into fewer validators, reducing consensus-layer overhead and helping prepare Ethereum for future improvements such as faster finality.
 
@@ -35,7 +35,6 @@ See [Managing 0x01 and 0x02 Operators](/run-on-lido/csm/lido-csm-widget/managing
 
 | Dimension | 0x01 CSM | 0x02 CSM |
 | --- | --- | --- |
-| Availability | Live on Mainnet | Live on Hoodi testnet; [Mainnet expected Q4 2026](https://research.lido.fi/t/0x02-csm-landscape/11697) |
 | Withdrawal credentials | `0x01` | `0x02` |
 | Maximum Effective Balance | 32 ETH | 2,048 ETH |
 | Stake allocation | FIFO queue | [Initial 32 ETH deposit followed by top-ups](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys#deposit-queue) |

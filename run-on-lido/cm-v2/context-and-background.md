@@ -30,7 +30,7 @@ CMv2 introduces significant changes from CMv1 and CSM. The table below summarize
 | **Rewards** | Push-based | Pull-based | Pull-based |
 | **Address management** | Governance | Operator-controlled | Operator-controlled + governance fallback |
 
-**CSM is a family of two modules. 0x01 CSM is live on Mainnet and Hoodi, and [0x02 CSM](/run-on-lido/csm/context-and-background) is live on Hoodi with an expected Mainnet release in Q4 2026.*
+**CSM is a family of two modules, 0x01 CSM and 0x02 CSM, both live on Mainnet and Hoodi.*
 
 ---
 

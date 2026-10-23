@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0x004aFb7DAA7dEA20EbAaB75c9F4892C879FaCCe0`](https://etherscan.io/address/0x004aFb7DAA7dEA20EbAaB75c9F4892C879FaCCe0) |
-| CSM | [`0x06cd61045f958A209a0f8D746e103eCc625f4193`](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193) |
+| 0x01 CSM | [`0x06cd61045f958A209a0f8D746e103eCc625f4193`](https://etherscan.io/address/0x06cd61045f958A209a0f8D746e103eCc625f4193) |
+| 0x02 CSM | [`0xa96021Eff64E8FE927424C77902c56C4F17d10A5`](https://etherscan.io/address/0xa96021Eff64E8FE927424C77902c56C4F17d10A5) |
 
 `ExitPenalties` is a supplementary contract that records exit-related penalties and charges for individual validators. It can track:
 

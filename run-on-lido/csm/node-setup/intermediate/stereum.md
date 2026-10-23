@@ -11,7 +11,7 @@ To use Stereum your machine must be running Ubuntu. Follow the official installa
 :::
 
 ### Video Guide
-<iframe width="800" height="450" src="https://www.youtube.com/embed/v5k1nlDajyI?si=wAM35LSC_Wk7I7RQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+<iframe style={{width: '100%', height: 'auto', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/v5k1nlDajyI?si=wAM35LSC_Wk7I7RQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 :::warning
 For Testnet setups, replace all Holesky references with Hoodi.

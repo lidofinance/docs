@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6`](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) |
-| CSM | [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) |
+| 0x01 CSM | [`0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da`](https://etherscan.io/address/0x4d72BFF1BeaC69925F8Bd12526a39BAAb069e5Da) |
+| 0x02 CSM | [`0x3696dDd942A9e156F5D4728505D1b9a32dCef900`](https://etherscan.io/address/0x3696dDd942A9e156F5D4728505D1b9a32dCef900) |
 
 `Accounting` is a supplementary contract that manages Node Operators' bond, staking-fee rewards, penalties, and charges. It holds bond as `stETH` shares and calculates the required bond from configurable bond curves associated with Node Operator types. The contract also manages bond locks and debt, pulls Merkle-proven rewards from [`FeeDistributor`](/staking-modules/contracts/FeeDistributor), and applies configured reward fee splits.
 

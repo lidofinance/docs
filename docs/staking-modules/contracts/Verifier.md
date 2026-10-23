@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3`](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3) |
-| CSM | [`0xfce7aB839e55de77730716D05b3553e45ab3A5Ba`](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba) |
+| 0x01 CSM | [`0xfce7aB839e55de77730716D05b3553e45ab3A5Ba`](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba) |
+| 0x02 CSM | [`0x69b4C32a43565e768794D41b4A265F86dE61b861`](https://etherscan.io/address/0x69b4C32a43565e768794D41b4A265F86dE61b861) |
 
 `Verifier.sol` is a supplementary contract responsible for validating Consensus Layer (CL) data proofs against the beacon block root obtained via [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reporting the verified facts to the module. All of its proof-processing methods are permissionless - anyone (typically the prover bot or the Node Operator) can submit a valid proof.
 

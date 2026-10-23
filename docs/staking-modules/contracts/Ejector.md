@@ -7,7 +7,8 @@
 | Module | Mainnet |
 | --- | --- |
 | CMv2 | [`0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E`](https://etherscan.io/address/0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E) |
-| CSM | [`0x610B517D380f287c239C93F8eF6FfBd567AA4bA5`](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5) |
+| 0x01 CSM | [`0x610B517D380f287c239C93F8eF6FfBd567AA4bA5`](https://etherscan.io/address/0x610B517D380f287c239C93F8eF6FfBd567AA4bA5) |
+| 0x02 CSM | [`0x2EE500885870b020e84E86a09A5d26D1EEec3E5E`](https://etherscan.io/address/0x2EE500885870b020e84E86a09A5d26D1EEec3E5E) |
 
 `Ejector` is an immutable supplementary contract that triggers full validator withdrawals through Lido's [`TriggerableWithdrawalsGateway`](/contracts/triggerable-withdrawals-gateway) using EIP-7002 execution-layer withdrawal requests. It supports batched voluntary ejections initiated by a Node Operator owner and forced ejections initiated by [`ValidatorStrikes`](/staking-modules/contracts/ValidatorStrikes) for validators that have reached the configured strike threshold.
 

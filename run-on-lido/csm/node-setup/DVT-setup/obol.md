@@ -8,7 +8,7 @@
 - **Extra benefits**: [Obol credentials](https://docs.obol.org/community-and-governance/community/techne) proving proficiency as a validator operator.  
 
 ### Video Guide
-<iframe width="800" height="450" src="https://www.youtube.com/embed/RfHn4k3HdV0?si=bPLrOLwGfdtrrSOL" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+<iframe style={{width: '100%', height: 'auto', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/RfHn4k3HdV0?si=bPLrOLwGfdtrrSOL" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 ## Preparation
 

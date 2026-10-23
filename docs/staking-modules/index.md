@@ -24,7 +24,7 @@ The **[Community Staking Module (CSM)](https://lido.fi/csm)** offers permissionl
 | --- | --- | --- | --- | --- |
 | **CMv2** | Curated | `0x02` | Weighted allocation by operator group | Phase 1 live on Mainnet |
 | **0x01 CSM** | Permissionless | `0x01` | FIFO queue with priority seats | Live on Mainnet |
-| **0x02 CSM** | Permissionless | `0x02` | Initial `32 ETH` through the FIFO queue, then a dedicated top-up queue | Live on the Hoodi testnet |
+| **0x02 CSM** | Permissionless | `0x02` | Initial `32 ETH` through the FIFO queue, then a dedicated top-up queue | Live on Mainnet |
 
 ## 📓 Glossary {#glossary}
 - The [**staking router**](/contracts/staking-router) (SR) is a smart contract within the Lido on Ethereum protocol that facilitates stake allocation and rewards distribution across different modules;
