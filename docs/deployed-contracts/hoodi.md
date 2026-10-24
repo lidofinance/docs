@@ -257,7 +257,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
   - Intra-Operator DVT Cluster Plus Gate: [`0x28518be9894C20135F280a9539617783b08a04c7`](https://hoodi.etherscan.io/address/0x28518be9894C20135F280a9539617783b08a04c7) (proxy)
   - Gate: [`0xA8347dD3fe2f0c8d100B7e224E2B243dF99bA941`](https://hoodi.etherscan.io/address/0xA8347dD3fe2f0c8d100B7e224E2B243dF99bA941) (impl, shared)
 - CuratedModule: [`0x87EB69Ae51317405FD285efD2326a4a11f6173b9`](https://hoodi.etherscan.io/address/0x87EB69Ae51317405FD285efD2326a4a11f6173b9) (proxy)
-- CuratedModule: [`0xf01b6b3E27fD3A4c063E391A0714c770d9422CE8`](https://hoodi.etherscan.io/address/0xf01b6b3E27fD3A4c063E391A0714c770d9422CE8) (impl)
+- CuratedModule: [`0x0d7cBAf91cc6cbfB72ea70ec09c04855A06ac7Ee`](https://hoodi.etherscan.io/address/0x0d7cBAf91cc6cbfB72ea70ec09c04855A06ac7Ee) (impl)
 - Accounting: [`0x7f7356D29aCd915F1934220956c3305808ceB235`](https://hoodi.etherscan.io/address/0x7f7356D29aCd915F1934220956c3305808ceB235) (proxy)
 - Accounting: [`0x665eA8EFf296f67C59eda4F4130ba12De49c1cc3`](https://hoodi.etherscan.io/address/0x665eA8EFf296f67C59eda4F4130ba12De49c1cc3) (impl)
 - ParametersRegistry: [`0xefb8e4091A75C4828826bf64595F392f87A07b37`](https://hoodi.etherscan.io/address/0xefb8e4091A75C4828826bf64595F392f87A07b37) (proxy)
@@ -281,7 +281,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - External libraries:
   - AssetRecovererLib: [`0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902`](https://hoodi.etherscan.io/address/0x37aDa408AE3c3992953688e2CCb9eE7a3dfdA902)
   - BondCurvesLib: [`0xC4511d09639e5E174506083443da230D39196323`](https://hoodi.etherscan.io/address/0xC4511d09639e5E174506083443da230D39196323)
-  - CuratedDepositAllocator: [`0xa4fCD4dDa0e4a847142E3592C97c77d8B9B3Cf5F`](https://hoodi.etherscan.io/address/0xa4fCD4dDa0e4a847142E3592C97c77d8B9B3Cf5F)
+  - CuratedDepositAllocator: [`0x691e8BA3DBf3E2E33a8C5641B15d4d24F3837F37`](https://hoodi.etherscan.io/address/0x691e8BA3DBf3E2E33a8C5641B15d4d24F3837F37)
   - GeneralPenaltyLib: [`0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4`](https://hoodi.etherscan.io/address/0xF05545ED71c60bBba6E73B6B70B15D4f5F22C0f4)
   - NOAddresses: [`0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3`](https://hoodi.etherscan.io/address/0x9D9c8799189c797f6e2dA74F71aDF84492adA7D3)
   - NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://hoodi.etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A)
