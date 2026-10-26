@@ -80,7 +80,7 @@ Use the `product` parameter to show only the listed products and hide all others
 - `product=stake&product=earn` — show only Stake and Earn
 
 ```html
-<!-- Shows only the Stake tab; all other products are hidden -->
+<!-- Shows only Stake; all other products are hidden -->
 <iframe
     src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&product=stake"
     title="Lido Widget"
@@ -88,6 +88,8 @@ Use the `product` parameter to show only the listed products and hide all others
     width="100%"
 />
 ```
+
+When only Stake is shown, the main menu displays the Stake sections instead of product tabs: Stake, Wrap, Withdrawals and Rewards.
 
 This is the recommended approach if you want to integrate only specific products: new products added to the Lido Widget later will not appear in your integration automatically.
 
