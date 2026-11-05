@@ -374,13 +374,15 @@ $$
 
 #### Carry Spread
 
-Estimated yearly return after both fees and stETH liability growth.
+Estimated annual return of your stVault relative to its Total Value, after accounting for fees and stETH Liability growth. The stVaults Web UI displays the 7-day average.
 
 $$
 \text{carrySpread} = \frac{\text{bottomLine}}{TV_{prev}} \times \frac{\text{secondsInYear}}{\text{periodSeconds}} \times 100\%
 $$
 
-A positive Carry Spread does not guarantee an increase in Health Factor. With a fixed Forced Rebalance Threshold, Health Factor rises when assets grow faster than liabilities in percentage terms and falls when liabilities grow faster than assets.
+:::note
+A positive Carry Spread does not guarantee that the Health Factor increases. With a fixed Forced Rebalance Threshold, the Health Factor increases only when Total Value grows faster than stETH Liability in percentage terms, that is, when Net staking APR exceeds stETH APR.
+:::
 
 ## Restoring an unhealthy stVault
 

@@ -6,7 +6,7 @@ By integrating Lido staking into your app or website you may be eligible for [Li
 
 ## Your referral link
 
-You can start referring people simply by sharing your special referral link to Lido [Staking Widget](https://stake.lido.fi/). Your referral link looks like this `https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS` where `YOUR_REWARDS_ADDRESS` is your Ethereum address or ENS name registered for the Lido Referral Program. Anyone who uses your link to stake will automatically set your rewards address as their referral.
+You can start referring people simply by sharing your special referral link to the [Lido Widget](https://stake.lido.fi/). Your referral link looks like this `https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS` where `YOUR_REWARDS_ADDRESS` is your Ethereum address or ENS name registered for the Lido Referral Program. Anyone who uses your link to stake will automatically set your rewards address as their referral.
 
 For example, Vitalik's referral link would be [`https://stake.lido.fi/?ref=0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B`](https://stake.lido.fi/?ref=0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B).
 
@@ -16,7 +16,7 @@ There are multiple ways of integrating Lido staking into your app or website.
 
 ### Adding a banner
 
-You can add a banner to your website that redirects the user to Lido Staking Widget using your referral link. We have [several SVG banners](https://github.com/lidofinance/referral-program-integration-examples/tree/main/banners) for you to choose from.
+You can add a banner to your website that redirects the user to the Lido Widget using your referral link. We have [several SVG banners](https://github.com/lidofinance/referral-program-integration-examples/tree/main/banners) for you to choose from.
 
 Example code,
 
@@ -33,16 +33,16 @@ Preview,
 
 For more examples, click [here](https://github.com/lidofinance/referral-program-integration-examples/tree/main/examples/banners).
 
-### Embedding Staking Widget
+### Embedding the Lido Widget
 
-If you don't want users to leave your app to stake, you can embed Staking Widget via the `iframe` HTML tag and use your referral link as the source.
+If you don't want users to leave your app to stake, you can embed the Lido Widget via the `iframe` HTML tag and use your referral link as the source.
 
 Example code,
 
 ```html
 <iframe
     src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS"
-    title="Lido Staking App"
+    title="Lido Widget"
     height="500"
     width="100%"
 />
@@ -51,49 +51,104 @@ Example code,
 Preview,
 <iframe
     src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS"
-    title="Lido Staking App"
+    title="Lido Widget"
     height="500"
     width="100%"
 />
 
 For a full example, click [here](https://github.com/lidofinance/referral-program-integration-examples/blob/main/examples/iframe/iframe.html).
 
-### Earn Page
+### Choosing which products to show
 
-The ETH Staking Widget’s Earn page lets users deposit ETH, WETH, USDC, USDT or wstETH into vaults seeking extra rewards on top of staking.
+Besides Stake, the Lido Widget includes other products, such as Earn and Swap, each shown as a separate tab. By default, all of them are displayed. You can control which products are visible with URL query parameters.
 
-The Earn page is **enabled by default**. Use the `earn` URL query parameter to control which vaults are visible:
+Available products:
 
-- `earn=disabled` — hide the Earn page entirely
-- `earn=<vault1>,<vault2>,...` — show **only** the listed vaults; all others are hidden. Available vault names: `eth`, `usd`, `ggv`, `dvv`, `strategy`
+| Product     | Parameter name |
+| ----------- | -------------- |
+| Stake       | `stake`        |
+| Earn        | `earn`         |
+| Swap        | `swap`         |
 
-#### Example of disabling the Earn page using iframe
+There are two ways to configure the set of products: opt-in (show only the listed products) and opt-out (hide specific products).
+
+#### Show only selected products (opt-in)
+
+Use the `product` parameter to show only the listed products and hide all others. Repeat the parameter to show several products:
+
+- `product=stake` — show only Stake
+- `product=stake&product=earn` — show only Stake and Earn
 
 ```html
+<!-- Shows only Stake; all other products are hidden -->
 <iframe
-    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&earn=disabled"
-    title="Lido Staking App"
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&product=stake"
+    title="Lido Widget"
     height="500"
     width="100%"
 />
 ```
 
-#### Example of showing only specific vaults
+When only Stake is shown, the main menu displays the Stake sections instead of product tabs: Stake, Wrap, Withdrawals and Rewards.
+
+This is the recommended approach if you want to integrate only specific products: new products added to the Lido Widget later will not appear in your integration automatically.
+
+#### Hide specific products (opt-out)
+
+Set the product's parameter to `disabled` to hide it while keeping all other products visible:
+
+- `stake=disabled`
+- `earn=disabled`
+- `swap=disabled`
 
 ```html
-<!-- Shows only the ETH and USD vaults; all other vaults are hidden -->
+<!-- Hides the Swap tab; all other products stay visible -->
 <iframe
-    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&earn=eth,usd"
-    title="Lido Staking App"
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&swap=disabled"
+    title="Lido Widget"
     height="500"
     width="100%"
 />
 ```
 
+#### Configuring a product
+
+The `earn` parameter also accepts a list of vaults instead of `disabled`. In this case, Earn is shown with **only** the listed vaults; all others are hidden.
+
+- `earn=<vault1>,<vault2>,...` — show only the listed Earn vaults. Available vault names: `eth`, `usd`, `ggv`, `dvv`, `strategy`
+
+```html
+<!-- Shows only the EarnETH vault; all other vaults are hidden -->
+<iframe
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&earn=eth"
+    title="Lido Widget"
+    height="500"
+    width="100%"
+/>
+```
+
+Product configuration can be combined with `product`:
+
+```html
+<!-- Shows only Stake and Earn, with only the EarnETH vault -->
+<iframe
+    src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&product=stake&product=earn&earn=eth"
+    title="Lido Widget"
+    height="500"
+    width="100%"
+/>
+```
+
+#### Conflicting parameters
+
+If `product` is combined with product-specific parameters, `product` takes priority: products not listed in `product` are always hidden, and listed products are always shown, even if their own parameter is set to `disabled`. For example:
+
+- `product=stake&earn=eth` — only Stake is shown; Earn is hidden because it is not listed in `product`
+- `product=earn&earn=disabled` — Earn is shown because it is listed in `product`
 
 ### Force Allowance (EOA wallets)
 
-By default, staking widget automatically selects how withdrawal requests are executed. If you need deterministic behavior, you can **force the Allowance-based flow** for **EOA (Externally Owned Account) wallets** using the `forceAllowance` URL parameter.
+By default, the Lido Widget automatically selects how withdrawal requests are executed. If you need deterministic behavior, you can **force the Allowance-based flow** for **EOA (Externally Owned Account) wallets** using the `forceAllowance` URL parameter.
 
 :::info
 **Allowance** refers to the standard ERC-20 approval mechanism, where a user explicitly approves a contract to spend tokens on their behalf.
@@ -120,7 +175,7 @@ When delegation is enabled, withdrawals are executed via **batched transactions*
 ```html
 <iframe
   src="https://stake.lido.fi/?ref=YOUR_REWARDS_ADDRESS&forceAllowance=enabled"
-  title="Lido Staking App"
+  title="Lido Widget"
   height="500"
   width="100%"
 />
