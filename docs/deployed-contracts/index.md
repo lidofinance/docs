@@ -667,6 +667,8 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 ### 🟡 Binance Smart Chain (BSC) {#binance-smart-chain-bsc}
 
+Note: Some addresses in the BSC lists repeat across Ethereum and BSC (the Axelar Transceiver proxy, the Transceiver Structs library used by the NTT Manager, and the BSC Wormhole Transceiver implementation, which shares its address with the Ethereum NTT Manager proxy); the linked explorer domain indicates the chain.
+
 ##### 🧱 Ethereum part {#ethereum-part-bsc}
 
 ###### 📡 a.DI governance forwarding {#adi-governance-forwarding-eth}
@@ -683,8 +685,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 
 - NTT Manager: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://etherscan.io/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9) (proxy)
 - NTT Manager: [`0xc6c1f091450b54af3280cfed790047431bc99bb1`](https://etherscan.io/address/0xc6c1f091450b54af3280cfed790047431bc99bb1) (impl)
-- Wormhole Transceiver: [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0)
-- Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+- Wormhole Transceiver: [`0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0`](https://etherscan.io/address/0xA1ACC1e6edaB281Febd91E3515093F1DE81F25c0) (proxy)
+- Wormhole Transceiver: [`0x3CE1230F39302e62b67Bbf2316558F79C25424A2`](https://etherscan.io/address/0x3CE1230F39302e62b67Bbf2316558F79C25424A2) (impl)
+- Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://etherscan.io/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13) (proxy)
+- Axelar Transceiver: [`0x87fc4B27385Bb4E69A40027931229d74EF4d1943`](https://etherscan.io/address/0x87fc4B27385Bb4E69A40027931229d74EF4d1943) (impl)
 - Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 - Transceiver Structs (used by Axelar Transceiver): [`0xa12bc993d8144404a8c8c812816048275a066ced`](https://etherscan.io/address/0xa12bc993d8144404a8c8c812816048275a066ced)
 
@@ -707,8 +711,10 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - WstEthL2Token: [`0x451d447776778870bdfe76d031689703aba73ee5`](https://bscscan.com/address/0x451d447776778870bdfe76d031689703aba73ee5) (impl)
 - NTT Manager: [`0x6981F5621691CBfE3DdD524dE71076b79F0A0278`](https://bscscan.com/address/0x6981F5621691CBfE3DdD524dE71076b79F0A0278) (proxy)
 - NTT Manager: [`0xe82c2a5846cfb6d8683d6b636719e7aa61486838`](https://bscscan.com/address/0xe82c2a5846cfb6d8683d6b636719e7aa61486838) (impl)
-- Wormhole Transceiver: [`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986)
-- Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13)
+- Wormhole Transceiver: [`0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986`](https://bscscan.com/address/0xbe3F7e06872E0dF6CD7FF35B7aa4Bb1446DC9986) (proxy)
+- Wormhole Transceiver: [`0xb948a93827d68a82F6513Ad178964Da487fe2BD9`](https://bscscan.com/address/0xb948a93827d68a82F6513Ad178964Da487fe2BD9) (impl)
+- Axelar Transceiver: [`0x723AEAD29acee7E9281C32D11eA4ed0070c41B13`](https://bscscan.com/address/0x723AEAD29acee7E9281C32D11eA4ed0070c41B13) (proxy)
+- Axelar Transceiver: [`0xA1eBb6A4b856dF8bf6c3aCa88a9115a9ab3b2E02`](https://bscscan.com/address/0xA1eBb6A4b856dF8bf6c3aCa88a9115a9ab3b2E02) (impl)
 - Transceiver Structs (used by NTT Manager and Wormhole Transceiver): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
 - Transceiver Structs (used by Axelar Transceiver): [`0x27a3daf3b243104e9b0afae6b56026a416b852c9`](https://bscscan.com/address/0x27a3daf3b243104e9b0afae6b56026a416b852c9)
 

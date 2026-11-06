@@ -123,6 +123,8 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 ### Binance Smart Chain (BSC)
 
+Note: The Axelar Transceiver proxy and the Transceiver Structs library used by the NTT Manager have the same address on Sepolia and BSC testnet; the linked explorer domain indicates the chain.
+
 ##### Ethereum part
 
 ###### a.DI governance forwarding
@@ -139,9 +141,13 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 
 - NTT Manager: [`0x8B715EAf61A7DdF61C67d5D46687c796D1f47146`](https://sepolia.etherscan.io/address/0x8B715EAf61A7DdF61C67d5D46687c796D1f47146) (proxy)
 - NTT Manager: [`0x607b139bfee21b2676ee664a237a70d737b9466e`](https://sepolia.etherscan.io/address/0x607b139bfee21b2676ee664a237a70d737b9466e) (impl)
-- Wormhole Transceiver: [`0xF2bc73502283fcaC4b047dfE45366d8744daaC5B`](https://sepolia.etherscan.io/address/0xF2bc73502283fcaC4b047dfE45366d8744daaC5B)
-- Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://sepolia.etherscan.io/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
-- Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://sepolia.etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- Wormhole Transceiver: [`0xF2bc73502283fcaC4b047dfE45366d8744daaC5B`](https://sepolia.etherscan.io/address/0xF2bc73502283fcaC4b047dfE45366d8744daaC5B) (proxy)
+- Wormhole Transceiver: [`0xaf99eeb712511303f8b829707aafc5881a125771`](https://sepolia.etherscan.io/address/0xaf99eeb712511303f8b829707aafc5881a125771) (impl)
+- Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://sepolia.etherscan.io/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423) (proxy)
+- Axelar Transceiver: [`0xcc6e5c994de73e8a115263b1b512e29b2026df55`](https://sepolia.etherscan.io/address/0xcc6e5c994de73e8a115263b1b512e29b2026df55) (impl)
+- Transceiver Structs (used by NTT Manager): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://sepolia.etherscan.io/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- Transceiver Structs (used by Wormhole Transceiver): [`0xfcc6638d6ee7cd6a953af1a8184844befc7cd3a9`](https://sepolia.etherscan.io/address/0xfcc6638d6ee7cd6a953af1a8184844befc7cd3a9)
+- Transceiver Structs (used by Axelar Transceiver): [`0x1ed363be5e925e0f0741207f3f9a48c366d26aba`](https://sepolia.etherscan.io/address/0x1ed363be5e925e0f0741207f3f9a48c366d26aba)
 
 ##### BSC part
 
@@ -162,9 +168,13 @@ and permission-based [validator set](https://github.com/eth-clients/sepolia/issu
 - WstEthL2Token: [`0x83bc41aae95b447134e72892ba659d6ea664d496`](https://testnet.bscscan.com/address/0x83bc41aae95b447134e72892ba659d6ea664d496) (impl)
 - NTT Manager: [`0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa`](https://testnet.bscscan.com/address/0x66Cb5a992570EF01b522Bc59A056a64A84Bd0aAa) (proxy)
 - NTT Manager: [`0xa0310f52f4ac9c394a82b2e19267a78d3390a16f`](https://testnet.bscscan.com/address/0xa0310f52f4ac9c394a82b2e19267a78d3390a16f) (impl)
-- Wormhole Transceiver: [`0x3a84364d27Ed3D16022Da0f603f3E0F74826c707`](https://testnet.bscscan.com/address/0x3a84364d27Ed3D16022Da0f603f3E0F74826c707)
-- Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://testnet.bscscan.com/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423)
-- Transceiver Structs: [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://testnet.bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- Wormhole Transceiver: [`0x3a84364d27Ed3D16022Da0f603f3E0F74826c707`](https://testnet.bscscan.com/address/0x3a84364d27Ed3D16022Da0f603f3E0F74826c707) (proxy)
+- Wormhole Transceiver: [`0xca7cf7369d5206f7a50cccbd85d7672eb86b362c`](https://testnet.bscscan.com/address/0xca7cf7369d5206f7a50cccbd85d7672eb86b362c) (impl)
+- Axelar Transceiver: [`0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423`](https://testnet.bscscan.com/address/0xaa8267908e8d2BEfeB601f88A7Cf3ec148039423) (proxy)
+- Axelar Transceiver: [`0x4fe90d921e279f149ee7c7e1a79ee75803e846b1`](https://testnet.bscscan.com/address/0x4fe90d921e279f149ee7c7e1a79ee75803e846b1) (impl)
+- Transceiver Structs (used by NTT Manager): [`0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b`](https://testnet.bscscan.com/address/0xf0396a8077eda579f657B5E6F3c3F5e8EE81972b)
+- Transceiver Structs (used by Wormhole Transceiver): [`0x142b34e43c90796d8e45d39565385876ee5221a8`](https://testnet.bscscan.com/address/0x142b34e43c90796d8e45d39565385876ee5221a8)
+- Transceiver Structs (used by Axelar Transceiver): [`0xeecf56798cfc9e927a83f98b0112484623cf175a`](https://testnet.bscscan.com/address/0xeecf56798cfc9e927a83f98b0112484623cf175a)
 
 ### Zircuit
 
