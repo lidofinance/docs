@@ -822,7 +822,6 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 
 > **These contracts were previously used and are currently active, but they are no longer being supported by contributors from Lido DAO and don't fall under Lido bug bounty scope and terms anymore**
 
-- Lido on X (Polygon): [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
 - Finance Ops: [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops: [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 - 1inch Liquidity Farming: [`0xdB46C277dA1599390eAb394327602889E9546296`](https://etherscan.io/address/0xdB46C277dA1599390eAb394327602889E9546296)
@@ -959,3 +958,4 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
   - Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 - Liquidity Observation Lab: `0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4` (Moonriver)
 - Liquidity Observation Lab: `0x007132343cA619C5449297507B26c3f85e80D1b1` (Moonbeam)
+- Lido on X (Polygon): [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
