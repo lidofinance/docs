@@ -586,10 +586,6 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - Liquidity Observation Lab AAVE rewards: `0x75483CE83100890c6bf1718c26052cE44e0F2839` ([Optimism](https://app.safe.global/settings/setup?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839))
 - Liquidity Observation Lab AAVE rewards: `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/settings/setup?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
 
-### 📣 Lido on X {#lido-on-x}
-
-- Lido on Polygon: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
-
 ### 🗂️ Other {#other}
 
 - Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/settings/setup?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
@@ -962,3 +958,4 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
   - Lisk Governance Bridge Executor: [`0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3`](https://blockscout.lisk.com/address/0xfD050cDa025f6378e54ab5fd5Da377D242Ed74d3)
 - Liquidity Observation Lab: `0xDAFc1dcB93dA415604aC6187638F88a8Ff8d77A4` (Moonriver)
 - Liquidity Observation Lab: `0x007132343cA619C5449297507B26c3f85e80D1b1` (Moonbeam)
+- Lido on X (Polygon): [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
