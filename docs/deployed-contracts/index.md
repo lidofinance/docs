@@ -586,10 +586,6 @@ The Aave V2 market is being deprecated. Do not use these contracts for new integ
 - Liquidity Observation Lab AAVE rewards: `0x75483CE83100890c6bf1718c26052cE44e0F2839` ([Optimism](https://app.safe.global/settings/setup?safe=oeth:0x75483CE83100890c6bf1718c26052cE44e0F2839))
 - Liquidity Observation Lab AAVE rewards: `0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE` ([zksync](https://app.safe.global/settings/setup?safe=zksync:0xADB90Cfb3d5ebbaB8eeE7DA10B4DB215A7d50BeE))
 
-### 📣 Lido on X {#lido-on-x}
-
-- Lido on Polygon: [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
-
 ### 🗂️ Other {#other}
 
 - Community Lifeguards Multisig: [`0x6faCCcE132d5C397068807Ca73883d3df198dFF4`](https://app.safe.global/settings/setup?safe=eth:0x6faCCcE132d5C397068807Ca73883d3df198dFF4)
@@ -826,6 +822,7 @@ There's a joint bug bounty for the vaults deployed at addresses listed in [the d
 
 > **These contracts were previously used and are currently active, but they are no longer being supported by contributors from Lido DAO and don't fall under Lido bug bounty scope and terms anymore**
 
+- Lido on X (Polygon): [`0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9`](https://app.safe.global/settings/setup?safe=0xd65Fa54F8DF43064dfd8dDF223A446fc638800A9)
 - Finance Ops: [`0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb`](https://etherscan.io/address/0x48F300bD3C52c7dA6aAbDE4B683dEB27d38B9ABb)
 - Cover Ops: [`0xD089cc83f5B803993E266ACEB929e52A993Ca2C8`](https://etherscan.io/address/0xD089cc83f5B803993E266ACEB929e52A993Ca2C8)
 - 1inch Liquidity Farming: [`0xdB46C277dA1599390eAb394327602889E9546296`](https://etherscan.io/address/0xdB46C277dA1599390eAb394327602889E9546296)
