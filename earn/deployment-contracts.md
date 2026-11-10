@@ -187,6 +187,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 
 ### earnUSDe – Base
 
+Deployed, not in operation. The subvault permissions are not configured yet.
+
 | Contract            | Address                                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Vault               | [`0x9E5713A7B7630Ff12C4178279b25f890bDD0B76F`](https://basescan.org/address/0x9E5713A7B7630Ff12C4178279b25f890bDD0B76F) |
@@ -200,6 +202,8 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | OracleSubmitter     | [`0xd0A4f5A1aAc1a1991426eC9bF25F4BFa8A9bC915`](https://basescan.org/address/0xd0A4f5A1aAc1a1991426eC9bF25F4BFa8A9bC915) |
 
 ### earnUSDe – Arbitrum
+
+Deployed, not in operation. The subvault permissions are not configured yet.
 
 | Contract            | Address                                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
