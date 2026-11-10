@@ -301,7 +301,7 @@
 
 ### Emergency Brakes: Scroll
 
-**Address:** Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://safe.scroll.xyz/home?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
+**Address:** Scroll: [`0xF580753E334687C0d6b88EF563a258f048384Ee6`](https://app.safe.global/settings/setup?safe=scr:0xF580753E334687C0d6b88EF563a258f048384Ee6)
 
 **Purpose of the multisig:** The multisig is used to disable deposits and/or withdrawals for wstETH token bridge on Scroll side in case of an emergency.
 
