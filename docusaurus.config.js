@@ -4,6 +4,7 @@ const aiArtifactsCollections = [
   { path: 'docs', routeBasePath: '/', label: 'Main Docs' },
   { path: 'run-on-lido', routeBasePath: 'run-on-lido', label: 'Run on Lido' },
   { path: 'earn', routeBasePath: 'earn', label: 'Earn' },
+  { path: 'lend', routeBasePath: 'lend', label: 'Lend' },
 ]
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -54,6 +55,13 @@ module.exports = async function createConfigAsync() {
             position: 'left',
           },
           {
+            type: 'doc',
+            docsPluginId: 'lend',
+            docId: 'introduction',
+            label: 'Lend',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/lidofinance',
             label: 'GitHub',
             position: 'right',
@@ -88,7 +96,7 @@ module.exports = async function createConfigAsync() {
         {
           siteTitle: 'Lido Documentation',
           siteDescription:
-            'Documentation for the Lido liquid staking protocol on Ethereum and L2s. Covers protocol contracts, integrations, node operator guides, CSM, stVaults, and the Earn product.',
+            'Documentation for the Lido liquid staking protocol on Ethereum and L2s. Covers protocol contracts, integrations, node operator guides, CSM, stVaults, the Earn product, and Lido Lend.',
           collections: aiArtifactsCollections,
         },
       ],
@@ -122,6 +130,17 @@ module.exports = async function createConfigAsync() {
           path: 'earn',
           routeBasePath: 'earn',
           sidebarPath: require.resolve('./sidebarsEarn.js'),
+          remarkPlugins: [(await import('remark-math')).default],
+          rehypePlugins: [(await import('rehype-katex')).default],
+        },
+      ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'lend',
+          path: 'lend',
+          routeBasePath: 'lend',
+          sidebarPath: require.resolve('./sidebarsLend.js'),
           remarkPlugins: [(await import('remark-math')).default],
           rehypePlugins: [(await import('rehype-katex')).default],
         },
