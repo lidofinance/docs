@@ -60,8 +60,10 @@ Hoodi is the primary operational and actively maintained Lido protocol testnet. 
 
 ### 🔗 Consolidation Stack {#consolidation-stack}
 
-- Consolidation Migrator: [`0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8`](https://hoodi.etherscan.io/address/0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8) (proxy)
-- Consolidation Migrator: [`0x8BF11ead77fFe142AB27BE486Bc5aB22D9baF520`](https://hoodi.etherscan.io/address/0x8BF11ead77fFe142AB27BE486Bc5aB22D9baF520) (impl)
+- Consolidation Migrator (CMv1 → CMv2): [`0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8`](https://hoodi.etherscan.io/address/0x747d357F5b6410B80Eb63406FaC5E2A91131B4f8) (proxy)
+- Consolidation Migrator (CMv1 → CMv2): [`0x8BF11ead77fFe142AB27BE486Bc5aB22D9baF520`](https://hoodi.etherscan.io/address/0x8BF11ead77fFe142AB27BE486Bc5aB22D9baF520) (impl)
+- Consolidation Migrator (CMv2 → CMv2): [`0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7`](https://hoodi.etherscan.io/address/0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7) (proxy)
+- Consolidation Migrator (CMv2 → CMv2): [`0x5D2DDD6817180c2135b4652503bD555c2d3Bb392`](https://hoodi.etherscan.io/address/0x5D2DDD6817180c2135b4652503bD555c2d3Bb392) (impl)
 - Consolidation Bus: [`0xe09fBcE63826468867eE66Eda491E444829E022A`](https://hoodi.etherscan.io/address/0xe09fBcE63826468867eE66Eda491E444829E022A) (proxy)
 - Consolidation Bus: [`0x2908c4B32548D8799fDc601C1a75E7d5C2FbC556`](https://hoodi.etherscan.io/address/0x2908c4B32548D8799fDc601C1a75E7d5C2FbC556) (impl)
 - Consolidation Gateway: [`0xC9991Bb865d025364BCbBd99f36e85889Fb68e69`](https://hoodi.etherscan.io/address/0xC9991Bb865d025364BCbBd99f36e85889Fb68e69)
