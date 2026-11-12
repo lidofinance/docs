@@ -185,6 +185,22 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0xa9BcE5B87B67506061eD83333c496A7d2eF74B56`](https://robinhoodchain.blockscout.com/address/0xa9BcE5B87B67506061eD83333c496A7d2eF74B56) |
 | OracleSubmitter     | [`0x5335607430db53bC5377Bb853802768467857a43`](https://robinhoodchain.blockscout.com/address/0x5335607430db53bC5377Bb853802768467857a43) |
 
+### earnUSDe – Arc
+
+Deployed, not in operation. The subvault permissions are not configured yet.
+
+| Contract            | Address                                                                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Vault               | [`0x9d4e274F6fc64482e3D86f8eaCB8aA19229b8908`](https://arc.etherscan.io/address/0x9d4e274F6fc64482e3D86f8eaCB8aA19229b8908) |
+| Oracle              | [`0xFd21b2606b1290412B71A1FC4C857c2b2aC0d04A`](https://arc.etherscan.io/address/0xFd21b2606b1290412B71A1FC4C857c2b2aC0d04A) |
+| ShareManager        | [`0x4317Ec3515BB673a87232Ee6d975Bd7abbdfD01C`](https://arc.etherscan.io/address/0x4317Ec3515BB673a87232Ee6d975Bd7abbdfD01C) |
+| FeeManager          | [`0x4FD8e72bEA84dc3B947672E49734e457a196bbdb`](https://arc.etherscan.io/address/0x4FD8e72bEA84dc3B947672E49734e457a196bbdb) |
+| RiskManager         | [`0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E`](https://arc.etherscan.io/address/0x6B2EaDFD25947b6eD2657f9DCb5bf4413113cc9E) |
+| Subvault 0          | [`0x9C56E5F458896C5dD8B74d3E851B5c7f5ea30739`](https://arc.etherscan.io/address/0x9C56E5F458896C5dD8B74d3E851B5c7f5ea30739) |
+| Verifier 0          | [`0x1b82740cd90B1861857FD38a6A8258fcE9281893`](https://arc.etherscan.io/address/0x1b82740cd90B1861857FD38a6A8258fcE9281893) |
+| Timelock Controller | [`0xcE1Aa572Fa8E929d5981FC49319012cEC9Cfb034`](https://arc.etherscan.io/address/0xcE1Aa572Fa8E929d5981FC49319012cEC9Cfb034) |
+| OracleSubmitter     | [`0x345c509005bF56490a7550731aD85a412854A19b`](https://arc.etherscan.io/address/0x345c509005bF56490a7550731aD85a412854A19b) |
+
 ## Actors
 
 Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood and Monad, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
