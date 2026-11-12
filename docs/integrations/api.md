@@ -4,11 +4,19 @@
 Lido APIs are strictly for read-only access
 :::
 
+:::warning
+In emergency situations, Lido reserves the right to temporarily disable the APIs. Consumers are strongly advised to cache API responses so that their apps keep working during such interruptions.
+:::
+
 Here you can find various Lido APIs which you can integrate in your app or website:
 
 ## Lido APR
 
 API provides Ethereum and Lido staking APR, which include:
+
+:::tip
+APR values are updated once a day, at around 12:00 UTC, so caching the response and refreshing it after the daily update keeps the data current without frequent requests.
+:::
 
 ### Simple Moving Average Lido APR for 7 last days:
 

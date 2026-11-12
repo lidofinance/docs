@@ -58,10 +58,8 @@ Carry Spread shows whether the stVault economics are improving or deteriorating 
 
 - **Positive Carry Spread**
     - Expected yearly return is positive after accounting for fees and Liability growth.
-    - All else equal, this supports **improving** or **stable** Health factor.
 - **Negative Carry Spread**
     - Expected yearly return is not sufficient to cover fees and Liability growth.
-    - Over time this tends to **erode** the Health factor and push it closer to 100%.
 
 If the Carry Spread turns negative or the Health factor trends down toward 100%, treat this as an early warning and consider actions to improve the stVault’s economics — repaying stETH, supplying more ETH, or [rebalancing](./rebalance.md).
 
@@ -82,7 +80,7 @@ This metric should be monitored relative to the **stETH APR**:
     - The stVault underperforms plain stETH on a fee-adjusted basis.
     - This is a signal to **pay attention**: together with Carry Spread and the Health factor it may indicate that the stVault configuration or performance needs to be reviewed.
 
-Persistent underperformance (Net staking APR < stETH APR) can contribute to a negative Carry Spread over time and, consequently, to a deterioration in the Health factor.
+Persistent underperformance (Net staking APR < stETH APR) can contribute to a gradual deterioration in the Health Factor over time.
 
 ### stETH liability and Utilization ratio
 
