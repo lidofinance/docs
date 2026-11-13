@@ -380,3 +380,13 @@
 .v3-callout-content a:hover {
   color: #79c0ff;
 }
+
+/* Lido Lend drafts: pending data markers. Remove with every `lend-todo` span before publication. */
+.lend-todo {
+  color: var(--ifm-color-danger-darkest);
+  font-weight: 700;
+}
+
+[data-theme='dark'] .lend-todo {
+  color: var(--ifm-color-danger-lightest);
+}
