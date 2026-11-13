@@ -35,7 +35,7 @@
 | Gusakov_dv | 0xC80C089d5151A7456aaeb116174CB5A8EcC94fF9 | Sig Hash: 0xe506dd1c3f15147af98ab343e20e3065e4db91cecb54953bdc8db1d52edc92a717415c5f05a5922c5efc38da8b50d22e4df036405cf6e2f5b9c33f4525416a1e1b | https://x.com/d_gusakov/status/2051579088884613258 |
 | thedzhon  | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/40382 | https://x.com/e330acid/status/1778451429172080726 |
 | George | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/17866 | https://x.com/george_avs/status/1655919930749976578 |
-| drdr_zz | 0xA4cddAB88F16eA33dA1b0851ee2Beb6d2f5C91e4 | Sig Hash: 0x45a254ae2b27c973390eea44ead4e19006a6c109deb67371da1fefd5d4a249b13dc96cbd5ce03526b17586bbdb1b845a636cc68d1a27793983a4384842a9970a1c | https://x.com/drdr_zz/status/2052332554032722249 |
+| drdr_zz | 0x2FDE5A00c293102Bb4d0C95744f8fA956f418ac3 | https://etherscan.io/verifySig/341448 | https://x.com/drdr_zz/status/2118692958052474891 |
 
 ## 1.2 Emergency Brakes: Ethereum
 
@@ -84,10 +84,10 @@
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/340865 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/8 |
 | [TheDZhon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
-| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
-| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [dgusakov](https://research.lido.fi/u/dgusakov) | 0x989514afbf073ab4759e920729d93d1e4306d923 | https://etherscan.io/verifySig/340808 | https://x.com/d_gusakov/status/2116110433065349160 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/341038 | https://x.com/tamtamchik/status/2117179498231975954 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://x.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
 
 ## 1.3 Emergency Brakes: Optimism
@@ -116,10 +116,10 @@
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/340865 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/8 |
 | [TheDZhon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
-| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
-| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [dgusakov](https://research.lido.fi/u/dgusakov) | 0x989514afbf073ab4759e920729d93d1e4306d923 | https://etherscan.io/verifySig/340808 | https://x.com/d_gusakov/status/2116110433065349160 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/341038 | https://x.com/tamtamchik/status/2117179498231975954 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://x.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
 
 ## 1.4 Emergency Brakes: Arbitrum
@@ -145,10 +145,10 @@
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/340865 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/8 |
 | [TheDZhon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
-| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
-| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [dgusakov](https://research.lido.fi/u/dgusakov) | 0x989514afbf073ab4759e920729d93d1e4306d923 | https://etherscan.io/verifySig/340808 | https://x.com/d_gusakov/status/2116110433065349160 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/341038 | https://x.com/tamtamchik/status/2117179498231975954 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://x.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
 
 ## 1.5 Emergency Brakes: Base
@@ -174,10 +174,10 @@
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/340865 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/8 |
 | [TheDZhon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
-| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
-| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [dgusakov](https://research.lido.fi/u/dgusakov) | 0x989514afbf073ab4759e920729d93d1e4306d923 | https://etherscan.io/verifySig/340808 | https://x.com/d_gusakov/status/2116110433065349160 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/341038 | https://x.com/tamtamchik/status/2117179498231975954 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://x.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
 
 ## 1.6 Emergency Brakes: Binance Smart Chain (BSC)
@@ -207,10 +207,10 @@
 
 | Name | Address | Verification | Public verification |
 | --- | --- | --- | --- |
-| [psirex](https://research.lido.fi/u/psirex) | 0x2a61d3ba5030Ef471C74f612962c7367ECa3a62d | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/340865 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/8 |
 | [TheDZhon](https://research.lido.fi/u/thedzhon/) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/23795 | https://research.lido.fi/t/emergency-brakes-signer-rotation/5286/2 |
-| [kadmil](https://research.lido.fi/u/kadmil) | 0x6f5c9B92DC47C89155930E708fBc305b55A5519A | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
-| [ujenjt](https://research.lido.fi/u/ujenjt) | 0xdd19274b614b5ecAcf493Bc43C380ef6B8dfB56c | - | https://research.lido.fi/t/emergency-brakes-multi-sig-upgrade/2608 |
+| [dgusakov](https://research.lido.fi/u/dgusakov) | 0x989514afbf073ab4759e920729d93d1e4306d923 | https://etherscan.io/verifySig/340808 | https://x.com/d_gusakov/status/2116110433065349160 |
+| [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/341038 | https://x.com/tamtamchik/status/2117179498231975954 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0xCFfE0F3B089e46D8212408Ba061c425776E64322| - | https://x.com/folkyatina/status/1550112058003169284?s=20&t=9RHqr47D6r_5Vin6SrU5Qw |
 
 ## Legacy emergency brakes
