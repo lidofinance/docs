@@ -282,7 +282,8 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
   - ParametersRegistry: [`0xfF419BbBC5f44d46547079922a88d691886d192a`](https://etherscan.io/address/0xfF419BbBC5f44d46547079922a88d691886d192a) (impl)
 - FeeDistributor: [`0x367d23c756599c20DCc8D6943F4976E8F88D60d7`](https://etherscan.io/address/0x367d23c756599c20DCc8D6943F4976E8F88D60d7) (proxy)
   - FeeDistributor: [`0x7C8FEE1dcC95Df60fC9b5BE7603c28Eb3af16753`](https://etherscan.io/address/0x7C8FEE1dcC95Df60fC9b5BE7603c28Eb3af16753) (impl)
-- Verifier: [`0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3`](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)
+- \[[proposed to be replaced](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/51)\] Verifier: [`0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3`](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/51)\] CuratedVerifier: [`0x8c9C8c8C91D6de09D256264B33E7C54794feb033`](https://etherscan.io/address/0x8c9C8c8C91D6de09D256264B33E7C54794feb033)
 - FeeOracle:
   - FeeOracle: [`0x8EeFCdbD984c30E472BcbF545783D051CB5114e5`](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) (proxy)
     - FeeOracle: [`0x16804084408B6Caad10046F49aD421cBA56C0b5e`](https://etherscan.io/address/0x16804084408B6Caad10046F49aD421cBA56C0b5e) (impl)
