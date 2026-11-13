@@ -15,7 +15,7 @@ Here you can find various Lido APIs which you can integrate in your app or websi
 API provides Ethereum and Lido staking APR, which include:
 
 :::tip
-APR values are updated once a day, at around 12:00 UTC, so caching the response and refreshing it after the daily update keeps the data current without frequent requests.
+APR values change once a day, after the daily oracle report. The report usually arrives shortly after 12:00 UTC. We recommend caching the response and refreshing it about once an hour.
 :::
 
 ### Simple Moving Average Lido APR for 7 last days:

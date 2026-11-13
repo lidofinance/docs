@@ -60,9 +60,10 @@ The share of the gross staking rewards that the Node Operator charges for provid
 The total amount of ETH attributed to the stVault, with rewards accruing to it. Under the oracle accounting, Total Value includes:
 
 - ETH on the stVault balance;
-- ETH on the stVault's validators;
-- ETH in the deposit queue for validators that are already activated;
-- ETH in the deposit queue for a validator that is not yet activated, but only for the initial 1 ETH predeposit made through the [Predeposit Guarantee](../node-operators/basic-stvaults/pdg.md) full flow.
+- for a validator whose balance has reached 32 ETH (it is active or at least in the `pending_queued` status): its balance and all of its deposits still in the deposit queue;
+- for a validator created through the [Predeposit Guarantee](../node-operators/basic-stvaults/pdg.md) full flow whose balance has not yet reached 32 ETH:
+   - before the validator is proven: 1 ETH (the predeposit);
+   - after the validator is proven (Beacon chain status `pending_initialized`, PDG status `ACTIVATED`): its balance and all of its deposits in the deposit queue — the 1 ETH predeposit, the 31 ETH that PDG sends after the proof, and any extra top-ups.
 
 Total Value does not include [Off-book Deposits](#off-book-deposits) or quarantined amounts (see [How quarantine works](./how-quarantine-works.md)). Together with them, it makes up [Gross Total Supplied](#gross-total-supplied).
 
@@ -76,7 +77,7 @@ $$
 
 Off-book Deposits are validator deposits not yet included in Total Value. This includes deposits made via the [PDG Shortcut](../node-operators/basic-stvaults/pdg.md#pdg-shortcut) flow (unguaranteed deposits), and initial deposits made directly to a validator outside of the stVault.
 
-Consolidations are not shown here — they are not visible to the oracle while in progress, and will appear in Total Value once the transferred balance arrives on the target validator.
+Consolidations are not shown here. The oracle does not see a consolidation while it is in progress. When the balance arrives on the target validator, the oracle reports it. A large increase first goes to quarantine and becomes part of Total Value after the quarantine ends (see [How quarantine works](./how-quarantine-works.md)).
 
 ### Gross Total Supplied
 

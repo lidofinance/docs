@@ -80,7 +80,7 @@ This metric should be monitored relative to the **stETH APR**:
     - The stVault underperforms plain stETH on a fee-adjusted basis.
     - This is a signal to **pay attention**: together with Carry Spread and the Health factor it may indicate that the stVault configuration or performance needs to be reviewed.
 
-Persistent underperformance (Net staking APR < stETH APR) can contribute to a gradual deterioration in the Health Factor over time.
+Persistent underperformance (Net staking APR < stETH APR) can contribute to a gradual deterioration in the Health factor over time.
 
 ### stETH liability and Utilization ratio
 

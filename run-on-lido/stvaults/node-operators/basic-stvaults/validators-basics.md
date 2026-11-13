@@ -29,7 +29,7 @@ The two reward streams behave differently, and only one of them is automatic.
 **Execution-layer rewards** — priority fees and MEV — go wherever the validator client's fee recipient points. The fee recipient is configured separately from the withdrawal credentials.
 
 :::warning
-We recommend setting the fee recipient to the address of the `StakingVault` contract — the stVault address itself — so that all rewards are accounted for by the oracle as part of Total Value. Do not use the Dashboard contract address, the Vault Owner's wallet or the Node Operator's own address. If the fee recipient points anywhere else, every priority fee and MEV payment the validator earns stays outside the stVault: it is not part of Total Value, does not count towards the Vault Owner's rewards, and does not appear in any stVault metric.
+Set the fee recipient to the address of the `StakingVault` contract — the stVault address itself — so that all rewards are accounted for by the oracle as part of Total Value. Do not use the Dashboard contract address, the Vault Owner's wallet or the Node Operator's own address. If the fee recipient points anywhere else, every priority fee and MEV payment the validator earns stays outside the stVault: it is not part of Total Value, does not count towards the Vault Owner's rewards, and does not appear in any stVault metric.
 :::
 
 This is the single easiest thing to get wrong, and nothing on-chain will complain about it. Verify it on the validator client, not only in the configuration file — a fee recipient can also be overridden per-client or by a relay.
