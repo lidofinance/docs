@@ -5,7 +5,7 @@ Lido APIs are strictly for read-only access
 :::
 
 :::warning
-In emergency situations, Lido reserves the right to temporarily disable the APIs. Consumers are strongly advised to cache API responses so that their apps keep working during such interruptions.
+In rare cases, for example during maintenance or in emergency situations, these APIs may be temporarily unavailable. We recommend caching API responses in your app so that it keeps working during such periods.
 :::
 
 Here you can find various Lido APIs which you can integrate in your app or website:
