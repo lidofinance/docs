@@ -20,8 +20,6 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | SyncDepositQueue (wstETH)  | [`0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522`](https://etherscan.io/address/0xECD2Bfe725fa14f5Ed86e9bDcc0eA4b34A4ed522) |
 | RedeemQueue (wstETH)       | [`0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4`](https://etherscan.io/address/0x095bFAca9f1c6F2B063Cd67C6d6bfcd0c3aaB7b4) |
 | SyncRedeemQueue (wstETH)   | [`0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A`](https://etherscan.io/address/0xB5984D87d21C4375d18972fd546b688BD4Fc1f0A) |
-| DepositQueue (GG)          | [`0x411172F1E5310d03b38128F2a294F2e33c691B30`](https://etherscan.io/address/0x411172F1E5310d03b38128F2a294F2e33c691B30) |
-| SyncDepositQueue (GG)      | [`0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B`](https://etherscan.io/address/0x2792004b709E3E88b8FCCb06c3C5e1A6dff0EC2B) |
 | DepositQueue (strETH)      | [`0x268ea1cc674cdaE200c4609E7b09d03Dc618E663`](https://etherscan.io/address/0x268ea1cc674cdaE200c4609E7b09d03Dc618E663) |
 | SyncDepositQueue (strETH)  | [`0xA4F23f56442C01a478af20fe06b9F5f8f05aDD96`](https://etherscan.io/address/0xA4F23f56442C01a478af20fe06b9F5f8f05aDD96) |
 | DepositQueue (DVstETH)     | [`0x4bDd2Ea1E20acb13f2758190c92a84175107A86f`](https://etherscan.io/address/0x4bDd2Ea1E20acb13f2758190c92a84175107A86f) |
