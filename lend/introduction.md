@@ -87,7 +87,7 @@ See [Risks](./risks).
 - **Emergency pause.** `CircuitBreaker` lets a registered emergency actor apply one finite pause to a market controller. The Reseal Manager can extend the pause or end it early;
 - **Guardians.** Guardians report account risk and review progress through `GuardianSignals`. Flags from a quorum of distinct guardians ban an account in a market.
 
-No role other than proxy administration can directly rewrite or redirect a core or vault position. For the full role map, see [Governance](./governance) and [Committees](./committees). For audits and bug bounty, see [Audits](./audits) and [Security](./security).
+No role other than proxy administration can directly rewrite or redirect a core or vault position. For the full role map, see [Governance](./governance) and [Committees](./committees). For audits and vulnerability reporting, see [Audits](./audits) and [Security](./security).
 
 ## Where to go next
 

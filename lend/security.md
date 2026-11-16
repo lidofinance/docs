@@ -1,11 +1,11 @@
 ---
 title: Security
-description: Bug bounty, Safe Harbor and emergency controls for Lido Lend.
+description: How to report a vulnerability in Lido Lend and which emergency controls can stop market actions.
 ---
 
 # Security
 
-This page explains how to report a vulnerability in Lido Lend, the status of bug bounty and Safe Harbor coverage, and which emergency controls can stop market actions.
+This page explains how to report a vulnerability in Lido Lend and which emergency controls can stop market actions.
 
 ## Reporting a vulnerability
 
@@ -14,26 +14,6 @@ The reporting rules are in [`SECURITY.md`](https://github.com/lidofinance/lend/b
 - check the current scope of the [Lido bug bounty program on Immunefi](https://immunefi.com/bug-bounty/lido/information/) before you submit a report. Repository code and development branches are not automatically in scope;
 - send findings that do not fit the published scope to [security@lido.fi](mailto:security@lido.fi), the contact in Lido's [security.txt](https://lido.fi/.well-known/security.txt);
 - do not disclose a vulnerability publicly before it is triaged and remediated.
-
-## Bug bounty
-
-Lido runs its bug bounty program on Immunefi. See [Bug bounty](/security/bugbounty) for the program, its rules and how reports are assessed.
-
-:::danger[Data needed]
-**What:** whether the Lido bug bounty program on Immunefi covers Lido Lend, and which contracts and repositories are in scope.
-**Source:** published update of the Lido program scope on Immunefi.
-**Owner:** Lend dev team.
-:::
-
-## Safe Harbor
-
-The Lido DAO has adopted the SEAL Safe Harbor agreement. See [Safe Harbor](/security/safeharbor) for its rules.
-
-:::danger[Data needed]
-**What:** whether the Lido Safe Harbor agreement covers the Lido Lend contracts, and the recovery address that applies to them.
-**Source:** Lido DAO decision that adds Lido Lend to the Safe Harbor scope.
-**Owner:** Lend dev team, DAO Ops.
-:::
 
 ## Emergency controls
 
