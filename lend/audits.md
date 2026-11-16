@@ -39,9 +39,9 @@ Lido Lend uses `CircuitBreaker` from [`lidofinance/circuit-breaker`](https://git
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
-| [CircuitBreaker Audit Report](https://github.com/lidofinance/audits/blob/main/Cyfrin%20CircuitBreaker%20Audit%20Report%2004-2026.pdf) | Cyfrin | 04-2026 | `CircuitBreaker` | `b4b2fbc` |
-| [CircuitBreaker Formal Verification Report](https://github.com/lidofinance/audits/blob/main/Cyfrin%20CircuitBreaker%20Formal%20Verification%20Report%2004-2026.pdf) | Cyfrin | 04-2026 | `CircuitBreaker`, formal verification | See report |
-| [CircuitBreaker Audit Report](https://github.com/lidofinance/audits/blob/main/MixBytes%20CircuitBreaker%20Audit%20Report%2004-2026.pdf) | MixBytes | 04-2026 | `CircuitBreaker` | `b4b2fbc` |
+| [CircuitBreaker Audit Report](https://github.com/lidofinance/audits/blob/main/Cyfrin%20CircuitBreaker%20Audit%20Report%2004-2026.pdf) | Cyfrin | 2026-05-01 | `CircuitBreaker` | `b4b2fbc` |
+| [CircuitBreaker Formal Verification Report](https://github.com/lidofinance/audits/blob/main/Cyfrin%20CircuitBreaker%20Formal%20Verification%20Report%2004-2026.pdf) | Cyfrin | 2026-04-06 | `CircuitBreaker`, formal verification | See report |
+| [CircuitBreaker Audit Report](https://github.com/lidofinance/audits/blob/main/MixBytes%20CircuitBreaker%20Audit%20Report%2004-2026.pdf) | MixBytes | 2026-05-01 | `CircuitBreaker` | `b4b2fbc` |
 
 ### Bundler3
 
@@ -51,12 +51,12 @@ Lido Lend uses Morpho Bundler3 from [`morpho-org/bundler3`](https://github.com/m
 - `interfaces/IAaveV3Optimizer.sol`, which Lido Lend does not use;
 - `interfaces/IBundler3.sol`, NatSpec comments only.
 
-Every Bundler3 file that Lido Lend imports is unchanged.
+Apart from NatSpec comments in `interfaces/IBundler3.sol`, every Bundler3 file that Lido Lend imports is unchanged.
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
 | [Bundler3](https://github.com/morpho-org/bundler3/blob/9afc2f4ea32c9dbeba2205a485731b8a98f7ae4c/audits/2025-01-02-bundler3-spearbit.pdf) | Spearbit | 2025-01-02 | Bundler3 | See report |
-| [Bundler3 update](https://github.com/morpho-org/bundler3/blob/9afc2f4ea32c9dbeba2205a485731b8a98f7ae4c/audits/2025-02-17-bundler3-update-spearbit.pdf) | Spearbit | 2025-02-17 | Bundler3 update | See report |
+| [Bundler3 update](https://github.com/morpho-org/bundler3/blob/9afc2f4ea32c9dbeba2205a485731b8a98f7ae4c/audits/2025-02-17-bundler3-update-spearbit.pdf) | Cantina | 2025-02-17 | Bundler3 update | See report |
 | [Bundler3 with update](https://github.com/morpho-org/bundler3/blob/9afc2f4ea32c9dbeba2205a485731b8a98f7ae4c/audits/2025-02-18-bundler3-with-update-open-zeppelin.pdf) | OpenZeppelin | 2025-02-18 | Bundler3 with update | See report |
 
 ### Easy Track factories
@@ -71,17 +71,17 @@ The report lists 11 low-severity findings. Of these, 1 is fixed and 10 are ackno
 
 ### Morpho Blue fork
 
-The `lend` core is a fork of [Morpho Blue](https://github.com/morpho-org/morpho-blue), and `lend-irm` is a fork of [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm). The upstream Morpho audit reports kept in the `audits/` directory of both repositories cover only the upstream code, not the Lido changes. The Lido Lend code in `lend` and `lend-irm` is in the scope of the Cyfrin audit above. For the changes, see [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/FORK_NOTES.md) in `lend` and the [audit boundary](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/FORK_NOTES.md#audit-boundary) in `lend-irm`.
+The `lend` core is a fork of [Morpho Blue](https://github.com/morpho-org/morpho-blue), and `lend-irm` is a fork of [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm). The upstream audits of [Morpho Blue](https://github.com/morpho-org/morpho-blue/tree/main/audits) and [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm/tree/main/audits) cover only the upstream code, not the Lido changes. The Lido Lend code in `lend` and `lend-irm` is in the scope of the Cyfrin audit above. For the changes, see [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/FORK_NOTES.md) in `lend` and the [audit boundary](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/FORK_NOTES.md#audit-boundary) in `lend-irm`.
 
 ## Deployment verification
 
-The deployed `lend-markets` code is matched to the Cyfrin audit by file digests. The audit report lists a keccak256 digest for each of the 53 in-scope files and an aggregate root. The deploy commit contains the digest tooling in [`script/config/mainnet/scripts/`](https://github.com/lidofinance/lend-markets/tree/538a0ec9e3ede626481d4b738b23d72e167bdc3d/script/config/mainnet/scripts):
+The deployed `lend-markets` code is matched to the Cyfrin audit by file digests. The audit report lists a keccak256 digest for each of the 53 in-scope files and an aggregate root. The deploy commit contains the digest tooling in [`script/config/mainnet/scripts/`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5/script/config/mainnet/scripts):
 
 - `extract-digests.py` extracts the digests from the report PDF into `digests.txt`;
 - `digests.txt` lists the 53 digests with their file paths;
 - `verify-digests.sh` checks the aggregate root, every audited file, the submodule pins and the deployed sources outside the audited set.
 
-The keccak256 of the committed `digests.txt` equals the aggregate root in the audit report. Each of the 53 files at the deploy commit `538a0ec`, with `lend` at `422d589` and `lend-irm` at `566d31f`, matches its digest. The [GitHub comparison](https://github.com/lidofinance/lend-markets/compare/23416c43c4038ea3c00a13d6203949c8f88905cc..538a0ec9e3ede626481d4b738b23d72e167bdc3d) between the public commit `23416c4` and the deploy commit `538a0ec` shows no change to any file under `src/`. Both commits pin the same `lend` and `lend-irm` submodule commits.
+The keccak256 of the committed `digests.txt` equals the aggregate root in the audit report. Each of the 53 files at the deploy commit `9c0ba34`, with `lend` at `422d589` and `lend-irm` at `566d31f`, matches its digest. The [GitHub comparison](https://github.com/lidofinance/lend-markets/compare/23416c43c4038ea3c00a13d6203949c8f88905cc..9c0ba34580ab5cff4354be8cb701419fb02b65d5) between the public commit `23416c4` and the deploy commit `9c0ba34` shows no change to any file under `src/`. Both commits pin the same `lend` and `lend-irm` submodule commits.
 
 The source code of the deployed mainnet contracts is verified on Etherscan.
 
@@ -89,7 +89,7 @@ The source code of the deployed mainnet contracts is verified on Etherscan.
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
-| [Lido Lend Core Deployment Verification, Stage 1](https://github.com/lidofinance/audits/blob/main/lend/2026-11-11-cyfrin-lido-lend-core-deployment-verification.pdf) | Cyfrin | 2026-11-11 | Runtime bytecode, constructor arguments and immutables of the [Protocol](./deployed-contracts#protocol) contracts and the two Bundler3 adapters, and the `LidoLend` and `IrmRouter` proxies. As a supplementary check, the bytecode of `Bundler3` and the Lido Lend `CircuitBreaker` instance | `lend-markets` [`9c0ba34`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5) |
+| [Lido Lend Deployment Verification, Stage 1 – Core](https://github.com/lidofinance/audits/blob/main/lend/2026-11-11-cyfrin-lido-lend-core-deployment-verification.pdf) | Cyfrin | 2026-11-11 | Runtime bytecode, constructor arguments and immutables of the [Protocol](./deployed-contracts#protocol) contracts and the two Bundler3 adapters. As supplementary checks, the code and implementation pointers of the `LidoLend` and `IrmRouter` proxies, and the bytecode of `Bundler3` and the Lido Lend `CircuitBreaker` instance | `lend-markets` [`9c0ba34`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5) |
 | [Lido Lend Easy Track Factories](https://github.com/lidofinance/audits/blob/main/lend/2026-11-10-mixbytes-lido-lend-easy-track-factories-audit-report.pdf) | MixBytes | 2026-11-11 | Mainnet deployments of the Lido Lend Easy Track factories and `LidoLendPreseeder` | [`4caa911`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4) |
 
-The Cyfrin verification commit `9c0ba34` follows the deploy commit `538a0ec` with one commit that changes deployment scripts and docs only; `src/` is the same. Stage 2, the verification of market deployments, is pending. The verification of each market deployment is listed on the market page.
+Cyfrin verified the deployment at the deploy commit `9c0ba34`. Stage 2, the verification of market deployments, is pending. Cyfrin will add it to the same report.
