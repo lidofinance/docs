@@ -47,6 +47,17 @@ Lido Lend deploys its own Bundler3 instance together with the adapters. It is no
 | --- | --- |
 | `CircuitBreaker` | [`0xd0A81A130a303237d338A0b5835edcB011Ab3afd`](https://etherscan.io/address/0xd0A81A130a303237d338A0b5835edcB011Ab3afd) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 
+## Exit Books
+
+:::info[Not used yet]
+The Exit Books are deployed, but no Lido Lend market uses them yet.
+:::
+
+| Contract | Address |
+| --- | --- |
+| `MorphoExitBook` | [`0xAd28EFa8f2ef56a68b0Eb6836f4aE1d2D6459Ecd`](https://etherscan.io/address/0xAd28EFa8f2ef56a68b0Eb6836f4aE1d2D6459Ecd) |
+| `Erc4626ExitBook` | [`0x0d2580e4c9b20507eDFAeFC7777d760F12Ad55D4`](https://etherscan.io/address/0x0d2580e4c9b20507eDFAeFC7777d760F12Ad55D4) |
+
 ## Easy Track factories
 
 The factories become usable after the Lido DAO vote registers them in Easy Track. `LidoLendActivateMarket` stores the `LidoLendPreseeder` address.

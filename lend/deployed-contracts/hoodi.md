@@ -45,6 +45,17 @@ The Hoodi deployment does not include Bundler3 or its adapters. The `lend-market
 | --- | --- |
 | `CircuitBreaker` | [`0x3d7f98a7aDa46DB97C100f09746bf3A0Ff4BE192`](https://hoodi.etherscan.io/address/0x3d7f98a7aDa46DB97C100f09746bf3A0Ff4BE192) |
 
+## Exit Books
+
+:::info[Not used yet]
+The Exit Books are deployed, but no Lido Lend market uses them yet.
+:::
+
+| Contract | Address |
+| --- | --- |
+| `MorphoExitBook` | [`0xE626f019B04930fd0992A524FbE162695E99644D`](https://hoodi.etherscan.io/address/0xE626f019B04930fd0992A524FbE162695E99644D) |
+| `Erc4626ExitBook` | [`0xc0DB4417ee3F4510fa60eabFEfC0227e5a1CF127`](https://hoodi.etherscan.io/address/0xc0DB4417ee3F4510fa60eabFEfC0227e5a1CF127) |
+
 ## Easy Track factories
 
 | Contract | Address |
