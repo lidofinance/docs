@@ -10,8 +10,8 @@ description: Addresses of Lido Lend contracts on Ethereum mainnet.
 
 This page lists the Lido Lend contract addresses.
 
-- Network: Ethereum mainnet (chain ID `1`).
-- Status: pending Lido DAO vote.
+- Network: Ethereum mainnet (chain ID `1`);
+- Status: pending Lido DAO vote;
 - How the deployed code matches the audited code: [Audits](../audits#deployment-verification).
 :::
 
@@ -61,7 +61,7 @@ The Exit Books and their Easy Track factory `LidoLendExitBookActions` are deploy
 
 ## Easy Track factories
 
-The factories become usable after the Lido DAO vote registers them in Easy Track. `LidoLendActivateMarket` stores the `LidoLendPreseeder` address.
+The factories, except `LidoLendExitBookActions`, become usable after the Lido DAO vote registers them in Easy Track. `LidoLendActivateMarket` stores the `LidoLendPreseeder` address.
 
 | Contract | Address |
 | --- | --- |

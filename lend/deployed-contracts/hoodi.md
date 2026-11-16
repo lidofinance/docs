@@ -10,7 +10,7 @@ description: Addresses of Lido Lend contracts on the Hoodi testnet.
 
 This page lists the Lido Lend contract addresses on the Hoodi testnet.
 
-- Network: Ethereum Hoodi (chain ID `560048`).
+- Network: Ethereum Hoodi (chain ID `560048`);
 - Status: test deployment.
 :::
 

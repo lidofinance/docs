@@ -27,7 +27,7 @@ The report lists 16 findings: 1 high, 8 medium and 7 low. Of these, 12 are fixed
 
 ### Circuit Breaker
 
-Lido Lend uses `CircuitBreaker` from [`lidofinance/circuit-breaker`](https://github.com/lidofinance/circuit-breaker) at tag `1.0.0` (commit `6829a5a`). Nothing under `src/` changed since the audited commit.
+Lido Lend uses `CircuitBreaker` from [`lidofinance/circuit-breaker`](https://github.com/lidofinance/circuit-breaker).
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
@@ -37,11 +37,7 @@ Lido Lend uses `CircuitBreaker` from [`lidofinance/circuit-breaker`](https://git
 
 ### Bundler3
 
-Lido Lend uses Morpho Bundler3 from [`morpho-org/bundler3`](https://github.com/morpho-org/bundler3). It is deployed from commit `9afc2f4`. The final audited commit is `263f75d`. Between the two commits, only these files under `src/` changed:
-
-- `adapters/ERC20WrapperAdapter.sol`, which Lido Lend does not use;
-- `interfaces/IAaveV3Optimizer.sol`, which Lido Lend does not use;
-- `interfaces/IBundler3.sol`, NatSpec comments only.
+Lido Lend uses Morpho Bundler3 from [`morpho-org/bundler3`](https://github.com/morpho-org/bundler3).
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |

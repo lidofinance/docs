@@ -93,8 +93,8 @@ A direct lender supplies loan tokens to the core and receives supply shares. A v
 | Exit path | What happens | Payout |
 |---|---|---|
 | Ordinary withdrawal | The core or vault burns lender shares and withdraws available loan tokens. Market liquidity limits the amount. | Loan tokens |
-| Settlement | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. | Collateral |
-| Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. | Loan tokens, collateral, or both |
+| Settlement | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. Available only if the market enabled settlement at creation. | Collateral |
+| Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. If the market did not enable settlement and the claim needs settling, the whole exit reverts. | Loan tokens, collateral, or both |
 
 ## Runtime controls
 

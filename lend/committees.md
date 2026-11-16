@@ -28,7 +28,7 @@ For an overview of who controls Lido Lend, see [Governance](./governance).
 
 **Purpose:** Create markets and perform routine configuration through Easy Track motions. Each motion is delayed and LDO holders can object to it.
 
-The committee is the trusted caller of the Lido Lend Easy Track factories. The factories fix the target contracts and functions of each motion. The committee chooses the parameters, and the factories and contracts validate them. An IRM config is validated when it is deployed as an `AdaptiveCurveConfig`. LDO holders should check the config named in the motion. Lido Lend authorizes the `EVMScriptExecutor`, so these limits depend on the factory set that the Lido DAO registers in Easy Track. See the [Easy Track guide](/guides/easy-track-guide) for how motions and objections work.
+The committee is the trusted caller of the Lido Lend Easy Track factories. The factories fix the target contracts and functions of each motion. The committee chooses the parameters, and the factories and contracts validate them. For an IRM config, the factories check only that the address is not zero, and the parameter bounds hold only for a config deployed as an `AdaptiveCurveConfig`. LDO holders should check the config named in the motion. Lido Lend authorizes the `EVMScriptExecutor`, so these limits depend on the factory set that the Lido DAO registers in Easy Track. See the [Easy Track guide](/guides/easy-track-guide) for how motions and objections work.
 
 **Powers:**
 
