@@ -14,7 +14,7 @@ earnETH consists of two subvaults. Each subvault specializes in its respective s
 
 ### How deposits work
 
-Users can deposit ETH, wETH, wstETH, GG, or strETH with up to a 24-hour deposit waiting period and receive the share token earnETH.
+Users can deposit ETH, wETH, wstETH, or strETH with up to a 24-hour deposit waiting period and receive the share token earnETH.
 
 ### How withdrawals work
 
@@ -43,4 +43,3 @@ Users can withdraw USDC in two steps (request + claim) with a typical withdrawal
 ### Curators
 
 - Mellow - https://mellow.finance/
-
