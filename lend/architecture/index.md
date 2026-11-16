@@ -10,10 +10,6 @@ Lido Lend is an isolated-market lending protocol built on a fork of Morpho Blue.
 
 The shared `LidoLend` core keeps the canonical balances and accounting for every market. The Lido-specific contracts add per-market policy (`LidoLendMarketController`), guardian reports (`GuardianSignals`), tokenized lender vaults (`LidoLendERC4626`), and new lender exit paths. They do not keep a second copy of market balances.
 
-:::info Source
-Based on [`docs/specs/architecture.md`](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md). The deployed code is the final reference.
-:::
-
 ## Overview
 
 Each market selects a loan token, a collateral token, an oracle, an interest-rate model (IRM), and a liquidation loan-to-value (LLTV). The oracle values collateral in loan-token units. The IRM sets how debt and lender claims grow over time. The LLTV is the borrowing limit that the core health check uses.

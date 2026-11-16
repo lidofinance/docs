@@ -17,16 +17,21 @@ When debt exceeds the LLTV-adjusted collateral value, anyone can liquidate the p
 
 ```mermaid
 flowchart LR
-    DirectLender["Direct lender"] -->|"supply, withdraw, settle"| Core["LidoLend core"]
-    VaultLender["Vault lender"] -->|"deposit and exit"| Vault["LidoLendERC4626 vault"]
+    DirectLender["Direct lender"] -->|"supply, withdraw, settle"| Core["LidoLend core<br/>balances, shares, and tokens"]
+    VaultLender["Vault lender"] -->|"deposit and exit"| Vault["LidoLendERC4626<br/>one managed lender position"]
     Vault -->|"supply, withdraw, settle"| Core
+
     Borrower["Borrower"] -->|"collateral, borrow, repay"| Core
-    Liquidator["Liquidator"] -->|"liquidate"| Core
-    Core -->|"policy hook"| Controller["Market controller"]
+    Liquidator["Liquidator"] -->|"liquidate an unsafe position"| Core
+
+    Core -->|"policy hook"| Controller["Market controller<br/>accept or reject"]
     Controller -->|"read account signals"| Signals["GuardianSignals"]
-    Guardians["Guardians"] -->|"reports"| Signals
+    Guardians["Guardians"] -->|"account and review-progress reports"| Signals
+
     Core -->|"collateral price"| Oracle["Market oracle"]
+    Controller -->|"policy price"| Oracle
     Core -->|"borrow rate"| Router["IrmRouter"]
+    Router -->|"forward by market"| IRM["Selected IRM"]
 ```
 
 Five fields identify a market: `loanToken`, `collateralToken`, `oracle`, `irm` and `lltv`. Positions and totals are isolated by market, so assets in one market do not back positions in another. One core contract holds all markets and is the source of truth for balances, shares and token custody. Token custody is shared by token address.
