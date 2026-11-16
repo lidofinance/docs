@@ -17,10 +17,6 @@ The report lists 62 findings: no critical or high severity, 8 medium, 27 low, 21
 | --- | --- | --- | --- | --- |
 | [Lido Lend](https://github.com/lidofinance/audits/blob/main/lend/2026-10-26_Cyfrin_Lido-Lend.pdf) | Cyfrin | 2026-10-26 | Lido Lend contracts in `lend-markets` (`src/`), the `lend` core and the `lend-irm` interest-rate contracts: 53 files | `lend` [`4d55f1d`](https://github.com/lidofinance/lend/tree/4d55f1dd98a0f7712543965c66e03c963a004263), `lend-irm` [`97af4c3`](https://github.com/lidofinance/lend-irm/tree/97af4c39c51f1e023d8025319f34a1658036066c), `lend-markets` [`23416c4`](https://github.com/lidofinance/lend-markets/tree/23416c43c4038ea3c00a13d6203949c8f88905cc) |
 
-:::danger[Pending: lidofinance/audits#218]
-The report links on this page point to `lidofinance/audits` and work after [lidofinance/audits#218](https://github.com/lidofinance/audits/pull/218) is merged.
-:::
-
 ## Off-chain components (Guardian daemon)
 
 The Guardian daemon SDK ([`lidofinance/lend-guardian-daemon`](https://github.com/lidofinance/lend-guardian-daemon)) is the TypeScript reference implementation of the Guardian off-chain logic for `GuardianSignals`.
