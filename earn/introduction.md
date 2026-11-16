@@ -43,4 +43,3 @@ Users can withdraw USDC in two steps (request + claim) with a typical withdrawal
 ### Curators
 
 - Mellow - https://mellow.finance/
-
