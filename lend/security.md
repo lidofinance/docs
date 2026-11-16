@@ -13,7 +13,6 @@ The reporting rules are in [`SECURITY.md`](https://github.com/lidofinance/lend/b
 
 - check the current scope of the [Lido bug bounty program on Immunefi](https://immunefi.com/bug-bounty/lido/information/) before you submit a report. Repository code and development branches are not automatically in scope;
 - send findings that do not fit the published scope to [security@lido.fi](mailto:security@lido.fi), the contact in Lido's [security.txt](https://lido.fi/.well-known/security.txt);
-- report Lido-specific issues to Lido, not to Morpho Labs. If an issue also affects upstream Morpho Blue, send it privately to [security@morpho.org](mailto:security@morpho.org) too;
 - do not disclose a vulnerability publicly before it is triaged and remediated.
 
 ## Bug bounty
