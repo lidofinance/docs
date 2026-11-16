@@ -135,7 +135,7 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
 [Lido Lend: Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)
 
-**Quorum:** 3/6 (signers and threshold not set on-chain yet)
+**Quorum:** 3/6
 
 **List of signers:**
 

@@ -72,7 +72,7 @@ The market activation motions appoint the market steward and register the Circui
 | --- | --- | --- |
 | Lend Operational Committee Safe (Easy Track trusted caller) | [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 5 of 7 (signers and threshold not set on-chain yet) |
 | Lend Risk Steward Committee Safe (market steward appointed by the activation motions) | [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 3 of 7 (signers and threshold not set on-chain yet) |
-| Lend Emergency Brakes Committee Safe (Circuit Breaker pauser registered by the activation motions) | [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 3 of 6 (signers and threshold not set on-chain yet) |
+| Lend Emergency Brakes Committee Safe (Circuit Breaker pauser registered by the activation motions) | [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 3 of 6 |
 
 See [Committees](./committees) for the role of each committee.
 
