@@ -1,12 +1,12 @@
 ---
 title: Lido Lend architecture
-sidebar_label: Overview
+sidebar_label: Architecture
 description: How the Lido Lend core, market controllers, guardian signals, vaults, exit paths, oracles, and interest-rate models fit together.
 ---
 
 # Lido Lend architecture
 
-Lido Lend is an isolated-market lending protocol built on a fork of Morpho Blue. Each market lets lenders supply one loan token and lets borrowers borrow that token against one collateral token. This page gives integrators, auditors, and advanced users the system model and links to one page per mechanism.
+Lido Lend is an isolated-market lending protocol built on a fork of Morpho Blue. Each market lets lenders supply one loan token and lets borrowers borrow that token against one collateral token. This page gives integrators, auditors, and advanced users the system model.
 
 The shared `LidoLend` core keeps the canonical balances and accounting for every market. The Lido-specific contracts add per-market policy (`LidoLendMarketController`), guardian reports (`GuardianSignals`), tokenized lender vaults (`LidoLendERC4626`), and new lender exit paths. They do not keep a second copy of market balances.
 
@@ -45,17 +45,17 @@ In a market with a controller, the core calls the controller before most market 
 
 ## Components
 
-| Component | What it does | Details |
-|---|---|---|
-| `LidoLend` | Forked Morpho Blue core. Stores all markets, positions, and token balances. Adds owner-only market creation, controller hooks, and `settle`. | [Core](./core) |
-| `LidoLendMarketController` | Per-market policy: supply cap, collateral activation, guardian gating, freeze, pause, settlement queue, borrow-share-rate guard. | [Market controller](./market-controller) |
-| `GuardianSignals` | Registry of guardian flags, suspect reports, bans, and heartbeats. One registry can serve several markets. | [Guardian signals](./guardian-signals) |
-| `LidoLendERC4626` | ERC-4626 vault that holds one managed supply position in one market. Adds targeted settlement and fallback exit. | [Settlement and lender exits](./settlement) |
-| `IrmRouter`, `AdaptiveCurveIrm` | Stable IRM address in `MarketParams` and the model it routes to. | [Interest-rate model](./interest-rate-model) |
-| `LidoLendOwner` | Governance entry contract. Owns the core and dispatches controller and registry calls. | [Roles and permissions](../governance/roles-and-permissions) |
-| `RiskStewardDashboard` | Lets per-market stewards tighten activation rules, revoke instant activation, and freeze a market. | [Market controller](./market-controller#freeze-and-pause) |
-| `LidoLendMarketFactory` | Optional helper that deploys standard controllers, vaults, and `GuardianSignals` instances. | [Market creation](#market-creation-and-later-changes) |
-| [`CircuitBreaker`](/contracts/circuit-breaker) | Lets a registered emergency actor pause a controller for a limited period. | [Market controller](./market-controller#freeze-and-pause) |
+| Component | What it does |
+|---|---|
+| `LidoLend` | Forked Morpho Blue core. Stores all markets, positions, and token balances. Adds owner-only market creation, controller hooks, and `settle`. |
+| `LidoLendMarketController` | Per-market policy: supply cap, collateral activation, guardian gating, freeze, pause, settlement queue, borrow-share-rate guard. |
+| `GuardianSignals` | Registry of guardian flags, suspect reports, bans, and heartbeats. One registry can serve several markets. |
+| `LidoLendERC4626` | ERC-4626 vault that holds one managed supply position in one market. Adds targeted settlement and fallback exit. |
+| `IrmRouter`, `AdaptiveCurveIrm` | Stable IRM address in `MarketParams` and the model it routes to. |
+| `LidoLendOwner` | Governance entry contract. Owns the core and dispatches controller and registry calls. |
+| `RiskStewardDashboard` | Lets per-market stewards tighten activation rules, revoke instant activation, and freeze a market. |
+| `LidoLendMarketFactory` | Optional helper that deploys standard controllers, vaults, and `GuardianSignals` instances. |
+| [`CircuitBreaker`](/contracts/circuit-breaker) | Lets a registered emergency actor pause a controller for a limited period. |
 
 ## Market identity and shared scope
 
@@ -88,7 +88,7 @@ Accounting isolation does not make every dependency or permission market-specifi
 
 If a liquidation leaves no collateral and debt remains, the core writes the remaining debt off against suppliers.
 
-Guardian reports do not seize collateral. They can delay activation or ban new borrowing. See [Market controller](./market-controller) and [Guardian signals](./guardian-signals).
+Guardian reports do not seize collateral. They can delay activation or ban new borrowing.
 
 ### Lender positions and exits
 
@@ -99,8 +99,6 @@ A direct lender supplies loan tokens to the core and receives supply shares. A v
 | Ordinary withdrawal | The core or vault burns lender shares and withdraws available loan tokens. Market liquidity limits the amount. | Loan tokens |
 | Settlement | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. | Collateral |
 | Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. | Loan tokens, collateral, or both |
-
-See [Settlement and lender exits](./settlement).
 
 ## Runtime controls
 
@@ -113,7 +111,7 @@ A typical controller-checked action runs in this order:
 3. the controller reads its policy state and returns or reverts;
 4. if the controller returns, the core runs its remaining checks, updates accounting, and moves the tokens.
 
-While a controller hook runs, the core rejects any other action that would call a hook, even on markets without a controller. Actions that do not call a hook, such as flash loans and authorization changes, are not affected by a controller pause. The [core page](./core#controller-hooks) lists what each hook observes.
+While a controller hook runs, the core rejects any other action that would call a hook, even on markets without a controller. Actions that do not call a hook, such as flash loans and authorization changes, are not affected by a controller pause.
 
 ### Freeze and pause
 
@@ -126,7 +124,7 @@ An action must pass every control layer that it uses.
 
 ## Market creation and later changes
 
-A controller, vault, oracle, IRM configuration, and `GuardianSignals` instance can exist before the core market. The core owner creates the market after these components are configured. Creation fixes the `MarketParams`, the controller address, and the settlement setting. The deployment scripts deploy inert market components, and a separate Easy Track motion activates each market. See [Market onboarding](../governance/market-onboarding).
+A controller, vault, oracle, IRM configuration, and `GuardianSignals` instance can exist before the core market. The core owner creates the market after these components are configured. Creation fixes the `MarketParams`, the controller address, and the settlement setting. The deployment scripts deploy inert market components, and a separate Easy Track motion activates each market.
 
 `LidoLendOwner` is the standard governance entry contract. It owns the core and separately holds roles on controllers and `GuardianSignals`. `LidoLendMarketFactory` is optional: the core owner can create a valid market without it.
 
@@ -152,7 +150,7 @@ The fields below are fixed when a market is created. Changeable policy parameter
 
 ## Permissions
 
-The core owner (`LidoLendOwner`) creates markets and sets fees. Controllers, `GuardianSignals` registries, and IRM contracts each have their own roles. Proxy admins can upgrade the proxied contracts until ossification. See [Roles and permissions](../governance/roles-and-permissions).
+The core owner (`LidoLendOwner`) creates markets and sets fees. Controllers, `GuardianSignals` registries, and IRM contracts each have their own roles. Proxy admins can upgrade the proxied contracts until ossification. See [Governance](../governance) and [Committees](../committees).
 
 ## Trust assumptions and limitations
 
@@ -170,10 +168,7 @@ See also [Risks](../risks).
 
 ## Related
 
-- [Core](./core)
-- [Market controller](./market-controller)
-- [Guardian signals](./guardian-signals)
-- [Settlement and lender exits](./settlement)
-- [Interest-rate model](./interest-rate-model)
-- [Roles and permissions](../governance/roles-and-permissions)
+- [Governance](../governance)
+- [Committees](../committees)
+- [Risks](../risks)
 - [Full architecture specification on GitHub](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md)

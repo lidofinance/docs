@@ -22,13 +22,13 @@ The design separates fast, risk-reducing actions from slower, risk-increasing on
 Committee names follow the [Lido Lend Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62) on the Research Forum. The Lend Emergency Brakes Committee is not the [CircuitBreaker Committee](/multisigs/emergency-brakes) of the Lido core protocol, and the Lido Lend `CircuitBreaker` is a separate instance.
 :::
 
-For the role behind each power, see [Roles and permissions](./roles-and-permissions).
+For an overview of who controls Lido Lend, see [Governance](./governance).
 
 ## Lend Operational Committee
 
 **Purpose:** Create markets and perform routine configuration through Easy Track motions. Each motion is delayed and LDO holders can object to it.
 
-The committee is the trusted caller of the Lido Lend Easy Track factories. The factories fix the target contracts and functions of each motion. The committee chooses the parameters, and the factories and contracts validate them. Lido Lend authorizes the `EVMScriptExecutor`, so these limits depend on the factory set that the Lido DAO registers in Easy Track. See [Easy Track motions](./roles-and-permissions#easy-track-motions) for the full list of calls and the [Easy Track guide](/guides/easy-track-guide) for how motions and objections work.
+The committee is the trusted caller of the Lido Lend Easy Track factories. The factories fix the target contracts and functions of each motion. The committee chooses the parameters, and the factories and contracts validate them. Lido Lend authorizes the `EVMScriptExecutor`, so these limits depend on the factory set that the Lido DAO registers in Easy Track. See the [Easy Track guide](/guides/easy-track-guide) for how motions and objections work.
 
 **Powers:**
 
@@ -82,7 +82,7 @@ The committee is the trusted caller of the Lido Lend Easy Track factories. The f
 - raise the minimum standard collateral deposit (`increaseMinDepositAmount`);
 - remove one integration's instant-activation privilege (`revokeInstantActivation`). Its future deposits then follow the standard deposit floor, dust, activation delay and inflow rules.
 
-The committee can use the dashboard powers only in a market where it is an appointed steward. Steward membership is stored per market. The `ActivateMarket` motion appoints the selected steward when the market is created, and the Lend Operational Committee can add or remove stewards through Easy Track. The Lido DAO Agent administers the dashboard roles and can reassign them. See [Market controller](../architecture/market-controller) for the user effects.
+The committee can use the dashboard powers only in a market where it is an appointed steward. Steward membership is stored per market. The `ActivateMarket` motion appoints the selected steward when the market is created, and the Lend Operational Committee can add or remove stewards through Easy Track. The Lido DAO Agent administers the dashboard roles and can reassign them. See [Freeze and pause](./architecture#freeze-and-pause) for the user effects.
 
 **Cannot:**
 
@@ -152,7 +152,7 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 
 **Purpose:** Screen new collateral before it can back borrowing, and report risky accounts.
 
-The council is the guardian set of a `GuardianSignals` registry. Each guardian is a separate identity, expected to be independently controlled. A registry can serve one market or several markets. Membership, quorum, the suspect window and the heartbeat frontier apply to the whole registry. Flags, suspects and bans apply to one account in one market. `GuardianSignals` records the reports but cannot verify the underlying screening. See [Guardian signals](../architecture/guardian-signals).
+The council is the guardian set of a `GuardianSignals` registry. Each guardian is a separate identity, expected to be independently controlled. A registry can serve one market or several markets. Membership, quorum, the suspect window and the heartbeat frontier apply to the whole registry. Flags, suspects and bans apply to one account in one market. `GuardianSignals` records the reports but cannot verify the underlying screening.
 
 **Powers:**
 

@@ -48,11 +48,11 @@ The fork of the core makes four changes to Morpho Blue (see [FORK_NOTES](https:/
 
 The Lido layer adds these contracts and mechanisms:
 
-- **Market controller.** `LidoLendMarketController` applies the policy of one market: supply cap, collateral activation, guardian-based borrow gating, freeze and pause, and settlement policy. See [Market controller](./architecture/market-controller);
-- **Collateral activation.** New collateral counts in the core health check at once, but it supports new borrowing only after an activation delay. See [Market controller](./architecture/market-controller);
-- **Guardian signals.** Guardians report on accounts and on their review progress through `GuardianSignals`. Reports can delay collateral activation or ban new borrowing. They cannot seize collateral. See [Guardian signals](./architecture/guardian-signals);
-- **Settlement and lender exits.** A lender can cancel a borrower's debt against its own supply and receive collateral of the same oracle value, with no liquidation incentive. `LidoLendERC4626` vaults add a fallback exit that pays free liquidity first and settles the rest. See [Settlement](./architecture/settlement);
-- **Governance-managed IRM.** The `irm` field of a standard market points to `IrmRouter`, which forwards rate calls to a selected model such as `AdaptiveCurveIrm`. Governance roles can change the route and the model configuration after market creation. See [Interest rate model](./architecture/interest-rate-model).
+- **Market controller.** `LidoLendMarketController` applies the policy of one market: supply cap, collateral activation, guardian-based borrow gating, freeze and pause, and settlement policy;
+- **Collateral activation.** New collateral counts in the core health check at once, but it supports new borrowing only after an activation delay;
+- **Guardian signals.** Guardians report on accounts and on their review progress through `GuardianSignals`. Reports can delay collateral activation or ban new borrowing. They cannot seize collateral;
+- **Settlement and lender exits.** A lender can cancel a borrower's debt against its own supply and receive collateral of the same oracle value, with no liquidation incentive. `LidoLendERC4626` vaults add a fallback exit that pays free liquidity first and settles the rest;
+- **Governance-managed IRM.** The `irm` field of a standard market points to `IrmRouter`, which forwards rate calls to a selected model such as `AdaptiveCurveIrm`. Governance roles can change the route and the model configuration after market creation.
 
 ## For lenders
 
@@ -65,7 +65,7 @@ Main constraints and options:
 - when liquidity is short, a lender can exit through settlement if the market enabled it at creation, or through the vault fallback exit;
 - lenders bear the debt that remains after a liquidation uses all of a borrower's collateral.
 
-See [Settlement](./architecture/settlement) and [Risks](./risks).
+See [Risks](./risks).
 
 ## For borrowers
 
@@ -79,7 +79,7 @@ Main constraints:
 - a position with debt above its LLTV-adjusted collateral value can be liquidated;
 - in a market with settlement enabled, a lender can cancel part of a borrower's debt and take collateral of the same oracle value. Without borrower action, this applies only to the borrower at the root of the risk queue, which is ordered by estimated LTV. A borrower can also opt in by setting a personal target LTV.
 
-See [Market controller](./architecture/market-controller), [Guardian signals](./architecture/guardian-signals) and [Liquidations](./guides/liquidations).
+See [Risks](./risks).
 
 ## Governance and safety
 
@@ -89,14 +89,13 @@ See [Market controller](./architecture/market-controller), [Guardian signals](./
 - **Emergency pause.** `CircuitBreaker` lets a registered emergency actor apply one finite pause to a market controller. The Reseal Manager can extend the pause or end it early;
 - **Guardians.** Guardians report account risk and review progress through `GuardianSignals`. Flags from a quorum of distinct guardians ban an account in a market.
 
-No role other than proxy administration can directly rewrite or redirect a core or vault position. For the full role map, see [Roles and permissions](./governance/roles-and-permissions) and [Committees](./governance/committees). For audits and bug bounty, see [Audits](./audits) and [Security](./security).
+No role other than proxy administration can directly rewrite or redirect a core or vault position. For the full role map, see [Governance](./governance) and [Committees](./committees). For audits and bug bounty, see [Audits](./audits) and [Security](./security).
 
 ## Where to go next
 
-- **Integrators:** [Architecture](./architecture), [Bundler integration](./guides/bundler-integration), [Deployed contracts](./deployed-contracts);
-- **Lenders and borrowers:** [Risks](./risks), [Liquidations](./guides/liquidations);
-- **Guardian operators:** [Guardian operator guide](./guides/guardian-operator), [Guardian signals](./architecture/guardian-signals);
-- **Governance participants:** [Roles and permissions](./governance/roles-and-permissions), [Committees](./governance/committees), [Market onboarding](./governance/market-onboarding), [Audits](./audits), [Security](./security);
+- **Integrators:** [Architecture](./architecture), [Deployed contracts](./deployed-contracts);
+- **Lenders and borrowers:** [Risks](./risks);
+- **Governance participants:** [Governance](./governance), [Committees](./committees), [Audits](./audits), [Security](./security);
 - **Terms:** [Glossary](./glossary).
 
 The full specifications are in the [lend-markets specs](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/SPECIFICATION.md).

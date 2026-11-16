@@ -35,7 +35,7 @@ As of 2026-11-11, the Lido Lend core, the Bundler3 stack and the Easy Track fact
 
 ### Bundler and adapters
 
-Lido Lend deploys its own Bundler3 instance together with the adapters. It is not shared with another protocol. See [Bundler integration](./guides/bundler-integration).
+Lido Lend deploys its own Bundler3 instance together with the adapters. It is not shared with another protocol.
 
 | Contract | Address |
 | --- | --- |
@@ -74,7 +74,7 @@ The market activation motions appoint the market steward and register the Circui
 | Lend Risk Steward Committee Safe (market steward appointed by the activation motions) | [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) <span className="lend-todo">proposed</span> | 3 of 7 (<span className="lend-todo">signers and threshold not set on-chain yet</span>) |
 | Lend Emergency Brakes Committee Safe (Circuit Breaker pauser registered by the activation motions) | [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) <span className="lend-todo">proposed</span> | 3 of 6 (<span className="lend-todo">signers and threshold not set on-chain yet</span>) |
 
-See [Committees](./governance/committees) for the role of each committee.
+See [Committees](./committees) for the role of each committee.
 
 ### Lido DAO contracts and tokens
 

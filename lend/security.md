@@ -52,10 +52,9 @@ When Dual Governance is not in its `Normal` state, the Reseal Committee can use 
 
 For details, see:
 
-- [Market controller](./architecture/market-controller) for freeze, pause and collateral activation;
-- [Guardian signals](./architecture/guardian-signals) for flags, quorum and bans;
-- [Committees](./governance/committees) for the committees that hold these powers;
-- [Roles and permissions](./governance/roles-and-permissions) for the exact role holders.
+- [Architecture](./architecture#freeze-and-pause) for freeze and pause;
+- [Governance](./governance) for who holds these powers;
+- [Committees](./committees) for the powers and limits of each committee.
 
 ## Audits
 

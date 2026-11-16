@@ -23,7 +23,7 @@ The report links on this page point to `lidofinance/audits` and work after [lido
 
 ## Off-chain components (Guardian daemon)
 
-The Guardian daemon SDK ([`lidofinance/lend-guardian-daemon`](https://github.com/lidofinance/lend-guardian-daemon)) is the TypeScript reference implementation of the Guardian off-chain logic for `GuardianSignals`. See [Guardian operator guide](./guides/guardian-operator).
+The Guardian daemon SDK ([`lidofinance/lend-guardian-daemon`](https://github.com/lidofinance/lend-guardian-daemon)) is the TypeScript reference implementation of the Guardian off-chain logic for `GuardianSignals`.
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
