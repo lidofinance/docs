@@ -5,17 +5,13 @@ description: Security reviews of the Lido Lend contracts and their dependencies.
 
 # Audits
 
-This page lists the security reviews that cover the Lido Lend contracts, and the components they depend on. It also explains how the deployed code is matched to the audited code. For addresses, see [Deployed contracts](./deployed-contracts).
-
-The main review is the Cyfrin Lido Lend audit, dated 2026-10-26. It covers 53 files in `lend-markets`, `lend` and `lend-irm`. The final audited public commits are `4d55f1d` in `lend`, `97af4c3` in `lend-irm` and `23416c4` in `lend-markets`. The deployment uses `lend` at `422d589` and `lend-irm` at `566d31f`, earlier commits of the same repositories. Cyfrin recomputed the digests of all 53 files at the deployment checkout and confirmed that they match. See [Deployment verification](#deployment-verification).
-
-The report lists 62 findings: no critical or high severity, 8 medium, 27 low, 21 informational and 6 gas optimizations. Of these, 30 are resolved, 1 is partially resolved and 31 are acknowledged.
-
 ## Lido Lend protocol audits
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
 | [Lido Lend](https://github.com/lidofinance/audits/blob/main/lend/2026-10-26_Cyfrin_Lido-Lend.pdf) | Cyfrin | 2026-10-26 | Lido Lend contracts in `lend-markets` (`src/`), the `lend` core and the `lend-irm` interest-rate contracts: 53 files | `lend` [`4d55f1d`](https://github.com/lidofinance/lend/tree/4d55f1dd98a0f7712543965c66e03c963a004263), `lend-irm` [`97af4c3`](https://github.com/lidofinance/lend-irm/tree/97af4c39c51f1e023d8025319f34a1658036066c), `lend-markets` [`23416c4`](https://github.com/lidofinance/lend-markets/tree/23416c43c4038ea3c00a13d6203949c8f88905cc) |
+
+The report lists 62 findings: no critical or high severity, 8 medium, 27 low, 21 informational and 6 gas optimizations. Of these, 30 are resolved, 1 is partially resolved and 31 are acknowledged.
 
 ## Off-chain components (Guardian daemon)
 
@@ -31,7 +27,7 @@ The report lists 16 findings: 1 high, 8 medium and 7 low. Of these, 12 are fixed
 
 ### Circuit Breaker
 
-Lido Lend uses `CircuitBreaker` from [`lidofinance/circuit-breaker`](https://github.com/lidofinance/circuit-breaker) at tag `1.0.0` (commit `6829a5a`). The audited commit is `b4b2fbc`. Nothing under `src/` changed between the audited commit and tag `1.0.0`.
+Lido Lend uses `CircuitBreaker` from [`lidofinance/circuit-breaker`](https://github.com/lidofinance/circuit-breaker) at tag `1.0.0` (commit `6829a5a`). Nothing under `src/` changed since the audited commit.
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
@@ -47,8 +43,6 @@ Lido Lend uses Morpho Bundler3 from [`morpho-org/bundler3`](https://github.com/m
 - `interfaces/IAaveV3Optimizer.sol`, which Lido Lend does not use;
 - `interfaces/IBundler3.sol`, NatSpec comments only.
 
-Apart from NatSpec comments in `interfaces/IBundler3.sol`, every Bundler3 file that Lido Lend imports is unchanged.
-
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
 | [Bundler3](https://github.com/morpho-org/bundler3/blob/9afc2f4ea32c9dbeba2205a485731b8a98f7ae4c/audits/2025-01-02-bundler3-spearbit.pdf) | Spearbit | 2025-01-02 | Bundler3 | See report |
@@ -57,11 +51,11 @@ Apart from NatSpec comments in `interfaces/IBundler3.sol`, every Bundler3 file t
 
 ### Easy Track factories
 
-The Lido Lend Easy Track factories and `LidoLendPreseeder` are in [`lidofinance/easy-track`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4/contracts/EVMScriptFactories/lidoLendFactories) (PR #142). The MixBytes report also verifies their mainnet deployments against the audited commit.
+The Lido Lend Easy Track factories and `LidoLendPreseeder` are in [`lidofinance/easy-track`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4/contracts/EVMScriptFactories/lidoLendFactories) (PR #142).
 
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
-| [Lido Lend Easy Track Factories](https://github.com/lidofinance/audits/blob/main/lend/2026-11-10-mixbytes-lido-lend-easy-track-factories-audit-report.pdf) | MixBytes | 2026-11-11 | Lido Lend Easy Track factories and `LidoLendPreseeder`, with mainnet deployment verification | [`4caa911`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4) |
+| [Lido Lend Easy Track Factories](https://github.com/lidofinance/audits/blob/main/lend/2026-11-10-mixbytes-lido-lend-easy-track-factories-audit-report.pdf) | MixBytes | 2026-11-11 | Lido Lend Easy Track factories and `LidoLendPreseeder` | [`4caa911`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4) |
 
 The report lists 11 low-severity findings. Of these, 1 is fixed and 10 are acknowledged.
 
@@ -88,4 +82,4 @@ The source code of the deployed mainnet contracts is verified on Etherscan.
 | [Lido Lend Deployment Verification, Stage 1 – Core](https://github.com/lidofinance/audits/blob/main/lend/2026-11-11-cyfrin-lido-lend-core-deployment-verification.pdf) | Cyfrin | 2026-11-11 | Runtime bytecode, constructor arguments and immutables of the [Protocol](./deployed-contracts#protocol) contracts and the two Bundler3 adapters. As supplementary checks, the code and implementation pointers of the `LidoLend` and `IrmRouter` proxies, and the bytecode of `Bundler3` and the Lido Lend `CircuitBreaker` instance | `lend-markets` [`9c0ba34`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5) |
 | [Lido Lend Easy Track Factories](https://github.com/lidofinance/audits/blob/main/lend/2026-11-10-mixbytes-lido-lend-easy-track-factories-audit-report.pdf) | MixBytes | 2026-11-11 | Mainnet deployments of the Lido Lend Easy Track factories and `LidoLendPreseeder` | [`4caa911`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4) |
 
-Cyfrin verified the deployment at the deploy commit `9c0ba34`. Stage 2, the verification of market deployments, is pending. Cyfrin will add it to the same report.
+Stage 2, the verification of market deployments, is pending. Cyfrin will add it to the same report.
