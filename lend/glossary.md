@@ -13,9 +13,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 **Access restorer** (`ACCESS_RESTORER_ROLE`) — A `GuardianSignals` role that clears the ban of one account in one market, together with all flags for that account. Suspect reports stay. The initial holder is `LidoLendOwner`.
 
-**Activating lot** — The activating collateral of one borrower. All of it shares one start time and one stored base delay.
-
-**Activation lock** (`activatingLockDuration`) — A period from the start of an activating lot during which the borrower cannot voluntarily withdraw the inactive collateral. Active collateral stays withdrawable. The lock is capped at seven days.
+**Activation lock** (`activatingLockDuration`) — A period from the start of collateral activation during which the borrower cannot voluntarily withdraw the inactive collateral. Active collateral stays withdrawable. The lock is capped at seven days.
 
 **Active collateral** — The part of a borrower's collateral that is neither dust nor activating. It counts toward borrow capacity only when the total active amount reaches `minActivationAmount`.
 
@@ -27,7 +25,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 **Ban** — An account state in one market. A borrow reverts when its caller, debt owner or loan receiver is banned. A banned borrower's activating collateral cannot mature. A ban does not directly block repayment, liquidation, settlement or a debt-free collateral withdrawal. A latched ban stays until an authorized unban. A derived ban exists when current flags meet a newly lowered quorum and no latch is written.
 
-**Base delay** — The part of the activation delay that depends on recent non-instant collateral inflow across the market. It goes from `minActivationDelay` to `maxActivationDelay` as inflow approaches `maxDelayInflow`. Guardian strikes and suspect reports add separate surcharges on top of it when the controller computes the unlock time.
+**Base delay** — The part of the activation delay that depends on recent non-instant collateral inflow across the market. It goes from `minActivationDelay` to `maxActivationDelay` as inflow approaches `maxDelayInflow`. Guardian flags and suspect reports add separate surcharges on top of it.
 
 **Borrow capacity** — The amount a borrower may owe under controller policy: the oracle value of active collateral multiplied by LLTV, rounded down. It is zero while active collateral is below `minActivationAmount`.
 
@@ -63,7 +61,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 **Fallback exit** — A vault exit (`fallbackExit`) that first withdraws available loan tokens and then settles the remaining claim against the risk queue root. The receiver gets loan tokens, collateral or both.
 
-**Flag** — A guardian report on one account in one market. Each distinct guardian flag adds one strike. When strikes reach quorum, the account is banned.
+**Flag** — A guardian report on one account in one market. Each flag adds a delay to the collateral activation of the account. When flags from distinct guardians reach the quorum, the account is banned.
 
 **Freeze** — A market state that blocks new borrowing, collateral withdrawal while debt remains, and maturation of activating collateral. Repayment, liquidation, settlement and lender withdrawal stay available. Market stewards can freeze a market. Unfreezing needs `UNFREEZER_ROLE`.
 
@@ -79,15 +77,9 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## I
 
-**Impact class** — A design label (C0 to C5) in the role specification that describes the effect of a privileged action, from taking user value (C0, not allowed as an operational action) to metadata-only changes (C5). The contracts do not enforce these labels.
-
 **Instant-activation caller** — An address that the market manager enables so that collateral supplied through it becomes active at once. It bypasses the deposit floor, dust, the activation delay and the inflow throttle. The setting is keyed by the call sender. No caller is enabled initially.
 
-**IRM** — Interest-rate model. It returns a WAD-scaled per-second borrow rate.
-
-**IRM migration** — Changing the model implementation that `IrmRouter` selects for a market.
-
-**IRM reconfiguration** — Applying new parameters to the same model instance for the same market.
+**IRM** — Interest-rate model. It returns a per-second borrow rate, scaled by `1e18`.
 
 **`IrmRouter`** — The stable IRM address stored in the `MarketParams` of a standard market. It forwards rate calls to the implementation selected for that market.
 
@@ -111,19 +103,17 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## M
 
-**Managed supply shares** — The core supply shares that a vault creates or consumes through its own deposit, withdrawal and settlement operations. Only these shares back the value of vault shares.
-
 **Market** — One loan token, one collateral token, an oracle, an IRM and an LLTV. These five fields form `MarketParams`, and the market id is `keccak256(abi.encode(loanToken, collateralToken, oracle, irm, lltv))`. Positions and totals are isolated by market id. See [Architecture](./architecture).
 
 **Market controller** — `LidoLendMarketController`, the policy layer for one market. The core calls it before most market actions, and it allows or rejects each action without changing the amounts.
 
 **Market steward** — An address appointed for one market in `RiskStewardDashboard`. A steward can only tighten that market: increase activation delays, the activation lock or the minimum deposit, revoke instant activation or freeze the market.
 
-**Maturation** — The move of an activating lot to active collateral. It happens on a later controller hook when the unlock time has passed, the market is not frozen and the borrower is not banned. In addition, the quorum frontier must have reached the unlock time, or the fallback deadline must have passed.
+**Maturation** — The move of activating collateral to active collateral. It happens on a later controller hook when the activation delay has passed, the market is not frozen and the borrower is not banned. In addition, the quorum frontier must have reached the end of the activation delay, or the fallback deadline must have passed.
 
 ## O
 
-**Oracle price** — The conversion rate from collateral-token raw units to loan-token raw units, scaled by `1e36` and adjusted for the decimals of both tokens.
+**Oracle price** — The conversion rate from the smallest collateral-token unit to the smallest loan-token unit, scaled by `1e36` and adjusted for the decimals of both tokens.
 
 **Ossification** — The step in which a proxy admin permanently removes its own power to upgrade the contract code. See [Architecture](./architecture).
 
@@ -135,7 +125,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## Q
 
-**Queue root** — The borrower at the top of the risk queue, with the largest stored risk key. Root policy and the vault fallback exit settle against it.
+**Queue root** — The borrower at the top of the risk queue, with the largest stored risk key. Settlement without borrower action and the vault fallback exit settle against it.
 
 **Quorum** — The number of distinct guardian flags that bans an account. It is set per `GuardianSignals` registry and stays between one and the current guardian count. It also defines the quorum frontier.
 
@@ -143,31 +133,19 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## R
 
-**Raw unit** — The smallest integer unit of a token or share value. It is not one whole token.
-
 **Reseal Manager** — The protocol-wide pause-extension authority. It initially holds `PAUSER_ROLE` and `RESUMER_ROLE` on every controller, so it can extend a pause or end it early.
 
 **Risk queue** — A max-heap of the borrowers with debt in a market, ordered by `riskKey = borrowShares * 1e18 / rawCollateral`. The key is a rounded estimate of LTV.
 
 **`RiskStewardDashboard`** — A non-upgradeable contract that holds controller roles. It lets per-market stewards only tighten settings within bounds, revoke instant activation and freeze the market.
 
-**Root policy** — The settlement policy that applies to the queue root without borrower action. Its allowance is the largest of a debt fraction (`sliceFloorBps`), an absolute floor (`sliceFloorAssets`) and an LTV step (`ltvStepBps`), capped at the borrower's debt.
-
 ## S
 
-**Seizure floor** — The smallest settlement cut that seizes at least one raw unit of collateral. The controller reports a smaller cut as unavailable.
-
-**Settleable supply** — A lender's live supply value minus the market's free liquidity. A root-policy settlement cannot cancel more debt than this amount.
-
 **Settlement** — A lender exit through the core function `settle`. It burns the lender's supply shares to cancel a borrower's debt and transfers collateral of the same oracle value to a chosen receiver, with no liquidation incentive. No loan tokens move. A market enables or disables settlement at creation, and the choice cannot change later.
-
-**Strike** — One unit of an account's `strikeCount` in one market. Each distinct guardian flag adds one strike, and each strike adds `delayPerStrike` to the account's activation delay.
 
 **Supply cap** — An admission limit on lender supply in one market. Zero means uncapped. Interest can carry total supply above the cap.
 
 **Supply share** — The core's integer unit of supplier ownership. Its value in loan assets changes as interest accrues.
-
-**Supply-share budget** — The maximum number of core supply shares that one settlement quote may consume.
 
 **Suspect report** — A guardian report on one account in one market that can add activation delay but never bans. It stays active for the suspect window.
 
@@ -179,10 +157,4 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## U
 
-**Unlock time** — The earliest time an activating lot can mature: its start plus the stored base delay plus guardian surcharges for strikes and, when they apply, suspect reports.
-
-**Utilization** — Total borrow assets divided by total supply assets, WAD-scaled.
-
-## W
-
-**WAD** — The fixed-point scale `1e18`. Ratios use WAD, and rates use WAD per second.
+**Utilization** — Total borrow assets divided by total supply assets, scaled by `1e18`.
