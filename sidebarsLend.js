@@ -1,7 +1,6 @@
 module.exports = {
   lendSidebar: [
     'introduction',
-    'risks',
     {
       type: 'category',
       label: 'Architecture',
@@ -33,6 +32,7 @@ module.exports = {
       ],
     },
     'deployed-contracts',
+    'risks',
     'audits',
     'security',
     'glossary',
