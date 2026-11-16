@@ -50,13 +50,13 @@ The committee is the trusted caller of the Lido Lend Easy Track factories. The f
 - change the IRM route of a live market;
 - act without a motion: every action waits for the motion duration and fails if LDO holders reach the objection threshold.
 
-**Address:** [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) <span className="lend-todo">proposed</span> (the trusted caller of the Lido Lend Easy Track factories)
+**Address:** [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] (the trusted caller of the Lido Lend Easy Track factories)
 
 **Forum topics:**\
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
 [Lido Lend: Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)
 
-**Quorum:** 5/7 (<span className="lend-todo">signers and threshold not set on-chain yet</span>)
+**Quorum:** 5/7 (signers and threshold not set on-chain yet)
 
 **List of signers:**
 
@@ -92,13 +92,13 @@ The committee can use the dashboard powers only in a market where it is an appoi
 - ban an account directly. See [Direct account bans](#direct-account-bans);
 - upgrade contracts.
 
-**Address:** [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) <span className="lend-todo">proposed</span>
+**Address:** [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\]
 
 **Forum topics:**\
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
 [Lido Lend: Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)
 
-**Quorum:** 3/7 (<span className="lend-todo">signers and threshold not set on-chain yet</span>)
+**Quorum:** 3/7 (signers and threshold not set on-chain yet)
 
 **List of signers:**
 
@@ -129,13 +129,13 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 - extend an active pause or resume a controller;
 - pause the same controller a second time until it is registered again through an Easy Track motion.
 
-**Address:** [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) <span className="lend-todo">proposed</span>
+**Address:** [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\]
 
 **Forum topics:**\
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
 [Lido Lend: Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)
 
-**Quorum:** 3/6 (<span className="lend-todo">signers and threshold not set on-chain yet</span>)
+**Quorum:** 3/6 (signers and threshold not set on-chain yet)
 
 **List of signers:**
 

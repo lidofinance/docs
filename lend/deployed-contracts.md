@@ -20,18 +20,18 @@ As of 2026-11-11, the Lido Lend core, the Bundler3 stack and the Easy Track fact
 
 | Contract | Address |
 | --- | --- |
-| `LidoLend` core (proxy) | [`0x026a770badc7126c7252Ef8d407E5b9C56147491`](https://etherscan.io/address/0x026a770badc7126c7252Ef8d407E5b9C56147491) <span className="lend-todo">proposed</span> |
-| `LidoLend` core (implementation) | [`0xa40Bd2281F54A2D3845F9535b74D2abD946E1911`](https://etherscan.io/address/0xa40Bd2281F54A2D3845F9535b74D2abD946E1911) <span className="lend-todo">proposed</span> |
-| `LidoLendOwner` | [`0x85378a1073E8f338e11A97E090E47e2F0FdD3D5a`](https://etherscan.io/address/0x85378a1073E8f338e11A97E090E47e2F0FdD3D5a) <span className="lend-todo">proposed</span> |
-| `IrmRouter` (proxy) | [`0x81B7cC9523B30429110282d90db2fa90ff443d91`](https://etherscan.io/address/0x81B7cC9523B30429110282d90db2fa90ff443d91) <span className="lend-todo">proposed</span> |
-| `IrmRouter` (implementation) | [`0x683eA34c29658fb6cDeCc92Eb4B4e7f766979868`](https://etherscan.io/address/0x683eA34c29658fb6cDeCc92Eb4B4e7f766979868) <span className="lend-todo">proposed</span> |
-| `AdaptiveCurveIrm` | [`0xf6f1565F4fD3d29E6bDAb86764A50BCde381422f`](https://etherscan.io/address/0xf6f1565F4fD3d29E6bDAb86764A50BCde381422f) <span className="lend-todo">proposed</span> |
-| `IrmConfigFactory` | [`0xE7ce129Eb67970C4d71e1456ad50f84B43C35496`](https://etherscan.io/address/0xE7ce129Eb67970C4d71e1456ad50f84B43C35496) <span className="lend-todo">proposed</span> |
-| `LidoLendMarketFactory` | [`0xBe1C1eaBda3eD8a93D3CE3246cf4EeF8111c76C7`](https://etherscan.io/address/0xBe1C1eaBda3eD8a93D3CE3246cf4EeF8111c76C7) <span className="lend-todo">proposed</span> |
-| `RiskStewardDashboard` | [`0xC3C241bC213EF3ba16234A7c689999209cE515D7`](https://etherscan.io/address/0xC3C241bC213EF3ba16234A7c689999209cE515D7) <span className="lend-todo">proposed</span> |
-| `GuardianSignals` (implementation) | [`0x66aFC8Bb3aB2f01127fDdEb05425bAD77923091f`](https://etherscan.io/address/0x66aFC8Bb3aB2f01127fDdEb05425bAD77923091f) <span className="lend-todo">proposed</span> |
-| `LidoLendMarketController` (implementation) | [`0x69136Ab2be05194C0b2773f6E2Cb944bCeb1D6b8`](https://etherscan.io/address/0x69136Ab2be05194C0b2773f6E2Cb944bCeb1D6b8) <span className="lend-todo">proposed</span> |
-| `LidoLendERC4626` (implementation) | [`0x8549736900BF3e643D7660E6DfDd09B0FBa2E286`](https://etherscan.io/address/0x8549736900BF3e643D7660E6DfDd09B0FBa2E286) <span className="lend-todo">proposed</span> |
+| `LidoLend` core (proxy) | [`0x026a770badc7126c7252Ef8d407E5b9C56147491`](https://etherscan.io/address/0x026a770badc7126c7252Ef8d407E5b9C56147491) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLend` core (implementation) | [`0xa40Bd2281F54A2D3845F9535b74D2abD946E1911`](https://etherscan.io/address/0xa40Bd2281F54A2D3845F9535b74D2abD946E1911) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendOwner` | [`0x85378a1073E8f338e11A97E090E47e2F0FdD3D5a`](https://etherscan.io/address/0x85378a1073E8f338e11A97E090E47e2F0FdD3D5a) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `IrmRouter` (proxy) | [`0x81B7cC9523B30429110282d90db2fa90ff443d91`](https://etherscan.io/address/0x81B7cC9523B30429110282d90db2fa90ff443d91) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `IrmRouter` (implementation) | [`0x683eA34c29658fb6cDeCc92Eb4B4e7f766979868`](https://etherscan.io/address/0x683eA34c29658fb6cDeCc92Eb4B4e7f766979868) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `AdaptiveCurveIrm` | [`0xf6f1565F4fD3d29E6bDAb86764A50BCde381422f`](https://etherscan.io/address/0xf6f1565F4fD3d29E6bDAb86764A50BCde381422f) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `IrmConfigFactory` | [`0xE7ce129Eb67970C4d71e1456ad50f84B43C35496`](https://etherscan.io/address/0xE7ce129Eb67970C4d71e1456ad50f84B43C35496) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendMarketFactory` | [`0xBe1C1eaBda3eD8a93D3CE3246cf4EeF8111c76C7`](https://etherscan.io/address/0xBe1C1eaBda3eD8a93D3CE3246cf4EeF8111c76C7) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `RiskStewardDashboard` | [`0xC3C241bC213EF3ba16234A7c689999209cE515D7`](https://etherscan.io/address/0xC3C241bC213EF3ba16234A7c689999209cE515D7) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `GuardianSignals` (implementation) | [`0x66aFC8Bb3aB2f01127fDdEb05425bAD77923091f`](https://etherscan.io/address/0x66aFC8Bb3aB2f01127fDdEb05425bAD77923091f) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendMarketController` (implementation) | [`0x69136Ab2be05194C0b2773f6E2Cb944bCeb1D6b8`](https://etherscan.io/address/0x69136Ab2be05194C0b2773f6E2Cb944bCeb1D6b8) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendERC4626` (implementation) | [`0x8549736900BF3e643D7660E6DfDd09B0FBa2E286`](https://etherscan.io/address/0x8549736900BF3e643D7660E6DfDd09B0FBa2E286) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 
 ### Bundler and adapters
 
@@ -39,15 +39,15 @@ Lido Lend deploys its own Bundler3 instance together with the adapters. It is no
 
 | Contract | Address |
 | --- | --- |
-| `Bundler3` | [`0x0056b888E90a1b783311351B54B782dE5de61e87`](https://etherscan.io/address/0x0056b888E90a1b783311351B54B782dE5de61e87) <span className="lend-todo">proposed</span> |
-| `EthereumGeneralAdapter1` | [`0x0C6151F0205A6Edf143b42C4f7B4E97a8f099260`](https://etherscan.io/address/0x0C6151F0205A6Edf143b42C4f7B4E97a8f099260) <span className="lend-todo">proposed</span> |
-| `LidoLendVaultAdapter` | [`0xb1A64663B5390Ecf1a582df7e19d0a6753d1B84A`](https://etherscan.io/address/0xb1A64663B5390Ecf1a582df7e19d0a6753d1B84A) <span className="lend-todo">proposed</span> |
+| `Bundler3` | [`0x0056b888E90a1b783311351B54B782dE5de61e87`](https://etherscan.io/address/0x0056b888E90a1b783311351B54B782dE5de61e87) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `EthereumGeneralAdapter1` | [`0x0C6151F0205A6Edf143b42C4f7B4E97a8f099260`](https://etherscan.io/address/0x0C6151F0205A6Edf143b42C4f7B4E97a8f099260) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendVaultAdapter` | [`0xb1A64663B5390Ecf1a582df7e19d0a6753d1B84A`](https://etherscan.io/address/0xb1A64663B5390Ecf1a582df7e19d0a6753d1B84A) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 
 ### Circuit Breaker
 
 | Contract | Address |
 | --- | --- |
-| `CircuitBreaker` | [`0xd0A81A130a303237d338A0b5835edcB011Ab3afd`](https://etherscan.io/address/0xd0A81A130a303237d338A0b5835edcB011Ab3afd) <span className="lend-todo">proposed</span> |
+| `CircuitBreaker` | [`0xd0A81A130a303237d338A0b5835edcB011Ab3afd`](https://etherscan.io/address/0xd0A81A130a303237d338A0b5835edcB011Ab3afd) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 
 ### Easy Track factories
 
@@ -55,14 +55,14 @@ The factories become usable after the Lido DAO vote registers them in Easy Track
 
 | Contract | Address |
 | --- | --- |
-| `EasyTrack` (existing Lido contract) | [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea) <span className="lend-todo">proposed</span> |
-| `LidoLendPreseeder` | [`0x3F107d1fbCA49F425321Cb27f6Ef5CbB94a72c41`](https://etherscan.io/address/0x3F107d1fbCA49F425321Cb27f6Ef5CbB94a72c41) <span className="lend-todo">proposed</span> |
-| `LidoLendActivateMarket` | [`0x17bb2A2B5983D29392A5d31D627D4C8B13383fe6`](https://etherscan.io/address/0x17bb2A2B5983D29392A5d31D627D4C8B13383fe6) <span className="lend-todo">proposed</span> |
-| `LidoLendCircuitBreakerActions` | [`0x4e89cc970F0DBAE2f8C38C083D5D345B4F9e76b8`](https://etherscan.io/address/0x4e89cc970F0DBAE2f8C38C083D5D345B4F9e76b8) <span className="lend-todo">proposed</span> |
-| `LidoLendGuardianActions` | [`0x9fE41afb2114bF9430D7f9B1Fb65f0a4B9DeF779`](https://etherscan.io/address/0x9fE41afb2114bF9430D7f9B1Fb65f0a4B9DeF779) <span className="lend-todo">proposed</span> |
-| `LidoLendMarketManagerActions` | [`0x9D75EaE321976e85e472847AFD21246F1f87dC43`](https://etherscan.io/address/0x9D75EaE321976e85e472847AFD21246F1f87dC43) <span className="lend-todo">proposed</span> |
-| `LidoLendRiskStewardActions` | [`0x7276CE5f92911216d41C7b0A9C3575DE873763E9`](https://etherscan.io/address/0x7276CE5f92911216d41C7b0A9C3575DE873763E9) <span className="lend-todo">proposed</span> |
-| `LidoLendApplyIrmConfig` | [`0x5795E73C0c2007ceD7D65cE4FC21c0C09F14C668`](https://etherscan.io/address/0x5795E73C0c2007ceD7D65cE4FC21c0C09F14C668) <span className="lend-todo">proposed</span> |
+| `EasyTrack` (existing Lido contract) | [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendPreseeder` | [`0x3F107d1fbCA49F425321Cb27f6Ef5CbB94a72c41`](https://etherscan.io/address/0x3F107d1fbCA49F425321Cb27f6Ef5CbB94a72c41) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendActivateMarket` | [`0x17bb2A2B5983D29392A5d31D627D4C8B13383fe6`](https://etherscan.io/address/0x17bb2A2B5983D29392A5d31D627D4C8B13383fe6) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendCircuitBreakerActions` | [`0x4e89cc970F0DBAE2f8C38C083D5D345B4F9e76b8`](https://etherscan.io/address/0x4e89cc970F0DBAE2f8C38C083D5D345B4F9e76b8) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendGuardianActions` | [`0x9fE41afb2114bF9430D7f9B1Fb65f0a4B9DeF779`](https://etherscan.io/address/0x9fE41afb2114bF9430D7f9B1Fb65f0a4B9DeF779) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendMarketManagerActions` | [`0x9D75EaE321976e85e472847AFD21246F1f87dC43`](https://etherscan.io/address/0x9D75EaE321976e85e472847AFD21246F1f87dC43) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendRiskStewardActions` | [`0x7276CE5f92911216d41C7b0A9C3575DE873763E9`](https://etherscan.io/address/0x7276CE5f92911216d41C7b0A9C3575DE873763E9) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendApplyIrmConfig` | [`0x5795E73C0c2007ceD7D65cE4FC21c0C09F14C668`](https://etherscan.io/address/0x5795E73C0c2007ceD7D65cE4FC21c0C09F14C668) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 
 ### Committees and multisigs
 
@@ -70,9 +70,9 @@ The market activation motions appoint the market steward and register the Circui
 
 | Role | Address | Signing threshold |
 | --- | --- | --- |
-| Lend Operational Committee Safe (Easy Track trusted caller) | [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) <span className="lend-todo">proposed</span> | 5 of 7 (<span className="lend-todo">signers and threshold not set on-chain yet</span>) |
-| Lend Risk Steward Committee Safe (market steward appointed by the activation motions) | [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) <span className="lend-todo">proposed</span> | 3 of 7 (<span className="lend-todo">signers and threshold not set on-chain yet</span>) |
-| Lend Emergency Brakes Committee Safe (Circuit Breaker pauser registered by the activation motions) | [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) <span className="lend-todo">proposed</span> | 3 of 6 (<span className="lend-todo">signers and threshold not set on-chain yet</span>) |
+| Lend Operational Committee Safe (Easy Track trusted caller) | [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 5 of 7 (signers and threshold not set on-chain yet) |
+| Lend Risk Steward Committee Safe (market steward appointed by the activation motions) | [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 3 of 7 (signers and threshold not set on-chain yet) |
+| Lend Emergency Brakes Committee Safe (Circuit Breaker pauser registered by the activation motions) | [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] | 3 of 6 (signers and threshold not set on-chain yet) |
 
 See [Committees](./committees) for the role of each committee.
 
