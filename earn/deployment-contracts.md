@@ -219,7 +219,7 @@ Deployed, not in operation. The subvault permissions are not configured yet.
 
 ## Actors
 
-Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood, Monad and Arbitrum, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Arbitrum, Treasury is 4/7.
+Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood, Monad and Arbitrum, Active Vault Admin is 3/6 and Oracle Updater is 3/7.
 
 On Monad, the Curator (earnUSDc, earnUSDe) Safe acts through the Curator Account, a MellowAccountV1 contract that the Safe owns.
 
