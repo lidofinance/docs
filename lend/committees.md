@@ -146,7 +146,7 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 | [bulbozaur](https://research.lido.fi/u/bulbozaur) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
 | [skhomuti](https://research.lido.fi/u/skhomuti) | 0xed20740c4ce9a61ce41bb3954186afa0f5f80d9b | https://etherscan.io/verifySig/341888 | https://x.com/skhomuti/status/2121223332909469747 |
 | [George](https://research.lido.fi/u/George) | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/341681 | https://x.com/george_avs/status/2120432030202663081 |
-| [folkyatina](https://research.lido.fi/u/folkyatina) | 0x9d557bda79f6f4785c88997ac180ffe1c3d0a62b | https://etherscan.io/verifySig/341856 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/71 |
+| [folkyatina](https://research.lido.fi/u/folkyatina) | 0x9d557bda79f6f4785c88997ac180ffe1c3d0a62b | https://etherscan.io/verifySig/342091 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/71 |
 
 ## Guardian Security Council
 
@@ -172,7 +172,7 @@ A ban does not close the position, block repayment, or move assets.
 
 When a guardian is removed, its delegate and heartbeat are cleared, but its existing signals can stay effective until someone calls the permissionless `prune` function. Pruning never removes a recorded ban.
 
-**Members:** defined per market. They are published in the Lido Lend Research Forum thread before the market's motion or vote ([Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)) and listed on the page of the market.
+**Members:** defined per market. They are published in the Lido Lend Research Forum thread before the market's motion or vote ([Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)), and will be listed on the page of each market.
 
 ## Dual Governance pause extension
 

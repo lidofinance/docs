@@ -8,7 +8,7 @@ description: Addresses of Lido Lend contracts on Ethereum mainnet and Hoodi test
 
 This page lists the addresses of the Lido Lend contracts. The contracts are built from [`lidofinance/lend-markets`](https://github.com/lidofinance/lend-markets/tree/main). The contract sources under `src/` on `main` (commit `23416c4`) are the same as at the deploy commit `9c0ba34`. The core comes from [`lidofinance/lend`](https://github.com/lidofinance/lend/tree/422d589f9d098124249b54b55306884165833207) and the interest-rate contracts from [`lidofinance/lend-irm`](https://github.com/lidofinance/lend-irm/tree/566d31f7dfdf83d07a6593f641f7474c263a7f89). To check a contract, compare its verified source on the block explorer with these commits. The [Audits](./audits) page lists the security reviews and how the deployed code is matched to the audited code.
 
-Per-market contracts (controller, vault, Guardian registry) are proxies that `LidoLendMarketFactory` creates from the shared implementations listed under Protocol. They are listed on the page of each market.
+Per-market contracts (controller, vault, Guardian registry) are proxies that `LidoLendMarketFactory` creates from the shared implementations listed under Protocol. They will be listed on the page of each market.
 
 ## Mainnet
 
@@ -111,11 +111,11 @@ The Hoodi deployment (chain ID `560048`) is a test run of the production deploym
 
 ### Guardians
 
-The Hoodi deployment has one Guardian registry, `shared`, with a quorum of `1`.
+The Hoodi deployment has one Guardian registry, `hoodi-shared`, with a quorum of `1`.
 
 | Contract | Address |
 | --- | --- |
-| `GuardianSignals` registry `shared` (proxy) | [`0xF46eB3bf7783825B0ffb5f532C148A261Ec518a9`](https://hoodi.etherscan.io/address/0xF46eB3bf7783825B0ffb5f532C148A261Ec518a9) |
+| `GuardianSignals` registry `hoodi-shared` (proxy) | [`0xF46eB3bf7783825B0ffb5f532C148A261Ec518a9`](https://hoodi.etherscan.io/address/0xF46eB3bf7783825B0ffb5f532C148A261Ec518a9) |
 | Guardian | [`0xe9bFDBB915b734D10aA53B3838371F67a7704102`](https://hoodi.etherscan.io/address/0xe9bFDBB915b734D10aA53B3838371F67a7704102) |
 | Guardian | [`0xA6b2dbCCE7895347A62b4409d29bA7ce29A74655`](https://hoodi.etherscan.io/address/0xA6b2dbCCE7895347A62b4409d29bA7ce29A74655) |
 

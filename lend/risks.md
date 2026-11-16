@@ -47,7 +47,7 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 **Risk:** during a liquidity shortage, a borrower's debt can be cancelled against collateral at the oracle price, without a liquidation incentive. By default, settlement targets the borrower with the highest LTV in the market.
 
-**Mitigation:** settlement covers only the part of a lender's supply that free liquidity cannot cover. Each settlement is capped by the market's settlement policy, so a large exit may take several transactions. Settlement is blocked while the top borrower in the queue has bad debt. Settlement is enabled or disabled per market at creation. See [Architecture](./architecture#lender-positions-and-exits).
+**Mitigation:** without borrower action, settlement covers only the part of a lender's supply that free liquidity cannot cover. A borrower who sets a personal settlement target can be settled down to that target regardless of free liquidity. Each settlement is capped by the market's settlement policy, so a large exit may take several transactions. Settlement is blocked while the top borrower in the queue has bad debt. Settlement is enabled or disabled per market at creation. See [Architecture](./architecture#lender-positions-and-exits).
 
 ## Liquidation and bad debt
 
