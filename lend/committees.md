@@ -56,7 +56,7 @@ The committee is the trusted caller of the Lido Lend Easy Track factories. The f
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
 [Lido Lend: Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)
 
-**Quorum:** 5/7 (signers and threshold not set on-chain yet)
+**Quorum:** 5/7
 
 **List of signers:**
 
@@ -98,7 +98,7 @@ The committee can use the dashboard powers only in a market where it is an appoi
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
 [Lido Lend: Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)
 
-**Quorum:** 3/7 (signers and threshold not set on-chain yet)
+**Quorum:** 3/7
 
 **List of signers:**
 
