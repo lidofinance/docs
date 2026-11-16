@@ -6,12 +6,13 @@ description: Addresses of Lido Lend contracts on Ethereum mainnet.
 
 # Mainnet
 
-This page lists the addresses of the Lido Lend contracts on Ethereum mainnet (chain ID `1`). The contracts are built from [`lidofinance/lend-markets`](https://github.com/lidofinance/lend-markets/tree/main). The contract sources under `src/` on `main` (commit `23416c4`) are the same as at the deploy commit `9c0ba34`. The core comes from [`lidofinance/lend`](https://github.com/lidofinance/lend/tree/422d589f9d098124249b54b55306884165833207) and the interest-rate contracts from [`lidofinance/lend-irm`](https://github.com/lidofinance/lend-irm/tree/566d31f7dfdf83d07a6593f641f7474c263a7f89). To check a contract, compare its verified source on the block explorer with these commits. The [Audits](../audits) page lists the security reviews and how the deployed code is matched to the audited code.
+:::info **Lido Lend deployment on Ethereum mainnet**
 
-Per-market contracts (controller, vault, Guardian registry) are proxies that `LidoLendMarketFactory` creates from the shared implementations listed under Protocol. They will be listed on the page of each market.
+This page lists the Lido Lend contract addresses.
 
-:::danger[Pending: Lido DAO vote]
-As of 2026-11-11, the Lido Lend core, the Bundler3 stack and the Easy Track factories are deployed on Ethereum mainnet (chain ID `1`) and their source code is verified on Etherscan. Cyfrin verified the deployment of the core contracts, the adapters, `Bundler3` and `CircuitBreaker`, and MixBytes verified the Easy Track factories (see [Audits](../audits#deployment-verification)). The Lido DAO vote that registers the Easy Track factories is not enacted. Until enactment, treat every Lido Lend mainnet address on this page as proposed.
+- Network: Ethereum mainnet (chain ID `1`).
+- Status: pending Lido DAO vote.
+- How the deployed code matches the audited code: [Audits](../audits#deployment-verification).
 :::
 
 ## Protocol
@@ -33,7 +34,7 @@ As of 2026-11-11, the Lido Lend core, the Bundler3 stack and the Easy Track fact
 
 ## Bundler and adapters
 
-Lido Lend deploys its own Bundler3 instance together with the adapters. It is not shared with another protocol.
+Lido Lend deploys its own instance of Morpho's [`Bundler3`](https://github.com/morpho-org/bundler3/tree/9afc2f4ea32c9dbeba2205a485731b8a98f7ae4c) (commit `9afc2f4`), together with its adapters from [`lend-markets`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5/src/adapters). It is not shared with another protocol.
 
 | Contract | Address |
 | --- | --- |
@@ -50,7 +51,7 @@ Lido Lend deploys its own Bundler3 instance together with the adapters. It is no
 ## Exit Books
 
 :::info[Not used yet]
-The Exit Books are deployed, but no Lido Lend market uses them yet.
+The Exit Books and their Easy Track factory `LidoLendExitBookActions` are deployed, but no Lido Lend market uses them yet. The Lido DAO vote does not register this factory.
 :::
 
 | Contract | Address |
@@ -72,6 +73,7 @@ The factories become usable after the Lido DAO vote registers them in Easy Track
 | `LidoLendMarketManagerActions` | [`0x9D75EaE321976e85e472847AFD21246F1f87dC43`](https://etherscan.io/address/0x9D75EaE321976e85e472847AFD21246F1f87dC43) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 | `LidoLendRiskStewardActions` | [`0x7276CE5f92911216d41C7b0A9C3575DE873763E9`](https://etherscan.io/address/0x7276CE5f92911216d41C7b0A9C3575DE873763E9) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 | `LidoLendApplyIrmConfig` | [`0x5795E73C0c2007ceD7D65cE4FC21c0C09F14C668`](https://etherscan.io/address/0x5795E73C0c2007ceD7D65cE4FC21c0C09F14C668) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
+| `LidoLendExitBookActions` (not used yet) | [`0xA30b212c3657fa745feaE4b48B7Eb0A8F429C604`](https://etherscan.io/address/0xA30b212c3657fa745feaE4b48B7Eb0A8F429C604) |
 
 ## Committees and multisigs
 

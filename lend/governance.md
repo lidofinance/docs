@@ -15,7 +15,7 @@ The Lido DAO holds every power that it does not delegate. With an LDO vote, it c
 - grant and revoke every role, including the roles of the committees;
 - move a live market to a different interest rate model, and set the recipient of the market fees.
 
-Lido DAO votes go through [Dual Governance](/guides/dg-guide). stETH holders who oppose a decision can lock their stETH to delay it. With enough support, they can leave the protocol before the decision takes effect. Dual Governance can also keep a paused Lido Lend market paused during a governance emergency. Until the contracts are ossified, the Lido DAO is the final trust assumption.
+Lido DAO votes go through [Dual Governance](/guides/dg-guide). stETH holders who oppose a decision can lock their stETH to delay it. With enough support, they can leave the protocol before the decision takes effect. Dual Governance can also keep a paused Lido Lend market paused during a governance emergency. The Lido DAO is the final trust assumption. Ossifying a proxy fixes its code, and the DAO continues to administer the roles.
 
 ## Lend Operational Committee and Easy Track: routine changes
 

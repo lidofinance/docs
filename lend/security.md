@@ -9,11 +9,7 @@ This page explains how to report a vulnerability in Lido Lend and which emergenc
 
 ## Reporting a vulnerability
 
-The reporting rules are in [`SECURITY.md`](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/SECURITY.md) of `lidofinance/lend` and [`SECURITY.md`](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/SECURITY.md) of `lidofinance/lend-irm`:
-
-- check the current scope of the [Lido bug bounty program on Immunefi](https://immunefi.com/bug-bounty/lido/information/) before you submit a report. Repository code and development branches are not automatically in scope;
-- send findings that do not fit the published scope to [security@lido.fi](mailto:security@lido.fi), the contact in Lido's [security.txt](https://lido.fi/.well-known/security.txt);
-- do not disclose a vulnerability publicly before it is triaged and remediated.
+Review the current scope and submit reports through the [Lido program page on Immunefi](https://immunefi.com/bug-bounty/lido/information/). Do not disclose a suspected vulnerability publicly before it is resolved and approved for disclosure. See [Bug bounty](/security/bugbounty#submit-a-report).
 
 ## Emergency controls
 
@@ -21,7 +17,7 @@ Lido Lend has three controls that stop or restrict market actions without a Lido
 
 | Control | Who can trigger it | What it stops | What stays available | How it ends |
 | --- | --- | --- | --- | --- |
-| Controller pause | The committee registered for the controller in `CircuitBreaker` | Every action that calls the market controller, including supply, borrowing, repayment, lender withdrawal, liquidation, settlement and explicit interest accrual | Core calls without a market hook, ERC-4626 vault-share transfers | The pause has a fixed duration and expires automatically. The `ResealManager` can end it early. The pause consumes the registration: the committee cannot extend the pause, and it cannot pause the same controller again until the Lend Operational Committee registers it again through Easy Track |
+| Controller pause | The committee registered for the controller in `CircuitBreaker` | Every action that calls the market controller, including supply, borrowing, repayment, lender withdrawal, liquidation, settlement and explicit interest accrual | Core calls without a market hook, ERC-4626 vault-share transfers | The pause has a fixed duration and expires automatically. It can be ended early only by the Dual Governance Tiebreaker in a tie, or by a Lido DAO vote. The pause consumes the registration: the committee cannot extend the pause, and it cannot pause the same controller again until the Lend Operational Committee registers it again through Easy Track |
 | Market freeze | Market stewards, through `RiskStewardDashboard` | New borrowing, completion of collateral activation, and collateral withdrawal while debt remains | Repayment, liquidation, settlement, lender withdrawal | An unfreeze through `LidoLendOwner` (`UnfreezeMarkets` Easy Track motion) |
 | Guardian ban | A quorum of distinct Guardians in `GuardianSignals` | For one account in one market: borrowing by, for or to the account, and maturation of its activating collateral | Repayment, liquidation, settlement, debt-free withdrawal of active collateral | An unban through `LidoLendOwner` (`UnbanAccounts` Easy Track motion) |
 

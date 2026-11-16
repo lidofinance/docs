@@ -133,7 +133,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## R
 
-**Reseal Manager** — The protocol-wide pause-extension authority. It initially holds `PAUSER_ROLE` and `RESUMER_ROLE` on every controller, so it can extend a pause or end it early.
+**Reseal Manager** — The protocol-wide pause-extension authority. It initially holds `PAUSER_ROLE` and `RESUMER_ROLE` on every controller, so Dual Governance can use it to extend a pause in a governance emergency, or to end one in a tie.
 
 **Risk queue** — A max-heap of the borrowers with debt in a market, ordered by `riskKey = borrowShares * 1e18 / rawCollateral`. The key is a rounded estimate of LTV.
 

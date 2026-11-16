@@ -65,21 +65,8 @@ The `lend` core is a fork of [Morpho Blue](https://github.com/morpho-org/morpho-
 
 ## Deployment verification
 
-The deployed `lend-markets` code is matched to the Cyfrin audit by file digests. The audit report lists a keccak256 digest for each of the 53 in-scope files and an aggregate root. The deploy commit contains the digest tooling in [`script/config/mainnet/scripts/`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5/script/config/mainnet/scripts):
-
-- `extract-digests.py` extracts the digests from the report PDF into `digests.txt`;
-- `digests.txt` lists the 53 digests with their file paths;
-- `verify-digests.sh` checks the aggregate root, every audited file, the submodule pins and the deployed sources outside the audited set.
-
-The keccak256 of the committed `digests.txt` equals the aggregate root in the audit report. Each of the 53 files at the deploy commit `9c0ba34`, with `lend` at `422d589` and `lend-irm` at `566d31f`, matches its digest. The [GitHub comparison](https://github.com/lidofinance/lend-markets/compare/23416c43c4038ea3c00a13d6203949c8f88905cc..9c0ba34580ab5cff4354be8cb701419fb02b65d5) between the public commit `23416c4` and the deploy commit `9c0ba34` shows no change to any file under `src/`. Both commits pin the same `lend` and `lend-irm` submodule commits.
-
-The source code of the deployed mainnet contracts is verified on Etherscan.
-
-### Deployment verification reports
-
 | Report | Auditor | Date | Scope | Commit |
 | --- | --- | --- | --- | --- |
 | [Lido Lend Deployment Verification, Stage 1 – Core](https://github.com/lidofinance/audits/blob/main/lend/2026-11-11-cyfrin-lido-lend-core-deployment-verification.pdf) | Cyfrin | 2026-11-11 | Runtime bytecode, constructor arguments and immutables of the [Protocol](./deployed-contracts#protocol) contracts, the two Bundler3 adapters and the two [Exit Books](./deployed-contracts#exit-books). As supplementary checks, the code and implementation pointers of the `LidoLend` and `IrmRouter` proxies, and the bytecode of `Bundler3` and the Lido Lend `CircuitBreaker` instance | `lend-markets` [`9c0ba34`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5) |
 | [Lido Lend Easy Track Factories](https://github.com/lidofinance/audits/blob/main/lend/2026-11-10-mixbytes-lido-lend-easy-track-factories-audit-report.pdf) | MixBytes | 2026-11-11 | Mainnet deployments of the Lido Lend Easy Track factories and `LidoLendPreseeder` | [`4caa911`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4) |
-
-Stage 2, the verification of market deployments, is pending. Cyfrin will add it to the same report.
+| Lido Lend Deployment Verification, Stage 2 – Markets (pending) | Cyfrin | - | Market deployments | - |

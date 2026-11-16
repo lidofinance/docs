@@ -6,24 +6,30 @@ description: Addresses of Lido Lend contracts on the Hoodi testnet.
 
 # Hoodi
 
-The Hoodi deployment (chain ID `560048`) is a test run of the production deployment path. It uses the Hoodi Lido governance contracts: Aragon Agent, Easy Track `EVMScriptExecutor` and Dual Governance `ResealManager`. Addresses come from the deployment records in [`deployed/hoodi-testnet/`](https://github.com/lidofinance/lend-markets/tree/main/deployed/hoodi-testnet). Implementation addresses that appear only in the transaction records are shown in lowercase, as in those records.
+:::info **Lido Lend deployment on Hoodi**
+
+This page lists the Lido Lend contract addresses on the Hoodi testnet.
+
+- Network: Ethereum Hoodi (chain ID `560048`).
+- Status: test deployment.
+:::
 
 ## Protocol
 
 | Contract | Address |
 | --- | --- |
 | `LidoLend` core (proxy) | [`0x78d3262E82A35d290507bCF9B4834735DdA6b854`](https://hoodi.etherscan.io/address/0x78d3262E82A35d290507bCF9B4834735DdA6b854) |
-| `LidoLend` core (implementation) | [`0x82eb06ae9259e084ef0c2a8ce2e02a6c8c260d44`](https://hoodi.etherscan.io/address/0x82eb06ae9259e084ef0c2a8ce2e02a6c8c260d44) |
+| `LidoLend` core (implementation) | [`0x82Eb06AE9259e084ef0c2a8Ce2E02a6C8c260d44`](https://hoodi.etherscan.io/address/0x82Eb06AE9259e084ef0c2a8Ce2E02a6C8c260d44) |
 | `LidoLendOwner` | [`0x5B2BdE06288a5db7289C028Fd4C8C175B5E3985B`](https://hoodi.etherscan.io/address/0x5B2BdE06288a5db7289C028Fd4C8C175B5E3985B) |
 | `IrmRouter` (proxy) | [`0x88b624325385B3db69Db73A65DAdbaa15DE4406d`](https://hoodi.etherscan.io/address/0x88b624325385B3db69Db73A65DAdbaa15DE4406d) |
-| `IrmRouter` (implementation) | [`0xbcf75a605d09e3d31d1bce9f5fa3552c58271b28`](https://hoodi.etherscan.io/address/0xbcf75a605d09e3d31d1bce9f5fa3552c58271b28) |
+| `IrmRouter` (implementation) | [`0xBcf75a605d09e3D31d1BCe9f5Fa3552C58271B28`](https://hoodi.etherscan.io/address/0xBcf75a605d09e3D31d1BCe9f5Fa3552C58271B28) |
 | `AdaptiveCurveIrm` | [`0x781f04920A82504B5AE13E02678dFc696eCca892`](https://hoodi.etherscan.io/address/0x781f04920A82504B5AE13E02678dFc696eCca892) |
 | `IrmConfigFactory` | [`0xcE80DA265F3b982a0B85192697c87df516c9555f`](https://hoodi.etherscan.io/address/0xcE80DA265F3b982a0B85192697c87df516c9555f) |
 | `LidoLendMarketFactory` | [`0x1ba98E8Cb00dC00a00E41E10cc17692917aEe896`](https://hoodi.etherscan.io/address/0x1ba98E8Cb00dC00a00E41E10cc17692917aEe896) |
 | `RiskStewardDashboard` | [`0xc249abf58AC31dDEB3C715d7B395119aeeF729d1`](https://hoodi.etherscan.io/address/0xc249abf58AC31dDEB3C715d7B395119aeeF729d1) |
 | `GuardianSignals` (implementation) | [`0x57Fc097F8235Fd17343f66e1855AF2Ae96452553`](https://hoodi.etherscan.io/address/0x57Fc097F8235Fd17343f66e1855AF2Ae96452553) |
-| `LidoLendMarketController` (implementation) | [`0x115c265127a60e32b8ebf235cae88289d4315156`](https://hoodi.etherscan.io/address/0x115c265127a60e32b8ebf235cae88289d4315156) |
-| `LidoLendERC4626` (implementation) | [`0x236a99c185c7f1edb1ffb0efd2aad20050a20ed7`](https://hoodi.etherscan.io/address/0x236a99c185c7f1edb1ffb0efd2aad20050a20ed7) |
+| `LidoLendMarketController` (implementation) | [`0x115C265127A60e32b8EBF235caE88289D4315156`](https://hoodi.etherscan.io/address/0x115C265127A60e32b8EBF235caE88289D4315156) |
+| `LidoLendERC4626` (implementation) | [`0x236a99c185C7F1edB1FfB0efD2AaD20050A20eD7`](https://hoodi.etherscan.io/address/0x236a99c185C7F1edB1FfB0efD2AaD20050A20eD7) |
 
 ## Guardians
 
@@ -37,7 +43,7 @@ The Hoodi deployment has one Guardian registry, `hoodi-shared`, with a quorum of
 
 ## Bundler and adapters
 
-The Hoodi deployment does not include Bundler3 or its adapters. The `lend-markets` repository has no Bundler3 configuration or deployment record for `hoodi-testnet`.
+Bundler3 and its adapters are not deployed on Hoodi.
 
 ## Circuit Breaker
 
@@ -48,7 +54,7 @@ The Hoodi deployment does not include Bundler3 or its adapters. The `lend-market
 ## Exit Books
 
 :::info[Not used yet]
-The Exit Books are deployed, but no Lido Lend market uses them yet.
+The Exit Books and their Easy Track factory `LidoLendExitBookActions` are deployed, but no Lido Lend market uses them yet.
 :::
 
 | Contract | Address |
@@ -68,6 +74,7 @@ The Exit Books are deployed, but no Lido Lend market uses them yet.
 | `LidoLendMarketManagerActions` | [`0x915570870A6e9D141BF25ab155684e7fa2843356`](https://hoodi.etherscan.io/address/0x915570870A6e9D141BF25ab155684e7fa2843356) |
 | `LidoLendRiskStewardActions` | [`0xeF584E7fBbE0fCe7463dC00c063462973e5cbDa4`](https://hoodi.etherscan.io/address/0xeF584E7fBbE0fCe7463dC00c063462973e5cbDa4) |
 | `LidoLendApplyIrmConfig` | [`0xca22a45A392d201EaaE540Fb12cA360Db9d847B2`](https://hoodi.etherscan.io/address/0xca22a45A392d201EaaE540Fb12cA360Db9d847B2) |
+| `LidoLendExitBookActions` (not used yet) | [`0xC520f27acEF637B4F07Cce4a2B18c643F27f4D14`](https://hoodi.etherscan.io/address/0xC520f27acEF637B4F07Cce4a2B18c643F27f4D14) |
 
 ## Committees and multisigs
 

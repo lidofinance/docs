@@ -65,7 +65,7 @@ Main constraints and options:
 
 - a supply cap can limit new supply to a market;
 - an ordinary withdrawal is limited by the free liquidity of the market;
-- when liquidity is short, a lender can exit through settlement if the market enabled it at creation, or through the vault fallback exit;
+- when liquidity is short, a lender can exit through settlement, directly or through the vault fallback exit, if the market enabled settlement at creation. Otherwise, the lender can withdraw only the free liquidity;
 - lenders bear the debt that remains after a liquidation uses all of a borrower's collateral.
 
 See [Risks](./risks).
@@ -89,7 +89,7 @@ See [Risks](./risks).
 - **Lido DAO.** The Lido DAO Agent is the initial proxy admin of the core, the IRM router and the market contracts, and it administers the privileged roles. Until a proxy is ossified, its admin can replace the contract code;
 - **Lend Operational Committee.** In the intended setup, routine configuration goes through predefined Easy Track motions that execute through the `EVMScriptExecutor`. This covers market activation, supply caps, activation and settlement configuration, fees, IRM configuration, guardian membership, unbans and unfreezing;
 - **Lend Risk Steward Committee.** In the intended setup, it is appointed as the steward of each market in `RiskStewardDashboard`. As a steward, it can only tighten a market: freeze it, increase activation delays, the activation lock or the minimum deposit, or revoke instant activation;
-- **Emergency pause.** `CircuitBreaker` lets a registered emergency actor apply one finite pause to a market controller. The Reseal Manager can extend the pause or end it early;
+- **Emergency pause.** `CircuitBreaker` lets a registered emergency actor apply one finite pause to a market controller. In a Dual Governance emergency, the Reseal Manager can keep a paused market paused indefinitely, and the Tiebreaker can end the pause. Otherwise, a pause ends when its fixed duration expires, unless a Lido DAO vote changes the controller's roles;
 - **Guardians.** Guardians report account risk and review progress through `GuardianSignals`. Flags from a quorum of distinct guardians ban an account in a market.
 
 No role other than proxy administration can directly rewrite or redirect a core or vault position. For the full role map, see [Governance](./governance) and [Committees](./committees). For audits and vulnerability reporting, see [Audits](./audits) and [Security](./security).
