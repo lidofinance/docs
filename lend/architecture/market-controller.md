@@ -206,10 +206,12 @@ The Lido Lend [`CircuitBreaker`](../deployed-contracts#circuit-breaker) instance
 |---|---|
 | `MIN_PAUSE_DURATION` | 432,000 seconds (5 days) |
 | `MAX_PAUSE_DURATION` | 5,184,000 seconds (60 days) |
+| `MIN_HEARTBEAT_INTERVAL` | 2,592,000 seconds (30 days) |
+| `MAX_HEARTBEAT_INTERVAL` | 94,608,000 seconds (1,095 days) |
 | `pauseDuration` | 1,814,400 seconds (21 days) |
 | `heartbeatInterval` | 31,536,000 seconds (365 days) |
 
-The duration bounds are immutable. The `CircuitBreaker` admin, the Easy Track `EVMScriptExecutor`, can change `pauseDuration` within these bounds.
+The bounds are immutable. The `CircuitBreaker` admin, the Easy Track `EVMScriptExecutor`, can change `pauseDuration` and `heartbeatInterval` within these bounds.
 
 ## Borrow-share-rate transition guard
 
