@@ -65,8 +65,10 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 ### 🔗 Consolidation Stack {#consolidation-stack}
 
-- Consolidation Migrator: [`0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7`](https://etherscan.io/address/0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7) (proxy)
-  - Consolidation Migrator: [`0x6Fb4c152F092373dD71f0C07C83c1E77406599aB`](https://etherscan.io/address/0x6Fb4c152F092373dD71f0C07C83c1E77406599aB) (impl)
+- Consolidation Migrator (CMv1 → CMv2): [`0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7`](https://etherscan.io/address/0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7) (proxy)
+  - Consolidation Migrator (CMv1 → CMv2): [`0x6Fb4c152F092373dD71f0C07C83c1E77406599aB`](https://etherscan.io/address/0x6Fb4c152F092373dD71f0C07C83c1E77406599aB) (impl)
+- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/50)\] Consolidation Migrator (CMv2 → CMv2): [`0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7`](https://etherscan.io/address/0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7) (proxy)
+  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/50)\] Consolidation Migrator (CMv2 → CMv2): [`0x5D2DDD6817180c2135b4652503bD555c2d3Bb392`](https://etherscan.io/address/0x5D2DDD6817180c2135b4652503bD555c2d3Bb392) (impl)
 - Consolidation Bus: [`0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8`](https://etherscan.io/address/0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8) (proxy)
   - Consolidation Bus: [`0xFfDe8Acab9D7037f29198Ad03ad6d05bac8B0a2E`](https://etherscan.io/address/0xFfDe8Acab9D7037f29198Ad03ad6d05bac8B0a2E) (impl)
 - Consolidation Gateway: [`0x17be979344f2c2cC806229a532D92f8742C10462`](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462)
