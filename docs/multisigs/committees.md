@@ -813,7 +813,7 @@ Additionally, the committee also includes consulting participant, which abstain 
 | --- | --- | --- | --- |
 | [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945 |
 | [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562 |
-| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x3554630ec64e7756007dF4137abf7c5881C533D0 | https://etherscan.io/verifySig/341330 | https://x.com/Dmitriy17042471/status/2115387167581393372 |
 | [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454 |
 | [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893 |
 | [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
@@ -844,7 +844,7 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 | --- | --- | --- | --- |
 | [isaacpatka](https://research.lido.fi/u/isaacpatka) | 0xA032E9E70c6200b7e51fCdeF15B611fC38833Cc1 | https://etherscan.io/verifySig/273322 | https://x.com/isaacpatka/status/1923044395802148945 |
 | [Shelly](https://research.lido.fi/u/shelly/) | 0x8f929Defb7638B5ee6390bdd3bf87B266Df5EDf4 | https://etherscan.io/verifySig/273321 | https://x.com/ShellyGr15/status/1923086313152004562 |
-| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x237Cddf3aA765260cf6b60E064065Da7c3Aa1559 | https://etherscan.io/verifySig/273320 | https://x.com/Dmitriy17042471/status/1923087348683636922 |
+| [DZahar0v](https://research.lido.fi/u/dzahar0v) | 0x3554630ec64e7756007dF4137abf7c5881C533D0 | https://etherscan.io/verifySig/341330 | https://x.com/Dmitriy17042471/status/2115387167581393372 |
 | [tamtamchik](https://research.lido.fi/u/tamtamchik) | 0xcfc7834eb929e7E621F0Ba71d421A27Eddf6DDA1 | https://etherscan.io/verifySig/273164 | https://x.com/tamtamchik/status/1923100439433650454 |
 | [Josef_Ackee](https://research.lido.fi/u/josef_ackee) | 0x9bdFf3B294400A6a5D56647872d4035C944C10ce | https://etherscan.io/verifySig/273318 | https://x.com/jgattermayer/status/1923112937771675893 |
 | [alex_t](https://research.lido.fi/u/alexander_tarelkin) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/273317 | https://x.com/bulbozaur42/status/1923430375830815188 |
