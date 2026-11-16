@@ -5,7 +5,7 @@ description: Committees that operate Lido Lend, the contracts they act through, 
 
 # Committees
 
-This page is for governance participants. It describes who operates Lido Lend day to day and what each actor can and cannot do.
+This page describes who operates Lido Lend day to day and what each actor can and cannot do.
 
 The design separates fast, risk-reducing actions from slower, risk-increasing ones. Committees with instant powers can only restrict: tighten a market's settings, freeze a market, or pause a market for a fixed time. Changes that add risk or restore service go through Easy Track motions, which LDO holders can object to, or through a Lido DAO vote. No committee can upgrade contracts or move user funds through the current contract interfaces. Until the relevant proxies are ossified, the Lido DAO remains the final trust assumption, because it controls upgrades and role administration.
 

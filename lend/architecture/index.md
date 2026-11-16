@@ -6,7 +6,7 @@ description: How the Lido Lend core, market controllers, guardian signals, vault
 
 # Lido Lend architecture
 
-Lido Lend is an isolated-market lending protocol built on a fork of Morpho Blue. Each market lets lenders supply one loan token and lets borrowers borrow that token against one collateral token. This page gives integrators, auditors, and advanced users the system model.
+Lido Lend is an isolated-market lending protocol built on a fork of Morpho Blue. Each market lets lenders supply one loan token and lets borrowers borrow that token against one collateral token.
 
 The shared `LidoLend` core keeps the canonical balances and accounting for every market. The Lido-specific contracts add per-market policy (`LidoLendMarketController`), guardian reports (`GuardianSignals`), tokenized lender vaults (`LidoLendERC4626`), and new lender exit paths. They do not keep a second copy of market balances.
 

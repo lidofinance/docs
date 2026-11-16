@@ -5,7 +5,7 @@ description: Risks of using Lido Lend markets and how the protocol limits them.
 
 # Risks
 
-This page describes the main risks of supplying, borrowing and liquidating in Lido Lend markets, and the mechanisms that limit them. It is for lenders, borrowers and risk reviewers. The list is not complete, and the mitigations reduce risks but do not remove them. This page is not legal, financial or investment advice. Users are responsible for their own assessment.
+This page describes the main risks of supplying, borrowing and liquidating in Lido Lend markets, and the mechanisms that limit them. The list is not complete, and the mitigations reduce risks but do not remove them. This page is not legal, financial or investment advice. Users are responsible for their own assessment.
 
 ## Smart contracts and the modified fork
 

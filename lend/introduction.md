@@ -9,8 +9,6 @@ description: Lido Lend is a protocol of isolated lending markets built on a fork
 
 Lido Lend is a lending protocol of isolated markets. Its core contract, `LidoLend`, is a fork of [Morpho Blue](https://github.com/morpho-org/morpho-blue/tree/1478e9cfe1b4d514f80682b3b60e4e12ff3ee45a) and keeps Morpho's isolated-market accounting. A Lido policy layer adds per-market rules on top: a supply cap, delayed collateral activation, guardian signals, freeze and pause controls, and additional exit paths for lenders. The Lido DAO governs the protocol.
 
-This page is for anyone new to Lido Lend: lenders, borrowers, integrators and governance participants.
-
 ## How it works
 
 Each market lets lenders supply one loan token and lets borrowers borrow that token against one collateral token. A market also selects an oracle, an interest-rate model (IRM) and a liquidation loan-to-value (LLTV). The oracle values collateral in loan-token units. The IRM sets how debt and lender claims grow over time. LLTV is the borrowing limit that the core health check uses.

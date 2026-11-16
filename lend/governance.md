@@ -5,7 +5,7 @@ description: Who controls Lido Lend, from the Lido DAO with Dual Governance to t
 
 # Governance
 
-This page is for anyone who wants to know who controls Lido Lend. The Lido DAO governs Lido Lend. Three Lend committees and the guardians operate it day to day, within limits that the contracts enforce. The sections below go from the most power to the least.
+The Lido DAO governs Lido Lend. Three Lend committees and the guardians operate it day to day, within limits that the contracts enforce. The sections below go from the most power to the least.
 
 ## Lido DAO and Dual Governance: full power
 

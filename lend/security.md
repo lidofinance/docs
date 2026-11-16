@@ -5,7 +5,7 @@ description: Bug bounty, Safe Harbor and emergency controls for Lido Lend.
 
 # Security
 
-This page is for security researchers and users. It explains how to report a vulnerability in Lido Lend, the status of bug bounty and Safe Harbor coverage, and which emergency controls can stop market actions.
+This page explains how to report a vulnerability in Lido Lend, the status of bug bounty and Safe Harbor coverage, and which emergency controls can stop market actions.
 
 ## Reporting a vulnerability
 
