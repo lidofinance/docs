@@ -5,7 +5,7 @@ description: Terms used in the Lido Lend documentation.
 
 # Glossary
 
-This page defines the terms used in the Lido Lend documentation. The definitions follow the [lend-markets specifications](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/SPECIFICATION.md).
+This page defines the terms used in the Lido Lend documentation. The definitions follow the [lend-markets specifications](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/SPECIFICATION.md).
 
 ## A
 
@@ -13,7 +13,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 **Access restorer** (`ACCESS_RESTORER_ROLE`) — A `GuardianSignals` role that clears the ban of one account in one market, together with all flags for that account. Suspect reports stay. The initial holder is `LidoLendOwner`.
 
-**Activation lock** (`activatingLockDuration`) — A period from the start of collateral activation during which the borrower cannot voluntarily withdraw the inactive collateral. Active collateral stays withdrawable. The lock is capped at seven days.
+**Activation lock** (`activatingLockDuration`) — A period from the start of collateral activation during which the borrower cannot voluntarily withdraw the inactive collateral. Active collateral stays withdrawable. After the lock ends, or always when the lock is 0, a voluntary withdrawal must take the whole inactive balance at once, or it reverts. A top-up that extends the delay restarts the lock. The lock is capped at seven days.
 
 **Active collateral** — The part of a borrower's collateral that is neither dust nor activating. It counts toward borrow capacity only when the total active amount reaches `minActivationAmount`.
 
@@ -23,7 +23,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 **Bad debt** — In settlement policy, a position whose debt value exceeds its collateral value. While the risk queue root has bad debt, every settlement in the market reverts.
 
-**Ban** — An account state in one market. A borrow reverts when its caller, debt owner or loan receiver is banned. A banned borrower's activating collateral cannot mature. A ban does not directly block repayment, liquidation, settlement or a debt-free collateral withdrawal. A latched ban stays until an authorized unban. A derived ban exists when current flags meet a newly lowered quorum and no latch is written.
+**Ban** — An account state in one market. A borrow reverts when its caller, debt owner or loan receiver is banned. A banned borrower's activating collateral cannot mature. A ban does not block repayment, liquidation, settlement or collateral withdrawal. A latched ban stays until an authorized unban. A derived ban exists when current flags meet a newly lowered quorum and no latch is written.
 
 **Base delay** — The part of the activation delay that depends on recent non-instant collateral inflow across the market. It goes from `minActivationDelay` to `maxActivationDelay` as inflow approaches `maxDelayInflow`. Guardian flags and suspect reports add separate surcharges on top of it.
 

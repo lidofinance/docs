@@ -90,11 +90,11 @@ Guardian reports do not seize collateral. They can delay activation or ban new b
 
 A direct lender supplies loan tokens to the core and receives supply shares. A vault lender deposits loan tokens into `LidoLendERC4626`, which supplies them to the core and issues ERC-4626 shares. In both cases borrowers can use the supplied tokens, so the whole lender claim may not be withdrawable at once.
 
-| Exit path           | What happens                                                                                                                                                                                                                                                       | Payout                           |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| Ordinary withdrawal | The core or vault burns lender shares and withdraws available loan tokens. Market liquidity limits the amount.                                                                                                                                                     | Loan tokens                      |
-| Settlement          | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. Available only if the market enabled settlement at creation. | Collateral                       |
-| Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. If the market did not enable settlement and the claim needs settling, the whole exit reverts.                                     | Loan tokens, collateral, or both |
+| Exit path           | What happens                                                                                                                                                                                                                                                                                                        | Payout                           |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Ordinary withdrawal | The core or vault burns lender shares and withdraws available loan tokens. Market liquidity limits the amount.                                                                                                                                                                                                      | Loan tokens                      |
+| Settlement          | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. Available only if the market enabled settlement at creation.                                                  | Collateral                       |
+| Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. If the claim needs settling and the market did not enable settlement, or the top borrower in the settlement queue has bad debt, the whole exit reverts, including the liquid part. | Loan tokens, collateral, or both |
 
 ## Runtime controls
 
@@ -134,15 +134,15 @@ Creation does not make market behavior immutable:
 
 The fields below are fixed when a market is created. Changeable policy parameters are on the mechanism pages.
 
-| Parameter          | Meaning                                        | Who can change it                                                 | Bounds                                               |
-| ------------------ | ---------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------- |
-| `loanToken`        | Token that lenders supply and borrowers borrow | Nobody after creation                                             | Part of `marketId`                                   |
-| `collateralToken`  | Token that borrowers post                      | Nobody after creation                                             | Part of `marketId`                                   |
-| `oracle`           | Price source for collateral                    | Nobody after creation                                             | Part of `marketId`                                   |
-| `irm`              | IRM address; `IrmRouter` in standard markets   | Nobody after creation (the router can change the model behind it) | Part of `marketId`                                   |
-| `lltv`             | Liquidation loan-to-value                      | Nobody after creation                                             | Below 100%                                           |
-| Controller         | Bound `LidoLendMarketController`               | Nobody after creation, except by a core upgrade                   | `marketId()` of the controller must match the market |
-| Settlement enabled | Whether `settle` is available                  | Nobody after creation, except by a core upgrade                   | Requires a controller                                |
+| Parameter          | Meaning                                        | Who can change it                                                                          | Bounds                                               |
+| ------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| `loanToken`        | Token that lenders supply and borrowers borrow | Nobody after creation                                                                      | Part of `marketId`                                   |
+| `collateralToken`  | Token that borrowers post                      | Nobody after creation                                                                      | Part of `marketId`                                   |
+| `oracle`           | Price source for collateral                    | Nobody after creation (the proxy admin can change the code behind it until it is ossified) | Part of `marketId`                                   |
+| `irm`              | IRM address; `IrmRouter` in standard markets   | Nobody after creation (the router can change the model behind it)                          | Part of `marketId`                                   |
+| `lltv`             | Liquidation loan-to-value                      | Nobody after creation                                                                      | Below 100%                                           |
+| Controller         | Bound `LidoLendMarketController`               | Nobody after creation, except by a core upgrade                                            | `marketId()` of the controller must match the market |
+| Settlement enabled | Whether `settle` is available                  | Nobody after creation, except by a core upgrade                                            | Requires a controller                                |
 
 ## Permissions
 
@@ -167,4 +167,4 @@ See also [Risks](../risks).
 - [Governance](../governance)
 - [Committees](../committees)
 - [Risks](../risks)
-- [Full architecture specification on GitHub](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md)
+- [Full architecture specification on GitHub](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/architecture.md)

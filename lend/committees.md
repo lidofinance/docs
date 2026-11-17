@@ -26,9 +26,19 @@ For an overview of who controls Lido Lend, see [Governance](./governance).
 
 ## Lend Operational Committee
 
-**Purpose:** Create markets and perform routine configuration through Easy Track motions. Each motion is delayed and LDO holders can object to it.
+**Purpose:** Activate markets and perform routine configuration through Easy Track motions. Each motion is delayed and LDO holders can object to it.
 
-The committee is the trusted caller of the Lido Lend Easy Track factories. The factories fix the target contracts and functions of each motion. The committee chooses the parameters, and the factories and contracts validate them. For an IRM config, the factories check only that the address is not zero, and the parameter bounds hold only for a config deployed as an `AdaptiveCurveConfig`. LDO holders should check the config named in the motion. Lido Lend authorizes the `EVMScriptExecutor`, so these limits depend on the factory set that the Lido DAO registers in Easy Track. See the [Easy Track guide](/guides/easy-track-guide) for how motions and objections work.
+The committee is the trusted caller of the Lido Lend Easy Track factories. The factories fix the target contracts and functions of each motion. The committee chooses the parameters. Lido Lend authorizes the `EVMScriptExecutor`, so these limits depend on the factory set that the Lido DAO registers in Easy Track. See the [Easy Track guide](/guides/easy-track-guide) for how motions and objections work.
+
+The factories check most addresses only for a non-zero value. For an `ActivateMarket` motion, LDO holders should check every address in it:
+
+- the oracle and its price source;
+- that the IRM config is the address that `IrmConfigFactory.getAdaptiveCurveConfig` returns for the published parameters;
+- that the controller and the vault are proxies of the listed implementations;
+- the guardians, quorum and roles of the controller's `GuardianSignals` registry;
+- the steward and pauser addresses.
+
+The market fields, the controller and the settlement setting cannot change after the market is created.
 
 **Powers:**
 
@@ -89,7 +99,7 @@ The committee can use the dashboard powers only in a market where it is an appoi
 - loosen any setting: each `increase*` function reverts if the new value is lower than the current one;
 - unfreeze a market;
 - change fees or the interest rate configuration;
-- ban an account directly. See [Direct account bans](#direct-account-bans);
+- ban an account other than as a guardian. See [Guardian Security Council](#guardian-security-council);
 - upgrade contracts.
 
 **Address:** [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\]
@@ -121,7 +131,7 @@ The committee can use the dashboard powers only in a market where it is an appoi
 - apply the configured finite pause to one market controller (`CircuitBreaker.pause(controller)`). The call consumes the committee's registration for that controller. The pause blocks every operation that passes through the controller: supply, collateral supply and withdrawal, borrowing, repayment, lender withdrawal, liquidation, settlement and explicit interest accrual;
 - keep its authority alive (`CircuitBreaker.heartbeat()`). Each call extends its pause authority for every controller still registered to it. If the deadline passes, the committee cannot send a heartbeat or pause a controller until the `CircuitBreaker` admin registers it again.
 
-The `ActivateMarket` motion registers the selected pauser for the new market's controller. The `CircuitBreaker` admin is the `EVMScriptExecutor`, so the Lend Operational Committee configures `CircuitBreaker` through Easy Track. The pause does not forgive interest: after the market resumes, the next successful accrual covers the full elapsed period.
+The `ActivateMarket` motion registers the selected pauser for the new market's controller. The `CircuitBreaker` admin is the `EVMScriptExecutor`, so the Lend Operational Committee configures `CircuitBreaker` through Easy Track. The general [`CircuitBreaker`](/contracts/circuit-breaker) page describes the instance of the core Lido protocol, whose admin is the Lido DAO Agent. In the Lido Lend instance, the pause duration is 21 days within bounds of 5 to 60 days, and the heartbeat interval is 365 days within bounds of 30 days to 3 years. The pause does not forgive interest: after the market resumes, the next successful accrual covers the full elapsed period.
 
 **Cannot:**
 
@@ -152,7 +162,7 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 
 **Purpose:** Screen new collateral before it can back borrowing, and report risky accounts.
 
-The council is the guardian set of a `GuardianSignals` registry. Each guardian is a separate identity, expected to be independently controlled. A registry can serve one market or several markets. Membership, quorum, the suspect window and the heartbeat frontier apply to the whole registry. Flags, suspects and bans apply to one account in one market. `GuardianSignals` records the reports but cannot verify the underlying screening.
+The council is the guardian set of a `GuardianSignals` registry. Each guardian is a separate address in the registry and can appoint a delegate that flags accounts and sends heartbeats for it. As stated in the [Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62), the first market starts with one guardian and a quorum of 1, and independent guardians are added later. That guardian is the Lend Risk Steward Committee Safe, and its delegate is an externally owned account, so one key can ban an account and advance the scan frontier alone. A registry can serve one market or several markets. Membership, quorum, the suspect window and the heartbeat frontier apply to the whole registry. Flags, suspects and bans apply to one account in one market. `GuardianSignals` records the reports but cannot verify the underlying screening.
 
 **Powers:**
 
@@ -198,7 +208,7 @@ When the Lido DAO Agent does not hold the required role, the vote must use an au
 
 ## Direct account bans
 
-`GuardianSignals.ACCESS_LIMITER_ROLE` has no holder in the initial setup. No committee can therefore impose a ban directly. Bans arise only when guardian flags reach the quorum.
+`GuardianSignals.ACCESS_LIMITER_ROLE` has no holder in the initial setup. Bans arise only when guardian flags reach the quorum, which is 1 in the first market (see [Guardian Security Council](#guardian-security-council)).
 
 Changing this requires a separate Lido DAO action to grant the role. A holder of the role could ban one account in one market without guardian quorum (`ban`). The ban blocks borrowing by, for or to that account and stops its activating collateral from maturing. It does not close the position, block repayment, or move assets.
 

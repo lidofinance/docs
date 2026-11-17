@@ -38,11 +38,11 @@ Five fields identify a market: `loanToken`, `collateralToken`, `oracle`, `irm` a
 
 In a market with a controller, the core calls the controller before most actions. The controller allows the action or reverts it. It cannot change the amounts that the core calculates, spend user tokens or act for user accounts.
 
-For the full system model, see [Architecture](./architecture) and the [architecture specification](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md).
+For the full system model, see [Architecture](./architecture) and the [architecture specification](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/architecture.md).
 
 ## What is different from Morpho Blue
 
-The fork of the core makes four changes to Morpho Blue (see [FORK_NOTES](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/FORK_NOTES.md)):
+The fork of the core makes four changes to Morpho Blue (see [FORK_NOTES](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/FORK_NOTES.md)):
 
 - only the core owner can create markets, and `enableIrm` and `enableLltv` are removed;
 - a market can be bound to a controller when it is created, and the core calls that controller before most market actions;
@@ -77,7 +77,7 @@ A borrower supplies collateral, borrows the loan token and repays the debt. The 
 Main constraints:
 
 - new collateral goes through an activation delay before it supports new borrowing. The delay grows with recent collateral inflow to the market, and guardian reports can extend it;
-- a guardian ban blocks new borrowing and stops collateral activation, but it does not directly block repayment or a debt-free collateral withdrawal;
+- a guardian ban blocks new borrowing and stops collateral activation, but it does not block repayment or collateral withdrawal;
 - a market freeze stops new borrowing, collateral activation and collateral withdrawal while debt remains;
 - a position with debt above its LLTV-adjusted collateral value can be liquidated;
 - in a market with settlement enabled, a lender can cancel part of a borrower's debt and take collateral of the same oracle value. Without borrower action, this applies only to the borrower at the root of the risk queue, which is ordered by estimated LTV. A borrower can also opt in by setting a personal target LTV.
@@ -101,4 +101,4 @@ No role other than proxy administration can directly rewrite or redirect a core 
 - **Governance participants:** [Governance](./governance), [Committees](./committees), [Audits](./audits), [Security](./security);
 - **Terms:** [Glossary](./glossary).
 
-The full specifications are in the [lend-markets specs](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/SPECIFICATION.md).
+The full specifications are in the [lend-markets specs](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/SPECIFICATION.md).
