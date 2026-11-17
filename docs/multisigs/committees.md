@@ -621,7 +621,7 @@ The committees below operate on the networks whose wstETH bridge endpoints are n
 | Olga_K | 0xcb408B2c5e45E43DF0F3B2d665873F805D435598 | https://etherscan.io/verifySig/262614 | https://x.com/itmamuramgk28/status/1868670001957548046 |
 | Otar | 0x99fcA58699e04711f8727c42EbBD6AC019A05f0A | https://etherscan.io/verifySig/340812 | https://x.com/Lemonjelly72/status/2115800916989501591 |
 | Nikita P | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | https://etherscan.io/verifySig/302952 | https://x.com/nikitizer/status/2027351882084057261 |
-| Kate_Alekseeva | 0xdf87a36f6c753e85f06e3a7a595dbd3f9bcd4937 | https://etherscan.io/verifySig/302998 | https://x.com/KateAleksseeva/status/2028432297830084616 |
+| Kate_Alekseeva | 0xE8fDF15f158Ac8978B9f62a1772F96476B632324 | https://etherscan.io/verifySig/342090 | https://x.com/KateAleksseeva/status/2122246443247239182 |
 
 
 ## 2.11 Network Expansion Committee
