@@ -72,11 +72,11 @@ The market fields, the controller and the settlement setting cannot change after
 
 | Name                                              | Address                                    | Verification                          | Public verification                                                            |
 | ------------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------ |
-| [Izzy](https://research.lido.fi/u/Izzy)           | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904                                |
-| [psirex](https://research.lido.fi/u/psirex)       | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990                               |
+| [Izzy](https://research.lido.fi/u/Izzy)           | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/69 |
+| [psirex](https://research.lido.fi/u/psirex)       | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/68 |
 | [bulbozaur](https://research.lido.fi/u/bulbozaur) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
 | [Willem](https://research.lido.fi/u/Willem)       | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/341239 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/70 |
-| [TheDZhon](https://research.lido.fi/u/TheDZhon)   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://x.com/e330acid/status/2120599269438632367                              |
+| [TheDZhon](https://research.lido.fi/u/TheDZhon)   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/65 |
 | [mikgur](https://research.lido.fi/u/mikgur)       | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/341741 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/66 |
 | [Mol_Eliza](https://research.lido.fi/u/Mol_Eliza) | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/341743 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/67 |
 
@@ -114,11 +114,11 @@ The committee can use the dashboard powers only in a market where it is an appoi
 
 | Name                                              | Address                                    | Verification                          | Public verification                                                            |
 | ------------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------ |
-| [Izzy](https://research.lido.fi/u/Izzy)           | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904                                |
-| [psirex](https://research.lido.fi/u/psirex)       | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990                               |
+| [Izzy](https://research.lido.fi/u/Izzy)           | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/69 |
+| [psirex](https://research.lido.fi/u/psirex)       | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/68 |
 | [bulbozaur](https://research.lido.fi/u/bulbozaur) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
 | [Willem](https://research.lido.fi/u/Willem)       | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/341239 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/70 |
-| [TheDZhon](https://research.lido.fi/u/TheDZhon)   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://x.com/e330acid/status/2120599269438632367                              |
+| [TheDZhon](https://research.lido.fi/u/TheDZhon)   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/65 |
 | [mikgur](https://research.lido.fi/u/mikgur)       | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/341741 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/66 |
 | [Mol_Eliza](https://research.lido.fi/u/Mol_Eliza) | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/341743 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/67 |
 
@@ -151,11 +151,11 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 
 | Name                                                | Address                                    | Verification                          | Public verification                                                            |
 | --------------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------ |
-| [Izzy](https://research.lido.fi/u/Izzy)             | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904                                |
-| [psirex](https://research.lido.fi/u/psirex)         | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990                               |
+| [Izzy](https://research.lido.fi/u/Izzy)             | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/69 |
+| [psirex](https://research.lido.fi/u/psirex)         | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/68 |
 | [bulbozaur](https://research.lido.fi/u/bulbozaur)   | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
-| [skhomuti](https://research.lido.fi/u/skhomuti)     | 0xed20740c4ce9a61ce41bb3954186afa0f5f80d9b | https://etherscan.io/verifySig/341888 | https://x.com/skhomuti/status/2121223332909469747                              |
-| [George](https://research.lido.fi/u/George)         | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/341681 | https://x.com/george_avs/status/2120432030202663081                            |
+| [skhomuti](https://research.lido.fi/u/skhomuti)     | 0xed20740c4ce9a61ce41bb3954186afa0f5f80d9b | https://etherscan.io/verifySig/341888 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/72 |
+| [George](https://research.lido.fi/u/George)         | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/341681 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/64 |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0x9d557bda79f6f4785c88997ac180ffe1c3d0a62b | https://etherscan.io/verifySig/342091 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/71 |
 
 ## Guardian Security Council
