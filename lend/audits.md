@@ -57,7 +57,7 @@ The report lists 11 low-severity findings. Of these, 1 is fixed and 10 are ackno
 
 ### Morpho Blue fork
 
-The `lend` core is a fork of [Morpho Blue](https://github.com/morpho-org/morpho-blue), and `lend-irm` is a fork of [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm). The upstream audits of [Morpho Blue](https://github.com/morpho-org/morpho-blue/tree/main/audits) and [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm/tree/main/audits) cover only the upstream code, not the Lido changes. The Lido Lend code in `lend` and `lend-irm` is in the scope of the Cyfrin audit above. For the changes, see [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/FORK_NOTES.md) in `lend` and the [audit boundary](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/FORK_NOTES.md#audit-boundary) in `lend-irm`.
+The `lend` core is a fork of [Morpho Blue](https://github.com/morpho-org/morpho-blue), and `lend-irm` is a fork of [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm). The upstream audits of [Morpho Blue](https://github.com/morpho-org/morpho-blue/tree/main/audits) and [Morpho Blue IRM](https://github.com/morpho-org/morpho-blue-irm/tree/main/audits) cover only the upstream code, not the Lido changes. The Lido Lend code in `lend` and `lend-irm` is in the scope of the Cyfrin audit above. For the changes, see [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/FORK_NOTES.md) in `lend` and the [audit boundary](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/FORK_NOTES.md#audit-boundary) in `lend-irm`.
 
 ## Deployment verification
 

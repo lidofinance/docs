@@ -11,11 +11,11 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 **Risk:** Lido Lend is a modified fork of Morpho Blue. The changes add new security assumptions, and the upstream audits, formal verification and track record do not carry over automatically. Integrations built for Morpho Blue can behave differently because of the additional controller checks. Lido Lend contracts can contain bugs that cause loss of funds or block market actions.
 
-**Mitigation:** the fork changes are documented in [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/FORK_NOTES.md). The contracts went through external audits, listed on [Audits](./audits). Vulnerability reporting is described on [Security](./security). See [Architecture](./architecture) for the core design.
+**Mitigation:** the fork changes are documented in [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/FORK_NOTES.md). The contracts went through external audits, listed on [Audits](./audits). Vulnerability reporting is described on [Security](./security). See [Architecture](./architecture) for the core design.
 
 ## Upgradeability
 
-**Risk:** the core, the IRM router, controllers, vaults and guardian registries are deployed behind upgradeable proxies. A proxy admin can replace contract code, and therefore has full power over state and funds, until the proxy is ossified. The immutability guarantees of upstream Morpho Blue apply only after ossification.
+**Risk:** the core, the IRM router, controllers, vaults, guardian registries and standard oracles are deployed behind upgradeable proxies. A proxy admin can replace contract code, and therefore has full power over state and funds, until the proxy is ossified. The immutability guarantees of upstream Morpho Blue apply only after ossification.
 
 **Mitigation:** only the Lido DAO, as proxy admin, can upgrade contracts, transfer proxy administration or ossify a proxy. No committee can upgrade contracts. DAO votes are subject to Dual Governance where applicable. See [Governance](./governance).
 
@@ -27,7 +27,7 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 ## Oracle
 
-**Risk:** a wrong or stale value can allow unsafe borrowing, block actions, or misprice liquidation and settlement.
+**Risk:** a wrong or stale value can allow unsafe borrowing, block actions, or misprice liquidation and settlement. The oracle deployed for the first market uses the rate that the collateral issuer publishes, not a market price: it values wstETH at the wstETH accounting rate, so 1 stETH counts as 1 ETH. If the market price of the collateral falls and the published rate does not, the protocol overvalues the collateral. Liquidation can then become unprofitable, and settlement and the vault fallback exit can pay out collateral worth less than the debt they cancel. The contracts do not detect this.
 
 **Mitigation:** detection and response are operational, for example a controller pause. See [Architecture](./architecture#trust-assumptions-and-limitations).
 
@@ -35,19 +35,19 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 **Risk:** the selected IRM and its configuration determine interest accrual. A reverting, reentrant or extreme-rate model can block or distort a market. IRM roles can change the rate routing or configuration after market creation, including after the router proxy is ossified.
 
-**Mitigation:** the included `AdaptiveCurveConfig` validates its parameters against fixed bounds when it is deployed, and `maxBorrowRate` can cap the rate that `AdaptiveCurveIrm` returns. These bounds protect the implementation's arithmetic. They do not make a parameter set economically suitable, and they hold only for configs deployed as an `AdaptiveCurveConfig`. For other config contracts, LDO holders should validate the config before the motion is enacted. IRM configuration changes go through the governance roles described in [Governance](./governance).
+**Mitigation:** the included `AdaptiveCurveConfig` validates its parameters against fixed bounds when it is deployed, and `maxBorrowRate` can cap the rate that `AdaptiveCurveIrm` returns. These bounds protect the implementation's arithmetic. They do not make a parameter set economically suitable, and they hold only for configs deployed as an `AdaptiveCurveConfig`. `AdaptiveCurveIrm` reads the config on every rate computation, so a config contract that is not an `AdaptiveCurveConfig` can change the rate curve after the motion, or stop the market if it reverts. For such a config, LDO holders should validate it before the motion is enacted. IRM configuration changes go through the governance roles described in [Governance](./governance).
 
 ## Lender liquidity and exits
 
 **Risk:** borrowers use the supplied loan tokens, so a lender's full claim may not be withdrawable at once. At high utilization, ordinary withdrawal is limited by free market liquidity.
 
-**Mitigation:** when free liquidity is not enough, a lender can exit through settlement and receive collateral at the oracle price. A vault lender can use the fallback exit, which pays free liquidity first and settles the rest. Both paths need settlement, which the market enables or disables at creation. Without settlement, a lender can withdraw only the free liquidity. See [Architecture](./architecture#lender-positions-and-exits).
+**Mitigation:** when free liquidity is not enough, a lender can exit through settlement and receive collateral at the oracle price. If the oracle overvalues the collateral, that collateral can be worth less than the cancelled debt (see [Oracle](#oracle)). A vault lender can use the fallback exit, which pays free liquidity first and settles the rest. Both paths need settlement, which the market enables or disables at creation. Without settlement, a lender can withdraw only the free liquidity. While the top borrower in the settlement queue has bad debt, settlement reverts, and the fallback exit reverts as a whole, including its liquid part. The lender can then take the free liquidity only with an ordinary withdrawal. See [Architecture](./architecture#lender-positions-and-exits).
 
 ## Settlement for borrowers
 
 **Risk:** during a liquidity shortage, a borrower's debt can be cancelled against collateral at the oracle price, without a liquidation incentive. By default, settlement targets the borrower with the highest LTV in the market.
 
-**Mitigation:** without borrower action, settlement covers only the part of a lender's supply that free liquidity cannot cover. A borrower who sets a personal settlement target can be settled down to that target regardless of free liquidity. Each settlement is capped by the market's settlement policy, so a large exit may take several transactions. Settlement is blocked while the top borrower in the queue has bad debt. Settlement is enabled or disabled per market at creation. See [Architecture](./architecture#lender-positions-and-exits).
+**Mitigation:** without borrower action, settlement covers only the part of a lender's supply that free liquidity cannot cover. A borrower who sets a personal settlement target can be settled down to that target regardless of free liquidity. Each settlement is capped by the market's settlement policy, so a large exit may take several transactions. Settlement is blocked while the top borrower in the queue has bad debt, until that debt is repaid. A solvent borrower whose position rounds down to zero value also counts as bad debt (Cyfrin M-6, acknowledged). Settlement is enabled or disabled per market at creation. See [Architecture](./architecture#lender-positions-and-exits).
 
 ## Liquidation and bad debt
 
@@ -81,6 +81,6 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 ## Sources
 
-- [Lido Lend architecture: trust boundaries](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md#trust-boundaries)
-- [Lido Lend core specification: trust assumptions](https://github.com/lidofinance/lend/blob/422d589f9d098124249b54b55306884165833207/SPECIFICATION.md#trust-assumptions)
-- [Lido Lend IRM specification: trust assumptions and failure modes](https://github.com/lidofinance/lend-irm/blob/566d31f7dfdf83d07a6593f641f7474c263a7f89/SPECIFICATION.md#trust-assumptions-and-failure-modes)
+- [Lido Lend architecture: trust boundaries](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/architecture.md#trust-boundaries)
+- [Lido Lend core specification: trust assumptions](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/SPECIFICATION.md#trust-assumptions)
+- [Lido Lend IRM specification: trust assumptions and failure modes](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/SPECIFICATION.md#trust-assumptions-and-failure-modes)
