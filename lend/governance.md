@@ -12,10 +12,10 @@ The Lido DAO governs Lido Lend. Three Lend committees and the guardians operate 
 The Lido DAO holds every power that it does not delegate. With an LDO vote, it can:
 
 - upgrade a Lido Lend contract behind a proxy until that proxy is ossified. An upgrade can change any rule. Contracts without a proxy, such as the rate-curve configs of a market, cannot be upgraded;
-- grant and revoke every role, including the roles of the committees. The Lend Operational Committee is the immutable trusted caller of the Easy Track factories, so the Lido DAO replaces that committee by registering new factories;
+- grant and revoke every role, including the roles of the committees;
 - move a live market to a different interest rate model, and set the recipient of the market fees.
 
-Lido DAO votes that act through the Agent, such as proxy upgrades and role changes, go through [Dual Governance](/guides/dg-guide). stETH holders who oppose such a decision can lock their stETH to delay it. With enough support, they can leave the protocol before the decision takes effect. Aragon Voting, not the Agent, is the admin of Easy Track. The vote that registers the Lido Lend Easy Track factories, and any later change to them, therefore does not go through Dual Governance. Dual Governance can also keep a paused Lido Lend market paused during a governance emergency. The Lido DAO is the final trust assumption. Ossifying a proxy fixes its code, and the DAO continues to administer the roles.
+Lido DAO votes go through [Dual Governance](/guides/dg-guide). stETH holders who oppose a decision can lock their stETH to delay it. With enough support, they can leave the protocol before the decision takes effect. Dual Governance can also keep a paused Lido Lend market paused during a governance emergency. The Lido DAO is the final trust assumption. Ossifying a proxy fixes its code, and the DAO continues to administer the roles.
 
 ## Lend Operational Committee and Easy Track: routine changes
 
@@ -23,13 +23,9 @@ The Lend Operational Committee does routine configuration through [Easy Track](/
 
 - activates markets;
 - changes the supply cap, the collateral activation config, the settlement config, the fee (at most 25%) and the interest rate config of a market;
-- appoints and removes market stewards, who hold the instant tightening powers;
-- registers and removes the Circuit Breaker pauser of a market, and sets the pause duration and the heartbeat interval;
-- grants and revokes instant activation for an integration;
-- unfreezes markets and unbans accounts;
-- changes the guardian set, the guardian quorum and the suspect window.
+- unfreezes markets, unbans accounts and changes the guardian set.
 
-Each Easy Track factory fixes the contracts and functions that its motion can call. The committee chooses only the values, and most factories check addresses only for a non-zero value. See [Committees](./committees#lend-operational-committee). The factories are listed on [Deployed contracts](./deployed-contracts#easy-track-factories).
+Each Easy Track factory fixes the contracts and functions that its motion can call. The committee chooses only the values. The factories are listed on [Deployed contracts](./deployed-contracts#easy-track-factories).
 
 ## Lend Risk Steward Committee: instant tightening
 

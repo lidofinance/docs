@@ -77,7 +77,7 @@ The factories, except `LidoLendExitBookActions`, become usable after the Lido DA
 
 ## Committees and multisigs
 
-The market activation motions appoint the market steward and register the Circuit Breaker pauser. Owners and signing thresholds are set on-chain as in the [Lido Lend Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62).
+The market activation motions appoint the market steward and register the Circuit Breaker pauser. Signing thresholds are from the [Lido Lend Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62).
 
 | Role                                                                                               | Address                                                                                                                                                                                                                | Signing threshold |
 | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
