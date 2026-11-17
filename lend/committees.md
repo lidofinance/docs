@@ -9,14 +9,14 @@ This page describes who operates Lido Lend day to day and what each actor can an
 
 The design separates fast, risk-reducing actions from slower, risk-increasing ones. Committees with instant powers can only restrict: tighten a market's settings, freeze a market, or pause a market for a fixed time. Changes that add risk or restore service go through Easy Track motions, which LDO holders can object to, or through a Lido DAO vote. No committee can upgrade contracts or move user funds through the current contract interfaces. The Lido DAO remains the final trust assumption. It can upgrade a proxy until the proxy is ossified, and it continues to administer the roles after that.
 
-| Actor | Execution path | Main purpose |
-| --- | --- | --- |
-| [Lend Operational Committee](#lend-operational-committee) | Predefined Easy Track motions | Activate markets and perform routine configuration, membership and recovery actions |
-| [Lend Risk Steward Committee](#lend-risk-steward-committee) | Direct calls to `RiskStewardDashboard` | Tighten selected risk limits or freeze a market |
-| [Lend Emergency Brakes Committee](#lend-emergency-brakes-committee) | [`CircuitBreaker`](/contracts/circuit-breaker) with a live registration and heartbeat | Apply one finite emergency pause to a market controller |
-| [Guardian Security Council](#guardian-security-council) | Guardian or its current delegate calls `GuardianSignals` | Report account risk and attest to collateral-screening progress |
-| [Reseal Committee / Dual Governance](#dual-governance-pause-extension) | `DualGovernance` through `ResealManager` | Keep an already paused controller paused during a governance emergency |
-| [Lido DAO](#lido-dao) | Lido DAO Agent | Upgrades, role administration, ownership, and actions outside the Easy Track factories |
+| Actor                                                                  | Execution path                                                                        | Main purpose                                                                           |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [Lend Operational Committee](#lend-operational-committee)              | Predefined Easy Track motions                                                         | Activate markets and perform routine configuration, membership and recovery actions    |
+| [Lend Risk Steward Committee](#lend-risk-steward-committee)            | Direct calls to `RiskStewardDashboard`                                                | Tighten selected risk limits or freeze a market                                        |
+| [Lend Emergency Brakes Committee](#lend-emergency-brakes-committee)    | [`CircuitBreaker`](/contracts/circuit-breaker) with a live registration and heartbeat | Apply one finite emergency pause to a market controller                                |
+| [Guardian Security Council](#guardian-security-council)                | Guardian or its current delegate calls `GuardianSignals`                              | Report account risk and attest to collateral-screening progress                        |
+| [Reseal Committee / Dual Governance](#dual-governance-pause-extension) | `DualGovernance` through `ResealManager`                                              | Keep an already paused controller paused during a governance emergency                 |
+| [Lido DAO](#lido-dao)                                                  | Lido DAO Agent                                                                        | Upgrades, role administration, ownership, and actions outside the Easy Track factories |
 
 :::note
 Committee names follow the [Lido Lend Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62) on the Research Forum. The Lend Emergency Brakes Committee is not the [CircuitBreaker Committee](/multisigs/emergency-brakes) of the Lido core protocol, and the Lido Lend `CircuitBreaker` is a separate instance.
@@ -70,14 +70,14 @@ The market fields, the controller and the settlement setting cannot change after
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| [Izzy](https://research.lido.fi/u/Izzy) | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904 |
-| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990 |
+| Name                                              | Address                                    | Verification                          | Public verification                                                            |
+| ------------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------ |
+| [Izzy](https://research.lido.fi/u/Izzy)           | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904                                |
+| [psirex](https://research.lido.fi/u/psirex)       | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990                               |
 | [bulbozaur](https://research.lido.fi/u/bulbozaur) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
-| [Willem](https://research.lido.fi/u/Willem) | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/341239 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/70 |
-| [TheDZhon](https://research.lido.fi/u/TheDZhon) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://x.com/e330acid/status/2120599269438632367 |
-| [mikgur](https://research.lido.fi/u/mikgur) | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/341741 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/66 |
+| [Willem](https://research.lido.fi/u/Willem)       | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/341239 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/70 |
+| [TheDZhon](https://research.lido.fi/u/TheDZhon)   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://x.com/e330acid/status/2120599269438632367                              |
+| [mikgur](https://research.lido.fi/u/mikgur)       | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/341741 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/66 |
 | [Mol_Eliza](https://research.lido.fi/u/Mol_Eliza) | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/341743 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/67 |
 
 ## Lend Risk Steward Committee
@@ -113,14 +113,14 @@ The committee can use the dashboard powers only in a market where it is an appoi
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| [Izzy](https://research.lido.fi/u/Izzy) | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904 |
-| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990 |
+| Name                                              | Address                                    | Verification                          | Public verification                                                            |
+| ------------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------ |
+| [Izzy](https://research.lido.fi/u/Izzy)           | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904                                |
+| [psirex](https://research.lido.fi/u/psirex)       | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990                               |
 | [bulbozaur](https://research.lido.fi/u/bulbozaur) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
-| [Willem](https://research.lido.fi/u/Willem) | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/341239 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/70 |
-| [TheDZhon](https://research.lido.fi/u/TheDZhon) | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://x.com/e330acid/status/2120599269438632367 |
-| [mikgur](https://research.lido.fi/u/mikgur) | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/341741 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/66 |
+| [Willem](https://research.lido.fi/u/Willem)       | 0x28939ef21690Fe8358E93d661d1ce6d7fA9154F3 | https://etherscan.io/verifySig/341239 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/70 |
+| [TheDZhon](https://research.lido.fi/u/TheDZhon)   | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | https://etherscan.io/verifySig/341699 | https://x.com/e330acid/status/2120599269438632367                              |
+| [mikgur](https://research.lido.fi/u/mikgur)       | 0xcD0cDa37f68a6758f86a4e2910E60174af1190B5 | https://etherscan.io/verifySig/341741 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/66 |
 | [Mol_Eliza](https://research.lido.fi/u/Mol_Eliza) | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/341743 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/67 |
 
 ## Lend Emergency Brakes Committee
@@ -150,13 +150,13 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 
 **List of signers:**
 
-| Name | Address | Verification | Public verification |
-| --- | --- | --- | --- |
-| [Izzy](https://research.lido.fi/u/Izzy) | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904 |
-| [psirex](https://research.lido.fi/u/psirex) | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990 |
-| [bulbozaur](https://research.lido.fi/u/bulbozaur) | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
-| [skhomuti](https://research.lido.fi/u/skhomuti) | 0xed20740c4ce9a61ce41bb3954186afa0f5f80d9b | https://etherscan.io/verifySig/341888 | https://x.com/skhomuti/status/2121223332909469747 |
-| [George](https://research.lido.fi/u/George) | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/341681 | https://x.com/george_avs/status/2120432030202663081 |
+| Name                                                | Address                                    | Verification                          | Public verification                                                            |
+| --------------------------------------------------- | ------------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------ |
+| [Izzy](https://research.lido.fi/u/Izzy)             | 0xd0e99d6A51201C24421cD6DAfFFeE4f0E08BCd91 | https://etherscan.io/verifySig/341850 | https://x.com/IsdrsP/status/2121175248556961904                                |
+| [psirex](https://research.lido.fi/u/psirex)         | 0xeF83852FaBd22bda23857abF171e05Bae9463F95 | https://etherscan.io/verifySig/341705 | https://x.com/psirex_/status/2121142397698514990                               |
+| [bulbozaur](https://research.lido.fi/u/bulbozaur)   | 0x62c89F5768D0FeC0915fb614C5eDd9fdeaA2A3fd | https://etherscan.io/verifySig/341952 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/73 |
+| [skhomuti](https://research.lido.fi/u/skhomuti)     | 0xed20740c4ce9a61ce41bb3954186afa0f5f80d9b | https://etherscan.io/verifySig/341888 | https://x.com/skhomuti/status/2121223332909469747                              |
+| [George](https://research.lido.fi/u/George)         | 0x912e21CdA3D7012146da4Df33309d860a9eb0bEb | https://etherscan.io/verifySig/341681 | https://x.com/george_avs/status/2120432030202663081                            |
 | [folkyatina](https://research.lido.fi/u/folkyatina) | 0x9d557bda79f6f4785c88997ac180ffe1c3d0a62b | https://etherscan.io/verifySig/342091 | https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/71 |
 
 ## Guardian Security Council
@@ -197,13 +197,13 @@ This mechanism is separate from the Lend Emergency Brakes Committee, which can o
 
 The Lido DAO holds every power that is not delegated to a committee or exposed through the Easy Track factories. DAO votes are subject to Dual Governance where applicable.
 
-| DAO action | Scope |
-| --- | --- |
-| Change revenue settings | Set the core fee recipient (`setFeeRecipient`) |
-| Change a live market's IRM route | Switch the model selected by `IrmRouter.setMarketIrm` |
-| Recover assets of auxiliary contracts | Recover assets held directly by `LidoLendPreseeder` |
-| Administer authority | Grant or revoke roles, transfer core ownership, rotate the IRM owners and managers |
-| Change contract code | Upgrade a proxy, transfer its admin, or irreversibly ossify it |
+| DAO action                            | Scope                                                                              |
+| ------------------------------------- | ---------------------------------------------------------------------------------- |
+| Change revenue settings               | Set the core fee recipient (`setFeeRecipient`)                                     |
+| Change a live market's IRM route      | Switch the model selected by `IrmRouter.setMarketIrm`                              |
+| Recover assets of auxiliary contracts | Recover assets held directly by `LidoLendPreseeder`                                |
+| Administer authority                  | Grant or revoke roles, transfer core ownership, rotate the IRM owners and managers |
+| Change contract code                  | Upgrade a proxy, transfer its admin, or irreversibly ossify it                     |
 
 When the Lido DAO Agent does not hold the required role, the vote must use an authorized caller or grant the role before calling the setter. Recovery functions can move only assets held directly by the auxiliary contract, not assets in user positions.
 

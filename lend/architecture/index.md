@@ -41,17 +41,17 @@ In a market with a controller, the core calls the controller before most market 
 
 ## Components
 
-| Component | What it does |
-|---|---|
-| `LidoLend` | Forked Morpho Blue core. Stores all markets, positions, and token balances. Adds owner-only market creation, controller hooks, and `settle`. |
-| `LidoLendMarketController` | Per-market policy: supply cap, collateral activation, guardian gating, freeze, pause, settlement queue, borrow-share-rate guard. |
-| `GuardianSignals` | Registry of guardian flags, suspect reports, bans, and heartbeats. One registry can serve several markets. |
-| `LidoLendERC4626` | ERC-4626 vault that holds one managed supply position in one market. Adds targeted settlement and fallback exit. |
-| `IrmRouter`, `AdaptiveCurveIrm` | Stable IRM address in `MarketParams` and the model it routes to. |
-| `LidoLendOwner` | Governance entry contract. Owns the core and dispatches controller and registry calls. |
-| `RiskStewardDashboard` | Lets per-market stewards tighten activation rules, revoke instant activation, and freeze a market. |
-| `LidoLendMarketFactory` | Optional helper that deploys standard controllers, vaults, and `GuardianSignals` instances. |
-| [`CircuitBreaker`](/contracts/circuit-breaker) | Lets a registered emergency actor pause a controller for a limited period. |
+| Component                                      | What it does                                                                                                                                 |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `LidoLend`                                     | Forked Morpho Blue core. Stores all markets, positions, and token balances. Adds owner-only market creation, controller hooks, and `settle`. |
+| `LidoLendMarketController`                     | Per-market policy: supply cap, collateral activation, guardian gating, freeze, pause, settlement queue, borrow-share-rate guard.             |
+| `GuardianSignals`                              | Registry of guardian flags, suspect reports, bans, and heartbeats. One registry can serve several markets.                                   |
+| `LidoLendERC4626`                              | ERC-4626 vault that holds one managed supply position in one market. Adds targeted settlement and fallback exit.                             |
+| `IrmRouter`, `AdaptiveCurveIrm`                | Stable IRM address in `MarketParams` and the model it routes to.                                                                             |
+| `LidoLendOwner`                                | Governance entry contract. Owns the core and dispatches controller and registry calls.                                                       |
+| `RiskStewardDashboard`                         | Lets per-market stewards tighten activation rules, revoke instant activation, and freeze a market.                                           |
+| `LidoLendMarketFactory`                        | Optional helper that deploys standard controllers, vaults, and `GuardianSignals` instances.                                                  |
+| [`CircuitBreaker`](/contracts/circuit-breaker) | Lets a registered emergency actor pause a controller for a limited period.                                                                   |
 
 ## Market identity and shared scope
 
@@ -90,11 +90,11 @@ Guardian reports do not seize collateral. They can delay activation or ban new b
 
 A direct lender supplies loan tokens to the core and receives supply shares. A vault lender deposits loan tokens into `LidoLendERC4626`, which supplies them to the core and issues ERC-4626 shares. In both cases borrowers can use the supplied tokens, so the whole lender claim may not be withdrawable at once.
 
-| Exit path | What happens | Payout |
-|---|---|---|
-| Ordinary withdrawal | The core or vault burns lender shares and withdraws available loan tokens. Market liquidity limits the amount. | Loan tokens |
-| Settlement | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. Available only if the market enabled settlement at creation. Blocked while the top borrower in the settlement queue has bad debt. | Collateral |
-| Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. If the claim needs settling and the market did not enable settlement, or the top borrower in the settlement queue has bad debt, the whole exit reverts, including the liquid part. | Loan tokens, collateral, or both |
+| Exit path           | What happens                                                                                                                                                                                                                                                                                                                            | Payout                           |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Ordinary withdrawal | The core or vault burns lender shares and withdraws available loan tokens. Market liquidity limits the amount.                                                                                                                                                                                                                          | Loan tokens                      |
+| Settlement          | The lender's supply claim and a borrower's debt decrease together. The core transfers borrower collateral at the oracle price. No loan-token liquidity is used and no liquidation incentive is added. Available only if the market enabled settlement at creation. Blocked while the top borrower in the settlement queue has bad debt. | Collateral                       |
+| Vault fallback exit | The vault first withdraws available loan tokens, then settles the remaining claim against borrowers that the controller selects. If the claim needs settling and the market did not enable settlement, or the top borrower in the settlement queue has bad debt, the whole exit reverts, including the liquid part.                     | Loan tokens, collateral, or both |
 
 ## Runtime controls
 
@@ -111,9 +111,9 @@ While a controller hook runs, the core rejects any other action that would call 
 
 ### Freeze and pause
 
-| Control | Effect |
-|---|---|
-| Market freeze | Stops new borrowing, collateral withdrawal while debt remains, and completion of collateral activation. Repayment, liquidation, settlement, and lender withdrawal stay available. Only governance can unfreeze. |
+| Control          | Effect                                                                                                                                                                                                                                                                                        |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Market freeze    | Stops new borrowing, collateral withdrawal while debt remains, and completion of collateral activation. Repayment, liquidation, settlement, and lender withdrawal stay available. Only governance can unfreeze.                                                                               |
 | Controller pause | A registered emergency actor pauses all controller-checked actions through `CircuitBreaker` for a limited period. This includes repayment, lender withdrawal, liquidation, settlement, and explicit interest accrual. Core functions without a hook and vault-share transfers stay available. |
 
 An action must pass every control layer that it uses.
@@ -134,15 +134,15 @@ Creation does not make market behavior immutable:
 
 The fields below are fixed when a market is created. Changeable policy parameters are on the mechanism pages.
 
-| Parameter | Meaning | Who can change it | Bounds |
-|---|---|---|---|
-| `loanToken` | Token that lenders supply and borrowers borrow | Nobody after creation | Part of `marketId` |
-| `collateralToken` | Token that borrowers post | Nobody after creation | Part of `marketId` |
-| `oracle` | Price source for collateral | Nobody after creation (the proxy admin can change the code behind a proxied oracle until it is ossified) | Part of `marketId` |
-| `irm` | IRM address; `IrmRouter` in standard markets | Nobody after creation (the router can change the model behind it) | Part of `marketId` |
-| `lltv` | Liquidation loan-to-value | Nobody after creation | Below 100% |
-| Controller | Bound `LidoLendMarketController` | Nobody after creation, except by a core upgrade | `marketId()` of the controller must match the market |
-| Settlement enabled | Whether `settle` is available | Nobody after creation, except by a core upgrade | Requires a controller |
+| Parameter          | Meaning                                        | Who can change it                                                                                        | Bounds                                               |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `loanToken`        | Token that lenders supply and borrowers borrow | Nobody after creation                                                                                    | Part of `marketId`                                   |
+| `collateralToken`  | Token that borrowers post                      | Nobody after creation                                                                                    | Part of `marketId`                                   |
+| `oracle`           | Price source for collateral                    | Nobody after creation (the proxy admin can change the code behind a proxied oracle until it is ossified) | Part of `marketId`                                   |
+| `irm`              | IRM address; `IrmRouter` in standard markets   | Nobody after creation (the router can change the model behind it)                                        | Part of `marketId`                                   |
+| `lltv`             | Liquidation loan-to-value                      | Nobody after creation                                                                                    | Below 100%                                           |
+| Controller         | Bound `LidoLendMarketController`               | Nobody after creation, except by a core upgrade                                                          | `marketId()` of the controller must match the market |
+| Settlement enabled | Whether `settle` is available                  | Nobody after creation, except by a core upgrade                                                          | Requires a controller                                |
 
 ## Permissions
 
@@ -150,15 +150,15 @@ The core owner (`LidoLendOwner`) creates markets and sets fees. Controllers, `Gu
 
 ## Trust assumptions and limitations
 
-| Dependency | What the system relies on |
-|---|---|
-| Controller | It can reject every controller-checked action in its market. Binding it gives no token allowance or authorization. |
-| Guardians and delegates | Reports can ban new borrowing or delay collateral activation. Quorum counts guardian identities, and one operator can still hold the keys of several identities. |
-| Oracle | A wrong or stale value can allow unsafe borrowing, block actions, or misprice liquidation and settlement. |
-| IRM and rate managers | The selected model and its configuration determine interest. A reverting, reentrant, or extreme-rate model can block or distort the market. |
-| Loan and collateral tokens | Transfers must move the exact requested amount, with no fees, rebasing, or callbacks into the protocol. Transfer restrictions can still reject a receiver. |
-| Governance roles and proxy admins | Roles can change the settings assigned to them. A proxy admin can replace contract code until ossification. |
-| `Bundler3` and adapters | `Bundler3` can call arbitrary targets. It must not receive token approvals or core authorization. |
+| Dependency                        | What the system relies on                                                                                                                                        |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Controller                        | It can reject every controller-checked action in its market. Binding it gives no token allowance or authorization.                                               |
+| Guardians and delegates           | Reports can ban new borrowing or delay collateral activation. Quorum counts guardian identities, and one operator can still hold the keys of several identities. |
+| Oracle                            | A wrong or stale value can allow unsafe borrowing, block actions, or misprice liquidation and settlement.                                                        |
+| IRM and rate managers             | The selected model and its configuration determine interest. A reverting, reentrant, or extreme-rate model can block or distort the market.                      |
+| Loan and collateral tokens        | Transfers must move the exact requested amount, with no fees, rebasing, or callbacks into the protocol. Transfer restrictions can still reject a receiver.       |
+| Governance roles and proxy admins | Roles can change the settings assigned to them. A proxy admin can replace contract code until ossification.                                                      |
+| `Bundler3` and adapters           | `Bundler3` can call arbitrary targets. It must not receive token approvals or core authorization.                                                                |
 
 See also [Risks](../risks).
 
