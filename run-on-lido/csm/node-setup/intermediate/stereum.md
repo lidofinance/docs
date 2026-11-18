@@ -58,7 +58,7 @@ Select **Ethereum** → **CSM** as your use case (we recommend testing on a test
 
 ![Select Use Case](/img/csm-guide/stereum-4.png)
 
-Next, pick execution, consensus, and validator clients, as well as a sync mode (Checkpoint Sync is recommended) and MEV-Boost relays (Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#stereum)):
+Next, pick execution, consensus, and validator clients, as well as a sync mode (Checkpoint Sync is recommended) and MEV-Boost relays (Learn more about CSM relay requirements [here](/run-on-lido/csm/node-setup/mev-boost#stereum)):
 
 ![Services Installation Options](/img/csm-guide/stereum-5.png)
 

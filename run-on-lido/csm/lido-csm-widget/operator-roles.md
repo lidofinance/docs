@@ -10,12 +10,6 @@ CSM has two roles to interact with your Node Operator: **Manager** and **Rewards
 Roles are set per operator. If you run both a 0x01 and a 0x02 operator, each one has its own Manager and Rewards addresses, and you configure them separately. See [Managing 0x01 and 0x02 Operators](/run-on-lido/csm/lido-csm-widget/managing-0x01-and-0x02-operators).
 :::
 
-:::warning
-You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Rewards address.
-
-You can work around this by using the Extended mode explained [here](#extended-mode). **Note**: you can only do this when creating the Node Operator.
-:::
-
 ## Roles
 ### Manager address
 
@@ -32,11 +26,18 @@ As it has limited access, you can set the Manager as a hot wallet for more conve
 
 ### Rewards address
 
+:::warning
+You won't be able to change permissions or use certain claim methods if you can't sign transactions, make sure you're using an EOA or Smart Account that can sign arbitrary transactions as the Rewards address.
+
+You can work around this by using the Extended mode explained [here](#extended-mode). **Note**: you can only do this when creating the Node Operator.
+:::
+
 The Reward can do the following:
 
 * Claim rewards
 * Propose a new Rewards address
 * Reset the Manager to make it equal to the current Rewards address
+* Configure the [rewards splitter](/run-on-lido/csm/lido-csm-widget/rewards-and-bonds#rewards-splitter)
 
 Given the Rewards address is the recipient of funds, it is recommended to be set to a [cold wallet](https://www.coinbase.com/en-es/learn/wallet/hot-vs-cold-crypto-wallet-what-is-the-difference).
 
@@ -50,7 +51,7 @@ On top of the permissions above, there's several methods that can be called by a
 
 ## Change roles
 
-To change the roles for either the Manager or Rewards address, navigate to the Roles tab on [Mainnet](https://csm.lido.fi/roles) or [Hoodi](https://csm.testnet.fi/roles).
+To change the roles for either the Manager or Rewards address, navigate to the Roles tab on [Mainnet](https://csm.lido.fi/settings/roles) or [Hoodi](https://csm.testnet.fi/settings/roles).
 
 ![Roles Tab](/img/csm-guide/roles-1.png)
 
@@ -70,7 +71,7 @@ The other wallet will then have to sign a transaction accepting the request.
 The extended mode can only be set upon the creation of the Node Operator and can't be changed later.
 :::
 
-If you need to use a wallet that can't sign arbitrary transactions as the Rewards address (e.g., Obol clusters using Splitter contracts), you can select **Extended mode** which gives the Manager address the ability to change the Rewards address as well.
+If you need to use a wallet that can't sign arbitrary transactions as the Rewards address (e.g., Obol clusters using Splitter contracts), you can select **Extended mode** which gives the Manager address the ability to change the Rewards address and configure the rewards splitter as well.
 
 Find it at the bottom of the Lido CSM Widget during operator creation.
 
@@ -90,7 +91,7 @@ It's optimal to set the Manager to a *hot* address and the Rewards to a secure *
 ![roles-6](/img/csm-guide/roles-6.png)
 
 ### Optimal for DVT clusters
-There's multiple ways to set up a DVT cluster using CSM.
+There's multiple ways to set up a DVT cluster using CSM. To share rewards between cluster participants, use the built-in [rewards splitter](/run-on-lido/csm/lido-csm-widget/rewards-and-bonds#rewards-splitter), which routes a percentage of the Node Operator rewards to up to 10 recipient addresses. It splits Node Operator rewards only, not the bond.
 
 1. Set the Manager address to a *hot* wallet controlled by the cluster coordinator and the Rewards to a cluster multisig. This option is only recommended in cases where cluster participants trust the coordinator completely (or have other types of guarantees/agreements in place) or if the DVT setup is an intra-operator setup rather than an inter-operator setup.
 
@@ -100,6 +101,6 @@ There's multiple ways to set up a DVT cluster using CSM.
 
 ![roles-8](/img/csm-guide/roles-8.png)
 
-3. Set Manager address to a cluster multisig and Rewards to a splitter contract (e.g. to benefit from automated rewards splitting between cluster participants). For this to work you need to set up [Extended Mode](#extended-mode) at the creation of the operator.
+3. If the cluster needs an external splitter contract as the Rewards address instead, set the Manager address to a cluster multisig and the Rewards to the splitter contract. For this to work you need to set up [Extended Mode](#extended-mode) at the creation of the operator. With the built-in rewards splitter this is usually not needed.
 
 ![roles-9](/img/csm-guide/roles-9.png)

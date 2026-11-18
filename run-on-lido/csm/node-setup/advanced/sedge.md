@@ -54,7 +54,7 @@ Follow the terminal UI prompts to:
 5. Use default **Checkpoint Sync** and **No** for **expose all ports**.
 6. Choose **Create** for **JWT Source** and **yes** for the monitoring stack.
 
-The MEV-Boost service is configured with designated relays. Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#sedge).
+The MEV-Boost service is configured with designated relays. Learn more about CSM relay requirements [here](/run-on-lido/csm/node-setup/mev-boost#sedge).
 
 ### Generate & Import Validator Keys
 

@@ -7,7 +7,7 @@ sidebar_position: 1
 * Lido [Discord](https://discord.com/invite/lido)
 * Lido [Documentation](/staking-modules/)
 * Lido [Node Operator Portal](https://operatorportal.lido.fi/)
-* [CSM Rewards Calculator](https://www.nodeop.info/)
+* Community guides, dashboards, and tools for CSM in the [CSM Resources database](https://operatorportal.lido.fi/modules/community-staking-module/csm-resources) on the Node Operator Portal
 * Ethstaker [Discord](https://discord.com/invite/ethstaker) and [Reddit](https://www.reddit.com/r/ethstaker/)
 * Client diversity dashboard - [EL](https://www.ethernodes.org/) & [CL](https://clientdiversity.org/)
 * [How does Proof-of-Stake on Ethereum work?](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/)
@@ -16,7 +16,6 @@ sidebar_position: 1
 * [How to choose the right CPU](https://sech.me/boinc/Amicable/cpu_list.php)
 * [Somer Esat's guides](https://github.com/SomerEsat/ethereum-staking-guides)
 * [Coincashew's guides](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet)
-* [Remi Roy's MEV-Boost guide](https://docs.ethstaker.org/guides/legacy-guides/prepare-for-the-merge/#update-mev-boost)
 * [Importance of client diversity](https://ethereum.org/en/developers/docs/nodes-and-clients/client-diversity/)
 * Ethereum Beacon Deposit Contract Address on [Etherscan](https://etherscan.io/address/0x00000000219ab540356cBB839Cbe05303d7705Fa)
 * ETH burn rate, APR, gas fees on [Ultrasound.money](https://ultrasound.money/)

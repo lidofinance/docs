@@ -77,5 +77,5 @@ Review every recipient address and percentage carefully before confirming. If yo
 
 | Category                                                                                          | Navigation                                     |
 | ------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| [Bond & Rewards](https://operatorportal.lido.fi/modules/community-staking-module#block-88e6d7eca6364a758541dc1ee66a278f) | CSM Operator Portal: "Economics" section      |
-| [Penalties](/run-on-lido/csm/penalties) | Penalty and charge types, amounts per operator profile, and what to do |
+| [Bond & Rewards](/run-on-lido/csm/context-and-background#operator-profiles-and-economics) | Bond, Node Operator reward, and DAO fee per operator type |
+| [Penalties](/run-on-lido/csm/penalties) | Penalty and charge types, amounts per operator type, and what to do |

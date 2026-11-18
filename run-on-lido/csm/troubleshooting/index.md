@@ -14,8 +14,6 @@ If you need extra help, join the [Lido Discord](https://discord.com/invite/lido)
 
 [**Setting the Fee Recipient for CSM Validators →**](./setting-the-fee-recipient-for-csm-validators)
 
-[**Set up MEV-Boost →**](./mev-install)
-
 [**MEV stealing. Reasons and consequences →**](./mev-stealing)
 
 [**Unbonded validators →**](./unbonded-validators)
