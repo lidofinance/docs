@@ -15,6 +15,8 @@ This page lists the Lido Lend contract addresses.
 - How the deployed code matches the audited code: [Audits](../audits#deployment-verification).
   :::
 
+For existing Lido Protocol contract addresses shared with Lido Lend, see the [main Lido Protocol deployed contracts](/deployed-contracts/) page.
+
 ## Protocol
 
 | Contract                                    | Address                                                                                                                                                                                                                |
@@ -65,7 +67,6 @@ The factories, except `LidoLendExitBookActions`, become usable after the Lido DA
 
 | Contract                                 | Address                                                                                                                                                                                                                |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EasyTrack` (existing Lido contract)     | [`0xF0211b7660680B49De1A7E9f25C65660F0a13Fea`](https://etherscan.io/address/0xF0211b7660680B49De1A7E9f25C65660F0a13Fea) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 | `LidoLendPreseeder`                      | [`0x3F107d1fbCA49F425321Cb27f6Ef5CbB94a72c41`](https://etherscan.io/address/0x3F107d1fbCA49F425321Cb27f6Ef5CbB94a72c41) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 | `LidoLendActivateMarket`                 | [`0x17bb2A2B5983D29392A5d31D627D4C8B13383fe6`](https://etherscan.io/address/0x17bb2A2B5983D29392A5d31D627D4C8B13383fe6) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
 | `LidoLendCircuitBreakerActions`          | [`0x4e89cc970F0DBAE2f8C38C083D5D345B4F9e76b8`](https://etherscan.io/address/0x4e89cc970F0DBAE2f8C38C083D5D345B4F9e76b8) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] |
@@ -87,14 +88,8 @@ The market activation motions appoint the market steward and register the Circui
 
 See [Committees](../committees) for the role of each committee.
 
-## Lido DAO contracts and tokens
+## External token
 
-These existing Lido DAO contracts and tokens hold roles in the Lido Lend deployment or are used by it.
-
-| Contract                          | Address                                                                                                                 |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Aragon Agent                      | [`0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c`](https://etherscan.io/address/0x3e40D73EB977Dc6a537aF587D48316feE66E9C8c) |
-| `EVMScriptExecutor` (Easy Track)  | [`0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977`](https://etherscan.io/address/0xFE5986E06210aC1eCC1aDCafc0cc7f8D63B3F977) |
-| `ResealManager` (Dual Governance) | [`0x7914b5a1539b97Bd0bbd155757F25FD79A522d24`](https://etherscan.io/address/0x7914b5a1539b97Bd0bbd155757F25FD79A522d24) |
-| WETH                              | [`0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`](https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2) |
-| wstETH                            | [`0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0`](https://etherscan.io/address/0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0) |
+| Token | Address |
+| ----- | ------- |
+| WETH | [`0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`](https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2) |

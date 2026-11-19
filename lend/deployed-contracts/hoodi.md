@@ -14,6 +14,8 @@ This page lists the Lido Lend contract addresses on the Hoodi testnet.
 - Status: test deployment.
   :::
 
+For existing Lido Protocol contract addresses shared with Lido Lend, see the [main Lido Protocol deployed contracts](/deployed-contracts/hoodi) page.
+
 ## Protocol
 
 | Contract                                    | Address                                                                                                                       |
@@ -66,7 +68,6 @@ The Exit Books and their Easy Track factory `LidoLendExitBookActions` are deploy
 
 | Contract                                 | Address                                                                                                                       |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `EasyTrack` (existing Lido contract)     | [`0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a`](https://hoodi.etherscan.io/address/0x284D91a7D47850d21A6DEaaC6E538AC7E5E6fc2a) |
 | `LidoLendPreseeder`                      | [`0xBcbAD842Dbf0fBc47f062136E8FbA7932ab706C8`](https://hoodi.etherscan.io/address/0xBcbAD842Dbf0fBc47f062136E8FbA7932ab706C8) |
 | `LidoLendActivateMarket`                 | [`0xC4F75E3Da78230Ff9235A2E5Cf6F1962C56A4C69`](https://hoodi.etherscan.io/address/0xC4F75E3Da78230Ff9235A2E5Cf6F1962C56A4C69) |
 | `LidoLendCircuitBreakerActions`          | [`0x812Ea1494d53d8D1ba479c4c1D88c9d680ea88C5`](https://hoodi.etherscan.io/address/0x812Ea1494d53d8D1ba479c4c1D88c9d680ea88C5) |
@@ -85,11 +86,3 @@ These test multisigs are configured for the committee roles on Hoodi only. The m
 | Lend Risk Steward Committee Safe (market steward appointed by the activation motions) | [`0xe65b86bB03Bd1B11BF39C6d87060c7A52236988D`](https://hoodi.etherscan.io/address/0xe65b86bB03Bd1B11BF39C6d87060c7A52236988D) |
 | Circuit Breaker pauser committee Safe (registered by the activation motions)          | [`0x8223d372898CA8f185F24b5EDA373FDaea16B1c6`](https://hoodi.etherscan.io/address/0x8223d372898CA8f185F24b5EDA373FDaea16B1c6) |
 | Easy Track trusted caller Safe (Lend Operational Committee motions)                   | [`0x4D8448CF02B84b6D3555e3667b3Ad259C75d8102`](https://hoodi.etherscan.io/address/0x4D8448CF02B84b6D3555e3667b3Ad259C75d8102) |
-
-## Lido DAO contracts
-
-| Contract                                                 | Address                                                                                                                       |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Aragon Agent                                             | [`0x0534aA41907c9631fae990960bCC72d75fA7cfeD`](https://hoodi.etherscan.io/address/0x0534aA41907c9631fae990960bCC72d75fA7cfeD) |
-| `EVMScriptExecutor` (Easy Track; `CircuitBreaker` admin) | [`0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E`](https://hoodi.etherscan.io/address/0x79a20FD0FA36453B2F45eAbab19bfef43575Ba9E) |
-| `ResealManager` (Dual Governance)                        | [`0x05172CbCDb7307228F781436b327679e4DAE166B`](https://hoodi.etherscan.io/address/0x05172CbCDb7307228F781436b327679e4DAE166B) |
