@@ -6,6 +6,8 @@
 
 **Purpose of the multisig:** The CircuitBreaker Committee is a pauser registered on the [CircuitBreaker](/contracts/circuit-breaker), authorized to pause designated core protocol contracts for a bounded duration in an emergency, without waiting for a DAO vote. The pause right is single-use per contract: after a successful pause the committee is unregistered from that contract and must be re-assigned by a DAO vote. The committee must periodically send a heartbeat to remain authorized. The full list of contracts it can pause is provided under [CircuitBreaker covered pausables](/deployed-contracts/#circuit-breaker).
 
+**Related committee and signer rotations:** The [Dual Governance Reseal Committee](/multisigs/committees#2153-dual-governance-reseal-committee-ethereum) is intended to share the CircuitBreaker Committee's signer set, while maintaining a separate quorum and responsibilities, as outlined in [LIP-28](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-28.md#organisational-structure-and-committees). Any signer additions, removals, or replacements should be coordinated and mirrored across both multisigs.
+
 **Quorum:** 3/6
 
 **Forum topics:**\
