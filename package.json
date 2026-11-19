@@ -63,6 +63,31 @@
     "node": ">=20.18.1"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.5"
+    "serialize-javascript": "^7.0.5",
+    "baseline-browser-mapping": "^2.11.38",
+    "brace-expansion": "^1.1.22",
+    "browserslist": "^4.29.6",
+    "colord": "^2.9.7",
+    "dompurify": "^3.4.18",
+    "fast-uri": "^3.1.9",
+    "image-size": "^2.0.4",
+    "joi": "^17.13.9",
+    "js-yaml": "^4.3.2",
+    "gray-matter": {
+      "js-yaml": "^3.15.2"
+    },
+    "launch-editor": "^2.14.2",
+    "postcss-selector-parser": "^7.2.1",
+    "cssnano-preset-default": {
+      "postcss-selector-parser": "^6.1.6"
+    },
+    "cssnano-preset-advanced": {
+      "postcss-selector-parser": "^6.1.6"
+    },
+    "shell-quote": "^1.12.0",
+    "source-map-js": "^1.2.2",
+    "svgo": "^3.3.5",
+    "tinypool": "^2.1.2",
+    "undici": "^7.30.2"
   }
 }
