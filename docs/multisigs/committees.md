@@ -859,6 +859,8 @@ This committee has the same list of participants as Dual Governance Emergency Ac
 - The contracts are paused for a limited duration, not indefinitely.
 - The Dual Governance system is not in the Normal state.
 
+**Related committee and signer rotations:** The Reseal Committee is intended to share its signer set with the [CircuitBreaker Committee](/multisigs/emergency-brakes#11-circuitbreaker-committee), while maintaining a separate quorum and responsibilities, as outlined in [LIP-28](https://github.com/lidofinance/lido-improvement-proposals/blob/develop/LIPS/lip-28.md#organisational-structure-and-committees). Any signer additions, removals, or replacements should be coordinated and mirrored across both multisigs.
+
 **Quorum:** 5/6
 
 **Snapshot:** [LIP-28: Dual Governance — Implementation, Parameters, Committees](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x26a66c9b91ff46aeac74b6f6714467993edc6840a8f292fb5c1366fc44dec2a6)
