@@ -1,6 +1,82 @@
 # Lido Protocol Audits
 
-## Lido on Ethereum (117 reports)
+## Lido on Ethereum (124 reports)
+
+### 11-2026 MixBytes Lido CMv2 Top-Up Control Security Audit
+
+Audited at commit [`7bdcfb6`](https://github.com/lidofinance/staking-modules/tree/7bdcfb631b13d24e8fae3b5ba0e11d4be07b84f9), as a diff against commit [`31e9f1f`](https://github.com/lidofinance/staking-modules/tree/31e9f1f4ea410b541293648c7bfb7dbed9b372bb).
+
+A security review of the Curated Module v2 change that adds per-operator top-up enablement flags and weighted allocation for topping up existing 0x02 validators. The review also includes mainnet deployment verification of the new `CuratedModule` implementation and `CuratedDepositAllocator` library. Previous [CM v2 audits](#06-2026-certora-lido-csm-v3-and-cm-v2-audit).
+
+- Total Issues: 0
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CMv2%20Top-Up%20Control%20Security%20Audit%20Report%2011-2026.pdf) for more details.
+
+### 11-2026 MixBytes Lido CuratedVerifier (CMv2) Security Audit
+
+Audited at commit [`8845634`](https://github.com/lidofinance/staking-modules/tree/88456343a59d4cd98d19b75e5fe74ea0fb684595), as a diff against `Verifier.sol` at the same commit.
+
+A security review of `CuratedVerifier`, the Curated Module v2 verifier. It replaces the withdrawal-proof path of `Verifier` with a withdrawn proof that reports a non-slashed validator as withdrawn once its `withdrawable_epoch` is reached, to support outgoing consolidations. The review also includes mainnet deployment verification of the new `CuratedVerifier` contract.
+
+- Total Issues: 1 (1 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 1 (1 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CuratedVerifier%20%28CMv2%29%20Security%20Audit%20Report%2011-2026.pdf) for more details.
+
+### 11-2026 MixBytes Lido CMv2 ConsolidationMigrator Deployment Verification
+
+Deployment verified against audited commit [`af095e4`](https://github.com/lidofinance/core/tree/af095e48bbc1c3841c2c9936219c8461af01056b).
+
+Mainnet deployment verification of the new `ConsolidationMigrator` instance that enables validator consolidations within the Curated Module v2, covering bytecode equivalence of the implementation and `OssifiableProxy` to the [Certora](#07-2026-certora-staking-router-v3-audit) and [Statemind](#07-2026-statemind-staking-router-v3-audit) audited code.
+
+No inconsistencies were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20CMv2%20ConsolidationMigrator%20Deployment%20Verification%20Report%2011-2026.pdf) for more details.
+
+### 11-2026 Composable Security Lido Oracle v8.3.0 Security Consultation
+
+Audited at commit [`7d772da0`](https://github.com/lidofinance/lido-oracle/tree/7d772da0c5a05c284490a5e0962ae40b38d768ed).
+
+A security consultation for the Lido Oracle v8.3.0 fix that excludes pending deposits with builder withdrawal credentials (`0xb0`) from the pending balance credited to Lido validators and staking vaults. Before the fix, such deposits could overstate a vault's total value, as the Gloas fork credits them to a separate builder. The review also verified that the published Docker image (manifest digest `sha256:6ccbbc5b815108fd7ddb9075845aace873744f216133768518a5446c83b30f0f`) matches the audited commit. Previous [report for V8.2.0](#10-2026-mixbytes-off-chain-audit-of-lido-oracle-v820).
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Composable%20Security%20Lido%20Oracle%20V8_3_0%20Security%20Consultation%20Report.pdf) for more details.
+
+### 10-2026 MixBytes Off-chain Audit of Lido Oracle v8.2.0
+
+Audited at commit [`fff59c8`](https://github.com/lidofinance/lido-oracle/tree/fff59c898eebbcc41790b05b03e884d2f5f53fc0).
+
+An interim security review of the Lido Oracle v8.2.0 change set, which adds a performance oracle instance for the Community Staking Module 0x02, refactors the environment-variable validation for staking module oracles, and logs full tracebacks for Web3 exceptions swallowed by the cycle handler. The review also verified that the published `lidofinance/oracle:8.2.0` Docker image matches the audited commit. Previous [report for V8.1](#09-2026-composable-security-lido-oracle-v81-security-audit).
+
+- Total Issues: 0
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 0
+
+See [full report](https://github.com/lidofinance/audits/blob/main/MixBytes%20Lido%20Oracle%20v8.2.0%20Diff%20Security%20Audit%20Report%2010-2026.pdf) for more details.
+
+### 10-2026 MixBytes Lido CSM 0x02 Deployment Verification
+
+Deployment verified at commit [`715c871`](https://github.com/lidofinance/staking-modules/tree/715c871d64a6771dacbc483528da58f1a3c734ad), against the code audited at commit [`4d3de66`](https://github.com/lidofinance/staking-modules/tree/4d3de6658499e1c1774951780a97d7ae25ca18b8).
+
+Mainnet deployment verification of CSM 0x02, covering bytecode equivalence to the [Certora](#06-2026-certora-lido-csm-v3-and-cm-v2-audit) and [Statemind](#06-2026-statemind-lido-csm-v3-and-cm-v2-audit) audited code, configuration, initialization, and access control across 27 deployed addresses. No inconsistencies were found.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Lido%20CSM%200x02%20Deployment%20Verification%20Report.pdf) for more details.
+
+### 10-2026 MixBytes Lido Easy Track Factories CSM 0x02 Deployment Verification
+
+Deployment verified against audited commit [`b5d7455`](https://github.com/lidofinance/easy-track/tree/b5d74557448a7f65ea74abdc09ff954bd113c8c3).
+
+Mainnet deployment verification of three CSM 0x02 Easy Track factories, covering bytecode equivalence to the [previously audited code](#07-2026-mixbytes-lido-easy-track-factories-srv3-csmv3-cmv2-security-audit), constructor configuration, access control, and integration wiring. All checked values matched.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/Lido%20Easy%20Track%20Factories%20CSM%200x02%20Deployment%20Verification%20Report.pdf) for more details.
 
 ### 09-2026 MixBytes Lido Easy Track Factory for Deposit Reserve Target management Security Audit
 
@@ -1638,10 +1714,66 @@ Audited at commit [`082e7eb`](https://github.com/lidofinance/lido-l2/tree/082e7e
 
 See [full report](https://github.com/lidofinance/audits/blob/main/L2/Lido-L2-2022-07-Oxorio-Smart-Contracts-Security-Audit-Report.pdf) for more details.
 
+## Lido Lend (4 reports)
+
+### 11-2026 MixBytes Lido Lend Guardian Daemon SDK Security Audit
+
+Audited at commit [`b566e01`](https://github.com/lidofinance/lend-guardian-daemon/tree/b566e019684568e1d505ff25f77b3da4e61fe095).
+
+An audit of the Lido Lend Guardian Daemon SDK, an off-chain TypeScript SDK used by guardians to screen Lido Lend positions and submit reports on-chain.
+
+- Total Issues: 16 (12 Fixed, 4 Acknowledged)
+- Critical Issues: 0
+- High Issues: 1 (1 Fixed)
+- Medium Issues: 8 (8 Fixed)
+- Low Issues: 7 (3 Fixed, 4 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/lend/2026-11-9-mixbytes-lido-lend-guardian-daemon-sdk.pdf) for more details.
+
+### 11-2026 Cyfrin Lido Lend Core Deployment Verification
+
+Verified at deployment commit [`9c0ba34`](https://github.com/lidofinance/lend-markets/tree/9c0ba34580ab5cff4354be8cb701419fb02b65d5) (lend-markets).
+
+Stage 1 verification of 14 Lido Lend core contracts deployed on Ethereum mainnet: runtime bytecode, constructor arguments and immutables against the deployment commit, and alignment of the in-scope sources with [the audited commits](#10-2026-cyfrin-lido-lend-security-audit). The report also covers supplementary bytecode verification of two dependency deployments outside the audit scope, Bundler3 and CircuitBreaker. Stage 2 (market-specific deployments) is pending.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/lend/2026-11-11-cyfrin-lido-lend-core-deployment-verification.pdf) for more details.
+
+### 11-2026 MixBytes Lido Lend Easy Track Factories Security Audit
+
+Audited at commit [`4caa911`](https://github.com/lidofinance/easy-track/tree/4caa9117435631ef352d263c901fa9e26cfccfb4).
+
+An audit of the seven Easy Track EVMScript factories (and the Preseeder) that give a trusted committee bounded, delayed governance paths over Lido Lend. The report also includes verification of the contracts deployed on Ethereum mainnet against the audited commit.
+
+- Total Issues: 11 (1 Fixed, 10 Acknowledged)
+- Critical Issues: 0
+- High Issues: 0
+- Medium Issues: 0
+- Low Issues: 11 (1 Fixed, 10 Acknowledged)
+
+See [full report](https://github.com/lidofinance/audits/blob/main/lend/2026-11-10-mixbytes-lido-lend-easy-track-factories-audit-report.pdf) for more details.
+
+### 10-2026 Cyfrin Lido Lend Security Audit
+
+Audited at commits [`4d55f1d`](https://github.com/lidofinance/lend/tree/4d55f1dd98a0f7712543965c66e03c963a004263) (lend), [`97af4c3`](https://github.com/lidofinance/lend-irm/tree/97af4c39c51f1e023d8025319f34a1658036066c) (lend-irm) and [`23416c4`](https://github.com/lidofinance/lend-markets/tree/23416c43c4038ea3c00a13d6203949c8f88905cc) (lend-markets).
+
+An audit of Lido Lend, an over-collateralized lending protocol built on a Morpho Blue fork with Lido-specific market extensions.
+
+- Total Issues: 62 (30 Resolved, 1 Partially Resolved, 31 Acknowledged)
+- Critical Risk Issues: 0
+- High Risk Issues: 0
+- Medium Risk Issues: 8 (4 Resolved, 4 Acknowledged)
+- Low Risk Issues: 27 (17 Resolved, 10 Acknowledged)
+- Informational Issues: 21 (7 Resolved, 1 Partially Resolved, 13 Acknowledged)
+- Gas Optimizations: 6 (2 Resolved, 4 Acknowledged)
+
+The counts follow the detailed findings register: I-19 is partially resolved, while the report's summary table counts it as resolved.
+
+See [full report](https://github.com/lidofinance/audits/blob/main/lend/2026-10-26_Cyfrin_Lido-Lend.pdf) for more details.
+
 ## Lido on Polygon PoS (2 reports)
 
 :::warning
-Lido on Polygon PoS has been sunset. Staking was discontinued on December 16, 2024, and unstaking via the Lido on Polygon UI was supported until June 16, 2025. See [Sunsetting Lido on Polygon](https://help.lido.fi/en/articles/10289349-sunsetting-lido-on-polygon) and the [sunset announcement](https://blog.lido.fi/lido-on-polygon-sunset/). The reports below are kept for historical reference.
+Lido on Polygon PoS has been sunset. Staking was discontinued on December 16, 2024, and unstaking via the Lido on Polygon UI was supported until June 16, 2025. See the [sunset announcement](https://blog.lido.fi/lido-on-polygon-sunset/). The reports below are kept for historical reference.
 :::
 
 ### 08-2022 Oxorio Lido on Polygon V2
@@ -1658,7 +1790,7 @@ See [full report](https://github.com/lidofinance/audits/blob/main/polygon/Oxorio
 
 ### 04-2022 Lido On Polygon Smart Contracts Security Audit for PR#69
 
-Audited at commit [`1d8e469`](https://github.com/Shard-Labs/PoLido/tree/1d8e4696d9a225f9079bcaff1cb8a60c8eff8131).
+Audited at commit `1d8e4696d9a225f9079bcaff1cb8a60c8eff8131` of the Shard-Labs/PoLido repository, which is no longer publicly available.
 
 - Total Issues: 9 (4 Fixed, 1 Acknowledged, 1 No Issue)
 - Critical Issues: 0
