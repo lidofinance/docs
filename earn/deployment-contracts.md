@@ -183,9 +183,41 @@ description: Deployment addresses for Lido Earn vaults and their supporting cont
 | Timelock Controller | [`0xa9BcE5B87B67506061eD83333c496A7d2eF74B56`](https://robinhoodchain.blockscout.com/address/0xa9BcE5B87B67506061eD83333c496A7d2eF74B56) |
 | OracleSubmitter     | [`0x5335607430db53bC5377Bb853802768467857a43`](https://robinhoodchain.blockscout.com/address/0x5335607430db53bC5377Bb853802768467857a43) |
 
+### earnUSDe – Base
+
+Deployed, not in operation. The subvault permissions are not configured yet.
+
+| Contract            | Address                                                                                                                 |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Vault               | [`0x9E5713A7B7630Ff12C4178279b25f890bDD0B76F`](https://basescan.org/address/0x9E5713A7B7630Ff12C4178279b25f890bDD0B76F) |
+| Oracle              | [`0x38F44beD0E6351ae07946EC578fF938f08324094`](https://basescan.org/address/0x38F44beD0E6351ae07946EC578fF938f08324094) |
+| ShareManager        | [`0x84838728E19e34a3d34D2DF245cf6057E41F1Ee8`](https://basescan.org/address/0x84838728E19e34a3d34D2DF245cf6057E41F1Ee8) |
+| FeeManager          | [`0xEf26B51317d72183222c4143aCaA1b82BC87828b`](https://basescan.org/address/0xEf26B51317d72183222c4143aCaA1b82BC87828b) |
+| RiskManager         | [`0x18403913b0847BEF57C2384B39430f4ce86560c3`](https://basescan.org/address/0x18403913b0847BEF57C2384B39430f4ce86560c3) |
+| Subvault 0          | [`0x1F47a65B95D80683B1B93A59565D2296635648D2`](https://basescan.org/address/0x1F47a65B95D80683B1B93A59565D2296635648D2) |
+| Verifier 0          | [`0xEC3B8015D7bc3A55b2E768A076d347E663CDF348`](https://basescan.org/address/0xEC3B8015D7bc3A55b2E768A076d347E663CDF348) |
+| Timelock Controller | [`0x9Cf9B6B0833a115747bF3A8c5EF1924c9CaFCA7D`](https://basescan.org/address/0x9Cf9B6B0833a115747bF3A8c5EF1924c9CaFCA7D) |
+| OracleSubmitter     | [`0xd0A4f5A1aAc1a1991426eC9bF25F4BFa8A9bC915`](https://basescan.org/address/0xd0A4f5A1aAc1a1991426eC9bF25F4BFa8A9bC915) |
+
+### earnUSDe – Arbitrum
+
+Deployed, not in operation. The subvault permissions are not configured yet.
+
+| Contract            | Address                                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Vault               | [`0x218D03E649251892eC72AEE3962D0Fa131184680`](https://arbiscan.io/address/0x218D03E649251892eC72AEE3962D0Fa131184680) |
+| Oracle              | [`0x7d2c9b4729ea7bCcA63b0F4217B506367fffFc7e`](https://arbiscan.io/address/0x7d2c9b4729ea7bCcA63b0F4217B506367fffFc7e) |
+| ShareManager        | [`0x9079af4fdf96b0377a641CE8197D2B070e3B3F6b`](https://arbiscan.io/address/0x9079af4fdf96b0377a641CE8197D2B070e3B3F6b) |
+| FeeManager          | [`0x3b2D3434e5976f61b53FE0654309B11333093B62`](https://arbiscan.io/address/0x3b2D3434e5976f61b53FE0654309B11333093B62) |
+| RiskManager         | [`0x4E2ed039995744bA7968dC6154a3c2a89249686B`](https://arbiscan.io/address/0x4E2ed039995744bA7968dC6154a3c2a89249686B) |
+| Subvault 0          | [`0xC4A945776448217C1f029e68b4D746c92e0bD8EB`](https://arbiscan.io/address/0xC4A945776448217C1f029e68b4D746c92e0bD8EB) |
+| Verifier 0          | [`0x1Bd70F03eA39093ef48147A63689c208E6117AEF`](https://arbiscan.io/address/0x1Bd70F03eA39093ef48147A63689c208E6117AEF) |
+| Timelock Controller | [`0x00D0cC85391b0FE4035e1c51bd89ac75Bd07a0C5`](https://arbiscan.io/address/0x00D0cC85391b0FE4035e1c51bd89ac75Bd07a0C5) |
+| OracleSubmitter     | [`0x43E450C9a6ac94fF898e38dC9C3da2Dd451775f4`](https://arbiscan.io/address/0x43E450C9a6ac94fF898e38dC9C3da2Dd451775f4) |
+
 ## Actors
 
-Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood and Monad, Active Vault Admin is 3/6 and Oracle Updater is 3/7. On Base, Plasma and Mantle, Treasury is 4/7.
+Roles governing the vaults. Actor addresses are shared between chains where they are deployed. The **Quorum** column shows Ethereum Safe configurations; owner sets and thresholds may differ on other chains. On Base, Plasma, Mantle, Robinhood, Monad and Arbitrum, Active Vault Admin is 3/6 and Oracle Updater is 3/7.
 
 On Monad, the Curator (earnUSDc, earnUSDe) Safe acts through the Curator Account, a MellowAccountV1 contract that the Safe owns.
 
@@ -194,7 +226,7 @@ On Monad, the Curator (earnUSDc, earnUSDe) Safe acts through the Curator Account
 | Proxy Admin                  | [`0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0`](https://app.safe.global/home?safe=eth:0x81698f87C6482bF1ce9bFcfC0F103C4A0Adf0Af0) | 5/8    |
 | Lazy Vault Admin             | [`0x0Dd73341d6158a72b4D224541f1094188f57076E`](https://app.safe.global/home?safe=eth:0x0Dd73341d6158a72b4D224541f1094188f57076E) | 5/8    |
 | Active Vault Admin           | [`0x982aB69785f5329BB59c36B19CBd4865353fEf10`](https://app.safe.global/home?safe=eth:0x982aB69785f5329BB59c36B19CBd4865353fEf10) | 3/8    |
-| Curator (earnETH, earnUSD)   | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/6    |
+| Curator (earnETH, earnUSD)   | [`0xe5abcc40196174Ae0d12153dE286F0D8E401769d`](https://app.safe.global/home?safe=eth:0xe5abcc40196174Ae0d12153dE286F0D8E401769d) | 3/5    |
 | Curator (earnUSDc, earnUSDe) | [`0x9745F161b0160a99924845BeFCE1d7b9Daee6899`](https://app.safe.global/home?safe=eth:0x9745F161b0160a99924845BeFCE1d7b9Daee6899) | 3/7    |
 | Curator (stRATEGY)           | [`0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5`](https://app.safe.global/home?safe=eth:0xAbE20D266Ae54b9Ae30492dEa6B6407bF18fEeb5) | 5/8    |
 | Curator (GGV)                | [`0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F`](https://app.safe.global/home?safe=eth:0xD48b7e87fDCCaCa7ea93F347755c799eBE0fD35F) | 3/5    |
