@@ -59,8 +59,8 @@ ethd config
 
 1. Choose **Mainnet** or **Hoodi** → **Lido-compatible node (Community Staking / Simple DVT)** → **\[Community Staking] CSM node**
 2. Select your consensus and execution clients
-3. Use default **Checkpoint Sync URL**, **yes** for MEV Boost, **select all** relays (Learn more about CSM relay requirements [here](/run-on-lido/csm/troubleshooting/mev-install#eth-docker)), **yes** for Grafana dashboards, and set optional graffiti
-4. **\[For Testnet only]** **yes** to generate validator keys: set quantity, password, save mnemonic, verify fee recipient on [CSM Operator Portal](https://operatorportal.lido.fi/modules/community-staking-module)
+3. Use default **Checkpoint Sync URL**, **yes** for MEV Boost, **select all** relays (Learn more about CSM relay requirements [here](/run-on-lido/csm/node-setup/mev-boost#eth-docker)), **yes** for Grafana dashboards, and set optional graffiti
+4. **\[For Testnet only]** **yes** to generate validator keys: set quantity, password, save mnemonic, verify the fee recipient in [Setting the Fee Recipient](/run-on-lido/csm/troubleshooting/setting-the-fee-recipient-for-csm-validators)
 5. **\[For Mainnet]** **no** to generate keys here (use secure workflow in [Key Generation for Mainnet guide](/run-on-lido/csm/generating-validator-keys/key-generation-for-mainnet/))
 
 :::note

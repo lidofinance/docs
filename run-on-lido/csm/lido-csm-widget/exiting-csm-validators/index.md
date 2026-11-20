@@ -15,17 +15,17 @@ There are 3 reasons why CSM operators can receive an exit request from the Lido 
 2. If you have unbonded validators you're required to either top up the bond, or exit the validator.
 3. If a validator accumulated enough strikes for performing below the threshold, it can be ejected for bad performance.
 
-If you do not exit the validator within the allowed delay for your operator profile, an exit delay charge is applied to your bond once the validator withdraws. The protocol can also force the exit from the Execution Layer, and the withdrawal request fee is charged to you as well. See [Penalties](/run-on-lido/csm/penalties#parameters-by-operator-profile) for the amounts that apply to your profile.
+If you do not exit the validator within the allowed delay for your operator type, an exit delay charge is applied to your bond once the validator withdraws. The protocol can also force the exit from the Execution Layer, and the withdrawal request fee is charged to you as well. See [Penalties](/run-on-lido/csm/penalties#parameters-by-operator-profile) for the amounts that apply to your operator type.
 
 You can read more about exits [here](/staking-modules/validator-exits).
 
 ### Notifications for exit requests
 
-You can also subscribe to notifications for exit requests from Lido using the [CSM Sentinel](https://github.com/skhomuti/csm-sentinel) Telegram bot.
+You can also subscribe to notifications for exit requests from Lido using the [CSM Sentinel](https://github.com/lidofinance/sm-sentinel) Telegram bot.
 
 **Quick start:**
 
-1. To use the hosted version, click [here for Mainnet](https://t.me/CSMSentinel_bot) or here for [Hoodi](https://t.me/CSMSentinelHoodi_bot). Alternatively, search for the **"CSM Sentinel"** bot on Telegram and open a chat with it
+1. To use the hosted version, open the bot for your module. For 0x01 CSM, click [here for Mainnet](https://t.me/CSMSentinel_bot) or here for [Hoodi](https://t.me/CSMSentinelHoodi_bot). For 0x02 CSM, click [here for Mainnet](https://t.me/CSM0x02Sentinel_bot) or here for [Hoodi](https://t.me/CSM0x02SentinelHoodi_bot). Alternatively, search for the **"CSM Sentinel"** or **"CSM 0x02 Sentinel"** bot on Telegram and open a chat with it
 2. Type `/start` and send
 3. Select the `Follow` option
 4. Enter your CSM Operator ID. This can be found at the top of the CSM Widget after connecting your wallet.
