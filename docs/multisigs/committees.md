@@ -743,7 +743,7 @@ The full list of related contracts is available [here](/deployed-contracts/#easy
 | Mol_Eliza | 0x21b82AA7149c8Fd0562E78b740937442FfD43094 | https://etherscan.io/verifySig/266655 | https://x.com/MaxMolEliza/status/1887170206675468338        |
 | pipistrella | 0x5da409e1cbDABeC67471dB01Ff956f804bb8879f | https://etherscan.io/verifySig/266776 | https://x.com/ppclunghe/status/1887785137024176411       |
 | Susanna_MV | 0x27a3fc3d99eace1fdca71900a72079f6c3a4b4f8 | https://etherscan.io/verifySig/267541 | https://x.com/MamenSusan87135/status/1894315942991335668 |
-| adcv | 0xcc692077c65dd464caa7e7ae614328914f8469b3 | https://etherscan.io/verifySig/268854 | https://x.com/adcv_/status/1901924468043260399 |
+| nikolaj.p | 0x5422F2100Ca6e56a9cd18188cD58AAa247A180fe | https://etherscan.io/verifySig/342101 | https://x.com/Nik_P__/status/2122324829143506974 |
 | Olga_G | 0x48e6dc201c91bc67018566682defd37924f7bde3 | https://etherscan.io/verifySig/320208 | https://x.com/ItsOlgaOlga/status/2079943955941081146 |
 
 
