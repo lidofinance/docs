@@ -154,7 +154,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 | [CM v2 Module](https://hoodi.etherscan.io/address/0x87EB69Ae51317405FD285efD2326a4a11f6173b9) | [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://hoodi.etherscan.io/address/0x84DffcfB232594975C608DE92544Ff239a24c9E9) |
 | [CM v2 Accounting](https://hoodi.etherscan.io/address/0x7f7356D29aCd915F1934220956c3305808ceB235) | [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://hoodi.etherscan.io/address/0x84DffcfB232594975C608DE92544Ff239a24c9E9) |
 | [CM v2 FeeOracle](https://hoodi.etherscan.io/address/0x5D2F27000C80f6f7A03015Fd49dB7FEba3fBfa83) | [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://hoodi.etherscan.io/address/0x84DffcfB232594975C608DE92544Ff239a24c9E9) |
-| [CM v2 Verifier](https://hoodi.etherscan.io/address/0x209190Ebc2Be80367a15d05e626784Eb94d6A880) | [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://hoodi.etherscan.io/address/0x84DffcfB232594975C608DE92544Ff239a24c9E9) |
+| [CM v2 Verifier](https://hoodi.etherscan.io/address/0xd82f10880590dc6C67D1e84098357DBbc88058EA) | [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://hoodi.etherscan.io/address/0x84DffcfB232594975C608DE92544Ff239a24c9E9) |
 | [CM v2 Ejector](https://hoodi.etherscan.io/address/0xfDbde2B3554B69C84e0f8d7daB68D390Ff0f4394) | [`0x84DffcfB232594975C608DE92544Ff239a24c9E9`](https://hoodi.etherscan.io/address/0x84DffcfB232594975C608DE92544Ff239a24c9E9) |
 
 ## 📊 Data Bus {#data-bus}
@@ -268,7 +268,7 @@ Each pausable contract below is covered by the CircuitBreaker and has a designat
 - MetaRegistry: [`0x55C22866805080b12A9876e9892180f1F66a5d6B`](https://hoodi.etherscan.io/address/0x55C22866805080b12A9876e9892180f1F66a5d6B) (impl)
 - FeeDistributor: [`0x0ced6de191E2A15f7BBAf9E32307626C9f6BD0Cd`](https://hoodi.etherscan.io/address/0x0ced6de191E2A15f7BBAf9E32307626C9f6BD0Cd) (proxy)
 - FeeDistributor: [`0x505113E2842726FF721634970EFE3f46dD239019`](https://hoodi.etherscan.io/address/0x505113E2842726FF721634970EFE3f46dD239019) (impl)
-- Verifier: [`0x209190Ebc2Be80367a15d05e626784Eb94d6A880`](https://hoodi.etherscan.io/address/0x209190Ebc2Be80367a15d05e626784Eb94d6A880)
+- CuratedVerifier: [`0xd82f10880590dc6C67D1e84098357DBbc88058EA`](https://hoodi.etherscan.io/address/0xd82f10880590dc6C67D1e84098357DBbc88058EA)
 - FeeOracle:
   - FeeOracle: [`0x5D2F27000C80f6f7A03015Fd49dB7FEba3fBfa83`](https://hoodi.etherscan.io/address/0x5D2F27000C80f6f7A03015Fd49dB7FEba3fBfa83) (proxy)
   - FeeOracle: [`0x5AE7D76050f57D3c42931B3c845ec09b42c3370d`](https://hoodi.etherscan.io/address/0x5AE7D76050f57D3c42931B3c845ec09b42c3370d) (impl)
