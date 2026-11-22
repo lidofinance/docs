@@ -8,7 +8,7 @@ The integration might be implemented on the level of smart contracts (on-chain) 
 
 ## Lido
 
-Lido is a family of liquid staking protocols across multiple blockchains, with headquarters on Ethereum.
+Lido is a liquid staking protocol on Ethereum. Other networks get bridged wstETH, see the [cross-chain tokens guide](/token-guides/cross-chain-tokens-guide).
 Liquid refers to the ability of a user’s stake to become liquid. Upon the user's deposit Lido issues stToken, which represents the deposited tokens along with all the rewards & penalties accrued through the deposit's staking. Unlike the staked funds, this stToken is liquid — it can be freely transferred between parties, making it usable across different DeFi applications while still receiving daily staked rewards. It is paramount to preserve this property when integrating stTokens into any DeFi protocol.
 
 This guide refers to Lido on Ethereum (hereinafter referred to as Lido).
@@ -537,6 +537,6 @@ There exist a number of potential risks when staking using liquid staking protoc
   Validators risk staking penalties, with up to 100% of staked funds at risk if validators fail. To minimize this risk, Lido stakes across multiple professional and reputable node operators with heterogeneous setups, with additional mitigation in the form of self-coverage.
 
 ### stToken price risk
-Users risk an exchange price of stTokens which is lower than inherent value due to withdrawal restrictions on Lido, making arbitrage and risk-free market-making impossible. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
+The market price of stTokens can fall below their underlying ether value. Holders can redeem stETH for ether at the protocol rate through the [withdrawal queue](#withdrawals-unsteth), but redemption is not instant: a request waits in the queue until finalization, and the wait grows when withdrawal demand is high. Arbitrage between the market and the queue therefore costs time and capital, and a discount can persist. The Lido DAO is driven to mitigate the above risks to the extent possible. Despite this, they may still exist and, as such, it is our duty to communicate them.
 
 You can find an extensive [Public Risk Disclosure](/prd) on a dedicated documentation page.
