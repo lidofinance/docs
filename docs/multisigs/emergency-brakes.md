@@ -17,11 +17,13 @@
 **Snapshots:**\
 [Voting for approval of new withdrawals mechanism and new modular architecture for Node Operators set](https://snapshot.org/#/lido-snapshot.eth/proposal/0x629b547c688dea536a4a5c5b42274894ac068df0b0278d173b4d7a68c8c4281d)\
 [Voting for renewal GateSeal for the Withdrawal Queue and Validator Exit Bus Oracle](https://snapshot.org/#/lido-snapshot.eth/proposal/0xa8ae592b09200c70629f3c5f4363d06dae9d8afb00c8910272319fc7fdb4e10a)\
-[Extend On-Chain Voting Duration + GateSeal renewal and duration extension](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa58da73cc4257837ae981d8ad861252f4cbbda7a173a577702f8f93561f57825)
+[Extend On-Chain Voting Duration + GateSeal renewal and duration extension](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0xa58da73cc4257837ae981d8ad861252f4cbbda7a173a577702f8f93561f57825)\
+[CircuitBreaker: Programmable Panic Layer](https://snapshot.box/#/s:lido-snapshot.eth/proposal/0x46d8df504c019be2be84a38c8705cd8bdbe4f5f4d2b141d4e8bd3e69af9ef5f3)
 
 **Aragon:**\
 [Vote #156](https://dao.lido.fi/vote/156)\
-[Vote #174](https://dao.lido.fi/vote/174)
+[Vote #174](https://dao.lido.fi/vote/174)\
+[Vote #202](https://dao.lido.fi/vote/202)
 
 **Contracts and Roles:**
 
