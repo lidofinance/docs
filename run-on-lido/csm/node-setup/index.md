@@ -29,3 +29,5 @@ If you plan to run validators with Distributed Validator Technology, follow the 
 Regardless of which setup path you choose, there are a few key steps every operator must complete to ensure their validator functions correctly within the Community Staking Module, and [avoid being penalized](/run-on-lido/csm/troubleshooting/mev-stealing). Don’t skip these:
 
 [**Setting the fee recipient for CSM validators →**](/run-on-lido/csm/troubleshooting/setting-the-fee-recipient-for-csm-validators)
+
+[**Set up MEV-Boost →**](./mev-boost)

@@ -33,7 +33,7 @@ Your deposit data must use the withdrawal credential type of the module you are 
   * **Mainnet:** [https://csm.lido.fi/](https://csm.lido.fi/)
   * **Hoodi:** [https://csm.testnet.fi/](https://csm.testnet.fi/)
 * Select `Become a Node Operator` and then `Create a Node Operator`. If you don't have an operator yet, you first [choose your operator type](/run-on-lido/csm/context-and-background#operator-profiles-and-economics), which determines the module you join and the bond you post.
-* On the Lido CSM Widget, upload your `deposit data file` and select the corresponding bond type (ETH, stETH, or wstETH), and provide the desired bond amount. Learn more about [bond requirements](https://operatorportal.lido.fi/modules/community-staking-module#block-2d1c307d95fc4f8ab7c32b7584f795cf).
+* On the Lido CSM Widget, upload your `deposit data file` and select the corresponding bond type (ETH, stETH, or wstETH), and provide the desired bond amount. Learn more about [bond requirements](/run-on-lido/csm/context-and-background#operator-profiles-and-economics).
 
 ![Upload keys](/img/csm-guide/keys-2.png)
 
@@ -65,7 +65,7 @@ Transfer the `deposit_data-<timestamp>.json` file from the USB used in the valid
 </Tabs>
 
 * Finally, select `Submit`, sign the transaction with your connected wallet, and you are all set.
-* Now you just need to wait for the Lido CSM to deposit your validator keys (using your `deposit data file`). This is a first-in, first-out process so expect a queue when demand is high. More details on this process [here](https://operatorportal.lido.fi/modules/community-staking-module#block-25614a13674b465f875db871081091f9).
+* Now you just need to wait for the Lido CSM to deposit your validator keys (using your `deposit data file`). This is a first-in, first-out process so expect a queue when demand is high. More details on this process [here](#deposit-queue).
 
 :::warning
 **DO NOT DEPOSIT 32 ETH** using the deposit data file generated this way, as the Lido CSM will make a deposit for you.
@@ -79,7 +79,7 @@ The Node Operator can delete uploaded keys voluntarily (e.g., duplicate keys) if
 
 A fee is confiscated from the Node Operator's bond on each deleted key to cover maximal possible operational costs associated with the queue processing. Keys (via the deposit data file) can be deleted in continuous batches (e.g., from index 5 to 10).
 
-More details [here](https://operatorportal.lido.fi/modules/community-staking-module#block-051fceb673504a489e541e3615984084).
+More details [here](/run-on-lido/csm/penalties#parameters-by-operator-profile).
 
 * Go to the Lido CSM Widget, under the **KEYS** header
 * Select the **DELETE** tab on the widget

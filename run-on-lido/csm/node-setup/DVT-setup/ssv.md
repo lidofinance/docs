@@ -24,7 +24,7 @@ Before creating your SSV cluster:
 6. You’ll still need **full Ethereum node connectivity** (EL+CL) and **MEV-Boost with Lido-vetted relays** as required by Lido CSM. See [Node Setup](/run-on-lido/csm/node-setup/).
 
 :::tip
-Verified DVT clusters of independent community stakers can apply for the **IDVTC** operator type, which has more favorable bond and reward parameters than Default. See [Operator profiles and economics](/run-on-lido/csm/context-and-background#operator-profiles-and-economics) and [apply here](https://csm.lido.fi/type/idvtc-apply).
+Verified DVT clusters of independent community stakers can apply for the **IDVTC** operator type, which has more favorable bond and reward parameters than Default. See [Operator types and economics](/run-on-lido/csm/context-and-background#operator-profiles-and-economics) and [apply here](https://csm.lido.fi/type/idvtc-apply).
 :::
 
 ---

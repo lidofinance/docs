@@ -29,9 +29,9 @@ When a validator exits, CSM compares its withdrawal balance with its confirmed e
 
 One period of poor performance does not immediately reduce your bond. The validator first loses its Node Operator reward for that [frame](/staking-modules/rewards#performance-oracle) and receives a strike. Strikes expire after the applicable lifetime if the validator does not continue underperforming.
 
-## Parameters by operator profile
+## Parameters by operator type {#parameters-by-operator-profile}
 
-Penalty and charge amounts, as well as performance thresholds, depend on your operator profile.
+Penalty and charge amounts, as well as performance thresholds, depend on your operator type.
 
 | Parameter | 0x01 Default | 0x01 ICS | 0x01 IDVTC | 0x02 Default |
 | --- | --- | --- | --- | --- |

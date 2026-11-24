@@ -38,13 +38,13 @@ See [Managing 0x01 and 0x02 Operators](/run-on-lido/csm/lido-csm-widget/managing
 | Withdrawal credentials | `0x01` | `0x02` |
 | Maximum Effective Balance | 32 ETH | 2,048 ETH |
 | Stake allocation | FIFO queue | [Initial 32 ETH deposit followed by top-ups](/run-on-lido/csm/lido-csm-widget/upload-remove-view-validator-keys#deposit-queue) |
-| Node Operator profiles | Default, ICS, and IDVTC | Single permissionless profile |
+| Node Operator types | Default, ICS, and IDVTC | Single permissionless type |
 
-## Operator profiles and economics
+## Operator types and economics {#operator-profiles-and-economics}
 
-0x01 CSM provides different profiles for permissionless operators, verified independent operators, and verified DVT clusters. 0x02 CSM uses a single permissionless profile.
+0x01 CSM provides different operator types for permissionless operators, verified independent operators, and verified DVT clusters. 0x02 CSM uses a single permissionless type.
 
-| Module | Profile | Who it is for | Bond | NO reward | DAO fee |
+| Module | Type | Who it is for | Bond | NO reward | DAO fee |
 | --- | --- | --- | --- | --- | --- |
 | `0x01` | Default | Any operator | First key: 2.4 ETH<br />Subsequent keys: 1.3 ETH | 3.5% | 6.5% |
 | `0x01` | ICS | Verified Independent Community Stakers | First key: 1.5 ETH<br />Subsequent keys: 1.3 ETH | 6% first 16 keys;<br />3.5% after | 4% first 16 keys;<br />6.5% after |
@@ -53,7 +53,7 @@ See [Managing 0x01 and 0x02 Operators](/run-on-lido/csm/lido-csm-widget/managing
 
 ## Basic penalties and charges
 
-CSM uses the bond to cover losses and charges caused by operator actions. Amounts vary by operator profile and module (0x01 vs 0x02).
+CSM uses the bond to cover losses and charges caused by operator actions. Amounts vary by operator type and module (0x01 vs 0x02).
 
 See [Penalties](/run-on-lido/csm/penalties#parameters-by-operator-profile) for the list of parameters, how each penalty is applied, and what to do in case of a penalty.
 

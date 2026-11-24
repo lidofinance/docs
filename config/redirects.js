@@ -312,6 +312,10 @@ const redirects = [
     to: '/staking-modules/contracts/MetaRegistry',
     from: '/staking-modules/cm-v2/contracts/MetaRegistry',
   },
+  {
+    to: '/run-on-lido/csm/node-setup/mev-boost',
+    from: '/run-on-lido/csm/troubleshooting/mev-install',
+  },
 ]
 
 const REDIRECTED_FRAGMENTS = {
