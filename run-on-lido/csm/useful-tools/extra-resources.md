@@ -7,7 +7,6 @@ sidebar_position: 1
 * Lido [Discord](https://discord.com/invite/lido)
 * Lido [Documentation](/staking-modules/)
 * Lido [Node Operator Portal](https://operatorportal.lido.fi/)
-* [CSM Rewards Calculator](https://www.nodeop.info/)
 * Ethstaker [Discord](https://discord.com/invite/ethstaker) and [Reddit](https://www.reddit.com/r/ethstaker/)
 * Client diversity dashboard - [EL](https://www.ethernodes.org/) & [CL](https://clientdiversity.org/)
 * [How does Proof-of-Stake on Ethereum work?](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/)
