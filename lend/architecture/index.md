@@ -167,4 +167,4 @@ See also [Risks](../risks).
 - [Governance](../governance)
 - [Committees](../committees)
 - [Risks](../risks)
-- [Full architecture specification on GitHub](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/architecture.md)
+- [Full architecture specification on GitHub](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md)

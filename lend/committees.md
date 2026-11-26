@@ -60,7 +60,7 @@ The market fields, the controller and the settlement setting cannot change after
 - change the IRM route of a live market;
 - act without a motion: every action waits for the motion duration and fails if LDO holders reach the objection threshold.
 
-**Address:** [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\] (the trusted caller of the Lido Lend Easy Track factories)
+**Address:** [`0x4f29aA4c299e17176b48c41D67ee97aE673d29bC`](https://etherscan.io/address/0x4f29aA4c299e17176b48c41D67ee97aE673d29bC) (the trusted caller of the Lido Lend Easy Track factories)
 
 **Forum topics:**\
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
@@ -102,7 +102,7 @@ The committee can use the dashboard powers only in a market where it is an appoi
 - ban an account other than as a guardian. See [Guardian Security Council](#guardian-security-council);
 - upgrade contracts.
 
-**Address:** [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\]
+**Address:** [`0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E`](https://etherscan.io/address/0x1011E8a0668da8bbED925cB5A6DA5aa128C2BB5E)
 
 **Forum topics:**\
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
@@ -139,7 +139,7 @@ The `ActivateMarket` motion registers the selected pauser for the new market's c
 - extend an active pause or resume a controller;
 - pause the same controller a second time until it is registered again through an Easy Track motion.
 
-**Address:** [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1) \[[proposed](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)\]
+**Address:** [`0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1`](https://etherscan.io/address/0x604B13eD638663AA0C1eEF0c3482e51f228BA2E1)
 
 **Forum topics:**\
 [Lido Lend: Technical Specification and Committees](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/60)\
@@ -182,7 +182,7 @@ A ban does not close the position, block repayment, or move assets.
 
 When a guardian is removed, its delegate and heartbeat are cleared, but its existing signals can stay effective until someone calls the permissionless `prune` function. Pruning never removes a recorded ban.
 
-**Members:** defined per market. They are published in the Lido Lend Research Forum thread before the market's motion or vote ([Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)), and will be listed on the page of each market.
+**Members:** defined per market. They are published in the Lido Lend Research Forum thread before the market's motion or vote ([Final Proposal](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987/62)). For the WETH / wstETH market, see [WETH / wstETH market](./markets/weth-wsteth#guardians).
 
 ## Dual Governance pause extension
 

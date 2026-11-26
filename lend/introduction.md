@@ -38,11 +38,11 @@ Five fields identify a market: `loanToken`, `collateralToken`, `oracle`, `irm` a
 
 In a market with a controller, the core calls the controller before most actions. The controller allows the action or reverts it. It cannot change the amounts that the core calculates, spend user tokens or act for user accounts.
 
-For the full system model, see [Architecture](./architecture) and the [architecture specification](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/architecture.md).
+For the full system model, see [Architecture](./architecture) and the [architecture specification](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md).
 
 ## What is different from Morpho Blue
 
-The fork of the core makes four changes to Morpho Blue (see [FORK_NOTES](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/FORK_NOTES.md)):
+The fork of the core makes four changes to Morpho Blue (see [FORK_NOTES](https://github.com/lidofinance/lend/blob/main/FORK_NOTES.md)):
 
 - only the core owner can create markets, and `enableIrm` and `enableLltv` are removed;
 - a market can be bound to a controller when it is created, and the core calls that controller before most market actions;
@@ -87,8 +87,8 @@ See [Risks](./risks).
 ## Governance and safety
 
 - **Lido DAO.** The Lido DAO Agent is the initial proxy admin of the core, the IRM router and the market contracts, and it administers the privileged roles. Until a proxy is ossified, its admin can replace the contract code;
-- **Lend Operational Committee.** In the intended setup, routine configuration goes through predefined Easy Track motions that execute through the `EVMScriptExecutor`. This covers market activation, supply caps, activation and settlement configuration, fees, IRM configuration, guardian membership, unbans and unfreezing;
-- **Lend Risk Steward Committee.** In the intended setup, it is appointed as the steward of each market in `RiskStewardDashboard`. As a steward, it can only tighten a market: freeze it, increase activation delays, the activation lock or the minimum deposit, or revoke instant activation;
+- **Lend Operational Committee.** Routine configuration goes through predefined Easy Track motions that execute through the `EVMScriptExecutor`. This covers market activation, supply caps, activation and settlement configuration, fees, IRM configuration, guardian membership, unbans and unfreezing;
+- **Lend Risk Steward Committee.** The activation motion of each market appoints it as the market's steward in `RiskStewardDashboard`. As a steward, it can only tighten a market: freeze it, increase activation delays, the activation lock or the minimum deposit, or revoke instant activation;
 - **Emergency pause.** `CircuitBreaker` lets a registered emergency actor apply one finite pause to a market controller. In a Dual Governance emergency, the Reseal Committee can keep a paused market paused indefinitely through the Reseal Manager, and, in a tie, the Tiebreaker Committee can end the pause. Otherwise, a pause ends when its fixed duration expires, unless a Lido DAO vote changes the controller's roles;
 - **Guardians.** Guardians report account risk and review progress through `GuardianSignals`. Flags from a quorum of distinct guardians ban an account in a market.
 
@@ -101,4 +101,4 @@ No role other than proxy administration can directly rewrite or redirect a core 
 - **Governance participants:** [Governance](./governance), [Committees](./committees), [Audits](./audits), [Security](./security);
 - **Terms:** [Glossary](./glossary).
 
-The full specifications are in the [lend-markets specs](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/SPECIFICATION.md).
+The full specifications are in the [lend-markets specs](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/main/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/main/SPECIFICATION.md).

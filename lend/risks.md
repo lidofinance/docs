@@ -11,7 +11,7 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 **Risk:** Lido Lend is a modified fork of Morpho Blue. The changes add new security assumptions, and the upstream audits, formal verification and track record do not carry over automatically. Integrations built for Morpho Blue can behave differently because of the additional controller checks. Lido Lend contracts can contain bugs that cause loss of funds or block market actions.
 
-**Mitigation:** the fork changes are documented in [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/FORK_NOTES.md). The contracts went through external audits, listed on [Audits](./audits). Vulnerability reporting is described on [Security](./security). See [Architecture](./architecture) for the core design.
+**Mitigation:** the fork changes are documented in [`FORK_NOTES.md`](https://github.com/lidofinance/lend/blob/main/FORK_NOTES.md). The contracts went through external audits, listed on [Audits](./audits). Vulnerability reporting is described on [Security](./security). See [Architecture](./architecture) for the core design.
 
 ## Upgradeability
 
@@ -77,10 +77,10 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 **Risk:** each collateral and loan asset carries its own risks. A token with transfer restrictions can reject a transfer to a borrower, receiver or liquidator, and the action then fails. The protocol cannot bypass an issuer freeze or blocklist on a loan token. The protocol also assumes that tokens move the exact requested amount, without fees, rebasing or callbacks into the protocol.
 
-**Mitigation:** each market is assessed separately, and its parameters are published on the Lido Research Forum before its activation motion. A controller pause can stop liquidation and settlement in an affected market.
+**Mitigation:** each market is assessed separately, and its parameters are published in the [Lido Lend thread](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987) on the Lido Research Forum before its activation motion. A controller pause can stop liquidation and settlement in an affected market.
 
 ## Sources
 
-- [Lido Lend architecture: trust boundaries](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/architecture.md#trust-boundaries)
-- [Lido Lend core specification: trust assumptions](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/SPECIFICATION.md#trust-assumptions)
-- [Lido Lend IRM specification: trust assumptions and failure modes](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/SPECIFICATION.md#trust-assumptions-and-failure-modes)
+- [Lido Lend architecture: trust boundaries](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/architecture.md#trust-boundaries)
+- [Lido Lend core specification: trust assumptions](https://github.com/lidofinance/lend/blob/main/SPECIFICATION.md#trust-assumptions)
+- [Lido Lend IRM specification: trust assumptions and failure modes](https://github.com/lidofinance/lend-irm/blob/main/SPECIFICATION.md#trust-assumptions-and-failure-modes)
