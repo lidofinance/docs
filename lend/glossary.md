@@ -5,7 +5,7 @@ description: Terms used in the Lido Lend documentation.
 
 # Glossary
 
-This page defines the terms used in the Lido Lend documentation. The definitions follow the [lend-markets specifications](https://github.com/lidofinance/lend-markets/blob/23416c43c4038ea3c00a13d6203949c8f88905cc/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/4d55f1dd98a0f7712543965c66e03c963a004263/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/97af4c39c51f1e023d8025319f34a1658036066c/SPECIFICATION.md).
+This page defines the terms used in the Lido Lend documentation. The definitions follow the [lend-markets specifications](https://github.com/lidofinance/lend-markets/blob/main/docs/specs/README.md), the [core specification](https://github.com/lidofinance/lend/blob/main/SPECIFICATION.md) and the [IRM specification](https://github.com/lidofinance/lend-irm/blob/main/SPECIFICATION.md).
 
 ## A
 
@@ -53,7 +53,7 @@ This page defines the terms used in the Lido Lend documentation. The definitions
 
 ## E
 
-**Easy Track motion** — A Lido governance route for routine actions. In the intended setup, routine Lido Lend configuration goes through predefined Easy Track motions, which are delayed, open to objections and executed through the `EVMScriptExecutor`. See [Committees](./committees).
+**Easy Track motion** — A Lido governance route for routine actions. Routine Lido Lend configuration goes through predefined Easy Track motions, which are delayed, open to objections and executed through the `EVMScriptExecutor`. See [Committees](./committees).
 
 **`EVMScriptExecutor`** — The onchain executor that initially holds the routine governance capabilities of Lido Lend.
 

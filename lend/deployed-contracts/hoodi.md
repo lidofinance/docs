@@ -45,7 +45,11 @@ The Hoodi deployment has one Guardian registry, `hoodi-shared`, with a quorum of
 
 ## Bundler and adapters
 
-Bundler3 and its adapters are not deployed on Hoodi.
+| Contract                  | Address                                                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `Bundler3`                | [`0x4bF26080218F3F6B369Def91754c85ef7bb48e41`](https://hoodi.etherscan.io/address/0x4bF26080218F3F6B369Def91754c85ef7bb48e41) |
+| `EthereumGeneralAdapter1` | [`0xc38648Cb6488C444809354Fa3ce4f1B66F015C5B`](https://hoodi.etherscan.io/address/0xc38648Cb6488C444809354Fa3ce4f1B66F015C5B) |
+| `LidoLendVaultAdapter`    | [`0x57b125DB2A901A1031D52a1C8Be8Eb9c2EC79a0C`](https://hoodi.etherscan.io/address/0x57b125DB2A901A1031D52a1C8Be8Eb9c2EC79a0C) |
 
 ## Circuit Breaker
 
