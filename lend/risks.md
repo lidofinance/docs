@@ -77,7 +77,7 @@ This page describes the main risks of supplying, borrowing and liquidating in Li
 
 **Risk:** each collateral and loan asset carries its own risks. A token with transfer restrictions can reject a transfer to a borrower, receiver or liquidator, and the action then fails. The protocol cannot bypass an issuer freeze or blocklist on a loan token. The protocol also assumes that tokens move the exact requested amount, without fees, rebasing or callbacks into the protocol.
 
-**Mitigation:** each market is assessed separately, and its parameters are published on the Lido Research Forum before its activation motion. A controller pause can stop liquidation and settlement in an affected market.
+**Mitigation:** each market is assessed separately, and its parameters are published in the [Lido Lend thread](https://research.lido.fi/t/unveiling-lido-lend-security-first-lending/11987) on the Lido Research Forum before its activation motion. A controller pause can stop liquidation and settlement in an affected market.
 
 ## Sources
 
