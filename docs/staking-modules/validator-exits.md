@@ -63,17 +63,15 @@ The module settles a validator's exit after receiving a withdrawal report. Proce
 
 ### Non-slashed validators
 
-After a full withdrawal is included in a beacon block, anyone can submit a [withdrawal proof](/staking-modules/contracts/Verifier#processwithdrawalproof) through [`Verifier`](/staking-modules/contracts/Verifier). Reports are typically submitted by the [prover bot](https://github.com/lidofinance/csm-prover-tool) or the Node Operator.
+**CSM.** After a full withdrawal is included in a beacon block, anyone can submit it through [`Verifier.processWithdrawalProof`](/staking-modules/contracts/Verifier#processwithdrawalproof). The verifier checks the proof against a beacon block root obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and reports the withdrawal to the module. If the amount is below the [confirmed balance](#validator-balance-tracking), the module applies the difference as a penalty.
 
-`Verifier` validates the proof against a beacon block root obtained through [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) and forwards the proof to the module to process.
-
-If the withdrawal amount is below the [confirmed expected balance](#validator-balance-tracking), the difference is applied as a penalty. The module also settles any previously recorded delayed-exit penalty, bad-performance penalty, and applicable execution-layer withdrawal request fee. Some of these amounts are proportional to the validator's balance while others are flat, as documented for [CMv2](/run-on-lido/cm-v2/penalties#exit-delay-fee) and [0x02 CSM](/run-on-lido/csm/penalties#parameters-by-operator-profile).
+**CMv2.** Anyone can call [`CuratedVerifier.processWithdrawnProof`](https://github.com/lidofinance/staking-modules/blob/88456343a59d4cd98d19b75e5fe74ea0fb684595/src/CuratedVerifier.sol#L138-L186) with a proof from a recent beacon state whose epoch is at least the validator's `withdrawableEpoch`. This supports regular exits and outgoing consolidations. The verifier reports an exit balance that skips the automatic withdrawal-balance shortfall charge. The Curated Module Committee can report operator underperformance through the [general delayed penalty process](/run-on-lido/cm-v2/penalties#general-delayed-penalty).
 
 ### Slashed validators
 
 Slashed validators use a separate permissioned flow because their full losses, including missed rewards, cannot always be determined from the withdrawal amount alone:
 
-1. Anyone can submit a valid proof of the validator's slashed status through [`Verifier.processSlashedProof`](/staking-modules/contracts/Verifier#processslashedproof). This records the slashing in the module but does not settle the withdrawal.
+1. Anyone can submit a slashing proof through [`Verifier.processSlashedProof`](/staking-modules/contracts/Verifier#processslashedproof) for CSM or [`CuratedVerifier.processSlashedProof`](https://github.com/lidofinance/staking-modules/blob/88456343a59d4cd98d19b75e5fe74ea0fb684595/src/CuratedVerifier.sol#L111-L136) for CMv2. This records the slashing in the module. The committee settles the withdrawal in the following steps.
 2. A dedicated committee, the [Curated Module Committee](https://research.lido.fi/t/proposal-transition-the-lnosg-into-the-cmc/11341) or the [CSM Committee](https://research.lido.fi/t/community-staking-module-committee/8333) depending on the module, calculates the slashing loss off-chain and submits the validator's exit balance and explicit slashing penalty through an [Easy Track](/guides/easy-track-guide) motion.
 3. When the motion is enacted, the module applies the slashing penalty and any other recorded exit penalties or charges, marks the validator as withdrawn, and updates the Node Operator's required bond.
 
