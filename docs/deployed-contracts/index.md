@@ -67,8 +67,8 @@ This page lists production contract addresses on mainnets, including Ethereum an
 
 - Consolidation Migrator (CMv1 → CMv2): [`0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7`](https://etherscan.io/address/0x9Dc70b5A4f4F5E4AF9058C983D560564F031f1D7) (proxy)
   - Consolidation Migrator (CMv1 → CMv2): [`0x6Fb4c152F092373dD71f0C07C83c1E77406599aB`](https://etherscan.io/address/0x6Fb4c152F092373dD71f0C07C83c1E77406599aB) (impl)
-- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/50)\] Consolidation Migrator (CMv2 → CMv2): [`0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7`](https://etherscan.io/address/0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7) (proxy)
-  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/50)\] Consolidation Migrator (CMv2 → CMv2): [`0x5D2DDD6817180c2135b4652503bD555c2d3Bb392`](https://etherscan.io/address/0x5D2DDD6817180c2135b4652503bD555c2d3Bb392) (impl)
+- Consolidation Migrator (CMv2 → CMv2): [`0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7`](https://etherscan.io/address/0xc8a7F4917cA03FDCD24a5E11A48Ab448318976e7) (proxy)
+  - Consolidation Migrator (CMv2 → CMv2): [`0x5D2DDD6817180c2135b4652503bD555c2d3Bb392`](https://etherscan.io/address/0x5D2DDD6817180c2135b4652503bD555c2d3Bb392) (impl)
 - Consolidation Bus: [`0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8`](https://etherscan.io/address/0xd907CE33B4Be423823d1CFFe80BD147E8b8554C8) (proxy)
   - Consolidation Bus: [`0xFfDe8Acab9D7037f29198Ad03ad6d05bac8B0a2E`](https://etherscan.io/address/0xFfDe8Acab9D7037f29198Ad03ad6d05bac8B0a2E) (impl)
 - Consolidation Gateway: [`0x17be979344f2c2cC806229a532D92f8742C10462`](https://etherscan.io/address/0x17be979344f2c2cC806229a532D92f8742C10462)
@@ -274,8 +274,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
   - CuratedGate (Intra-Operator DVT Cluster Plus Gate): [`0x773933F9db8964A17d62fb808f2EC7A2de4247CC`](https://etherscan.io/address/0x773933F9db8964A17d62fb808f2EC7A2de4247CC) (proxy)
   - CuratedGate implementation (for all gates): [`0x3cb948FD454ad6b20DE67633f25DcbDbEaa0e849`](https://etherscan.io/address/0x3cb948FD454ad6b20DE67633f25DcbDbEaa0e849)
 - CuratedModule: [`0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1`](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) (proxy)
-  - \[[proposed to be replaced](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/49)\] CuratedModule: [`0x959fC67FE53c8A6C7a1AEd73430Aa07a36eD9337`](https://etherscan.io/address/0x959fC67FE53c8A6C7a1AEd73430Aa07a36eD9337) (impl)
-  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/49)\] CuratedModule: [`0x02bEFd784c6C382a021774472563671Ae23980C0`](https://etherscan.io/address/0x02bEFd784c6C382a021774472563671Ae23980C0) (impl)
+  - CuratedModule: [`0x02bEFd784c6C382a021774472563671Ae23980C0`](https://etherscan.io/address/0x02bEFd784c6C382a021774472563671Ae23980C0) (impl)
 - MetaRegistry: [`0xA64b339eebD3dC3De848298B6a140955932901d8`](https://etherscan.io/address/0xA64b339eebD3dC3De848298B6a140955932901d8) (proxy)
   - MetaRegistry: [`0x6d852907463496622bb5FE5bc55cc30C4682E10e`](https://etherscan.io/address/0x6d852907463496622bb5FE5bc55cc30C4682E10e) (impl)
 - Accounting: [`0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6`](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) (proxy)
@@ -284,8 +283,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
   - ParametersRegistry: [`0xfF419BbBC5f44d46547079922a88d691886d192a`](https://etherscan.io/address/0xfF419BbBC5f44d46547079922a88d691886d192a) (impl)
 - FeeDistributor: [`0x367d23c756599c20DCc8D6943F4976E8F88D60d7`](https://etherscan.io/address/0x367d23c756599c20DCc8D6943F4976E8F88D60d7) (proxy)
   - FeeDistributor: [`0x7C8FEE1dcC95Df60fC9b5BE7603c28Eb3af16753`](https://etherscan.io/address/0x7C8FEE1dcC95Df60fC9b5BE7603c28Eb3af16753) (impl)
-- \[[proposed to be replaced](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/51)\] Verifier: [`0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3`](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3)
-- \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/51)\] CuratedVerifier: [`0x8c9C8c8C91D6de09D256264B33E7C54794feb033`](https://etherscan.io/address/0x8c9C8c8C91D6de09D256264B33E7C54794feb033)
+- CuratedVerifier: [`0x8c9C8c8C91D6de09D256264B33E7C54794feb033`](https://etherscan.io/address/0x8c9C8c8C91D6de09D256264B33E7C54794feb033)
 - FeeOracle:
   - FeeOracle: [`0x8EeFCdbD984c30E472BcbF545783D051CB5114e5`](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) (proxy)
     - FeeOracle: [`0x16804084408B6Caad10046F49aD421cBA56C0b5e`](https://etherscan.io/address/0x16804084408B6Caad10046F49aD421cBA56C0b5e) (impl)
@@ -305,8 +303,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
   - NodeOperatorOps: [`0xDD42EE5D54A1822021782F3F455bb99fBC19499A`](https://etherscan.io/address/0xDD42EE5D54A1822021782F3F455bb99fBC19499A)
   - StakeTracker: [`0xbb6E4Db18182d45038F91B9F1195291c206fd8d2`](https://etherscan.io/address/0xbb6E4Db18182d45038F91B9F1195291c206fd8d2)
   - WithdrawnValidatorLib: [`0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A`](https://etherscan.io/address/0x3bf9674f062aF9BA94FdAe9Fcdf2D0001FFf0a3A)
-  - \[[proposed to be replaced](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/49)\] CuratedDepositAllocator: [`0xa4fCD4dDa0e4a847142E3592C97c77d8B9B3Cf5F`](https://etherscan.io/address/0xa4fCD4dDa0e4a847142E3592C97c77d8B9B3Cf5F)
-  - \[[proposed](https://research.lido.fi/t/future-of-the-curated-module-cmv2-landscape/10929/49)\] CuratedDepositAllocator: [`0x691e8BA3DBf3E2E33a8C5641B15d4d24F3837F37`](https://etherscan.io/address/0x691e8BA3DBf3E2E33a8C5641B15d4d24F3837F37)
+  - CuratedDepositAllocator: [`0x691e8BA3DBf3E2E33a8C5641B15d4d24F3837F37`](https://etherscan.io/address/0x691e8BA3DBf3E2E33a8C5641B15d4d24F3837F37)
 
 ## 💧 Liquidity Pools {#liquidity-pools}
 
