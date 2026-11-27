@@ -10,22 +10,15 @@ Looking for a practical guide to run nodes? Follow the [Curated Module v2 guide]
 
 The [Curated module](/contracts/node-operators-registry) uses the "exited" statuses of the validator (both [Slashed and Exited](https://notes.ethereum.org/7CFxjwMgQSWOHIxLgJP2Bw#44-Step-4-Slashed-and-Exited) and [Unslashed and Exited](https://notes.ethereum.org/7CFxjwMgQSWOHIxLgJP2Bw#45-Step-5-Unslashed-and-Exited)) as the last meaningful status in accounting since, after this status, the validator is no longer responsible for any duties on the Beacon chain (except for the rare cases of the delayed sync committee participation).
 
-CMv2 and CSM, in turn, need to know about each validator's exact withdrawal balance to decide on [bond](/staking-modules/node-operators#bond) penalization. Hence, the module uses the "exited" counter reported by the accounting oracle only to return a correct number of "active" keys to the staking router, and implements permissionless reporting methods to report the validator's withdrawal balance once the validator is [withdrawn](https://consensys.io/shanghai-capella-upgrade#:~:text=Finally%2C%20the%20withdrawable%20validator%20is%20subject%20to%20the%20same%2C%20automated%20%E2%80%9Csweep%E2%80%9D%20that%20processes%20partial%20withdrawals%2C%20and%20its%20balance%20is%20withdrawn).
+CMv2 and CSM use the exited-validator count reported by the Accounting Oracle to report active key counts to the Staking Router. For non-slashed validators, CSM settles individual exits using a proof of the withdrawal amount. CMv2 settles them using a proof that the validator has reached its withdrawable epoch.
 
 ## Validator balance tracking
 
-The module keeps a **confirmed balance** for every deposited validator key: the highest balance ever proven on the Consensus Layer through [`Verifier`](/staking-modules/contracts/Verifier). Anyone can update it with a balance proof as the validator grows from CL rewards, settled [top-ups](/staking-modules/node-operators#top-up-queue), consolidation inflows, or other CL activity. It never decreases while the validator is active, so it acts as a high-water mark capped at the validator `MAX_EB`.
+The module keeps a **confirmed balance** for each deposited validator key. This is the highest balance proven on the Consensus Layer through the module's verifier. Anyone can submit a balance proof as the validator's balance grows through rewards, settled [top-ups](/staking-modules/node-operators#top-up-queue), consolidation inflows, or other Consensus Layer activity. The confirmed balance is capped at the validator's `MAX_EB`.
 
-It is used in three places:
+When the confirmed balance exceeds the validator's allocated amount, the module raises the allocated amount to match. This keeps tracked stake and remaining [top-up](/staking-modules/node-operators#top-up-queue) capacity up to date.
 
-- [`Verifier`](/staking-modules/contracts/Verifier) checks it to confirm that a reported withdrawal is large enough to be treated as a full withdrawal.
-- The module uses it as the baseline for the [withdrawal-balance penalty](/run-on-lido/csm/penalties#what-can-affect-your-bond) applied when the validator is [withdrawn](#withdrawal-balance-reporting).
-- When the confirmed balance exceeds the validator's allocated amount, the module raises the allocated amount to match, so validator balance growth is reflected in the module's tracked stake and remaining [top-up](/staking-modules/node-operators#top-up-queue) capacity. This keeps stake allocation fair.
-
-This approach has two important caveats:
-
-- **Stale balance proofs can cause under-penalization.** If proof delivery lags behind settled top-ups or balance growth, the confirmed balance can be lower than the validator's actual high-water mark, so a later loss is measured from an outdated baseline.
-- **Consensus Layer balance decreases are assessed without determining fault.** Any decrease from the confirmed high-water mark to the withdrawal balance is charged to the Node Operator, regardless of its cause, so losses from systemic network conditions are not distinguished from operator-caused ones.
+In CSM, [`Verifier`](/staking-modules/contracts/Verifier) also uses the confirmed balance to check whether a withdrawal is large enough to count as a full withdrawal. The module uses that balance as the baseline for the [withdrawal-balance penalty](/run-on-lido/csm/penalties#what-can-affect-your-bond). Delayed balance proofs can cause the penalty to be measured from an outdated baseline. The penalty measures the shortfall regardless of its cause.
 
 :::warning Prover bot
 Confirmed balances stay accurate only if balance proofs are delivered on time, so reliable operation of the [prover bot](https://github.com/lidofinance/csm-prover-tool) is more important to module health than in earlier versions.
