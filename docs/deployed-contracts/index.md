@@ -161,7 +161,7 @@ Each pausable contract below is covered by the CircuitBreaker, with a designated
 | [CuratedModule](https://etherscan.io/address/0xDa5F930cE326EB5205085D66c72A4E79d60cB8C1) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated Accounting](https://etherscan.io/address/0x2F91e3A8C5d6593bf4F8403fCfeCcd62dF59f6F6) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated FeeOracle](https://etherscan.io/address/0x8EeFCdbD984c30E472BcbF545783D051CB5114e5) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
-| [Curated Verifier](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
+| [Curated Verifier](https://etherscan.io/address/0x8c9C8c8C91D6de09D256264B33E7C54794feb033) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 | [Curated Ejector](https://etherscan.io/address/0xe181A377A2d2BDE9A83f1474BC3DB7A412de091E) | [CMC Committee](https://etherscan.io/address/0x2570e0b22AD904501dfB0d49575991ACB801dD91) |
 
 ## 📊 Data Bus {#data-bus}
