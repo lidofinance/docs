@@ -9,6 +9,10 @@ docs/staking-modules/csm @lidofinance/community-staking
 docs/security @lidofinance/secops
 docs/security/audits.md @lidofinance/lido-eth-protocol
 earn/ @lidofinance/lido-eth-protocol
+lend/ @lidofinance/lido-lend
+lend/deployed-contracts @lidofinance/lido-dao-ops-team
+lend/security.md @lidofinance/secops
 run-on-lido/ @lidofinance/lido-eth-protocol
 run-on-lido/csm @lidofinance/community-staking
+sidebarsLend.js @lidofinance/lido-lend
 
