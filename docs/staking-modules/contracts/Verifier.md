@@ -2,11 +2,12 @@
 
 - [Source code](https://github.com/lidofinance/staking-modules/blob/v3.0/src/Verifier.sol)
 
+CMv2 uses [`CuratedVerifier`](https://etherscan.io/address/0x8c9C8c8C91D6de09D256264B33E7C54794feb033). See the [`CuratedVerifier.sol` source](https://github.com/lidofinance/staking-modules/blob/88456343a59d4cd98d19b75e5fe74ea0fb684595/src/CuratedVerifier.sol) and the [CMv2 withdrawal proof flow](/staking-modules/validator-exits#non-slashed-validators).
+
 ## Deployed contracts
 
 | Module | Mainnet |
 | --- | --- |
-| CMv2 | [`0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3`](https://etherscan.io/address/0xC392F457960f1B13Ebaf1aa6C065479dD507E1E3) |
 | 0x01 CSM | [`0xfce7aB839e55de77730716D05b3553e45ab3A5Ba`](https://etherscan.io/address/0xfce7aB839e55de77730716D05b3553e45ab3A5Ba) |
 | 0x02 CSM | [`0x69b4C32a43565e768794D41b4A265F86dE61b861`](https://etherscan.io/address/0x69b4C32a43565e768794D41b4A265F86dE61b861) |
 
