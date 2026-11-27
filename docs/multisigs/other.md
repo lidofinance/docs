@@ -26,3 +26,24 @@
 | Aleksandra_G | 0x9795d01Aa9F4F80E95828049921B179fBA2Fe6b5 | https://etherscan.io/verifySig/253841 | [Research forum message](https://research.lido.fi/t/egg-establishing-the-community-lifeguards-initiative-cli-sub-committee/7527/11) |
 | remus | 0x8d556744a53f8811ae30c6ebb257c7bfe4ed5a41 | https://etherscan.io/verifySig/302705 | [Research forum message](https://research.lido.fi/t/community-lifeguards-initiative-cli-reform-proposal/11216/4) |
 | Stakesaurus | 0x0fb6215099f48d723cfb89434c2cb887357bc871 | https://etherscan.io/verifySig/302868 | [Research forum message](https://research.lido.fi/t/community-lifeguards-initiative-cli-reform-proposal/11216/5) |
+
+
+## 4.2 Lido Snapshot Space ENS Owner Multisig
+
+**Address:** [`0x36B1264d1552fbaC5801a6e1d2cDadB46195AA40`](https://app.safe.global/home?safe=eth:0x36B1264d1552fbaC5801a6e1d2cDadB46195AA40)
+
+**Purpose of the multisig:** the multisig is designated as the ENS owner associated with the Lido DAO Snapshot Space (`lido-snapshot.eth`).
+
+**Quorum:** 3/5
+
+**List of signers:**
+
+| Name | Address | Verification | Public verification |
+| --- | --- | --- | --- |
+| Nikita P | 0x6402f26ae319b4edB6c4D459D437Fe274dE29f20 | — | — |
+| Kate_Alekseeva | 0xE8fDF15f158Ac8978B9f62a1772F96476B632324 | — | — |
+| Otar | 0x99fcA58699e04711f8727c42EbBD6AC019A05f0A | — | — |
+| JanyaK | 0x30E317df005B5599e372400bf360895A027120dc | — | — |
+| TheDZhon | 0x59f8d74fe49d5ebeac069e3baf07eb4b614bd5a7 | — | — |
+
+
